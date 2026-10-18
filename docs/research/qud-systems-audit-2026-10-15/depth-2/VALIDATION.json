@@ -1,0 +1,459 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "checks": {
+    "support_type_requests": 24,
+    "nonempty_support_sources": 23,
+    "capture_status": {
+      "exported": 17,
+      "reused": 6,
+      "missing-type": 1
+    },
+    "indexed_printed_types": 54,
+    "exact_navigation_locators": 3074,
+    "local_links": 72,
+    "private_files_ignored": 75
+  },
+  "errors": [],
+  "links": [
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsBionicLiver",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsBionicLiver.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsReactiveCranialPlating",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsReactiveCranialPlating.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsEffectSuppressor",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsEffectSuppressor.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsTonicDurationModifier",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsTonicDurationModifier.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsInflatableAxons",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsInflatableAxons.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "AxonsInflated",
+      "target": "../private/depth-2/source/XRL.World.Effects.AxonsInflated.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "AxonsDeflated",
+      "target": "../private/depth-2/source/XRL.World.Effects.AxonsDeflated.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsAnchorSpikes",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsAnchorSpikes.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsMatterRecompositer",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsMatterRecompositer.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsOnboardRecoilerTeleporter",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsOnboardRecoilerTeleporter.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsSocialCoprocessor",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsSocialCoprocessor.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsAnomalyFumigator",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsAnomalyFumigator.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "CyberneticsFireSuppressionSystem",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsFireSuppressionSystem.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "GasPoison",
+      "target": "../private/depth-2/source/XRL.World.Parts.GasPoison.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "PoisonGasPoison",
+      "target": "../private/depth-2/source/XRL.World.Effects.PoisonGasPoison.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "GasSleep L73-165",
+      "target": "../private/depth-2/source/XRL.World.Parts.GasSleep.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "GasConfusion L72-150",
+      "target": "../private/depth-2/source/XRL.World.Parts.GasConfusion.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "GasSleep L29-71,95-101",
+      "target": "../private/depth-2/source/XRL.World.Parts.GasSleep.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "GasConfusion L30-100",
+      "target": "../private/depth-2/source/XRL.World.Parts.GasConfusion.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "GasPoison L28-74",
+      "target": "../private/depth-2/source/XRL.World.Parts.GasPoison.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS_AND_GAS.md",
+      "label": "ShatteredArmor L107-183",
+      "target": "../private/depth-2/source/XRL.World.Effects.ShatteredArmor.cs",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "depth1",
+      "target": "../depth-1/REPORT.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Skills and combat consumers",
+      "target": "SKILLS_AND_COMBAT.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Mutations and cleanup",
+      "target": "MUTATIONS_AND_CLEANUP.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Cybernetics and gas",
+      "target": "CYBERNETICS_AND_GAS.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "The exact unread inventory",
+      "target": "../private/depth-2/UNREAD_AFTER_DEPTH_2.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Validation",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "first supplement",
+      "target": "../depth-1/SKILLS.md",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "LongBladesSkillBase",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.LongBladesSkillBase.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "LongBladesCore L168-175,217-224",
+      "target": "../private/depth-2/source/XRL.World.Parts.LongBladesCore.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "LongBladesCore L75-87,254-267,300-355",
+      "target": "../private/depth-2/source/XRL.World.Parts.LongBladesCore.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "LongBladesCore L410-760",
+      "target": "../private/depth-2/source/XRL.World.Parts.LongBladesCore.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "LongBladesDeathblow",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.LongBladesDeathblow.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "LongbladeEffect_EnGarde",
+      "target": "../private/depth-2/source/XRL.World.Effects.LongbladeEffect_EnGarde.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "LongBladesCore L91-165",
+      "target": "../private/depth-2/source/XRL.World.Parts.LongBladesCore.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "ShortBlades_Hobble",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.ShortBlades_Hobble.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "Hobbled L47-86",
+      "target": "../private/depth-2/source/XRL.World.Effects.Hobbled.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "ShortBlades_Rejoinder",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.ShortBlades_Rejoinder.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "Rifle_SuppressiveFire",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Rifle_SuppressiveFire.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "Rifle_FlatteningFire",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Rifle_FlatteningFire.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "MissileWeapon L1855-1885",
+      "target": "../private/depth-1/source/XRL.World.Parts.MissileWeapon.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "Rifle_WoundingFire",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Rifle_WoundingFire.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "Rifle_DisorientingFire",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Rifle_DisorientingFire.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "MissileWeapon L1886-1912",
+      "target": "../private/depth-1/source/XRL.World.Parts.MissileWeapon.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "MissileWeapon L2762-2775",
+      "target": "../private/depth-1/source/XRL.World.Parts.MissileWeapon.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "Pistol_EmptyTheClips",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Pistol_EmptyTheClips.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "EmptyTheClips",
+      "target": "../private/depth-2/source/XRL.World.Effects.EmptyTheClips.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "MissileWeapon L3537-3563",
+      "target": "../private/depth-1/source/XRL.World.Parts.MissileWeapon.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "Endurance_ShakeItOff",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Endurance_ShakeItOff.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS_AND_COMBAT.md",
+      "label": "Persuasion_Intimidate",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Persuasion_Intimidate.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "SunderMind L43-50,425-507",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.SunderMind.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "SunderMind L52-148,172-247",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.SunderMind.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "SunderMind L96-110,249-294,343-422",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.SunderMind.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "MentalMirror L41-130,150-210",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.MentalMirror.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "MassMind",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.MassMind.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "Beguiling L159-205,224-241",
+      "target": "../private/depth-2/source/XRL.World.Parts.Mutation.Beguiling.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "Beguiled L68-218",
+      "target": "../private/depth-2/source/XRL.World.Effects.Beguiled.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "Persuasion_Proselytize L47-54,93-140,200-235",
+      "target": "../private/depth-2/source/XRL.World.Parts.Skill.Persuasion_Proselytize.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "Proselytized L54-132",
+      "target": "../private/depth-2/source/XRL.World.Effects.Proselytized.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "MultipleArms L23-55,132-185",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.MultipleArms.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "MultipleLegs L45-86,122-142",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.MultipleLegs.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "Wings L165-198,227-294,311-323,372-425",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.Wings.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "ForceBubble L128-211,349-368",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.ForceBubble.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "ForceBubble L30-127,214-330,340-345,373-424,448-485",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.ForceBubble.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "Temporary L50-208",
+      "target": "../private/depth-2/source/XRL.World.Parts.Temporary.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "Temporary L211-285",
+      "target": "../private/depth-2/source/XRL.World.Parts.Temporary.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "GameObject L9584-9610",
+      "target": "../private/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "MakeTemporaryEvent",
+      "target": "../private/depth-2/source/XRL.World.MakeTemporaryEvent.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "GameObject L14641-14675",
+      "target": "../private/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "ExistenceSupport",
+      "target": "../private/depth-2/source/XRL.World.Parts.ExistenceSupport.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "CheckExistenceSupportEvent",
+      "target": "../private/depth-2/source/XRL.World.CheckExistenceSupportEvent.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS_AND_CLEANUP.md",
+      "label": "AIReplica",
+      "target": "../private/depth-2/source/XRL.World.Parts.AIReplica.cs",
+      "exists": true
+    }
+  ],
+  "public_document_hashes": {
+    "CYBERNETICS_AND_GAS.md": "6c5afdadac2aa521a713849f50f39d034d017d9c2bbcd1841b405448b9523157",
+    "REPORT.md": "bd3a7761191e44784983d1a48d679e21ff3bc3bcead0a79e5c5acb88d10a231e",
+    "SKILLS_AND_COMBAT.md": "f5594bd62c0395413f0b6d89487bab691f45809e37aba744cb98d4409d7ba077",
+    "MUTATIONS_AND_CLEANUP.md": "bc359fd9a07ea3e7f8bd998a492995ceae5cb8686cc65ffbc673128f41968457"
+  },
+  "qualification": "Source identities and research artifact consistency only; printed source and selected semantic traces do not establish complete review or native behavior. Game, save, browser and YAIR runtime tests unrun."
+}

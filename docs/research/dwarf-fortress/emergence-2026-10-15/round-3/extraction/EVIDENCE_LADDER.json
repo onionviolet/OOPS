@@ -1,0 +1,52 @@
+[
+  {
+    "candidate": "common timing parser",
+    "entry": "0x140d78c30",
+    "shown": {
+      "START": "+0x10",
+      "PEAK": "+0x14",
+      "END": "+0x18",
+      "DWF_STRETCH": "+0x1c"
+    },
+    "unresolved": [
+      "all subtype fields/defaults"
+    ]
+  },
+  {
+    "candidate": "active effect update",
+    "entry": "0x1413dcd00",
+    "callback_sites": [
+      "0x1413dd5e1",
+      "0x1413ddacf"
+    ],
+    "return_anchor": "0x1413ddcf6 sete AL",
+    "shown": [
+      "active age +0xc increments per invocation",
+      "source contribution reset",
+      "eligible virtual slot3 reapply",
+      "finite END comparison and inactive state bit"
+    ],
+    "unresolved": [
+      "exact scheduler frequency",
+      "all resistance/localized branches",
+      "runtime result"
+    ]
+  },
+  {
+    "candidate": "actual inactive owner removal",
+    "window": "0x141355916\u20130x141355c16",
+    "shown": [
+      "tests updater AL",
+      "matches source +0x30",
+      "frees/nulls payload +0x90/+0x98",
+      "source identity reset -1",
+      "active destructor0x141345b70",
+      "actor +0xca0 element erase0x1400b99a0"
+    ],
+    "unresolved": [
+      "every overlap/alias case",
+      "downstream full body/stat reversion",
+      "save/offscreen behavior"
+    ]
+  }
+]

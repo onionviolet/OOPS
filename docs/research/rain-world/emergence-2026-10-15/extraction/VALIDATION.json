@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-10-15T15:56:57.818559+00:00",
+  "checks": {
+    "captured_classes": 30,
+    "full_class_reviewed": 3,
+    "selected_windows_reviewed": 11,
+    "captured_unread": 16,
+    "input_hash_matches": true,
+    "raw_source_outside_repository": true,
+    "local_report_links_resolve": true,
+    "review_window_bounds_valid": true
+  },
+  "errors": [],
+  "passed": true
+}

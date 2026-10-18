@@ -1,0 +1,135 @@
+{
+  "executable": "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/payload/Dwarf Fortress.exe",
+  "sha256": "205770918fd54c96cbbcf89223ebd449e2e113c7c873ed81177c4511a3450db7",
+  "imagebase": "0x140000000",
+  "method": "PE header section mapping; x86-64 seven-byte RIP-relative LEA decode; independent .pdata entry decoding. No disassembler/decompiler or game execution.",
+  "checks": [
+    {
+      "label": "TEXT_SET",
+      "xref": "0x140acca3d",
+      "xref_bytes": "488d15642bc000",
+      "rip_relative_lea": true,
+      "destination": "0x1416cf5a8",
+      "destination_matches": true,
+      "literal_matches": true,
+      "pdata_ranges": [
+        [
+          "0x140acc1b0",
+          "0x140accd36",
+          "0x141819bf0"
+        ]
+      ],
+      "declared_range_matches": true,
+      "function_start": "0x140acc1b0",
+      "function_end_exclusive": "0x140accd36",
+      "function_bytes_sha256": "28ffea7894622158ecf0cfb16ddef9d8b6a6b8adb684fc4f1503c69e171cfb32",
+      "size": 2950
+    },
+    {
+      "label": "TEXT_SET",
+      "xref": "0x14131e0e3",
+      "xref_bytes": "488d15be143b00",
+      "rip_relative_lea": true,
+      "destination": "0x1416cf5a8",
+      "destination_matches": true,
+      "literal_matches": true,
+      "pdata_ranges": [
+        [
+          "0x14131de00",
+          "0x14131e4b4",
+          "0x141884e98"
+        ]
+      ],
+      "declared_range_matches": true,
+      "function_start": "0x14131de00",
+      "function_end_exclusive": "0x14131e4b4",
+      "function_bytes_sha256": "e97526ebe24402b89f46637a3dba5156b3963c32c651dbebc1e49aeb5ea892cd",
+      "size": 1716
+    },
+    {
+      "label": "FAMILY_RELATIONSHIP_SPEC",
+      "xref": "0x14131e9ff",
+      "xref_bytes": "488d15f2254600",
+      "rip_relative_lea": true,
+      "destination": "0x141780ff8",
+      "destination_matches": true,
+      "literal_matches": true,
+      "pdata_ranges": [
+        [
+          "0x14131e4f0",
+          "0x14131eeaa",
+          "0x141884f08"
+        ]
+      ],
+      "declared_range_matches": true,
+      "function_start": "0x14131e4f0",
+      "function_end_exclusive": "0x14131eeaa",
+      "function_bytes_sha256": "3ae7c14343213381b1548aa9357ef5332b5f80e9c9388511887e86e2a954b59b",
+      "size": 2490
+    },
+    {
+      "label": "FAMILY_RELATIONSHIP_SPEC_DEAD",
+      "xref": "0x14131ea74",
+      "xref_bytes": "488d159d254600",
+      "rip_relative_lea": true,
+      "destination": "0x141781018",
+      "destination_matches": true,
+      "literal_matches": true,
+      "pdata_ranges": [
+        [
+          "0x14131e4f0",
+          "0x14131eeaa",
+          "0x141884f08"
+        ]
+      ],
+      "declared_range_matches": true,
+      "function_start": "0x14131e4f0",
+      "function_end_exclusive": "0x14131eeaa",
+      "function_bytes_sha256": "3ae7c14343213381b1548aa9357ef5332b5f80e9c9388511887e86e2a954b59b",
+      "size": 2490
+    },
+    {
+      "label": "Failed to save active game; synchronization would likely result ",
+      "xref": "0x14154925e",
+      "xref_bytes": "4c8d0d5bcb0b00",
+      "rip_relative_lea": true,
+      "destination": "0x141605dc0",
+      "destination_matches": true,
+      "literal_matches": true,
+      "pdata_ranges": [
+        [
+          "0x14154919c",
+          "0x141549395",
+          "0x1417c61f4"
+        ]
+      ],
+      "declared_range_matches": true,
+      "function_start": "0x14154919c",
+      "function_end_exclusive": "0x141549395",
+      "function_bytes_sha256": "d2506b59e36dc132c647f4146f0f47e8c83610585072bdab0bd47b5a9f64b000",
+      "size": 505
+    },
+    {
+      "label": "Game load has aborted due to an error encountered while reading ",
+      "xref": "0x14157c89d",
+      "xref_bytes": "488d159cff1200",
+      "rip_relative_lea": true,
+      "destination": "0x1416ac840",
+      "destination_matches": true,
+      "literal_matches": true,
+      "pdata_ranges": [
+        [
+          "0x14157c890",
+          "0x14157c96e",
+          "0x141800e0c"
+        ]
+      ],
+      "declared_range_matches": true,
+      "function_start": "0x14157c890",
+      "function_end_exclusive": "0x14157c96e",
+      "function_bytes_sha256": "0d7eb2f7db84864d575875f224e313b86c48d5700f94970e8d88c31bec4c9f7f",
+      "size": 222
+    }
+  ],
+  "all_checks_pass": true
+}

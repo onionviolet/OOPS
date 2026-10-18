@@ -1,0 +1,9 @@
+	state = running
+	program = /Users/weiwei/.local/bin/python3.13
+		/Users/weiwei/.local/share/local-ai/upgrades/2026-10-14/finish_upgrade.py
+	runs = 2
+	pid = 43987
+	last terminating signal = Terminated: 15
+		state = active
+		state = active
+	properties = keepalive | inferred program

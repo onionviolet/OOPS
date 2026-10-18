@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-15T15:59:34.401156+00:00",
+  "status": "PASS",
+  "checks": {
+    "retained_and_installed_hashes": 393,
+    "exact_read_unread_partitions": 393,
+    "definition_candidate_bounds": 2254,
+    "json_documents_parsed": 9,
+    "local_links": 15,
+    "native_hash_matches": true
+  },
+  "hash_manifest_files": 411,
+  "errors": [],
+  "limits": [
+    "Archive and locator validation only. No grammar parse or source/runtime behavior tests.",
+    "No native decompilation/execution in this lane.",
+    "Selected source review is not whole corpus semantic completion."
+  ]
+}

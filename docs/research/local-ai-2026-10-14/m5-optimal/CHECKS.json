@@ -1,0 +1,13 @@
+{
+  "local_document_links_exist": true,
+  "broken_links": [],
+  "source_capture_hashes_match": true,
+  "inference_run": false,
+  "runtime_settings_changed": false,
+  "gameplay_changed": false,
+  "final_models": [
+    "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "qwen3.8:27b"
+  ],
+  "only_task_directory_written_by_this_task": true
+}

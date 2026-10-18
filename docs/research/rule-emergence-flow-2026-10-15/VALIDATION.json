@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "Research integration consistency only. No native gameplay, save, implementation or runtime acceptance.",
+  "lane_receipts": {
+    "qud-systems-audit-2026-10-15/depth-3/VALIDATION.json": "PASS",
+    "rain-world/emergence-2026-10-15/extraction/VALIDATION.json": "PASS",
+    "rain-world/emergence-2026-10-15/audit/VALIDATION.json": "PASS",
+    "dwarf-fortress/emergence-2026-10-15/extraction/VALIDATION.json": "PASS",
+    "dwarf-fortress/emergence-2026-10-15/audit/VALIDATION.json": "PASS"
+  },
+  "Rain_World_raw_classes_independently_hash_checked": 30,
+  "local_links_checked": 45,
+  "errors": [],
+  "documents": {
+    "REPORT.md": "3788094b0a998a4e1167c2b90cf4f632de263de0e03e68bf3ac3987a7b33b81a",
+    "WORKFLOW.md": "1eb1c5bf735cc130c9afc8835110c3066c9e26f378361592a4c887932b664c1f"
+  }
+}

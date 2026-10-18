@@ -1,0 +1,218 @@
+{
+  "gemma4:31b-mlx": {
+    "median_decode_tok_s_shared_9": 5.36,
+    "length_passes_six_scenes": 6,
+    "latencies": {
+      "site": {
+        "first_final_s": 36.3,
+        "elapsed_s": 59.81,
+        "tokens": 167,
+        "words": 59
+      },
+      "scene": {
+        "first_final_s": 2.69,
+        "elapsed_s": 27.07,
+        "tokens": 155,
+        "words": 111
+      },
+      "correction": {
+        "first_final_s": 6.23,
+        "elapsed_s": 34.87,
+        "tokens": 117,
+        "words": 80
+      },
+      "companion": {
+        "first_final_s": 6.86,
+        "elapsed_s": 22.33,
+        "tokens": 47,
+        "words": 37
+      },
+      "body_horror": {
+        "first_final_s": 3.63,
+        "elapsed_s": 38.05,
+        "tokens": 135,
+        "words": 105
+      },
+      "cruelty": {
+        "first_final_s": 5.13,
+        "elapsed_s": 28.13,
+        "tokens": 136,
+        "words": 101
+      },
+      "tyrant": {
+        "first_final_s": 3.18,
+        "elapsed_s": 31.0,
+        "tokens": 133,
+        "words": 106
+      },
+      "betrayal": {
+        "first_final_s": 7.57,
+        "elapsed_s": 27.7,
+        "tokens": 152,
+        "words": 106
+      },
+      "source_to_slice": {
+        "first_final_s": 25.45,
+        "elapsed_s": 115.7,
+        "tokens": 486,
+        "words": 152
+      },
+      "source_to_slice_revised": {
+        "first_final_s": 26.03,
+        "elapsed_s": 45.06,
+        "tokens": 438,
+        "words": 160
+      },
+      "harry_potter_slice": {
+        "first_final_s": 17.34,
+        "elapsed_s": 49.65,
+        "tokens": 725,
+        "words": 294
+      }
+    }
+  },
+  "qwen3.8:27b": {
+    "median_decode_tok_s_shared_9": 9.14,
+    "length_passes_six_scenes": 1,
+    "latencies": {
+      "site": {
+        "first_final_s": 16.03,
+        "elapsed_s": 36.54,
+        "tokens": 191,
+        "words": 79
+      },
+      "scene": {
+        "first_final_s": 1.15,
+        "elapsed_s": 23.13,
+        "tokens": 183,
+        "words": 141
+      },
+      "correction": {
+        "first_final_s": 0.8,
+        "elapsed_s": 14.75,
+        "tokens": 127,
+        "words": 87
+      },
+      "companion": {
+        "first_final_s": 0.96,
+        "elapsed_s": 5.94,
+        "tokens": 49,
+        "words": 41
+      },
+      "body_horror": {
+        "first_final_s": 2.04,
+        "elapsed_s": 27.69,
+        "tokens": 206,
+        "words": 149
+      },
+      "cruelty": {
+        "first_final_s": 0.53,
+        "elapsed_s": 19.42,
+        "tokens": 192,
+        "words": 145
+      },
+      "tyrant": {
+        "first_final_s": 0.78,
+        "elapsed_s": 19.47,
+        "tokens": 176,
+        "words": 138
+      },
+      "betrayal": {
+        "first_final_s": 0.92,
+        "elapsed_s": 15.4,
+        "tokens": 199,
+        "words": 142
+      },
+      "source_to_slice": {
+        "first_final_s": 3.74,
+        "elapsed_s": 38.67,
+        "tokens": 563,
+        "words": 204
+      },
+      "source_to_slice_revised": {
+        "first_final_s": 18.81,
+        "elapsed_s": 43.97,
+        "tokens": 599,
+        "words": 250
+      },
+      "harry_potter_slice": {
+        "first_final_s": 14.24,
+        "elapsed_s": 84.4,
+        "tokens": 1067,
+        "words": 532
+      }
+    }
+  },
+  "huihui_ai/Qwen3.8-abliterated:27b-q8_0": {
+    "median_decode_tok_s_shared_9": 7.9,
+    "length_passes_six_scenes": 0,
+    "latencies": {
+      "site": {
+        "first_final_s": 20.83,
+        "elapsed_s": 35.71,
+        "tokens": 174,
+        "words": 64
+      },
+      "scene": {
+        "first_final_s": 1.82,
+        "elapsed_s": 34.78,
+        "tokens": 223,
+        "words": 160
+      },
+      "correction": {
+        "first_final_s": 1.11,
+        "elapsed_s": 25.61,
+        "tokens": 141,
+        "words": 96
+      },
+      "companion": {
+        "first_final_s": 1.93,
+        "elapsed_s": 9.12,
+        "tokens": 45,
+        "words": 37
+      },
+      "body_horror": {
+        "first_final_s": 1.49,
+        "elapsed_s": 25.69,
+        "tokens": 185,
+        "words": 132
+      },
+      "cruelty": {
+        "first_final_s": 1.17,
+        "elapsed_s": 27.32,
+        "tokens": 225,
+        "words": 157
+      },
+      "tyrant": {
+        "first_final_s": 1.25,
+        "elapsed_s": 23.39,
+        "tokens": 175,
+        "words": 137
+      },
+      "betrayal": {
+        "first_final_s": 1.12,
+        "elapsed_s": 24.78,
+        "tokens": 216,
+        "words": 152
+      },
+      "source_to_slice": {
+        "first_final_s": 8.2,
+        "elapsed_s": 41.76,
+        "tokens": 504,
+        "words": 161
+      },
+      "source_to_slice_revised": {
+        "first_final_s": 19.2,
+        "elapsed_s": 52.15,
+        "tokens": 579,
+        "words": 237
+      },
+      "harry_potter_slice": {
+        "first_final_s": 18.95,
+        "elapsed_s": 91.84,
+        "tokens": 1003,
+        "words": 497
+      }
+    }
+  }
+}

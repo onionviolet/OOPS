@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "Research archive integrity only; no native execution, game, save or implementation acceptance.",
+  "lane_validation_receipts": {
+    "qud-systems-audit-2026-10-15/depth-4/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "781c889eadad1cb129d2e7ba654976b49c98d78bf8a12ec566b79450769f7def"
+    },
+    "rain-world/emergence-2026-10-15/round-2/extraction/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "8e6a96f95cc7f4b35309a2a060e892bd988f6b1a756d8aae8e1c3e688ab5efd8"
+    },
+    "rain-world/emergence-2026-10-15/round-2/audit/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "b76458716b1360e822efe8b3eec5ff600c4d8d6bcf5f38677904398db7d67870"
+    },
+    "dwarf-fortress/emergence-2026-10-15/round-2/extraction/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "f4ad3eaf7643f1cc98ce0e7d380b4dbae077a3fdd8c034c4adeda16d7071c173"
+    },
+    "dwarf-fortress/emergence-2026-10-15/round-2/audit/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "e1a714152dee55a5b80350f0ed4f71c832de52b9d01b9f840709b4e6849ee080"
+    }
+  },
+  "local_links_checked": 70,
+  "coverage": {
+    "Qud_unique_captured": 440,
+    "Qud_capture_only": 235,
+    "Rain_World_audit_classes": 40,
+    "Rain_World_audit_status": {
+      "full-class-read": 8,
+      "selected-windows-read": 19,
+      "captured-unread": 13
+    },
+    "DF_readable_files_accounted": 393,
+    "DF_native_read_records": 14
+  },
+  "errors": [],
+  "documents": {
+    "REPORT.md": "da7ef89a571c6e4868ec4d4004202f84ed5e9dfe726f9baa3ae09a88daa03a43"
+  }
+}

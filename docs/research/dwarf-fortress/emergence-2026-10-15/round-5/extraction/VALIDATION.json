@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "time_utc": "2026-10-15T16:50:48.049596+00:00",
+  "scope": "static extraction integrity and exact selected joins, no runtime or global no-refund proof",
+  "checks": [
+    {
+      "check": "pinned input hash",
+      "status": "PASS"
+    },
+    {
+      "check": "exact byte capture 0x14153ea80",
+      "status": "PASS"
+    },
+    {
+      "check": "exact byte capture 0x141539680",
+      "status": "PASS"
+    },
+    {
+      "check": "exact byte capture 0x1415399dc",
+      "status": "PASS"
+    },
+    {
+      "check": "exact byte capture 0x14153aaa8",
+      "status": "PASS"
+    },
+    {
+      "check": "exact byte capture 0x14153aa60",
+      "status": "PASS"
+    },
+    {
+      "check": "exact byte capture 0x1407df320",
+      "status": "PASS"
+    },
+    {
+      "check": "continuous selected unwind coverage 0x140cc9230",
+      "status": "PASS"
+    },
+    {
+      "check": "no local language handlers 0x140cc9230",
+      "status": "PASS"
+    },
+    {
+      "check": "continuous selected unwind coverage 0x14054bdc0",
+      "status": "PASS"
+    },
+    {
+      "check": "no local language handlers 0x14054bdc0",
+      "status": "PASS"
+    },
+    {
+      "check": "FH4 import identity",
+      "status": "PASS"
+    },
+    {
+      "check": "free import identity",
+      "status": "PASS"
+    },
+    {
+      "check": "inherited coverage hash",
+      "status": "PASS"
+    },
+    {
+      "check": "funclet parent pointer load",
+      "status": "PASS"
+    },
+    {
+      "check": "factory saves fresh pointer",
+      "status": "PASS"
+    },
+    {
+      "check": "pseudocode saved complete",
+      "status": "PASS"
+    },
+    {
+      "check": "independent sibling byte window 0x140181b5e",
+      "status": "PASS"
+    },
+    {
+      "check": "independent sibling byte window 0x1401b01ef",
+      "status": "PASS"
+    },
+    {
+      "check": "independent sibling byte window 0x140587d80",
+      "status": "PASS"
+    },
+    {
+      "check": "independent sibling byte window 0x14058898b",
+      "status": "PASS"
+    },
+    {
+      "check": "independent sibling byte window 0x1405a7916",
+      "status": "PASS"
+    },
+    {
+      "check": "independent sibling byte window 0x14028ba50",
+      "status": "PASS"
+    },
+    {
+      "check": "independent sibling byte window 0x140583390",
+      "status": "PASS"
+    },
+    {
+      "check": "independent sibling byte window 0x140c634f0",
+      "status": "PASS"
+    },
+    {
+      "check": "independent sibling byte window 0x140c64230",
+      "status": "PASS"
+    },
+    {
+      "check": "independent sibling byte window 0x140c63d87",
+      "status": "PASS"
+    },
+    {
+      "check": "UI literal Cancel construction",
+      "status": "PASS"
+    },
+    {
+      "check": "UI literal Remove building",
+      "status": "PASS"
+    },
+    {
+      "check": "selected kind24 jump-table map",
+      "status": "PASS"
+    },
+    {
+      "check": "selected actualst slot88 pointer",
+      "status": "PASS"
+    }
+  ],
+  "hashed_files": 60
+}

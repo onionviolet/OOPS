@@ -1,0 +1,367 @@
+[
+  {
+    "id": 2776450,
+    "name": "Multiverse Loot Hunter",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Aug 15, 2025"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": [],
+    "url": "https://store.steampowered.com/app/2776450/"
+  },
+  {
+    "id": 4122910,
+    "name": "Multiverse Idle",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": true,
+      "date": "2026"
+    },
+    "is_free": true,
+    "demos": [
+      {
+        "appid": 4330370,
+        "description": ""
+      }
+    ],
+    "mac_requirements": [],
+    "url": "https://store.steampowered.com/app/4122910/"
+  },
+  {
+    "id": 2582340,
+    "name": "无限流模拟器",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": true,
+      "date": "Coming soon"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": [],
+    "url": "https://store.steampowered.com/app/2582340/"
+  },
+  {
+    "id": 3205960,
+    "name": "Succubus Memories",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": true,
+      "date": "Coming soon"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": [],
+    "url": "https://store.steampowered.com/app/3205960/"
+  },
+  {
+    "id": 1690710,
+    "name": "Incremental Epic Hero 2",
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Jan 2, 2025"
+    },
+    "is_free": true,
+    "demos": [],
+    "mac_requirements": {
+      "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> OS 10.6<br></li><li><strong>Processor:</strong> Intel Core-i5 or faster processor<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> DX10<br></li><li><strong>Storage:</strong> 1 GB available space</li></ul>"
+    },
+    "url": "https://store.steampowered.com/app/1690710/"
+  },
+  {
+    "id": 2058570,
+    "name": "Rift Wizard 2",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Jan 31, 2025"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": [],
+    "url": "https://store.steampowered.com/app/2058570/"
+  },
+  {
+    "id": 1565140,
+    "name": "Godsbane Idle",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": ""
+    },
+    "is_free": true,
+    "demos": [],
+    "mac_requirements": [],
+    "url": "https://store.steampowered.com/app/1565140/"
+  },
+  {
+    "id": 1831980,
+    "name": "Idle Superpowers",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Jan 5, 2022"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": [],
+    "url": "https://store.steampowered.com/app/1831980/"
+  },
+  {
+    "id": 2864890,
+    "name": "Magic Research 2",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "May 21, 2024"
+    },
+    "is_free": false,
+    "demos": [
+      {
+        "appid": 2920360,
+        "description": ""
+      }
+    ],
+    "mac_requirements": [],
+    "url": "https://store.steampowered.com/app/2864890/"
+  },
+  {
+    "id": 3298520,
+    "name": "Idle Iktah",
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Apr 14, 2026"
+    },
+    "is_free": true,
+    "demos": [],
+    "mac_requirements": {
+      "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> macOS 12.0 (Monterey) or later<br></li><li><strong>Processor:</strong> Apple Silicon or Intel<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> Integrated Graphics<br></li><li><strong>Storage:</strong> 1 GB available space</li></ul>"
+    },
+    "url": "https://store.steampowered.com/app/3298520/"
+  },
+  {
+    "id": 1519490,
+    "name": "The Doors of Trithius",
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Aug 15, 2021"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": {
+      "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> macOS 11 Big Sur or newer<br></li><li><strong>Processor:</strong> Apple M1 or newer, or Intel Core 2 Duo 2.4 GHz or equivalent<br></li><li><strong>Memory:</strong> 6 GB RAM<br></li><li><strong>Graphics:</strong> GeForce 7600 512 Mb or equivalent<br></li><li><strong>Storage:</strong> 1 GB available space<br></li><li><strong>Additional Notes:</strong> Universal build: runs natively on Apple Silicon and Intel Macs. Minimum resolution of 1280 x 768.</li></ul>"
+    },
+    "url": "https://store.steampowered.com/app/1519490/"
+  },
+  {
+    "id": 2135150,
+    "name": "Elin",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Nov 1, 2024"
+    },
+    "is_free": false,
+    "demos": [
+      {
+        "appid": 3288620,
+        "description": ""
+      }
+    ],
+    "mac_requirements": {
+      "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"></ul>",
+      "recommended": "<strong>Recommended:</strong><br><ul class=\"bb_ul\"></ul>"
+    },
+    "url": "https://store.steampowered.com/app/2135150/"
+  },
+  {
+    "id": 2382520,
+    "name": "Erenshor",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Apr 14, 2025"
+    },
+    "is_free": false,
+    "demos": [
+      {
+        "appid": 2522260,
+        "description": ""
+      }
+    ],
+    "mac_requirements": [],
+    "url": "https://store.steampowered.com/app/2382520/"
+  },
+  {
+    "id": 374040,
+    "name": "Portal Knights",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "May 18, 2017"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": {
+      "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"></ul>",
+      "recommended": "<strong>Recommended:</strong><br><ul class=\"bb_ul\"></ul>"
+    },
+    "url": "https://store.steampowered.com/app/374040/"
+  },
+  {
+    "id": 1814010,
+    "name": "Stuck In Time",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Dec 9, 2021"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": [],
+    "url": "https://store.steampowered.com/app/1814010/"
+  },
+  {
+    "id": 1580800,
+    "name": "Erannorth Chronicles",
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Sep 16, 2021"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": {
+      "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"></ul>",
+      "recommended": "<strong>Recommended:</strong><br><ul class=\"bb_ul\"></ul>"
+    },
+    "url": "https://store.steampowered.com/app/1580800/"
+  },
+  {
+    "id": 1371630,
+    "name": "Incremental Adventures",
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Aug 11, 2020"
+    },
+    "is_free": true,
+    "demos": [],
+    "mac_requirements": {
+      "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> macOS 10.10 (Yosemite) or later<br></li><li><strong>Processor:</strong> A 64bit Intel processor<br></li><li><strong>Memory:</strong> 512 MB RAM<br></li><li><strong>Storage:</strong> 200 MB available space<br></li><li><strong>Additional Notes:</strong> If your device is able to run a modern browser (Chrome, Safari, Firefox and the like), it should be good to run Incremental Adventures</li></ul>"
+    },
+    "url": "https://store.steampowered.com/app/1371630/"
+  },
+  {
+    "id": 2860590,
+    "name": "Melvor Idle: Into the Abyss",
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Jun 13, 2024"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": {
+      "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Mac OS X 10.9 (64 Bit)<br></li><li><strong>Processor:</strong> 1.5GHz<br></li><li><strong>Memory:</strong> 512 MB RAM<br></li><li><strong>Graphics:</strong> Intel Integrated Graphics<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 200 MB available space<br></li><li><strong>Sound Card:</strong> N/A</li></ul>"
+    },
+    "url": "https://store.steampowered.com/app/2860590/"
+  },
+  {
+    "id": 259680,
+    "name": "Tales of Maj'Eyal",
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "Dec 12, 2013"
+    },
+    "is_free": false,
+    "demos": [],
+    "mac_requirements": {
+      "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> OSX 10.9<br></li><li><strong>Memory:</strong> 512 MB RAM<br></li><li><strong>Graphics:</strong> OpenGL 2.1+<br></li><li><strong>Storage:</strong> 512 MB available space</li></ul>",
+      "recommended": "<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> OSX 10.9<br></li><li><strong>Memory:</strong> 1 GB RAM<br></li><li><strong>Graphics:</strong> OpenGL 2.1+<br></li><li><strong>Storage:</strong> 512 MB available space</li></ul>"
+    },
+    "url": "https://store.steampowered.com/app/259680/"
+  }
+]

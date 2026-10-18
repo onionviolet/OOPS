@@ -1,0 +1,342 @@
+{
+  "scope": "base file structural scan; not prose or runtime closure coverage",
+  "graphs": [
+    {
+      "file": "JuQing_dialogue_0.xml",
+      "definitions": 1,
+      "nodes": 97,
+      "types": {
+        "Begin": 1,
+        "Speech": 68,
+        "Option": 20,
+        "Function": 8
+      },
+      "visible_scripts": 19,
+      "enable_scripts": 0,
+      "execute_scripts": 14,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "JuQing_dialogue_1.xml",
+      "definitions": 1,
+      "nodes": 3,
+      "types": {
+        "Begin": 1,
+        "Speech": 2
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "JuQing_dialogue_2.xml",
+      "definitions": 1,
+      "nodes": 4,
+      "types": {
+        "Begin": 1,
+        "Speech": 3
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "JuQing_dialogue_3.xml",
+      "definitions": 1,
+      "nodes": 4,
+      "types": {
+        "Begin": 1,
+        "Function": 3
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Arena_0.xml",
+      "definitions": 1,
+      "nodes": 6,
+      "types": {
+        "Begin": 1,
+        "Speech": 2,
+        "Option": 3
+      },
+      "visible_scripts": 1,
+      "enable_scripts": 0,
+      "execute_scripts": 2,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Arena_Mdie.xml",
+      "definitions": 1,
+      "nodes": 3,
+      "types": {
+        "Begin": 1,
+        "Function": 2
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Arena_Onlinedie.xml",
+      "definitions": 1,
+      "nodes": 3,
+      "types": {
+        "Begin": 1,
+        "Function": 2
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Arena_Ping.xml",
+      "definitions": 1,
+      "nodes": 3,
+      "types": {
+        "Begin": 1,
+        "Function": 2
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Arena_Tdie.xml",
+      "definitions": 1,
+      "nodes": 3,
+      "types": {
+        "Begin": 1,
+        "Function": 2
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Arena_YingTian.xml",
+      "definitions": 1,
+      "nodes": 5,
+      "types": {
+        "Begin": 1,
+        "Speech": 1,
+        "Option": 3
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 2,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Tower_0_Talk1.xml",
+      "definitions": 1,
+      "nodes": 14,
+      "types": {
+        "Begin": 1,
+        "Speech": 8,
+        "Option": 5
+      },
+      "visible_scripts": 1,
+      "enable_scripts": 0,
+      "execute_scripts": 1,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Tower_0_Talk2.xml",
+      "definitions": 1,
+      "nodes": 2,
+      "types": {
+        "Begin": 1,
+        "Speech": 1
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Tower_0_Talk3.xml",
+      "definitions": 1,
+      "nodes": 8,
+      "types": {
+        "Begin": 1,
+        "Speech": 3,
+        "Option": 4
+      },
+      "visible_scripts": 2,
+      "enable_scripts": 0,
+      "execute_scripts": 2,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Tower_0_Talk4.xml",
+      "definitions": 1,
+      "nodes": 7,
+      "types": {
+        "Begin": 1,
+        "Speech": 3,
+        "Option": 3
+      },
+      "visible_scripts": 1,
+      "enable_scripts": 0,
+      "execute_scripts": 1,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "Rpg_Tower_1_Talk1.xml",
+      "definitions": 1,
+      "nodes": 2,
+      "types": {
+        "Begin": 1,
+        "Speech": 1
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "system.xml",
+      "definitions": 1,
+      "nodes": 1,
+      "types": {
+        "Begin": 1
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "system_dialogue.xml",
+      "definitions": 1,
+      "nodes": 2,
+      "types": {
+        "Begin": 1,
+        "Speech": 1
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "test.xml",
+      "definitions": 1,
+      "nodes": 13,
+      "types": {
+        "Begin": 1,
+        "Speech": 8,
+        "Option": 4
+      },
+      "visible_scripts": 0,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    },
+    {
+      "file": "tower_dialogue.xml",
+      "definitions": 1,
+      "nodes": 7,
+      "types": {
+        "Begin": 1,
+        "Speech": 2,
+        "Function": 4
+      },
+      "visible_scripts": 2,
+      "enable_scripts": 0,
+      "execute_scripts": 0,
+      "missing_local_links": 0,
+      "duplicate_node_names": 0
+    }
+  ],
+  "talk_tables": [
+    {
+      "file": "AboutClue.txt",
+      "tagged_data_rows": 7,
+      "column_widths": {
+        "8": 7
+      }
+    },
+    {
+      "file": "AboutThing.txt",
+      "tagged_data_rows": 28,
+      "column_widths": {
+        "8": 28
+      }
+    },
+    {
+      "file": "Linghun.txt",
+      "tagged_data_rows": 24,
+      "column_widths": {
+        "8": 24
+      }
+    },
+    {
+      "file": "Quanhua.txt",
+      "tagged_data_rows": 9,
+      "column_widths": {
+        "8": 9
+      }
+    },
+    {
+      "file": "chat.txt",
+      "tagged_data_rows": 89,
+      "column_widths": {
+        "10": 89
+      }
+    },
+    {
+      "file": "chat_DLC.txt",
+      "tagged_data_rows": 116,
+      "column_widths": {
+        "10": 81,
+        "4": 33,
+        "5": 1,
+        "9": 1
+      }
+    },
+    {
+      "file": "chat_DLC_WuDang.txt",
+      "tagged_data_rows": 15,
+      "column_widths": {
+        "10": 15
+      }
+    },
+    {
+      "file": "system.txt",
+      "tagged_data_rows": 1,
+      "column_widths": {
+        "8": 1
+      }
+    }
+  ],
+  "talk_tag_count": 144,
+  "missing_fallback_rows": 1
+}

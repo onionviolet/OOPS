@@ -1,0 +1,145 @@
+{
+  "reviewed": {
+    "claims": [
+      {
+        "source": "S1",
+        "status": "stated",
+        "claim": "Gathering reeds takes twenty minutes and yields two reeds."
+      },
+      {
+        "source": "S2",
+        "status": "stated",
+        "claim": "Weaving a storm mat requires three reeds, takes thirty minutes, and pays eight coins."
+      },
+      {
+        "source": "S3",
+        "status": "stated",
+        "claim": "The ferry deck requires three mats for repair, but weaving does not repair it."
+      },
+      {
+        "source": "S4",
+        "status": "unverified_rumor",
+        "claim": "Children whisper that a witness knot restores lost memory."
+      },
+      {
+        "source": "S5",
+        "status": "stated",
+        "claim": "A locked gate exists beyond the riverbank; Lysa does not know how to open it."
+      }
+    ],
+    "draft": {
+      "siteName": "Duskfen Riverbank",
+      "siteDescription": "Open riverbank where reeds are gathered and storm mats are woven.",
+      "inputName": "Reed",
+      "inputStart": 6,
+      "outputName": "Storm Mat",
+      "activityName": "Weave Storm Mat",
+      "activityDescription": "Consume three reeds to craft one storm mat in thirty minutes.",
+      "requiredInput": 3,
+      "inputCost": 3,
+      "minutes": 30,
+      "outputGain": 1,
+      "coinPay": 8,
+      "gatherMinutes": 20,
+      "gatherAmount": 2
+    },
+    "blockedMechanics": [
+      "Ferry repair requires mats but has no defined repair action or duration.",
+      "Witness knot memory restoration is a rumor with no defined casting or effect.",
+      "Locked gate opening requires saltwater, which is not a defined input or action."
+    ],
+    "witness": {
+      "sequence": [
+        "gather",
+        "gather",
+        "work",
+        "work",
+        "work"
+      ],
+      "inputRemaining": 1,
+      "mats": 3,
+      "coins": 24,
+      "minutes": 130
+    },
+    "publicLine": "I can gather reeds and weave mats for the ferry, though I do not know how that stone gate opens."
+  },
+  "changes": [
+    {
+      "path": "witness.sequence",
+      "before": [
+        "work",
+        "work",
+        "work"
+      ],
+      "after": [
+        "gather",
+        "gather",
+        "work",
+        "work",
+        "work"
+      ]
+    },
+    {
+      "path": "witness.inputRemaining",
+      "before": 0,
+      "after": 1
+    },
+    {
+      "path": "witness.minutes",
+      "before": 90,
+      "after": 130
+    },
+    {
+      "path": "publicLine",
+      "before": "I have enough reeds to weave the three mats the ferryman needs, though I still don't know how to open that gate.",
+      "after": "I can gather reeds and weave mats for the ferry, though I do not know how that stone gate opens."
+    }
+  ],
+  "trace": [
+    {
+      "step": "gather",
+      "minutes": 20,
+      "coins": 0,
+      "values": {
+        "input": 8,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 40,
+      "coins": 0,
+      "values": {
+        "input": 10,
+        "output": 0
+      }
+    },
+    {
+      "step": "work",
+      "minutes": 70,
+      "coins": 8,
+      "values": {
+        "input": 7,
+        "output": 1
+      }
+    },
+    {
+      "step": "work",
+      "minutes": 100,
+      "coins": 16,
+      "values": {
+        "input": 4,
+        "output": 2
+      }
+    },
+    {
+      "step": "work",
+      "minutes": 130,
+      "coins": 24,
+      "values": {
+        "input": 1,
+        "output": 3
+      }
+    }
+  ]
+}

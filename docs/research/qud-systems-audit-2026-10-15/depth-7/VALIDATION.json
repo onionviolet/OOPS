@@ -1,0 +1,210 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "checks": {
+    "current_Steam_assembly_matches_pin": true,
+    "metadata_method_bodies_scanned": 62661,
+    "metadata_direct_fielddef_uses": 61,
+    "metadata_decode_errors": [],
+    "support_type_requests": 7,
+    "nonempty_support_sources": 7,
+    "capture_status": {
+      "reused": 5,
+      "exported": 2
+    },
+    "cumulative_types_with_exact_line_complements": 452,
+    "indexed_printed_types": 6,
+    "exact_navigation_locators": 82,
+    "local_links": 30,
+    "private_files_ignored": 57
+  },
+  "errors": [],
+  "links": [
+    {
+      "document": "REPORT.md",
+      "label": "Full decoded consumers",
+      "target": "RECOVERY_CONSUMERS.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "independent audit",
+      "target": "independent-audit/REPORT.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "root unread",
+      "target": "../private/depth-7/UNREAD.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "independent unread",
+      "target": "independent-audit/UNREAD.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "exact cumulative line complements",
+      "target": "../private/depth-7/CUMULATIVE_LINE_COVERAGE.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "validation",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Depth6",
+      "target": "../depth-6/REPORT.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "depth5",
+      "target": "../depth-5/REPORT.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "private depth7",
+      "target": "../private/depth-7/",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "FIELD_XREFS",
+      "target": "../private/depth-7/FIELD_XREFS.json",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "scan receipt",
+      "target": "../private/depth-7/FIELD_XREF_RECEIPT.json",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "scanner source",
+      "target": "../private/depth-7/xref/Program.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "Physics.CheckHP L4125-4196",
+      "target": "../private/depth-7/source/XRL.World.Parts.Physics.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "Burning L113-129",
+      "target": "../private/depth-7/source/XRL.World.Effects.Burning.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "Frozen L52-90",
+      "target": "../private/depth-7/source/XRL.World.Effects.Frozen.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "Physics.CheckThresholds L4052-4068",
+      "target": "../private/depth-7/source/XRL.World.Parts.Physics.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "Stomach L408-422",
+      "target": "../private/depth-7/source/XRL.World.Parts.Stomach.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "GameObject.SystemMoveTo/TeleportTo L2807-2825",
+      "target": "../private/depth-7/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "Physics.ProcessTargetedMove L3783-3860",
+      "target": "../private/depth-7/source/XRL.World.Parts.Physics.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "ProcessBeginMove L16349-16376",
+      "target": "../private/depth-7/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "Null-origin leaving helpers L16379-16408,16501-16530",
+      "target": "../private/depth-7/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "EnteringCell/ObjectEnteringCell/EnteringZone L16410-16499",
+      "target": "../private/depth-7/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "Physics.EnterCell L2121-2174",
+      "target": "../private/depth-7/source/XRL.World.Parts.Physics.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "Cell.AddObject L3390-3424",
+      "target": "../private/depth-7/source/XRL.World.Cell.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "Physics.RestoreContextRelation L4199-4234",
+      "target": "../private/depth-7/source/XRL.World.Parts.Physics.cs",
+      "exists": true
+    },
+    {
+      "document": "RECOVERY_CONSUMERS.md",
+      "label": "independent audit",
+      "target": "independent-audit/FINDINGS.md",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "CURRENT",
+      "target": "../CURRENT.md",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "decoded consumers",
+      "target": "RECOVERY_CONSUMERS.md",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "root unread",
+      "target": "../private/depth-7/UNREAD.json",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "independent unread",
+      "target": "independent-audit/UNREAD.md",
+      "exists": true
+    }
+  ],
+  "public_document_hashes": {
+    "REPORT.md": "bf076485b7c20d293a22c092cea98962eef65c80db5cf90ee31a31f35c303d1f",
+    "RECOVERY_CONSUMERS.md": "ccf1cd4e47c558ed30767e33f9d965dd25d3be8b4a8ac985fc6db11b2fe5eb70",
+    "CHECKPOINT.md": "e2fec2de5f7dba017d2590ca45122b5779fdc7d65ebf321ab8e30cc51c37f679"
+  },
+  "qualification": "Source identities and research artifact consistency only; printed source and selected semantic traces do not establish complete review or native behavior. Game, save, browser and YAIR runtime tests unrun."
+}

@@ -1,0 +1,2701 @@
+{
+  "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "prior_ledger": "../../round-4/audit/READ_LEDGER.json",
+  "classes": [
+    {
+      "type": "ArtificialIntelligence",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/ArtificialIntelligence.cs",
+      "sha256": "7929eaa04bb6f21f47610c29ddbe542e21eba2fcadfcc8f58623a75b64ce9723",
+      "lines": 421,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          226,
+          253
+        ],
+        [
+          319,
+          340
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          225
+        ],
+        [
+          254,
+          318
+        ],
+        [
+          341,
+          421
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [
+        [
+          319,
+          340
+        ]
+      ],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "Tracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Tracker.cs",
+      "sha256": "083eb19d1a5268725d38117629d1ac4c3d89eb3cb1066057ae3bdf127765da35",
+      "lines": 976,
+      "status": "full-class-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          976
+        ]
+      ],
+      "unread_line_windows": [],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [
+        [
+          250,
+          976
+        ]
+      ],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "RelationshipTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/RelationshipTracker.cs",
+      "sha256": "e1d03fa375674ae30622fd97ca7616950014c0957a79e88bab564ebdbf85eaef",
+      "lines": 387,
+      "status": "full-class-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          387
+        ]
+      ],
+      "unread_line_windows": [],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "ThreatTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/ThreatTracker.cs",
+      "sha256": "7dc4e04561f1fbacb97b54383132256d572b2fa936d3b19ebfdfb9dd46580eab",
+      "lines": 574,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          416
+        ],
+        [
+          548,
+          573
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          417,
+          547
+        ],
+        [
+          574,
+          574
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [
+        [
+          183,
+          416
+        ]
+      ],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "PreyTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/PreyTracker.cs",
+      "sha256": "174722c899139b26f5cb2f4da495dd84462be864f3fcd31173a274db98887cb4",
+      "lines": 338,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          15,
+          80
+        ],
+        [
+          255,
+          325
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          14
+        ],
+        [
+          81,
+          254
+        ],
+        [
+          326,
+          338
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "UtilityComparer",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/UtilityComparer.cs",
+      "sha256": "feaea0e7133a9a1fe6e66ad90c2077729d1d010f02838379a1cdb42050889aa4",
+      "lines": 143,
+      "status": "full-class-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          143
+        ]
+      ],
+      "unread_line_windows": [],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "FriendTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/FriendTracker.cs",
+      "sha256": "b68fac830fb676ce774743e1ce9a36de9c274526c41dc15d79cefa23ffbf9903",
+      "lines": 252,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          220
+        ],
+        [
+          235,
+          251
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          221,
+          234
+        ],
+        [
+          252,
+          252
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [
+        [
+          1,
+          35
+        ]
+      ],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "SocialMemory",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/SocialMemory.cs",
+      "sha256": "56f6376f8fdea2e118ecb367b8b6433455f61d06b34fbf3c70294d0c089be592",
+      "lines": 260,
+      "status": "full-class-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          260
+        ]
+      ],
+      "unread_line_windows": [],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "LizardAI",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/LizardAI.cs",
+      "sha256": "298a555e4a3349772e2221f5f31727855b7741e72a82f652ed6ccec2e68a50ad",
+      "lines": 1910,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          530,
+          540
+        ],
+        [
+          600,
+          755
+        ],
+        [
+          765,
+          910
+        ],
+        [
+          955,
+          986
+        ],
+        [
+          1047,
+          1068
+        ],
+        [
+          1150,
+          1163
+        ],
+        [
+          1344,
+          1372
+        ],
+        [
+          1395,
+          1482
+        ],
+        [
+          1490,
+          1575
+        ],
+        [
+          1750,
+          1909
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          529
+        ],
+        [
+          541,
+          599
+        ],
+        [
+          756,
+          764
+        ],
+        [
+          911,
+          954
+        ],
+        [
+          987,
+          1046
+        ],
+        [
+          1069,
+          1149
+        ],
+        [
+          1164,
+          1343
+        ],
+        [
+          1373,
+          1394
+        ],
+        [
+          1483,
+          1489
+        ],
+        [
+          1576,
+          1749
+        ],
+        [
+          1910,
+          1910
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [
+        [
+          1490,
+          1575
+        ]
+      ],
+      "round_3_reviewed_line_windows": [
+        [
+          530,
+          540
+        ],
+        [
+          600,
+          622
+        ]
+      ],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "ScavengerAI",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/ScavengerAI.cs",
+      "sha256": "76b6eae257338ddbde04cd4988c631a373c9bccc7f75b02110f88468f2400500",
+      "lines": 3720,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          3720
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "RainTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/RainTracker.cs",
+      "sha256": "9734c1fdd6a428d64686e802575019a387e9efd748cb9522a25ede58164933e5",
+      "lines": 61,
+      "status": "full-class-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          61
+        ]
+      ],
+      "unread_line_windows": [],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "RainCycle",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/RainCycle.cs",
+      "sha256": "8ebd51fa54a7a96efc366cd383b21946e407defc57b9bff2bd18276b3d02205a",
+      "lines": 559,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          500,
+          558
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          499
+        ],
+        [
+          559,
+          559
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [
+        [
+          500,
+          558
+        ]
+      ],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "AbstractCreature",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreature.cs",
+      "sha256": "6a48651a49434e2b464ca048cae5d32539cb89eebdf2ea0c3b86ddb0056e8ba9",
+      "lines": 1758,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          426,
+          455
+        ],
+        [
+          575,
+          635
+        ],
+        [
+          715,
+          865
+        ],
+        [
+          1003,
+          1028
+        ],
+        [
+          1072,
+          1135
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          425
+        ],
+        [
+          456,
+          574
+        ],
+        [
+          636,
+          714
+        ],
+        [
+          866,
+          1002
+        ],
+        [
+          1029,
+          1071
+        ],
+        [
+          1136,
+          1758
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [
+        [
+          426,
+          455
+        ],
+        [
+          575,
+          635
+        ],
+        [
+          715,
+          748
+        ],
+        [
+          1072,
+          1135
+        ]
+      ],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "AbstractCreatureAI",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreatureAI.cs",
+      "sha256": "0d3cca2113b754a9921edd08e599f0b124c0f5d67693844c20ef888884933719",
+      "lines": 821,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          375,
+          445
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          374
+        ],
+        [
+          446,
+          821
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "Creature",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Creature.cs",
+      "sha256": "ac631a0dca85569e23bf242adff92601c4367c452f3e804bf27ee64d4c4510d9",
+      "lines": 1543,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          20,
+          150
+        ],
+        [
+          292,
+          322
+        ],
+        [
+          535,
+          552
+        ],
+        [
+          575,
+          605
+        ],
+        [
+          831,
+          904
+        ],
+        [
+          970,
+          990
+        ],
+        [
+          1101,
+          1255
+        ],
+        [
+          1312,
+          1365
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          19
+        ],
+        [
+          151,
+          291
+        ],
+        [
+          323,
+          534
+        ],
+        [
+          553,
+          574
+        ],
+        [
+          606,
+          830
+        ],
+        [
+          905,
+          969
+        ],
+        [
+          991,
+          1100
+        ],
+        [
+          1256,
+          1311
+        ],
+        [
+          1366,
+          1543
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [
+        [
+          292,
+          322
+        ],
+        [
+          535,
+          552
+        ],
+        [
+          575,
+          605
+        ],
+        [
+          1228,
+          1255
+        ]
+      ],
+      "round_3_reviewed_line_windows": [
+        [
+          1142,
+          1217
+        ],
+        [
+          1312,
+          1365
+        ]
+      ],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "CreatureTemplate",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureTemplate.cs",
+      "sha256": "87ff8ac9ad4b956f2e15937a9e0166fe1aef936e1c9d37fe047a09db33fdf716",
+      "lines": 1052,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          1052
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "DenFinder",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/DenFinder.cs",
+      "sha256": "897fbcc46d627b7196b48d32647cbd58a6fbcf328b9db94dd733050986f9ce0e",
+      "lines": 126,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          126
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "InjuryTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/InjuryTracker.cs",
+      "sha256": "c0100e07a3d480bc6d50f7fee1b8abb17770dfe7a0db7d5e52d1561ff148b6c7",
+      "lines": 27,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          27
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "NoiseTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/NoiseTracker.cs",
+      "sha256": "2e50e4a291d2415c01f2fa682e6046d3be4f92114e1da2807db3b417f10a68a0",
+      "lines": 348,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          348
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "StuckTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/StuckTracker.cs",
+      "sha256": "4bb01db09874c4d74a28adbf5c23236c94af95d2d2f0c75355e20c1c06ddb401",
+      "lines": 333,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          333
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "Lizard",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Lizard.cs",
+      "sha256": "d45d1c6dbdb5f039abc283915a81c53bf6a430e1a8b6681034a2761e2ef732a6",
+      "lines": 2979,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          1064,
+          1110
+        ],
+        [
+          1165,
+          1260
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          1063
+        ],
+        [
+          1111,
+          1164
+        ],
+        [
+          1261,
+          2979
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "AbstractRoom",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractRoom.cs",
+      "sha256": "7930fbc4f3876ed164a8e1897e6acf0968e2c83aae66aa96befe47aabb01c25e",
+      "lines": 891,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          350,
+          415
+        ],
+        [
+          424,
+          525
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          349
+        ],
+        [
+          416,
+          423
+        ],
+        [
+          526,
+          891
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [
+        [
+          350,
+          415
+        ],
+        [
+          424,
+          525
+        ]
+      ],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "World",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/World.cs",
+      "sha256": "349f51cf9485debdb019c12b30997515d27fe7377949f2547e312857d9c7e7ef",
+      "lines": 1447,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          308,
+          321
+        ],
+        [
+          400,
+          446
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          307
+        ],
+        [
+          322,
+          399
+        ],
+        [
+          447,
+          1447
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [
+        [
+          308,
+          321
+        ],
+        [
+          400,
+          446
+        ]
+      ],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "Room",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Room.cs",
+      "sha256": "f7c85fddded97f086befbff4163dcfe0ea6945aab912f663dd669bf413456a20",
+      "lines": 6428,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          2594,
+          2640
+        ],
+        [
+          4334,
+          4449
+        ],
+        [
+          4575,
+          4655
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          2593
+        ],
+        [
+          2641,
+          4333
+        ],
+        [
+          4450,
+          4574
+        ],
+        [
+          4656,
+          6428
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [
+        [
+          2594,
+          2640
+        ],
+        [
+          4334,
+          4449
+        ],
+        [
+          4575,
+          4655
+        ]
+      ],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "AbstractPhysicalObject",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractPhysicalObject.cs",
+      "sha256": "1a573d00540d3378472584ba70e2af975f80cc556d3442f49db56fad72e40a99",
+      "lines": 873,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          80,
+          200
+        ],
+        [
+          582,
+          640
+        ],
+        [
+          644,
+          692
+        ],
+        [
+          708,
+          756
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          79
+        ],
+        [
+          201,
+          581
+        ],
+        [
+          641,
+          643
+        ],
+        [
+          693,
+          707
+        ],
+        [
+          757,
+          873
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [
+        [
+          80,
+          200
+        ],
+        [
+          582,
+          640
+        ],
+        [
+          644,
+          692
+        ],
+        [
+          708,
+          756
+        ]
+      ],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "CreatureState",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureState.cs",
+      "sha256": "6259ee1a03a25efb1dc5e598cebf67bfe85886c875ee8f0974dca548f71eb555",
+      "lines": 178,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          30,
+          60
+        ],
+        [
+          100,
+          120
+        ],
+        [
+          165,
+          177
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          29
+        ],
+        [
+          61,
+          99
+        ],
+        [
+          121,
+          164
+        ],
+        [
+          178,
+          178
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "SocialEventRecognizer",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/SocialEventRecognizer.cs",
+      "sha256": "02bad4a3c73e4c709969b48c87e025a1b4e988a9c61ab09237186013299b4cb6",
+      "lines": 256,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          30,
+          114
+        ],
+        [
+          197,
+          250
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          29
+        ],
+        [
+          115,
+          196
+        ],
+        [
+          251,
+          256
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "LizardState",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/LizardState.cs",
+      "sha256": "20430b063c1cf3e9aa888761d95c7325a3f6f8c4206102c317f5177c977870de",
+      "lines": 140,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          140
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "AgressionTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AgressionTracker.cs",
+      "sha256": "48d6864ae902429705cc1c8f5cfac3a0b623021e362aa41cc381f4a70423caf7",
+      "lines": 155,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          155
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "CreatureCommunities",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureCommunities.cs",
+      "sha256": "19552939344b6238855e24f81a4e115c09f3248ef378795247645aace704f866",
+      "lines": 458,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          458
+        ]
+      ],
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_2_reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "PathFinder",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/PathFinder.cs",
+      "sha256": "f43e590011f276b6b03df14a7050b33a46ec3eca655bfcd59ef2bb3bd735905c",
+      "lines": 1870,
+      "reviewed_line_windows": [
+        [
+          1435,
+          1485
+        ],
+        [
+          1731,
+          1790
+        ],
+        [
+          1821,
+          1870
+        ]
+      ],
+      "round_2_reviewed_line_windows": [
+        [
+          1435,
+          1485
+        ],
+        [
+          1731,
+          1790
+        ],
+        [
+          1821,
+          1870
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          1434
+        ],
+        [
+          1486,
+          1730
+        ],
+        [
+          1791,
+          1820
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "LizardPather",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/LizardPather.cs",
+      "sha256": "dae38ba942cad95a0bd27be245bec3376c295b249f2ee1cb2592977923249f57",
+      "lines": 146,
+      "reviewed_line_windows": [
+        [
+          1,
+          146
+        ]
+      ],
+      "round_2_reviewed_line_windows": [
+        [
+          1,
+          146
+        ]
+      ],
+      "unread_line_windows": [],
+      "status": "full-class-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "RoomRain",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/RoomRain.cs",
+      "sha256": "df339a2252c752ddcae97a1a82a161ae0c053a9ee562b9c4745354b408594d85",
+      "lines": 655,
+      "reviewed_line_windows": [
+        [
+          60,
+          110
+        ],
+        [
+          311,
+          349
+        ],
+        [
+          465,
+          556
+        ]
+      ],
+      "round_2_reviewed_line_windows": [
+        [
+          60,
+          110
+        ],
+        [
+          311,
+          349
+        ],
+        [
+          465,
+          556
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          59
+        ],
+        [
+          111,
+          310
+        ],
+        [
+          350,
+          464
+        ],
+        [
+          557,
+          655
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "RainWorldGame",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/RainWorldGame.cs",
+      "sha256": "5fd8ba0f0acc1dbccc6903c055226c7c88ae1405d893e48b892136d62617383f",
+      "lines": 3299,
+      "reviewed_line_windows": [
+        [
+          1595,
+          1664
+        ],
+        [
+          1695,
+          1787
+        ],
+        [
+          1800,
+          1870
+        ],
+        [
+          2182,
+          2248
+        ],
+        [
+          2479,
+          2517
+        ],
+        [
+          2814,
+          2830
+        ]
+      ],
+      "round_2_reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          1594
+        ],
+        [
+          1665,
+          1694
+        ],
+        [
+          1788,
+          1799
+        ],
+        [
+          1871,
+          2181
+        ],
+        [
+          2249,
+          2478
+        ],
+        [
+          2518,
+          2813
+        ],
+        [
+          2831,
+          3299
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_3_reviewed_line_windows": [
+        [
+          2182,
+          2248
+        ]
+      ],
+      "round_4_reviewed_line_windows": [
+        [
+          1595,
+          1664
+        ],
+        [
+          1695,
+          1787
+        ],
+        [
+          1800,
+          1870
+        ],
+        [
+          2479,
+          2517
+        ],
+        [
+          2814,
+          2830
+        ]
+      ],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "BodyChunk",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/BodyChunk.cs",
+      "sha256": "d3492b107e43648e8262bf988bded4a751f24725549845be28840d696340d758",
+      "lines": 685,
+      "reviewed_line_windows": [
+        [
+          516,
+          534
+        ]
+      ],
+      "round_2_reviewed_line_windows": [
+        [
+          516,
+          534
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          515
+        ],
+        [
+          535,
+          685
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "PhysicalObject",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/PhysicalObject.cs",
+      "sha256": "49f04d1135a4371dc6c0052aff1c53163e875cadadfb51c8b8d07737516cf9ca",
+      "lines": 707,
+      "reviewed_line_windows": [
+        [
+          490,
+          520
+        ],
+        [
+          655,
+          676
+        ]
+      ],
+      "round_2_reviewed_line_windows": [
+        [
+          490,
+          520
+        ],
+        [
+          655,
+          676
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          489
+        ],
+        [
+          521,
+          654
+        ],
+        [
+          677,
+          707
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "GlobalRain",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/GlobalRain.cs",
+      "sha256": "28cf9185264f4f7dd912f04666c607e880c8316ab23d7bc049a7c077ef8aa058",
+      "lines": 567,
+      "reviewed_line_windows": [
+        [
+          53,
+          222
+        ],
+        [
+          269,
+          326
+        ],
+        [
+          457,
+          474
+        ]
+      ],
+      "round_2_reviewed_line_windows": [
+        [
+          53,
+          222
+        ],
+        [
+          269,
+          326
+        ],
+        [
+          457,
+          474
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          52
+        ],
+        [
+          223,
+          268
+        ],
+        [
+          327,
+          456
+        ],
+        [
+          475,
+          567
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "PathCost",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/PathCost.cs",
+      "sha256": "a708cf54b5c2f11a56f9607a568d39458381c39ac720511b13be7259e13f4ee9",
+      "lines": 125,
+      "reviewed_line_windows": [
+        [
+          1,
+          125
+        ]
+      ],
+      "round_2_reviewed_line_windows": [
+        [
+          1,
+          125
+        ]
+      ],
+      "unread_line_windows": [],
+      "status": "full-class-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "QuickConnectivity",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/QuickConnectivity.cs",
+      "sha256": "2eb8cde0cca1b3359378cc353a740060126ba84b02b1218229e3754521d5854b",
+      "lines": 419,
+      "reviewed_line_windows": [
+        [
+          97,
+          268
+        ]
+      ],
+      "round_2_reviewed_line_windows": [
+        [
+          97,
+          268
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          96
+        ],
+        [
+          269,
+          419
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "PathfinderResourceDivider",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/PathfinderResourceDivider.cs",
+      "sha256": "8c8b42f7965fd83e262a3df8d499e3ef79d9ada13e54a08d8099542036b7373c",
+      "lines": 49,
+      "reviewed_line_windows": [
+        [
+          1,
+          49
+        ]
+      ],
+      "round_2_reviewed_line_windows": [
+        [
+          1,
+          49
+        ]
+      ],
+      "unread_line_windows": [],
+      "status": "full-class-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_3_reviewed_line_windows": [],
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "SaveState",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+      "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+      "lines": 2426,
+      "reviewed_line_windows": [
+        [
+          285,
+          555
+        ],
+        [
+          632,
+          877
+        ],
+        [
+          903,
+          950
+        ],
+        [
+          1524,
+          1548
+        ],
+        [
+          1923,
+          2020
+        ],
+        [
+          2284,
+          2318
+        ]
+      ],
+      "round_3_reviewed_line_windows": [
+        [
+          392,
+          445
+        ],
+        [
+          632,
+          670
+        ],
+        [
+          1923,
+          2020
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          284
+        ],
+        [
+          556,
+          631
+        ],
+        [
+          878,
+          902
+        ],
+        [
+          951,
+          1523
+        ],
+        [
+          1549,
+          1922
+        ],
+        [
+          2021,
+          2283
+        ],
+        [
+          2319,
+          2426
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_4_reviewed_line_windows": [
+        [
+          285,
+          555
+        ],
+        [
+          665,
+          877
+        ],
+        [
+          903,
+          950
+        ],
+        [
+          1524,
+          1548
+        ],
+        [
+          2284,
+          2318
+        ]
+      ],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "PlayerProgression",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/PlayerProgression.cs",
+      "sha256": "c70263fc9578a68b21254028b4621f16c11b277defbc202296df937470b24c0e",
+      "lines": 3581,
+      "reviewed_line_windows": [
+        [
+          2102,
+          2118
+        ],
+        [
+          2274,
+          2405
+        ],
+        [
+          2474,
+          2615
+        ],
+        [
+          2650,
+          2670
+        ],
+        [
+          2690,
+          2710
+        ],
+        [
+          2765,
+          2875
+        ],
+        [
+          2945,
+          3086
+        ]
+      ],
+      "round_3_reviewed_line_windows": [
+        [
+          2363,
+          2405
+        ],
+        [
+          2491,
+          2538
+        ],
+        [
+          2690,
+          2710
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          2101
+        ],
+        [
+          2119,
+          2273
+        ],
+        [
+          2406,
+          2473
+        ],
+        [
+          2616,
+          2649
+        ],
+        [
+          2671,
+          2689
+        ],
+        [
+          2711,
+          2764
+        ],
+        [
+          2876,
+          2944
+        ],
+        [
+          3087,
+          3581
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_4_reviewed_line_windows": [
+        [
+          2274,
+          2363
+        ],
+        [
+          2474,
+          2518
+        ],
+        [
+          2538,
+          2615
+        ],
+        [
+          2650,
+          2670
+        ],
+        [
+          2945,
+          3086
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          2102,
+          2118
+        ],
+        [
+          2765,
+          2875
+        ]
+      ]
+    },
+    {
+      "type": "RegionState",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+      "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+      "lines": 1560,
+      "reviewed_line_windows": [
+        [
+          405,
+          425
+        ],
+        [
+          737,
+          782
+        ],
+        [
+          1024,
+          1072
+        ],
+        [
+          1100,
+          1174
+        ],
+        [
+          1188,
+          1325
+        ],
+        [
+          1360,
+          1382
+        ],
+        [
+          1404,
+          1432
+        ],
+        [
+          1480,
+          1530
+        ]
+      ],
+      "round_3_reviewed_line_windows": [
+        [
+          737,
+          782
+        ],
+        [
+          1024,
+          1072
+        ],
+        [
+          1100,
+          1138
+        ],
+        [
+          1188,
+          1222
+        ],
+        [
+          1418,
+          1432
+        ],
+        [
+          1480,
+          1530
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          404
+        ],
+        [
+          426,
+          736
+        ],
+        [
+          783,
+          1023
+        ],
+        [
+          1073,
+          1099
+        ],
+        [
+          1175,
+          1187
+        ],
+        [
+          1326,
+          1359
+        ],
+        [
+          1383,
+          1403
+        ],
+        [
+          1433,
+          1479
+        ],
+        [
+          1531,
+          1560
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_4_reviewed_line_windows": [
+        [
+          405,
+          425
+        ],
+        [
+          1139,
+          1174
+        ],
+        [
+          1216,
+          1325
+        ],
+        [
+          1360,
+          1382
+        ],
+        [
+          1404,
+          1419
+        ]
+      ],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "WorldLoader",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/WorldLoader.cs",
+      "sha256": "8070274e687b448046a0e4c505098f850a9d3cdabd362ff51dcc7b99813b0241",
+      "lines": 2137,
+      "reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          2137
+        ]
+      ],
+      "status": "captured-unread",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "SaveUtils",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveUtils.cs",
+      "sha256": "c95da2366fdb300f8a41ad77aa599e02a296c833734191b9e3f49f39a6fde4f1",
+      "lines": 206,
+      "reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          206
+        ]
+      ],
+      "status": "captured-unread",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "MiscWorldSaveData",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/MiscWorldSaveData.cs",
+      "sha256": "4987039568fc17a30084d28aced5b1440fb36ddd450626751d4427818d4a76a5",
+      "lines": 1003,
+      "reviewed_line_windows": [],
+      "round_3_reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          1003
+        ]
+      ],
+      "status": "captured-unread",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "DeathPersistentSaveData",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/DeathPersistentSaveData.cs",
+      "sha256": "14c13e737a2636c5e22b6f4986c86c2f15aef8c3c9140a8e8b3eb652fc3bedb3",
+      "lines": 1355,
+      "reviewed_line_windows": [
+        [
+          563,
+          591
+        ],
+        [
+          620,
+          640
+        ],
+        [
+          666,
+          680
+        ],
+        [
+          715,
+          728
+        ]
+      ],
+      "round_3_reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          562
+        ],
+        [
+          592,
+          619
+        ],
+        [
+          641,
+          665
+        ],
+        [
+          681,
+          714
+        ],
+        [
+          729,
+          1355
+        ]
+      ],
+      "status": "selected-windows-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_4_reviewed_line_windows": [
+        [
+          563,
+          591
+        ],
+        [
+          620,
+          640
+        ],
+        [
+          666,
+          680
+        ],
+        [
+          715,
+          728
+        ]
+      ],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "UpdatableAndDeletable",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/UpdatableAndDeletable.cs",
+      "sha256": "2d8c2d7f574b842caa31c9cccf75a144921ad83b05c9f8e7c70bc81bc522b0bc",
+      "lines": 27,
+      "reviewed_line_windows": [
+        [
+          1,
+          27
+        ]
+      ],
+      "round_3_reviewed_line_windows": [
+        [
+          1,
+          27
+        ]
+      ],
+      "unread_line_windows": [],
+      "status": "full-class-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "AbstractWorldEntity",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/AbstractWorldEntity.cs",
+      "sha256": "1ea2132d5e0402734d0381afaeecd4accada8f98cc331df8f97356ccbfc9968e",
+      "lines": 49,
+      "reviewed_line_windows": [
+        [
+          1,
+          49
+        ]
+      ],
+      "round_3_reviewed_line_windows": [
+        [
+          1,
+          49
+        ]
+      ],
+      "unread_line_windows": [],
+      "status": "full-class-read",
+      "note": "Cumulative auditor reading at exact matching source hash. Not semantic closure of callers, overrides or native behavior.",
+      "round_4_reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "WinState",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/audit/WinState.cs",
+      "sha256": "90d166d409b8d55e554462a62fb2793e6b0844a8d9cce20d7784ffbeaad1a02b",
+      "lines": 1507,
+      "reviewed_line_windows": [
+        [
+          150,
+          212
+        ],
+        [
+          808,
+          877
+        ],
+        [
+          978,
+          1394
+        ]
+      ],
+      "round_4_reviewed_line_windows": [
+        [
+          150,
+          212
+        ],
+        [
+          808,
+          877
+        ],
+        [
+          1018,
+          1394
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          149
+        ],
+        [
+          213,
+          807
+        ],
+        [
+          878,
+          977
+        ],
+        [
+          1395,
+          1507
+        ]
+      ],
+      "status": "selected-windows-read",
+      "round_5_reviewed_line_windows": [
+        [
+          978,
+          1028
+        ]
+      ]
+    },
+    {
+      "type": "StoryGameSession",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/audit/StoryGameSession.cs",
+      "sha256": "7c9d5a9d58813fc726b08de322c88d634545aca9429c5c3f7d8b93332b32a50b",
+      "lines": 407,
+      "reviewed_line_windows": [
+        [
+          134,
+          147
+        ],
+        [
+          156,
+          170
+        ],
+        [
+          378,
+          407
+        ]
+      ],
+      "round_4_reviewed_line_windows": [
+        [
+          156,
+          170
+        ],
+        [
+          378,
+          407
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          133
+        ],
+        [
+          148,
+          155
+        ],
+        [
+          171,
+          377
+        ]
+      ],
+      "status": "selected-windows-read",
+      "round_5_reviewed_line_windows": [
+        [
+          134,
+          147
+        ]
+      ]
+    },
+    {
+      "type": "Player",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/extraction/source/Player.cs",
+      "sha256": "2b3c85e094572803481e287048431044ff83829d848c1a9f84ac0ac65739facb",
+      "lines": 14917,
+      "reviewed_line_windows": [
+        [
+          5634,
+          5650
+        ],
+        [
+          7070,
+          7144
+        ]
+      ],
+      "round_4_reviewed_line_windows": [
+        [
+          5634,
+          5650
+        ],
+        [
+          7070,
+          7144
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          5633
+        ],
+        [
+          5651,
+          7069
+        ],
+        [
+          7145,
+          14917
+        ]
+      ],
+      "status": "selected-windows-read",
+      "round_5_reviewed_line_windows": []
+    },
+    {
+      "type": "Modding.Passages.CustomPassage",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Modding.Passages.CustomPassage.cs",
+      "sha256": "430d4db5eb0973768c947cd4b4cbbce8a6e46add5efe987485f934e8d4521764",
+      "lines": 58,
+      "reviewed_line_windows": [
+        [
+          1,
+          58
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          1,
+          58
+        ]
+      ],
+      "unread_line_windows": [],
+      "status": "full-class-read"
+    },
+    {
+      "type": "Modding.Passages.CustomPassages",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Modding.Passages.CustomPassages.cs",
+      "sha256": "5e52f9d9cba72417d17a69b2ce2bd83fbf3a45b3576f83a2078afd5f721e032c",
+      "lines": 28,
+      "reviewed_line_windows": [
+        [
+          1,
+          28
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          1,
+          28
+        ]
+      ],
+      "unread_line_windows": [],
+      "status": "full-class-read"
+    },
+    {
+      "type": "Expedition.AchievementChallenge",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Expedition.AchievementChallenge.cs",
+      "sha256": "aac319e40a8588a4c56b4beb31e76d5d2f6788f5f42d6e94dbff09751e1c8caf",
+      "lines": 190,
+      "reviewed_line_windows": [
+        [
+          1,
+          190
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          1,
+          190
+        ]
+      ],
+      "unread_line_windows": [],
+      "status": "full-class-read"
+    },
+    {
+      "type": "Expedition.Expedition",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Expedition.Expedition.cs",
+      "sha256": "e8f61afc84a244eaf4a45099e1c40d28932bb678aa5a21e4f2fb7eeb77c0e8c3",
+      "lines": 160,
+      "reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          160
+        ]
+      ],
+      "status": "captured-unread"
+    },
+    {
+      "type": "Expedition.ExpeditionCoreFile",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Expedition.ExpeditionCoreFile.cs",
+      "sha256": "c093a4462f38d41816c728618888a54d13fe64d605a5b83ab37541304286e522",
+      "lines": 865,
+      "reviewed_line_windows": [
+        [
+          44,
+          290
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          44,
+          290
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          43
+        ],
+        [
+          291,
+          865
+        ]
+      ],
+      "status": "selected-windows-read"
+    },
+    {
+      "type": "Expedition.ExpeditionData",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Expedition.ExpeditionData.cs",
+      "sha256": "7e41cac500875d71dbafda61c82b6101e0395c734d05097de080139fa5a0bf58",
+      "lines": 202,
+      "reviewed_line_windows": [
+        [
+          100,
+          202
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          100,
+          202
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          99
+        ]
+      ],
+      "status": "selected-windows-read"
+    },
+    {
+      "type": "Expedition.Challenge",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Expedition.Challenge.cs",
+      "sha256": "dcdd897f30ca900b7dea28851b409f0f741aa80d79681461b47198aa6e46f1f7",
+      "lines": 196,
+      "reviewed_line_windows": [
+        [
+          1,
+          130
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          1,
+          130
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          131,
+          196
+        ]
+      ],
+      "status": "selected-windows-read"
+    },
+    {
+      "type": "Menu.SlugcatSelectMenu",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Menu.SlugcatSelectMenu.cs",
+      "sha256": "b0dc9e2ffaaaabdfdf8a827285eeb09f14b25973560d3475cf626233bfacbe48",
+      "lines": 2234,
+      "reviewed_line_windows": [
+        [
+          1556,
+          1644
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          1556,
+          1644
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          1555
+        ],
+        [
+          1645,
+          2234
+        ]
+      ],
+      "status": "selected-windows-read"
+    },
+    {
+      "type": "WarpPoint",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/WarpPoint.cs",
+      "sha256": "bd85c08d37cfbfcac3921d8294a573e720089e1033d6ca7a3a57eeb1c5de352d",
+      "lines": 3613,
+      "reviewed_line_windows": [
+        [
+          3207,
+          3265
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          3207,
+          3265
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          3206
+        ],
+        [
+          3266,
+          3613
+        ]
+      ],
+      "status": "selected-windows-read"
+    },
+    {
+      "type": "ProcessManager",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/extraction/source/ProcessManager.cs",
+      "sha256": "fe3a43e9787ff691f3f329528fe4961c266658e59c93eb58fbf4b510819f6686",
+      "lines": 1459,
+      "reviewed_line_windows": [
+        [
+          974,
+          1012
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          974,
+          1012
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          973
+        ],
+        [
+          1013,
+          1459
+        ]
+      ],
+      "status": "selected-windows-read"
+    },
+    {
+      "type": "RainWorld",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/extraction/source/RainWorld.cs",
+      "sha256": "74ef33bb13eadf2fc857a27724d0a6eac837ee769ac13c7840eb4d6b252d83f4",
+      "lines": 3069,
+      "reviewed_line_windows": [],
+      "round_5_reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          3069
+        ]
+      ],
+      "status": "captured-unread"
+    },
+    {
+      "type": "MainLoopProcess",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/extraction/source/MainLoopProcess.cs",
+      "sha256": "f5a703c095b21ed9ec7141ce57a18ce0940df2ba97aceaa806825008fd0fe36f",
+      "lines": 75,
+      "reviewed_line_windows": [
+        [
+          1,
+          75
+        ]
+      ],
+      "round_5_reviewed_line_windows": [
+        [
+          1,
+          75
+        ]
+      ],
+      "unread_line_windows": [],
+      "status": "full-class-read"
+    }
+  ],
+  "support_sources": [
+    {
+      "type": "UnityEngine.Mathf",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/UnityEngine.Mathf.cs",
+      "sha256": "e31688ffb5c7e65d48b6962a21d78d9421c1829533de170e8fc8a27b41548f6d",
+      "lines": 519,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/UnityEngine.CoreModule.dll",
+      "input_sha256": "3c97d6e8d9d9f2f26928fd1c5c2ec7752bd1394f744d58bce59d4e45a1d09b55",
+      "reviewed_line_windows": [
+        [
+          298,
+          310
+        ],
+        [
+          330,
+          350
+        ],
+        [
+          444,
+          452
+        ]
+      ]
+    },
+    {
+      "type": "RoomRain IL method",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/RoomRain.il",
+      "sha256": "25e7441b1a4077c5a57ac0ab1199b0be58650bf60e30ec9d1c95f4567ce9c86b",
+      "reviewed_line_windows": [
+        [
+          299014,
+          299124
+        ]
+      ],
+      "note": "Whole-assembly IL output; only the named method window was read."
+    },
+    {
+      "type": "Kittehface.Framework20.UserData",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/Kittehface.Framework20.UserData.cs",
+      "sha256": "c4e0adc950621166d649ef4fca85f896dc036e4d76b522fd0c163d3111ec489f",
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp-firstpass.dll",
+      "input_sha256": "7180da54e10bcff9e068d04fc067f5a5225029d147120df24814dab909b442db",
+      "bytes": 81170,
+      "lines": 3063,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Kittehface.Framework20.UserData",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp-firstpass.dll"
+      ],
+      "reviewed_windows": [
+        [
+          229,
+          250
+        ],
+        [
+          336,
+          359
+        ],
+        [
+          390,
+          434
+        ],
+        [
+          793,
+          920
+        ],
+        [
+          936,
+          1176
+        ],
+        [
+          1280,
+          1340
+        ],
+        [
+          1480,
+          1570
+        ],
+        [
+          1874,
+          2015
+        ],
+        [
+          2730,
+          2760
+        ],
+        [
+          2890,
+          2930
+        ]
+      ],
+      "unread_windows": [
+        [
+          1,
+          228
+        ],
+        [
+          251,
+          335
+        ],
+        [
+          360,
+          389
+        ],
+        [
+          435,
+          792
+        ],
+        [
+          921,
+          935
+        ],
+        [
+          1177,
+          1279
+        ],
+        [
+          1341,
+          1479
+        ],
+        [
+          1571,
+          1873
+        ],
+        [
+          2016,
+          2729
+        ],
+        [
+          2761,
+          2889
+        ],
+        [
+          2931,
+          3063
+        ]
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_line_windows": [
+        [
+          332,
+          350
+        ],
+        [
+          1040,
+          1105
+        ],
+        [
+          1350,
+          1395
+        ],
+        [
+          1500,
+          1555
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          331
+        ],
+        [
+          351,
+          1039
+        ],
+        [
+          1106,
+          1349
+        ],
+        [
+          1396,
+          1499
+        ],
+        [
+          1556,
+          3063
+        ]
+      ]
+    }
+  ],
+  "aliases": [
+    {
+      "requested_type": "DeathRain",
+      "canonical_export": "GlobalRain",
+      "why": "Exact duplicate source output containing nested GlobalRain.DeathRain; not another outer class."
+    }
+  ]
+}

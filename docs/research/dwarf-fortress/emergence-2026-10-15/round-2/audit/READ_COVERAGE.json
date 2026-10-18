@@ -1,0 +1,383 @@
+{
+  "status": "cumulative-prior-auditor-plus-round-2-selected-reads",
+  "source_root": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable",
+  "sources": [
+    {
+      "id": "S01",
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+      "sha256": "194260944c5d741904119b22d5e40c310ec819dcfb2492d9c4eadb90e57c329d",
+      "lines": 287,
+      "read_spans": [
+        [
+          1,
+          287
+        ]
+      ],
+      "layer": "shipped-readable-generator",
+      "prior_read_spans": [
+        [
+          1,
+          283
+        ]
+      ],
+      "round_2_read_spans": [
+        [
+          280,
+          287
+        ]
+      ]
+    },
+    {
+      "id": "S02",
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+      "sha256": "e810e5e7e378fea023292947c0e32e32d8228887aaef7e5cc9b4f6ccaf4bcca6",
+      "lines": 96,
+      "read_spans": [
+        [
+          1,
+          96
+        ]
+      ],
+      "layer": "shipped-readable-generator"
+    },
+    {
+      "id": "S03",
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+      "sha256": "5c0fef4646de9febb15b6c784c62515e897d8989ce1a5583952c3bb7e3bf1c85",
+      "lines": 130,
+      "read_spans": [
+        [
+          1,
+          130
+        ]
+      ],
+      "layer": "shipped-readable-generator"
+    },
+    {
+      "id": "S04",
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/disturbance.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_procedural/scripts/generators/interactions/disturbance.lua",
+      "sha256": "c228021b8e7fe6107268ca5f58555c2cc925098c41aeacd415a3200e4c646722",
+      "lines": 135,
+      "read_spans": [
+        [
+          1,
+          135
+        ]
+      ],
+      "layer": "shipped-readable-generator"
+    },
+    {
+      "id": "S05",
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+      "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+      "lines": 352,
+      "read_spans": [
+        [
+          1,
+          352
+        ]
+      ],
+      "layer": "shipped-readable-generator"
+    },
+    {
+      "id": "S06",
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+      "sha256": "5da7788e431235b0b53f55fe751cda617757f05a599defcbe9428b871ffc199a",
+      "lines": 187,
+      "read_spans": [
+        [
+          1,
+          187
+        ]
+      ],
+      "layer": "shipped-readable-generator"
+    },
+    {
+      "id": "S07",
+      "file": "data/init/generators.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/init/generators.lua",
+      "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+      "lines": 827,
+      "read_spans": [
+        [
+          584,
+          685
+        ],
+        [
+          690,
+          810
+        ]
+      ],
+      "layer": "shipped-readable-generator",
+      "prior_read_spans": [
+        [
+          584,
+          685
+        ]
+      ],
+      "round_2_read_spans": [
+        [
+          690,
+          810
+        ]
+      ]
+    },
+    {
+      "id": "S08",
+      "file": "data/init/globals.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/init/globals.lua",
+      "sha256": "b21219682ced612fd6f5d651bb2bf921bea44fd0d1045ea7cb671449b4cd8afe",
+      "lines": 638,
+      "read_spans": [
+        [
+          1,
+          48
+        ],
+        [
+          250,
+          284
+        ]
+      ],
+      "layer": "shipped-readable-generator",
+      "prior_read_spans": [
+        [
+          250,
+          284
+        ]
+      ],
+      "round_2_read_spans": [
+        [
+          1,
+          48
+        ]
+      ]
+    },
+    {
+      "id": "S09",
+      "file": "data/vanilla/vanilla_procedural/scripts/init.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_procedural/scripts/init.lua",
+      "sha256": "02d4dca148423d57723087a26f5b8310c4ad87610a8ac3833c23910d0f31a481",
+      "lines": 277,
+      "read_spans": [
+        [
+          1,
+          99
+        ],
+        [
+          140,
+          277
+        ]
+      ],
+      "layer": "shipped-readable-generator"
+    },
+    {
+      "id": "S10",
+      "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+      "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+      "lines": 564,
+      "read_spans": [
+        [
+          1,
+          70
+        ],
+        [
+          165,
+          280
+        ],
+        [
+          333,
+          437
+        ],
+        [
+          439,
+          550
+        ]
+      ],
+      "layer": "shipped-raw-definition",
+      "prior_read_spans": [
+        [
+          1,
+          70
+        ],
+        [
+          265,
+          280
+        ],
+        [
+          333,
+          437
+        ]
+      ],
+      "round_2_read_spans": [
+        [
+          165,
+          265
+        ],
+        [
+          439,
+          550
+        ]
+      ]
+    },
+    {
+      "id": "S11",
+      "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_plants/objects/plant_standard.txt",
+      "sha256": "a37db5f3070d7f2f192a8a29c303a18f90c68f416e134518d60e0aa7a4d40cdd",
+      "lines": 2623,
+      "read_spans": [
+        [
+          1,
+          110
+        ]
+      ],
+      "layer": "shipped-raw-definition"
+    },
+    {
+      "id": "S12",
+      "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_entities/objects/entity_default.txt",
+      "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+      "lines": 2238,
+      "read_spans": [
+        [
+          230,
+          260
+        ],
+        [
+          625,
+          700
+        ]
+      ],
+      "layer": "shipped-raw-definition"
+    },
+    {
+      "id": "S13",
+      "file": "data/vanilla/vanilla_items/objects/item_tool.txt",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_items/objects/item_tool.txt",
+      "sha256": "bc8d44d01c54012401abf85ad3b35acbee26cb42c5079083ce1c85bf574a4338",
+      "lines": 362,
+      "read_spans": [
+        [
+          236,
+          278
+        ]
+      ],
+      "layer": "shipped-raw-definition"
+    },
+    {
+      "id": "S14",
+      "file": "data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+      "sha256": "b34c86c1124b767943541eddbcdd3fc091a29fca41f48502d1862924ddf96509",
+      "lines": 5732,
+      "read_spans": [
+        [
+          180,
+          310
+        ]
+      ],
+      "layer": "shipped-raw-definition"
+    },
+    {
+      "id": "S15",
+      "file": "data/vanilla/vanilla_materials/objects/material_template_default.txt",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_materials/objects/material_template_default.txt",
+      "sha256": "07c937aa68f6bf6fad8bfb79f97a44a31326bb58cef86346b4d07d16dad4bb9a",
+      "lines": 3298,
+      "read_spans": [
+        [
+          2441,
+          2497
+        ]
+      ],
+      "layer": "shipped-raw-definition",
+      "purpose": "independent-spot-check-of-extraction-trace"
+    },
+    {
+      "id": "S16",
+      "file": "data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+      "sha256": "911ee0676078fa3811397e84e323c0e968524408a1a900b0ac04dd38860f6ea8",
+      "lines": 413,
+      "read_spans": [
+        [
+          5,
+          69
+        ]
+      ],
+      "layer": "shipped-raw-definition",
+      "purpose": "independent-spot-check-of-extraction-trace"
+    },
+    {
+      "id": "S17",
+      "file": "data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+      "sha256": "44e741a28878a9ce11af484b484680ed680b0649d9b389c63d7da1670c55e6bd",
+      "lines": 214,
+      "read_spans": [
+        [
+          139,
+          158
+        ]
+      ],
+      "layer": "shipped-raw-definition",
+      "purpose": "independent-spot-check-of-extraction-trace"
+    },
+    {
+      "id": "S18",
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+      "sha256": "281774a9f1f1ab19e073a85d3e34ba36537d3796439fbbff83e385c9e8d399e6",
+      "lines": 437,
+      "read_spans": [
+        [
+          1,
+          436
+        ]
+      ],
+      "layer": "shipped-readable-generator",
+      "prior_read_spans": [],
+      "round_2_read_spans": [
+        [
+          1,
+          436
+        ]
+      ]
+    },
+    {
+      "id": "S19",
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/mythical.lua",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/readable/data/vanilla/vanilla_procedural/scripts/generators/interactions/mythical.lua",
+      "sha256": "9520698d319990d53bd88d2e543a32d1a593143b9de695489a911ee7b37c6d87",
+      "lines": 299,
+      "read_spans": [
+        [
+          1,
+          298
+        ]
+      ],
+      "layer": "shipped-readable-generator",
+      "prior_read_spans": [],
+      "round_2_read_spans": [
+        [
+          1,
+          298
+        ]
+      ]
+    }
+  ],
+  "limits": [
+    "Only listed windows were reviewed.",
+    "Search hits and extraction do not count as semantic reading.",
+    "No native AI, scheduler, syndrome, inventory or serializer consumer recovered."
+  ],
+  "prior_ledger": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/audit/READ_COVERAGE.json"
+}

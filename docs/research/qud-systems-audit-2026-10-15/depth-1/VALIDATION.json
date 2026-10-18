@@ -1,0 +1,596 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "checks": {
+    "requested_types": 403,
+    "complete_nonempty_source_classes": 388,
+    "capture_statuses": {
+      "reused": 38,
+      "missing-type": 15,
+      "exported": 350
+    },
+    "cybernetics_types": 63,
+    "skills_rows_resolve_to_full_source": 21,
+    "powers_rows_resolve_to_full_source": 123,
+    "mutations_rows_resolve_to_full_source": 132,
+    "local_links": 94,
+    "private_files_ignored": 1152,
+    "authored_fixture_records": 21
+  },
+  "errors": [],
+  "links": [
+    {
+      "document": "REPORT.md",
+      "label": "wider systems audit",
+      "target": "../REPORT.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Skills and consumers",
+      "target": "SKILLS.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Mutation mechanisms and formulas",
+      "target": "MUTATIONS.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Cybernetic mechanisms",
+      "target": "CYBERNETICS.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Sixteen combinations, NPC ladder and ranked further research",
+      "target": "COMBINATIONS_AND_NPC.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Coverage",
+      "target": "COVERAGE.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Validation",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "The broad inherited blueprint catalog",
+      "target": "../private/CYBERNETIC_BLUEPRINTS.json",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsBiodynamicPowerPlant",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsBiodynamicPowerPlant.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "IntegratedPowerSystems",
+      "target": "../private/depth-1/source/XRL.World.Parts.IntegratedPowerSystems.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "ElectricalGeneration",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.ElectricalGeneration.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsPalladiumElectrodeposits",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsPalladiumElectrodeposits.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "GetAvailableComputePowerEvent",
+      "target": "../private/depth-1/source/XRL.World.GetAvailableComputePowerEvent.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsMicromanipulatorArray",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsMicromanipulatorArray.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "Tinkering_DeployTurret L98-104",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Tinkering_DeployTurret.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsMotorizedTreads",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsMotorizedTreads.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsGunRack",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsGunRack.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsEquipmentRack",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsEquipmentRack.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsTibularHydrojets",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsTibularHydrojets.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsSyncJump",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsSyncJump.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsPrecisionForceLathe L102-183",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsPrecisionForceLathe.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsAutomatedInternalDefibrillator",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsAutomatedInternalDefibrillator.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsMedassistModule L262-428",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsMedassistModule.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsPenetratingRadar",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsPenetratingRadar.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsNightVision",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsNightVision.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsPhaseHarmonicModulator",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsPhaseHarmonicModulator.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsForcefieldNullifier",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsForcefieldNullifier.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsStasisProjector L60-94,114-180,244-305",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsStasisProjector.cs",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "Exact complete fixture nodes",
+      "target": "../private/depth-1/NPC_FIXTURES.json",
+      "exists": true
+    },
+    {
+      "document": "CYBERNETICS.md",
+      "label": "CyberneticsHasRandomImplants",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsHasRandomImplants.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "original skill/power tables",
+      "target": "../private/POWERS.json",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Axe_Cleave",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Axe_Cleave.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "ShatterArmor L122-203",
+      "target": "../private/depth-1/source/XRL.World.Effects.ShatterArmor.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Axe_Berserk",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Axe_Berserk.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Berserk",
+      "target": "../private/depth-1/source/XRL.World.Effects.Berserk.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Axe_Dismember L67-185,280-339",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Axe_Dismember.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Axe_Decapitate L1-130",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Axe_Decapitate.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "ShortBlades_Bloodletter",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.ShortBlades_Bloodletter.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "ShortBlades_Shank",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.ShortBlades_Shank.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "ShortBlades_Jab",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.ShortBlades_Jab.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Multiweapon_Proficiency",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Multiweapon_Proficiency.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Multiweapon_Expertise",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Multiweapon_Expertise.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Multiweapon_Mastery",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Multiweapon_Mastery.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Multiweapon_Flurry",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Multiweapon_Flurry.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "SingleWeaponFighting_Ability",
+      "target": "../private/depth-1/source/XRL.World.Parts.SingleWeaponFighting_Ability.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "SingleWeaponFighting_WeaponExpertise",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.SingleWeaponFighting_WeaponExpertise.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "SingleWeaponFighting_WeaponMastery",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.SingleWeaponFighting_WeaponMastery.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "SingleWeaponFighting_PenetratingStrikes",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.SingleWeaponFighting_PenetratingStrikes.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Combat L713-780",
+      "target": "../private/depth-1/source/XRL.World.Parts.Combat.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "SingleWeaponFighting_OpportuneAttacks",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.SingleWeaponFighting_OpportuneAttacks.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Axe_Berserk",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Axe_Berserk.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Cudgel_Bludgeon",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Cudgel_Bludgeon.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Cudgel_Conk",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Cudgel_Conk.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Dazed L1-150",
+      "target": "../private/depth-1/source/XRL.World.Effects.Dazed.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Combat L60-136,648-704",
+      "target": "../private/depth-1/source/XRL.World.Parts.Combat.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Rifle_DrawABead",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Rifle_DrawABead.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "RifleMark",
+      "target": "../private/depth-1/source/XRL.World.Effects.RifleMark.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Rifle_OneShot",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Rifle_OneShot.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "MissileWeapon L1780-1820,2775-2808,3355-3388",
+      "target": "../private/depth-1/source/XRL.World.Parts.MissileWeapon.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Discipline_Meditate",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Discipline_Meditate.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Meditating",
+      "target": "../private/depth-1/source/XRL.World.Effects.Meditating.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Physic_StaunchWounds",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Physic_StaunchWounds.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Tinkering_DeployTurret",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Tinkering_DeployTurret.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "BaseTerrainSurvivalSkill",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.BaseTerrainSurvivalSkill.cs",
+      "exists": true
+    },
+    {
+      "document": "SKILLS.md",
+      "label": "Stomach L73-88,263-280",
+      "target": "../private/depth-1/source/XRL.World.Parts.Stomach.cs",
+      "exists": true
+    },
+    {
+      "document": "COMBINATIONS_AND_NPC.md",
+      "label": "S: skill evidence",
+      "target": "SKILLS.md",
+      "exists": true
+    },
+    {
+      "document": "COMBINATIONS_AND_NPC.md",
+      "label": "M: mutation evidence",
+      "target": "MUTATIONS.md",
+      "exists": true
+    },
+    {
+      "document": "COMBINATIONS_AND_NPC.md",
+      "label": "C: cybernetic evidence",
+      "target": "CYBERNETICS.md",
+      "exists": true
+    },
+    {
+      "document": "COMBINATIONS_AND_NPC.md",
+      "label": "The private fixture corpus",
+      "target": "../private/depth-1/NPC_FIXTURES.json",
+      "exists": true
+    },
+    {
+      "document": "COVERAGE.md",
+      "label": "EXPORTS",
+      "target": "../private/depth-1/EXPORTS.json",
+      "exists": true
+    },
+    {
+      "document": "COVERAGE.md",
+      "label": "source directory",
+      "target": "../private/depth-1/source",
+      "exists": true
+    },
+    {
+      "document": "COVERAGE.md",
+      "label": "CODE_NAVIGATION",
+      "target": "../private/depth-1/CODE_NAVIGATION.json",
+      "exists": true
+    },
+    {
+      "document": "COVERAGE.md",
+      "label": "READS",
+      "target": "../private/depth-1/READS.jsonl",
+      "exists": true
+    },
+    {
+      "document": "COVERAGE.md",
+      "label": "COVERAGE",
+      "target": "../private/depth-1/COVERAGE.json",
+      "exists": true
+    },
+    {
+      "document": "COVERAGE.md",
+      "label": "NPC_FIXTURES",
+      "target": "../private/depth-1/NPC_FIXTURES.json",
+      "exists": true
+    },
+    {
+      "document": "COVERAGE.md",
+      "label": "Original tables",
+      "target": "../SYSTEM_CATALOG.md",
+      "exists": true
+    },
+    {
+      "document": "COVERAGE.md",
+      "label": "Validation",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "Full original rows",
+      "target": "../private/MUTATIONS.json",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "source coverage",
+      "target": "COVERAGE.md",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "HeightenedStrength",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.HeightenedStrength.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "HeightenedAgility",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.HeightenedAgility.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "TwoHearted",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.TwoHearted.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "HeightenedSpeed",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.HeightenedSpeed.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "AdrenalControl2 L41-193",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.AdrenalControl2.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "Carapace",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.Carapace.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "Regeneration",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.Regeneration.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "TwoHeaded L1-175",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.TwoHeaded.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "ElectricalGeneration L47-110,172-280,311-366,433-496,540-597",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.ElectricalGeneration.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "LightManipulation",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.LightManipulation.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "Phasing L27-164",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.Phasing.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "Phased L74-170",
+      "target": "../private/depth-1/source/XRL.World.Effects.Phased.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "TemporalFugue L40-60,77-104,120-360",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.TemporalFugue.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "Precognition L104-120,288-329,331-477",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.Precognition.cs",
+      "exists": true
+    },
+    {
+      "document": "MUTATIONS.md",
+      "label": "GasGeneration",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.GasGeneration.cs",
+      "exists": true
+    }
+  ],
+  "document_hashes": {
+    "REPORT.md": "598e4e40a8a451c06f71b75856a392cb82c4ad071c590c11f22699358b1806af",
+    "CYBERNETICS.md": "f80fc83aa7607a5376ca9b74afc3cb7438e0b0d6df9cbd1fa2e0d05c12ee3ce2",
+    "SKILLS.md": "1add34efa499c1d5e208531100f2e2311c4553b34af2b0408372766fdc9229f5",
+    "COMBINATIONS_AND_NPC.md": "483525d7c37bc5cbd44623bdc68e1a2ef82333332d71bdae84a13a468e8a234b",
+    "COVERAGE.md": "fcc5fd1b7dbcd5150149f674c4a83a3792b2f33dd67426a360cde6f7ce13b5db",
+    "MUTATIONS.md": "db4943e775623e95172d73b3238481ffaa7cf9abaacca7d70102dcb8f9759377"
+  },
+  "evidence_limit": "Research artifact checks only. Capture, printed windows, semantic claims and native verification are distinct. No native game/build/browser/save tests."
+}

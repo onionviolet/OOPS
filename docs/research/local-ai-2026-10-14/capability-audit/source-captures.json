@@ -1,0 +1,52 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/ollama/ollama/eab97e9f92b9a25c2d52d2cc6c1b1c99bd9fae21/server/routes.go",
+    "file": "sources/server__routes.go",
+    "sha256": "d4cfd09d850db6e1790a4bf35fe2bbcad5fca16da97641d2ea197c27ac937e82"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ollama/ollama/eab97e9f92b9a25c2d52d2cc6c1b1c99bd9fae21/model/parsers/qwen35.go",
+    "file": "sources/model__parsers__qwen35.go",
+    "sha256": "c369a5220e11c89f32ed6efce659c7c735f7b10490606015b23a89b77cc54405"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ollama/ollama/eab97e9f92b9a25c2d52d2cc6c1b1c99bd9fae21/model/renderers/qwen35.go",
+    "file": "sources/model__renderers__qwen35.go",
+    "sha256": "69bca99b53a3db8d599bb9ec8eadf65ce9a72868566a89bfac44d31fe3b565e0"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ollama/ollama/eab97e9f92b9a25c2d52d2cc6c1b1c99bd9fae21/mlxrunner/server.go",
+    "file": "sources/mlxrunner__server.go",
+    "sha256": "57574b795d995eee292dca0c51a94a0ee4bf050011c3b11f311e8c9cd32734e2"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ollama/ollama/eab97e9f92b9a25c2d52d2cc6c1b1c99bd9fae21/mlxrunner/runner.go",
+    "file": "sources/mlxrunner__runner.go",
+    "sha256": "1eb36e0905f8100065af9cc27bfb844cc9029d46f79e3b9d54ab9f9d3a600527"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ollama/ollama/eab97e9f92b9a25c2d52d2cc6c1b1c99bd9fae21/mlxrunner/xgrammar/xgrammar.go",
+    "file": "sources/mlxrunner__xgrammar__xgrammar.go",
+    "sha256": "010ac737ef91fc57a51d17a9c772e79e09924f054ff6056ca8f0848f0ac794c6"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ollama/ollama/eab97e9f92b9a25c2d52d2cc6c1b1c99bd9fae21/mlxrunner/prefix_cache.go",
+    "file": "sources/mlxrunner__prefix_cache.go",
+    "sha256": "059c5f6ad264003a97e256b74dd0fd6eedc1cb717c7fc1ff916dd5b2f5bc46b8"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ollama/ollama/eab97e9f92b9a25c2d52d2cc6c1b1c99bd9fae21/mlxrunner/speculate_depth.go",
+    "file": "sources/mlxrunner__speculate_depth.go",
+    "sha256": "62554e7f7d64292521959fdb5409e3e60194346edca4dea784fee4ee16e57c6a"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ollama/ollama/eab97e9f92b9a25c2d52d2cc6c1b1c99bd9fae21/mlxrunner/pipeline.go",
+    "file": "sources/mlxrunner__pipeline.go",
+    "sha256": "455ae1590e19751b427a0fe5ae5911e67d8e6254fb048534d758ae9b11e1d40b"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ollama/ollama/eab97e9f92b9a25c2d52d2cc6c1b1c99bd9fae21/mlxrunner/grammar.go",
+    "file": "sources/mlxrunner__grammar.go",
+    "sha256": "fdeec90c98da4e6d74bff21a2a135222886f5e35f95be3057691e3211e0ec38d"
+  }
+]

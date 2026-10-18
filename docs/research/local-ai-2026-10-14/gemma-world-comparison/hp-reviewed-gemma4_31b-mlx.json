@@ -1,0 +1,71 @@
+{
+  "canonClaims": [
+    {
+      "sourceId": "H1",
+      "claim": "Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light."
+    },
+    {
+      "sourceId": "H2",
+      "claim": "Reparo can mend certain damaged objects; mending a wand's exterior does not restore its damaged magic."
+    }
+  ],
+  "startAssumptions": [
+    "Learner: adult, magically eligible, owns intact wand, knows Lumos/Nox, in dim storage room.",
+    "Visitor: adult, nonmagical, owns wand, no magical source or learned casting."
+  ],
+  "stateAndReaders": [
+    "identity: reader (learner vs visitor)",
+    "wand_ownership: reader (boolean)",
+    "spell_knowledge: reader (set of learned spells)",
+    "light_state: reader (on/off)"
+  ],
+  "actions": [
+    {
+      "name": "Cast Lumos",
+      "preconditions": "Owning wand AND magically eligible AND learned Lumos",
+      "effect": "light_state = on",
+      "sourceVsDesign": "Effect based on H1; eligibility/knowledge requirements are P1/O1 design."
+    },
+    {
+      "name": "Cast Nox",
+      "preconditions": "Owning wand AND magically eligible AND learned Nox",
+      "effect": "light_state = off",
+      "sourceVsDesign": "Effect based on H1; eligibility/knowledge requirements are P1/O1 design."
+    },
+    {
+      "name": "Cast Reparo",
+      "preconditions": "Owning wand AND magically eligible AND learned Reparo",
+      "effect": "Object physical exterior mended",
+      "sourceVsDesign": "Effect based on H2; learner currently lacks learned Reparo per P1."
+    },
+    {
+      "name": "Leave Room",
+      "preconditions": "None",
+      "effect": "Actor exits storage room",
+      "sourceVsDesign": "Design proposal per P1/O1."
+    }
+  ],
+  "compatibility": {
+    "status": "requires_adapter",
+    "missingConsumers": [
+      "Wand/source eligibility validator",
+      "Spell knowledge registry",
+      "Actor/wand/world scoped light consumer",
+      "Object damage/integrity tracker"
+    ]
+  },
+  "counterexamples": [
+    "Nonmagical visitor with wand attempting Lumos: Refusal (no magical source/learned casting).",
+    "Learner attempting Reparo: Refusal (not yet learned per P1).",
+    "Failed cast: No mutation, no new mastery, no items granted."
+  ],
+  "futureWitness": [
+    "Lumos: on",
+    "Nox: off",
+    "Nonmagical attempt: no-source refusal",
+    "Leave: exit state",
+    "Persistence: light state and identity saved",
+    "Reparo: physical mend only, no magic restoration"
+  ],
+  "numericalPolicy": "No numerical duration, energy, cooldown, or currency values are defined in this inert proposal."
+}

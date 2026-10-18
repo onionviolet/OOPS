@@ -1,0 +1,81 @@
+{
+  "at": "2026-10-14T22:28:29.012193+00:00",
+  "tags": {
+    "models": [
+      {
+        "name": "gemma4:31b-mlx",
+        "model": "gemma4:31b-mlx",
+        "modified_at": "2026-10-14T18:01:04.350358431-04:00",
+        "size": 19424434885,
+        "digest": "a22a363052da770302019d5afab29bd967f9318e4377bddd297421189ea09d7d",
+        "details": {
+          "parent_model": "",
+          "format": "safetensors",
+          "family": "",
+          "families": null,
+          "parameter_size": "",
+          "quantization_level": "",
+          "runner": "mlx"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+        "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+        "modified_at": "2026-10-14T17:31:18.686286955-04:00",
+        "size": 29978241872,
+        "digest": "150af2e2fa9b3e09d6dfd1cf6f315bb9cb7d688af157d1cc1c9fe1a809ebb230",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "27.3B",
+          "quantization_level": "Q8_0",
+          "context_length": 262144,
+          "embedding_length": 5120,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "qwen3.8:27b",
+        "model": "qwen3.8:27b",
+        "modified_at": "2026-10-12T23:47:52.233936917-04:00",
+        "size": 18174721847,
+        "digest": "47951e4a666180bc2aedfc93c169472f2de783696fe196efbf063f5730ecf163",
+        "details": {
+          "parent_model": "",
+          "format": "safetensors",
+          "family": "",
+          "families": null,
+          "parameter_size": "",
+          "quantization_level": "nvfp4",
+          "runner": "mlx"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      }
+    ]
+  },
+  "ps": {
+    "models": []
+  },
+  "requests": 28
+}

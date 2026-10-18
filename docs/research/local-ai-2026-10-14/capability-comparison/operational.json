@@ -1,0 +1,102 @@
+{
+  "at": "2026-10-14T22:09:46.996576+00:00",
+  "upgrade_job_absent": true,
+  "speed_worker": "waiting_for_upgrade_checks; status left downloading, not terminal",
+  "old_status_is_stale_after_bootout": true,
+  "old_partial_mxfp8_preserved": true,
+  "baseline_checks": [
+    {
+      "fixture": "arithmetic",
+      "passed": true,
+      "answer": "323",
+      "elapsed_s": 11.498,
+      "load_s": 10.235,
+      "tokens": 3,
+      "tokens_per_s": 9.88,
+      "done_reason": "stop"
+    },
+    {
+      "fixture": "facts",
+      "passed": true,
+      "answer": "{\"coins_remaining\": 4, \"kits_bought\": 1}",
+      "elapsed_s": 8.222,
+      "load_s": 6.733,
+      "tokens": 15,
+      "tokens_per_s": 23.9,
+      "done_reason": "stop"
+    },
+    {
+      "fixture": "intent",
+      "passed": true,
+      "answer": "{\"action\": \"trade\"}",
+      "elapsed_s": 6.515,
+      "load_s": 5.706,
+      "tokens": 6,
+      "tokens_per_s": 15.69,
+      "done_reason": "stop"
+    },
+    {
+      "fixture": "fiction",
+      "passed": true,
+      "answer": "The air in the cellar grew thick with the scent of rot and old blood. Malakor\u2019s eyes, burning with a cold, violet fury, fixed on the trembling smuggler. \"You think you can simply walk away? After I gave you sanctuary? After I fed your starving family?\" The man\u2019s voice was a low, dangerous growl. \"You are a rat, and rats deserve the trap. I will not just kill you. I will peel the skin from your bones, inch by inch, while you scream for a mercy that does not exist. You are mine, and I will make you regret the day you drew your first breath. Now, speak, or suffer the silence of the grave.\"",
+      "elapsed_s": 13.954,
+      "load_s": 6.407,
+      "tokens": 143,
+      "tokens_per_s": 21.13,
+      "done_reason": "stop"
+    }
+  ],
+  "prior_speed_checks": {
+    "phase": "waiting_for_upgrade_checks",
+    "pid": 83134,
+    "models": {
+      "qwen3.8:27b": [
+        {
+          "mode": "cold",
+          "passed": true,
+          "elapsed_s": 27.472,
+          "load_s": 14.941,
+          "tokens": 160,
+          "tokens_per_s": 13.94,
+          "prompt_cached_tokens": 0,
+          "done_reason": "stop",
+          "answer": "Mud splattered the traveler\u2019s boots as he stepped into the village square, the air thick with the scent of wet earth and roasting chestnuts. Rain drummed relentlessly against the canvas awnings, blurring the vibrant colors of the market stalls into a watercolor smear. He approached a weathered wooden cart, his eyes locking onto a brass lantern, its glass clouded but intact. The vendor, a woman with silver hair tied back tightly, watched him with sharp, assessing eyes. \"It\u2019s not just light,\" she said, her voice cutting through the storm\u2019s roar. \"It\u2019s warmth for the soul.\" The traveler wiped the condensation from the glass, then held out a coin. \"Then I\u2019ll take the warmth,\" he replied, his voice steady despite the chill."
+        },
+        {
+          "mode": "warm",
+          "passed": true,
+          "elapsed_s": 8.403,
+          "load_s": 0.168,
+          "tokens": 125,
+          "tokens_per_s": 16.16,
+          "prompt_cached_tokens": 46,
+          "done_reason": "stop",
+          "answer": "Mud splattered the traveler\u2019s boots as he stepped into the village square, the air thick with the scent of wet earth and roasting chestnuts. Rain hammered the canvas awnings, creating a rhythmic drumbeat that masked the distant thunder. He approached a weathered stall, his eyes fixed on a brass lantern glowing faintly against the gloom. The vendor, a woman with silver hair, watched him with sharp, knowing eyes. \"It\u2019s not for sale,\" she said, her voice cutting through the storm. \"It\u2019s for the lost,\" the traveler replied, sliding a coin across the damp wood."
+        }
+      ]
+    },
+    "cleanup": "waiting_for_replacements",
+    "loaded_memory": {
+      "qwen3.8:27b": [
+        {
+          "name": "qwen3.8:27b",
+          "model": "qwen3.8:27b",
+          "size": 18958864088,
+          "digest": "47951e4a666180bc2aedfc93c169472f2de783696fe196efbf063f5730ecf163",
+          "details": {
+            "parent_model": "",
+            "format": "safetensors",
+            "family": "",
+            "families": null,
+            "parameter_size": "",
+            "quantization_level": "nvfp4"
+          },
+          "expires_at": "2026-10-14T16:07:41.86504-04:00",
+          "size_vram": 18958864088,
+          "context_length": 4096,
+          "runner": "mlx"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "findings": [
+    {
+      "id": "DF5-A1",
+      "summary": "Concrete construction containment release",
+      "evidence": "0x1401ac685\u21920x140587d80\u21920x1405a78e0\u2192actualst virtual2c0\u21920x140583390\u21920x140c634f0(item,2)",
+      "limit": "Floor re-registration and consumed quantity rollback unproved",
+      "layer": "static-native",
+      "details": "TRACE.md"
+    },
+    {
+      "id": "DF5-A2",
+      "summary": "Stage selects cancellation versus removal",
+      "evidence": "UI0x140181b77 and input0x1401ac68b /0x1401b0211; actualst slot35\u21920x14028ba00",
+      "limit": "Derived slots and nonzero-stage virtual168 unread",
+      "layer": "static-native",
+      "details": "TRACE.md"
+    },
+    {
+      "id": "DF5-A3",
+      "summary": "Positive count candidates are split compensation or output aggregation",
+      "evidence": "0x1409f5521;0x1409f73c5;0x141346181;0x141346951;0x141347991",
+      "limit": "No original consumed source identity joined",
+      "layer": "static-native",
+      "details": "TRACE.md"
+    },
+    {
+      "id": "DF5-A4",
+      "summary": "Factory exception path frees new allocation",
+      "evidence": "0x1407df32b;funclet0x14153ea80\u2192free bridge",
+      "limit": "Compressed FH4 map/state selection qualified",
+      "layer": "static-native",
+      "details": "TRACE.md"
+    },
+    {
+      "id": "DF5-A5",
+      "summary": "Coverage and failure retained",
+      "evidence": "READS.json;UNREAD.json;private extract/rea-native.json",
+      "limit": "Large response buffer failure and bad-instruction warning retained",
+      "layer": "static-native",
+      "details": "TRACE.md"
+    }
+  ],
+  "runtime_acceptance": false,
+  "research_only": true
+}

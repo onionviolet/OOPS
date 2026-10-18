@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/daniel29348679/m5pro-llm-bench/e39c76475a4ecd21155d5adaf1c940bf8844de1c/README.md",
+    "path": "sources/matched-0.md",
+    "sha256": "0161e32985886779033027a0c6529fd9184ec5c8e9461ad12b68369b86015646"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/daniel29348679/m5pro-llm-bench/e39c76475a4ecd21155d5adaf1c940bf8844de1c/results/ollama_0.32.13_update/installed/qwen3.8_27b-mlx.md",
+    "path": "sources/matched-1.md",
+    "sha256": "4d04f15626d0977babbfcc4351415430c21871e83d41e9d8b99abd0c3c0acef7"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/daniel29348679/m5pro-llm-bench/e39c76475a4ecd21155d5adaf1c940bf8844de1c/results/ollama_0.30.6_update/installed/gemma4_26b-nvfp4.md",
+    "path": "sources/matched-2.md",
+    "sha256": "5d2cbdf25aa60d7e2addbfc291b156158373d4f429fa10974ce3aad86f3b3132"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/daniel29348679/m5pro-llm-bench/e39c76475a4ecd21155d5adaf1c940bf8844de1c/results/ollama_0.30.6_update/installed/qwen3.6_35b-a3b-mtp-q4_K_M.md",
+    "path": "sources/matched-3.md",
+    "sha256": "661f4045ce213926c68a12f4989d038791d430d3a35d3b6f950089fe053dd8ed"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Alexander-Ollman/qwen3.8-on-m4max/11cbfb241fde71b44b3d69e117d2e34fa97c9a18/README.md",
+    "path": "sources/m4max.md",
+    "sha256": "173ebccde5d998c5d436973ca4aae61bbcaeb3c906e86009c17793d0c1e626f4"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/daniel29348679/m5pro-llm-bench/e39c76475a4ecd21155d5adaf1c940bf8844de1c/results/ollama_0.30.6_update/mtp_draft4/qwen3.6_35b-a3b-mtp-q4_K_M.md",
+    "path": "sources/matched-draft4.md",
+    "sha256": "1ab9ca7a84ca4f07daed6eb4280ed5f30f8d1ec65ce47b26b97cfd355e11f27a"
+  }
+]

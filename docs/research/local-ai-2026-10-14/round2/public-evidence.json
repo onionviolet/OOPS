@@ -1,0 +1,891 @@
+{
+  "captured_utc": "2026-10-14T20:11:48.352233+00:00",
+  "models": [
+    {
+      "id": "Qwen/Qwen3.8-27B",
+      "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "modified": "2026-08-14T15:00:01.000Z",
+      "card": {
+        "library_name": "transformers",
+        "license": "apache-2.0",
+        "pipeline_tag": "image-text-to-text"
+      },
+      "files": [
+        ".gitattributes",
+        "LICENSE",
+        "README.md",
+        "chat_template.jinja",
+        "config.json",
+        "crc32.txt",
+        "generation_config.json",
+        "merges.txt",
+        "model-00001-of-00018.safetensors",
+        "model-00002-of-00018.safetensors",
+        "model-00003-of-00018.safetensors",
+        "model-00004-of-00018.safetensors",
+        "model-00005-of-00018.safetensors",
+        "model-00006-of-00018.safetensors",
+        "model-00007-of-00018.safetensors",
+        "model-00008-of-00018.safetensors",
+        "model-00009-of-00018.safetensors",
+        "model-00010-of-00018.safetensors",
+        "model-00011-of-00018.safetensors",
+        "model-00012-of-00018.safetensors",
+        "model-00013-of-00018.safetensors",
+        "model-00014-of-00018.safetensors",
+        "model-00015-of-00018.safetensors",
+        "model-00016-of-00018.safetensors",
+        "model-00017-of-00018.safetensors",
+        "model-00018-of-00018.safetensors",
+        "model.safetensors.index.json",
+        "preprocessor_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "video_preprocessor_config.json",
+        "vocab.json"
+      ],
+      "README.md": {
+        "sha256": "57e4bdb258ee1a7d2635c5174ebd4e56abe392505cdb5f8bbb356b0dc4293641",
+        "path": "sources/Qwen__Qwen3.8-27B__README.md"
+      },
+      "config.json": {
+        "sha256": "191e0af232104ed8b65258cf3fb2b842e288008baca7633c11b82a1ac7203aab",
+        "path": "sources/Qwen__Qwen3.8-27B__config.json"
+      }
+    },
+    {
+      "id": "Altworld/Hemmingway-1",
+      "revision": "1a5f363a3dd2d1cc456c28b8abbb403b9555efaf",
+      "modified": "2026-10-01T21:11:23.000Z",
+      "card": {
+        "license": "cc-by-nc-4.0",
+        "base_model": "Qwen/Qwen3.8-27B",
+        "pipeline_tag": "text-generation",
+        "library_name": "transformers",
+        "language": [
+          "en"
+        ],
+        "tags": [
+          "qwen3.8",
+          "chat",
+          "creative-writing",
+          "altworld"
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "LICENSE",
+        "README.md",
+        "charts/categories-heatmap.png",
+        "charts/communicationbench.png",
+        "charts/eqbench4.png",
+        "charts/human-likeness.png",
+        "charts/storybench.png",
+        "charts/wrapped.png",
+        "chat_template.jinja",
+        "config.json",
+        "generation_config.json",
+        "model-00001-of-00012.safetensors",
+        "model-00002-of-00012.safetensors",
+        "model-00003-of-00012.safetensors",
+        "model-00004-of-00012.safetensors",
+        "model-00005-of-00012.safetensors",
+        "model-00006-of-00012.safetensors",
+        "model-00007-of-00012.safetensors",
+        "model-00008-of-00012.safetensors",
+        "model-00009-of-00012.safetensors",
+        "model-00010-of-00012.safetensors",
+        "model-00011-of-00012.safetensors",
+        "model-00012-of-00012.safetensors",
+        "model-mtp.safetensors",
+        "model.safetensors.index.json",
+        "tokenizer.json",
+        "tokenizer_config.json"
+      ],
+      "README.md": {
+        "sha256": "fb5cafeaf04b1dd9ef79935a7b55da33096b2f634279e854d3357f07092fe375",
+        "path": "sources/Altworld__Hemmingway-1__README.md"
+      },
+      "config.json": {
+        "sha256": "935cfbf5205f9cf1cb13c38f667fd52a52d7336bbcd127dd50088ac173dd0f53",
+        "path": "sources/Altworld__Hemmingway-1__config.json"
+      }
+    },
+    {
+      "id": "darrellbest/Hemmingway-1-Heretic",
+      "revision": "84487de59996d26851c6cc7e29a15be07b1327e7",
+      "modified": "2026-09-28T17:35:26.000Z",
+      "card": {
+        "license": "cc-by-nc-4.0",
+        "base_model": [
+          "Altworld/Hemmingway-1"
+        ],
+        "base_model_relation": "finetune",
+        "pipeline_tag": "image-text-to-text",
+        "library_name": "transformers",
+        "language": [
+          "en"
+        ],
+        "tags": [
+          "qwen3.8",
+          "hemmingway",
+          "heretic",
+          "ara",
+          "abliterated",
+          "uncensored",
+          "creative-writing",
+          "tool-calling"
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "LICENSE",
+        "README.md",
+        "chat_template.jinja",
+        "config.json",
+        "generation_config.json",
+        "model-00001-of-00012.safetensors",
+        "model-00002-of-00012.safetensors",
+        "model-00003-of-00012.safetensors",
+        "model-00004-of-00012.safetensors",
+        "model-00005-of-00012.safetensors",
+        "model-00006-of-00012.safetensors",
+        "model-00007-of-00012.safetensors",
+        "model-00008-of-00012.safetensors",
+        "model-00009-of-00012.safetensors",
+        "model-00010-of-00012.safetensors",
+        "model-00011-of-00012.safetensors",
+        "model-00012-of-00012.safetensors",
+        "model-auxiliary.safetensors",
+        "model.safetensors.index.json",
+        "preprocessor_config.json",
+        "processor_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "video_preprocessor_config.json"
+      ],
+      "README.md": {
+        "sha256": "c998a33c89220ea5c70ba5521d6d835062294605ecd497a1100f43b2b0a58407",
+        "path": "sources/darrellbest__Hemmingway-1-Heretic__README.md"
+      },
+      "config.json": {
+        "sha256": "265d68ba406ad07b27b391a42e3d40c48973a5dfe9574b90ddfb6a9acbd7e401",
+        "path": "sources/darrellbest__Hemmingway-1-Heretic__config.json"
+      }
+    },
+    {
+      "id": "Naphula/Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA",
+      "revision": "7ae646b5517bb7e65467e43815718637030a9823",
+      "modified": "2026-08-04T17:40:53.000Z",
+      "card": {
+        "base_model": [
+          "google/gemma-4-26B-A4B",
+          "ApocalypseParty/G4-26B-SFT-6",
+          "AuriAetherwiing/G4-26B-A4B-Musica-v1",
+          "BeaverAI/Orion-26B-A4B-v1a-GGUF",
+          "BeaverAI/Orion-26B-A4B-v1b-GGUF",
+          "Darkhn/Gemma-4-26B-A4B-Animus-V14.1-FFT",
+          "Gryphe/Gemma-4-26B-A4B-StyleTune",
+          "Gryphe/Pantheon-Reasoning-26B-A4B-1.1",
+          "Locutusque/Esmeralda-Gemma4-26B-A4B",
+          "ReadyArt/Dark-Scarlett-v1.0-26B-A4B-GGUF",
+          "ReadyArt/For-Her-Darkside-26B-A4B-v1.4-GGUF",
+          "ReadyArt/Melody1437-26B-A4B-GGUF",
+          "ReadyArt/Omega-Evolution-26B-A4B-v3.0-GGUF",
+          "ReadyArt/Serenity-26B-A4B-GGUF",
+          "zerofata/G4-MeroMero-26B-A4B"
+        ],
+        "language": "eng",
+        "library_name": "transformers",
+        "license": "apache-2.0",
+        "tags": [
+          "merge",
+          "mergekit",
+          "moe_della",
+          "gemma4",
+          "conversational",
+          "roleplay",
+          "creative writing",
+          "ablated",
+          "uncensored",
+          "heretic",
+          "ara",
+          "ari"
+        ],
+        "widget": [
+          {
+            "text": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA",
+            "output": {
+              "url": "https://cdn-uploads.huggingface.co/production/uploads/68e840caa318194c44ec2a04/DHbuh4efzjCGpxDUciZ_-.jpeg"
+            }
+          }
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "Goetia.jpeg",
+        "README.md",
+        "chat_template.jinja",
+        "config.json",
+        "generation_config.json",
+        "mergekit_config.yml",
+        "model-00001-of-00002.safetensors",
+        "model-00002-of-00002.safetensors",
+        "model.safetensors.index.json",
+        "python_surgical_grip/config.py",
+        "python_surgical_grip/mainPhase1.py",
+        "python_surgical_grip/mainPhase2.py",
+        "python_surgical_grip/model.py",
+        "python_surgical_grip/modelARI.py",
+        "python_surgical_grip/modelTokenizerPatch.py",
+        "reproduce/Naphula--Goetia-26B-A4B-v1.3.jsonl",
+        "reproduce/README.md",
+        "reproduce/SHA256SUMS",
+        "reproduce/config.toml",
+        "reproduce/reproduce.json",
+        "reproduce/requirements.txt",
+        "tokenizer.json",
+        "tokenizer_config.json"
+      ],
+      "README.md": {
+        "sha256": "a1c0f163ce23b61457a099b5ec19769293008b7dc4fd7323bb813beb35ff0852",
+        "path": "sources/Naphula__Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA__README.md"
+      },
+      "config.json": {
+        "sha256": "090cc745beb1c0fc1cba606205d1100af59cb8e35658de3b2912c4289926cd1f",
+        "path": "sources/Naphula__Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA__config.json"
+      }
+    },
+    {
+      "id": "Naphula/Goetia-26B-A4B-v1.7",
+      "revision": "6c64da6e4c3da5df592e2fb6ac962ae1a9294468",
+      "modified": "2026-10-08T11:14:47.000Z",
+      "card": {
+        "base_model": [
+          "ConicCat/Gemma4-Writer-26BA4B",
+          "Cyclone-Labs/Eclipsed-Phoenix-26B-A4B",
+          "electroglyph/gemma4-26b-fiction-bf16",
+          "google/gemma-4-26B-A4B-it",
+          "Gryphe/Pantheon-Reasoning-26B-A4B-1.1-V2",
+          "Hastagaras/G4-Jamet-26B-A4B-MK-1",
+          "Naphula/Goetia-26B-A4B-v1.6",
+          "Naphula/Promethean-Dawn-26B-A4B",
+          "SubMaroon/Boulesis-v2.1-26B-A4B",
+          "SubMaroon/Kitchoon-26B-A4B",
+          "TheDrummer/Orion-26B-A4B-v1.1",
+          "Vortex5/Shadow-Siren-26B-A4B"
+        ],
+        "datasets": [
+          "OccultAI/illuminati_imatrix_v1"
+        ],
+        "language": [
+          "en"
+        ],
+        "library_name": "transformers",
+        "license": "apache-2.0",
+        "tags": [
+          "all genres",
+          "conversational",
+          "creative",
+          "creative writing",
+          "dark writing",
+          "della",
+          "EldritchLabs",
+          "fiction",
+          "fiction story",
+          "fiction writing",
+          "goetia",
+          "horror",
+          "karcher",
+          "merge",
+          "mergekit",
+          "mergekit-exp",
+          "multifusion",
+          "nearswap",
+          "plot generation",
+          "roleplay",
+          "roleplaying",
+          "romance",
+          "rp",
+          "scene continue",
+          "science fiction",
+          "story",
+          "story generation",
+          "storytelling",
+          "sub-plot generation",
+          "suspense",
+          "swearing",
+          "vivid prosing",
+          "vivid writing",
+          "writing"
+        ],
+        "widget": [
+          {
+            "text": "Goetia-24B-v1.4",
+            "output": {
+              "url": "https://cdn-uploads.huggingface.co/production/uploads/68e840caa318194c44ec2a04/pRbM2-CstiKSNSOGjM4zO.png"
+            }
+          }
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "Goetia-Claude.png",
+        "README.md",
+        "chat_template.jinja",
+        "config.json",
+        "generation_config.json",
+        "mergekit_config_1_karcher.yml",
+        "mergekit_config_2_della.yml",
+        "mergekit_config_3_multifusion.yml",
+        "mergekit_config_4_nearswap.yml",
+        "model-00001-of-00011.safetensors",
+        "model-00002-of-00011.safetensors",
+        "model-00003-of-00011.safetensors",
+        "model-00004-of-00011.safetensors",
+        "model-00005-of-00011.safetensors",
+        "model-00006-of-00011.safetensors",
+        "model-00007-of-00011.safetensors",
+        "model-00008-of-00011.safetensors",
+        "model-00009-of-00011.safetensors",
+        "model-00010-of-00011.safetensors",
+        "model-00011-of-00011.safetensors",
+        "model.safetensors.index.json",
+        "processor_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json"
+      ],
+      "README.md": {
+        "sha256": "a753a23d565ec4fae86bb6d76f54eba4d119972b15e9b7409b3d97272ef77d0b",
+        "path": "sources/Naphula__Goetia-26B-A4B-v1.7__README.md"
+      },
+      "config.json": {
+        "sha256": "62d7fafb63687eb17abe820713d80c99c3d01359625e5b0292408f57507cdc55",
+        "path": "sources/Naphula__Goetia-26B-A4B-v1.7__config.json"
+      }
+    },
+    {
+      "id": "meta-models/Muse-Glimmer-30B",
+      "revision": "a4e59da52a7bc87ae7251dd5545c0dd437c44b68",
+      "modified": "2026-08-11T19:23:35.000Z",
+      "card": {
+        "license": "apache-2.0",
+        "library_name": "transformers",
+        "pipeline_tag": "image-text-to-text"
+      },
+      "files": [
+        ".gitattributes",
+        "LICENSE",
+        "README.md",
+        "USAGE_POLICY.md",
+        "chat_template.jinja",
+        "config.json",
+        "generation_config.json",
+        "model-00001-of-00002.safetensors",
+        "model-00002-of-00002.safetensors",
+        "model.safetensors.index.json",
+        "processor_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json"
+      ],
+      "README.md": {
+        "sha256": "5894e358c58f4f8425645a5b0b890468ecb3e6b049c2e941648db077c4b7df58",
+        "path": "sources/meta-models__Muse-Glimmer-30B__README.md"
+      },
+      "config.json": {
+        "sha256": "5a9df2d8a385b3d361ab6ae68d73586f4e775033933bd0cd863fb7f3820e6a14",
+        "path": "sources/meta-models__Muse-Glimmer-30B__config.json"
+      }
+    },
+    {
+      "id": "meta-models/Muse-Glimmer-30B-GGUF",
+      "revision": "70bf1b61ac09f91b24d39038091b41c582bc5d7a",
+      "modified": "2026-08-18T01:04:15.000Z",
+      "card": {
+        "license": "apache-2.0",
+        "base_model": "meta-models/Muse-Glimmer-30B",
+        "pipeline_tag": "image-text-to-text",
+        "tags": [
+          "gguf"
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "LICENSE",
+        "Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf",
+        "Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf",
+        "README.md",
+        "USAGE_POLICY.md",
+        "dflash-Muse-Glimmer-30B-Q4_K_M.gguf",
+        "mmproj-Muse-Glimmer-30B-Q4_K_M.gguf"
+      ],
+      "README.md": {
+        "sha256": "08d5b569fdc2abdc983c467e72c24e4ea07927a74ec1e96705d29a40dbde8dce",
+        "path": "sources/meta-models__Muse-Glimmer-30B-GGUF__README.md"
+      },
+      "config.json": {
+        "unavailable": "HTTP Error 404: Not Found"
+      }
+    },
+    {
+      "id": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "modified": "2026-03-02T00:51:43.000Z",
+      "card": {
+        "library_name": "transformers",
+        "license": "apache-2.0",
+        "license_link": "https://huggingface.co/Qwen/Qwen3.5-9B/blob/main/LICENSE",
+        "pipeline_tag": "image-text-to-text",
+        "base_model": [
+          "Qwen/Qwen3.5-9B-Base"
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "LICENSE",
+        "README.md",
+        "chat_template.jinja",
+        "config.json",
+        "merges.txt",
+        "model.safetensors-00001-of-00004.safetensors",
+        "model.safetensors-00002-of-00004.safetensors",
+        "model.safetensors-00003-of-00004.safetensors",
+        "model.safetensors-00004-of-00004.safetensors",
+        "model.safetensors.index.json",
+        "preprocessor_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "video_preprocessor_config.json",
+        "vocab.json"
+      ],
+      "README.md": {
+        "sha256": "c5f5a8c2dddab69cfbf05279235aa5fddb137939a06539c4c7637aa900fef6d0",
+        "path": "sources/Qwen__Qwen3.5-9B__README.md"
+      },
+      "config.json": {
+        "sha256": "d0883072e01861ed0b2d47be3c16c36a8e81c224c7ffaa310c6558fb3f932b05",
+        "path": "sources/Qwen__Qwen3.5-9B__config.json"
+      }
+    },
+    {
+      "id": "MRockatansky/Gemma-4-31B-Storymaxxed3-GGUF",
+      "revision": "8ee99652d1d480bb0b485e9f982759512109c43f",
+      "modified": "2026-06-26T12:33:16.000Z",
+      "card": {
+        "license": "apache-2.0",
+        "base_model": [
+          "MRockatansky/Gemma-4-31B-Storymaxxed3"
+        ],
+        "language": [
+          "en"
+        ],
+        "library_name": "transformers",
+        "quantized_by": "MRockatansky",
+        "tags": [
+          "text-generation",
+          "dpo",
+          "creative-writing"
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "Gemma-4-31B-Storymaxxed3-F16.gguf",
+        "Gemma-4-31B-Storymaxxed3-i1-Q4_K_L.gguf",
+        "Gemma-4-31B-Storymaxxed3-imatrix-IQ4_XS.gguf",
+        "Gemma-4-31B-Storymaxxed3-imatrix-Q4_K_M.gguf",
+        "Gemma-4-31B-Storymaxxed3-imatrix-Q5_K_S.gguf",
+        "README.md",
+        "mmproj-Storymaxxed3-bf16.gguf",
+        "sm3-imatrix.gguf"
+      ],
+      "README.md": {
+        "sha256": "f9ca5f9e93a55670eb6196369e79811150322221782f14ed935d7e029ad80a5a",
+        "path": "sources/MRockatansky__Gemma-4-31B-Storymaxxed3-GGUF__README.md"
+      },
+      "config.json": {
+        "unavailable": "HTTP Error 404: Not Found"
+      }
+    },
+    {
+      "id": "UltimateIntent/GemStrike-31B-GGUF",
+      "revision": "9897cb04204db5a9e47c19efd5d2b0b0cc262d21",
+      "modified": "2026-08-27T03:34:18.000Z",
+      "card": {
+        "base_model": [
+          "huihui-ai/Huihui-gemma-4-31B-it-qat-q4_0-unquantized-abliterated"
+        ],
+        "base_model_relation": "finetune",
+        "license": "apache-2.0",
+        "language": [
+          "en"
+        ],
+        "tags": [
+          "text-generation",
+          "creative-writing",
+          "roleplay",
+          "nsfw",
+          "erp",
+          "abliterated",
+          "lora",
+          "gemma4",
+          "gguf",
+          "llama-cpp",
+          "not-for-all-audiences"
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "GemStrike-31B-BF16.gguf",
+        "GemStrike-31B-Q4_0.gguf",
+        "GemStrike-31B-Q4_K_M.gguf",
+        "GemStrike-31B-Q6_K.gguf",
+        "GemStrike-31B-Q8_0.gguf",
+        "GemStrike-31B.mp4",
+        "LICENSE.txt",
+        "README.md"
+      ],
+      "README.md": {
+        "sha256": "98abd9140ffc5a66a18f98607661b075de37b8aba950eed13d5f4b5fd1becd44",
+        "path": "sources/UltimateIntent__GemStrike-31B-GGUF__README.md"
+      },
+      "config.json": {
+        "unavailable": "HTTP Error 404: Not Found"
+      }
+    },
+    {
+      "id": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+      "revision": "34c32b5b1b2c24181e121a5cba3df8924fa66bce",
+      "modified": "2026-10-12T03:49:31.000Z",
+      "card": {
+        "license": "apache-2.0",
+        "base_model": "Qwen/Qwen3.8-27B",
+        "base_model_relation": "quantized",
+        "pipeline_tag": "image-text-to-text",
+        "library_name": "mlx",
+        "language": [
+          "en",
+          "zh"
+        ],
+        "tags": [
+          "abliterated",
+          "qwen3.8",
+          "qwen3_5",
+          "uncensored",
+          "ai-red-team",
+          "red-teaming",
+          "mlx",
+          "apple-silicon",
+          "quantized",
+          "4-bit",
+          "8-bit",
+          "vision-language",
+          "image-text-to-text",
+          "multimodal",
+          "function-calling",
+          "reasoning"
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "2-bit/README.md",
+        "2-bit/chat_template.jinja",
+        "2-bit/config.json",
+        "2-bit/generation_config.json",
+        "2-bit/model-00001-of-00002.safetensors",
+        "2-bit/model-00002-of-00002.safetensors",
+        "2-bit/model.safetensors.index.json",
+        "2-bit/preprocessor_config.json",
+        "2-bit/processor_config.json",
+        "2-bit/tokenizer.json",
+        "2-bit/tokenizer_config.json",
+        "2-bit/video_preprocessor_config.json",
+        "2-bit/vocab.json",
+        "4-bit/README.md",
+        "4-bit/chat_template.jinja",
+        "4-bit/config.json",
+        "4-bit/generation_config.json",
+        "4-bit/model-00001-of-00003.safetensors",
+        "4-bit/model-00002-of-00003.safetensors",
+        "4-bit/model-00003-of-00003.safetensors",
+        "4-bit/model.safetensors.index.json",
+        "4-bit/preprocessor_config.json",
+        "4-bit/processor_config.json",
+        "4-bit/tokenizer.json",
+        "4-bit/tokenizer_config.json",
+        "4-bit/video_preprocessor_config.json",
+        "4-bit/vocab.json",
+        "6-bit/README.md",
+        "6-bit/chat_template.jinja",
+        "6-bit/config.json",
+        "6-bit/generation_config.json",
+        "6-bit/model-00001-of-00005.safetensors",
+        "6-bit/model-00002-of-00005.safetensors",
+        "6-bit/model-00003-of-00005.safetensors",
+        "6-bit/model-00004-of-00005.safetensors",
+        "6-bit/model-00005-of-00005.safetensors",
+        "6-bit/model.safetensors.index.json",
+        "6-bit/preprocessor_config.json",
+        "6-bit/processor_config.json",
+        "6-bit/tokenizer.json",
+        "6-bit/tokenizer_config.json",
+        "6-bit/video_preprocessor_config.json",
+        "6-bit/vocab.json",
+        "8-bit/README.md",
+        "8-bit/chat_template.jinja",
+        "8-bit/config.json",
+        "8-bit/generation_config.json",
+        "8-bit/model-00001-of-00006.safetensors",
+        "8-bit/model-00002-of-00006.safetensors",
+        "8-bit/model-00003-of-00006.safetensors",
+        "8-bit/model-00004-of-00006.safetensors",
+        "8-bit/model-00005-of-00006.safetensors",
+        "8-bit/model-00006-of-00006.safetensors",
+        "8-bit/model.safetensors.index.json",
+        "8-bit/preprocessor_config.json",
+        "8-bit/processor_config.json",
+        "8-bit/tokenizer.json",
+        "8-bit/tokenizer_config.json",
+        "8-bit/video_preprocessor_config.json",
+        "8-bit/vocab.json",
+        "README.md",
+        "chat_template.jinja",
+        "config.json",
+        "generation_config.json",
+        "model-00001-of-00003.safetensors",
+        "model-00002-of-00003.safetensors",
+        "model-00003-of-00003.safetensors",
+        "model.safetensors.index.json",
+        "mtp/config.json",
+        "mtp/model.safetensors",
+        "mtp/tokenizer.json",
+        "mtp/tokenizer_config.json",
+        "mtp/vocab.json",
+        "preprocessor_config.json",
+        "processor_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "video_preprocessor_config.json",
+        "vocab.json"
+      ],
+      "README.md": {
+        "sha256": "6f4d8ecdb6831f6d78c1b1fbf0ff0e1981521bcc3c546b0bc5f21a6a224b49b5",
+        "path": "sources/orcarouter__Qwen3.8-27B-Uncensored-MLX__README.md"
+      },
+      "config.json": {
+        "sha256": "f238d3a11e8d96b4f688fd09c627879b9b87a067835c83cb7c1c102df7aa4fb0",
+        "path": "sources/orcarouter__Qwen3.8-27B-Uncensored-MLX__config.json"
+      }
+    },
+    {
+      "id": "LessThanThreeAI/Qwen3.8-27B-Humanlike-Chat-GGUF",
+      "revision": "469ff8f61f6b27d00ec9c30e80dff5778a519672",
+      "modified": "2026-10-08T14:05:00.000Z",
+      "card": {
+        "license": "apache-2.0",
+        "base_model": "huihui-ai/Huihui-Qwen3.8-27B-abliterated",
+        "base_model_relation": "quantized",
+        "library_name": "gguf",
+        "pipeline_tag": "text-generation",
+        "language": [
+          "en",
+          "ru"
+        ],
+        "tags": [
+          "gguf",
+          "llama.cpp",
+          "qwen3.8",
+          "conversational",
+          "roleplay",
+          "creative-writing",
+          "character",
+          "humanlike",
+          "uncensored",
+          "sillytavern",
+          "tool-calling",
+          "function-calling",
+          "on-policy-distillation"
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "Qwen3.8-27B-Humanlike-Chat-BF16-00001-of-00002.gguf",
+        "Qwen3.8-27B-Humanlike-Chat-BF16-00002-of-00002.gguf",
+        "Qwen3.8-27B-Humanlike-Chat-IQ4_XS.gguf",
+        "Qwen3.8-27B-Humanlike-Chat-Q4_K_M.gguf",
+        "Qwen3.8-27B-Humanlike-Chat-Q5_K_M.gguf",
+        "Qwen3.8-27B-Humanlike-Chat-Q6_K.gguf",
+        "Qwen3.8-27B-Humanlike-Chat-Q8_0.gguf",
+        "README.md",
+        "SHA256SUMS",
+        "artifact-manifest.json",
+        "images/01-cover.png",
+        "images/03-character.png",
+        "images/04-email.png",
+        "images/05b-tool-chat.png",
+        "images/06-benchmarks.png",
+        "imatrix/imatrix.gguf",
+        "lora/Qwen3.8-27B-Humanlike-Chat-2.0-LoRA-r320-F16.gguf",
+        "mmproj/mmproj-BF16.gguf"
+      ],
+      "README.md": {
+        "sha256": "6de8336fe32832bcc0bcd31abf7043260312ed0f91d52d37afd3834ca367788f",
+        "path": "sources/LessThanThreeAI__Qwen3.8-27B-Humanlike-Chat-GGUF__README.md"
+      },
+      "config.json": {
+        "unavailable": "HTTP Error 404: Not Found"
+      }
+    },
+    {
+      "id": "Gryphe/Pantheon-Reasoning-26B-A4B-1.1-V2",
+      "revision": "6af1278a92223c717ccea671e4571a5cc135f5d8",
+      "modified": "2026-09-08T09:44:15.000Z",
+      "card": {
+        "license": "apache-2.0",
+        "language": [
+          "en"
+        ],
+        "base_model": [
+          "Gryphe/Gemma-4-26B-A4B-StyleTune-V2"
+        ],
+        "tags": [
+          "gemma4",
+          "conversational",
+          "instruct",
+          "finetune",
+          "axolotl",
+          "roleplay",
+          "reasoning",
+          "creative-writing"
+        ],
+        "pipeline_tag": "text-generation"
+      },
+      "files": [
+        ".gitattributes",
+        "Pantheon-Reasoning.jpg",
+        "README.md",
+        "chat_template.jinja",
+        "config.json",
+        "generation_config.json",
+        "model-00001-of-00002.safetensors",
+        "model-00002-of-00002.safetensors",
+        "model.safetensors.index.json",
+        "processor_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json"
+      ],
+      "README.md": {
+        "sha256": "95753f086488679458216ead04b1a6985330d1bf1a9c862c7d2ebb204544b574",
+        "path": "sources/Gryphe__Pantheon-Reasoning-26B-A4B-1.1-V2__README.md"
+      },
+      "config.json": {
+        "sha256": "bc0a1ea33e39ccbb147551a14d87dbc2067f1021d8f096c4062175514a79b0ed",
+        "path": "sources/Gryphe__Pantheon-Reasoning-26B-A4B-1.1-V2__config.json"
+      }
+    },
+    {
+      "id": "prism-ml/Bonsai-27B-mlx-1bit",
+      "revision": "ef22f239c670078e1507f9769bcaa66657332b96",
+      "modified": "2026-07-14T21:39:12.000Z",
+      "card": {
+        "license": "apache-2.0",
+        "library_name": "mlx",
+        "pipeline_tag": "text-generation",
+        "tags": [
+          "conversational",
+          "1-bit",
+          "mlx",
+          "cuda",
+          "metal",
+          "on-device",
+          "hybrid-attention",
+          "prismml",
+          "bonsai"
+        ],
+        "base_model": [
+          "Qwen/Qwen3.6-27B"
+        ]
+      },
+      "files": [
+        ".gitattributes",
+        "LICENSE.txt",
+        "NOTICE.txt",
+        "README.md",
+        "assets/bonsai-logo.svg",
+        "chat_template.jinja",
+        "config.json",
+        "merges.txt",
+        "model.safetensors",
+        "model.safetensors.index.json",
+        "preprocessor_config.json",
+        "processor_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "video_preprocessor_config.json",
+        "vocab.json"
+      ],
+      "README.md": {
+        "sha256": "1b48634813a6241310348e371acffd1563f3aff5c350fa2bd79243204871ce2e",
+        "path": "sources/prism-ml__Bonsai-27B-mlx-1bit__README.md"
+      },
+      "config.json": {
+        "sha256": "cbda96bcc09d6c3333810093d20b394cd15393eee3cd5be22da1f87d1720eee7",
+        "path": "sources/prism-ml__Bonsai-27B-mlx-1bit__config.json"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "eq-writing",
+      "url": "https://raw.githubusercontent.com/EQ-bench/EQ-bench-site/main/creative_writing.js",
+      "sha256": "722ddb132e8d3a5e5c39b8d445f8475f3f7e24893a007260c6f3e3cce5c1ee18",
+      "bytes": 1220549
+    },
+    {
+      "id": "ugi",
+      "url": "https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard/resolve/main/ugi-leaderboard-data.csv",
+      "sha256": "972442632a086556e113fed1cd0beeff6af07abc91a6e755ab6acbd6c998b5b0",
+      "bytes": 667347
+    },
+    {
+      "id": "llama-muse",
+      "url": "https://raw.githubusercontent.com/ggml-org/llama.cpp/master/src/models/muse.cpp",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "llama-gemma4",
+      "url": "https://raw.githubusercontent.com/ggml-org/llama.cpp/master/src/models/gemma4.cpp",
+      "sha256": "247d458f93ddace3091141d7d7e4da0c0b589bc843e5737d3b39f804eb889339",
+      "bytes": 24538
+    },
+    {
+      "id": "llama-grammar",
+      "url": "https://raw.githubusercontent.com/ggml-org/llama.cpp/master/grammars/README.md",
+      "sha256": "e1874c0f08abbcfe45eff0b7b0290faa58f630981bf94274e2d99751ef3b0208",
+      "bytes": 18051
+    },
+    {
+      "id": "vtuber",
+      "url": "https://raw.githubusercontent.com/Open-LLM-VTuber/Open-LLM-VTuber/main/README.md",
+      "sha256": "3b6cf6adbf7c49a00e89d99c0fdb582a316054f8bb44332f7c95800fdd674140",
+      "bytes": 11536
+    },
+    {
+      "id": "airi",
+      "url": "https://raw.githubusercontent.com/moeru-ai/airi/main/README.md",
+      "sha256": "cb3bd22b7f6ca63f3e009933f117611857f5e1f9cbe253d86ef74b8038498b17",
+      "bytes": 27244
+    },
+    {
+      "id": "miru",
+      "url": "https://raw.githubusercontent.com/kiyotakali/Miru/main/README.md",
+      "sha256": "54d2baf857976551d82b72346790b1de1133a5d7d4487ec82d53c438641b29f5",
+      "bytes": 9053
+    },
+    {
+      "id": "independent-comparison",
+      "url": "https://raw.githubusercontent.com/dakshjain-1616/qwen-3.8-27-B-vs-qwen-3.6-27-B-vs-meta-glimmer-30B/main/README.md",
+      "sha256": "a42344a52a07b080097fb3fe40d0d1cab51813b1bd158abcc481f1e5871c4bb5",
+      "bytes": 11730
+    }
+  ]
+}

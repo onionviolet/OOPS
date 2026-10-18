@@ -1,0 +1,213 @@
+EXPLICIT ADAPTER CONTRACT: The model receives these definitions as well as the native output schema. draft.siteName/siteDescription name and describe the site. inputName is the gathered material; outputName is the crafted product, never the gathered material. inputStart is the starting material stock. requiredInput is the minimum input stock needed to START ONE work action. inputCost is the input material CONSUMED ONCE at work start. minutes is the duration of ONE work action. outputGain is the number of finished products gained at work completion. coinPay is the coins earned at that completion. gatherMinutes and gatherAmount are the duration and input material gained by ONE separate gather action; gathering never makes the finished product or earns coins. No action combines gather and work. Witness sequence strings refer to these actual actions. Read all numeric values from the source passage, not defaults. 'demonstrated' means an action actually occurs in the passage; 'stated' means a narrator/speaker describes a rule; a rumor must retain unverified_rumor. A claimed result must agree with executing the draft.
+
+JSON ENVELOPE AND FIELD LIMITS:
+{
+  "type": "object",
+  "properties": {
+    "claims": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "enum": [
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "stated",
+              "demonstrated",
+              "unverified_rumor"
+            ]
+          },
+          "claim": {
+            "type": "string",
+            "maxLength": 150
+          }
+        },
+        "required": [
+          "source",
+          "status",
+          "claim"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "draft": {
+      "type": "object",
+      "properties": {
+        "siteName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "siteDescription": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 240
+        },
+        "inputName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 24
+        },
+        "inputStart": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 999
+        },
+        "outputName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 24
+        },
+        "activityName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "activityDescription": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 240
+        },
+        "requiredInput": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 999
+        },
+        "inputCost": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 999
+        },
+        "minutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1440
+        },
+        "outputGain": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 999
+        },
+        "coinPay": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 500
+        },
+        "gatherMinutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1440
+        },
+        "gatherAmount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 99
+        }
+      },
+      "required": [
+        "siteName",
+        "siteDescription",
+        "inputName",
+        "inputStart",
+        "outputName",
+        "activityName",
+        "activityDescription",
+        "requiredInput",
+        "inputCost",
+        "minutes",
+        "outputGain",
+        "coinPay",
+        "gatherMinutes",
+        "gatherAmount"
+      ],
+      "additionalProperties": false
+    },
+    "blockedMechanics": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "maxLength": 150
+      }
+    },
+    "witness": {
+      "type": "object",
+      "properties": {
+        "sequence": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "enum": [
+              "gather",
+              "work"
+            ]
+          }
+        },
+        "inputRemaining": {
+          "type": "integer"
+        },
+        "mats": {
+          "type": "integer"
+        },
+        "coins": {
+          "type": "integer"
+        },
+        "minutes": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sequence",
+        "inputRemaining",
+        "mats",
+        "coins",
+        "minutes"
+      ],
+      "additionalProperties": false
+    },
+    "publicLine": {
+      "type": "string",
+      "maxLength": 160
+    }
+  },
+  "required": [
+    "claims",
+    "draft",
+    "blockedMechanics",
+    "witness",
+    "publicLine"
+  ],
+  "additionalProperties": false
+}
+
+Turn the supplied original source passage into the smallest mechanically supported candidate slice, not a prose promise of a whole world. Return only the supplied JSON envelope. Extract 3–5 grounded claims with source IDs, including the witness-knot rumor with its uncertainty. Produce a 14-field authored-site draft using the exact passage quantities and economics, initial stocks and supported gathering/weaving. List the missing consumers for ferry repair, witness knots and the locked gate; do not pretend the draft implements them. Give a minimum-time legal sequence to produce at least three mats from the initial stocks, with exact final reeds, mats, coins and elapsed minutes; no seeded extra stock or unlisted actions. PublicLine is one original sentence Lysa could actually say from her knowledge, without the private gate solution. Do not add mechanics, facts or code. Keep text fields concise to fit the output budget.
+
+# Duskfen: original synthetic source packet
+
+This is original evaluation material, not a published book or YAIR canon. Source IDs are locators. The private fact is synthetic and concerns fictional NPC knowledge, not a repository sealed secret.
+
+[S1] Lysa laid six reeds on the bench in Duskfen. Reeds could be gathered on the open riverbank without fee or permission. The old weaver said, “Twenty minutes brings you two good reeds. No more and no less if you work at an ordinary pace.”
+
+[S2] “Three reeds for each storm mat,” the weaver continued. “You need all three before you begin; weaving uses them. Half an hour makes one mat. The market pays eight copper coins for each finished mat.” Lysa had no mats and no coins when she began.
+
+[S3] The ferry's broken deck needed three mats before anyone could start repairing it. Weaving those mats did not itself repair the ferry. The ferryman and his tools would still be needed. The passage gives no repair duration, payment, skill test or ferry travel rules.
+
+[S4] Children whispered that a witness knot could restore a lost memory. The only demonstrated knot in this passage repeated a short spoken promise once before dawn. No memory restoration or healing was shown. No recipe, price, ingredients or casting procedure was given.
+
+[S5] A locked stone gate stood beyond the riverbank. Oren privately knew that saltwater opened its seal. Lysa did not know this and had not seen the gate open. The passage gives no route by which she learns the answer. For the public line below, Lysa knows reed gathering, weaving and the ferry's need for mats; she has heard the unverified knot rumor. She does not know the gate solution.
+
+Adapter manifest for this test: the current 14-field authored_site compiler supports one scalar input resource, one scalar output resource, a timed gather action, a timed consuming work action and fixed coin pay on completion. It does NOT support NPC negotiations, ferry repair/travel, spells/memory effects, doors/locks or character knowledge writes. A natural-language label cannot add those consumers.

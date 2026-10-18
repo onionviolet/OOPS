@@ -1,0 +1,663 @@
+{
+  "date": "2026-10-15",
+  "evidence": "read-only current working-tree source and design owners; no runtime proof",
+  "counts": {
+    "SC": 18,
+    "MP": 30,
+    "CH": 18,
+    "WG": 9,
+    "KC": 4
+  },
+  "files": [
+    {
+      "file": "PROJECT.md",
+      "bytes": 93431,
+      "sha256": "fef3c82e88700354f27f63461b84f036ef8786a157fe85e54088ac82cbb8976a",
+      "anchors": []
+    },
+    {
+      "file": "docs/CHEAT_LIBRARY.md",
+      "bytes": 104772,
+      "sha256": "2a20f53d577db8586d5984990da65578fff9564d2f8353217442f379adb39b09",
+      "anchors": []
+    },
+    {
+      "file": "docs/USER_VISION.md",
+      "bytes": 377429,
+      "sha256": "9060f93409a183e234852460f5be1261af86b83d6176796ce8c41407799e5d01",
+      "anchors": []
+    },
+    {
+      "file": "docs/gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md",
+      "bytes": 148442,
+      "sha256": "d4d8242921942f00835bd8d05daf461b2d84d2d146dd1e36a912ea7fa25c4f0d",
+      "anchors": []
+    },
+    {
+      "file": "docs/research/CHEAT_ENGINE_CAPABILITY_MATRIX_2026-10-14.md",
+      "bytes": 65952,
+      "sha256": "c952cb17ec5f8804a8d3f06f478ddb501aa93e3411d02636436bf80f4408210a",
+      "anchors": []
+    },
+    {
+      "file": "docs/research/magical-production-2026-10-15/REPORT.md",
+      "bytes": 19607,
+      "sha256": "d09d1f180612d6dafb69865e392f33d7aaa0a00690e21c32851169ac33704645",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/ABILITY_AUTHORING.md",
+      "bytes": 44858,
+      "sha256": "416e77ce52f52e477895ebe9849f19cadc47824509512022579cbac65fc86c02",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/NONHUMAN_MAKING_AND_BUILDING_2026-10-14.md",
+      "bytes": 44669,
+      "sha256": "f8b9757809c42b29a50054ceca5770975ee652f931da9608cce4ed2bad3d44f5",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+      "bytes": 22002,
+      "sha256": "bbf00a4f5dab4dbbb750df6219949fce76b25a50528bb324ff1e348f592c7067",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/bleach/WORLD_BRIEF.md",
+      "bytes": 11100,
+      "sha256": "b4356e2f36bb7d18930da39903b8b18f25fc9877a2de735a534cdddc46b2280b",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/fullmetal-alchemist/WORLD_BRIEF.md",
+      "bytes": 6532,
+      "sha256": "3bcc9d87fb5dd78b151840c2e96843f272e16ce8084a9ee961a7369f32735faa",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/harry-potter/WORLD_BRIEF.md",
+      "bytes": 11539,
+      "sha256": "4f9de0faa66aa3c15cda5c71160a6e3bd0eb9ffa4366b0b627fdf0bdeab714ee",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "bytes": 14040,
+      "sha256": "243917d66e2afb6c39d2d618ab11b024fb4bf181ca0f89b84a080a49ca1f48e7",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/naruto/WORLD_BRIEF.md",
+      "bytes": 9201,
+      "sha256": "4e42a09b6ea51075d0f04fcc6a80bcdf31b8b3ce1f228992b99f86c0c860669c",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/original-frontier/WORLD_BRIEF.md",
+      "bytes": 6851,
+      "sha256": "7712218c9f268b5381946a68bb8af9ec0c9ed4317c372623987d258e360d5193",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+      "bytes": 10115,
+      "sha256": "327aa5f98c4730b3133bda43bac57a019396564c0ee453520b9b7e88df3ae488",
+      "anchors": []
+    },
+    {
+      "file": "docs/worlds/world-core-kit-2026-10-14/cards/lord-of-mysteries.md",
+      "bytes": 120051,
+      "sha256": "9cb21c33b67cff514957af1641c2d388bb4b884607002ed9b0df5c279079972d",
+      "anchors": []
+    },
+    {
+      "file": "src/absorb_d/fort.js",
+      "bytes": 6760,
+      "sha256": "3bd401fe47e45b194e4cbef7a0b21471d7156b07d0e862301f27c55e4e2e4da3",
+      "anchors": [
+        {
+          "token": "funds:180",
+          "line": 11,
+          "excerpt": "export function createFortSupply() {return {schema:1,notesIssued:false,repaired:false,funds:180,spent:0,"
+        },
+        {
+          "token": "cannot fund another order",
+          "line": 77,
+          "excerpt": "        if(next.funds<order.pay)throw new Error('The clerk cannot fund another order. No stock was taken.');"
+        }
+      ]
+    },
+    {
+      "file": "src/absorb_p23/world_adaptation/index.js",
+      "bytes": 9023,
+      "sha256": "fea2278cfb14866758e7d90c60b876c5a97dabf067609218374950d9f5069703",
+      "anchors": []
+    },
+    {
+      "file": "src/absorb_p23/world_adaptation/profile.js",
+      "bytes": 1949,
+      "sha256": "1fb29f5c7155c61cf1e64933bab47e7f37cf194e5ece19c45f5da0542f16c32b",
+      "anchors": []
+    },
+    {
+      "file": "src/artifact_collection.js",
+      "bytes": 11055,
+      "sha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+      "anchors": []
+    },
+    {
+      "file": "src/artifact_workshop_host.js",
+      "bytes": 6084,
+      "sha256": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f",
+      "anchors": []
+    },
+    {
+      "file": "src/audited_kit_reserve_content.js",
+      "bytes": 1646,
+      "sha256": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+      "anchors": [
+        {
+          "token": "AUDITED_KIT_RESERVE_POLICY",
+          "line": 9,
+          "excerpt": "export const AUDITED_KIT_RESERVE_POLICY = Object.freeze({version: 1, key: K.kit,"
+        },
+        {
+          "token": "maxAcceptedBatches",
+          "line": 10,
+          "excerpt": "    upper: 4, lower: 2, batchOutput: 2, maxAcceptedBatches: 3});"
+        }
+      ]
+    },
+    {
+      "file": "src/audited_kit_reserve_facts.js",
+      "bytes": 2849,
+      "sha256": "ba6185b51d2b4c5734d03511e35be79bda844cdbac33cc68e05b9f5e23e0b947",
+      "anchors": [
+        {
+          "token": "availableOwnedNativeCount",
+          "line": 7,
+          "excerpt": "export function availableOwnedNativeCount(state, context = {}, key) {"
+        },
+        {
+          "token": "Object.values(state.simulation?.custody",
+          "line": 13,
+          "excerpt": "    if(Object.values(state.simulation?.custody || {}).some(c => c.holder === 'player' && c.key === key) ||"
+        },
+        {
+          "token": "return stock[key]",
+          "line": 16,
+          "excerpt": "    return stock[key];"
+        }
+      ]
+    },
+    {
+      "file": "src/audited_workshop_facts.js",
+      "bytes": 897,
+      "sha256": "da8cb42be1f960a1bf644fb839dbd7f69d42985d1a334323123b2127a6f624f1",
+      "anchors": []
+    },
+    {
+      "file": "src/audited_workshop_host.js",
+      "bytes": 3110,
+      "sha256": "ec6afefc5cf09e96592caf1db801f6ea8933cca8319da74ee1e9bc13d637d976",
+      "anchors": []
+    },
+    {
+      "file": "src/cheat_cards.js",
+      "bytes": 6493,
+      "sha256": "ae911ffcff848c86f53c8719cb6bb1612e4757b085572d67e8d1172d9878ff8c",
+      "anchors": [
+        {
+          "token": "granting one runs no hooks",
+          "line": 1,
+          "excerpt": "// C0 data contract. Cards describe future behavior; granting one runs no hooks."
+        },
+        {
+          "token": "validateCheatCard",
+          "line": 32,
+          "excerpt": "export function validateCheatCard(card) {"
+        }
+      ]
+    },
+    {
+      "file": "src/continuation_state.js",
+      "bytes": 12424,
+      "sha256": "5617eb61ffbd6cc0a0a24856432395799a385a81983d7446e86cf8890112f45a",
+      "anchors": [
+        {
+          "token": "COMPATIBLE_MASTERY",
+          "line": 6,
+          "excerpt": "export const COMPATIBLE_MASTERY = Object.freeze(['Literacy', 'Crafting', 'Smelting', 'Forging']);"
+        },
+        {
+          "token": "continuationEligibility",
+          "line": 25,
+          "excerpt": "export function continuationEligibility(save) {"
+        },
+        {
+          "token": "Other retained worlds",
+          "line": 31,
+          "excerpt": "        return 'Other retained worlds need a compatible temporal boundary. Their state is preserved; this first slice cannot rewind them.';"
+        }
+      ]
+    },
+    {
+      "file": "src/crafting_recipes.js",
+      "bytes": 88154,
+      "sha256": "524ca70eb426164bce5ea9621c644a654be40ba61e979298318923f05e14c4d9",
+      "anchors": [
+        {
+          "token": "class ItemRecipe",
+          "line": 107,
+          "excerpt": "class ItemRecipe extends Recipe {"
+        },
+        {
+          "token": "get_success_chance",
+          "line": 82,
+          "excerpt": "    get_success_chance(station_tier=1) {"
+        },
+        {
+          "token": "get_quality_range",
+          "line": 88,
+          "excerpt": "    get_quality_range(tier = 0, component_quality) {"
+        }
+      ]
+    },
+    {
+      "file": "src/energy_resources.js",
+      "bytes": 4384,
+      "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "anchors": [
+        {
+          "token": "energyCharge",
+          "line": 16,
+          "excerpt": "export function energyCharge(policy, effect) {"
+        },
+        {
+          "token": "e.output <= policy.output",
+          "line": 35,
+          "excerpt": "    check(e.output <= policy.output && e.control <= policy.control, \"This method cannot supply that output or control.\");"
+        },
+        {
+          "token": "strainLimit",
+          "line": 7,
+          "excerpt": "    for(const key of [\"capacity\", \"output\", \"control\", \"efficiencyNumerator\", \"efficiencyDenominator\", \"strainLimit\", \"strainPerUse\"]) check(natural(d[key]), \"Invalid energy policy dimension.\");"
+        }
+      ]
+    },
+    {
+      "file": "src/feature_expansion_objects.js",
+      "bytes": 30521,
+      "sha256": "5e2063c48fdf43c0e486e629e0d8058b3737c4ce72544bcacc5013e3dc0c8df2",
+      "anchors": [
+        {
+          "token": "kit: key('Prepared survey kit')",
+          "line": 29,
+          "excerpt": "    log: key('Rough wood log'), sap: key('Tree sap'), kit: key('Prepared survey kit'),"
+        }
+      ]
+    },
+    {
+      "file": "src/feature_expansion_work_plan.js",
+      "bytes": 28799,
+      "sha256": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25",
+      "anchors": [
+        {
+          "token": "validateStockPolicy",
+          "line": 23,
+          "excerpt": "function validateStockPolicy(policy) {"
+        },
+        {
+          "token": "validateStockDefinition",
+          "line": 30,
+          "excerpt": "function validateStockDefinition(d, commands) {"
+        },
+        {
+          "token": "validateStep",
+          "line": 49,
+          "excerpt": "function validateStep(step, commands) {"
+        }
+      ]
+    },
+    {
+      "file": "src/field_workshop.js",
+      "bytes": 18033,
+      "sha256": "3791a8f59ae2bdb17b0b3f710c3cce0920c814496383d11ee904c54ef2fff5e4",
+      "anchors": []
+    },
+    {
+      "file": "src/heir_inheritance.js",
+      "bytes": 7836,
+      "sha256": "41c510b1ceb72e39620ea97c5c9f0a3763604a4dd329de5a5b8cccbc5fc4370f",
+      "anchors": []
+    },
+    {
+      "file": "src/management/workshop_aid.js",
+      "bytes": 10957,
+      "sha256": "5d630ec62ecee2c60d0c4437ce1ef70064dd77765e56f7ad003235f18f5c69ae",
+      "anchors": [
+        {
+          "token": "mg.aid.mira_funded_work",
+          "line": 47,
+          "excerpt": "    command({id:'mg.aid.mira_funded_work',family:'MG08',label:'Complete Mira\u2019s funded crate commission \u00b7 2 logs + 2 stamina + 5 min',description:'Use two actual logs at the shared bench to make one real Courtyard wood cr"
+        },
+        {
+          "token": "mg.aid.repay_sela_loan",
+          "line": 55,
+          "excerpt": "    command({id:'mg.aid.repay_sela_loan',family:'MG08',label:'Collect Sela\u2019s 8-coin loan principal',description:'After Sela\u2019s completed useful commission, collect the original eight-coin principal from her actual purse. "
+        }
+      ]
+    },
+    {
+      "file": "src/mixture_native.js",
+      "bytes": 6552,
+      "sha256": "cdaded607fcbbba5dfc4acb7719d7f9cebcb271cf30ee300145b140889013f3c",
+      "anchors": [
+        {
+          "token": "request.type==='repeat'",
+          "line": 36,
+          "excerpt": "    }else if(request.type==='repeat'){"
+        },
+        {
+          "token": "request.type==='cancel'",
+          "line": 40,
+          "excerpt": "    }else if(request.type==='cancel'){"
+        },
+        {
+          "token": "commitMixturePlan",
+          "line": 54,
+          "excerpt": "export function commitMixturePlan(plan,{createSave,validateEnvelope,write,publish}){"
+        }
+      ]
+    },
+    {
+      "file": "src/mixture_rules.js",
+      "bytes": 8558,
+      "sha256": "9b12820fbe58aace1c4a94dfbc92dd3d66832125320a36f5f8bb1425d42e7b17",
+      "anchors": [
+        {
+          "token": "VILLAGE_RULE_SCOPE",
+          "line": 7,
+          "excerpt": "export const VILLAGE_RULE_SCOPE=Object.freeze({worldId:'base.frontier',instanceId:'frontier.main',continuityId:'frontier.branch'});"
+        },
+        {
+          "token": "freezeVillageLaw",
+          "line": 61,
+          "excerpt": "export function freezeVillageLaw(owner,law,{clock,sequence,reason='causal_mix',product}){"
+        },
+        {
+          "token": "resolveResponsiveLock",
+          "line": 39,
+          "excerpt": "    const lock=createRuleLock([world,law.module],options);return resolveResponsiveLock(base,lock);"
+        }
+      ]
+    },
+    {
+      "file": "src/mixture_state.js",
+      "bytes": 13436,
+      "sha256": "90317152f9733254c425b30b300ea4c3f7022e6ffbbf88beaba3033827e5910f",
+      "anchors": []
+    },
+    {
+      "file": "src/people_knowledge.js",
+      "bytes": 10229,
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+      "anchors": []
+    },
+    {
+      "file": "src/pocket_realm_rules.js",
+      "bytes": 961,
+      "sha256": "97f0c8caa828294c8d1b4139503c48a1b6ef44f87c2b660b52df2cebf3a4d862",
+      "anchors": []
+    },
+    {
+      "file": "src/power_models.js",
+      "bytes": 4477,
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "anchors": [
+        {
+          "token": "previewPowerModel",
+          "line": 5,
+          "excerpt": "export function previewPowerModel(definition, owned, command, {state, context, facts}) {"
+        },
+        {
+          "token": "authority",
+          "line": 30,
+          "excerpt": "    } else if(definition.model === \"authority\") {"
+        },
+        {
+          "token": "hybrid",
+          "line": 37,
+          "excerpt": "    } else if(definition.model === \"hybrid\") {"
+        }
+      ]
+    },
+    {
+      "file": "src/realm_connections.js",
+      "bytes": 26763,
+      "sha256": "e33ef4f41f0530d529a855d4b58b602c55deb678836516b361ce55b145281710",
+      "anchors": [
+        {
+          "token": "Invalid route permeability",
+          "line": 34,
+          "excerpt": "    assert(Array.isArray(connection.flows) && new Set(connection.flows).size === connection.flows.length && connection.flows.every(k => [\"light\", \"sound\", \"air\", \"liquid\", \"energy\", \"body\", \"cargo\"].includes(k)), \"Invali"
+        },
+        {
+          "token": "resolveCargo",
+          "line": 91,
+          "excerpt": "function resolveCargo(connection, context, request, operation, reasons) {"
+        },
+        {
+          "token": "planRealmClosure",
+          "line": 215,
+          "excerpt": "export function planRealmClosure(connection, context, request) {"
+        }
+      ]
+    },
+    {
+      "file": "src/reference_gameplay_content.js",
+      "bytes": 13705,
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "anchors": [
+        {
+          "token": "kit: OK.kit",
+          "line": 9,
+          "excerpt": "    salt: key('Cooling salt packet'), resin: key('Set repair resin'), sap: OK.sap, sound: OK.sound, kit: OK.kit, pole: key('Sluice hook pole')});"
+        }
+      ]
+    },
+    {
+      "file": "src/seeded_streams.js",
+      "bytes": 8793,
+      "sha256": "e64cc495fd13b4ce12118f2027ffcd87c8a1cdd7ec57db68871cca3068b1deb0",
+      "anchors": []
+    },
+    {
+      "file": "src/simulation.js",
+      "bytes": 62976,
+      "sha256": "b4a5b39f5b1a6f3c5c7bbc048a44898066a437735ee34b855b8b074da7824ea4",
+      "anchors": [
+        {
+          "token": "setSimulationProgram",
+          "line": 329,
+          "excerpt": "export function setSimulationProgram(state, registry, commandId, count, context, expectedSequence = state.sequence) {"
+        },
+        {
+          "token": "Routine paused:",
+          "line": 563,
+          "excerpt": "            else {p.status = \"paused\"; p.reason = \"Next reserved inputs, funding, capacity, support or access are unavailable.\"; log(s, state.clock, \"Routine paused: its next inputs, capacity or access are unavailable.\","
+        },
+        {
+          "token": "reservations[job.id]",
+          "line": 241,
+          "excerpt": "    } else if(job.due > state.clock) {s.jobs.push(job); if(job.siteId) s.sites[job.siteId].reservations[job.id] = job.actorId;}"
+        }
+      ]
+    },
+    {
+      "file": "src/simulation_clock.js",
+      "bytes": 3782,
+      "sha256": "02e5e74028285e95d0f959b5a42739500b7dc5686830467cbb2058584d3b4897",
+      "anchors": []
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "bytes": 36756,
+      "sha256": "3d83a7f2816c91f5a17d0dc321551bf7d3d550c34273ec9a2e8fe742c51fe9ff",
+      "anchors": [
+        {
+          "token": "e.operation === \"copy\"",
+          "line": 345,
+          "excerpt": "            else if(e.operation === \"copy\" || e.operation === \"transfer\") {"
+        },
+        {
+          "token": "copyMastery",
+          "line": 348,
+          "excerpt": "                powers[e.powerId] = {...fresh(), owned: true, mastery: e.copyMastery ? donor.mastery : 0, donor: e.target};"
+        }
+      ]
+    },
+    {
+      "file": "src/site_projects.js",
+      "bytes": 2927,
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+      "anchors": [
+        {
+          "token": "compileSiteProject",
+          "line": 4,
+          "excerpt": "export function compileSiteProject(project) {"
+        },
+        {
+          "token": "siteId",
+          "line": 18,
+          "excerpt": "            label: phase.label, duration: phase.duration, location: phase.location, siteId: phase.siteId, once: true, claim: `${prefix}.${phase.id}`,"
+        }
+      ]
+    },
+    {
+      "file": "src/structured_ability_runtime.js",
+      "bytes": 5789,
+      "sha256": "995639bebd80cc5206f256a868a28ad3731084844d79a4f45928a07b7298133e",
+      "anchors": [
+        {
+          "token": "Imported method needs",
+          "line": 51,
+          "excerpt": "            assert(record(carrier) && Object.keys(carrier).every(k => ['sourceId', 'requires'].includes(k)) && owned(carrier.sourceId) && sources.has(carrier.sourceId) && carrier.sourceId !== row.sourceId && !carrierIds."
+        },
+        {
+          "token": "never grants a source",
+          "line": 26,
+          "excerpt": "// never grants a source, learned power, knowledge or an extra inventory."
+        }
+      ]
+    },
+    {
+      "file": "src/structured_container_runtime.js",
+      "bytes": 15548,
+      "sha256": "b50fecd3c630237112826f2cdac9b7ba6e6551277482efb3472bdf4e1d856696",
+      "anchors": [
+        {
+          "token": "validateContainerDefinition",
+          "line": 15,
+          "excerpt": "export function validateContainerDefinition(d){"
+        },
+        {
+          "token": "function access",
+          "line": 55,
+          "excerpt": "function access(plan,d,context,registry){"
+        },
+        {
+          "token": "advanceContainerClocks",
+          "line": 76,
+          "excerpt": "        advanceContainerClocks(plan,registry,context,bindings);"
+        }
+      ]
+    },
+    {
+      "file": "src/systems_irrigation_model.js",
+      "bytes": 3352,
+      "sha256": "76d45b99f993e7360b80a00d76634c423ed8820b781a268dd7f8538d0383b7b9",
+      "anchors": [
+        {
+          "token": "runIrrigationModel",
+          "line": 47,
+          "excerpt": "export function runIrrigationModel(config) {"
+        },
+        {
+          "token": "no RNG",
+          "line": 40,
+          "excerpt": " * Six synchronous ticks over three numeric beds; no RNG, world actors or timers."
+        }
+      ]
+    },
+    {
+      "file": "src/systems_workshop_content.js",
+      "bytes": 21856,
+      "sha256": "ac8e5ad50acbd134cf546914da1ea82414842f656f9ed556149c2f5b5c243118",
+      "anchors": [
+        {
+          "token": "SW+'.lease'",
+          "line": 39,
+          "excerpt": " c({id:SW+'.lease',label:'Lease ledger assistance \u00b7 2 points',once:true,requires:connected,costs:[res(SW+'.points',-2)],effects:[f('leased'),source(SW+'.assist','grant'),know('assist','While in contact, ledger guidance m"
+        },
+        {
+          "token": "SW+'.disconnect'",
+          "line": 43,
+          "excerpt": " c({id:SW+'.disconnect',label:'Disconnect ledger assistance; keep learning',requires:connected,effects:[f('connected',false),source(SW+'.assist','remove'),know('disconnected','Remote assistance stopped. Earned seam readi"
+        },
+        {
+          "token": "SW+'.ren_make'",
+          "line": 27,
+          "excerpt": " controllers:[{id:SW+'.ren_work',revision:1,label:'Ren uses learned seam reading',actorId:APPRENTICE,interval:1,actions:[{commandId:SW+'.ren_make',priority:1,when:all(a('taught'),a('order'))}]}],"
+        },
+        {
+          "token": "runIrrigationModel",
+          "line": 3,
+          "excerpt": "import {runIrrigationModel} from './systems_irrigation_model.js';"
+        }
+      ]
+    },
+    {
+      "file": "src/systems_workshop_runtime.js",
+      "bytes": 2159,
+      "sha256": "a3b6d2a8e661f48e5595fd55add8a3a4908e68efd0f366ed5d5c0d292e4a45eb",
+      "anchors": [
+        {
+          "token": "reconcileSystemsWorkshop",
+          "line": 5,
+          "excerpt": "export function reconcileSystemsWorkshop(before,plan,{chest}={}){"
+        },
+        {
+          "token": "Recipient custody",
+          "line": 18,
+          "excerpt": "  // Recipient custody still obeys the original package's expiry."
+        }
+      ]
+    },
+    {
+      "file": "src/titles.js",
+      "bytes": 9513,
+      "sha256": "7769b6c1d2d39021c48105ed1fc8cbc7635a89bec429279e0d736715700e8058",
+      "anchors": [
+        {
+          "token": "newlyEarnedTitles",
+          "line": 77,
+          "excerpt": "export function newlyEarnedTitles(titles, counters) {"
+        },
+        {
+          "token": "titleBonuses",
+          "line": 89,
+          "excerpt": "export function titleBonuses(titles) {"
+        }
+      ]
+    },
+    {
+      "file": "src/world_instances.js",
+      "bytes": 27893,
+      "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "anchors": []
+    }
+  ],
+  "local_links_checked": 52
+}

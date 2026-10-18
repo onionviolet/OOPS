@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-15T16:27:57.069166+00:00",
+  "checks": {
+    "binary_and_installed_pin": true,
+    "instruction_regions": 28,
+    "bounded_owner_contexts": 3,
+    "direct_call_displacement_candidates": 815,
+    "critical_instruction_anchors": 5,
+    "native_read_unread_partitions": 28,
+    "cumulative_unique_native_candidates": 46,
+    "local_links": 8,
+    "hashed_files": 146
+  },
+  "errors": [],
+  "limits": [
+    "Archive/static integrity only; no game/native target execution.",
+    "Candidate branch arithmetic is not a CFG or semantic proof for every decoded byte.",
+    "Exact remaining lifecycle/refund/persistence gaps remain named."
+  ]
+}

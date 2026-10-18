@@ -1,0 +1,189 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "checks": {
+    "current_Steam_assembly_matches_pin": true,
+    "support_type_requests": 8,
+    "nonempty_support_sources": 8,
+    "capture_status": {
+      "reused": 7,
+      "exported": 1
+    },
+    "cumulative_types_with_exact_line_complements": 442,
+    "indexed_printed_types": 8,
+    "exact_navigation_locators": 131,
+    "local_links": 27,
+    "private_files_ignored": 30
+  },
+  "errors": [],
+  "links": [
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "SpaceTimeVortex L373-438",
+      "target": "../private/depth-5/source/XRL.World.Parts.SpaceTimeVortex.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "Explicit tracking L549-569",
+      "target": "../private/depth-5/source/XRL.World.Parts.SpaceTimeVortex.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "Physics L2334-2378",
+      "target": "../private/depth-5/source/XRL.World.Parts.Physics.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "GameObject L3521-3532",
+      "target": "../private/depth-5/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "RequireDestinationZone L88-140",
+      "target": "../private/depth-5/source/XRL.World.Parts.SpaceTimeVortex.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "GameObject.Save L1903-1964",
+      "target": "../private/depth-5/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "IPart L330-399",
+      "target": "../private/depth-5/source/XRL.World.IPart.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "Zone L2943-3080",
+      "target": "../private/depth-5/source/XRL.World.Zone.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "Cell L1324-1415",
+      "target": "../private/depth-5/source/XRL.World.Cell.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "Temporary L137-184",
+      "target": "../private/depth-5/source/XRL.World.Parts.Temporary.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "Expire L220-256",
+      "target": "../private/depth-5/source/XRL.World.Parts.Temporary.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "GameObject.RemoveContents L9584-9643",
+      "target": "../private/depth-5/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "Physics.TeardownForDestroy L3862-3928",
+      "target": "../private/depth-5/source/XRL.World.Parts.Physics.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "Graveyard L1-80",
+      "target": "../private/depth-5/source/XRL.World.Graveyard.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "Zone.Release L2282-2302",
+      "target": "../private/depth-5/source/XRL.World.Zone.cs",
+      "exists": true
+    },
+    {
+      "document": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "label": "five-definition blueprint chain",
+      "target": "../private/depth-5/BLUEPRINT_CHAIN.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "full decoded flow",
+      "target": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "independent audit",
+      "target": "independent-audit/REPORT.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "current unread inventory",
+      "target": "../private/depth-5/UNREAD.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "exact cumulative line complements",
+      "target": "../private/depth-5/CUMULATIVE_LINE_COVERAGE.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "validation",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "private depth 5",
+      "target": "../private/depth-5/",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "depth 4",
+      "target": "../depth-4/REPORT.md",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "CURRENT",
+      "target": "../CURRENT.md",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "decoded flow",
+      "target": "QUEUED_VICTIMS_AND_CLEANUP.md",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "independent findings",
+      "target": "independent-audit/FINDINGS.md",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "UNREAD",
+      "target": "../private/depth-5/UNREAD.json",
+      "exists": true
+    }
+  ],
+  "public_document_hashes": {
+    "QUEUED_VICTIMS_AND_CLEANUP.md": "66eecce9b85b25f5236a791f95643fa2e5441fd14c179d18b216dc090b80411c",
+    "REPORT.md": "d60b03be314a05ce37c00b0fab66a4ba8e38e3bb9acd860dfa3c134553bb80e9",
+    "CHECKPOINT.md": "81d9d303493da52e027cd2f00d55d7b2d6c8fcfeaef3a67a4698286a4f92dbe2"
+  },
+  "qualification": "Source identities and research artifact consistency only; printed source and selected semantic traces do not establish complete review or native behavior. Game, save, browser and YAIR runtime tests unrun."
+}

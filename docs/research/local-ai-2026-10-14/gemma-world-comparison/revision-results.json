@@ -1,0 +1,704 @@
+[
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 113,
+    "case": "source_to_slice_revised",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "EXPLICIT ADAPTER CONTRACT: The model receives these definitions as well as the native output schema. draft.siteName/siteDescription name and describe the site. inputName is the gathered material; outputName is the crafted product, never the gathered material. inputStart is the starting material stock. requiredInput is the minimum input stock needed to START ONE work action. inputCost is the input material CONSUMED ONCE at work start. minutes is the duration of ONE work action. outputGain is the number of finished products gained at work completion. coinPay is the coins earned at that completion. gatherMinutes and gatherAmount are the duration and input material gained by ONE separate gather action; gathering never makes the finished product or earns coins. No action combines gather and work. Witness sequence strings refer to these actual actions. Read all numeric values from the source passage, not defaults. 'demonstrated' means an action actually occurs in the passage; 'stated' means a narrator/speaker describes a rule; a rumor must retain unverified_rumor. A claimed result must agree with executing the draft.\n\nJSON ENVELOPE AND FIELD LIMITS:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"claims\": {\n      \"type\": \"array\",\n      \"minItems\": 3,\n      \"maxItems\": 5,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"source\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"S1\",\n              \"S2\",\n              \"S3\",\n              \"S4\",\n              \"S5\"\n            ]\n          },\n          \"status\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"stated\",\n              \"demonstrated\",\n              \"unverified_rumor\"\n            ]\n          },\n          \"claim\": {\n            \"type\": \"string\",\n            \"maxLength\": 150\n          }\n        },\n        \"required\": [\n          \"source\",\n          \"status\",\n          \"claim\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"draft\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"siteName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 40\n        },\n        \"siteDescription\": {\n          \"type\": \"string\",\n          \"minLength\": 0,\n          \"maxLength\": 240\n        },\n        \"inputName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 24\n        },\n        \"inputStart\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"outputName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 24\n        },\n        \"activityName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 40\n        },\n        \"activityDescription\": {\n          \"type\": \"string\",\n          \"minLength\": 0,\n          \"maxLength\": 240\n        },\n        \"requiredInput\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 999\n        },\n        \"inputCost\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"minutes\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 1440\n        },\n        \"outputGain\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"coinPay\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 500\n        },\n        \"gatherMinutes\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 1440\n        },\n        \"gatherAmount\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 99\n        }\n      },\n      \"required\": [\n        \"siteName\",\n        \"siteDescription\",\n        \"inputName\",\n        \"inputStart\",\n        \"outputName\",\n        \"activityName\",\n        \"activityDescription\",\n        \"requiredInput\",\n        \"inputCost\",\n        \"minutes\",\n        \"outputGain\",\n        \"coinPay\",\n        \"gatherMinutes\",\n        \"gatherAmount\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"blockedMechanics\": {\n      \"type\": \"array\",\n      \"minItems\": 3,\n      \"maxItems\": 5,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 150\n      }\n    },\n    \"witness\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"sequence\": {\n          \"type\": \"array\",\n          \"maxItems\": 8,\n          \"items\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"gather\",\n              \"work\"\n            ]\n          }\n        },\n        \"inputRemaining\": {\n          \"type\": \"integer\"\n        },\n        \"mats\": {\n          \"type\": \"integer\"\n        },\n        \"coins\": {\n          \"type\": \"integer\"\n        },\n        \"minutes\": {\n          \"type\": \"integer\"\n        }\n      },\n      \"required\": [\n        \"sequence\",\n        \"inputRemaining\",\n        \"mats\",\n        \"coins\",\n        \"minutes\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"publicLine\": {\n      \"type\": \"string\",\n      \"maxLength\": 160\n    }\n  },\n  \"required\": [\n    \"claims\",\n    \"draft\",\n    \"blockedMechanics\",\n    \"witness\",\n    \"publicLine\"\n  ],\n  \"additionalProperties\": false\n}\n\nTurn the supplied original source passage into the smallest mechanically supported candidate slice, not a prose promise of a whole world. Return only the supplied JSON envelope. Extract 3\u20135 grounded claims with source IDs, including the witness-knot rumor with its uncertainty. Produce a 14-field authored-site draft using the exact passage quantities and economics, initial stocks and supported gathering/weaving. List the missing consumers for ferry repair, witness knots and the locked gate; do not pretend the draft implements them. Give a minimum-time legal sequence to produce at least three mats from the initial stocks, with exact final reeds, mats, coins and elapsed minutes; no seeded extra stock or unlisted actions. PublicLine is one original sentence Lysa could actually say from her knowledge, without the private gate solution. Do not add mechanics, facts or code. Keep text fields concise to fit the output budget.\n\n# Duskfen: original synthetic source packet\n\nThis is original evaluation material, not a published book or YAIR canon. Source IDs are locators. The private fact is synthetic and concerns fictional NPC knowledge, not a repository sealed secret.\n\n[S1] Lysa laid six reeds on the bench in Duskfen. Reeds could be gathered on the open riverbank without fee or permission. The old weaver said, \u201cTwenty minutes brings you two good reeds. No more and no less if you work at an ordinary pace.\u201d\n\n[S2] \u201cThree reeds for each storm mat,\u201d the weaver continued. \u201cYou need all three before you begin; weaving uses them. Half an hour makes one mat. The market pays eight copper coins for each finished mat.\u201d Lysa had no mats and no coins when she began.\n\n[S3] The ferry's broken deck needed three mats before anyone could start repairing it. Weaving those mats did not itself repair the ferry. The ferryman and his tools would still be needed. The passage gives no repair duration, payment, skill test or ferry travel rules.\n\n[S4] Children whispered that a witness knot could restore a lost memory. The only demonstrated knot in this passage repeated a short spoken promise once before dawn. No memory restoration or healing was shown. No recipe, price, ingredients or casting procedure was given.\n\n[S5] A locked stone gate stood beyond the riverbank. Oren privately knew that saltwater opened its seal. Lysa did not know this and had not seen the gate open. The passage gives no route by which she learns the answer. For the public line below, Lysa knows reed gathering, weaving and the ferry's need for mats; she has heard the unverified knot rumor. She does not know the gate solution.\n\nAdapter manifest for this test: the current 14-field authored_site compiler supports one scalar input resource, one scalar output resource, a timed gather action, a timed consuming work action and fixed coin pay on completion. It does NOT support NPC negotiations, ferry repair/travel, spells/memory effects, doors/locks or character knowledge writes. A natural-language label cannot add those consumers.\n"
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1100,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "claims": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "S1",
+                    "S2",
+                    "S3",
+                    "S4",
+                    "S5"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "stated",
+                    "demonstrated",
+                    "unverified_rumor"
+                  ]
+                },
+                "claim": {
+                  "type": "string",
+                  "maxLength": 150
+                }
+              },
+              "required": [
+                "source",
+                "status",
+                "claim"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "draft": {
+            "type": "object",
+            "properties": {
+              "siteName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "siteDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "inputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "inputStart": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "outputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "activityName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "activityDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "requiredInput": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 999
+              },
+              "inputCost": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "minutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "outputGain": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "coinPay": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 500
+              },
+              "gatherMinutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "gatherAmount": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 99
+              }
+            },
+            "required": [
+              "siteName",
+              "siteDescription",
+              "inputName",
+              "inputStart",
+              "outputName",
+              "activityName",
+              "activityDescription",
+              "requiredInput",
+              "inputCost",
+              "minutes",
+              "outputGain",
+              "coinPay",
+              "gatherMinutes",
+              "gatherAmount"
+            ],
+            "additionalProperties": false
+          },
+          "blockedMechanics": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "string",
+              "maxLength": 150
+            }
+          },
+          "witness": {
+            "type": "object",
+            "properties": {
+              "sequence": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "gather",
+                    "work"
+                  ]
+                }
+              },
+              "inputRemaining": {
+                "type": "integer"
+              },
+              "mats": {
+                "type": "integer"
+              },
+              "coins": {
+                "type": "integer"
+              },
+              "minutes": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "sequence",
+              "inputRemaining",
+              "mats",
+              "coins",
+              "minutes"
+            ],
+            "additionalProperties": false
+          },
+          "publicLine": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "claims",
+          "draft",
+          "blockedMechanics",
+          "witness",
+          "publicLine"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:47:58.295227+00:00",
+    "answer": "{\n  \"claims\": [\n    {\n      \"source\": \"S1\",\n      \"status\": \"stated\",\n      \"claim\": \"Gathering reeds takes twenty minutes and yields two reeds.\"\n    },\n    {\n      \"source\": \"S2\",\n      \"status\": \"stated\",\n      \"claim\": \"Weaving a storm mat requires three reeds, takes thirty minutes, and pays eight coins.\"\n    },\n    {\n      \"source\": \"S3\",\n      \"status\": \"stated\",\n      \"claim\": \"The ferry deck requires three mats for repair, but weaving does not repair it.\"\n    },\n    {\n      \"source\": \"S4\",\n      \"status\": \"unverified_rumor\",\n      \"claim\": \"Children whisper that a witness knot restores lost memory.\"\n    },\n    {\n      \"source\": \"S5\",\n      \"status\": \"stated\",\n      \"claim\": \"A locked gate exists beyond the riverbank; Lysa does not know how to open it.\"\n    }\n  ],\n  \"draft\": {\n    \"siteName\": \"Duskfen Riverbank\",\n    \"siteDescription\": \"Open riverbank where reeds are gathered and storm mats are woven.\",\n    \"inputName\": \"Reed\",\n    \"inputStart\": 6,\n    \"outputName\": \"Storm Mat\",\n    \"activityName\": \"Weave Storm Mat\",\n    \"activityDescription\": \"Consume three reeds to craft one storm mat in thirty minutes.\",\n    \"requiredInput\": 3,\n    \"inputCost\": 3,\n    \"minutes\": 30,\n    \"outputGain\": 1,\n    \"coinPay\": 8,\n    \"gatherMinutes\": 20,\n    \"gatherAmount\": 2\n  },\n  \"blockedMechanics\": [\n    \"Ferry repair requires mats but has no defined repair action or duration.\",\n    \"Witness knot memory restoration is a rumor with no defined casting or effect.\",\n    \"Locked gate opening requires saltwater, which is not a defined input or action.\"\n  ],\n  \"witness\": {\n    \"sequence\": [\n      \"work\",\n      \"work\",\n      \"work\"\n    ],\n    \"inputRemaining\": 0,\n    \"mats\": 3,\n    \"coins\": 24,\n    \"minutes\": 90\n  },\n  \"publicLine\": \"I have enough reeds to weave the three mats the ferryman needs, though I still don't know how to open that gate.\"\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 19.196292750013527,
+    "elapsed_s": 52.1536816250009,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 52140186417,
+      "load_duration": 10352809292,
+      "prompt_eval_count": 2074,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 8806525000,
+      "eval_count": 579,
+      "eval_duration": 32957756000
+    },
+    "words": 237
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 113,
+    "case": "source_to_slice_revised",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "EXPLICIT ADAPTER CONTRACT: The model receives these definitions as well as the native output schema. draft.siteName/siteDescription name and describe the site. inputName is the gathered material; outputName is the crafted product, never the gathered material. inputStart is the starting material stock. requiredInput is the minimum input stock needed to START ONE work action. inputCost is the input material CONSUMED ONCE at work start. minutes is the duration of ONE work action. outputGain is the number of finished products gained at work completion. coinPay is the coins earned at that completion. gatherMinutes and gatherAmount are the duration and input material gained by ONE separate gather action; gathering never makes the finished product or earns coins. No action combines gather and work. Witness sequence strings refer to these actual actions. Read all numeric values from the source passage, not defaults. 'demonstrated' means an action actually occurs in the passage; 'stated' means a narrator/speaker describes a rule; a rumor must retain unverified_rumor. A claimed result must agree with executing the draft.\n\nJSON ENVELOPE AND FIELD LIMITS:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"claims\": {\n      \"type\": \"array\",\n      \"minItems\": 3,\n      \"maxItems\": 5,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"source\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"S1\",\n              \"S2\",\n              \"S3\",\n              \"S4\",\n              \"S5\"\n            ]\n          },\n          \"status\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"stated\",\n              \"demonstrated\",\n              \"unverified_rumor\"\n            ]\n          },\n          \"claim\": {\n            \"type\": \"string\",\n            \"maxLength\": 150\n          }\n        },\n        \"required\": [\n          \"source\",\n          \"status\",\n          \"claim\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"draft\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"siteName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 40\n        },\n        \"siteDescription\": {\n          \"type\": \"string\",\n          \"minLength\": 0,\n          \"maxLength\": 240\n        },\n        \"inputName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 24\n        },\n        \"inputStart\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"outputName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 24\n        },\n        \"activityName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 40\n        },\n        \"activityDescription\": {\n          \"type\": \"string\",\n          \"minLength\": 0,\n          \"maxLength\": 240\n        },\n        \"requiredInput\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 999\n        },\n        \"inputCost\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"minutes\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 1440\n        },\n        \"outputGain\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"coinPay\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 500\n        },\n        \"gatherMinutes\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 1440\n        },\n        \"gatherAmount\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 99\n        }\n      },\n      \"required\": [\n        \"siteName\",\n        \"siteDescription\",\n        \"inputName\",\n        \"inputStart\",\n        \"outputName\",\n        \"activityName\",\n        \"activityDescription\",\n        \"requiredInput\",\n        \"inputCost\",\n        \"minutes\",\n        \"outputGain\",\n        \"coinPay\",\n        \"gatherMinutes\",\n        \"gatherAmount\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"blockedMechanics\": {\n      \"type\": \"array\",\n      \"minItems\": 3,\n      \"maxItems\": 5,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 150\n      }\n    },\n    \"witness\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"sequence\": {\n          \"type\": \"array\",\n          \"maxItems\": 8,\n          \"items\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"gather\",\n              \"work\"\n            ]\n          }\n        },\n        \"inputRemaining\": {\n          \"type\": \"integer\"\n        },\n        \"mats\": {\n          \"type\": \"integer\"\n        },\n        \"coins\": {\n          \"type\": \"integer\"\n        },\n        \"minutes\": {\n          \"type\": \"integer\"\n        }\n      },\n      \"required\": [\n        \"sequence\",\n        \"inputRemaining\",\n        \"mats\",\n        \"coins\",\n        \"minutes\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"publicLine\": {\n      \"type\": \"string\",\n      \"maxLength\": 160\n    }\n  },\n  \"required\": [\n    \"claims\",\n    \"draft\",\n    \"blockedMechanics\",\n    \"witness\",\n    \"publicLine\"\n  ],\n  \"additionalProperties\": false\n}\n\nTurn the supplied original source passage into the smallest mechanically supported candidate slice, not a prose promise of a whole world. Return only the supplied JSON envelope. Extract 3\u20135 grounded claims with source IDs, including the witness-knot rumor with its uncertainty. Produce a 14-field authored-site draft using the exact passage quantities and economics, initial stocks and supported gathering/weaving. List the missing consumers for ferry repair, witness knots and the locked gate; do not pretend the draft implements them. Give a minimum-time legal sequence to produce at least three mats from the initial stocks, with exact final reeds, mats, coins and elapsed minutes; no seeded extra stock or unlisted actions. PublicLine is one original sentence Lysa could actually say from her knowledge, without the private gate solution. Do not add mechanics, facts or code. Keep text fields concise to fit the output budget.\n\n# Duskfen: original synthetic source packet\n\nThis is original evaluation material, not a published book or YAIR canon. Source IDs are locators. The private fact is synthetic and concerns fictional NPC knowledge, not a repository sealed secret.\n\n[S1] Lysa laid six reeds on the bench in Duskfen. Reeds could be gathered on the open riverbank without fee or permission. The old weaver said, \u201cTwenty minutes brings you two good reeds. No more and no less if you work at an ordinary pace.\u201d\n\n[S2] \u201cThree reeds for each storm mat,\u201d the weaver continued. \u201cYou need all three before you begin; weaving uses them. Half an hour makes one mat. The market pays eight copper coins for each finished mat.\u201d Lysa had no mats and no coins when she began.\n\n[S3] The ferry's broken deck needed three mats before anyone could start repairing it. Weaving those mats did not itself repair the ferry. The ferryman and his tools would still be needed. The passage gives no repair duration, payment, skill test or ferry travel rules.\n\n[S4] Children whispered that a witness knot could restore a lost memory. The only demonstrated knot in this passage repeated a short spoken promise once before dawn. No memory restoration or healing was shown. No recipe, price, ingredients or casting procedure was given.\n\n[S5] A locked stone gate stood beyond the riverbank. Oren privately knew that saltwater opened its seal. Lysa did not know this and had not seen the gate open. The passage gives no route by which she learns the answer. For the public line below, Lysa knows reed gathering, weaving and the ferry's need for mats; she has heard the unverified knot rumor. She does not know the gate solution.\n\nAdapter manifest for this test: the current 14-field authored_site compiler supports one scalar input resource, one scalar output resource, a timed gather action, a timed consuming work action and fixed coin pay on completion. It does NOT support NPC negotiations, ferry repair/travel, spells/memory effects, doors/locks or character knowledge writes. A natural-language label cannot add those consumers.\n"
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1100,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "claims": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "S1",
+                    "S2",
+                    "S3",
+                    "S4",
+                    "S5"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "stated",
+                    "demonstrated",
+                    "unverified_rumor"
+                  ]
+                },
+                "claim": {
+                  "type": "string",
+                  "maxLength": 150
+                }
+              },
+              "required": [
+                "source",
+                "status",
+                "claim"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "draft": {
+            "type": "object",
+            "properties": {
+              "siteName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "siteDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "inputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "inputStart": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "outputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "activityName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "activityDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "requiredInput": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 999
+              },
+              "inputCost": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "minutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "outputGain": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "coinPay": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 500
+              },
+              "gatherMinutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "gatherAmount": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 99
+              }
+            },
+            "required": [
+              "siteName",
+              "siteDescription",
+              "inputName",
+              "inputStart",
+              "outputName",
+              "activityName",
+              "activityDescription",
+              "requiredInput",
+              "inputCost",
+              "minutes",
+              "outputGain",
+              "coinPay",
+              "gatherMinutes",
+              "gatherAmount"
+            ],
+            "additionalProperties": false
+          },
+          "blockedMechanics": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "string",
+              "maxLength": 150
+            }
+          },
+          "witness": {
+            "type": "object",
+            "properties": {
+              "sequence": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "gather",
+                    "work"
+                  ]
+                }
+              },
+              "inputRemaining": {
+                "type": "integer"
+              },
+              "mats": {
+                "type": "integer"
+              },
+              "coins": {
+                "type": "integer"
+              },
+              "minutes": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "sequence",
+              "inputRemaining",
+              "mats",
+              "coins",
+              "minutes"
+            ],
+            "additionalProperties": false
+          },
+          "publicLine": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "claims",
+          "draft",
+          "blockedMechanics",
+          "witness",
+          "publicLine"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:48:50.459450+00:00",
+    "answer": "{\n  \"claims\": [\n    {\n      \"source\": \"S1\",\n      \"status\": \"demonstrated\",\n      \"claim\": \"Lysa started with six reeds on the bench in Duskfen.\"\n    },\n    {\n      \"source\": \"S1\",\n      \"status\": \"stated\",\n      \"claim\": \"Gathering reeds takes twenty minutes and yields two reeds.\"\n    },\n    {\n      \"source\": \"S2\",\n      \"status\": \"stated\",\n      \"claim\": \"Weaving one storm mat costs three reeds, takes thirty minutes, and pays eight coins.\"\n    },\n    {\n      \"source\": \"S4\",\n      \"status\": \"unverified_rumor\",\n      \"claim\": \"A witness knot might restore lost memories, though no procedure is known.\"\n    },\n    {\n      \"source\": \"S3\",\n      \"status\": \"stated\",\n      \"claim\": \"Ferry repair requires three mats but needs separate tools and duration not provided.\"\n    }\n  ],\n  \"draft\": {\n    \"siteName\": \"Duskfen Weaving Bench\",\n    \"siteDescription\": \"A riverside bench where reeds are gathered and woven into storm mats.\",\n    \"inputName\": \"reeds\",\n    \"inputStart\": 6,\n    \"outputName\": \"storm mats\",\n    \"activityName\": \"Weave Storm Mat\",\n    \"activityDescription\": \"Consume reeds to craft a storm mat over thirty minutes.\",\n    \"requiredInput\": 3,\n    \"inputCost\": 3,\n    \"minutes\": 30,\n    \"outputGain\": 1,\n    \"coinPay\": 8,\n    \"gatherMinutes\": 20,\n    \"gatherAmount\": 2\n  },\n  \"blockedMechanics\": [\n    \"Ferry deck repair requires three mats plus ferryman and tools with no defined duration or cost.\",\n    \"Witness knots are rumored to restore memory but lack any recipe, ingredients, or casting procedure.\",\n    \"The locked stone gate requires saltwater to open, a fact unknown to Lysa and unsupported by mechanics.\"\n  ],\n  \"witness\": {\n    \"sequence\": [\n      \"work\",\n      \"work\",\n      \"work\"\n    ],\n    \"inputRemaining\": 0,\n    \"mats\": 3,\n    \"coins\": 24,\n    \"minutes\": 90\n  },\n  \"publicLine\": \"I have six reeds here, which is enough to weave the three mats the ferry needs, though I have no idea how to open that stone gate.\"\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 18.810950791987125,
+    "elapsed_s": 43.972458167001605,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 43969970708,
+      "load_duration": 9726480875,
+      "prompt_eval_count": 2074,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 8871446875,
+      "eval_count": 599,
+      "eval_duration": 25360337750
+    },
+    "words": 250
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 113,
+    "case": "source_to_slice_revised",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "EXPLICIT ADAPTER CONTRACT: The model receives these definitions as well as the native output schema. draft.siteName/siteDescription name and describe the site. inputName is the gathered material; outputName is the crafted product, never the gathered material. inputStart is the starting material stock. requiredInput is the minimum input stock needed to START ONE work action. inputCost is the input material CONSUMED ONCE at work start. minutes is the duration of ONE work action. outputGain is the number of finished products gained at work completion. coinPay is the coins earned at that completion. gatherMinutes and gatherAmount are the duration and input material gained by ONE separate gather action; gathering never makes the finished product or earns coins. No action combines gather and work. Witness sequence strings refer to these actual actions. Read all numeric values from the source passage, not defaults. 'demonstrated' means an action actually occurs in the passage; 'stated' means a narrator/speaker describes a rule; a rumor must retain unverified_rumor. A claimed result must agree with executing the draft.\n\nJSON ENVELOPE AND FIELD LIMITS:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"claims\": {\n      \"type\": \"array\",\n      \"minItems\": 3,\n      \"maxItems\": 5,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"source\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"S1\",\n              \"S2\",\n              \"S3\",\n              \"S4\",\n              \"S5\"\n            ]\n          },\n          \"status\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"stated\",\n              \"demonstrated\",\n              \"unverified_rumor\"\n            ]\n          },\n          \"claim\": {\n            \"type\": \"string\",\n            \"maxLength\": 150\n          }\n        },\n        \"required\": [\n          \"source\",\n          \"status\",\n          \"claim\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"draft\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"siteName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 40\n        },\n        \"siteDescription\": {\n          \"type\": \"string\",\n          \"minLength\": 0,\n          \"maxLength\": 240\n        },\n        \"inputName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 24\n        },\n        \"inputStart\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"outputName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 24\n        },\n        \"activityName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 40\n        },\n        \"activityDescription\": {\n          \"type\": \"string\",\n          \"minLength\": 0,\n          \"maxLength\": 240\n        },\n        \"requiredInput\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 999\n        },\n        \"inputCost\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"minutes\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 1440\n        },\n        \"outputGain\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"coinPay\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 500\n        },\n        \"gatherMinutes\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 1440\n        },\n        \"gatherAmount\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 99\n        }\n      },\n      \"required\": [\n        \"siteName\",\n        \"siteDescription\",\n        \"inputName\",\n        \"inputStart\",\n        \"outputName\",\n        \"activityName\",\n        \"activityDescription\",\n        \"requiredInput\",\n        \"inputCost\",\n        \"minutes\",\n        \"outputGain\",\n        \"coinPay\",\n        \"gatherMinutes\",\n        \"gatherAmount\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"blockedMechanics\": {\n      \"type\": \"array\",\n      \"minItems\": 3,\n      \"maxItems\": 5,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 150\n      }\n    },\n    \"witness\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"sequence\": {\n          \"type\": \"array\",\n          \"maxItems\": 8,\n          \"items\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"gather\",\n              \"work\"\n            ]\n          }\n        },\n        \"inputRemaining\": {\n          \"type\": \"integer\"\n        },\n        \"mats\": {\n          \"type\": \"integer\"\n        },\n        \"coins\": {\n          \"type\": \"integer\"\n        },\n        \"minutes\": {\n          \"type\": \"integer\"\n        }\n      },\n      \"required\": [\n        \"sequence\",\n        \"inputRemaining\",\n        \"mats\",\n        \"coins\",\n        \"minutes\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"publicLine\": {\n      \"type\": \"string\",\n      \"maxLength\": 160\n    }\n  },\n  \"required\": [\n    \"claims\",\n    \"draft\",\n    \"blockedMechanics\",\n    \"witness\",\n    \"publicLine\"\n  ],\n  \"additionalProperties\": false\n}\n\nTurn the supplied original source passage into the smallest mechanically supported candidate slice, not a prose promise of a whole world. Return only the supplied JSON envelope. Extract 3\u20135 grounded claims with source IDs, including the witness-knot rumor with its uncertainty. Produce a 14-field authored-site draft using the exact passage quantities and economics, initial stocks and supported gathering/weaving. List the missing consumers for ferry repair, witness knots and the locked gate; do not pretend the draft implements them. Give a minimum-time legal sequence to produce at least three mats from the initial stocks, with exact final reeds, mats, coins and elapsed minutes; no seeded extra stock or unlisted actions. PublicLine is one original sentence Lysa could actually say from her knowledge, without the private gate solution. Do not add mechanics, facts or code. Keep text fields concise to fit the output budget.\n\n# Duskfen: original synthetic source packet\n\nThis is original evaluation material, not a published book or YAIR canon. Source IDs are locators. The private fact is synthetic and concerns fictional NPC knowledge, not a repository sealed secret.\n\n[S1] Lysa laid six reeds on the bench in Duskfen. Reeds could be gathered on the open riverbank without fee or permission. The old weaver said, \u201cTwenty minutes brings you two good reeds. No more and no less if you work at an ordinary pace.\u201d\n\n[S2] \u201cThree reeds for each storm mat,\u201d the weaver continued. \u201cYou need all three before you begin; weaving uses them. Half an hour makes one mat. The market pays eight copper coins for each finished mat.\u201d Lysa had no mats and no coins when she began.\n\n[S3] The ferry's broken deck needed three mats before anyone could start repairing it. Weaving those mats did not itself repair the ferry. The ferryman and his tools would still be needed. The passage gives no repair duration, payment, skill test or ferry travel rules.\n\n[S4] Children whispered that a witness knot could restore a lost memory. The only demonstrated knot in this passage repeated a short spoken promise once before dawn. No memory restoration or healing was shown. No recipe, price, ingredients or casting procedure was given.\n\n[S5] A locked stone gate stood beyond the riverbank. Oren privately knew that saltwater opened its seal. Lysa did not know this and had not seen the gate open. The passage gives no route by which she learns the answer. For the public line below, Lysa knows reed gathering, weaving and the ferry's need for mats; she has heard the unverified knot rumor. She does not know the gate solution.\n\nAdapter manifest for this test: the current 14-field authored_site compiler supports one scalar input resource, one scalar output resource, a timed gather action, a timed consuming work action and fixed coin pay on completion. It does NOT support NPC negotiations, ferry repair/travel, spells/memory effects, doors/locks or character knowledge writes. A natural-language label cannot add those consumers.\n"
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1100,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "claims": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "S1",
+                    "S2",
+                    "S3",
+                    "S4",
+                    "S5"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "stated",
+                    "demonstrated",
+                    "unverified_rumor"
+                  ]
+                },
+                "claim": {
+                  "type": "string",
+                  "maxLength": 150
+                }
+              },
+              "required": [
+                "source",
+                "status",
+                "claim"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "draft": {
+            "type": "object",
+            "properties": {
+              "siteName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "siteDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "inputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "inputStart": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "outputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "activityName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "activityDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "requiredInput": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 999
+              },
+              "inputCost": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "minutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "outputGain": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "coinPay": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 500
+              },
+              "gatherMinutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "gatherAmount": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 99
+              }
+            },
+            "required": [
+              "siteName",
+              "siteDescription",
+              "inputName",
+              "inputStart",
+              "outputName",
+              "activityName",
+              "activityDescription",
+              "requiredInput",
+              "inputCost",
+              "minutes",
+              "outputGain",
+              "coinPay",
+              "gatherMinutes",
+              "gatherAmount"
+            ],
+            "additionalProperties": false
+          },
+          "blockedMechanics": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "string",
+              "maxLength": 150
+            }
+          },
+          "witness": {
+            "type": "object",
+            "properties": {
+              "sequence": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "gather",
+                    "work"
+                  ]
+                }
+              },
+              "inputRemaining": {
+                "type": "integer"
+              },
+              "mats": {
+                "type": "integer"
+              },
+              "coins": {
+                "type": "integer"
+              },
+              "minutes": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "sequence",
+              "inputRemaining",
+              "mats",
+              "coins",
+              "minutes"
+            ],
+            "additionalProperties": false
+          },
+          "publicLine": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "claims",
+          "draft",
+          "blockedMechanics",
+          "witness",
+          "publicLine"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:49:34.467283+00:00",
+    "answer": "{\n  \"claims\": [\n    {\n      \"source\": \"S1\",\n      \"status\": \"stated\",\n      \"claim\": \"Twenty minutes of gathering on the riverbank yields two reeds.\"\n    },\n    {\n      \"source\": \"S2\",\n      \"status\": \"stated\",\n      \"claim\": \"Weaving one storm mat takes 30 minutes, consumes three reeds, and pays eight copper coins.\"\n    },\n    {\n      \"source\": \"S4\",\n      \"status\": \"unverified_rumor\",\n      \"claim\": \"A witness knot could restore a lost memory.\"\n    }\n  ],\n  \"draft\": {\n    \"siteName\": \"Duskfen\",\n    \"siteDescription\": \"A riverbank settlement with a broken ferry and a locked stone gate.\",\n    \"inputName\": \"reeds\",\n    \"inputStart\": 6,\n    \"outputName\": \"storm mats\",\n    \"activityName\": \"weaving\",\n    \"activityDescription\": \"Crafting storm mats from gathered reeds.\",\n    \"requiredInput\": 3,\n    \"inputCost\": 3,\n    \"minutes\": 30,\n    \"outputGain\": 1,\n    \"coinPay\": 8,\n    \"gatherMinutes\": 20,\n    \"gatherAmount\": 2\n  },\n  \"blockedMechanics\": [\n    \"ferry repair and travel\",\n    \"witness knot memory restoration\",\n    \"saltwater gate unlocking\"\n  ],\n  \"witness\": {\n    \"sequence\": [\n      \"work\",\n      \"work\",\n      \"work\"\n    ],\n    \"inputRemaining\": 0,\n    \"mats\": 3,\n    \"coins\": 24,\n    \"minutes\": 90\n  },\n  \"publicLine\": \"I can gather reeds and weave storm mats for the ferry, and I've heard a witness knot might restore a memory.\"\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 26.034810332988854,
+    "elapsed_s": 45.0643549170054,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 45062284709,
+      "load_duration": 8027729042,
+      "prompt_eval_count": 2062,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 17750008167,
+      "eval_count": 438,
+      "eval_duration": 19276149916
+    },
+    "words": 160
+  }
+]

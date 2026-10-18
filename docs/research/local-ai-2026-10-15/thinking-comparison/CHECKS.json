@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-15T05:30:06.354522+00:00",
+  "requests": 12,
+  "stop_completions": 11,
+  "request_errors": 1,
+  "complete_json": 11,
+  "thinking_on_observed": 6,
+  "unexpected_off_thinking": 0,
+  "same_prompt_hashes_per_task": {
+    "hp_proposal": true,
+    "hp_plan": true
+  },
+  "config_unchanged": true,
+  "model_digests_unchanged": true,
+  "final_ps": {
+    "models": []
+  },
+  "upgrade_job_absent": true,
+  "native_gameplay_verified": false,
+  "broken_local_links": [],
+  "plan_passes": 6,
+  "source_pins_still_match": {
+    "src/authored_site.js": true,
+    "src/content_packs.js": true,
+    "docs/gm/dispatch/procgen-2026-10-13/p15/AUTHORING_PIPELINE.md": true,
+    "docs/gm/dispatch/research-tech-2026-10-14/t5/LLM_ROUTES.md": true,
+    "docs/worlds/harry-potter/WORLD_BRIEF.md": true
+  }
+}

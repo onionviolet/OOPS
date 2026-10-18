@@ -1,0 +1,199 @@
+{
+  "generated": {
+    "claims": [
+      {
+        "source": "S1",
+        "status": "demonstrated",
+        "claim": "Gathering reeds on the open riverbank requires no fee or permission."
+      },
+      {
+        "source": "S1",
+        "status": "demonstrated",
+        "claim": "Gathering two good reeds takes exactly twenty minutes at an ordinary pace."
+      },
+      {
+        "source": "S2",
+        "status": "demonstrated",
+        "claim": "Weaving one storm mat consumes three reeds and takes thirty minutes."
+      },
+      {
+        "source": "S4",
+        "status": "unverified_rumor",
+        "claim": "A witness knot might restore a lost memory, though no demonstration or recipe exists."
+      }
+    ],
+    "draft": {
+      "siteName": "Duskfen_Bench",
+      "siteDescription": "Reed processing station",
+      "inputName": "Reed",
+      "inputStart": 6,
+      "outputName": "Mat",
+      "activityName": "Gather",
+      "activityDescription": "Collect reeds",
+      "requiredInput": 1,
+      "inputCost": 0,
+      "minutes": 10,
+      "outputGain": 2,
+      "coinPay": 0,
+      "gatherMinutes": 10,
+      "gatherAmount": 2
+    },
+    "blockedMechanics": [
+      "Ferry repair requires mats but lacks repair duration, payment, skill test, or travel rules.",
+      "Witness knot lacks recipe, price, ingredients, or casting procedure; memory restoration is unproven.",
+      "Locked gate solution is private to Oren; Lysa lacks knowledge and the passage provides no learning route."
+    ],
+    "witness": {
+      "sequence": [
+        "gather",
+        "gather",
+        "gather",
+        "gather",
+        "gather",
+        "gather",
+        "gather",
+        "gather"
+      ],
+      "inputRemaining": 0,
+      "mats": 3,
+      "coins": 24,
+      "minutes": 80
+    },
+    "publicLine": "The ferry needs mats, and I can weave them, but I do not know how to open the gate."
+  },
+  "compiled": {
+    "schema": 1,
+    "id": "authored_site",
+    "title": "Duskfen_Bench",
+    "authored": true,
+    "description": "Reed processing station",
+    "world": {
+      "id": "authored_site.world",
+      "label": "Duskfen_Bench"
+    },
+    "locations": [
+      {
+        "id": "authored_site.site",
+        "label": "Duskfen_Bench",
+        "description": "Reed processing station"
+      }
+    ],
+    "people": [],
+    "initial": {
+      "input": 6,
+      "output": 0
+    },
+    "status": {
+      "input": "Reed",
+      "output": "Mat"
+    },
+    "activities": [
+      {
+        "id": "authored_site.work",
+        "label": "Gather",
+        "description": "Collect reeds",
+        "duration": 10,
+        "requires": [
+          {
+            "field": "input",
+            "op": "gte",
+            "value": 1
+          }
+        ],
+        "start": {},
+        "complete": {
+          "add": {
+            "output": 2
+          }
+        },
+        "pay": 0
+      },
+      {
+        "id": "authored_site.gather",
+        "label": "Gather Reed",
+        "description": "Collect 2 Reed.",
+        "duration": 10,
+        "start": {},
+        "complete": {
+          "add": {
+            "input": 2
+          }
+        }
+      }
+    ]
+  },
+  "sourceTrace": [
+    {
+      "step": "gather",
+      "minutes": 10,
+      "coins": 0,
+      "values": {
+        "input": 8,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 20,
+      "coins": 0,
+      "values": {
+        "input": 10,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 30,
+      "coins": 0,
+      "values": {
+        "input": 12,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 40,
+      "coins": 0,
+      "values": {
+        "input": 14,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 50,
+      "coins": 0,
+      "values": {
+        "input": 16,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 60,
+      "coins": 0,
+      "values": {
+        "input": 18,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 70,
+      "coins": 0,
+      "values": {
+        "input": 20,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 80,
+      "coins": 0,
+      "values": {
+        "input": 22,
+        "output": 0
+      }
+    }
+  ]
+}

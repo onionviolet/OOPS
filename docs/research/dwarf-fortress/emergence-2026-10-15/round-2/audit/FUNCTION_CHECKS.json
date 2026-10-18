@@ -1,0 +1,151 @@
+{
+  "binary_sha256": "205770918fd54c96cbbcf89223ebd449e2e113c7c873ed81177c4511a3450db7",
+  "function_regions": [
+    {
+      "address": "0x14028c660",
+      "byte_count": 32,
+      "region_kind": "bounded_32byte_leaf_window_not_complete_function_claim",
+      "raw_bytes_sha256": "8f27651198db13a5c53d51ecd1dfef7027050ae03eebfe0b9298f2d07d4bf5db",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x14028c660.txt"
+    },
+    {
+      "address": "0x140a67820",
+      "byte_count": 204,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "276515cc06fc58637d762f86f6f79b0967c479cde00b0935c6899831893c947b",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140a67820.txt"
+    },
+    {
+      "address": "0x140d026a0",
+      "byte_count": 106,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "bfa2faa5a829b58f0ff00d5635cd4a1686b9432d64bc5cd7aba6062a18eb404e",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d026a0.txt"
+    },
+    {
+      "address": "0x140d02ea0",
+      "byte_count": 711,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "65b6b04633a2cd88fb01500bbcbfc55e204ebaab284488f964a9eba679e4ff74",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d02ea0.txt"
+    },
+    {
+      "address": "0x140d09950",
+      "byte_count": 49,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "17b3c770e8f3c4306785a30c6f481a5f1a28a88e4ceb1df32002f65dd17db0a8",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d09950.txt"
+    },
+    {
+      "address": "0x140d54940",
+      "byte_count": 227,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "7ddcf772a3617c55e352adae8426066ec9b3e67b3a7506c3f305a6927bc06e12",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d54940.txt"
+    },
+    {
+      "address": "0x140d54d40",
+      "byte_count": 32,
+      "region_kind": "bounded_32byte_leaf_window_not_complete_function_claim",
+      "raw_bytes_sha256": "866b60b349cf3eba7f02ae24a565c93fe80a43e4b09dc8ed69cd587bd89a1092",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d54d40.txt"
+    },
+    {
+      "address": "0x140d54d70",
+      "byte_count": 32,
+      "region_kind": "bounded_32byte_leaf_window_not_complete_function_claim",
+      "raw_bytes_sha256": "0f1ed64b1aad1910b9d25c43a83ae900acb5c1a6a88c67d4d4dd218ea888675a",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d54d70.txt"
+    },
+    {
+      "address": "0x140d54d80",
+      "byte_count": 32,
+      "region_kind": "bounded_32byte_leaf_window_not_complete_function_claim",
+      "raw_bytes_sha256": "f75df20c5b0e9501fe0659995a52090ebdc9e4fa9b54ca19490f4092b3f8a5c3",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d54d80.txt"
+    },
+    {
+      "address": "0x140d556c0",
+      "byte_count": 151,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "c23f73f43e5e9d956e2e06a80dfcf536828bc8d604195457545016c30468c00c",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d556c0.txt"
+    },
+    {
+      "address": "0x140d55760",
+      "byte_count": 32,
+      "region_kind": "bounded_32byte_leaf_window_not_complete_function_claim",
+      "raw_bytes_sha256": "5d3db60c0b1e505af8016191914464a22bdfb390165df759b43a5a1e2cbca2b2",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d55760.txt"
+    },
+    {
+      "address": "0x140d55830",
+      "byte_count": 142,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "56de185a5e8c2e06a4fdd07b428ba58853005960bd9666c30820cfa8cd1b8aac",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d55830.txt"
+    },
+    {
+      "address": "0x140d558c0",
+      "byte_count": 52,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "5ec78d6fa725aaf5f33408e571e9aeb6937456b8a951f439e459681a2edb5010",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d558c0.txt"
+    },
+    {
+      "address": "0x140d7a680",
+      "byte_count": 865,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "9b5fe4707c0deb49f0e768703982c53b68caa3b9ed83c694146793b986c93afb",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d7a680.txt"
+    },
+    {
+      "address": "0x140d7af40",
+      "byte_count": 894,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "0ca4a44c286c20ce33e58426e0b435bece2cd2935f00b063a405387e8de6bc88",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d7af40.txt"
+    },
+    {
+      "address": "0x140d7c330",
+      "byte_count": 1442,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "8a625de80410b35aa959e1f5ff2dfb7f325acbdb2764ffe2dd16db07367ce1bb",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d7c330.txt"
+    },
+    {
+      "address": "0x140d87830",
+      "byte_count": 59,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "489a18c452d17470716d2d68c78f4e6d944e28033383de885a347de87c985d30",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x140d87830.txt"
+    },
+    {
+      "address": "0x141325080",
+      "byte_count": 13251,
+      "region_kind": "pdata_unwind_region",
+      "raw_bytes_sha256": "fca842f28746fed13ff539c043a799d664b10787937483ceb950fe58bd1499f5",
+      "match": true,
+      "retained_assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/assembly-0x141325080.txt"
+    }
+  ],
+  "all_checks_pass": true,
+  "limit": "Byte pinning only; leaf window is not a proven full function boundary."
+}

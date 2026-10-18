@@ -1,0 +1,433 @@
+{
+  "status": "PARTIAL",
+  "scope": "Four selected emergence chains; no whole-game reading claim.",
+  "gaps": [
+    {
+      "id": "RW-U1",
+      "scope": "Ghost.Update/branch propagation and tracker visibility geometry",
+      "why": "Only representation control windows read; exact hypothesis propagation and sight admission still untraced."
+    },
+    {
+      "id": "RW-U2",
+      "scope": "CreatureCommunities regional/faction propagation and save envelope callers",
+      "why": "Called consumer names captured but not semantically read in this audit; durable native behavior untested."
+    },
+    {
+      "id": "RW-U3",
+      "scope": "Lizard usedToVultureMask reset, friend death/removal lifecycle, mode/config values",
+      "why": "Current branch evidence cannot establish all instantiation and teardown routes."
+    },
+    {
+      "id": "RW-U4",
+      "scope": "ThreatTracker.FleeTo and pathfinder/accessibility/locomotion internals",
+      "why": "Destination assignment traced; successful path execution and arrival unresolved."
+    },
+    {
+      "id": "RW-U5",
+      "scope": "RainCycle producer, RoomRain damage and whole-world cycle scheduling",
+      "why": "RainTracker consumer read, clock producer and lethal weather simulation not read."
+    },
+    {
+      "id": "RW-U6",
+      "scope": "Species and Player Violence/Grab/CanBeGrabbed overrides; failed bite continuation",
+      "why": "Base consumer and successful grasp branches read; not all virtual outcomes closed."
+    },
+    {
+      "id": "RW-U7",
+      "scope": "AbstractPhysicalObject.AbstractObjectStick.Deactivate, recursive grip graphs and reload reconstruction",
+      "why": "Callsite and nulling order shown; all deeper ownership cleanup/persistence untraced."
+    },
+    {
+      "id": "RW-U8",
+      "scope": "ScavengerAI, NoiseTracker, StuckTracker, CreatureTemplate species rules and other captured unread classes",
+      "why": "Captured to support next chain; no semantic coverage claimed."
+    },
+    {
+      "id": "RW-U9",
+      "scope": "Uncaptured game types, assets, authoring tables, DLC expansion branches and native runtime",
+      "why": "This pass targets four chains, not whole-game export or completeness; never launched."
+    }
+  ],
+  "class_line_complements": [
+    {
+      "type": "ArtificialIntelligence",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          1,
+          225
+        ],
+        [
+          254,
+          421
+        ]
+      ]
+    },
+    {
+      "type": "Tracker",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          251,
+          759
+        ],
+        [
+          958,
+          976
+        ]
+      ]
+    },
+    {
+      "type": "ThreatTracker",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          186,
+          547
+        ],
+        [
+          574,
+          574
+        ]
+      ]
+    },
+    {
+      "type": "PreyTracker",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          1,
+          14
+        ],
+        [
+          81,
+          254
+        ],
+        [
+          326,
+          338
+        ]
+      ]
+    },
+    {
+      "type": "FriendTracker",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          1,
+          34
+        ],
+        [
+          221,
+          234
+        ],
+        [
+          252,
+          252
+        ]
+      ]
+    },
+    {
+      "type": "LizardAI",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          1,
+          619
+        ],
+        [
+          756,
+          764
+        ],
+        [
+          911,
+          954
+        ],
+        [
+          987,
+          1046
+        ],
+        [
+          1069,
+          1149
+        ],
+        [
+          1164,
+          1343
+        ],
+        [
+          1373,
+          1394
+        ],
+        [
+          1483,
+          1749
+        ],
+        [
+          1910,
+          1910
+        ]
+      ]
+    },
+    {
+      "type": "ScavengerAI",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          3720
+        ]
+      ]
+    },
+    {
+      "type": "RainCycle",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          559
+        ]
+      ]
+    },
+    {
+      "type": "AbstractCreature",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          1,
+          748
+        ],
+        [
+          866,
+          1002
+        ],
+        [
+          1029,
+          1758
+        ]
+      ]
+    },
+    {
+      "type": "AbstractCreatureAI",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          1,
+          374
+        ],
+        [
+          446,
+          821
+        ]
+      ]
+    },
+    {
+      "type": "Creature",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          1,
+          19
+        ],
+        [
+          151,
+          830
+        ],
+        [
+          905,
+          969
+        ],
+        [
+          991,
+          1100
+        ],
+        [
+          1156,
+          1172
+        ],
+        [
+          1236,
+          1543
+        ]
+      ]
+    },
+    {
+      "type": "CreatureTemplate",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          1052
+        ]
+      ]
+    },
+    {
+      "type": "DenFinder",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          126
+        ]
+      ]
+    },
+    {
+      "type": "InjuryTracker",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "type": "NoiseTracker",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          348
+        ]
+      ]
+    },
+    {
+      "type": "StuckTracker",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          333
+        ]
+      ]
+    },
+    {
+      "type": "Lizard",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          1,
+          1063
+        ],
+        [
+          1111,
+          1164
+        ],
+        [
+          1261,
+          2979
+        ]
+      ]
+    },
+    {
+      "type": "AbstractRoom",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          891
+        ]
+      ]
+    },
+    {
+      "type": "World",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          1447
+        ]
+      ]
+    },
+    {
+      "type": "Room",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          6428
+        ]
+      ]
+    },
+    {
+      "type": "AbstractPhysicalObject",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          873
+        ]
+      ]
+    },
+    {
+      "type": "CreatureState",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          1,
+          29
+        ],
+        [
+          61,
+          99
+        ],
+        [
+          121,
+          164
+        ],
+        [
+          178,
+          178
+        ]
+      ]
+    },
+    {
+      "type": "SocialEventRecognizer",
+      "status": "selected-windows-read",
+      "unread_line_windows": [
+        [
+          1,
+          29
+        ],
+        [
+          115,
+          196
+        ],
+        [
+          251,
+          256
+        ]
+      ]
+    },
+    {
+      "type": "LizardState",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          140
+        ]
+      ]
+    },
+    {
+      "type": "AgressionTracker",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          155
+        ]
+      ]
+    },
+    {
+      "type": "CreatureCommunities",
+      "status": "captured-unread",
+      "unread_line_windows": [
+        [
+          1,
+          458
+        ]
+      ]
+    }
+  ]
+}

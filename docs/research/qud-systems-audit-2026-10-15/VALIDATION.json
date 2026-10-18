@@ -1,0 +1,1826 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "checks": {
+    "managed_input_files": 182,
+    "installed_assembly_status": "UNAVAILABLE_PREVIOUSLY_RECORDED_PATH_ABSENT",
+    "selected_data_files": 32,
+    "installed_and_supplied_assembly_match": null,
+    "source_classes": 128,
+    "skills": 21,
+    "powers": 123,
+    "mutations": 132,
+    "blueprints": 5205,
+    "cybernetic_blueprints": 91,
+    "tinker_blueprints": 964,
+    "achievements": 150,
+    "catalog_type_resolution_unresolved": [],
+    "local_report_links": 297,
+    "private_files_ignored": 1867,
+    "recognized_decompiler_diagnostics": [],
+    "private_json_parsed": 625
+  },
+  "errors": [],
+  "links": [
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "SOURCE_LOCATORS",
+      "target": "private/SOURCE_LOCATORS.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "REVIEW_LEDGER",
+      "target": "private/REVIEW_LEDGER.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "PROVENANCE",
+      "target": "private/PROVENANCE.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "INPUTS",
+      "target": "private/INPUTS.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "TOOL",
+      "target": "private/TOOL.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "CAPTURE_HISTORY",
+      "target": "private/CAPTURE_HISTORY.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "BASE_INVENTORY",
+      "target": "private/BASE_INVENTORY.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "TYPE_INVENTORY",
+      "target": "private/TYPE_INVENTORY.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "RELEVANT_TYPE_INVENTORY",
+      "target": "private/RELEVANT_TYPE_INVENTORY.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Skills",
+      "target": "private/SKILLS.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "powers",
+      "target": "private/POWERS.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Mutations",
+      "target": "private/MUTATIONS.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Blueprints",
+      "target": "private/BLUEPRINTS.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Cybernetic index",
+      "target": "private/CYBERNETIC_BLUEPRINTS.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Tinker index",
+      "target": "private/TINKER_BLUEPRINTS.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Achievements",
+      "target": "private/ACHIEVEMENTS.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Table coverage",
+      "target": "private/TABLE_COVERAGE.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Exact literals",
+      "target": "private/INTERFACE_AND_CODE_LITERALS.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Unread/unknown",
+      "target": "private/UNREAD_AND_UNKNOWN.json",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "AchievementInfo",
+      "target": "private/source/AchievementInfo.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "AchievementManager",
+      "target": "private/source/AchievementManager.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "AchievementState",
+      "target": "private/source/AchievementState.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "HistoryKit.HistoricEntity",
+      "target": "private/source/HistoryKit.HistoricEntity.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "HistoryKit.HistoricEvent",
+      "target": "private/source/HistoryKit.HistoricEvent.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "HistoryKit.HistoricStringExpander",
+      "target": "private/source/HistoryKit.HistoricStringExpander.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "HistoryKit.History",
+      "target": "private/source/HistoryKit.History.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.API.JournalAPI",
+      "target": "private/source/Qud.API.JournalAPI.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.API.JournalAccomplishment",
+      "target": "private/source/Qud.API.JournalAccomplishment.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.API.MutationsAPI",
+      "target": "private/source/Qud.API.MutationsAPI.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.AbilityBar",
+      "target": "private/source/Qud.UI.AbilityBar.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.AbilityBarButton",
+      "target": "private/source/Qud.UI.AbilityBarButton.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.AbilityManagerScreen",
+      "target": "private/source/Qud.UI.AbilityManagerScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.AchievementView",
+      "target": "private/source/Qud.UI.AchievementView.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.BaseStatusScreen generic",
+      "target": "private/source/Qud.UI.BaseStatusScreen%601.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.CharacterMutationLine",
+      "target": "private/source/Qud.UI.CharacterMutationLine.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.CharacterStatusScreen",
+      "target": "private/source/Qud.UI.CharacterStatusScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.CyberneticsTerminalRow",
+      "target": "private/source/Qud.UI.CyberneticsTerminalRow.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.CyberneticsTerminalScreen",
+      "target": "private/source/Qud.UI.CyberneticsTerminalScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.FactionsLine",
+      "target": "private/source/Qud.UI.FactionsLine.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.FactionsLineData",
+      "target": "private/source/Qud.UI.FactionsLineData.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.FactionsStatusScreen",
+      "target": "private/source/Qud.UI.FactionsStatusScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.SkillsAndPowersLine",
+      "target": "private/source/Qud.UI.SkillsAndPowersLine.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.SkillsAndPowersStatusScreen",
+      "target": "private/source/Qud.UI.SkillsAndPowersStatusScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.StatusScreensScreen",
+      "target": "private/source/Qud.UI.StatusScreensScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.TinkeringLine",
+      "target": "private/source/Qud.UI.TinkeringLine.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Qud.UI.TinkeringStatusScreen",
+      "target": "private/source/Qud.UI.TinkeringStatusScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "StatInfo",
+      "target": "private/source/StatInfo.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.Achievement",
+      "target": "private/source/XRL.Achievement.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.Annals.InitializeVillage",
+      "target": "private/source/XRL.Annals.InitializeVillage.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.Annals.QudHistoryFactory",
+      "target": "private/source/XRL.Annals.QudHistoryFactory.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.IBaseSkillEntry",
+      "target": "private/source/XRL.IBaseSkillEntry.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.MutationFactory",
+      "target": "private/source/XRL.MutationFactory.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.Names.NameMaker",
+      "target": "private/source/XRL.Names.NameMaker.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.Rules.RuleSettings",
+      "target": "private/source/XRL.Rules.RuleSettings.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.CyberneticsInstallResult",
+      "target": "private/source/XRL.UI.CyberneticsInstallResult.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.CyberneticsRemoveResult",
+      "target": "private/source/XRL.UI.CyberneticsRemoveResult.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.CyberneticsScreenInstall",
+      "target": "private/source/XRL.UI.CyberneticsScreenInstall.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.CyberneticsScreenInstallLocation",
+      "target": "private/source/XRL.UI.CyberneticsScreenInstallLocation.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.CyberneticsScreenMainMenu",
+      "target": "private/source/XRL.UI.CyberneticsScreenMainMenu.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.CyberneticsScreenRemove",
+      "target": "private/source/XRL.UI.CyberneticsScreenRemove.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.CyberneticsScreenSelectSubject",
+      "target": "private/source/XRL.UI.CyberneticsScreenSelectSubject.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.CyberneticsTerminal",
+      "target": "private/source/XRL.UI.CyberneticsTerminal.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.SPNode",
+      "target": "private/source/XRL.UI.SPNode.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.SkillsAndPowersScreen",
+      "target": "private/source/XRL.UI.SkillsAndPowersScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.StatusScreen",
+      "target": "private/source/XRL.UI.StatusScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.UI.TinkeringScreen",
+      "target": "private/source/XRL.UI.TinkeringScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Anatomy.BodyPart",
+      "target": "private/source/XRL.World.Anatomy.BodyPart.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.BeforeAddSkillEvent",
+      "target": "private/source/XRL.World.BeforeAddSkillEvent.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Capabilities.Cybernetics",
+      "target": "private/source/XRL.World.Capabilities.Cybernetics.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Capabilities.ItemNaming",
+      "target": "private/source/XRL.World.Capabilities.ItemNaming.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Conversations.ConversationDelegates",
+      "target": "private/source/XRL.World.Conversations.ConversationDelegates.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Conversations.Parts.IWaterRitualPart",
+      "target": "private/source/XRL.World.Conversations.Parts.IWaterRitualPart.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Conversations.Parts.QuestHandler",
+      "target": "private/source/XRL.World.Conversations.Parts.QuestHandler.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Conversations.Parts.RequireReputation",
+      "target": "private/source/XRL.World.Conversations.Parts.RequireReputation.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Conversations.Parts.TakeItem",
+      "target": "private/source/XRL.World.Conversations.Parts.TakeItem.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Conversations.Parts.WaterRitual",
+      "target": "private/source/XRL.World.Conversations.Parts.WaterRitual.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Conversations.Parts.WaterRitualBegin",
+      "target": "private/source/XRL.World.Conversations.Parts.WaterRitualBegin.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Conversations.Parts.WaterRitualJoinParty",
+      "target": "private/source/XRL.World.Conversations.Parts.WaterRitualJoinParty.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Conversations.Parts.WaterRitualLearnSkill",
+      "target": "private/source/XRL.World.Conversations.Parts.WaterRitualLearnSkill.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Conversations.Parts.WaterRitualTinkeringRecipe",
+      "target": "private/source/XRL.World.Conversations.Parts.WaterRitualTinkeringRecipe.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.DescriptionBuilder",
+      "target": "private/source/XRL.World.DescriptionBuilder.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.DynamicQuestConversationHelper",
+      "target": "private/source/XRL.World.DynamicQuestConversationHelper.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.DynamicQuestFactory",
+      "target": "private/source/XRL.World.DynamicQuestFactory.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.DynamicQuestReward",
+      "target": "private/source/XRL.World.DynamicQuestReward.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.DynamicQuestRewardElement_Reputation",
+      "target": "private/source/XRL.World.DynamicQuestRewardElement_Reputation.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.DynamicQuestsGameState",
+      "target": "private/source/XRL.World.DynamicQuestsGameState.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Effects.Dominated",
+      "target": "private/source/XRL.World.Effects.Dominated.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Faction",
+      "target": "private/source/XRL.World.Faction.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.FindASpecificItemDynamicQuestTemplate",
+      "target": "private/source/XRL.World.FindASpecificItemDynamicQuestTemplate.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.GameObject",
+      "target": "private/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.ActivatedAbilities",
+      "target": "private/source/XRL.World.Parts.ActivatedAbilities.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.ActivatedAbilityEntry",
+      "target": "private/source/XRL.World.Parts.ActivatedAbilityEntry.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.BitLocker",
+      "target": "private/source/XRL.World.Parts.BitLocker.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Body",
+      "target": "private/source/XRL.World.Parts.Body.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Book",
+      "target": "private/source/XRL.World.Parts.Book.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.CyberneticsBaseItem",
+      "target": "private/source/XRL.World.Parts.CyberneticsBaseItem.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.CyberneticsSchemasoft",
+      "target": "private/source/XRL.World.Parts.CyberneticsSchemasoft.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.CyberneticsSingleSkillsoft",
+      "target": "private/source/XRL.World.Parts.CyberneticsSingleSkillsoft.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.CyberneticsStatModifier",
+      "target": "private/source/XRL.World.Parts.CyberneticsStatModifier.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.CyberneticsTreeSkillsoft",
+      "target": "private/source/XRL.World.Parts.CyberneticsTreeSkillsoft.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.DataDisk",
+      "target": "private/source/XRL.World.Parts.DataDisk.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.DynamicQuestTarget",
+      "target": "private/source/XRL.World.Parts.DynamicQuestTarget.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.EquipStatBoost",
+      "target": "private/source/XRL.World.Parts.EquipStatBoost.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.EquippedAchievement",
+      "target": "private/source/XRL.World.Parts.EquippedAchievement.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Examiner",
+      "target": "private/source/XRL.World.Parts.Examiner.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.FactionRank",
+      "target": "private/source/XRL.World.Parts.FactionRank.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.MarkovBook",
+      "target": "private/source/XRL.World.Parts.MarkovBook.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Mutation.BaseMutation",
+      "target": "private/source/XRL.World.Parts.Mutation.BaseMutation.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Mutation.Cryokinesis",
+      "target": "private/source/XRL.World.Parts.Mutation.Cryokinesis.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Mutation.Domination",
+      "target": "private/source/XRL.World.Parts.Mutation.Domination.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Mutation.Psychometry",
+      "target": "private/source/XRL.World.Parts.Mutation.Psychometry.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Mutation.Telepathy",
+      "target": "private/source/XRL.World.Parts.Mutation.Telepathy.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.MutationOnEquip",
+      "target": "private/source/XRL.World.Parts.MutationOnEquip.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Mutations",
+      "target": "private/source/XRL.World.Parts.Mutations.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skill.Acrobatics",
+      "target": "private/source/XRL.World.Parts.Skill.Acrobatics.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skill.Acrobatics_Dodge",
+      "target": "private/source/XRL.World.Parts.Skill.Acrobatics_Dodge.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skill.Acrobatics_Jump",
+      "target": "private/source/XRL.World.Parts.Skill.Acrobatics_Jump.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skill.Axe_Expertise",
+      "target": "private/source/XRL.World.Parts.Skill.Axe_Expertise.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skill.BaseSkill",
+      "target": "private/source/XRL.World.Parts.Skill.BaseSkill.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skill.Customs_Tactful",
+      "target": "private/source/XRL.World.Parts.Skill.Customs_Tactful.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skill.Tinkering",
+      "target": "private/source/XRL.World.Parts.Skill.Tinkering.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skill.Tinkering_Disassemble",
+      "target": "private/source/XRL.World.Parts.Skill.Tinkering_Disassemble.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skill.Tinkering_ReverseEngineer",
+      "target": "private/source/XRL.World.Parts.Skill.Tinkering_ReverseEngineer.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skill.Tinkering_Tinker1",
+      "target": "private/source/XRL.World.Parts.Skill.Tinkering_Tinker1.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.SkillOnEquip",
+      "target": "private/source/XRL.World.Parts.SkillOnEquip.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.Skills",
+      "target": "private/source/XRL.World.Parts.Skills.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.TinkerItem",
+      "target": "private/source/XRL.World.Parts.TinkerItem.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.TrainingBook",
+      "target": "private/source/XRL.World.Parts.TrainingBook.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Parts.WaterRitualRecord",
+      "target": "private/source/XRL.World.Parts.WaterRitualRecord.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Quest",
+      "target": "private/source/XRL.World.Quest.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.RelicGenerator",
+      "target": "private/source/XRL.World.RelicGenerator.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Reputation",
+      "target": "private/source/XRL.World.Reputation.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Skills.PowerEntry",
+      "target": "private/source/XRL.World.Skills.PowerEntry.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Skills.PowerEntryRequirement",
+      "target": "private/source/XRL.World.Skills.PowerEntryRequirement.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Skills.SkillEntry",
+      "target": "private/source/XRL.World.Skills.SkillEntry.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Skills.SkillFactory",
+      "target": "private/source/XRL.World.Skills.SkillFactory.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Tinkering.TinkerData",
+      "target": "private/source/XRL.World.Tinkering.TinkerData.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.VillageDynamicQuestContext",
+      "target": "private/source/XRL.World.VillageDynamicQuestContext.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.Zone",
+      "target": "private/source/XRL.World.Zone.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.ZoneBuilderCollection",
+      "target": "private/source/XRL.World.ZoneBuilderCollection.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestManager",
+      "target": "private/source/XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestManager.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestTemplate_FabricateQuestGiver",
+      "target": "private/source/XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestTemplate_FabricateQuestGiver.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestTemplate_FabricateQuestItem",
+      "target": "private/source/XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestTemplate_FabricateQuestItem.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.ZoneBuilders.Village",
+      "target": "private/source/XRL.World.ZoneBuilders.Village.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.ZoneBuilders.VillageBase",
+      "target": "private/source/XRL.World.ZoneBuilders.VillageBase.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.World.ZoneManager",
+      "target": "private/source/XRL.World.ZoneManager.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "XRL.XRLGame",
+      "target": "private/source/XRL.XRLGame.cs",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "Ingredient/cooking trace",
+      "target": "../procedural-crafting-ui-2026-10-15/QUD_INGREDIENT_RECIPE_USE.md",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "UI implementation",
+      "target": "../procedural-crafting-ui-2026-10-15/QUD_UI_IMPLEMENTATION_NOTES.md",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "other procedural systems",
+      "target": "../procedural-crafting-ui-2026-10-15/OTHER_PROCEDURAL_ASPECTS.md",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "installation",
+      "target": "../procedural-crafting-ui-2026-10-15/INSTALLATION_AND_EXTENDED_RESEARCH.md",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "original Qud report",
+      "target": "../caves-of-qud/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "AI re-pass",
+      "target": "../caves-of-qud/repass-2026-10-14/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "body trace",
+      "target": "../idle-social-engine-scout-2026-10-06/traces/QUD_BODY.md",
+      "exists": true
+    },
+    {
+      "file": "SOURCE_INDEX.md",
+      "label": "liquid trace",
+      "target": "../idle-social-engine-scout-2026-10-06/traces/QUD_LIQUIDS.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "Source inventory and receipts",
+      "target": "SOURCE_INDEX.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "Full tree catalog, acquisition, active Jump and passive Spry/Axe paths",
+      "target": "SKILLS_AND_PROFICIENCIES.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "Titles, names, reputation, teaching and achievements",
+      "target": "TITLES_NAMES_AND_REPUTATION.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "Mutation/item/cybernetic/control-transfer traces",
+      "target": "POWERS_AND_SUPPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "Identification, books, tinkering, cooking and material joins",
+      "target": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "History/village/quest/item/persistence trace",
+      "target": "GENERATED_WORLD_AND_QUESTS.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "UI_IMPLEMENTATION",
+      "target": "UI_IMPLEMENTATION.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "System catalog",
+      "target": "SYSTEM_CATALOG.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "source index",
+      "target": "SOURCE_INDEX.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "private unread list",
+      "target": "private/UNREAD_AND_UNKNOWN.json",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "private and ignored",
+      "target": "private/README.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "VALIDATION.json",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "checkpoint",
+      "target": "CHECKPOINT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "skills, mutations and cybernetics supplement",
+      "target": "depth-1/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "effects, NPC and cleanup supplement",
+      "target": "depth-2/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "Depth3",
+      "target": "depth-3/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "Depth4",
+      "target": "depth-4/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "depth 5",
+      "target": "depth-5/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "independent audit",
+      "target": "depth-5/independent-audit/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "Alternate save roots",
+      "target": "depth-6/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "Recovery consumers",
+      "target": "depth-7/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "S1",
+      "target": "SKILLS_AND_PROFICIENCIES.md",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "Complete declaration catalog",
+      "target": "private/ACHIEVEMENTS.json",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "Coverage ledger",
+      "target": "private/REVIEW_LEDGER.json",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "UI trace",
+      "target": "UI_IMPLEMENTATION.md",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "XRL.World.DescriptionBuilder.cs",
+      "target": "private/source/XRL.World.DescriptionBuilder.cs",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "XRL.World.Capabilities.ItemNaming.cs",
+      "target": "private/source/XRL.World.Capabilities.ItemNaming.cs",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "XRL.World.Capabilities.ItemNaming.cs",
+      "target": "private/source/XRL.World.Capabilities.ItemNaming.cs",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "XRL.World.Reputation.cs",
+      "target": "private/source/XRL.World.Reputation.cs",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "XRL.World.Conversations.Parts.WaterRitual.cs",
+      "target": "private/source/XRL.World.Conversations.Parts.WaterRitual.cs",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "XRL.World.Conversations.ConversationDelegates.cs",
+      "target": "private/source/XRL.World.Conversations.ConversationDelegates.cs",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "AchievementInfo.cs",
+      "target": "private/source/AchievementInfo.cs",
+      "exists": true
+    },
+    {
+      "file": "TITLES_NAMES_AND_REPUTATION.md",
+      "label": "AchievementManager.cs",
+      "target": "private/source/AchievementManager.cs",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "Source index",
+      "target": "SOURCE_INDEX.md",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "Exact lexical strings",
+      "target": "private/INTERFACE_AND_CODE_LITERALS.json",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "UI report",
+      "target": "../procedural-crafting-ui-2026-10-15/QUD_UI_IMPLEMENTATION_NOTES.md",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "212-class archive",
+      "target": "../procedural-crafting-ui-2026-10-15/private/qud-cdda/README.md",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "Qud.UI.SkillsAndPowersLine.cs",
+      "target": "private/source/Qud.UI.SkillsAndPowersLine.cs",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "Qud.UI.CharacterStatusScreen.cs",
+      "target": "private/source/Qud.UI.CharacterStatusScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "Qud.UI.CyberneticsTerminalRow.cs",
+      "target": "private/source/Qud.UI.CyberneticsTerminalRow.cs",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "Qud.UI.CyberneticsTerminalScreen.cs",
+      "target": "private/source/Qud.UI.CyberneticsTerminalScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "Qud.UI.FactionsLine.cs",
+      "target": "private/source/Qud.UI.FactionsLine.cs",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "Qud.UI.AbilityManagerScreen.cs",
+      "target": "private/source/Qud.UI.AbilityManagerScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "XRL.World.Parts.ActivatedAbilityEntry.cs",
+      "target": "private/source/XRL.World.Parts.ActivatedAbilityEntry.cs",
+      "exists": true
+    },
+    {
+      "file": "UI_IMPLEMENTATION.md",
+      "label": "Qud.UI.TinkeringStatusScreen.cs",
+      "target": "private/source/Qud.UI.TinkeringStatusScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "Indexed TinkerItem-bearing definitions",
+      "target": "private/TINKER_BLUEPRINTS.json",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "liquid trace",
+      "target": "../idle-social-engine-scout-2026-10-06/traces/QUD_LIQUIDS.md",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "jam/jerky trace",
+      "target": "../procedural-crafting-ui-2026-10-15/QUD_INGREDIENT_RECIPE_USE.md",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "XRL.World.Parts.Examiner.cs",
+      "target": "private/source/XRL.World.Parts.Examiner.cs",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "XRL.World.Parts.Examiner.cs",
+      "target": "private/source/XRL.World.Parts.Examiner.cs",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "XRL.World.Parts.DataDisk.cs",
+      "target": "private/source/XRL.World.Parts.DataDisk.cs",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "XRL.World.Parts.TinkerItem.cs",
+      "target": "private/source/XRL.World.Parts.TinkerItem.cs",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "XRL.World.Parts.TinkerItem.cs",
+      "target": "private/source/XRL.World.Parts.TinkerItem.cs",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "XRL.World.Parts.Mutation.Psychometry.cs",
+      "target": "private/source/XRL.World.Parts.Mutation.Psychometry.cs",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "XRL.World.Parts.TrainingBook.cs",
+      "target": "private/source/XRL.World.Parts.TrainingBook.cs",
+      "exists": true
+    },
+    {
+      "file": "KNOWLEDGE_RECIPES_AND_MATERIALS.md",
+      "label": "XRL.UI.TinkeringScreen.cs",
+      "target": "private/source/XRL.UI.TinkeringScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "REPORT",
+      "target": "REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "SYSTEM_CATALOG",
+      "target": "SYSTEM_CATALOG.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "SOURCE_INDEX",
+      "target": "SOURCE_INDEX.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "UI_IMPLEMENTATION",
+      "target": "UI_IMPLEMENTATION.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "Private README",
+      "target": "private/README.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "VALIDATION",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "skills, mutations and cybernetics supplement",
+      "target": "depth-1/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "effects, NPC and cleanup supplement",
+      "target": "depth-2/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "Depth3",
+      "target": "depth-3/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "Depth4",
+      "target": "depth-4/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "depth 5",
+      "target": "depth-5/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "independent audit",
+      "target": "depth-5/independent-audit/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "Alternate save roots",
+      "target": "depth-6/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "Recovery consumers",
+      "target": "depth-7/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "S1",
+      "target": "SKILLS_AND_PROFICIENCIES.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "Source inventory",
+      "target": "SOURCE_INDEX.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "per-type window ledger",
+      "target": "private/REVIEW_LEDGER.json",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "exact unread rows/types",
+      "target": "private/UNREAD_AND_UNKNOWN.json",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "table coverage",
+      "target": "private/TABLE_COVERAGE.json",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "UI trace",
+      "target": "UI_IMPLEMENTATION.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "skills, mutations and cybernetics supplement",
+      "target": "depth-1/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "effects, NPC and cleanup supplement",
+      "target": "depth-2/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "Depth3",
+      "target": "depth-3/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "Depth4",
+      "target": "depth-4/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "depth 5",
+      "target": "depth-5/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "independent audit",
+      "target": "depth-5/independent-audit/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "Alternate save roots",
+      "target": "depth-6/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "Recovery consumers",
+      "target": "depth-7/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "SYSTEM_CATALOG.md",
+      "label": "CURRENT",
+      "target": "CURRENT.md",
+      "exists": true
+    },
+    {
+      "file": "GENERATED_WORLD_AND_QUESTS.md",
+      "label": "System catalog",
+      "target": "SYSTEM_CATALOG.md",
+      "exists": true
+    },
+    {
+      "file": "GENERATED_WORLD_AND_QUESTS.md",
+      "label": "XRL.World.FindASpecificItemDynamicQuestTemplate.cs",
+      "target": "private/source/XRL.World.FindASpecificItemDynamicQuestTemplate.cs",
+      "exists": true
+    },
+    {
+      "file": "GENERATED_WORLD_AND_QUESTS.md",
+      "label": "XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestTemplate_FabricateQuestItem.cs",
+      "target": "private/source/XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestTemplate_FabricateQuestItem.cs",
+      "exists": true
+    },
+    {
+      "file": "GENERATED_WORLD_AND_QUESTS.md",
+      "label": "XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestTemplate_FabricateQuestGiver.cs",
+      "target": "private/source/XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestTemplate_FabricateQuestGiver.cs",
+      "exists": true
+    },
+    {
+      "file": "GENERATED_WORLD_AND_QUESTS.md",
+      "label": "XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestManager.cs",
+      "target": "private/source/XRL.World.ZoneBuilders.FindASpecificItemDynamicQuestManager.cs",
+      "exists": true
+    },
+    {
+      "file": "GENERATED_WORLD_AND_QUESTS.md",
+      "label": "XRL.World.Conversations.Parts.TakeItem.cs",
+      "target": "private/source/XRL.World.Conversations.Parts.TakeItem.cs",
+      "exists": true
+    },
+    {
+      "file": "GENERATED_WORLD_AND_QUESTS.md",
+      "label": "XRL.XRLGame.cs",
+      "target": "private/source/XRL.XRLGame.cs",
+      "exists": true
+    },
+    {
+      "file": "GENERATED_WORLD_AND_QUESTS.md",
+      "label": "HistoryKit.HistoricEntity.cs",
+      "target": "private/source/HistoryKit.HistoricEntity.cs",
+      "exists": true
+    },
+    {
+      "file": "GENERATED_WORLD_AND_QUESTS.md",
+      "label": "XRL.World.ZoneManager.cs",
+      "target": "private/source/XRL.World.ZoneManager.cs",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "Full exact catalogs",
+      "target": "private/POWERS.json",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "skills",
+      "target": "private/SKILLS.json",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "Persistence/coverage register",
+      "target": "SYSTEM_CATALOG.md",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "Source index",
+      "target": "SOURCE_INDEX.md",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "UNREAD_AND_UNKNOWN.json",
+      "target": "private/UNREAD_AND_UNKNOWN.json",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "XRL.World.Skills.PowerEntry.cs",
+      "target": "private/source/XRL.World.Skills.PowerEntry.cs",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "XRL.World.Skills.PowerEntryRequirement.cs",
+      "target": "private/source/XRL.World.Skills.PowerEntryRequirement.cs",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "XRL.UI.SkillsAndPowersScreen.cs",
+      "target": "private/source/XRL.UI.SkillsAndPowersScreen.cs",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "XRL.World.BeforeAddSkillEvent.cs",
+      "target": "private/source/XRL.World.BeforeAddSkillEvent.cs",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "XRL.World.Parts.Skills.cs",
+      "target": "private/source/XRL.World.Parts.Skills.cs",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "XRL.World.Parts.Skill.Acrobatics_Jump.cs",
+      "target": "private/source/XRL.World.Parts.Skill.Acrobatics_Jump.cs",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "XRL.World.Parts.Skill.Acrobatics_Dodge.cs",
+      "target": "private/source/XRL.World.Parts.Skill.Acrobatics_Dodge.cs",
+      "exists": true
+    },
+    {
+      "file": "SKILLS_AND_PROFICIENCIES.md",
+      "label": "XRL.World.Conversations.Parts.WaterRitualLearnSkill.cs",
+      "target": "private/source/XRL.World.Conversations.Parts.WaterRitualLearnSkill.cs",
+      "exists": true
+    },
+    {
+      "file": "CURRENT.md",
+      "label": "depth7 recovery consumers",
+      "target": "depth-7/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CURRENT.md",
+      "label": "full decoded recovery map",
+      "target": "depth-7/RECOVERY_CONSUMERS.md",
+      "exists": true
+    },
+    {
+      "file": "CURRENT.md",
+      "label": "independent audit",
+      "target": "depth-7/independent-audit/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CURRENT.md",
+      "label": "root unread",
+      "target": "private/depth-7/UNREAD.json",
+      "exists": true
+    },
+    {
+      "file": "CURRENT.md",
+      "label": "independent unread",
+      "target": "depth-7/independent-audit/UNREAD.md",
+      "exists": true
+    },
+    {
+      "file": "CURRENT.md",
+      "label": "validation",
+      "target": "depth-7/VALIDATION.json",
+      "exists": true
+    },
+    {
+      "file": "CURRENT.md",
+      "label": "Depth6",
+      "target": "depth-6/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CURRENT.md",
+      "label": "depth5",
+      "target": "depth-5/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "CURRENT.md",
+      "label": "depth4",
+      "target": "depth-4/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "Complete supplied mutation tables",
+      "target": "private/MUTATIONS.json",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "cybernetic blueprint index",
+      "target": "private/CYBERNETIC_BLUEPRINTS.json",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "cold/AI trace",
+      "target": "../caves-of-qud/repass-2026-10-14/REPORT.md",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "body trace",
+      "target": "../idle-social-engine-scout-2026-10-06/traces/QUD_BODY.md",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "S1",
+      "target": "SKILLS_AND_PROFICIENCIES.md",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "UI implementation",
+      "target": "UI_IMPLEMENTATION.md",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "machine ledger",
+      "target": "private/REVIEW_LEDGER.json",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "Qud.API.MutationsAPI.cs",
+      "target": "private/source/Qud.API.MutationsAPI.cs",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "XRL.World.Parts.Mutations.cs",
+      "target": "private/source/XRL.World.Parts.Mutations.cs",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "XRL.World.Parts.Mutations.cs",
+      "target": "private/source/XRL.World.Parts.Mutations.cs",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "XRL.UI.CyberneticsInstallResult.cs",
+      "target": "private/source/XRL.UI.CyberneticsInstallResult.cs",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "XRL.World.Parts.CyberneticsSingleSkillsoft.cs",
+      "target": "private/source/XRL.World.Parts.CyberneticsSingleSkillsoft.cs",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "XRL.World.Parts.Mutation.Telepathy.cs",
+      "target": "private/source/XRL.World.Parts.Mutation.Telepathy.cs",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "XRL.World.Parts.Mutation.Domination.cs",
+      "target": "private/source/XRL.World.Parts.Mutation.Domination.cs",
+      "exists": true
+    },
+    {
+      "file": "POWERS_AND_SUPPORT.md",
+      "label": "XRL.World.Anatomy.BodyPart.cs",
+      "target": "private/source/XRL.World.Anatomy.BodyPart.cs",
+      "exists": true
+    }
+  ],
+  "public_document_hashes": {
+    "SOURCE_INDEX.md": "daef8a534d63eaaff876aa51b860d63a56ba2b25a3a0dc966342ade78d4ef8d2",
+    "REPORT.md": "3245a1ad9303089a8a569dab051ca179f42ed6510c57c7c4322c5c5d300451da",
+    "TITLES_NAMES_AND_REPUTATION.md": "7b8b62f0a4454ec9b1ef0f76372befce30b260e9c9313fc47f73e7ddac8b7c85",
+    "UI_IMPLEMENTATION.md": "93cf9c05cfdbd155765f37c5f6609bd2e9154e0b5473450542aeaff2e4e5938c",
+    "KNOWLEDGE_RECIPES_AND_MATERIALS.md": "3a3bdb9e1b944ce4c9bb7ff2e3e2967ff2b94a0d643b47a4782dae48df03ea51",
+    "CHECKPOINT.md": "1fbcf6f00386aca0622563741b00cce65c63c358b9ed357be0831584c1b20cce",
+    "SYSTEM_CATALOG.md": "1828ccef246575e6051075c9284cdef119ca95345202df8f5263ed481b8576a3",
+    "GENERATED_WORLD_AND_QUESTS.md": "2e3c8e71bb00eb8550838e8030791cc28bb937aec33f742c3fd0f8dc0c9e194d",
+    "SKILLS_AND_PROFICIENCIES.md": "0a616b928b51c1238f5a19889b786889becb1af6daecdf9828be3c3a4d90b373",
+    "CURRENT.md": "ce12eb00c2822f545cef508a3ac155306101a4c4154b738a7cd6ec59046f8d5a",
+    "POWERS_AND_SUPPORT.md": "225994d0e3ab3e13fcd582a2bbc4dcf00a23d3ad1e5660378eb70b5ff059d9f6"
+  },
+  "native_game_tests": "UNRUN",
+  "save_reload_tests": "UNRUN",
+  "UI_runtime_tests": "UNRUN",
+  "YAIR_runtime_build_tests": "NOT_APPLICABLE_RESEARCH_ONLY",
+  "qualification": "These validate research artifacts and source identities, not semantic completeness or native behavior. No personal saves/profile were read."
+}

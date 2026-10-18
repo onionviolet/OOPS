@@ -1,0 +1,715 @@
+{
+  "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "classes": [
+    {
+      "type": "ArtificialIntelligence",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/ArtificialIntelligence.cs",
+      "sha256": "7929eaa04bb6f21f47610c29ddbe542e21eba2fcadfcc8f58623a75b64ce9723",
+      "lines": 421,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          226,
+          253
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          225
+        ],
+        [
+          254,
+          421
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "Tracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Tracker.cs",
+      "sha256": "083eb19d1a5268725d38117629d1ac4c3d89eb3cb1066057ae3bdf127765da35",
+      "lines": 976,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          250
+        ],
+        [
+          760,
+          957
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          251,
+          759
+        ],
+        [
+          958,
+          976
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "RelationshipTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/RelationshipTracker.cs",
+      "sha256": "e1d03fa375674ae30622fd97ca7616950014c0957a79e88bab564ebdbf85eaef",
+      "lines": 387,
+      "status": "full-class-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          387
+        ]
+      ],
+      "unread_line_windows": [],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "ThreatTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/ThreatTracker.cs",
+      "sha256": "7dc4e04561f1fbacb97b54383132256d572b2fa936d3b19ebfdfb9dd46580eab",
+      "lines": 574,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          185
+        ],
+        [
+          548,
+          573
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          186,
+          547
+        ],
+        [
+          574,
+          574
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "PreyTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/PreyTracker.cs",
+      "sha256": "174722c899139b26f5cb2f4da495dd84462be864f3fcd31173a274db98887cb4",
+      "lines": 338,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          15,
+          80
+        ],
+        [
+          255,
+          325
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          14
+        ],
+        [
+          81,
+          254
+        ],
+        [
+          326,
+          338
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "UtilityComparer",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/UtilityComparer.cs",
+      "sha256": "feaea0e7133a9a1fe6e66ad90c2077729d1d010f02838379a1cdb42050889aa4",
+      "lines": 143,
+      "status": "full-class-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          143
+        ]
+      ],
+      "unread_line_windows": [],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "FriendTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/FriendTracker.cs",
+      "sha256": "b68fac830fb676ce774743e1ce9a36de9c274526c41dc15d79cefa23ffbf9903",
+      "lines": 252,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          35,
+          220
+        ],
+        [
+          235,
+          251
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          34
+        ],
+        [
+          221,
+          234
+        ],
+        [
+          252,
+          252
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "SocialMemory",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/SocialMemory.cs",
+      "sha256": "56f6376f8fdea2e118ecb367b8b6433455f61d06b34fbf3c70294d0c089be592",
+      "lines": 260,
+      "status": "full-class-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          260
+        ]
+      ],
+      "unread_line_windows": [],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "LizardAI",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/LizardAI.cs",
+      "sha256": "298a555e4a3349772e2221f5f31727855b7741e72a82f652ed6ccec2e68a50ad",
+      "lines": 1910,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          620,
+          755
+        ],
+        [
+          765,
+          910
+        ],
+        [
+          955,
+          986
+        ],
+        [
+          1047,
+          1068
+        ],
+        [
+          1150,
+          1163
+        ],
+        [
+          1344,
+          1372
+        ],
+        [
+          1395,
+          1482
+        ],
+        [
+          1750,
+          1909
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          619
+        ],
+        [
+          756,
+          764
+        ],
+        [
+          911,
+          954
+        ],
+        [
+          987,
+          1046
+        ],
+        [
+          1069,
+          1149
+        ],
+        [
+          1164,
+          1343
+        ],
+        [
+          1373,
+          1394
+        ],
+        [
+          1483,
+          1749
+        ],
+        [
+          1910,
+          1910
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "ScavengerAI",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/ScavengerAI.cs",
+      "sha256": "76b6eae257338ddbde04cd4988c631a373c9bccc7f75b02110f88468f2400500",
+      "lines": 3720,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          3720
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "RainTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/RainTracker.cs",
+      "sha256": "9734c1fdd6a428d64686e802575019a387e9efd748cb9522a25ede58164933e5",
+      "lines": 61,
+      "status": "full-class-read",
+      "reviewed_line_windows": [
+        [
+          1,
+          61
+        ]
+      ],
+      "unread_line_windows": [],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "RainCycle",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/RainCycle.cs",
+      "sha256": "8ebd51fa54a7a96efc366cd383b21946e407defc57b9bff2bd18276b3d02205a",
+      "lines": 559,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          559
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "AbstractCreature",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreature.cs",
+      "sha256": "6a48651a49434e2b464ca048cae5d32539cb89eebdf2ea0c3b86ddb0056e8ba9",
+      "lines": 1758,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          749,
+          865
+        ],
+        [
+          1003,
+          1028
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          748
+        ],
+        [
+          866,
+          1002
+        ],
+        [
+          1029,
+          1758
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "AbstractCreatureAI",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreatureAI.cs",
+      "sha256": "0d3cca2113b754a9921edd08e599f0b124c0f5d67693844c20ef888884933719",
+      "lines": 821,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          375,
+          445
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          374
+        ],
+        [
+          446,
+          821
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "Creature",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Creature.cs",
+      "sha256": "ac631a0dca85569e23bf242adff92601c4367c452f3e804bf27ee64d4c4510d9",
+      "lines": 1543,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          20,
+          150
+        ],
+        [
+          831,
+          904
+        ],
+        [
+          970,
+          990
+        ],
+        [
+          1101,
+          1155
+        ],
+        [
+          1173,
+          1235
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          19
+        ],
+        [
+          151,
+          830
+        ],
+        [
+          905,
+          969
+        ],
+        [
+          991,
+          1100
+        ],
+        [
+          1156,
+          1172
+        ],
+        [
+          1236,
+          1543
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "CreatureTemplate",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureTemplate.cs",
+      "sha256": "87ff8ac9ad4b956f2e15937a9e0166fe1aef936e1c9d37fe047a09db33fdf716",
+      "lines": 1052,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          1052
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "DenFinder",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/DenFinder.cs",
+      "sha256": "897fbcc46d627b7196b48d32647cbd58a6fbcf328b9db94dd733050986f9ce0e",
+      "lines": 126,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          126
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "InjuryTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/InjuryTracker.cs",
+      "sha256": "c0100e07a3d480bc6d50f7fee1b8abb17770dfe7a0db7d5e52d1561ff148b6c7",
+      "lines": 27,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          27
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "NoiseTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/NoiseTracker.cs",
+      "sha256": "2e50e4a291d2415c01f2fa682e6046d3be4f92114e1da2807db3b417f10a68a0",
+      "lines": 348,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          348
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "StuckTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/StuckTracker.cs",
+      "sha256": "4bb01db09874c4d74a28adbf5c23236c94af95d2d2f0c75355e20c1c06ddb401",
+      "lines": 333,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          333
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "Lizard",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Lizard.cs",
+      "sha256": "d45d1c6dbdb5f039abc283915a81c53bf6a430e1a8b6681034a2761e2ef732a6",
+      "lines": 2979,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          1064,
+          1110
+        ],
+        [
+          1165,
+          1260
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          1063
+        ],
+        [
+          1111,
+          1164
+        ],
+        [
+          1261,
+          2979
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "AbstractRoom",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractRoom.cs",
+      "sha256": "7930fbc4f3876ed164a8e1897e6acf0968e2c83aae66aa96befe47aabb01c25e",
+      "lines": 891,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          891
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "World",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/World.cs",
+      "sha256": "349f51cf9485debdb019c12b30997515d27fe7377949f2547e312857d9c7e7ef",
+      "lines": 1447,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          1447
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "Room",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Room.cs",
+      "sha256": "f7c85fddded97f086befbff4163dcfe0ea6945aab912f663dd669bf413456a20",
+      "lines": 6428,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          6428
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "AbstractPhysicalObject",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractPhysicalObject.cs",
+      "sha256": "1a573d00540d3378472584ba70e2af975f80cc556d3442f49db56fad72e40a99",
+      "lines": 873,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          873
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "CreatureState",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureState.cs",
+      "sha256": "6259ee1a03a25efb1dc5e598cebf67bfe85886c875ee8f0974dca548f71eb555",
+      "lines": 178,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          30,
+          60
+        ],
+        [
+          100,
+          120
+        ],
+        [
+          165,
+          177
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          29
+        ],
+        [
+          61,
+          99
+        ],
+        [
+          121,
+          164
+        ],
+        [
+          178,
+          178
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "SocialEventRecognizer",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/SocialEventRecognizer.cs",
+      "sha256": "02bad4a3c73e4c709969b48c87e025a1b4e988a9c61ab09237186013299b4cb6",
+      "lines": 256,
+      "status": "selected-windows-read",
+      "reviewed_line_windows": [
+        [
+          30,
+          114
+        ],
+        [
+          197,
+          250
+        ]
+      ],
+      "unread_line_windows": [
+        [
+          1,
+          29
+        ],
+        [
+          115,
+          196
+        ],
+        [
+          251,
+          256
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "LizardState",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/LizardState.cs",
+      "sha256": "20430b063c1cf3e9aa888761d95c7325a3f6f8c4206102c317f5177c977870de",
+      "lines": 140,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          140
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "AgressionTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AgressionTracker.cs",
+      "sha256": "48d6864ae902429705cc1c8f5cfac3a0b623021e362aa41cc381f4a70423caf7",
+      "lines": 155,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          155
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    },
+    {
+      "type": "CreatureCommunities",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureCommunities.cs",
+      "sha256": "19552939344b6238855e24f81a4e115c09f3248ef378795247645aace704f866",
+      "lines": 458,
+      "status": "captured-unread",
+      "reviewed_line_windows": [],
+      "unread_line_windows": [
+        [
+          1,
+          458
+        ]
+      ],
+      "note": "Windows establish only the branches explained in REPORT; reading is not execution. Search-only hits excluded."
+    }
+  ]
+}

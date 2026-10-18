@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "scope": "Artifact/source consistency only; native behavior unobserved",
+  "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "installed_input_sha256_at_validation": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "cumulative_game_classes": 52,
+  "class_status_counts": {
+    "full-class-read": 10,
+    "selected-windows-read": 30,
+    "captured-unread": 12
+  },
+  "support_sources": 3,
+  "alias_duplicates_excluded": 1,
+  "source_locators_checked": 33,
+  "local_links_checked": 7,
+  "private_referenced_bytes": 116130077,
+  "artifact_sha256": {
+    "UNREAD.json": "9003bca9ea959a0c176bfe0321720297a104a3c0316a0b7defb29d334dbef280",
+    "REPORT.md": "6b60b9796862d4ee88bb35b74df194a961836db7dd453bfc5b6eb1c7340f49a9",
+    "CHECKPOINT.md": "ecaa6d1de341188211cb57b99b544c68fb6865de1714469c1bee681003254785",
+    "validate.py": "a7ce49e422852daa9a1df3f79ef710115d9fcf47109da48de0f8831e5cdbb81b",
+    "FINDINGS.json": "15cac241b666552c734f6b769fd278e3a0136f12190c94accd62f762d8bb376e",
+    "READ_LEDGER.json": "622c3bea7e4a51ccb02b11a8e89257667cb6eedf82975da2bea73f2663c9eb42",
+    "SOURCE_INDEX.json": "642c6a8e45193ffc507f9c84f80a47f2b859075c5216d056f8a3787b45fdb753",
+    "build_ledger.py": "86b786fcf6e6ff6284d0fcc454fb4652e2e9e21ed5f6c93ddce1957f97ec50e1"
+  }
+}

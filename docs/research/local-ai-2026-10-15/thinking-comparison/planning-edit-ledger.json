@@ -1,0 +1,64 @@
+[
+  {
+    "model": "gemma4:31b-mlx",
+    "mode": "on",
+    "semantic_plan_edits": 0,
+    "editorial_field_edits": 0,
+    "changes": [],
+    "human_editing_minutes": null
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "mode": "off",
+    "semantic_plan_edits": 0,
+    "editorial_field_edits": 0,
+    "changes": [],
+    "human_editing_minutes": null
+  },
+  {
+    "model": "qwen3.8:27b",
+    "mode": "off",
+    "semantic_plan_edits": 0,
+    "editorial_field_edits": 1,
+    "changes": [
+      {
+        "path": "explanation",
+        "before": "The sequence begins in storage with light off. 'learner_lumos' turns light on. 'save_reload' occurs while lit. 'observe_mark' records the mark. 'visitor_lumos' and 'learner_reparo' are rejected but inert, occurring before the light is turned off. 'learner_nox' turns light off. 'leave' moves the learner outside. All seven operations are used exactly once. The final state has the learner outside, no",
+        "after": "Both rejected casts are inert. The learner lights the wand in storage, saves/reloads while lit, observes the mark, extinguishes the light, and leaves. Final state: outside, light off, observation retained, two rejected casts, no XP or coins.",
+        "kind": "editorial completion of a string cut at the schema length bound"
+      }
+    ],
+    "human_editing_minutes": null
+  },
+  {
+    "model": "qwen3.8:27b",
+    "mode": "on",
+    "semantic_plan_edits": 0,
+    "editorial_field_edits": 1,
+    "changes": [
+      {
+        "path": "explanation",
+        "before": "Steps 1-2 are inert rejections (visitor lacks eligibility; learner hasn't learned Reparo), recorded as 2 rejectedCasts. Step 3 lights the wand in storage. Step 4 saves while lit. Step 5 observes the mark (storage + light ON). Step 6 extinguishes light without erasing the mark. Step 7 moves learner outside without altering light or observations. Final: outside, light off, mark retained, save-while-",
+        "after": "Both rejected casts are inert. The learner lights the wand in storage, saves/reloads while lit, observes the mark, extinguishes the light, and leaves. Final state: outside, light off, observation retained, two rejected casts, no XP or coins.",
+        "kind": "editorial completion of a string cut at the schema length bound"
+      }
+    ],
+    "human_editing_minutes": null
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "mode": "on",
+    "semantic_plan_edits": 0,
+    "editorial_field_edits": 0,
+    "changes": [],
+    "human_editing_minutes": null
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "mode": "off",
+    "semantic_plan_edits": 0,
+    "editorial_field_edits": 0,
+    "changes": [],
+    "human_editing_minutes": null
+  }
+]

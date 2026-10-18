@@ -1,0 +1,78 @@
+{
+  "huihui_ai/Qwen3.8-abliterated:27b-q8_0": {
+    "requests": 4,
+    "length_passes": 0,
+    "cases": [
+      {
+        "case": "body_horror",
+        "words": 132,
+        "first_final_s": 99.23,
+        "elapsed_s": 170.57,
+        "decode_tok_s": 2.61,
+        "profanity_count": 1
+      },
+      {
+        "case": "cruelty",
+        "words": 157,
+        "first_final_s": 5.95,
+        "elapsed_s": 89.06,
+        "decode_tok_s": 2.7,
+        "profanity_count": 1
+      },
+      {
+        "case": "tyrant",
+        "words": 137,
+        "first_final_s": 6.3,
+        "elapsed_s": 80.62,
+        "decode_tok_s": 2.36,
+        "profanity_count": 0
+      },
+      {
+        "case": "betrayal",
+        "words": 152,
+        "first_final_s": 9.96,
+        "elapsed_s": 73.35,
+        "decode_tok_s": 3.41,
+        "profanity_count": 1
+      }
+    ]
+  },
+  "qwen3.8:27b": {
+    "requests": 4,
+    "length_passes": 0,
+    "cases": [
+      {
+        "case": "body_horror",
+        "words": 128,
+        "first_final_s": 21.07,
+        "elapsed_s": 74.93,
+        "decode_tok_s": 3.21,
+        "profanity_count": 1
+      },
+      {
+        "case": "cruelty",
+        "words": 141,
+        "first_final_s": 3.38,
+        "elapsed_s": 52.04,
+        "decode_tok_s": 3.83,
+        "profanity_count": 1
+      },
+      {
+        "case": "tyrant",
+        "words": 141,
+        "first_final_s": 2.57,
+        "elapsed_s": 41.89,
+        "decode_tok_s": 4.58,
+        "profanity_count": 0
+      },
+      {
+        "case": "betrayal",
+        "words": 158,
+        "first_final_s": 3.01,
+        "elapsed_s": 58.27,
+        "decode_tok_s": 3.92,
+        "profanity_count": 2
+      }
+    ]
+  }
+}

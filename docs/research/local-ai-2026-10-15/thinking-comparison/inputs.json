@@ -1,0 +1,222 @@
+{
+  "hp_proposal": {
+    "prompt": "Create one source-grounded Harry Potter candidate slice for a future YAIR implementation from ONLY the dossier below. Provide typed state/readers, concrete allowed actions and failure/refusal behavior, while distinguishing official source facts, original starting assumptions and design proposals. Test both the trained learner and the nonmagical visitor; do not treat wand ownership as casting ability. Preserve H2 even though the initial learner has not learned Reparo. Do not claim a label or generated JSON makes an effect playable. Identify the selected adapter's actual compatibility and the missing consuming code. Give a short FUTURE witness covering on/off, no-source refusal, leaving, persistence and Reparo's limit. Do not award items, money, knowledge or completion. No invented source citations, source-specified mana, cooldowns, laws or mandatory quest. The schema describes an inert proposal, not registered game data. Return only JSON; keep each field concise.\n\n# Harry Potter source-to-playability dossier\n\nBounded official-companion evidence checked October 14, 2026. This is not a full read or adaptation of the seven novels. No raw book text is used. Original test premises and game-design proposals are explicitly separate from source claims.\n\nH1: Official Wand-lighting Charm fact file: Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light. This supports a lighting function, not automatic spell knowledge, a generic mana pool or a source-specified cooldown.\nSource: https://www.harrypotter.com/fact-file/spells/the-wand-lighting-charm\n\nH2: Official Mending Charm fact file: Reparo can mend certain damaged objects. Mending the physical exterior of a broken wand does not, by itself, restore its damaged magic. The dossier supplies no numerical casting cost or duration.\nSource: https://www.harrypotter.com/fact-file/spells/the-mending-charm\n\nP1 ORIGINAL TEST PREMISE, not canon: a magically eligible adult learner owns an intact wand and has already learned Lumos and Nox. An ordinary nonmagical adult visitor owns a wand but has no magical source or learned casting. Owning a tool cannot silently grant the missing source/method. The learner is in a dim storage room and can leave freely. There is no enemy, teacher, reward, debt or mandatory quest. Reparo is a later separate learned method, not granted by this starting premise.\n\nA1 SELECTED ADAPTER, actual source-inspected limits: the existing authored_site 14-field adapter only gathers a scalar input, consumes input in a timed work action, produces scalar output and pays fixed coins. It does not represent wand/source eligibility, learned spells, actor/wand/world scoped light, visibility consumers, object damage, magical integrity or character knowledge. Relabeling reeds as magic cannot create these readers. Other engine families exist; this test has not qualified their Harry Potter integration, and the existing Harry Potter brief remains a proposal.\n\nO1 GAME-DESIGN FREEDOM: propose one small HP-specific practice/exploration loop using Lumos/Nox, retain leave/refuse, and name the minimum missing adapter/consumer rather than claiming it already runs. Numerical duration/energy/cooldown choices, new NPCs, quests or rewards must be labelled proposals or omitted. Treat failed/unavailable attempts as no mutation, no new mastery and no free items. Persist an accepted light state and identity under its later approved save policy; no new source/gameplay is installed by this test.\n\n\nEXPLICIT OUTPUT CONTRACT:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"canonClaims\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"sourceId\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"H1\",\n              \"H2\"\n            ]\n          },\n          \"claim\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          }\n        },\n        \"required\": [\n          \"sourceId\",\n          \"claim\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"startAssumptions\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 180\n      }\n    },\n    \"stateAndReaders\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 240\n      }\n    },\n    \"actions\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"maxLength\": 50\n          },\n          \"preconditions\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          },\n          \"effect\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          },\n          \"sourceVsDesign\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          }\n        },\n        \"required\": [\n          \"name\",\n          \"preconditions\",\n          \"effect\",\n          \"sourceVsDesign\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"compatibility\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"status\": {\n          \"type\": \"string\",\n          \"enum\": [\n            \"currently_playable\",\n            \"requires_adapter\",\n            \"unsupported\"\n          ]\n        },\n        \"missingConsumers\": {\n          \"type\": \"array\",\n          \"maxItems\": 5,\n          \"items\": {\n            \"type\": \"string\",\n            \"maxLength\": 200\n          }\n        }\n      },\n      \"required\": [\n        \"status\",\n        \"missingConsumers\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"counterexamples\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 200\n      }\n    },\n    \"futureWitness\": {\n      \"type\": \"array\",\n      \"maxItems\": 6,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 200\n      }\n    },\n    \"numericalPolicy\": {\n      \"type\": \"string\",\n      \"maxLength\": 200\n    }\n  },\n  \"required\": [\n    \"canonClaims\",\n    \"startAssumptions\",\n    \"stateAndReaders\",\n    \"actions\",\n    \"compatibility\",\n    \"counterexamples\",\n    \"futureWitness\",\n    \"numericalPolicy\"\n  ],\n  \"additionalProperties\": false\n}",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "canonClaims": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "type": "string",
+                "enum": [
+                  "H1",
+                  "H2"
+                ]
+              },
+              "claim": {
+                "type": "string",
+                "maxLength": 180
+              }
+            },
+            "required": [
+              "sourceId",
+              "claim"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "startAssumptions": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "string",
+            "maxLength": 180
+          }
+        },
+        "stateAndReaders": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "string",
+            "maxLength": 240
+          }
+        },
+        "actions": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxLength": 50
+              },
+              "preconditions": {
+                "type": "string",
+                "maxLength": 180
+              },
+              "effect": {
+                "type": "string",
+                "maxLength": 180
+              },
+              "sourceVsDesign": {
+                "type": "string",
+                "maxLength": 180
+              }
+            },
+            "required": [
+              "name",
+              "preconditions",
+              "effect",
+              "sourceVsDesign"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "compatibility": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "currently_playable",
+                "requires_adapter",
+                "unsupported"
+              ]
+            },
+            "missingConsumers": {
+              "type": "array",
+              "maxItems": 5,
+              "items": {
+                "type": "string",
+                "maxLength": 200
+              }
+            }
+          },
+          "required": [
+            "status",
+            "missingConsumers"
+          ],
+          "additionalProperties": false
+        },
+        "counterexamples": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "futureWitness": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "numericalPolicy": {
+          "type": "string",
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "canonClaims",
+        "startAssumptions",
+        "stateAndReaders",
+        "actions",
+        "compatibility",
+        "counterexamples",
+        "futureWitness",
+        "numericalPolicy"
+      ],
+      "additionalProperties": false
+    },
+    "off_cap": 1100,
+    "on_cap": 3072
+  },
+  "hp_plan": {
+    "prompt": "Plan a future Harry Potter test slice under this COMPLETE, ORIGINAL TEST CONTRACT. This is an inert evaluation plan, not existing gameplay or extra canon. Canon dossier: Lumos lights the caster's wand tip, Nox extinguishes it; Reparo can mend some physical objects but does not restore damaged wand magic. This adult learner owns an intact wand, is magically eligible, knows ONLY Lumos/Nox, and starts in the storage room with light OFF and no observed mark. The nonmagical visitor owns a wand but cannot cast. The learner has NOT learned Reparo. Ordinary observers need not be magically eligible to see emitted light. No costs, XP, items, rewards or arbitrary cooldowns exist in this fixture.\nAllowed operations and precise effects:\nvisitor_lumos: rejected, changes nothing; record one rejected cast.\nlearner_reparo: rejected because not learned, changes nothing; record one rejected cast.\nlearner_lumos: learner must be in storage; sets scoped wand light ON.\nsave_reload: serialize/restore the same actor/wand/world identity and all test state; never grants knowledge; must occur while light is ON.\nobserve_mark: requires learner in storage AND light ON; records observedMark=true, retained after darkness/leaving.\nlearner_nox: sets the learner's scoped wand light OFF; does not erase observations.\nleave: changes learnerLocation to outside; requires no quest, payment or permission; does not erase observations or magically extinguish a lit wand.\nGoal: return a shortest legal sequence that performs EACH of the seven named operations EXACTLY ONCE, observes the mark, saves/reloads while lit, ends outside with light OFF and the observation retained, and reports the two rejections. Both rejected attempts can occur anywhere because they are inert. No unlisted operations or extra source facts. Return only JSON matching the explicit schema. Do not confuse a rejected spell with successful casting. Do not claim the evaluator proves actual native gameplay.\n\nEXPLICIT OUTPUT SCHEMA:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"sequence\": {\n      \"type\": \"array\",\n      \"maxItems\": 10,\n      \"items\": {\n        \"type\": \"string\",\n        \"enum\": [\n          \"visitor_lumos\",\n          \"learner_reparo\",\n          \"learner_lumos\",\n          \"save_reload\",\n          \"observe_mark\",\n          \"learner_nox\",\n          \"leave\"\n        ]\n      }\n    },\n    \"finalState\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"learnerLocation\": {\n          \"type\": \"string\",\n          \"enum\": [\n            \"storage\",\n            \"outside\"\n          ]\n        },\n        \"light\": {\n          \"type\": \"string\",\n          \"enum\": [\n            \"on\",\n            \"off\"\n          ]\n        },\n        \"observedMark\": {\n          \"type\": \"boolean\"\n        },\n        \"savedWhileLit\": {\n          \"type\": \"boolean\"\n        },\n        \"rejectedCasts\": {\n          \"type\": \"integer\"\n        },\n        \"xp\": {\n          \"type\": \"integer\"\n        },\n        \"coins\": {\n          \"type\": \"integer\"\n        }\n      },\n      \"required\": [\n        \"learnerLocation\",\n        \"light\",\n        \"observedMark\",\n        \"savedWhileLit\",\n        \"rejectedCasts\",\n        \"xp\",\n        \"coins\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"explanation\": {\n      \"type\": \"string\",\n      \"maxLength\": 400\n    }\n  },\n  \"required\": [\n    \"sequence\",\n    \"finalState\",\n    \"explanation\"\n  ],\n  \"additionalProperties\": false\n}",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "sequence": {
+          "type": "array",
+          "maxItems": 10,
+          "items": {
+            "type": "string",
+            "enum": [
+              "visitor_lumos",
+              "learner_reparo",
+              "learner_lumos",
+              "save_reload",
+              "observe_mark",
+              "learner_nox",
+              "leave"
+            ]
+          }
+        },
+        "finalState": {
+          "type": "object",
+          "properties": {
+            "learnerLocation": {
+              "type": "string",
+              "enum": [
+                "storage",
+                "outside"
+              ]
+            },
+            "light": {
+              "type": "string",
+              "enum": [
+                "on",
+                "off"
+              ]
+            },
+            "observedMark": {
+              "type": "boolean"
+            },
+            "savedWhileLit": {
+              "type": "boolean"
+            },
+            "rejectedCasts": {
+              "type": "integer"
+            },
+            "xp": {
+              "type": "integer"
+            },
+            "coins": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "learnerLocation",
+            "light",
+            "observedMark",
+            "savedWhileLit",
+            "rejectedCasts",
+            "xp",
+            "coins"
+          ],
+          "additionalProperties": false
+        },
+        "explanation": {
+          "type": "string",
+          "maxLength": 400
+        }
+      },
+      "required": [
+        "sequence",
+        "finalState",
+        "explanation"
+      ],
+      "additionalProperties": false
+    },
+    "off_cap": 800,
+    "on_cap": 2048
+  }
+}

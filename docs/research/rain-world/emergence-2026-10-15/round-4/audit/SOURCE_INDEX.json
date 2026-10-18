@@ -1,0 +1,44 @@
+{
+  "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+  "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "entries": [
+    {
+      "type": "WinState",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/audit/WinState.cs",
+      "sha256": "90d166d409b8d55e554462a62fb2793e6b0844a8d9cce20d7784ffbeaad1a02b",
+      "lines": 1507,
+      "bytes": 38484,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "WinState",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    },
+    {
+      "type": "StoryGameSession",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/audit/StoryGameSession.cs",
+      "sha256": "7c9d5a9d58813fc726b08de322c88d634545aca9429c5c3f7d8b93332b32a50b",
+      "lines": 407,
+      "bytes": 14122,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "StoryGameSession",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    }
+  ]
+}

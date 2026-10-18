@@ -1,0 +1,83 @@
+{
+  "canonClaims": [
+    {
+      "sourceId": "H1",
+      "claim": "Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light."
+    },
+    {
+      "sourceId": "H1",
+      "claim": "The lighting function does not imply automatic spell knowledge, a generic mana pool, or a source-specified cooldown."
+    },
+    {
+      "sourceId": "H2",
+      "claim": "Reparo can mend certain damaged objects, but mending a wand's physical exterior does not restore its damaged magic."
+    },
+    {
+      "sourceId": "H2",
+      "claim": "The dossier supplies no numerical casting cost or duration for Reparo."
+    }
+  ],
+  "startAssumptions": [
+    "Learner is a magically eligible adult owning an intact wand who has learned Lumos and Nox.",
+    "Visitor is a nonmagical adult owning a wand but lacks magical source or learned casting ability.",
+    "The learner is in a dim storage room with the freedom to leave; no enemy, teacher, reward, or quest exists.",
+    "Reparo is a separate, later-learned method not granted by the initial premise or wand ownership."
+  ],
+  "stateAndReaders": [
+    "Learner state: eligible, owns intact wand, knows Lumos/Nox, location=dim_storage_room.",
+    "Visitor state: nonmagical, owns wand, knows no spells, location=dim_storage_room.",
+    "World state: ambient_light=low; light state belongs to the identified actor/wand/world instance; no damaged object is assumed present.",
+    "Readers: check actor magic eligibility, check wand integrity, check spell knowledge, check light visibility."
+  ],
+  "actions": [
+    {
+      "name": "Cast_Lumos",
+      "preconditions": "Actor is magically eligible, owns intact wand, has learned Lumos.",
+      "effect": "Sets the scoped light state to on and emits light at the wand tip; observer visibility is evaluated by its own normal rules.",
+      "sourceVsDesign": "H1 supports the effect; design defines the state transition and visibility scope."
+    },
+    {
+      "name": "Cast_Nox",
+      "preconditions": "Actor is magically eligible, owns intact wand, has learned Nox, light_state is on.",
+      "effect": "Sets light_state to off; extinguishes magical light.",
+      "sourceVsDesign": "H1 supports the effect; design defines the state transition."
+    },
+    {
+      "name": "Attempt_Cast",
+      "preconditions": "Actor attempts casting but lacks eligibility or knowledge (e.g., Visitor).",
+      "effect": "No mutation; no light produced; no mastery gained; no items awarded.",
+      "sourceVsDesign": "Design enforces that wand ownership does not grant casting ability; refusal is inert."
+    },
+    {
+      "name": "Leave_Room",
+      "preconditions": "Actor is present in the storage room.",
+      "effect": "Actor location changes; light_state persists under save policy if applicable.",
+      "sourceVsDesign": "Design freedom allows leaving; source does not mandate quest completion or rewards."
+    }
+  ],
+  "compatibility": {
+    "status": "requires_adapter",
+    "missingConsumers": [
+      "Actor magic eligibility check",
+      "Wand integrity and source validation",
+      "Spell knowledge registry",
+      "Light visibility consumer for world objects",
+      "Object damage and magical integrity distinction"
+    ]
+  },
+  "counterexamples": [
+    "Visitor casts Lumos: fails because no magical source; wand ownership is insufficient.",
+    "Learner casts Reparo: fails because Reparo is not yet learned; H2 not applied to learner yet.",
+    "Broken wand mended physically: magic not restored; H2 states exterior mending does not fix magic.",
+    "No-source refusal: any cast attempt without eligibility results in no state change or reward."
+  ],
+  "futureWitness": [
+    "On: learner casts Lumos; light is emitted at the wand tip; the normal visibility/observation reader evaluates each observer without a new magical-eligibility restriction.",
+    "Off: Learner casts Nox; light_state becomes off; illumination ceases.",
+    "No-source refusal: Visitor attempts Lumos; action fails; no light, no mastery, no items.",
+    "Leaving: Learner leaves room; light_state persists under approved save policy.",
+    "Reparo limit: Even if learned, Reparo mends exterior only; damaged magic remains unrepaired.",
+    "Persistence: Accepted light state and identity saved; no new gameplay or source data installed."
+  ],
+  "numericalPolicy": "No source-specified mana, cooldowns, or costs; any numerical values are design proposals, not canon."
+}

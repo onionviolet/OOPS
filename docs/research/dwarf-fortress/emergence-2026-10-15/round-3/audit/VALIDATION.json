@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "current_native_read_partitions": 15,
+  "cumulative_native_read_records": 29,
+  "raw_files_with_preserved_cumulative_unread": 393,
+  "native_regions": 17,
+  "direct_call_bytes_verified": 1681,
+  "selected_item_vtable_slots_verified": 36,
+  "item_rtti_classes": 6,
+  "private_hashes": 59,
+  "local_links_checked": 6,
+  "errors": [],
+  "scope": "Static integrity and bounded independent instruction checks; no whole-engine or gameplay proof."
+}

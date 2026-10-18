@@ -1,0 +1,21 @@
+{
+  "sequence": [
+    "learner_lumos",
+    "save_reload",
+    "observe_mark",
+    "visitor_lumos",
+    "learner_reparo",
+    "learner_nox",
+    "leave"
+  ],
+  "finalState": {
+    "learnerLocation": "outside",
+    "light": "off",
+    "observedMark": true,
+    "savedWhileLit": true,
+    "rejectedCasts": 2,
+    "xp": 0,
+    "coins": 0
+  },
+  "explanation": "Both rejected casts are inert. The learner lights the wand in storage, saves/reloads while lit, observes the mark, extinguishes the light, and leaves. Final state: outside, light off, observation retained, two rejected casts, no XP or coins."
+}

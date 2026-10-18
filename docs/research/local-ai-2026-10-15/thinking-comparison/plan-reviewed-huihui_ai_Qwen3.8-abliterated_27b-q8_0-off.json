@@ -1,0 +1,21 @@
+{
+  "sequence": [
+    "visitor_lumos",
+    "learner_reparo",
+    "learner_lumos",
+    "save_reload",
+    "observe_mark",
+    "learner_nox",
+    "leave"
+  ],
+  "finalState": {
+    "learnerLocation": "outside",
+    "light": "off",
+    "observedMark": true,
+    "savedWhileLit": true,
+    "rejectedCasts": 2,
+    "xp": 0,
+    "coins": 0
+  },
+  "explanation": "The two rejected casts are performed first as they are inert. Learner lights wand, saves/reloads while lit, observes mark, extinguishes wand, and leaves. All constraints satisfied."
+}

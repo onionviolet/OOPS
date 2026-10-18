@@ -1,0 +1,26 @@
+{
+  "status": "bounded-static-partial",
+  "findings": [
+    {
+      "id": "DF-JR06",
+      "title": "Selected consumption\u2192false return/output flag\u2192caller cleanup path",
+      "detail": "TRACE.md"
+    },
+    {
+      "id": "DF-JR07",
+      "title": "Positive owner484 write is not item80 restoration",
+      "detail": "TRACE.md"
+    },
+    {
+      "id": "DF-JR08",
+      "title": "New-glob quantity initialization and placement return contract",
+      "detail": "PEER_REVIEW.md"
+    },
+    {
+      "id": "DF-JR09",
+      "title": "Consumed-source refund remains unresolved within bounded native graph",
+      "detail": "TRACE.md"
+    }
+  ],
+  "exact_sources": "READS.json"
+}

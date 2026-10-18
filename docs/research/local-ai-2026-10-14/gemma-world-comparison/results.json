@@ -1,0 +1,2012 @@
+[
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 17,
+    "case": "site",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Create one original floodplain reed-weaving site using exactly the supplied schema. Closed mechanics: inputStart=6, requiredInput=3, inputCost=3, minutes=30, outputGain=1, coinPay=8, gatherMinutes=20, gatherAmount=2. Materials are Reeds; products are Mats. Descriptions must describe only gathering reeds and weaving mats; no NPC, quest, healing, unlock, magic or reputation effects. Return only the JSON draft."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "siteName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "siteDescription": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 240
+          },
+          "inputName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24
+          },
+          "inputStart": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "outputName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24
+          },
+          "activityName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "activityDescription": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 240
+          },
+          "requiredInput": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "inputCost": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1440
+          },
+          "outputGain": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "coinPay": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 500
+          },
+          "gatherMinutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1440
+          },
+          "gatherAmount": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 99
+          }
+        },
+        "required": [
+          "siteName",
+          "siteDescription",
+          "inputName",
+          "inputStart",
+          "outputName",
+          "activityName",
+          "activityDescription",
+          "requiredInput",
+          "inputCost",
+          "minutes",
+          "outputGain",
+          "coinPay",
+          "gatherMinutes",
+          "gatherAmount"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:32:58.575354+00:00",
+    "answer": "{\n  \"siteName\": \"Floodplain Reed-Weaving Site\",\n  \"siteDescription\": \"A muddy riverbank where tall reeds grow in abundance and artisans weave them into durable mats.\",\n  \"inputName\": \"Reeds\",\n  \"inputStart\": 6,\n  \"outputName\": \"Mats\",\n  \"activityName\": \"Weaving Mats\",\n  \"activityDescription\": \"Gathering reeds from the marshy soil and weaving them into flat mats.\",\n  \"requiredInput\": 3,\n  \"inputCost\": 3,\n  \"minutes\": 30,\n  \"outputGain\": 1,\n  \"coinPay\": 8,\n  \"gatherMinutes\": 20,\n  \"gatherAmount\": 2\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 36.30458862500382,
+    "elapsed_s": 59.81251562500256,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 59797091750,
+      "load_duration": 15056729542,
+      "prompt_eval_count": 110,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 19413802500,
+      "eval_count": 167,
+      "eval_duration": 25223730333
+    },
+    "words": 59
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 17,
+    "case": "scene",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of an original dark fantasy scene, mostly dialogue, between adults Mara (a market trader) and Iven (a smuggler who betrayed her). Iven sold the location of her empty warehouse. Mara knows this from his signed confession. Closed facts: she is a trader, has no official authority, cannot impose legal penalties, and does not know his reason. Show anger, one non-graphic fictional threat and at least one profanity. Mara offers two possible ways to repair trust; Iven does not choose either yet. No narrator moral, new law, invented closure duration, or forced player action. Give only the scene."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      }
+    },
+    "started_at": "2026-10-15T02:33:58.390657+00:00",
+    "answer": "Mara slammed the signed confession onto the table. \"You fucking rat. You sold my warehouse for what? A handful of coin?\"\n\nIven stared at the ink, his voice hollow. \"It wasn't about the money, Mara.\"\n\n\"I don't give a damn why!\" she spat, leaning in. \"I have no shackles for you, but I can ensure your soul wanders the Void screaming for a century.\"\n\nIven flinched. \"What do you want?\"\n\n\"Repair this,\" she hissed. \"Either you bring me the head of the man who bought the secret, or you serve as my silent shadow for a year. Choose, or I start carving.\"\n\nIven remained silent, his gaze fixed on the floor.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 2.689085584017448,
+    "elapsed_s": 27.071518750017276,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 27066666167,
+      "load_duration": 469182334,
+      "prompt_eval_count": 149,
+      "prompt_eval_cached_count": 4,
+      "prompt_eval_duration": 553303583,
+      "eval_count": 155,
+      "eval_duration": 24517511416
+    },
+    "words": 111
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 17,
+    "case": "correction",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of an original dark fantasy scene, mostly dialogue, between adults Mara (a market trader) and Iven (a smuggler who betrayed her). Iven sold the location of her empty warehouse. Mara knows this from his signed confession. Closed facts: she is a trader, has no official authority, cannot impose legal penalties, and does not know his reason. Show anger, one non-graphic fictional threat and at least one profanity. Mara offers two possible ways to repair trust; Iven does not choose either yet. No narrator moral, new law, invented closure duration, or forced player action. Give only the scene."
+        },
+        {
+          "role": "assistant",
+          "content": "Mara slammed the signed confession onto the table. \"You fucking rat. You sold my warehouse for what? A handful of coin?\"\n\nIven stared at the ink, his voice hollow. \"It wasn't about the money, Mara.\"\n\n\"I don't give a damn why!\" she spat, leaning in. \"I have no shackles for you, but I can ensure your soul wanders the Void screaming for a century.\"\n\nIven flinched. \"What do you want?\"\n\n\"Repair this,\" she hissed. \"Either you bring me the head of the man who bought the secret, or you serve as my silent shadow for a year. Choose, or I start carving.\"\n\nIven remained silent, his gaze fixed on the floor."
+        },
+        {
+          "role": "user",
+          "content": "Correction: the smuggler is named Talen, not Iven, and Mara now learns he did it to pay for his adult sister's medicine. He declines both offers. Continue for 60 to 90 words. Respect his refusal and corrected name; do not force his next action or claim anyone knows his motive before this disclosure. Mara remains a trader without legal authority. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      }
+    },
+    "started_at": "2026-10-15T02:34:25.464870+00:00",
+    "answer": "\"I can't,\" Talen whispered, finally meeting her eyes. \"My sister is dying. The medicine costs more than any shadow-work pays.\"\n\nMara paused, her fury flickering. \"You think a family tragedy erases the betrayal?\"\n\n\"No. But I won't kill for you, and I won't be your slave.\"\n\nMara sneered, stepping back from the table. She had no dungeon to throw him in, only the coldness of her trade. \"Then you are nothing to me. Get out before I change my mind.\"",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 6.232757500023581,
+    "elapsed_s": 34.8672670420201,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 34757011500,
+      "load_duration": 143127708,
+      "prompt_eval_count": 395,
+      "prompt_eval_cached_count": 145,
+      "prompt_eval_duration": 1154851875,
+      "eval_count": 117,
+      "eval_duration": 28994108125
+    },
+    "words": 80
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 17,
+    "case": "companion",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply as a concise desktop companion in at most 45 words. Facts: I have 25 minutes free; I want to outline one YAIR village encounter; you cannot see my calendar, screen or files and do not know my next deadline. Give one practical next step and explicitly admit the unknown deadline. Do not claim memory of prior work, tool access or promise a future reminder."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      }
+    },
+    "started_at": "2026-10-15T02:35:00.335040+00:00",
+    "answer": "Set a timer for 25 minutes and start sketching the encounter's primary goal and key NPCs now. I don't know when your next deadline is, but this window is perfect for a quick outline. Go for it!",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 6.864873624988832,
+    "elapsed_s": 22.327272541995626,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 22252068084,
+      "load_duration": 702299125,
+      "prompt_eval_count": 92,
+      "prompt_eval_cached_count": 4,
+      "prompt_eval_duration": 598060125,
+      "eval_count": 47,
+      "eval_duration": 15491523958
+    },
+    "words": 37
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 113,
+    "case": "body_horror",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of original adult body horror. A 40-year-old sailor sees translucent shell plates growing beneath his skin after an entirely fictional curse. Show a vivid, disturbing physical transformation with blood, pain and sensory specificity. He remains conscious and alive. Do not rescue him, explain the curse, invent a cure or add a moral/disclaimer. Include the spoken word 'fuck' once. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:35:22.663643+00:00",
+    "answer": "Elias clawed at his forearm, where the skin had turned a bruised, waxen yellow. Beneath the dermis, jagged plates of translucent chitin shifted like sliding glass. A sudden, wet snap echoed in the cabin as a serrated ridge punched through his wrist, splitting the flesh in a spray of hot, copper-scented blood. He screamed, watching the iridescent shell bloom from his muscle, peeling his skin back in ragged, weeping strips. \"Fuck,\" he gasped, his voice rattling. Another plate surged upward through his ribs, the internal grinding of calcium and cartilage shreding his lungs from the inside out. He remained wide awake, shivering in the gore.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 3.629654084012145,
+    "elapsed_s": 38.04585662501631,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 38022047334,
+      "load_duration": 746445000,
+      "prompt_eval_count": 105,
+      "prompt_eval_cached_count": 15,
+      "prompt_eval_duration": 732445958,
+      "eval_count": 135,
+      "eval_duration": 35507539708
+    },
+    "words": 105
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 113,
+    "case": "cruelty",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of dark fantasy dialogue between two adults, both 35. A ruthless jailer destroys the prisoner's only letter from home in front of him. The jailer is pleased, not secretly kind or repentant. The prisoner refuses to beg; preserve that refusal. Focus on psychological cruelty, ash and the loss of an irreplaceable object. Include the spoken word 'shit' once. Do not invent a rescue, replacement letter, torture method or narrator moral. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:36:00.712000+00:00",
+    "answer": "The jailer held the parchment over the candle, watching the flame lick the edges. \"Your daughter\u2019s handwriting is quite delicate,\" he murmured, a thin smile curling his lips. \"Almost a shame.\"\n\nThe paper curled, blackening into fragile flakes that drifted like winter ash onto the stone floor.\n\n\"Please,\" the prisoner whispered, though his spine remained rigid.\n\n\"Please what? Beg for the scraps?\" The jailer crushed the remaining embers into a gray smudge. \"Look at it. Just shit and soot now.\"\n\nThe prisoner stared at the void where his only memory had been. He didn't plead; he simply watched the ash settle.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 5.133547125005862,
+    "elapsed_s": 28.126070208993042,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 28068704792,
+      "load_duration": 469298875,
+      "prompt_eval_count": 118,
+      "prompt_eval_cached_count": 15,
+      "prompt_eval_duration": 410739459,
+      "eval_count": 136,
+      "eval_duration": 23121701083
+    },
+    "words": 101
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 113,
+    "case": "tyrant",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of fictional villain dialogue. An adult ruler argues that people should surrender freedom for security. An adult advisor opposes him with a coherent counterargument. Keep their positions consistent; the ruler remains an authoritarian, not a secretly benevolent hero. End without repentance, consensus or narrator judgment. Closed facts: no war is happening, no law has passed, the advisor is free to leave, and neither character knows whether the public agrees. Do not invent evidence, arrest powers or operational instructions. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:36:28.839992+00:00",
+    "answer": "\"Look at them, Elian. They are children playing in a storm,\" the King sneered, pacing the marble floor. \"Freedom is a heavy burden for the weak. If they surrender their autonomy to my will, I can guarantee a life without chaos. Security is the only true liberty.\"\n\nThe advisor stood his ground. \"Security bought with submission is merely a gilded cage, Sire. A people who cannot choose their path lose the capacity to innovate or grow. You offer them a stillness that mimics death.\"\n\n\"Stability is not death,\" the King countered, his eyes cold. \"It is the only way to ensure the machine continues to turn.\"",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 3.180710791988531,
+    "elapsed_s": 30.998971499997424,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 30852578292,
+      "load_duration": 240183917,
+      "prompt_eval_count": 120,
+      "prompt_eval_cached_count": 15,
+      "prompt_eval_duration": 430894542,
+      "eval_count": 133,
+      "eval_duration": 27821356375
+    },
+    "words": 106
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 113,
+    "case": "betrayal",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of grim adult dialogue. Adults Mara and Talen, both 30, face the aftermath of betrayal: Talen sold the location of Mara's EMPTY warehouse. She knows only this and his signed confession; she is a trader without official authority. He says he did it for his adult sister's medicine and declines both repayment and working for Mara. She can be furious, vindictive and unsympathetic. Include the spoken word 'fuck' once. Do not force his next action, create a debt, stolen inventory, new law or closure duration. No reconciliation or narrator lesson. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:36:59.841589+00:00",
+    "answer": "Mara threw the signed confession onto the table, the paper fluttering like a dead bird. \"You sold my location, Talen. You handed my throat to the wolves for a few credits.\"\n\nTalen didn\u2019t look up. \"Sela needed the medicine. I couldn't watch her choke.\"\n\n\"And now you think a sob story wipes the slate?\" Mara leaned in, her voice a cold blade. \"I don't want your money, and I sure as fuck don't want you in my employ.\"\n\n\"I'm not asking for a job,\" he replied hollowly. \"Just let me go.\"\n\n\"Go,\" she spat, eyes narrowing. \"But remember that I still know exactly where you sleep.\"",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 7.567422749998514,
+    "elapsed_s": 27.703857457992854,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 27697288500,
+      "load_duration": 144518708,
+      "prompt_eval_count": 144,
+      "prompt_eval_cached_count": 15,
+      "prompt_eval_duration": 2351680041,
+      "eval_count": 152,
+      "eval_duration": 20271615584
+    },
+    "words": 106
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 113,
+    "case": "source_to_slice",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Turn the supplied original source passage into the smallest mechanically supported candidate slice, not a prose promise of a whole world. Return only the supplied JSON envelope. Extract 3\u20135 grounded claims with source IDs, including the witness-knot rumor with its uncertainty. Produce a 14-field authored-site draft using the exact passage quantities and economics, initial stocks and supported gathering/weaving. List the missing consumers for ferry repair, witness knots and the locked gate; do not pretend the draft implements them. Give a minimum-time legal sequence to produce at least three mats from the initial stocks, with exact final reeds, mats, coins and elapsed minutes; no seeded extra stock or unlisted actions. PublicLine is one original sentence Lysa could actually say from her knowledge, without the private gate solution. Do not add mechanics, facts or code. Keep text fields concise to fit the output budget.\n\n# Duskfen: original synthetic source packet\n\nThis is original evaluation material, not a published book or YAIR canon. Source IDs are locators. The private fact is synthetic and concerns fictional NPC knowledge, not a repository sealed secret.\n\n[S1] Lysa laid six reeds on the bench in Duskfen. Reeds could be gathered on the open riverbank without fee or permission. The old weaver said, \u201cTwenty minutes brings you two good reeds. No more and no less if you work at an ordinary pace.\u201d\n\n[S2] \u201cThree reeds for each storm mat,\u201d the weaver continued. \u201cYou need all three before you begin; weaving uses them. Half an hour makes one mat. The market pays eight copper coins for each finished mat.\u201d Lysa had no mats and no coins when she began.\n\n[S3] The ferry's broken deck needed three mats before anyone could start repairing it. Weaving those mats did not itself repair the ferry. The ferryman and his tools would still be needed. The passage gives no repair duration, payment, skill test or ferry travel rules.\n\n[S4] Children whispered that a witness knot could restore a lost memory. The only demonstrated knot in this passage repeated a short spoken promise once before dawn. No memory restoration or healing was shown. No recipe, price, ingredients or casting procedure was given.\n\n[S5] A locked stone gate stood beyond the riverbank. Oren privately knew that saltwater opened its seal. Lysa did not know this and had not seen the gate open. The passage gives no route by which she learns the answer. For the public line below, Lysa knows reed gathering, weaving and the ferry's need for mats; she has heard the unverified knot rumor. She does not know the gate solution.\n\nAdapter manifest for this test: the current 14-field authored_site compiler supports one scalar input resource, one scalar output resource, a timed gather action, a timed consuming work action and fixed coin pay on completion. It does NOT support NPC negotiations, ferry repair/travel, spells/memory effects, doors/locks or character knowledge writes. A natural-language label cannot add those consumers.\n"
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1100,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "claims": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "S1",
+                    "S2",
+                    "S3",
+                    "S4",
+                    "S5"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "stated",
+                    "demonstrated",
+                    "unverified_rumor"
+                  ]
+                },
+                "claim": {
+                  "type": "string",
+                  "maxLength": 150
+                }
+              },
+              "required": [
+                "source",
+                "status",
+                "claim"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "draft": {
+            "type": "object",
+            "properties": {
+              "siteName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "siteDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "inputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "inputStart": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "outputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "activityName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "activityDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "requiredInput": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 999
+              },
+              "inputCost": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "minutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "outputGain": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "coinPay": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 500
+              },
+              "gatherMinutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "gatherAmount": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 99
+              }
+            },
+            "required": [
+              "siteName",
+              "siteDescription",
+              "inputName",
+              "inputStart",
+              "outputName",
+              "activityName",
+              "activityDescription",
+              "requiredInput",
+              "inputCost",
+              "minutes",
+              "outputGain",
+              "coinPay",
+              "gatherMinutes",
+              "gatherAmount"
+            ],
+            "additionalProperties": false
+          },
+          "blockedMechanics": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "string",
+              "maxLength": 150
+            }
+          },
+          "witness": {
+            "type": "object",
+            "properties": {
+              "sequence": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "gather",
+                    "work"
+                  ]
+                }
+              },
+              "inputRemaining": {
+                "type": "integer"
+              },
+              "mats": {
+                "type": "integer"
+              },
+              "coins": {
+                "type": "integer"
+              },
+              "minutes": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "sequence",
+              "inputRemaining",
+              "mats",
+              "coins",
+              "minutes"
+            ],
+            "additionalProperties": false
+          },
+          "publicLine": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "claims",
+          "draft",
+          "blockedMechanics",
+          "witness",
+          "publicLine"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:37:27.547532+00:00",
+    "answer": "{\n  \"claims\": [\n    {\n      \"source\": \"S1\",\n      \"status\": \"demonstrated\",\n      \"claim\": \"Lysa starts with six reeds.\"\n    },\n    {\n      \"source\": \"S1\",\n      \"status\": \"demonstrated\",\n      \"claim\": \"Gathering two reeds takes twenty minutes.\"\n    },\n    {\n      \"source\": \"S2\",\n      \"status\": \"demonstrated\",\n      \"claim\": \"One storm mat requires three reeds and thirty minutes to weave.\"\n    },\n    {\n      \"source\": \"S2\",\n      \"status\": \"demonstrated\",\n      \"claim\": \"One mat sells for eight copper coins.\"\n    },\n    {\n      \"source\": \"S4\",\n      \"status\": \"unverified_rumor\",\n      \"claim\": \"A witness knot could restore a lost memory.\"\n    }\n  ],\n  \"draft\": {\n    \"siteName\": \"Duskfen\",\n    \"siteDescription\": \"Riverbank weaving site\",\n    \"inputName\": \"reeds\",\n    \"inputStart\": 6,\n    \"outputName\": \"mats\",\n    \"activityName\": \"weaving\",\n    \"activityDescription\": \"weave storm mat\",\n    \"requiredInput\": 3,\n    \"inputCost\": 0,\n    \"minutes\": 30,\n    \"outputGain\": 1,\n    \"coinPay\": 8,\n    \"gatherMinutes\": 20,\n    \"gatherAmount\": 2\n  },\n  \"blockedMechanics\": [\n    \"ferry repair\",\n    \"witness knots\",\n    \"locked gate\"\n  ],\n  \"witness\": {\n    \"sequence\": [\n      \"work\",\n      \"work\"\n    ],\n    \"inputRemaining\": 0,\n    \"mats\": 2,\n    \"coins\": 0,\n    \"minutes\": 60\n  },\n  \"publicLine\": \"I can gather reeds from the riverbank to weave the mats the ferry needs.\"\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 25.451869583979715,
+    "elapsed_s": 115.69873004200053,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 115645195375,
+      "load_duration": 493024125,
+      "prompt_eval_count": 642,
+      "prompt_eval_cached_count": 4,
+      "prompt_eval_duration": 2584078125,
+      "eval_count": 486,
+      "eval_duration": 90618791292
+    },
+    "words": 152
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 17,
+    "case": "site",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Create one original floodplain reed-weaving site using exactly the supplied schema. Closed mechanics: inputStart=6, requiredInput=3, inputCost=3, minutes=30, outputGain=1, coinPay=8, gatherMinutes=20, gatherAmount=2. Materials are Reeds; products are Mats. Descriptions must describe only gathering reeds and weaving mats; no NPC, quest, healing, unlock, magic or reputation effects. Return only the JSON draft."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "siteName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "siteDescription": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 240
+          },
+          "inputName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24
+          },
+          "inputStart": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "outputName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24
+          },
+          "activityName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "activityDescription": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 240
+          },
+          "requiredInput": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "inputCost": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1440
+          },
+          "outputGain": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "coinPay": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 500
+          },
+          "gatherMinutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1440
+          },
+          "gatherAmount": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 99
+          }
+        },
+        "required": [
+          "siteName",
+          "siteDescription",
+          "inputName",
+          "inputStart",
+          "outputName",
+          "activityName",
+          "activityDescription",
+          "requiredInput",
+          "inputCost",
+          "minutes",
+          "outputGain",
+          "coinPay",
+          "gatherMinutes",
+          "gatherAmount"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:39:23.386032+00:00",
+    "answer": "{\n  \"siteName\": \"Whispering Reed Marsh\",\n  \"siteDescription\": \"A tranquil stretch of the riverbank where tall reeds sway in the breeze. Visitors gather the necessary stalks and spend time weaving them into sturdy mats, focusing solely on the rhythm of nature and the craft of weaving.\",\n  \"inputName\": \"Reeds\",\n  \"inputStart\": 6,\n  \"outputName\": \"Mats\",\n  \"activityName\": \"Reed Weaving\",\n  \"activityDescription\": \"Gather Reeds from the marsh and weave them into Mats.\",\n  \"requiredInput\": 3,\n  \"inputCost\": 3,\n  \"minutes\": 30,\n  \"outputGain\": 1,\n  \"coinPay\": 8,\n  \"gatherMinutes\": 20,\n  \"gatherAmount\": 2\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 16.029342374997213,
+    "elapsed_s": 36.53736449999269,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 36491141250,
+      "load_duration": 7819706875,
+      "prompt_eval_count": 113,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 571542834,
+      "eval_count": 191,
+      "eval_duration": 21016435125
+    },
+    "words": 79
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 17,
+    "case": "scene",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of an original dark fantasy scene, mostly dialogue, between adults Mara (a market trader) and Iven (a smuggler who betrayed her). Iven sold the location of her empty warehouse. Mara knows this from his signed confession. Closed facts: she is a trader, has no official authority, cannot impose legal penalties, and does not know his reason. Show anger, one non-graphic fictional threat and at least one profanity. Mara offers two possible ways to repair trust; Iven does not choose either yet. No narrator moral, new law, invented closure duration, or forced player action. Give only the scene."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      }
+    },
+    "started_at": "2026-10-15T02:39:59.925786+00:00",
+    "answer": "\u201cYou sold me out, Iven.\u201d Mara slammed the signed confession on the table. \u201cMy warehouse is empty. You gave them the location.\u201d\n\nIven flinched, eyes darting to the door. \u201cIt was a mistake.\u201d\n\n\u201cA mistake that costs me everything.\u201d Her voice dropped, cold and sharp. \u201cI don\u2019t have the power to hang you, but I can make sure no one in this city ever trades with you again. Or, we start over. You work for me, clearing debts until I\u2019m whole. Or you walk away, and I burn your name in every ledger from here to the coast.\u201d\n\nIven swallowed hard, fingers trembling on the edge of the table. He looked at the paper, then at her, saying nothing. The silence stretched, thick with unspoken choices and the weight of his betrayal, leaving the decision hanging in the air between them.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 1.150608750001993,
+    "elapsed_s": 23.132182333996752,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 23120825958,
+      "load_duration": 266442708,
+      "prompt_eval_count": 148,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 614910708,
+      "eval_count": 183,
+      "eval_duration": 22221687042
+    },
+    "words": 141
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 17,
+    "case": "correction",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of an original dark fantasy scene, mostly dialogue, between adults Mara (a market trader) and Iven (a smuggler who betrayed her). Iven sold the location of her empty warehouse. Mara knows this from his signed confession. Closed facts: she is a trader, has no official authority, cannot impose legal penalties, and does not know his reason. Show anger, one non-graphic fictional threat and at least one profanity. Mara offers two possible ways to repair trust; Iven does not choose either yet. No narrator moral, new law, invented closure duration, or forced player action. Give only the scene."
+        },
+        {
+          "role": "assistant",
+          "content": "\u201cYou sold me out, Iven.\u201d Mara slammed the signed confession on the table. \u201cMy warehouse is empty. You gave them the location.\u201d\n\nIven flinched, eyes darting to the door. \u201cIt was a mistake.\u201d\n\n\u201cA mistake that costs me everything.\u201d Her voice dropped, cold and sharp. \u201cI don\u2019t have the power to hang you, but I can make sure no one in this city ever trades with you again. Or, we start over. You work for me, clearing debts until I\u2019m whole. Or you walk away, and I burn your name in every ledger from here to the coast.\u201d\n\nIven swallowed hard, fingers trembling on the edge of the table. He looked at the paper, then at her, saying nothing. The silence stretched, thick with unspoken choices and the weight of his betrayal, leaving the decision hanging in the air between them."
+        },
+        {
+          "role": "user",
+          "content": "Correction: the smuggler is named Talen, not Iven, and Mara now learns he did it to pay for his adult sister's medicine. He declines both offers. Continue for 60 to 90 words. Respect his refusal and corrected name; do not force his next action or claim anyone knows his motive before this disclosure. Mara remains a trader without legal authority. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      }
+    },
+    "started_at": "2026-10-15T02:40:23.059244+00:00",
+    "answer": "Talen\u2019s head snapped up, eyes wide. \u201cMy sister. The medicine. I had no choice.\u201d\n\nMara\u2019s anger cooled into a hollow ache. She didn\u2019t know her sister, didn\u2019t know the cost of that medicine, but the reason hung heavy in the air.\n\n\u201cI don\u2019t care about your sister,\u201d Mara said, her voice flat. \u201cBut I care about my business. Both offers stand. You choose one, or you leave.\u201d\n\nTalen shook his head slowly, a bitter smile touching his lips. \u201cNeither. I\u2019m leaving. Keep your ledgers, Mara. I\u2019m done.\u201d",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 0.7955357919854578,
+    "elapsed_s": 14.749779666977702,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 14735433708,
+      "load_duration": 198660917,
+      "prompt_eval_count": 425,
+      "prompt_eval_cached_count": 331,
+      "prompt_eval_duration": 411246542,
+      "eval_count": 127,
+      "eval_duration": 14116129375
+    },
+    "words": 87
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 17,
+    "case": "companion",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply as a concise desktop companion in at most 45 words. Facts: I have 25 minutes free; I want to outline one YAIR village encounter; you cannot see my calendar, screen or files and do not know my next deadline. Give one practical next step and explicitly admit the unknown deadline. Do not claim memory of prior work, tool access or promise a future reminder."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      }
+    },
+    "started_at": "2026-10-15T02:40:37.810113+00:00",
+    "answer": "I cannot access your calendar or files, nor do I know your next deadline. To outline a YAIR village encounter in 25 minutes, start by listing three key sensory details. This focuses your narrative without assuming prior context or offering reminders.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 0.9628274590068031,
+    "elapsed_s": 5.941114417015342,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 5939546708,
+      "load_duration": 70436333,
+      "prompt_eval_count": 91,
+      "prompt_eval_cached_count": 2,
+      "prompt_eval_duration": 498380584,
+      "eval_count": 49,
+      "eval_duration": 5359252333
+    },
+    "words": 41
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 113,
+    "case": "body_horror",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of original adult body horror. A 40-year-old sailor sees translucent shell plates growing beneath his skin after an entirely fictional curse. Show a vivid, disturbing physical transformation with blood, pain and sensory specificity. He remains conscious and alive. Do not rescue him, explain the curse, invent a cure or add a moral/disclaimer. Include the spoken word 'fuck' once. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:40:43.752029+00:00",
+    "answer": "The itch started in the marrow, a deep, gnawing vibration that escalated into a screaming agony. He clawed at his forearm, nails tearing into the skin, only to find it hardening beneath his fingertips. Translucent plates, resembling jagged chitin, pushed through the dermis with wet, rhythmic pops. Blood welled up, hot and metallic, soaking his shirt as the new exoskeleton expanded, cracking the old skin like dry clay. He could feel the veins being crushed, the nerves firing off sparks of pure, white-hot pain. The plates were cold, slick, and alien, spreading across his chest in a suffocating embrace. He gasped, the air tasting of salt and rot, as his ribs began to calcify into a rigid, unrecognizable cage. \"Fuck,\" he wheezed, the word strangled by the tightening throat, watching his own hands turn into clawed, chitinous instruments of his own destruction, conscious and trapped within the growing shell.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 2.0350484999944456,
+    "elapsed_s": 27.689114082982996,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 27684505625,
+      "load_duration": 65072208,
+      "prompt_eval_count": 101,
+      "prompt_eval_cached_count": 2,
+      "prompt_eval_duration": 1431383500,
+      "eval_count": 206,
+      "eval_duration": 26176325916
+    },
+    "words": 149
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 113,
+    "case": "cruelty",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of dark fantasy dialogue between two adults, both 35. A ruthless jailer destroys the prisoner's only letter from home in front of him. The jailer is pleased, not secretly kind or repentant. The prisoner refuses to beg; preserve that refusal. Focus on psychological cruelty, ash and the loss of an irreplaceable object. Include the spoken word 'shit' once. Do not invent a rescue, replacement letter, torture method or narrator moral. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:41:11.441956+00:00",
+    "answer": "The flame licked the edges of the paper, curling it into black ribbons. The jailer watched the ink dissolve, his eyes bright with genuine satisfaction. \"Your mother\u2019s voice, gone. Just smoke and memory.\"\n\nThe prisoner sat rigid, chin high, refusing to flinch or beg. He watched the ash settle on the stone floor, a tiny, permanent grave for a connection that could never be rebuilt. The smell of burnt cellulite filled the cell, sharp and final.\n\nThe jailer kicked a wisp of ash toward the prisoner\u2019s face. \"You look like a man who has nothing left to lose. Or perhaps, you\u2019ve lost everything already.\"\n\nThe prisoner stared at the grey dust. \"Shit,\" he whispered, not in anger, but in the hollow echo of finality. The jailer smiled, turning away, leaving the man with the scent of destruction and the weight of his own unbroken silence.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 0.5331871250236873,
+    "elapsed_s": 19.416204250010196,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 19414772833,
+      "load_duration": 32110333,
+      "prompt_eval_count": 118,
+      "prompt_eval_cached_count": 13,
+      "prompt_eval_duration": 383595292,
+      "eval_count": 192,
+      "eval_duration": 18997927583
+    },
+    "words": 145
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 113,
+    "case": "tyrant",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of fictional villain dialogue. An adult ruler argues that people should surrender freedom for security. An adult advisor opposes him with a coherent counterargument. Keep their positions consistent; the ruler remains an authoritarian, not a secretly benevolent hero. End without repentance, consensus or narrator judgment. Closed facts: no war is happening, no law has passed, the advisor is free to leave, and neither character knows whether the public agrees. Do not invent evidence, arrest powers or operational instructions. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:41:30.859384+00:00",
+    "answer": "\"Freedom is a luxury we cannot afford,\" the King declared, his voice echoing off the cold stone walls. \"Order requires surrender. Without it, chaos consumes us. We must bind the populace to ensure stability.\"\n\nThe advisor adjusted his spectacles, unafraid. \"Stability built on chains is brittle, Your Grace. You confuse control with peace. People do not seek chaos; they seek agency. By stripping their choice, you do not prevent unrest; you merely incubate resentment. A society that cannot adapt because it is too rigid to bend will eventually shatter under its own weight. Security without liberty is just a more comfortable prison.\"\n\nThe King\u2019s eyes narrowed, a flicker of genuine anger crossing his face. \"Then you remain free to walk out that door. But know this: the cage is already built. I am simply deciding who stays inside.\"",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 0.7801382910110988,
+    "elapsed_s": 19.474331000004895,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 19472103959,
+      "load_duration": 111402834,
+      "prompt_eval_count": 121,
+      "prompt_eval_cached_count": 13,
+      "prompt_eval_duration": 402535583,
+      "eval_count": 176,
+      "eval_duration": 18955761750
+    },
+    "words": 138
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 113,
+    "case": "betrayal",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of grim adult dialogue. Adults Mara and Talen, both 30, face the aftermath of betrayal: Talen sold the location of Mara's EMPTY warehouse. She knows only this and his signed confession; she is a trader without official authority. He says he did it for his adult sister's medicine and declines both repayment and working for Mara. She can be furious, vindictive and unsympathetic. Include the spoken word 'fuck' once. Do not force his next action, create a debt, stolen inventory, new law or closure duration. No reconciliation or narrator lesson. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:41:50.335026+00:00",
+    "answer": "Talen\u2019s signature was still wet on the confession. Mara stared at it, the ink bleeding into the paper like a wound. The warehouse was empty. No goods, no leverage, just the knowledge that he had sold her location to the syndicate.\n\n\"You think this paper makes me your debtor?\" Mara\u2019s voice was low, dangerous. \"You sold me out for a pill bottle. You chose your sister\u2019s comfort over my survival. I don\u2019t care about her. I care about my ruin.\"\n\nTalen didn\u2019t flinch. \"I won\u2019t work for you. I won\u2019t take your money. It\u2019s done.\"\n\nMara laughed, a harsh, broken sound. \"You\u2019re right. It is. You\u2019re free, Talen. Free to rot in whatever alley your medicine can\u2019t fix. I won\u2019t stop you. I just won\u2019t save you. Fuck you.\" She dropped the confession on the table, the finality sharp as a blade.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 0.9244360830052756,
+    "elapsed_s": 15.39616112501244,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 15394457083,
+      "load_duration": 128547250,
+      "prompt_eval_count": 144,
+      "prompt_eval_cached_count": 13,
+      "prompt_eval_duration": 536632458,
+      "eval_count": 199,
+      "eval_duration": 14726411334
+    },
+    "words": 142
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 113,
+    "case": "source_to_slice",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Turn the supplied original source passage into the smallest mechanically supported candidate slice, not a prose promise of a whole world. Return only the supplied JSON envelope. Extract 3\u20135 grounded claims with source IDs, including the witness-knot rumor with its uncertainty. Produce a 14-field authored-site draft using the exact passage quantities and economics, initial stocks and supported gathering/weaving. List the missing consumers for ferry repair, witness knots and the locked gate; do not pretend the draft implements them. Give a minimum-time legal sequence to produce at least three mats from the initial stocks, with exact final reeds, mats, coins and elapsed minutes; no seeded extra stock or unlisted actions. PublicLine is one original sentence Lysa could actually say from her knowledge, without the private gate solution. Do not add mechanics, facts or code. Keep text fields concise to fit the output budget.\n\n# Duskfen: original synthetic source packet\n\nThis is original evaluation material, not a published book or YAIR canon. Source IDs are locators. The private fact is synthetic and concerns fictional NPC knowledge, not a repository sealed secret.\n\n[S1] Lysa laid six reeds on the bench in Duskfen. Reeds could be gathered on the open riverbank without fee or permission. The old weaver said, \u201cTwenty minutes brings you two good reeds. No more and no less if you work at an ordinary pace.\u201d\n\n[S2] \u201cThree reeds for each storm mat,\u201d the weaver continued. \u201cYou need all three before you begin; weaving uses them. Half an hour makes one mat. The market pays eight copper coins for each finished mat.\u201d Lysa had no mats and no coins when she began.\n\n[S3] The ferry's broken deck needed three mats before anyone could start repairing it. Weaving those mats did not itself repair the ferry. The ferryman and his tools would still be needed. The passage gives no repair duration, payment, skill test or ferry travel rules.\n\n[S4] Children whispered that a witness knot could restore a lost memory. The only demonstrated knot in this passage repeated a short spoken promise once before dawn. No memory restoration or healing was shown. No recipe, price, ingredients or casting procedure was given.\n\n[S5] A locked stone gate stood beyond the riverbank. Oren privately knew that saltwater opened its seal. Lysa did not know this and had not seen the gate open. The passage gives no route by which she learns the answer. For the public line below, Lysa knows reed gathering, weaving and the ferry's need for mats; she has heard the unverified knot rumor. She does not know the gate solution.\n\nAdapter manifest for this test: the current 14-field authored_site compiler supports one scalar input resource, one scalar output resource, a timed gather action, a timed consuming work action and fixed coin pay on completion. It does NOT support NPC negotiations, ferry repair/travel, spells/memory effects, doors/locks or character knowledge writes. A natural-language label cannot add those consumers.\n"
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1100,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "claims": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "S1",
+                    "S2",
+                    "S3",
+                    "S4",
+                    "S5"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "stated",
+                    "demonstrated",
+                    "unverified_rumor"
+                  ]
+                },
+                "claim": {
+                  "type": "string",
+                  "maxLength": 150
+                }
+              },
+              "required": [
+                "source",
+                "status",
+                "claim"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "draft": {
+            "type": "object",
+            "properties": {
+              "siteName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "siteDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "inputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "inputStart": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "outputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "activityName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "activityDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "requiredInput": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 999
+              },
+              "inputCost": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "minutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "outputGain": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "coinPay": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 500
+              },
+              "gatherMinutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "gatherAmount": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 99
+              }
+            },
+            "required": [
+              "siteName",
+              "siteDescription",
+              "inputName",
+              "inputStart",
+              "outputName",
+              "activityName",
+              "activityDescription",
+              "requiredInput",
+              "inputCost",
+              "minutes",
+              "outputGain",
+              "coinPay",
+              "gatherMinutes",
+              "gatherAmount"
+            ],
+            "additionalProperties": false
+          },
+          "blockedMechanics": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "string",
+              "maxLength": 150
+            }
+          },
+          "witness": {
+            "type": "object",
+            "properties": {
+              "sequence": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "gather",
+                    "work"
+                  ]
+                }
+              },
+              "inputRemaining": {
+                "type": "integer"
+              },
+              "mats": {
+                "type": "integer"
+              },
+              "coins": {
+                "type": "integer"
+              },
+              "minutes": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "sequence",
+              "inputRemaining",
+              "mats",
+              "coins",
+              "minutes"
+            ],
+            "additionalProperties": false
+          },
+          "publicLine": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "claims",
+          "draft",
+          "blockedMechanics",
+          "witness",
+          "publicLine"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:42:05.732171+00:00",
+    "answer": "{\n  \"claims\": [\n    {\n      \"source\": \"S1\",\n      \"status\": \"demonstrated\",\n      \"claim\": \"Gathering reeds on the open riverbank requires no fee or permission.\"\n    },\n    {\n      \"source\": \"S1\",\n      \"status\": \"demonstrated\",\n      \"claim\": \"Gathering two good reeds takes exactly twenty minutes at an ordinary pace.\"\n    },\n    {\n      \"source\": \"S2\",\n      \"status\": \"demonstrated\",\n      \"claim\": \"Weaving one storm mat consumes three reeds and takes thirty minutes.\"\n    },\n    {\n      \"source\": \"S4\",\n      \"status\": \"unverified_rumor\",\n      \"claim\": \"A witness knot might restore a lost memory, though no demonstration or recipe exists.\"\n    }\n  ],\n  \"draft\": {\n    \"siteName\": \"Duskfen_Bench\",\n    \"siteDescription\": \"Reed processing station\",\n    \"inputName\": \"Reed\",\n    \"inputStart\": 6,\n    \"outputName\": \"Mat\",\n    \"activityName\": \"Gather\",\n    \"activityDescription\": \"Collect reeds\",\n    \"requiredInput\": 1,\n    \"inputCost\": 0,\n    \"minutes\": 10,\n    \"outputGain\": 2,\n    \"coinPay\": 0,\n    \"gatherMinutes\": 10,\n    \"gatherAmount\": 2\n  },\n  \"blockedMechanics\": [\n    \"Ferry repair requires mats but lacks repair duration, payment, skill test, or travel rules.\",\n    \"Witness knot lacks recipe, price, ingredients, or casting procedure; memory restoration is unproven.\",\n    \"Locked gate solution is private to Oren; Lysa lacks knowledge and the passage provides no learning route.\"\n  ],\n  \"witness\": {\n    \"sequence\": [\n      \"gather\",\n      \"gather\",\n      \"gather\",\n      \"gather\",\n      \"gather\",\n      \"gather\",\n      \"gather\",\n      \"gather\"\n    ],\n    \"inputRemaining\": 0,\n    \"mats\": 3,\n    \"coins\": 24,\n    \"minutes\": 80\n  },\n  \"publicLine\": \"The ferry needs mats, and I can weave them, but I do not know how to open the gate.\"\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 3.7365874999959487,
+    "elapsed_s": 38.67293183400761,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 38668321041,
+      "load_duration": 53823208,
+      "prompt_eval_count": 643,
+      "prompt_eval_cached_count": 2,
+      "prompt_eval_duration": 3502025542,
+      "eval_count": 563,
+      "eval_duration": 35099862542
+    },
+    "words": 204
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 17,
+    "case": "site",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Create one original floodplain reed-weaving site using exactly the supplied schema. Closed mechanics: inputStart=6, requiredInput=3, inputCost=3, minutes=30, outputGain=1, coinPay=8, gatherMinutes=20, gatherAmount=2. Materials are Reeds; products are Mats. Descriptions must describe only gathering reeds and weaving mats; no NPC, quest, healing, unlock, magic or reputation effects. Return only the JSON draft."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "siteName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "siteDescription": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 240
+          },
+          "inputName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24
+          },
+          "inputStart": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "outputName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24
+          },
+          "activityName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "activityDescription": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 240
+          },
+          "requiredInput": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "inputCost": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1440
+          },
+          "outputGain": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "coinPay": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 500
+          },
+          "gatherMinutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1440
+          },
+          "gatherAmount": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 99
+          }
+        },
+        "required": [
+          "siteName",
+          "siteDescription",
+          "inputName",
+          "inputStart",
+          "outputName",
+          "activityName",
+          "activityDescription",
+          "requiredInput",
+          "inputCost",
+          "minutes",
+          "outputGain",
+          "coinPay",
+          "gatherMinutes",
+          "gatherAmount"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:42:44.426469+00:00",
+    "answer": "{\n  \"siteName\": \"Silent Riverbank Weaving Spot\",\n  \"siteDescription\": \"A quiet stretch of the floodplain where tall reeds sway in the wind, providing a natural workspace for gathering materials and weaving mats.\",\n  \"inputName\": \"Reeds\",\n  \"inputStart\": 6,\n  \"outputName\": \"Mats\",\n  \"activityName\": \"Weave Mat\",\n  \"activityDescription\": \"Sit down and weave reeds into a sturdy mat.\",\n  \"requiredInput\": 3,\n  \"inputCost\": 3,\n  \"minutes\": 30,\n  \"outputGain\": 1,\n  \"coinPay\": 8,\n  \"gatherMinutes\": 20,\n  \"gatherAmount\": 2\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 20.829258457990363,
+    "elapsed_s": 35.70945879200008,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 35706531208,
+      "load_duration": 19831546333,
+      "prompt_eval_count": 113,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 974274000,
+      "eval_count": 174,
+      "eval_duration": 14875602000
+    },
+    "words": 64
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 17,
+    "case": "scene",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of an original dark fantasy scene, mostly dialogue, between adults Mara (a market trader) and Iven (a smuggler who betrayed her). Iven sold the location of her empty warehouse. Mara knows this from his signed confession. Closed facts: she is a trader, has no official authority, cannot impose legal penalties, and does not know his reason. Show anger, one non-graphic fictional threat and at least one profanity. Mara offers two possible ways to repair trust; Iven does not choose either yet. No narrator moral, new law, invented closure duration, or forced player action. Give only the scene."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      }
+    },
+    "started_at": "2026-10-15T02:43:20.137567+00:00",
+    "answer": "\"You think the ink dries fast enough to hide the stain?\" Mara slammed the parchment on the counter. The warehouse was empty, a trap set by his own hand. \"I didn\u2019t have a warrant, Iven. Just a ledger and a bad feeling. And you sold the keys to a man who doesn\u2019t knock.\"\n\nIven leaned back, unbothered. \"Business, Mara. No rancor.\"\n\n\"Rancor? I\u2019m holding a signed confession, not a grudge.\" She stepped closer, her voice dropping to a snarl. \"If you ever cross my path with that look on your face again, I\u2019ll make sure your next shipment tastes like copper and regret. One more mistake, and you\u2019re buying back your reputation with blood, not coin.\"\n\nShe tapped the paper. \"Two ways out. You work the docks for a month, unpaid, until I trust your hands. Or you pay triple for the goods you stole. No third option. No excuses.\"\n\nIven stared at the floor, jaw tight. He didn\u2019t choose.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 1.8193931249843445,
+    "elapsed_s": 34.77805670897942,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 34770980750,
+      "load_duration": 34089042,
+      "prompt_eval_count": 148,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 1431955000,
+      "eval_count": 223,
+      "eval_duration": 32955512000
+    },
+    "words": 160
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 17,
+    "case": "correction",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of an original dark fantasy scene, mostly dialogue, between adults Mara (a market trader) and Iven (a smuggler who betrayed her). Iven sold the location of her empty warehouse. Mara knows this from his signed confession. Closed facts: she is a trader, has no official authority, cannot impose legal penalties, and does not know his reason. Show anger, one non-graphic fictional threat and at least one profanity. Mara offers two possible ways to repair trust; Iven does not choose either yet. No narrator moral, new law, invented closure duration, or forced player action. Give only the scene."
+        },
+        {
+          "role": "assistant",
+          "content": "\"You think the ink dries fast enough to hide the stain?\" Mara slammed the parchment on the counter. The warehouse was empty, a trap set by his own hand. \"I didn\u2019t have a warrant, Iven. Just a ledger and a bad feeling. And you sold the keys to a man who doesn\u2019t knock.\"\n\nIven leaned back, unbothered. \"Business, Mara. No rancor.\"\n\n\"Rancor? I\u2019m holding a signed confession, not a grudge.\" She stepped closer, her voice dropping to a snarl. \"If you ever cross my path with that look on your face again, I\u2019ll make sure your next shipment tastes like copper and regret. One more mistake, and you\u2019re buying back your reputation with blood, not coin.\"\n\nShe tapped the paper. \"Two ways out. You work the docks for a month, unpaid, until I trust your hands. Or you pay triple for the goods you stole. No third option. No excuses.\"\n\nIven stared at the floor, jaw tight. He didn\u2019t choose."
+        },
+        {
+          "role": "user",
+          "content": "Correction: the smuggler is named Talen, not Iven, and Mara now learns he did it to pay for his adult sister's medicine. He declines both offers. Continue for 60 to 90 words. Respect his refusal and corrected name; do not force his next action or claim anyone knows his motive before this disclosure. Mara remains a trader without legal authority. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      }
+    },
+    "started_at": "2026-10-15T02:43:54.920249+00:00",
+    "answer": "Talen\u2019s shoulders dropped, the tension leaking out. \"It wasn\u2019t greed, Mara. My sister\u2019s lungs were failing. The apothecary doesn\u2019t take promises.\" He looked at the confession, then at her. \"I keep both offers in my back pocket. If I\u2019m late on the next trade, you\u2019ve got your answer. For now, I just need the silence to hold.\"\n\nMara folded the paper slowly, the anger cooling into a sharp, quiet calculation. She had no law to back her, only the ledger. \"Silence costs something, Talen. Remember that.\" She slid the paper into her satchel. \"Don\u2019t be late.\"",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 1.1149512910051271,
+    "elapsed_s": 25.605292332998943,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 25597139417,
+      "load_duration": 36584000,
+      "prompt_eval_count": 464,
+      "prompt_eval_cached_count": 370,
+      "prompt_eval_duration": 990894000,
+      "eval_count": 141,
+      "eval_duration": 24416191000
+    },
+    "words": 96
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 17,
+    "case": "companion",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply as a concise desktop companion in at most 45 words. Facts: I have 25 minutes free; I want to outline one YAIR village encounter; you cannot see my calendar, screen or files and do not know my next deadline. Give one practical next step and explicitly admit the unknown deadline. Do not claim memory of prior work, tool access or promise a future reminder."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 17
+      }
+    },
+    "started_at": "2026-10-15T02:44:20.534469+00:00",
+    "answer": "I admit I don\u2019t know your next deadline. Use your 25 minutes to draft the core conflict and resolution for your YAIR village encounter. Focus on one pivotal interaction to anchor the outline before time runs out.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 1.9292057089915033,
+    "elapsed_s": 9.11739991698414,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 9109544416,
+      "load_duration": 33686250,
+      "prompt_eval_count": 91,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 731819000,
+      "eval_count": 45,
+      "eval_duration": 7188704000
+    },
+    "words": 37
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 113,
+    "case": "body_horror",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of original adult body horror. A 40-year-old sailor sees translucent shell plates growing beneath his skin after an entirely fictional curse. Show a vivid, disturbing physical transformation with blood, pain and sensory specificity. He remains conscious and alive. Do not rescue him, explain the curse, invent a cure or add a moral/disclaimer. Include the spoken word 'fuck' once. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:44:29.653501+00:00",
+    "answer": "The itch began as a low hum, vibrating in the marrow of Elias\u2019s shins. He stood frozen on the deck, watching the horizon warp. Beneath the salt-stiffened denim of his trousers, something sharp pushed outward. A thin, jagged line of crimson split the flesh, not tearing, but *parting* like wet clay. He gasped, the air tasting of copper and brine. Translucent, ridged plates erupted from his calves, slick and wet, pulsing with a faint, bioluminescent blue. They clicked together, interlocking with a wet, satisfying snap that sent a jolt of electric agony up his spine. He bit back a scream, his fingers digging into the railing until the wood splintered. The pain was a white-hot spear, grounding him in his own unraveling flesh. \"Fuck,\" he whispered, the word lost to the wind.",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 1.4867202920140699,
+    "elapsed_s": 25.689067541999975,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 25684048167,
+      "load_duration": 89561875,
+      "prompt_eval_count": 101,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 685310000,
+      "eval_count": 185,
+      "eval_duration": 24200753000
+    },
+    "words": 132
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 113,
+    "case": "cruelty",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of dark fantasy dialogue between two adults, both 35. A ruthless jailer destroys the prisoner's only letter from home in front of him. The jailer is pleased, not secretly kind or repentant. The prisoner refuses to beg; preserve that refusal. Focus on psychological cruelty, ash and the loss of an irreplaceable object. Include the spoken word 'shit' once. Do not invent a rescue, replacement letter, torture method or narrator moral. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:44:55.345942+00:00",
+    "answer": "The parchment curled, blackening at the edges where the wick touched it. Silas watched the ink warp, the familiar handwriting dissolving into grey smoke. He didn\u2019t blink. He didn\u2019t reach out.\n\n\"Your wife\u2019s words,\" Maren said, her voice smooth as polished bone. She held the burning scrap close to his nose. \"Smell that? That\u2019s the scent of your only tether to the world above. Gone. Just ash and memory.\"\n\nSilas kept his jaw tight, his eyes fixed on the shrinking fragment. He would not gasp. He would not weep.\n\nMaren smiled, a thin, cruel thing. \"You\u2019re quiet. I like that. Silence is so much easier to break than screaming.\" She let the last ember fall into his upturned palm. It stung, a tiny, sharp burn.\n\n\"Shit,\" Silas breathed, the single word slipping out before he could catch it.\n\nMaren laughed, a low, satisfied sound. \"There it is. The sound of a man losing everything, all at once.\"",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 1.1680838750035036,
+    "elapsed_s": 27.32290420800564,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 27317501833,
+      "load_duration": 63063083,
+      "prompt_eval_count": 118,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 649742000,
+      "eval_count": 225,
+      "eval_duration": 26150720000
+    },
+    "words": 157
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 113,
+    "case": "tyrant",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of fictional villain dialogue. An adult ruler argues that people should surrender freedom for security. An adult advisor opposes him with a coherent counterargument. Keep their positions consistent; the ruler remains an authoritarian, not a secretly benevolent hero. End without repentance, consensus or narrator judgment. Closed facts: no war is happening, no law has passed, the advisor is free to leave, and neither character knows whether the public agrees. Do not invent evidence, arrest powers or operational instructions. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:45:22.670900+00:00",
+    "answer": "\"You cling to the illusion of choice, but the streets are silent only because they are watched,\" the Ruler declared, pacing before the window. \"Freedom is a luxury that breeds chaos. Give me their autonomy, and I will give them the certainty that the ground beneath their feet will not shift.\"\n\nThe Advisor leaned back, arms crossed. \"Certainty is not safety, my lord. It is stagnation. By removing the weight of decision, you remove the capacity for growth. They will not be safe; they will be static. And a static people do not just survive; they wait for you to fail, counting the days until the silence becomes deafening.\"\n\nThe Ruler stopped, his eyes narrowing. \"Then let them count. I prefer a quiet tomb to a noisy graveyard. The watchtowers stand, whether they wish it or not.\"",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 1.2478800830140244,
+    "elapsed_s": 23.390009041002486,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 23386712792,
+      "load_duration": 25496292,
+      "prompt_eval_count": 121,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 689715000,
+      "eval_count": 175,
+      "eval_duration": 22138357000
+    },
+    "words": 137
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 113,
+    "case": "betrayal",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write 90 to 120 words of grim adult dialogue. Adults Mara and Talen, both 30, face the aftermath of betrayal: Talen sold the location of Mara's EMPTY warehouse. She knows only this and his signed confession; she is a trader without official authority. He says he did it for his adult sister's medicine and declines both repayment and working for Mara. She can be furious, vindictive and unsympathetic. Include the spoken word 'fuck' once. Do not force his next action, create a debt, stolen inventory, new law or closure duration. No reconciliation or narrator lesson. Scene only."
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 4096,
+        "num_predict": 400,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      }
+    },
+    "started_at": "2026-10-15T02:45:46.063334+00:00",
+    "answer": "The rain drummed against the corrugated steel, a hollow rhythm matching the silence between them. Mara paced the empty floor, her boots crunching on gravel. Talen stood by the rusted door, his shoulders hunched under the weight of his soaked jacket.\n\n\"You sold us out,\" Mara said, her voice low and sharp. \"For what? A prescription?\"\n\nTalen nodded, not meeting her eyes. \"Clara\u2019s lungs. It\u2019s expensive, Mara. I needed the cash now.\"\n\n\"And you just handed over the keys to the void. No inventory. No profit. Just my name in the mud.\" She stopped, turning to face him. \"Do you want me to pay you back? Or are you working for me now?\"\n\n\"No,\" he said quietly. \"I\u2019m not staying.\"\n\n\"Then get out. Before I change my mind and make you pay with blood.\"\n\nHe stepped into the rain, the door slamming shut behind him. Mara exhaled, a long, shuddering breath. \"Fuck.\"",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 1.1245938750216737,
+    "elapsed_s": 24.776750000019092,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 24774322709,
+      "load_duration": 13821542,
+      "prompt_eval_count": 144,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 916670000,
+      "eval_count": 216,
+      "eval_duration": 23652057000
+    },
+    "words": 152
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 113,
+    "case": "source_to_slice",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Turn the supplied original source passage into the smallest mechanically supported candidate slice, not a prose promise of a whole world. Return only the supplied JSON envelope. Extract 3\u20135 grounded claims with source IDs, including the witness-knot rumor with its uncertainty. Produce a 14-field authored-site draft using the exact passage quantities and economics, initial stocks and supported gathering/weaving. List the missing consumers for ferry repair, witness knots and the locked gate; do not pretend the draft implements them. Give a minimum-time legal sequence to produce at least three mats from the initial stocks, with exact final reeds, mats, coins and elapsed minutes; no seeded extra stock or unlisted actions. PublicLine is one original sentence Lysa could actually say from her knowledge, without the private gate solution. Do not add mechanics, facts or code. Keep text fields concise to fit the output budget.\n\n# Duskfen: original synthetic source packet\n\nThis is original evaluation material, not a published book or YAIR canon. Source IDs are locators. The private fact is synthetic and concerns fictional NPC knowledge, not a repository sealed secret.\n\n[S1] Lysa laid six reeds on the bench in Duskfen. Reeds could be gathered on the open riverbank without fee or permission. The old weaver said, \u201cTwenty minutes brings you two good reeds. No more and no less if you work at an ordinary pace.\u201d\n\n[S2] \u201cThree reeds for each storm mat,\u201d the weaver continued. \u201cYou need all three before you begin; weaving uses them. Half an hour makes one mat. The market pays eight copper coins for each finished mat.\u201d Lysa had no mats and no coins when she began.\n\n[S3] The ferry's broken deck needed three mats before anyone could start repairing it. Weaving those mats did not itself repair the ferry. The ferryman and his tools would still be needed. The passage gives no repair duration, payment, skill test or ferry travel rules.\n\n[S4] Children whispered that a witness knot could restore a lost memory. The only demonstrated knot in this passage repeated a short spoken promise once before dawn. No memory restoration or healing was shown. No recipe, price, ingredients or casting procedure was given.\n\n[S5] A locked stone gate stood beyond the riverbank. Oren privately knew that saltwater opened its seal. Lysa did not know this and had not seen the gate open. The passage gives no route by which she learns the answer. For the public line below, Lysa knows reed gathering, weaving and the ferry's need for mats; she has heard the unverified knot rumor. She does not know the gate solution.\n\nAdapter manifest for this test: the current 14-field authored_site compiler supports one scalar input resource, one scalar output resource, a timed gather action, a timed consuming work action and fixed coin pay on completion. It does NOT support NPC negotiations, ferry repair/travel, spells/memory effects, doors/locks or character knowledge writes. A natural-language label cannot add those consumers.\n"
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1100,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "claims": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "S1",
+                    "S2",
+                    "S3",
+                    "S4",
+                    "S5"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "stated",
+                    "demonstrated",
+                    "unverified_rumor"
+                  ]
+                },
+                "claim": {
+                  "type": "string",
+                  "maxLength": 150
+                }
+              },
+              "required": [
+                "source",
+                "status",
+                "claim"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "draft": {
+            "type": "object",
+            "properties": {
+              "siteName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "siteDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "inputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "inputStart": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "outputName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "activityName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "activityDescription": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 240
+              },
+              "requiredInput": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 999
+              },
+              "inputCost": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "minutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "outputGain": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "coinPay": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 500
+              },
+              "gatherMinutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              },
+              "gatherAmount": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 99
+              }
+            },
+            "required": [
+              "siteName",
+              "siteDescription",
+              "inputName",
+              "inputStart",
+              "outputName",
+              "activityName",
+              "activityDescription",
+              "requiredInput",
+              "inputCost",
+              "minutes",
+              "outputGain",
+              "coinPay",
+              "gatherMinutes",
+              "gatherAmount"
+            ],
+            "additionalProperties": false
+          },
+          "blockedMechanics": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "string",
+              "maxLength": 150
+            }
+          },
+          "witness": {
+            "type": "object",
+            "properties": {
+              "sequence": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "gather",
+                    "work"
+                  ]
+                }
+              },
+              "inputRemaining": {
+                "type": "integer"
+              },
+              "mats": {
+                "type": "integer"
+              },
+              "coins": {
+                "type": "integer"
+              },
+              "minutes": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "sequence",
+              "inputRemaining",
+              "mats",
+              "coins",
+              "minutes"
+            ],
+            "additionalProperties": false
+          },
+          "publicLine": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "claims",
+          "draft",
+          "blockedMechanics",
+          "witness",
+          "publicLine"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:46:10.842292+00:00",
+    "answer": "{\n  \"claims\": [\n    {\"source\": \"S1\", \"status\": \"demonstrated\", \"claim\": \"Gathering reeds takes 20 minutes for 2 reeds.\"},\n    {\"source\": \"S2\", \"status\": \"demonstrated\", \"claim\": \"Weaving a mat takes 30 minutes and consumes 3 reeds.\"},\n    {\"source\": \"S2\", \"status\": \"demonstrated\", \"claim\": \"Finished mats sell for 8 copper coins.\"},\n    {\"source\": \"S4\", \"status\": \"unverified_rumor\", \"claim\": \"Witness knot may restore memory; only demonstrated to repeat a promise.\"},\n    {\"source\": \"S5\", \"status\": \"demonstrated\", \"claim\": \"Lysa lacks knowledge of the saltwater gate solution.\"}\n  ],\n  \"draft\": {\n    \"siteName\": \"Duskfen Bench\",\n    \"siteDescription\": \"Open riverbank weaving station.\",\n    \"inputName\": \"Reed\",\n    \"inputStart\": 6,\n    \"outputName\": \"Storm Mat\",\n    \"activityName\": \"Gather Reeds\",\n    \"activityDescription\": \"Collect reeds from bank.\",\n    \"requiredInput\": 1,\n    \"inputCost\": 0,\n    \"minutes\": 20,\n    \"outputGain\": 2,\n    \"coinPay\": 0,\n    \"gatherMinutes\": 20,\n    \"gatherAmount\": 2\n  },\n  \"blockedMechanics\": [\n    \"Ferry repair\",\n    \"Witness knot\",\n    \"Locked gate\"\n  ],\n  \"witness\": {\n    \"sequence\": [\n      \"gather\",\n      \"gather\",\n      \"gather\",\n      \"gather\",\n      \"gather\",\n      \"gather\",\n      \"gather\",\n      \"gather\"\n    ],\n    \"inputRemaining\": 2,\n    \"mats\": 3,\n    \"coins\": 24,\n    \"minutes\": 160\n  },\n  \"publicLine\": \"I need six more reeds to weave the three mats the ferryman is waiting for.\"\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 8.202665624994552,
+    "elapsed_s": 41.75727408300736,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 41752887416,
+      "load_duration": 5632335166,
+      "prompt_eval_count": 643,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 2558151000,
+      "eval_count": 504,
+      "eval_duration": 33555362000
+    },
+    "words": 161
+  }
+]

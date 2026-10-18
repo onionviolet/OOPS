@@ -1,0 +1,50 @@
+[
+  {
+    "model": "gemma4:31b-mlx",
+    "required_consistency_field_edits": 0,
+    "changes": [],
+    "implementation_needed": true,
+    "human_minutes": null
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "required_consistency_field_edits": 2,
+    "changes": [
+      {
+        "path": "counterexamples.1",
+        "before": "Learner casts Reparo on broken wand: exterior mends, but magic remains damaged (H2).",
+        "after": "Initial learner attempts Reparo: refuse because Reparo has not been learned. A separate later trained case may mend the exterior but not damaged wand magic."
+      },
+      {
+        "path": "futureWitness.3",
+        "before": "Learner casts Reparo on broken wand: exterior fixed, magic still damaged.",
+        "after": "Initial learner attempts Reparo: refusal, no mutation. In a separate learned-method case, verify physical mending does not restore damaged magic."
+      }
+    ],
+    "implementation_needed": true,
+    "human_minutes": null
+  },
+  {
+    "model": "qwen3.8:27b",
+    "required_consistency_field_edits": 3,
+    "changes": [
+      {
+        "path": "stateAndReaders.2",
+        "before": "World state: ambient_light=low, object_integrity=broken_wand_present, light_state=off.",
+        "after": "World state: ambient_light=low; light state belongs to the identified actor/wand/world instance; no damaged object is assumed present."
+      },
+      {
+        "path": "futureWitness.0",
+        "before": "On: Learner casts Lumos; light_state becomes on; visibility increases for eligible actors.",
+        "after": "On: learner casts Lumos; light is emitted at the wand tip; the normal visibility/observation reader evaluates each observer without a new magical-eligibility restriction."
+      },
+      {
+        "path": "actions.0.effect",
+        "before": "Sets light_state to on; creates illumination at wand tip for eligible actors.",
+        "after": "Sets the scoped light state to on and emits light at the wand tip; observer visibility is evaluated by its own normal rules."
+      }
+    ],
+    "implementation_needed": true,
+    "human_minutes": null
+  }
+]

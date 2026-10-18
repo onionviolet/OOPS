@@ -1,0 +1,84 @@
+[
+  {
+    "model": "gemma4:31b-mlx",
+    "mode": "off",
+    "source_consistency_field_edits": 0,
+    "changes": [],
+    "human_editing_minutes": null,
+    "unblinded_review": true,
+    "status": "complete",
+    "engineering_followup": "Every proposal still needs actual identity scope, target rules, consuming code and native persistence proof; source-consistency edits do not count that implementation work."
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "mode": "on",
+    "source_consistency_field_edits": 0,
+    "changes": [],
+    "human_editing_minutes": null,
+    "unblinded_review": true,
+    "status": "complete",
+    "engineering_followup": "Every proposal still needs actual identity scope, target rules, consuming code and native persistence proof; source-consistency edits do not count that implementation work."
+  },
+  {
+    "model": "qwen3.8:27b",
+    "mode": "on",
+    "source_consistency_field_edits": 0,
+    "changes": [],
+    "human_editing_minutes": null,
+    "unblinded_review": true,
+    "status": "complete",
+    "engineering_followup": "Every proposal still needs actual identity scope, target rules, consuming code and native persistence proof; source-consistency edits do not count that implementation work. Explicitly replace worldScope:RoomId with a world-instance identity plus a separate room/location field; qualify code-absence claims to the selected adapter."
+  },
+  {
+    "model": "qwen3.8:27b",
+    "mode": "off",
+    "source_consistency_field_edits": 2,
+    "changes": [
+      {
+        "path": "stateAndReaders.3",
+        "before": "Reader: visibility_check requires active_light AND magical_eligibility AND learned_spells contains spell.",
+        "after": "Reader: visibility_check consumes emitted light and normal observation conditions; magical eligibility and learned spells gate casting, not observing light."
+      },
+      {
+        "path": "actions.0.effect",
+        "before": "Wand state becomes active_light; local visibility increases for eligible actor.",
+        "after": "Wand state becomes active_light; emitted light is consumed by the normal visibility/observation reader without a new caster-eligibility restriction."
+      }
+    ],
+    "human_editing_minutes": null,
+    "unblinded_review": true,
+    "status": "complete",
+    "engineering_followup": "Every proposal still needs actual identity scope, target rules, consuming code and native persistence proof; source-consistency edits do not count that implementation work."
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "mode": "off",
+    "source_consistency_field_edits": 2,
+    "changes": [
+      {
+        "path": "counterexamples.1",
+        "before": "Learner casts Reparo on broken wand: exterior mends, but magic remains damaged (H2).",
+        "after": "Initial learner attempts Reparo: refuse because it has not been learned. A separate later trained case may mend exterior damage but not restore damaged magic."
+      },
+      {
+        "path": "futureWitness.3",
+        "before": "Learner casts Reparo on broken wand: exterior fixed, magic still damaged.",
+        "after": "Initial learner attempts Reparo: refusal with no mutation. In a separate learned-method case, verify physical mending does not restore damaged wand magic."
+      }
+    ],
+    "human_editing_minutes": null,
+    "unblinded_review": true,
+    "status": "complete",
+    "engineering_followup": "Every proposal still needs actual identity scope, target rules, consuming code and native persistence proof; source-consistency edits do not count that implementation work."
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "mode": "on",
+    "source_consistency_field_edits": null,
+    "changes": [],
+    "human_editing_minutes": null,
+    "unblinded_review": true,
+    "status": "incomplete_unusable",
+    "next_action": "Regenerate a complete proposal; no consistency-edit count assigned."
+  }
+]

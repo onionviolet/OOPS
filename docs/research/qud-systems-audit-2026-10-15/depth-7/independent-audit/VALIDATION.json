@@ -1,0 +1,17 @@
+{
+  "pass": true,
+  "errors": [],
+  "checks": {
+    "source_ledger_entries": 32,
+    "read_scope_files": 16,
+    "cumulative_audit_source_variants": 28,
+    "local_links": 39,
+    "private_ignored_files": 39,
+    "assembly_sha256": "2cc28fba5a86221e27bfdcaa5f5a91a2e249fd474814dce7cff25a9a649b8589"
+  },
+  "limits": [
+    "Artifact checks only",
+    "No native/game/save test",
+    "Global external-reference reachability unresolved"
+  ]
+}

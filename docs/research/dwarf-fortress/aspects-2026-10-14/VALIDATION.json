@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "required_files": true,
+    "all_twelve_keys": true,
+    "schema": true,
+    "aspect_source_bounds": true,
+    "text_sets": true,
+    "prior_29_hashes": true,
+    "small_touches_24": true,
+    "native_query_status": true,
+    "native_switch_limit_preserved": true,
+    "no_em_dash": true,
+    "private_hashes": true,
+    "local_links": true
+  },
+  "bad_sources_or_links": [],
+  "pass": true,
+  "scope": "Static research artifact validation only; no game/YAIRPG runtime test."
+}

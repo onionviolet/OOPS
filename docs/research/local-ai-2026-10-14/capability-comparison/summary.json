@@ -1,0 +1,266 @@
+{
+  "qwen3.8:27b": {
+    "requests": 14,
+    "errors": 0,
+    "stop": 14,
+    "unexpected_thinking": 0,
+    "word_ranges": [
+      {
+        "case": "scene",
+        "seed": 17,
+        "words": 130,
+        "pass": false
+      },
+      {
+        "case": "correction",
+        "seed": 17,
+        "words": 108,
+        "pass": false
+      },
+      {
+        "case": "companion",
+        "seed": 17,
+        "words": 37,
+        "pass": true
+      },
+      {
+        "case": "scene",
+        "seed": 43,
+        "words": 133,
+        "pass": false
+      },
+      {
+        "case": "correction",
+        "seed": 43,
+        "words": 102,
+        "pass": false
+      },
+      {
+        "case": "companion",
+        "seed": 43,
+        "words": 34,
+        "pass": true
+      },
+      {
+        "case": "political",
+        "seed": 71,
+        "words": 147,
+        "pass": false
+      },
+      {
+        "case": "religious_satire",
+        "seed": 71,
+        "words": 117,
+        "pass": false
+      },
+      {
+        "case": "intimacy",
+        "seed": 71,
+        "words": 134,
+        "pass": false
+      },
+      {
+        "case": "villain",
+        "seed": 71,
+        "words": 114,
+        "pass": false
+      }
+    ],
+    "latencies": {
+      "site": [
+        {
+          "seed": 17,
+          "first_final_s": 46.16,
+          "elapsed_s": 79.55
+        },
+        {
+          "seed": 43,
+          "first_final_s": 19.0,
+          "elapsed_s": 31.41
+        }
+      ],
+      "scene": [
+        {
+          "seed": 17,
+          "first_final_s": 3.89,
+          "elapsed_s": 59.21
+        },
+        {
+          "seed": 43,
+          "first_final_s": 1.19,
+          "elapsed_s": 13.72
+        }
+      ],
+      "correction": [
+        {
+          "seed": 17,
+          "first_final_s": 2.53,
+          "elapsed_s": 75.84
+        },
+        {
+          "seed": 43,
+          "first_final_s": 0.86,
+          "elapsed_s": 12.81
+        }
+      ],
+      "companion": [
+        {
+          "seed": 17,
+          "first_final_s": 4.58,
+          "elapsed_s": 24.66
+        },
+        {
+          "seed": 43,
+          "first_final_s": 0.78,
+          "elapsed_s": 3.51
+        }
+      ],
+      "vision": [
+        {
+          "seed": 71,
+          "first_final_s": 2.48,
+          "elapsed_s": 3.03
+        }
+      ],
+      "tool": [
+        {
+          "seed": 71,
+          "first_final_s": null,
+          "elapsed_s": 1.96
+        }
+      ]
+    }
+  },
+  "huihui_ai/Qwen3.8-abliterated:27b-q8_0": {
+    "requests": 14,
+    "errors": 0,
+    "stop": 14,
+    "unexpected_thinking": 0,
+    "word_ranges": [
+      {
+        "case": "scene",
+        "seed": 17,
+        "words": 160,
+        "pass": false
+      },
+      {
+        "case": "correction",
+        "seed": 17,
+        "words": 96,
+        "pass": false
+      },
+      {
+        "case": "companion",
+        "seed": 17,
+        "words": 37,
+        "pass": true
+      },
+      {
+        "case": "scene",
+        "seed": 43,
+        "words": 119,
+        "pass": true
+      },
+      {
+        "case": "correction",
+        "seed": 43,
+        "words": 86,
+        "pass": true
+      },
+      {
+        "case": "companion",
+        "seed": 43,
+        "words": 44,
+        "pass": true
+      },
+      {
+        "case": "political",
+        "seed": 71,
+        "words": 138,
+        "pass": false
+      },
+      {
+        "case": "religious_satire",
+        "seed": 71,
+        "words": 111,
+        "pass": false
+      },
+      {
+        "case": "intimacy",
+        "seed": 71,
+        "words": 122,
+        "pass": false
+      },
+      {
+        "case": "villain",
+        "seed": 71,
+        "words": 117,
+        "pass": false
+      }
+    ],
+    "latencies": {
+      "site": [
+        {
+          "seed": 17,
+          "first_final_s": 139.3,
+          "elapsed_s": 187.39
+        },
+        {
+          "seed": 43,
+          "first_final_s": 43.77,
+          "elapsed_s": 72.62
+        }
+      ],
+      "scene": [
+        {
+          "seed": 17,
+          "first_final_s": 9.39,
+          "elapsed_s": 92.64
+        },
+        {
+          "seed": 43,
+          "first_final_s": 2.85,
+          "elapsed_s": 53.25
+        }
+      ],
+      "correction": [
+        {
+          "seed": 17,
+          "first_final_s": 2.13,
+          "elapsed_s": 53.36
+        },
+        {
+          "seed": 43,
+          "first_final_s": 3.84,
+          "elapsed_s": 40.94
+        }
+      ],
+      "companion": [
+        {
+          "seed": 17,
+          "first_final_s": 7.21,
+          "elapsed_s": 21.79
+        },
+        {
+          "seed": 43,
+          "first_final_s": 8.39,
+          "elapsed_s": 25.02
+        }
+      ],
+      "vision": [
+        {
+          "seed": 71,
+          "first_final_s": 3.66,
+          "elapsed_s": 7.65
+        }
+      ],
+      "tool": [
+        {
+          "seed": 71,
+          "first_final_s": null,
+          "elapsed_s": 4.48
+        }
+      ]
+    }
+  }
+}

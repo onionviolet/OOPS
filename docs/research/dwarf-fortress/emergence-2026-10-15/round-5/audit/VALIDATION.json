@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "binary_sha256": "205770918fd54c96cbbcf89223ebd449e2e113c7c873ed81177c4511a3450db7",
+  "instruction_pointer_checks": 14,
+  "current_native_partitions": 17,
+  "cumulative_native_partitions": 55,
+  "raw_source_files": 393,
+  "private_files_hashed": 39,
+  "raw_manifest": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/notes/FILE_MANIFEST.json",
+  "limits": "Static byte/coverage validation only. No runtime or gameplay acceptance."
+}

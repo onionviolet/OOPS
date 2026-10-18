@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "checks": {
+    "all_private_json_parse": true,
+    "correct_two_stage_join": true,
+    "primary_output_group_and_grade": true,
+    "secondary_output_group_and_grade": true,
+    "primary_active_property_reader_data": true,
+    "secondary_actual_injury_effect_data": true,
+    "selected_subtype_times_zero": true,
+    "all_350_default_material_medicine_effect_types_invalid": true,
+    "conditional_threshold_arithmetic": true,
+    "conditional_cost_arithmetic": true,
+    "tool45_selected_fields": true,
+    "six_image_hashes_match": true,
+    "fresh_outputs_match_receipts": true,
+    "five_core_reused_classes_match_fresh": true,
+    "all_public_local_links_resolve": true,
+    "private_directory_ignored": true,
+    "no_private_tracked_paths": true,
+    "nothing_staged_in_lane": true
+  },
+  "errors": [],
+  "complete_table_rows": {
+    "Material": 350,
+    "Medicine": 441,
+    "CraftTool": 55,
+    "MakeItemSubType": 314,
+    "MakeItemType": 183
+  },
+  "selected_method_bodies": 63,
+  "official_images_inspected": 6,
+  "fresh_decompilation_successes": 16,
+  "wrong_type_name_failures_retained": 3,
+  "conditional_arithmetic": {
+    "odd_thresholds": [
+      30,
+      45,
+      60
+    ],
+    "main_thresholds": [
+      225,
+      300,
+      375
+    ]
+  },
+  "private_files_hashed": 98,
+  "private_ignore_rule": ".gitignore:41:/docs/research/*/private/\t/Users/weiwei/code/yet-another-idle-rpg/docs/research/taiwu-ingredient-use-2026-10-15/private/selected-data.json",
+  "verification_layer": "Static research integrity, selected source/data/consumer reading and depicted UI only",
+  "native_gameplay_verified": false,
+  "persistence_verified": false,
+  "game_launched": false,
+  "implementation": false,
+  "commit_or_push": false
+}

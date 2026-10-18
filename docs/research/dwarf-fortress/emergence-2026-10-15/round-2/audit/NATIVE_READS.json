@@ -1,0 +1,207 @@
+{
+  "pseudocode": [
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d7a680.c",
+      "sha256": "4a70ac9b4971835f614793dfc42469e8ae2eb03d75a425531c0e7022dea584fa",
+      "lines": 188,
+      "read_spans": [
+        [
+          1,
+          188
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d7af40.c",
+      "sha256": "5651471ff87c93f8ce545245f4d01fbd4d855e4051c0f911e84989d096d8dbec",
+      "lines": 194,
+      "read_spans": [
+        [
+          1,
+          194
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d7c330.c",
+      "sha256": "cd0fd46a1704f9cf4edd4d9ee9ba6edb41c304ef19b84c5a1ea5922cc5179802",
+      "lines": 297,
+      "read_spans": [
+        [
+          1,
+          297
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d54d40.c",
+      "sha256": "7218cea43bc932f11a76660d0a31c8c3b15dbf97a626e3785069316549b0b725",
+      "lines": 15,
+      "read_spans": [
+        [
+          1,
+          15
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d54d70.c",
+      "sha256": "a71668458fd0724fd44ad55757387b9ad7fc859467cf58c18becfeba74fb1bf6",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d54d80.c",
+      "sha256": "b572f29859531904c5f236d2df62a95b2e1b1c3312491cf5318cfa6c79417dbe",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x14028c660.c",
+      "sha256": "4e43c49a619cb6c26398dac1ead0b27a81d52f903c6636f50557b7c04e2faf8b",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d026a0.c",
+      "sha256": "eb48c67d2ec39b0653074ae0a8cab8678c2f912dba496c592625b714b45355f7",
+      "lines": 57,
+      "read_spans": [
+        [
+          1,
+          57
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d02ea0.c",
+      "sha256": "7262623543e5a868ff1031c163998f626c702f9256a65cb24df72317a5fc6100",
+      "lines": 95,
+      "read_spans": [
+        [
+          1,
+          95
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d09950.c",
+      "sha256": "17718a14fdd7e4fa38bc31f19a27b43656b35f85d3aaef65ff98e988a290e95f",
+      "lines": 39,
+      "read_spans": [
+        [
+          1,
+          39
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140a67820.c",
+      "sha256": "e338ef1fe45aa22f8f734a3e787964ecbfbf8a45d06c57c5d141e6b2ab571857",
+      "lines": 30,
+      "read_spans": [
+        [
+          1,
+          30
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x141325080.c",
+      "sha256": "5496348b05679217a812c748fe8e1651986f83b3b45198bc4660b2d2638b1e1e",
+      "lines": 2068,
+      "read_spans": [
+        [
+          1969,
+          2067
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/native-0x14154919c.c",
+      "sha256": "6be9f80ba1f6ba724ebb617f68be89d2b08264f4eaffad61b6fcd29ae43203f0",
+      "lines": 62,
+      "read_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "layer": "prior-aspects-native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/native-0x14157c890.c",
+      "sha256": "c94a5ba6e2515fcd92280da9de5d27e43000bb1411fc979070f06cbd16869e79",
+      "lines": 32,
+      "read_spans": [
+        [
+          1,
+          32
+        ]
+      ],
+      "layer": "prior-aspects-native-pseudocode-manual-read"
+    }
+  ],
+  "independent_assembly_windows": [
+    [
+      "0x140d7a680",
+      "0x140d7a73d"
+    ],
+    [
+      "0x140d7af40",
+      "0x140d7b010"
+    ],
+    [
+      "0x140d7c330",
+      "0x140d7c640"
+    ],
+    [
+      "0x141327dd0",
+      "0x141327ed0"
+    ],
+    [
+      "0x141327f7a",
+      "0x141328008"
+    ]
+  ],
+  "assembly_window_limit": "Exclusive ends, only selected displayed windows semantically reviewed. Full raw region assembly preserved by extraction sibling."
+}

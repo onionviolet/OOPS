@@ -1,0 +1,5099 @@
+{
+  "scope": "Cumulative auditor through round5; inherited raw393-file complements unchanged; additional native partitions exact.",
+  "source_files": 393,
+  "selected_files": 19,
+  "files": [
+    {
+      "file": "command line.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "file": "data/credits.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          79
+        ]
+      ]
+    },
+    {
+      "file": "data/init/announcements.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          362
+        ]
+      ]
+    },
+    {
+      "file": "data/init/arena.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1820
+        ]
+      ]
+    },
+    {
+      "file": "data/init/colors.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          50
+        ]
+      ]
+    },
+    {
+      "file": "data/init/d_init_default.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          151
+        ]
+      ]
+    },
+    {
+      "file": "data/init/generators.lua",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          1,
+          583
+        ],
+        [
+          686,
+          689
+        ],
+        [
+          811,
+          827
+        ]
+      ]
+    },
+    {
+      "file": "data/init/globals.lua",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          49,
+          249
+        ],
+        [
+          285,
+          638
+        ]
+      ]
+    },
+    {
+      "file": "data/init/init_default.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          124
+        ]
+      ]
+    },
+    {
+      "file": "data/init/interface.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1967
+        ]
+      ]
+    },
+    {
+      "file": "data/sound/audio/spatialization.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "file": "data/sound/audio/starting-volume.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/examples and notes/gaits.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          89
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/examples and notes/item_instrument_example.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          86
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/examples and notes/reaction_instrument_example.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          46
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/interaction examples/example - bogeyman transformation.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/interaction examples/example - shrine effects.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          114
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/interaction examples/interaction_disturbance.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          75
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/interaction examples/interaction_region.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/interaction examples/interaction_secret.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          139
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/interaction examples/interaction_underground_special.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/interaction examples/interaction_vampire.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          45
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/interaction examples/interaction_werebeast.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          61
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/interaction examples/notes.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/readme.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_bodies/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_bodies/objects/b_detail_plan_default.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          523
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_bodies/objects/body_default.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1931
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_bodies/objects/body_rcp.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          616
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          1,
+          4
+        ],
+        [
+          70,
+          413
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings/objects/building_custom.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings_graphics/graphics/graphics_buildings.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1863
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings_graphics/graphics/graphics_machines.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          253
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings_graphics/graphics/graphics_planned_constructions.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          42
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings_graphics/graphics/graphics_stockpiles.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings_graphics/graphics/graphics_tracks.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          144
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings_graphics/graphics/graphics_workshops.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2650
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings_graphics/graphics/tile_page_buildings.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          123
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings_graphics/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/c_variation_default.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          747
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_amphibians.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          118
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_annelids.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          67
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_birds.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1668
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_birds_new.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          4460
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_bug_slug_new.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1658
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_desert_new.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          476
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_domestic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2543
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_equipment.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_fanciful.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_insects.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          956
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_large_mountain.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          799
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_large_ocean.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2995
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_large_riverlake.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          729
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_large_temperate.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2641
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_large_tropical.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          4038
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_large_tundra.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          479
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_mountain_new.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          312
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_next_underground.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2633
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_ocean_new.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1417
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_other.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          623
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_reptiles.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          687
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_riverlakepool_new.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1168
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_small_mammal_new.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          441
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_small_mammals.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          545
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_small_ocean.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1579
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_small_riverlake.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          802
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          1,
+          179
+        ],
+        [
+          311,
+          5732
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_subterranean.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2783
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_temperate_new.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3384
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_tropical_new.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3181
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_tundra_taiga_new.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          309
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/text_dwarf.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/text_elf.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/text_lair_hunter_minotaur.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/objects/creature_cambrian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          567
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/objects/creature_carboniferous.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          359
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/objects/creature_cenozoic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2486
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/objects/creature_cretaceous.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          4442
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/objects/creature_devonian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          579
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/objects/creature_jurassic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2469
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/objects/creature_ordovician.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          92
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/objects/creature_permian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          818
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/objects/creature_silurian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          98
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct/objects/creature_triassic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          749
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_cambrian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          183
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_cambrian_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_cambrian_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_carboniferous.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          127
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_carboniferous_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_carboniferous_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_cenozoic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          607
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_cenozoic_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          203
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_cenozoic_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_cretaceous.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1006
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_cretaceous_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          313
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_cretaceous_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          96
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_devonian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          222
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_devonian_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_devonian_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_jurassic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          596
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_jurassic_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          183
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_jurassic_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          57
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_ordovician.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_ordovician_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_ordovician_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_permian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          223
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_permian_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          73
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_permian_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          24
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_silurian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_silurian_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_silurian_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_triassic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          198
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_triassic_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_animal_people_triassic_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_cambrian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_cambrian_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_cambrian_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_carboniferous.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          24
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_carboniferous_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_carboniferous_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_cenozoic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          182
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_cenozoic_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          203
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_cenozoic_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_cretaceous.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          270
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_cretaceous_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          313
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_cretaceous_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          96
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_devonian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          48
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_devonian_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_devonian_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_jurassic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          145
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_jurassic_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          183
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_jurassic_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          57
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_ordovician.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          12
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_ordovician_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_ordovician_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_permian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          65
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_permian_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          73
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_permian_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          24
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_silurian.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          12
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_silurian_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_silurian_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_triassic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_triassic_portrait.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/graphics_creatures_triassic_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/tile_page_creatures.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          203
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/graphics/tile_page_portraits.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          103
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_extinct_graphics/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_beasts.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          753
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_beasts_small.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          772
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_bodyparts.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          78
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_animal_people.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          6113
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_animal_people_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          556
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_aquatic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          220
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_aquatic_giant.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          51
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_aquatic_giant_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_aquatic_large.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          171
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_aquatic_large_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          60
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_aquatic_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          84
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_domestic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          404
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_domestic_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          77
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_dwarf.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8283
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_elf.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8282
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_goblin.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          5293
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_human.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8281
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_interactions.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          99
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_kobold.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          5293
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_layered_corpse.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3261
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_layered_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_megabeast.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          84
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_megabeast_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_ogres.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          187
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portrait_dwarf.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          10736
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portrait_elf.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          9056
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portrait_goblin.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3458
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portrait_human.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          10155
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portrait_kobold.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3281
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portraits.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          665
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portraits_animal_people.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1114
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portraits_aquatic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          537
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portraits_domestic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          259
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portraits_surface.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2672
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_portraits_surface_small.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          633
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_small.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          490
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_small_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          345
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_surface.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1225
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_surface_giant.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1037
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_surface_giant_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          519
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_surface_large.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          245
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_surface_large_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_surface_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          410
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_troll.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          163
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_underground.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          180
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_underground_civ.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          295
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_underground_civ_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          30
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_underground_giant.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          67
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_underground_giant_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_underground_large.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_underground_large_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_underground_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          78
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_underground_tall.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          47
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_creatures_underground_tall_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_experiments_humanoid.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          149
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_layer_set_template_animal_people.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2302
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/graphics_werebeasts.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          76
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/tile_page_creatures.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          478
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/tile_page_layered_corpses.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/graphics/tile_page_portraits.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          638
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures_graphics/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_descriptors/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_descriptors/objects/descriptor_color_standard.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          685
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_descriptors/objects/descriptor_pattern_iris_eye.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          795
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_descriptors/objects/descriptor_pattern_pupil_eye.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          663
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_descriptors/objects/descriptor_pattern_special.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          113
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_descriptors/objects/descriptor_shape_standard.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          284
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_descriptors_graphics/graphics/graphics_shapes.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          51
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_descriptors_graphics/graphics/palette_default.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          153
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_descriptors_graphics/graphics/tile_page_descriptors.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_descriptors_graphics/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_entities/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          1,
+          229
+        ],
+        [
+          261,
+          624
+        ],
+        [
+          701,
+          2238
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_environment/graphics/graphics_flows.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          53
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_environment/graphics/graphics_fluids.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2238
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_environment/graphics/graphics_spatters.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          515
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_environment/graphics/graphics_tiles.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1484
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_environment/graphics/graphics_vision_shadows.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_environment/graphics/tile_page_environment.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          443
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_environment/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interactions/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interactions/objects/interaction_standard.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          74
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interactions_graphics/graphics/graphics_interactions.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          12
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interactions_graphics/graphics/tile_page_interactions.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interactions_graphics/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/graphics/graphics_adv_env.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          82
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/graphics/graphics_announcements.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          41
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/graphics/graphics_building_icons.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          108
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/graphics/graphics_classic.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3305
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/graphics/graphics_combat_animations.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          317
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/graphics/graphics_defaults.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/graphics/graphics_interface.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3675
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/graphics/graphics_move_indicators.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          102
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/graphics/graphics_tracking_symbols.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          482
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/graphics/tile_page_interface.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          333
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_interface/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_ammo.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          24
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_armor.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          163
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_food.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_gloves.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          40
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_helm.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          105
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_pants.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          121
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_shield.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_shoes.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          74
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_siegeammo.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_tool.txt",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          1,
+          235
+        ],
+        [
+          279,
+          362
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_toy.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_trapcomp.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          58
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_weapon.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          348
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items_graphics/graphics/graphics_containers.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          81
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items_graphics/graphics/graphics_items.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1309
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items_graphics/graphics/graphics_rams.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          68
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items_graphics/graphics/graphics_statues.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          65
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items_graphics/graphics/tile_page_items.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          199
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_items_graphics/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_languages/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_languages/objects/language_DWARF.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2201
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_languages/objects/language_ELF.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2201
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_languages/objects/language_GOBLIN.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2201
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_languages/objects/language_HUMAN.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2201
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_languages/objects/language_SYM.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3369
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_languages/objects/language_words.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          19794
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_materials/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_materials/objects/inorganic_metal.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1041
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_materials/objects/inorganic_other.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          122
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_materials/objects/inorganic_stone_gem.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1031
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_materials/objects/inorganic_stone_layer.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          267
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_materials/objects/inorganic_stone_mineral.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          868
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_materials/objects/inorganic_stone_soil.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          173
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_materials/objects/material_template_default.txt",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          1,
+          2440
+        ],
+        [
+          2498,
+          3298
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_music/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_music/objects/music_standard.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          179
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_music/objects/sound_standard.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          81
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants/objects/plant_crops.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1687
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants/objects/plant_garden.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2769
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants/objects/plant_grasses.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          641
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants/objects/plant_new_trees.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3297
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          111,
+          2623
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants_graphics/graphics/graphics_grass.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          355
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants_graphics/graphics/graphics_individual_trees.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          5536
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants_graphics/graphics/graphics_plant_crops.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          443
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants_graphics/graphics/graphics_plant_garden.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          730
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants_graphics/graphics/graphics_plant_standard_shrubs.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          189
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants_graphics/graphics/graphics_plants.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          819
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants_graphics/graphics/tile_page_plants.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          183
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_plants_graphics/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3024
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          6998
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          2293
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/divine.lua",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          383
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/entities.lua",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          1387
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+      "status": "fully-read",
+      "unread_lines": []
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+      "status": "fully-read",
+      "unread_lines": []
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+      "status": "fully-read",
+      "unread_lines": []
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/disturbance.lua",
+      "status": "fully-read",
+      "unread_lines": []
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          437,
+          437
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/mythical.lua",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          299,
+          299
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+      "status": "fully-read",
+      "unread_lines": []
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+      "status": "fully-read",
+      "unread_lines": []
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/items.lua",
+      "status": "fully-read",
+      "unread_lines": []
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/language.lua",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          72
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/materials.lua",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          273
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/init.lua",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          100,
+          139
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_reactions/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_reactions/objects/reaction_adv_carpenter.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          291
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_reactions/objects/reaction_dyes.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          663
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          71,
+          164
+        ],
+        [
+          281,
+          332
+        ],
+        [
+          438,
+          438
+        ],
+        [
+          551,
+          564
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+      "status": "partially-read",
+      "unread_lines": [
+        [
+          1,
+          138
+        ],
+        [
+          159,
+          214
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_ab_specific_hf_seeker.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_animal_slayer.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_arch_info_justification.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_book_art.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          24
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_book_instruction.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          161
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_child_age_proclamation.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_current_profession_no_year.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_current_profession_year.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_curse.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_family_relationship_additional.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_family_relationship_additional_dead.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_family_relationship_no_spec.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_family_relationship_no_spec_dead.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_family_relationship_spec.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_family_relationship_spec_dead.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_general.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_goodbye_worship_1.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_goodbye_worship_2.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_goodbye_worship_3.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_greet.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_greet_baby.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_greet_reply.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_greet_reply_after_hero.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_greet_reply_diff_language.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_greet_reply_unusual_first.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_greet_worship.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_guard_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_guard_warning.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_hist_fig_slayer.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_hunting_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_hunting_profession_year.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_justification_antithetical.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_justification_experience.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_justification_proximity.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_justification_reminder.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_justification_representation.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_mercenary_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_mercenary_profession_year.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_no_family.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_past_hunting_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_past_mercenary_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_past_profession_no_year.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_past_profession_year.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_past_snatcher_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_past_thief_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_past_wandering_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_positive.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_same_site_ab_specific_hf_seeker.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_same_site_specific_hf_seeker.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_secret_death.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_site_specific_hf_seeker.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_slayer.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_snatcher_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_snatcher_profession_year.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_soldier_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_task_recommendation.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_temple_already_member.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_temple_become_member.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_thief_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_thief_profession_year.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_threat.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_unknown_hf_seeker.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_wandering_profession.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_text/objects/text_wandering_profession_year.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_world_map/graphics/graphics_world_map.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3293
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_world_map/graphics/tile_page_world_map.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          103
+        ]
+      ]
+    },
+    {
+      "file": "data/vanilla/vanilla_world_map/info.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "file": "file changes.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          3673
+        ]
+      ]
+    },
+    {
+      "file": "licenses/sdl2/COPYING.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "file": "readme.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          129
+        ]
+      ]
+    },
+    {
+      "file": "release notes.txt",
+      "status": "captured-unread",
+      "unread_lines": [
+        [
+          1,
+          4159
+        ]
+      ]
+    }
+  ],
+  "native_gaps": [
+    "Consumed-source positive count delta or extraction-record rollback remains unproved.",
+    "Construction cancellation stage-zero path proves containment release for stored items; caller input/state parity and derived classes incomplete.",
+    "c911d0 ground bookkeeping and exact re-registration or physical floor delivery unread.",
+    "Building virtual168 nonzero-stage removal implementation unread; no consumed-material refund policy inferred.",
+    "Large9eb8a0 pseudocode unavailable: response buffer size exceeded, retained receipt; no retry.",
+    "141345c40 has bad instruction data warning; output accumulator recovery not original-item refund identity.",
+    "Full FH4 compressed map/state interpretation and runtime exception behavior unverified."
+  ],
+  "native_read_ledger": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/round-5/audit/READS.json",
+  "cancellation_unread_pseudocode": {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x141325080.c",
+    "unread_lines": [
+      [
+        1,
+        1968
+      ]
+    ],
+    "reason": "This audit read only final1969\u20132067 plus four helpers, not all case-specific paths."
+  },
+  "cumulative_native": [
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d7a680.c",
+      "sha256": "4a70ac9b4971835f614793dfc42469e8ae2eb03d75a425531c0e7022dea584fa",
+      "lines": 188,
+      "read_spans": [
+        [
+          1,
+          188
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d7af40.c",
+      "sha256": "5651471ff87c93f8ce545245f4d01fbd4d855e4051c0f911e84989d096d8dbec",
+      "lines": 194,
+      "read_spans": [
+        [
+          1,
+          194
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d7c330.c",
+      "sha256": "cd0fd46a1704f9cf4edd4d9ee9ba6edb41c304ef19b84c5a1ea5922cc5179802",
+      "lines": 297,
+      "read_spans": [
+        [
+          1,
+          297
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d54d40.c",
+      "sha256": "7218cea43bc932f11a76660d0a31c8c3b15dbf97a626e3785069316549b0b725",
+      "lines": 15,
+      "read_spans": [
+        [
+          1,
+          15
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d54d70.c",
+      "sha256": "a71668458fd0724fd44ad55757387b9ad7fc859467cf58c18becfeba74fb1bf6",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d54d80.c",
+      "sha256": "b572f29859531904c5f236d2df62a95b2e1b1c3312491cf5318cfa6c79417dbe",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x14028c660.c",
+      "sha256": "4e43c49a619cb6c26398dac1ead0b27a81d52f903c6636f50557b7c04e2faf8b",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d026a0.c",
+      "sha256": "eb48c67d2ec39b0653074ae0a8cab8678c2f912dba496c592625b714b45355f7",
+      "lines": 57,
+      "read_spans": [
+        [
+          1,
+          57
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d02ea0.c",
+      "sha256": "7262623543e5a868ff1031c163998f626c702f9256a65cb24df72317a5fc6100",
+      "lines": 95,
+      "read_spans": [
+        [
+          1,
+          95
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d09950.c",
+      "sha256": "17718a14fdd7e4fa38bc31f19a27b43656b35f85d3aaef65ff98e988a290e95f",
+      "lines": 39,
+      "read_spans": [
+        [
+          1,
+          39
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140a67820.c",
+      "sha256": "e338ef1fe45aa22f8f734a3e787964ecbfbf8a45d06c57c5d141e6b2ab571857",
+      "lines": 30,
+      "read_spans": [
+        [
+          1,
+          30
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x141325080.c",
+      "sha256": "5496348b05679217a812c748fe8e1651986f83b3b45198bc4660b2d2638b1e1e",
+      "lines": 2068,
+      "read_spans": [
+        [
+          1969,
+          2067
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          1968
+        ],
+        [
+          2068,
+          2068
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/native-0x14154919c.c",
+      "sha256": "6be9f80ba1f6ba724ebb617f68be89d2b08264f4eaffad61b6fcd29ae43203f0",
+      "lines": 62,
+      "read_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/native-0x14157c890.c",
+      "sha256": "c94a5ba6e2515fcd92280da9de5d27e43000bb1411fc979070f06cbd16869e79",
+      "lines": 32,
+      "read_spans": [
+        [
+          1,
+          32
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d028e0.c",
+      "sha256": "099d803e81a4cf38e26cb0badf76ffee14cb645f522ac99faf56aafbc0989b0b",
+      "lines": 271,
+      "read_spans": [
+        [
+          1,
+          128
+        ],
+        [
+          245,
+          271
+        ]
+      ],
+      "unread_spans": [
+        [
+          129,
+          244
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d03170.c",
+      "sha256": "2dae54606f1e1839dcbf652ca7bc640c7f5e3d28e11f627ad91f93f3aea0f103",
+      "lines": 111,
+      "read_spans": [
+        [
+          1,
+          111
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d020c0.c",
+      "sha256": "6a654d8edf02a622d67f187a577f43f03b6cefbe684c2d90414f36e9733632a1",
+      "lines": 116,
+      "read_spans": [
+        [
+          1,
+          116
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d022c0.c",
+      "sha256": "c8190a0b64c405c53715a8cb5d08366518e575ebd9bc8760c2c0cfd2d6d066a9",
+      "lines": 145,
+      "read_spans": [
+        [
+          1,
+          145
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d032b0.c",
+      "sha256": "662d750ac8b4bc8569c17baa9f9322f085e5ac4910754a34a671f6e581f97347",
+      "lines": 3204,
+      "read_spans": [],
+      "unread_spans": [
+        [
+          1,
+          3204
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140dac290.c",
+      "sha256": "f9cb2d06b5bbbc0b4d73ea7aa6f1f53ff163726d1280923ac8d53ab921876e18",
+      "lines": 8022,
+      "read_spans": [
+        [
+          315,
+          405
+        ],
+        [
+          1740,
+          2170
+        ],
+        [
+          2237,
+          2259
+        ],
+        [
+          3191,
+          3215
+        ],
+        [
+          4150,
+          4235
+        ],
+        [
+          4525,
+          4585
+        ],
+        [
+          5600,
+          5690
+        ],
+        [
+          7770,
+          7895
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          314
+        ],
+        [
+          406,
+          1739
+        ],
+        [
+          2171,
+          2236
+        ],
+        [
+          2260,
+          3190
+        ],
+        [
+          3216,
+          4149
+        ],
+        [
+          4236,
+          4524
+        ],
+        [
+          4586,
+          5599
+        ],
+        [
+          5691,
+          7769
+        ],
+        [
+          7896,
+          8022
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140a35890.c",
+      "sha256": "4fb2337d4ed4922dea8f0affd0994707e1cfac8f490a4a079cd771fdaae47870",
+      "lines": 102,
+      "read_spans": [
+        [
+          1,
+          102
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140a35aa0.c",
+      "sha256": "081d907d18b79e0dc14ea0fcbe44151db01385c9eeaacff918353b7b27aa21e9",
+      "lines": 55,
+      "read_spans": [
+        [
+          1,
+          55
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x14036b0c0.c",
+      "sha256": "5fc253151fc38e4d8984b01ae72807dfad0df45be70ae25b6b616038ecd04f3c",
+      "lines": 184,
+      "read_spans": [
+        [
+          1,
+          184
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140cc9230.c",
+      "sha256": "e3105f1d61399a6054888828a082f8a14e73f4e4fc384b3820247a4aea50dc71",
+      "lines": 270,
+      "read_spans": [
+        [
+          1,
+          270
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x1402567f0.c",
+      "sha256": "b73c4286b186eca8556e88e7dd2acfaff736b80912c0f542b6fb4b5040f88c73",
+      "lines": 25,
+      "read_spans": [
+        [
+          1,
+          25
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140067050.c",
+      "sha256": "1e43a85157dfda470b677a39cab3be0b67bd2c9a1a5e53ce3f1667b763742cb8",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/extract/native-0x140d78c30.c",
+      "sha256": "6c06af3ca2aa2c1f7a55dabe8a7b91bb4423bde0ff4c578004568af31ea7d8f9",
+      "lines": 656,
+      "read_spans": [
+        [
+          250,
+          278
+        ],
+        [
+          368,
+          388
+        ],
+        [
+          492,
+          512
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          249
+        ],
+        [
+          279,
+          367
+        ],
+        [
+          389,
+          491
+        ],
+        [
+          513,
+          656
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/extract/native-0x1413dcd00.c",
+      "sha256": "4964844c3d853b549eefccb82463368bae737c15b97622fc70b4eb3debeda362",
+      "lines": 720,
+      "read_spans": [
+        [
+          1,
+          90
+        ],
+        [
+          198,
+          268
+        ],
+        [
+          488,
+          498
+        ],
+        [
+          635,
+          720
+        ]
+      ],
+      "unread_spans": [
+        [
+          91,
+          197
+        ],
+        [
+          269,
+          487
+        ],
+        [
+          499,
+          634
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/extract/native-0x1413c5ef0.c",
+      "sha256": "361991839bb7c0e64326df4bae889fb72d3bbfa93d391cf140040d791a35fac6",
+      "lines": 628,
+      "read_spans": [
+        [
+          292,
+          343
+        ],
+        [
+          540,
+          628
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          291
+        ],
+        [
+          344,
+          539
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-4/audit/extract/native-0x14136bae0.c",
+      "sha256": "55518d73c77e539f7c5df85e22f9dda55ff62d713d6017b81aacd8db91d2a943",
+      "lines": 95,
+      "read_spans": [
+        [
+          1,
+          95
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-4/extraction/extract/native-0x1407df320.c",
+      "sha256": "3a505409983d5f35bbe10e6284debfdeda8e19e8680839fd8c9e3641751d3b57",
+      "lines": 16,
+      "read_spans": [
+        [
+          1,
+          16
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-4/extraction/extract/native-0x14054bdc0.c",
+      "sha256": "2ef105c7a0fe2a4701dbd5928ffe2172224c57ab594a803b7dba2a42e435c84c",
+      "lines": 51,
+      "read_spans": [
+        [
+          1,
+          51
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-4/extraction/extract/native-0x1400fc5b0.c",
+      "sha256": "08d53e258eaca08a5800e526637929e3d293b73cce754c1d2fb068bb8e636c1b",
+      "lines": 12,
+      "read_spans": [
+        [
+          1,
+          12
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-4/audit/extract/native-0x14136bae0.c",
+      "sha256": "55518d73c77e539f7c5df85e22f9dda55ff62d713d6017b81aacd8db91d2a943",
+      "lines": 95,
+      "read_spans": [
+        [
+          1,
+          95
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-4/extraction/extract/native-0x1407df320.c",
+      "sha256": "3a505409983d5f35bbe10e6284debfdeda8e19e8680839fd8c9e3641751d3b57",
+      "lines": 16,
+      "read_spans": [
+        [
+          1,
+          16
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-4/extraction/extract/native-0x14054bdc0.c",
+      "sha256": "2ef105c7a0fe2a4701dbd5928ffe2172224c57ab594a803b7dba2a42e435c84c",
+      "lines": 51,
+      "read_spans": [
+        [
+          1,
+          51
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-4/extraction/extract/native-0x1400fc5b0.c",
+      "sha256": "08d53e258eaca08a5800e526637929e3d293b73cce754c1d2fb068bb8e636c1b",
+      "lines": 12,
+      "read_spans": [
+        [
+          1,
+          12
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140dac290.c",
+      "sha256": "f9cb2d06b5bbbc0b4d73ea7aa6f1f53ff163726d1280923ac8d53ab921876e18",
+      "lines": 8022,
+      "read_spans": [
+        [
+          1740,
+          2170
+        ],
+        [
+          2237,
+          2259
+        ],
+        [
+          3191,
+          3215
+        ],
+        [
+          4150,
+          4235
+        ],
+        [
+          4525,
+          4585
+        ],
+        [
+          7770,
+          7895
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          1739
+        ],
+        [
+          2171,
+          2236
+        ],
+        [
+          2260,
+          3190
+        ],
+        [
+          3216,
+          4149
+        ],
+        [
+          4236,
+          4524
+        ],
+        [
+          4586,
+          7769
+        ],
+        [
+          7896,
+          8022
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/cancel-ui-enclosing-assembly.txt",
+      "sha256": "38ad4e80ebafb67968faf248f871367f5aeab29b56dcd0008399f25c009d0fb7",
+      "lines": 68533,
+      "read_spans": [
+        [
+          41510,
+          41670
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          41509
+        ],
+        [
+          41671,
+          68533
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/cancel-construction-ui-anchor.txt",
+      "sha256": "4c67c7219665082c91c910e7abd0eb8b416f74867f47f556a38e7a4d141c3149",
+      "lines": 74,
+      "read_spans": [
+        [
+          7,
+          74
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/construction-handler-assembly.txt",
+      "sha256": "af0b3e047af15bf22dc500b58668d6a96f4cda3f784b9efb06128a80bdb8015d",
+      "lines": 14826,
+      "read_spans": [
+        [
+          2160,
+          2290
+        ],
+        [
+          5800,
+          5935
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          2159
+        ],
+        [
+          2291,
+          5799
+        ],
+        [
+          5936,
+          14826
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/construction-teardown-assembly.txt",
+      "sha256": "acc64ee117cab3c750afc64ebcdd1cf53f99cbf7b1f9d95b1d59322a631ecf84",
+      "lines": 847,
+      "read_spans": [
+        [
+          7,
+          138
+        ],
+        [
+          720,
+          820
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ],
+        [
+          139,
+          719
+        ],
+        [
+          821,
+          847
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/construction-material-release-assembly.txt",
+      "sha256": "d2230c38c0dd028c3da723c5f285df3406e1a8520ee740c41351ad8a60dd290f",
+      "lines": 238,
+      "read_spans": [
+        [
+          7,
+          229
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ],
+        [
+          230,
+          238
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/construction-holder-release-assembly.txt",
+      "sha256": "5769ee7bba85ad46ebdba2a0de8def44de89db3ca9db415ac504eba48055c6db",
+      "lines": 163,
+      "read_spans": [
+        [
+          7,
+          78
+        ],
+        [
+          80,
+          82
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ],
+        [
+          79,
+          79
+        ],
+        [
+          83,
+          163
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/construction-predetach-assembly.txt",
+      "sha256": "9275c0b6c66403063f5142418005f030bbe05e39d0b87acaf544a6c74c513c15",
+      "lines": 244,
+      "read_spans": [
+        [
+          7,
+          137
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ],
+        [
+          138,
+          244
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/construction-final-release-assembly.txt",
+      "sha256": "7b0796d932b4e5e1dcaa9af06af109e5b4b85c57aa0fd0f60c50a9d0761eecb7",
+      "lines": 280,
+      "read_spans": [
+        [
+          7,
+          16
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ],
+        [
+          17,
+          280
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/construction-actual-dtor-assembly.txt",
+      "sha256": "9d47cdaf1a3a524c210a99a2324f6a58a21dafa268104a75a8bdb1bb66b9a301",
+      "lines": 206,
+      "read_spans": [
+        [
+          7,
+          42
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ],
+        [
+          43,
+          206
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/construction-item-release-assembly.txt",
+      "sha256": "b725f79ccb0c11f586fe29e222f2da4df36b2dcca2bc5edf22b306f9e72bd95c",
+      "lines": 1032,
+      "read_spans": [
+        [
+          7,
+          84
+        ],
+        [
+          551,
+          657
+        ],
+        [
+          832,
+          890
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ],
+        [
+          85,
+          550
+        ],
+        [
+          658,
+          831
+        ],
+        [
+          891,
+          1032
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/assembly-0x1409eb8a0.txt",
+      "sha256": "1854467deda27cff41e24fb3b1cfa147db43ad1214cca1a8d4af2f0ecadbcdde",
+      "lines": 17458,
+      "read_spans": [
+        [
+          1798,
+          1832
+        ],
+        [
+          1877,
+          1905
+        ],
+        [
+          8689,
+          8726
+        ],
+        [
+          10432,
+          10465
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          1797
+        ],
+        [
+          1833,
+          1876
+        ],
+        [
+          1906,
+          8688
+        ],
+        [
+          8727,
+          10431
+        ],
+        [
+          10466,
+          17458
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/assembly-0x141345c40.txt",
+      "sha256": "fa31481193de61c5e664fe35adaf2417fa5c3f52e541addaebffc089b901aedc",
+      "lines": 2342,
+      "read_spans": [],
+      "unread_spans": [
+        [
+          1,
+          2342
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/stage-getter.txt",
+      "sha256": "cd984452dfb4d6447cf1d47c4a6e8d58e15f4540c7cd915fe99367cd1614d8bf",
+      "lines": 8,
+      "read_spans": [
+        [
+          7,
+          8
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/actual-deleting-dtor.txt",
+      "sha256": "cfeb1c98cdd93824dd44ba96395e94d2593df435972eb2fcdef9f68920528f90",
+      "lines": 22,
+      "read_spans": [
+        [
+          7,
+          22
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/teardown-final-owner.txt",
+      "sha256": "06087186ef73e38787127edb04f3de8b584c8bd8a67d22c329a0da85e19395e4",
+      "lines": 54,
+      "read_spans": [
+        [
+          7,
+          54
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/input-route.txt",
+      "sha256": "c3233a6757ffb51c978f430d206f1a7aae7b5666f90922c2fcc8011db17d6d63",
+      "lines": 40,
+      "read_spans": [
+        [
+          7,
+          40
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          6
+        ]
+      ],
+      "layer": "native-instructions-manual-read",
+      "note": "Headers, unreviewed instructions, jump data remain unread; only these intervals support claims."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/audit/extract/native-0x141345c40.c",
+      "sha256": "96205578bc67318b7d92e3d5e946e54dc62d1c83d4b1cee2e5b8242a3dddcd0a",
+      "lines": 1329,
+      "read_spans": [
+        [
+          1,
+          80
+        ],
+        [
+          90,
+          320
+        ],
+        [
+          1150,
+          1329
+        ]
+      ],
+      "unread_spans": [
+        [
+          81,
+          89
+        ],
+        [
+          321,
+          1149
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "warning": "Bad instruction data warning; not a complete CFG."
+    }
+  ]
+}

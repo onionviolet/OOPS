@@ -1,0 +1,13 @@
+{
+  "download_hashes": 4,
+  "pinned_source_file_hashes": 90,
+  "factory_catalogues": {
+    "resources": 26,
+    "research": 40,
+    "machines": 14,
+    "recipe_display_definitions": 25
+  },
+  "exact_function_ranges": 269,
+  "selected_shipped_fragments": 8,
+  "local_document_links": "pass"
+}

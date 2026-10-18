@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-15",
+  "markdown_local_targets_checked": 142,
+  "broken_targets": [],
+  "private_ignore_verified": true,
+  "private_untracked_leaks": "",
+  "private_files_hashed": 152,
+  "runtime_tests": "CUA standalone target interaction and 21 scene checks; no game runtime tests",
+  "source_hash_match": true,
+  "acs_export_types": 13,
+  "acs_exports_successful": true,
+  "checks_pass": true,
+  "existing_fit_source_records": 21,
+  "implementation": "none in gameplay; standalone interactive HTML design artifact only",
+  "path_designs": "two original proposed lives; interactive family comparisons and selected-bed previews saved",
+  "mockup_scenes": 21,
+  "mockup_viewport": "1366x768 CSS pixels",
+  "mockup_native_parity": "not established",
+  "public_markdown_trailing_whitespace": [],
+  "target_choice_combinations": 36,
+  "target_choice_receipts": [
+    "mockups/TARGET_CHOICE_CHECKS.json",
+    "mockups/TARGET_INTERACTION_CHECKS.json"
+  ]
+}

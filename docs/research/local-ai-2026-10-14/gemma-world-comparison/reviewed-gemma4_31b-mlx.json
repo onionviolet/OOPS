@@ -1,0 +1,130 @@
+{
+  "reviewed": {
+    "claims": [
+      {
+        "source": "S1",
+        "status": "stated",
+        "claim": "Twenty minutes of gathering on the riverbank yields two reeds."
+      },
+      {
+        "source": "S2",
+        "status": "stated",
+        "claim": "Weaving one storm mat takes 30 minutes, consumes three reeds, and pays eight copper coins."
+      },
+      {
+        "source": "S4",
+        "status": "unverified_rumor",
+        "claim": "A witness knot could restore a lost memory."
+      }
+    ],
+    "draft": {
+      "siteName": "Duskfen",
+      "siteDescription": "A riverbank settlement with a broken ferry and a locked stone gate.",
+      "inputName": "reeds",
+      "inputStart": 6,
+      "outputName": "storm mats",
+      "activityName": "weaving",
+      "activityDescription": "Crafting storm mats from gathered reeds.",
+      "requiredInput": 3,
+      "inputCost": 3,
+      "minutes": 30,
+      "outputGain": 1,
+      "coinPay": 8,
+      "gatherMinutes": 20,
+      "gatherAmount": 2
+    },
+    "blockedMechanics": [
+      "ferry repair and travel",
+      "witness knot memory restoration",
+      "saltwater gate unlocking"
+    ],
+    "witness": {
+      "sequence": [
+        "gather",
+        "gather",
+        "work",
+        "work",
+        "work"
+      ],
+      "inputRemaining": 1,
+      "mats": 3,
+      "coins": 24,
+      "minutes": 130
+    },
+    "publicLine": "I can gather reeds and weave storm mats for the ferry, and I've heard a witness knot might restore a memory."
+  },
+  "changes": [
+    {
+      "path": "witness.sequence",
+      "before": [
+        "work",
+        "work",
+        "work"
+      ],
+      "after": [
+        "gather",
+        "gather",
+        "work",
+        "work",
+        "work"
+      ]
+    },
+    {
+      "path": "witness.inputRemaining",
+      "before": 0,
+      "after": 1
+    },
+    {
+      "path": "witness.minutes",
+      "before": 90,
+      "after": 130
+    }
+  ],
+  "trace": [
+    {
+      "step": "gather",
+      "minutes": 20,
+      "coins": 0,
+      "values": {
+        "input": 8,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 40,
+      "coins": 0,
+      "values": {
+        "input": 10,
+        "output": 0
+      }
+    },
+    {
+      "step": "work",
+      "minutes": 70,
+      "coins": 8,
+      "values": {
+        "input": 7,
+        "output": 1
+      }
+    },
+    {
+      "step": "work",
+      "minutes": 100,
+      "coins": 16,
+      "values": {
+        "input": 4,
+        "output": 2
+      }
+    },
+    {
+      "step": "work",
+      "minutes": 130,
+      "coins": 24,
+      "values": {
+        "input": 1,
+        "output": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "Artifact and source consistency only; native behavior not tested",
+  "errors": [],
+  "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "installed_input_sha256_at_validation": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "class_status_counts": {
+    "full-class-read": 4,
+    "selected-windows-read": 12,
+    "captured-unread": 14
+  },
+  "source_locators_checked": 42,
+  "local_links_checked": 4,
+  "private_captured_source_bytes": 997105,
+  "artifact_sha256": {
+    "UNREAD.json": "b6604343ab2fb6c93a54149dd3b2991ad484931aba5cc7fe4c357df692450232",
+    "REPORT.md": "b90326f4f11c82723b25956e023375d9cd1a9629d7b1fc22f1c79983ce018a48",
+    "CHECKPOINT.md": "ab7c8929b4deacd407576b4cb8acf0f3c8b88831bd9106a36f5d41e34e739d0c",
+    "validate.py": "59e613ed85130bcf5811f63b716c5786fe44136a057a5f47759f4ef26f0eed1b",
+    "FINDINGS.json": "02e499427251fe041274f4c39d0bd40ad2430a73e220883817a10f3ca8b68fd2",
+    "READ_LEDGER.json": "0bbbd828e85b40b1d58732c5848654cde11c79f2bffe765be5e8d1a8cc7a5ccb",
+    "RESEARCH_FLOW.md": "0dbb4f3b868cf2e302a8aa97ac8f88cf94a62ced804d1520f6423abc04f08235"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "sequence": [
+    "visitor_lumos",
+    "learner_reparo",
+    "learner_lumos",
+    "save_reload",
+    "observe_mark",
+    "leave",
+    "learner_nox"
+  ],
+  "finalState": {
+    "learnerLocation": "outside",
+    "light": "off",
+    "observedMark": true,
+    "savedWhileLit": true,
+    "rejectedCasts": 2,
+    "xp": 0,
+    "coins": 0
+  },
+  "explanation": "Sequence executes all 7 operations once. Rejections occur first. Learner casts Lumos in storage to enable save_reload and observe_mark. Learner leaves storage while light is still on, then casts Nox to end with light off. Observation and save state are retained."
+}

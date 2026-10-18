@@ -1,0 +1,254 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "checks": {
+    "current_Steam_assembly_matches_pin": true,
+    "support_type_requests": 31,
+    "nonempty_support_sources": 31,
+    "capture_status": {
+      "exported": 16,
+      "reused": 15
+    },
+    "indexed_printed_types": 33,
+    "exact_navigation_locators": 4113,
+    "local_links": 38,
+    "private_files_ignored": 88
+  },
+  "errors": [],
+  "links": [
+    {
+      "document": "REPORT.md",
+      "label": "Input receipt",
+      "target": "../private/depth-3/STEAM_INPUT.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Cleanup traces CL1-CL2",
+      "target": "CLEANUP.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Cleanup traces CL3-CL7",
+      "target": "CLEANUP.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Effects, formulas, NPC use and K31-K38",
+      "target": "ADDITIONAL_SYSTEMS.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "The unread inventory",
+      "target": "../private/depth-3/UNREAD.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Validation",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "saved workflow",
+      "target": "../../rule-emergence-flow-2026-10-15/WORKFLOW.md",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "Mutations L425-441,663-679",
+      "target": "../private/depth-3/source/XRL.World.Parts.Mutations.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "GameObject L10371-10404",
+      "target": "../private/depth-3/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "BaseMutation L812-821",
+      "target": "../private/depth-3/source/XRL.World.Parts.Mutation.BaseMutation.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "IPart L271-273",
+      "target": "../private/depth-3/source/XRL.World.IPart.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "MemberOfPsychicBattle",
+      "target": "../private/depth-3/source/XRL.World.Effects.MemberOfPsychicBattle.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "OpinionBeguile",
+      "target": "../private/depth-3/source/XRL.World.AI.OpinionBeguile.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "OpinionProselytize",
+      "target": "../private/depth-3/source/XRL.World.AI.OpinionProselytize.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "IOpinion",
+      "target": "../private/depth-3/source/XRL.World.AI.IOpinion.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "Brain L1504-1535,1597-1612",
+      "target": "../private/depth-3/source/XRL.World.Parts.Brain.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "OpinionList",
+      "target": "../private/depth-3/source/XRL.World.AI.OpinionList.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "Inventory L2365-2430,2636-2639",
+      "target": "../private/depth-3/source/XRL.World.Parts.Inventory.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "Body L3108-3118,3256-3259",
+      "target": "../private/depth-3/source/XRL.World.Parts.Body.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "BodyPart L6534-6595,6923-6940",
+      "target": "../private/depth-3/source/XRL.World.Anatomy.BodyPart.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "Suppressed",
+      "target": "../private/depth-3/source/XRL.World.Effects.Suppressed.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "Disoriented",
+      "target": "../private/depth-3/source/XRL.World.Effects.Disoriented.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "Terrified L95-203",
+      "target": "../private/depth-3/source/XRL.World.Effects.Terrified.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "Flight L151-246,320-377,408-456",
+      "target": "../private/depth-3/source/XRL.World.Capabilities.Flight.cs",
+      "exists": true
+    },
+    {
+      "document": "CLEANUP.md",
+      "label": "ITeleporter L147-167,204-228,307-318",
+      "target": "../private/depth-3/source/XRL.World.Parts.ITeleporter.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "TimeDilation",
+      "target": "../private/depth-3/source/XRL.World.Parts.Mutation.TimeDilation.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "TimeDilated",
+      "target": "../private/depth-3/source/XRL.World.Effects.TimeDilated.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "ITimeDilated",
+      "target": "../private/depth-3/source/XRL.World.Effects.ITimeDilated.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "LifeDrain L64-71,79-126,143-167",
+      "target": "../private/depth-3/source/XRL.World.Parts.Mutation.LifeDrain.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "LifeDrain L88-211",
+      "target": "../private/depth-3/source/XRL.World.Effects.LifeDrain.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "Interdiction",
+      "target": "../private/depth-3/source/XRL.World.Parts.Mutation.Interdiction.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "Interdicted",
+      "target": "../private/depth-3/source/XRL.World.Effects.Interdicted.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "Tactics_Juke",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Tactics_Juke.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "Tactics_Kickback",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Tactics_Kickback.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "Discipline_IronMind",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Discipline_IronMind.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "CyberneticsPhaseAdaptiveScope L38-119,126-240,266-312",
+      "target": "../private/depth-3/source/XRL.World.Parts.CyberneticsPhaseAdaptiveScope.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "CyberneticsStasisEntangler L53-76,89-260",
+      "target": "../private/depth-3/source/XRL.World.Parts.CyberneticsStasisEntangler.cs",
+      "exists": true
+    },
+    {
+      "document": "ADDITIONAL_SYSTEMS.md",
+      "label": "ForceWall L25-74,144-166,179-186",
+      "target": "../private/depth-3/source/XRL.World.Parts.Mutation.ForceWall.cs",
+      "exists": true
+    }
+  ],
+  "public_document_hashes": {
+    "REPORT.md": "e421418e8fbf584cf3a938ffc0ece02bb1de1b17b2c9eb8b6f1e68042207927e",
+    "CLEANUP.md": "cc894dc22e20871a6c97927d76f2549bde900233c486fc1330b1ec6c5bcd307e",
+    "ADDITIONAL_SYSTEMS.md": "d67a2befdbe6b3ae0ffde63e22e9ec43a8e6c789c1d7dd6021ba3567995a01d4"
+  },
+  "qualification": "Source identities and research artifact consistency only; printed source and selected semantic traces do not establish complete review or native behavior. Game, save, browser and YAIR runtime tests unrun."
+}

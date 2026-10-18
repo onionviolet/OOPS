@@ -1,0 +1,8 @@
+{
+  "local_links_valid": true,
+  "broken_links": [],
+  "json_parsed": true,
+  "inference_by_audit": false,
+  "other_path_edits_by_audit": false,
+  "checks": "metadata and document verification only"
+}

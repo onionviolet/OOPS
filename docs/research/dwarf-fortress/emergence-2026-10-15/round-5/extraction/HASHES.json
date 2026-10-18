@@ -1,0 +1,302 @@
+[
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-1407df320.txt",
+    "bytes": 1395,
+    "sha256": "66d98debf9ea605ee0d8cc6df46aeb3145acd3e6f4d37ff43e92e80abb915e2b"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-141539680.txt",
+    "bytes": 241,
+    "sha256": "8f85275993541e6b3a393e8cdb1a6a3c7ef302d27423af7cc97a7d908133f614"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-1415399dc.txt",
+    "bytes": 241,
+    "sha256": "0693f008e55db731e9103db58cb6c07137f04821f10b2f7aab86e584d91ebd41"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-14153aa60.txt",
+    "bytes": 250,
+    "sha256": "8891e879ada237f093dccf92220639beed5734b5c1df4bf8098e9d194132fbc5"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-14153aaa8.txt",
+    "bytes": 250,
+    "sha256": "828834fd3cbcb7b8c013bacc5e0dd890327f8ccb156533bec12dba1a7ee70fe0"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-14153ea80.txt",
+    "bytes": 678,
+    "sha256": "9bed7e0c8b0238595e95c6c1fd849918e83f0cb9a8f11078e7222f12be996791"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-1407df320.bin",
+    "bytes": 87,
+    "sha256": "edb83c53df231cbc9c92d958de4b0b8b82a7fd0e127dd034238892c01db6c914"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-141539680.bin",
+    "bytes": 5,
+    "sha256": "7f420f5072b21b111b2e2862977010cb4707db0534409d6c05b29c4077aaaae7"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-1415399dc.bin",
+    "bytes": 5,
+    "sha256": "1b4be5403b71d705d893bfa2a32bd9644c10460997b4ad42e29c054d7e394baf"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-14153aa60.bin",
+    "bytes": 6,
+    "sha256": "c9d7abc3491550a3f43d851d7cdeb1d67186c3a503c98fe9fbef1420377c67af"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-14153aaa8.bin",
+    "bytes": 6,
+    "sha256": "8fb37f13232f47a03adea23943c0047cc44f3a0629ef91c1bb64ca1d8ba88aac"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-14153ea80.bin",
+    "bytes": 29,
+    "sha256": "a8c5df12765d67ed39cb7fb33ca662cd58419a6c1bf0461ee7704910e60e22b6"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/metadata-17bdfdf.bin",
+    "bytes": 64,
+    "sha256": "b8e4d655e301cb9190f3ef5f4a446cc8930e4c2e87103f8704ae45a8bc6f110e"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/metadata-17be509.bin",
+    "bytes": 64,
+    "sha256": "492bbd103db5a506f95bb0ff5c9a6bc2ff3f52bbc22c593b7cc59c14fac7d956"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/metadata-17e68e8.bin",
+    "bytes": 48,
+    "sha256": "af4eaf982ca4f28b649a9496718e8119ea9fc8ecd3f212b69d87f62c828988ff"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/native-0x14153ea80.c",
+    "bytes": 135,
+    "sha256": "f2f7246e706b8460ae3cacdbb2c3245aebfd0348c80ced2da0e1cc8cecbee0b3"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/rea-native.json",
+    "bytes": 8692,
+    "sha256": "7b7e490ed290da1a8360c6b706cf19898d0af6a7dbdc459833ae198e16653fa0"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140181b5e.bin",
+    "bytes": 157,
+    "sha256": "20cb8a122e568cb7a21db92a252d7b548478e3b6e15646456a7a5fd8843916aa"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140181b5e.txt",
+    "bytes": 2339,
+    "sha256": "6f9ad953e8d3f806b990c410f8029ae13d9d2f7dd0c66c7656d878e46273f708"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-1401b01ef.bin",
+    "bytes": 78,
+    "sha256": "b5f7a4ded096abbf2f132d955edc99ae08fb63498d3a903043328d849798a9c2"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-1401b01ef.txt",
+    "bytes": 1402,
+    "sha256": "fea560c370b9e8503f7378e3c2004e76a5980a693f14ab9bd05b6be7aec97a89"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-14028ba50.bin",
+    "bytes": 38,
+    "sha256": "1dbaa989132b79116c8342faf092fdb9b47354c87d1314a7806fd828a38c96aa"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-14028ba50.txt",
+    "bytes": 866,
+    "sha256": "5070d817fec965ad0dead7c1733e472c237c64e3da6813fe461620ead467411d"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140583390.bin",
+    "bytes": 148,
+    "sha256": "8fd033b09a91e27b14ff5ee7bb42f559d04ee54bd77389460bd29f7c24400d15"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140583390.txt",
+    "bytes": 2349,
+    "sha256": "fa8881aca087599532880ec09363041b577130c5a11545439d232b5070ae39dc"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140587d80.bin",
+    "bytes": 112,
+    "sha256": "4870b5570f2019aa2c228b5f73f33651c099d00a3df95e66b8a7df2af00b176e"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140587d80.txt",
+    "bytes": 1986,
+    "sha256": "fd940dd5cafffae648ab0c65aabea7aa14285c133aed99326331220ede9e94d2"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-14058898b.bin",
+    "bytes": 53,
+    "sha256": "2bdc79739e39949071c1934cf7105f55d2b43b9380c53291e4a28f46d862099e"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-14058898b.txt",
+    "bytes": 985,
+    "sha256": "368ad6a8b852af23e1f880a945973718a4bd19104cee9687bd259d6a946b9886"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-1405a7916.bin",
+    "bytes": 79,
+    "sha256": "3f64267ea0d9424b04cac803eba84906971232f27c08869c637b1ca368b7ee9b"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-1405a7916.txt",
+    "bytes": 1245,
+    "sha256": "57a2240dbdbf1e0be2868a5ce49b4f4a91239bbc5e7bbfed3df97f64e7bd1716"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140c634f0.bin",
+    "bytes": 63,
+    "sha256": "79a2984fdef8df7472599fd79361d377aa644792c70b097147e087f29477c035"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140c634f0.txt",
+    "bytes": 1492,
+    "sha256": "425b4d82d935dfbdbfd456ab896cf3fc68425fc59fe8f88843001779631b4d82"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140c63d87.bin",
+    "bytes": 69,
+    "sha256": "15582047fea99eadc9051e2a41941f9b0d4e00c5677d4a8ea98567ee6565ce2c"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140c63d87.txt",
+    "bytes": 1232,
+    "sha256": "d71834450338562c54e316adea1054b715b98e9e616f02fab0eb2e26679cbdd0"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140c64230.bin",
+    "bytes": 261,
+    "sha256": "e15a8ffa0781514a547bb7c0b9998b088ebd89e46463404a37097e97386f4f86"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/sibling-check-140c64230.txt",
+    "bytes": 3980,
+    "sha256": "1ac443655c7e8f0e3bff48d508baf858b2e2148ff0d2ba0db620355b37d1febc"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/notes/addresses.json",
+    "bytes": 15,
+    "sha256": "8b01b107fa44b27c8ef9455f4084b759380e201be599af2484650d2234a5425a"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/notes/instruction-receipts.json",
+    "bytes": 4581,
+    "sha256": "c8a29ffe58c08fc7241d97ee32315bf287c8de8ba66ad437e2c1d5ecc6b0e80d"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/notes/native-map.json",
+    "bytes": 54354,
+    "sha256": "60e73a520c51ff4905878a7bbac2afc74e2e6e3b9ba4dd8d92dc0d92b78e1544"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/notes/native-seeds.tsv",
+    "bytes": 36,
+    "sha256": "0721fd28d765237fe3f18d0b7b35322d8fc3625dac3d4120fbc125763d90d14b"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/notes/rea-open.json",
+    "bytes": 852,
+    "sha256": "7de02cf43221093b860eab8a37b793e09607955d1389e9a9598d4796b8960c2a"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/notes/rea.stderr",
+    "bytes": 356,
+    "sha256": "25f3e544e42e78cbcf1a744686be099de8cddecd503c3b2229bb5c1297713792"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/notes/sibling-checks.json",
+    "bytes": 8452,
+    "sha256": "13a63bb0d9006707a81fe144d16310aa39252d7bdeced6f974a12d89017921ee"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/notes/sibling-map-check.json",
+    "bytes": 255,
+    "sha256": "3a4e478fc508d3d9017a69a429c81ad1ea589df064afabb98d1fa97e46b0e87f"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/notes/unwind-command-output.json",
+    "bytes": 4444,
+    "sha256": "fd41de6a6c6eb0678647f7e28a96f2b7bcb88068fa7f1d2c7512cc6ddaa9d766"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/notes/unwind-map.json",
+    "bytes": 4530,
+    "sha256": "f3f2db93b536b3447c9f02b50525ddc49baae6a4c56c3afe2fce7e2250037130"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/tools/capture.py",
+    "bytes": 1513,
+    "sha256": "774be0df721dac2fbcf0e225e595e6057791fce67ccfec3e639e35121db10d72"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/tools/inspect_unwind.py",
+    "bytes": 2379,
+    "sha256": "a389b91db975976ed5b99bbd9b59e3de8747f7b14b90389675076d49587b98b0"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/tools/publish.py",
+    "bytes": 11280,
+    "sha256": "d6664f24a63ca0102a2a7a1dc84eb45dc330897456a2d374f35c5188674e6813"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/tools/rea_pass.py",
+    "bytes": 2006,
+    "sha256": "9f001ce88fdbd82ff4183f7565df5c432a1b2b8838d6af06ae3971a49eba83ab"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/tools/review_sibling.py",
+    "bytes": 1971,
+    "sha256": "7fed51c3ca7a4e8865e73843d1526d0a70553fc09784b952a2487b686b77b434"
+  },
+  {
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/tools/validate.py",
+    "bytes": 3464,
+    "sha256": "83febce0a058028a234f10789ca2620aea56dda39448895c68114f38d35c0b78"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/CHECKPOINT.md",
+    "bytes": 783,
+    "sha256": "54bd8e60e21cfdff58c99cd58b383a1854e00b364de470068f8ca8eb4f9d30f7"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/COVERAGE.json",
+    "bytes": 9720,
+    "sha256": "25613657baae7d54c081fe0a1c29d687c963772ec98d08176d9302d961dd04d6"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/CROSS_REVIEW.md",
+    "bytes": 4489,
+    "sha256": "22e9d5b87fba9107c257d333856d148b4f1cb861fe355ea67f30c3125ee05325"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/EH_DETAILS.md",
+    "bytes": 3736,
+    "sha256": "7473628821760818fc2a788ab32b08114baaf4000b66c15d0b95bfcb11693ca2"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/REPORT.md",
+    "bytes": 2439,
+    "sha256": "f41fd3cb7488ddebb951388468b9e9e9f8343e236e62c6ac304b0025f1630fde"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/TOOLING.md",
+    "bytes": 1251,
+    "sha256": "158ecc8d77d517e080c1a32599328f622aec956916d13def0afdf1c4859a68fc"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/UNREAD.md",
+    "bytes": 1963,
+    "sha256": "baa6db05a4f97189f893b5beaed95c526e9b63bb3d5c41d4a786ca3aa0c17453"
+  }
+]

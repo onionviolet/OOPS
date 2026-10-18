@@ -1,0 +1,275 @@
+{
+  "binary_sha256": "205770918fd54c96cbbcf89223ebd449e2e113c7c873ed81177c4511a3450db7",
+  "previous_round4": {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/round-4/extraction/COVERAGE.json",
+    "sha256": "fe2ccda5ebb90e3614c3f4b3789fd8af58259d3217f03d48ffecaab1829a9080",
+    "cumulative_unique_native_candidates": 49,
+    "all_reviewed_and_unread_ranges": "inherited by exact hashed reference; not duplicated or expanded"
+  },
+  "new_native_pseudocode": [
+    {
+      "address": "0x14153ea80",
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/native-0x14153ea80.c",
+      "sha256": "f2f7246e706b8460ae3cacdbb2c3245aebfd0348c80ced2da0e1cc8cecbee0b3",
+      "lines": 8,
+      "reviewed_ranges": [
+        [
+          1,
+          8
+        ]
+      ],
+      "unread_ranges": []
+    }
+  ],
+  "cumulative_unique_native_candidates": 50,
+  "instruction_regions": [
+    {
+      "start": "0x14153ea80",
+      "end_exclusive": "0x14153ea9d",
+      "offset": 22273664,
+      "bytes": 29,
+      "kind": "complete_ret_bounded_cleanup_funclet",
+      "sha256": "a8c5df12765d67ed39cb7fb33ca662cd58419a6c1bf0461ee7704910e60e22b6",
+      "command": [
+        "/usr/bin/objdump",
+        "-d",
+        "--start-address=0x14153ea80",
+        "--stop-address=0x14153ea9d",
+        "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/payload/Dwarf Fortress.exe"
+      ],
+      "assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-14153ea80.txt",
+      "raw": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-14153ea80.bin",
+      "reviewed": "all displayed instructions"
+    },
+    {
+      "start": "0x141539680",
+      "end_exclusive": "0x141539685",
+      "offset": 22252160,
+      "bytes": 5,
+      "kind": "tailjump_thunk",
+      "sha256": "7f420f5072b21b111b2e2862977010cb4707db0534409d6c05b29c4077aaaae7",
+      "command": [
+        "/usr/bin/objdump",
+        "-d",
+        "--start-address=0x141539680",
+        "--stop-address=0x141539685",
+        "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/payload/Dwarf Fortress.exe"
+      ],
+      "assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-141539680.txt",
+      "raw": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-141539680.bin",
+      "reviewed": "all displayed instructions"
+    },
+    {
+      "start": "0x1415399dc",
+      "end_exclusive": "0x1415399e1",
+      "offset": 22253020,
+      "bytes": 5,
+      "kind": "tailjump_thunk",
+      "sha256": "1b4be5403b71d705d893bfa2a32bd9644c10460997b4ad42e29c054d7e394baf",
+      "command": [
+        "/usr/bin/objdump",
+        "-d",
+        "--start-address=0x1415399dc",
+        "--stop-address=0x1415399e1",
+        "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/payload/Dwarf Fortress.exe"
+      ],
+      "assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-1415399dc.txt",
+      "raw": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-1415399dc.bin",
+      "reviewed": "all displayed instructions"
+    },
+    {
+      "start": "0x14153aaa8",
+      "end_exclusive": "0x14153aaae",
+      "offset": 22257320,
+      "bytes": 6,
+      "kind": "free_import_thunk",
+      "sha256": "8fb37f13232f47a03adea23943c0047cc44f3a0629ef91c1bb64ca1d8ba88aac",
+      "command": [
+        "/usr/bin/objdump",
+        "-d",
+        "--start-address=0x14153aaa8",
+        "--stop-address=0x14153aaae",
+        "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/payload/Dwarf Fortress.exe"
+      ],
+      "assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-14153aaa8.txt",
+      "raw": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-14153aaa8.bin",
+      "reviewed": "all displayed instructions"
+    },
+    {
+      "start": "0x14153aa60",
+      "end_exclusive": "0x14153aa66",
+      "offset": 22257248,
+      "bytes": 6,
+      "kind": "FH4_import_thunk",
+      "sha256": "c9d7abc3491550a3f43d851d7cdeb1d67186c3a503c98fe9fbef1420377c67af",
+      "command": [
+        "/usr/bin/objdump",
+        "-d",
+        "--start-address=0x14153aa60",
+        "--stop-address=0x14153aa66",
+        "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/payload/Dwarf Fortress.exe"
+      ],
+      "assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-14153aa60.txt",
+      "raw": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-14153aa60.bin",
+      "reviewed": "all displayed instructions"
+    },
+    {
+      "start": "0x1407df320",
+      "end_exclusive": "0x1407df377",
+      "offset": 8251168,
+      "bytes": 87,
+      "kind": "previous_factory_rechecked_for_pointer_identity",
+      "sha256": "edb83c53df231cbc9c92d958de4b0b8b82a7fd0e127dd034238892c01db6c914",
+      "command": [
+        "/usr/bin/objdump",
+        "-d",
+        "--start-address=0x1407df320",
+        "--stop-address=0x1407df377",
+        "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/payload/Dwarf Fortress.exe"
+      ],
+      "assembly": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/asm-1407df320.txt",
+      "raw": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-5/extraction/extract/bytes-1407df320.bin",
+      "reviewed": "all displayed instructions"
+    }
+  ],
+  "unwind_regions": [
+    {
+      "start": "0x14054bdc0",
+      "end_exclusive": "0x14054be6a",
+      "unwind_rva": "0x17e6028",
+      "unwind_offset": 25055784,
+      "flags": 0,
+      "prolog": 9,
+      "code_count": 4,
+      "bytes": "01090400095205e003600250211e06001ed403001674050005340c00"
+    },
+    {
+      "start": "0x14054be6a",
+      "end_exclusive": "0x14054becc",
+      "unwind_rva": "0x17e6bd4",
+      "unwind_offset": 25058772,
+      "flags": 4,
+      "prolog": 14,
+      "code_count": 4,
+      "bytes": "210e04000e740c0005340b00c0bd54006abe540028607e0121000000",
+      "chained": {
+        "start": "0x14054bdc0",
+        "end_exclusive": "0x14054be6a",
+        "unwind_rva": "0x17e6028",
+        "unwind_offset": 25055784,
+        "flags": 0,
+        "prolog": 9,
+        "code_count": 4,
+        "bytes": "01090400095205e003600250211e06001ed403001674050005340c00"
+      }
+    },
+    {
+      "start": "0x14054becc",
+      "end_exclusive": "0x14054bef4",
+      "unwind_rva": "0x17e6bec",
+      "unwind_offset": 25058796,
+      "flags": 4,
+      "prolog": 0,
+      "code_count": 0,
+      "bytes": "21000000c0bd54006abe540028607e0101140800",
+      "chained": {
+        "start": "0x14054bdc0",
+        "end_exclusive": "0x14054be6a",
+        "unwind_rva": "0x17e6028",
+        "unwind_offset": 25055784,
+        "flags": 0,
+        "prolog": 9,
+        "code_count": 4,
+        "bytes": "01090400095205e003600250211e06001ed403001674050005340c00"
+      }
+    },
+    {
+      "start": "0x1407df320",
+      "end_exclusive": "0x1407df377",
+      "unwind_rva": "0x17e68d8",
+      "unwind_offset": 25058008,
+      "flags": 2,
+      "prolog": 6,
+      "code_count": 2,
+      "bytes": "110602000632023060aa5301e8687e012809e57b01dfdf7b",
+      "handler_va": "0x14153aa60",
+      "handler_data_rva": "0x17e68e8",
+      "handler_data_offset": 25058020
+    },
+    {
+      "start": "0x140cc9230",
+      "end_exclusive": "0x140cc930d",
+      "unwind_rva": "0x182d838",
+      "unwind_offset": 25348664,
+      "flags": 0,
+      "prolog": 29,
+      "code_count": 6,
+      "bytes": "011d06001d01150016f014e012c010302120080020d411001874120010641300"
+    },
+    {
+      "start": "0x140cc930d",
+      "end_exclusive": "0x140cc99c7",
+      "unwind_rva": "0x182d848",
+      "unwind_offset": 25348680,
+      "flags": 4,
+      "prolog": 32,
+      "code_count": 8,
+      "bytes": "2120080020d411001874120010641300085414003092cc000d93cc0038d8820121000000",
+      "chained": {
+        "start": "0x140cc9230",
+        "end_exclusive": "0x140cc930d",
+        "unwind_rva": "0x182d838",
+        "unwind_offset": 25348664,
+        "flags": 0,
+        "prolog": 29,
+        "code_count": 6,
+        "bytes": "011d06001d01150016f014e012c010302120080020d411001874120010641300"
+      }
+    },
+    {
+      "start": "0x140cc99c7",
+      "end_exclusive": "0x140cc99f5",
+      "unwind_rva": "0x182d868",
+      "unwind_offset": 25348712,
+      "flags": 4,
+      "prolog": 0,
+      "code_count": 0,
+      "bytes": "210000003092cc000d93cc0038d88201210a0400",
+      "chained": {
+        "start": "0x140cc9230",
+        "end_exclusive": "0x140cc930d",
+        "unwind_rva": "0x182d838",
+        "unwind_offset": 25348664,
+        "flags": 0,
+        "prolog": 29,
+        "code_count": 6,
+        "bytes": "011d06001d01150016f014e012c010302120080020d411001874120010641300"
+      }
+    }
+  ],
+  "metadata_prefix_review": [
+    {
+      "rva": "0x17e68e8",
+      "retained_bytes": 48,
+      "interpreted_prefix_bytes": 9,
+      "remaining": "unread"
+    },
+    {
+      "rva": "0x17be509",
+      "retained_bytes": 64,
+      "interpreted_prefix_bytes": 6,
+      "remaining": "unread"
+    },
+    {
+      "rva": "0x17bdfdf",
+      "retained_bytes": 64,
+      "interpreted_prefix_bytes": 5,
+      "remaining": "unread"
+    }
+  ],
+  "limits": [
+    "FH4 full compressed grammar not validated",
+    "No runtime or global no-refund proof",
+    "Auditor source reading not counted"
+  ]
+}

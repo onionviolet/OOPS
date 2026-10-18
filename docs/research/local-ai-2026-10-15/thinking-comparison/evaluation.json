@@ -1,0 +1,769 @@
+[
+  {
+    "model": "gemma4:31b-mlx",
+    "task": "hp_proposal",
+    "mode": "off",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "compatibility": "requires_adapter",
+    "manual_semantic_review_required": true
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "task": "hp_proposal",
+    "mode": "on",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "compatibility": "requires_adapter",
+    "manual_semantic_review_required": true
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "task": "hp_plan",
+    "mode": "on",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "execution_errors": [],
+    "actual": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claimed": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claim_matches_execution": true,
+    "goal_reached": true,
+    "trace": [
+      {
+        "step": "visitor_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 1,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_reparo",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "observe_mark",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": true,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "save_reload",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_nox",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "leave",
+        "state": {
+          "learnerLocation": "outside",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      }
+    ],
+    "planning_pass": true
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "task": "hp_plan",
+    "mode": "off",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "execution_errors": [],
+    "actual": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claimed": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claim_matches_execution": true,
+    "goal_reached": true,
+    "trace": [
+      {
+        "step": "visitor_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 1,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_reparo",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "save_reload",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "observe_mark",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "leave",
+        "state": {
+          "learnerLocation": "outside",
+          "light": "on",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_nox",
+        "state": {
+          "learnerLocation": "outside",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      }
+    ],
+    "planning_pass": true
+  },
+  {
+    "model": "qwen3.8:27b",
+    "task": "hp_proposal",
+    "mode": "on",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "compatibility": "requires_adapter",
+    "manual_semantic_review_required": true
+  },
+  {
+    "model": "qwen3.8:27b",
+    "task": "hp_proposal",
+    "mode": "off",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "compatibility": "requires_adapter",
+    "manual_semantic_review_required": true
+  },
+  {
+    "model": "qwen3.8:27b",
+    "task": "hp_plan",
+    "mode": "off",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "execution_errors": [],
+    "actual": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claimed": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claim_matches_execution": true,
+    "goal_reached": true,
+    "trace": [
+      {
+        "step": "learner_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 0,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "save_reload",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": true,
+          "rejectedCasts": 0,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "observe_mark",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 0,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "visitor_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 1,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_reparo",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_nox",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "leave",
+        "state": {
+          "learnerLocation": "outside",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      }
+    ],
+    "planning_pass": true
+  },
+  {
+    "model": "qwen3.8:27b",
+    "task": "hp_plan",
+    "mode": "on",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "execution_errors": [],
+    "actual": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claimed": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claim_matches_execution": true,
+    "goal_reached": true,
+    "trace": [
+      {
+        "step": "visitor_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 1,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_reparo",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "save_reload",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "observe_mark",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_nox",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "leave",
+        "state": {
+          "learnerLocation": "outside",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      }
+    ],
+    "planning_pass": true
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "task": "hp_proposal",
+    "mode": "off",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "compatibility": "requires_adapter",
+    "manual_semantic_review_required": true
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "task": "hp_proposal",
+    "mode": "on",
+    "done_reason": null,
+    "request_error": "240-second request wall limit reached",
+    "empty_final": false,
+    "json_valid": false,
+    "json_error": "Expecting ',' delimiter: line 17 column 88 (char 706)"
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "task": "hp_plan",
+    "mode": "on",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "execution_errors": [],
+    "actual": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claimed": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claim_matches_execution": true,
+    "goal_reached": true,
+    "trace": [
+      {
+        "step": "visitor_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 1,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_reparo",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "save_reload",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "observe_mark",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_nox",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "leave",
+        "state": {
+          "learnerLocation": "outside",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      }
+    ],
+    "planning_pass": true
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "task": "hp_plan",
+    "mode": "off",
+    "done_reason": "stop",
+    "request_error": null,
+    "empty_final": false,
+    "json_valid": true,
+    "execution_errors": [],
+    "actual": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claimed": {
+      "learnerLocation": "outside",
+      "light": "off",
+      "observedMark": true,
+      "savedWhileLit": true,
+      "rejectedCasts": 2,
+      "xp": 0,
+      "coins": 0
+    },
+    "claim_matches_execution": true,
+    "goal_reached": true,
+    "trace": [
+      {
+        "step": "visitor_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 1,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_reparo",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_lumos",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": false,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "save_reload",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": false,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "observe_mark",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "on",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "learner_nox",
+        "state": {
+          "learnerLocation": "storage",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      },
+      {
+        "step": "leave",
+        "state": {
+          "learnerLocation": "outside",
+          "light": "off",
+          "observedMark": true,
+          "savedWhileLit": true,
+          "rejectedCasts": 2,
+          "xp": 0,
+          "coins": 0
+        }
+      }
+    ],
+    "planning_pass": true
+  }
+]

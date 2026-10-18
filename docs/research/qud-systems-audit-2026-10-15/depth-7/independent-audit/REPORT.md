@@ -1,0 +1,9 @@
+# Independent Qud party-reference recovery audit
+
+2026-10-15. Research only. This pass distinguishes reaching a saved actor through a relationship from restoring that actor to a cell and activity.
+
+**A7-1:** PartyMember and PartyCollection retain references/flags without automatically resolving an absent body. Some consumers explicitly try an integer-ID fallback; the leader getter does not. **A7-2:** The stock join-leader command scans actors already in cached-zone cells, so it does not discover a detached body through the party collection. Ordinary Brain action also exits for a nowhere actor before joining. **A7-3:** A direct join call can attempt movement from a null origin, but ignores the movement result. **A7-4:** Retained references can still update a beguiled actor's HP/effect bookkeeping without restoring its world context. **A7-5:** Named load finalizers restore handlers/ability caches, with custom and extension callbacks still bounded.
+
+[Detailed source traces](FINDINGS.md) retain the exact consumers, conditions, cleanup and independent movement cross-check. [Unread list](UNREAD.md) retains the remaining composition and caller gaps. [Checkpoint](CHECKPOINT.md) records authority and source provenance. [Validation](VALIDATION.json) checks archive integrity only.
+
+Sixteen full classes are retained, including three fresh narrow exports and thirteen reused bodies. [Source ledger](private/SOURCE_LEDGER.json), [exact windows](private/READ_WINDOWS.txt), [current read/unread partitions](private/READ_WINDOWS.json), [cumulative independent-audit partitions](private/CUMULATIVE_AUDIT_READING.json) and [branch flow](private/RECOVERY_FLOW.json) preserve full details. The cumulative file covers depth5-7 independent audits, not the entire primary Qud audit. No automatic rescue, universal loss, concrete spawned NPC composition or native save/load result is claimed.

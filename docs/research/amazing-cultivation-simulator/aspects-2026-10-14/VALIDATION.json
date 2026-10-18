@@ -1,0 +1,30 @@
+{
+  "checked_utc": "2026-10-15T07:19:49.736167+00:00",
+  "status": "PASS",
+  "required_files": 15,
+  "parsed_json_files": 5,
+  "aspect_keys": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12"
+  ],
+  "extract_hash_records_checked": 5259,
+  "selected_source_records_checked": 36,
+  "local_markdown_links_checked": 13,
+  "graph_nodes": 187,
+  "jianghu_tagged_rows": 289,
+  "missing_graph_links": 0,
+  "game_launched": false,
+  "personal_saves_read": false,
+  "runtime_claim": "unverified; static evidence only",
+  "errors": []
+}

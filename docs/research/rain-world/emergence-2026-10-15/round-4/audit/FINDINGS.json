@@ -1,0 +1,306 @@
+{
+  "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+  "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "findings": [
+    {
+      "id": "RW4-F1",
+      "title": "Direct session-end save encodes pre-boost NPC strings",
+      "status": "shown-managed-source-with-labelled-conditional-inference",
+      "locators": [
+        {
+          "type": "SaveState",
+          "method": "SessionEnded snapshot then boost then save",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 294,
+          "end_line": 474
+        },
+        {
+          "type": "SaveState",
+          "method": "BringUpToDate region snapshot",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 665,
+          "end_line": 739
+        },
+        {
+          "type": "World",
+          "method": "regionState property",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/World.cs",
+          "sha256": "349f51cf9485debdb019c12b30997515d27fe7377949f2547e312857d9c7e7ef",
+          "start_line": 308,
+          "end_line": 318
+        },
+        {
+          "type": "RegionState",
+          "method": "string snapshot fields",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+          "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+          "start_line": 405,
+          "end_line": 425
+        },
+        {
+          "type": "RegionState",
+          "method": "pending friend strings before boost",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+          "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+          "start_line": 1144,
+          "end_line": 1174
+        },
+        {
+          "type": "RegionState",
+          "method": "saved population strings",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+          "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+          "start_line": 1216,
+          "end_line": 1242
+        },
+        {
+          "type": "RegionState",
+          "method": "SaveToString cached population",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+          "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+          "start_line": 1407,
+          "end_line": 1419
+        },
+        {
+          "type": "SaveState",
+          "method": "SaveToString region and pending friends",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 783,
+          "end_line": 877
+        },
+        {
+          "type": "SaveState",
+          "method": "SaveToString pending friends",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 909,
+          "end_line": 950
+        },
+        {
+          "type": "PlayerProgression",
+          "method": "SaveToDisk existing campaign encoding",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/PlayerProgression.cs",
+          "sha256": "c70263fc9578a68b21254028b4621f16c11b277defbc202296df937470b24c0e",
+          "start_line": 2592,
+          "end_line": 2610
+        },
+        {
+          "type": "PlayerProgression",
+          "method": "SaveToDisk fresh campaign encoding",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/PlayerProgression.cs",
+          "sha256": "c70263fc9578a68b21254028b4621f16c11b277defbc202296df937470b24c0e",
+          "start_line": 2665,
+          "end_line": 2669
+        }
+      ],
+      "limits": "Resolved for the direct built-in chain absent custom callbacks/Expedition intervention or another explicit snapshot. No native durability claim.",
+      "native_observed": false
+    },
+    {
+      "id": "RW4-F2",
+      "title": "Live boosted like can feed separately saved progression",
+      "status": "shown-managed-source-with-labelled-conditional-inference",
+      "locators": [
+        {
+          "type": "SaveState",
+          "method": "AppendKills",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 1524,
+          "end_line": 1544
+        },
+        {
+          "type": "StoryGameSession",
+          "method": "AppendTimeOnCycleEnd",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/audit/StoryGameSession.cs",
+          "sha256": "7c9d5a9d58813fc726b08de322c88d634545aca9429c5c3f7d8b93332b32a50b",
+          "start_line": 378,
+          "end_line": 407
+        },
+        {
+          "type": "PlayerProgression",
+          "method": "CreateCopyOfSaves copies existing files",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/PlayerProgression.cs",
+          "sha256": "c70263fc9578a68b21254028b4621f16c11b277defbc202296df937470b24c0e",
+          "start_line": 2274,
+          "end_line": 2363
+        },
+        {
+          "type": "WinState",
+          "method": "CycleCompleted including Friend and extension hooks",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/audit/WinState.cs",
+          "sha256": "90d166d409b8d55e554462a62fb2793e6b0844a8d9cce20d7784ffbeaad1a02b",
+          "start_line": 1082,
+          "end_line": 1382
+        },
+        {
+          "type": "WinState",
+          "method": "FloatTracker.SetProgress/ToString",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/audit/WinState.cs",
+          "sha256": "90d166d409b8d55e554462a62fb2793e6b0844a8d9cce20d7784ffbeaad1a02b",
+          "start_line": 150,
+          "end_line": 212
+        },
+        {
+          "type": "WinState",
+          "method": "SaveToString normal and death branches",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/audit/WinState.cs",
+          "sha256": "90d166d409b8d55e554462a62fb2793e6b0844a8d9cce20d7784ffbeaad1a02b",
+          "start_line": 808,
+          "end_line": 875
+        },
+        {
+          "type": "DeathPersistentSaveData",
+          "method": "WinState encoding",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/DeathPersistentSaveData.cs",
+          "sha256": "14c13e737a2636c5e22b6f4986c86c2f15aef8c3c9140a8e8b3eb652fc3bedb3",
+          "start_line": 620,
+          "end_line": 640
+        },
+        {
+          "type": "SaveState",
+          "method": "fresh death-persistent encoding",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 859,
+          "end_line": 869
+        }
+      ],
+      "limits": "Illustrative0.6\u21920.8 relationship and0.272 tracker contribution are source-derived arithmetic, not executed game/save tests. CustomPassage and Expedition callbacks remain outside the ordinary-route conclusion.",
+      "native_observed": false
+    },
+    {
+      "id": "RW4-F3",
+      "title": "Survive, malnourished, death and quit encode distinct state layers",
+      "status": "shown-managed-source-with-labelled-conditional-inference",
+      "locators": [
+        {
+          "type": "SaveState",
+          "method": "SessionEnded failure and special end routes",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 469,
+          "end_line": 555
+        },
+        {
+          "type": "PlayerProgression",
+          "method": "progression-only/death/world routing",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/PlayerProgression.cs",
+          "sha256": "c70263fc9578a68b21254028b4621f16c11b277defbc202296df937470b24c0e",
+          "start_line": 2476,
+          "end_line": 2518
+        },
+        {
+          "type": "PlayerProgression",
+          "method": "death-persistent-only replacement",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/PlayerProgression.cs",
+          "sha256": "c70263fc9578a68b21254028b4621f16c11b277defbc202296df937470b24c0e",
+          "start_line": 3011,
+          "end_line": 3082
+        },
+        {
+          "type": "PlayerProgression",
+          "method": "starved state reuse and load flags",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/PlayerProgression.cs",
+          "sha256": "c70263fc9578a68b21254028b4621f16c11b277defbc202296df937470b24c0e",
+          "start_line": 2945,
+          "end_line": 3010
+        },
+        {
+          "type": "SaveState",
+          "method": "BackupRegionStatePreservation",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 741,
+          "end_line": 758
+        },
+        {
+          "type": "RainWorldGame",
+          "method": "ExitToMenu",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/RainWorldGame.cs",
+          "sha256": "5fd8ba0f0acc1dbccc6903c055226c7c88ae1405d893e48b892136d62617383f",
+          "start_line": 1652,
+          "end_line": 1664
+        },
+        {
+          "type": "RainWorldGame",
+          "method": "ExitGame clock flag gates",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/RainWorldGame.cs",
+          "sha256": "5fd8ba0f0acc1dbccc6903c055226c7c88ae1405d893e48b892136d62617383f",
+          "start_line": 1710,
+          "end_line": 1735
+        },
+        {
+          "type": "RainWorldGame",
+          "method": "death and starve entry",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/RainWorldGame.cs",
+          "sha256": "5fd8ba0f0acc1dbccc6903c055226c7c88ae1405d893e48b892136d62617383f",
+          "start_line": 1810,
+          "end_line": 1866
+        },
+        {
+          "type": "DeathPersistentSaveData",
+          "method": "death and quit encoder differences",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/DeathPersistentSaveData.cs",
+          "sha256": "14c13e737a2636c5e22b6f4986c86c2f15aef8c3c9140a8e8b3eb652fc3bedb3",
+          "start_line": 563,
+          "end_line": 591
+        },
+        {
+          "type": "DeathPersistentSaveData",
+          "method": "quit count",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/DeathPersistentSaveData.cs",
+          "sha256": "14c13e737a2636c5e22b6f4986c86c2f15aef8c3c9140a8e8b3eb652fc3bedb3",
+          "start_line": 666,
+          "end_line": 680
+        }
+      ],
+      "limits": "Ordinary direct branches established. Special end modes, module callbacks, backend completion/durability and actual menu/reload outcomes remain unobserved.",
+      "native_observed": false
+    },
+    {
+      "id": "RW4-F4",
+      "title": "Pending-friend one-shot consumer clears queue before creation",
+      "status": "shown-managed-source-with-labelled-conditional-inference",
+      "locators": [
+        {
+          "type": "Player",
+          "method": "Update calls UpdateMSC",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/extraction/source/Player.cs",
+          "sha256": "2b3c85e094572803481e287048431044ff83829d848c1a9f84ac0ac65739facb",
+          "start_line": 5634,
+          "end_line": 5650
+        },
+        {
+          "type": "Player",
+          "method": "UpdateMSC fifth update latch and transfer",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-4/extraction/source/Player.cs",
+          "sha256": "2b3c85e094572803481e287048431044ff83829d848c1a9f84ac0ac65739facb",
+          "start_line": 7077,
+          "end_line": 7139
+        },
+        {
+          "type": "SaveState",
+          "method": "GrabSavedCreatures queue clearing",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 2284,
+          "end_line": 2315
+        },
+        {
+          "type": "RainWorldGame",
+          "method": "SpawnCritters",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/RainWorldGame.cs",
+          "sha256": "5fd8ba0f0acc1dbccc6903c055226c7c88ae1405d893e48b892136d62617383f",
+          "start_line": 2814,
+          "end_line": 2827
+        }
+      ],
+      "limits": "Independent source crosscheck agrees sibling. Null/exception per-item recovery or outer rescue not established; no native failure reproduced.",
+      "native_observed": false
+    }
+  ]
+}

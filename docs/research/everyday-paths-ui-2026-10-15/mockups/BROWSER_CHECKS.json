@@ -1,0 +1,217 @@
+{
+  "date": "2026-10-15",
+  "revision": "interactive fishing spots and mining faces",
+  "route": "CUA isolated background tab; CDP full CSS viewport captures",
+  "scenes": [
+    {
+      "family": "farming",
+      "mode": "personal",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 277,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "farming",
+      "mode": "routine",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 277,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "farming",
+      "mode": "investigate",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 340,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "farming",
+      "mode": "delegate",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 431,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "fishing",
+      "mode": "personal",
+      "backBottom": 719,
+      "contentHeight": 224,
+      "contentScrollHeight": 294,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "fishing",
+      "mode": "routine",
+      "backBottom": 719,
+      "contentHeight": 267,
+      "contentScrollHeight": 283,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "fishing",
+      "mode": "investigate",
+      "backBottom": 719,
+      "contentHeight": 267,
+      "contentScrollHeight": 350,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "fishing",
+      "mode": "delegate",
+      "backBottom": 719,
+      "contentHeight": 267,
+      "contentScrollHeight": 278,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "mining",
+      "mode": "baseline",
+      "backBottom": 719,
+      "contentHeight": 267,
+      "contentScrollHeight": 267,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "mining",
+      "mode": "personal",
+      "backBottom": 719,
+      "contentHeight": 224,
+      "contentScrollHeight": 294,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "mining",
+      "mode": "routine",
+      "backBottom": 719,
+      "contentHeight": 267,
+      "contentScrollHeight": 283,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "mining",
+      "mode": "investigate",
+      "backBottom": 719,
+      "contentHeight": 267,
+      "contentScrollHeight": 350,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "mining",
+      "mode": "delegate",
+      "backBottom": 719,
+      "contentHeight": 267,
+      "contentScrollHeight": 298,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "potions",
+      "mode": "personal",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 240,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "potions",
+      "mode": "routine",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 241,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "potions",
+      "mode": "investigate",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 360,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "potions",
+      "mode": "delegate",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 355,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "cheats",
+      "mode": "personal",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 272,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "cheats",
+      "mode": "routine",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 241,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "cheats",
+      "mode": "investigate",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 360,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    },
+    {
+      "family": "cheats",
+      "mode": "delegate",
+      "backBottom": 719,
+      "contentHeight": 240,
+      "contentScrollHeight": 376,
+      "height": 768,
+      "pageOverflow": false,
+      "width": 1366
+    }
+  ]
+}

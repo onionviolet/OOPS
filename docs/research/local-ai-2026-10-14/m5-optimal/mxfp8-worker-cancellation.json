@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-14T21:30:38.001422+00:00",
+  "stopped_worker_pid": 75330,
+  "command": "/Users/weiwei/.local/bin/python3.13 /Users/weiwei/.local/share/local-ai/upgrades/2026-10-14/finish_upgrade.py",
+  "signal": "SIGTERM",
+  "reason": "User authorized deleting MXFP8; worker held both transfer connections"
+}

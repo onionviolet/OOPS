@@ -1,0 +1,887 @@
+{
+  "current_native": [
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d028e0.c",
+      "sha256": "099d803e81a4cf38e26cb0badf76ffee14cb645f522ac99faf56aafbc0989b0b",
+      "lines": 271,
+      "read_spans": [
+        [
+          1,
+          128
+        ],
+        [
+          245,
+          271
+        ]
+      ],
+      "unread_spans": [
+        [
+          129,
+          244
+        ]
+      ],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d03170.c",
+      "sha256": "2dae54606f1e1839dcbf652ca7bc640c7f5e3d28e11f627ad91f93f3aea0f103",
+      "lines": 111,
+      "read_spans": [
+        [
+          1,
+          111
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d020c0.c",
+      "sha256": "6a654d8edf02a622d67f187a577f43f03b6cefbe684c2d90414f36e9733632a1",
+      "lines": 116,
+      "read_spans": [
+        [
+          1,
+          116
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d022c0.c",
+      "sha256": "c8190a0b64c405c53715a8cb5d08366518e575ebd9bc8760c2c0cfd2d6d066a9",
+      "lines": 145,
+      "read_spans": [
+        [
+          1,
+          145
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d032b0.c",
+      "sha256": "662d750ac8b4bc8569c17baa9f9322f085e5ac4910754a34a671f6e581f97347",
+      "lines": 3204,
+      "read_spans": [],
+      "unread_spans": [
+        [
+          1,
+          3204
+        ]
+      ],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140dac290.c",
+      "sha256": "f9cb2d06b5bbbc0b4d73ea7aa6f1f53ff163726d1280923ac8d53ab921876e18",
+      "lines": 8022,
+      "read_spans": [
+        [
+          315,
+          405
+        ],
+        [
+          1890,
+          2045
+        ],
+        [
+          5600,
+          5690
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          314
+        ],
+        [
+          406,
+          1889
+        ],
+        [
+          2046,
+          5599
+        ],
+        [
+          5691,
+          8022
+        ]
+      ],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140a35890.c",
+      "sha256": "4fb2337d4ed4922dea8f0affd0994707e1cfac8f490a4a079cd771fdaae47870",
+      "lines": 102,
+      "read_spans": [
+        [
+          1,
+          102
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140a35aa0.c",
+      "sha256": "081d907d18b79e0dc14ea0fcbe44151db01385c9eeaacff918353b7b27aa21e9",
+      "lines": 55,
+      "read_spans": [
+        [
+          1,
+          55
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x14036b0c0.c",
+      "sha256": "5fc253151fc38e4d8984b01ae72807dfad0df45be70ae25b6b616038ecd04f3c",
+      "lines": 184,
+      "read_spans": [
+        [
+          1,
+          184
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140cc9230.c",
+      "sha256": "e3105f1d61399a6054888828a082f8a14e73f4e4fc384b3820247a4aea50dc71",
+      "lines": 270,
+      "read_spans": [
+        [
+          1,
+          270
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x1402567f0.c",
+      "sha256": "b73c4286b186eca8556e88e7dd2acfaff736b80912c0f542b6fb4b5040f88c73",
+      "lines": 25,
+      "read_spans": [
+        [
+          1,
+          25
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140067050.c",
+      "sha256": "1e43a85157dfda470b677a39cab3be0b67bd2c9a1a5e53ce3f1667b763742cb8",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/extract/native-0x140d78c30.c",
+      "sha256": "6c06af3ca2aa2c1f7a55dabe8a7b91bb4423bde0ff4c578004568af31ea7d8f9",
+      "lines": 656,
+      "read_spans": [
+        [
+          250,
+          278
+        ],
+        [
+          368,
+          388
+        ],
+        [
+          492,
+          512
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          249
+        ],
+        [
+          279,
+          367
+        ],
+        [
+          389,
+          491
+        ],
+        [
+          513,
+          656
+        ]
+      ],
+      "layer": "sibling-selected-independent-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/extract/native-0x1413dcd00.c",
+      "sha256": "4964844c3d853b549eefccb82463368bae737c15b97622fc70b4eb3debeda362",
+      "lines": 720,
+      "read_spans": [
+        [
+          1,
+          90
+        ],
+        [
+          198,
+          268
+        ],
+        [
+          488,
+          498
+        ],
+        [
+          635,
+          720
+        ]
+      ],
+      "unread_spans": [
+        [
+          91,
+          197
+        ],
+        [
+          269,
+          487
+        ],
+        [
+          499,
+          634
+        ]
+      ],
+      "layer": "sibling-selected-independent-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/extract/native-0x1413c5ef0.c",
+      "sha256": "361991839bb7c0e64326df4bae889fb72d3bbfa93d391cf140040d791a35fac6",
+      "lines": 628,
+      "read_spans": [
+        [
+          292,
+          343
+        ],
+        [
+          540,
+          628
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          291
+        ],
+        [
+          344,
+          539
+        ]
+      ],
+      "layer": "sibling-selected-independent-read"
+    }
+  ],
+  "cumulative_prior_native": [
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d7a680.c",
+      "sha256": "4a70ac9b4971835f614793dfc42469e8ae2eb03d75a425531c0e7022dea584fa",
+      "lines": 188,
+      "read_spans": [
+        [
+          1,
+          188
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d7af40.c",
+      "sha256": "5651471ff87c93f8ce545245f4d01fbd4d855e4051c0f911e84989d096d8dbec",
+      "lines": 194,
+      "read_spans": [
+        [
+          1,
+          194
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d7c330.c",
+      "sha256": "cd0fd46a1704f9cf4edd4d9ee9ba6edb41c304ef19b84c5a1ea5922cc5179802",
+      "lines": 297,
+      "read_spans": [
+        [
+          1,
+          297
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d54d40.c",
+      "sha256": "7218cea43bc932f11a76660d0a31c8c3b15dbf97a626e3785069316549b0b725",
+      "lines": 15,
+      "read_spans": [
+        [
+          1,
+          15
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d54d70.c",
+      "sha256": "a71668458fd0724fd44ad55757387b9ad7fc859467cf58c18becfeba74fb1bf6",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d54d80.c",
+      "sha256": "b572f29859531904c5f236d2df62a95b2e1b1c3312491cf5318cfa6c79417dbe",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x14028c660.c",
+      "sha256": "4e43c49a619cb6c26398dac1ead0b27a81d52f903c6636f50557b7c04e2faf8b",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d026a0.c",
+      "sha256": "eb48c67d2ec39b0653074ae0a8cab8678c2f912dba496c592625b714b45355f7",
+      "lines": 57,
+      "read_spans": [
+        [
+          1,
+          57
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d02ea0.c",
+      "sha256": "7262623543e5a868ff1031c163998f626c702f9256a65cb24df72317a5fc6100",
+      "lines": 95,
+      "read_spans": [
+        [
+          1,
+          95
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140d09950.c",
+      "sha256": "17718a14fdd7e4fa38bc31f19a27b43656b35f85d3aaef65ff98e988a290e95f",
+      "lines": 39,
+      "read_spans": [
+        [
+          1,
+          39
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x140a67820.c",
+      "sha256": "e338ef1fe45aa22f8f734a3e787964ecbfbf8a45d06c57c5d141e6b2ab571857",
+      "lines": 30,
+      "read_spans": [
+        [
+          1,
+          30
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-2/extract/native-0x141325080.c",
+      "sha256": "5496348b05679217a812c748fe8e1651986f83b3b45198bc4660b2d2638b1e1e",
+      "lines": 2068,
+      "read_spans": [
+        [
+          1969,
+          2067
+        ]
+      ],
+      "layer": "native-pseudocode-manual-read",
+      "limits": "Decompiler signatures/locals unresolved; mutation cores independently checked against LLVM disassembly; not original source.",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/native-0x14154919c.c",
+      "sha256": "6be9f80ba1f6ba724ebb617f68be89d2b08264f4eaffad61b6fcd29ae43203f0",
+      "lines": 62,
+      "read_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "layer": "prior-aspects-native-pseudocode-manual-read",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/bf-dwarf-fortress/extract/native-0x14157c890.c",
+      "sha256": "c94a5ba6e2515fcd92280da9de5d27e43000bb1411fc979070f06cbd16869e79",
+      "lines": 32,
+      "read_spans": [
+        [
+          1,
+          32
+        ]
+      ],
+      "layer": "prior-aspects-native-pseudocode-manual-read",
+      "coverage_owner": "round-2-auditor"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d028e0.c",
+      "sha256": "099d803e81a4cf38e26cb0badf76ffee14cb645f522ac99faf56aafbc0989b0b",
+      "lines": 271,
+      "read_spans": [
+        [
+          1,
+          128
+        ],
+        [
+          245,
+          271
+        ]
+      ],
+      "unread_spans": [
+        [
+          129,
+          244
+        ]
+      ],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d03170.c",
+      "sha256": "2dae54606f1e1839dcbf652ca7bc640c7f5e3d28e11f627ad91f93f3aea0f103",
+      "lines": 111,
+      "read_spans": [
+        [
+          1,
+          111
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d020c0.c",
+      "sha256": "6a654d8edf02a622d67f187a577f43f03b6cefbe684c2d90414f36e9733632a1",
+      "lines": 116,
+      "read_spans": [
+        [
+          1,
+          116
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d022c0.c",
+      "sha256": "c8190a0b64c405c53715a8cb5d08366518e575ebd9bc8760c2c0cfd2d6d066a9",
+      "lines": 145,
+      "read_spans": [
+        [
+          1,
+          145
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d032b0.c",
+      "sha256": "662d750ac8b4bc8569c17baa9f9322f085e5ac4910754a34a671f6e581f97347",
+      "lines": 3204,
+      "read_spans": [],
+      "unread_spans": [
+        [
+          1,
+          3204
+        ]
+      ],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140dac290.c",
+      "sha256": "f9cb2d06b5bbbc0b4d73ea7aa6f1f53ff163726d1280923ac8d53ab921876e18",
+      "lines": 8022,
+      "read_spans": [
+        [
+          315,
+          405
+        ],
+        [
+          1890,
+          2045
+        ],
+        [
+          5600,
+          5690
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          314
+        ],
+        [
+          406,
+          1889
+        ],
+        [
+          2046,
+          5599
+        ],
+        [
+          5691,
+          8022
+        ]
+      ],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140a35890.c",
+      "sha256": "4fb2337d4ed4922dea8f0affd0994707e1cfac8f490a4a079cd771fdaae47870",
+      "lines": 102,
+      "read_spans": [
+        [
+          1,
+          102
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140a35aa0.c",
+      "sha256": "081d907d18b79e0dc14ea0fcbe44151db01385c9eeaacff918353b7b27aa21e9",
+      "lines": 55,
+      "read_spans": [
+        [
+          1,
+          55
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x14036b0c0.c",
+      "sha256": "5fc253151fc38e4d8984b01ae72807dfad0df45be70ae25b6b616038ecd04f3c",
+      "lines": 184,
+      "read_spans": [
+        [
+          1,
+          184
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140cc9230.c",
+      "sha256": "e3105f1d61399a6054888828a082f8a14e73f4e4fc384b3820247a4aea50dc71",
+      "lines": 270,
+      "read_spans": [
+        [
+          1,
+          270
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x1402567f0.c",
+      "sha256": "b73c4286b186eca8556e88e7dd2acfaff736b80912c0f542b6fb4b5040f88c73",
+      "lines": 25,
+      "read_spans": [
+        [
+          1,
+          25
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140067050.c",
+      "sha256": "1e43a85157dfda470b677a39cab3be0b67bd2c9a1a5e53ce3f1667b763742cb8",
+      "lines": 7,
+      "read_spans": [
+        [
+          1,
+          7
+        ]
+      ],
+      "unread_spans": [],
+      "layer": "own-native-pseudocode"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/extract/native-0x140d78c30.c",
+      "sha256": "6c06af3ca2aa2c1f7a55dabe8a7b91bb4423bde0ff4c578004568af31ea7d8f9",
+      "lines": 656,
+      "read_spans": [
+        [
+          250,
+          278
+        ],
+        [
+          368,
+          388
+        ],
+        [
+          492,
+          512
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          249
+        ],
+        [
+          279,
+          367
+        ],
+        [
+          389,
+          491
+        ],
+        [
+          513,
+          656
+        ]
+      ],
+      "layer": "sibling-selected-independent-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/extract/native-0x1413dcd00.c",
+      "sha256": "4964844c3d853b549eefccb82463368bae737c15b97622fc70b4eb3debeda362",
+      "lines": 720,
+      "read_spans": [
+        [
+          1,
+          90
+        ],
+        [
+          198,
+          268
+        ],
+        [
+          488,
+          498
+        ],
+        [
+          635,
+          720
+        ]
+      ],
+      "unread_spans": [
+        [
+          91,
+          197
+        ],
+        [
+          269,
+          487
+        ],
+        [
+          499,
+          634
+        ]
+      ],
+      "layer": "sibling-selected-independent-read"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/extract/native-0x1413c5ef0.c",
+      "sha256": "361991839bb7c0e64326df4bae889fb72d3bbfa93d391cf140040d791a35fac6",
+      "lines": 628,
+      "read_spans": [
+        [
+          292,
+          343
+        ],
+        [
+          540,
+          628
+        ]
+      ],
+      "unread_spans": [
+        [
+          1,
+          291
+        ],
+        [
+          344,
+          539
+        ]
+      ],
+      "layer": "sibling-selected-independent-read"
+    }
+  ],
+  "assembly_reviews": [
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/assembly-0x140d028e0.txt",
+      "sha256": "656d14a034ac09d76112ab185c1cea3c9adeb497dc2789c1fbd9136bdee42403",
+      "reviewed_addresses": [
+        [
+          "0x140d028e0",
+          "0x140d02a50"
+        ]
+      ],
+      "limit": "Selected address window only, exclusive end. Remaining captured assembly unread."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/assembly-0x140dac290.txt",
+      "sha256": "bc6eec8427fc3cef89c3e564366b034da918bb29758e3e290bafe5a5176bc20e",
+      "reviewed_addresses": [
+        [
+          "0x140dafaf9",
+          "0x140dafba4"
+        ]
+      ],
+      "limit": "Selected address window only, exclusive end. Remaining captured assembly unread."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/assembly-0x1400fc190.txt",
+      "sha256": "e9da48056f71ee8fe6bd22c0876fd5c4369025119ff2f2ff1356ff788e0b87e2",
+      "reviewed_addresses": [
+        [
+          "0x1400fc190",
+          "0x1400fc197"
+        ]
+      ],
+      "limit": "Selected address window only, exclusive end. Remaining captured assembly unread."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/assembly-0x1400fc590.txt",
+      "sha256": "231e59ea9b466623c9fd1e4747403af59a1586a2aa4d599409981ebe39a45eac",
+      "reviewed_addresses": [
+        [
+          "0x1400fc590",
+          "0x1400fc5aa"
+        ]
+      ],
+      "limit": "Selected address window only, exclusive end. Remaining captured assembly unread."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/assembly-0x1400fc5b0.txt",
+      "sha256": "cce09402711c361aa9fee41ab1bf71f2a5af5a8cdd8ce5d4bfcc8345a5c35bb2",
+      "reviewed_addresses": [
+        [
+          "0x1400fc5b0",
+          "0x1400fc5cc"
+        ]
+      ],
+      "limit": "Selected address window only, exclusive end. Remaining captured assembly unread."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/assembly-0x140079eb0.txt",
+      "sha256": "b1b19389ba99db7a0fe06c975731a585d323d24a74f4de2f69c895a16fb33563",
+      "reviewed_addresses": [
+        [
+          "0x140079eb0",
+          "0x140079eb6"
+        ]
+      ],
+      "limit": "Selected address window only, exclusive end. Remaining captured assembly unread."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/assembly-0x14028c660.txt",
+      "sha256": "30a17e8a8db601d85d052cfdaa9de34b69f3e0e005f7b00fd2c79613eb97df3c",
+      "reviewed_addresses": [
+        [
+          "0x14028c660",
+          "0x14028c666"
+        ]
+      ],
+      "limit": "Selected address window only, exclusive end. Remaining captured assembly unread."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/assembly-expiry-return.txt",
+      "sha256": "672b89e457ab9297b67097e199a12642641acb3ae7986acdf67241f4352c500a",
+      "reviewed_addresses": [
+        [
+          "0x1413ddcf3",
+          "0x1413ddd20"
+        ]
+      ],
+      "limit": "Selected address window only, exclusive end. Remaining captured assembly unread."
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/assembly-expiry-owner-cleanup.txt",
+      "sha256": "56a57978ec597ccb4752e92a7d67abc75f465462878bc754609b3b44cee5720a",
+      "reviewed_addresses": [
+        [
+          "0x141355916",
+          "0x141355a87"
+        ]
+      ],
+      "limit": "Conditional cleanup owner slice; containing function CFG not claimed."
+    }
+  ],
+  "raw_source_ledger": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/dwarf-fortress/emergence-2026-10-15/round-2/audit/READ_COVERAGE.json",
+  "limit": "Native pseudocode and disassembly are reconstructed representations, not original C++."
+}

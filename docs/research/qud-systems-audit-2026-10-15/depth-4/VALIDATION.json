@@ -1,0 +1,249 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "checks": {
+    "current_Steam_assembly_matches_pin": true,
+    "support_type_requests": 25,
+    "nonempty_support_sources": 22,
+    "capture_status": {
+      "exported": 14,
+      "missing-type": 3,
+      "reused": 8
+    },
+    "cumulative_types_with_exact_line_complements": 440,
+    "indexed_printed_types": 20,
+    "exact_navigation_locators": 3007,
+    "local_links": 37,
+    "private_files_ignored": 74
+  },
+  "errors": [],
+  "links": [
+    {
+      "document": "REPORT.md",
+      "label": "Detailed source traces",
+      "target": "CONSUMERS_AND_COMBINATIONS.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Cumulative line coverage",
+      "target": "../private/depth-4/CUMULATIVE_LINE_COVERAGE.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "UNREAD",
+      "target": "../private/depth-4/UNREAD.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Validation",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "CURRENT",
+      "target": "../CURRENT.md",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Forcefield L175-227",
+      "target": "../private/depth-4/source/XRL.World.Parts.Forcefield.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Forcefield L230-281",
+      "target": "../private/depth-4/source/XRL.World.Parts.Forcefield.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "CanMissilePassForcefieldEvent",
+      "target": "../private/depth-4/source/XRL.World.CanMissilePassForcefieldEvent.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "CyberneticsForcefieldNullifier",
+      "target": "../private/depth-1/source/XRL.World.Parts.CyberneticsForcefieldNullifier.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Forcefield L75-127",
+      "target": "../private/depth-4/source/XRL.World.Parts.Forcefield.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "ForcefieldMaterial",
+      "target": "../private/depth-4/source/XRL.World.Parts.ForcefieldMaterial.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Stasisfield L80-98",
+      "target": "../private/depth-4/source/XRL.World.Parts.Stasisfield.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Stasis L230-244",
+      "target": "../private/depth-4/source/XRL.World.Effects.Stasis.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Stasis L30-158",
+      "target": "../private/depth-4/source/XRL.World.Effects.Stasis.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Stasisfield L64-67,101-111",
+      "target": "../private/depth-4/source/XRL.World.Parts.Stasisfield.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Stasis L198-244",
+      "target": "../private/depth-4/source/XRL.World.Effects.Stasis.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "GameObject L4137-4147",
+      "target": "../private/depth-4/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Stasis L147-195",
+      "target": "../private/depth-4/source/XRL.World.Effects.Stasis.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "GameObject L4046-4147",
+      "target": "../private/depth-4/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Physics L3862-3929",
+      "target": "../private/depth-4/source/XRL.World.Parts.Physics.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "OpinionMap L45-85",
+      "target": "../private/depth-4/source/XRL.World.AI.OpinionMap.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Brain L1325-1351",
+      "target": "../private/depth-4/source/XRL.World.Parts.Brain.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Flying",
+      "target": "../private/depth-4/source/XRL.World.Effects.Flying.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "GameObject L17897-17902",
+      "target": "../private/depth-4/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "GravitationEvent L56-79",
+      "target": "../private/depth-4/source/XRL.World.GravitationEvent.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "StairsDown L191-206,270-280,314-430,462-480",
+      "target": "../private/depth-4/source/XRL.World.Parts.StairsDown.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Teleportation L34-169,198-205",
+      "target": "../private/depth-4/source/XRL.World.Parts.Mutation.Teleportation.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Teleportation L213-321",
+      "target": "../private/depth-4/source/XRL.World.Parts.Mutation.Teleportation.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "GameObject L2493-2561",
+      "target": "../private/depth-4/source/XRL.World.GameObject.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "CyberneticsHighFidelityMatterRecompositer L195-243",
+      "target": "../private/depth-4/source/XRL.World.Parts.CyberneticsHighFidelityMatterRecompositer.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Burrowing",
+      "target": "../private/depth-4/source/XRL.World.Parts.Mutation.Burrowing.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Burrowed",
+      "target": "../private/depth-4/source/XRL.World.Effects.Burrowed.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Tinkering_LayMine L66-117,135-238",
+      "target": "../private/depth-1/source/XRL.World.Parts.Skill.Tinkering_LayMine.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "Tinkering_Mine L158-216,261-274,419-435,520-571,873-912",
+      "target": "../private/depth-4/source/XRL.World.Parts.Tinkering_Mine.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "SpacetimeVortex L91-174",
+      "target": "../private/depth-1/source/XRL.World.Parts.Mutation.SpacetimeVortex.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "SpaceTimeVortex L12-46,88-140,330-438,549-567",
+      "target": "../private/depth-4/source/XRL.World.Parts.SpaceTimeVortex.cs",
+      "exists": true
+    },
+    {
+      "document": "CONSUMERS_AND_COMBINATIONS.md",
+      "label": "SpaceTimeVortex L330-438,500-567",
+      "target": "../private/depth-4/source/XRL.World.Parts.SpaceTimeVortex.cs",
+      "exists": true
+    }
+  ],
+  "public_document_hashes": {
+    "REPORT.md": "afdc94a9bb977dc0efbc4b46761dbd779f105c5dec9c103834677680af5dd64d",
+    "CONSUMERS_AND_COMBINATIONS.md": "e82a5d21fcd61230b84acdb37407afaaa488c66d04c29d85807e7be340a7d0fc"
+  },
+  "qualification": "Source identities and research artifact consistency only; printed source and selected semantic traces do not establish complete review or native behavior. Game, save, browser and YAIR runtime tests unrun."
+}

@@ -1,0 +1,31 @@
+{
+  "required_files": 10,
+  "aspect_keys": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12"
+  ],
+  "source_path_checks": 70,
+  "local_links": 7,
+  "small_touches": 24,
+  "private_extract_files_hashed": 190,
+  "private_extract_logical_bytes": 33324809,
+  "private_all_logical_bytes": 33502160,
+  "xml_files_parsed": 44,
+  "xml_parse_errors": [],
+  "nonempty_type_exports": 47,
+  "failed_guessed_type_exports": 1,
+  "game_run": false,
+  "personal_saves_read": false,
+  "implementation_tests_run": false,
+  "scope": "static research artifact validation only"
+}

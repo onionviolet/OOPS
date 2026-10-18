@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "scope": "Research archive integrity only; no native/game/save execution or implementation acceptance.",
+  "lane_validation_receipts": {
+    "qud-systems-audit-2026-10-15/depth-6/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "d17ccd72ebbf6947ff64cf6eefe391b00855d4ea4b93b950fc586c2be304babd"
+    },
+    "qud-systems-audit-2026-10-15/depth-6/independent-audit/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "023924851368fa4e8c4aaedccbfe6530da57d90c3c89054bfb2894e7aa6da52f"
+    },
+    "rain-world/emergence-2026-10-15/round-4/extraction/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "e58852a81dfdf645f7697a17c5c433e2f42736345e52bfe39186146d38802153"
+    },
+    "rain-world/emergence-2026-10-15/round-4/audit/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "7a8c1d80ea7ce93fdf8de5f8f76c53f9536bdca4dd4b71693a35de90425a9438"
+    },
+    "dwarf-fortress/emergence-2026-10-15/round-4/extraction/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "ff849bdec1c05f0f50cbb53a6e8dffd224986ea540057f8e64849ba8f1a5fb1c"
+    },
+    "dwarf-fortress/emergence-2026-10-15/round-4/audit/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "cf20ac186dd9122269ffd4e2b7455019234bf98b81bc0dfd9a1eaec37e924d5e"
+    }
+  },
+  "local_links_checked": 142,
+  "coverage": {
+    "Qud_root_unique_captured": 450,
+    "Qud_root_capture_only": 234,
+    "Qud_independent_scope": "Separate read ledger, not summed as unique types",
+    "Rain_World_audit_game_classes": 52,
+    "Rain_World_audit_status": {
+      "full-class-read": 10,
+      "selected-windows-read": 30,
+      "captured-unread": 12
+    },
+    "DF": "See native byte regions and exact unread complements in both lane receipts"
+  },
+  "errors": [],
+  "documents": {
+    "REPORT.md": "7d6a7003562a0732982a7b0f4d9b3bd72032c4b768572c6d5d2ce367c68611f8",
+    "CONTINUATION.md": "9c69d719e8439885bc673aaa9d52e3723e328206ef15cd9be2b2d0373e368ba4"
+  }
+}

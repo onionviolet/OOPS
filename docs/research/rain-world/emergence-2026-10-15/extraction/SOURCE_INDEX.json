@@ -1,0 +1,582 @@
+{
+  "created_utc": "2026-10-15T15:53:06.656375+00:00",
+  "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+  "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "steam_build": "22785462",
+  "tool": "ILSpy 11.1.0.9782",
+  "entries": [
+    {
+      "type": "ArtificialIntelligence",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/ArtificialIntelligence.cs",
+      "sha256": "7929eaa04bb6f21f47610c29ddbe542e21eba2fcadfcc8f58623a75b64ce9723",
+      "bytes": 11268,
+      "lines": 421,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "ArtificialIntelligence",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "1-110,174-204,245-255"
+    },
+    {
+      "type": "Tracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Tracker.cs",
+      "sha256": "083eb19d1a5268725d38117629d1ac4c3d89eb3cb1066057ae3bdf127765da35",
+      "bytes": 28140,
+      "lines": 976,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Tracker",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "1-172,713-809"
+    },
+    {
+      "type": "RelationshipTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/RelationshipTracker.cs",
+      "sha256": "e1d03fa375674ae30622fd97ca7616950014c0957a79e88bab564ebdbf85eaef",
+      "bytes": 10943,
+      "lines": 387,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "RelationshipTracker",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "1-50,240-387"
+    },
+    {
+      "type": "ThreatTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/ThreatTracker.cs",
+      "sha256": "7dc4e04561f1fbacb97b54383132256d572b2fa936d3b19ebfdfb9dd46580eab",
+      "bytes": 18067,
+      "lines": 574,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "ThreatTracker",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "1-180"
+    },
+    {
+      "type": "PreyTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/PreyTracker.cs",
+      "sha256": "174722c899139b26f5cb2f4da495dd84462be864f3fcd31173a274db98887cb4",
+      "bytes": 11364,
+      "lines": 338,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "PreyTracker",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "100-237,283-338"
+    },
+    {
+      "type": "UtilityComparer",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/UtilityComparer.cs",
+      "sha256": "feaea0e7133a9a1fe6e66ad90c2077729d1d010f02838379a1cdb42050889aa4",
+      "bytes": 2729,
+      "lines": 143,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "UtilityComparer",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "full-class-reviewed",
+      "reviewed_windows": "full"
+    },
+    {
+      "type": "FriendTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/FriendTracker.cs",
+      "sha256": "b68fac830fb676ce774743e1ce9a36de9c274526c41dc15d79cefa23ffbf9903",
+      "bytes": 6828,
+      "lines": 252,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "FriendTracker",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "112-222"
+    },
+    {
+      "type": "SocialMemory",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/SocialMemory.cs",
+      "sha256": "56f6376f8fdea2e118ecb367b8b6433455f61d06b34fbf3c70294d0c089be592",
+      "bytes": 5872,
+      "lines": 260,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "SocialMemory",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "full-class-reviewed",
+      "reviewed_windows": "full"
+    },
+    {
+      "type": "LizardAI",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/LizardAI.cs",
+      "sha256": "298a555e4a3349772e2221f5f31727855b7741e72a82f652ed6ccec2e68a50ad",
+      "bytes": 75695,
+      "lines": 1910,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "LizardAI",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "580-670,680-840,950-995,1150-1165,1360-1498,1869-1910"
+    },
+    {
+      "type": "ScavengerAI",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/ScavengerAI.cs",
+      "sha256": "76b6eae257338ddbde04cd4988c631a373c9bccc7f75b02110f88468f2400500",
+      "bytes": 141962,
+      "lines": 3720,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "ScavengerAI",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "RainTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/RainTracker.cs",
+      "sha256": "9734c1fdd6a428d64686e802575019a387e9efd748cb9522a25ede58164933e5",
+      "bytes": 1915,
+      "lines": 61,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "RainTracker",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "full-class-reviewed",
+      "reviewed_windows": "full"
+    },
+    {
+      "type": "RainCycle",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/RainCycle.cs",
+      "sha256": "8ebd51fa54a7a96efc366cd383b21946e407defc57b9bff2bd18276b3d02205a",
+      "bytes": 17707,
+      "lines": 559,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "RainCycle",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "AbstractCreature",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreature.cs",
+      "sha256": "6a48651a49434e2b464ca048cae5d32539cb89eebdf2ea0c3b86ddb0056e8ba9",
+      "bytes": 55393,
+      "lines": 1758,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "AbstractCreature",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "749-859,879-1000,1010-1074"
+    },
+    {
+      "type": "AbstractCreatureAI",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreatureAI.cs",
+      "sha256": "0d3cca2113b754a9921edd08e599f0b124c0f5d67693844c20ef888884933719",
+      "bytes": 26195,
+      "lines": 821,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "AbstractCreatureAI",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "Creature",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Creature.cs",
+      "sha256": "ac631a0dca85569e23bf242adff92601c4367c452f3e804bf27ee64d4c4510d9",
+      "bytes": 46123,
+      "lines": 1543,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Creature",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "CreatureTemplate",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureTemplate.cs",
+      "sha256": "87ff8ac9ad4b956f2e15937a9e0166fe1aef936e1c9d37fe047a09db33fdf716",
+      "bytes": 28648,
+      "lines": 1052,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "CreatureTemplate",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "DenFinder",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/DenFinder.cs",
+      "sha256": "897fbcc46d627b7196b48d32647cbd58a6fbcf328b9db94dd733050986f9ce0e",
+      "bytes": 3403,
+      "lines": 126,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "DenFinder",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "InjuryTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/InjuryTracker.cs",
+      "sha256": "c0100e07a3d480bc6d50f7fee1b8abb17770dfe7a0db7d5e52d1561ff148b6c7",
+      "bytes": 678,
+      "lines": 27,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "InjuryTracker",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "NoiseTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/NoiseTracker.cs",
+      "sha256": "2e50e4a291d2415c01f2fa682e6046d3be4f92114e1da2807db3b417f10a68a0",
+      "bytes": 9797,
+      "lines": 348,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "NoiseTracker",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "StuckTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/StuckTracker.cs",
+      "sha256": "4bb01db09874c4d74a28adbf5c23236c94af95d2d2f0c75355e20c1c06ddb401",
+      "bytes": 8435,
+      "lines": 333,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "StuckTracker",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "Lizard",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Lizard.cs",
+      "sha256": "d45d1c6dbdb5f039abc283915a81c53bf6a430e1a8b6681034a2761e2ef732a6",
+      "bytes": 109145,
+      "lines": 2979,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Lizard",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "1064-1112,1165-1254"
+    },
+    {
+      "type": "AbstractRoom",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractRoom.cs",
+      "sha256": "7930fbc4f3876ed164a8e1897e6acf0968e2c83aae66aa96befe47aabb01c25e",
+      "bytes": 22972,
+      "lines": 891,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "AbstractRoom",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "World",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/World.cs",
+      "sha256": "349f51cf9485debdb019c12b30997515d27fe7377949f2547e312857d9c7e7ef",
+      "bytes": 46139,
+      "lines": 1447,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "World",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "Room",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Room.cs",
+      "sha256": "f7c85fddded97f086befbff4163dcfe0ea6945aab912f663dd669bf413456a20",
+      "bytes": 246276,
+      "lines": 6428,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Room",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "AbstractPhysicalObject",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractPhysicalObject.cs",
+      "sha256": "1a573d00540d3378472584ba70e2af975f80cc556d3442f49db56fad72e40a99",
+      "bytes": 27927,
+      "lines": 873,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "AbstractPhysicalObject",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "CreatureState",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureState.cs",
+      "sha256": "6259ee1a03a25efb1dc5e598cebf67bfe85886c875ee8f0974dca548f71eb555",
+      "bytes": 4081,
+      "lines": 178,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "CreatureState",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "35-55,113,171-175"
+    },
+    {
+      "type": "SocialEventRecognizer",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/SocialEventRecognizer.cs",
+      "sha256": "02bad4a3c73e4c709969b48c87e025a1b4e988a9c61ab09237186013299b4cb6",
+      "bytes": 8522,
+      "lines": 256,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "SocialEventRecognizer",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "selected-windows-reviewed",
+      "reviewed_windows": "31-112,197-231"
+    },
+    {
+      "type": "LizardState",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/LizardState.cs",
+      "sha256": "20430b063c1cf3e9aa888761d95c7325a3f6f8c4206102c317f5177c977870de",
+      "bytes": 3507,
+      "lines": 140,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "LizardState",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "AgressionTracker",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AgressionTracker.cs",
+      "sha256": "48d6864ae902429705cc1c8f5cfac3a0b623021e362aa41cc381f4a70423caf7",
+      "bytes": 3865,
+      "lines": 155,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "AgressionTracker",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    },
+    {
+      "type": "CreatureCommunities",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureCommunities.cs",
+      "sha256": "19552939344b6238855e24f81a4e115c09f3248ef378795247645aace704f866",
+      "bytes": 13509,
+      "lines": 458,
+      "returncode": 0,
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "CreatureCommunities",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "review_status": "captured-unread",
+      "reviewed_windows": null
+    }
+  ],
+  "coverage_definition": "A full source capture is not semantic review. Review windows name inspected source ranges; surrounding class bodies remain unread except full-class-reviewed.",
+  "class_inventory_total_including_nested": 3295,
+  "unextracted_types_path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/UNEXTRACTED_TYPES.txt"
+}

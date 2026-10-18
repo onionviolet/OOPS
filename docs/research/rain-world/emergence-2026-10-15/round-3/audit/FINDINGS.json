@@ -1,0 +1,411 @@
+{
+  "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+  "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "findings": [
+    {
+      "id": "RW3-F1",
+      "title": "Duplicate grip records can be cleaned by later same-target rebuild calls",
+      "status": "shown-managed-source-with-labelled-inference",
+      "locators": [
+        {
+          "type": "PhysicalObject",
+          "method": "Update reconstruction gate",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/PhysicalObject.cs",
+          "sha256": "49f04d1135a4371dc6c0052aff1c53163e875cadadfb51c8b8d07737516cf9ca",
+          "start_line": 512,
+          "end_line": 516
+        },
+        {
+          "type": "Creature",
+          "method": "RecreateSticksFromAbstract",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Creature.cs",
+          "sha256": "ac631a0dca85569e23bf242adff92601c4367c452f3e804bf27ee64d4c4510d9",
+          "start_line": 305,
+          "end_line": 315
+        },
+        {
+          "type": "Creature",
+          "method": "UpdateGraspIndexes and Grab",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Creature.cs",
+          "sha256": "ac631a0dca85569e23bf242adff92601c4367c452f3e804bf27ee64d4c4510d9",
+          "start_line": 1142,
+          "end_line": 1217
+        },
+        {
+          "type": "Creature",
+          "method": "Grasp.Release",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Creature.cs",
+          "sha256": "ac631a0dca85569e23bf242adff92601c4367c452f3e804bf27ee64d4c4510d9",
+          "start_line": 80,
+          "end_line": 90
+        },
+        {
+          "type": "AbstractCreature",
+          "method": "DropCarriedObject",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreature.cs",
+          "sha256": "6a48651a49434e2b464ca048cae5d32539cb89eebdf2ea0c3b86ddb0056e8ba9",
+          "start_line": 1008,
+          "end_line": 1021
+        },
+        {
+          "type": "RegionState",
+          "method": "snapshot owner-A sticks",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+          "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+          "start_line": 1204,
+          "end_line": 1215
+        },
+        {
+          "type": "RegionState",
+          "method": "SaveToString STICKS",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+          "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+          "start_line": 1420,
+          "end_line": 1428
+        }
+      ],
+      "limits": "One-old-record addition and second-identical-record cleanup are symbolic source traces under explicit preconditions, not executed tests.",
+      "native_observed": false
+    },
+    {
+      "id": "RW3-F2",
+      "title": "Staged destruction, registries, room unload and connected readiness",
+      "status": "shown-managed-source-with-labelled-inference",
+      "locators": [
+        {
+          "type": "AbstractWorldEntity",
+          "method": "Destroy",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/AbstractWorldEntity.cs",
+          "sha256": "1ea2132d5e0402734d0381afaeecd4accada8f98cc331df8f97356ccbfc9968e",
+          "start_line": 45,
+          "end_line": 48
+        },
+        {
+          "type": "UpdatableAndDeletable",
+          "method": "RemoveFromRoom and Destroy",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/UpdatableAndDeletable.cs",
+          "sha256": "2d8c2d7f574b842caa31c9cccf75a144921ad83b05c9f8e7c70bc81bc522b0bc",
+          "start_line": 18,
+          "end_line": 27
+        },
+        {
+          "type": "AbstractPhysicalObject",
+          "method": "Destroy and graph collection",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractPhysicalObject.cs",
+          "sha256": "1a573d00540d3378472584ba70e2af975f80cc556d3442f49db56fad72e40a99",
+          "start_line": 708,
+          "end_line": 751
+        },
+        {
+          "type": "AbstractRoom",
+          "method": "Abstractize",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractRoom.cs",
+          "sha256": "7930fbc4f3876ed164a8e1897e6acf0968e2c83aae66aa96befe47aabb01c25e",
+          "start_line": 358,
+          "end_line": 408
+        },
+        {
+          "type": "AbstractRoom",
+          "method": "AddEntity/RemoveEntity",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractRoom.cs",
+          "sha256": "7930fbc4f3876ed164a8e1897e6acf0968e2c83aae66aa96befe47aabb01c25e",
+          "start_line": 437,
+          "end_line": 473
+        },
+        {
+          "type": "Room",
+          "method": "Unloaded",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Room.cs",
+          "sha256": "f7c85fddded97f086befbff4163dcfe0ea6945aab912f663dd669bf413456a20",
+          "start_line": 2594,
+          "end_line": 2601
+        },
+        {
+          "type": "Room",
+          "method": "RemoveObject and CleanOutObjectNotInThisRoom",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Room.cs",
+          "sha256": "f7c85fddded97f086befbff4163dcfe0ea6945aab912f663dd669bf413456a20",
+          "start_line": 4346,
+          "end_line": 4449
+        },
+        {
+          "type": "Room",
+          "method": "Update cleanup loop",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Room.cs",
+          "sha256": "f7c85fddded97f086befbff4163dcfe0ea6945aab912f663dd669bf413456a20",
+          "start_line": 4624,
+          "end_line": 4655
+        },
+        {
+          "type": "RainWorldGame",
+          "method": "Update unloading queue",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-2/extract/RainWorldGame.cs",
+          "sha256": "5fd8ba0f0acc1dbccc6903c055226c7c88ae1405d893e48b892136d62617383f",
+          "start_line": 2188,
+          "end_line": 2243
+        },
+        {
+          "type": "AbstractCreature",
+          "method": "Realize guards",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreature.cs",
+          "sha256": "6a48651a49434e2b464ca048cae5d32539cb89eebdf2ea0c3b86ddb0056e8ba9",
+          "start_line": 426,
+          "end_line": 455
+        },
+        {
+          "type": "AbstractCreature",
+          "method": "Realize linked endpoints and lizard AI initiation",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreature.cs",
+          "sha256": "6a48651a49434e2b464ca048cae5d32539cb89eebdf2ea0c3b86ddb0056e8ba9",
+          "start_line": 575,
+          "end_line": 635
+        },
+        {
+          "type": "AbstractCreature",
+          "method": "RealizeInRoom",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreature.cs",
+          "sha256": "6a48651a49434e2b464ca048cae5d32539cb89eebdf2ea0c3b86ddb0056e8ba9",
+          "start_line": 715,
+          "end_line": 747
+        },
+        {
+          "type": "AbstractCreature",
+          "method": "connected AI-map and camera requirements",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreature.cs",
+          "sha256": "6a48651a49434e2b464ca048cae5d32539cb89eebdf2ea0c3b86ddb0056e8ba9",
+          "start_line": 1081,
+          "end_line": 1113
+        }
+      ],
+      "limits": "Normal control flow shown; unusual null-body, corrupt graph, retained-AI and virtual override routes remain open.",
+      "native_observed": false
+    },
+    {
+      "id": "RW3-F3",
+      "title": "Partial region restoration can omit or reject links despite correct population ordering",
+      "status": "shown-managed-source-with-labelled-inference",
+      "locators": [
+        {
+          "type": "RegionState",
+          "method": "population before saved sticks",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+          "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+          "start_line": 1025,
+          "end_line": 1068
+        },
+        {
+          "type": "RegionState",
+          "method": "CreatureToStringInDenPos",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+          "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+          "start_line": 1487,
+          "end_line": 1526
+        },
+        {
+          "type": "SaveState",
+          "method": "AbstractCreatureFromString and StoryWorld encoding",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 1923,
+          "end_line": 2007
+        },
+        {
+          "type": "AbstractPhysicalObject",
+          "method": "AbstractObjectStick.FromString",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractPhysicalObject.cs",
+          "sha256": "1a573d00540d3378472584ba70e2af975f80cc556d3442f49db56fad72e40a99",
+          "start_line": 117,
+          "end_line": 168
+        },
+        {
+          "type": "Creature",
+          "method": "RecreateSticksFromAbstract",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Creature.cs",
+          "sha256": "ac631a0dca85569e23bf242adff92601c4367c452f3e804bf27ee64d4c4510d9",
+          "start_line": 305,
+          "end_line": 315
+        },
+        {
+          "type": "Creature",
+          "method": "Grab admission index guard",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/Creature.cs",
+          "sha256": "ac631a0dca85569e23bf242adff92601c4367c452f3e804bf27ee64d4c4510d9",
+          "start_line": 1173,
+          "end_line": 1186
+        }
+      ],
+      "limits": "Malformed/partial cases are source admission gaps, not observed corrupt personal saves.",
+      "native_observed": false
+    },
+    {
+      "id": "RW3-F4",
+      "title": "Persistent social state, new realized AI and nonuniform cycle catch-up",
+      "status": "shown-managed-source-with-labelled-inference",
+      "locators": [
+        {
+          "type": "FriendTracker",
+          "method": "fields and default friend pointers",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/FriendTracker.cs",
+          "sha256": "b68fac830fb676ce774743e1ce9a36de9c274526c41dc15d79cefa23ffbf9903",
+          "start_line": 1,
+          "end_line": 35
+        },
+        {
+          "type": "FriendTracker",
+          "method": "constructor and acquisition",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/FriendTracker.cs",
+          "sha256": "b68fac830fb676ce774743e1ce9a36de9c274526c41dc15d79cefa23ffbf9903",
+          "start_line": 47,
+          "end_line": 159
+        },
+        {
+          "type": "LizardAI",
+          "method": "mask counter field",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/LizardAI.cs",
+          "sha256": "298a555e4a3349772e2221f5f31727855b7741e72a82f652ed6ccec2e68a50ad",
+          "start_line": 530,
+          "end_line": 540
+        },
+        {
+          "type": "LizardAI",
+          "method": "new tracker construction",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/LizardAI.cs",
+          "sha256": "298a555e4a3349772e2221f5f31727855b7741e72a82f652ed6ccec2e68a50ad",
+          "start_line": 600,
+          "end_line": 622
+        },
+        {
+          "type": "AbstractCreature",
+          "method": "new lizard AI",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/AbstractCreature.cs",
+          "sha256": "6a48651a49434e2b464ca048cae5d32539cb89eebdf2ea0c3b86ddb0056e8ba9",
+          "start_line": 596,
+          "end_line": 605
+        },
+        {
+          "type": "SocialMemory",
+          "method": "persistent channels and load",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/SocialMemory.cs",
+          "sha256": "56f6376f8fdea2e118ecb367b8b6433455f61d06b34fbf3c70294d0c089be592",
+          "start_line": 26,
+          "end_line": 132
+        },
+        {
+          "type": "CreatureState",
+          "method": "save and load social data",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureState.cs",
+          "sha256": "6259ee1a03a25efb1dc5e598cebf67bfe85886c875ee8f0974dca548f71eb555",
+          "start_line": 46,
+          "end_line": 56
+        },
+        {
+          "type": "CreatureState",
+          "method": "LoadFromString social branch",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureState.cs",
+          "sha256": "6259ee1a03a25efb1dc5e598cebf67bfe85886c875ee8f0974dca548f71eb555",
+          "start_line": 101,
+          "end_line": 114
+        },
+        {
+          "type": "CreatureState",
+          "method": "CycleTick",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/extract/CreatureState.cs",
+          "sha256": "6259ee1a03a25efb1dc5e598cebf67bfe85886c875ee8f0974dca548f71eb555",
+          "start_line": 171,
+          "end_line": 177
+        },
+        {
+          "type": "RegionState",
+          "method": "RainCycleTick state calls",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+          "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+          "start_line": 737,
+          "end_line": 782
+        },
+        {
+          "type": "RegionState",
+          "method": "elapsed cycles invocation",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/RegionState.cs",
+          "sha256": "0ba5795927ec0e9dfce06cc6d36e3581ea348ab5e636c25e1412440d1045d02f",
+          "start_line": 1109,
+          "end_line": 1109
+        },
+        {
+          "type": "SaveState",
+          "method": "SessionEnded snapshot before friend boost",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/SaveState.cs",
+          "sha256": "f29417cc8c6afa0c979a0cdbe2282b3d496cb4f5384d1de0d54137ae3cc66baa",
+          "start_line": 392,
+          "end_line": 445
+        }
+      ],
+      "limits": "Normal new AI starts fresh; exceptional AI retention and same-cycle boost snapshot order remain unresolved.",
+      "native_observed": false
+    },
+    {
+      "id": "RW3-F5",
+      "title": "Save request, backend operation completion and durability are distinct",
+      "status": "shown-managed-source-with-labelled-inference",
+      "locators": [
+        {
+          "type": "PlayerProgression",
+          "method": "SaveToDisk tail",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/PlayerProgression.cs",
+          "sha256": "c70263fc9578a68b21254028b4621f16c11b277defbc202296df937470b24c0e",
+          "start_line": 2690,
+          "end_line": 2706
+        },
+        {
+          "type": "PlayerProgression",
+          "method": "GetProgLinesFromMemory",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/PlayerProgression.cs",
+          "sha256": "c70263fc9578a68b21254028b4621f16c11b277defbc202296df937470b24c0e",
+          "start_line": 2371,
+          "end_line": 2395
+        },
+        {
+          "type": "PlayerProgression",
+          "method": "SaveWorldStateAndProgression",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/PlayerProgression.cs",
+          "sha256": "c70263fc9578a68b21254028b4621f16c11b277defbc202296df937470b24c0e",
+          "start_line": 2491,
+          "end_line": 2518
+        },
+        {
+          "type": "Kittehface.Framework20.UserData",
+          "method": "DataAccessible",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/Kittehface.Framework20.UserData.cs",
+          "sha256": "c4e0adc950621166d649ef4fca85f896dc036e4d76b522fd0c163d3111ec489f",
+          "start_line": 336,
+          "end_line": 347
+        },
+        {
+          "type": "Kittehface.Framework20.UserData",
+          "method": "ExecuteWrite completion/failure tail",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/Kittehface.Framework20.UserData.cs",
+          "sha256": "c4e0adc950621166d649ef4fca85f896dc036e4d76b522fd0c163d3111ec489f",
+          "start_line": 1040,
+          "end_line": 1090
+        },
+        {
+          "type": "Kittehface.Framework20.UserData",
+          "method": "ExecuteWrite_Platform",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/Kittehface.Framework20.UserData.cs",
+          "sha256": "c4e0adc950621166d649ef4fca85f896dc036e4d76b522fd0c163d3111ec489f",
+          "start_line": 1093,
+          "end_line": 1101
+        },
+        {
+          "type": "Kittehface.Framework20.UserData",
+          "method": "Write_Default",
+          "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-3/extract/Kittehface.Framework20.UserData.cs",
+          "sha256": "c4e0adc950621166d649ef4fca85f896dc036e4d76b522fd0c163d3111ec489f",
+          "start_line": 1508,
+          "end_line": 1548
+        }
+      ],
+      "limits": "Some write exceptions can be swallowed before successful operation completion if logging/finally return normally. No OS failure induced, file written, native load or durability test.",
+      "native_observed": false
+    }
+  ]
+}

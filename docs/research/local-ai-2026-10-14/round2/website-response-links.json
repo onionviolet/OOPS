@@ -1,0 +1,78 @@
+[
+  {
+    "href": "https://huggingface.co/Qwen/Qwen3.8-27B",
+    "text": "official model card"
+  },
+  {
+    "href": "https://artificialanalysis.ai/models/comparisons/qwen3-8-27b-vs-muse-glimmer",
+    "text": "Artificial Analysis comparison and methodology"
+  },
+  {
+    "href": "https://github.com/dakshjain-1616/qwen-3.8-27-B-vs-qwen-3.6-27-B-vs-meta-glimmer-30B",
+    "text": "Reproducible local comparison, scripts and raw evidence"
+  },
+  {
+    "href": "https://huggingface.co/Altworld/Hemmingway-1",
+    "text": "Hemmingway"
+  },
+  {
+    "href": "https://huggingface.co/Naphula/Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA",
+    "text": "Goetia v1.3"
+  },
+  {
+    "href": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+    "text": "Muse"
+  },
+  {
+    "href": "https://huggingface.co/LessThanThreeAI/Qwen3.8-27B-Humanlike-Chat-GGUF",
+    "text": "Humanlike Chat"
+  },
+  {
+    "href": "https://huggingface.co/Gryphe/Pantheon-Reasoning-26B-A4B-1.1-V2",
+    "text": "Pantheon"
+  },
+  {
+    "href": "https://huggingface.co/Naphula/Goetia-26B-A4B-v1.7",
+    "text": "v1.7"
+  },
+  {
+    "href": "https://docs.sillytavern.app/usage/core-concepts/worldinfo/",
+    "text": "SillyTavern World Info"
+  },
+  {
+    "href": "https://docs.letta.com/v1-sdk/memory/memory-blocks",
+    "text": "Letta memory blocks"
+  },
+  {
+    "href": "https://github.com/kiyotakali/Miru",
+    "text": "Miru"
+  },
+  {
+    "href": "https://github.com/Open-LLM-VTuber/Open-LLM-VTuber",
+    "text": "Open-LLM-VTuber"
+  },
+  {
+    "href": "https://github.com/moeru-ai/airi",
+    "text": "AIRI"
+  },
+  {
+    "href": "https://github.com/ggml-org/llama.cpp/blob/master/grammars/README.md",
+    "text": "llama.cpp GBNF and JSON Schema"
+  },
+  {
+    "href": "https://github.com/Open-LLM-VTuber/Open-LLM-VTuber/releases",
+    "text": "release history"
+  },
+  {
+    "href": "https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF",
+    "text": "Official Muse GGUF"
+  },
+  {
+    "href": "https://github.com/PipeNetwork/muse-glimmer-mlx",
+    "text": "Dedicated Muse MLX runtime"
+  },
+  {
+    "href": "https://github.com/ggml-org/llama.cpp/blob/master/src/models/gemma4.cpp",
+    "text": "Gemma 4 implementation"
+  }
+]

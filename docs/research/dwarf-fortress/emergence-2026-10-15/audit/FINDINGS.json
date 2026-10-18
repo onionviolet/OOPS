@@ -1,0 +1,206 @@
+{
+  "scope": "research-only independent audit",
+  "source_pin": "Steam975370 build24557528; native SHA256205770918fd54c96cbbcf89223ebd449e2e113c7c873ed81177c4511a3450db7",
+  "findings": [
+    {
+      "id": "DF-EM01",
+      "title": "Blood carries a transmissible ability rather than only a descriptive curse",
+      "status": "static-declaration-chain-only",
+      "shown": "Vampire generator requires learning and blood, excludes not-living/supernatural and six syndrome classes; adds VAMPCURSE and material-bound reference back to the originating interaction for ingestion and injection. No END is emitted on transformation effects.",
+      "inferred": "An actual material exposure path can therefore connect one cursed actor to another without a separate authored quest if the native engine accepts and consumes these definitions.",
+      "native_unresolved": "Native blood removal/containment, dose, contact routing, hidden-state reveal, stacking, transmission and cure/remove policy.",
+      "sources": [
+        {
+          "source_id": "S02",
+          "lines": [
+            53,
+            95
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DF-EM02",
+      "title": "A corpse can become a new capability source with distinct retaliation scope",
+      "status": "static-declaration-chain-only",
+      "shown": "Disturbance requires resurrection fitness, learning/speech and exclusion classes; raised actor gets a disturber-only curse plus broader animation/raise powers. Basic animation and lieutenant resurrection use different fitness gates and tags.",
+      "inferred": "The scene after a disturbance can acquire new threats and eligible bodies, while culpability remains actor-specific. This is a possible feedback chain, not demonstrated repeated resurrection.",
+      "native_unresolved": "Disturber identity lookup, action selection, corpse item ownership, corpse exhaustion/deletion, pathing, kill-to-corpse transition, cooldown scheduler and persistence.",
+      "sources": [
+        {
+          "source_id": "S04",
+          "lines": [
+            28,
+            134
+          ]
+        },
+        {
+          "source_id": "S01",
+          "lines": [
+            170,
+            270
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DF-EM03",
+      "title": "Weather materials connect exposure topology to anatomy and cleanup",
+      "status": "static-declaration-chain-only",
+      "shown": "Cloud material defines four exposure routes and either transformation tags or generated poison effects; regional material references use stored gas/vapor/dust state and weekly emission; poison helper emits optional END, anatomical scope and resistance/size modifiers.",
+      "inferred": "A material hazard can produce different aftermath for different bodies and can share a region with corpse animation. Leaving weather does not itself show syndrome removal.",
+      "native_unresolved": "Exposure volume, shelter, transport, dilution, anatomy evaluation, corpse eligibility after exposure, syndrome expiration engine and inactive-region policy.",
+      "sources": [
+        {
+          "source_id": "S06",
+          "lines": [
+            43,
+            109
+          ]
+        },
+        {
+          "source_id": "S06",
+          "lines": [
+            144,
+            186
+          ]
+        },
+        {
+          "source_id": "S07",
+          "lines": [
+            591,
+            652
+          ]
+        },
+        {
+          "source_id": "S09",
+          "lines": [
+            1,
+            84
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DF-EM04",
+      "title": "Knowledge has a physical production graph with competing material uses",
+      "status": "static-declaration-chain-only",
+      "shown": "Pig tail materials map into drink/seeds/thread/paper; recipes preserve containers, return seeds and process unpressed slurry; book binding requires already-written quire and preserves artifact status/writing by declared improvement. Secret permits research/teaching/book instruction for eligible actors.",
+      "inferred": "Available labor, containers, growing seasons and writing media can change future access to capabilities without awarding knowledge at manufacture time.",
+      "native_unresolved": "Native job reservation/cancel refunds, actual yields, writing/reading duration, knowledge validation, teaching selection, ownership and reader acquisition.",
+      "sources": [
+        {
+          "source_id": "S11",
+          "lines": [
+            65,
+            110
+          ]
+        },
+        {
+          "source_id": "S10",
+          "lines": [
+            265,
+            280
+          ]
+        },
+        {
+          "source_id": "S10",
+          "lines": [
+            382,
+            437
+          ]
+        },
+        {
+          "source_id": "S13",
+          "lines": [
+            247,
+            278
+          ]
+        },
+        {
+          "source_id": "S12",
+          "lines": [
+            230,
+            254
+          ]
+        },
+        {
+          "source_id": "S05",
+          "lines": [
+            104,
+            159
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DF-EM05",
+      "title": "Temporary effects, permanent capabilities and healing name different cleanup contracts",
+      "status": "static-declaration-chain-only",
+      "shown": "Week-long beast/luck clauses emit END8400; vampire/necromancer/disturbance tags omit END; summoned bogeyman/nightmare emit IE_TIME_RANGE200:300; healing names twelve physiological effects ending at12.",
+      "inferred": "A shared status label cannot safely imply one removal path. Ending an effect, reversing tissue damage, deleting a summoned actor, and revoking a capability are different operations.",
+      "native_unresolved": "Native expiration, revert-body item reconciliation, severed-part restoration, summons inventory/death handling, concentration removal and source loss.",
+      "sources": [
+        {
+          "source_id": "S02",
+          "lines": [
+            1,
+            95
+          ]
+        },
+        {
+          "source_id": "S03",
+          "lines": [
+            101,
+            129
+          ]
+        },
+        {
+          "source_id": "S05",
+          "lines": [
+            188,
+            269
+          ]
+        },
+        {
+          "source_id": "S04",
+          "lines": [
+            79,
+            123
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DF-EM06",
+      "title": "Visible lieutenant power definitions are not proof of generated availability",
+      "status": "static-declaration-chain-only",
+      "shown": "Four power definitions use named keys, but basic_lieutenant_powers uses ipairs. All shipped Lua were searched for interactions.powers and iterator overrides, with no conversion found. Ordinary-Lua ipairs does not visit those named keys. add_curses returns no values when num<1.",
+      "inferred": "Under ordinary Lua and unmodified shipped map, retry must finish via nonzero curse count, so named ice/vanish/propel/fog powers are not selected by this function. If mods add numeric entries and retry exits with powers but zero curses, nil-return assignment is a separate conditional failure path.",
+      "native_unresolved": "Embedded iterator bindings, active loader, mod ordering, generated raws and native consuming execution not inspected. Do not call these powers native-playable or claim a proven runtime bug.",
+      "sources": [
+        {
+          "source_id": "S01",
+          "lines": [
+            11,
+            168
+          ]
+        },
+        {
+          "source_id": "S01",
+          "lines": [
+            205,
+            236
+          ]
+        },
+        {
+          "source_id": "S09",
+          "lines": [
+            209,
+            251
+          ]
+        }
+      ]
+    }
+  ]
+}

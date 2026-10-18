@@ -1,0 +1,204 @@
+{
+  "generated": {
+    "claims": [
+      {
+        "source": "S1",
+        "status": "demonstrated",
+        "claim": "Gathering reeds takes 20 minutes for 2 reeds."
+      },
+      {
+        "source": "S2",
+        "status": "demonstrated",
+        "claim": "Weaving a mat takes 30 minutes and consumes 3 reeds."
+      },
+      {
+        "source": "S2",
+        "status": "demonstrated",
+        "claim": "Finished mats sell for 8 copper coins."
+      },
+      {
+        "source": "S4",
+        "status": "unverified_rumor",
+        "claim": "Witness knot may restore memory; only demonstrated to repeat a promise."
+      },
+      {
+        "source": "S5",
+        "status": "demonstrated",
+        "claim": "Lysa lacks knowledge of the saltwater gate solution."
+      }
+    ],
+    "draft": {
+      "siteName": "Duskfen Bench",
+      "siteDescription": "Open riverbank weaving station.",
+      "inputName": "Reed",
+      "inputStart": 6,
+      "outputName": "Storm Mat",
+      "activityName": "Gather Reeds",
+      "activityDescription": "Collect reeds from bank.",
+      "requiredInput": 1,
+      "inputCost": 0,
+      "minutes": 20,
+      "outputGain": 2,
+      "coinPay": 0,
+      "gatherMinutes": 20,
+      "gatherAmount": 2
+    },
+    "blockedMechanics": [
+      "Ferry repair",
+      "Witness knot",
+      "Locked gate"
+    ],
+    "witness": {
+      "sequence": [
+        "gather",
+        "gather",
+        "gather",
+        "gather",
+        "gather",
+        "gather",
+        "gather",
+        "gather"
+      ],
+      "inputRemaining": 2,
+      "mats": 3,
+      "coins": 24,
+      "minutes": 160
+    },
+    "publicLine": "I need six more reeds to weave the three mats the ferryman is waiting for."
+  },
+  "compiled": {
+    "schema": 1,
+    "id": "authored_site",
+    "title": "Duskfen Bench",
+    "authored": true,
+    "description": "Open riverbank weaving station.",
+    "world": {
+      "id": "authored_site.world",
+      "label": "Duskfen Bench"
+    },
+    "locations": [
+      {
+        "id": "authored_site.site",
+        "label": "Duskfen Bench",
+        "description": "Open riverbank weaving station."
+      }
+    ],
+    "people": [],
+    "initial": {
+      "input": 6,
+      "output": 0
+    },
+    "status": {
+      "input": "Reed",
+      "output": "Storm Mat"
+    },
+    "activities": [
+      {
+        "id": "authored_site.work",
+        "label": "Gather Reeds",
+        "description": "Collect reeds from bank.",
+        "duration": 20,
+        "requires": [
+          {
+            "field": "input",
+            "op": "gte",
+            "value": 1
+          }
+        ],
+        "start": {},
+        "complete": {
+          "add": {
+            "output": 2
+          }
+        },
+        "pay": 0
+      },
+      {
+        "id": "authored_site.gather",
+        "label": "Gather Reed",
+        "description": "Collect 2 Reed.",
+        "duration": 20,
+        "start": {},
+        "complete": {
+          "add": {
+            "input": 2
+          }
+        }
+      }
+    ]
+  },
+  "sourceTrace": [
+    {
+      "step": "gather",
+      "minutes": 20,
+      "coins": 0,
+      "values": {
+        "input": 8,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 40,
+      "coins": 0,
+      "values": {
+        "input": 10,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 60,
+      "coins": 0,
+      "values": {
+        "input": 12,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 80,
+      "coins": 0,
+      "values": {
+        "input": 14,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 100,
+      "coins": 0,
+      "values": {
+        "input": 16,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 120,
+      "coins": 0,
+      "values": {
+        "input": 18,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 140,
+      "coins": 0,
+      "values": {
+        "input": 20,
+        "output": 0
+      }
+    },
+    {
+      "step": "gather",
+      "minutes": 160,
+      "coins": 0,
+      "values": {
+        "input": 22,
+        "output": 0
+      }
+    }
+  ]
+}

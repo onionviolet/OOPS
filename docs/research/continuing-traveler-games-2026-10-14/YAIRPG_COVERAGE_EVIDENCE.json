@@ -1,0 +1,1883 @@
+{
+  "date": "2026-10-14",
+  "timezone": "America/New_York",
+  "scope": "RetroMUD and 4Dimensions absorption proposal overlap check. Snapshot locators may move as other lanes edit shared files.",
+  "report": "YAIRPG_ABSORPTION_PROPOSALS.md",
+  "donor_evidence": "MUD_EVIDENCE.json",
+  "donor_guide": "MUD_SOURCE_GUIDE.md",
+  "state": "Documentation and static inspection only; no gameplay, build, tests, accepted direction change, commit or push.",
+  "coverage": {
+    "COV01": [
+      "src/home_furnishing_content.js",
+      "src/home_furnishing_host.js",
+      "src/book_world_mol_content.js"
+    ],
+    "COV02": [
+      "src/systems_workshop_content.js"
+    ],
+    "COV03": [
+      "src/village_career.js",
+      "docs/gm/dispatch/village-choices-2026-10-09/REPORT.md"
+    ],
+    "COV04": [
+      "src/audit_remainder_home_content.js",
+      "src/world_completion_learning_content.js"
+    ],
+    "COV05": [
+      "src/home_furnishing_content.js",
+      "src/systems_workshop_content.js",
+      "src/systems_workshop_runtime.js"
+    ],
+    "COV06": [
+      "src/realm_cargo.js",
+      "src/realm_connections.js",
+      "src/native_realm_traveler.js",
+      "src/realm_traveler_profiles.js"
+    ],
+    "COV07": [
+      "src/techniques.js",
+      "src/technique_ui.js",
+      "src/body_progression.js",
+      "src/realm_boundary_rules.js"
+    ],
+    "COV08": [
+      "src/market_saturation.js",
+      "src/native_trade_transaction.js"
+    ],
+    "COV09": [
+      "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+      "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md",
+      "src/native_realm_traveler.js"
+    ],
+    "COV10": [
+      "src/heir_inheritance.js",
+      "src/life_experience_host.js",
+      "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md"
+    ],
+    "COV11": [
+      "docs/worlds/world-depth-2026-10-13/33_INSTITUTIONS_AND_COMMUNITIES.md",
+      "src/agreed_duty_host.js"
+    ]
+  },
+  "files": [
+    {
+      "path": "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+      "sha256": "903466c9d568a9ac0445d8ee7dd665db0601af0c2f61ada06156bf666debf15d",
+      "line_count": 1600,
+      "locators": [
+        {
+          "line": 1,
+          "text": "# Companions, familiars, pets and more: considerations"
+        },
+        {
+          "line": 30,
+          "text": "## A. Kinds of companion"
+        },
+        {
+          "line": 53,
+          "text": "## B. How you get one"
+        },
+        {
+          "line": 70,
+          "text": "## C. The bond"
+        },
+        {
+          "line": 103,
+          "text": "## D. Growth, age and loss"
+        },
+        {
+          "line": 118,
+          "text": "## E. Care and daily life"
+        },
+        {
+          "line": 134,
+          "text": "## F. Companions in danger"
+        },
+        {
+          "line": 147,
+          "text": "## G. Mounts, travel and carrying"
+        },
+        {
+          "line": 162,
+          "text": "## H. Per-world fit (illustrative)"
+        },
+        {
+          "line": 183,
+          "text": "## I. Viewpoint and continuity"
+        },
+        {
+          "line": 195,
+          "text": "## J. Cheat-flavoured companions (aspects of one cheat)"
+        },
+        {
+          "line": 210,
+          "text": "## K. Other stuff"
+        },
+        {
+          "line": 229,
+          "text": "## L. Presentation and idle"
+        },
+        {
+          "line": 241,
+          "text": "## M. Expansions"
+        },
+        {
+          "line": 256,
+          "text": "## N. Engine shape (candidate, not selected)"
+        },
+        {
+          "line": 263,
+          "text": "## Round 2 (2026-10-14)"
+        },
+        {
+          "line": 272,
+          "text": "### O. Minds and personhood"
+        },
+        {
+          "line": 284,
+          "text": "### P. Talking with it"
+        },
+        {
+          "line": 295,
+          "text": "### Q. Merging and sharing a body"
+        },
+        {
+          "line": 309,
+          "text": "### R. Scale: one friend to an army"
+        },
+        {
+          "line": 321,
+          "text": "### S. Society around companions"
+        },
+        {
+          "line": 333,
+          "text": "### T. Darker turns"
+        },
+        {
+          "line": 348,
+          "text": "### U. Cozy turns"
+        },
+        {
+          "line": 358,
+          "text": "### V. Time and idle, deeper"
+        },
+        {
+          "line": 370,
+          "text": "### W. Links to other systems"
+        },
+        {
+          "line": 384,
+          "text": "### X. More cheat shapes"
+        },
+        {
+          "line": 396,
+          "text": "### Y. Companions that aren't creatures"
+        },
+        {
+          "line": 404,
+          "text": "### Z. Presentation, round 2"
+        },
+        {
+          "line": 412,
+          "text": "### M. Expansions, round 2"
+        },
+        {
+          "line": 421,
+          "text": "## Round 3 (2026-10-14)"
+        },
+        {
+          "line": 427,
+          "text": "### AA. Where companions come from"
+        },
+        {
+          "line": 438,
+          "text": "### AB. Companion as elder"
+        },
+        {
+          "line": 447,
+          "text": "### AC. The roles reversed"
+        },
+        {
+          "line": 456,
+          "text": "### AE. Ways to lose one besides death"
+        },
+        {
+          "line": 468,
+          "text": "### AF. Memory and recognition"
+        },
+        {
+          "line": 480,
+          "text": "### AG. Culture and custom"
+        },
+        {
+          "line": 489,
+          "text": "### AH. Not knowing how to care for it"
+        },
+        {
+          "line": 498,
+          "text": "### AI. Building for companions"
+        },
+        {
+          "line": 505,
+          "text": "### AJ. Fighting habits"
+        },
+        {
+          "line": 514,
+          "text": "### AK. Comfort and player settings"
+        },
+        {
+          "line": 521,
+          "text": "### AL. Companions in the story of a life"
+        },
+        {
+          "line": 528,
+          "text": "### AM. More cheat shapes"
+        },
+        {
+          "line": 538,
+          "text": "## Round 4 (2026-10-14)"
+        },
+        {
+          "line": 544,
+          "text": "### BA. Teams of companions"
+        },
+        {
+          "line": 554,
+          "text": "### BB. Companions at work, not just in fights"
+        },
+        {
+          "line": 566,
+          "text": "### BC. Companion businesses"
+        },
+        {
+          "line": 573,
+          "text": "### BD. Health, deeper"
+        },
+        {
+          "line": 581,
+          "text": "### BE. When you change"
+        },
+        {
+          "line": 588,
+          "text": "### BF. Same companion, different worlds"
+        },
+        {
+          "line": 595,
+          "text": "### BG. Law, politics and inheritance"
+        },
+        {
+          "line": 602,
+          "text": "### BH. Wild things that never become yours"
+        },
+        {
+          "line": 608,
+          "text": "### BI. Legendary beasts"
+        },
+        {
+          "line": 616,
+          "text": "### BJ. Companion arc shapes"
+        },
+        {
+          "line": 624,
+          "text": "### BK. More cheat shapes"
+        },
+        {
+          "line": 634,
+          "text": "## Lane returns C1 to C5 (folded 2026-10-14)"
+        },
+        {
+          "line": 651,
+          "text": "### C3 new angles (codes kept as C3 wrote them)"
+        },
+        {
+          "line": 671,
+          "text": "### C4 tensions worth keeping in view"
+        },
+        {
+          "line": 691,
+          "text": "## Round 5 (2026-10-14)"
+        },
+        {
+          "line": 697,
+          "text": "### CA. Who you are to it"
+        },
+        {
+          "line": 703,
+          "text": "### CB. Life stages with their own verbs"
+        },
+        {
+          "line": 711,
+          "text": "### CC. Human-form and shapeshifting companions"
+        },
+        {
+          "line": 720,
+          "text": "### CD. Keepsakes and remains"
+        },
+        {
+          "line": 728,
+          "text": "### CE. Companions as gifts and diplomacy"
+        },
+        {
+          "line": 736,
+          "text": "### CF. Making minds"
+        },
+        {
+          "line": 743,
+          "text": "### CG. Odd environments"
+        },
+        {
+          "line": 748,
+          "text": "### CH. Enemies' companions"
+        },
+        {
+          "line": 754,
+          "text": "### CI. Opt-out and tone"
+        },
+        {
+          "line": 759,
+          "text": "### CJ. Prestige and reset (lane C8)"
+        },
+        {
+          "line": 767,
+          "text": "### CK. The idle number layer"
+        },
+        {
+          "line": 773,
+          "text": "### CL. Titles, festivals, texture"
+        },
+        {
+          "line": 781,
+          "text": "### CM. More cheat shapes"
+        },
+        {
+          "line": 791,
+          "text": "## Round 6: subtle micro stuff (2026-10-14)"
+        },
+        {
+          "line": 801,
+          "text": "### DA. Body language tells"
+        },
+        {
+          "line": 813,
+          "text": "### DB. Routines"
+        },
+        {
+          "line": 821,
+          "text": "### DC. Tiny preferences"
+        },
+        {
+          "line": 828,
+          "text": "### DD. Small memories"
+        },
+        {
+          "line": 835,
+          "text": "### DE. Senses you don't have"
+        },
+        {
+          "line": 844,
+          "text": "### DF. Reading you"
+        },
+        {
+          "line": 851,
+          "text": "### DG. Visible ageing"
+        },
+        {
+          "line": 857,
+          "text": "### DH. Names"
+        },
+        {
+          "line": 864,
+          "text": "### DI. Mischief"
+        },
+        {
+          "line": 871,
+          "text": "### DJ. Presence in the text"
+        },
+        {
+          "line": 878,
+          "text": "### DK. Objects that show history"
+        },
+        {
+          "line": 884,
+          "text": "### DL. The neighbourhood knows it"
+        },
+        {
+          "line": 890,
+          "text": "### DM. Familiar and spirit asides"
+        },
+        {
+          "line": 896,
+          "text": "### DN. Mounts"
+        },
+        {
+          "line": 902,
+          "text": "### DO. Seasons on the body"
+        },
+        {
+          "line": 907,
+          "text": "### DP. Feedback without toasts"
+        },
+        {
+          "line": 914,
+          "text": "### DQ. Grief at small scale"
+        },
+        {
+          "line": 920,
+          "text": "### DR. Small choices that add up"
+        },
+        {
+          "line": 926,
+          "text": "### DS. Folklore touches"
+        },
+        {
+          "line": 933,
+          "text": "### DT. Small cheats"
+        },
+        {
+          "line": 941,
+          "text": "## Round 7: more micro, plus other stuff (2026-10-14)"
+        },
+        {
+          "line": 947,
+          "text": "### EA. Small verbs with no numbers"
+        },
+        {
+          "line": 954,
+          "text": "### EB. Sound"
+        },
+        {
+          "line": 960,
+          "text": "### EC. Consistency marks"
+        },
+        {
+          "line": 966,
+          "text": "### ED. Mirroring"
+        },
+        {
+          "line": 972,
+          "text": "### EE. Talking birds and loose lips"
+        },
+        {
+          "line": 979,
+          "text": "### EF. Dates"
+        },
+        {
+          "line": 984,
+          "text": "### EG. Jealousy and attention"
+        },
+        {
+          "line": 990,
+          "text": "### EH. Health clues for the player to notice"
+        },
+        {
+          "line": 997,
+          "text": "### EI. Weather sense"
+        },
+        {
+          "line": 1001,
+          "text": "### EJ. Small trust repair"
+        },
+        {
+          "line": 1007,
+          "text": "### EK. Firsts"
+        },
+        {
+          "line": 1013,
+          "text": "### EL. Lasts"
+        },
+        {
+          "line": 1019,
+          "text": "### EM. Its small wins"
+        },
+        {
+          "line": 1024,
+          "text": "### EN. Reunions"
+        },
+        {
+          "line": 1031,
+          "text": "### EO. Where it walks"
+        },
+        {
+          "line": 1036,
+          "text": "### EP. Food habits"
+        },
+        {
+          "line": 1041,
+          "text": "### EQ. What it guards"
+        },
+        {
+          "line": 1045,
+          "text": "### ER. Two companions together"
+        },
+        {
+          "line": 1050,
+          "text": "### ES. Spirit oddities"
+        },
+        {
+          "line": 1056,
+          "text": "### ET. Interface micro"
+        },
+        {
+          "line": 1062,
+          "text": "### Other stuff"
+        },
+        {
+          "line": 1073,
+          "text": "### More cheat shapes"
+        },
+        {
+          "line": 1081,
+          "text": "## Lane returns C6 and C8 (folded 2026-10-14)"
+        },
+        {
+          "line": 1112,
+          "text": "## Round 8: subtle stuff (2026-10-14)"
+        },
+        {
+          "line": 1116,
+          "text": "### FA. Things the game never says outright"
+        },
+        {
+          "line": 1125,
+          "text": "### FB. Small agency"
+        },
+        {
+          "line": 1133,
+          "text": "### FC. Temperament shaped by life"
+        },
+        {
+          "line": 1138,
+          "text": "### FD. Dreams"
+        },
+        {
+          "line": 1143,
+          "text": "### FE. How others read your care"
+        },
+        {
+          "line": 1149,
+          "text": "### FF. Quiet loyalty tests"
+        },
+        {
+          "line": 1154,
+          "text": "### FG. Private signals"
+        },
+        {
+          "line": 1159,
+          "text": "### FH. Comfort objects"
+        },
+        {
+          "line": 1163,
+          "text": "### FI. Late-life rhythm"
+        },
+        {
+          "line": 1168,
+          "text": "### FJ. Ordinary is enough"
+        },
+        {
+          "line": 1173,
+          "text": "### FK. Long tail"
+        },
+        {
+          "line": 1178,
+          "text": "### Other stuff"
+        },
+        {
+          "line": 1187,
+          "text": "### More cheat shapes"
+        },
+        {
+          "line": 1195,
+          "text": "## Lane return C7 (folded 2026-10-14)"
+        },
+        {
+          "line": 1213,
+          "text": "## Round 9: cheats that show, implementation, subtle (2026-10-14)"
+        },
+        {
+          "line": 1221,
+          "text": "### GA. Reveal cheats: seeing what is normally only a cue"
+        },
+        {
+          "line": 1237,
+          "text": "### GB. Reveal cheat shapes"
+        },
+        {
+          "line": 1263,
+          "text": "### GC. Implementation implications (Claude's summary; C13 will detail)"
+        },
+        {
+          "line": 1288,
+          "text": "### GD. Subtle, round 4"
+        },
+        {
+          "line": 1301,
+          "text": "### GE. Other stuff"
+        },
+        {
+          "line": 1309,
+          "text": "## Lane return C10 (folded 2026-10-14)"
+        },
+        {
+          "line": 1323,
+          "text": "## Round 10: comics, overarching, abstraction, crafting, research (2026-10-14)"
+        },
+        {
+          "line": 1332,
+          "text": "### HA. Comic worlds (MEMORY until C14 checks them)"
+        },
+        {
+          "line": 1342,
+          "text": "### HB. Comic mechanics worth taking"
+        },
+        {
+          "line": 1362,
+          "text": "### HC. Overarching principles (each said once)"
+        },
+        {
+          "line": 1380,
+          "text": "### HD. Abstraction sketch (C16 tests it)"
+        },
+        {
+          "line": 1398,
+          "text": "### HE. Crafting around companions (C15 details)"
+        },
+        {
+          "line": 1408,
+          "text": "### HF. Research in the world"
+        },
+        {
+          "line": 1421,
+          "text": "### HG. Subtle, round 5"
+        },
+        {
+          "line": 1430,
+          "text": "### HH. Reveal cheats, round 2"
+        },
+        {
+          "line": 1439,
+          "text": "## Lane return C9 (folded 2026-10-14)"
+        },
+        {
+          "line": 1454,
+          "text": "## Round 11 (2026-10-14)"
+        },
+        {
+          "line": 1459,
+          "text": "### Topic map (where to read by question)"
+        },
+        {
+          "line": 1475,
+          "text": "### IA. Merging companions"
+        },
+        {
+          "line": 1488,
+          "text": "### IB. Subtle, round 6"
+        },
+        {
+          "line": 1494,
+          "text": "### IC. Reveal cheats, round 3"
+        },
+        {
+          "line": 1501,
+          "text": "## Lane returns C11 to C16 (folded 2026-10-14)"
+        },
+        {
+          "line": 1507,
+          "text": "### Corrections and contradictions"
+        },
+        {
+          "line": 1531,
+          "text": "### What each lane adds"
+        },
+        {
+          "line": 1542,
+          "text": "### Build layers from C13 (dependency order, not a schedule)"
+        },
+        {
+          "line": 1555,
+          "text": "### Comic mechanics from C14"
+        },
+        {
+          "line": 1567,
+          "text": "### Duplicates"
+        },
+        {
+          "line": 1575,
+          "text": "### Top picks across C11 to C16"
+        },
+        {
+          "line": 1588,
+          "text": "## Suggestions (separate from the palette)"
+        }
+      ],
+      "coverage": [
+        "COV09"
+      ],
+      "evidence": "design/research owner, not gameplay proof"
+    },
+    {
+      "path": "docs/gm/dispatch/village-choices-2026-10-09/REPORT.md",
+      "sha256": "c00708b2974b45c71c6fb00f38ab0acc65ef4344080c9d741c4f07f26a749280",
+      "line_count": 72,
+      "locators": [
+        {
+          "line": 1,
+          "text": "# Village choices, 2026-10-09"
+        },
+        {
+          "line": 7,
+          "text": "## Play"
+        },
+        {
+          "line": 31,
+          "text": "## Audit"
+        },
+        {
+          "line": 45,
+          "text": "## Verification"
+        }
+      ],
+      "coverage": [
+        "COV03"
+      ],
+      "evidence": "historical bounded report, not rerun"
+    },
+    {
+      "path": "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md",
+      "sha256": "642f16e130253d49793cf3f43d4cd2eaed3a0bf0919931606b9ab2464ca3512e",
+      "line_count": 1182,
+      "locators": [
+        {
+          "line": 1,
+          "text": "# Nonhuman bodies as authored data, 2026-10-14"
+        },
+        {
+          "line": 9,
+          "text": "## 1. Reuse sibling owners and current seams"
+        },
+        {
+          "line": 23,
+          "text": "### SHOWN: inspected source anchors"
+        },
+        {
+          "line": 36,
+          "text": "## 2. Proposed authoring format"
+        },
+        {
+          "line": 40,
+          "text": "### Template, instance and start are different records"
+        },
+        {
+          "line": 54,
+          "text": "### BA-E1: Village hound (BK1)"
+        },
+        {
+          "line": 312,
+          "text": "### BA-E2: rooted Village sapling (BK3)"
+        },
+        {
+          "line": 521,
+          "text": "### BA-E3: speaking practice blade (BK6)"
+        },
+        {
+          "line": 715,
+          "text": "### BA-E4: existing Wolf converted to a playable template (N26/N27)"
+        },
+        {
+          "line": 1005,
+          "text": "## 3. N34 authoring checklist"
+        },
+        {
+          "line": 1026,
+          "text": "## 4. N33 lint rules and precise diagnostics"
+        },
+        {
+          "line": 1052,
+          "text": "## 5. N32 shared fixture set"
+        },
+        {
+          "line": 1077,
+          "text": "## 6. OT4 procedural species from the function vocabulary"
+        },
+        {
+          "line": 1081,
+          "text": "### Constraint pipeline"
+        },
+        {
+          "line": 1098,
+          "text": "### Private dossier checks, summaries only"
+        },
+        {
+          "line": 1108,
+          "text": "## 7. Per-world body packs and structured admission"
+        },
+        {
+          "line": 1133,
+          "text": "### Proposed compiler/runtime change, explicitly future work"
+        },
+        {
+          "line": 1147,
+          "text": "## 8. Considerations BA1-BA12"
+        },
+        {
+          "line": 1166,
+          "text": "## 9. Suggestions, at most five"
+        },
+        {
+          "line": 1176,
+          "text": "## 10. Delivery and remaining gates"
+        }
+      ],
+      "coverage": [
+        "COV09"
+      ],
+      "evidence": "design/research owner, not gameplay proof"
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md",
+      "sha256": "e5a1d87e46fde4dee3df8f0ec9c02df1376bb025d44c23fc1eb80b5f9e361f18",
+      "line_count": 140,
+      "locators": [
+        {
+          "line": 1,
+          "text": "# Q. Cross-life carryover and retrofitting prior systems (proposal, 2026-10-13)"
+        },
+        {
+          "line": 16,
+          "text": "## What the code does today (read 2026-10-13, not run)"
+        },
+        {
+          "line": 29,
+          "text": "## Save layers (the place each carry lives)"
+        },
+        {
+          "line": 41,
+          "text": "## A. Cross-life carryover (CL)"
+        },
+        {
+          "line": 80,
+          "text": "### Per priority world: carry profile (CLW)"
+        },
+        {
+          "line": 93,
+          "text": "## B. Retrofit prior systems for future capabilities (RT)"
+        },
+        {
+          "line": 118,
+          "text": "## Needs Weibao (accepted rules or decisions a retrofit would touch)"
+        },
+        {
+          "line": 130,
+          "text": "## C. Suggestions, ranked cheapest first (with save impact)"
+        }
+      ],
+      "coverage": [
+        "COV10"
+      ],
+      "evidence": "design/research owner, not gameplay proof"
+    },
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/33_INSTITUTIONS_AND_COMMUNITIES.md",
+      "sha256": "85da645b3a1f3b036d80ed39db4b39f4ade58fa59e0c0e4792dd9c5f23938b59",
+      "line_count": 281,
+      "locators": [
+        {
+          "line": 1,
+          "text": "# Institutions and communities by world (proposal, 2026-10-14)"
+        },
+        {
+          "line": 11,
+          "text": "## 1. Code today (ICD)"
+        },
+        {
+          "line": 32,
+          "text": "## 2. Institution palette: kinds and terms (IKP, IOP)"
+        },
+        {
+          "line": 72,
+          "text": "## 3. Communities and belonging (ICP)"
+        },
+        {
+          "line": 91,
+          "text": "## 4. Worlds: lore, entry and consequences (IWG)"
+        },
+        {
+          "line": 95,
+          "text": "### Harry Potter"
+        },
+        {
+          "line": 106,
+          "text": "### D&D / Forgotten Realms"
+        },
+        {
+          "line": 116,
+          "text": "### TTKS: five separate books"
+        },
+        {
+          "line": 128,
+          "text": "### Mother of Learning"
+        },
+        {
+          "line": 138,
+          "text": "### A Soldier's Life: held public design"
+        },
+        {
+          "line": 147,
+          "text": "### Home Village / original Frontier"
+        },
+        {
+          "line": 157,
+          "text": "### LOTM / Circle of Inevitability"
+        },
+        {
+          "line": 167,
+          "text": "### Naruto"
+        },
+        {
+          "line": 177,
+          "text": "### Shadow Slave"
+        },
+        {
+          "line": 188,
+          "text": "### Frieren"
+        },
+        {
+          "line": 197,
+          "text": "### Cultivation: bind one source at a time"
+        },
+        {
+          "line": 208,
+          "text": "## 5. Connections to other systems (IXT)"
+        },
+        {
+          "line": 227,
+          "text": "## 6. Discovery and desktop presentation (IDV)"
+        },
+        {
+          "line": 242,
+          "text": "## 7. Prerequisites and the cheapest five slices (IPR, ISL)"
+        },
+        {
+          "line": 267,
+          "text": "## 8. Conflicts and reconciliation notes (ICF)"
+        }
+      ],
+      "coverage": [
+        "COV11"
+      ],
+      "evidence": "design/research owner, not gameplay proof"
+    },
+    {
+      "path": "src/agreed_duty_host.js",
+      "sha256": "802b8c7b1f31ed4849f304253cfd2d59c541a99a06015b7c1972a0968cfe884e",
+      "line_count": 155,
+      "locators": [
+        {
+          "line": 23,
+          "text": "export function joinAgreedDutyDefinitions(definitions) {"
+        },
+        {
+          "line": 34,
+          "text": "export function agreedDutySocietyCommandAdmission(state,commandId) {"
+        },
+        {
+          "line": 41,
+          "text": "export function assertAgreedDutySocietyCommandAdmission(state,commandId) {"
+        },
+        {
+          "line": 47,
+          "text": "export function agreedDutyFilterSocietyActions(state,actions) {"
+        },
+        {
+          "line": 51,
+          "text": "export function agreedDutyPresentation(state,registry,context) {"
+        },
+        {
+          "line": 84,
+          "text": "export function commitAgreedDutyAction(state,registry,context,commandId,expectedSequence=state.sequence) {"
+        },
+        {
+          "line": 102,
+          "text": "export function agreedDutyCompletionEffects(state, job) {"
+        },
+        {
+          "line": 111,
+          "text": "export function agreedDutyCancellationEffects(state, job) {"
+        },
+        {
+          "line": 120,
+          "text": "export function agreedDutyStoppedEffects(state, job) {"
+        },
+        {
+          "line": 129,
+          "text": "export function agreedDutyRefusalEffects(state) {"
+        },
+        {
+          "line": 140,
+          "text": "export function agreedDutyPeopleView(state) {"
+        }
+      ],
+      "coverage": [
+        "COV11"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+      "line_count": 194,
+      "locators": [
+        {
+          "line": 6,
+          "text": "export const REMAINDER_HOME_IDS = Object.freeze({"
+        },
+        {
+          "line": 15,
+          "text": "export const remainderHomeSources = [{id: I.method, revision: 1, label: 'Neri\\'s ordinary kit binding', kind: 'technique', origin: 'trained', grants: [],"
+        },
+        {
+          "line": 18,
+          "text": "export const REMAINDER_HOME_KEYS = Object.freeze({...OK,"
+        },
+        {
+          "line": 22,
+          "text": "export const remainderHomeItemSpecifications = Object.freeze(["
+        },
+        {
+          "line": 58,
+          "text": "export const remainderHomeRoomProject = {id: I.room, revision: 1, worldId: I.world, phases: ["
+        },
+        {
+          "line": 79,
+          "text": "export const remainderHomeDefinitions = {"
+        }
+      ],
+      "coverage": [
+        "COV04"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "line_count": 85,
+      "locators": [
+        {
+          "line": 3,
+          "text": "export const SORE_HANDS = \"body.sore_hands\", SCRAPED_HANDS = \"body.scraped_hands\";"
+        },
+        {
+          "line": 4,
+          "text": "export const NATURAL_BALANCE = \"body.natural_balance\", CONDITIONED_GRIP = \"body.conditioned_grip\", PALM_MARK = \"body.palm_mark\";"
+        },
+        {
+          "line": 15,
+          "text": "export const bodySources = ["
+        },
+        {
+          "line": 20,
+          "text": "export const bodyCapabilities=[{id:\"body.hand_control\",label:\"Hand control\",stacking:\"max\",providers:[]}];"
+        },
+        {
+          "line": 21,
+          "text": "export const bodyConditions = ["
+        },
+        {
+          "line": 32,
+          "text": "export const bodyCommands = ["
+        },
+        {
+          "line": 65,
+          "text": "export function bodyFacts(state) {"
+        },
+        {
+          "line": 71,
+          "text": "export function beginBodyRecord(state,registry,context) {"
+        },
+        {
+          "line": 79,
+          "text": "export function bodyScene(state) {"
+        }
+      ],
+      "coverage": [
+        "COV07"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/book_world_mol_content.js",
+      "sha256": "6033a10b6845e0529e9109be1e351f75846b6655b091f142fd0a424b04360280",
+      "line_count": 56,
+      "locators": [
+        {
+          "line": 5,
+          "text": "export const molWorlds=[{id:I.world,label:'Cyoria · academy visitor campaign',publicName:'Cyoria',continuityLabel:'Original independent retained-body branch',provenance:'nobody103, Mother of Learning; qualified supplied WebToEpub snapshot e"
+        },
+        {
+          "line": 6,
+          "text": "export const MOL_INITIAL_FACTS={[I.world]:{'book.mol.arrivalMet':false,'book.mol.arcClosed':false,'book.mol.retrieval':'unoffered','book.mol.hazard':'undisturbed','book.mol.forecast':'unknown','book.mol.aftermath':'unresolved','book.mol.res"
+        },
+        {
+          "line": 28,
+          "text": "export const MOL_NATIVE_PEOPLE={"
+        },
+        {
+          "line": 38,
+          "text": "export const MOL_NATIVE_STOCK={[I.stock]:{[K.watch]:1},[I.shop]:{[K.paper]:6,[K.ink]:4,[K.cube]:3,[K.oil]:3,[K.meal]:4,[K.rope]:3}};"
+        },
+        {
+          "line": 40,
+          "text": "export const molDefinitions={people,sites:[{id:I.site,revision:1,label:'Cyoria supervised workshop bench',capacity:1}],powers:molPowers,conditions:molConditions,encounters:molEncounters,situations:molSituations,commands:molCommands,controll"
+        },
+        {
+          "line": 41,
+          "text": "export const MOL_ITEM_SPECIFICATIONS=["
+        },
+        {
+          "line": 56,
+          "text": "export function registerMolItems({itemTemplates,OtherItem}){for(const spec of MOL_ITEM_SPECIFICATIONS){if(itemTemplates[spec.id])throw Error(`Duplicate Mother of Learning item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}"
+        }
+      ],
+      "coverage": [
+        "COV01"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/heir_inheritance.js",
+      "sha256": "41c510b1ceb72e39620ea97c5c9f0a3763604a4dd329de5a5b8cccbc5fc4370f",
+      "line_count": 115,
+      "locators": [
+        {
+          "line": 7,
+          "text": "export const HEIR_OBLIGATIONS = Object.freeze({"
+        },
+        {
+          "line": 11,
+          "text": "export const HEIR_HOME_LOCATION = 'Shack';"
+        },
+        {
+          "line": 25,
+          "text": "export function itemLabel(key) {"
+        },
+        {
+          "line": 32,
+          "text": "export function deriveHeirLeftovers(previous, {equippedKeys = []} = {}) {"
+        },
+        {
+          "line": 68,
+          "text": "export function validateHeirLeftovers(l) {"
+        },
+        {
+          "line": 81,
+          "text": "export function applyHeirLeftovers(next, leftovers) {"
+        },
+        {
+          "line": 98,
+          "text": "export function heirLeftoverLines(l, labels = {}) {"
+        }
+      ],
+      "coverage": [
+        "COV10"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/home_furnishing_content.js",
+      "sha256": "de307466f4db3b9e25d1a3ad7729edbc45c5eb02a28e65131c77415d0d58f2a2",
+      "line_count": 106,
+      "locators": [
+        {
+          "line": 7,
+          "text": "export const HOME_FURNISHING_IDS = Object.freeze({prefix: 'home_furnishings.', group: 'home_furnishings',"
+        },
+        {
+          "line": 12,
+          "text": "export const HOME_FURNISHING_KEYS = Object.freeze({log: existingKeys.log, sap: existingKeys.sap, kit: existingKeys.kit,"
+        },
+        {
+          "line": 39,
+          "text": "export const homeFurnishingProjects = ["
+        },
+        {
+          "line": 67,
+          "text": "export const homeFurnishingDefinitions = {"
+        },
+        {
+          "line": 106,
+          "text": "export const homeFurnishingPublicCommandIds = Object.freeze(homeFurnishingDefinitions.commands.map(d => d.id));"
+        }
+      ],
+      "coverage": [
+        "COV01",
+        "COV05"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/home_furnishing_host.js",
+      "sha256": "e82613df4b5f1af55b17d4715551626f54abaaca8b6cae2d290879ff9d9b8128",
+      "line_count": 43,
+      "locators": [
+        {
+          "line": 9,
+          "text": "export function homeFurnishingContext(state, registry, context = {}) {"
+        },
+        {
+          "line": 12,
+          "text": "export function commitHomeFurnishingCommand(state, registry, command, context, expectedSequence = state.sequence) {"
+        },
+        {
+          "line": 23,
+          "text": "export function homeFurnishingPresentation(state, registry, context = {}) {"
+        },
+        {
+          "line": 43,
+          "text": "export function homeFurnishingPublicCommands() {return homeFurnishingPublicCommandIds;}"
+        }
+      ],
+      "coverage": [
+        "COV01"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/life_experience_host.js",
+      "sha256": "67d347365e40988aa281fa093b08c5a3a8a1cd354544a13d5e3c647fd07426f2",
+      "line_count": 30,
+      "locators": [
+        {
+          "line": 11,
+          "text": "export function buildLifeHeirSave(previous, fresh, leftovers = deriveHeirLeftovers(previous)) {"
+        }
+      ],
+      "coverage": [
+        "COV10"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/market_saturation.js",
+      "sha256": "76c962fb2b7d25e7c3adf532c9f64a12a78d8e13dcc9dbba4d07e2aa4aea8b49",
+      "line_count": 304,
+      "locators": [],
+      "coverage": [
+        "COV08"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/native_realm_traveler.js",
+      "sha256": "df41221c00073b7fe7fbc69baca6d549dc25291017b36eb1a3752af70250eb42",
+      "line_count": 61,
+      "locators": [
+        {
+          "line": 9,
+          "text": "export function nativeRetainedMethods(state){"
+        },
+        {
+          "line": 15,
+          "text": "export function buildNativePocketCargo(state,context,{from,to,connectionId}){"
+        },
+        {
+          "line": 29,
+          "text": "export function previewNativeRealmTraveler(state,context,routeContext,passage){"
+        }
+      ],
+      "coverage": [
+        "COV06",
+        "COV09"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/native_trade_transaction.js",
+      "sha256": "25d9cac12e75c99633c33420b5f7118e1213f0d61e83446916c43f25d6fa27e4",
+      "line_count": 46,
+      "locators": [
+        {
+          "line": 7,
+          "text": "export const tradeQuoteFingerprint = quote => JSON.stringify(quote);"
+        },
+        {
+          "line": 9,
+          "text": "export function stageNativeTrade({state, gameplay, owners, money, market, itemLog, quote, currentQuote, xp, getItem}) {"
+        }
+      ],
+      "coverage": [
+        "COV08"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/realm_boundary_rules.js",
+      "sha256": "d219f58f725609a6d3c661065daa7a5112108170209532e50f23dc836413abe2",
+      "line_count": 150,
+      "locators": [
+        {
+          "line": 2,
+          "text": "export const REALM_OPERATIONS = Object.freeze([\"passage\", \"view\", \"projection\", \"manifestation\", \"sense\", \"identify\", \"reach\", \"contact\"]);"
+        },
+        {
+          "line": 6,
+          "text": "export const realmStableId = v => typeof v === \"string\" && /^[a-z][a-z0-9_.:-]*$/i.test(v) && ![\"__proto__\", \"constructor\", \"prototype\"].includes(v);"
+        },
+        {
+          "line": 7,
+          "text": "export const realmNatural = v => Number.isSafeInteger(v) && v >= 0;"
+        },
+        {
+          "line": 9,
+          "text": "export function validateRealmJson(value, depth = 0) {"
+        },
+        {
+          "line": 25,
+          "text": "export function validateRealmEndpoint(endpoint) {"
+        },
+        {
+          "line": 30,
+          "text": "export const realmEndpointKey = endpoint => {"
+        },
+        {
+          "line": 34,
+          "text": "export const sameRealmEndpoint = (a, b) => realmEndpointKey(a) === realmEndpointKey(b);"
+        },
+        {
+          "line": 39,
+          "text": "export function validateRealmCosts(costs) {"
+        },
+        {
+          "line": 46,
+          "text": "export function validateRealmBoundaryRule(rule) {"
+        },
+        {
+          "line": 67,
+          "text": "export function validateRealmContext(context) {"
+        },
+        {
+          "line": 103,
+          "text": "export function evaluateRealmBoundary(rule, context, operation, exceptionId = null) {"
+        },
+        {
+          "line": 126,
+          "text": "export function quoteRealmCosts(costs, context) {"
+        },
+        {
+          "line": 144,
+          "text": "export function realmBoundaryView(rule, context) {"
+        }
+      ],
+      "coverage": [
+        "COV07"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/realm_cargo.js",
+      "sha256": "8895fc5c0a0e6224182e64b4e976c6496ea4a598f0e5756fed6e7cefa1dcabaa",
+      "line_count": 224,
+      "locators": [
+        {
+          "line": 3,
+          "text": "export const REALM_CARGO_SCHEMA = 1;"
+        },
+        {
+          "line": 43,
+          "text": "export function nativeCargoStockId(actorId, container, item, slot = null) {"
+        },
+        {
+          "line": 55,
+          "text": "export function realmCargoCustodyBinding(custodyId, custody) {"
+        },
+        {
+          "line": 59,
+          "text": "export function validateRealmCargoSnapshot(s) {"
+        },
+        {
+          "line": 97,
+          "text": "export function buildNativeRealmCargoSnapshot(input) {"
+        },
+        {
+          "line": 155,
+          "text": "export function validateRealmCargoConsent(consent) {"
+        },
+        {
+          "line": 159,
+          "text": "export function validateRealmCargoPermission(permission) {"
+        },
+        {
+          "line": 171,
+          "text": "export function previewRealmCargoPermission(snapshot, consent, request, context) {"
+        },
+        {
+          "line": 187,
+          "text": "export function previewRealmCargoPassage(snapshot, connection, request, context) {"
+        }
+      ],
+      "coverage": [
+        "COV06"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/realm_connections.js",
+      "sha256": "e33ef4f41f0530d529a855d4b58b602c55deb678836516b361ce55b145281710",
+      "line_count": 244,
+      "locators": [
+        {
+          "line": 12,
+          "text": "export function validateRealmConnection(connection) {"
+        },
+        {
+          "line": 43,
+          "text": "export function createRealmConnection(definition) {"
+        },
+        {
+          "line": 52,
+          "text": "export function realmConnectionBinding(connection) {"
+        },
+        {
+          "line": 57,
+          "text": "export function validateRealmConnectionBinding(connection, binding) {"
+        },
+        {
+          "line": 119,
+          "text": "export function previewRealmPassage(connection, context, request) {"
+        },
+        {
+          "line": 191,
+          "text": "export function planRealmOpening(connection, context, request) {"
+        },
+        {
+          "line": 215,
+          "text": "export function planRealmClosure(connection, context, request) {"
+        },
+        {
+          "line": 238,
+          "text": "export function realmConnectionView(connection, context) {"
+        }
+      ],
+      "coverage": [
+        "COV06"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/realm_traveler_profiles.js",
+      "sha256": "d4e98f8d9dd3fe2efe49e57ded583ef1ed2910b91d711eb2ece25f4f77aa774f",
+      "line_count": 532,
+      "locators": [
+        {
+          "line": 4,
+          "text": "export const REALM_TRAVELER_SCHEMA = 1;"
+        },
+        {
+          "line": 5,
+          "text": "export const REALM_TRAVELER_MODES = Object.freeze([\"physical\", \"projection\", \"alternate_body\", \"shared_body\"]);"
+        },
+        {
+          "line": 64,
+          "text": "export function validateRealmTraveler(profile) {"
+        },
+        {
+          "line": 167,
+          "text": "export function validateRealmTravelerSupport(support) {"
+        },
+        {
+          "line": 245,
+          "text": "export function previewRealmTraveler(profile, context, request) {"
+        },
+        {
+          "line": 444,
+          "text": "export function planRealmProjection(profile, context, request) {"
+        },
+        {
+          "line": 450,
+          "text": "export function realmTravelerView(profile, viewContext) {"
+        },
+        {
+          "line": 464,
+          "text": "export function realmTravelerCases() {"
+        }
+      ],
+      "coverage": [
+        "COV06"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/systems_workshop_content.js",
+      "sha256": "ac8e5ad50acbd134cf546914da1ea82414842f656f9ed556149c2f5b5c243118",
+      "line_count": 77,
+      "locators": [
+        {
+          "line": 4,
+          "text": "export const SW='systems_workshop', PROVIDER=SW+'.provider', APPRENTICE=SW+'.apprentice';"
+        },
+        {
+          "line": 6,
+          "text": "export const SWK=Object.freeze({wood:key('Rough wood log'),kit:key('Prepared survey kit'),aligned:key('Seam-aligned survey kit'),glass:key('Glass phial'),pin:key('Counted fitting pin'),cache:key('Ledger workshop cache'),seal:key('Stillglass"
+        },
+        {
+          "line": 7,
+          "text": "export const systemsWorkshopItems=[['Seam-aligned survey kit','A real prepared survey kit whose existing seam was refitted under lens inspection. Iona accepts it for precision dispatch work.',4],['Counted fitting pin','An actual local fitti"
+        },
+        {
+          "line": 23,
+          "text": "export const systemsWorkshopSources=[{id:SW+'.seam_method',revision:1,label:'Learned seam reading',kind:'knowledge',grants:[]},{id:SW+'.assist',revision:1,label:'Leased work-ledger guidance',kind:'equipment',grants:[]}];"
+        },
+        {
+          "line": 24,
+          "text": "export const systemsWorkshopDefinitions={"
+        }
+      ],
+      "coverage": [
+        "COV02",
+        "COV05"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/systems_workshop_runtime.js",
+      "sha256": "a3b6d2a8e661f48e5595fd55add8a3a4908e68efd0f366ed5d5c0d292e4a45eb",
+      "line_count": 32,
+      "locators": [
+        {
+          "line": 5,
+          "text": "export function reconcileSystemsWorkshop(before,plan,{chest}={}){"
+        },
+        {
+          "line": 26,
+          "text": "export function systemsWorkshopFacts(state){"
+        }
+      ],
+      "coverage": [
+        "COV05"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/technique_ui.js",
+      "sha256": "01d72e6a0c241ad7c20fd0b0e959697dd3d97296d85a329e0c410b836e6df61b",
+      "line_count": 117,
+      "locators": [
+        {
+          "line": 6,
+          "text": "export function createTechniquePanel({registry, read, command, answer, cancel}) {"
+        }
+      ],
+      "coverage": [
+        "COV07"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/techniques.js",
+      "sha256": "e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735",
+      "line_count": 179,
+      "locators": [
+        {
+          "line": 7,
+          "text": "export const PRACTICE_RESPONSES = Object.freeze({hold: \"Hold your ground\", sidestep: \"Step aside\", advance: \"Advance\"});"
+        },
+        {
+          "line": 10,
+          "text": "export function validateTechniqueDefinitions(registry) {"
+        },
+        {
+          "line": 29,
+          "text": "export function validateTechniqueEffect(effect, registry) {"
+        },
+        {
+          "line": 42,
+          "text": "export function validateTechniqueRecords(records, clock, registry) {"
+        },
+        {
+          "line": 81,
+          "text": "export function activePractice(actor) {"
+        },
+        {
+          "line": 85,
+          "text": "export function techniqueFacts(actor, registry, context) {"
+        },
+        {
+          "line": 99,
+          "text": "export function applyTechniqueEffect(actor, effect, {registry, clock, worldId, receiptId, draw = 0}) {"
+        },
+        {
+          "line": 128,
+          "text": "export function answerTechniquePractice(state, actorId, practiceId, response, expectedSequence) {"
+        },
+        {
+          "line": 154,
+          "text": "export function cancelTechniquePractice(state, actorId, practiceId, expectedSequence) {"
+        },
+        {
+          "line": 168,
+          "text": "export function observeNativeTechnique(state, registry, actorId, enemyId) {"
+        }
+      ],
+      "coverage": [
+        "COV07"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/village_career.js",
+      "sha256": "6e8cf84ace080b1955ff4c21e32b11fbc78c52ac1728ac989c66593aada2f962",
+      "line_count": 200,
+      "locators": [
+        {
+          "line": 2,
+          "text": "export const CAREER_RANKS = ['Apprentice', 'Dependable worker', 'Mentor'];"
+        },
+        {
+          "line": 3,
+          "text": "export const KIT_DEBT = 50;"
+        },
+        {
+          "line": 4,
+          "text": "export const WATCHCRAFT_BOOK = 'Tessa’s watchcraft notes';"
+        },
+        {
+          "line": 5,
+          "text": "export const WATCHCRAFT_READING = 6;"
+        },
+        {
+          "line": 6,
+          "text": "export const WATCHCRAFT_PRACTICE = 5;"
+        },
+        {
+          "line": 7,
+          "text": "export const WATCHCRAFT_BONUS = 10;"
+        },
+        {
+          "line": 11,
+          "text": "export function createVillageCareer() {"
+        },
+        {
+          "line": 14,
+          "text": "export function validateVillageCareer(s) {"
+        },
+        {
+          "line": 59,
+          "text": "export function migrateVillageCareer(save) {"
+        },
+        {
+          "line": 72,
+          "text": "export function beginVillageShift(state,known=false) {"
+        },
+        {
+          "line": 76,
+          "text": "export function finishVillageShift(state,completed) {"
+        },
+        {
+          "line": 82,
+          "text": "export function resolveVillageKit(state,choice) {"
+        },
+        {
+          "line": 91,
+          "text": "export function villagePromotionRequirements(state) {"
+        },
+        {
+          "line": 99,
+          "text": "export function promoteVillageCareer(state) {"
+        },
+        {
+          "line": 103,
+          "text": "export function villageColleagueMemory(state) {"
+        },
+        {
+          "line": 112,
+          "text": "export function issueWatchcraft(state) {"
+        },
+        {
+          "line": 118,
+          "text": "export function practiceWatchcraft(state,{known,location,activity,worldId,alive=true}) {"
+        },
+        {
+          "line": 124,
+          "text": "export function watchcraftPresentation(state,known) {"
+        },
+        {
+          "line": 129,
+          "text": "export function villageShiftBonus(state,completed) {"
+        },
+        {
+          "line": 135,
+          "text": "export const RECRUIT_NAME='Iona';"
+        },
+        {
+          "line": 136,
+          "text": "export const TEACHING_COST=10;"
+        },
+        {
+          "line": 137,
+          "text": "export const TEACHING_TERMS=['paid','pay','time','favor','free'];"
+        },
+        {
+          "line": 138,
+          "text": "export const COVER_PAYMENT=50;"
+        },
+        {
+          "line": 139,
+          "text": "export const SOLO_PAYMENT=10;"
+        },
+        {
+          "line": 140,
+          "text": "export function assignVillageRecruit(state) {"
+        },
+        {
+          "line": 145,
+          "text": "export function beginVillageTeaching(state,known,teacher,term='paid') {"
+        },
+        {
+          "line": 154,
+          "text": "export function beginRecruitSolo(state,cover=false) {"
+        },
+        {
+          "line": 161,
+          "text": "export function advanceVillageMentor(state,{inVillage,alive,patrolling}) {"
+        },
+        {
+          "line": 173,
+          "text": "export function villageTeachingCost(state,completed) {"
+        },
+        {
+          "line": 176,
+          "text": "export function villageTeachingStipend(state,completed) {return completed && state.loan?.teachingTerm==='paid'?10:0;}"
+        },
+        {
+          "line": 177,
+          "text": "export function resolveIonaTuition(state,choice) {"
+        },
+        {
+          "line": 181,
+          "text": "export function villageTeachingBusy(state) {"
+        },
+        {
+          "line": 184,
+          "text": "export function beginTessaInstruction(state) {"
+        },
+        {
+          "line": 189,
+          "text": "export function advanceTessaInstruction(state,{inVillage,alive,meditating}) {"
+        },
+        {
+          "line": 194,
+          "text": "export function recruitMemory(state) {"
+        }
+      ],
+      "coverage": [
+        "COV03"
+      ],
+      "evidence": "static source, not executed"
+    },
+    {
+      "path": "src/world_completion_learning_content.js",
+      "sha256": "9a905256fb3ead0d50c7c292b5b0529eb842dcb8c661eabe21324074e6c00070",
+      "line_count": 131,
+      "locators": [
+        {
+          "line": 6,
+          "text": "export const WORLD_COMPLETION_LEARNING_IDS = Object.freeze({"
+        },
+        {
+          "line": 12,
+          "text": "export const WORLD_COMPLETION_LEARNING_KEYS = Object.freeze({offcut: K.offcut, strip: JSON.stringify({id: 'Measured drain strip'})});"
+        },
+        {
+          "line": 14,
+          "text": "export const worldCompletionLearningSources = [{id: I.method, revision: 1, label: 'Taught datum marking', kind: 'technique', origin: 'trained', grants: [],"
+        },
+        {
+          "line": 16,
+          "text": "export const worldCompletionLearningItemSpecifications = [{id: 'Measured drain strip', value: 1,"
+        },
+        {
+          "line": 54,
+          "text": "export const worldCompletionLearningDefinitions = {"
+        },
+        {
+          "line": 123,
+          "text": "export function worldCompletionLearningCollectDefinition(key) {"
+        }
+      ],
+      "coverage": [
+        "COV04"
+      ],
+      "evidence": "static source, not executed"
+    }
+  ],
+  "proposal_routes": {
+    "MA01": [
+      "P03",
+      "P04",
+      "P09",
+      "P14"
+    ],
+    "MA02": [
+      "P02",
+      "P17",
+      "P18"
+    ],
+    "MA03": [
+      "P06",
+      "P07",
+      "P25"
+    ],
+    "MA04": [
+      "P01",
+      "P04",
+      "P05"
+    ],
+    "MA05": [
+      "P02",
+      "P05",
+      "P13",
+      "P14"
+    ],
+    "MA06": [
+      "P03",
+      "P07"
+    ],
+    "MA07": [
+      "P07"
+    ],
+    "MA08": [
+      "skill-means",
+      "body-authoring"
+    ],
+    "MA09": [
+      "companions"
+    ],
+    "MA10": [
+      "institutions",
+      "regional-prices"
+    ],
+    "MA11": [
+      "world-instances",
+      "causal-aftermath"
+    ],
+    "MA12": [
+      "carryover",
+      "learned-source-owners"
+    ],
+    "MA13": [
+      "heir-inheritance",
+      "carryover"
+    ]
+  },
+  "authority": [
+    "docs/USER_VISION.md",
+    "PROJECT.md"
+  ],
+  "existing_packet_owner": "docs/research/cross-game-synthesis-2026-10-14/PACKETS.md",
+  "unresolved": [
+    "No native route or UI was exercised in this pass.",
+    "Donor games were not played; 4D source parity with the live server is unresolved.",
+    "Generic cargo evaluation does not prove native borrowed-cargo support.",
+    "Current heir transfer covers selected assets and records, not complete skill/career/world transfer.",
+    "Proposals need explicit selection before implementation."
+  ]
+}

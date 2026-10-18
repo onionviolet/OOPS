@@ -1,0 +1,870 @@
+{
+  "date": "2026-10-15",
+  "route": "CUA isolated background tab",
+  "cases": [
+    {
+      "family": "fishing",
+      "id": "reed",
+      "skillScenario": "basic",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: A ripple beside cover; its cause is uncertain.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Reed margin",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "reed",
+      "skillScenario": "basic",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Movement beside the reeds; identity and appetite remain unconfirmed.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Reed margin",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "reed",
+      "skillScenario": "basic",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A ripple beside cover; its cause is uncertain.",
+      "pageOverflow": false,
+      "power": "Power: Hold a small gap beside the cover, changing access to that gap.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Reed margin",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "reed",
+      "skillScenario": "practiced",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A ripple beside cover; its cause is uncertain.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Read cover and distinguish a presentation snag from a feeding sign.",
+      "title": "Reed margin",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "reed",
+      "skillScenario": "practiced",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: Movement beside the reeds; identity and appetite remain unconfirmed.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Read cover and distinguish a presentation snag from a feeding sign.",
+      "title": "Reed margin",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "reed",
+      "skillScenario": "practiced",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A ripple beside cover; its cause is uncertain.",
+      "pageOverflow": false,
+      "power": "Power: Hold a small gap beside the cover, changing access to that gap.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Read cover and distinguish a presentation snag from a feeding sign.",
+      "title": "Reed margin",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "seam",
+      "skillScenario": "basic",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: A surface sign at the flow boundary; no species is identified.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Moving seam",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "seam",
+      "skillScenario": "basic",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Movement at the boundary. Sensing locates a sign; Fishing supplies interpretation.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Moving seam",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "seam",
+      "skillScenario": "basic",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A surface sign at the flow boundary; no species is identified.",
+      "pageOverflow": false,
+      "power": "Power: Hold a local eddy within this reach. It permits a steadier presentation without creating fish.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Moving seam",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "seam",
+      "skillScenario": "practiced",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A surface sign at the flow boundary; no species is identified.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Read the feeding band and use controlled drift to keep the presentation there.",
+      "title": "Moving seam",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "seam",
+      "skillScenario": "practiced",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: Movement at the boundary. Sensing locates a sign; Fishing supplies interpretation.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Read the feeding band and use controlled drift to keep the presentation there.",
+      "title": "Moving seam",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "seam",
+      "skillScenario": "practiced",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A surface sign at the flow boundary; no species is identified.",
+      "pageOverflow": false,
+      "power": "Power: Hold a local eddy within this reach. It permits a steadier presentation without creating fish.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Read the feeding band and use controlled drift to keep the presentation there.",
+      "title": "Moving seam",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "shade",
+      "skillScenario": "basic",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: A dark shape under the bank may be cover or movement.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Shaded bank",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "shade",
+      "skillScenario": "basic",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Movement beneath the overhang, within this represented sensing scope only.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Shaded bank",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "shade",
+      "skillScenario": "basic",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A dark shape under the bank may be cover or movement.",
+      "pageOverflow": false,
+      "power": "Power: Keep the presentation near the overhang; shelter and fish identity are unchanged.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Shaded bank",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "shade",
+      "skillScenario": "practiced",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A dark shape under the bank may be cover or movement.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Choose a short presentation beneath cover; exact species remains unknown.",
+      "title": "Shaded bank",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "shade",
+      "skillScenario": "practiced",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: Movement beneath the overhang, within this represented sensing scope only.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Choose a short presentation beneath cover; exact species remains unknown.",
+      "title": "Shaded bank",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "fishing",
+      "id": "shade",
+      "skillScenario": "practiced",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A dark shape under the bank may be cover or movement.",
+      "pageOverflow": false,
+      "power": "Power: Keep the presentation near the overhang; shelter and fish identity are unchanged.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Choose a short presentation beneath cover; exact species remains unknown.",
+      "title": "Shaded bank",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · controlled drift · moving seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "rib",
+      "skillScenario": "basic",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Visible rock and ore streaks; bulk composition is unassessed.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Exposed rib",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "rib",
+      "skillScenario": "basic",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: A represented discontinuity near the surface. No deposit map or reserve census.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Exposed rib",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "rib",
+      "skillScenario": "basic",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Visible rock and ore streaks; bulk composition is unassessed.",
+      "pageOverflow": false,
+      "power": "Power: Separate a reachable section along a represented boundary. Transport remains separate.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Exposed rib",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "rib",
+      "skillScenario": "practiced",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Visible rock and ore streaks; bulk composition is unassessed.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Place ordinary cuts to recover useful ore without preserving every fragment.",
+      "title": "Exposed rib",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "rib",
+      "skillScenario": "practiced",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: A represented discontinuity near the surface. No deposit map or reserve census.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Place ordinary cuts to recover useful ore without preserving every fragment.",
+      "title": "Exposed rib",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "rib",
+      "skillScenario": "practiced",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Visible rock and ore streaks; bulk composition is unassessed.",
+      "pageOverflow": false,
+      "power": "Power: Separate a reachable section along a represented boundary. Transport remains separate.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Place ordinary cuts to recover useful ore without preserving every fragment.",
+      "title": "Exposed rib",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "edge",
+      "skillScenario": "basic",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: A visible crack; direction beneath the surface is unassessed.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Fractured edge",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "edge",
+      "skillScenario": "basic",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: The represented fracture continues just behind this exposed face; it does not establish grade.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Fractured edge",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "edge",
+      "skillScenario": "basic",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A visible crack; direction beneath the surface is unassessed.",
+      "pageOverflow": false,
+      "power": "Power: Apply separation at the selected edge. Force can replace levering; it does not identify the sample.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Fractured edge",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "edge",
+      "skillScenario": "practiced",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A visible crack; direction beneath the surface is unassessed.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Follow the visible fracture with controlled cuts, trading bulk throughput for a more intact sample.",
+      "title": "Fractured edge",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "edge",
+      "skillScenario": "practiced",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: The represented fracture continues just behind this exposed face; it does not establish grade.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Follow the visible fracture with controlled cuts, trading bulk throughput for a more intact sample.",
+      "title": "Fractured edge",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "edge",
+      "skillScenario": "practiced",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": false,
+      "evidence": "Evidence: A visible crack; direction beneath the surface is unassessed.",
+      "pageOverflow": false,
+      "power": "Power: Apply separation at the selected edge. Force can replace levering; it does not identify the sample.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Follow the visible fracture with controlled cuts, trading bulk throughput for a more intact sample.",
+      "title": "Fractured edge",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "band",
+      "skillScenario": "basic",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Different coloring across the band. A richer material is not established.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Banded face",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "band",
+      "skillScenario": "basic",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: A structural boundary across the selected band. Chemistry remains unknown.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Banded face",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "band",
+      "skillScenario": "basic",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Different coloring across the band. A richer material is not established.",
+      "pageOverflow": false,
+      "power": "Power: Separate a reachable piece across the band. Analysis and hauling remain separate work.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        313
+      ],
+      "skill": "Basic practice: Ordinary handling and visible signs. No learned interpretation or precise technique is granted by looking.",
+      "title": "Banded face",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "band",
+      "skillScenario": "practiced",
+      "powerScenario": "none",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Different coloring across the band. A richer material is not established.",
+      "pageOverflow": false,
+      "power": "Power: None in this scenario. The ordinary path remains viable.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Take a labelled cross-band sample so a later comparison has a known origin.",
+      "title": "Banded face",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "band",
+      "skillScenario": "practiced",
+      "powerScenario": "sense",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: A structural boundary across the selected band. Chemistry remains unknown.",
+      "pageOverflow": false,
+      "power": "Power: Sensing supplies evidence; it does not perform extraction, casting or transport.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Take a labelled cross-band sample so a later comparison has a known origin.",
+      "title": "Banded face",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    },
+    {
+      "family": "mining",
+      "id": "band",
+      "skillScenario": "practiced",
+      "powerScenario": "control",
+      "backBottom": 719,
+      "blocked": true,
+      "evidence": "Evidence: Different coloring across the band. A richer material is not established.",
+      "pageOverflow": false,
+      "power": "Power: Separate a reachable piece across the band. Analysis and hauling remain separate work.",
+      "previewBottom": 647.703125,
+      "scene": [
+        224,
+        294
+      ],
+      "skill": "Skill: Take a labelled cross-band sample so a later comparison has a known origin.",
+      "title": "Banded face",
+      "viewport": [
+        1366,
+        768
+      ],
+      "work": "Current work · You · mining the known iron seam · 12 / 40 sample work units",
+      "workPreserved": true
+    }
+  ]
+}

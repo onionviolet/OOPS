@@ -1,0 +1,363 @@
+ M .claude/launch.json
+ M AGENTS.md
+ M PROJECT.md
+ M build.js
+ M dist/bundle.js
+ M dist/bundle.js.map
+MM docs/GENERATION_FOUNDATION_RULES_2026-10-14.md
+ M docs/IDEA_INDEX.md
+ M docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md
+ M docs/USER_VISION.md
+ M docs/gm/dispatch/absorb-all-2026-10-14/runs/SESSIONS.md
+MM docs/gm/dispatch/nonhuman-starts-2026-10-14/runs/SESSIONS.md
+ M docs/gm/dispatch/vivid-proto23-flow-2026-10-13/evidence/vivid_1366x768.png
+ M docs/gm/dispatch/wiki-lanes-2026-10-13/STATUS.md
+ M docs/gm/dispatch/wiki-lanes-2026-10-13/lanes.json
+ M docs/research/feature-game-scout-2026-10-14/REPORT.md
+ M docs/worlds/MULTIVERSE_STRUCTURES.md
+MM docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md
+ M docs/worlds/bleach/ABILITY_VARIANTS.md
+ M docs/worlds/bleach/CAMPAIGN.md
+ M docs/worlds/bleach/SOURCE_LEDGER.md
+ M docs/worlds/bleach/WORLD_BRIEF.md
+ M index.html
+ M src/absorb_d/ui.js
+ M src/absorb_p23/host_joins/world_adaptation_ui.js
+ M src/causal_story_scenes.js
+ M src/character_creation.js
+ M src/component_themes.js
+ M src/config.js
+ M src/customization_profiles.js
+ M src/display.js
+ M src/event_feed_ui.js
+ M src/generated_people_ui.js
+ M src/life_record_ui.js
+ M src/main.js
+ M src/mixture_ui.js
+ M src/npc_lives_ui.js
+ M src/panel_kit.js
+ M src/simulation.js
+ M src/simulation_effects.js
+ M src/story_aftermath.js
+ M src/storylet_deck.js
+ M src/workspace_layout.js
+ M src/workspace_state.js
+ M src/workspace_views.js
+ M style.css
+ M styles/action_legibility.css
+ M styles/component_themes.css
+ M styles/crafting_detail.css
+ M styles/customization.css
+ M styles/display_settings.css
+ M styles/settled_text_effects.css
+ M styles/start_probe.css
+ M styles/status_window.css
+ M styles/workspace.css
+ M styles/workspace_discovery.css
+ M tests/helpers/story_spine.js
+ M tests/mixture_ui.test.js
+ M tests/story_requests.test.js
+?? docs/FORMAT_AND_VIEW_DECISION_AUDIT_2026-10-14.md
+?? docs/OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md
+?? docs/OVERARCHING_DESIGN_METHOD_PROMPT_2026-10-15.md
+?? docs/PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md
+?? docs/RULEBOOKS_FOR_WORLDS_AND_GM_CONSIDERATIONS_2026-10-14.md
+?? docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md
+?? docs/UI_IDENTITY_AND_REPRESENTATION_CONSIDERATIONS_2026-10-14.md
+?? docs/UI_RULES.md
+?? docs/UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md
+?? docs/YAIR_FORMAT_AND_STORY_DELIVERY_2026-10-14.md
+?? docs/gm/OVERARCHING_DIRECTION_HANDOFF_2026-10-15.md
+?? docs/gm/dispatch/absorb-all-2026-10-14/checks/natural-play-2/
+?? docs/gm/dispatch/absorb-all-2026-10-14/checks/natural-play/
+?? docs/gm/dispatch/absorb-all-2026-10-14/reports/natural-play-2.md
+?? docs/gm/dispatch/absorb-all-2026-10-14/runs/gate-determinism.pid
+?? docs/gm/dispatch/absorb-all-2026-10-14/runs/int-fix.pid
+?? docs/gm/dispatch/absorb-all-2026-10-14/runs/natural-play-2.last.md
+?? docs/gm/dispatch/absorb-all-2026-10-14/runs/natural-play-2.pid
+?? docs/gm/dispatch/absorb-all-2026-10-14/runs/natural-play-2.prompt.md
+?? docs/gm/dispatch/absorb-all-2026-10-14/runs/natural-play.pid
+?? docs/gm/dispatch/absorb-all-2026-10-14/runs/p23-host-joins.pid
+?? docs/gm/dispatch/absorb-all-2026-10-14/runs/reach-fixes.pid
+?? docs/gm/dispatch/absorb-all-2026-10-14/runs/sim-stepper.pid
+?? docs/gm/dispatch/absorb-all-2026-10-14/runs/stepper-perf.pid
+?? docs/gm/dispatch/calm-vivid-2026-10-14/
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/ab/
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/appearance.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/arrival-below-fold.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/awake-export.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-arrival-below-fold.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-exit-codes.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-failed-awakening-storage.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-failure-storage.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-natural-win-export.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-natural-win.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-natural-win.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-natural-win.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-reveal-visibility.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-travel-boundary.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/current-travel-crossed-day3.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/dormant-export.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/exit-codes.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/failed-awakening-storage.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/failed-storage.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/failure-storage.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/first-win-awakened.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/first-win-combat.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/first-win.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/natural-awakened.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/natural-awakened.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/natural-creation.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/natural-dormant.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/natural-firstwin-export.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/natural-start.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/natural-timing.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/natural.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/old-fought.save.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/old-precombat.save.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/regression-craft_1366x768.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/regression-craft_1440x900.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/regression-craft_1920x1080.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/regression-vivid_1366x768.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/regression-vivid_1440x900.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/regression-vivid_1920x1080.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/reveal-visibility.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/seeded-awake.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/supplemental.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/travel-boundary.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/travel-crossed-day3.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/ui-standard-1366x768.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/ui-standard-1440x900.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/ui-standard-1920x1080.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/ui-vivid-1366x768.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/ui-vivid-1440x900.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit/ui-vivid-1920x1080.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/lq/
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/cleanup.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/controls-standard.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/controls-vivid.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/controls.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/controls.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-standard-1366x768-arrival.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-standard-1366x768-focus.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-standard-1366x768-read.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-standard-1920x1080-arrival.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-standard-1920x1080-focus.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-standard-1920x1080-read.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-vivid-1366x768-arrival.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-vivid-1366x768-focus.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-vivid-1366x768-read.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-vivid-1920x1080-arrival.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-vivid-1920x1080-focus.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3-vivid-1920x1080-read.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/dormant_day3.import.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/fight-level-reload.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/fight-level-seed.import.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/fight-level-seed.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/fight-level.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-standard-1366x768-arrival.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-standard-1366x768-focus.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-standard-1366x768-read.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-standard-1920x1080-arrival.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-standard-1920x1080-focus.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-standard-1920x1080-read.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-vivid-1366x768-arrival.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-vivid-1366x768-focus.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-vivid-1366x768-read.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-vivid-1920x1080-arrival.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-vivid-1920x1080-focus.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system-vivid-1920x1080-read.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/held_system.import.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/matrix.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/matrix.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/natural-fight-export.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/natural-fight.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/natural-fight.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/natural.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/numbers.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/numbers.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/one-point-hover.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/seeded-fight-level-export.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/seeded-fight-level.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/seeded-fight-level.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/snapshot.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/mx/source.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/final-build.sha256
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/final-served-style.sha256
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/final-served.sha256
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/final-style.sha256
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/first-candidate-natural/
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/natural-win.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/r1-invalid-fractional-points.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/r1-invalid-missing-message.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/r1-invalid-negative-points.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/r1-natural-win-export.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/r1-natural-win.json
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/r1-natural-win.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/r1-past-import.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/r1-standard-focus.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/r1-storage.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/r1-vivid-focus.png
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/build_fixtures.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/fixtures/craft_none.save.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/fixtures/craft_ready.save.txt
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/gate.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/measure_current.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/routes.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/checks/verify_fixtures.cjs
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/crafting-screen-2026-10-13/evidence/
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/panel-kit-2026-10-13/
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/settings-pass-2026-10-13/
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/vivid-proto23-flow-2026-10-13/
+?? docs/gm/dispatch/cheat-status-window-2026-10-13/runs/te/
+?? docs/gm/dispatch/deep-systems-2026-10-14/runs/ds-academagia.last.md
+?? docs/gm/dispatch/deep-systems-2026-10-14/runs/ds-hearts-of-iron-iv.last.md
+?? docs/gm/dispatch/deep-systems-2026-10-14/runs/ds-hyperrogue.last.md
+?? docs/gm/dispatch/deep-systems-2026-10-14/runs/ds-immortal-life.last.md
+?? docs/gm/dispatch/deep-systems-2026-10-14/runs/ds-naev.last.md
+?? docs/gm/dispatch/deep-systems-2026-10-14/runs/ds-rimworld.last.md
+?? docs/gm/dispatch/deep-systems-2026-10-14/runs/ds-scroll-of-taiwu.last.md
+?? docs/gm/dispatch/deep-systems-2026-10-14/runs/ds-warsim.last.md
+?? docs/gm/dispatch/engine-runtime-2026-10-14/ER11/opening.png
+?? docs/gm/dispatch/engine-runtime-2026-10-14/ER18/census.json
+?? docs/gm/dispatch/engine-runtime-2026-10-14/ER2/analysis.json
+?? docs/gm/dispatch/engine-runtime-2026-10-14/ER2/metafile.json
+?? docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/
+?? docs/gm/dispatch/feature-scout-2026-10-14/
+?? docs/gm/dispatch/game-research-wave-2026-10-14/runs/bf-rimworld.last.md
+?? docs/gm/dispatch/game-research-wave-2026-10-14/runs/watch3.state.json
+?? docs/gm/dispatch/harvest-modules-2026-10-14/hv2/
+?? docs/gm/dispatch/hogwarts-legacy-decompile-2026-10-14/runs/lp23merge.last.md
+?? docs/gm/dispatch/multiworld-research-2026-10-14/runs/mw-kingdom-hearts.last.md
+?? docs/gm/dispatch/multiworld-research-2026-10-14/runs/watch.state.json
+?? docs/gm/dispatch/procgen-2026-10-13/p40/LINT_REFRESH.json
+?? docs/gm/dispatch/procgen-2026-10-13/p40/LINT_SCAN.json
+?? docs/gm/dispatch/procgen-2026-10-13/p40/SOURCE_SNAPSHOT.json
+?? docs/gm/dispatch/research-tech-2026-10-14/b3/
+?? docs/gm/dispatch/research-tech-2026-10-14/b4/
+?? docs/gm/dispatch/research-tech-2026-10-14/b5/
+?? docs/gm/dispatch/research-tech-2026-10-14/t14/cards.json
+?? docs/gm/dispatch/rulebook-engine-2026-10-14/
+?? docs/gm/dispatch/runs-and-endings-2026-10-14/r9/FINAL_SEARCH_EVIDENCE.json
+?? docs/gm/dispatch/runs-and-endings-2026-10-14/r9/SEARCH_EVIDENCE.json
+?? docs/gm/dispatch/topic-wave-2026-10-14/p01.resume1.md
+?? docs/gm/dispatch/topic-wave-2026-10-14/runs/p01.last.md
+?? docs/gm/dispatch/traveler-asks-2026-10-14/ta2/
+?? docs/gm/dispatch/traveler-asks-2026-10-14/ta3/
+?? docs/gm/dispatch/ui-foundation-2026-10-15/
+?? docs/gm/dispatch/ui-triage-apothecary-2026-10-15/
+?? docs/gm/dispatch/world-core-kit-2026-10-14/W37_REPORT.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W1.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W10.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W11.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W12.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W13.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W14.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W15.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W16.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W17.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W18.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W19.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W2.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W20.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W21.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W22.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W23.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W24.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W25.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W26.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W27.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W28.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W29.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W3.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W30.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W31.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W32.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W33.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W34.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W35.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W36.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W37.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W4.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W5.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W6.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W7.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W8.last.md
+?? docs/gm/dispatch/world-core-kit-2026-10-14/runs/W9.last.md
+?? docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-brief.md
+?? docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-capture.json
+?? docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-proof.png
+?? docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-report.md
+?? docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-response.md
+?? docs/research/LOCAL_AI_MODEL_CONSIDERATIONS_2026-10-14.md
+?? docs/research/LOCAL_AI_UPGRADE_STATUS_2026-10-14.md
+?? docs/research/MINECRAFT_BULK_ACQUISITION_2026-10-14.json
+?? docs/research/MINECRAFT_BULK_DOWNLOAD_AND_MORE_2026-10-14.md
+?? docs/research/MINECRAFT_DOWNLOAD_COMPLETION_2026-10-14.md
+?? docs/research/MINECRAFT_DOWNLOAD_RECEIPTS_2026-10-14.json
+?? docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-acquisition.json
+?? docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-breadth-access.json
+?? docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-brief.md
+?? docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-expanded.md
+?? docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-quest-guidance-evidence.json
+?? docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-recovered-response.md
+?? docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-report.md
+?? docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-response.md
+?? docs/research/MINECRAFT_MRPACK_PROOF_2026-10-14.json
+?? docs/research/MULTIVERSAL_GAMES_AND_RULEBOOK_GAPS_2026-10-14.md
+?? docs/research/PANEL_DESIGN_ABSORPTION_2026-10-15.md
+?? docs/research/SILLYTAVERN_PRESET_FIT_2026-10-14.md
+?? docs/research/TABLETOP_BOOK_SWEEP_2026-10-14.md
+?? docs/research/academagia/pass-2026-10-14-systems/
+?? docs/research/continuing-traveler-games-2026-10-14/
+?? docs/research/feature-game-scout-2026-10-14/FOLD_PROPOSAL.md
+?? docs/research/format-and-character-art-2026-10-14/
+?? docs/research/hearts-of-iron-iv/pass-2026-10-14-systems/
+?? docs/research/hyperrogue/pass-2026-10-14-systems/
+?? docs/research/immortal-life/pass-2026-10-14-systems/
+?? docs/research/kingdom-hearts/
+?? docs/research/kittens-game/
+?? docs/research/local-ai-2026-10-14/
+?? docs/research/local-ai-2026-10-15/
+?? docs/research/magical-diary-wolf-hall/
+?? docs/research/minecraft/tfc-chains-2026-10-14/
+?? docs/research/naev/pass-2026-10-14-systems/
+?? docs/research/potionomics/
+?? docs/research/project-zomboid/
+?? docs/research/proto23/TAGS_IDENTITY_AND_COMIC_LOGIC_2026-10-15.md
+?? docs/research/rimworld/pass-2026-10-14-systems/
+?? docs/research/rune-factory-5/
+?? docs/research/sapiens/
+?? docs/research/scroll-of-taiwu/pass-2026-10-14-systems/
+?? docs/research/siralim-ultimate/pass-2026-10-14-systems/
+?? docs/research/stardew-valley/
+?? docs/research/tabletop-library-2026-10-14/
+?? docs/research/tools/book_deep_dive/--help
+?? docs/research/ur-quan-masters/
+?? docs/research/vintage-story/
+?? docs/research/warsim/pass-2026-10-14-systems/
+?? docs/worlds/black-clover/
+?? docs/worlds/bleach/FIXES_APPLIED.md
+?? docs/worlds/bleach/REVIEW.md
+?? docs/worlds/bleach/SYNTHESIS.md
+?? docs/worlds/dnd/RULINGS_LEDGER.md
+?? docs/worlds/dnd/SRD521_START.md
+?? docs/worlds/dnd/STORYTELLER_STYLES.md
+?? docs/worlds/fate/
+?? docs/worlds/mha/
+?? docs/worlds/one-piece/
+?? docs/worlds/world-core-kit-2026-10-14/W37_SOURCE_FIDELITY.md
+?? src/center_modes.js
+?? src/projects_drawer.js
+?? src/ui_components.js
+?? src/village_workspace.js
+?? src/workspace_disclosure.js
+?? src/workspace_navigation.js
+?? styles/ui_tokens.css
+?? tests/center_modes.test.js
+?? tests/helpers/ui_contract.mjs
+?? tests/ui_contract.test.js
+?? tests/ui_contract_allowlist.json
+?? tests/village_workspace.test.js
+?? tests/workspace_composition.test.js
+?? tests/workspace_disclosure.test.js

@@ -1,0 +1,73 @@
+{
+  "canonClaims": [
+    {
+      "sourceId": "H1",
+      "claim": "Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light."
+    },
+    {
+      "sourceId": "H2",
+      "claim": "Reparo can mend certain damaged objects, but mending a wand's physical exterior does not restore its damaged magic."
+    }
+  ],
+  "startAssumptions": [
+    "Magically eligible adult learner owns an intact wand and knows Lumos and Nox.",
+    "Nonmagical adult visitor owns a wand but lacks magical source and learned casting.",
+    "Both actors are in a dim storage room and may leave freely.",
+    "Reparo is not yet learned by the starting learner."
+  ],
+  "stateAndReaders": [
+    "is_magically_eligible: boolean",
+    "wand_owned: boolean",
+    "spells_known: set<string>",
+    "light_active: boolean"
+  ],
+  "actions": [
+    {
+      "name": "Cast Lumos",
+      "preconditions": "is_magically_eligible == true && wand_owned == true && 'Lumos' in spells_known",
+      "effect": "light_active = true",
+      "sourceVsDesign": "Effect based on H1; implementation is a design proposal."
+    },
+    {
+      "name": "Cast Nox",
+      "preconditions": "is_magically_eligible == true && wand_owned == true && 'Nox' in spells_known",
+      "effect": "light_active = false",
+      "sourceVsDesign": "Effect based on H1; implementation is a design proposal."
+    },
+    {
+      "name": "Cast Reparo",
+      "preconditions": "is_magically_eligible == true && wand_owned == true && 'Reparo' in spells_known",
+      "effect": "Object physical state = mended",
+      "sourceVsDesign": "Effect based on H2; implementation is a design proposal."
+    },
+    {
+      "name": "Leave Room",
+      "preconditions": "None",
+      "effect": "Actor exits storage room",
+      "sourceVsDesign": "Design proposal based on P1."
+    }
+  ],
+  "compatibility": {
+    "status": "requires_adapter",
+    "missingConsumers": [
+      "Magical eligibility reader",
+      "Spell knowledge reader",
+      "Wand/world scoped light consumer",
+      "Object damage/integrity reader"
+    ]
+  },
+  "counterexamples": [
+    "Nonmagical visitor with wand attempting Lumos: Refused (no magical source).",
+    "Learner attempting Reparo: Refused (not learned).",
+    "Wand ownership granting casting ability: Forbidden by P1.",
+    "Failed cast resulting in item/knowledge award: Forbidden by O1."
+  ],
+  "futureWitness": [
+    "Lumos toggles light on; Nox toggles light off.",
+    "Nonmagical visitor attempts result in no mutation (refusal).",
+    "Actor leaves the storage room freely.",
+    "Light state and identity persist under approved save policy.",
+    "Reparo mends physical exterior but fails to restore magic (H2 limit)."
+  ],
+  "numericalPolicy": "No numerical energy, cooldowns, or durations are defined per H1, H2, and O1."
+}

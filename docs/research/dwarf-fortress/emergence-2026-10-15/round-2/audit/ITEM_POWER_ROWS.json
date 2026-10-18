@@ -1,0 +1,251 @@
+[
+  {
+    "name": "ice_bolt",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      1,
+      37
+    ],
+    "spheres": [
+      "MOUNTAINS",
+      "OCEANS",
+      "WATER",
+      "STORMS"
+    ],
+    "emitted_effect_tokens": [],
+    "active_wait_fields": [
+      "50"
+    ],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "propel",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      38,
+      79
+    ],
+    "spheres": [
+      "MINERALS",
+      "EARTH",
+      "JEWELS",
+      "NIGHTMARES",
+      "DREAMS",
+      "METALS",
+      "PLANTS",
+      "SKY",
+      "STORMS",
+      "WIND",
+      "TREES",
+      "VOLCANOS"
+    ],
+    "emitted_effect_tokens": [],
+    "active_wait_fields": [
+      "50"
+    ],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "pain",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      80,
+      109
+    ],
+    "spheres": [
+      "CHAOS",
+      "DEATH",
+      "NIGHTMARES"
+    ],
+    "emitted_effect_tokens": [
+      "CE_PAIN:SEV:500:PROB:100:START:0:PEAK:0:END:3:RESISTABLE"
+    ],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "blisters",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      110,
+      140
+    ],
+    "spheres": [
+      "CHAOS",
+      "NIGHTMARES",
+      "FIRE",
+      "SUN"
+    ],
+    "emitted_effect_tokens": [
+      "CE_BLISTERS:SEV:500:PROB:100:START:0:PEAK:0:END:3:BP:BY_CATEGORY:ALL:SKIN:VASCULAR_ONLY:RESISTABLE"
+    ],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "paralysis",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      141,
+      170
+    ],
+    "spheres": [
+      "DEATH",
+      "NIGHTMARES",
+      "SALT"
+    ],
+    "emitted_effect_tokens": [
+      "CE_PARALYSIS:SEV:500:PROB:100:START:0:PEAK:0:END:1:RESISTABLE"
+    ],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "bleeding",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      171,
+      199
+    ],
+    "spheres": [
+      "CHAOS",
+      "NIGHTMARES"
+    ],
+    "emitted_effect_tokens": [
+      "CE_BLEEDING:SEV:50:PROB:100:START:0:PEAK:0:END:3:BP:BY_CATEGORY:ALL:SKIN:VASCULAR_ONLY:RESISTABLE"
+    ],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "cough_blood",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      200,
+      227
+    ],
+    "spheres": [
+      "NIGHTMARES"
+    ],
+    "emitted_effect_tokens": [
+      "CE_COUGH_BLOOD:SEV:500:PROB:100:START:0:PEAK:0:END:3:RESISTABLE"
+    ],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "vomit_blood",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      228,
+      255
+    ],
+    "spheres": [
+      "NIGHTMARES"
+    ],
+    "emitted_effect_tokens": [
+      "CE_VOMIT_BLOOD:SEV:500:PROB:100:START:0:PEAK:0:END:3:RESISTABLE"
+    ],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "nausea",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      256,
+      286
+    ],
+    "spheres": [
+      "CHAOS",
+      "NIGHTMARES",
+      "MUCK",
+      "SALT"
+    ],
+    "emitted_effect_tokens": [
+      "CE_NAUSEA:SEV:500:PROB:100:START:0:PEAK:0:END:3:RESISTABLE"
+    ],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "necrosis",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      287,
+      318
+    ],
+    "spheres": [
+      "NIGHTMARES",
+      "MUCK"
+    ],
+    "emitted_effect_tokens": [],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "blind",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      319,
+      357
+    ],
+    "spheres": [
+      "CAVERNS",
+      "DARKNESS",
+      "DEATH",
+      "NIGHTMARES",
+      "FIRE",
+      "LIGHT",
+      "LIGHTNING",
+      "MOON",
+      "MUCK",
+      "MIST",
+      "STARS",
+      "SUN"
+    ],
+    "emitted_effect_tokens": [
+      "CE_IMPAIR_FUNCTION:SEV:500:PROB:100:START:0:PEAK:0:END:1:BP:BY_CATEGORY:ALL:EYE:RESISTABLE"
+    ],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "suffocate",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      358,
+      389
+    ],
+    "spheres": [
+      "MOUNTAINS",
+      "DEATH",
+      "NIGHTMARES",
+      "MUCK",
+      "WATER"
+    ],
+    "emitted_effect_tokens": [
+      "CE_IMPAIR_FUNCTION:SEV:500:PROB:100:START:0:PEAK:0:END:1:BP:BY_CATEGORY:LUNG:ALL:RESISTABLE"
+    ],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  },
+  {
+    "name": "dizziness",
+    "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+    "lines": [
+      390,
+      421
+    ],
+    "spheres": [
+      "MOUNTAINS",
+      "CHAOS",
+      "NIGHTMARES"
+    ],
+    "emitted_effect_tokens": [
+      "CE_DIZZINESS:SEV:500:PROB:100:START:0:PEAK:0:END:3:RESISTABLE"
+    ],
+    "active_wait_fields": [],
+    "limits": "Lexical reference, no generator execution, no actual item binding or AI consumer."
+  }
+]

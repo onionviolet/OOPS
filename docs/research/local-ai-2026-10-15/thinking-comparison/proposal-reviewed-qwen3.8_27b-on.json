@@ -1,0 +1,83 @@
+{
+  "canonClaims": [
+    {
+      "sourceId": "H1",
+      "claim": "Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light."
+    },
+    {
+      "sourceId": "H1",
+      "claim": "The fact file supports a lighting function, not automatic spell knowledge, a generic mana pool, or a source-specified cooldown."
+    },
+    {
+      "sourceId": "H2",
+      "claim": "Reparo can mend certain damaged objects; mending the physical exterior of a broken wand does not by itself restore its damaged magic."
+    },
+    {
+      "sourceId": "H2",
+      "claim": "The dossier supplies no numerical casting cost or duration for Reparo."
+    }
+  ],
+  "startAssumptions": [
+    "P1 ORIGINAL PREMISE: a magically eligible adult learner owns an intact wand and has already learned Lumos and Nox.",
+    "P1 ORIGINAL PREMISE: an ordinary nonmagical adult visitor owns a wand but has no magical source or learned casting method.",
+    "P1 ORIGINAL PREMISE: learner is in a dim storage room and can leave freely; no enemy, teacher, reward, debt, or mandatory quest exists.",
+    "P1 ORIGINAL PREMISE: Reparo is a later separate learned method, not granted by this starting premise; wand ownership alone cannot silently grant the missing source."
+  ],
+  "stateAndReaders": [
+    "Actor: {wandOwnership:bool, magicalSource:bool, learnedSpells:Set<SpellId>, location:RoomId}. Casting gated by magicalSource AND learnedSpells, NOT wandOwnership alone.",
+    "LightState: {on:bool, casterId:ActorId, wandId:WandId, worldScope:RoomId}. Scoped to actor/wand/world; no global or unscoped illumination.",
+    "WandObject: {physicalIntegrity:enum, magicalIntegrity:enum}. H2 separates these: Reparo may alter physicalIntegrity but cannot restore magicalIntegrity.",
+    "No reader or JSON label confers casting ability; the schema is an inert proposal, not registered game data. No mana, cooldown, or cost field is source-specified."
+  ],
+  "actions": [
+    {
+      "name": "Lumos (learner)",
+      "preconditions": "magicalSource=true AND 'Lumos' in learnedSpells AND wand present AND wand.magicalIntegrity intact.",
+      "effect": "Set LightState.on=true scoped to caster/wand/room. No item, money, or new mastery awarded.",
+      "sourceVsDesign": "H1 supports the lighting function; the toggle loop and scoping are O1 design proposals, not source-specified mechanics."
+    },
+    {
+      "name": "Nox (learner)",
+      "preconditions": "LightState.on=true AND casterId matches current actor AND same wandId.",
+      "effect": "Set LightState.on=false. No mutation beyond extinguishing the scoped light.",
+      "sourceVsDesign": "H1 supports extinguishing; the explicit toggle action and its preconditions are O1 design proposals."
+    },
+    {
+      "name": "Visitor attempts Lumos",
+      "preconditions": "wandOwnership=true BUT magicalSource=false AND 'Lumos' not in learnedSpells.",
+      "effect": "REFUSE: no light, no mutation, no new mastery, no item. Attempt is inert; wand ownership does not grant casting.",
+      "sourceVsDesign": "P1 premise enforces refusal; the refusal path is an O1 design guard, not a source-specified spell failure."
+    },
+    {
+      "name": "Leave room",
+      "preconditions": "None; learner may leave freely per P1. No quest, debt, or lockout.",
+      "effect": "Actor exits room. Accepted LightState and identity persist under later approved save policy; no new source or gameplay installed.",
+      "sourceVsDesign": "P1 grants free departure; persistence under save policy is an O1 design proposal, not a source claim."
+    }
+  ],
+  "compatibility": {
+    "status": "requires_adapter",
+    "missingConsumers": [
+      "Wand/source eligibility reader: the 14-field authored_site adapter has no field for magicalSource or learnedSpells set.",
+      "Actor/wand/world-scoped LightState consumer: adapter handles scalar input/output, not multi-actor scoped state.",
+      "Visibility consumer: no reader consumes LightState.on to alter room illumination for other actors.",
+      "WandObject dual-integrity reader (physical vs magical per H2): adapter cannot represent or gate on magicalIntegrity.",
+      "Reparo consumer that mutates physicalIntegrity only while leaving magicalIntegrity unchanged; no such code exists."
+    ]
+  },
+  "counterexamples": [
+    "Visitor with wandOwnership=true casts Lumos: must REFUSE; wand ownership is not a casting source (P1, H1).",
+    "Reparo applied to a broken wand restores its magicalIntegrity: violates H2; only physical exterior is mended.",
+    "A JSON label 'Lumos' or generated schema field is treated as making the effect playable: the schema is an inert proposal, not registered game data.",
+    "A failed or unavailable attempt awards mastery, items, money, or quest completion: violates the no-mutation / no-award rule of O1."
+  ],
+  "futureWitness": [
+    "ON: learner with magicalSource and learned Lumos casts; LightState.on=true scoped to that caster/wand/room.",
+    "OFF: same learner casts Nox; LightState.on=false; no residual light, no mutation beyond the toggle.",
+    "NO-SOURCE REFUSAL: nonmagical visitor with wand attempts Lumos; system refuses, no light, no mastery, no item granted.",
+    "LEAVING: learner exits the dim storage room freely; no quest or lockout blocks departure.",
+    "PERSISTENCE: accepted LightState and actor identity survive under a later approved save policy; no new gameplay installed by this test.",
+    "REPARO LIMIT: a future Reparo action mends wand physicalIntegrity only; magicalIntegrity remains broken per H2; no numerical cost is asserted."
+  ],
+  "numericalPolicy": "No source-specified mana, cooldown, duration, or numerical cost exists in H1 or H2. Any such numbers are O1 design proposals only. No invented citations. Schema is inert; it does not register game law"
+}

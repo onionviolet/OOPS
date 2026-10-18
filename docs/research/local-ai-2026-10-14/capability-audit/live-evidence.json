@@ -1,0 +1,242 @@
+{
+  "captured_at": "2026-10-14T21:37:33.447232+00:00",
+  "scope": "metadata only, no inference",
+  "api": {
+    "version": {
+      "version": "0.40.3"
+    },
+    "tags": {
+      "models": [
+        {
+          "name": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+          "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+          "modified_at": "2026-10-14T17:31:18.686286955-04:00",
+          "size": 29978241872,
+          "digest": "150af2e2fa9b3e09d6dfd1cf6f315bb9cb7d688af157d1cc1c9fe1a809ebb230",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "27.3B",
+            "quantization_level": "Q8_0",
+            "context_length": 262144,
+            "embedding_length": 5120,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "qwen3.8:27b",
+          "model": "qwen3.8:27b",
+          "modified_at": "2026-10-12T23:47:52.233936917-04:00",
+          "size": 18174721847,
+          "digest": "47951e4a666180bc2aedfc93c169472f2de783696fe196efbf063f5730ecf163",
+          "details": {
+            "parent_model": "",
+            "format": "safetensors",
+            "family": "",
+            "families": null,
+            "parameter_size": "",
+            "quantization_level": "nvfp4",
+            "runner": "mlx"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ]
+        }
+      ]
+    },
+    "ps": {
+      "models": []
+    }
+  },
+  "workers": "  PID ELAPSED COMMAND\n44425   06:39 /Users/weiwei/.local/bin/python3.13 /Users/weiwei/code/yet-another-idle-rpg/docs/research/local-ai-2026-10-14/m5-optimal/continue_existing_gemma_download.py\n",
+  "gemma_progress": {
+    "model": "gemma4:31b-mlx",
+    "progress": {
+      "status": "pulling model",
+      "digest": "sha256:model",
+      "total": 19424434885,
+      "completed": 12473843675
+    },
+    "updated_at": "2026-10-14T21:37:25.406263+00:00"
+  },
+  "binary": {
+    "path": "/Users/weiwei/.local/share/ollama/ollama",
+    "sha256": "76535100c7aaf5aa94fe749b1bf0cfe3a702fa0743c7421fed059b783f4969de"
+  },
+  "branch": "codex/gameplay-foundations",
+  "manifest_configs": [
+    {
+      "path": "/Users/weiwei/.ollama/models/manifests/registry.ollama.ai/library/qwen3.8/27b",
+      "manifest_sha256": "b3f6f186092bf21a84c443c0e8c5069a8e4accb2b6b7a7b20baf9180d0ff0f11",
+      "config": {
+        "model_format": "safetensors",
+        "model_family": "",
+        "model_families": null,
+        "model_type": "",
+        "file_type": "nvfp4",
+        "renderer": "qwen3.8",
+        "parser": "qwen3.5",
+        "requires": "0.32.12",
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ],
+        "architecture": "",
+        "os": ""
+      },
+      "layers": 1211,
+      "all_layer_sizes_match": true
+    },
+    {
+      "path": "/Users/weiwei/.ollama/models/manifests/registry.ollama.ai/huihui_ai/Qwen3.8-abliterated/27b-q8_0",
+      "manifest_sha256": "f83f0412aee04476cd1e422afeb3d2726077bd727b9857d3cb811db04cd7987c",
+      "config": {
+        "model_format": "gguf",
+        "model_family": "qwen35",
+        "model_families": [
+          "qwen35"
+        ],
+        "model_type": "27.3B",
+        "file_type": "Q8_0",
+        "renderer": "qwen3.8",
+        "parser": "qwen3.5",
+        "architecture": "amd64",
+        "os": "linux"
+      },
+      "layers": 6,
+      "all_layer_sizes_match": true
+    }
+  ],
+  "final_read_at": "2026-10-14T21:38:43.136752+00:00",
+  "workers_final": "  PID  PPID STARTED                          ELAPSED COMMAND\n15883     1 Mon Oct 12 23:49:27 2026     01-17:49:16 /Users/weiwei/.local/bin/ollama serve\n43987     1 Wed Oct 14 17:30:38 2026           08:05 /Users/weiwei/.local/bin/python3.13 /Users/weiwei/.local/share/local-ai/upgrades/2026-10-14/finish_upgrade.py\n44425     1 Wed Oct 14 17:30:54 2026           07:49 /Users/weiwei/.local/bin/python3.13 /Users/weiwei/code/yet-another-idle-rpg/docs/research/local-ai-2026-10-14/m5-optimal/continue_existing_gemma_download.py\n",
+  "external_worker_status": {
+    "started_at": "2026-10-14T17:30:38-0400",
+    "phase": "downloading",
+    "models": {
+      "quality": {
+        "source": "qwen3.8:27b-mxfp8",
+        "phase": "downloading",
+        "progress": {
+          "status": "pulling model",
+          "digest": "sha256:model",
+          "total": 31655336241,
+          "completed": 4089121509
+        }
+      },
+      "uncensored": {
+        "source": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+        "phase": "downloaded",
+        "progress": {
+          "status": "success"
+        },
+        "digest": "150af2e2fa9b3e09d6dfd1cf6f315bb9cb7d688af157d1cc1c9fe1a809ebb230",
+        "bytes": 29978241872
+      },
+      "gemma": {
+        "source": "gemma4:31b-mlx",
+        "phase": "downloading",
+        "progress": {
+          "status": "pulling model",
+          "digest": "sha256:model",
+          "total": 19424434885,
+          "completed": 12424848590
+        }
+      }
+    },
+    "pid": 43987
+  },
+  "gemma_progress_final": {
+    "model": "gemma4:31b-mlx",
+    "progress": {
+      "status": "pulling model",
+      "digest": "sha256:model",
+      "total": 19424434885,
+      "completed": 12578497288
+    },
+    "updated_at": "2026-10-14T21:38:35.463982+00:00"
+  },
+  "local_ai_config": {
+    "default": "fast",
+    "profiles": {
+      "fast": "qwen3.8:27b"
+    }
+  },
+  "server_json_exists": false,
+  "api_final_tags": {
+    "models": [
+      {
+        "name": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+        "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+        "modified_at": "2026-10-14T17:31:18.686286955-04:00",
+        "size": 29978241872,
+        "digest": "150af2e2fa9b3e09d6dfd1cf6f315bb9cb7d688af157d1cc1c9fe1a809ebb230",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "27.3B",
+          "quantization_level": "Q8_0",
+          "context_length": 262144,
+          "embedding_length": 5120,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "qwen3.8:27b",
+        "model": "qwen3.8:27b",
+        "modified_at": "2026-10-12T23:47:52.233936917-04:00",
+        "size": 18174721847,
+        "digest": "47951e4a666180bc2aedfc93c169472f2de783696fe196efbf063f5730ecf163",
+        "details": {
+          "parent_model": "",
+          "format": "safetensors",
+          "family": "",
+          "families": null,
+          "parameter_size": "",
+          "quantization_level": "nvfp4",
+          "runner": "mlx"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      }
+    ]
+  },
+  "api_final_ps": {
+    "models": []
+  },
+  "gpu_verified": [
+    {
+      "chip": "Apple M5 Pro",
+      "gpu_cores": "20",
+      "metal": null
+    }
+  ]
+}

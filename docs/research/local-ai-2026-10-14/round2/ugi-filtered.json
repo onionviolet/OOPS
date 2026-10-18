@@ -1,0 +1,90 @@
+{
+  "rows": 1326,
+  "filter": "0 < recorded Total Parameters <= 40",
+  "top": [
+    {
+      "model": "Naphula/Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA (<|channel>thought prefill)",
+      "writing": 47.87,
+      "total": 26.0,
+      "template": "gemma-4 w/ <|channel>thought prefill",
+      "test_date": "6/28/2026"
+    },
+    {
+      "model": "FlareRebellion/WeirdCompound-v1.7-24b",
+      "writing": 47.0,
+      "total": 24.0,
+      "template": "mistral V7-Tekken",
+      "test_date": "10/15/2025"
+    },
+    {
+      "model": "FlareRebellion/WeirdCompound-v1.5-24b",
+      "writing": 46.95,
+      "total": 24.0,
+      "template": "mistral V7-Tekken",
+      "test_date": "9/26/2025"
+    },
+    {
+      "model": "llmfan46/gemma-4-26B-A4B-it-uncensored-heretic (<|channel>thought prefill)",
+      "writing": 46.36,
+      "total": 26.0,
+      "template": "gemma-4 w/ <|channel>thought prefill",
+      "test_date": "4/26/2026"
+    },
+    {
+      "model": "MuXodious/gemma-4-26B-A4B-it-SOMPOA-heresy (<|channel>thought prefill)",
+      "writing": 46.3,
+      "total": 26.0,
+      "template": "gemma-4 w/ <|channel>thought prefill",
+      "test_date": "5/25/2026"
+    },
+    {
+      "model": "llmfan46/Qwen3.6-35B-A3B-uncensored-heretic (<think> prefill)",
+      "writing": 46.22,
+      "total": 35.0,
+      "template": "chatml w/ <think> prefill",
+      "test_date": "4/26/2026"
+    },
+    {
+      "model": "MuXodious/gemma-4-26B-A4B-it-ARA-heresy (<|channel>thought prefill)",
+      "writing": 45.9,
+      "total": 26.0,
+      "template": "gemma-4 w/ <|channel>thought prefill",
+      "test_date": "5/25/2026"
+    },
+    {
+      "model": "llmfan46/gemma-4-26B-A4B-it-ultra-uncensored-heretic (<|channel>thought prefill)",
+      "writing": 45.88,
+      "total": 26.0,
+      "template": "gemma-4 w/ <|channel>thought prefill",
+      "test_date": "4/20/2026"
+    },
+    {
+      "model": "FlareRebellion/BereavedCompound-v1.0-24b",
+      "writing": 45.66,
+      "total": 24.0,
+      "template": "mistral V7-Tekken",
+      "test_date": "11/19/2025"
+    },
+    {
+      "model": "Qwen/Qwen3.6-35B-A3B (<think> prefill)",
+      "writing": 45.36,
+      "total": 35.0,
+      "template": "chatml w/ <think> prefill",
+      "test_date": "4/25/2026"
+    },
+    {
+      "model": "google/gemma-3-27b-it",
+      "writing": 44.99,
+      "total": 27.0,
+      "template": "gemma-3",
+      "test_date": "9/6/2025"
+    },
+    {
+      "model": "Columbidae/gemma-3-27b-half-full",
+      "writing": 44.52,
+      "total": 27.0,
+      "template": "gemma-3",
+      "test_date": "9/26/2025"
+    }
+  ]
+}

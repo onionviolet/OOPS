@@ -1,0 +1,39 @@
+{
+  "scope": "documentation and local library preparation only",
+  "links_checked": 158,
+  "missing_links": [],
+  "private_ignored": {
+    "docs/research/tabletop-library-2026-10-14/implementation-considerations/private/EXACT_RULES.md": true,
+    "docs/research/tabletop-library-2026-10-14/implementation-considerations/private/READING_LEDGER.json": true,
+    "docs/research/tabletop-library-2026-10-14/private/manifest.json": true,
+    "docs/research/tabletop-library-2026-10-14/private/search.sqlite": true
+  },
+  "preparation": {
+    "records": 72,
+    "pdf_pages": 7371,
+    "indexed_sections_or_pages": 31371,
+    "failed_assets": [
+      "ironsworn-core"
+    ],
+    "parse_failures": [
+      "local-8e1802398fc8",
+      "local-a52fcf879d78",
+      "local-cd7e61f04af3",
+      "local-af3d845bf990",
+      "local-f82572a0e9dc",
+      "local-bc02ea58eb68",
+      "local-5df083562fa7"
+    ]
+  },
+  "runtime_tests_run": false,
+  "build_run": false,
+  "native_play_run": false,
+  "source_originals_modified": false,
+  "recommendation": "O1 existing manual acceptance recovery; O2 optional later original research branch",
+  "validation_note": "Angle-bracket Markdown destinations checked intact; report-area .gitignore excludes private rule notes.",
+  "limitations": [
+    "No full-book reading",
+    "Seven added PDFs parse_failed",
+    "No gameplay completion or latest runtime ownership claim"
+  ]
+}

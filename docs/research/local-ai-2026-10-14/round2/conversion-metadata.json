@@ -1,0 +1,257 @@
+[
+  {
+    "id": "mlx-community/Hemmingway-1-OptiQ-4bit",
+    "revision": "2394cafca71c3b8cfd0f1e23f1310e2c93e3f4cd",
+    "card": {
+      "library_name": "mlx",
+      "license": "apache-2.0",
+      "pipeline_tag": "text-generation",
+      "base_model": "Altworld/Hemmingway-1",
+      "base_model_relation": "quantized",
+      "tags": [
+        "mlx",
+        "quantized",
+        "mixed-precision",
+        "4bit",
+        "8bit",
+        "optiq",
+        "apple-silicon",
+        "text-generation",
+        "qwen3.5",
+        "writing"
+      ]
+    },
+    "artifacts": [
+      {
+        "rfilename": "chat_template.jinja",
+        "blobId": "c0c686f9c38d70d179fb7b5f5aa7530bc913dda3",
+        "size": 8952
+      },
+      {
+        "rfilename": "config.json",
+        "blobId": "e055b3f98af6529d84d3cb813767e39ba9e080b6",
+        "size": 92759
+      },
+      {
+        "rfilename": "generation_config.json",
+        "blobId": "c53835dc1fca33e4e840690f5c458c9983f97fc6",
+        "size": 214
+      },
+      {
+        "rfilename": "model-00001-of-00004.safetensors",
+        "blobId": "63312434601b70beef95dad3aa09b98593c6ed86",
+        "size": 5287711806,
+        "lfs": {
+          "sha256": "62872323ee67982497f9eeeb095870be5098dff8c66ec537a2f1e53366b06197",
+          "size": 5287711806,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "model-00002-of-00004.safetensors",
+        "blobId": "68335a399a8f745879f6679d89a3a398495af557",
+        "size": 5343471439,
+        "lfs": {
+          "sha256": "da828a3fd8b6a2d23866ec80990a948746f38c7a31a82abcf93d0c82bd4e8a0c",
+          "size": 5343471439,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "model-00003-of-00004.safetensors",
+        "blobId": "cf97137a45101d70c4c852ad813cac7676a64cfe",
+        "size": 5351365273,
+        "lfs": {
+          "sha256": "752224af0fba6983eff465d73b7b024f6c3890fa4362576f2f12cff68b3eba72",
+          "size": 5351365273,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "model-00004-of-00004.safetensors",
+        "blobId": "069bab1da9722c6f01aa3f09fbb6afcb6f661d50",
+        "size": 2669750863,
+        "lfs": {
+          "sha256": "68d700c066e0d0a89207cf6c8872e1cb1482961ce8f5478eb021ba5ded974ffb",
+          "size": 2669750863,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "model.safetensors.index.json",
+        "blobId": "5c5c5759be421606857fca5d7813aee63deca20e",
+        "size": 162084
+      },
+      {
+        "rfilename": "optiq/metadata.json",
+        "blobId": "732b023639f9e74bd5723e847e5ea3a862e33817",
+        "size": 45316
+      },
+      {
+        "rfilename": "optiq/mtp.safetensors",
+        "blobId": "3b1a05506cbf869411e83d7d0f8a18ca785bd06f",
+        "size": 314300461,
+        "lfs": {
+          "sha256": "e3054bcb1b6fa35f482f6cca7cb3032ba9aa31a3cfb4d1e358d5ebb20b78d0f8",
+          "size": 314300461,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "5520bfd2dd834ce386c1312c410fa71af56db5ad",
+        "size": 19989325,
+        "lfs": {
+          "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+          "size": 19989325,
+          "pointerSize": 133
+        }
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "8d610519919e32dd25f499e61f4bd38d7a0ad9b2",
+        "size": 1161
+      }
+    ]
+  },
+  {
+    "id": "mradermacher/Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA-GGUF",
+    "revision": "800f462d2b6814157c87d5826a47f93a64f615c5",
+    "card": {
+      "base_model": "Naphula/Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA",
+      "language": "eng",
+      "library_name": "transformers",
+      "license": "apache-2.0",
+      "mradermacher": {
+        "readme_rev": 1
+      },
+      "quantized_by": "mradermacher",
+      "tags": [
+        "merge",
+        "mergekit",
+        "moe_della",
+        "gemma4",
+        "conversational",
+        "roleplay",
+        "creative writing",
+        "ablated",
+        "uncensored",
+        "heretic",
+        "ara",
+        "ari"
+      ]
+    },
+    "artifacts": [
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.IQ4_XS.gguf",
+        "blobId": "a873105b44203ae3f0b92ef8afd8e95c75cc1020",
+        "size": 14063812704,
+        "lfs": {
+          "sha256": "15a04381fe40e1efb85d67298038e216f5ce6fe40b986f183a2be89fdd10765e",
+          "size": 14063812704,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.Q2_K.gguf",
+        "blobId": "7d84a32f637a9d8f4edb8e2126c1dfcd49f76fcb",
+        "size": 10582741088,
+        "lfs": {
+          "sha256": "ddc37ce4d2368e2e78ce8bcc1f886f93584fefe24a9bdae914c20369e7d1480d",
+          "size": 10582741088,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.Q3_K_L.gguf",
+        "blobId": "8c87ea050b983132f0a45be80e7736e560cbfcb9",
+        "size": 13824492128,
+        "lfs": {
+          "sha256": "a5abfcad8fb331b2abde1f9743449d28d8859210571421c40b72fc3c65977fe6",
+          "size": 13824492128,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.Q3_K_M.gguf",
+        "blobId": "f82ef185568c580483ed70c256d0885b95161e37",
+        "size": 13286737504,
+        "lfs": {
+          "sha256": "4095ec1bede0a11e65dead26b4adb1f2ad27a8a4e0c7d1ceee43b8ac373f5e8c",
+          "size": 13286737504,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.Q3_K_S.gguf",
+        "blobId": "84f6e490ea46510f2f1cc3063d2ff1d4c0c7c809",
+        "size": 12222413408,
+        "lfs": {
+          "sha256": "e57e59a1c31c45af7a8887341ac9a2a8547d52dbf89594a0bdc358c5e8f7c75a",
+          "size": 12222413408,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.Q4_K_M.gguf",
+        "blobId": "a15a2c02831652a65841375ed4d82c028b91eb67",
+        "size": 16796019808,
+        "lfs": {
+          "sha256": "fe6f89190008abeb6e37e08c69e857dab14a2006bded27894bc41c6170334038",
+          "size": 16796019808,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.Q4_K_S.gguf",
+        "blobId": "ac3368610665f54ee8638e68a4120aadd07828a4",
+        "size": 15464829024,
+        "lfs": {
+          "sha256": "0c3686092d52477cedd77c8042aa02ea0e3cb27a24615b327b25bbc0afab15c2",
+          "size": 15464829024,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.Q5_K_M.gguf",
+        "blobId": "dd1f4b4bd1e1958c7ba3f0db91be71cef6c4dab2",
+        "size": 19132894304,
+        "lfs": {
+          "sha256": "d5117258d36aa714471d49aaf04d7a5df7cb66bccbb4e7b6106c0bafafcb7ba3",
+          "size": 19132894304,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.Q5_K_S.gguf",
+        "blobId": "0341bbcbfd547636bb0814b67cc9b59651f779ad",
+        "size": 17986737248,
+        "lfs": {
+          "sha256": "b9f5c4ef94342d008f4a76c0189eda956b193b631ddc16b638280d47a19736f8",
+          "size": 17986737248,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.Q6_K.gguf",
+        "blobId": "d7f04df315104091004a21fbcc0fbb02984d15de",
+        "size": 22638403168,
+        "lfs": {
+          "sha256": "d243ad4ea7e0c209fc9706f85de146c39a0ba6b8751e9b5b2ab198a69fe78f80",
+          "size": 22638403168,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA.Q8_0.gguf",
+        "blobId": "94338b6f547975a80349ed0b4e2f6f54bb1acc56",
+        "size": 26859863136,
+        "lfs": {
+          "sha256": "4bfdfdf52fdf74b38ff8c21ccbca23fa4f63ae622825a85f1dd2c5d4419e21f7",
+          "size": 26859863136,
+          "pointerSize": 136
+        }
+      }
+    ]
+  }
+]

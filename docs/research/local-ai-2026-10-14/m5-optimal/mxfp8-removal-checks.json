@@ -1,0 +1,73 @@
+{
+  "checked_at": "2026-10-14T21:31:19.086196+00:00",
+  "models": {
+    "models": [
+      {
+        "name": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+        "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+        "modified_at": "2026-10-14T17:31:18.686286955-04:00",
+        "size": 29978241872,
+        "digest": "150af2e2fa9b3e09d6dfd1cf6f315bb9cb7d688af157d1cc1c9fe1a809ebb230",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "27.3B",
+          "quantization_level": "Q8_0",
+          "context_length": 262144,
+          "embedding_length": 5120,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "qwen3.8:27b",
+        "model": "qwen3.8:27b",
+        "modified_at": "2026-10-12T23:47:52.233936917-04:00",
+        "size": 18174721847,
+        "digest": "47951e4a666180bc2aedfc93c169472f2de783696fe196efbf063f5730ecf163",
+        "details": {
+          "parent_model": "",
+          "format": "safetensors",
+          "family": "",
+          "families": null,
+          "parameter_size": "",
+          "quantization_level": "nvfp4",
+          "runner": "mlx"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      }
+    ]
+  },
+  "resident": {
+    "models": []
+  },
+  "registered_model_layer_sizes_intact": true,
+  "protected_manifest_hashes_unchanged": true,
+  "exclusive_mxfp8_files_remaining": [],
+  "gemma_continuation": {
+    "model": "gemma4:31b-mlx",
+    "progress": {
+      "status": "pulling model",
+      "digest": "sha256:model",
+      "total": 19424434885,
+      "completed": 12108693868
+    },
+    "updated_at": "2026-10-14T21:31:14.143041+00:00"
+  },
+  "inference_run_by_this_task": false,
+  "runtime_restarted": false
+}

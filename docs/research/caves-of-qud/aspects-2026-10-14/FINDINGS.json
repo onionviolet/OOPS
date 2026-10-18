@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "lane": "bf-caves-of-qud",
+  "date": "2026-10-15",
+  "evidence": "installed-source-static",
+  "steam_build_id": "25520692",
+  "prior_steam_build_id": null,
+  "same_gameplay_assembly": true,
+  "assembly_version_from_matching_prior": "2.0.211.56",
+  "assembly_sha256": "2cc28fba5a86221e27bfdcaa5f5a91a2e249fd474814dce7cff25a9a649b8589",
+  "game_run": false,
+  "saves_read": false,
+  "new_installs": [],
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Make one social offer report its actual committed result",
+      "owner": "src/components/dialogue_component.js, src/models/dialogue_action.js, src/people_knowledge.js",
+      "sources": "D1 / A01",
+      "behavior": "Offer, permission, costs and learned result stay distinct; retain teacher provenance.",
+      "later_acceptance": "Stale offer, denied permission, insufficient reputation/resources, failed grant, repeated choice; changed knowledge and save/reload."
+    },
+    {
+      "id": "P2",
+      "title": "Validate the complete durable save envelope",
+      "owner": "src/save_files.js, src/save_compatibility.js and current native publisher",
+      "sources": "D2 / A04",
+      "behavior": "Keep metadata, world state and pending commands mutually compatible through recovery.",
+      "later_acceptance": "Interrupted publication, malformed payload, unsupported version, missing cache and exact changed-positive save/reload/export/import."
+    },
+    {
+      "id": "P3",
+      "title": "Resume contextual guidance safely",
+      "owner": "Existing onboarding/knowledge route; src/people_knowledge.js and docs/UI_RULES.md for UI routing",
+      "sources": "D3 / A10",
+      "behavior": "Save stable lesson/substep IDs, derive transient highlights from current location and known facts.",
+      "later_acceptance": "Reload mid-lesson, missing/renamed lesson, absent target and close/reopen help; fresh rebuilt 1366\u00d7768 browser with populated save."
+    },
+    {
+      "id": "P4",
+      "title": "Keep NPC observation, eligibility and action result separate",
+      "owner": "src/npc_lives.js and existing encounter/command consumers",
+      "sources": "A05 / prior re-pass",
+      "behavior": "Use one existing encounter; change ally presence or exact fitted tool to produce a useful alternate action.",
+      "later_acceptance": "Observed/unobserved target, unavailable actual tool, area veto, direct alternative, exhausted methods; distinguish rejection from paid attempt."
+    },
+    {
+      "id": "P5",
+      "title": "Give generated lore a stable factual source",
+      "owner": "Existing world/history, src/world_knowledge.js and quest owners",
+      "sources": "A02 / newer generated-world audit",
+      "behavior": "Journal, rumor and relic description refer to the same event identities with actor-specific discovery.",
+      "later_acceptance": "Two discovered records agree on shared facts, unknown fact stays private, changed branch and save/reload retain provenance."
+    },
+    {
+      "id": "P6",
+      "title": "Declare each delayed effect\u2019s clock and inactive-zone rule",
+      "owner": "src/simulation_clock.js and current played-time/world scheduler owners",
+      "sources": "A09",
+      "behavior": "Use existing scheduling; distinguish game actions, played time, history and optional inactive-region catch-up.",
+      "later_acceptance": "Pause/reload, exact due-time boundary, fast/slow actor policy, inactive region return and no duplicate settlement."
+    }
+  ],
+  "qualifications": [
+    "No numeric Steam build comparison possible",
+    "All twelve aspects accounted for; bounded source reading only",
+    "No native verification",
+    "DLC file presence does not prove load or entitlement",
+    "Inventory is complete by discovered namespace/table, not every method or consumer"
+  ]
+}

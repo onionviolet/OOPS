@@ -1,0 +1,92 @@
+{
+  "retrieved_utc": "2026-10-15T01:44:18.504157+00:00",
+  "4dmud_commit": "d2ee92671693f2f0eac88d7d5f9d86bebc17d89c",
+  "scope": "Read-only source captures; no execution or live-server correspondence claimed",
+  "files": [
+    {
+      "file": "private/4d-remort.cpp",
+      "url": "https://raw.githubusercontent.com/4dmud/mud/d2ee92671693f2f0eac88d7d5f9d86bebc17d89c/remort.cpp",
+      "sha256": "fcb41870b2eb2f8801966b075e1fc9660dc5148534c73b817c56b6e547340bdb",
+      "bytes": 12252
+    },
+    {
+      "file": "private/4d-class.cpp",
+      "url": "https://raw.githubusercontent.com/4dmud/mud/d2ee92671693f2f0eac88d7d5f9d86bebc17d89c/class.cpp",
+      "sha256": "470891222dfa693f849b8fff83576418477da354aa788f28bc597e9ccdd9c3b7",
+      "bytes": 65339
+    },
+    {
+      "file": "private/cavernous-realms.js",
+      "url": "https://nucaranlaeg.github.io/incremental/CavernousII/dist/script/realms.js",
+      "sha256": "95e50bedf16260df8f961f6872facbce0f59d716de45b24fcb222ebc460f3276",
+      "bytes": 7601
+    },
+    {
+      "file": "private/cavernous-stats.js",
+      "url": "https://nucaranlaeg.github.io/incremental/CavernousII/dist/script/stats.js",
+      "sha256": "c01b7528aac6781813d7a9c149e5688a97f3534d2034f1ed6ce9a46eb41ced97",
+      "bytes": 9048
+    },
+    {
+      "file": "private/cavernous-main.js",
+      "url": "https://nucaranlaeg.github.io/incremental/CavernousII/dist/script/main.js",
+      "sha256": "98af5830fc9f6027a1fbde1645a858c8d83f68377b761c6eb1ed74ed3388c30f",
+      "bytes": 19392
+    },
+    {
+      "file": "private/cavernous-index.html",
+      "url": "https://nucaranlaeg.github.io/incremental/CavernousII/",
+      "sha256": "7e78f3169ab234f7497f27f1357fb54e0540fb8c7fedb92fb4f14971e519c1c5",
+      "bytes": 23720
+    }
+  ],
+  "help_captures": [
+    {
+      "file": "private/retromud-getting-started.html",
+      "url": "https://www.retromud.org/proxy/help?=Basics/getting_started",
+      "sha256": "3a122dc955e3c5e81c6a06d50702bc7e413be6e2de0ff99d168efd9e6cb900ff",
+      "bytes": 15434
+    },
+    {
+      "file": "private/retromud-transport.html",
+      "url": "https://www.retromud.org/proxy/help?=Movement/interplanetary_transport",
+      "sha256": "03f3e192babb4deffdb5d9ab82b74597f1fa13e34865ff0ec6ba446ed2a7d6ef",
+      "bytes": 3340
+    },
+    {
+      "file": "private/retromud-wysoom.html",
+      "url": "https://www.retromud.org/proxy/help?=Worlds/wysoom",
+      "sha256": "74a751f2318d9b19b14c2f44402dbd875380acf5ea0ab3b86b9c2d7fc949975b",
+      "bytes": 2476
+    },
+    {
+      "url": "https://wiki.lostsouls.org/Travelers_(of_Ganesha)",
+      "error": "HTTP Error 403: Forbidden",
+      "state": "not captured; no retries"
+    },
+    {
+      "file": "private/genesis-occupational.html",
+      "url": "https://www.genesismud.org/occGuilds.php",
+      "sha256": "85dd7c1c3ae7d9c3750e4687a0cd69ea651fff8ded30b81e73b7279810f21136",
+      "bytes": 50565
+    },
+    {
+      "file": "private/genesis-crafts.html",
+      "url": "https://www.genesismud.org/craftGuilds.php",
+      "sha256": "1c772cbb9d2daa968b1d35c9a422c1dbbdc52e299261f45b26194956827c4a2c",
+      "bytes": 25135
+    },
+    {
+      "file": "private/lusternia-travel.html",
+      "url": "https://www.lusternia.com/in-game-help-files/?what=planar-travel",
+      "sha256": "8fe377266554d97f183b7d0dc884290a1a2a12d321e49d73a9c6ce44a7e11fec",
+      "bytes": 84877
+    },
+    {
+      "file": "private/batmud-getting-started.html",
+      "url": "https://www.bat.org/help/help?str=getting_started",
+      "sha256": "11fb3168b2760da2c49125ac75fc8bb56f69500eece884e64d706c258daff23f",
+      "bytes": 33438
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "new_decompile_targets": 1,
+  "current_native_records": 5,
+  "cumulative_native_exact_partitions": 33,
+  "raw_files_with_preserved_exact_unread": 393,
+  "native_regions": 4,
+  "selected_exact_instruction_checks": 8,
+  "direct_call_destinations_verified": 13,
+  "private_hashes": 20,
+  "local_links_checked": 5,
+  "errors": [],
+  "scope": "Static evidence integrity; no refund/gameplay/runtime proof."
+}

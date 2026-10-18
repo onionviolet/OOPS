@@ -1,0 +1,11 @@
+{
+  "directBlockSelection": true,
+  "scopePreview": "Bed F · 4 m². Outside guided water. Adding F would make 16 m², but would change the comparison condition. Preview only; the target set remains C/D/E.",
+  "hiddenOverlayPreservesSelection": true,
+  "keyboardSelection": true,
+  "workUnchanged": true,
+  "escapeRoutine": "true",
+  "delegationBedPreview": "Bed E · 4 m². Draft: inspect care and report exceptions; do not duplicate guided water, harvest or replant. Operator, capacity and acceptance would be checked before a real agreement.",
+  "potionsPreview": "Sample quote: one free herb portion, one water measure and one vial. Heat/control and useful effect require their actual world rules; no batch is started.",
+  "adjacentMenus": "Different pursuits, shared clarity"
+}

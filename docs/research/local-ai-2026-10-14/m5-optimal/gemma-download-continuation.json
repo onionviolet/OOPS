@@ -1,0 +1,5 @@
+{
+  "model": "gemma4:31b-mlx",
+  "phase": "pull_stream_finished",
+  "updated_at": "2026-10-14T21:58:36.144567+00:00"
+}

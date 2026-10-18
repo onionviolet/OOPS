@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-15T16:13:21.018548+00:00",
+  "checks": {
+    "native_and_installed_pin": true,
+    "instruction_regions": 18,
+    "literal_references": 6,
+    "direct_E8_calls_verified": 204,
+    "native_pseudocode_read_unread_partitions": 18,
+    "local_document_links": 10,
+    "hashed_files": 95
+  },
+  "errors": [],
+  "limits": [
+    "Static archive/locator verification only.",
+    "No native target execution, game/Lua run or gameplay/save tests.",
+    "One-byte Ghidra FunctionManager extent not promoted to whole-function coverage."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-15T16:37:01.775771+00:00",
+  "checks": {
+    "binary_and_installed_pin": true,
+    "native_bodies_read": 3,
+    "bounded_native_regions": 3,
+    "additional_instruction_windows": 3,
+    "RTTI_and_slot145_join": true,
+    "critical_instruction_anchors": 6,
+    "cumulative_unique_native_candidates": 49,
+    "local_links": 7,
+    "hashed_files": 39
+  },
+  "errors": [],
+  "limits": [
+    "Archive/static integrity only.",
+    "No game/native target/Lua execution or save/failure injection.",
+    "No general refund/rollback conclusion from these selected methods."
+  ]
+}

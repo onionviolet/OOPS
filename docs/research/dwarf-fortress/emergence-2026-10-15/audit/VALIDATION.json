@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "source_files_checked": 17,
+  "readable_files_accounted": 393,
+  "findings": 6,
+  "local_links_checked": 10,
+  "source_hashes": "match frozen extraction and sibling current-installed receipt",
+  "scope": "Static artifact integrity only; no runtime/gameplay/cleanup execution proof",
+  "errors": []
+}

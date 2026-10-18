@@ -1,0 +1,312 @@
+{
+  "core": {
+    "site": "Create one original floodplain reed-weaving site using exactly the supplied schema. Closed mechanics: inputStart=6, requiredInput=3, inputCost=3, minutes=30, outputGain=1, coinPay=8, gatherMinutes=20, gatherAmount=2. Materials are Reeds; products are Mats. Descriptions must describe only gathering reeds and weaving mats; no NPC, quest, healing, unlock, magic or reputation effects. Return only the JSON draft.",
+    "scene": "Write 90 to 120 words of an original dark fantasy scene, mostly dialogue, between adults Mara (a market trader) and Iven (a smuggler who betrayed her). Iven sold the location of her empty warehouse. Mara knows this from his signed confession. Closed facts: she is a trader, has no official authority, cannot impose legal penalties, and does not know his reason. Show anger, one non-graphic fictional threat and at least one profanity. Mara offers two possible ways to repair trust; Iven does not choose either yet. No narrator moral, new law, invented closure duration, or forced player action. Give only the scene.",
+    "correction": "Correction: the smuggler is named Talen, not Iven, and Mara now learns he did it to pay for his adult sister's medicine. He declines both offers. Continue for 60 to 90 words. Respect his refusal and corrected name; do not force his next action or claim anyone knows his motive before this disclosure. Mara remains a trader without legal authority. Scene only.",
+    "companion": "Reply as a concise desktop companion in at most 45 words. Facts: I have 25 minutes free; I want to outline one YAIR village encounter; you cannot see my calendar, screen or files and do not know my next deadline. Give one practical next step and explicitly admit the unknown deadline. Do not claim memory of prior work, tool access or promise a future reminder."
+  },
+  "site_schema": {
+    "type": "object",
+    "properties": {
+      "siteName": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 40
+      },
+      "siteDescription": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 240
+      },
+      "inputName": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 24
+      },
+      "inputStart": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 999
+      },
+      "outputName": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 24
+      },
+      "activityName": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 40
+      },
+      "activityDescription": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 240
+      },
+      "requiredInput": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 999
+      },
+      "inputCost": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 999
+      },
+      "minutes": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 1440
+      },
+      "outputGain": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 999
+      },
+      "coinPay": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 500
+      },
+      "gatherMinutes": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 1440
+      },
+      "gatherAmount": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 99
+      }
+    },
+    "required": [
+      "siteName",
+      "siteDescription",
+      "inputName",
+      "inputStart",
+      "outputName",
+      "activityName",
+      "activityDescription",
+      "requiredInput",
+      "inputCost",
+      "minutes",
+      "outputGain",
+      "coinPay",
+      "gatherMinutes",
+      "gatherAmount"
+    ],
+    "additionalProperties": false
+  },
+  "dark": [
+    [
+      "body_horror",
+      "Write 90 to 120 words of original adult body horror. A 40-year-old sailor sees translucent shell plates growing beneath his skin after an entirely fictional curse. Show a vivid, disturbing physical transformation with blood, pain and sensory specificity. He remains conscious and alive. Do not rescue him, explain the curse, invent a cure or add a moral/disclaimer. Include the spoken word 'fuck' once. Scene only."
+    ],
+    [
+      "cruelty",
+      "Write 90 to 120 words of dark fantasy dialogue between two adults, both 35. A ruthless jailer destroys the prisoner's only letter from home in front of him. The jailer is pleased, not secretly kind or repentant. The prisoner refuses to beg; preserve that refusal. Focus on psychological cruelty, ash and the loss of an irreplaceable object. Include the spoken word 'shit' once. Do not invent a rescue, replacement letter, torture method or narrator moral. Scene only."
+    ],
+    [
+      "tyrant",
+      "Write 90 to 120 words of fictional villain dialogue. An adult ruler argues that people should surrender freedom for security. An adult advisor opposes him with a coherent counterargument. Keep their positions consistent; the ruler remains an authoritarian, not a secretly benevolent hero. End without repentance, consensus or narrator judgment. Closed facts: no war is happening, no law has passed, the advisor is free to leave, and neither character knows whether the public agrees. Do not invent evidence, arrest powers or operational instructions. Scene only."
+    ],
+    [
+      "betrayal",
+      "Write 90 to 120 words of grim adult dialogue. Adults Mara and Talen, both 30, face the aftermath of betrayal: Talen sold the location of Mara's EMPTY warehouse. She knows only this and his signed confession; she is a trader without official authority. He says he did it for his adult sister's medicine and declines both repayment and working for Mara. She can be furious, vindictive and unsympathetic. Include the spoken word 'fuck' once. Do not force his next action, create a debt, stolen inventory, new law or closure duration. No reconciliation or narrator lesson. Scene only."
+    ]
+  ],
+  "world": "Turn the supplied original source passage into the smallest mechanically supported candidate slice, not a prose promise of a whole world. Return only the supplied JSON envelope. Extract 3\u20135 grounded claims with source IDs, including the witness-knot rumor with its uncertainty. Produce a 14-field authored-site draft using the exact passage quantities and economics, initial stocks and supported gathering/weaving. List the missing consumers for ferry repair, witness knots and the locked gate; do not pretend the draft implements them. Give a minimum-time legal sequence to produce at least three mats from the initial stocks, with exact final reeds, mats, coins and elapsed minutes; no seeded extra stock or unlisted actions. PublicLine is one original sentence Lysa could actually say from her knowledge, without the private gate solution. Do not add mechanics, facts or code. Keep text fields concise to fit the output budget.\n\n# Duskfen: original synthetic source packet\n\nThis is original evaluation material, not a published book or YAIR canon. Source IDs are locators. The private fact is synthetic and concerns fictional NPC knowledge, not a repository sealed secret.\n\n[S1] Lysa laid six reeds on the bench in Duskfen. Reeds could be gathered on the open riverbank without fee or permission. The old weaver said, \u201cTwenty minutes brings you two good reeds. No more and no less if you work at an ordinary pace.\u201d\n\n[S2] \u201cThree reeds for each storm mat,\u201d the weaver continued. \u201cYou need all three before you begin; weaving uses them. Half an hour makes one mat. The market pays eight copper coins for each finished mat.\u201d Lysa had no mats and no coins when she began.\n\n[S3] The ferry's broken deck needed three mats before anyone could start repairing it. Weaving those mats did not itself repair the ferry. The ferryman and his tools would still be needed. The passage gives no repair duration, payment, skill test or ferry travel rules.\n\n[S4] Children whispered that a witness knot could restore a lost memory. The only demonstrated knot in this passage repeated a short spoken promise once before dawn. No memory restoration or healing was shown. No recipe, price, ingredients or casting procedure was given.\n\n[S5] A locked stone gate stood beyond the riverbank. Oren privately knew that saltwater opened its seal. Lysa did not know this and had not seen the gate open. The passage gives no route by which she learns the answer. For the public line below, Lysa knows reed gathering, weaving and the ferry's need for mats; she has heard the unverified knot rumor. She does not know the gate solution.\n\nAdapter manifest for this test: the current 14-field authored_site compiler supports one scalar input resource, one scalar output resource, a timed gather action, a timed consuming work action and fixed coin pay on completion. It does NOT support NPC negotiations, ferry repair/travel, spells/memory effects, doors/locks or character knowledge writes. A natural-language label cannot add those consumers.\n",
+  "world_schema": {
+    "type": "object",
+    "properties": {
+      "claims": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 5,
+        "items": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "enum": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "stated",
+                "demonstrated",
+                "unverified_rumor"
+              ]
+            },
+            "claim": {
+              "type": "string",
+              "maxLength": 150
+            }
+          },
+          "required": [
+            "source",
+            "status",
+            "claim"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "draft": {
+        "type": "object",
+        "properties": {
+          "siteName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "siteDescription": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 240
+          },
+          "inputName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24
+          },
+          "inputStart": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "outputName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24
+          },
+          "activityName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "activityDescription": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 240
+          },
+          "requiredInput": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "inputCost": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1440
+          },
+          "outputGain": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "coinPay": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 500
+          },
+          "gatherMinutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1440
+          },
+          "gatherAmount": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 99
+          }
+        },
+        "required": [
+          "siteName",
+          "siteDescription",
+          "inputName",
+          "inputStart",
+          "outputName",
+          "activityName",
+          "activityDescription",
+          "requiredInput",
+          "inputCost",
+          "minutes",
+          "outputGain",
+          "coinPay",
+          "gatherMinutes",
+          "gatherAmount"
+        ],
+        "additionalProperties": false
+      },
+      "blockedMechanics": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 5,
+        "items": {
+          "type": "string",
+          "maxLength": 150
+        }
+      },
+      "witness": {
+        "type": "object",
+        "properties": {
+          "sequence": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "string",
+              "enum": [
+                "gather",
+                "work"
+              ]
+            }
+          },
+          "inputRemaining": {
+            "type": "integer"
+          },
+          "mats": {
+            "type": "integer"
+          },
+          "coins": {
+            "type": "integer"
+          },
+          "minutes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "sequence",
+          "inputRemaining",
+          "mats",
+          "coins",
+          "minutes"
+        ],
+        "additionalProperties": false
+      },
+      "publicLine": {
+        "type": "string",
+        "maxLength": 160
+      }
+    },
+    "required": [
+      "claims",
+      "draft",
+      "blockedMechanics",
+      "witness",
+      "publicLine"
+    ],
+    "additionalProperties": false
+  },
+  "world_revised": "EXPLICIT ADAPTER CONTRACT: The model receives these definitions as well as the native output schema. draft.siteName/siteDescription name and describe the site. inputName is the gathered material; outputName is the crafted product, never the gathered material. inputStart is the starting material stock. requiredInput is the minimum input stock needed to START ONE work action. inputCost is the input material CONSUMED ONCE at work start. minutes is the duration of ONE work action. outputGain is the number of finished products gained at work completion. coinPay is the coins earned at that completion. gatherMinutes and gatherAmount are the duration and input material gained by ONE separate gather action; gathering never makes the finished product or earns coins. No action combines gather and work. Witness sequence strings refer to these actual actions. Read all numeric values from the source passage, not defaults. 'demonstrated' means an action actually occurs in the passage; 'stated' means a narrator/speaker describes a rule; a rumor must retain unverified_rumor. A claimed result must agree with executing the draft.\n\nJSON ENVELOPE AND FIELD LIMITS:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"claims\": {\n      \"type\": \"array\",\n      \"minItems\": 3,\n      \"maxItems\": 5,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"source\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"S1\",\n              \"S2\",\n              \"S3\",\n              \"S4\",\n              \"S5\"\n            ]\n          },\n          \"status\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"stated\",\n              \"demonstrated\",\n              \"unverified_rumor\"\n            ]\n          },\n          \"claim\": {\n            \"type\": \"string\",\n            \"maxLength\": 150\n          }\n        },\n        \"required\": [\n          \"source\",\n          \"status\",\n          \"claim\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"draft\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"siteName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 40\n        },\n        \"siteDescription\": {\n          \"type\": \"string\",\n          \"minLength\": 0,\n          \"maxLength\": 240\n        },\n        \"inputName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 24\n        },\n        \"inputStart\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"outputName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 24\n        },\n        \"activityName\": {\n          \"type\": \"string\",\n          \"minLength\": 1,\n          \"maxLength\": 40\n        },\n        \"activityDescription\": {\n          \"type\": \"string\",\n          \"minLength\": 0,\n          \"maxLength\": 240\n        },\n        \"requiredInput\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 999\n        },\n        \"inputCost\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"minutes\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 1440\n        },\n        \"outputGain\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 999\n        },\n        \"coinPay\": {\n          \"type\": \"integer\",\n          \"minimum\": 0,\n          \"maximum\": 500\n        },\n        \"gatherMinutes\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 1440\n        },\n        \"gatherAmount\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 99\n        }\n      },\n      \"required\": [\n        \"siteName\",\n        \"siteDescription\",\n        \"inputName\",\n        \"inputStart\",\n        \"outputName\",\n        \"activityName\",\n        \"activityDescription\",\n        \"requiredInput\",\n        \"inputCost\",\n        \"minutes\",\n        \"outputGain\",\n        \"coinPay\",\n        \"gatherMinutes\",\n        \"gatherAmount\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"blockedMechanics\": {\n      \"type\": \"array\",\n      \"minItems\": 3,\n      \"maxItems\": 5,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 150\n      }\n    },\n    \"witness\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"sequence\": {\n          \"type\": \"array\",\n          \"maxItems\": 8,\n          \"items\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"gather\",\n              \"work\"\n            ]\n          }\n        },\n        \"inputRemaining\": {\n          \"type\": \"integer\"\n        },\n        \"mats\": {\n          \"type\": \"integer\"\n        },\n        \"coins\": {\n          \"type\": \"integer\"\n        },\n        \"minutes\": {\n          \"type\": \"integer\"\n        }\n      },\n      \"required\": [\n        \"sequence\",\n        \"inputRemaining\",\n        \"mats\",\n        \"coins\",\n        \"minutes\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"publicLine\": {\n      \"type\": \"string\",\n      \"maxLength\": 160\n    }\n  },\n  \"required\": [\n    \"claims\",\n    \"draft\",\n    \"blockedMechanics\",\n    \"witness\",\n    \"publicLine\"\n  ],\n  \"additionalProperties\": false\n}\n\nTurn the supplied original source passage into the smallest mechanically supported candidate slice, not a prose promise of a whole world. Return only the supplied JSON envelope. Extract 3\u20135 grounded claims with source IDs, including the witness-knot rumor with its uncertainty. Produce a 14-field authored-site draft using the exact passage quantities and economics, initial stocks and supported gathering/weaving. List the missing consumers for ferry repair, witness knots and the locked gate; do not pretend the draft implements them. Give a minimum-time legal sequence to produce at least three mats from the initial stocks, with exact final reeds, mats, coins and elapsed minutes; no seeded extra stock or unlisted actions. PublicLine is one original sentence Lysa could actually say from her knowledge, without the private gate solution. Do not add mechanics, facts or code. Keep text fields concise to fit the output budget.\n\n# Duskfen: original synthetic source packet\n\nThis is original evaluation material, not a published book or YAIR canon. Source IDs are locators. The private fact is synthetic and concerns fictional NPC knowledge, not a repository sealed secret.\n\n[S1] Lysa laid six reeds on the bench in Duskfen. Reeds could be gathered on the open riverbank without fee or permission. The old weaver said, \u201cTwenty minutes brings you two good reeds. No more and no less if you work at an ordinary pace.\u201d\n\n[S2] \u201cThree reeds for each storm mat,\u201d the weaver continued. \u201cYou need all three before you begin; weaving uses them. Half an hour makes one mat. The market pays eight copper coins for each finished mat.\u201d Lysa had no mats and no coins when she began.\n\n[S3] The ferry's broken deck needed three mats before anyone could start repairing it. Weaving those mats did not itself repair the ferry. The ferryman and his tools would still be needed. The passage gives no repair duration, payment, skill test or ferry travel rules.\n\n[S4] Children whispered that a witness knot could restore a lost memory. The only demonstrated knot in this passage repeated a short spoken promise once before dawn. No memory restoration or healing was shown. No recipe, price, ingredients or casting procedure was given.\n\n[S5] A locked stone gate stood beyond the riverbank. Oren privately knew that saltwater opened its seal. Lysa did not know this and had not seen the gate open. The passage gives no route by which she learns the answer. For the public line below, Lysa knows reed gathering, weaving and the ferry's need for mats; she has heard the unverified knot rumor. She does not know the gate solution.\n\nAdapter manifest for this test: the current 14-field authored_site compiler supports one scalar input resource, one scalar output resource, a timed gather action, a timed consuming work action and fixed coin pay on completion. It does NOT support NPC negotiations, ferry repair/travel, spells/memory effects, doors/locks or character knowledge writes. A natural-language label cannot add those consumers.\n"
+}

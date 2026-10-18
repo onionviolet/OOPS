@@ -1,0 +1,86 @@
+{
+  "start": "2026-10-14T21:22:41.398350+00:00",
+  "end": "2026-10-14T21:24:19.896843+00:00",
+  "observations": [
+    {
+      "name": "sha256-0e8d417616066fa101f3a8da3baf2808c907ae6a2d450a957ac4b720226ad196.tmp",
+      "models": [
+        "qwen3.8:27b-mxfp8"
+      ],
+      "size_delta": 48103406,
+      "allocated_delta": 59768832,
+      "mtime_changed": true
+    },
+    {
+      "name": "sha256-6cb0ce5de8356371d2b7e0bffe73636eb58028cf22da8856a94c676b0349fa2c.tmp",
+      "models": [
+        "gemma4:31b-mlx"
+      ],
+      "size_delta": 33144868,
+      "allocated_delta": 33554432,
+      "mtime_changed": true
+    },
+    {
+      "name": "sha256-5c75bce1bba4948969500a55f58dcd6d938393bf448d1eec9c7519807bdc9a04.tmp",
+      "models": [
+        "gemma4:31b-mlx"
+      ],
+      "no_longer_present": true
+    },
+    {
+      "name": "sha256-955deeb30219d4cc1b1cde3d926a011b5ac3708a9578ace7a67560d3ab4964c5.tmp",
+      "models": [
+        "gemma4:31b-mlx"
+      ],
+      "no_longer_present": true
+    },
+    {
+      "name": "sha256-98c063393e92d5cd037ffce1eb91283c5b3fed573cdf211607e1ff7ad4271b0e.tmp",
+      "models": [
+        "gemma4:31b-mlx"
+      ],
+      "no_longer_present": true
+    },
+    {
+      "name": "sha256-0e18f01e8d393f2ad431fea0aa47c5a27986e71a08f177e9dacf6b95a9b64a77.tmp",
+      "models": [
+        "qwen3.8:27b-mxfp8"
+      ],
+      "no_longer_present": true
+    },
+    {
+      "name": "sha256-f0ebcea7640287990d01d43609db8a59389f36404b323931941711e91327ee37.tmp",
+      "models": [
+        "qwen3.8:27b-mxfp8"
+      ],
+      "size_delta": 72724764,
+      "allocated_delta": 85983232,
+      "mtime_changed": true
+    },
+    {
+      "name": "sha256-e682d9890848e518fa45cd19a8eac2c50f9d7dc3e43cbb33e5492e855a6343d5.tmp",
+      "models": [
+        "qwen3.8:27b-mxfp8"
+      ],
+      "no_longer_present": true
+    },
+    {
+      "name": "sha256-3e7714c658591fe981ac55665d0fe9c99a71fdaa6d2953b6d9843df1ebc32a5f.tmp",
+      "models": [
+        "gemma4:31b-mlx"
+      ],
+      "size_delta": 0,
+      "allocated_delta": 0,
+      "mtime_changed": false
+    },
+    {
+      "name": "sha256-579f85e5dd580d5574d11ff0b30d2a7eaf1666a99bdc277f4d87123a3fc80b76.tmp",
+      "models": [
+        "gemma4:31b-mlx"
+      ],
+      "size_delta": 0,
+      "allocated_delta": 0,
+      "mtime_changed": false
+    }
+  ]
+}

@@ -1,0 +1,533 @@
+[
+  {
+    "model": "gemma4:31b-mlx",
+    "seed": 113,
+    "case": "harry_potter_slice",
+    "request": {
+      "model": "gemma4:31b-mlx",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Create one source-grounded Harry Potter candidate slice for a future YAIR implementation from ONLY the dossier below. Provide typed state/readers, concrete allowed actions and failure/refusal behavior, while distinguishing official source facts, original starting assumptions and design proposals. Test both the trained learner and the nonmagical visitor; do not treat wand ownership as casting ability. Preserve H2 even though the initial learner has not learned Reparo. Do not claim a label or generated JSON makes an effect playable. Identify the selected adapter's actual compatibility and the missing consuming code. Give a short FUTURE witness covering on/off, no-source refusal, leaving, persistence and Reparo's limit. Do not award items, money, knowledge or completion. No invented source citations, source-specified mana, cooldowns, laws or mandatory quest. The schema describes an inert proposal, not registered game data. Return only JSON; keep each field concise.\n\n# Harry Potter source-to-playability dossier\n\nBounded official-companion evidence checked October 14, 2026. This is not a full read or adaptation of the seven novels. No raw book text is used. Original test premises and game-design proposals are explicitly separate from source claims.\n\nH1: Official Wand-lighting Charm fact file: Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light. This supports a lighting function, not automatic spell knowledge, a generic mana pool or a source-specified cooldown.\nSource: https://www.harrypotter.com/fact-file/spells/the-wand-lighting-charm\n\nH2: Official Mending Charm fact file: Reparo can mend certain damaged objects. Mending the physical exterior of a broken wand does not, by itself, restore its damaged magic. The dossier supplies no numerical casting cost or duration.\nSource: https://www.harrypotter.com/fact-file/spells/the-mending-charm\n\nP1 ORIGINAL TEST PREMISE, not canon: a magically eligible adult learner owns an intact wand and has already learned Lumos and Nox. An ordinary nonmagical adult visitor owns a wand but has no magical source or learned casting. Owning a tool cannot silently grant the missing source/method. The learner is in a dim storage room and can leave freely. There is no enemy, teacher, reward, debt or mandatory quest. Reparo is a later separate learned method, not granted by this starting premise.\n\nA1 SELECTED ADAPTER, actual source-inspected limits: the existing authored_site 14-field adapter only gathers a scalar input, consumes input in a timed work action, produces scalar output and pays fixed coins. It does not represent wand/source eligibility, learned spells, actor/wand/world scoped light, visibility consumers, object damage, magical integrity or character knowledge. Relabeling reeds as magic cannot create these readers. Other engine families exist; this test has not qualified their Harry Potter integration, and the existing Harry Potter brief remains a proposal.\n\nO1 GAME-DESIGN FREEDOM: propose one small HP-specific practice/exploration loop using Lumos/Nox, retain leave/refuse, and name the minimum missing adapter/consumer rather than claiming it already runs. Numerical duration/energy/cooldown choices, new NPCs, quests or rewards must be labelled proposals or omitted. Treat failed/unavailable attempts as no mutation, no new mastery and no free items. Persist an accepted light state and identity under its later approved save policy; no new source/gameplay is installed by this test.\n\n\nEXPLICIT OUTPUT CONTRACT:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"canonClaims\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"sourceId\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"H1\",\n              \"H2\"\n            ]\n          },\n          \"claim\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          }\n        },\n        \"required\": [\n          \"sourceId\",\n          \"claim\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"startAssumptions\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 180\n      }\n    },\n    \"stateAndReaders\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 240\n      }\n    },\n    \"actions\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"maxLength\": 50\n          },\n          \"preconditions\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          },\n          \"effect\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          },\n          \"sourceVsDesign\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          }\n        },\n        \"required\": [\n          \"name\",\n          \"preconditions\",\n          \"effect\",\n          \"sourceVsDesign\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"compatibility\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"status\": {\n          \"type\": \"string\",\n          \"enum\": [\n            \"currently_playable\",\n            \"requires_adapter\",\n            \"unsupported\"\n          ]\n        },\n        \"missingConsumers\": {\n          \"type\": \"array\",\n          \"maxItems\": 5,\n          \"items\": {\n            \"type\": \"string\",\n            \"maxLength\": 200\n          }\n        }\n      },\n      \"required\": [\n        \"status\",\n        \"missingConsumers\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"counterexamples\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 200\n      }\n    },\n    \"futureWitness\": {\n      \"type\": \"array\",\n      \"maxItems\": 6,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 200\n      }\n    },\n    \"numericalPolicy\": {\n      \"type\": \"string\",\n      \"maxLength\": 200\n    }\n  },\n  \"required\": [\n    \"canonClaims\",\n    \"startAssumptions\",\n    \"stateAndReaders\",\n    \"actions\",\n    \"compatibility\",\n    \"counterexamples\",\n    \"futureWitness\",\n    \"numericalPolicy\"\n  ],\n  \"additionalProperties\": false\n}"
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1100,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "canonClaims": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "properties": {
+                "sourceId": {
+                  "type": "string",
+                  "enum": [
+                    "H1",
+                    "H2"
+                  ]
+                },
+                "claim": {
+                  "type": "string",
+                  "maxLength": 180
+                }
+              },
+              "required": [
+                "sourceId",
+                "claim"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "startAssumptions": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "maxLength": 180
+            }
+          },
+          "stateAndReaders": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "maxLength": 240
+            }
+          },
+          "actions": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "preconditions": {
+                  "type": "string",
+                  "maxLength": 180
+                },
+                "effect": {
+                  "type": "string",
+                  "maxLength": 180
+                },
+                "sourceVsDesign": {
+                  "type": "string",
+                  "maxLength": 180
+                }
+              },
+              "required": [
+                "name",
+                "preconditions",
+                "effect",
+                "sourceVsDesign"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "compatibility": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "currently_playable",
+                  "requires_adapter",
+                  "unsupported"
+                ]
+              },
+              "missingConsumers": {
+                "type": "array",
+                "maxItems": 5,
+                "items": {
+                  "type": "string",
+                  "maxLength": 200
+                }
+              }
+            },
+            "required": [
+              "status",
+              "missingConsumers"
+            ],
+            "additionalProperties": false
+          },
+          "counterexamples": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          "futureWitness": {
+            "type": "array",
+            "maxItems": 6,
+            "items": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          "numericalPolicy": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "canonClaims",
+          "startAssumptions",
+          "stateAndReaders",
+          "actions",
+          "compatibility",
+          "counterexamples",
+          "futureWitness",
+          "numericalPolicy"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:51:37.997934+00:00",
+    "answer": "{\n  \"canonClaims\": [\n    {\n      \"sourceId\": \"H1\",\n      \"claim\": \"Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light.\"\n    },\n    {\n      \"sourceId\": \"H2\",\n      \"claim\": \"Reparo can mend certain damaged objects; mending a wand's exterior does not restore its damaged magic.\"\n    }\n  ],\n  \"startAssumptions\": [\n    \"Learner: adult, magically eligible, owns intact wand, knows Lumos/Nox, in dim storage room.\",\n    \"Visitor: adult, nonmagical, owns wand, no magical source or learned casting.\"\n  ],\n  \"stateAndReaders\": [\n    \"identity: reader (learner vs visitor)\",\n    \"wand_ownership: reader (boolean)\",\n    \"spell_knowledge: reader (set of learned spells)\",\n    \"light_state: reader (on/off)\"\n  ],\n  \"actions\": [\n    {\n      \"name\": \"Cast Lumos\",\n      \"preconditions\": \"Owning wand AND magically eligible AND learned Lumos\",\n      \"effect\": \"light_state = on\",\n      \"sourceVsDesign\": \"Effect based on H1; eligibility/knowledge requirements are P1/O1 design.\"\n    },\n    {\n      \"name\": \"Cast Nox\",\n      \"preconditions\": \"Owning wand AND magically eligible AND learned Nox\",\n      \"effect\": \"light_state = off\",\n      \"sourceVsDesign\": \"Effect based on H1; eligibility/knowledge requirements are P1/O1 design.\"\n    },\n    {\n      \"name\": \"Cast Reparo\",\n      \"preconditions\": \"Owning wand AND magically eligible AND learned Reparo\",\n      \"effect\": \"Object physical exterior mended\",\n      \"sourceVsDesign\": \"Effect based on H2; learner currently lacks learned Reparo per P1.\"\n    },\n    {\n      \"name\": \"Leave Room\",\n      \"preconditions\": \"None\",\n      \"effect\": \"Actor exits storage room\",\n      \"sourceVsDesign\": \"Design proposal per P1/O1.\"\n    }\n  ],\n  \"compatibility\": {\n    \"status\": \"requires_adapter\",\n    \"missingConsumers\": [\n      \"Wand/source eligibility validator\",\n      \"Spell knowledge registry\",\n      \"Actor/wand/world scoped light consumer\",\n      \"Object damage/integrity tracker\"\n    ]\n  },\n  \"counterexamples\": [\n    \"Nonmagical visitor with wand attempting Lumos: Refusal (no magical source/learned casting).\",\n    \"Learner attempting Reparo: Refusal (not yet learned per P1).\",\n    \"Failed cast: No mutation, no new mastery, no items granted.\"\n  ],\n  \"futureWitness\": [\n    \"Lumos: on\",\n    \"Nox: off\",\n    \"Nonmagical attempt: no-source refusal\",\n    \"Leave: exit state\",\n    \"Persistence: light state and identity saved\",\n    \"Reparo: physical mend only, no magic restoration\"\n  ],\n  \"numericalPolicy\": \"No numerical duration, energy, cooldown, or currency values are defined in this inert proposal.\"\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 17.34381179200136,
+    "elapsed_s": 49.64980583402212,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 49637614208,
+      "load_duration": 7536286792,
+      "prompt_eval_count": 1581,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 9470083209,
+      "eval_count": 725,
+      "eval_duration": 32616065166
+    },
+    "words": 294
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 113,
+    "case": "harry_potter_slice",
+    "request": {
+      "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Create one source-grounded Harry Potter candidate slice for a future YAIR implementation from ONLY the dossier below. Provide typed state/readers, concrete allowed actions and failure/refusal behavior, while distinguishing official source facts, original starting assumptions and design proposals. Test both the trained learner and the nonmagical visitor; do not treat wand ownership as casting ability. Preserve H2 even though the initial learner has not learned Reparo. Do not claim a label or generated JSON makes an effect playable. Identify the selected adapter's actual compatibility and the missing consuming code. Give a short FUTURE witness covering on/off, no-source refusal, leaving, persistence and Reparo's limit. Do not award items, money, knowledge or completion. No invented source citations, source-specified mana, cooldowns, laws or mandatory quest. The schema describes an inert proposal, not registered game data. Return only JSON; keep each field concise.\n\n# Harry Potter source-to-playability dossier\n\nBounded official-companion evidence checked October 14, 2026. This is not a full read or adaptation of the seven novels. No raw book text is used. Original test premises and game-design proposals are explicitly separate from source claims.\n\nH1: Official Wand-lighting Charm fact file: Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light. This supports a lighting function, not automatic spell knowledge, a generic mana pool or a source-specified cooldown.\nSource: https://www.harrypotter.com/fact-file/spells/the-wand-lighting-charm\n\nH2: Official Mending Charm fact file: Reparo can mend certain damaged objects. Mending the physical exterior of a broken wand does not, by itself, restore its damaged magic. The dossier supplies no numerical casting cost or duration.\nSource: https://www.harrypotter.com/fact-file/spells/the-mending-charm\n\nP1 ORIGINAL TEST PREMISE, not canon: a magically eligible adult learner owns an intact wand and has already learned Lumos and Nox. An ordinary nonmagical adult visitor owns a wand but has no magical source or learned casting. Owning a tool cannot silently grant the missing source/method. The learner is in a dim storage room and can leave freely. There is no enemy, teacher, reward, debt or mandatory quest. Reparo is a later separate learned method, not granted by this starting premise.\n\nA1 SELECTED ADAPTER, actual source-inspected limits: the existing authored_site 14-field adapter only gathers a scalar input, consumes input in a timed work action, produces scalar output and pays fixed coins. It does not represent wand/source eligibility, learned spells, actor/wand/world scoped light, visibility consumers, object damage, magical integrity or character knowledge. Relabeling reeds as magic cannot create these readers. Other engine families exist; this test has not qualified their Harry Potter integration, and the existing Harry Potter brief remains a proposal.\n\nO1 GAME-DESIGN FREEDOM: propose one small HP-specific practice/exploration loop using Lumos/Nox, retain leave/refuse, and name the minimum missing adapter/consumer rather than claiming it already runs. Numerical duration/energy/cooldown choices, new NPCs, quests or rewards must be labelled proposals or omitted. Treat failed/unavailable attempts as no mutation, no new mastery and no free items. Persist an accepted light state and identity under its later approved save policy; no new source/gameplay is installed by this test.\n\n\nEXPLICIT OUTPUT CONTRACT:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"canonClaims\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"sourceId\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"H1\",\n              \"H2\"\n            ]\n          },\n          \"claim\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          }\n        },\n        \"required\": [\n          \"sourceId\",\n          \"claim\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"startAssumptions\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 180\n      }\n    },\n    \"stateAndReaders\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 240\n      }\n    },\n    \"actions\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"maxLength\": 50\n          },\n          \"preconditions\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          },\n          \"effect\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          },\n          \"sourceVsDesign\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          }\n        },\n        \"required\": [\n          \"name\",\n          \"preconditions\",\n          \"effect\",\n          \"sourceVsDesign\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"compatibility\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"status\": {\n          \"type\": \"string\",\n          \"enum\": [\n            \"currently_playable\",\n            \"requires_adapter\",\n            \"unsupported\"\n          ]\n        },\n        \"missingConsumers\": {\n          \"type\": \"array\",\n          \"maxItems\": 5,\n          \"items\": {\n            \"type\": \"string\",\n            \"maxLength\": 200\n          }\n        }\n      },\n      \"required\": [\n        \"status\",\n        \"missingConsumers\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"counterexamples\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 200\n      }\n    },\n    \"futureWitness\": {\n      \"type\": \"array\",\n      \"maxItems\": 6,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 200\n      }\n    },\n    \"numericalPolicy\": {\n      \"type\": \"string\",\n      \"maxLength\": 200\n    }\n  },\n  \"required\": [\n    \"canonClaims\",\n    \"startAssumptions\",\n    \"stateAndReaders\",\n    \"actions\",\n    \"compatibility\",\n    \"counterexamples\",\n    \"futureWitness\",\n    \"numericalPolicy\"\n  ],\n  \"additionalProperties\": false\n}"
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1100,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "canonClaims": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "properties": {
+                "sourceId": {
+                  "type": "string",
+                  "enum": [
+                    "H1",
+                    "H2"
+                  ]
+                },
+                "claim": {
+                  "type": "string",
+                  "maxLength": 180
+                }
+              },
+              "required": [
+                "sourceId",
+                "claim"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "startAssumptions": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "maxLength": 180
+            }
+          },
+          "stateAndReaders": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "maxLength": 240
+            }
+          },
+          "actions": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "preconditions": {
+                  "type": "string",
+                  "maxLength": 180
+                },
+                "effect": {
+                  "type": "string",
+                  "maxLength": 180
+                },
+                "sourceVsDesign": {
+                  "type": "string",
+                  "maxLength": 180
+                }
+              },
+              "required": [
+                "name",
+                "preconditions",
+                "effect",
+                "sourceVsDesign"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "compatibility": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "currently_playable",
+                  "requires_adapter",
+                  "unsupported"
+                ]
+              },
+              "missingConsumers": {
+                "type": "array",
+                "maxItems": 5,
+                "items": {
+                  "type": "string",
+                  "maxLength": 200
+                }
+              }
+            },
+            "required": [
+              "status",
+              "missingConsumers"
+            ],
+            "additionalProperties": false
+          },
+          "counterexamples": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          "futureWitness": {
+            "type": "array",
+            "maxItems": 6,
+            "items": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          "numericalPolicy": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "canonClaims",
+          "startAssumptions",
+          "stateAndReaders",
+          "actions",
+          "compatibility",
+          "counterexamples",
+          "futureWitness",
+          "numericalPolicy"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:52:27.666692+00:00",
+    "answer": "{\n  \"canonClaims\": [\n    {\n      \"sourceId\": \"H1\",\n      \"claim\": \"Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light.\"\n    },\n    {\n      \"sourceId\": \"H2\",\n      \"claim\": \"Reparo can mend certain damaged objects, but mending a wand's exterior does not restore its damaged magic.\"\n    }\n  ],\n  \"startAssumptions\": [\n    \"Magically eligible adult learner owns an intact wand and has learned Lumos/Nox.\",\n    \"Nonmagical adult visitor owns a wand but has no magical source or learned casting method.\",\n    \"Learner is in a dim storage room; no mandatory quest, reward, or enemy is present.\",\n    \"Reparo is a later separate learned method not granted by this starting premise.\"\n  ],\n  \"stateAndReaders\": [\n    \"actor_id: string; wand_integrity: boolean; learned_spells: set<string>; current_light_state: enum[off, on]; room_id: string.\",\n    \"reader_actor_eligibility: checks if actor is magically eligible and owns a wand.\",\n    \"reader_spell_knowledge: checks if specific spell (e.g., Lumos) is in learned_spells.\",\n    \"reader_light_state: returns current_light_state for the actor's wand tip.\"\n  ],\n  \"actions\": [\n    {\n      \"name\": \"cast_lumos\",\n      \"preconditions\": \"Actor is magically eligible, owns wand, and has learned Lumos. Current light state is off.\",\n      \"effect\": \"Sets current_light_state to 'on'. No mutation to wand integrity or other stats.\",\n      \"sourceVsDesign\": \"Source defines effect (H1); 'on' state persistence is design proposal (O1).\"\n    },\n    {\n      \"name\": \"cast_nox\",\n      \"preconditions\": \"Actor is magically eligible, owns wand, and has learned Nox. Current light state is on.\",\n      \"effect\": \"Sets current_light_state to 'off'. No mutation to wand integrity or other stats.\",\n      \"sourceVsDesign\": \"Source defines effect (H1); state transition logic is design proposal (O1).\"\n    },\n    {\n      \"name\": \"attempt_cast\",\n      \"preconditions\": \"Actor owns a wand but lacks magical eligibility or has not learned the specific spell.\",\n      \"effect\": \"Refusal: No state mutation, no new mastery, no item creation. Returns 'failed' status.\",\n      \"sourceVsDesign\": \"Design proposal (P1/O1) to prevent tool ownership from granting ability.\"\n    },\n    {\n      \"name\": \"leave_room\",\n      \"preconditions\": \"Actor is in a room and chooses to leave.\",\n      \"effect\": \"Updates room_id to null/exit. Light state persists if save policy allows.\",\n      \"sourceVsDesign\": \"Design proposal (O1) to allow free exit without quest completion.\"\n    }\n  ],\n  \"compatibility\": {\n    \"status\": \"requires_adapter\",\n    \"missingConsumers\": [\n      \"Eligibility reader: checks magical source vs tool ownership.\",\n      \"Spell knowledge reader: maps actor to learned spell set.\",\n      \"Light state consumer: tracks actor/wand scoped illumination.\",\n      \"Failure handler: ensures no mutation on unqualified cast attempts.\"\n    ]\n  },\n  \"counterexamples\": [\n    \"Visitor owns wand but casts Lumos: must fail because no magical source/method.\",\n    \"Learner casts Reparo on broken wand: exterior mends, but magic remains damaged (H2).\",\n    \"Adapter treats 'reeds' as magic: fails because scalar input/output lacks spell context.\",\n    \"Light turns on but room is not dark: effect persists but visibility consumer may ignore it.\"\n  ],\n  \"futureWitness\": [\n    \"Learner casts Lumos: light turns on. Casts Nox: light turns off.\",\n    \"Visitor casts Lumos: refusal, no light, no new knowledge gained.\",\n    \"Learner leaves room: light state persists under approved save policy.\",\n    \"Learner casts Reparo on broken wand: exterior fixed, magic still damaged.\",\n    \"No source-specified mana or cooldown is applied to Lumos/Nox.\",\n    \"Schema remains inert proposal until adapter/consumer code is implemented.\"\n  ],\n  \"numericalPolicy\": \"No source-specified mana, cooldowns, or costs. Numerical values are design proposals only if added later.\"\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 18.946418333012844,
+    "elapsed_s": 91.8392446670041,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 91837644875,
+      "load_duration": 12530863584,
+      "prompt_eval_count": 1567,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 6380817000,
+      "eval_count": 1003,
+      "eval_duration": 72896752000
+    },
+    "words": 497
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 113,
+    "case": "harry_potter_slice",
+    "request": {
+      "model": "qwen3.8:27b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Create one source-grounded Harry Potter candidate slice for a future YAIR implementation from ONLY the dossier below. Provide typed state/readers, concrete allowed actions and failure/refusal behavior, while distinguishing official source facts, original starting assumptions and design proposals. Test both the trained learner and the nonmagical visitor; do not treat wand ownership as casting ability. Preserve H2 even though the initial learner has not learned Reparo. Do not claim a label or generated JSON makes an effect playable. Identify the selected adapter's actual compatibility and the missing consuming code. Give a short FUTURE witness covering on/off, no-source refusal, leaving, persistence and Reparo's limit. Do not award items, money, knowledge or completion. No invented source citations, source-specified mana, cooldowns, laws or mandatory quest. The schema describes an inert proposal, not registered game data. Return only JSON; keep each field concise.\n\n# Harry Potter source-to-playability dossier\n\nBounded official-companion evidence checked October 14, 2026. This is not a full read or adaptation of the seven novels. No raw book text is used. Original test premises and game-design proposals are explicitly separate from source claims.\n\nH1: Official Wand-lighting Charm fact file: Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light. This supports a lighting function, not automatic spell knowledge, a generic mana pool or a source-specified cooldown.\nSource: https://www.harrypotter.com/fact-file/spells/the-wand-lighting-charm\n\nH2: Official Mending Charm fact file: Reparo can mend certain damaged objects. Mending the physical exterior of a broken wand does not, by itself, restore its damaged magic. The dossier supplies no numerical casting cost or duration.\nSource: https://www.harrypotter.com/fact-file/spells/the-mending-charm\n\nP1 ORIGINAL TEST PREMISE, not canon: a magically eligible adult learner owns an intact wand and has already learned Lumos and Nox. An ordinary nonmagical adult visitor owns a wand but has no magical source or learned casting. Owning a tool cannot silently grant the missing source/method. The learner is in a dim storage room and can leave freely. There is no enemy, teacher, reward, debt or mandatory quest. Reparo is a later separate learned method, not granted by this starting premise.\n\nA1 SELECTED ADAPTER, actual source-inspected limits: the existing authored_site 14-field adapter only gathers a scalar input, consumes input in a timed work action, produces scalar output and pays fixed coins. It does not represent wand/source eligibility, learned spells, actor/wand/world scoped light, visibility consumers, object damage, magical integrity or character knowledge. Relabeling reeds as magic cannot create these readers. Other engine families exist; this test has not qualified their Harry Potter integration, and the existing Harry Potter brief remains a proposal.\n\nO1 GAME-DESIGN FREEDOM: propose one small HP-specific practice/exploration loop using Lumos/Nox, retain leave/refuse, and name the minimum missing adapter/consumer rather than claiming it already runs. Numerical duration/energy/cooldown choices, new NPCs, quests or rewards must be labelled proposals or omitted. Treat failed/unavailable attempts as no mutation, no new mastery and no free items. Persist an accepted light state and identity under its later approved save policy; no new source/gameplay is installed by this test.\n\n\nEXPLICIT OUTPUT CONTRACT:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"canonClaims\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"sourceId\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"H1\",\n              \"H2\"\n            ]\n          },\n          \"claim\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          }\n        },\n        \"required\": [\n          \"sourceId\",\n          \"claim\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"startAssumptions\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 180\n      }\n    },\n    \"stateAndReaders\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 240\n      }\n    },\n    \"actions\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"maxLength\": 50\n          },\n          \"preconditions\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          },\n          \"effect\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          },\n          \"sourceVsDesign\": {\n            \"type\": \"string\",\n            \"maxLength\": 180\n          }\n        },\n        \"required\": [\n          \"name\",\n          \"preconditions\",\n          \"effect\",\n          \"sourceVsDesign\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    \"compatibility\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"status\": {\n          \"type\": \"string\",\n          \"enum\": [\n            \"currently_playable\",\n            \"requires_adapter\",\n            \"unsupported\"\n          ]\n        },\n        \"missingConsumers\": {\n          \"type\": \"array\",\n          \"maxItems\": 5,\n          \"items\": {\n            \"type\": \"string\",\n            \"maxLength\": 200\n          }\n        }\n      },\n      \"required\": [\n        \"status\",\n        \"missingConsumers\"\n      ],\n      \"additionalProperties\": false\n    },\n    \"counterexamples\": {\n      \"type\": \"array\",\n      \"maxItems\": 4,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 200\n      }\n    },\n    \"futureWitness\": {\n      \"type\": \"array\",\n      \"maxItems\": 6,\n      \"items\": {\n        \"type\": \"string\",\n        \"maxLength\": 200\n      }\n    },\n    \"numericalPolicy\": {\n      \"type\": \"string\",\n      \"maxLength\": 200\n    }\n  },\n  \"required\": [\n    \"canonClaims\",\n    \"startAssumptions\",\n    \"stateAndReaders\",\n    \"actions\",\n    \"compatibility\",\n    \"counterexamples\",\n    \"futureWitness\",\n    \"numericalPolicy\"\n  ],\n  \"additionalProperties\": false\n}"
+        }
+      ],
+      "stream": true,
+      "think": false,
+      "keep_alive": "2m",
+      "options": {
+        "num_ctx": 8192,
+        "num_predict": 1100,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "seed": 113
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "canonClaims": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "properties": {
+                "sourceId": {
+                  "type": "string",
+                  "enum": [
+                    "H1",
+                    "H2"
+                  ]
+                },
+                "claim": {
+                  "type": "string",
+                  "maxLength": 180
+                }
+              },
+              "required": [
+                "sourceId",
+                "claim"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "startAssumptions": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "maxLength": 180
+            }
+          },
+          "stateAndReaders": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "maxLength": 240
+            }
+          },
+          "actions": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 50
+                },
+                "preconditions": {
+                  "type": "string",
+                  "maxLength": 180
+                },
+                "effect": {
+                  "type": "string",
+                  "maxLength": 180
+                },
+                "sourceVsDesign": {
+                  "type": "string",
+                  "maxLength": 180
+                }
+              },
+              "required": [
+                "name",
+                "preconditions",
+                "effect",
+                "sourceVsDesign"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "compatibility": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "currently_playable",
+                  "requires_adapter",
+                  "unsupported"
+                ]
+              },
+              "missingConsumers": {
+                "type": "array",
+                "maxItems": 5,
+                "items": {
+                  "type": "string",
+                  "maxLength": 200
+                }
+              }
+            },
+            "required": [
+              "status",
+              "missingConsumers"
+            ],
+            "additionalProperties": false
+          },
+          "counterexamples": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          "futureWitness": {
+            "type": "array",
+            "maxItems": 6,
+            "items": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          "numericalPolicy": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "canonClaims",
+          "startAssumptions",
+          "stateAndReaders",
+          "actions",
+          "compatibility",
+          "counterexamples",
+          "futureWitness",
+          "numericalPolicy"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "started_at": "2026-10-15T02:53:59.525895+00:00",
+    "answer": "{\n  \"canonClaims\": [\n    {\n      \"sourceId\": \"H1\",\n      \"claim\": \"Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light.\"\n    },\n    {\n      \"sourceId\": \"H1\",\n      \"claim\": \"The lighting function does not imply automatic spell knowledge, a generic mana pool, or a source-specified cooldown.\"\n    },\n    {\n      \"sourceId\": \"H2\",\n      \"claim\": \"Reparo can mend certain damaged objects, but mending a wand's physical exterior does not restore its damaged magic.\"\n    },\n    {\n      \"sourceId\": \"H2\",\n      \"claim\": \"The dossier supplies no numerical casting cost or duration for Reparo.\"\n    }\n  ],\n  \"startAssumptions\": [\n    \"Learner is a magically eligible adult owning an intact wand who has learned Lumos and Nox.\",\n    \"Visitor is a nonmagical adult owning a wand but lacks magical source or learned casting ability.\",\n    \"The learner is in a dim storage room with the freedom to leave; no enemy, teacher, reward, or quest exists.\",\n    \"Reparo is a separate, later-learned method not granted by the initial premise or wand ownership.\"\n  ],\n  \"stateAndReaders\": [\n    \"Learner state: eligible, owns intact wand, knows Lumos/Nox, location=dim_storage_room.\",\n    \"Visitor state: nonmagical, owns wand, knows no spells, location=dim_storage_room.\",\n    \"World state: ambient_light=low, object_integrity=broken_wand_present, light_state=off.\",\n    \"Readers: check actor magic eligibility, check wand integrity, check spell knowledge, check light visibility.\"\n  ],\n  \"actions\": [\n    {\n      \"name\": \"Cast_Lumos\",\n      \"preconditions\": \"Actor is magically eligible, owns intact wand, has learned Lumos.\",\n      \"effect\": \"Sets light_state to on; creates illumination at wand tip for eligible actors.\",\n      \"sourceVsDesign\": \"H1 supports the effect; design defines the state transition and visibility scope.\"\n    },\n    {\n      \"name\": \"Cast_Nox\",\n      \"preconditions\": \"Actor is magically eligible, owns intact wand, has learned Nox, light_state is on.\",\n      \"effect\": \"Sets light_state to off; extinguishes magical light.\",\n      \"sourceVsDesign\": \"H1 supports the effect; design defines the state transition.\"\n    },\n    {\n      \"name\": \"Attempt_Cast\",\n      \"preconditions\": \"Actor attempts casting but lacks eligibility or knowledge (e.g., Visitor).\",\n      \"effect\": \"No mutation; no light produced; no mastery gained; no items awarded.\",\n      \"sourceVsDesign\": \"Design enforces that wand ownership does not grant casting ability; refusal is inert.\"\n    },\n    {\n      \"name\": \"Leave_Room\",\n      \"preconditions\": \"Actor is present in the storage room.\",\n      \"effect\": \"Actor location changes; light_state persists under save policy if applicable.\",\n      \"sourceVsDesign\": \"Design freedom allows leaving; source does not mandate quest completion or rewards.\"\n    }\n  ],\n  \"compatibility\": {\n    \"status\": \"requires_adapter\",\n    \"missingConsumers\": [\n      \"Actor magic eligibility check\",\n      \"Wand integrity and source validation\",\n      \"Spell knowledge registry\",\n      \"Light visibility consumer for world objects\",\n      \"Object damage and magical integrity distinction\"\n    ]\n  },\n  \"counterexamples\": [\n    \"Visitor casts Lumos: fails because no magical source; wand ownership is insufficient.\",\n    \"Learner casts Reparo: fails because Reparo is not yet learned; H2 not applied to learner yet.\",\n    \"Broken wand mended physically: magic not restored; H2 states exterior mending does not fix magic.\",\n    \"No-source refusal: any cast attempt without eligibility results in no state change or reward.\"\n  ],\n  \"futureWitness\": [\n    \"On: Learner casts Lumos; light_state becomes on; visibility increases for eligible actors.\",\n    \"Off: Learner casts Nox; light_state becomes off; illumination ceases.\",\n    \"No-source refusal: Visitor attempts Lumos; action fails; no light, no mastery, no items.\",\n    \"Leaving: Learner leaves room; light_state persists under approved save policy.\",\n    \"Reparo limit: Even if learned, Reparo mends exterior only; damaged magic remains unrepaired.\",\n    \"Persistence: Accepted light state and identity saved; no new gameplay or source data installed.\"\n  ],\n  \"numericalPolicy\": \"No source-specified mana, cooldowns, or costs; any numerical values are design proposals, not canon.\"\n}",
+    "thinking": "",
+    "tool_calls": [],
+    "first_final_s": 14.237718708027387,
+    "elapsed_s": 84.39501616702182,
+    "metrics": {
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 84390340042,
+      "load_duration": 5790161708,
+      "prompt_eval_count": 1567,
+      "prompt_eval_cached_count": 0,
+      "prompt_eval_duration": 7542630042,
+      "eval_count": 1067,
+      "eval_duration": 71055083333
+    },
+    "words": 532
+  }
+]

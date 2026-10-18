@@ -1,0 +1,19 @@
+{
+  "repo": "FTBTeam/FTB-Quests",
+  "commit": "3fc875bb085d4b2236b98abc042c5fa40711b67d",
+  "path": "common/src/main/resources/assets/ftbquests/lang/en_us.json",
+  "scope": "selected author UI strings only; runtime not inspected",
+  "selected_strings": {
+    "ftbquests.file.progression_mode.linear": "Linear",
+    "ftbquests.file.progression_mode.flexible": "Flexible",
+    "ftbquests.quest.misc.repeat_cooldown": "Quest Repeat Cooldown",
+    "ftbquests.quest.misc.repeat_cooldown.tooltip": "Only applies if 'Repeatable Quest' is true.\nThe delay in seconds between claiming all the rewards for the quest and being able to redo the quest's tasks.",
+    "ftbquests.quest.misc.exclusive": "Exclusive Quest Branch",
+    "ftbquests.quest.misc.exclusive.desc": "Completing this makes other branches unavailable",
+    "ftbquests.quest.dependencies.min_required_dependencies": "Min Required Dependencies",
+    "ftbquests.quest.min_required_dependencies.tooltip": "If you set this to anything more than 0, it becomes an OR quest, where only certain amount of dependencies is required for it to unlock",
+    "ftbquests.quest.min_required_header": "%d required",
+    "ftbquests.pinned.pinned_exclude_flexible": "Exclude Flexible-Mode Quests",
+    "ftbquests.pinned.pinned_exclude_flexible.tooltip": "If true, quests which are only startable due to flexible mode (so not completable yet) are not shown in the tracker\nIf false, all startable quests are shown"
+  }
+}

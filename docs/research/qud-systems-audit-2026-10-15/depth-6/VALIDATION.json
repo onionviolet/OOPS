@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "checks": {
+    "current_Steam_assembly_matches_pin": true,
+    "support_type_requests": 12,
+    "nonempty_support_sources": 11,
+    "capture_status": {
+      "exported": 5,
+      "reused": 6,
+      "missing-type": 1
+    },
+    "cumulative_types_with_exact_line_complements": 450,
+    "indexed_printed_types": 9,
+    "exact_navigation_locators": 109,
+    "local_links": 32,
+    "private_files_ignored": 39
+  },
+  "errors": [],
+  "links": [
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "XRLGame L2249-2335",
+      "target": "../private/depth-6/source/XRL.XRLGame.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "XRLGame L118-184",
+      "target": "../private/depth-6/source/XRL.XRLGame.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "SaveSystems L1580-1603",
+      "target": "../private/depth-6/source/XRL.XRLGame.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "IGameSystem L29-40,2913-2940,3062-3070",
+      "target": "../private/depth-6/source/XRL.IGameSystem.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "SaveObjectGameState L1605-1628",
+      "target": "../private/depth-6/source/XRL.XRLGame.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "ZoneManager.Save L468-535",
+      "target": "../private/depth-6/source/XRL.World.ZoneManager.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "Load L620-705",
+      "target": "../private/depth-6/source/XRL.World.ZoneManager.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "CacheObject L318-335",
+      "target": "../private/depth-6/source/XRL.World.ZoneManager.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "PullCachedObject L288-295",
+      "target": "../private/depth-6/source/XRL.World.ZoneManager.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "GetCachedObjects L304-315",
+      "target": "../private/depth-6/source/XRL.World.ZoneManager.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "Brain generated Write/Read L588-617",
+      "target": "../private/depth-6/source/XRL.World.Parts.Brain.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "PostWrite L1289-1323",
+      "target": "../private/depth-6/source/XRL.World.Parts.Brain.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "ShouldRemember L1263-1287",
+      "target": "../private/depth-6/source/XRL.World.Parts.Brain.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "PostRead L1325-1352",
+      "target": "../private/depth-6/source/XRL.World.Parts.Brain.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "PartyCollection L27-70",
+      "target": "../private/depth-6/source/XRL.World.AI.PartyCollection.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "GameObjectReference L1-56",
+      "target": "../private/depth-6/source/XRL.World.GameObjectReference.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "AllegianceSet L122-151",
+      "target": "../private/depth-6/source/XRL.World.AI.AllegianceSet.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "independent trace",
+      "target": "independent-audit/FINDINGS.md",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "Quest L266-346",
+      "target": "../private/depth-6/source/XRL.World.Quest.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "XRLGame load L1758-1844",
+      "target": "../private/depth-6/source/XRL.XRLGame.cs",
+      "exists": true
+    },
+    {
+      "document": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "label": "GamePlayer L1-30,63-75",
+      "target": "../private/depth-6/source/XRL.World.GamePlayer.cs",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Depth 5",
+      "target": "../depth-5/REPORT.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Full save-root details",
+      "target": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Independent audit",
+      "target": "independent-audit/REPORT.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Root unread",
+      "target": "../private/depth-6/UNREAD.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "exact cumulative complements",
+      "target": "../private/depth-6/CUMULATIVE_LINE_COVERAGE.json",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "independent unread",
+      "target": "independent-audit/UNREAD.md",
+      "exists": true
+    },
+    {
+      "document": "REPORT.md",
+      "label": "Validation",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "CURRENT",
+      "target": "../CURRENT.md",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "details",
+      "target": "SAVE_REFERENCES_AND_RECOVERY.md",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "root unread",
+      "target": "../private/depth-6/UNREAD.json",
+      "exists": true
+    },
+    {
+      "document": "CHECKPOINT.md",
+      "label": "independent unread",
+      "target": "independent-audit/UNREAD.md",
+      "exists": true
+    }
+  ],
+  "public_document_hashes": {
+    "SAVE_REFERENCES_AND_RECOVERY.md": "1796889751a8af4d1d6a051788dcd4f84e82ffd43c6e8c287c380b96caa357e7",
+    "REPORT.md": "fd0c7e5c568a577790c3480a839a9dd9e79adbf5e0ecfb7e2affa261e8700453",
+    "CHECKPOINT.md": "e120829b3c4b811de1851dcefe62d75a6e25283cc011d3a7f10034d546c4fad2"
+  },
+  "qualification": "Source identities and research artifact consistency only; printed source and selected semantic traces do not establish complete review or native behavior. Game, save, browser and YAIR runtime tests unrun."
+}

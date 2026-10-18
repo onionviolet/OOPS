@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "cumulative_source_files": 19,
+  "readable_files_accounted": 393,
+  "native_pseudocode_read_records": 14,
+  "old_literal_refs": 6,
+  "rtti_classes": 3,
+  "supplied_vtable_pointers": 72,
+  "pinned_function_regions": 18,
+  "findings": 6,
+  "local_links_checked": 12,
+  "errors": [],
+  "scope": "Static evidence integrity and selected independent instruction review only; no gameplay or full-engine proof."
+}

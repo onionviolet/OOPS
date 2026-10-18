@@ -1,0 +1,260 @@
+{
+  "lane": "mw-remnant2",
+  "pass": "2026-10-15-deep",
+  "status": "PARTIAL",
+  "game": {
+    "steam_app": 1282100,
+    "build": 16320528,
+    "internal_build": 453438,
+    "exe_sha256": "0f4783f75ec178724ddbe10baee55a38ce4311bebf1a8bacd0626b9d8f7d0265",
+    "runtime_launched": false,
+    "personal_saves_read": false
+  },
+  "clean_comparison": {
+    "before": {
+      "packages": 161,
+      "exports": 24589,
+      "failed_object_names": 2361,
+      "exports_without_named_read_error": 22228
+    },
+    "after": {
+      "packages": 161,
+      "clean_packages": 160,
+      "exports": 24589,
+      "logged_errors": 1,
+      "exports_without_logged_read_error": 24588
+    }
+  },
+  "widen": {
+    "packages": 749,
+    "exports": 34818,
+    "tables": 58,
+    "table_rows": 911,
+    "eventtrees": 127,
+    "dialogue_lines": 8787,
+    "choice_branches": 2207,
+    "internal_refs_checked": 43096,
+    "internal_reference_issues": 0,
+    "faction_exports": 9,
+    "recipe_exports": 200,
+    "quest_defaults": 206
+  },
+  "mapping": {
+    "kind": "static_native_plus_archive_fallback",
+    "native_types": 7552,
+    "total_types": 7775,
+    "retained_fallback_types": 223,
+    "retained_archive_enum_tables": 1770,
+    "changed_compared_layouts": 205,
+    "custom_serializer": "VariableValue @ 0x1424ec010",
+    "complete_build_match": false
+  },
+  "findings": [
+    {
+      "id": "R2D-F01",
+      "evidence": "shown",
+      "claim": "Pak key recovered from installed file bytes and validated by both decrypted indexes.",
+      "locator": "deep/notes/aes-validation.json",
+      "kit": [
+        "K1",
+        "K34"
+      ],
+      "packets": []
+    },
+    {
+      "id": "R2D-F02",
+      "evidence": "shown",
+      "claim": "Static native lists repair 160 of the 161 failing package samples; one audio notify remains partial.",
+      "locator": "deep/notes/clean-comparison.json",
+      "kit": [
+        "K1",
+        "K18",
+        "K33",
+        "K34"
+      ],
+      "packets": [
+        "MWA-P09"
+      ]
+    },
+    {
+      "id": "R2D-F03",
+      "evidence": "shown",
+      "claim": "Native eligible quest rarity weights are 100/50/25/10/5 with saved failed-selection-count adjustment.",
+      "locator": "0x141ffcf90; RemnantSaveGame.QuestFailCount",
+      "kit": [
+        "K4",
+        "K12",
+        "K17",
+        "K18"
+      ],
+      "packets": [
+        "MWA-P05",
+        "MWA-P09"
+      ]
+    },
+    {
+      "id": "R2D-F04",
+      "evidence": "shown",
+      "claim": "Subquest chance and selection consume seeded RNG; explicit seed APIs use different fallback sentinels.",
+      "locator": "0x14201f700; 0x142462c20",
+      "kit": [
+        "K4",
+        "K12",
+        "K18"
+      ],
+      "packets": [
+        "MWA-P09"
+      ]
+    },
+    {
+      "id": "R2D-F05",
+      "evidence": "shown",
+      "claim": "Root-mode filter tests root type, requested mode, required award and rolled one-shot state.",
+      "locator": "0x14200db40; 0x142011a20",
+      "kit": [
+        "K4",
+        "K11",
+        "K15"
+      ],
+      "packets": [
+        "MWA-P06"
+      ]
+    },
+    {
+      "id": "R2D-F06",
+      "evidence": "shown",
+      "claim": "Required tile failure has an explicit false return and failure mark; full spatial solver remains unread.",
+      "locator": "0x14201bbc0",
+      "kit": [
+        "K5",
+        "K18",
+        "K34"
+      ],
+      "packets": [
+        "MWA-P09"
+      ]
+    },
+    {
+      "id": "R2D-F07",
+      "evidence": "shown",
+      "claim": "749 wider packages, 20 world-menu packages and 20 rule packages read without logged errors.",
+      "locator": "deep/extract/*/receipts.json",
+      "kit": [
+        "K1",
+        "K3",
+        "K9",
+        "K12",
+        "K34"
+      ],
+      "packets": [
+        "MWA-P02",
+        "MWA-P03",
+        "MWA-P04"
+      ]
+    },
+    {
+      "id": "R2D-F08",
+      "evidence": "shown",
+      "claim": "All 127 selected EventTrees pass 43,096 local export-reference checks, with no external reachability claim.",
+      "locator": "deep/notes/widen-summary.json",
+      "kit": [
+        "K6",
+        "K11",
+        "K12",
+        "K23"
+      ],
+      "packets": [
+        "MWA-P04"
+      ]
+    },
+    {
+      "id": "R2D-F09",
+      "evidence": "shown",
+      "claim": "Profile and world save definitions separate account awards from local failed-roll and root-slot state.",
+      "locator": "native-field-offsets.json; static-mapping.json",
+      "kit": [
+        "K15",
+        "K18",
+        "K33"
+      ],
+      "packets": [
+        "MWA-P06"
+      ]
+    },
+    {
+      "id": "R2D-F10",
+      "evidence": "stated",
+      "claim": "Public parser supports versioned zlib/CRC framing and name/object/component tables; no saves were read.",
+      "locator": "lib.remnant2.saves d5190d44e1ded9c2b2bc0c5968c593aa390a4518",
+      "kit": [
+        "K18",
+        "K33"
+      ],
+      "packets": [
+        "MWA-P06"
+      ]
+    },
+    {
+      "id": "R2D-F11",
+      "evidence": "inferred",
+      "claim": "Source visit selection is a stronger model for preserving recipe/history than erasing a destination on revisit.",
+      "locator": "S2 and S6",
+      "kit": [
+        "K5",
+        "K17",
+        "K18"
+      ],
+      "packets": [
+        "MWA-P05",
+        "MWA-P09"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "R2D-P01",
+      "packet": "MWA-P02",
+      "scope": "One local rule changes a real supported verb"
+    },
+    {
+      "id": "R2D-P02",
+      "packet": "MWA-P06",
+      "scope": "Quote and settle each actual carrier"
+    },
+    {
+      "id": "R2D-P03",
+      "packet": "MWA-P05/MWA-P09",
+      "scope": "Pin a new visit recipe; keep existing instance history"
+    },
+    {
+      "id": "R2D-P04",
+      "packet": "MWA-P04",
+      "scope": "A conversation settles one real state effect"
+    },
+    {
+      "id": "R2D-P05",
+      "packet": "MWA-P03",
+      "scope": "Earned faculty and present local use stay distinct"
+    }
+  ],
+  "secrets": [
+    "R2-S01",
+    "R2-S02",
+    "R2-S03",
+    "R2-S04"
+  ],
+  "aspects": {
+    "A01": "partial",
+    "A02": "partial",
+    "A03": "partial",
+    "A04": "partial",
+    "A05": "partial",
+    "A06": "partial",
+    "A07": "partial",
+    "A08": "partial",
+    "A09": "partial",
+    "A10": "partial",
+    "A11": "partial",
+    "A12": "partial"
+  }
+}

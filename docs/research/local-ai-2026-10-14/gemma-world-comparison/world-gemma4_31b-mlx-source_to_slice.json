@@ -1,0 +1,144 @@
+{
+  "generated": {
+    "claims": [
+      {
+        "source": "S1",
+        "status": "demonstrated",
+        "claim": "Lysa starts with six reeds."
+      },
+      {
+        "source": "S1",
+        "status": "demonstrated",
+        "claim": "Gathering two reeds takes twenty minutes."
+      },
+      {
+        "source": "S2",
+        "status": "demonstrated",
+        "claim": "One storm mat requires three reeds and thirty minutes to weave."
+      },
+      {
+        "source": "S2",
+        "status": "demonstrated",
+        "claim": "One mat sells for eight copper coins."
+      },
+      {
+        "source": "S4",
+        "status": "unverified_rumor",
+        "claim": "A witness knot could restore a lost memory."
+      }
+    ],
+    "draft": {
+      "siteName": "Duskfen",
+      "siteDescription": "Riverbank weaving site",
+      "inputName": "reeds",
+      "inputStart": 6,
+      "outputName": "mats",
+      "activityName": "weaving",
+      "activityDescription": "weave storm mat",
+      "requiredInput": 3,
+      "inputCost": 0,
+      "minutes": 30,
+      "outputGain": 1,
+      "coinPay": 8,
+      "gatherMinutes": 20,
+      "gatherAmount": 2
+    },
+    "blockedMechanics": [
+      "ferry repair",
+      "witness knots",
+      "locked gate"
+    ],
+    "witness": {
+      "sequence": [
+        "work",
+        "work"
+      ],
+      "inputRemaining": 0,
+      "mats": 2,
+      "coins": 0,
+      "minutes": 60
+    },
+    "publicLine": "I can gather reeds from the riverbank to weave the mats the ferry needs."
+  },
+  "compiled": {
+    "schema": 1,
+    "id": "authored_site",
+    "title": "Duskfen",
+    "authored": true,
+    "description": "Riverbank weaving site",
+    "world": {
+      "id": "authored_site.world",
+      "label": "Duskfen"
+    },
+    "locations": [
+      {
+        "id": "authored_site.site",
+        "label": "Duskfen",
+        "description": "Riverbank weaving site"
+      }
+    ],
+    "people": [],
+    "initial": {
+      "input": 6,
+      "output": 0
+    },
+    "status": {
+      "input": "reeds",
+      "output": "mats"
+    },
+    "activities": [
+      {
+        "id": "authored_site.work",
+        "label": "weaving",
+        "description": "weave storm mat",
+        "duration": 30,
+        "requires": [
+          {
+            "field": "input",
+            "op": "gte",
+            "value": 3
+          }
+        ],
+        "start": {},
+        "complete": {
+          "add": {
+            "output": 1
+          }
+        },
+        "pay": 8
+      },
+      {
+        "id": "authored_site.gather",
+        "label": "Gather reeds",
+        "description": "Collect 2 reeds.",
+        "duration": 20,
+        "start": {},
+        "complete": {
+          "add": {
+            "input": 2
+          }
+        }
+      }
+    ]
+  },
+  "sourceTrace": [
+    {
+      "step": "work",
+      "minutes": 30,
+      "coins": 8,
+      "values": {
+        "input": 6,
+        "output": 1
+      }
+    },
+    {
+      "step": "work",
+      "minutes": 60,
+      "coins": 16,
+      "values": {
+        "input": 6,
+        "output": 2
+      }
+    }
+  ]
+}

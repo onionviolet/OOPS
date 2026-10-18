@@ -1,0 +1,42 @@
+[
+  {
+    "fixture": "arithmetic",
+    "passed": true,
+    "answer": "323",
+    "elapsed_s": 11.498,
+    "load_s": 10.235,
+    "tokens": 3,
+    "tokens_per_s": 9.88,
+    "done_reason": "stop"
+  },
+  {
+    "fixture": "facts",
+    "passed": true,
+    "answer": "{\"coins_remaining\": 4, \"kits_bought\": 1}",
+    "elapsed_s": 8.222,
+    "load_s": 6.733,
+    "tokens": 15,
+    "tokens_per_s": 23.9,
+    "done_reason": "stop"
+  },
+  {
+    "fixture": "intent",
+    "passed": true,
+    "answer": "{\"action\": \"trade\"}",
+    "elapsed_s": 6.515,
+    "load_s": 5.706,
+    "tokens": 6,
+    "tokens_per_s": 15.69,
+    "done_reason": "stop"
+  },
+  {
+    "fixture": "fiction",
+    "passed": true,
+    "answer": "The air in the cellar grew thick with the scent of rot and old blood. Malakor\u2019s eyes, burning with a cold, violet fury, fixed on the trembling smuggler. \"You think you can simply walk away? After I gave you sanctuary? After I fed your starving family?\" The man\u2019s voice was a low, dangerous growl. \"You are a rat, and rats deserve the trap. I will not just kill you. I will peel the skin from your bones, inch by inch, while you scream for a mercy that does not exist. You are mine, and I will make you regret the day you drew your first breath. Now, speak, or suffer the silence of the grave.\"",
+    "elapsed_s": 13.954,
+    "load_s": 6.407,
+    "tokens": 143,
+    "tokens_per_s": 21.13,
+    "done_reason": "stop"
+  }
+]

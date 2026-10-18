@@ -1,0 +1,487 @@
+{
+  "evidence": "static selected source; no whole-file inference outside spans",
+  "sources": [
+    {
+      "path": "managed/GameMain.cs",
+      "sha256": "142d99cd40e192ade1780d358268788e5474da61904f5bbc85f573f16a516f73",
+      "line_count": 606,
+      "selected_read_spans": [
+        [
+          569,
+          588
+        ]
+      ]
+    },
+    {
+      "path": "managed/GameWatch.cs",
+      "sha256": "4123874eaf43f034bc16f0c48938dc39526acc3af6d2f344f99027be1bf6e931",
+      "line_count": 1866,
+      "selected_read_spans": [
+        [
+          259,
+          280
+        ],
+        [
+          1013,
+          1020
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/MainManager.cs",
+      "sha256": "6544f628452e0163259b738e3e7e3a270dc8a9c7b5b902dbf60b56fe45a012f2",
+      "line_count": 1013,
+      "selected_read_spans": [
+        [
+          215,
+          260
+        ],
+        [
+          353,
+          468
+        ],
+        [
+          502,
+          590
+        ],
+        [
+          645,
+          732
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/SaveMgr.cs",
+      "sha256": "8c70dde796987ae79519b2c4ad0367f46228126ae659179832d9096e75c4d5e4",
+      "line_count": 446,
+      "selected_read_spans": [
+        [
+          1,
+          446
+        ]
+      ]
+    },
+    {
+      "path": "SevenZipHelper.cs",
+      "sha256": "2c9f4fef5e74cb0264958db132e23d2615af7a63a22faf15b8f5d114b6b63193",
+      "line_count": 151,
+      "selected_read_spans": [
+        [
+          1,
+          151
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld.SaveLoad/SL_GAME.cs",
+      "sha256": "00243ffef0f482374f185e0c8e97f03a33233356a6f5f639fdc4966ea738ec4b",
+      "line_count": 92,
+      "selected_read_spans": [
+        [
+          1,
+          92
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld.SaveLoad/SL_World.cs",
+      "sha256": "89d33783a7b4a347ace30242d21d13d96fddd3b05059aa8b43f002853c2a5aa2",
+      "line_count": 18,
+      "selected_read_spans": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/VersionCorrect.cs",
+      "sha256": "29cf3fddec53bf817cae1365ad5f7dd6687c8aa286d085b1fbf5bb95935eb1ca",
+      "line_count": 171,
+      "selected_read_spans": [
+        [
+          1,
+          95
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/World.cs",
+      "sha256": "2ad84a2977ad12060eb8100bd35f5ab945ff9bf79b15ba0bba7229fc54e933f0",
+      "line_count": 1087,
+      "selected_read_spans": [
+        [
+          1,
+          125
+        ],
+        [
+          414,
+          477
+        ],
+        [
+          800,
+          900
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/DlgDef.cs",
+      "sha256": "e2a0be60b044346fd9f33812f63c99942731354c0679363bea6c5debd3bf166c",
+      "line_count": 124,
+      "selected_read_spans": [
+        [
+          1,
+          124
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/DlgMgr.cs",
+      "sha256": "4198b6b745a44af093c614b0eeb621fe20ba459016111a5e2128149762f00e6f",
+      "line_count": 275,
+      "selected_read_spans": [
+        [
+          1,
+          275
+        ]
+      ]
+    },
+    {
+      "path": "managed/Wnd_Dlg.cs",
+      "sha256": "61116da7ae81b1075e7ff16ea3bf21e3137453767f5c132f8be884298537d0cd",
+      "line_count": 426,
+      "selected_read_spans": [
+        [
+          89,
+          285
+        ]
+      ]
+    },
+    {
+      "path": "managed/Wnd_JianghuTalk.cs",
+      "sha256": "6436c8426ca294955ac8372869469922c717f08a4e544830c35a7bef4338ceb0",
+      "line_count": 2101,
+      "selected_read_spans": [
+        [
+          86,
+          132
+        ],
+        [
+          824,
+          860
+        ],
+        [
+          1089,
+          1220
+        ],
+        [
+          1673,
+          1792
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/JobRPGDialog.cs",
+      "sha256": "2f22b0edfdf3e2a50c2cbe2fd83da8434bc530e2bed288a0d91a509fc824502c",
+      "line_count": 101,
+      "selected_read_spans": [
+        [
+          1,
+          101
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/BehaviourBase.cs",
+      "sha256": "0743e122b5bfd75007b0314829af9daf386d3753d3e0833c8541024f4a0a560c",
+      "line_count": 56,
+      "selected_read_spans": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/JobMgr.cs",
+      "sha256": "2bc8a77025fa46c676f09a9579f3f051283c8e378bf256fb8413000c09708533",
+      "line_count": 162,
+      "selected_read_spans": [
+        [
+          1,
+          140
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/EventMgr.cs",
+      "sha256": "e5ec7df7cfc0e5f8486818dec077056a9717c8a2667e67041e19ea2f13453e3a",
+      "line_count": 165,
+      "selected_read_spans": [
+        [
+          1,
+          85
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/GameEventMgr.cs",
+      "sha256": "59f88e955266a35ead0a32154c28ea1e1ceef528b0ae04bc021c741c7a117071",
+      "line_count": 1080,
+      "selected_read_spans": [
+        [
+          1,
+          160
+        ],
+        [
+          968,
+          1011
+        ]
+      ]
+    },
+    {
+      "path": "managed/IManagerModule_LoopInterval.cs",
+      "sha256": "a579bdd71e55ccd54f67d4a7f3cf4843ec452f9f62a03dd8ab2f4983fb024ad6",
+      "line_count": 108,
+      "selected_read_spans": [
+        [
+          1,
+          108
+        ]
+      ]
+    },
+    {
+      "path": "managed/WeightRander.cs",
+      "sha256": "7d325eb204cb03058c1c85103dcd91a320db3e86a48ab059f9ee69bd70a6c9c0",
+      "line_count": 182,
+      "selected_read_spans": [
+        [
+          1,
+          140
+        ]
+      ]
+    },
+    {
+      "path": "managed/TeachingMgr.cs",
+      "sha256": "ad89586c2f9e075ef8dcfe33514de7313dd84864d3f7701dab804f6622dffe2a",
+      "line_count": 1802,
+      "selected_read_spans": [
+        [
+          74,
+          115
+        ],
+        [
+          241,
+          325
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/BuildingHelperFengshui.cs",
+      "sha256": "a6cabe948744d55117aa5f13db3dde96b7bf2a85a6a8bb498e5a2c4e72b7a24e",
+      "line_count": 22,
+      "selected_read_spans": [
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/OutspreadMgr.cs",
+      "sha256": "278dc1a3851df2639a38cc51c502b302fbd4a4a7f86b681edd3ab98a39a97c76",
+      "line_count": 4914,
+      "selected_read_spans": [
+        [
+          1914,
+          1955
+        ],
+        [
+          2943,
+          3045
+        ],
+        [
+          3770,
+          3855
+        ],
+        [
+          3960,
+          4078
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/OutspreadCost.cs",
+      "sha256": "7587206d9bad79d7792c53aedfea5df85d1f2b2de4bce38aad60a08e52fcb07b",
+      "line_count": 26,
+      "selected_read_spans": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/OutspreadPolicyDailyEffect.cs",
+      "sha256": "176c8c74ea0f828b790d38b0575da8434edaa3a6618745282455d1a650ae8523",
+      "line_count": 11,
+      "selected_read_spans": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "input/Mods/Readme_EN.txt",
+      "sha256": "435bf056864a094b2c7eef4f4c7fd9f9e8f70f72b5045be7e017fa61a2abcf07",
+      "line_count": 216,
+      "selected_read_spans": [
+        [
+          1,
+          216
+        ]
+      ]
+    },
+    {
+      "path": "input/Scripts/RPG/DlgNode/DlgNodeBase.lua",
+      "sha256": "fe959dc3ab3c94b21b65406c28fc7a51572caf3763ada125dea3573317cbfeaa",
+      "line_count": 18,
+      "selected_read_spans": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "path": "input/Scripts/RPG/DlgNode/DlgNodeMgr.lua",
+      "sha256": "30b670f6ba972898987b43869da4173867886b45e29f338bc551716a24e3a79c",
+      "line_count": 39,
+      "selected_read_spans": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "input/Settings/Outspread/Policy/policy_Disaster.xml",
+      "sha256": "7e6d99ed72003657ce384b397fb2172661b4129c0eb6ba65d7eb9e3b8c2d3873",
+      "line_count": 71,
+      "selected_read_spans": [
+        [
+          1,
+          71
+        ]
+      ]
+    },
+    {
+      "path": "managed/Wnd_NpcTalk.cs",
+      "sha256": "492d8c03adc296d7d7efc3f62dcbbf7c686b2b18d8a45e4f080d0554de8041fb",
+      "line_count": 243,
+      "selected_read_spans": [
+        [
+          50,
+          105
+        ]
+      ]
+    },
+    {
+      "path": "managed/ModsMgr.cs",
+      "sha256": "33d347ed1a59e1bdb639cdbbfa4b0aca2f364e5dd25b9bd04b1843eae45762ba",
+      "line_count": 1625,
+      "selected_read_spans": [
+        [
+          403,
+          418
+        ],
+        [
+          1084,
+          1150
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/FengshuiItemData.cs",
+      "sha256": "982f283ac2fb1390a01367d58998f4daa80979e22c45825f2724243afac5fad6",
+      "line_count": 200,
+      "selected_read_spans": [
+        [
+          1,
+          155
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/AreaRoom.cs",
+      "sha256": "d93af96ef0b4618d975744641e1857756bc490ab0602aad879b8089f3987ab85",
+      "line_count": 905,
+      "selected_read_spans": [
+        [
+          125,
+          148
+        ],
+        [
+          414,
+          550
+        ],
+        [
+          688,
+          785
+        ]
+      ]
+    },
+    {
+      "path": "GFileUtil.cs",
+      "sha256": "20320a6fa22b86ac91c7e0cf92002a34873c6b61ab00ced35a1d7d43dba6003a",
+      "line_count": 150,
+      "selected_read_spans": [
+        [
+          1,
+          36
+        ]
+      ]
+    },
+    {
+      "path": "AES.cs",
+      "sha256": "48f4784eb726e32cc4d789b42b951fd89d580581f9866e0d978aebf8d85de9d8",
+      "line_count": 77,
+      "selected_read_spans": [
+        [
+          1,
+          77
+        ]
+      ]
+    },
+    {
+      "path": "managed/XiaWorld/JianghuMgr.cs",
+      "sha256": "d24971597815c35652715a8b0824d521d63f4479b4e555810b7db25b801572eb",
+      "line_count": 1816,
+      "selected_read_spans": [
+        [
+          143,
+          188
+        ],
+        [
+          468,
+          505
+        ],
+        [
+          743,
+          800
+        ],
+        [
+          1290,
+          1370
+        ]
+      ]
+    }
+  ],
+  "structural_scan": {
+    "scope": "decoded XML nodes/links/condition fields and talk tagged rows; prose unread",
+    "decoded_files": 64,
+    "private_inventory": "notes/decoded-inventory.json",
+    "public_digest": "DIALOGUE_STRUCTURE.json"
+  }
+}

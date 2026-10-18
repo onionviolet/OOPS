@@ -1,0 +1,9 @@
+# Independent Qud vortex queue audit
+
+2026-10-15. Research only. This audit independently follows the depth4 Q24 deferred-victim question through the actual component serializer and action scheduler. It does not establish a reproduced bug, complete whole-game reference reachability, or a native gameplay result.
+
+**AQ1:** The stock part save/load path omits the transient queue and origin dictionary. This is established in the actual inherited serializer, beyond the attributes alone. **AQ2:** Queuing normally removes an actor from the action queue; saving that scheduler therefore does not preserve it through that entry. **AQ3:** A later explicit-tracking contact flushes eligible queued victims, but the flush does not require a successful teleport before releasing its references. **AQ4:** The vortex part supplies no destruction, expiry, save, or contents-discovery hook that drains the queue. Other owners and event listeners can still hold references; exact collection and whole-save fate remain open.
+
+[Full findings](FINDINGS.md) retain the branch ordering, NPC distinctions, failed-placement limits, save callbacks and cleanup scope. [Unread list](UNREAD.md) identifies what remains unresolved rather than treating a full class export as a full review. [Checkpoint](CHECKPOINT.md) records ownership and evidence limits. [Validation](VALIDATION.json) checks archive integrity and local links, not behavior.
+
+Full captured classes, XML, commands, receipts, source hashes and exact reviewed windows are retained in [private evidence](private/SOURCE_LEDGER.json), with [line windows](private/READ_WINDOWS.txt) and a [machine-readable reading scope](private/READ_WINDOWS.json). Seven narrowly selected types were newly exported; seven class bodies and two XML inputs were copied from earlier captures. Every source file remains private and ignored.

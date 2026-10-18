@@ -1,0 +1,27 @@
+[
+  {
+    "case": "valid",
+    "expected_pass": true,
+    "actual_pass": true
+  },
+  {
+    "case": "observe_before_light",
+    "expected_pass": false,
+    "actual_pass": false
+  },
+  {
+    "case": "save_while_dark",
+    "expected_pass": false,
+    "actual_pass": false
+  },
+  {
+    "case": "wrong_claim",
+    "expected_pass": false,
+    "actual_pass": false
+  },
+  {
+    "case": "duplicate_operation",
+    "expected_pass": false,
+    "actual_pass": false
+  }
+]

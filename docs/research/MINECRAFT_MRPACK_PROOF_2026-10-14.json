@@ -1,0 +1,33 @@
+{
+  "project": "Cabricality",
+  "project_id": "Prk1zzOq",
+  "source_url": "https://github.com/DM-Earth/Cabricality",
+  "version_id": "sN3zOmAo",
+  "version": "0.3.1-patch1",
+  "url": "https://cdn.modrinth.com/data/Prk1zzOq/versions/sN3zOmAo/Cabricality-0.3.1-patch1.mrpack",
+  "local": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/minecraft/private/modrinth/Cabricality-0.3.1-patch1.mrpack",
+  "bytes": 6903439,
+  "sha512": "69b0199bb83e8f5579047157486341a9376af62527aefce2220c5a341ed4b428654a274dd9762e8dbbb9ac5090ad1ff2f4d972de8165856890c96fd2133857c0",
+  "sha512_verified": true,
+  "zip_members": 53,
+  "index_files": 51,
+  "referenced_bytes": 121025151,
+  "dependencies": {
+    "minecraft": "1.18.2",
+    "quilt-loader": "0.20.0-beta.4"
+  },
+  "quest_entries": 16,
+  "script_entries": 0,
+  "manual_entries": 0,
+  "examples": {
+    "quests": [
+      "overrides/config/ftbquests/quests/chapters/market.snbt",
+      "overrides/config/ftbquests/quests/chapters/metallurgy.snbt",
+      "overrides/config/ftbquests/quests/chapters/professions.snbt",
+      "overrides/config/ftbquests/quests/chapters/stage_4.snbt"
+    ],
+    "scripts": [],
+    "manuals": []
+  },
+  "status": "archive downloaded and indexed; referenced files NOT downloaded; nothing installed or run"
+}

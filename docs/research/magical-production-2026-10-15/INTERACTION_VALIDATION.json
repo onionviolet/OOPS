@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-15",
+  "scope": "documentation/source checks only",
+  "catalogue_counts": {
+    "SC": 18,
+    "MP": 30,
+    "CH": 18,
+    "WG": 9,
+    "KC": 4
+  },
+  "source_and_owner_file_hashes": 55,
+  "line_anchors": 59,
+  "local_links": 52,
+  "status": "passed",
+  "gameplay_tests_build_browser_save_acceptance": "not run in this pass"
+}

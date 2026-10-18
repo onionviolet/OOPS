@@ -1,0 +1,117 @@
+[
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "phase": "explicit-contract revised source task",
+    "fieldEdits": 4,
+    "changes": [
+      {
+        "path": "witness.sequence",
+        "before": [
+          "work",
+          "work",
+          "work"
+        ],
+        "after": [
+          "gather",
+          "gather",
+          "work",
+          "work",
+          "work"
+        ]
+      },
+      {
+        "path": "witness.inputRemaining",
+        "before": 0,
+        "after": 1
+      },
+      {
+        "path": "witness.minutes",
+        "before": 90,
+        "after": 130
+      },
+      {
+        "path": "publicLine",
+        "before": "I have enough reeds to weave the three mats the ferryman needs, though I still don't know how to open that gate.",
+        "after": "I can gather reeds and weave mats for the ferry, though I do not know how that stone gate opens."
+      }
+    ],
+    "sourceTracePass": true,
+    "nativeBrowserVerified": false,
+    "humanEditingMinutes": null
+  },
+  {
+    "model": "qwen3.8:27b",
+    "phase": "explicit-contract revised source task",
+    "fieldEdits": 4,
+    "changes": [
+      {
+        "path": "witness.sequence",
+        "before": [
+          "work",
+          "work",
+          "work"
+        ],
+        "after": [
+          "gather",
+          "gather",
+          "work",
+          "work",
+          "work"
+        ]
+      },
+      {
+        "path": "witness.inputRemaining",
+        "before": 0,
+        "after": 1
+      },
+      {
+        "path": "witness.minutes",
+        "before": 90,
+        "after": 130
+      },
+      {
+        "path": "publicLine",
+        "before": "I have six reeds here, which is enough to weave the three mats the ferry needs, though I have no idea how to open that stone gate.",
+        "after": "I can gather reeds and weave mats for the ferry, though I do not know how that stone gate opens."
+      }
+    ],
+    "sourceTracePass": true,
+    "nativeBrowserVerified": false,
+    "humanEditingMinutes": null
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "phase": "explicit-contract revised source task",
+    "fieldEdits": 3,
+    "changes": [
+      {
+        "path": "witness.sequence",
+        "before": [
+          "work",
+          "work",
+          "work"
+        ],
+        "after": [
+          "gather",
+          "gather",
+          "work",
+          "work",
+          "work"
+        ]
+      },
+      {
+        "path": "witness.inputRemaining",
+        "before": 0,
+        "after": 1
+      },
+      {
+        "path": "witness.minutes",
+        "before": 90,
+        "after": 130
+      }
+    ],
+    "sourceTracePass": true,
+    "nativeBrowserVerified": false,
+    "humanEditingMinutes": null
+  }
+]

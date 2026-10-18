@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "scope": "Research archive integrity only; no native/game/save execution or implementation acceptance.",
+  "lane_validation_receipts": {
+    "qud-systems-audit-2026-10-15/depth-7/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "1b349e9003a578e48cf5ccb6f481896cc90f29aac2c6e1dc87e57b429750fab8"
+    },
+    "qud-systems-audit-2026-10-15/depth-7/independent-audit/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "e0f1ad799ab6921b60ecd341b380ef5ae4ac928ce6deb5bf96218818b34986ce"
+    },
+    "rain-world/emergence-2026-10-15/round-5/extraction/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "5c29472421a775ed6d9566ce398eafb3bbb4097c5c4b9813cf1362976c36e5a6"
+    },
+    "rain-world/emergence-2026-10-15/round-5/audit/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "5fc2929abda7d8f93f4b9c437b45ed7472f79a06a0f1ef79e8ae8107a6ec9c6a"
+    },
+    "dwarf-fortress/emergence-2026-10-15/round-5/extraction/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "d64846221c683ae3acd3711ffe77f57b56fdc20f1a7127d0ddfef0f987ff706e"
+    },
+    "dwarf-fortress/emergence-2026-10-15/round-5/audit/VALIDATION.json": {
+      "status": "PASS",
+      "receipt_sha256": "a368f0b13f56725ae48f0323036f71e46dbab14a381b39ef68a1b99c38658253"
+    }
+  },
+  "local_links_checked": 140,
+  "coverage": {
+    "Qud_root_unique_captured": 452,
+    "Qud_root_capture_only": 234,
+    "Qud_independent_scope": "Separate read ledger, not summed as unique types",
+    "Rain_World_audit_game_classes": 64,
+    "Rain_World_audit_status": {
+      "full-class-read": 14,
+      "selected-windows-read": 36,
+      "captured-unread": 14
+    },
+    "DF": "See native byte regions and exact unread complements in both lane receipts"
+  },
+  "errors": [],
+  "documents": {
+    "REPORT.md": "406d305a549ccd2a8359529a1ed2a110ee2474884035a10ea5b7d577c59e5f34",
+    "CONTINUATION.md": "c487c220b722c1184e358a6d893b91d43d4535985c8cc0a53559ffff6b07a29b"
+  }
+}

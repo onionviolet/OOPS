@@ -1,0 +1,14 @@
+{
+  "requests": 28,
+  "all_done_stop": true,
+  "errors": 0,
+  "unexpected_thinking": 0,
+  "site_validator_passes": 4,
+  "local_links_valid": true,
+  "broken": [],
+  "config_unchanged": true,
+  "ps": {
+    "models": []
+  },
+  "upgrade_job_absent": true
+}

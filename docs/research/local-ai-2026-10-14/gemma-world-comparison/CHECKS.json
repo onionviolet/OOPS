@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-15T02:56:56.592526+00:00",
+  "requests": 33,
+  "stop_completions": 33,
+  "errors": 0,
+  "unexpected_thinking": 0,
+  "final_ps": {
+    "models": []
+  },
+  "config": {
+    "default": "fast",
+    "profiles": {
+      "fast": "qwen3.8:27b"
+    }
+  },
+  "upgrade_job_absent": true,
+  "native_browser_gameplay_tested": false,
+  "broken_local_links": []
+}

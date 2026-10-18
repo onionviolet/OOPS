@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "errors": [],
+  "input_hash_verified": true,
+  "current_unique_types": 14,
+  "current_coverage": {
+    "full-class-reviewed": 1,
+    "selected-windows-reviewed": 6,
+    "captured-unread": 7
+  },
+  "cumulative_unique_types": 51,
+  "cumulative_coverage": {
+    "full-class-reviewed": 7,
+    "selected-windows-reviewed": 26,
+    "captured-unread": 18
+  },
+  "raw_disk_bytes": 721923,
+  "all_local_links_resolve": true,
+  "cumulative_intervals_cover_every_line_without_overlap": true
+}

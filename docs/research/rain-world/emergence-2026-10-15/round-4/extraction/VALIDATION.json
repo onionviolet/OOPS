@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "errors": [],
+  "input_hash_verified": true,
+  "current_unique_types": 5,
+  "current_coverage": {
+    "full-class-reviewed": 0,
+    "selected-windows-reviewed": 5,
+    "captured-unread": 0
+  },
+  "cumulative_unique_types": 52,
+  "cumulative_coverage": {
+    "full-class-reviewed": 7,
+    "selected-windows-reviewed": 28,
+    "captured-unread": 17
+  },
+  "static_reference_matches": 20,
+  "raw_disk_bytes": 855490,
+  "all_report_and_checkpoint_links_resolve": true
+}

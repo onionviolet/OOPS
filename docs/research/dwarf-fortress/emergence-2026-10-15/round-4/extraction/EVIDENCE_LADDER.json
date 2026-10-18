@@ -1,0 +1,44 @@
+[
+  {
+    "candidate": "output factory",
+    "entry": "0x1407df320",
+    "identity": "RTTI item_globst\u2192vtable1416bdbc0",
+    "shown": [
+      "alloc0xd0",
+      "factory defaults",
+      "returns new output pointer"
+    ],
+    "limits": [
+      "allocator/base constructor unread",
+      "no source pointer/refund written locally"
+    ]
+  },
+  {
+    "candidate": "output quantity assignment",
+    "entry": "0x1400fc5b0",
+    "identity": "glob virtual slot145",
+    "shown": [
+      "signed32 assignment item+80",
+      "negative floor0",
+      "clearsflag20000000"
+    ],
+    "limits": [
+      "this is new output initialization, not positive input delta"
+    ]
+  },
+  {
+    "candidate": "holder placement",
+    "entry": "0x14054bdc0",
+    "shown": [
+      "type24 ref call",
+      "holder wrapper allocation/vector",
+      "16bit coordinate copies",
+      "pointer return ignored by selected caller"
+    ],
+    "limits": [
+      "reference helper failure/exception semantics unread",
+      "no explicit local input restoration",
+      "case-specific dispatch failure join still open"
+    ]
+  }
+]

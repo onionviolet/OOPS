@@ -1,0 +1,13 @@
+# Qud depth 6: alternate save roots for queued vortex victims
+
+2026-10-15. Research only. Pinned Assembly-CSharp2.0.211.56 SHA256 `2cc28fba5a86221e27bfdcaa5f5a91a2e249fd474814dce7cff25a9a649b8589`. No game, native experiment, personal-save access or implementation. [Depth 5](../depth-5/REPORT.md) established queue omission and selected missing cleanup; this pass resolves named alternate ownership paths without claiming a complete whole-game reference audit.
+
+**Q6-F1:** Another saved actor's Physics damage references can preserve a queued victim's full body. Damage processing sets the references; the actual validity predicate does not require a cell or zone; generated Physics.Write uses full WriteGameObject. A contextless actor with Physics outside the graveyard can therefore be enrolled by this alternate owner. The conditional path disproves any universal inference that every queued victim necessarily disappears from a save.
+
+**Q6-F2:** Preserving a body does not restore its cell, action eligibility or vortex association. The reader reconstructs token objects and fields; the skipped Queue/Locations are not rebuilt. The action scheduler rejects a nonplayer with no CurrentCell. No generic NPC placement repair was found in that path.
+
+**Q6-F3:** Brain friendly-fire and party membership have different contracts. Friendly-fire persistence filters out ordinary contextless nonplayers. Party/leader GameObjectReferences are written after body enrollment and can reuse an existing body token, but do not independently enroll a missing body. An ID or relationship surviving is not evidence that its actor's body survives.
+
+[Full save-root details](SAVE_REFERENCES_AND_RECOVERY.md) record exact root order, conditions, wrappers, caches and remaining hooks. [Independent audit](independent-audit/REPORT.md) owns the detailed writer/reader/Physics/scheduler trace and its private complete captures. [Root unread](../private/depth-6/UNREAD.json), [exact cumulative complements](../private/depth-6/CUMULATIVE_LINE_COVERAGE.json) and [independent unread](independent-audit/UNREAD.md) preserve separate coverage. [Validation](VALIDATION.json) is archive integrity, not behavior.
+
+Root capture requests12: six exact-hash reuses, five fresh exports, one missing namespace guess resolved to actual XRL.IGameSystem. Nine types have printed windows this pass. Root cumulative450 captured types includes234 without printed windows in the root depth1-6 logs. Independent coverage is a separate ledger and is not added to these totals. Source capture and printing do not establish exhaustive semantic reading.

@@ -1,0 +1,63 @@
+time=2026-10-14T18:09:51.364-04:00 level=INFO source=grammar.go:79 msg="Structured output initialized" library=xgrammar version=v0.2.7 vocab_size=248320 path=/Users/weiwei/.local/share/ollama/mlx_metal_v4/libollama_xgrammar.dylib
+time=2026-10-14T18:10:51.366-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=65 drafted=150 accepted=118 acceptance=0.79 avg_draft=2.31 max_draft=4 avg_accepted=1.82 depth_over_time="0.5/1 1.2/2 1.6/2 2.2/3 2.8/3 3.2/4 3.2/4 3.4/4"
+time=2026-10-14T18:10:52.733-04:00 level=INFO source=pipeline.go:101 msg=memory peak="17.89 GiB" held="17.51 GiB"
+time=2026-10-14T18:11:50.577-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=97 drafted=158 accepted=85 acceptance=0.54 avg_draft=1.63 max_draft=4 avg_accepted=0.88 depth_over_time="2.2/4 1.9/3 1.2/2 0.9/2 0.8/2 1.8/3 2.1/3 2.2/3"
+time=2026-10-14T18:11:51.196-04:00 level=INFO source=pipeline.go:101 msg=memory peak="18.62 GiB" held="18.11 GiB"
+time=2026-10-14T18:13:06.421-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=81 drafted=149 accepted=77 acceptance=0.52 avg_draft=1.84 max_draft=4 avg_accepted=0.95 depth_over_time="2.1/3 2.1/3 2.0/2 2.5/4 2.7/4 2.4/4 0.6/2 0.5/2"
+time=2026-10-14T18:13:07.969-04:00 level=INFO source=pipeline.go:101 msg=memory peak="18.80 GiB" held="18.12 GiB"
+time=2026-10-14T18:13:30.916-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=22 drafted=46 accepted=23 acceptance=0.50 avg_draft=2.09 max_draft=5 avg_accepted=1.05 depth_over_time="2.5/3 2.0/2 2.7/4 4.3/5 5.0/5 0.7/1 0.0/0 0.7/2"
+load_tensors:          CPU model buffer size =  1288.28 MiB
+load_tensors:         MTL0 model buffer size = 26402.69 MiB
+slot print_timing: id  0 | task 0 | draft acceptance = 0.63265 (  124 accepted /   196 generated), mean len =  3.53
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    1     49     49, #gen drafts =     49, #acc drafts =    41, #gen tokens =    196, #acc tokens =   124, #mean acc len = 3.53, #acc rate/pos = (0.837, 0.714, 0.571, 0.408), dur(b,g,a) = 0.005, 14703.414, 62.863 ms
+slot print_timing: id  0 | task 52 | draft acceptance = 0.24115 (  109 accepted /   452 generated), mean len =  1.96
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    2    162    162, #gen drafts =    162, #acc drafts =   108, #gen tokens =    648, #acc tokens =   233, #mean acc len = 2.44, #acc rate/pos = (0.667, 0.364, 0.241, 0.167), dur(b,g,a) = 0.008, 45820.420, 64.269 ms
+slot print_timing: id  0 | task 168 | draft acceptance = 0.26471 (   72 accepted /   272 generated), mean len =  2.06
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    3    230    230, #gen drafts =    230, #acc drafts =   149, #gen tokens =    920, #acc tokens =   305, #mean acc len = 2.33, #acc rate/pos = (0.648, 0.352, 0.196, 0.130), dur(b,g,a) = 0.013, 63137.589, 124.809 ms
+slot print_timing: id  0 | task 239 | draft acceptance = 0.28571 (   24 accepted /    84 generated), mean len =  2.14
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    4    251    251, #gen drafts =    251, #acc drafts =   159, #gen tokens =   1004, #acc tokens =   329, #mean acc len = 2.31, #acc rate/pos = (0.633, 0.343, 0.199, 0.135), dur(b,g,a) = 0.017, 67969.533, 124.892 ms
+load_tensors:   CPU_Mapped model buffer size =  1288.28 MiB
+load_tensors:  MTL0_Mapped model buffer size = 27690.97 MiB
+slot print_timing: id  0 | task 0 | draft acceptance = 0.56481 (  122 accepted /   216 generated), mean len =  3.26
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    1     54     54, #gen drafts =     54, #acc drafts =    42, #gen tokens =    216, #acc tokens =   122, #mean acc len = 3.26, #acc rate/pos = (0.778, 0.574, 0.519, 0.389), dur(b,g,a) = 0.003, 8802.118, 0.202 ms
+slot print_timing: id  0 | task 57 | draft acceptance = 0.30247 (   98 accepted /   324 generated), mean len =  2.21
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    2    135    135, #gen drafts =    135, #acc drafts =    91, #gen tokens =    540, #acc tokens =   220, #mean acc len = 2.63, #acc rate/pos = (0.674, 0.422, 0.304, 0.230), dur(b,g,a) = 0.005, 26645.504, 2.027 ms
+slot print_timing: id  0 | task 141 | draft acceptance = 0.27823 (   69 accepted /   248 generated), mean len =  2.11
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    3    197    197, #gen drafts =    197, #acc drafts =   127, #gen tokens =    788, #acc tokens =   289, #mean acc len = 2.47, #acc rate/pos = (0.645, 0.401, 0.249, 0.173), dur(b,g,a) = 0.008, 38265.121, 2.832 ms
+slot print_timing: id  0 | task 206 | draft acceptance = 0.30208 (   29 accepted /    96 generated), mean len =  2.21
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    4    221    221, #gen drafts =    221, #acc drafts =   143, #gen tokens =    884, #acc tokens =   318, #mean acc len = 2.44, #acc rate/pos = (0.647, 0.398, 0.235, 0.158), dur(b,g,a) = 0.009, 44086.880, 2.981 ms
+time=2026-10-14T18:22:50.960-04:00 level=INFO source=grammar.go:79 msg="Structured output initialized" library=xgrammar version=v0.2.7 vocab_size=248320 path=/Users/weiwei/.local/share/ollama/mlx_metal_v4/libollama_xgrammar.dylib
+time=2026-10-14T18:23:10.559-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=77 drafted=167 accepted=128 acceptance=0.77 avg_draft=2.17 max_draft=4 avg_accepted=1.66 depth_over_time="0.6/1 1.5/2 2.2/3 2.3/3 2.1/3 2.4/3 3.1/4 3.0/4"
+time=2026-10-14T18:23:10.655-04:00 level=INFO source=pipeline.go:101 msg=memory peak="17.86 GiB" held="17.52 GiB"
+time=2026-10-14T18:23:24.283-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=85 drafted=184 accepted=91 acceptance=0.49 avg_draft=2.16 max_draft=4 avg_accepted=1.07 depth_over_time="2.6/4 2.1/3 2.0/2 3.0/4 2.3/3 2.1/3 2.0/2 1.3/3"
+time=2026-10-14T18:23:24.404-04:00 level=INFO source=pipeline.go:101 msg=memory peak="18.60 GiB" held="17.97 GiB"
+time=2026-10-14T18:23:37.110-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=81 drafted=161 accepted=59 acceptance=0.37 avg_draft=1.99 max_draft=4 avg_accepted=0.73 depth_over_time="1.3/3 3.2/4 1.1/2 2.0/4 3.1/4 2.7/3 2.0/4 0.6/3"
+time=2026-10-14T18:23:37.163-04:00 level=INFO source=pipeline.go:101 msg=memory peak="18.78 GiB" held="18.13 GiB"
+time=2026-10-14T18:23:40.614-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=23 drafted=39 accepted=22 acceptance=0.56 avg_draft=1.70 max_draft=4 avg_accepted=0.96 depth_over_time="0.0/0 0.3/1 0.0/0 0.0/0 3.0/3 3.3/4 3.0/3 3.3/4"
+time=2026-10-14T18:23:47.200-04:00 level=INFO source=grammar.go:79 msg="Structured output initialized" library=xgrammar version=v0.2.7 vocab_size=248320 path=/Users/weiwei/.local/share/ollama/mlx_metal_v4/libollama_xgrammar.dylib
+time=2026-10-14T18:24:07.410-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=114 drafted=139 accepted=81 acceptance=0.58 avg_draft=1.22 max_draft=3 avg_accepted=0.71 depth_over_time="0.7/1 1.5/2 1.1/2 1.1/2 1.1/2 2.0/3 0.9/2 1.3/3"
+time=2026-10-14T18:24:07.529-04:00 level=INFO source=pipeline.go:101 msg=memory peak="17.72 GiB" held="17.38 GiB"
+time=2026-10-14T18:24:25.140-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=97 drafted=181 accepted=76 acceptance=0.42 avg_draft=1.87 max_draft=3 avg_accepted=0.78 depth_over_time="2.1/3 2.1/3 2.0/3 2.1/3 1.8/3 0.8/3 2.2/3 2.0/2"
+time=2026-10-14T18:24:25.222-04:00 level=INFO source=pipeline.go:101 msg=memory peak="18.31 GiB" held="17.97 GiB"
+time=2026-10-14T18:24:37.027-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=83 drafted=168 accepted=85 acceptance=0.51 avg_draft=2.02 max_draft=3 avg_accepted=1.02 depth_over_time="2.1/3 2.0/2 2.0/2 2.1/3 2.0/2 2.0/2 2.0/2 2.0/2"
+time=2026-10-14T18:24:37.056-04:00 level=INFO source=pipeline.go:101 msg=memory peak="18.74 GiB" held="18.41 GiB"
+time=2026-10-14T18:24:44.931-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=68 drafted=137 accepted=72 acceptance=0.53 avg_draft=2.01 max_draft=3 avg_accepted=1.06 depth_over_time="2.0/2 2.1/3 2.0/2 2.0/2 2.0/2 2.0/2 2.0/2 2.0/2"
+time=2026-10-14T18:24:44.954-04:00 level=INFO source=pipeline.go:101 msg=memory peak="19.20 GiB" held="18.71 GiB"
+time=2026-10-14T18:24:46.896-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=10 drafted=20 accepted=19 acceptance=0.95 avg_draft=2.00 max_draft=2 avg_accepted=1.90 depth_over_time="2.0/2 2.0/2 2.0/2 2.0/2 2.0/2 2.0/2 2.0/2 2.0/2"
+time=2026-10-14T18:24:46.901-04:00 level=INFO source=pipeline.go:101 msg=memory peak="19.75 GiB" held="19.15 GiB"
+time=2026-10-14T18:24:49.926-04:00 level=INFO source=speculate_stats.go:62 msg="speculative decode stats" iterations=7 drafted=14 accepted=13 acceptance=0.93 avg_draft=2.00 max_draft=2 avg_accepted=1.86 depth_over_time="2.0/2 2.0/2 2.0/2 2.0/2 2.0/2 2.0/2 2.0/2"
+time=2026-10-14T18:24:49.931-04:00 level=INFO source=pipeline.go:101 msg=memory peak="19.97 GiB" held="19.74 GiB"
+load_tensors:   CPU_Mapped model buffer size =  1288.28 MiB
+load_tensors:  MTL0_Mapped model buffer size = 27690.97 MiB
+slot print_timing: id  0 | task 0 | draft acceptance = 0.25000 (   91 accepted /   364 generated), mean len =  2.00
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    1     91     91, #gen drafts =     91, #acc drafts =    53, #gen tokens =    364, #acc tokens =    91, #mean acc len = 2.00, #acc rate/pos = (0.582, 0.253, 0.132, 0.033), dur(b,g,a) = 0.000, 4144.056, 0.282 ms
+slot print_timing: id  0 | task 94 | draft acceptance = 0.21011 (   79 accepted /   376 generated), mean len =  1.84
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    2    185    185, #gen drafts =    185, #acc drafts =   107, #gen tokens =    740, #acc tokens =   170, #mean acc len = 1.92, #acc rate/pos = (0.578, 0.211, 0.103, 0.027), dur(b,g,a) = 0.001, 11184.106, 0.732 ms
+slot print_timing: id  0 | task 191 | draft acceptance = 0.26712 (   78 accepted /   292 generated), mean len =  2.07
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    3    258    258, #gen drafts =    258, #acc drafts =   153, #gen tokens =   1032, #acc tokens =   248, #mean acc len = 1.96, #acc rate/pos = (0.593, 0.233, 0.101, 0.035), dur(b,g,a) = 0.005, 20651.098, 1.340 ms
+slot print_timing: id  0 | task 267 | draft acceptance = 0.23649 (   70 accepted /   296 generated), mean len =  1.95
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    4    332    332, #gen drafts =    332, #acc drafts =   198, #gen tokens =   1328, #acc tokens =   318, #mean acc len = 1.96, #acc rate/pos = (0.596, 0.238, 0.093, 0.030), dur(b,g,a) = 0.008, 30026.354, 1.677 ms
+slot print_timing: id  0 | task 344 | draft acceptance = 0.87500 (   21 accepted /    24 generated), mean len =  4.50
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    5    338    338, #gen drafts =    338, #acc drafts =   204, #gen tokens =   1352, #acc tokens =   339, #mean acc len = 2.00, #acc rate/pos = (0.604, 0.249, 0.107, 0.044), dur(b,g,a) = 0.013, 30761.919, 1.713 ms
+slot print_timing: id  0 | task 353 | draft acceptance = 0.45000 (   18 accepted /    40 generated), mean len =  2.80
+spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    6    348    348, #gen drafts =    348, #acc drafts =   212, #gen tokens =   1392, #acc tokens =   357, #mean acc len = 2.03, #acc rate/pos = (0.609, 0.259, 0.112, 0.046), dur(b,g,a) = 0.015, 31901.747, 1.754 ms

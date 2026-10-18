@@ -1,0 +1,34 @@
+[
+  {
+    "model": "qwen3.8:27b",
+    "seed": 17,
+    "valid": true,
+    "closedNumbersMatch": true,
+    "materialsMatch": true,
+    "activities": 2
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 17,
+    "valid": true,
+    "closedNumbersMatch": true,
+    "materialsMatch": true,
+    "activities": 2
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "seed": 43,
+    "valid": true,
+    "closedNumbersMatch": true,
+    "materialsMatch": true,
+    "activities": 2
+  },
+  {
+    "model": "qwen3.8:27b",
+    "seed": 43,
+    "valid": true,
+    "closedNumbersMatch": true,
+    "materialsMatch": true,
+    "activities": 2
+  }
+]

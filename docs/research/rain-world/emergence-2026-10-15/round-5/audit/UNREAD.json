@@ -1,0 +1,943 @@
+{
+  "status": "PARTIAL",
+  "gap_families": [
+    {
+      "id": "RW5-U1",
+      "prior": "RW4-U1",
+      "scope": "Actual external callback registrations/plugins/reflection, virtual callback outcomes",
+      "progress": "Base callbacks fully read and inert; no subclasses/direct Register calls in pinned main-IL scan. Not a runtime registry inspection."
+    },
+    {
+      "id": "RW5-U2",
+      "prior": "RW4-U1",
+      "scope": "Other Expedition challenge subclasses, win-screen completion and all special endings",
+      "progress": "AchievementChallenge\u2192base Complete\u2192core request\u2192wipe/current pointer clear traced; not exhaustive modules."
+    },
+    {
+      "id": "RW5-U3",
+      "prior": "RW4-U2",
+      "scope": "Native engine exception dispatch, actual replay/start modes, storage/cloud durability",
+      "progress": "Scrub and process resume/new distinction independently checked, sibling outerchain reviewed. No save/runtime tests."
+    },
+    {
+      "id": "RW5-U4",
+      "prior": "RW4-U3",
+      "scope": "Prior graph/malformed/AI/movement/weather/faction gaps and captured-unread classes",
+      "progress": "Retained without silent closure."
+    }
+  ],
+  "exact_unread_complements": [
+    {
+      "type": "ArtificialIntelligence",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          225
+        ],
+        [
+          254,
+          318
+        ],
+        [
+          341,
+          421
+        ]
+      ]
+    },
+    {
+      "type": "ThreatTracker",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          417,
+          547
+        ],
+        [
+          574,
+          574
+        ]
+      ]
+    },
+    {
+      "type": "PreyTracker",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          14
+        ],
+        [
+          81,
+          254
+        ],
+        [
+          326,
+          338
+        ]
+      ]
+    },
+    {
+      "type": "FriendTracker",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          221,
+          234
+        ],
+        [
+          252,
+          252
+        ]
+      ]
+    },
+    {
+      "type": "LizardAI",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          529
+        ],
+        [
+          541,
+          599
+        ],
+        [
+          756,
+          764
+        ],
+        [
+          911,
+          954
+        ],
+        [
+          987,
+          1046
+        ],
+        [
+          1069,
+          1149
+        ],
+        [
+          1164,
+          1343
+        ],
+        [
+          1373,
+          1394
+        ],
+        [
+          1483,
+          1489
+        ],
+        [
+          1576,
+          1749
+        ],
+        [
+          1910,
+          1910
+        ]
+      ]
+    },
+    {
+      "type": "ScavengerAI",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          3720
+        ]
+      ]
+    },
+    {
+      "type": "RainCycle",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          499
+        ],
+        [
+          559,
+          559
+        ]
+      ]
+    },
+    {
+      "type": "AbstractCreature",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          425
+        ],
+        [
+          456,
+          574
+        ],
+        [
+          636,
+          714
+        ],
+        [
+          866,
+          1002
+        ],
+        [
+          1029,
+          1071
+        ],
+        [
+          1136,
+          1758
+        ]
+      ]
+    },
+    {
+      "type": "AbstractCreatureAI",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          374
+        ],
+        [
+          446,
+          821
+        ]
+      ]
+    },
+    {
+      "type": "Creature",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          19
+        ],
+        [
+          151,
+          291
+        ],
+        [
+          323,
+          534
+        ],
+        [
+          553,
+          574
+        ],
+        [
+          606,
+          830
+        ],
+        [
+          905,
+          969
+        ],
+        [
+          991,
+          1100
+        ],
+        [
+          1256,
+          1311
+        ],
+        [
+          1366,
+          1543
+        ]
+      ]
+    },
+    {
+      "type": "CreatureTemplate",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          1052
+        ]
+      ]
+    },
+    {
+      "type": "DenFinder",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          126
+        ]
+      ]
+    },
+    {
+      "type": "InjuryTracker",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "type": "NoiseTracker",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          348
+        ]
+      ]
+    },
+    {
+      "type": "StuckTracker",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          333
+        ]
+      ]
+    },
+    {
+      "type": "Lizard",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          1063
+        ],
+        [
+          1111,
+          1164
+        ],
+        [
+          1261,
+          2979
+        ]
+      ]
+    },
+    {
+      "type": "AbstractRoom",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          349
+        ],
+        [
+          416,
+          423
+        ],
+        [
+          526,
+          891
+        ]
+      ]
+    },
+    {
+      "type": "World",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          307
+        ],
+        [
+          322,
+          399
+        ],
+        [
+          447,
+          1447
+        ]
+      ]
+    },
+    {
+      "type": "Room",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          2593
+        ],
+        [
+          2641,
+          4333
+        ],
+        [
+          4450,
+          4574
+        ],
+        [
+          4656,
+          6428
+        ]
+      ]
+    },
+    {
+      "type": "AbstractPhysicalObject",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          79
+        ],
+        [
+          201,
+          581
+        ],
+        [
+          641,
+          643
+        ],
+        [
+          693,
+          707
+        ],
+        [
+          757,
+          873
+        ]
+      ]
+    },
+    {
+      "type": "CreatureState",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          29
+        ],
+        [
+          61,
+          99
+        ],
+        [
+          121,
+          164
+        ],
+        [
+          178,
+          178
+        ]
+      ]
+    },
+    {
+      "type": "SocialEventRecognizer",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          29
+        ],
+        [
+          115,
+          196
+        ],
+        [
+          251,
+          256
+        ]
+      ]
+    },
+    {
+      "type": "LizardState",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          140
+        ]
+      ]
+    },
+    {
+      "type": "AgressionTracker",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          155
+        ]
+      ]
+    },
+    {
+      "type": "CreatureCommunities",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          458
+        ]
+      ]
+    },
+    {
+      "type": "PathFinder",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          1434
+        ],
+        [
+          1486,
+          1730
+        ],
+        [
+          1791,
+          1820
+        ]
+      ]
+    },
+    {
+      "type": "RoomRain",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          59
+        ],
+        [
+          111,
+          310
+        ],
+        [
+          350,
+          464
+        ],
+        [
+          557,
+          655
+        ]
+      ]
+    },
+    {
+      "type": "RainWorldGame",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          1594
+        ],
+        [
+          1665,
+          1694
+        ],
+        [
+          1788,
+          1799
+        ],
+        [
+          1871,
+          2181
+        ],
+        [
+          2249,
+          2478
+        ],
+        [
+          2518,
+          2813
+        ],
+        [
+          2831,
+          3299
+        ]
+      ]
+    },
+    {
+      "type": "BodyChunk",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          515
+        ],
+        [
+          535,
+          685
+        ]
+      ]
+    },
+    {
+      "type": "PhysicalObject",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          489
+        ],
+        [
+          521,
+          654
+        ],
+        [
+          677,
+          707
+        ]
+      ]
+    },
+    {
+      "type": "GlobalRain",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          52
+        ],
+        [
+          223,
+          268
+        ],
+        [
+          327,
+          456
+        ],
+        [
+          475,
+          567
+        ]
+      ]
+    },
+    {
+      "type": "QuickConnectivity",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          96
+        ],
+        [
+          269,
+          419
+        ]
+      ]
+    },
+    {
+      "type": "SaveState",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          284
+        ],
+        [
+          556,
+          631
+        ],
+        [
+          878,
+          902
+        ],
+        [
+          951,
+          1523
+        ],
+        [
+          1549,
+          1922
+        ],
+        [
+          2021,
+          2283
+        ],
+        [
+          2319,
+          2426
+        ]
+      ]
+    },
+    {
+      "type": "PlayerProgression",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          2101
+        ],
+        [
+          2119,
+          2273
+        ],
+        [
+          2406,
+          2473
+        ],
+        [
+          2616,
+          2649
+        ],
+        [
+          2671,
+          2689
+        ],
+        [
+          2711,
+          2764
+        ],
+        [
+          2876,
+          2944
+        ],
+        [
+          3087,
+          3581
+        ]
+      ]
+    },
+    {
+      "type": "RegionState",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          404
+        ],
+        [
+          426,
+          736
+        ],
+        [
+          783,
+          1023
+        ],
+        [
+          1073,
+          1099
+        ],
+        [
+          1175,
+          1187
+        ],
+        [
+          1326,
+          1359
+        ],
+        [
+          1383,
+          1403
+        ],
+        [
+          1433,
+          1479
+        ],
+        [
+          1531,
+          1560
+        ]
+      ]
+    },
+    {
+      "type": "WorldLoader",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          2137
+        ]
+      ]
+    },
+    {
+      "type": "SaveUtils",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          206
+        ]
+      ]
+    },
+    {
+      "type": "MiscWorldSaveData",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          1003
+        ]
+      ]
+    },
+    {
+      "type": "DeathPersistentSaveData",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          562
+        ],
+        [
+          592,
+          619
+        ],
+        [
+          641,
+          665
+        ],
+        [
+          681,
+          714
+        ],
+        [
+          729,
+          1355
+        ]
+      ]
+    },
+    {
+      "type": "WinState",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          149
+        ],
+        [
+          213,
+          807
+        ],
+        [
+          878,
+          977
+        ],
+        [
+          1395,
+          1507
+        ]
+      ]
+    },
+    {
+      "type": "StoryGameSession",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          133
+        ],
+        [
+          148,
+          155
+        ],
+        [
+          171,
+          377
+        ]
+      ]
+    },
+    {
+      "type": "Player",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          5633
+        ],
+        [
+          5651,
+          7069
+        ],
+        [
+          7145,
+          14917
+        ]
+      ]
+    },
+    {
+      "type": "Expedition.Expedition",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          160
+        ]
+      ]
+    },
+    {
+      "type": "Expedition.ExpeditionCoreFile",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          43
+        ],
+        [
+          291,
+          865
+        ]
+      ]
+    },
+    {
+      "type": "Expedition.ExpeditionData",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          99
+        ]
+      ]
+    },
+    {
+      "type": "Expedition.Challenge",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          131,
+          196
+        ]
+      ]
+    },
+    {
+      "type": "Menu.SlugcatSelectMenu",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          1555
+        ],
+        [
+          1645,
+          2234
+        ]
+      ]
+    },
+    {
+      "type": "WarpPoint",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          3206
+        ],
+        [
+          3266,
+          3613
+        ]
+      ]
+    },
+    {
+      "type": "ProcessManager",
+      "status": "selected-windows-read",
+      "ranges": [
+        [
+          1,
+          973
+        ],
+        [
+          1013,
+          1459
+        ]
+      ]
+    },
+    {
+      "type": "RainWorld",
+      "status": "captured-unread",
+      "ranges": [
+        [
+          1,
+          3069
+        ]
+      ]
+    }
+  ]
+}

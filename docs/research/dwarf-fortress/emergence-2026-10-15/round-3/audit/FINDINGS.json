@@ -1,0 +1,142 @@
+{
+  "status": "bounded-static-partial",
+  "findings": [
+    {
+      "id": "DF-JR01",
+      "title": "Native bilateral acquisition and search/failure caller",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d028e0.c",
+        "sha256": "099d803e81a4cf38e26cb0badf76ffee14cb645f522ac99faf56aafbc0989b0b",
+        "lines": 271,
+        "read_spans": [
+          [
+            1,
+            128
+          ],
+          [
+            245,
+            271
+          ]
+        ],
+        "unread_spans": [
+          [
+            129,
+            244
+          ]
+        ],
+        "layer": "own-native-pseudocode"
+      },
+      "detail": "TRANSACTION_DETAILS.md"
+    },
+    {
+      "id": "DF-JR02",
+      "title": "Selected signed count decrement and removal-request path",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140dac290.c",
+        "sha256": "f9cb2d06b5bbbc0b4d73ea7aa6f1f53ff163726d1280923ac8d53ab921876e18",
+        "lines": 8022,
+        "read_spans": [
+          [
+            315,
+            405
+          ],
+          [
+            1890,
+            2045
+          ],
+          [
+            5600,
+            5690
+          ]
+        ],
+        "unread_spans": [
+          [
+            1,
+            314
+          ],
+          [
+            406,
+            1889
+          ],
+          [
+            2046,
+            5599
+          ],
+          [
+            5691,
+            8022
+          ]
+        ],
+        "layer": "own-native-pseudocode"
+      },
+      "detail": "TRANSACTION_DETAILS.md"
+    },
+    {
+      "id": "DF-JR03",
+      "title": "Corpse partial material extraction/output creation",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140cc9230.c",
+        "sha256": "e3105f1d61399a6054888828a082f8a14e73f4e4fc384b3820247a4aea50dc71",
+        "lines": 270,
+        "read_spans": [
+          [
+            1,
+            270
+          ]
+        ],
+        "unread_spans": [],
+        "layer": "own-native-pseudocode"
+      },
+      "detail": "TRANSACTION_DETAILS.md"
+    },
+    {
+      "id": "DF-JR04",
+      "title": "Cancellation detach is not proven consumed-material refund",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/audit/extract/native-0x140d022c0.c",
+        "sha256": "c8190a0b64c405c53715a8cb5d08366518e575ebd9bc8760c2c0cfd2d6d066a9",
+        "lines": 145,
+        "read_spans": [
+          [
+            1,
+            145
+          ]
+        ],
+        "unread_spans": [],
+        "layer": "own-native-pseudocode"
+      },
+      "detail": "TRANSACTION_DETAILS.md"
+    },
+    {
+      "id": "DF-JR05",
+      "title": "Sibling expiry Boolean and conditional source-owned cleanup independently checked",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/dwarf-fortress-emergence-2026-10-15/round-3/extract/native-0x1413c5ef0.c",
+        "sha256": "361991839bb7c0e64326df4bae889fb72d3bbfa93d391cf140040d791a35fac6",
+        "lines": 628,
+        "read_spans": [
+          [
+            292,
+            343
+          ],
+          [
+            540,
+            628
+          ]
+        ],
+        "unread_spans": [
+          [
+            1,
+            291
+          ],
+          [
+            344,
+            539
+          ]
+        ],
+        "layer": "sibling-selected-independent-read"
+      },
+      "detail": "SIBLING_REVIEW.md"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "canonClaims": [
+    {
+      "sourceId": "H1",
+      "claim": "Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light."
+    },
+    {
+      "sourceId": "H1",
+      "claim": "The Wand-lighting Charm supports a lighting function, not automatic spell knowledge or a generic mana pool."
+    },
+    {
+      "sourceId": "H2",
+      "claim": "Reparo can mend certain damaged objects, but mending a wand's exterior does not restore its damaged magic."
+    },
+    {
+      "sourceId": "H2",
+      "claim": "The dossier supplies no numerical casting cost or duration for the Mending Charm."
+    }
+  ],
+  "startAssumptions": [
+    "Magically eligible adult learner owns an intact wand and has learned Lumos and Nox.",
+    "Nonmagical adult visitor owns a wand but has no magical source or learned casting ability.",
+    "Learner is in a dim storage room with freedom to leave; no enemies, quests, or rewards exist.",
+    "Reparo is a later separate learned method, not granted by this starting premise."
+  ],
+  "stateAndReaders": [
+    "Actor: magical_eligibility (bool), learned_spells (set: [Lumos, Nox]), wand_integrity (bool).",
+    "World: ambient_light_level (scalar), room_bounds (geometry).",
+    "Wand: current_state (enum: [inert, active_light, extinguished]), magical_integrity (bool).",
+    "Reader: visibility_check consumes emitted light and normal observation conditions; magical eligibility and learned spells gate casting, not observing light."
+  ],
+  "actions": [
+    {
+      "name": "Cast_Lumos",
+      "preconditions": "Actor has magical_eligibility, wand_integrity true, learned_spells includes Lumos.",
+      "effect": "Wand state becomes active_light; emitted light is consumed by the normal visibility/observation reader without a new caster-eligibility restriction.",
+      "sourceVsDesign": "H1 defines effect; O1 proposes local visibility consumer; no mana/cooldown."
+    },
+    {
+      "name": "Cast_Nox",
+      "preconditions": "Actor has magical_eligibility, wand state is active_light, learned_spells includes Nox.",
+      "effect": "Wand state becomes extinguished; local visibility returns to ambient.",
+      "sourceVsDesign": "H1 defines effect; O1 proposes state toggle; no numerical cost."
+    },
+    {
+      "name": "Attempt_Cast",
+      "preconditions": "Actor lacks magical_eligibility OR wand_integrity is false OR spell not learned.",
+      "effect": "No mutation; action fails silently; no new mastery or items awarded.",
+      "sourceVsDesign": "P1 enforces refusal; O1 defines no-mutation failure; no source-specified penalty."
+    },
+    {
+      "name": "Leave_Room",
+      "preconditions": "Actor is within room_bounds.",
+      "effect": "Actor exits; light state persists under save policy; no quest completion.",
+      "sourceVsDesign": "P1 allows free leaving; O1 mandates persistence; no reward."
+    }
+  ],
+  "compatibility": {
+    "status": "requires_adapter",
+    "missingConsumers": [
+      "Wand eligibility and integrity reader",
+      "Learned spell set validator",
+      "Actor-scoped light visibility consumer",
+      "Magical integrity vs physical mending distinction",
+      "No-mutation failure handler for ineligible actors"
+    ]
+  },
+  "counterexamples": [
+    "Nonmagical visitor attempts Lumos: fails due to no magical source, despite wand ownership.",
+    "Learner attempts Reparo on broken wand: fails as Reparo is not yet learned in this slice.",
+    "Mending wand exterior with Reparo: does not restore magic, per H2.",
+    "Casting Lumos without learned spell: fails; no automatic knowledge granted."
+  ],
+  "futureWitness": [
+    "Lumos/Nox toggle works only for eligible learner with intact wand and learned spells.",
+    "Nonmagical visitor attempts fail with no mutation, no items, no mastery.",
+    "Leaving room persists light state under approved save policy; no quest completion.",
+    "Reparo limit: mends exterior only; does not restore magic or grant new spells.",
+    "No source-specified mana, cooldowns, or mandatory quests are enforced.",
+    "Adapter must implement eligibility, spell sets, and scoped light; current adapter lacks these."
+  ],
+  "numericalPolicy": "No source-specified mana, cooldowns, or numerical costs. Design proposals may add values but must be labeled as proposals, not canon."
+}

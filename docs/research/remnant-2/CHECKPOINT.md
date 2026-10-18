@@ -37,3 +37,5 @@ Raw work area: /Users/weiwei/.codex/research/mw-remnant2/. Logical file bytes at
 Checks run: required artifact presence; parse FINDINGS and ASPECTS JSON; exactly A01-A12 with required fields/status values; at least 20 coded touches (24 present); source owner path existence; no em dash in dossier Markdown; every recorded extract hash recomputed; private reference file confirmed ignored; reused tool revisions verified. Research checks only, no game or YAIRPG tests/build/browser.
 
 Only docs/research/remnant-2 and the assigned work area were written. No git add, commit, push, install change, game launch, save access or shared source edit.
+
+Deep static follow-up (2026-10-15): [pass report](pass-2026-10-15-deep/REPORT.md) and [current gaps](pass-2026-10-15-deep/CHECKPOINT.md).

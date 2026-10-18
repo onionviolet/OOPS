@@ -1,0 +1,128 @@
+{
+  "scope": "public Git tree inspection only; no full source download, launch, build or gameplay",
+  "date": "2026-10-14",
+  "rows": [
+    {
+      "repo": "DaFuqs/Spectrum",
+      "branch": "1.21.1-neoforge",
+      "commit": "c1b631d29f8096572afbeb566efba2425a4a8c90",
+      "truncated": false,
+      "groups": {
+        "quests": {
+          "count": 0,
+          "examples": []
+        },
+        "scripts": {
+          "count": 0,
+          "examples": []
+        },
+        "advancements": {
+          "count": 863,
+          "examples": [
+            "raw/wip/advancements/create_spectral_shard.json",
+            "raw/wip/advancements/defeat_paintlich.json",
+            "raw/wip/advancements/find_forsaken_cathedral.json"
+          ]
+        },
+        "manuals": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "repo": "lucidobservor/floramancer-modpack",
+      "branch": "master",
+      "commit": "516236b107ff92350e2af4f0481fec47be55086a",
+      "truncated": false,
+      "groups": {
+        "quests": {
+          "count": 0,
+          "examples": []
+        },
+        "scripts": {
+          "count": 25,
+          "examples": [
+            "overrides/scripts/ancient_debris.zs",
+            "overrides/scripts/bearwithme.zs",
+            "overrides/scripts/botania.zs"
+          ]
+        },
+        "advancements": {
+          "count": 3,
+          "examples": [
+            "docs/triumph/documentation/criteria/triggers/triumph/completed_advancement.txt",
+            "docs/triumph/script/triumph/example/example_better_advancement_colors.txt",
+            "docs/triumph/script/triumph/example/example_completed_advancement.txt"
+          ]
+        },
+        "manuals": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "repo": "DarkPacks/SevTech-Ages",
+      "branch": "master/original",
+      "commit": "c4e1b8f1f044fedc43c6aff249561a32865016cc",
+      "truncated": false,
+      "groups": {
+        "quests": {
+          "count": 0,
+          "examples": []
+        },
+        "scripts": {
+          "count": 341,
+          "examples": [
+            "src/scripts/contenttweaker/fluids.zs",
+            "src/scripts/contenttweaker/materials/init.zs",
+            "src/scripts/contenttweaker/materials/largeScale.zs"
+          ]
+        },
+        "advancements": {
+          "count": 1,
+          "examples": [
+            "docs/mods/triumph/criteria/triggers/triumph/completed_advancement.txt"
+          ]
+        },
+        "manuals": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "repo": "Omicron-Industries/Monifactory",
+      "branch": "main",
+      "commit": "39ab126bac88982d0e52a47145e71af724329521",
+      "truncated": false,
+      "groups": {
+        "quests": {
+          "count": 37,
+          "examples": [
+            "config-overrides/expert/ftbquests/quests/chapters/genesis.snbt",
+            "config-overrides/hardmode/ftbquests/quests/chapters/genesis.snbt",
+            "config-overrides/normal/ftbquests/quests/chapters/genesis.snbt"
+          ]
+        },
+        "scripts": {
+          "count": 211,
+          "examples": [
+            "kubejs/client_scripts/Fixes_Client.js",
+            "kubejs/client_scripts/JEI.js",
+            "kubejs/client_scripts/JEI_modespecific.js"
+          ]
+        },
+        "advancements": {
+          "count": 0,
+          "examples": []
+        },
+        "manuals": {
+          "count": 0,
+          "examples": []
+        }
+      }
+    }
+  ]
+}

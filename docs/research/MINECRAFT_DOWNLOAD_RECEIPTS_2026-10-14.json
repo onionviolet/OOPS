@@ -1,0 +1,1502 @@
+{
+  "date": "2026-10-14",
+  "scope": "One research artifact per target. Release JARs, pack exports/server archive, or pinned source snapshots. Dependency closure and playable installations not claimed.",
+  "counts": {
+    "targets": 61,
+    "downloaded_verified": 61,
+    "bytes": 2116396698,
+    "publisher_hash_verified": 38,
+    "zip_crc_verified": 61,
+    "by_kind": {
+      "curseforge_release": 4,
+      "official_server_pack_archive": 1,
+      "pinned_source_archive": 18,
+      "release": 38
+    }
+  },
+  "artifacts": [
+    {
+      "requested": "Silent Gear",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/73mSSnCf/versions/eG4f2c3T/silent-gear-26.1.2-neoforge-4.2.3.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/silent-gear/silent-gear-26.1.2-neoforge-4.2.3.jar",
+      "bytes": 3270401,
+      "hashes": {
+        "sha256": "2e08d9822ccf78fad669a82f341987ba498289f60e0d12a863402527ae6742bf",
+        "sha512": "42313fc1a8985b3c3ee358566dbe26febc1a201b62cfe79266309f86a6efd4a10dfde413a63d2221a3a83677f285e1b5a1379e79ba3040f6b6cf4330a56e55f3",
+        "sha1": "f0e1d83ebb243990ffa3ceac22f807b016364fdf"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "73mSSnCf",
+      "version": "4.2.3",
+      "member_count": 4267,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 928,
+        "materials": 235,
+        "guide_or_book": 51
+      }
+    },
+    {
+      "requested": "Tetra",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/YP9DjOvN/versions/voxpV4mH/tetra-1.20.1-6.17.0.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/tetra/tetra-1.20.1-6.17.0.jar",
+      "bytes": 4109300,
+      "hashes": {
+        "sha256": "ed5f79f430277aff7e356cf4b687b8bb9e04030cba12113cc67350c14b809756",
+        "sha512": "7396891f0c7446ab93c714a15a404211e26756b7d316c198f2f3ce2cf89bdee0bec789a64bd647cf5cd6c21ba5be09dc67193d0a90a311ee53e55c7ea4dcf558",
+        "sha1": "3161d9dfbf0911d7896dd63b736befbc14767553"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "YP9DjOvN",
+      "version": "6.17.0",
+      "member_count": 3485,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 32,
+        "materials": 152,
+        "guide_or_book": 3
+      }
+    },
+    {
+      "requested": "Tinkers Construct",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/rxIIYO6c/versions/kJ9LD194/TConstruct-1.20.1-3.11.2.166.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/tinkers-construct/TConstruct-1.20.1-3.11.2.166.jar",
+      "bytes": 21572031,
+      "hashes": {
+        "sha256": "653b49d73481a1325ba78adc7273dee6c765a51bafdf264a7510576d6ef91c43",
+        "sha512": "69da7399162b4de18b3eedf701f6013727ec4ae14b1b746265513bea6c4e88ad64ccb1187d3abca2387aafd37a91c21c56ce9b6fa7b0c26df17dfc1ac8d6a916",
+        "sha1": "94d07ec0ff45c49f5908beff7acb9fbec43fdde5"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "rxIIYO6c",
+      "version": "3.11.2.166",
+      "member_count": 29731,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 3970,
+        "materials": 1668,
+        "guide_or_book": 5643
+      }
+    },
+    {
+      "requested": "Create",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/UjX6dr61/create-1.21.1-6.0.10.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/create/create-1.21.1-6.0.10.jar",
+      "bytes": 19123767,
+      "hashes": {
+        "sha256": "ef87fe5709f1ba1f5b8bb20a2925b5afb4669e178fd6d8bf10c167759eefe37a",
+        "sha512": "11cc8fc049d2f67f6548c7abfada6b82a3adb5c7ca410a742de04bbca76e03862c518721b88d806f6e6d768a4d68531fdb903a85859b25d1484d550cc7bafd4b",
+        "sha1": "0e97e49837bed766e6f28a4c95b04885d6acc353"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "LNytGWDc",
+      "version": "6.0.10+mc1.21.1",
+      "member_count": 12536,
+      "research_entries": {
+        "quest": 47,
+        "recipe_or_scripts": 3202,
+        "materials": 76,
+        "guide_or_book": 13
+      }
+    },
+    {
+      "requested": "Create Above and Beyond",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/simibubi/Above-and-Beyond/zip/f551e984ee2a11c20b9aa3d10b670d4589fa34b2",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/create-above-and-beyond/create-above-and-beyond-f551e984ee2a.zip",
+      "bytes": 3005581,
+      "hashes": {
+        "sha256": "35e13ce566cb58c6ce8533b34bf50e4392b5d7652adcbd308de9e7a1f44ed4e8",
+        "sha512": "a15ab9cb61b8335568881a58ba68e6ba0d2c09cb35d14ddfbcbba1e658f71be4d2cf08f442e9a0ec7e681062779e40eff0529db496fbed373da82d1a035faa66",
+        "sha1": "dabe9b585a5db8e442c715370a79363777ac32ac"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/simibubi/Above-and-Beyond",
+      "commit": "f551e984ee2a11c20b9aa3d10b670d4589fa34b2",
+      "branch": "main",
+      "member_count": 926,
+      "research_entries": {
+        "quest": 19,
+        "recipe_or_scripts": 221,
+        "materials": 1,
+        "guide_or_book": 3
+      }
+    },
+    {
+      "requested": "Enigmatica 6",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/EnigmaticaModpacks/Enigmatica6/zip/edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/enigmatica-6/enigmatica-6-edf25e0f50ce.zip",
+      "bytes": 22298326,
+      "hashes": {
+        "sha256": "f2be3308e79c2c3b01c59feaa8656194804a70f4951635c9ead1e7d8b6a0c0a0",
+        "sha512": "d45058e233209ef8b1bee90bb7b8ec4a1b7cec8ad9fd863baa28ae2bc26c7bfdbb4fc3cec7476b57cd49bca2d31574127257f2eae5803beaeb26e21a547d136b",
+        "sha1": "691c982bbcb8ff791b5bc3f0de71da1f833534d8"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/EnigmaticaModpacks/Enigmatica6",
+      "commit": "edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe",
+      "branch": "master",
+      "member_count": 3863,
+      "research_entries": {
+        "quest": 100,
+        "recipe_or_scripts": 2232,
+        "materials": 54,
+        "guide_or_book": 74
+      }
+    },
+    {
+      "requested": "Apotheosis",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/rqFWfVlz/versions/EXaIH7Xm/Apotheosis-26.1.2-9.1.0.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/apotheosis/Apotheosis-26.1.2-9.1.0.jar",
+      "bytes": 7150433,
+      "hashes": {
+        "sha256": "e350c6461741469b8a04116f731fdad7a8117e1f2908f484ecefc283dba73926",
+        "sha512": "8db33b929de427e0f2154d0007fb13cc6d3a95b30b6b68b8be265c3bd45f099a72284315e19203e3dd2662bbe1447b5c052eae4b014d7fd46b9edaaeb31b258c",
+        "sha1": "dd7be541992306e21919408ca0c6ad52291c39f0"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "rqFWfVlz",
+      "version": "26.1.2-9.1.0",
+      "member_count": 2664,
+      "research_entries": {
+        "quest": 1,
+        "recipe_or_scripts": 273,
+        "materials": 1,
+        "guide_or_book": 875
+      }
+    },
+    {
+      "requested": "Vault Hunters",
+      "state": "downloaded_verified",
+      "kind": "curseforge_release",
+      "url": "https://edge.forgecdn.net/files/8527/845/Vault%20Hunters%20Third%20Edition-3.21.7.zip",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/vault-hunters/Vault Hunters Third Edition-3.21.7.zip",
+      "bytes": 34795140,
+      "hashes": {
+        "sha256": "e3f8c18c66bad07f8a604acfd55df00a1de4ddc0e6bd4eb2eab5391c390101fc",
+        "sha512": "a0af5570d57013363c1c0c15b260a2da742dc16f435e6cb2f3c4fddd9f202d022332a2140efb4dc6e3447a0ca08094d87402299d7edbba699ef722fc12d995cd",
+        "sha1": "16a35c60a74de7098b83445da415b4acfcb4281f"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "curseforge_file_id": 8527845,
+      "verification_note": "Official listing file ID and filename; locally computed hashes, publisher hash unavailable",
+      "member_count": 3583,
+      "research_entries": {
+        "quest": 11,
+        "recipe_or_scripts": 56,
+        "materials": 1,
+        "guide_or_book": 79
+      }
+    },
+    {
+      "requested": "Roguelike Dungeons",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/Greymerk/minecraft-roguelike/zip/d74062f92e658d1bf006130950599b77cfece5cd",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/roguelike-dungeons/roguelike-dungeons-d74062f92e65.zip",
+      "bytes": 477724,
+      "hashes": {
+        "sha256": "9a3284795f0cd0ae93a188729f714f55d0cb91165ec74aaa8ad23c7076c0c325",
+        "sha512": "3b4127191950a0efe302676a5ad2125c4c8fd1f00afbf8227bb9483711b3b21eaf4476812b99bda0003032bb92b74140a646f35ecf56ac8514d20aab0bd319a4",
+        "sha1": "207479516ba739521456b1d01551eb7797ecc168"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/Greymerk/minecraft-roguelike",
+      "commit": "d74062f92e658d1bf006130950599b77cfece5cd",
+      "branch": "master",
+      "member_count": 458,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 0,
+        "materials": 1,
+        "guide_or_book": 8
+      }
+    },
+    {
+      "requested": "Botania",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/pfjLUfGv/versions/npY4sRWF/Botania-1.20.1-456-FORGE.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/botania/Botania-1.20.1-456-FORGE.jar",
+      "bytes": 12226445,
+      "hashes": {
+        "sha256": "3cf540357c9cb5e460266b17a02617656df6cc7090a565fca2a462b1c3aba4ae",
+        "sha512": "43b82e3e101bcd2f1441be5e1cf16c4631e497c7cd50abd8bdc87701281e512673a420cec16e0529a6ed6936aa2d545398e9fe39ed9a8f3d0d26601f940327fa",
+        "sha1": "17e0cab4160e86f434cd137a60faeb2594ae4e15"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "pfjLUfGv",
+      "version": "1.20.1-456-forge",
+      "member_count": 9516,
+      "research_entries": {
+        "quest": 17,
+        "recipe_or_scripts": 2273,
+        "materials": 9,
+        "guide_or_book": 311
+      }
+    },
+    {
+      "requested": "Hex Casting",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/nTW3yKrm/versions/e41256fb/hexcasting-forge-1.20.1-0.11.4.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/hex-casting/hexcasting-forge-1.20.1-0.11.4.jar",
+      "bytes": 4131835,
+      "hashes": {
+        "sha256": "038ede2a5db9206dc0ee82b1c2030992668010e32d569894635e387d6b059ca4",
+        "sha512": "bbae5917d401acb1b573f4d29c2d334007df7a48de99346412a6b2890692a1795563d7e4db6bd67b578a2ea5f4983a1685b5068a0e64cf764cbc382a1087d124",
+        "sha1": "73f5b4a049d2132a2daf522451a15793b20100cc"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "nTW3yKrm",
+      "version": "0.11.4",
+      "member_count": 2880,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 365,
+        "materials": 1,
+        "guide_or_book": 235
+      }
+    },
+    {
+      "requested": "Ars Nouveau",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/TKB6INcv/versions/yWDnir1o/ars_nouveau-1.21.1-5.13.3.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/ars-nouveau/ars_nouveau-1.21.1-5.13.3.jar",
+      "bytes": 19841105,
+      "hashes": {
+        "sha256": "45c1b6022d8e63464177c1f822bda22c3d6fb66970857fd7677e4e3ccffd259f",
+        "sha512": "30f188cfc932bd58c95740488732df7e92d98e7345e271b1a223e41a43fc3dd52284d0ff07fc3e8a95e914082f899394eff3a0f37c174d317e6e37fb68b083df",
+        "sha1": "541b3286d187deeb9a1297a509d0d3539d8af0f6"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "TKB6INcv",
+      "version": "5.13.3",
+      "member_count": 10284,
+      "research_entries": {
+        "quest": 2,
+        "recipe_or_scripts": 1146,
+        "materials": 1,
+        "guide_or_book": 106
+      }
+    },
+    {
+      "requested": "Nomifactory",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/Nomifactory/Nomifactory/zip/8e00761617389a3cd46f7db146f55a86db29e88e",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/nomifactory/nomifactory-8e0076161738.zip",
+      "bytes": 28071702,
+      "hashes": {
+        "sha256": "8d81c7c6403e486ab1de24db02093dd09afad0c2c40c966c254a7fbec53992ea",
+        "sha512": "7072e2e06a6989971b5cd924729708a8da4ae591f8019120c4eaa99277aec8f1e3b069b99b6f0a3e8fbe1db3259cf7ff2e0287470cd1ad44509bcaee6038ec27",
+        "sha1": "b7fdcba6a280e9c87c1ec71d94b20cbb67822ae4"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/Nomifactory/Nomifactory",
+      "commit": "8e00761617389a3cd46f7db146f55a86db29e88e",
+      "branch": "dev",
+      "member_count": 1164,
+      "research_entries": {
+        "quest": 23,
+        "recipe_or_scripts": 110,
+        "materials": 12,
+        "guide_or_book": 6
+      }
+    },
+    {
+      "requested": "GregTech New Horizons",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/GTNewHorizons/GT-New-Horizons-Modpack/zip/e658a2baeff4e99f64c31ae5ee8ef6007b1ac4e6",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/gregtech-new-horizons/gregtech-new-horizons-e658a2baeff4.zip",
+      "bytes": 166134375,
+      "hashes": {
+        "sha256": "fbd949bbbd03c91cdbb9f025968dc56a013e06629ab341ddc69c7f6f3f744bec",
+        "sha512": "723321d8187ea1e4ec216b4d1f76a7b3df6115078fb4366db94bdcee984ba87405e203c1f0209f17b5a9d0b3c97bb3c1ab0e03132d480d5fb1acd33e4edc30d7",
+        "sha1": "8610e2f8b96c499c9d59aefaf1b2e09bc8dc6226"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/GTNewHorizons/GT-New-Horizons-Modpack",
+      "commit": "e658a2baeff4e99f64c31ae5ee8ef6007b1ac4e6",
+      "branch": "master",
+      "member_count": 9786,
+      "research_entries": {
+        "quest": 7926,
+        "recipe_or_scripts": 27,
+        "materials": 193,
+        "guide_or_book": 44
+      }
+    },
+    {
+      "requested": "Thaumcraft",
+      "state": "downloaded_verified",
+      "kind": "curseforge_release",
+      "url": "https://edge.forgecdn.net/files/2629/23/Thaumcraft-1.12.2-6.1.BETA26.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/thaumcraft/Thaumcraft-1.12.2-6.1.BETA26.jar",
+      "bytes": 11360786,
+      "hashes": {
+        "sha256": "9425f8643581b27ff8845b087c8bc6fc10425a32942f1a3f0e265ce6b38f7b5f",
+        "sha512": "768fd777438dff351ece96a7a24646d3cb66bd5fea3a9588299d2b9c62cbaba6b0df2872843b383e1853cc336d095bed6e1af644719cdd55f9352cb9faf2f2b8",
+        "sha1": "fe0899048f1796df04e9727bbf1898df30492a00"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "curseforge_file_id": 2629023,
+      "verification_note": "Official listing file ID and filename; locally computed hashes, publisher hash unavailable",
+      "member_count": 2827,
+      "research_entries": {
+        "quest": 3,
+        "recipe_or_scripts": 19,
+        "materials": 7,
+        "guide_or_book": 3
+      }
+    },
+    {
+      "requested": "Blightfall",
+      "state": "downloaded_verified",
+      "kind": "official_server_pack_archive",
+      "url": "https://servers.technicpack.net/Technic/servers/blightfall/Blightfall_Server_3.1.1-CE.zip",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/blightfall/Blightfall_Server_3.1.1-CE.zip",
+      "bytes": 340675823,
+      "hashes": {
+        "sha256": "cac19f658aded53e7c29ab3f63a0c675fd21ace935949bb05f529265d6d7036d",
+        "sha512": "1ddf738b7199b9ce615b74a7b85f9f11c7056619b46fa0f8184d237163a25b41eaad7f229c1e783bb3d79b1937ad08893024a474cb64d418749362d88726b170",
+        "sha1": "aed97f4e63e2ac4422ba92bde82eb3822e1b5a68"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "official_page": "https://www.technicpack.net/modpack/blightfall.592618",
+      "edition": "3.1.1-CE",
+      "verification_note": "Link read directly from official Technic page in browser; locally computed hashes",
+      "member_count": 1320,
+      "research_entries": {
+        "quest": 14,
+        "recipe_or_scripts": 143,
+        "materials": 11,
+        "guide_or_book": 4
+      }
+    },
+    {
+      "requested": "Spectrum",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/3rc31Hgo/versions/ODbJTcVf/spectrum-1.12.9-1.21.1-neo.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/spectrum/spectrum-1.12.9-1.21.1-neo.jar",
+      "bytes": 99606323,
+      "hashes": {
+        "sha256": "5500211aed0a40edd9a7a767843c03b1c988fbccba050d96df923b7f7b291e11",
+        "sha512": "3e16ec10b963702c2ab9f4dda328db4ed058fe2457360b63e3819749d501e19016151e215dd281010a4f4f220a6c0ed5c2248f3c15b7c638441a784dec47809a",
+        "sha1": "9f93a810e822a725d25ef526e9c0a10b6444fbe1"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "3rc31Hgo",
+      "version": "1.12.9-1.21.1-neo",
+      "member_count": 19515,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 3330,
+        "materials": 6,
+        "guide_or_book": 711
+      }
+    },
+    {
+      "requested": "Primal Magick",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/VlgDBPBy/versions/zdRhg0nF/primalmagick-neoforge-1.21.1-6.0.7.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/primal-magick/primalmagick-neoforge-1.21.1-6.0.7.jar",
+      "bytes": 9408493,
+      "hashes": {
+        "sha256": "f78cab2206b5c05c1d9615cf42bd2d728971156343658c2354bd496b7544f98f",
+        "sha512": "91f578f9e7898275fcc6fc2f474a1e81901e51eb0f0bff074f2f2776c9d11a18eb075ebd9e381bd7afe8070837773345a751658f48c4bdc458b1c2ac808931ea",
+        "sha1": "165a849fe2b95355067ede9cda014dec08129731"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "VlgDBPBy",
+      "version": "6.0.7",
+      "member_count": 9228,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 1335,
+        "materials": 46,
+        "guide_or_book": 333
+      }
+    },
+    {
+      "requested": "Malum",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/jgzwYsAN/versions/BIbVs1fo/malum-1.21.1-1.8.2.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/malum/malum-1.21.1-1.8.2.jar",
+      "bytes": 33585331,
+      "hashes": {
+        "sha256": "38f4fa53e8da9e3d67aa5f54f98fd7c83cb342f0463ce5c63a6864229c88efa8",
+        "sha512": "dd9ccc1dea3b090f69f807be3e7a8b99ec6d3d7d6b047e2893cb49ca505860bbf640cf767082c1a32ea403b35e2a9f9d1755327890bbfb2f8778058a9597a99e",
+        "sha1": "7bea3f874f186a17ad3e271df145c179e81c2a1d"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "jgzwYsAN",
+      "version": "1.8.2",
+      "member_count": 8466,
+      "research_entries": {
+        "quest": 1,
+        "recipe_or_scripts": 1973,
+        "materials": 17,
+        "guide_or_book": 172
+      }
+    },
+    {
+      "requested": "Occultism",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/sbJh4AZw/versions/BZUdeyyg/occultism-26.3-neoforge-1.259.1.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/occultism/occultism-26.3-neoforge-1.259.1.jar",
+      "bytes": 10262417,
+      "hashes": {
+        "sha256": "a993d0e786e72883f912719d272a7fd69bd8044c82bfa8ac53cdc321ea77768c",
+        "sha512": "44c91dba9875610f5f544dffe477f14b4899c9f56aa9aac785e908d9414fb44a54ef0e49612a050186361fd487faf764fb0d0df187a1393b49a795cc7f6afa23",
+        "sha1": "6bd07bf07e9eec627069d03370021bd78956eaf2"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "sbJh4AZw",
+      "version": "26.3-neoforge-1.259.1",
+      "member_count": 8429,
+      "research_entries": {
+        "quest": 2,
+        "recipe_or_scripts": 2173,
+        "materials": 11,
+        "guide_or_book": 2124
+      }
+    },
+    {
+      "requested": "Natures Aura",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/4cJkN3aF/versions/kJ1hHmK0/NaturesAura-41.10.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/natures-aura/NaturesAura-41.10.jar",
+      "bytes": 1553371,
+      "hashes": {
+        "sha256": "5401704e76fb59719d48cd3aa76f088220ae90d8e3b1f4859365ad260355700c",
+        "sha512": "2971065208401b8c138978e556a7081f4e9f97c97618afa77e6d6e7e740324d731bdc35b94914fc531e4f27911c423d52062870017861cebb2deff3bc80f0e15",
+        "sha1": "58e4f9a07e5320432d11aaa3d876337edeeeb8db"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "4cJkN3aF",
+      "version": "41.10",
+      "member_count": 1870,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 259,
+        "materials": 2,
+        "guide_or_book": 529
+      }
+    },
+    {
+      "requested": "Roots Classic",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/Lothrazar/RootsClassic/zip/44605f33e142081dcffabd48b5096bfe25e2e886",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/roots-classic/roots-classic-44605f33e142.zip",
+      "bytes": 579025,
+      "hashes": {
+        "sha256": "f982a868b92033ab7b352a316f59ecbc909acbd58e6ef7867d15f074dbcdef3e",
+        "sha512": "8cbaccbeb5ace14a16e4777927db016a5acb1087e22c0e5d2be1e410952a2dd168de01fbd5f8ae29253b37a3bc437b5f64d0e59c93908244dbeea2cbdae75768",
+        "sha1": "ba85b490433c5a9ffb6a743d8032d5de69c5cef0"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/Lothrazar/RootsClassic",
+      "commit": "44605f33e142081dcffabd48b5096bfe25e2e886",
+      "branch": "trunk/1.20",
+      "member_count": 626,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 119,
+        "materials": 1,
+        "guide_or_book": 0
+      }
+    },
+    {
+      "requested": "Psi",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/pOeA0exL/versions/j9TFdTKC/Psi-neoforge-1.21.1-110.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/psi/Psi-neoforge-1.21.1-110.jar",
+      "bytes": 2553645,
+      "hashes": {
+        "sha256": "25b2e19bb9433bf5e462dfd9906dcd7b07b6dcb208e243ca936a007dc6e14033",
+        "sha512": "2bbe6b40f230cd495a5342db61fb5a6c2a4d03fda0ee5fe0a21d8b7ccc8494d1d3e7fa5f54236d5f90cbe78a8bb75c27e3bb9cd9b85e4b6eed67aa976ffe857a",
+        "sha1": "f4be150631efd276e780b7cc693a71d565ce3e21"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "pOeA0exL",
+      "version": "1.21.1-110-neoforge",
+      "member_count": 1759,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 261,
+        "materials": 3,
+        "guide_or_book": 86
+      }
+    },
+    {
+      "requested": "Goety",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/4ZVIxU8x/versions/jVPGt2qM/goety-2.5.59.2.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/goety/goety-2.5.59.2.jar",
+      "bytes": 92894855,
+      "hashes": {
+        "sha256": "d8136cfb7ef70736c7125f9837b1d5938225bd231513a2332f92655216e40e89",
+        "sha512": "acdf56ae628ccbd926cbee5a5284180e4f38e671f4096c85ceed3620019662f52d83b62889c7a479dd5c4face63025c16ff89ec32436a74dc7f06d67dadf2cde",
+        "sha1": "76650822a1e70bde875885b591943c330492282a"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "4ZVIxU8x",
+      "version": "2.5.59.2",
+      "member_count": 19280,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 1959,
+        "materials": 8,
+        "guide_or_book": 2437
+      }
+    },
+    {
+      "requested": "Biomancy",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/uAAuyU4M/versions/AkCSiK30/biomancy-forge-1.20.1-2.9.0.1-alpha.0.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/biomancy/biomancy-forge-1.20.1-2.9.0.1-alpha.0.jar",
+      "bytes": 5830129,
+      "hashes": {
+        "sha256": "2ac4465fe05f4c577d38b193a6eebd8ebc36722663f00013a8cd61ef4bfa827c",
+        "sha512": "ca130cb1bf44a2aca66060ac9f2de9d42dd050b5b9deac5560dab7f95e69b509ac07e69ae0e75f43f67ae0498fd78e63c793a136e1f4a9d62cf5192539d5e6cf",
+        "sha1": "d673eb0bc72c4e229657f9bafcb3777e8bcbcecc"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "uAAuyU4M",
+      "version": "2.9.0.1-alpha.0",
+      "member_count": 4491,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 1662,
+        "materials": 1,
+        "guide_or_book": 16
+      }
+    },
+    {
+      "requested": "Crossroads",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/AucYCd0o/versions/gg5b3sbY/crossroads-1.21.1-2.12.0.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/crossroads/crossroads-1.21.1-2.12.0.jar",
+      "bytes": 5758368,
+      "hashes": {
+        "sha256": "5ba36b84e88d00ce7bf0cd00b7ca1e993b0ebdd77a28f2c50bb7d60d8909a1e5",
+        "sha512": "02cd10dc32ec732145f4c684b8552b8c18733c0d323231a0763da786ea780b74ed55cbd4be2391cc32c299f193039b871f39131915550fbe06379fec674d6e55",
+        "sha1": "915ac4eadd3c6ea36979934c52c6b95249f27b10"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "AucYCd0o",
+      "version": "1.21.1-2.12.0",
+      "member_count": 4914,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 1492,
+        "materials": 76,
+        "guide_or_book": 354
+      }
+    },
+    {
+      "requested": "PneumaticCraft Repressurized",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/ncAcdgk7/versions/TNzeuLH3/pneumaticcraft-repressurized-8.2.23%2Bmc1.21.1.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/pneumaticcraft-repressurized/pneumaticcraft-repressurized-8.2.23+mc1.21.1.jar",
+      "bytes": 11884697,
+      "hashes": {
+        "sha256": "647ce20d52cf139f3b693b9b4c4753966a95a6dafc82d9e538ae4ae5b0249f9c",
+        "sha512": "1863243c4e76ecdef60c541e332808df48f50e01d7f75f5b1bd52e38f086925aa715a199775cf885746e3869cfc78ee5ac463fd33a1ac55cccab5394d19e2bfa",
+        "sha1": "44ea59cb9ac3abfc343518e50cc19fe7200a592e"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "ncAcdgk7",
+      "version": "8.2.23",
+      "member_count": 5679,
+      "research_entries": {
+        "quest": 13,
+        "recipe_or_scripts": 916,
+        "materials": 7,
+        "guide_or_book": 820
+      }
+    },
+    {
+      "requested": "Embers Rekindled",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/eMWmEr1R/versions/QNWjEwxw/embersrekindled-1.20.1-1.4.7.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/embers-rekindled/embersrekindled-1.20.1-1.4.7.jar",
+      "bytes": 15572517,
+      "hashes": {
+        "sha256": "d119455e74a8976ad3533a2c2b25fe942df8a27a57fcf35da1cd05177123477a",
+        "sha512": "6b94e06390c9929496e8676f7b9f158345e942369cbf6efa4550f9387c09abf613223e7cbd9a63799913d3d167cd9304bf27db317997a2b6fb6e8bbe1934f9af",
+        "sha1": "e480919fd0645aebe9996b42ec65b41f16dcb6dd"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "eMWmEr1R",
+      "version": "1.20.1-1.4.7",
+      "member_count": 3950,
+      "research_entries": {
+        "quest": 1,
+        "recipe_or_scripts": 1049,
+        "materials": 35,
+        "guide_or_book": 0
+      }
+    },
+    {
+      "requested": "TerraFirmaCraft",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/JaCEZUhg/versions/YAR7HJGA/TerraFirmaCraft-Forge-1.20.1-3.2.27.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/terrafirmacraft/TerraFirmaCraft-Forge-1.20.1-3.2.27.jar",
+      "bytes": 47433654,
+      "hashes": {
+        "sha256": "8e493c970c6fb18809e84ff443ba11fd2a65dc0980f77a8b85e638f4d47bb1cd",
+        "sha512": "3f1f890323da6877f86f399478e2d38ed014c0dd82387d960852b5ac9b8409a2a9cfccbd6052a63eff14532671b2e43551f03cea711abb0740edad512a241260",
+        "sha1": "0e0cb4beeaf0159600e0a877bde34cd4ba6f6cad"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "JaCEZUhg",
+      "version": "3.2.27",
+      "member_count": 43723,
+      "research_entries": {
+        "quest": 1,
+        "recipe_or_scripts": 6641,
+        "materials": 37,
+        "guide_or_book": 1318
+      }
+    },
+    {
+      "requested": "Productive Bees",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/jH6iiqkd/versions/hpPcu64f/productivebees-1.21.1-13.13.0.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/productive-bees/productivebees-1.21.1-13.13.0.jar",
+      "bytes": 5212932,
+      "hashes": {
+        "sha256": "4bc29d101f2cabdb7ea8a6df610417320d26650869391b7caf0fc287887296a4",
+        "sha512": "a1d539ccfed5213ab561a774e178d8f56ee6bc7e0cb4a2b4abed683a30433ceb2af3210283fbbf0d53ae7a6b63feb059522c70d41e4c320e0ee91b2c0364293c",
+        "sha1": "7b93a461512a970c735eefe204cd8b8003a652d5"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "jH6iiqkd",
+      "version": "1.21.1-13.13.0",
+      "member_count": 8004,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 2345,
+        "materials": 96,
+        "guide_or_book": 396
+      }
+    },
+    {
+      "requested": "Bountiful",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/BpwWFOVM/versions/E9PUxeM9/Bountiful-6.0.4%2B1.20.1-fabric.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/bountiful/Bountiful-6.0.4+1.20.1-fabric.jar",
+      "bytes": 503384,
+      "hashes": {
+        "sha256": "e1fc030ed37cd23ff4d83da90061217a44e4d1011cd523204592c2332d55d74c",
+        "sha512": "71716ad25123ccef2b7b7b5ff435e6585510c569060762d666ceedc6f03d28afc2ed762f6b415a01ed3b09ab1180ac0f39efe250811e4cb2304c3bb5f1415903",
+        "sha1": "1141381614582621d04ee094baac476e0875f71e"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "BpwWFOVM",
+      "version": "6.0.4+1.20.1",
+      "member_count": 308,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 4,
+        "materials": 0,
+        "guide_or_book": 0
+      }
+    },
+    {
+      "requested": "MineColonies",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/ldtteam/minecolonies/zip/4eb1b870b7cb2339b79f231033df5bbef27b2646",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/minecolonies/minecolonies-4eb1b870b7cb.zip",
+      "bytes": 71934944,
+      "hashes": {
+        "sha256": "0f0243d887ad7a78f85e0d1eac2e188e2126097362e9d41a28294f763b18c82b",
+        "sha512": "927b204f3fabd97acd7ebe72f7f1031ead2f1ec39c35de84d1d9824c664e049e9d4d0d41f15d12c81db1a1d8f2e9742477aa10d1c6765e7ab424683933f29844",
+        "sha1": "f938b1a40c98dda2981607ce5106dbcf56c54f73"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/ldtteam/minecolonies",
+      "commit": "4eb1b870b7cb2339b79f231033df5bbef27b2646",
+      "branch": "version/main",
+      "member_count": 23926,
+      "research_entries": {
+        "quest": 385,
+        "recipe_or_scripts": 605,
+        "materials": 1,
+        "guide_or_book": 83
+      }
+    },
+    {
+      "requested": "Gateways to Eternity",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/8OIeAukW/versions/nDeKKfH1/GatewaysToEternity-26.1.2-6.0.2.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/gateways-to-eternity/GatewaysToEternity-26.1.2-6.0.2.jar",
+      "bytes": 674427,
+      "hashes": {
+        "sha256": "311b592b9c9d6679bf7ac13bcd305f7f29dd7ee5dbad073ecb764bb5d1674c5c",
+        "sha512": "caecdaa6b6110f08290090283aee1577431b802763c16a18222840d14801b2424b4708c2fe4a00b41622242a8a1c97b634f9f62395677a767d5cf97b57da77cb",
+        "sha1": "8772849d2cb9e13cce256f57cfb8a4f19d524cef"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "8OIeAukW",
+      "version": "26.1.2-6.0.2",
+      "member_count": 180,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 13,
+        "materials": 0,
+        "guide_or_book": 0
+      }
+    },
+    {
+      "requested": "Lootr",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/EltpO5cN/versions/HegkPUoM/lootr-fabric-26.2-1.24.41.124.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/lootr/lootr-fabric-26.2-1.24.41.124.jar",
+      "bytes": 1584138,
+      "hashes": {
+        "sha256": "6669f8415aa4280eae0959d6e8cac0bb0dab02dbfd3efd6a153c1fad02e80a6b",
+        "sha512": "fa6b025000f2d876faa97dc548a2132ae3e1b1a7362d4e45c9d0cc4fa3e6668df75b1c7c32695d442cb9cb7859036331bffe92fe4d60161dbf816f4340a8754b",
+        "sha1": "f1879274e67392f74e4a34b2bce5cce957deb6c3"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "EltpO5cN",
+      "version": "1.24.41.124",
+      "member_count": 801,
+      "research_entries": {
+        "quest": 1,
+        "recipe_or_scripts": 0,
+        "materials": 0,
+        "guide_or_book": 0
+      }
+    },
+    {
+      "requested": "SevTech Ages",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/DarkPacks/SevTech-Ages/zip/c4e1b8f1f044fedc43c6aff249561a32865016cc",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/sevtech-ages/sevtech-ages-c4e1b8f1f044.zip",
+      "bytes": 7570059,
+      "hashes": {
+        "sha256": "00813baa8dc2fcd3dfe50b7572406e6fcd557f6f74fcac155639b47946316832",
+        "sha512": "6a2e64630c5e259c326de178a4ac3cdb97858937c41006d7751cdf706d14cff6daa6d4d2851efb52e1f617d9475c96ae95ed8dc6f196fd8c55557d808aada301",
+        "sha1": "c12683a90aa3885603ff9edaac7d36660d1578bb"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/DarkPacks/SevTech-Ages",
+      "commit": "c4e1b8f1f044fedc43c6aff249561a32865016cc",
+      "branch": "master/original",
+      "member_count": 1807,
+      "research_entries": {
+        "quest": 2,
+        "recipe_or_scripts": 377,
+        "materials": 39,
+        "guide_or_book": 6
+      }
+    },
+    {
+      "requested": "Floramancer",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/lucidobservor/floramancer-modpack/zip/516236b107ff92350e2af4f0481fec47be55086a",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/floramancer/floramancer-516236b107ff.zip",
+      "bytes": 27571252,
+      "hashes": {
+        "sha256": "af6c2e42e02beada81f18766e7bfff0fb320f8d87b8176548903b79e90e42df0",
+        "sha512": "5d7aea35c8783286f3cf55ad9f8fbea7892df3e4645f7ba11c66224a762b01a5c4b7ba4b7cbb704056a511178f10dd799c0a933fafea3b169e8bf688f14263d7",
+        "sha1": "eca970cd41729e44a29de153c2e94eda46bdc995"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/lucidobservor/floramancer-modpack",
+      "commit": "516236b107ff92350e2af4f0481fec47be55086a",
+      "branch": "master",
+      "member_count": 808,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 40,
+        "materials": 3,
+        "guide_or_book": 1
+      }
+    },
+    {
+      "requested": "Ultimate Alchemy",
+      "state": "downloaded_verified",
+      "kind": "curseforge_release",
+      "url": "https://edge.forgecdn.net/files/2653/867/Ultimate%20Alchemy%20Exam-0.1.0.zip",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/ultimate-alchemy/Ultimate Alchemy Exam-0.1.0.zip",
+      "bytes": 5427702,
+      "hashes": {
+        "sha256": "e324db06834ca61c9415b138d7f31b341e5510eed1985744b54d32ee1b1950db",
+        "sha512": "130c26a3f44bb6d43370a40d1febe3948821bc4fcbd09ba3c8fe02b494d7a003df23cf852a82f926843513b92f1f6388f53b71fd518e97e1ae24ff771678b777",
+        "sha1": "1c4bd78a82b50bf827dc3ee0f35ef8a7876da7c9"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "curseforge_file_id": 2653867,
+      "verification_note": "Official listing file ID and filename; locally computed hashes, publisher hash unavailable",
+      "member_count": 1495,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 156,
+        "materials": 12,
+        "guide_or_book": 3
+      }
+    },
+    {
+      "requested": "Antimatter Chemistry",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/SmashingMods/antimatter-chemistry/zip/6e82a6c4ea7563efeda47e32f9fa0e0d0a48a258",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/antimatter-chemistry/antimatter-chemistry-6e82a6c4ea75.zip",
+      "bytes": 25185984,
+      "hashes": {
+        "sha256": "695f8f4b318f63fac7715ee32467f7e0c00322ae8406982dff62c864cae175f8",
+        "sha512": "18b4cbec856c63c10708e861e83aa1f56e6264f8283a263d9de39c50bc9cd39e01a1b337f5f082c16c6aea65a47b353f38027254cb63d4ea1fabfd1333caa0de",
+        "sha1": "564f388104b72441945e96ab6dce611c271c03c3"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/SmashingMods/antimatter-chemistry",
+      "commit": "6e82a6c4ea7563efeda47e32f9fa0e0d0a48a258",
+      "branch": "Current",
+      "member_count": 881,
+      "research_entries": {
+        "quest": 230,
+        "recipe_or_scripts": 67,
+        "materials": 6,
+        "guide_or_book": 2
+      }
+    },
+    {
+      "requested": "Cuboid Outpost",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/CuboidDroid/cuboidoutpost/zip/3d2a0e9967818cc00faee8faf7d61b6833782fad",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/cuboid-outpost/cuboid-outpost-3d2a0e996781.zip",
+      "bytes": 11534156,
+      "hashes": {
+        "sha256": "2ce7caa8e563d63e3e547a908985af830c1943748bdd104cbac0ebb83bf0c702",
+        "sha512": "80123242a451657d0490bfe2a58b376a15317ee0670737cf0772615050c3a97c5794336b5ba732d50cf0da459b1e00cb456f5e4b151e5809a2ba2730efcd9ed6",
+        "sha1": "f7ac09484a3ffa969728391a398d062ed2f10b78"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/CuboidDroid/cuboidoutpost",
+      "commit": "3d2a0e9967818cc00faee8faf7d61b6833782fad",
+      "branch": "main",
+      "member_count": 739,
+      "research_entries": {
+        "quest": 105,
+        "recipe_or_scripts": 266,
+        "materials": 1,
+        "guide_or_book": 18
+      }
+    },
+    {
+      "requested": "Divine Journey 2",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/Divine-Journey-2/Divine-Journey-2/zip/2743c22b177ab0479819dadb15785925cfe7d0aa",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/divine-journey-2/divine-journey-2-2743c22b177a.zip",
+      "bytes": 35323783,
+      "hashes": {
+        "sha256": "ade8eb35ae2b02491b68193f21a1bdd387d399c7ba51a4ae1c0ad7235aefeca1",
+        "sha512": "477db46d0bbcb43608ab1438a9ca111f9d05396d3b77f0c229c8f37793590fd56f78185b4abbd9c662badd8b7a8b7d331ca37a3dc93721fc9e936a7da1207526",
+        "sha1": "031819b58aedb2794652691470925b5adca81a58"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/Divine-Journey-2/Divine-Journey-2",
+      "commit": "2743c22b177ab0479819dadb15785925cfe7d0aa",
+      "branch": "main",
+      "member_count": 3821,
+      "research_entries": {
+        "quest": 17,
+        "recipe_or_scripts": 610,
+        "materials": 4,
+        "guide_or_book": 6
+      }
+    },
+    {
+      "requested": "MeatballCraft",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/sainagh/meatballcraft/zip/e80fcdfd55c2ecbd969b851727e3b60d43e82301",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/meatballcraft/meatballcraft-e80fcdfd55c2.zip",
+      "bytes": 161617369,
+      "hashes": {
+        "sha256": "90260225a3cdab757f3d5782e1bc361235be0a82bae4eea6ace26b0bc96f412e",
+        "sha512": "18232b52f76d63b69b6f2e0e8b6e1b26a58442f838a562d0fcbb66ef49c8bffa5cafc8790b104febcfa569b6320419ce4b08b6cf01e2018bfa7eddbcb0c78d58",
+        "sha1": "f1e06c70ca2bf95853565385af6b676cfd06277d"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/sainagh/meatballcraft",
+      "commit": "e80fcdfd55c2ecbd969b851727e3b60d43e82301",
+      "branch": "main",
+      "member_count": 25354,
+      "research_entries": {
+        "quest": 6945,
+        "recipe_or_scripts": 885,
+        "materials": 266,
+        "guide_or_book": 40
+      }
+    },
+    {
+      "requested": "Monifactory",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/Omicron-Industries/Monifactory/zip/39ab126bac88982d0e52a47145e71af724329521",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/monifactory/monifactory-39ab126bac88.zip",
+      "bytes": 58419202,
+      "hashes": {
+        "sha256": "6218f5365a0659379ba694bc8430847a19eb5edd21dd7860d871f5c0e733fae3",
+        "sha512": "087b1ebb0a331f19f7b4ca9f68e062d0a92f861ebbaa0be743b5a4525f4e8a80d5d87b6a0e122a3aaa14e7ad6af60b7ffc4e34f0e7f0b9faf40d3bd0b852c2c3",
+        "sha1": "6f1e1184924629f4cfba6076e1476d5fb0d0862b"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/Omicron-Industries/Monifactory",
+      "commit": "39ab126bac88982d0e52a47145e71af724329521",
+      "branch": "main",
+      "member_count": 3211,
+      "research_entries": {
+        "quest": 66,
+        "recipe_or_scripts": 2835,
+        "materials": 904,
+        "guide_or_book": 1
+      }
+    },
+    {
+      "requested": "FTB Interactions",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/FTBTeam/FTB-Interactions/zip/09240fd630a16e3b4a1a44535fee78a3e88c3077",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/ftb-interactions/ftb-interactions-09240fd630a1.zip",
+      "bytes": 259615,
+      "hashes": {
+        "sha256": "f70b52c49b1409ba68c8da80defd760657dced03ba729fef90b8912c601bc996",
+        "sha512": "079e7c9b53c4ca1b020c2e5ee502764490b7921500c8c9373bd7bf661fa0aca00da6d5e2329a02f304dbdddd72cc004d96a8218236ee95cae6bd83fb6db3e5d4",
+        "sha1": "30a9e970007eed9ef5b489db508ab8fd1a544954"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/FTBTeam/FTB-Interactions",
+      "commit": "09240fd630a16e3b4a1a44535fee78a3e88c3077",
+      "branch": "master",
+      "member_count": 32,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 0,
+        "materials": 0,
+        "guide_or_book": 0
+      }
+    },
+    {
+      "requested": "Modern Industrialization",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/Gov5Dboq/versions/HOR1tVas/Modern-Industrialization-2.5.10.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/modern-industrialization/Modern-Industrialization-2.5.10.jar",
+      "bytes": 7292458,
+      "hashes": {
+        "sha256": "94e391b5a4432ec6e391a44e162e32a0475b8c0c3f101944a93297c6dfc068ca",
+        "sha512": "18bd9c11da22e7f7fd3c54aa77d925c6a3a7bfac80b4aae86ed5fbb939d3bac0b88dca4f8f0100983d101c5522803ee3733a72e80858d503e525d3155d4ea4f6",
+        "sha1": "7f62032ad45a996cd4964a03c5359a5f86a55a54"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "Gov5Dboq",
+      "version": "2.5.10",
+      "member_count": 9243,
+      "research_entries": {
+        "quest": 8,
+        "recipe_or_scripts": 4108,
+        "materials": 2238,
+        "guide_or_book": 389
+      }
+    },
+    {
+      "requested": "Factory Tech",
+      "state": "downloaded_verified",
+      "kind": "curseforge_release",
+      "url": "https://edge.forgecdn.net/files/3845/293/factorytech-1.7.2.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/factory-tech/factorytech-1.7.2.jar",
+      "bytes": 2655021,
+      "hashes": {
+        "sha256": "342f455532159fce02e697e1025a463aa10eed4d858169c45c3506299e5884ad",
+        "sha512": "bee6d52919339324e2a16c86c7a5358cbdcd1a97cd83a2fb5e14e2c053488877573e4c5d739f44fe142255c497c0e4b2774871f205bd66d8fbe889a9a7256597",
+        "sha1": "52d6e2f21299834bac451dfe9463c1cd790ecc9f"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "curseforge_file_id": 3845293,
+      "official_page": "https://www.curseforge.com/minecraft/mc-mods/factory-tech/files/3845293",
+      "member_count": 1470,
+      "research_entries": {
+        "quest": 1,
+        "recipe_or_scripts": 268,
+        "materials": 0,
+        "guide_or_book": 16
+      }
+    },
+    {
+      "requested": "Prodigy Tech",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/NWkx0rbj/versions/1.3.4/prodigytech-1.12.2-1.3.4.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/prodigy-tech/prodigytech-1.12.2-1.3.4.jar",
+      "bytes": 792768,
+      "hashes": {
+        "sha256": "eaf78c59294889b9f9894480439ef3d5a3ccd725b9054ee1d14271a23b1a43b5",
+        "sha512": "683934d05a4ca330a1109bd152b5893570b055c3e0711bd31b137b8890236fa8f32eda81e66f9eedb4776731e480f3440fe93ee25be0fa92c994a707787871d8",
+        "sha1": "1395abc8da34f471afabd2ee114fafcec7c8a03f"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "NWkx0rbj",
+      "version": "1.3.4",
+      "member_count": 961,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 202,
+        "materials": 12,
+        "guide_or_book": 106
+      }
+    },
+    {
+      "requested": "Deep Resonance",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/gzruRGfo/versions/Ovv8ukvh/deepresonance-1.21-6.0.2.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/deep-resonance/deepresonance-1.21-6.0.2.jar",
+      "bytes": 843025,
+      "hashes": {
+        "sha256": "119075d1fb37a70737c27ec220767528e35b528d58c9fedc8e118c98dccf9a8d",
+        "sha512": "9822d26523882f9d98a027418d273133dcf42bdc463d62e6d39d865374a43b9dc2ee21779599fdf28c4278c1c95921d026bebbb7220f2675202e71cc57e249e7",
+        "sha1": "11e3aaf7ceceea3c3cd28674b0d205fdd4ed5a7b"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "gzruRGfo",
+      "version": "1.21-6.0.2",
+      "member_count": 566,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 56,
+        "materials": 7,
+        "guide_or_book": 29
+      }
+    },
+    {
+      "requested": "Integrated Dynamics",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/yYzdQHJI/versions/vEQm4xm8/integrateddynamics-26.1.2-neoforge-1.36.1.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/integrated-dynamics/integrateddynamics-26.1.2-neoforge-1.36.1.jar",
+      "bytes": 4998005,
+      "hashes": {
+        "sha256": "42e963f8875395a2c20998a9feed396d752bf44f3d65f34c8dc3a4f36ca221a8",
+        "sha512": "7feff3b02113618ad4266d66d8cb7930eef81f2e692b646d5e281325daab0745ed0f53cb38b5ea8666653309a265e04e9de565768e25ca6a58552628dd7ad885",
+        "sha1": "0aa03390e5bdde67fbebfb88b527dde92b1808a4"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "yYzdQHJI",
+      "version": "26.1.2-1.36.1",
+      "member_count": 4044,
+      "research_entries": {
+        "quest": 28,
+        "recipe_or_scripts": 455,
+        "materials": 32,
+        "guide_or_book": 30
+      }
+    },
+    {
+      "requested": "Integrated Tunnels",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/Etqy1Omb/versions/vIAZzCBK/integratedtunnels-26.1.2-neoforge-1.13.1.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/integrated-tunnels/integratedtunnels-26.1.2-neoforge-1.13.1.jar",
+      "bytes": 789985,
+      "hashes": {
+        "sha256": "c8b5fe3d53d7ae91d723bf580ed5a2ff5b357006c8aa7fd712c19126f94b34b2",
+        "sha512": "d8cab37907543ff2232795ef1e3bd8e0659e45a03a441c30586684ff77668706d720adcaad8e79d4de0f042177bbd836dafbfb9d7421053783340c25298af988",
+        "sha1": "0434427e76fa8e9b42b48ae7a910b58a373d8d2e"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "Etqy1Omb",
+      "version": "26.1.2-1.13.1",
+      "member_count": 891,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 23,
+        "materials": 0,
+        "guide_or_book": 6
+      }
+    },
+    {
+      "requested": "Alchemistry",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/SmashingMods/Alchemistry/zip/9783449ac2276aba3dab6b1525342f0a85f025d5",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/alchemistry/alchemistry-9783449ac227.zip",
+      "bytes": 4479569,
+      "hashes": {
+        "sha256": "463a2e3320020f4f1bd7ca76e9306e303d0431c94d83a85a72a6eec0589b8655",
+        "sha512": "7d8096487f6597f2b6da2b0db9fe9707806a8783fdffbc9aedcc414ea3471b46b6006bb1bed8d44091cfa60334f52f6eb647d47137ad9e5a0843dfc382b607e0",
+        "sha1": "3cf62ee67330f3fbf03dc81d40126faf9cb74ee2"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/SmashingMods/Alchemistry",
+      "commit": "9783449ac2276aba3dab6b1525342f0a85f025d5",
+      "branch": "1.20.1",
+      "member_count": 7895,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 7554,
+        "materials": 0,
+        "guide_or_book": 31
+      }
+    },
+    {
+      "requested": "ElementalCraft",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/o51LXm0t/versions/moeqOp7l/elementalcraft-1.19.2-5.8.5.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/elementalcraft/elementalcraft-1.19.2-5.8.5.jar",
+      "bytes": 2627579,
+      "hashes": {
+        "sha256": "780e7c0e4304f243a56cb086b05faaa10ff992d71db8a1f1ec8d3e36b16d8ffe",
+        "sha512": "bb95de4233403080ce48ff89645f39d0e9fb37371a56b351f71bd0f052a29e2b7dc187cf11eaa04b2530680bc1f142f2cacbaee8f078b50af843628aa0bf487f",
+        "sha1": "77d5a8e9534c7f74b03852b11941e6d6f995cce1"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "o51LXm0t",
+      "version": "1.19.2-5.8.5",
+      "member_count": 3335,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 720,
+        "materials": 17,
+        "guide_or_book": 168
+      }
+    },
+    {
+      "requested": "Totemic",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/TeamTotemic/Totemic/zip/ed42c3a691a1d498626482dc845458647f5f171e",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/totemic/totemic-ed42c3a691a1.zip",
+      "bytes": 1356507,
+      "hashes": {
+        "sha256": "57f1e95d1308a606271c3babd2c4fb30a7a0a950e03ab98b313ba803f140a465",
+        "sha512": "cddf4d6a34c7f97cf5296848ee0a5143e2b90523ccbcbc913cc446f88c263d100989dfa887ba2a21f90800c0c678acb773a513ac996e51cd74a9f230892f7343",
+        "sha1": "0e1f809a71fe18f046529cf2c75bf607e2fa5b23"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/TeamTotemic/Totemic",
+      "commit": "ed42c3a691a1d498626482dc845458647f5f171e",
+      "branch": "1.21",
+      "member_count": 832,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 95,
+        "materials": 0,
+        "guide_or_book": 46
+      }
+    },
+    {
+      "requested": "Eidolon Repraised",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/eWX2m1eM/versions/KluNIXxh/eidolon_repraised-1.21.1-0.5.0.6.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/eidolon-repraised/eidolon_repraised-1.21.1-0.5.0.6.jar",
+      "bytes": 4055600,
+      "hashes": {
+        "sha256": "a2453d6f9d416081f79887f531a63e643dfa7cfbc232fd1cedd5f253253d1537",
+        "sha512": "964873585435005a925531e1d04c2f789d1f5055b2051fd7743605e1f9dea66059d7f231489e685e0750d4beadbbf804aecccb51ae930352f446e9eec81ecd42",
+        "sha1": "78263fe38b3bb6f8c076c3d4a5413606037a8965"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "eWX2m1eM",
+      "version": "0.5.0.6",
+      "member_count": 2326,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 391,
+        "materials": 4,
+        "guide_or_book": 3
+      }
+    },
+    {
+      "requested": "Mana and Artifice",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/zaRGNexp/versions/odH1eB1x/mna-forge-1.20.1-3.1.11-all.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/mana-and-artifice/mna-forge-1.20.1-3.1.11-all.jar",
+      "bytes": 32388968,
+      "hashes": {
+        "sha256": "6bda8e55a9492ea1baf3186088d9b5de405b5efdea079801527de8ae7fc30e15",
+        "sha512": "1a571bf1dca7a56c7cd9af318a6f8b461aa55ae28eddfd91f344041bd7f252a76ba9cfef9ff123ce67ab3ab888ffcad3a199b34f48a099eb4cccc9cb19559ab4",
+        "sha1": "e920557c9709f756b298e63eb24b623e0657dab5"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "zaRGNexp",
+      "version": "3.1.11",
+      "member_count": 12087,
+      "research_entries": {
+        "quest": 8,
+        "recipe_or_scripts": 2019,
+        "materials": 90,
+        "guide_or_book": 327
+      }
+    },
+    {
+      "requested": "The Betweenlands",
+      "state": "downloaded_verified",
+      "kind": "pinned_source_archive",
+      "url": "https://codeload.github.com/Angry-Pixel/The-Betweenlands/zip/eafac1c217cdf304d477b025708e0dadf82b6953",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/the-betweenlands/the-betweenlands-eafac1c217cd.zip",
+      "bytes": 139150991,
+      "hashes": {
+        "sha256": "06d90230cc4063ee10a25df85c38dfdf953ce9c0541c69c52bb27e2a7134ede7",
+        "sha512": "fd49e2d5940dce15635b55414be9f6176dbdc9be39f80354b0fd2e29c922bd4b77d108a08009b41518ff489a3a738d157441da637e3a3c42fc0cef23d9bee5bb",
+        "sha1": "107c61b0769fc29c157999311e6943e53ea49716"
+      },
+      "publisher_hash_verified": false,
+      "zip_crc_verified": true,
+      "repository": "https://github.com/Angry-Pixel/The-Betweenlands",
+      "commit": "eafac1c217cdf304d477b025708e0dadf82b6953",
+      "branch": "1.12-fixes",
+      "member_count": 8853,
+      "research_entries": {
+        "quest": 1,
+        "recipe_or_scripts": 663,
+        "materials": 2,
+        "guide_or_book": 42
+      }
+    },
+    {
+      "requested": "Dimensional Doors",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/b8Q0BxnV/versions/2mbjY4AI/dimdoors-5.4.4-fabric.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/dimensional-doors/dimdoors-5.4.4-fabric.jar",
+      "bytes": 18034363,
+      "hashes": {
+        "sha256": "80caebb1152e0ae545f8bbde3f9f978add77697ebdabe63af9c8340892252fdd",
+        "sha512": "148c835673e01266177f85193b33079347e90cdf210877198d7a9c1cd6ca23376a3ea51e6fee270996fc88eb8d1dff2a54b1b9d211c8c1eb81c04e149632a682",
+        "sha1": "fccc1aa672e12ac0548bbf3be7a20c6d03507cb2"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "b8Q0BxnV",
+      "version": "5.4.4",
+      "member_count": 2531,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 114,
+        "materials": 1,
+        "guide_or_book": 6
+      }
+    },
+    {
+      "requested": "Treasure2",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/kJtaoypK/versions/p3vv30tG/treasure2-1.20.1-4.0.6.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/treasure2/treasure2-1.20.1-4.0.6.jar",
+      "bytes": 3586156,
+      "hashes": {
+        "sha256": "37ff142be15c28791b94e65ed7cac0e13eafa14f803580496e85396c9e18d23e",
+        "sha512": "e2ec776bbdf95217fa3a4c18e483e426054a82c7bd272d446453265778fba8349d08f473f32aa6753e7889adad95bbcc999298f9272a8da7f7267562d887d76c",
+        "sha1": "06dae7e607206d820299c25dd0e8deb74bca31e6"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "kJtaoypK",
+      "version": "4.0.6",
+      "member_count": 2378,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 127,
+        "materials": 2,
+        "guide_or_book": 48
+      }
+    },
+    {
+      "requested": "Modular Golems",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/gtGDlsAD/versions/QWvQwuTO/modulargolems-2.7.4.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/modular-golems/modulargolems-2.7.4.jar",
+      "bytes": 4603087,
+      "hashes": {
+        "sha256": "5b0ebe47674f65afde23d3518bf653f5c4e160aa6d1ff643a8174971b1838f1a",
+        "sha512": "dc2896e63387f077702d50858f79ef739a8ebb3c227c7f5abfd1abe26b5ec552353d0f26a77dc40f40c27e925f888872362d216c5652d359bd29b47f5db46330",
+        "sha1": "ff5f3f1dc9840939a4666d06be06d6b2159ffc6c"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "gtGDlsAD",
+      "version": "2.7.4",
+      "member_count": 3965,
+      "research_entries": {
+        "quest": 0,
+        "recipe_or_scripts": 1217,
+        "materials": 604,
+        "guide_or_book": 302
+      }
+    },
+    {
+      "requested": "Hexerei",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/IQSOHVhI/versions/9KSwA9O9/hexerei-0.5.0.3.jar",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/hexerei/hexerei-0.5.0.3.jar",
+      "bytes": 10428010,
+      "hashes": {
+        "sha256": "743e80cb0526fa5fffdb660c5c3230df47d664fb268e48ca888771c4cf594240",
+        "sha512": "6ad9f14ad23e84e693c8a02fa210871f7f9f7abb34acb342d9c72aacaa822dc4d06d203d78803ab40dd5eb334344961586a3f223ae877c362f1788b7be1dad6a",
+        "sha1": "a0021f5ef5a285fdc8f80cd30d48c913d6f0765b"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "IQSOHVhI",
+      "version": "0.5.0.3",
+      "member_count": 4817,
+      "research_entries": {
+        "quest": 2,
+        "recipe_or_scripts": 307,
+        "materials": 1,
+        "guide_or_book": 876
+      }
+    },
+    {
+      "requested": "Cabricality",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/Prk1zzOq/versions/sN3zOmAo/Cabricality-0.3.1-patch1.mrpack",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/cabricality/Cabricality-0.3.1-patch1.mrpack",
+      "bytes": 6903439,
+      "hashes": {
+        "sha256": "ed0d00fe8c1b7bfbb9b2019d5a7fc6cc1f8b0707c4d08466693274b18d06abab",
+        "sha512": "69b0199bb83e8f5579047157486341a9376af62527aefce2220c5a341ed4b428654a274dd9762e8dbbb9ac5090ad1ff2f4d972de8165856890c96fd2133857c0",
+        "sha1": "0e097679120551428e73db66a77cfc4292f30a90"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "Prk1zzOq",
+      "version": "0.3.1-patch1",
+      "member_count": 53,
+      "research_entries": {
+        "quest": 16,
+        "recipe_or_scripts": 0,
+        "materials": 0,
+        "guide_or_book": 1
+      }
+    },
+    {
+      "requested": "Prominence\u2122 II: Hasturian Era",
+      "state": "downloaded_verified",
+      "kind": "release",
+      "url": "https://cdn.modrinth.com/data/EGs3lC8D/versions/sXMHqA8W/Prominence%E2%84%A2%20II%20Hasturian%20Era%20%20v4.1.3.mrpack",
+      "path": "docs/research/minecraft/private/bulk-2026-10-14/prominence-ii-hasturian-era/Prominence\u2122 II Hasturian Era  v4.1.3.mrpack",
+      "bytes": 423424621,
+      "hashes": {
+        "sha256": "9a6def75904d3461097f2b987467993d029a1f1c351f74fe95a265d158b7bbe7",
+        "sha512": "0c01547c8614ddfff3ba99abe44b50b1dc5d499bb7e7498404e0cf013b6dbffc1f3ff968b016d97db75df7b7f8940ef9fc665c52d34f8049164c1f3f9b9e8b07",
+        "sha1": "5749441d1418ac88cb558a90a2575daebda207de"
+      },
+      "publisher_hash_verified": true,
+      "zip_crc_verified": true,
+      "project_id": "EGs3lC8D",
+      "version": "4.1.3",
+      "member_count": 2328,
+      "research_entries": {
+        "quest": 61,
+        "recipe_or_scripts": 9,
+        "materials": 0,
+        "guide_or_book": 11
+      }
+    }
+  ]
+}

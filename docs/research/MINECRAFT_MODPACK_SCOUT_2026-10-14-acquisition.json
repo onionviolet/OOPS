@@ -1,0 +1,186 @@
+{
+  "status": "read-only static samples; no scripts or mods executed",
+  "raw_sample_directory": "/tmp/yairpg-minecraft-scout-2026-10-14",
+  "files": [
+    {
+      "repo": "EnigmaticaModpacks/Enigmatica6",
+      "commit": "edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe",
+      "tree": "78ad67f3331ef2b1954d01f11fb71cf548b1505f",
+      "path": "config/ftbquests/quests/chapters/automation.snbt",
+      "url": "https://github.com/EnigmaticaModpacks/Enigmatica6/blob/edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe/config/ftbquests/quests/chapters/automation.snbt",
+      "bytes": 86594,
+      "sha256": "3430400901308e3bd9c0dbac99ac42e38e3bf158f7fa1929d7f6f9f5828117f1",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Enigmatica6/config/ftbquests/quests/chapters/automation.snbt"
+    },
+    {
+      "repo": "EnigmaticaModpacks/Enigmatica6",
+      "commit": "edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe",
+      "tree": "78ad67f3331ef2b1954d01f11fb71cf548b1505f",
+      "path": "config/ftbquests/quests/chapters/botania.snbt",
+      "url": "https://github.com/EnigmaticaModpacks/Enigmatica6/blob/edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe/config/ftbquests/quests/chapters/botania.snbt",
+      "bytes": 49131,
+      "sha256": "6c77e220c5826802dc025abf4ef9893cbe3b3dca0d7af4d0aeb6e5f8cd987873",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Enigmatica6/config/ftbquests/quests/chapters/botania.snbt"
+    },
+    {
+      "repo": "EnigmaticaModpacks/Enigmatica6",
+      "commit": "edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe",
+      "tree": "78ad67f3331ef2b1954d01f11fb71cf548b1505f",
+      "path": "kubejs/server_scripts/enigmatica/kubejs/expert/recipetypes/create/sequenced_assembly.js",
+      "url": "https://github.com/EnigmaticaModpacks/Enigmatica6/blob/edf25e0f50ce6b8ff052f7d10ff3c748bb90eafe/kubejs/server_scripts/enigmatica/kubejs/expert/recipetypes/create/sequenced_assembly.js",
+      "bytes": 55422,
+      "sha256": "3d9be460fa0a0f4a043c0ecd33e3d5f8776b046ed499ab48f1590370d44267d4",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Enigmatica6/kubejs/server_scripts/enigmatica/kubejs/expert/recipetypes/create/sequenced_assembly.js"
+    },
+    {
+      "repo": "Nomifactory/Nomifactory",
+      "commit": "8e00761617389a3cd46f7db146f55a86db29e88e",
+      "tree": "218384e847b4bb14f2933c1166bd54fe4844a934",
+      "path": "overrides/config/betterquesting/DefaultQuests.json",
+      "url": "https://github.com/Nomifactory/Nomifactory/blob/8e00761617389a3cd46f7db146f55a86db29e88e/overrides/config/betterquesting/DefaultQuests.json",
+      "bytes": 1764412,
+      "sha256": "325ab4570c456cb6be98cb52216848df26546e7dce4aa51396b4a83b4f0beef5",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Nomifactory/overrides/config/betterquesting/DefaultQuests.json"
+    },
+    {
+      "repo": "Nomifactory/Nomifactory",
+      "commit": "8e00761617389a3cd46f7db146f55a86db29e88e",
+      "tree": "218384e847b4bb14f2933c1166bd54fe4844a934",
+      "path": "overrides/scripts/Alchemy.zs",
+      "url": "https://github.com/Nomifactory/Nomifactory/blob/8e00761617389a3cd46f7db146f55a86db29e88e/overrides/scripts/Alchemy.zs",
+      "bytes": 3434,
+      "sha256": "af9a6861024a8a8261344ca4d8c9af321f0b1f8f408a4de50618b77c24ba7d06",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Nomifactory/overrides/scripts/Alchemy.zs"
+    },
+    {
+      "repo": "Nomifactory/Nomifactory",
+      "commit": "8e00761617389a3cd46f7db146f55a86db29e88e",
+      "tree": "218384e847b4bb14f2933c1166bd54fe4844a934",
+      "path": "LICENSE.md",
+      "url": "https://github.com/Nomifactory/Nomifactory/blob/8e00761617389a3cd46f7db146f55a86db29e88e/LICENSE.md",
+      "bytes": 7653,
+      "sha256": "1a45b1d0a8603dfe2cfc644f9dab970b1762f92babe2aac6eb2f5d4572c4a680",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Nomifactory/LICENSE.md"
+    },
+    {
+      "repo": "VazkiiMods/Botania",
+      "commit": "310d546ff817376dcaa5281cd308365e61e76031",
+      "tree": "095edd282d56878291648e48e309d9815313af4c",
+      "path": "LICENSE.txt",
+      "url": "https://github.com/VazkiiMods/Botania/blob/310d546ff817376dcaa5281cd308365e61e76031/LICENSE.txt",
+      "bytes": 3837,
+      "sha256": "e71cfc1421fda7019ed04a75f443fc01eee13a3144d3cf9462703decaa4e8cfd",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Botania/LICENSE.txt"
+    },
+    {
+      "repo": "VazkiiMods/Botania",
+      "commit": "310d546ff817376dcaa5281cd308365e61e76031",
+      "tree": "095edd282d56878291648e48e309d9815313af4c",
+      "path": "Xplat/src/main/resources/assets/botania/patchouli_books/lexicon/en_us/entries/challenges/animal_farm.json",
+      "url": "https://github.com/VazkiiMods/Botania/blob/310d546ff817376dcaa5281cd308365e61e76031/Xplat/src/main/resources/assets/botania/patchouli_books/lexicon/en_us/entries/challenges/animal_farm.json",
+      "bytes": 390,
+      "sha256": "d631b3a71f5cbbd1f2b75768443a4bb6909b7b829034520d0a49a6b94e7f69c4",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Botania/Xplat/src/main/resources/assets/botania/patchouli_books/lexicon/en_us/entries/challenges/animal_farm.json"
+    },
+    {
+      "repo": "VazkiiMods/Botania",
+      "commit": "310d546ff817376dcaa5281cd308365e61e76031",
+      "tree": "095edd282d56878291648e48e309d9815313af4c",
+      "path": "Xplat/src/main/resources/assets/botania/patchouli_books/lexicon/en_us/entries/challenges/apothecary_refill.json",
+      "url": "https://github.com/VazkiiMods/Botania/blob/310d546ff817376dcaa5281cd308365e61e76031/Xplat/src/main/resources/assets/botania/patchouli_books/lexicon/en_us/entries/challenges/apothecary_refill.json",
+      "bytes": 417,
+      "sha256": "4628e391e51de590a94ce0351425ea8d65d8b58af059b915b9bdde95276917eb",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Botania/Xplat/src/main/resources/assets/botania/patchouli_books/lexicon/en_us/entries/challenges/apothecary_refill.json"
+    },
+    {
+      "repo": "simibubi/Above-and-Beyond",
+      "commit": "f551e984ee2a11c20b9aa3d10b670d4589fa34b2",
+      "path": "config/ftbquests/quests/chapter_groups.snbt",
+      "url": "https://github.com/simibubi/Above-and-Beyond/blob/f551e984ee2a11c20b9aa3d10b670d4589fa34b2/config/ftbquests/quests/chapter_groups.snbt",
+      "bytes": 133,
+      "sha256": "aa1b8a6b154e64078d91784c47ced8b9e3848aa4f762946cf2f108fa95c89bb6",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Above-and-Beyond/config/ftbquests/quests/chapter_groups.snbt"
+    },
+    {
+      "repo": "simibubi/Above-and-Beyond",
+      "commit": "f551e984ee2a11c20b9aa3d10b670d4589fa34b2",
+      "path": "kubejs/startup_scripts/trading.js",
+      "url": "https://github.com/simibubi/Above-and-Beyond/blob/f551e984ee2a11c20b9aa3d10b670d4589fa34b2/kubejs/startup_scripts/trading.js",
+      "bytes": 22549,
+      "sha256": "3e3d7e3d1a82b030f4509db624878d244c2161b43a70d3badf82930a2b19eb52",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Above-and-Beyond/kubejs/startup_scripts/trading.js"
+    },
+    {
+      "repo": "simibubi/Above-and-Beyond",
+      "commit": "f551e984ee2a11c20b9aa3d10b670d4589fa34b2",
+      "path": "config/ftbquests/quests/chapters/market.snbt",
+      "url": "https://github.com/simibubi/Above-and-Beyond/blob/f551e984ee2a11c20b9aa3d10b670d4589fa34b2/config/ftbquests/quests/chapters/market.snbt",
+      "bytes": 24704,
+      "sha256": "162b8165f2a194b64d5ef954b659610161ac7382b8860c06045566a68aa968f7",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Above-and-Beyond/config/ftbquests/quests/chapters/market.snbt"
+    },
+    {
+      "repo": "simibubi/Above-and-Beyond",
+      "commit": "f551e984ee2a11c20b9aa3d10b670d4589fa34b2",
+      "path": "kubejs/server_scripts/quests.js",
+      "url": "https://github.com/simibubi/Above-and-Beyond/blob/f551e984ee2a11c20b9aa3d10b670d4589fa34b2/kubejs/server_scripts/quests.js",
+      "bytes": 786,
+      "sha256": "0eee0e6cf9687c8b1a68362b28ba378ac70c6063b6e834841d5b66a388679893",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Above-and-Beyond/kubejs/server_scripts/quests.js"
+    },
+    {
+      "repo": "Shadows-of-Fire/Apotheosis",
+      "commit": "f2e76862ed9f4dcdf19c25400dc3d5478a46dd74",
+      "path": "src/generated/resources/data/apotheosis/apotheosis/affixes/armor/attribute/adamantine.json",
+      "url": "https://github.com/Shadows-of-Fire/Apotheosis/blob/f2e76862ed9f4dcdf19c25400dc3d5478a46dd74/src/generated/resources/data/apotheosis/apotheosis/affixes/armor/attribute/adamantine.json",
+      "bytes": 662,
+      "sha256": "a948c83f7a91d36a1fe3fb72d09d3b3d122323132aad9aef5d7bfbaf3b9501e0",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Apotheosis/src/generated/resources/data/apotheosis/apotheosis/affixes/armor/attribute/adamantine.json"
+    },
+    {
+      "repo": "Shadows-of-Fire/Apotheosis",
+      "commit": "f2e76862ed9f4dcdf19c25400dc3d5478a46dd74",
+      "path": "src/generated/resources/data/apotheosis/apotheosis/affixes/armor/attribute/aquatic.json",
+      "url": "https://github.com/Shadows-of-Fire/Apotheosis/blob/f2e76862ed9f4dcdf19c25400dc3d5478a46dd74/src/generated/resources/data/apotheosis/apotheosis/affixes/armor/attribute/aquatic.json",
+      "bytes": 808,
+      "sha256": "d3eb007b1d92a44855578dfca6dbe7ee98def374294775f883af432bd9862ada",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Apotheosis/src/generated/resources/data/apotheosis/apotheosis/affixes/armor/attribute/aquatic.json"
+    },
+    {
+      "repo": "Shadows-of-Fire/Apotheosis",
+      "commit": "f2e76862ed9f4dcdf19c25400dc3d5478a46dd74",
+      "path": "src/generated/resources/data/apotheosis/apotheosis/gems/core/ballast.json",
+      "url": "https://github.com/Shadows-of-Fire/Apotheosis/blob/f2e76862ed9f4dcdf19c25400dc3d5478a46dd74/src/generated/resources/data/apotheosis/apotheosis/gems/core/ballast.json",
+      "bytes": 1793,
+      "sha256": "86783793171f2c684fe10ca3fbd5ea409a3825d08dad7cf708177f34494f8e96",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Apotheosis/src/generated/resources/data/apotheosis/apotheosis/gems/core/ballast.json"
+    },
+    {
+      "repo": "SilentChaos512/Silent-Gear",
+      "commit": "cb9926f4a3215a2f6016e4b465d1029ce06251e4",
+      "path": "src/generated/resources/data/silentgear/silentgear_materials/aluminum.json",
+      "url": "https://github.com/SilentChaos512/Silent-Gear/blob/cb9926f4a3215a2f6016e4b465d1029ce06251e4/src/generated/resources/data/silentgear/silentgear_materials/aluminum.json",
+      "bytes": 2564,
+      "sha256": "9bbfcfda7600468cb6614f4021b968615e1d84b9612ebc2c05b66faa60b7ac08",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Silent-Gear/src/generated/resources/data/silentgear/silentgear_materials/aluminum.json"
+    },
+    {
+      "repo": "SilentChaos512/Silent-Gear",
+      "commit": "cb9926f4a3215a2f6016e4b465d1029ce06251e4",
+      "path": "src/generated/resources/data/silentgear/silentgear_materials/aluminum_steel.json",
+      "url": "https://github.com/SilentChaos512/Silent-Gear/blob/cb9926f4a3215a2f6016e4b465d1029ce06251e4/src/generated/resources/data/silentgear/silentgear_materials/aluminum_steel.json",
+      "bytes": 2505,
+      "sha256": "66b50178813724c949367b7a1def086611f1f5110880470f10ad7cd4bda36ee7",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Silent-Gear/src/generated/resources/data/silentgear/silentgear_materials/aluminum_steel.json"
+    },
+    {
+      "repo": "SilentChaos512/Silent-Gear",
+      "commit": "cb9926f4a3215a2f6016e4b465d1029ce06251e4",
+      "path": "src/generated/resources/data/silentgear/silentgear_traits/accelerate.json",
+      "url": "https://github.com/SilentChaos512/Silent-Gear/blob/cb9926f4a3215a2f6016e4b465d1029ce06251e4/src/generated/resources/data/silentgear/silentgear_traits/accelerate.json",
+      "bytes": 891,
+      "sha256": "225170eb1713e5fbce5406e46a17b8fcd7ce3f50f3c0d805d05912e4dacba3bb",
+      "local": "/tmp/yairpg-minecraft-scout-2026-10-14/Silent-Gear/src/generated/resources/data/silentgear/silentgear_traits/accelerate.json"
+    }
+  ]
+}

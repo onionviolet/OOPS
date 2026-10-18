@@ -1,0 +1,47 @@
+{
+  "scope": "Research only. Six selected findings; detailed exact locators in linked audits and hashed source/native read ledgers.",
+  "findings": [
+    {
+      "id": "DF-EMR2-01",
+      "title": "Item-power keyed producer differs from lieutenant selector",
+      "status": "shipped-Lua-static-chain",
+      "summary": "Sorted keyed sphere/power loops, feature gate and numeric candidate registration shown; no dedup and native item binding unknown.",
+      "detail": "ITEM_POWERS_AND_CARRIERS.md"
+    },
+    {
+      "id": "DF-EMR2-02",
+      "title": "Thirteen item effects have distinct waits, scopes and cleanup limits",
+      "status": "shipped-Lua-static-chain",
+      "summary": "Two immediate actions wait50, eleven syndrome rows have END1/3 and no explicit WAIT_PERIOD; anatomy and resistance vary.",
+      "detail": "ITEM_POWERS_AND_CARRIERS.md"
+    },
+    {
+      "id": "DF-EMR2-03",
+      "title": "Mythical role name and color class do not grant commented power tiers",
+      "status": "shipped-Lua-static-chain",
+      "summary": "Level0..3 template emits identity/tag/personality changes; role-tier capability list is comment only.",
+      "detail": "ITEM_POWERS_AND_CARRIERS.md"
+    },
+    {
+      "id": "DF-EMR2-04",
+      "title": "Carrier preservation modifies reusable objects without defining refunds",
+      "status": "raw-declarations",
+      "summary": "Glaze improvements, pressed residue and preserved tools/carriers have separate predicates; native transaction safety not shown.",
+      "detail": "ITEM_POWERS_AND_CARRIERS.md"
+    },
+    {
+      "id": "DF-EMR2-05",
+      "title": "RTTI-linked native injury mutation cores recovered and independently decoded",
+      "status": "static-native-consumer-partial",
+      "summary": "Cure clears0x20; bleeding reduces signed32 counter by trunc(signed32product/100)+1 with negative clamp; tissue repair admits both selector wildcards and erases synchronized short arrays under gates.",
+      "detail": "NATIVE_AUDIT.md"
+    },
+    {
+      "id": "DF-EMR2-06",
+      "title": "Cancellation contains selected bilateral unlink and conditional delete path",
+      "status": "static-native-consumer-partial",
+      "summary": "Owner current-record pointer reset, item association bilateral unlink, typed reference destruction and conditional record deletion; recipe material refunds and atomicity remain unknown.",
+      "detail": "NATIVE_AUDIT.md"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+  "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+  "entries": [
+    {
+      "type": "Modding.Passages.CustomPassage",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Modding.Passages.CustomPassage.cs",
+      "sha256": "430d4db5eb0973768c947cd4b4cbbce8a6e46add5efe987485f934e8d4521764",
+      "lines": 58,
+      "bytes": 1335,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Modding.Passages.CustomPassage",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    },
+    {
+      "type": "Modding.Passages.CustomPassages",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Modding.Passages.CustomPassages.cs",
+      "sha256": "5e52f9d9cba72417d17a69b2ce2bd83fbf3a45b3576f83a2078afd5f721e032c",
+      "lines": 28,
+      "bytes": 673,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Modding.Passages.CustomPassages",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    },
+    {
+      "type": "Expedition.AchievementChallenge",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Expedition.AchievementChallenge.cs",
+      "sha256": "aac319e40a8588a4c56b4beb31e76d5d2f6788f5f42d6e94dbff09751e1c8caf",
+      "lines": 190,
+      "bytes": 4517,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Expedition.AchievementChallenge",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    },
+    {
+      "type": "Expedition.Expedition",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Expedition.Expedition.cs",
+      "sha256": "e8f61afc84a244eaf4a45099e1c40d28932bb678aa5a21e4f2fb7eeb77c0e8c3",
+      "lines": 160,
+      "bytes": 6613,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Expedition.Expedition",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    },
+    {
+      "type": "Expedition.ExpeditionCoreFile",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Expedition.ExpeditionCoreFile.cs",
+      "sha256": "c093a4462f38d41816c728618888a54d13fe64d605a5b83ab37541304286e522",
+      "lines": 865,
+      "bytes": 27561,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Expedition.ExpeditionCoreFile",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    },
+    {
+      "type": "Expedition.ExpeditionData",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Expedition.ExpeditionData.cs",
+      "sha256": "7e41cac500875d71dbafda61c82b6101e0395c734d05097de080139fa5a0bf58",
+      "lines": 202,
+      "bytes": 5392,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Expedition.ExpeditionData",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    },
+    {
+      "type": "Expedition.Challenge",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Expedition.Challenge.cs",
+      "sha256": "dcdd897f30ca900b7dea28851b409f0f741aa80d79681461b47198aa6e46f1f7",
+      "lines": 196,
+      "bytes": 3587,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Expedition.Challenge",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    },
+    {
+      "type": "Menu.SlugcatSelectMenu",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/Menu.SlugcatSelectMenu.cs",
+      "sha256": "b0dc9e2ffaaaabdfdf8a827285eeb09f14b25973560d3475cf626233bfacbe48",
+      "lines": 2234,
+      "bytes": 79790,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "Menu.SlugcatSelectMenu",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    },
+    {
+      "type": "WarpPoint",
+      "path": "/Users/weiwei/.codex/research/rain-world-emergence-2026-10-15/round-5/audit/WarpPoint.cs",
+      "sha256": "bd85c08d37cfbfcac3921d8294a573e720089e1033d6ca7a3a57eeb1c5de352d",
+      "lines": 3613,
+      "bytes": 122878,
+      "input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll",
+      "input_sha256": "b6be1d4e18ce219d21091b51564cb6a11c1e4106b41de903eb8e58849cb16fdb",
+      "command": [
+        "/Users/weiwei/.dotnet/tools/ilspycmd",
+        "--disable-updatecheck",
+        "-r",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed",
+        "-t",
+        "WarpPoint",
+        "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Rain World/RainWorld_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "returncode": 0
+    }
+  ]
+}

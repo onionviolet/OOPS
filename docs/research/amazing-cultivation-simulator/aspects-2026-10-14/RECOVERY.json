@@ -1,0 +1,14 @@
+{
+  "content_files": 2012,
+  "encrypted_files": 64,
+  "recovered_cs_files": 3179,
+  "recovered_cs_bytes": 14271599,
+  "xml_parse_failures": 1,
+  "dialogue_tables": 19,
+  "jianghu_talk_tables": 8,
+  "decoded_files": 64,
+  "targeted_firstpass_classes": 3,
+  "rpg_graphs": 19,
+  "rpg_nodes": 187,
+  "jianghu_tagged_data_rows": 289
+}

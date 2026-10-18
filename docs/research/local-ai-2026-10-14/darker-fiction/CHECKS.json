@@ -1,0 +1,16 @@
+{
+  "requests": 8,
+  "errors": 0,
+  "all_stopped": true,
+  "unexpected_thinking": 0,
+  "ps": {
+    "models": []
+  },
+  "config": {
+    "default": "fast",
+    "profiles": {
+      "fast": "qwen3.8:27b"
+    }
+  },
+  "broken_links": []
+}

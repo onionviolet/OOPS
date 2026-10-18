@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-14T22:08:33.727712+00:00",
+  "job": "gui/501/com.weibao.local-ai-upgrade-20261014",
+  "action": "launchctl bootout",
+  "returncode": 0,
+  "authority": "Earlier user authorized MXFP8 removal; fix KeepAlive respawn of exact stopped worker",
+  "weights_deleted": false
+}

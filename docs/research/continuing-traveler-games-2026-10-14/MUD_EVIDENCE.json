@@ -1,0 +1,41 @@
+{
+  "date_local": "2026-10-14",
+  "checked_utc": "2026-10-15T02:09:52.618104+00:00",
+  "status": "Documented and static research, no gameplay execution",
+  "counts": {
+    "guild_catalogue_entries": 353,
+    "unique_guild_locations": 353,
+    "primary_catalogue": 19,
+    "secondary_catalogue": 55,
+    "tertiary_catalogue": 279,
+    "guild_pages_sampled": 24,
+    "sampled_ability_rows": 1510,
+    "archived_help_records": 2168,
+    "lexical_registration_calls": 333,
+    "parser_notes": [
+      "Raw XML retained unchanged; lexical extraction avoids invalid entities and mismatched skills tags.",
+      "Display guild level = raw index + 1, verified against official site-renderer.js lines 686-705. Intrinsic ability level can differ from guild grant level.",
+      "Registration-call extraction is a reference index, not an active-feature census."
+    ]
+  },
+  "captured_unique_remote_files": 163,
+  "capture_errors": [],
+  "private_capture_manifest": "private/deeper-muds/CAPTURES.json",
+  "manifest_sha256": "833bfe7163775ae1c8059e7ac32423ca1d2439ecd6959ab312f776360cccf959",
+  "4d_revision": "d2ee92671693f2f0eac88d7d5f9d86bebc17d89c",
+  "4d_revision_date": "2026-09-23",
+  "source_to_live_server_parity": "unverified",
+  "checked": [
+    "raw captured hashes",
+    "archive hash",
+    "derived JSON parse",
+    "CSV row count",
+    "guild level index mapping",
+    "catalogue unique keys",
+    "help record count",
+    "public local links",
+    "Markdown whitespace"
+  ],
+  "executed_gameplay": false,
+  "built_or_installed_game": false
+}

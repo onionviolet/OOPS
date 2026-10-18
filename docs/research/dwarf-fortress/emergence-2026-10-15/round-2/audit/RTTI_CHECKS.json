@@ -1,0 +1,475 @@
+{
+  "binary_sha256": "205770918fd54c96cbbcf89223ebd449e2e113c7c873ed81177c4511a3450db7",
+  "checks": [
+    {
+      "class_name": ".?AVcreature_interaction_effect_stop_bleedingst@@",
+      "name_matches": true,
+      "col": "0x1417add68",
+      "col_signature": 1,
+      "col_header_matches": true,
+      "vtable": "0x141716e88",
+      "vtable_backpointer_matches": true,
+      "slots": [
+        {
+          "slot": 0,
+          "entry": "0x1405494f0",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 1,
+          "entry": "0x140d55d80",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 2,
+          "entry": "0x140d55f80",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 3,
+          "entry": "0x140d7af40",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 4,
+          "entry": "0x140067050",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 5,
+          "entry": "0x140d54d40",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 6,
+          "entry": "0x140d54d70",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 7,
+          "entry": "0x140067170",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 8,
+          "entry": "0x140d54d80",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 9,
+          "entry": "0x140067050",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 10,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 11,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 12,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 13,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 14,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 15,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 16,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 17,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 18,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 19,
+          "entry": "0x140d54a30",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 20,
+          "entry": "0x140d78a50",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 21,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 22,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 23,
+          "entry": "0x140066e90",
+          "pointer_matches": true,
+          "pdata_matches": null
+        }
+      ],
+      "limits": "24 pointer slots checked as supplied; exact virtual-table terminal boundary and ABI method meanings not proven by address mapping."
+    },
+    {
+      "class_name": ".?AVcreature_interaction_effect_cure_infectionst@@",
+      "name_matches": true,
+      "col": "0x1417ae070",
+      "col_signature": 1,
+      "col_header_matches": true,
+      "vtable": "0x1417158a8",
+      "vtable_backpointer_matches": true,
+      "slots": [
+        {
+          "slot": 0,
+          "entry": "0x14028c660",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 1,
+          "entry": "0x140d556c0",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 2,
+          "entry": "0x140d558c0",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 3,
+          "entry": "0x140d7a680",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 4,
+          "entry": "0x140067050",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 5,
+          "entry": "0x140d54d40",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 6,
+          "entry": "0x140d54d70",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 7,
+          "entry": "0x140067170",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 8,
+          "entry": "0x140d54d80",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 9,
+          "entry": "0x140067050",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 10,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 11,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 12,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 13,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 14,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 15,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 16,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 17,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 18,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 19,
+          "entry": "0x140d54a30",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 20,
+          "entry": "0x140d78a50",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 21,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 22,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 23,
+          "entry": "0x140066e90",
+          "pointer_matches": true,
+          "pdata_matches": null
+        }
+      ],
+      "limits": "24 pointer slots checked as supplied; exact virtual-table terminal boundary and ABI method meanings not proven by address mapping."
+    },
+    {
+      "class_name": ".?AVcreature_interaction_effect_heal_tissuesst@@",
+      "name_matches": true,
+      "col": "0x1417ae540",
+      "col_signature": 1,
+      "col_header_matches": true,
+      "vtable": "0x141716dc0",
+      "vtable_backpointer_matches": true,
+      "slots": [
+        {
+          "slot": 0,
+          "entry": "0x140548fa0",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 1,
+          "entry": "0x140d56680",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 2,
+          "entry": "0x140d56880",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 3,
+          "entry": "0x140d7c330",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 4,
+          "entry": "0x140067050",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 5,
+          "entry": "0x140d54d40",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 6,
+          "entry": "0x140d54d70",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 7,
+          "entry": "0x140067170",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 8,
+          "entry": "0x140d54d80",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 9,
+          "entry": "0x140067050",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 10,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 11,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 12,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 13,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 14,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 15,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 16,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 17,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 18,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 19,
+          "entry": "0x140d54a30",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 20,
+          "entry": "0x140d78a50",
+          "pointer_matches": true,
+          "pdata_matches": true
+        },
+        {
+          "slot": 21,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 22,
+          "entry": "0x140072250",
+          "pointer_matches": true,
+          "pdata_matches": null
+        },
+        {
+          "slot": 23,
+          "entry": "0x140066e90",
+          "pointer_matches": true,
+          "pdata_matches": null
+        }
+      ],
+      "limits": "24 pointer slots checked as supplied; exact virtual-table terminal boundary and ABI method meanings not proven by address mapping."
+    }
+  ],
+  "all_checks_pass": true,
+  "scope": "RTTI naming and pointer evidence only, not proof of effect tick/expiry/actor mutation."
+}

@@ -1,0 +1,21 @@
+{
+  "sequence": [
+    "visitor_lumos",
+    "learner_reparo",
+    "learner_lumos",
+    "save_reload",
+    "observe_mark",
+    "learner_nox",
+    "leave"
+  ],
+  "finalState": {
+    "learnerLocation": "outside",
+    "light": "off",
+    "observedMark": true,
+    "savedWhileLit": true,
+    "rejectedCasts": 2,
+    "xp": 0,
+    "coins": 0
+  },
+  "explanation": "Two inert rejections (visitor_lumos, learner_reparo) fire first with no state change. learner_lumos lights the wand while in storage. save_reload executes while lit. observe_mark records the mark (storage + light ON). learner_nox extinguishes. leave moves the learner outside. All seven ops appear exactly once; mark is retained; final state is outside, light off, 2 rejections logged."
+}

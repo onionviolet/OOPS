@@ -1,0 +1,269 @@
+[
+  {
+    "model": "gemma4:31b-mlx",
+    "case": "site",
+    "valid": true,
+    "exactNumbers": true,
+    "draftTextRoundTrip": true
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "case": "source_to_slice",
+    "valid": true,
+    "exactNumbers": false,
+    "draftTextRoundTrip": true,
+    "actual": {
+      "inputRemaining": 6,
+      "mats": 2,
+      "coins": 16,
+      "minutes": 60
+    },
+    "witnessMatches": false,
+    "minimumWitness": false,
+    "sourceStateRoundTrip": true,
+    "rumorLabel": true,
+    "publicSecretLeak": false,
+    "trace": [
+      {
+        "step": "work",
+        "minutes": 30,
+        "coins": 8,
+        "values": {
+          "input": 6,
+          "output": 1
+        }
+      },
+      {
+        "step": "work",
+        "minutes": 60,
+        "coins": 16,
+        "values": {
+          "input": 6,
+          "output": 2
+        }
+      }
+    ]
+  },
+  {
+    "model": "qwen3.8:27b",
+    "case": "site",
+    "valid": true,
+    "exactNumbers": true,
+    "draftTextRoundTrip": true
+  },
+  {
+    "model": "qwen3.8:27b",
+    "case": "source_to_slice",
+    "valid": true,
+    "exactNumbers": false,
+    "draftTextRoundTrip": true,
+    "actual": {
+      "inputRemaining": 22,
+      "mats": 0,
+      "coins": 0,
+      "minutes": 80
+    },
+    "witnessMatches": false,
+    "minimumWitness": false,
+    "sourceStateRoundTrip": true,
+    "rumorLabel": true,
+    "publicSecretLeak": false,
+    "trace": [
+      {
+        "step": "gather",
+        "minutes": 10,
+        "coins": 0,
+        "values": {
+          "input": 8,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 20,
+        "coins": 0,
+        "values": {
+          "input": 10,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 30,
+        "coins": 0,
+        "values": {
+          "input": 12,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 40,
+        "coins": 0,
+        "values": {
+          "input": 14,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 50,
+        "coins": 0,
+        "values": {
+          "input": 16,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 60,
+        "coins": 0,
+        "values": {
+          "input": 18,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 70,
+        "coins": 0,
+        "values": {
+          "input": 20,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 80,
+        "coins": 0,
+        "values": {
+          "input": 22,
+          "output": 0
+        }
+      }
+    ]
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "case": "site",
+    "valid": true,
+    "exactNumbers": true,
+    "draftTextRoundTrip": true
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "case": "source_to_slice",
+    "valid": true,
+    "exactNumbers": false,
+    "draftTextRoundTrip": true,
+    "actual": {
+      "inputRemaining": 22,
+      "mats": 0,
+      "coins": 0,
+      "minutes": 160
+    },
+    "witnessMatches": false,
+    "minimumWitness": false,
+    "sourceStateRoundTrip": true,
+    "rumorLabel": true,
+    "publicSecretLeak": false,
+    "trace": [
+      {
+        "step": "gather",
+        "minutes": 20,
+        "coins": 0,
+        "values": {
+          "input": 8,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 40,
+        "coins": 0,
+        "values": {
+          "input": 10,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 60,
+        "coins": 0,
+        "values": {
+          "input": 12,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 80,
+        "coins": 0,
+        "values": {
+          "input": 14,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 100,
+        "coins": 0,
+        "values": {
+          "input": 16,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 120,
+        "coins": 0,
+        "values": {
+          "input": 18,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 140,
+        "coins": 0,
+        "values": {
+          "input": 20,
+          "output": 0
+        }
+      },
+      {
+        "step": "gather",
+        "minutes": 160,
+        "coins": 0,
+        "values": {
+          "input": 22,
+          "output": 0
+        }
+      }
+    ]
+  },
+  {
+    "model": "huihui_ai/Qwen3.8-abliterated:27b-q8_0",
+    "case": "source_to_slice_revised",
+    "valid": false,
+    "exactNumbers": true,
+    "draftTextRoundTrip": true,
+    "error": "This optional activity is unavailable."
+  },
+  {
+    "model": "qwen3.8:27b",
+    "case": "source_to_slice_revised",
+    "valid": false,
+    "exactNumbers": true,
+    "draftTextRoundTrip": true,
+    "error": "This optional activity is unavailable."
+  },
+  {
+    "model": "gemma4:31b-mlx",
+    "case": "source_to_slice_revised",
+    "valid": false,
+    "exactNumbers": true,
+    "draftTextRoundTrip": true,
+    "error": "This optional activity is unavailable."
+  }
+]

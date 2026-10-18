@@ -1,0 +1,50 @@
+{
+  "binary_sha256": "205770918fd54c96cbbcf89223ebd449e2e113c7c873ed81177c4511a3450db7",
+  "checks": [
+    {
+      "address": "0x140dafbb0",
+      "opcode": "0xe9",
+      "target": "0x140db2843",
+      "matches": true
+    },
+    {
+      "address": "0x140db2884",
+      "opcode": "0xe9",
+      "target": "0x140db6be8",
+      "matches": true
+    },
+    {
+      "address": "0x14150614a",
+      "opcode": "0xe8",
+      "target": "0x140dac290",
+      "matches": true
+    },
+    {
+      "address": "0x1415061ba",
+      "opcode": "0xe8",
+      "target": "0x141325080",
+      "matches": true
+    },
+    {
+      "address": "0x140dac2d0",
+      "expected_hex": "48895598",
+      "matches": true
+    },
+    {
+      "address": "0x140db284f",
+      "expected_hex": "c60001",
+      "matches": true
+    },
+    {
+      "address": "0x140db6bf0",
+      "expected_hex": "32c0",
+      "matches": true
+    },
+    {
+      "address": "0x14136bcd9",
+      "expected_hex": "019684040000",
+      "matches": true
+    }
+  ],
+  "scope": "Exact selected byte/jump/call checks only"
+}

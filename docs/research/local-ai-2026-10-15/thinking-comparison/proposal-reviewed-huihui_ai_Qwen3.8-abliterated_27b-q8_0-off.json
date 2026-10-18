@@ -1,0 +1,74 @@
+{
+  "canonClaims": [
+    {
+      "sourceId": "H1",
+      "claim": "Lumos produces illumination at the caster's wand tip; Nox extinguishes that magical light."
+    },
+    {
+      "sourceId": "H2",
+      "claim": "Reparo can mend certain damaged objects, but mending a wand's exterior does not restore its damaged magic."
+    }
+  ],
+  "startAssumptions": [
+    "Magically eligible adult learner owns an intact wand and has learned Lumos/Nox.",
+    "Nonmagical adult visitor owns a wand but has no magical source or learned casting method.",
+    "Learner is in a dim storage room; no mandatory quest, reward, or enemy is present.",
+    "Reparo is a later separate learned method not granted by this starting premise."
+  ],
+  "stateAndReaders": [
+    "actor_id: string; wand_integrity: boolean; learned_spells: set<string>; current_light_state: enum[off, on]; room_id: string.",
+    "reader_actor_eligibility: checks if actor is magically eligible and owns a wand.",
+    "reader_spell_knowledge: checks if specific spell (e.g., Lumos) is in learned_spells.",
+    "reader_light_state: returns current_light_state for the actor's wand tip."
+  ],
+  "actions": [
+    {
+      "name": "cast_lumos",
+      "preconditions": "Actor is magically eligible, owns wand, and has learned Lumos. Current light state is off.",
+      "effect": "Sets current_light_state to 'on'. No mutation to wand integrity or other stats.",
+      "sourceVsDesign": "Source defines effect (H1); 'on' state persistence is design proposal (O1)."
+    },
+    {
+      "name": "cast_nox",
+      "preconditions": "Actor is magically eligible, owns wand, and has learned Nox. Current light state is on.",
+      "effect": "Sets current_light_state to 'off'. No mutation to wand integrity or other stats.",
+      "sourceVsDesign": "Source defines effect (H1); state transition logic is design proposal (O1)."
+    },
+    {
+      "name": "attempt_cast",
+      "preconditions": "Actor owns a wand but lacks magical eligibility or has not learned the specific spell.",
+      "effect": "Refusal: No state mutation, no new mastery, no item creation. Returns 'failed' status.",
+      "sourceVsDesign": "Design proposal (P1/O1) to prevent tool ownership from granting ability."
+    },
+    {
+      "name": "leave_room",
+      "preconditions": "Actor is in a room and chooses to leave.",
+      "effect": "Updates room_id to null/exit. Light state persists if save policy allows.",
+      "sourceVsDesign": "Design proposal (O1) to allow free exit without quest completion."
+    }
+  ],
+  "compatibility": {
+    "status": "requires_adapter",
+    "missingConsumers": [
+      "Eligibility reader: checks magical source vs tool ownership.",
+      "Spell knowledge reader: maps actor to learned spell set.",
+      "Light state consumer: tracks actor/wand scoped illumination.",
+      "Failure handler: ensures no mutation on unqualified cast attempts."
+    ]
+  },
+  "counterexamples": [
+    "Visitor owns wand but casts Lumos: must fail because no magical source/method.",
+    "Initial learner attempts Reparo: refuse because it has not been learned. A separate later trained case may mend exterior damage but not restore damaged magic.",
+    "Adapter treats 'reeds' as magic: fails because scalar input/output lacks spell context.",
+    "Light turns on but room is not dark: effect persists but visibility consumer may ignore it."
+  ],
+  "futureWitness": [
+    "Learner casts Lumos: light turns on. Casts Nox: light turns off.",
+    "Visitor casts Lumos: refusal, no light, no new knowledge gained.",
+    "Learner leaves room: light state persists under approved save policy.",
+    "Initial learner attempts Reparo: refusal with no mutation. In a separate learned-method case, verify physical mending does not restore damaged wand magic.",
+    "No source-specified mana or cooldown is applied to Lumos/Nox.",
+    "Schema remains inert proposal until adapter/consumer code is implemented."
+  ],
+  "numericalPolicy": "No source-specified mana, cooldowns, or costs. Numerical values are design proposals only if added later."
+}
