@@ -11,7 +11,8 @@ direction across the four rounds in [CRAFTING_ENGINE](CRAFTING_ENGINE.md) and th
 [weaponcraft and rune palette](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
 (its OV model: a made thing is parts on a substrate, joined by rules, with true and
 observed properties). Specific mechanics, numbers and slices in the linked
-palettes remain proposals; these rules constrain them. Per-domain extrapolation
+palettes remain proposals; these rules constrain them. AD38 (2026-10-17, accepted) generalizes MR1 and MR6–MR7: a making method that
+reasonably works by the mechanisms in play works. Per-domain extrapolation
 is in [CRAFTING_ENGINE round 4](CRAFTING_ENGINE.md#round-4-2026-10-15-deeper-potions-and-the-same-model-for-every-kind-of-making).
 
 ## Truth, chance and reloads

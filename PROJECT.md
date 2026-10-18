@@ -649,6 +649,11 @@ build/browser/save acceptance is claimed.
 
 ## Accepted decisions
 
+- **Things work by how they work (2026-10-17, Weibao):** "potions work by virtue of how they
+  work, if it's methodolocgy reasonably wotks it works, that shoukd be a standing rule things can
+  happen if they can happen". An outcome follows the actual mechanism, not a label, category or
+  permission list; costs, means and the world's mechanisms still apply. AD38.
+  [Record](docs/USER_VISION.md#things-work-by-how-they-work-2026-10-17).
 - **Old save compatibility deferred (2026-10-17, Weibao):** "consider the fact that old save
   compatibility is no worry for now". Default for current work: a schema change may drop or reset
   old-save state instead of migrating it, stated in the task record. New state must still survive

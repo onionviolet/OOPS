@@ -7,7 +7,8 @@ Weibao, 2026-10-17: "run a topic-expansion-audit round on body, health, injury
 and medicine (G1), saving the palette and a proposed rulebook."
 
 Each rule names the mistake it prevents. Rules marked **(accepted)** restate an
-existing accepted decision and bind now through that decision; the rest are
+existing accepted decision (AD38, things work by how they work, accepted
+2026-10-17, binds BHR21 and BHR30) and bind now through that decision; the rest are
 proposals. Sources: AD13, AD19 and related AD lines in the
 [rules index](RULES_INDEX.md), the
 [part 35 palette](worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md)
@@ -60,7 +61,7 @@ exception with an in-world reason and cost.
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
 | BHR20 | **Medicine is making.** Remedies, surgery, implants, grafts and body runes use the making rules (MR1–MR36) with the body as substrate and the result as a condition with maker and provenance. (BHC9) | A separate surgery engine that ignores the making envelope |
-| BHR21 | **A remedy's true effect acts whether understood or not** (MR1). Belief changes forecasts and names. Placebo is a world law with a stated size. (BHC7) | Correct folk remedies that do nothing because unappraised |
+| BHR21 | **A remedy works by how it works (accepted, AD38; MR1).** If its method reasonably works on this body by the mechanisms in play, it works, whether or not the healer understands it, the remedy was meant for this use, or it is on any list. Belief changes forecasts and names; belief heals only where the world's mechanism lets belief act. (BHC7, BHC32, BHC34) | Correct folk remedies that do nothing because unappraised; off-label uses refused by a target list |
 | BHR22 | **Healing declares its cost and where the harm goes:** consumed, transferred, displaced, delayed or stored. (BHC10, MR5) | Free regrowth loops; transfer healing with no home |
 | BHR23 | **One authority resolves combined effects** through declared interaction tags (stacks, cancels, amplifies, toxic together), and one owner holds each tolerance. (BHC11, lane B1-X7) | Each potion checking every other potion ad hoc |
 | BHR24 | **Treating another person needs their consent or a declared emergency rule.** Care builds ties only when it actually happened. (BHC12, H35M11) | Affection or ownership standing in for consent |
@@ -79,7 +80,7 @@ exception with an in-world reason and cost.
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| BHR30 | **Carried remedies and diseases follow declared world-pair rules.** A power-carrying remedy works by its own law unless the destination suppresses that power type; plain chemistry follows local physics. Cross-world contagion is off by default and enabled by a setting or story. (BHC17, BHC18) | Potions that silently fail or silently work everywhere; plagues the player never chose |
+| BHR30 | **Carried remedies and diseases work wherever their mechanism works (AD38).** A potion that draws on its own stored power works in a world without magic; one that needs ambient mana weakens or fails where there is none, because the mechanism is missing, not because of a label. Plain chemistry follows local physics. Cross-world contagion is off by default and enabled by a setting or story. (BHC17, BHC18, BHC33) | Potions that silently fail or silently work everywhere; plagues the player never chose |
 
 ## Open details
 

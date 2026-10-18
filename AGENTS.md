@@ -89,6 +89,11 @@ the playable result. Record accepted decisions in PROJECT.md.
   conditions yourself, and ask only about build order, first-slice defaults,
   save compatibility, effort or anything irreversible. No either/or open
   questions in docs or replies.
+- **Things work by how they work** (AD38, 2026-10-17). If a method, potion,
+  tool or plan reasonably works by the mechanisms in play, it works, whatever
+  its label or category; nothing needs a permission list to happen. Model
+  mechanisms, not allowed-outcome lists, and let costs and the world's real
+  mechanisms decide what "reasonably" means.
 - **Write constraints as default, dial and reason** (the in-world reason and
   cost), not never/always/only. No design line holds for every world. A world's
   stated absolutes, canon ones included, describe the ordinary case; exceptions

@@ -36,7 +36,7 @@ open here too.
 | Set | Codes | Status | Covers | Owner |
 |---|---|---|---|---|
 | Foundational rulebook | Rulebook 1–12 | Accepted 2026-10-10 | Multiverse-wide principles: worlds set their own rules, carriers, means, bodies, time, outliers | [RULES_FROM_SCRATCH](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) |
-| Accepted direction rules | AD1–AD37 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process | [Below](#accepted-direction-rules-ad) |
+| Accepted direction rules | AD1–AD38 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process | [Below](#accepted-direction-rules-ad) |
 | UI rules | UR1–UR58 | Standing 2026-10-15 | All player-facing UI | [UI_RULES](UI_RULES.md) |
 | Architecture rules | AR1–AR16 | Standing 2026-10-16 | All runtime code: composition root, domain registry, save slices, seams | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
 | Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
@@ -49,7 +49,7 @@ open here too.
 | Source research | none | Standing | Saved-source reuse, acquisition and bounded deep dives of books, games and wikis | [Acquisition tools](research/SOURCE_ACQUISITION_TOOLS.md), [deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md) |
 | Generation foundation rules | GR1–GR17 | Proposal 2026-10-14 | Contract for every generator | [GENERATION_FOUNDATION_RULES](GENERATION_FOUNDATION_RULES_2026-10-14.md) |
 | Complexity guardrails | CX1–CX8 | Proposal 2026-10-16 | Keeping depth while bounding implementation | [Part 9 pass](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md) |
-| Body and health rules | BHR1–BHR30 | Proposal 2026-10-17 (BHR1, BHR6, BHR14, BHR16 restate accepted AD13, AD8, AD19 and no hunger death) | Bodies, carriers, injury, illness, poison, healing, medicine, recovery, body wear across worlds | [BODY_AND_HEALTH_RULES](BODY_AND_HEALTH_RULES.md) |
+| Body and health rules | BHR1–BHR30 | Proposal 2026-10-17 (BHR1, BHR6, BHR14, BHR16 restate accepted AD13, AD8, AD19 and no hunger death; BHR21, BHR30 accepted through AD38) | Bodies, carriers, injury, illness, poison, healing, medicine, recovery, body wear across worlds | [BODY_AND_HEALTH_RULES](BODY_AND_HEALTH_RULES.md) |
 | World completion standard | none | Proposal 2026-10-11 | Sections, detail ledger and acceptance for a world | [WORLD_COMPLETION_STANDARD](WORLD_COMPLETION_STANDARD.md) |
 
 ## Router: what applies to my task
@@ -58,7 +58,7 @@ open here too.
 |---|---|---|
 | Any runtime code | AR1–AR16; AR14 for lane briefs, AR16 before calling it done | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
 | Any player-facing UI | UR1–UR58, AD34; mockup workflow if layout is unsettled | [UI_RULES](UI_RULES.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md) |
-| Making or crafting of any kind | MR1–MR36, AD9 | [CRAFTING_ENGINE](CRAFTING_ENGINE.md) |
+| Making or crafting of any kind | MR1–MR36, AD9, AD38 | [CRAFTING_ENGINE](CRAFTING_ENGINE.md) |
 | Sites, ruins, caves, maps, exploration, restoration | SR1–SR24, AD3, AD33 | [Site palette](gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md), [ruins](gm/dispatch/procgen-2026-10-13/p11/DUNGEON_CONTENT.md) |
 | Generators, RNG, seeds | MR2–MR3, MR28, SR20, Rulebook 9; GR1–GR17 as the recommended contract | [Procedural status](PROCEDURAL_GENERATION_STATUS_2026-10-13.md) |
 | A new world or book adaptation | Rulebook 2–3, AD1–AD5, MR11–MR15, SR1–SR3 | [Rulebook precedent](RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12), [completion standard](WORLD_COMPLETION_STANDARD.md), source research |
@@ -66,7 +66,7 @@ open here too.
 | Shown numbers, appraisal, opponent stats | AD6–AD8, UR40 | [MEANS_AND_APPRAISAL](MEANS_AND_APPRAISAL.md) |
 | Lives, death, rebirth, return, carryover | Rulebook 4–5, AD10–AD14, AD19–AD20 | [Continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md), [identity owner](worlds/PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md) |
 | Time, idle, offline, recap | Rulebook 7, AD15–AD18, MR28, SR21 | [DIRECTION_SUMMARY](DIRECTION_SUMMARY.md), [DIRECTION_SYNTHESIS](DIRECTION_SYNTHESIS.md) |
-| Bodies, health, injury, illness, medicine, healing | AD13, AD19, AD8, MR1–MR36; BHR1–BHR30 as the proposed rulebook | [Part 35 palette](worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md), [body and health palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md) |
+| Bodies, health, injury, illness, medicine, healing | AD13, AD19, AD8, AD38, MR1–MR36; BHR1–BHR30 as the proposed rulebook | [Part 35 palette](worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md), [body and health palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md) |
 | Danger, defeat, difficulty, settings | AD19–AD22, SR14 | [DIRECTION_SYNTHESIS](DIRECTION_SYNTHESIS.md#od12-forgiving-recovery-direction-2026-10-15) |
 | Cheats | Rulebook 5, 11; AD26, AD28–AD30, AD11 | [CHEAT_COSMOLOGY](CHEAT_COSMOLOGY.md), [CHEAT_LIBRARY](CHEAT_LIBRARY.md) |
 | Starts and entry | AD23, Rulebook 8 | [Intro and starts index](INTRO_AND_STARTS_INDEX_2026-10-14.md) |
@@ -104,6 +104,7 @@ unless another owner is linked.
 | AD7 | **One authoritative record per subject.** Truth, observer knowledge and representation stay distinct. | OD8 |
 | AD8 | **Opponent numbers are learned; own stats are exact.** First sight shows impressions and `???`. | Learned opponent numbers (2026-10-16) |
 | AD9 | **Forecasts reflect knowledge.** Experiment costs, risks and predictions follow what is known; failed experiments can teach; cheats can help discover. | Predictions and question triage; OD25 |
+| AD38 | **Things work by how they work.** If a method, item or plan reasonably works by the mechanisms in play, it works, whatever its label, category or origin; nothing needs a permission list to happen. Costs, means and the world's actual mechanisms decide "reasonably". | [Things work by how they work](USER_VISION.md#things-work-by-how-they-work-2026-10-17) |
 
 ### Self, lives and carryover
 

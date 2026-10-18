@@ -159,3 +159,38 @@ Lanes B1 and B2 ran as Claude subagents. Corrections first.
 | BHL6 | `health` domain projection only, one `main.js` registration line, no save slice (B1-S1) | Strong, S | Body & recovery, status care and field care read the projection; rebuilt browser check at 1920×1080 and 1366×768 |
 | BHL7 | One mild injury condition from a shared defeat publisher, behind the BHR15 setting (B1-S2, BHC31) | Medium, S–M | All three defeat routes apply it when the setting is on and none when off; save, reload and import keep it |
 | BHL8 | `health` save slice only for facts with no owner (cause records, diagnosis knowledge, care plans) (B1-S3) | Later, M | Migration from saves without the slice; regression for missing fields |
+
+## Round 2: things work by how they work, 2026-10-17
+
+Weibao (2026-10-17): "For considerations, potions work by virtue of how they work, if it's
+methodolocgy reasonably wotks it works, that shoukd be a standing rule things can happen if they
+can happen". Recorded as accepted AD38 ([USER_VISION](USER_VISION.md#things-work-by-how-they-work-2026-10-17)).
+This round applies it to bodies and medicine. New angles only.
+
+| Code | Consideration | Default, dial and reason |
+|---|---|---|
+| BHC32 | **Placebo follows mechanism too.** Belief eases pain and fear by default; it repairs tissue only in a world whose mechanism lets belief act (faith magic, mind-over-body cultivation) | Replaces BHC7's "world law with a stated size" with "the world's mechanism decides". Reason: AD38 applies to belief like anything else |
+| BHC33 | **Suppression is a missing mechanism, not a label.** A potion with stored power works in a magic-dead world; one that pulls ambient mana fails there; a blessing that calls on a god works where that god can reach | Rewrites BHC17. Engine: each remedy declares what it draws on (stored charge, ambient field, patron, body's own reserves, chemistry), and the destination provides or lacks it. Reason: no per-world-pair whitelist to maintain |
+| BHC34 | **Off-label uses work.** Healing salve on a cracked tool handle, a poison as anaesthetic, a fertilizer tonic on a sick animal, a curse that slows a bleed | Default: effects are authored as properties acting on carrier kinds (MR8 composition), so an unplanned target resolves by compatibility. The forecast shows uncertainty for untested uses (AD9). Reason: no "invalid target" refusals |
+| BHC35 | **Knowledge works if the world's truth agrees.** Boiling water and handwashing help in a fantasy world that has germs; in a world where illness really is humoral or spiritual, germ theory fails | Default: carried medical knowledge is a hypothesis tested against the world's true cause (BHR8 claims). Reason: AD38 cuts both ways; modern knowledge is strong only where its mechanism holds |
+| BHC36 | **Limits come from mechanisms, so they stay.** Cost, conservation (BHR22), dose and the body's own capacity still bound what works | Default: an attempt that reasonably works also pays what that mechanism costs. Reason: "it works" is not "it is free" |
+| BHC37 | **Combination play is real.** Two remedies that each work can together do something neither was made for | Default: the condition authority (BHR23) resolves combined mechanisms; new useful combinations become recorded methods (MR10). Reason: discovery play from AD38 |
+
+### ACT NOW (done this round)
+
+| Code | Action | Done check |
+|---|---|---|
+| BHA5 | Recorded AD38 in USER_VISION, PROJECT accepted decisions, RULES_INDEX and AGENTS design framing | Those files |
+| BHA6 | Rewrote BHR21 and BHR30 under AD38 and marked them accepted through it | [BODY_AND_HEALTH_RULES](BODY_AND_HEALTH_RULES.md) |
+| BHA7 | Noted AD38 in making rules as the generalization of MR1 and MR6–MR7 | [MAKING_RULES](MAKING_RULES.md) |
+| BHA8 | Linked the body and health rules and the BHX corrections into the genetics plan interactions (GHS41a) and part 35 | Those files |
+
+### Fix plan for the round 1 corrections
+
+| Code | Fix | Owner and slice |
+|---|---|---|
+| BHF1 | Famine wording (BHX1): part 35 now carries a dated note; USER_VISION's 2026-10-13 line stays as dated history | Done (docs) |
+| BHF2 | Body-keyed conditions (BHX3, BHN5): when genetics S2 adds the `heredity` body instance, new body conditions key by that instance | Genetics plan S2 (GHS27) |
+| BHF3 | One tolerance owner (BHX4, BHN7) | First health slice that touches poison (BHL2) |
+| BHF4 | Shared defeat publisher (BHC31) before any injury-on-defeat setting | BHL7 |
+| BHF5 | One body projection for the four care hosts (BHN8) | BHL6, the cheapest first health slice |

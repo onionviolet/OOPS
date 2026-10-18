@@ -3455,3 +3455,17 @@ palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md) (BHC1-BHC26, extending pa
 as a proposal. Only the rows restating AD13, AD8, AD19 and no hunger death are accepted direction;
 the rest await his acceptance. Other gaps from the same survey, not started: combat (G2), skills
 and learning (G3), economy and trade (G4), travel and logistics (G5).
+
+### Things work by how they work, 2026-10-17
+
+Weibao, after the body and health round: "For considerations, potions work by virtue of how they work, if it's methodolocgy reasonably wotks it works, that shoukd be a standing rule things can happen if they can happen". Standing rule, recorded as AD38 in
+[RULES_INDEX](RULES_INDEX.md#knowledge-and-means) and in AGENTS.md design framing: an outcome
+follows from how the thing actually works. If a method, potion, tool, technique or plan
+reasonably works by the mechanisms in play, it works, whatever its label, origin, category or
+whether anyone planned for it. Nothing needs to be on a permission list to happen. Costs, means
+and the world's real mechanisms still apply, and a world's own mechanism decides what "reasonably
+works" means there. Applied to [body and health rules](BODY_AND_HEALTH_RULES.md) BHR21 and BHR30
+(now accepted through AD38), noted in [making rules](MAKING_RULES.md), and linked into the
+[genetics plan](GENETICS_AND_HERO_START_PLAN_2026-10-17.md) interactions and part 35.
+[Palette round 2](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md#round-2-things-work-by-how-they-work-2026-10-17)
+records the consequences.

@@ -40,4 +40,5 @@ First run used Claude subagents because Codex was not installed on this machine.
 
 | Date | Round | What changed |
 |---|---|---|
-| 2026-10-17 | 1 | Palette BHC1–BHC26, rulebook draft BHR1–BHR30, lanes B1 and B2 |
+| 2026-10-17 | 1 | Palette BHC1–BHC31, rulebook draft BHR1–BHR30, lanes B1 and B2 |
+| 2026-10-17 | 2 | AD38 accepted (things work by how they work); BHC32–BHC37, BHR21 and BHR30 rewritten, fix plan BHF1–BHF5 |

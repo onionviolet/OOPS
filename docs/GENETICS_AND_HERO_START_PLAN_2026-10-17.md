@@ -211,6 +211,7 @@ as "a selected slice consumes it".
 | GHS37 | Making (MR1–MR36) | Samples are information and potential (SO1–SO12); not in S1–S4 |
 | GHS38 | UI surfaces | You header (form, stage), Biography (heritage, how you began), Journal (first entry), Beginning view; at the floors nothing new pushes routine actions off-screen |
 | GHS39 | Time and offline (AD15–AD16) | Aging and growth use `game_time`; offline body time by formula only (MT2–MT3) |
+| GHS41a | Body and health (proposed [BHR1–BHR30](BODY_AND_HEALTH_RULES.md), AD38) | Body conditions key by the `heredity` body instance from S2 on, not by actor (BHF2); a carried skill in a new body keeps knowledge and recalibrates control (BHR29); remedies and constitutions work by their mechanism (AD38) |
 | GHS40 | Settings (AD21) | Body realism is a comfort setting (NA2); heredity effect size is a world dial, explained when changed |
 
 ## 6. Decisions for Weibao
