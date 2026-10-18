@@ -477,3 +477,110 @@ fairness. Proposed defaults:
 | L5 | Investment stake with dividends and failure | strong designer + coder | M–L | A stake pays over time, can fail for a stated reason and is saved exactly |
 | L6 | Canon foreknowledge trading in one adapted world | designer | M | A foreseen event pays, and a disturbed course shows a visible divergence loss |
 | L7 | Finite merchant purses by settlement size | mid coder | S–M | Migration keeps old saves unlimited; a village purse empties and refills over time |
+
+## Selling, merchant sinks and money fun, consideration round 2, 2026-10-18
+
+**Prompt (Weibao, 2026-10-18):** "more to consider, then address things." Round 1
+codes (M1–M5, A6–A9, L1–L7) stay; this round adds new angles only.
+
+**Shown in source today:** [native_trade_transaction.js:12](../../../../../src/native_trade_transaction.js)
+rejects any price, money total or debit above `Number.MAX_SAFE_INTEGER` (about
+9×10^15) with "Invalid trade price." The sold goods move into the vendor's owned
+stock (`ownership.vendor`), so a sold item stays buyable from that merchant until
+its stock changes. [trade.js](../../../../../src/trade.js) builds sell lists item
+by item, and no batch or rule-based sell exists.
+
+### M6: selling must stay easier than buying everything
+
+"Anyone buys anything" (M3) is safe. "Anyone sells anything" at fair prices is
+the one that would empty gathering and making of meaning, because a full purse
+would replace every recipe. Default: buying and selling stay asymmetric. Merchants
+mark up, specialists stock limited quantities, and rare inputs and made-to-order
+quality come through making, commission or finding. A world can loosen this with
+a reason, such as a System shop that sells everything (common in LitRPG). In that
+case making earns its place through quality, custom traits or price, and the shop
+stays a convenience.
+
+### M7: money is local, so each world's engine is its own
+
+Under AD27, coin from one world doesn't spend in another without a means. This is
+the strongest built-in balance tool: a fortune in one world is a fresh start in the
+next. Exchangers, portable valuables (gems, gold by weight, rare reagents) and
+cheats become the cross-world bridges, each with a rate and a cost. Treat this as
+a feature to show the player ("this coin is no good here; gold by weight is"),
+not a wall.
+
+### M8: selling chores fit an idle game badly
+
+Clicking dozens of sales by hand fights the genre. Proposed default: sell rules
+at the same depth as other idle automation, such as "sell everything tagged junk",
+"keep 5, sell the rest" and "send surplus potions to the apothecary daily".
+In-world forms include a porter or apprentice who hauls for a cut, a guild drop
+box, a System auto-sell, or a familiar. A rule that runs while the player is away
+follows A8 (offline accounting and recap).
+
+### M9: undo through the merchant's real stock
+
+Selling the wrong item is the most common shop regret. Because sold goods already
+sit in the vendor's stock, the default fix is in-world: the merchant still has it
+and sells it back, at their price or at the sale price for a short grace period.
+It never disappears into a void. A quest-critical, unique or sealed item gets a
+confirmation before sale and lands with the merchant or a collector afterward,
+so it can be recovered. A lost story item is a choice the player made knowingly.
+
+### M10: sell services, knowledge and information, not only goods
+
+Healing, teaching, hauling, guarding, appraisal, map copies (a map is an
+information artifact, SR), recipe licenses (a buyer learns a formula under MR's
+knowledge rules) and translations all turn capability into money with no stock or
+saturation of goods. Their limits are time, reputation and how many people need
+the service.
+
+### M11: market knowledge is a skill
+
+What sells where, each good's absorption rate and buyer purses can start hidden
+(AD3, AD6–AD8) and be learned through trading experience, a merchant friend,
+gossip, a ledger or a System panel. Mastery shows more of the market and improves
+haggling, which already exists in the trader code. It never changes the market
+itself, matching MR's rule that mastery improves control, not truth.
+
+### M12: money across lives and rebirth
+
+Investments, shops, consignments and standing orders persist after the character
+does unless a world's continuation rules say otherwise (AD10–AD14). An heir, a
+bank, a guild account or a buried cache are carryover means with their own costs.
+Each needs a stated carryover outcome per continuation type, or a prestige reset
+could silently delete a whole economy.
+
+### ACT NOW (done this round)
+
+- Saved M6–M12 and the source facts above.
+
+### ACCOUNT FOR NOW
+
+- **A10:** the safe-integer ceiling is real for long idle growth. Any income
+  that compounds (L3–L5, M8) needs either an in-world denomination step (bank
+  notes, gold bars, a higher-tier currency) or a later BigInt/decimal migration.
+  It must not overflow into "Invalid trade price" errors. Display large numbers
+  in compact form.
+- **A11:** sell rules (M8) act on the player's inventory while unattended, so they
+  must skip equipped, locked, quest, unique and sealed items by default. Their
+  runs need to be logged like other idle actions (clean log rules, UR41–UR48).
+- **A12:** buyback (M9) depends on vendor stock surviving the refresh. Today a
+  scheduled refresh can replace it. Any grace-period promise must define what the
+  refresh keeps.
+- **A13:** maker reputation (M2 rising curves) needs saved state per good and per
+  place. Reuse N7's reputation record rather than adding a parallel one.
+- **A14:** carryover of shops and investments (M12) is a save-shape decision.
+  Decide per continuation type before L5 ships.
+
+### LATER / DELEGATE
+
+| Code | Item | Level | Effort | Done check |
+|---|---|---|---|---|
+| L8 | Sell rules: junk tag, keep-N, daily surplus to a named buyer | mid coder | M | Rule sells only eligible items, skips locked/quest/equipped, logs once per run, survives save/reload/import |
+| L9 | Buyback from vendor stock with a sale-price grace window | mid coder | S | Sell then buy back at sale price within the window; after refresh the defined outcome holds |
+| L10 | Confirm and recover path for unique or quest items | mid coder | S | Selling a quest item asks first; the item is later findable at the merchant or a collector |
+| L11 | Large-number money plan (denomination step or BigInt) | strong coder | M–L | A save with money near 9×10^15 trades without errors; display stays readable at 1366×768 |
+| L12 | Market inspector debug view (absorption, purse, curve per good) | mid coder | S | Inspector shows live values and changes nothing; matches quoted prices |
+| L13 | One service sale (appraisal or healing) as income | designer + coder | M | Service pays from a funded NPC purse with no item moved |
