@@ -57,6 +57,25 @@ test('rejected write restores output, debit, XP milestones, unlocks, quests, rec
     assert.equal(f.fort(), oldFort); assert.equal(f.ledger(), oldLedger);
     assert.equal(tx.rollback(), false);
 });
+test('AR3/MR5: rejected craft restores an active quest replaced in the registry, including private task state', () => {
+    const registered = new Quest([new Quest()]), activeQuest = new Quest([new Quest()]);
+    registered.getAvailabilityComponent().is_unlocked = true;
+    registered.quest_tasks[0].getAvailabilityComponent().is_finished = true;
+    const quests = {q: registered}, active = {q: activeQuest};
+    const before = [registered, activeQuest].flatMap(q => [q, ...q.quest_tasks])
+        .map(q => ({...q.getAvailabilityComponent()}));
+    const tx = beginNativeCraftTransaction({owners: nativeCraftQuestOwners(quests, active)});
+    for (const q of [registered, activeQuest]) {
+        q.getAvailabilityComponent().is_unlocked = !q.getAvailabilityComponent().is_unlocked;
+        q.quest_tasks[0].getAvailabilityComponent().is_finished = !q.quest_tasks[0].getAvailabilityComponent().is_finished;
+    }
+    delete quests.q; active.q = new Quest();
+    assert.equal(tx.rollback(), true);
+    assert.equal(quests.q, registered); assert.equal(active.q, activeQuest);
+    assert.deepEqual([registered, activeQuest].flatMap(q => [q, ...q.quest_tasks])
+        .map(q => ({...q.getAvailabilityComponent()})), before);
+});
+
 test('success is retained when post-durable presentation throws', () => {
     const f = fixture(), tx = f.begin(); let stored;
     assert.throws(() => {

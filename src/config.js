@@ -31,7 +31,9 @@ const config = {
 
     base_block_chance: 0.75, //+ another 0.2 from the skill
 
-    do_hero_creation: true,
+    // Temporarily go straight to play with a valid default hero. Keep the
+    // creation UI available for a later meaningful starting-choice flow.
+    do_hero_creation: false,
 
     //when changing either, make sure to remove text in hero creation panel that says they are purely cosmetic
     use_racial_bonuses: false, //check detailed bonuses in race.js; current values were not tested and might be terribly unbalanced

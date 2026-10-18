@@ -382,7 +382,7 @@ export const bookRosterProfiles = freezeTree([
         "No source book metaphysics, new childhood or universal reincarnation/reset selected."
       ],
       "activatedByThisModule": false,
-      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. No generic conversion or credential jurisdiction.",
+      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. Free carry or conversion requires a supported world, hub, cheat or verse-equalization contract; costs follow the actual means, including source-supported absence of cost. Credentials retain their actual jurisdiction.",
       "clockDisposition": "Unsupported absence frozen by current prototype policy, not claimed as source canon. No new browser-closed loss/growth/time settlement."
     },
     "deepChain": {
@@ -753,7 +753,7 @@ export const bookRosterProfiles = freezeTree([
         "PR07 approximate timing conflict; no universal all-world passage or safe extraction."
       ],
       "activatedByThisModule": false,
-      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. No generic conversion or credential jurisdiction.",
+      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. Free carry or conversion requires a supported world, hub, cheat or verse-equalization contract; costs follow the actual means, including source-supported absence of cost. Credentials retain their actual jurisdiction.",
       "clockDisposition": "Unsupported absence frozen by current prototype policy, not claimed as source canon. No new browser-closed loss/growth/time settlement."
     },
     "deepChain": {
@@ -1086,7 +1086,7 @@ export const bookRosterProfiles = freezeTree([
         "SU4/SU6 dragon/source/soul/exceptional realm passage or revival."
       ],
       "activatedByThisModule": false,
-      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. No generic conversion or credential jurisdiction.",
+      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. Free carry or conversion requires a supported world, hub, cheat or verse-equalization contract; costs follow the actual means, including source-supported absence of cost. Credentials retain their actual jurisdiction.",
       "clockDisposition": "Unsupported absence frozen by current prototype policy, not claimed as source canon. No new browser-closed loss/growth/time settlement."
     },
     "deepChain": {
@@ -1426,7 +1426,7 @@ export const bookRosterProfiles = freezeTree([
         "FU6 era/faction altered-event response."
       ],
       "activatedByThisModule": false,
-      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. No generic conversion or credential jurisdiction.",
+      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. Free carry or conversion requires a supported world, hub, cheat or verse-equalization contract; costs follow the actual means, including source-supported absence of cost. Credentials retain their actual jurisdiction.",
       "clockDisposition": "Unsupported absence frozen by current prototype policy, not claimed as source canon. No new browser-closed loss/growth/time settlement."
     },
     "deepChain": {
@@ -1769,7 +1769,7 @@ export const bookRosterProfiles = freezeTree([
         "EU6 spiritual/imported-soul/Great Rune authority."
       ],
       "activatedByThisModule": false,
-      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. No generic conversion or credential jurisdiction.",
+      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. Free carry or conversion requires a supported world, hub, cheat or verse-equalization contract; costs follow the actual means, including source-supported absence of cost. Credentials retain their actual jurisdiction.",
       "clockDisposition": "Unsupported absence frozen by current prototype policy, not claimed as source canon. No new browser-closed loss/growth/time settlement."
     },
     "deepChain": {
@@ -2117,7 +2117,7 @@ export const bookRosterProfiles = freezeTree([
         "NU6 exact era population/leadership/organs."
       ],
       "activatedByThisModule": false,
-      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. No generic conversion or credential jurisdiction.",
+      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. Free carry or conversion requires a supported world, hub, cheat or verse-equalization contract; costs follow the actual means, including source-supported absence of cost. Credentials retain their actual jurisdiction.",
       "clockDisposition": "Unsupported absence frozen by current prototype policy, not claimed as source canon. No new browser-closed loss/growth/time settlement."
     },
     "deepChain": {
@@ -2461,7 +2461,7 @@ export const bookRosterProfiles = freezeTree([
         "BU7 exact earlier/endpoint state."
       ],
       "activatedByThisModule": false,
-      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. No generic conversion or credential jurisdiction.",
+      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. Free carry or conversion requires a supported world, hub, cheat or verse-equalization contract; costs follow the actual means, including source-supported absence of cost. Credentials retain their actual jurisdiction.",
       "clockDisposition": "Unsupported absence frozen by current prototype policy, not claimed as source canon. No new browser-closed loss/growth/time settlement."
     },
     "deepChain": {
@@ -2768,7 +2768,7 @@ export const bookRosterProfiles = freezeTree([
         "Supplemental registry inclusion and source exceptions before direct native implementation."
       ],
       "activatedByThisModule": false,
-      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. No generic conversion or credential jurisdiction.",
+      "portableCarrierPolicy": "Per edge, actual body/controller/memory/method/source/fuel/goods/custody/title/debt/allies/observer scope needs an explicit native contract. Free carry or conversion requires a supported world, hub, cheat or verse-equalization contract; costs follow the actual means, including source-supported absence of cost. Credentials retain their actual jurisdiction.",
       "clockDisposition": "Unsupported absence frozen by current prototype policy, not claimed as source canon. No new browser-closed loss/growth/time settlement."
     },
     "deepChain": {

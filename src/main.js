@@ -484,6 +484,12 @@ function commitLocalDateHeader() {if (!restoringNativeSave) localDateLog.commit(
 
 import {prepareV06Save} from "./save_migration.js";
 
+import {beginContinuation, observeContinuation, continuationView, planContinuation} from './continuation_state.js';
+import {createContinuationHost} from './continuation_host.js';
+import {createContinuationUI} from './continuation_ui.js';
+import {suspendEngine} from './simulation_clock.js';
+let continuationState=null, continuationPanel=null, continuationArrivalRelease=null;
+
 const save_key = "save data";
 const dev_save_key = "dev save data";
 const backup_key = "backup save";
@@ -1680,6 +1686,7 @@ function buildSimulationNativeContexts(readFrame) {
     Object.assign(contexts.player.facts,techniqueFacts(expansionState.actors.player,expeditionRegistry,contexts.player));
     const gameplay=gameplaySnapshot(),vitals=Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,c.vitals]));
     for(const [id,c] of Object.entries(contexts))Object.assign(c,{managementPlayerLocation:current_location?.id,managementPlayerAlive:character.is_alive===true,actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,nativeReady:!active_effects.Recovering,inventoryOwners:structuredInventoryOwners(),structuredNative:optionalPackState.structured?{...optionalPackState.structured,bound:true}:null,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,...(id==="player"?{"skill.Crafting":character.getTotalSkillLevel("Crafting")}:{}),"weather.raining":getPacingEffects(homePacingContext()).raining,...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext(readFrame).facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
+    contexts.player.generatedPeopleFrame={people:generatedPeopleSnapshot(calendarMinutes(current_game_time)),clock:expansionState.clock};
     const joined=nestedChainSimulationContexts(expansionState,nestedSimulationContexts(expansionState,contexts));
     for(const [id,c] of Object.entries(joined))joined[id]=nestedLifeContext(expansionState,c);
     return proto23SimulationContexts(expansionState,worldCompletionSimulationContexts(expansionState,lorePracticeSimulationContexts(expansionState,causalStorySimulationContexts(expansionState,auditRemainderSimulationContexts(expansionState,molSimulationContexts(expansionState,paradiseSimulationContexts(expansionState,joined)))))));
@@ -6208,12 +6215,72 @@ function is_JSON(str) {
  * puts all important stuff into a string
  * @returns string with save data
  */
+
+// Quiet continuation owns no second save slot and uses the same lifetime writer.
+function continuationCanWrite() {return ownsSave&&!importProbeToken&&!foundationSaveBlocked&&!is_loading_error&&!authorityBootError&&!authorityBootPending;}
+function continuationOccupied() {return !!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()||nativeOccupationReason());}
+function observeContinuationLearning() {
+    if(!continuationState||importProbeToken||authorityOperationBusy||!global_flags.is_hero_created)return;
+    const skill_xp=Object.fromEntries(Object.entries(character.getLevelableComponent().skill_progress).map(([id,p])=>[id,p.total_xp]));
+    observeContinuation({'current time':current_game_time,continuation:continuationState,life_record:lifeRecord,levels:{person:{main_character:{skill_xp}}}},
+        {canStudy:continuationCanWrite()&&!continuationOccupied()&&!continuationState.arrivalPaused&&character.getBio().race==='human'&&character.getBio().age==='adult',knownSkills:Object.keys(skill_xp).filter(id=>skills[id]&&nativeSkillDiscovery(skills[id],character))});
+}
+function readContinuationUI() {
+    const partial={continuation:continuationState,expansion:expansionState,content_packs:optionalPackState,character:{bio:character.getBio()},'current time':current_game_time};
+    return {...continuationView(partial),created:!!global_flags.is_hero_created,legacy:hasLoadedNativeSave,
+        canWrite:continuationCanWrite()&&!authorityOperationBusy,busy:continuationOccupied()};
+}
+function publishContinuation(next) {
+    validateSaveEnvelope(next,game_version);
+    if(!continuationCanWrite())throw Error('The save is not writable. Your life is kept.');
+    const bytes=JSON.stringify(next);
+    if(authorityEnrolled())nativeAuthority.commitPreparedSave(bytes);
+    else writeGuardedSave(localStorage,is_on_dev()?dev_save_key:save_key,bytes);
+}
+const continuationHost=createContinuationHost({
+    capture:()=>JSON.parse(create_save()),preflight:preflightImport,publish:publishContinuation,ownsSave:continuationCanWrite,
+    revision:()=>activeNativeBytes(is_on_dev()?dev_save_key:save_key),fresh:async()=>JSON.parse(await freshNativeSave()),
+    freeze:()=>{const release=suspendEngine();authorityOperationBusy=true;return release;},
+    thaw:release=>{authorityOperationBusy=false;release();},
+    reload:next=>{
+        continuationState=structuredClone(next.continuation);
+        const kind=next.continuation.lastTransition.kind;
+        if(['study','set','loop','continue'].includes(kind)||kind.startsWith('loop:')) {
+            if(kind==='continue'){continuationArrivalRelease?.();continuationArrivalRelease=null;}
+            continuationPanel?.render(true);return;
+        }
+        foundationSaveBlocked=true; // The old runtime must never overwrite a durably switched life.
+        window.location.reload();
+    }
+});
+async function commandContinuation(action) {
+    if(!continuationCanWrite())throw Error('Use the writable game tab.');
+    if(action==='enroll') {
+        if(authorityOperationBusy)throw Error('Another transition is being checked.');
+        const release=suspendEngine();authorityOperationBusy=true;
+        try {const next=beginContinuation(JSON.parse(create_save()),crypto.randomUUID());await preflightImport(next);publishContinuation(next);continuationState=next.continuation;}
+        finally {authorityOperationBusy=false;release();}
+        return;
+    }
+    if(action==='study'&&continuationOccupied())throw Error('Finish current work before investigating. Return itself remains available.');
+    observeContinuationLearning();
+    return continuationHost.command(action,{expectedSequence:continuationState.sequence,token:crypto.randomUUID()});
+}
+function maybeRepeatContinuation() {
+    const c=continuationState;
+    if(!c?.loop.enabled||authorityOperationBusy||!continuationCanWrite()||c.arrivalPaused)return;
+    // Only a persisted opt-in starts a new cycle. Replaying the same event cannot.
+    const t=current_game_time,at=(((t.year*12+t.month)*30+t.day)*24+t.hour)*60+t.minute;
+    if(at>=c.loop.nextAt)commandContinuation('cycle').catch(error=>{c.loop.enabled=false;try{publishContinuation(JSON.parse(create_save()));}catch{/* Preserve the authoritative root if storage cannot record the pause. */}log_message('Repeat loop paused: '+error.message,'notification');});
+}
+
 function create_save({forExport = false} = {}) {
     try{
         if(!ownsSave) throw new Error("This tab does not own the save. Close the other game tab and reload.");
         if((foundationSaveBlocked && !(forExport && lifeStorageFailure)) || is_loading_error) throw new Error("Saving disabled after a loading error. Preserve the original save and use a compatible build.");
         const save_data = {};
         save_data["game version"] = game_version;
+        if(continuationState) {observeContinuationLearning();save_data.continuation=structuredClone(continuationState);}
         save_data["current time"] = current_game_time;
         save_data["language"] = language;
         save_data.saved_at = get_date();
@@ -6592,6 +6659,8 @@ function load(save_data) {
             syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());
             save_data = validateSaveEnvelope(save_data, game_version);
+            continuationState=save_data.continuation?structuredClone(save_data.continuation):null;
+            if(!importProbeToken&&continuationState?.arrivalPaused&&!continuationArrivalRelease)continuationArrivalRelease=suspendEngine();
             p23DropObservations=save_data.p23_drop_observations===undefined?undefined:validateDropObservations(save_data.p23_drop_observations);
             loadedDisplayPreferences=save_data.display_preferences;
             setMixtureOwner(save_data.mixtures);
@@ -8405,9 +8474,11 @@ async function load_from_file(save_string) {
     if(importProbeToken||importInProgress||authorityOperationBusy)return;
     if(!ownsSave){log_message('Import blocked: this tab is read-only.','message_critical');return;}
     importInProgress=true;
+    let releaseImport;
     try {
         const enrolled=authorityEnrolled();
-        if(enrolled){assertAuthorityIdle();authorityOperationBusy=true;}
+        if(enrolled)assertAuthorityIdle();
+        releaseImport=suspendEngine();authorityOperationBusy=true;
         const raw=save_string.trim(),prefix='YAIR-UTF8-1:';
         let candidate;
         try{const binary=atob(raw.startsWith(prefix)?raw.slice(prefix.length):raw);candidate=JSON.parse(raw.startsWith(prefix)?new TextDecoder('utf-8',{fatal:true}).decode(Uint8Array.from(binary,c=>c.charCodeAt(0))):binary);}catch{throw Error('The file is not a valid save.');}
@@ -8420,8 +8491,9 @@ async function load_from_file(save_string) {
         } else {
             await importSaveFile(save_string,{currentVersion:game_version,preflight:preflightImport,storage:lifeSaveStorage,key:is_on_dev()?dev_save_key:save_key});
         }
+        foundationSaveBlocked=true;
         window.location.reload(false);
-    }catch(error){authorityOperationBusy=false;importInProgress=false;log_message('Import rejected. Current save kept. '+error.message,'message_critical');}
+    }catch(error){authorityOperationBusy=false;importInProgress=false;releaseImport?.();log_message('Import rejected. Current save kept. '+error.message,'message_critical');}
 }
 
 /**
@@ -9214,11 +9286,13 @@ function run() {
     }
     
     update_displayed_health();
-    if(config.do_hero_creation) {
-        fill_character_bio();
-    }
+    fill_character_bio();
         
-    start_date = Date.now();
+    if(!continuationState&&!hasLoadedNativeSave&&global_flags.is_hero_created) {
+        try {const first=beginContinuation(JSON.parse(create_save()),crypto.randomUUID());publishContinuation(first);continuationState=first.continuation;}
+        catch(error){log_message('Connection baseline could not be established: '+error.message,'notification');}
+    }
+    start_date = engineNow();
     update();
     // RT8 test hook: replay ticks away (one game minute each while awake) through the sliced
     // stepper. No player offline policy exists yet; who gets time away stays a design decision.
@@ -10072,6 +10146,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     const refreshSiteEditor=()=>authoredSiteEditor.refresh();
     setInterval(()=>{if(!deferWhileHidden(refreshSiteEditor,refreshSiteEditor))refreshSiteEditor();},500);
     registerWorkspaceModule({id:'customization-sites',title:'Original site',node:authoredHost,home:'center'});
+    continuationPanel=createContinuationUI({read:readContinuationUI,command:commandContinuation});
+    setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();}},500);
     mountWorkspace();
     mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId})});
     refreshCustomization();
@@ -10090,7 +10166,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         }});
 }
 
-if(game_options.skip_play_button && !importProbeToken) {
+if((game_options.skip_play_button || continuationState?.loop.enabled) && !importProbeToken) {
     play_button.click();
 }
 

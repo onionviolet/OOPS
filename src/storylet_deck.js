@@ -34,7 +34,7 @@ export function storyletCandidates(state,registry,deckId,factsFor) {
         const card=record.cards[d.id], config=d.storylet, facts=storyletFacts(factsFor(d));
         if(config.once && card?.seen || card && state.clock < card.last+config.cooldown || !meets(d.requires,facts) ||
             Object.values(state.simulation.events).some(e=>e.definitionId===d.id && e.status==='open')) return [];
-        if(!bindStoryAftermath(d,state))return [];
+        if(!bindStoryAftermath(d,state,facts))return [];
         let weight=config.weight.base;
         for(const plus of config.weight.plus || []) if(meets(plus.when,facts)) weight+=plus.add;
         weight=Math.max(0,weight)*Math.max(0.1,0.6**(card?.seen || 0));
@@ -73,7 +73,7 @@ export function advanceStoryletDecks(state,registry,factsFor,emit) {
         if(!selected){record.nulls++;continue;}
         const card=record.cards[selected.id] ||= {seen:0,last:0};card.seen++;card.last=state.clock;
         record.drawn++;record.lastFamily=selected.storylet.family;
-        emit(bindStoryAftermath(selected,state),receipt);
+        emit(bindStoryAftermath(selected,state,storyletFacts(factsFor(selected))),receipt);
     }
     return work;
 }

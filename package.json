@@ -1,5 +1,5 @@
 {
-  "name": "yairpg-expansion-fork",
+  "name": "oops-progression-simulator",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,6 +10,7 @@
     "ink:check": "node scripts/compile_feature_ink.mjs --check",
     "check:arch": "node scripts/check_architecture.mjs",
     "check:rules": "node scripts/check_rules_index.mjs",
+    "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
     "build:preview": "node scripts/build_ui_preview.mjs"
   },
   "engines": {

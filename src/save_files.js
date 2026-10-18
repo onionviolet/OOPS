@@ -1,3 +1,4 @@
+import {validateContinuationEnvelope} from './continuation_state.js';
 import {validateMistglassEnvelope} from './absorb_p23/host_joins/world_adaptation.js';
 import {validateGrowthEnvelope} from './absorb_p23/host_joins/growth_profile.js';
 import {validateTrainingEnvelope} from './absorb_p23/host_joins/encounter_profiles.js';
@@ -61,6 +62,7 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    validateContinuationEnvelope(original);
     validateKnownDetailEnvelope(original);
     validateTrancheOneEnvelope(original);
     validateTrancheTwoEnvelope(original);

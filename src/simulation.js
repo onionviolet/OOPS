@@ -1,3 +1,4 @@
+import {AFTERMATH_ID,aftermathPersonPresent} from './story_aftermath.js';
 import {recordStoryletOutcome} from './lore_history_state.js';
 import {initializeStoryletDecks,nextStoryletBoundary,advanceStoryletDecks,validateStoryletState} from './storylet_deck.js';
 import {admitFoundationInteraction,freezeFoundationInteractionActivation,advanceFoundationInteractions,nextFoundationInteractionBoundary} from './foundation_interaction_policy.js';
@@ -456,6 +457,7 @@ function respondEventInto(out, registry, eventId, responseId, context) {
     assert(!context.busy, "Finish your current native activity before responding.");
     if(response.requiresIdle) assert(!simulationOccupiesActor(state,context.actorId) && !state.pending.some(j=>j.context.actorId === context.actorId) && !activePractice(state.actors[context.actorId]), "Finish your current activity before responding.");
     const ctx = {...context, targetId: event.targetId}, facts = simulationFacts(state, ctx, registry);
+    if(event.definitionId===AFTERMATH_ID)assert(aftermathPersonPresent(state,event.historyRef,facts),'Wait for this traveler to return before comparing road signs.');
     assert(meets(response.requires, facts), "Response prerequisites are missing.");
     const before=structuredClone({external:out.external,gameplay:out.gameplay});
     const cause = `settle:${++state.sequence}`;

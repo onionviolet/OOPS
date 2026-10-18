@@ -16,5 +16,6 @@ export function spineFixture(seed=43,{revision=1}={}) {
  for(const p of people.people.slice(0,2))people=interactGeneratedPerson(people,p.id,'meet').state;
  let envelope={'game version':'v0.6','current time':{year:999,month:4,day:1,hour:8,minute:0},'current location':'Village',character:{name:'TEST FIXTURE PROCGEN P34 SOURCE',money:102,xp:{total_xp:0},equipment:{}},levels:{person:{main_character:{total_xp:0,skill_xp:{}}}},availabilities:{},npcs:{},inventories:{person:{main_character:{}}},skills:{},locations:{},activities:{},dialogues:{},traders:{},expansion:state,generated_people:people};
  envelope=planStoryRequest(envelope,{action:'enable'}).envelope;
+ context.generatedPeopleFrame={people:envelope.generated_people,clock:envelope.expansion.clock};
  return {envelope,context,registry:expeditionRegistry};
 }

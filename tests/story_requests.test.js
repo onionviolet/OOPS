@@ -4,7 +4,7 @@ import {spineFixture} from './helpers/story_spine.js';
 import {planStoryRequest,publishStoryRequest,validateStoryRequests,salientRequestPerson} from '../src/story_requests.js';
 import {appendStoryOutcome} from '../src/lore_history_state.js';
 import {advanceSimulation} from '../src/expansion_engine.js';
-import {bindStoryAftermath,storyAftermathDefinitions,eligibleAftermath} from '../src/story_aftermath.js';
+import {bindStoryAftermath,storyAftermathDefinitions,eligibleAftermath,generatedPeoplePresenceFacts,aftermathPersonPresent} from '../src/story_aftermath.js';
 import {encodeSaveFile,decodeSaveFile,importSaveFile} from '../src/save_files.js';
 const raise=e=>planStoryRequest(e,{action:'raise'}).envelope;
 function accepted(seed=43){const f=spineFixture(seed);let e=raise(f.envelope),r=e.generated_people.storyRequests.requests[0];e=planStoryRequest(e,{action:'take',id:r.id}).envelope;return {...f,envelope:e,request:r};}
@@ -39,7 +39,7 @@ test('real P3 deck draws a frozen receipt-backed aftermath; no settlement means 
  const next=planStoryRequest(e,{action:'deliver',id:r.id,itemKey:key}).envelope;
  const out=advanceSimulation(next.expansion,f.registry,60,f.context.external,f.context.gameplay,{player:f.context});
  const event=Object.values(out.state.simulation.events).find(e=>e.definitionId==='village.remembered_supply');assert.ok(event);assert.equal(event.historyRef,next.expansion.loreHistory.receipts[0].id);assert.ok(event.label.includes(r.item));assert.ok(event.label.includes(next.generated_people.people.find(p=>p.id===r.issuer).name));
- const decline=planStoryRequest(e,{action:'decline',id:r.id}).envelope;decline.expansion.clock=12;const bound=bindStoryAftermath(storyAftermathDefinitions.events[0],decline.expansion);assert.match(bound.label,/declined/);assert.equal(bound.responses[0].effects[0].amount,4);
+ const decline=planStoryRequest(e,{action:'decline',id:r.id}).envelope;decline.expansion.clock=12;const bound=bindStoryAftermath(storyAftermathDefinitions.events[0],decline.expansion,generatedPeoplePresenceFacts(decline.expansion,f.context));assert.match(bound.label,/declined/);assert.equal(bound.responses[0].effects[0].amount,4);
 });
 test('pending/settled full envelopes import exactly; corrupt reserve/ref fails before writes',async()=>{
  const {envelope:e,request:r}=accepted(),loaded=decodeSaveFile(encodeSaveFile(JSON.stringify(e)),'v0.6');assert.deepEqual(loaded.generated_people,e.generated_people);assert.deepEqual(loaded.expansion,e.expansion);
@@ -55,4 +55,20 @@ test('closed request quota retires old claims, permits repeated real needs and p
  assert.equal(e.generated_people.storyRequests.requests.length,16);assert.ok(e.expansion.loreHistory.receipts.length<=96);assert.ok(e.expansion.loreHistory.evicted>0);
  e=raise(e);const r=e.generated_people.storyRequests.requests.at(-1);e=planStoryRequest(e,{action:'take',id:r.id}).envelope;const key=JSON.stringify({id:r.item});e.inventories.person.main_character[key]={count:1};e=planStoryRequest(e,{action:'deliver',id:r.id,itemKey:key}).envelope;
  assert.equal(e.generated_people.storyRequests.requests.at(-1).status,'delivered');validateStoryRequests(e.generated_people,e.expansion);
+});
+
+test('remembered callback requires actual traveler presence, including departure/return boundaries',()=>{
+ const f=accepted(),e=f.envelope,r=f.request,key=JSON.stringify({id:r.item});e.inventories.person.main_character[key]={count:1};
+ const next=planStoryRequest(e,{action:'deliver',id:r.id,itemKey:key}).envelope;
+ const context={...f.context,generatedPeopleFrame:{people:next.generated_people,clock:next.expansion.clock}};
+ const state=structuredClone(next.expansion);state.clock=12;
+ const present=generatedPeoplePresenceFacts(state,context),receipt=eligibleAftermath(state,present);
+ assert(receipt);assert(aftermathPersonPresent(state,receipt.id,present));
+ state.clock=3*1440;
+ const away=generatedPeoplePresenceFacts(state,context);assert.equal(eligibleAftermath(state,away),null);
+ assert.equal(bindStoryAftermath(storyAftermathDefinitions.events[0],state,away),null);
+ assert.equal(aftermathPersonPresent(state,receipt.id,away),false);
+ assert.equal(eligibleAftermath(state),null,'unknown presence never admits the callback');
+ state.clock=5*1440;assert(eligibleAftermath(state,generatedPeoplePresenceFacts(state,context)));
+ assert.equal(next.generated_people.people.find(p=>p.id===r.issuer).status,'visiting','projection does not mutate the saved schedule');
 });

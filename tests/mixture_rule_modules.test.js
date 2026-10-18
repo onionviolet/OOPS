@@ -14,7 +14,29 @@ function act(c,r){const p=stageMixtureAction({...c,request:r});if(p){c.owner=p.s
 function envelope(c,p={}){return {mixtures:p.state??c.owner,expansion:p.expansion??c.expansion,character:{money:p.money??c.money},inventories:{person:{main_character:p.inventory??c.inventory}},active_effects:p.effect?{'Village mixture exposure':p.effect}:{}};}
 const product=c=>Object.values(c.owner.products).find(p=>p.revision===2);
 function learn(c,p){act(c,{type:'use',key:mixtureKey(p)});act(c,{type:'learn',product:p.id});}
-test('PC2-T20 quote is pure, no stream enrollment/draw, stale stock and sequence rejected',()=>{const c=context(),before=JSON.stringify(c);const a=quoteMixtureAction({...c,request}),b=quoteMixtureAction({...c,request});assert.deepEqual(a,b);assert.equal(JSON.stringify(c),before);c.inventory['{"id":"Spring water"}'].count--;assert.throws(()=>act(c,{...request,quote:a.token}),/quote changed/);assert.equal(c.owner,null);});
+test('AR7/MR4: pure mixture quotes reject changed stock, sequence, money or method before mutation', () => {
+    const changes = {
+        stock: c => {c.inventory['{"id":"Spring water"}'].count--;},
+        sequence: c => {c.owner = createMixtureState(c.seed); c.owner.sequence++;},
+        money: c => {c.money--;},
+        method: (_c, r) => {r.method = 'ordinary@1';},
+    };
+    for (const [name, change] of Object.entries(changes)) {
+        const c = context(), original = structuredClone(c);
+        const quoted = quoteMixtureAction({...c, request});
+        assert.deepEqual(quoteMixtureAction({...c, request}), quoted);
+        assert.deepEqual(c, original, 'quoting cannot initialize owners, freeze laws or spend draws');
+        const stale = {...request, quote: quoted.token};
+        change(c, stale);
+        const before = structuredClone(c);
+        assert.throws(() => act(c, stale), /quote changed/, name);
+        assert.deepEqual(c, before, `${name}: rejection cannot debit, publish or enroll owners`);
+        const fresh = quoteMixtureAction({...c, request: stale});
+        const accepted = act(c, {...stale, quote: fresh.token});
+        assert.equal(accepted.inventory['{"id":"Spring water"}'].count,
+            before.inventory['{"id":"Spring water"}'].count - 1, `${name}: a refreshed quote remains usable`);
+    }
+});
 test('PC2-T27 failed durable new mix publishes no owners, stock, money, law, receipt or appearances',()=>{const c=context(),before=JSON.stringify(c),p=stageMixtureAction({...c,request});let called=false;assert.throws(()=>commitMixturePlan(p,{createSave:()=>JSON.stringify(envelope(c)),validateEnvelope:s=>{validateMixtureEnvelope(s);validateProductAppearanceEnvelope(s);},write:()=>{throw Error('forced quota failure');},publish:()=>{called=true;}}),/quota/);assert.equal(called,false);assert.equal(JSON.stringify(c),before);assert.equal(c.owner,null);assert.equal(c.expansion.streams,undefined);});
 test('paid mix publishes law/product/receipt with exact appearance product, and native use reads saved payload',()=>{const c=context();let saved;const plan=stageMixtureAction({...c,request});commitMixturePlan(plan,{createSave:()=>JSON.stringify(envelope(c)),validateEnvelope:s=>{validateMixtureEnvelope(s);validateProductAppearanceEnvelope(s);},write:t=>saved=JSON.parse(t),publish:p=>{c.owner=p.state;c.inventory=p.inventory;c.expansion=p.expansion;}});const p=product(c);assert.equal(c.inventory['{"id":"River bellleaf"}'].count,11);assert.equal(c.owner.ruleLaws.laws[0].reason,'causal_mix');assert.ok(saved.expansion.productAppearances.bindings[p.id]);assert.equal(Object.keys(saved.mixtures.products).length,1);const used=act(c,{type:'use',key:mixtureKey(p)});assert.equal(used.effect.effects.stats.health_regeneration_flat.flat,p.dose.health);assert.equal(restoreActiveEffect('Village mixture exposure',used.effect,p).mixtureExposure.revision,2);validateMixtureEnvelope(envelope(c,used));assert.notEqual(p.dose.health,resolveMixture(c.owner,inputs,'boil').dose.health);});
 test('PC2-T30 synthetic restore vector applies resolver payload and retains all mass/trace',()=>{const c=context();act(c,request);const p=product(c),base=resolveMixture(c.owner,inputs,'boil');assert.equal(p.dose.health,p.fractions.restore*(p.ruleReceipt.value.numerator/p.ruleReceipt.value.denominator)/100*2000/p.mass);assert.deepEqual(p.fractions,base.fractions);assert.equal(p.mass,base.mass);assert.equal(p.dose.sedation,base.dose.sedation);assert.equal(p.dose.stamina,base.dose.stamina);});

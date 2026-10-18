@@ -24,6 +24,21 @@ test("world-name and branch discoveries are independent and survive saved reload
     assert.equal(worldIdentityView(loaded,expeditionRegistry).label,"Frontier · Branch dimension");
 });
 
+test('AD6/AR8: world identity uses the requested observer, without borrowing another actor\'s discoveries', () => {
+    const state = initializeExpedition(createExpansionState(5));
+    state.actors.observer = structuredClone(state.actors.player);
+    state.actors.player.facts['world.base.frontier.nameKnown'] = true;
+    const before = structuredClone(state);
+    assert.equal(worldIdentityView(state, expeditionRegistry).label, 'Frontier');
+    assert.equal(worldIdentityView(state, expeditionRegistry, 'observer').label, '');
+    assert.deepEqual(state, before);
+    state.actors.observer.facts['world.base.frontier.branchKnown'] = true;
+    const discovered = structuredClone(state);
+    assert.equal(worldIdentityView(state, expeditionRegistry, 'observer').label, 'Branch dimension');
+    assert.equal(worldIdentityView(state, expeditionRegistry).label, 'Frontier');
+    assert.deepEqual(state, discovered, 'reading one observer cannot teach another or alter world truth');
+});
+
 test("unknown authored identities remain unknown even when a knowledge flag is present", () => {
     const registry=createContentRegistry({worlds:[{id:"base.frontier",label:"Private author label",continuity:"unknown"}]});
     const state=createExpansionState(5); state.actors.player.facts["world.base.frontier.nameKnown"]=true; state.actors.player.facts["world.base.frontier.branchKnown"]=true;

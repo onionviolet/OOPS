@@ -6,6 +6,7 @@ export const testHooksEnabled = config.enable_dev_mode ||
      new URLSearchParams(location.search).get('test_hooks') === '1');
 const pending = new Map();
 let nextId = 1, virtualNow = null, paused = false, dispatchTime = null, logicalOffset = 0;
+let suspensionDepth = 0, suspendedWasPaused = false;
 export const engineNow = () => virtualNow ?? dispatchTime ?? (Date.now() + logicalOffset);
 export const stepping = () => virtualNow !== null;
 function arm(timer) {
@@ -19,14 +20,12 @@ function arm(timer) {
     }, Math.max(0, timer.due - (Date.now() + logicalOffset)));
 }
 export function engineTimeout(callback, delay, kind = 'engine') {
-    if(!testHooksEnabled) return setTimeout(callback, delay);
     const timer = {id:nextId++, callback, due:engineNow() + Math.max(0, delay), kind};
     pending.set(timer.id, timer);
     if(!paused && !stepping()) arm(timer);
     return timer.id;
 }
 export function engineInterval(callback, delay) {
-    if(!testHooksEnabled) return setInterval(callback, delay);
     const token = {id:null, cancelled:false};
     const run = () => {
         callback();
@@ -36,22 +35,31 @@ export function engineInterval(callback, delay) {
     return token;
 }
 export function clearEngineInterval(token) {
-    if(!testHooksEnabled) return clearInterval(token);
     if(!token) return;
     token.cancelled = true;
     clearEngineTimeout(token.id);
 }
 export function clearEngineTimeout(id) {
-    if(!testHooksEnabled) return clearTimeout(id);
     const timer = pending.get(id);
     if(timer) clearTimeout(timer.native);
     pending.delete(id);
 }
-export function pauseEngine() {
-    if(!testHooksEnabled) throw new Error('Test hooks are disabled.');
+function suspendTimers() {
     if(paused) return;
     virtualNow = engineNow(); paused = true;
     for(const timer of pending.values()) clearTimeout(timer.native);
+}
+// Production transaction/arrival freeze. Return a release closure; nested
+// inspection must not resume a timer that another owner deliberately paused.
+export function suspendEngine() {
+    if(suspensionDepth++===0)suspendedWasPaused=paused;
+    suspendTimers();
+    let released=false;
+    return () => {if(!released){released=true;if(--suspensionDepth===0&&!suspendedWasPaused)resumeEngine();}};
+}
+export function pauseEngine() {
+    if(!testHooksEnabled) throw new Error('Test hooks are disabled.');
+    suspendTimers();
 }
 export function resumeEngine() {
     if(!paused) return;
