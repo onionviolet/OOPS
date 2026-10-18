@@ -110,7 +110,8 @@ laws, cheats, idle production, economy, social use and director tools. Proposals
 owns the 2026-10-17 topic audit round that extends part 35 (H35): the body as the
 first instrument (BHC1-BHC6), medicine as making (BHC7-BHC12), knowing your own
 body (BHC13-BHC16), bodies across worlds (BHC17-BHC20), harm and defeat settings
-and one condition contract on any carrier (BHC21-BHC26). Proposed rulebook:
+and one condition contract on any carrier (BHC21-BHC26), lane returns (BHC27-BHC31)
+and AD38 consequences (BHC32-BHC37). Proposed rulebook:
 [BODY_AND_HEALTH_RULES](BODY_AND_HEALTH_RULES.md) BHR1-BHR30. Proposals only.
 
 [Combat and conflict](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md)

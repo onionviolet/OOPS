@@ -3450,7 +3450,7 @@ thing", after S4.
 Weibao asked which systems beyond crafting need deeper consideration, then: "Yes, run a
 topic-expansion-audit round on body, health, injury and medicine (G1), saving the palette and a
 proposed rulebook." Saved as [round 1 of the body and health
-palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md) (BHC1-BHC26, extending part 35) and the
+palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md) (BHC1-BHC31 with lane returns, extending part 35; round 2 added BHC32-BHC37) and the
 [proposed body and health rules](BODY_AND_HEALTH_RULES.md) (BHR1-BHR30), registered in RULES_INDEX
 as a proposal. Only the rows restating AD13, AD8, AD19 and no hunger death are accepted direction;
 the rest await his acceptance. Other gaps from the same survey, not started: combat (G2), skills
