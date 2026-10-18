@@ -30,6 +30,15 @@ W36-W37 running; per-world
 It repeats as a standing audit: [core audit entry](audits/WORLD_CORE_KIT_CORE_AUDIT.md)
 and [playbook](worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md). Proposals only.
 
+[Around you and subject actions](AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md)
+owns the 2026-10-18 proposal to select subjects in Around you and act on them
+in the bottom Actions panel, retiring the Talk and merchant dropdowns (S1-S5,
+round 1 AY1-AY13; round 2 heard lines and "new" marks AY14-AY22; round 3
+other games AY23-AY31; round 4 text games AY32-AY33; round 5 travel and maps
+AT1-AT12; round 6 style default ST1-ST5 and idle aspects ID1-ID11; round 7 loops
+as idle automation LP1-LP12; round 8 active versus idle AI1-AI5; round 9 time between
+story events and canon rewinds TF1-TF8). Proposals only.
+
 [UI at scale](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md) owns the 2026-10-14
 long-term UI palette for growing scope: question homes and a contribution
 registry (SC), navigation (NV), information at scale (IN), many worlds and

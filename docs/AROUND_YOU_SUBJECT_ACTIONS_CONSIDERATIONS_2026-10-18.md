@@ -180,3 +180,198 @@ What the research found, in brief (codes TP and C are the report's):
 Evidence gap: placement (Q6) and scale (Q7) are mostly stated, not shown. A
 screenshot play pass on owned games (Stardew, Qud, Disco, RimWorld) would
 upgrade them (report section 6).
+
+## Round 4 (2026-10-18): text-game flows
+
+Source: Claude's own knowledge of text games, not verified by the round 3
+research (which skipped Kingdom of Loathing and Discworld MUD after failed
+fetches). Treat as inferred until a shown pass confirms it.
+
+- MUDs list people inline in the room text ("The village elder is standing
+  here"), inspect with a free verb and act with another; modern clients make
+  names clickable with a verb menu. Close to S1.
+- Parser IF often offers a hint line ("You could ask about…") that lists only
+  unexplored topics; heard topics drop out of the hint but stay usable.
+- Kingdom of Loathing and Fallen London express people as places or
+  storylets rather than a roster; Sunless Sea flags fresh port content only.
+
+| Code | Consideration | Disposition |
+|---|---|---|
+| AY32 | Topic hint as the "new" signal: the subject group or conversation shows "You could ask about …" listing only unexplored, currently eligible topics. It cannot fire falsely (C2) and never makes heard topics look disabled (C3). An alternative or complement to AY16's dot, chosen per presentation | ACCOUNT FOR NOW |
+| AY33 | Shown evidence pass on text games (Kingdom of Loathing, Discworld MUD, Fallen London, one parser IF) with screenshots of the find, select, talk and return flow | LATER: small research lane, about two hours; done when each game has a shown flow with screenshots in the report |
+
+## Round 5 (2026-10-18): travel, maps and the whole flow
+
+Codes AT, to avoid clashing with AY34 onward, which the AY33 evidence pass
+reserves. Sources: the existing map work in
+[UI at scale U7](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md) (MP1-MP8, including
+the Mudlet mapper), [site and exploration rules](SITE_AND_EXPLORATION_RULES.md)
+SR7, SR8 and SR13, the `known_routes` modules, and Claude's own knowledge of
+MUDs (inferred, unverified).
+
+### How MUDs handle space (inferred)
+
+Most MUDs are room graphs: a room description, "Obvious exits: north, east",
+and who is here. Many add an ASCII minimap beside the room text, and some have
+an in-game `map` command. Clients such as Mudlet build a 2D map from room IDs
+the server sends, and clicking a room walks the path there. NPCs wander between
+rooms on timers; boats and coaches are timed travel with messages en route.
+`who` lists everyone online and `where` lists who is in the area.
+
+### The whole flow, proposed
+
+1. Arrive: one log line, Around you refreshes with three groups: people,
+   stations, ways out.
+2. Select a subject at the top: inspection only (UR35).
+3. Its verbs appear pinned in bottom Actions, with a cost preview where one
+   exists (SR13).
+4. Act: talk and trade render in the bottom or the center controller; travel
+   becomes the running work.
+5. Return: Leave or Esc goes back to the place with the selection kept.
+
+### Considerations
+
+| Code | Consideration | Disposition |
+|---|---|---|
+| AT1 | Ways out as subjects. Around you gains a "Ways out" group fed by the existing known-routes data (one authority, AR). Selecting a route shows "Go · 2 h · cold road" in bottom Actions, replacing the "Move somewhere else" dropdown the same way S4 retires the Talk dropdown | ACCOUNT FOR NOW: next slice after S1-S4 |
+| AT2 | Arrival freshness. On arrival, people who came since your last visit and stations with fresh stock get the same truthful dot as AY24; "since you were last here" is one log line, not a modal (SR21) | ACCOUNT FOR NOW |
+| AT3 | On the road. While travelling, Around you shows "On the road" with fellow travelers and road encounters as subjects, so travel is a place too, not a dead progress bar | LATER: mid lane, about a day; done when a road encounter is selectable and talkable mid-journey |
+| AT4 | Map as a reader of known routes. A small room-and-exit graph (MP4) of known places, click a node for "Go" with the same cost preview. It shows knowledge, not truth: stale or rumored routes look different (SR7, SR8) | LATER: mid-high lane, about two days; done when clicking a known node previews and starts the same journey as AT1 |
+| AT5 | Find a person. "People you know" (AY31) offers "Go to last seen place" through AT1's route, labelled with how old the sighting is | LATER: depends on AY31 and AT1 |
+| AT6 | Talk unlocks travel. When a line rewards a location or route, the log line links to the new way out and it carries the new dot. Directions become a verb ("Ask about the road") that grants what the speaker knows (SR8) | ACCOUNT FOR NOW: the dot reuses AY24; the verb is LATER content |
+| AT7 | With you versus here. Companions and party members sit in a separate "With you" group, so they never mix with locals or disappear on travel | ACCOUNT FOR NOW |
+| AT8 | Ambient presence. Arrival barks ("The elder nods at you") go to the log at most once per arrival per person, filterable, never as dialogue (UR44) | LATER: content lane per world |
+| AT9 | Command line. An optional typed bar (`talk elder`, `go mill`, `trade`) runs the same verbs for keyboard players. Text-game feel without a second rule path | LATER: small lane, about half a day; done when every verb in the subject group is reachable by command |
+| AT10 | Clickable names in the log select the subject if present now, and say so when they are not (UR48) | LATER: small lane, about two hours |
+| AT11 | Worlds. Around you, ways out and the map are scoped to the current world; crossing worlds uses the cross-world atlas graph (MP7), not the local map | ACCOUNT FOR NOW |
+| AT12 | Space at 1366×768. Ways out adds a third group; with the AY30 grouping, groups collapse to a header row when long, and the map lives in the contextual slot rather than permanently on screen (UI at scale placement table) | ACCOUNT FOR NOW |
+
+## Round 6 (2026-10-18): presentation style and idle aspects
+
+### Style default (proposal, Claude's recommendation; not accepted)
+
+| Code | Proposal |
+|---|---|
+| ST1 | **Default: place and subjects (the MUD shape).** A place shows people, stations, events and ways out; selecting one is free; its verbs act. Reasons: upstream data is already rooms with NPC lists and connections; a life sim needs persistent people with a home; subjects with verbs scale with AD38 (new mechanics add verbs, not menus); text stays cheap across many worlds |
+| ST2 | **Storylets as subjects.** A happening ("Something is stirring at the mill") is a subject with its own choices. A story-heavy world may lead with storylets as its presentation (AD5, per world) |
+| ST3 | **Idle carries repetition.** Travel, jobs and routines run as work so the player is not clicking room to room; known places and people get one-step "go" and "repeat" verbs |
+| ST4 | **Map-first is not the default.** A sprite or walkable town is costly per world and buries people behind movement. The known-places map (AT4) stays a reader of route knowledge. A world whose fiction centers on space may still choose a richer map, with that world paying the cost |
+| ST5 | **Risk and signal.** The shape's risk is click busywork. Guards: S5 Enter, truthful dots (AY24), routines (ST3). If a populated save at 1366×768 still feels clicky after S1-S4, lean further on routines rather than changing style |
+
+### Idle aspects
+
+Owners: AD15 (ordinary play advances time; settled routines compress) and AD16
+(away time runs chosen routines in the current world and stops at important
+choices or exhausted supplies), with the
+[offline time audit](OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md).
+
+| Code | Consideration | Disposition |
+|---|---|---|
+| ID1 | Retiring the Talk dropdown breaks text that names it: the elder's local-life message ("Meet me through Talk to someone", `src/absorb_c2/local_life.js`) and a hint in `src/main.js` near line 1587. S4 updates both to name the person in Around you | ACT NOW (with S4) |
+| ID2 | Selection survives ticks and away time. Coming back from offline keeps the selected subject if still present, otherwise uses the existing "no longer here" notice (UR52, AY10) | ACT NOW |
+| ID3 | Running work and subjects coexist. While a job or routine runs, Around you stays inspectable; verbs that would interrupt say so ("Stops Morning watch") rather than greying silently, and the existing busy reason stays for blocked ones (AY2) | ACT NOW |
+| ID4 | Routines as subject verbs. A known recurring task with a person or station ("Morning watch with the guard", "Weekly market with the trader") shows as a "Make it a routine" verb in that subject's group, feeding the existing routine owner, not a second scheduler (AR one authority) | ACCOUNT FOR NOW |
+| ID5 | Away summary per subject. After away time, people and stations touched by routines get the truthful dot, and the "since you were last here" line (AT2) lists what changed by subject. Important choices that stopped a routine (AD16) appear as a subject, not a modal | ACCOUNT FOR NOW |
+| ID6 | Conversation never runs while away. Talk is an attended verb; away time may queue "the elder wants to see you" as a dot, never auto-pick lines | ACCOUNT FOR NOW |
+| ID7 | Compression shows in verbs. Once a routine is settled (AD15), its subject verb offers "Do a week of this" with the time cost preview, so repetition does not need a click per day | LATER: mid lane, about a day; done when a settled routine compresses through the subject verb and the log summarizes the result |
+| ID8 | Travel as idle work. A long route runs as work with stop conditions (supplies, danger, a choice); arrival or a stop is a dot on the place or the road subject (AT3), never a forced popup | ACCOUNT FOR NOW, builds on AT1 |
+| ID9 | Presence keeps moving while away. Schedules and travelers continue in the current world (inactive worlds pause, AD16), so Around you on return reflects time passed; people who left move to "People you know" with last seen (AY31) | ACCOUNT FOR NOW |
+| ID10 | Background tab and battery. Around you renders at the existing 250 ms poll only while visible; hidden tabs skip it (existing `deferWhileHidden` pattern) so subject lists add no idle cost | ACCOUNT FOR NOW: done check is no render calls while the tab is hidden |
+| ID11 | Idle-game evidence. The repo's [idle research](RESEARCH_IDLE_GAMES.md) has no roster-of-people UI; idle games with people (Groundhog Life, BitLife, cultivation idlers) put verbs on a person profile (BitLife, round 3). Worth one shown check in the AY33 pass | LATER: fold into AY33 |
+
+## Round 7 (2026-10-18): loops and starting over as idle automation
+
+Weibao asked whether looping and starting over should become a bigger part of
+core gameplay for idle automation. Accepted direction this must respect:
+AD10 (the journey continues across lives), AD11 (memories and the base cheat
+carry), AD12 and D27 (intentional loops are a player option), AD4 (worlds keep
+their own histories), "prestige/rebirth kept separate from travel and
+ascension", and the first milestone's one prestige layer. RL2 in the
+[continuation owner](worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#reciprocal-return-and-intentional-loop-direction-2026-10-15)
+proposes looping off by default. Everything below is a proposal; changing the
+default would need Weibao's decision.
+
+### What idle games do (repo research, labels from those reports)
+
+| Game | Reset and carry | Label |
+|---|---|---|
+| Groundhog Life | Money, home, job and levels reset; each skill keeps a "relearn faster" factor from its best level this loop; a deeper Grand Prestige clears factors for a permanent multiplier | shown (code), [report](research/groundhog-life/REPORT.md) |
+| Idle Reincarnator | Two resets, rebirth and regression; best level gives an XP multiplier; town technology survives personal rebirth but not deeper regression | shown, [report](research/idle-reincarnator/REPORT.md) |
+| NGU Idle | Rebirth resets allocations and run levels, not all growth; some systems keep levels and lose only allocations | shown, [report](research/ngu-idle/REPORT.md) |
+| Increlution | Buildings and resources reset; instincts and artifact powers persist; authored replay of the same origin | shown, [checkpoint](research/increlution/CHECKPOINT.md) |
+| Majora's Mask, Outer Wilds | Only knowledge and a few tools carry; the notebook or ship log is the progression | shown, repo reports |
+| Idle Loops | A recorded action list replays each loop; banked time | stated in the Groundhog report's cross-reference; details from memory |
+
+Pattern: the loop works when **what you learned becomes faster or automatic
+next time**, and the reset is legible (preview of kept, lost and dormant, as
+the existing P1 reset-preview proposals say).
+
+### Recommendation
+
+| Code | Proposal |
+|---|---|
+| LP1 | **Yes, but as knowledge-carry, not as a wipe.** Make starting over a strong player option whose reward is automation: what the hero learned last life (people's schedules, heard lines, routes, recipes, routines) carries as memory (AD11) and turns into one-step verbs next life. Keep it a choice (D27), not the only path |
+| LP2 | **Personal loop by default, world loop by world.** The hero's body, money and rank reset; the world and its people keep their history (AD4), so relationships are not erased. Loop-native worlds (a Majora-style three-day world) rewind the world too, as that world's law (AD5) |
+| LP3 | **The one prestige layer becomes the automation layer.** For the first milestone, design that single layer around carried knowledge and replayable routines rather than a bare multiplier currency. No second layer now (sequencing) |
+| LP4 | **Record and replay plans from real verbs.** "Remember today as a plan": the subject verbs you used (go to mill, talk to miller, trade) become a replayable plan with stop conditions (RL4). Next life, a plan replays only where the current body, funds and facts allow it (Idle Reincarnator P4) |
+| LP5 | **Around you shows past-life knowledge.** People and places known from an earlier life show "known from a past life" with what you remember; the new life still has to meet them (AD12 fresh history). Heard lines (AY15) and last seen (AY31) carry as memory, not as the new life's relationship |
+
+### Considerations
+
+| Code | Consideration | Disposition |
+|---|---|---|
+| LP6 | Reset preview before any start-over: kept, lost, dormant and what will be faster, per subject (existing P1 proposals in NGU and Idle Reincarnator packets) | ACCOUNT FOR NOW |
+| LP7 | Life-sim cost. Loops that reward grinding can hollow out living. Guard: carried knowledge speeds the tedious parts (routes, routines, known lines) and leaves people, choices and new content fresh | ACCOUNT FOR NOW |
+| LP8 | Truthful dots across lives. "New" means new to this life's hero for relationships and new to the journey for knowledge; the two never show as one mark | ACCOUNT FOR NOW |
+| LP9 | Plans replay through the same command path as manual play, with their own attempt identity (RL3) and a responsive stop (RL4); no second rule path | ACCOUNT FOR NOW |
+| LP10 | Away time can run a plan (AD16) and stops at the first new choice, missing input or danger; the away summary lists results per subject (ID5) | ACCOUNT FOR NOW |
+| LP11 | Default looping state. RL2 proposes off by default; LP1 keeps the option strong without changing that default. Turning loops on by default would be Weibao's call | Decision for Weibao only if he wants loops central |
+| LP12 | Evidence: confirm Idle Loops' action-list replay and Progress Knight's carry with a shown pass before LP4's design is fixed | LATER: small research lane, about two hours; done when both have shown flows in a report |
+
+## Round 8 (2026-10-18): active versus idle
+
+Weibao asked whether the game should become more active than idle. Standing
+direction: "The game is meant to be an idle rpg so it should be able to level
+up passibely" ([USER_VISION](USER_VISION.md), passive progression), with the
+active/idle balance still listed as open question 7 in USER_VISION. This round
+is a proposal toward that open question, not a decision.
+
+| Code | Proposal |
+|---|---|
+| AI1 | **Stay idle at heart; be active where it is interesting.** Decisions, discovery, first meetings, new lines and danger are attended. Repetition, travel on known routes, routines and practice run on their own. The player chooses; the game carries |
+| AI2 | **Automation comes from within a life first.** The main source is routines and plans learned by doing (AD15 compression, LP4 record-and-replay, ID4 routine verbs). Loops (round 7) add to that for players who want them; they are not the only route to automation |
+| AI3 | **Passive progress never needs a click.** Every system with a reasonable passive path keeps it (the passive-progression direction); active play is faster or richer, not required |
+| AI4 | **The attention budget is a dial per world.** A crisis world asks for more attended choices; a calm farming world runs mostly on routines (AD5). The UI's calm/crisis modes (UI at scale QL) present it |
+| AI5 | **Test, don't guess.** Open question 7 settles in the first real playtest: on a populated save, count attended clicks per in-game day and note where play felt like chores versus where it felt empty. Chores mean automate (ST3, AI2); empty means add a decision there |
+
+## Round 9 (2026-10-18): time between story events and rewinding to canon events
+
+Weibao asked whether he can stay passive between story events and rewind to a
+canon event, or whether that needs unlocking. Accepted direction (recovered in
+[cheat access discussion](gm/CHEAT_ACCESS_DESIGN_DISCUSSION_2026-10-15.md)):
+D1 modest continuation from the start with an initial-arrival fallback; D9 a
+later checkpoint is the first authored upgrade; D11 checkpoint return rewinds
+by default depending on anchor type and means; CA5 rewind covers current-world
+history while cheat growth carries. Proposals P11 and P29 (not accepted):
+later checkpoints mark the present moment, not arbitrary dates. AD15 and AD16
+govern passive time.
+
+### Answer in short
+
+- Passive between events: yes, from the start (AD15, AD16).
+- Rewind to the start of this arrival: yes, from the start (D1 fallback).
+- Rewind to just before a canon event: after the first upgrade (D9), by
+  marking a checkpoint while you are there.
+- Jump to any canon date from a menu: not ordinary. It needs a stronger anchor,
+  a time cheat or a loop-native world (AD38: works by how the means works).
+
+| Code | Proposal | Disposition |
+|---|---|---|
+| TF1 | **Wait until a known event.** A place verb "Wait until the festival" compresses time with routines running (AD15) and stops at the event, an important choice or exhausted supplies (AD16). Offered only for events the hero knows about | ACCOUNT FOR NOW |
+| TF2 | **Pause before known events.** A setting, on by default: passive and away time stop shortly before any event the hero knows is coming, so idling never skips it silently. Per event, the player can set "let it pass" | ACCOUNT FOR NOW |
+| TF3 | **Checkpoint nudge.** Once the first upgrade exists, approaching a known event shows a quiet "Mark checkpoint here?" in the subject group or log, never a modal, and never auto-marks. Marking replaces the movable point with a confirmation (P29) | LATER: with the D9 slice |
+| TF4 | **Event as a subject.** An upcoming known event appears in Around you as a subject (ST2) with "Wait until", "Mark checkpoint" and, after it passes, "What happened" from the log | ACCOUNT FOR NOW |
+| TF5 | **Rewind costs history, keeps memory.** Rewinding undoes current-world history after the point, including relationships formed since (CA5). Memory, heard lines and cheat growth carry (AD11, LP5). The rewind preview lists what this undoes per subject (LP6) | ACCOUNT FOR NOW |
+| TF6 | **Sealed and changed events.** Only events the hero actually knows appear. A world whose canon is changed or randomized keeps its truth sealed; the UI shows the known claim, not the real date (sealed-secrets rule, SR5) | ACT NOW for any event UI |
+| TF7 | **Arbitrary canon-date travel as an upgrade path.** Several checkpoint slots, picking from known past events, or a world's own time law can grow from research and means (D2, D9, T5), each with its own cost and scope | LATER: design with the anchor research route |
+| TF8 | **Missed events continue.** An event you let pass still happens and its consequences persist (C6 motives outlive scripts); the log and "People you know" show its aftermath | ACCOUNT FOR NOW |

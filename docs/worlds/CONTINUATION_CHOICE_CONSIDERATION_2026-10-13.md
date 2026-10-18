@@ -645,3 +645,11 @@ that chat's saved record. Accepted capabilities and RL/CP/RD recommendations rem
 distinct. No source/runtime test, build, save migration, personal-save operation,
 worker/message dispatch, commit or exclusive-discussion-record edit by this chat.
 This reconciliation does not establish the implementation chat's progress or proof.
+
+## Loops as idle automation, pointer (2026-10-18)
+
+Proposals LP1-LP12 (knowledge-carry loops feeding automation, personal loop by
+default with world loops by world law, the one prestige layer as an automation
+layer, record-and-replay plans from subject verbs) live in
+[Around you round 7](../AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md#round-7-2026-10-18-loops-and-starting-over-as-idle-automation).
+They keep D27 and the RL2 off-by-default proposal; nothing here is accepted.
