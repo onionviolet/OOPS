@@ -25,7 +25,7 @@ const money = amount => ({type: "resource", native: true, key: "money", amount})
 const stamina = (amount, actor) => ({type: "vital", key: "stamina", amount, ...(actor ? {actor} : {})});
 const item = (key, amount) => ({type: "item", key, amount});
 const xp = (skill, amount) => ({type: "xp", skill, amount});
-const refine = id => ({type: "power", powerId: id, operation: "refine", amount: 1});
+const refine = (id, amount = 1) => ({type: "power", powerId: id, operation: "refine", amount});
 const learn = (id, teacher) => [
     {type: "power", powerId: id, operation: "learn"},
     {type: "source", sourceId: id, operation: "grant", origin: "trained", awakened: true, active: true},
@@ -57,7 +57,7 @@ export const SKILL_CATALOGUE = Object.freeze([
         milestones: [{at: 2, label: "Trace the dry bank: enable the existing kit-free route and route-board procedure"}]},
     {id: SKILL_IDS.timber, label: "Timber judgment", description: "Read grain and distribute sound cuts across usable marker stock.",
         knowledgeKey: SKILL_IDS.timber, powerId: SKILL_IDS.timber, xpSkill: "Woodworking", discoverCommandId: "skills.timber.observe",
-        learnCommandId: "skills.timber.learn", practiceCommandIds: ["skills.timber.practice"], useCommandIds: ["skills.timber.pack", "skills.timber.precise_pack"],
+        learnCommandId: "skills.timber.learn", practiceCommandIds: ["skills.timber.practice", "skills.timber.coached_practice"], useCommandIds: ["skills.timber.pack", "skills.timber.precise_pack"],
         recoveryIds: ["skills.inquiry.recover_attention"],
         milestones: [{at: 2, label: "Matched cuts: make two real kits from the two-log batch"}]},
     {id: SKILL_IDS.inquiry, label: "Shared inquiry", description: "Combine your field evidence with another person's agreed and paid attention.",
@@ -118,11 +118,25 @@ const practice = (kind, id, xpSkill, extraCosts = [], requirements = []) => comm
     requires: all(living, {fact: `power.${id}.mastery`, op: "lte", value: 3, reason: "This prototype drill is complete at mastery four."}, ...requirements),
     costs: [stamina(-2), ...extraCosts], effects: [refine(id), xp(xpSkill, 8)],
     description: `Costs: ${costTerms([stamina(-2), ...extraCosts])}. Four played minutes earn one method mastery and eight native competence XP on completion. Cancel with spent inputs retained and no reward. Automation stops at the drill limit or missing means.`});
+// Feedback is a means (SLR6, SLC7): the teacher's attention during practice
+// makes the same drill teach more. It does not raise the drill limit or grant
+// mastery without the practice (SLR14).
+const coached = (kind, id, xpSkill, teacher, extraCosts = [], requirements = []) => {
+    const costs = [stamina(-2), ...fee(1), {type: "resource", actor: "$target", key: "focus", amount: -1}, ...extraCosts];
+    return command({id: `skills.${kind}.coached_practice`, skillId: id,
+        label: `Practice ${SKILL_CATALOGUE.find(s => s.id === id).label} with his corrections · 4 min`, powerId: id, duration: 4,
+        targetId: teacher, coLocated: true, participants: ["$target"], cancellation: "refund", automatable: true, visibleWhen: owned(id),
+        ...(kind === "timber" ? {siteId: "village.workbench"} : {}),
+        requires: all(living, teacherReady, {fact: `power.${id}.mastery`, op: "lte", value: 2, reason: "Coached corrections fit this drill while mastery is two or below; slow practice finishes it at four."}, ...requirements),
+        costs, effects: [refine(id, 2), xp(xpSkill, 8)],
+        description: `Costs: ${costTerms(costs)}. The craftsman watches and corrects each cut, so four played minutes earn two method mastery instead of one, plus eight native competence XP. Cancellation refunds the costs and teaches nothing. Automation stops when his attention, the drill limit or other means run out.`});
+};
 const practices = [
     practice("brace", SKILL_IDS.brace, "Equilibrium", [], [hands, atLeast("strength", 8)]),
     practice("trail", SKILL_IDS.trail, "Perception", [], [evidence]),
     practice("timber", SKILL_IDS.timber, "Woodworking", [item(LOG, -1)], [hands, eq("world.workbench.wet", false, "Use a dry bench for material practice.")]),
-    practice("inquiry", SKILL_IDS.inquiry, "Perception", [], [evidence])
+    practice("inquiry", SKILL_IDS.inquiry, "Perception", [], [evidence]),
+    coached("timber", SKILL_IDS.timber, "Woodworking", TEACHER, [item(LOG, -1)], [hands, eq("world.workbench.wet", false, "Use a dry bench for material practice.")])
 ];
 
 const pressSupported = all(living, eq("actor.world", WORLD), eq("location", "Village"),

@@ -77,3 +77,14 @@ is a default; a world may state an exception with an in-world reason and cost.
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
 | SLR27 | **One authority per learning fact; project, don't merge.** Native skills keep `skill_progress`, simulation methods keep `powers`; new learning facts go in a namespaced slice (AR6) with their layer and carrier named, and native XP needs no migration. (SLC37, SLC41, SLN1–SLN4) | A third skill store, or a migration of every old save for a design lens |
+
+## Round 2 additions, 2026-10-18
+
+| Code | Rule | Mistake it prevents |
+| --- | --- | --- |
+| SLR28 | **Error is learnable.** Practice without feedback can build fluency in a mistake, and unlearning costs more than learning fresh, where a skill opts in. (SLC53) | Every repetition counting as progress |
+| SLR29 | **A drill cap names its next route** (a harder drill, a teacher, a text, insight). (SLC68, MR24) | Prototype caps read as world law |
+| SLR30 | **Reputation and competence update from different causes.** Others' belief in your skill comes from what they saw. (SLC47–SLC48, AD6) | NPCs who know your exact level by magic |
+| SLR31 | **Prestige, rebirth and continuation share the layer carry rule** (SLR20); each reset declares survival per layer. (SLC69) | Three inconsistent answers to "what do I keep?" |
+| SLR32 | **Insight and epiphany draws are seeded** in the save's RNG context (accepted, AD22, Rulebook 9). (SLC73) | Reload-scumming for a breakthrough |
+| SLR33 | **Consequences for forbidden teaching come from in-world agents with reasons,** not game-level blocks (accepted, AD38). (SLC76) | A permission list on what may be taught |

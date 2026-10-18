@@ -3491,3 +3491,12 @@ rules](SKILL_AND_LEARNING_RULES.md) (SLR1-SLR27), registered in RULES_INDEX as a
 Only the rows restating MR21-MR23 and AD3, AD6, AD8, AD11, AD17 and AD38 bind now; the rest,
 including rust off by default and the relearning savings curve, await his acceptance. No
 runtime change.
+
+### Skills and learning round 2 and coached practice, 2026-10-18
+
+Weibao: "/more-to-consider in all directions and then begin, commit and push first with lesser
+agent tho". Round 1 was committed and pushed first by a Sonnet agent (`fd2336aff`). Saved as
+[round 2 of the skills and learning palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#round-2-in-all-directions-2026-10-18)
+(SLC47-SLC77) with SLR28-SLR33 added to the [proposed rules](SKILL_AND_LEARNING_RULES.md). Work
+began with SLL7, coached timber practice: the craftsman's attention makes the same drill teach two
+mastery instead of one. It is implemented and browser-checked, not yet accepted by him.
