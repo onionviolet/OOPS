@@ -11,6 +11,7 @@ import {validateTrancheTwoEnvelope} from './absorb_p23/host_joins/tranche_two.js
 import {domainRegistry} from './domain_registry.js';
 import './native_resources_domain.js';
 import './crafting_domain.js';
+import './tools_domain.js';
 
 import {validateProductAppearanceEnvelope} from './product_appearance_state.js';
 import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";

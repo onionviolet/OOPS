@@ -500,15 +500,19 @@ class LocationActivity {
         if(this.gained_resources.skill_required && this.gained_resources.skill_required.length == 2){
             let skill_level_sum = 0;
             for (let i = 0; i < activities[this.activity_name].base_skills_names?.length; i++) {
-                skill_level_sum += character.getSkillModifier(activities[this.activity_name].base_skills_names[i], this.gained_resources.skill_required);
+                const skill_id = activities[this.activity_name].base_skills_names[i], range = this.gained_resources.skill_required;
+                //tool_rates is set only for improvised work with a broken tool (tools domain, IP2)
+                skill_level_sum += this.tool_rates ? clamp((character.getTotalSkillLevel(skill_id) + this.tool_rates.levels - range[0] + 1) / (range[1] - range[0] + 1), 0, 1)
+                    : character.getSkillModifier(skill_id, range);
             }
             skill_modifier = (skill_level_sum/(activities[this.activity_name].base_skills_names?.length || 1));
         }
         gathering_time_needed = Math.floor(slerp(this.gained_resources.time_period, skill_modifier));
+        if(this.tool_rates) gathering_time_needed = Math.ceil(gathering_time_needed / this.tool_rates.speed);
 
         for(let i = 0; i < this.gained_resources.resources.length; i++) {
 
-            const chance = slerp(this.gained_resources.resources[i].chance, skill_modifier);
+            const chance = slerp(this.gained_resources.resources[i].chance, skill_modifier) * (this.tool_rates ? this.tool_rates.yield : 1);
             const min = Math.round(slerp([this.gained_resources.resources[i].ammount[0][0], this.gained_resources.resources[i].ammount[1][0]], skill_modifier));
             const max = Math.round(slerp([this.gained_resources.resources[i].ammount[0][1], this.gained_resources.resources[i].ammount[1][1]], skill_modifier));
             gained_resources.push({name: this.gained_resources.resources[i].name, count: [min,max], chance: chance});
