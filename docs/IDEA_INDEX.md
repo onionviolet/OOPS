@@ -114,6 +114,9 @@ truth): three item roles (TQ1), mundane tool fit, wear, kits and improvisation
 GHS84-GHS111 for power held in things. Round 2 maps the existing tool code
 (TQ70-TQ78), an implementation plan IP1-IP9 in a `tools` domain, a verb catalog
 (VB), tools and equipment by world from the packs (WE1-WE20) and MT1-MT12.
+Round 3 adds kinds of making by material change and organization
+(TQ100-TQ125), damage and repair kinds (TQ130-TQ162), one requirement record
+(TQ163-TQ166) and making and repair requirements per world (TQ170-TQ189).
 Proposals only.
 
 [Weaponcrafting, runes and inscription considerations](WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)

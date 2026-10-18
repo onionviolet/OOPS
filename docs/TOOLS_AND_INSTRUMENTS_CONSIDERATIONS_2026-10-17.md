@@ -340,3 +340,167 @@ Weibao started IP1-IP3 and said old save compatibility is no worry for now
 without a migration, and the IP2 durability-off regression protects behavior, not old saves. Save,
 reload, Export and Import of new tool state remain required.
 
+
+## Round 3: types of crafting, types of repair, world requirements (2026-10-17)
+
+Weibao (2026-10-17): "types of crafting, tyeps of repair, each world based requirements and more?"
+
+Not restated: resolution modes GT1–GT9 and rulebook fields WR1–WR10 ([crafting engine](CRAFTING_ENGINE.md#gt-generation-rule-types-resolution-modes)),
+MR11, maker arts per world ([MAKER_ARTS](worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md)), WE1–WE20 above.
+GT answers "how is the result computed". This round adds three other ways of sorting: what the
+making does to matter, how it is organized, and what breaks and how it is fixed. World rows are
+MEMORY unless they cite a WE row or pack line.
+
+### Kinds of making, by what happens to the material (TQ100–TQ115)
+
+| Code | Kind | What it does | Examples | Usual GT mode |
+|---|---|---|---|---|
+| TQ100 | Shaping by removal | Cut, carve, grind, file away | Woodcarving, stone, gem cutting, wand carving | GT9 parts, GT1 for quality |
+| TQ101 | Shaping by force | Forge, bend, hammer, press | Smithing, Nichirin forging | GT9 + GT5 grade |
+| TQ102 | Forming | Cast, mold, throw, blow | Bronze casting, pottery, glass | GT1 |
+| TQ103 | Joining and assembly | Fit, rivet, sew, glue, wire | Tool head on handle (exists), armor, puppets, automail | GT9 |
+| TQ104 | Chemical change | Brew, cook, smelt, tan, dye, distill | Potions, pills, food, ingots, leather | GT1, GT2, GT3, GT5 |
+| TQ105 | Growing | Cultivate, graft, breed, ferment | Herb beds, Wood Release-like growth, gu insects, bonsai tools | GT1 over time |
+| TQ106 | Writing and encoding | Inscribe, draw circles, write tags, program | Runes, explosive tags, transmutation circles, Mother of Learning formulas | GT7 |
+| TQ107 | Infusion and binding | Charge, imbue, enchant, bind a soul or curse | JJK infusion (CT6), Skyrim enchanting, sealed artifacts | GT6 for the bound thing, GT7 for the pattern |
+| TQ108 | Transmutation | Rearrange matter under a conservation law | FMA alchemy (equivalent exchange), Wood/earth releases | GT1 with MR5 conservation enforced |
+| TQ109 | Conjuration | Make from power with no matter, often temporary | Nen-conjured chains, Quincy weapons, Emiya projection, Weapon Devils | Power cost, no materials; duration and vows |
+| TQ110 | Copying | Reproduce an existing thing | Projection (exceptional, TQ84), copy scrolls, Elden Ring duplication | Copy is lesser by default (dial per world) |
+| TQ111 | Salvage and refit | Take apart and reuse | Fallout junk, p23 salvage (exists), cannibalizing | GT9 in reverse |
+| TQ112 | Performing | Make an effect through skilled action, not an object | Songs, rituals, dances that bless a tool | Ritual laws (LotM) |
+| TQ113 | Building | Work at structure scale over long time | Houses, ships, smithies, settlements | GT9 with projects (TQ121) |
+| TQ114 | Making abilities | Design a technique, vow or Nen ability | HxH ability design, JJK vows, cultivation arts | Owned by skills and GHS90, not crafting; listed so it stays out of the crafting resolver |
+| TQ115 | Decorating and finishing | Engrave, polish, paint, sign | Maker's marks, naming a tool | Changes value and provenance only, by default |
+
+### Kinds of making, by how it is organized (TQ116–TQ125)
+
+| Code | Kind | Consequence |
+|---|---|---|
+| TQ116 | One-off by hand | Full depth (MR18 deep) |
+| TQ117 | Batch | Quick depth repeating a recorded method; yield and variance per batch |
+| TQ118 | Commission | Someone else makes it to your order: terms, deposit, wait, delivery (paradise hub service record, WE12) |
+| TQ119 | Apprenticeship work | Work under a master: access to tools (MC5), teaching, shared credit |
+| TQ120 | Collaboration | Two makers each own a step (Demon Slayer smith plus swordsman, JJK civilian housing plus sorcerer infusion, WQ6) |
+| TQ121 | Long project | Multi-day or multi-season work with stages that save and can be interrupted (building, infusion, growing) |
+| TQ122 | Production line or station | Idle automation at a station (MC9); quick never beats known (MR19) |
+| TQ123 | Field craft | Away from a station with a portable kit; worse control, light kit (p23 leather kit) |
+| TQ124 | Contest or exam | Made under rules and judged (Hogwarts class, HxH exam, guild test) |
+| TQ125 | Illicit making | Unlicensed, hidden, with detection risk (MHA unlicensed support gear, controlled potions) |
+
+### Kinds of damage (TQ130–TQ141)
+
+Repair starts with knowing what is wrong. Today condition is one number (TQ74). These are the kinds a
+later phase could split it into; each world uses the ones that fit.
+
+| Code | Damage | Typical cause | Notes |
+|---|---|---|---|
+| TQ130 | Dull or worn | Normal use | Upkeep fixes it (IP4) |
+| TQ131 | Chipped or nicked | Hard material, a parry | Regrind; loses a little mass |
+| TQ132 | Bent or warped | Force, heat | Straighten; may hide a crack |
+| TQ133 | Cracked | Stress, cold | Hidden until inspected (MR1: acts whether known); can fail suddenly |
+| TQ134 | Broken | Overload | Pieces kept; reforge or replace a part |
+| TQ135 | Missing part | Lost, stolen, salvaged | Replace part (component system exists) |
+| TQ136 | Corroded or rotted | Wet, salt, time | Clean, treat, or the part is lost |
+| TQ137 | Burned or melted | Fire, techniques | Often a part replacement |
+| TQ138 | Drained | Spent charge, fuel, cursed energy | Recharge, not repair (MoL lamp: charge separate from capacity) |
+| TQ139 | Corrupted or cursed | Exposure, a hostile technique | Cleanse; may need a specialist or a church (LotM) |
+| TQ140 | Detuned or unbonded | Wrong user, long disuse, theft | Re-attune or re-bond (wands, Zanpakutō) |
+| TQ141 | Wounded (living tools) | Combat | Heals over time, by feeding or by a healer (Samehada, living Dials, Teigu beings) |
+
+### Kinds of repair (TQ142–TQ160)
+
+| Code | Repair | Who and what | Result |
+|---|---|---|---|
+| TQ142 | Upkeep | Owner, small kit | Restores dull/worn; small fit gain (IP4) |
+| TQ143 | Coin repair | A paid shop | Exists (TQ74); instant, full |
+| TQ144 | Hand repair | Skill, station, material, time | IP3 (in progress); can fail |
+| TQ145 | Field patch | Portable kit, improvised parts | Quick, temporary; lowers max until done properly |
+| TQ146 | Part replacement | Any maker who can make or buy the part | Keeps the rest; provenance records the swap |
+| TQ147 | Reforge | A smith, the pieces | Rebuilt from fragments; identity question (TQ170) |
+| TQ148 | Specialist repair | The only people who can, by skill or law | Automail mechanics (WE5), MHA support course (WE6), Church for sealed artifacts |
+| TQ149 | Original maker only | That smith or workshop | Demon Slayer (WE2); the maker can die or refuse |
+| TQ150 | Spell mend | A spell or technique | D&D Mending (WE10), HP Reparo (MEMORY): instant, often only for plain objects |
+| TQ151 | Transmuted repair | Alchemy with matching material | FMA: needs the right matter and understanding of the structure |
+| TQ152 | Self-repair | The tool itself, over time or by feeding | Zanpakutō regrowing from spirit (MEMORY, check WE4 `U`), Samehada, living tools |
+| TQ153 | Recharge or refuel | Power source, fuel, gem | Fixes drained (TQ138) only |
+| TQ154 | Re-enchant or re-infuse | Maker with the pattern or power | Restores a lost effect; may differ from the original |
+| TQ155 | Cleanse | Priest, purifier, ritual | Removes corruption; can strip a wanted effect too |
+| TQ156 | Re-attune or re-bond | The user, time, a rite | Restores fit or allegiance |
+| TQ157 | Visible repair | A maker who chooses to show it (kintsugi style) | Adds history and sometimes value; a world or culture dial |
+| TQ158 | Restoration | An expert on old work | For relics and antiques; a bad restoration lowers value |
+| TQ159 | Reset by time | A loop, a time ability, a rewind | Mother of Learning loop resets the workshop (WX17); JoJo-style restoration as a cheat |
+| TQ160 | Replacement by an institution | School, guild, army issues a new one | Debt, paperwork or a reprimand; the old item's history ends |
+
+**Repair outcomes (TQ161).** Full, partial, lower max condition, a scar or quirk (a tell in use), better
+than before (a re-temper by a master), or a hidden flaw the repairer missed (truth versus knowledge,
+MR1). Which outcomes a world allows is a dial.
+
+**Diagnosis comes first (TQ162).** Inspecting damage is its own small action with means and error
+(MEANS appraisal). A crack missed at diagnosis stays in the tool. A cheap repair of the wrong damage
+does nothing to the real one.
+
+### Requirements: one record shape for making and repair (TQ163–TQ166)
+
+| Code | Consideration |
+|---|---|
+| TQ163 | **One requirement record** for making and repair: `{skill: {id, level}, station: tag, tools: verbs, materials, power: {kind, amount}, knowledge: method id, eligibility: keys, permit, people: roles, time, calendar}`. Each field is optional. Worlds fill rows; the resolver reads them. This matches GHS92 eligibility keys and the existing `requires` language |
+| TQ164 | **Requirements are shown before commit.** The quote lists each one as met, missing, or unknown (unknown when the player lacks the means to tell), consuming nothing (MR4) |
+| TQ165 | **Substitutes per field.** A missing station may have an improvised substitute (TQ7); a missing permit may have an illicit route (TQ125); a missing skill may have a commission (TQ118). Substitutes are rows, not special cases |
+| TQ166 | **People are a requirement too.** Collaboration (TQ120) and original-maker repair (TQ149) need a named person available, with their own schedule and willingness |
+
+### World requirements (TQ170–TQ189)
+
+The required fields for making and repair in each world. Rows citing WE are from the packs; the rest
+is MEMORY, to be checked under TQ60.
+
+| Code | World | Making needs | Repair needs | What is special |
+|---|---|---|---|---|
+| TQ170 | Village (WE1) | Skill, station (smithy, workbench), material | Coin or hand repair | None beyond skill: the baseline |
+| TQ171 | Demon Slayer (WE2) | Sunlight-ore material, swordsmith skill and village access | The original smith (TQ149) | Power belongs to the swordsman; the blade's color reads the wielder |
+| TQ172 | Jujutsu Kaisen (WE3) | Ordinary maker for the housing, plus a sorcerer's energy and time for infusion (TQ120, CT6) | Housing: any smith. Function: a qualified sorcerer (authentication, WE3) | Custody by school; grade; tools do not teach their method |
+| TQ173 | Bleach (WE4) | Asauchi from the forger (Nimaiya); the user's soul makes the Zanpakutō | Housing repair, or a paid qualified survey (WE4); deeper damage `U` | The blade is part of the soul; loss is injury |
+| TQ174 | FMA (WE5) | Circle, understanding of the structure, matching matter; automail needs a mechanic | Transmuted repair, or the automail mechanic with climate upkeep | Equivalent exchange; knowledge, matter, body and permission are separate means |
+| TQ175 | MHA (WE6) | Support-course skill, workshop, approval and license | Support workshop; borrow, replace or go without (WE6) | The user's Quirk sets what the tool must fit |
+| TQ176 | Naruto (WE7) | Ninja tool stock, sealing skill for tags and scrolls, puppet frames | Repair yard, puppet service court | Mass-produced cheap tools beside a few willful blades |
+| TQ177 | One Piece (WE8) | Shipwrights, smiths, rare materials (Seastone, Adam wood, MEMORY) | Shipyard repair; damage can exceed repair | Ships as tools with a life (crews mourn a ship, MEMORY) |
+| TQ178 | Harry Potter (WE9) | Wandmaking knowledge, wood and core, a magical body to use it | Reparo for plain objects; a broken wand is rarely fixable (MEMORY) | Eligibility: a good tool does not make magic in an ineligible body (WE9) |
+| TQ179 | D&D (WE10) | Tool proficiency, kit, time, gold budget (GT4) | Four routes: spell, paid worker, needle and skill, replace | Proficiency is an explicit axis |
+| TQ180 | Mother of Learning (WE11) | A formula anchoring a real spell, workshop access gates | Recharge separate from repair; the loop resets almost everything | Only soul-keyed things carry |
+| TQ181 | LotM | Characteristics (conserved), ritual knowledge, a Sequence to handle them | Church custody; cleanse or re-seal | Every power item has a side effect |
+| TQ182 | Paradise hub (WE12) | Service record: worker, place, skill, duration, capacity | Shared-space repair, forge partnership | Transactions run offer, terms, reserved materials, service, delivery |
+| TQ183 | Black Clover (WE13) | Ordinary smiths (Daro); grimoires are not made | Daro's shop | Grimoires grow with the bearer and crumble at death |
+| TQ184 | Frieren (WE14) | Herbalist kit; staff making unverified | None stated | Long journeys make upkeep matter more than making |
+| TQ185 | HxH (WE15) | Nen conjuration (ability design, TQ114); ordinary trade | Trader repair, boat repair | Conjured tools are abilities, not items |
+| TQ186 | Chainsaw Man (WE16) | Contracts for devil weapons; legal gear issue | Issue and replacement by the organization (TQ160) | Hunters only may carry guns |
+| TQ187 | Elden Ring (WE17) | Smithing stones by family, a smith or grace site | Whetblades and stones; urn repair loop (original) | Ashes move only between compatible armaments |
+| TQ188 | Fallout (WE18) | Workbench, perks, junk parts | Salvage parts, bench | Installs do not duplicate parts |
+| TQ189 | Skyrim (WE19) | Learned effect, filled gem, eligible item, station | Recharge versus re-enchant | A drained blade is still a blade |
+
+### More to consider
+
+| Code | Consideration | Disposition |
+|---|---|---|
+| TQ190 | **Identity after repair.** When a reforged blade is still "the same" blade matters for bonds, custody, provenance and named items | ACCOUNT FOR NOW: identity follows a declared core part (the blade, the core, the soul) per item kind; replacing the core makes a new item that records its predecessor |
+| TQ191 | **Repair as livelihood.** Many pack first jobs are repair work (boat, automail, Daro, support items) | LATER: a repair-shop routine on the Village career pattern (customers bring damaged items with typed damage) |
+| TQ192 | **Repair as story.** A broken heirloom, a blade only a dead smith could fix, a tool that refuses a new hand | LATER: storylet hooks keyed on damage kind plus the item's provenance |
+| TQ193 | **Repair skill grows separately from making skill.** A good mender is not always a good maker | ACCOUNT FOR NOW: IP3 uses the making skill (Forging); a separate repair skill is a dial for later, not a new skill now |
+| TQ194 | **Repair can improve what was known.** Taking a tool apart reveals its maker, materials and hidden flaws | ACCOUNT FOR NOW: repair writes knowledge claims about the item (MR31) as a side effect, never changes truth |
+| TQ195 | **Cost of not repairing.** A cracked tool fails at a bad time; a dull one just slows you | LATER: typed damage lets failure happen at the right moment instead of a flat stat penalty |
+| TQ196 | **Cross-world repair.** A Village smith on a JJK tool fixes the housing only (MR14) | ACCOUNT FOR NOW: repair rows are per world and per item kind; with no row, only housing repair applies |
+| TQ197 | **Nonhuman bodies as tools and repairers.** A golem repairs itself with clay; a slime cannot hold tongs | LATER: body template functions feed TQ163 eligibility (nonhuman making doc) |
+
+### ACT NOW (done this round)
+
+| Code | Change |
+|---|---|
+| TQ198 | Sent the running IP1–IP3 session a constraint: the repair command takes a `kind` (only `hand` built) and reads requirements from a content table keyed by kind and tool type, so TQ142–TQ160 and TQ170–TQ189 add rows later instead of code. Delivery queued, not confirmed |
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| TQ199 | Typed damage phase: split condition into TQ130–TQ141 kinds used by the Village, with diagnosis (TQ162) | Strong implementer, M | A cracked tool is found only by inspection, fails under load, and the right repair fixes it; save, reload, Export, Import keep damage kinds |
+| TQ200 | Source-check TQ170–TQ189 MEMORY cells against packs and wikis | Cheap readers, balanced reviewer, S per world | Each cell carries a status and locator |
+
+Evidence: CRAFTING_ENGINE round 2 (GT, WR, RS), MAKER_ARTS world rows W01–W19, MAKING_RULES MR11,
+round 2's WE survey. Docs only; no build, test or browser run.
