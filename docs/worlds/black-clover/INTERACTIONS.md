@@ -1,0 +1,25 @@
+# Black Clover interaction matrix proposal
+
+Every case is a proposal. The citations identify the source behavior used to construct it. Local consequences, costs and original actors are not canon.
+
+| ID | Starting state and source anchor | Proposed action / alternative | Observable consequence and state owner |
+|---|---|---|---|
+| BC-IX-01 | Candidate at Hage ceremony; Grimoire Acceptance Ceremony rev89662 | Receive the offered grimoire and practice, or leave without one and take a useful village job. | Ceremony receipt owns grimoire result; village job owns pay and witness knowledge. |
+| BC-IX-02 | Rune instruction prepared; Rune array rev93898 | Spend time on a complex design for stronger effect, use a simpler known design, or rush under pressure. | Spell owner records success/failure; rushed poor drawing can fail or explode. |
+| BC-IX-03 | Heart trainee with eligible magic; Mana Method rev86194 | Train natural-mana runes, choose a simpler attribute-compatible task, or stop when stage/capacity is insufficient. | Method mastery and current ambient resource remain separate. |
+| BC-IX-04 | Natural-mana study completed; Ultimate Magic rev83638 | Pursue the soul-origin and mana-proximity prerequisites, or remain with current trained spells. | No Ultimate Magic before prerequisites; human route still needs Mana Method and True Magic. |
+| BC-IX-05 | Two linked combatants in array; Soul Chain Deathmatch rev95746 | Complete the chest-hit trigger and duel, avoid the fireball, or have an ally interfere. | Spell link evenly divides combined magic, persists after mana depletion, ends at unconsciousness; outside interference disrupts it. |
+| BC-IX-06 | Enemy establishes Spatial Mana Domination; Spatial Mana Domination rev95846 | Test equal magic power; being loved by mana with greater magic control; or a spatial mage's mastered Mana Zone. Otherwise withdraw; use outside-mage interruption only if a sourced case supports it. | Resolve only the three page-stated counters; do not substitute generic relative stats or attack power. |
+| BC-IX-07 | Anti Magic fighter faces spell and mundane threats; Asta rev96080 and Asta vs. Kiato rev93876 | Cut or deflect a spell, use Ki/movement against a mundane strike, or protect a teammate. | Anti Magic has no automatic advantage against nonmagical contact; position and timing matter. |
+| BC-IX-08 | Squad needs an extraction route; Finral Roulacase rev96072 | Portal to visible/previously seen destination, support a teammate's portal, or take the known ground route. | Destination knowledge, opposing mana, dense magic, group size and recovery constrain transport. |
+| BC-IX-09 | Injured squad member and active threat; William Vangeance rev95875 | Heal/care for injured allies, press the offense, or split attention. | Save eligible injured people; already dead cannot be restored by this example. Protection can divide attention. |
+| BC-IX-10 | Party explores unknown dungeon; Dungeon rev95914 | Map, test a trap, claim a tool, or withdraw before the primary treasure is removed. | Shared map knowledge differs by observer; treasure removal may trigger collapse. |
+| BC-IX-11 | Rival team contesting dungeon resource; Dungeon rev95914 | Negotiate a split, race, sabotage only through a concrete cause, or report the rival. | Custody and faction response persist; no automatic shared inventory. |
+| BC-IX-12 | Magic Knight mission completed; Black Bull rev95897; Wizard King rev93541 | File witnessed result, protect residents, or claim credit without evidence. | Mission record, stars, public reputation and character belief are separate. |
+| BC-IX-13 | Spirit host and compatible spirit available; Spirit Magic rev96046 | Build resonance through joint action or decline a proposed host bond. | Track bond, host, grimoire access and spirit availability separately; departure, succession and refusal to return after revival can change access. |
+| BC-IX-14 | Devil contract established; Unite rev96045 | Use a master-servant route with dominant host mind or an equal route that requires synchronized intent. | Contract type gates control and access. They cannot be swapped as a cosmetic preference. |
+| BC-IX-15 | Party attempts compound spell; Heath Graice rev96049 | Coordinate the required simultaneous spells or use separate attacks. | Combined output uses both casters' time/control and can be interrupted; no solo copy granted. |
+
+## Knowledge and causality proposal
+
+Author truth, event occurrence, public report and each character's belief are separate. A witness learns only what they perceived; a captain's orders do not expose hidden spell costs to an unrelated civilian. Later revelation corrects belief but does not rewrite the earlier event. Canon events remain eligible only while their required causes and actors remain present. Divergence is player-caused only after an action invalidates a required cause; do not force a familiar canon result through unrelated causes. This is a proposed implementation of the lore/timeline contract, not a Black Clover source law.

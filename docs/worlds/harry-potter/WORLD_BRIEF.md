@@ -73,3 +73,26 @@ Proposed first proof compares an ordinary entrant's paid nursery/craft contribut
 Gate: viable differing starts, actual ownership/support, clear known constraints, no inherited trained powers unless declared, preserved family/history after reload, no duplicated tool/sample/lesson, rejected stale/invalid generation and no hidden future outcome in UI. Runtime still needs independent worlds, new origin initialization, body-specific native actions, chapter/calendar and source acquisition adapters. No source/build/browser/save test for this candidate is run.
 
 Resume: master owns this brief and source ledger; [origin contract](../ORIGINS_AND_WORLD_TIMELINES.md) owns shared detail. Initial bounded sources and original people/scenarios are saved locally. Next: a source-specific eligible origin/lesson and actual native body/world packet if this candidate is selected for expansion. Final fiction, roster, source inclusion and numerical balance remain proposals.
+
+
+## Feature-gap follow-through, 2026-10-15
+
+[BF1/BF2](../BOOK_WORLD_FEATURE_GAPS_2026-10-15.md) identify the missing native
+eligibility/tool and useful institutional/material consumers. The current HP
+roster module explicitly has no native binding; generic source/knowledge/equipment
+code is available, but does not certify canonical magical acquisition or wand
+cooperation. Keep H2/H3 supplemental-source qualification. Ordinary work and study
+can use labelled original content without declaring a canonical spell rule.
+No adult/child/tree origin selected, no native HP implementation or new proof.
+
+
+## HP/LOTM readiness comparison, 2026-10-15
+
+[Current comparison](../HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md) recommends
+LOTM's narrower acquisition/control/use first on checked local-source support.
+HP remains a priority candidate. H6–H8 add refreshed official tool references;
+wand mismatch/borrowed custody may affect performance without a universal cast
+prohibition. Separate actual damage/refusal from affinity and ignorance. No new
+eligibility acquisition, scalar wand formula or seven-novel source verification.
+One exact spell/target/tool case is the next HP qualification before implementing
+BF1, rather than a general wandlore engine or another ordinary-work proxy.

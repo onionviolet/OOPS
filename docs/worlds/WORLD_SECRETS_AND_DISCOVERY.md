@@ -201,3 +201,20 @@ one possible mistaken reading and one useful action available before full
 certainty. Exercise undisturbed and intervened outcomes from fresh test
 origins, then save/reload/import with stable truth and no duplicate rewards.
 Report IDs and route results only. This is a proposed proof, not an assignment.
+
+
+## Base-cheat discovery direction, 2026-10-15
+
+[Weibao requests discovering the base cheat's powers in play](../USER_VISION.md#overarching-direction-discussion-od13-2026-10-15),
+within direct narration and world/mode/means-dependent voices. Talking cheats and
+unreliable narrators are possible. Their exact identities, powers and reliability
+are not selected by this answer. No hidden truth is introduced or unsealed here.
+
+Proposed implication: distinguish an observable usable starter capability from
+its unexplained origin, hidden scope and later functions. Research, experiments,
+insight, other people and actual revealing powers can establish evidence. Preserve
+how a claim was learned, who knows it and whether it is an account, inference or
+supported fact. Discovery need not be a one-time exposition dump or a mandatory
+riddle blocking the already granted starter continuation. Actual functions/routes
+belong to cheat/world owners; author-only sealed detail remains outside chat and
+public-facing summaries. See [voice considerations](../YAIR_FORMAT_AND_STORY_DELIVERY_2026-10-14.md#od13-narration-voices-and-discovery-2026-10-15).

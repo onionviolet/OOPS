@@ -214,3 +214,20 @@ Added root-owned origin/life-stage/timeline, Harry Potter candidate, lived Parad
 Combined document gate covers all local world/GM files and five edited global owners: 66 Markdown files, required eight-file packs, local links/anchors, JSON example and authored whitespace. Final integration scan passed: 1,122 local links and 365 anchors resolved, 1 JSON example parsed, five eight-file packs present and authored whitespace clean. Scoped global `git diff --check` passed. Six inspected ENGINE_AUTHORING/simulation/contracts/power/effects/native-adapter hashes match prior fingerprints. Existing dirty source/bundles, LICENSE and private saves were preserved. No runtime unit/build/browser/save test or model qualification is claimed.
 
 All five specialist chats completed in bounded waves; no active leaf workers or uncertain writes remain. Exact IDs/cursors and the current resume point are in PROJECT. Design review and final integration scan passed; fiction, numbers, final prose, human acceptance and the native-world/assembly/conceptual/dialogue implementation gates remain separate.
+
+## GW1–GW5 overarching authoring follow-up, 2026-10-15
+
+The [wider pass](../gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md#wider-gameplay-and-world-design-pass-2026-10-15)
+links five existing owners for functional world identity, bounded NPC agency,
+useful alternate progression, production at scale and causally committed hidden
+detail. Apply only relevant constraints in existing WORLD_BRIEF/CAMPAIGN/detail
+rows and W1–W5 beats. No new master campaign schema, completion gate or second
+world is selected. Full requested source/world horizons remain open with their
+owners; a finite demonstration sequences delivery rather than shrinking them.
+
+Canon/edition/AU starting differences, actual interventions and actual fate
+correction remain explicit. Do not silently repair a failed scene by resurrecting
+its actor, minting a replacement with no means or generating unseen details that
+contradict committed causes. A source-supported correcting power can still act.
+A success may resolve the problem without a compulsory next disaster. No new
+source-canon claim, research dispatch, runtime or representation choice here.

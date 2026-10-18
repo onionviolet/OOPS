@@ -1,0 +1,69 @@
+{
+  "source": "WikiTeam IA 2023-11-28 snapshot",
+  "frozen_manifest_sha256": "7564fe138be6d6b2bab19b3c3f0ed0e2a8f112a51c9e65efa31ab6bf723cf7d3",
+  "retained_range": [
+    690,
+    1634
+  ],
+  "retained_completed": 945,
+  "gates": [
+    {
+      "audit": "myheroacademia_SCOPE_AUDIT.json",
+      "audit_sha256": "63df79decdde596a315e947f75afdce8e4ab030ee7cea5ef86155b5d5a0b801d",
+      "state": "all_named_payloads_read_verified_and_adjudicated",
+      "expected": 1,
+      "completed": 1,
+      "titles": [
+        "Chikara Yotsubashi"
+      ],
+      "limits": "Explicit extra mechanic heading audit only; not a proof that every unheaded mechanic is captured. No frozen inputs were changed."
+    },
+    {
+      "audit": "myheroacademia_NONCHARACTER_AUDIT.json",
+      "audit_sha256": "cc816dfd9d6beac42cb96044ee5fbd364f372cd771cac66a1ad25c43551706c6",
+      "state": "all_named_payloads_read_verified_and_adjudicated",
+      "expected": 2,
+      "completed": 2,
+      "titles": [
+        "List of Characters",
+        "Feathers"
+      ],
+      "limits": "Conservative metadata classification; unresolved pages still require scope adjudication. Main inputs remain immutable."
+    },
+    {
+      "audit": "myheroacademia_EMPTY_INPUT_AUDIT.json",
+      "audit_sha256": "a8246199a7cf981c570151f5d66657ada7efc8e5b4df27b6f6416e107efd062e",
+      "state": "all_named_payloads_read_verified_and_adjudicated",
+      "expected": 20,
+      "completed": 20,
+      "titles": [
+        "Sansa Tamakawa",
+        "Ganma Asui",
+        "Beru Asui",
+        "Samidare Asui",
+        "Satsuki Asui",
+        "Mick",
+        "Emi Fukukado/Relationships",
+        "Shihai Kuroiro/Relationships",
+        "Kosei Tsuburaba/Relationships",
+        "Pony Tsunotori/Relationships",
+        "Christopher Skyline/Relationships",
+        "Hina",
+        "Rin Yaritezawa",
+        "Reiko Yanagi/Relationships",
+        "Yosetsu Awase/Relationships",
+        "Juzo Honenuki/Relationships",
+        "Kaoruko Awata/Relationships",
+        "Ichiro Hotta/Relationships",
+        "Jiro Hotta/Relationships",
+        "Eizo Tanuma/Relationships"
+      ],
+      "limits": "Empty selection does not mean missing original source or absent ability. Metadata triage first; actual character biographies remain limited to mechanic-bearing text. Original raw bodies retained privately as cited repair inputs, no semantic read claimed."
+    }
+  ],
+  "evidence": [
+    "AUDIT_READ_LEDGER.jsonl",
+    "AUDIT_NOTES.jsonl"
+  ],
+  "scope_limit": "Named scope gates are closed for this lane; this is not proof every unheaded mechanic anywhere in the wiki was captured."
+}

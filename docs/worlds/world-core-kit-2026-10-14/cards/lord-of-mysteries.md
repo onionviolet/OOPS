@@ -942,3 +942,15 @@ Root rounds 10/11 appeared after the completed-lane snapshot. CR1/CR2 redirect l
 3. **W19-A3:** Consider one relationship/start overlay only after the selected canon slice is playable, with exact base pin and independent state.
 
 Final claim: documentation consolidated only. Source/built/browser/persistence/director states remain exactly scoped above; no gameplay change, build, test suite, save action, commit or publication.
+
+
+## Current feature-selection recommendation, 2026-10-15
+
+[HP versus early LOTM comparison](../../HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md)
+recommends one supervised Seer acquisition -> learned control -> reusable bounded
+material-perception feature. Five exact early primary windows and the pinned local
+source hash were checked; it does not upgrade this card's dated runtime floors or
+whole-source reading status. Native profile is still a proposed original early
+Tingen branch; no protagonist exception/guaranteed potion entitlement. Full
+digestion/promotion, broad ritual/potion engine and cross-world execution stay
+separate. This is a recommendation, not a new runtime assignment or accepted start.

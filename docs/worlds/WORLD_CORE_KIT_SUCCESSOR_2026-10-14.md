@@ -108,3 +108,51 @@ packets file.
 Next multi-world build candidate: MWA-P02 on the merged T3 rule reader, in a
 world that already plays, behind the Projects drawer until Weibao promotes it,
 and off files the UI queue (NAV, TRIAGE, APOTHECARY) owns. Not dispatched.
+
+## GW1 world identity follow-up, 2026-10-15
+
+The [wider gameplay/world pass](../gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md#wider-gameplay-and-world-design-pass-2026-10-15)
+reuses round 18's local-rule/useful-verb proposal. **Recommended authoring detail:**
+for a selected world rule, record the actual changed action/condition, means,
+consumer, consequence and next useful choice in the existing world owner. A new
+rank/resource name alone is not proof of a mechanically different world. Ordinary
+social/ecological life can supply the distinction; no mandatory minigame/new meter.
+Compare one actual local-rule effect in existing authorized scope before broadening.
+No new build candidate, source claim, worker or prerequisite for the cheat slice.
+Existing K/MWA proposals and runtime baselines keep their own evidence dates.
+
+## GW1 local-rule specimen worked, 2026-10-15
+
+[Cyoria GW1/GW3 specimen](mother-of-learning/GW1_GW3_LOCAL_RULE_AND_APPROACHES_2026-10-15.md)
+uses the existing original visitor branch to show a rule changing actions:
+knowledge, compatible source, stored fuel, tool and trained control are distinct.
+Prepared device operation and actual evidence-led specialist help resolve the
+same local objective with different investments/dependencies. The original keyed
+interface is labeled as a branch divergence. Definition checks support structural
+comparison, not native/whole-world completion or strict-source canon. No new
+world/implementation dispatch, additional realm or current-cheat gate selected.
+
+
+## Selective full-cost and reuse comparison method, 2026-10-15
+
+[Cyoria follow-through](mother-of-learning/GW1_GW3_LOCAL_RULE_AND_APPROACHES_2026-10-15.md#full-preparation-later-reuse-and-helper-availability-2026-10-15)
+traces local law -> actual start/funding -> full preparation -> marginal cost ->
+later consumers -> helper/recovery -> outcome/evidence. Recommend reusing these
+fields in selected existing world owners, not adding an all-world quota or gate.
+Frontier is the first proposed candidate; source/held integration must precede
+claims. FMA/HP remain later source/start-dependent proposals. In particular,
+reusable items need actual ongoing supply/services, and early alternatives need
+separate mature consumers if independent careers are promised. Current Cyoria's
+finite calibration and lamp-gated mature research are findings, not universal laws.
+No worker dispatch, new priority or cheat implementation requirement follows.
+
+
+## Feature-first book-world gap follow-through, 2026-10-15
+
+[Current feature register](BOOK_WORLD_FEATURE_GAPS_2026-10-15.md) answers the newer
+request to find concrete missing capabilities instead of requiring an objective
+first. It supersedes the earlier Frontier-next suggestion for this pass, preserves
+book priority and keeps each TTKS core separate. W15 remains the schema owner;
+the register distinguishes explicit unbound profiles, content, local handlers,
+source and proof gaps. An objective can verify a feature without defining its
+whole scope. No new kit quota, implementation gate or runtime dispatch follows.

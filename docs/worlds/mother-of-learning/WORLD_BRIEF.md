@@ -46,3 +46,36 @@ Deferred acceptance is finite: prepared journey through mature mastery3and chang
 ## Resume
 
 MOL worker owns only six new `src/book_world_mol_*` leaves and this world brief/MOL_* evidence. Root alone owns shared integration. Current local source/definition pass is clean; final source/native review and root integration remain. See [MOL_CHECKPOINT](../../gm/book-world-completion-2026-10-06/MOL_CHECKPOINT.md) for exact APIs, passed permitted checks and unrun gates before any successor writes.
+
+## GW1/GW3 worked local-rule and route comparison, 2026-10-15
+
+[Worked specimen](GW1_GW3_LOCAL_RULE_AND_APPROACHES_2026-10-15.md), selected at
+[Weibao's request](../../USER_VISION.md#cyoria-gw1gw3-worked-comparison-request-2026-10-15),
+compares two existing approaches to the same bounded local objective: prepared
+keyed-device operation versus evidence-led willing Taiven cover. Knowledge,
+compatible personal source, actual fuel, built equipment and trained control are
+separate, making a non-casting visitor's choices functional. Ordinary survey allows
+the collaborative approach without secretly requiring the lamp-training path.
+
+The engineered manual lamp remains an original branch divergence; this is not
+strict-canon acceptance or a claim that every outsider lacks magical compatibility.
+Current values are prototype values. Definition-only import/assertions checked
+route/cost/report/review/claim structure; no new native gameplay or persistence
+proof. Full preparation, deadline accessibility and comparative value remain to
+be observed within a later authorized world task. No new source/build/UI worker,
+world scope, personal-save operation or requirement for the cheat slice.
+
+
+## GW1/GW3 preparation and reuse follow-through, 2026-10-15
+
+[Full ledger and availability comparison](GW1_GW3_LOCAL_RULE_AND_APPROACHES_2026-10-15.md#full-preparation-later-reuse-and-helper-availability-2026-10-15)
+extends the specimen. Common funded/rested plans spend 21 crowns/49 player-job
+minutes for tested lamp operation and 8 crowns/28 player-job minutes for cover,
+plus actual independent NPC work. These are definition totals, not played quotes.
+Three once-only calibration services cap authored lifetime charge at 18; Nora's
+paid recovery does not renew claims. Both routes yield useful observed research,
+but current mature notebook/repeatable research requires a tested lamp. Taiven
+is also the supported paying client for A, so both share settlement availability.
+Finite tool versus ongoing service and independent mature non-device research
+are later world-scope choices, not accepted extensions. No runtime change or new
+native proof; original branch/canon and existing implementation ownership remain.

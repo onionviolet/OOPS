@@ -6,6 +6,17 @@ Status: master-authored design proposal, 2026-10-03. Requested expansion beyond 
 
 [Current combined delivery](../gm/home-social-base-2026-10-07/DELIVERY.md) and [registry](../gm/home-social-base-2026-10-07/REGISTRY_READBACK.json) record ten native/UI destinations, including the original Proto23 visitor branch, a returned Cyorian notebook's actual home consumer and compatible visit-history compaction. Existing pressure refinement, portable Frontier technique use and material return remain. [Current build](../gm/home-social-base-2026-10-07/BUILD.json) is cc3798910c48; gameplay remains **implemented-unverified**. The [prior nine-destination audit](../gm/multi-world-paths-2026-10-07/AUDIT.md) retains its source snapshot and motivates this wave; its missing notebook/visit-limit findings are superseded by actual consumers/compaction, with behavioral proof still deferred. Known-route overview and broader worlds/cosmologies remain distinct scopes. Exact prior current-status text is preserved in [before-state](../gm/home-social-base-2026-10-07/BEFORE_CANONICAL.json).
 
+## OD5 accepted connection direction, 2026-10-15
+
+[Weibao's answer](../USER_VISION.md#overarching-direction-discussion-od5-2026-10-15)
+accepts world histories with means-based connections/returns, and both revisiting
+the same world and entering a fresh/parallel version. Crossing alone does not
+reset history. Connections and return access may grow with means. The cosmology
+menu below remains available where supported, not a requirement to implement all
+structures. Cheat-driven route/version/world changes are considerations; exact
+mechanisms remain open. Existing source/runtime evidence retains its original
+limits. UI/2D representations do not determine these world laws.
+
 ## Three independent decisions
 
 **Cosmology** describes what exists and how places or histories relate. **Represented scope** describes the places, people and effects this delivered campaign can resolve. **Persistence** describes which actual changes survive leaving, failure, a cycle or another visit. World size, content coverage, mission length, danger and power scale are different axes.
@@ -33,7 +44,23 @@ These are original authoring options, not claims about any cited franchise.
 
 These structures can coexist. An independent universe can contain spirit layers, a pocket garden and a repeating city. A network can connect different multiverse clusters through one rare route. The master owns shared transport/time/identity contracts; a local GM owns that destination's laws. No arbitrary nesting depth is promised by the current engine.
 
+## Title powers, achievements and rule authority, 2026-10-15
+
+[User direction](../USER_VISION.md#titles-achievements-and-tags-on-rules-2026-10-15)
+includes power-bearing titles and tags acting on rules according to world or
+cheat. [E4 expansion C6](../emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c6-worlds-and-continuity)
+owns proposed world variants and separates historical recognition, entitlement,
+active power, required means and local authority across travel/rebirth. No
+universal cancellation, conversion or equalization is selected. Existing
+memory/base-cheat continuity remains; other retention depends on means and
+can improve. Specific examples remain proposals, not new canon assertions.
+
 ## Visits and content coverage
+
+For titles on worlds, regions, places and their organizations, [E4 C11-C13](../emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c11-items-places-organizations-and-worlds-as-title-holders)
+considers beneficiaries, borders, migration, splitting/merging and branch-world
+identity. World achievements need not be the traveler's personal deeds or
+grant identical benefits to every resident. These remain proposals.
 
 | Delivered scope | Enough detail to be useful | What it does not establish |
 |---|---|---|
@@ -101,3 +128,92 @@ Master owns these shared scoping records and integration; lore GM/source researc
 Historical design gate, 2026-10-03: independent instance bindings, transition/custody, absence clocks and compatibility then needed native integration. Later finite implementations supply those joins for the destinations in the audit above; arbitrary actor migration, nested depth, resets/export conservation and stopped-time layers still need their own adapters. Shared metadata is not sufficient. Preserve vanilla opening and the one-prestige limit; the one-realm milestone sequenced the first delivery rather than describing today's destination count. Exact prior wording is preserved in the audit's [before-state](../gm/multi-world-paths-2026-10-07/BEFORE_OWNERS.json).
 
 The original proposed observable proof remains an acceptance need: prepare in the current realm, enter one bounded destination, resolve two materially different approaches, return with actual paid aftermath, reload, then revisit the same people and unique claims. Review failed entry, unsupported power, interrupted return, absent-world time and failed storage. The 2026-10-03 design run executed no build/browser/save check; the current audit qualifies the later existing build, with gameplay/browser/save checks still deferred. Current checkpoints are linked in PROJECT; five source-world packs and hub/origin proposals retain their own owners.
+
+## Tabletop system families, 2026-10-14
+
+Weibao explicitly asked to incorporate different world systems as different
+kinds of multiverses. This broad direction extends the compositions above.
+A rules engine, setting and cosmology remain independent: a common engine
+does not merge worlds, and a new engine does not automatically create a
+separate universe. Preserve the traveler and actual learned functions; any
+local dependency or changed carrier needs its own source-qualified rule.
+Particular family mappings and text-led presentation ideas are proposals in
+[the tabletop research considerations](../research/tabletop-library-2026-10-14/DESIGN_CONSIDERATIONS.md).
+[Source capture and reading states](../research/tabletop-library-2026-10-14/README.md)
+are separate from native gameplay. No new runtime behavior or completed
+power-transfer adapter is claimed. Existing slice order and proof gates apply.
+
+
+## OD11 local economies and cross-world value, 2026-10-15
+
+[Accepted direction](../USER_VISION.md#overarching-direction-discussion-od11-and-recovery-refinement-2026-10-15):
+local economies, with means-based shared currencies/cross-world trade, arbitrage
+and useful knowledge/items. Access and compatibility can grow. **Correction later
+2026-10-15:** "selling cheats" means cheats centered on selling/trade, not sale of
+the cheats themselves. No global market or universal conversion chosen.
+[Clarification](../USER_VISION.md#anchors-trade-cheat-correction-and-discussion-workflow-2026-10-15).
+
+### ACCOUNT FOR NOW: proposed implications, not a balance specification
+
+- **EC1, relative abundance:** a common material, cheap energy source or ordinary
+  technique can be valuable elsewhere. Preserve profitable discoveries as genuine
+  rewards; don't automatically normalize prices or negate every trade advantage.
+  Meaningful constraints follow actual transport, compatibility and market rules.
+- **EC2, useful knowledge:** remembering a process, proving it, teaching it and
+  operating it at scale are different capabilities. Tools, substrates, workforce,
+  institutions and local laws of nature affect application. A cheat may remove
+  these requirements where its actual power supports it; no universal technology
+  suppression or compulsory patent/licensing system is selected.
+- **EC3, demand and information:** price may reflect scarcity, buyer purpose,
+  authenticity, trust, access or ignorance. Large trade may change supply/demand,
+  attract partners/competition or leave prices stable under a supported market.
+  These are options, not automatic punishment or a mandatory economic simulator.
+- **EC4, commerce-oriented cheats (corrected):** possible powers include seeing
+  buyers/demand, better sale terms, remote/system markets, appraisal, currency
+  conversion, sale-triggered growth or rewards, and moving cheap goods to places
+  where they are valuable. A system buyer may use its own valuation instead of
+  local prices. Specify what counts as a sale, whether reward is coins, power or
+  another benefit, and the actual conditions for repeat sales or buyback loops.
+  Intended profitable loops are allowed; no universal diminishing-return cap,
+  market tax or forced price normalization is selected.
+- **EC5, history and claims:** shared currency needs an accepting issuer/network
+  or conversion means; local legal ownership and actual custody remain distinct.
+  Rewinding a sale, visiting a parallel market or importing capital needs the
+  selected history/retention policy. Preserve intentional repeatable arbitrage;
+  save/reload accidents are not the same as authored duplication powers.
+
+Subtle future opportunities include brokerage, translation/appraisal, samples,
+portable workshops, information businesses, trade-credit networks and production
+chains spanning worlds. They are ideas, not a new implementation wave or required
+prerequisites for a first useful trade. Prices, caps, taxation and market simulation
+remain unselected. Documentation only; no source/build/save changes.
+
+
+### Dated EC4 interpretation correction, 2026-10-15
+
+The preceding version incorrectly treated "selling cheats" as sale/transfer of
+cheats. Preserved historical proposal, outside the clarified request:
+
+> EC4, cheat commerce: distinguish transferring ownership of a power, copying
+> it, awakening a buyer's faculty, lending access, selling an effect/service and
+> trading an artifact. Contract/source/body dependence and actual retained seller
+> capability determine whether repeated sales are possible. Strong copying or
+> unlimited supply can be intentional features rather than bugs to remove.
+
+This does not revoke independently existing cheat-library ideas; it corrects
+what this conversation requested.
+
+## GW4 useful production and scale follow-up, 2026-10-15
+
+[Wider pass](../gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md#wider-gameplay-and-world-design-pass-2026-10-15),
+GW4, supplements EC1–EC5 as **proposed authoring detail**: distinguish knowing a
+method, obtaining prerequisites, making one specimen, sustained production and
+use/distribution. Name actual supply, stock/custody, equipment or labor/time where
+needed, output consumer/buyer and repeated-work condition. A cheat may truly
+remove a bottleneck through its actual means. A local buyer can be finite or a
+system market persistent according to its rules; no universal demand collapse,
+trade punishment, maintenance tax, anti-arbitrage cap or full market simulator.
+Remembered know-how does not itself import missing tools, workforce or physical
+laws. This preserves accepted profitable opportunities while requiring an actual
+consumer, not merely increasing a factory counter. No factory/farming/cross-world
+build or new scope for the continuation executor is selected by this note.

@@ -6,6 +6,19 @@ Weibao asked: “what lore wise would we? Otherworldly spirit piloting a body? T
 
 Related discussion: [choice dependencies and roguelike powers](CHOICES_THAT_GATE_CHOICES_2026-10-13.md) and [research, talents, starts and upkeep](RESEARCH_TALENTS_PROGRESSION_AND_STARTS_2026-10-13.md). Existing direction stays with [User vision](../USER_VISION.md), [PROJECT.md](../../PROJECT.md), [origins](ORIGINS_AND_WORLD_TIMELINES.md), [rules](../RULES_FROM_SCRATCH.md), [identity and fate](../RIVALS_IDENTITIES_AND_FATE.md) and each represented world's actual source/continuity. These origins already distinguish body, mind, source, entry and social role. This proposal focuses on the player's relationship to those parts.
 
+## OD6 accepted direction, 2026-10-15
+
+[Weibao's answer](../USER_VISION.md#overarching-direction-discussion-od6-2026-10-15)
+accepts one continuing self by default, with possession, shared minds and multiple
+bodies possible through suitable means. Special starts need coherent lore for
+identity, control and continuity. The previous model menu remains available;
+its ontology and exact mechanics are proposals unless separately accepted.
+Do not infer a universal soul substance, base-cheat origin, host consent/refusal
+outcome, memory-sharing rule or control scheme from this broad direction.
+OD2 preserves memories/base cheat across lives; extra retention depends on means.
+Existing world/body/source and knowledge distinctions still apply. No runtime
+identity migration or implementation follows from this documentation.
+
 ## L1: Several coherent lore models
 
 | ID | Model | Who the player's choices represent | Distinctive play and lore |
@@ -204,3 +217,29 @@ Weibao asked “Other aspects to consider?” after requesting a separate lore-c
 Further selectable aspects include who remembers the original world, whether communication or return is possible, whether multiple selves can act simultaneously, what outsiders can actually detect, whether a persistent self can choose a final ending, and whether successful life continues without compulsory reincarnation. A mystery about origin can coexist with clear controls and known continuation terms. None of these questions requires automatic homesickness, trauma, synchronization meters, permanent immortality or mandatory costs.
 
 These remain optional design considerations. No actual personal data model, physical-world integration, time simulation, identity transition or gameplay behavior was implemented. This addition is saved but not committed.
+
+## Embodiment and return profile reconciliation, 2026-10-15
+
+[Latest cheat-chat clarification](../USER_VISION.md#cheat-chat-embodiment-clarification-reconciled-2026-10-15)
+accepts one continuing self with body/date and old-body outcome following actual
+means. Consider nonexistence/different development of a counterpart and supported
+surviving bodies without selecting mandatory erasure, survival or independent minds.
+The [ordinary separate-history answer](../USER_VISION.md#voluntary-fresh-life-history-and-paused-former-life-2026-10-15)
+still pauses the previous life/history; other mechanisms declare their own outcome.
+A quiet-faculty control does not by itself select soul ontology or consciousness.
+
+The [worked activation/recovery and return profile](CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md#activation-recovery-profile-and-fresh-life-return-walkthrough-2026-10-15)
+separates continuing self, embodied actors, local history and current journey state.
+A paused living body, deceased body, sustained vessel, independent person and
+chronicle-only record cannot share one undifferentiated “old self” behavior.
+Resuming a valid paused embodiment, traveling bodily to a history and rewinding
+it are distinct. Use current accepted learning/means rules rather than copy all
+stats or overwrite the journey with a historical snapshot. Body survival does not
+imply awareness/autonomy or automatic base-cheat duplication.
+
+[CA14 unconscious-body choice access](../USER_VISION.md#unconscious-return-access-and-automatic-recovery-consideration-2026-10-15)
+is now accepted subject to actual means/suppression. It does not grant ordinary
+body actions, universal unsuppressibility or automatic relocation. Proposed
+ordinary resume/switch symmetry and automatic-recovery contracts are
+implementer recommendations, not additional accepted metaphysics. No source,
+identity migration, runtime experiment, secret truth or implementation proof added.

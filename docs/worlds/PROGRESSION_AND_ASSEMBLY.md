@@ -135,3 +135,40 @@ The five deep-world folders each retain WORLD_BRIEF (entry/resume), CAMPAIGN (lo
 Completed module delivery has 15 loadouts and five assemblies with paid craft/refit chains. Source-ID and Naruto one-shot scope findings were repaired; numbers, installed graphs and outcomes remain authored proposals. Master checks the combined docs in [framework review](CAMPAIGN_FRAMEWORK.md#expanded-design-review-2026-10-03). This is not runtime assembly or browser/save evidence.
 
 Latest breadth is retained in [origins/timelines](ORIGINS_AND_WORLD_TIMELINES.md) and [multiverse scope](MULTIVERSE_STRUCTURES.md). Next engineering gate is the integrator-owned nested component/native projection/compatibility proof above, sequenced with the current native-world gate where required. One ordinary refit can be built without declaring every setting or conceptual function implemented. Final fiction, numbers and game-feel acceptance remain pending.
+
+## GW3 useful progression across approaches, 2026-10-15
+
+[Wider pass](../gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md#wider-gameplay-and-world-design-pass-2026-10-15)
+reuses the existing progression dimensions and accepted expansion/balance guidance.
+**Proposed selected-content check:** name the actual new control/procedure/target,
+capacity, bodily function or access produced by an improvement, and show its real
+consumer. Compare two supported approaches to a useful objective by preparation,
+time, supplies, information and aftermath, not forced equal damage/reward. Craft,
+research/social routes need their own useful execution rather than only fighter
+discounts. Earned power can trivialize an older obstacle; no automatic level matching.
+Social rank, item quality, condition, body/source and learned mastery stay distinct.
+No universal power formula, numeric target, new progression currency, selected
+world or runtime work follows. Evidence/feel comes from the authorized slice.
+
+## GW3 Cyoria worked comparison, 2026-10-15
+
+The [Cyoria specimen](mother-of-learning/GW1_GW3_LOCAL_RULE_AND_APPROACHES_2026-10-15.md)
+compares prepared device mastery with evidence-led willing specialist help through
+the same existing objective. Neither turns retained knowledge into unearned
+personal casting. Device control has actual consumers; collaboration changes which
+actor can perform the needed work using real means. No new social XP/party system
+or equal-reward formula is needed for the contrast. Compare total preparation as
+well as marginal field costs and later reusable utility before tuning values.
+This is a source/design comparison, not accepted final balance or gameplay proof.
+
+
+## GW3 preparation-to-maturity follow-through, 2026-10-15
+
+[Cyoria full comparison](mother-of-learning/GW1_GW3_LOCAL_RULE_AND_APPROACHES_2026-10-15.md#full-preparation-later-reuse-and-helper-availability-2026-10-15)
+finds that useful early collaboration does not yet establish independent mature
+research: both routes can deliver an observed account, but current notebook and
+repeatable research gates require a tested lamp. Treat independent non-device
+maturity as a later scope proposal, not implemented progress or an accepted need
+to merge every career. Also distinguish persistent mastery/owned tool from finite
+charge and service claims. Compare actual recurring consumers before claiming
+setup pays back. No equal-reward formula, new XP or current runtime work selected.

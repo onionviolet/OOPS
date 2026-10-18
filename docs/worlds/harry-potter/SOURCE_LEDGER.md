@@ -29,3 +29,22 @@ The publisher synopsis was inspected; complete book/chapter text was not acquire
 These source gaps do not prevent labelled original scenario design. A deliberate changed rule needs a divergence label; a verified source fact can remain a constraint. Full source fidelity and numerical tuning are open, separate from technical document review.
 
 Checkpoint: primary publisher/official pages inspected on 2026-10-03; no entire-book text, gameplay, source-code or save audit. Root exclusively owns this candidate ledger/brief in the current run. Next: source-specific chapter questions for a selected origin rather than an unsupported universal magic-start rule.
+
+
+## Bounded official tool follow-up, 2026-10-15
+
+Checked for the [HP/LOTM feature comparison](../HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md).
+These references extend the ledger; they do not change the seven-novel baseline
+or certify complete canonical eligibility/tool rules. No original HP novel chapter
+was read in this pass. Source classes remain explicit.
+
+| ID / class | Checked reference and bounded finding | Implementation limit |
+| --- | --- | --- |
+| H6 C-X, official encyclopedia | [Wand](https://www.harrypotter.com/fact-file/objects/wand), explanatory paragraphs: tool-mediated channeling and acknowledged wandless casting. | One wand-requiring method is not a universal wand requirement. Cross-media appearance list does not select every adaptation as canon. |
+| H7 C-X, original author writing | [Wand Lengths & Flexibility](https://www.harrypotter.com/writing-by-jk-rowling/wand-lengths-and-flexibility), composition/pair discussion. | Combined properties inform a pairing; no numeric affinity/owner-personality formula or one-dimensional material tier. Framed through Ollivander's notes. |
+| H8 C-X, official editorial feature | [How loyal is a wand to a wizard?](https://www.harrypotter.com/features/how-loyal-is-a-wand-to-a-wizard), owner/borrowed-tool examples. | Actual use can differ in quality, not simply work/fail by ownership. Do not universalize a particular disarming, damage or allegiance case. Outside-source-set material is not imported merely by appearing on the page. |
+
+Correction for BF1: non-ownership, mismatch or uncertain allegiance alone does not
+justify a universal unsupported/cannot-cast verdict. Keep actual source, learned
+method, custody, condition and source-qualified performance separate. These pages
+do not establish ordinary nonmagical adults acquiring magical faculty by practice.

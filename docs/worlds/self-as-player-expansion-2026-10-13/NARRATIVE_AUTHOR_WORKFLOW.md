@@ -88,3 +88,70 @@ A reasonable first unit is one original world brief, one entry snapshot, three c
 Offline AI-assisted drafting can produce reviewed, frozen content. Possible future runtime AI would require a separate decision about state access, memory, determinism, latency and failure handling. This packet commits to neither architecture nor infinite simulation.
 
 Verification: output absent before exclusive creation; live authority and linked contracts inspected; local link targets and whitespace checked. Only this file written. No source book audit, acquisition, runtime/build/browser/save claim or human acceptance.
+
+
+## OD7 writing and continuation chain, 2026-10-15
+
+Reusable proposed workflow responding to [Weibao's request](../../USER_VISION.md#overarching-direction-discussion-od7-2026-10-15).
+Accepted direction is authored plots/simulation by world and mode, with canon's
+natural course unless changed. This workflow does not require a permanent writer
+agent, runtime generator or full simulation of every possible dependency.
+
+| Step | Finite output for the existing world owner |
+| --- | --- |
+| W1, baseline | Chosen source/edition/continuity/cutoff or original premise; event causes, participant motives/means, occurrence order and knowledge channels. Use the lore/timeline contract. |
+| W2, disturbance | What actually changed, by whose action/means and when; separate intent, attempt, outcome and discovery. An AU premise is a starting difference, not necessarily an intervention inside the story. |
+| W3, propagation | Which dependent events still qualify, change, delay or fail; preserve independent plans. Name a replacement actor's own motivation/resources/access rather than replacing a missing canon role by fiat. Record genuine uncertainty. |
+| W4, playable beat | Current situation, readable leads, actual available actions, refusal/delay/bypass where meaningful, conditional prose and resulting state changes. Lore or narration alone does not implement effects. |
+| W5, aftermath and resume | Durable delta, who knows what, surviving goals, resolved problems, pending events, selected clocks, next actionable scene and exclusive writer/state-owner pointers. Resume from this packet, not a copied synopsis that overwrites history. |
+
+Before moving to the next beat, the writer asks whether the previous outcome
+actually supplies its prerequisites. Changes in one dependency should not erase
+unrelated canon. Off-canon characters continue with their motives and possibilities;
+there is no requirement to recreate the same set piece with new names.
+
+Books, author AUs and fanfiction can supply contrasting mechanisms: a changed
+birth/family changes access and loyalties; foreknowledge changes decisions only
+when communicated or acted upon; a different power changes which plans are
+feasible; a loop changes retained knowledge and repetition. These are illustrative
+patterns, not factual claims about newly inspected works. Keep source law,
+fan premise, project counterfactual and director-accepted change distinct.
+
+Storytellers can select/present eligible opportunities under the selected mode.
+Fate manipulation, authorial intervention and narrative cheats can alter causes,
+probabilities or constraints if that is their actual supported power. Record that
+mechanism in W2/W3. Do not silently grant every storyteller unlimited world edits,
+or impose a blanket ban on a world whose premise includes them. Per-world
+storyteller/cruelty options already have prior accepted direction; this chain does
+not revoke it or choose one global director policy.
+
+A design checkpoint checks causal continuity, knowledge/secret boundaries and
+available choices. Implementation later requires real bindings, fresh rebuilt
+browser behavior and relevant save/reload/import proof. A good written scene is
+not evidence that its gameplay consequences exist. No worker dispatched here.
+
+
+### W2/W3 clarification: correction mechanisms, 2026-10-15
+
+[OD8 answer](../../USER_VISION.md#overarching-direction-discussion-od8-2026-10-15)
+explicitly permits heavenly will, fate, historical correction or other world
+mechanisms to restore a course. In W2/W3 record the actual restoring cause,
+its relevant trigger/reach and who knows it, just as for an intervention. This
+may legitimately produce a substitute or recurring outcome; it is not prohibited
+by the earlier warning against fiat replacement. Do not assign every world this
+power or assume it succeeds/fails independently of its actual rules. Concealment,
+illusions and knowledge-changing cheats also affect which causes actors believe
+and act on; keep those beliefs separate from author truth and authorized views.
+
+### W1–W5 detail-review fold, 2026-10-15
+
+The [bounded review](../../gm/DIRECTION_DETAILS_REVIEW_2026-10-15.md) found the
+causal writing direction answered. **Proposed detail for a selected beat:** retain
+source/continuity revision, changed cause, actual effect, knowledge channel,
+affected pending events and next actionable scene in the existing W1–W5 packet.
+Check that an earlier outcome really supplies the next beat's prerequisites.
+A correcting world power can act under its actual rules; an AU premise remains
+explicit. Reuse the world owner rather than inventing another event registry.
+[Repeatability](../../TIMELINES_AND_DIVERGENCE.md#repeatability-answer-and-research-across-rewinds-2026-10-15)
+is qualified by chance and means. These details are authoring recommendations,
+not a new scene, source claim, universal director or implementation assignment.

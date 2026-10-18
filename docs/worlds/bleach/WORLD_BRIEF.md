@@ -1,6 +1,6 @@
 # Bleach: The Missing Street Record
 
-Status: expanded Develop/Research proposal r1, 2026-10-03. No local runtime, new destination, lethal mode or human acceptance is claimed.
+Status: expanded Develop/Research proposal r2, 2026-10-14. New evidence is secondary-wiki cross-check only; no local runtime, new destination, lethal mode or human acceptance is claimed.
 Expanded campaign detail has moved to [CAMPAIGN](CAMPAIGN.md); this file owns the entry summary and live checkpoint.
 
 ## Owners and identity
@@ -16,6 +16,7 @@ Expanded campaign detail has moved to [CAMPAIGN](CAMPAIGN.md); this file owns th
 Authoring proposal: family `fan.bleach`, continuity `bleach.street_record.branch`, era `early_living_district`, region `river_street`, entry `living_visitor`, scenario `shelter_manifest`.
 A future instance `bleach.street_record.branch.early_living_district.a` needs an integrator-selected native/state binding. These are not registered runtime IDs or character knowledge.
 Source boundary: Original completed Bleach manga vols1-74; bounded publisher evidence and labelled anime corroboration. Exclude sequel/one-shot/novel/filler/new TYBW lore and automatic Ichigo hybrid heritage/release.
+Research update: the archived Bleach Wiki dump is a dated secondary source through 2023-12-27. Its article summaries and citations are tracked by title/revision in [SOURCE_LEDGER](SOURCE_LEDGER.md#secondary-source-cross-check-2026-10-14); mixed media is not merged into manga continuity. Episode-note P1 audit excludes two cross-page carryovers from episode 91 and episode 352 source facts. Existing BL1–BL33 world-depth rows remain proposals pending individual manga verification.
 Attribution belongs to the source creators/rightsholders; preserve YAIRPG upstream attribution and LICENSE. All local named people/jobs/history are original fan-continuity proposals.
 
 ## Entry and connected local life
@@ -52,7 +53,15 @@ Human-requested direction: substantial worlds, different careers, fine module de
 Latest Paradise steering: bounded expedition scenarios can use these larger campaigns while preserving local history and return value. A Paradise hub/residency campaign and its exact novel rules are shared proposals outside this file's reservation.
 The first implementation milestone stays one realm/one prestige; full design coverage does not skip the native instance/absence-clock/save gate.
 
-## Resume checkpoint
+Current pack synthesis: [SYNTHESIS](SYNTHESIS.md) maps source laws, proposed world state, existing YAIRPG seams, start/AU leads, corrections, evidence gaps and the first playable slice proposal. Research and proposals do not change accepted direction.
+
+## Current source-pack checkpoint (2026-10-14)
+
+Completed the bounded wiki-evidence update and M5 synthesis under the user's Bleach pack request. Updated this brief, [source ledger](SOURCE_LEDGER.md), and [ability variants](ABILITY_VARIANTS.md); created [SYNTHESIS](SYNTHESIS.md). The shard-b and shard-c episode-note audit excluded the two P1 carryovers described in the ledger. No other world, runtime, generated file, save, project summary, or user vision was changed. Local Markdown links resolve; owner files contain no overlength direct quotes. No build, browser, save, migration, gameplay or human-acceptance gate was run because this is a design/research pack.
+
+Current evidence boundary: archived secondary wiki snapshot through 2023-12-27, full retained selections per shard summaries, plus bounded private-payload spot checks. Original manga was not read in full and the AU/start rows remain proposals. Next: director review of the pack and selection of any source gap or first slice to advance; implementation still needs the shared instance/clock/save binding and its own acceptance.
+
+## Historical resume checkpoint (2026-10-03)
 
 Role: world-expansion specialist in the coordinating master's authorized three-sibling design run; parent chat `01a1046a-bc9d-7351-83e1-98dc3cf4af54`. Base HEAD `97c28efece4fd6248b6f075ad0c6927c3d0432df` plus preserved extensive dirty work.
 Objective: flesh five campaigns and aligned briefs/roles/staged packets. Exclusive reservation for this world: `docs/worlds/bleach/CAMPAIGN.md`, `docs/worlds/bleach/WORLD_BRIEF.md`, `docs/worlds/bleach/GM_PROMPT.md`, `docs/worlds/bleach/IMPLEMENTATION_PACKET.md`. Module/source/shared/runtime writers are separate. No subagents, chat messages, commits or publishing are assigned here.

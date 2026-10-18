@@ -1,6 +1,6 @@
 # Bleach ability variants: personal sources, learned arts and compatible contact
 
-Status: Develop/Research proposal r1, 2026-10-03. No playable release, soul transfer, body conversion or spiritual realm is added.
+Status: Develop/Research proposal r2, 2026-10-14, with dated secondary-wiki cross-check. No playable release, soul transfer, body conversion or spiritual realm is added.
 Inherit [ability contract](../ABILITY_AUTHORING.md), [campaign](CAMPAIGN.md), [module owner](MODULE_CATALOGUE.md), [source ledger](SOURCE_LEDGER.md) and [engine packet](../conceptual/ENGINE_PACKET.md).
 Baseline: `bleach.original.1-74.primary.r1`; bounded official anime corroboration does not import new TYBW additions, novels, games or later one-shots.
 `C/A` follows the ledger; `O` is original adaptation; `U` is an unresolved original-scene rule. Every proposed variant/facet ID here is O.
@@ -20,7 +20,7 @@ The candidate is not canon or an accepted Shikai design. Its acquisition/relatio
 
 The O tether never provides global people tracking, hidden memories, every tool's position or automatic retrieval. Those would be distinct functions requiring new briefs.
 Catalogue currently proposes breakage at its tested range/obstruction. Preserve that local candidate rule; do not infer it for every canonical release.
-Acquisition: witnesses supply testimony; equipment/faculty supplies observation support; personal release requires an actual actor/source relationship rather than a bought housing.
+Acquisition: witnesses supply testimony; equipment/faculty supplies observation support; personal release requires an actual actor/source relationship rather than a bought housing. Exception leads, not universal rules: the secondary page describes Zaraki claiming a dead Shinigami’s Asauchi, inherited special Zanpakutō that pass with abilities, and the Ise hereditary weapon as an exception to imprinting. Keep the one-actor/bond model `O` and inspect those primary scenes under BU1/BU2 before freezing transfer or persistence behavior.
 Execution: a report grants actor-specific knowledge; a tether use grants its scoped direction/contact evidence; neither moves the tool or transfers its owner.
 O costs are paid witness/service time, instrument support or the selected release's real reserve/control; no universal spiritual-energy ratio is asserted.
 Contact needs compatible target/body/material. Seeing a spirit alone does not prove an ordinary metal tracker can bind or strike it.
@@ -55,7 +55,7 @@ NPCs can own superior sources and win. Their knowledge of an imported counter re
 
 Task: restore a selected practitioner's ability to undertake a patrol after damage. First identify whether the fault is equipment, body or personal release.
 O `bleach.variant.case_repair`, source-qualified treatment and source-specific release recovery can all restore capability, but they transform different actual state owners.
-B6 corroborates damaged Shikai recovery and normally nonreturning destroyed Bankai. Exact exceptional repair/reforging rules remain BU1/BU2.
+B6 corroborates damaged Shikai recovery and normally nonreturning destroyed Bankai. The cited wiki limits ordinary Shikai recovery to the wielder’s will/Reiatsu over time with the hilt intact. It separately names broken-Bankai cases: Komamura’s linked healing, Hitsugaya’s water-dependent regeneration, Mayuri’s remodeling, Nimaiya’s reforging and Orihime’s rejection. These remain source-specific leads, not a generic repair API; exact primary exception scenes remain BU1/BU2.
 
 | Use | Ordinary compatible tool repair | Qualified bodily treatment | Source-specific release recovery |
 |---|---|---|---|
@@ -104,3 +104,21 @@ Repeated/reloaded copy/repair cannot mint weapon/source or erase permanent damag
 Rebuild and exercise execution/save/reload on generated fixtures later. This dossier adds no playable release, extra life, migration or human acceptance.
 Revision 1: only this new local semantic owner written; Thread of Return retains the catalogue's O candidate scope, with no Bankai design selected.
 Next: select one personal/taught function and qualify its original-scene source, then freeze adapters, paid facet tests and exact transformation.
+
+## Evidence update and proposal corrections, 2026-10-14
+
+The archived Bleach Wiki snapshot adds secondary support for the source/body boundaries above. Zanpakutō rev. 582599 describes the personal weapon/spirit as tied to its Shinigami owner and identifies Asauchi as its common source, citing manga chapter 529 and character books. Reishi rev. 578098 describes spiritual bodies/worlds as Reishi-based; Quincy rev. 587658 describes a separate ambient-particle/weapon path. Fullbringer rev. 584513 and Fullbring Training, Round 2 rev. 573728 describe a distinct personal route. Hollow rev. 586583 and Hueco Mundo rev. 586324 describe another body/ecology path. These are secondary page summaries with mixed citation media, not recipes for a universal engine.
+
+### Local semantic proposals retained with tighter evidence labels
+
+| Proposal ID | Function proposed for YAIRPG | New source boundary |
+|---|---|---|
+| `bleach.variant.trace_read` | Ordinary witnesses/marks yield a sourced trace report. | `O`; not a Zanpakutō or spiritual sense. |
+| `bleach.variant.survey_report` | A qualified, available observer reports one measured signal with uncertainty. | `O`; Reishi/perception findings inform the distinction but do not establish a generic instrument. |
+| `bleach.variant.thread_of_return` | A future personal-release candidate tracks only its actually bound eligible tool within a tested envelope. | `O`; the wiki does not establish this ability. Do not imply it is a canonical Shikai. |
+| `bleach.variant.case_repair` | Repair restores retained compatible housing/tool function only. | `O`; source/bond/release state remains separate. |
+| `bleach.variant.source_recovery` | A source-specific recovery may act only on its documented target and conditions. | `O` until a named primary scene supports a canon-derived rule; no generic cure or Bankai restoration. |
+
+**Correction to the old note layer:** shard-b episode 91's imported Rukia/Keigo/child Soul-injury comparison and shard-c episode 352's imported earlier Book of the End reports are excluded from page-level source facts after the P1 audit in [the source ledger](SOURCE_LEDGER.md#cross-page-carryover-audit-p1). They may not justify a healing or historical-insertion mechanic in this file. The episode 352 page's own dialogue remains an anime-page assertion, not a manga rule.
+
+All tier/mode rows in this file remain proposals, not accepted gameplay. This evidence pass does not select a release function, resolve BU1–BU6, add new save state or prove execution.

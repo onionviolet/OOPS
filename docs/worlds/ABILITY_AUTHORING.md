@@ -402,3 +402,51 @@ Bonus for development: a system cheat is an in-fiction feature flag. A new syste
 | CS5 | World fit test: a level system in a world with no monsters must find local XP (work, study, favors) or it starves | The frame must name its local fuel |
 | CS6 | Losing the system: sealed or stolen, it takes its granted numbers but leaves what you actually learned | Granted versus learned is already separate (copy taxonomy) |
 | CS7 | The system's voice: its messages have a personality that fits its origin (cheerful shop, cold ledger, smug patron) | Text style only |
+
+
+## OD25 modular and procedural discovery considerations, 2026-10-15
+
+[Accepted discovery direction](../USER_VISION.md#overarching-direction-discussion-od25-2026-10-15)
+allows known actions plus means-based experiments/research, learning from failure
+and cheat-assisted combination discovery. Procedural/modular implementation is a
+consideration, not a selected universal language or rewrite. Existing AB2 modifier/
+composition and related interaction owners remain relevant proposals.
+
+**ACCOUNT FOR NOW:** reuse actual effects, sources, targets, modifiers, conditions
+and costs where they resolve multiple useful applications. Their relations can
+allow combinations not separately named as upgrades, while world-specific
+exceptions and authored techniques remain first-class. A shared tag such as heat,
+soul or curse does not by itself establish interchangeability or contact/authority.
+A special power can bridge those boundaries if its actual rules allow it.
+
+Procedural content could generate a coherent research lead, candidate technique,
+recipe hypothesis or varied test conditions from supported pieces. A generated
+name, colorful description or predicted reward is not an implemented effect.
+Validate that a candidate has a usable source/target/conditions, actual outcomes
+and explainable known/unknown results. Do not procedurally invent evidence that a
+hypothesis already succeeded, source canon or powers granted to the current actor.
+
+Potential implementation difficulties are combination growth, modifier ordering,
+resource/participant contention, partial outcomes, actor knowledge and preserving
+learned procedures across world/time/branch/save changes. Start with a meaningful
+finite interaction family using existing resolvers if a slice is later authorized,
+not a framework that promises every conceivable combination. Powerful synergies
+remain allowed; no universal anti-combination cap or balancing weakness selected.
+
+A future proof would compare two real preparations/conditions, commit their actual
+costs and effects, obtain a useful learned distinction through the discovery path,
+and exercise repeat use plus relevant reload/import. It must distinguish generated
+proposal, source implementation and rebuilt gameplay. No tests/build/runtime edits
+or new worker are authorized by saving these considerations.
+
+
+## Small applications across pursuits, 2026-10-16
+
+Weibao requested expansion beyond crafting into abilities, exploration and
+ordinary actions. [Interaction round 3, PF24–PF57](../PLAY_BEYOND_MENU_SELECTORS_CONSIDERATIONS_2026-10-14.md#round-3-abilities-exploration-and-everyday-possibilities-2026-10-16)
+adds delivery, precision, sensing channels, sustained versus lasting consequences,
+relational targets, concrete handoffs and stage-specific counters. These are
+proposals within this owner's existing source/body/control/target contract,
+not new universal ability restrictions. [Engine EI2–EI12](../ENGINE_EXPANSION.md#possibility-support-across-domains-2026-10-16)
+records current source seams and missing non-person targeting/lifecycle support.
+No new power, source acquisition, implementation run or canon claim is selected.

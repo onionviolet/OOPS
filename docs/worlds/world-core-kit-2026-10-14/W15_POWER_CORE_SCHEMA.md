@@ -256,3 +256,29 @@ These extend K3/IS rather than duplicate the root palette's general laws.
 1. **W15.P1:** let A1 finalize the capability read boundary, then add a read-only parity view for existing Rat-step, measured work and an energy method. This tests the merge seam without touching saved meaning or shipping a seventh capability store.
 2. **W15.P2:** compile one source-qualified MoL device/ward core tied to the existing visitor, preserving no personal mana grant. Close a useful daily power loop alongside W14's ward design, then take another world only after playable proof.
 3. **W15.P3:** add the small consumer with the strongest distinct need next: typed slot/preparation for a pinned D&D profile, or a role-act receipt for early LOTM. Choose by finished source bindings and available writer, with complete learning/use/limit/persistence proof for that one floor before expansion.
+
+
+## Current feature-gap follow-through, 2026-10-15
+
+[BF1–BF19 register](../BOOK_WORLD_FEATURE_GAPS_2026-10-15.md) refines the existing
+world cards into specific missing or unestablished native consumers: HP eligibility/
+tool and institutional utility; LOTM acquisition/digestion/execution; COI borrowed
+source; SS award/restriction/transition; five separate TTKS cores; paused Soldier;
+edition-bound D&D; current MoL and Paradise boundaries. The dated W1 floor ratings
+above are not reissued as current repository-wide absence claims. Reuse actual
+knowledge/faculty/progression/condition/job/inventory/instance owners; add only a
+selected source-qualified semantic adapter when those owners lack its behavior.
+Feature-first design does not require a commission as its unit. Scenarios verify
+reuse/refusal/aftermath. Native/proof requirements apply to the delivered feature,
+not the whole proposed schema. No new code, source approval or runtime dispatch.
+
+
+## HP/LOTM feature comparison, 2026-10-15
+
+[REC1](../HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md) recommends the early LOTM
+acquisition/control/use subset before full pathway digestion/promotion. Current
+source/faculty, power learn/refine, progression receipts, energy and jobs already
+supply reusable pieces; no new universal progression engine is selected. HP-C1–C3
+qualify tool support: mismatch/custody is not a universal cannot-cast flag. Exact
+local source/rule/native binding still needs its own consumer and evidence. No
+new accepted profile/rates, runtime reservation or build dispatch.
