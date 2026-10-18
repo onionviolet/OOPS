@@ -1,6 +1,7 @@
 import {boardLayout} from './layout_spec.js';
 import {projectNativeOpponents,knowledgeOf,healthText,healthFill,factText,factShown,encounterCaption,kindHue,KNOWLEDGE_LABEL} from './opponent_board.js';
 import {definePanel} from './panel_kit.js';
+import {getDisplaySetting} from './display_settings.js';
 import {projectVillageScene} from './causal_story_scenes.js';
 import {openWorkspaceModule} from './workspace_layout.js';
 import {storyRecap} from './lore_history_view.js';
@@ -48,6 +49,11 @@ export function createVillageWorkspace({read,act}) {
     const opponentsView=node('section');opponentsView.id='opponent_list';opponentsView.className='combat-focus-view combat-opponents-view';
     const targetLine=node('div'),targetName=node('strong'),targetHealth=node('span'),targetCycle=node('progress');targetLine.className='opponent-target';targetHealth.className='opponent-target-health';targetCycle.className='opponent-target-cycle';targetCycle.max=100;
     targetLine.append(targetName,targetHealth,targetCycle);targetLine.hidden=true;enemyView.prepend(targetLine);
+    // R22c (FC2, FC14): with the list elsewhere, Around you splits into the Target card (name, health
+    // bar, cycle and facts, laid out like You's bars) and Encounter (this wave's counts). R22d adds
+    // the damage and hit tally to Encounter.
+    const encounterView=node('section'),encounterTitle=node('strong','Encounter'),encounterFacts=node('dl'),encounterNodes=new Map();
+    encounterView.className='encounter-summary';encounterView.setAttribute('aria-label','Encounter');encounterView.append(encounterTitle,encounterFacts);encounterView.hidden=true;enemyView.append(encounterView);
     const listShown=()=>document.getElementById('main_content')?.dataset.parity==='r3'&&opponentsView.isConnected&&opponentsView.checkVisibility();
 
     const setText=(n,text)=>{if(n.textContent!==text)n.textContent=text;};
@@ -71,7 +77,9 @@ export function createVillageWorkspace({read,act}) {
         const named=new Map();for(const opp of opponents){if(!named.has(opp.name))named.set(opp.name,[]);named.get(opp.name).push(opp);}
         const inList=listShown(),host=inList?opponentsView:enemyView;
         if(rosterToolbar.parentNode!==host){if(inList)opponentsView.append(rosterToolbar,enemyCards);else enemyView.insertBefore(rosterToolbar,detail),enemyView.insertBefore(enemyCards,detail);}
-        targetLine.hidden=!inList;setAttr(enemyView,'data-list-elsewhere',inList);
+        targetLine.hidden=!inList;encounterView.hidden=!inList;setAttr(enemyView,'data-list-elsewhere',inList);
+        // FC11: letters show per the Opponent letters setting (off by default); names carry the rows.
+        const letters=getDisplaySetting('panel.opponents.letters')||'off';if(root.dataset.opponentLetters!==letters)root.dataset.opponentLetters=letters;
         const fontSize=parseFloat(getComputedStyle(host).fontSize)||14,heightEm=inList?Math.max(0,opponentsView.clientHeight-rosterToolbar.offsetHeight)/fontSize:0;
         const layout=boardLayout({count,widthEm:host.clientWidth/fontSize,heightEm,groups:[...named.values()].map(g=>g.length)});
         const hueOf=name=>kindHue(opponents.map(o=>o.name),name);
@@ -83,7 +91,7 @@ export function createVillageWorkspace({read,act}) {
         for(const[id,card]of enemyCardNodes)if(!opponents.some(o=>o.id===id)){card.remove();enemyCardNodes.delete(id);}
         for(const[name,label]of groupLabels)if(!layout.grouped||!named.has(name)){label.remove();groupLabels.delete(name);}
         const order=layout.grouped?[...named.entries()].flatMap(([name,group])=>{let label=groupLabels.get(name);if(!label){label=node('p');label.className='enemy-group-label';groupLabels.set(name,label);}
-            setText(label,`${name} · ${group.length}`);setAttr(label,'data-kind-hue',hueOf(name));setTitle(label,`${group.length} opponents named ${name}, ${group.map(o=>o.letter).join(', ')}. Each keeps its own health and can be inspected on its own.`);return [label,...group];}):opponents;
+            setText(label,`${name} · ${group.length}`);setAttr(label,'data-kind-hue',hueOf(name));setTitle(label,`${group.length} opponents named ${name}, ${group.map(o=>o.letter).join(', ')}. Each keeps its own health and can be inspected on its own.`);return [label,...group];}):layout.stacked?[...named.values()].flat():opponents;
         for(const[index,opp]of order.entries()){
             if(opp.nodeType){if(enemyCards.children[index]!==opp)enemyCards.insertBefore(opp,enemyCards.children[index]||null);continue;}
             let card=enemyCardNodes.get(opp.id);
@@ -93,8 +101,8 @@ export function createVillageWorkspace({read,act}) {
                 hp.className='enemy-card-health';hp.append(node('span'));cycle.max=100;cycle.className='enemy-card-cycle';facts.className='enemy-card-facts';facts.nodes=new Map();
                 card.append(name,hp,cycle,facts);enemyCardNodes.set(opp.id,card);}
             if(enemyCards.children[index]!==card)enemyCards.insertBefore(card,enemyCards.children[index]||null);
-            const[name,hp,cycle,facts]=card.children,inspected=opp.id===target.id,known=knowledgeOf(opp),label=count>1?`${opp.letter} · ${opp.name}`:opp.name,shown=layout.grouped?opp.letter:label,health=healthText(opp),fill=healthFill(opp);
-            setText(name,shown);setAttr(name,'aria-pressed',inspected);setAttr(name,'aria-label',`Inspect opponent ${label}${opp.defeated?', defeated':''}`);setTitle(name,`Inspect ${label}. Inspection does not change attack targeting. ${KNOWLEDGE_LABEL[known]}`);
+            const[name,hp,cycle,facts]=card.children,inspected=opp.id===target.id,known=knowledgeOf(opp),kin=named.get(opp.name)||[opp],nth=kin.indexOf(opp)+1,label=count>1&&kin.length>1?`${opp.name}, ${nth} of ${kin.length}`:opp.name,shown=layout.grouped?opp.letter:opp.name,health=healthText(opp),fill=healthFill(opp);
+            setText(name,shown);setAttr(name,'data-letter',layout.grouped?'':count>1?opp.letter:'');setAttr(card,'data-slot',opp.slot);setAttr(name,'aria-pressed',inspected);setAttr(name,'aria-label',`Inspect opponent ${label}${opp.defeated?', defeated':''}`);setTitle(name,`Inspect ${label}. Inspection does not change attack targeting. ${KNOWLEDGE_LABEL[known]}`);
             setText(hp.firstChild,health);setAttr(hp,'data-health-known',fill!=null);setTitle(hp,opp.defeated?`Defeated · ${opp.health?.text||''}`.trim():health);card.style.setProperty('--roster-health',`${fill??0}%`);
             if(inspected){name.dataset.effectAnchor='opponent-name';hp.dataset.effectAnchor='opponent-health';}else{name.removeAttribute('data-effect-anchor');hp.removeAttribute('data-effect-anchor');}
             cycle.hidden=opp.defeated||opp.cycle==null;cycle.value=opp.cycle||0;setAttr(cycle,'aria-label',`${label} attack cycle`);setTitle(cycle,'Attack cycle · native progress');
@@ -106,12 +114,16 @@ export function createVillageWorkspace({read,act}) {
         detail.hidden=comparing;setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowledgeOf(target));setTitle(detail,`${count>1?target.letter+' · ':''}${target.name}. ${KNOWLEDGE_LABEL[knowledgeOf(target)]}`);
         const facts=target.facts||[];renderFacts(detailFacts,detailNodes,facts,layout.facts==='list');
         if(inList){const t=opponents.find(o=>o.id===target.id)||target,fill=healthFill(t);
-            setText(targetName,count>1&&t.letter?`${t.letter} · ${t.name}`:t.name);setAttr(targetName,'data-kind-hue',hueOf(t.name));setAttr(targetLine,'data-defeated',!!t.defeated);
+            const tk=named.get(t.name)||[t];setText(targetName,t.name);setAttr(targetName,'data-letter',count>1?t.letter||'':'');setAttr(targetName,'aria-label',tk.length>1?`${t.name}, ${tk.indexOf(t)+1} of ${tk.length}`:t.name);setAttr(targetName,'data-kind-hue',hueOf(t.name));setAttr(targetLine,'data-defeated',!!t.defeated);
             setText(targetHealth,healthText(t));targetLine.style.setProperty('--roster-health',`${fill??0}%`);setAttr(targetHealth,'data-health-known',fill!=null);
             targetCycle.hidden=!!t.defeated||t.cycle==null;targetCycle.value=t.cycle||0;setAttr(targetCycle,'aria-label',`${t.name} attack cycle`);
-            setTitle(targetLine,`Inspecting ${count>1&&t.letter?t.letter+' · ':''}${t.name}. Select another opponent in the list to inspect it; inspection does not change attack targeting.`);}
+            setTitle(targetLine,`Inspecting ${tk.length>1?`${t.name}, ${tk.indexOf(t)+1} of ${tk.length}`:t.name}. Select another opponent in the list to inspect it; inspection does not change attack targeting.`);}
         detailEmpty.hidden=!!facts.length;setText(detailEmpty,'No combat facts observed yet.');
         const caption=encounterCaption(board);setText(rosterCaption,caption);setTitle(rosterCaption,caption);
+        if(inList){const down=opponents.filter(o=>o.defeated).length,{groupsLeft,clears}=board.encounter||{};
+            const rows=[['Opponents',String(count)],['Defeated',`${down} of ${count}`],...[...named.entries()].map(([n,g])=>[n,`${g.filter(o=>!o.defeated).length} of ${g.length} left`]),groupsLeft?['Groups left',groupsLeft]:null,clears?['Clears',String(clears).replace(/^Clears:\s*/,'')]:null].filter(Boolean);
+            for(const[key,row]of encounterNodes)if(!rows.some(r=>r[0]===key)){row.remove();encounterNodes.delete(key);}
+            for(const[key,value]of rows){let row=encounterNodes.get(key);if(!row){row=node('div');row.append(node('dt',key),node('dd'));encounterNodes.set(key,row);encounterFacts.append(row);}setText(row.lastChild,value);setAttr(row,'data-kind-hue',named.has(key)?hueOf(key):'');}}
         if(root.style.getPropertyValue('--enemy-cards-height'))root.style.removeProperty('--enemy-cards-height');
         root.dataset.enemyPanels='true';root.dataset.enemyCards='true';
         // A new wave with a different count is a stable moment for the fit engine (WX4).
@@ -120,7 +132,17 @@ export function createVillageWorkspace({read,act}) {
     const home=document.getElementById('main_content');
     definePanel({id:'focus',title:'Focus',role:'character',node:focus,home,defaultDock:'center',after:'time',eligible:()=>true});
     const fighting=()=>home.dataset.parity==='r3'&&home.dataset.parityCombat==='true';
-    definePanel({id:'opponents',title:'Opponents',role:'character',node:opponentsView,home,defaultDock:'center',after:'local-actions',eligible:fighting,discovered:fighting});
+    definePanel({id:'opponents',title:'Opponents',role:'character',node:opponentsView,home,defaultDock:'center',after:'local-actions',eligible:fighting,discovered:fighting,
+        settings:[{key:'letters',label:'Opponent letters',description:'Show A, B, C beside opponents of the same name. Off by default: hover a report line to find its opponent.',options:[['off','Off'],['hover','On hover'],['always','Always']],default:'off'}]});
+    // R22c (FC12): hovering or focusing a combat line marks its opponent's row in the current wave,
+    // and a row marks its lines. Older waves' lines link to nothing. Presentation only.
+    const linkOff=()=>{for(const n of document.querySelectorAll('[data-linked]'))n.removeAttribute('data-linked');};
+    const latest=log=>Math.max(0,...[...log.querySelectorAll('[data-encounter]')].map(n=>Number(n.dataset.encounter)||0));
+    const linkFrom=event=>{const log=document.getElementById('message_log_div');if(!log)return;linkOff();
+        const line=event.target.closest?.('#message_log_div [data-combat-slot]'),card=event.target.closest?.('#opponent_list .enemy-card[data-slot], #current_focus .enemy-card[data-slot]');
+        if(line&&line.dataset.combatSlot!=='many'&&Number(line.dataset.encounter)===latest(log)){const c=enemyCards.querySelector(`.enemy-card[data-slot="${CSS.escape(line.dataset.combatSlot)}"]`);if(c){c.dataset.linked='true';line.dataset.linked='true';}}
+        else if(card){const n=latest(log);for(const l of log.querySelectorAll(`[data-combat-slot="${CSS.escape(card.dataset.slot)}"][data-encounter="${n}"]`))l.dataset.linked='true';card.dataset.linked='true';}};
+    document.addEventListener('mouseover',linkFrom);document.addEventListener('focusin',linkFrom);
     definePanel({id:'village-scene',title:'Village scene',role:'actions',node:scene,home,defaultDock:'center',after:'location',
         discovered:()=>true,eligible:()=>read().inVillage||document.getElementById('main_content').dataset.parity==='r3'});
     function choose(id){selected=id;render();}

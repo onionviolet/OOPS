@@ -6,7 +6,7 @@ import {GRADED_IDS} from './harvest.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
-import {combatLogKey, renderCombatLine, addCombatOccurrence} from './combat_log.js';
+import {combatLogKey, renderCombatLine, addCombatOccurrence, occurrenceLabel, hostileSlot} from './combat_log.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
 import {denominationsKnown} from './reveal_chain.js';
 import {foodPacingDescription} from './absorb_e1/panel.js';
@@ -960,16 +960,20 @@ function log_subject_snapshots(text, type, explicit=[]) {
 // R22: a combat line carries its event (combat_log.js). Its in-game minute is kept per
 // occurrence, so a collapsed ×N line still lists when each one happened (UX18).
 const combat_occurrence_time=()=>current_game_time.toString().split(' ')[1]?.replace(',','')||'';
+// R22c (FC11, FC13): letters off merges same-text lines of one kind; each occurrence names its row.
+const combat_key_options=()=>({byKind:(getDisplaySetting('panel.opponents.letters')||'off')==='off'});
+const combat_occurrence=event=>[combat_occurrence_time(),occurrenceLabel(event)].filter(Boolean).join(' · ');
 function mark_combat_line(message,event){
     message.dataset.combatOutcome=event.outcome;message.dataset.combatDirection=event.direction;
-    message.dataset.combatKey=combatLogKey(event);message.dataset.encounter=String(event.encounter);
-    addCombatOccurrence(message,combat_occurrence_time());
+    message.dataset.combatKey=combatLogKey(event,combat_key_options());message.dataset.encounter=String(event.encounter);
+    const slot=hostileSlot(event);if(slot!=null)message.dataset.combatSlot=String(slot);
+    addCombatOccurrence(message,combat_occurrence(event));
 }
 // Parity shell only: the next equivalent event on the newest line adds to its ×N instead of a line.
 // Message counts and pruning stay per line; follow and unread keep their meaning.
 function collapse_combat_repeat(event){
     if(!message_log||document.getElementById('main_content')?.dataset.parity!=='r3')return false;
-    const key=combatLogKey(event);if(!key)return false;
+    const key=combatLogKey(event,combat_key_options());if(!key)return false;
     let last=message_log.lastElementChild;
     while(last&&!last.classList.contains('message_common'))last=last.previousElementSibling;
     if(!last||last.dataset.combatKey!==key)return false;
@@ -977,7 +981,9 @@ function collapse_combat_repeat(event){
     const following=batch_log&&batched_log_following!==undefined?batched_log_following
         :getDisplaySetting("logFollow")==="always"||is_message_log_near_bottom();
     if(batch_log)batched_log_following=following;
-    addCombatOccurrence(last,combat_occurrence_time());
+    // A merged line may stand for several opponents: it links to none of them (FC12).
+    if(last.dataset.combatSlot!==undefined&&String(hostileSlot(event))!==last.dataset.combatSlot)last.dataset.combatSlot='many';
+    addCombatOccurrence(last,combat_occurrence(event));
     if(document.getElementById('message_show_combat')?.classList.contains('active_selection_button')){
         if(following){if(batch_log)batched_log_scroll_requested=true;else message_log.scrollTop=message_log.scrollHeight;}
         else{message_log_unread_count+=1;show_message_log_unread();}

@@ -66,7 +66,8 @@ test('the engine lane projection (schema 1) maps onto the board shape', async ()
 test('R22b: a tall slot stacks the board in one column; a short one keeps R20 bands', () => {
     // 8 mixed opponents, 3 kinds: 8 rows plus 3 group labels.
     const tall = boardLayout({count: 8, widthEm: 28, heightEm: 30, groups: [3, 3, 2]});
-    assert.equal(tall.columns, 1); assert.equal(tall.visibleRows, 11); assert.equal(tall.stacked, true);
+    // R22c (FC11): stacked rows drop the group labels.
+    assert.equal(tall.columns, 1); assert.equal(tall.visibleRows, 8); assert.equal(tall.stacked, true); assert.equal(tall.grouped, false);
     const short = boardLayout({count: 8, widthEm: 28, heightEm: 12, groups: [3, 3, 2]});
     assert.ok(short.columns > 1, 'not every row fits: columns as in R20');
     assert.ok(short.visibleRows <= Math.floor(12 / LAYOUT_SPEC.opponentBoard.rowEm), 'visible rows follow the slot');

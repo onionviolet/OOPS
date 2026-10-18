@@ -21,9 +21,9 @@ export const LAYOUT_SPEC = Object.freeze({
         actions: Object.freeze({panels: ['records', 'skills', 'opponents']}),
     }),
     fallback: 'actions',
-    // The selected item's detail sits beside the actions in a fight and, otherwise, where Around
-    // you is (R21: a box name follows that box when the player moves it).
-    contextual: Object.freeze({'shell-detail': Object.freeze({combat: 'actions', idle: 'box:around'})}),
+    // The selected item's detail sits beside the actions. R22c (FC4): idle too, as the second column
+    // of the split place region (Proto23's list + detail), so Around you stays whole.
+    contextual: Object.freeze({'shell-detail': Object.freeze({combat: 'actions', idle: 'actions'})}),
     // R21 (MB1): the boxes a player can move, as groups of panels. A main box has a home region and
     // swaps with the box in the slot it moves to; a companion joins a slot beside that slot's box.
     // `fit` says how a box sizes the top row when it sits there (WX3): 'content' (its content),
@@ -147,7 +147,8 @@ export function topRowHeight({player, focus, combat, board, fontSize, frame = LA
 // `groups` are the opponent counts per name in board order; repeated names group from the
 // `groupFrom` band on. `visibleRows` counts group labels as rows.
 // R22b (SU2): `heightEm`, when given, is the slot's height; while one column fits every row the
-// board stacks, and the visible rows follow the slot instead of `maxVisibleRows`.
+// board stacks (R22c: without group labels), and the visible rows follow the slot instead of
+// `maxVisibleRows`.
 export function boardLayout({count, widthEm, heightEm = 0, groups = [count]}, spec = LAYOUT_SPEC) {
     const b = spec.opponentBoard, index = Math.max(0, b.bands.findIndex(x => count <= x.upTo)), band = b.bands[index];
     const grouped = index >= b.bands.findIndex(x => x.layout === b.groupFrom) && groups.length < count;
@@ -155,9 +156,11 @@ export function boardLayout({count, widthEm, heightEm = 0, groups = [count]}, sp
     const fitRows = heightEm > 0 ? Math.max(1, Math.floor(heightEm / b.rowEm)) : 0;
     let columns = grouped ? Math.max(1, Math.min(b.groupMaxColumns, Math.floor(widthEm / b.groupCellEm), Math.max(...groups)))
         : Math.max(1, Math.min(band.columns, Math.floor(widthEm / b.minColumnEm), count || 1));
+    // R22c (FC11): a stacked board needs no group labels; rows sort by kind instead.
+    if (fitRows && (count || 1) <= fitRows) return {layout: band.layout, grouped: false, columns: 1, facts: band.facts, visibleRows: count || 1, stacked: count > 1};
     if (fitRows && rowsAt(1) <= fitRows) columns = 1;
     const rows = rowsAt(columns);
-    return {layout: band.layout, grouped, columns, facts: band.facts, visibleRows: Math.min(rows, fitRows || b.maxVisibleRows), stacked: columns === 1 && count > 1};
+    return {layout: band.layout, grouped, columns, facts: band.facts, visibleRows: Math.min(rows, fitRows || b.maxVisibleRows), stacked: false};
 }
 
 export const frameFor =(fontSize, spec = LAYOUT_SPEC) => spec.topRow.framePx + Math.ceil(fontSize * spec.topRow.frameLines);

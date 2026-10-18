@@ -124,7 +124,7 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 #main_content.workspace-active[data-parity="r3"][data-shell-companion-swap="true"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="records"] {grid-row:4/5;}
 #main_content.workspace-active[data-parity="r3"][data-shell-companion-swap="true"][data-shell-companions~="records"][data-shell-companions~="skills"] [data-region="actions"] > .workspace-module[data-module="skills"] {grid-row:2/4;}
 /* The item detail replaces Around you wherever that box sits. */
-#main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"] .parity-region > .workspace-module[data-module="focus"] {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"] .parity-region:has(> .workspace-module[data-module="shell-detail"]:not([hidden])) > .workspace-module[data-module="focus"] {display:none!important;}
 }
 
 /* ---- R21b: start-screen Beginning (replaces the retired hero creation panel's extras) ---- */

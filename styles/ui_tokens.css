@@ -539,7 +539,9 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #main_content[data-presentation="proto23-shell"]:not(:has(.workspace-module[data-module="combat"]:not([hidden]))) .workspace-module[data-module="shell-detail"] { max-height: 40dvh; }
 }
 @media (min-width:1001px) {
-#main_content[data-presentation="proto23-shell"]:not(:has(.workspace-module[data-module="combat"]:not([hidden]))):has(.workspace-module[data-module="shell-detail"]:not([hidden])) .workspace-dock > .workspace-module[data-module="focus"] { display: none !important; }
+/* R22c (FC4): in the parity shell the item detail opens beside the actions, so Around you stays;
+   it still yields where the detail shares its region. */
+#main_content[data-presentation="proto23-shell"]:not(:has(.workspace-module[data-module="combat"]:not([hidden]))):has(.workspace-module[data-module="shell-detail"]:not([hidden])) .workspace-dock:not(:is([data-region="actions"],[data-region="focus"]):not(:has(> [data-module="shell-detail"]:not([hidden])))) > .workspace-module[data-module="focus"] { display: none !important; }
 }
 #main_content[data-presentation="proto23-shell"] #location_actions_div { gap: 0; }
 #main_content[data-presentation="proto23-shell"] #location_actions_div > .location_choice_dropdown { padding: 2px; font-size: var(--custom-size,var(--ui-type-body)); }
@@ -708,7 +710,7 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #main_content.workspace-active[data-parity="r3"] #inventory_content_div .item_fav_div {display:none;}
 #main_content.workspace-active[data-parity="r3"] #current_focus {width:100%;height:100%;min-height:0;overflow:auto;}
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="focus"] {background:transparent;}
-#main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"] [data-region="focus"] > .workspace-module[data-module="focus"] {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-parity-combat="false"][data-parity-item="true"] [data-region="focus"]:has(> .workspace-module[data-module="shell-detail"]:not([hidden])) > .workspace-module[data-module="focus"] {display:none!important;}
 #main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module[data-module="shell-detail"] {display:flex;flex-direction:column;flex:1 1 0!important;}
 #main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module[data-module="shell-detail"] > .workspace-module-body {display:flex;flex:1 1 0;overflow:hidden;}
 #main_content.workspace-active[data-parity="r3"] #proto23_item_detail {width:100%;min-height:0;}
@@ -1466,6 +1468,13 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
 :root {
  --opponent-kind-0: #f0b6ff; --opponent-kind-1: #ffb37a; --opponent-kind-2: #c9e37c;
  --opponent-kind-3: #a9bfff; --opponent-kind-4: #e6c9a1; --opponent-kind-5: #ff9fd0;
+}
+/* R22c (FC5–FC7): Proto23-style inventory color. Category tabs take their items' kind hue; the
+   inventory region and the detail slot get their own tints; new items say "new". */
+:root {
+ --p23-new: #fff07a;
+ --p23-inventory-fill: linear-gradient(160deg,#000a3d,#003a5e 70%,#004a6e);
+ --p23-detail-slot-fill: linear-gradient(180deg,#2b2150,#171034);
 }
 /* R22b (SU6): at the primary target You takes Inventory's column width, matching the column below
    it; the freed width goes to Around you. The floors keep the R21 widths. */

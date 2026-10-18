@@ -4,7 +4,8 @@
 //
 // Snapshot: {encounter, outcome: 'hit'|'miss'|'block'|'defeat', actor, target, amount, hits,
 //   critical, partial, direction: 'dealt'|'taken'|'other'}
-// participant: {name, you, side: 'ally'|'hostile', slot, letter, hue} (hue: R22b kind hue, hostile only)
+// participant: {name, you, side: 'ally'|'hostile', slot, letter, hue, ordinal, kindCount} (hue: R22b
+//   kind hue, hostile only; ordinal of kindCount: R22c position among same-named fighters)
 // Letters are assigned at encounter start by native slot (R1, W3, IL60): the defender index does
 // not change during a wave, and a new wave is a new Combat object, so its serial differs and old
 // lines never resolve to the new opponent in the same slot.
@@ -22,8 +23,10 @@ function participant(fighter, sideFighters, slot, isAttackerSide) {
     const you = !!fighter?.tags?.main_character;
     // A letter only tells fighters apart, so a side of one gets none (the board shows one card).
     const letter = !you && sideFighters?.length > 1 && slot >= 0 ? letterFor(slot) : '';
-    const hue = !you && !isAttackerSide ? kindHue((sideFighters || []).map(f => String(f?.name ?? '?')), String(fighter?.name ?? '?')) : null;
-    return {name: you ? 'You' : String(fighter?.name ?? '?'), you, side: isAttackerSide ? 'ally' : 'hostile', slot, letter, hue};
+    const names = (sideFighters || []).map(f => String(f?.name ?? '?')), name = String(fighter?.name ?? '?');
+    const hue = !you && !isAttackerSide ? kindHue(names, name) : null;
+    const kindCount = names.filter(n => n === name).length, ordinal = names.slice(0, Math.max(0, slot)).filter(n => n === name).length + 1;
+    return {name: you ? 'You' : name, you, side: isAttackerSide ? 'ally' : 'hostile', slot, letter, hue, ordinal, kindCount};
 }
 
 export function combatLogEvent(combat, {fighter, fighterIndex, isAttacker, target, outcome, amount = null, hits = 1, critical = false, partial = false}) {
@@ -36,14 +39,23 @@ export function combatLogEvent(combat, {fighter, fighterIndex, isAttacker, targe
 }
 
 // UX18: equivalent means same encounter, same actor and target slots, same outcome, amount, hit
-// count, crit and block. A defeat is a transition and never collapses.
-export function combatLogKey(event) {
+// count, crit and block. A defeat is a transition and never collapses. R22c (FC13): with opponent
+// letters off (`byKind`), fighters of one kind compare by name, so lines that read the same merge;
+// each occurrence still keeps which one it was (occurrenceLabel).
+export function combatLogKey(event, {byKind = false} = {}) {
     if (!event || event.outcome === 'defeat') return '';
-    const who = p => `${p.side}:${p.you ? 'you' : p.slot}`;
+    const who = p => `${p.side}:${p.you ? 'you' : byKind ? `name:${p.name}` : p.slot}`;
     return [event.encounter, event.outcome, who(event.actor), who(event.target), event.amount ?? '', event.hits, event.critical ? 1 : 0, event.partial ? 1 : 0].join('|');
 }
 
 const label = p => p.letter ? `${p.name} ${p.letter}` : p.name;
+// R22c: which opponent an occurrence was, without letters ("Wolf rat 2 of 3").
+export function occurrenceLabel(event) {
+    const p = [event.actor, event.target].find(x => x && !x.you && x.side === 'hostile');
+    return p && p.kindCount > 1 ? `${p.name} ${p.ordinal} of ${p.kindCount}` : '';
+}
+// The hostile slot a line is about, for hover links between Reports and the board.
+export const hostileSlot = event => [event.actor, event.target].find(x => x && x.side === 'hostile' && x.slot >= 0)?.slot ?? null;
 // Wording without DOM, for tests and accessible names.
 export function combatLogText(event) {
     const a = event.actor, t = event.target, you = p => p.you ? 'you' : label(p), verb = (p, plain, third) => p.you ? plain : third;
@@ -62,6 +74,7 @@ function nameNode(p, lowerYou) {
     span.className = 'log-name';span.dataset.side = p.side;
     if (p.you) {span.dataset.you = 'true';span.textContent = lowerYou ? 'you' : 'You';return span;}
     if (p.hue != null) span.dataset.kindHue = String(p.hue);
+    if (p.kindCount > 1) span.title = `${p.name}, ${p.ordinal} of ${p.kindCount}`;
     span.append(p.name);
     if (p.letter) {const letter = document.createElement('span');letter.className = 'log-letter';letter.textContent = p.letter;span.append(' ', letter);}
     return span;

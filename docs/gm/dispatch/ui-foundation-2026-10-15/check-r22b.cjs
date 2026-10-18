@@ -5,7 +5,8 @@
 //    page overflow.
 // B2 kind hues: one hue per kind on the board, the same hue on that kind's names in Reports, each
 //    ≥4.5:1 on the region and log fills.
-// B3 inspect: choosing another row changes the target line, the back button does not move (UR52).
+// B3 inspect: choosing another row changes the target (its accessible name, R22c: names only on
+//    screen), the back button does not move (UR52).
 // B4 one and three opponents still render (no letters for one).
 // B5 You matches Inventory's width at 1920 and MacBook; the 1366 floor keeps R21's wider You.
 // B6 light custom palette on Reports: every visible log text ≥4.5:1 on its fill.
@@ -56,9 +57,9 @@ const results={};
         for(const [k,c] of Object.entries(hues.log))assert.equal(c,hues.board[k],`log hue ${k} matches board`);
         assert.deepEqual(hues.low,[],`kind hues ≥4.5:1 on their fills: ${JSON.stringify(hues.low.slice(0,6))}`);
         // B3
-        const before=await p.evaluate(()=>[document.querySelector('#current_focus .opponent-target > strong').textContent,JSON.stringify(document.querySelector('[data-region="actions"] [data-module="local-actions"] button')?.getBoundingClientRect())]);
+        const before=await p.evaluate(()=>[document.querySelector('#current_focus .opponent-target > strong').getAttribute('aria-label'),JSON.stringify(document.querySelector('[data-region="actions"] [data-module="local-actions"] button')?.getBoundingClientRect())]);
         const other=p.locator('#opponent_list .enemy-card:not([data-inspected="true"]):not([data-defeated="true"]) .enemy-card-name').first();await other.click();await p.waitForTimeout(400);
-        const after=await p.evaluate(()=>[document.querySelector('#current_focus .opponent-target > strong').textContent,JSON.stringify(document.querySelector('[data-region="actions"] [data-module="local-actions"] button')?.getBoundingClientRect())]);
+        const after=await p.evaluate(()=>[document.querySelector('#current_focus .opponent-target > strong').getAttribute('aria-label'),JSON.stringify(document.querySelector('[data-region="actions"] [data-module="local-actions"] button')?.getBoundingClientRect())]);
         assert.notEqual(after[0],before[0],'inspecting another row changes the target line');assert.equal(after[1],before[1],'actions do not move (UR52)');
         return {hues,inspect:[before[0],after[0]]};},{data:fx('8-mixed'),list:[PRIMARY]});
      assert.ok(!r.fail,`B2/B3: ${r.fail}`);results.B2=r.hues;results.B3=r.inspect;}

@@ -8,7 +8,8 @@ function r16ParityRegion(id, combat) {
     // R21c: the status window joins You (R16 sent it to the fallback, where the shell parked it).
     if (['vitals', 'shell-character', 'status-window'].includes(id)) return 'player';
     if (id === 'focus') return 'focus';
-    if (id === 'shell-detail') return combat ? 'actions' : 'focus';
+    // R22c (FC4): the item detail sits beside the actions idle too (R16 put it in Around you).
+    if (id === 'shell-detail') return 'actions';
     if (['belongings', 'combat-controls', 'shell-inventory-tools'].includes(id)) return 'inventory';
     if (['messages', 'shell-log-tools'].includes(id)) return 'log';
     if (['records', 'skills'].includes(id)) return 'actions';
@@ -77,9 +78,12 @@ test('R21 placement: swaps main boxes, places companions, keeps the log and defa
     assert.equal(regionFor('records', {placement: p.contexts.idle}), 'inventory');
     p = swapCompanions(p, 'idle'); assert.equal(p.contexts.idle.swap, true);
     p = moveBox(p, 'idle', 'around', 'inventory');
-    assert.equal(regionFor('shell-detail', {placement: p.contexts.idle}), 'inventory', 'item detail follows Around you');
+    assert.equal(regionFor('shell-detail', {placement: p.contexts.idle}), 'actions', 'R22c: item detail stays beside the actions when Around you moves');
     assert.equal(isDefault(resetContext(p, 'idle'), 'idle'), true);
     assert.equal(normalizePlacement({version: 1, spec: 1, contexts: {idle: {boxes: {you: 'focus'}}}}).stale, true, 'an older spec version is dropped (GU6)');
+    // R22b: spec 3 only adds a box, so an R21 (spec 2) placement keeps its moves.
+    const kept = normalizePlacement({version: 1, spec: 2, contexts: {idle: {boxes: {you: 'focus'}, companions: {journal: 'inventory'}}}});
+    assert.equal(kept.contexts.idle.boxes.you, 'focus'); assert.equal(kept.contexts.idle.companions.journal, 'inventory');
     assert.equal(regionFit(['vitals', 'shell-character']), 'content');
     assert.equal(regionFit(['focus']), 'combat');
     assert.equal(regionFit(['belongings', 'records']), 'fill');

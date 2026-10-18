@@ -1,0 +1,51 @@
+{
+ "fight": [
+  {
+   "target": "1920-14",
+   "page": true,
+   "linked": 1,
+   "tab": "usable",
+   "errors": []
+  },
+  {
+   "target": "mbp-14",
+   "page": true,
+   "linked": 1,
+   "tab": "usable",
+   "errors": []
+  },
+  {
+   "target": "1366-14",
+   "page": true,
+   "linked": 1,
+   "tab": "usable",
+   "errors": []
+  }
+ ],
+ "idle": [
+  {
+   "target": "1920-14",
+   "region": "actions",
+   "shown": true,
+   "actions": true,
+   "page": true,
+   "errors": []
+  },
+  {
+   "target": "mbp-14",
+   "region": "actions",
+   "shown": true,
+   "actions": true,
+   "page": true,
+   "errors": []
+  },
+  {
+   "target": "1366-14",
+   "region": "actions",
+   "shown": true,
+   "actions": true,
+   "page": true,
+   "errors": []
+  }
+ ]
+}

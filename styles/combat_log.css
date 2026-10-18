@@ -59,3 +59,9 @@
    Native line colors (bright yellow places and unlocks, lilac skills) were set for the dark log
    fill and nearly vanished on a light one; the kind still shows in the left rule. */
 #main_content.workspace-active[data-parity="r3"] #message_log_div[data-custom-palette="true"] :not([data-combat-outcome]) > .log-compact {color:var(--custom-text)!important;}
+
+/* R22c (FC11, FC12): letters hidden unless the Opponent letters setting asks; a linked line (its row
+   hovered, or itself hovered) gets an outline. */
+#main_content.workspace-active[data-parity="r3"]:not([data-opponent-letters="always"]) #message_log_div .log-letter {display:none!important;}
+#main_content.workspace-active[data-parity="r3"][data-opponent-letters="hover"] #message_log_div .message_combat:is(:hover,[data-linked]) .log-letter {display:inline-block!important;}
+#main_content.workspace-active[data-parity="r3"] #message_log_div .message_combat[data-linked] {outline:1px solid var(--log-dealt);outline-offset:-1px;}
