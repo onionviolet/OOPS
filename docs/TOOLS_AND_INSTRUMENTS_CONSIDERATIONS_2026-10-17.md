@@ -530,7 +530,8 @@ reason, not locks. The rows were rewritten in place. Old wording, kept as histor
 
 **Default from here (TQ209).** A repair or making input changes the odds and the quality band.
 Anyone may attempt anything they can perceive and reach. A hard gate appears only where a world's
-lore states one, and it is labelled as that world's absolute with its source.
+lore states one, and it is labelled as that world's absolute with its source. *(Revised by round 5,
+TQ250: a stated absolute is a claim about the ordinary case, and exceptions have routes.)*
 
 ### Layers: what an item is made of (TQ210)
 
@@ -603,3 +604,111 @@ second opinion, or a use under load, can reveal it.
 | TQ240 | LATER | A director inspector showing all layers, including unperceived ones, read-only, to verify "looks fixed but is not" |
 
 Evidence: rounds 1–3 of this file, WE1–WE20 pack rows. Docs only; no build, test or browser run.
+
+## Round 5: nothing has to be limited, exceptions and better makers (2026-10-17)
+
+Weibao (2026-10-17): "nothing has to be limited and then it is possible for there to be excpetions
+and more? Better smiths, /more-to-consider other thigns and more?"
+
+### The principle (TQ250)
+
+A limit describes the **ordinary case**: what ordinary people with ordinary means usually manage.
+It is never the edge of what is possible. This covers limits stated by a world's lore and by canon.
+"Only the original smith can fix a Nichirin blade" reads, in play, as "people believe only the
+original smith can", which is true for nearly everyone.
+
+Exceptions exist. Each one has:
+- **a reason** in the world: who did it and how;
+- **a cost** or consequence;
+- **a rarity**, given as a per-world adjective (rare, unheard of, once an era);
+- **a record**, so the world stays coherent and the exception can be learned or copied.
+
+This sharpens AD5 and replaces AGENTS.md's earlier wording "one world may have true absolutes as its
+lore" (kept here as history). Round 4's TQ209 gate clause is superseded by this.
+
+**Canon fidelity (TQ251).** Canon events and ordinary canon actors follow the canon limits by default.
+An exception that goes past a canon-stated limit is labelled ORIGINAL (MR13). If it changes what
+canon says happened, it writes a divergence record ([timelines](TIMELINES_AND_DIVERGENCE.md)).
+Canon is preserved as the ordinary truth and stays open at the edges.
+
+**Claims and truth (TQ252).** A world's common belief ("impossible") is a knowledge claim. Truth can
+be wider (SR claims separate from truth, MR1). Finding an exception route usually means learning that
+the real law is wider than people believed. Others can then learn it slowly, and the world's claim
+updates where the exception was seen.
+
+### Where exceptions come from (TQ253–TQ262)
+
+| Code | Source | Examples |
+|---|---|---|
+| TQ253 | **An exceptional person** | A prodigy; a master who outgrew their teacher; a lineage gift; a smith who can see souls; a Heavenly Restriction body wielding what others cannot |
+| TQ254 | **An exceptional material** | An ore that heals itself, a world-tree branch, a characteristic with a strange pathway, a meteorite |
+| TQ255 | **An exceptional place or time** | A forge on a ley line, an eclipse, a domain, a spirit realm where the soul layer is touchable by hand |
+| TQ256 | **An exceptional method** | A lost technique rediscovered, an invention, a method imported from another world, a forbidden method with a price |
+| TQ257 | **An exceptional tool or station** | A hammer that can shape spirit, an anvil that remembers every blade struck on it |
+| TQ258 | **Collaboration** | Two people who each reach half the layers do the whole job together (TQ229) |
+| TQ259 | **The item's own will** | A willing tool helps its repairer; a loyal blade accepts a stranger's hands for its wielder's sake |
+| TQ260 | **Circumstance** | Desperation, a bond at its peak, a sacrifice, a vow (GHS90), a dying master's last work |
+| TQ261 | **Luck** | The far tail of the execution draw: a tiny chance of a masterwork beyond the maker (MR2; the draw is committed, so reload does not reroll it) |
+| TQ262 | **A cheat** | A cheat can widen a single dimension (perception of a layer, a fit shortcut), with the rest still earned. It can also go further, as a cheat that is clearly labelled |
+
+### Better smiths and other exceptional makers (TQ263–TQ275)
+
+| Code | Consideration |
+|---|---|
+| TQ263 | **A curve, not a ladder of locks.** Apprentice, journeyman, master, grandmaster, legendary, once-an-era are descriptive bands on one curve. Every band can attempt every job, with different results |
+| TQ264 | **What makes a maker better** is several things, named separately (like GHS94 aptitude): skill, perception (which layers they reach), knowledge breadth (schools and methods), signature methods, access to materials, tool quality, collaborators and the quality of work they have seen |
+| TQ265 | **A better maker can beat the original maker on their own work.** A legendary smith may repair a Nichirin blade better than the smith who forged it, though the fit layer still gains from the user being there. This is the main "better smiths" exception to round 4's "the original maker does best" |
+| TQ266 | **Signature and style.** A great maker's work is recognizable. Forgers fake their marks, and appraisal with means can tell the difference (TQ10) |
+| TQ267 | **Innovation.** A great maker can do a "thing nobody can do": repair the unrepairable, combine layers in a new way. Once someone witnesses it, it is a knowledge event. The method can spread by teaching, by theft or by others copying it badly |
+| TQ268 | **Great makers have their own reasons.** They are busy, expensive or proud. They may refuse unworthy clients, demand a test or a rare material, keep secrets, have enemies, be old, or die. Reaching one is a quest. These are in-world agents with reasons, not locks |
+| TQ269 | **Their effect on the world.** Demand, waiting lists, prices, poaching, guild politics, rivals, students, imitators, and towns that grow around a famous forge |
+| TQ270 | **Teaching passes part of it.** Students get methods and knowledge, but not perception or a lineage gift. A great school is a route to near-exceptional work |
+| TQ271 | **The player can become one.** This is the long maker arc: climbing the curve, finding a signature method, and doing one thing the world believed impossible |
+| TQ272 | **Exceptional users too.** A swordsman so good that any blade performs for them; a user whose fit grows at once; someone who can wield a tool that refuses others |
+| TQ273 | **Exceptional repairers who are not makers.** A healer who mends living tools, a priest who calms a tool's soul, a historian who restores its record |
+| TQ274 | **Lesser makers do exceptional things too.** A village smith with the right ore, the user present and plenty of time can beat a careless master. Exceptions are not reserved for the top |
+| TQ275 | **Decline.** A great maker can lose their edge (age, injury, grief) or lose a method if no one learned it. Exceptions can fade as well as appear |
+
+### Exceptions elsewhere (TQ276–TQ283)
+
+The same principle applied beyond repair. Each item needs an in-world reason and a cost.
+
+- TQ276. A near-indestructible item: very hard to damage, with a stated undoing (its maker's death,
+  a specific material, a specific technique).
+- TQ277. A tool that refuses theft and comes back, as an exception to custody, with a reason (its bond).
+- TQ278. Learning without a teacher, or from a single demonstration: a prodigy or a cheat, recorded as such.
+- TQ279. Unusual cross-world compatibility: a rare material that is native in two worlds (MR14 exception row).
+- TQ280. Two tools in one slot, or one tool for every verb: an exceptional instrument with its own cost.
+- TQ281. Conservation exceptions (MR5, LotM characteristics): even conserved quantities can have a
+  deeper law that bends them. That law is ORIGINAL, very rare and costly, and recorded.
+- TQ282. Making something from nothing (beyond conjuration's usual temporariness): a lasting conjured
+  item as a once-an-era feat.
+- TQ283. A one-holder power held by two (GHS87): an exception that the world ledger records with its reason.
+
+### Keeping exceptions coherent without capping them (TQ284–TQ290)
+
+These are shapes that give exceptions meaning. They are not limits.
+
+| Code | Shape |
+|---|---|
+| TQ284 | **Every exception is legible in-world.** Someone can tell the story of how. No silent stat break |
+| TQ285 | **The world reacts.** Witnesses, rumors, prices, envy, and institutions wanting the method (pushback through in-world agents with reasons, per AGENTS) |
+| TQ286 | **An exception ledger per world.** It records who did what past the ordinary limit, how, when, and who knows. It reuses the GHS87 ledger pattern, and claims update from it |
+| TQ287 | **Exceptions are discoverable.** Rumors of a smith who fixed the unfixable, old records, a teacher's hint. Discovery follows normal knowledge routes, and sealed-secret rules apply where an exception is a world secret |
+| TQ288 | **Frozen once seen** (MR3). A revealed exception's terms are saved and do not reroll |
+| TQ289 | **Costs scale with the gap.** The further past the ordinary limit, the steeper the cost. A world sets the adjective, and nothing forces a ceiling |
+| TQ290 | **Balance is not forced** (AGENTS). Weibao is the only player, so an exception that makes play easier is allowed. Its meaning comes from the world's reaction, not from being prevented |
+
+### Engine shape
+
+| Code | Disposition | Item |
+|---|---|---|
+| TQ291 | ACCOUNT FOR NOW | No hard clamps in resolver code. Ranges are curves with an "ordinary ceiling" that the world's knowledge shows as where people believe it stops. Exceptional modifiers (TQ253–TQ262) can push past it at rising cost |
+| TQ292 | ACCOUNT FOR NOW | Replace the `gate` idea in the input record (TQ163, TQ236) with `claim: {belief: 'impossible' or 'only X', basis}` plus `routes: [exception route ids]`. With no known route, the quote says "nobody here knows how" (knowledge), not "cannot" (truth) |
+| TQ293 | ACCOUNT FOR NOW | Maker profiles (TQ238) gain named dimensions (TQ264), a signature, and a list of methods with origin (taught, invented, stolen) |
+| TQ294 | LATER | An exception ledger domain, shared by tools, powers (GHS87) and sites. Strong implementer, M. Done check: an exception recorded in one save updates the local claim, appears in rumors, and survives save, reload, Export and Import |
+| TQ295 | LATER | Village case: the old craftsman (WE1) once fixed a blade everyone called ruined. Finding out how is a small quest that teaches one exception route. Balanced author plus implementer, M |
+| TQ296 | LATER | A director inspector for the exception ledger and every claim against its truth, read-only |
+
+Evidence: AD5 in RULES_INDEX, AGENTS.md design framing, RULES_FROM_SCRATCH CP1 ("an outlier is not a
+universal law; unknown is not forbidden"), rounds 1–4. Docs only; no build, test or browser run.

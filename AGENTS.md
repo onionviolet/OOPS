@@ -90,8 +90,9 @@ the playable result. Record accepted decisions in PROJECT.md.
   save compatibility, effort or anything irreversible. No either/or open
   questions in docs or replies.
 - **Write constraints as default, dial and reason** (the in-world reason and
-  cost), not never/always/only. No design line holds for every world, though one
-  world may have true absolutes as its lore. Balance is not forced; pushback
+  cost), not never/always/only. No design line holds for every world. A world's
+  stated absolutes, canon ones included, describe the ordinary case; exceptions
+  can exist with an in-world reason and cost (2026-10-17). Balance is not forced; pushback
   needs an in-world agent with a reason. Sweep new docs for blanket claims before
   reporting. Do not call agent proposals "accepted"
   ([audit of 24 such slips](docs/DESIGN_DEFAULTS_AUDIT.md)).

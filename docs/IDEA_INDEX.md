@@ -119,6 +119,8 @@ Round 3 adds kinds of making by material change and organization
 (TQ163-TQ166) and making and repair requirements per world (TQ170-TQ189).
 Round 4 adds layered repair (body, function, fit, pattern, charge, bond, soul,
 record; TQ210-TQ240) and turns earlier repair gates into guidance (TQ209).
+Round 5: limits describe the ordinary case and exceptions have routes (TQ250),
+with exception sources, better makers and an exception ledger (TQ251-TQ296).
 Proposals only.
 
 [Weaponcrafting, runes and inscription considerations](WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
