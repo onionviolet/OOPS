@@ -29,7 +29,7 @@ affected active instructions, and preserve superseded wording as dated history.
 Handoffs link to owners rather than copying another competing specification.
 
 Start every task at the [rules index](docs/RULES_INDEX.md) (2026-10-16): its
-router names the rule codes that apply to the task, and AD1–AD36 restate the
+router names the rule codes that apply to the task, and AD1–AD38 restate the
 accepted direction for aspects without their own rulebook. Cite codes in task
 records and handoffs. The rulebooks below keep their own detail. Keep the index
 current in the same change: a new or changed rulebook updates its register and
@@ -43,7 +43,7 @@ center views through the shared controller with a bottom back bar and Esc, keep
 the log column intact, give features in-world logic, and check discoverability
 on a populated save at the 1920×1080 primary target and the 1366×768 floor
 (viewport targets in UI_RULES, 2026-10-17). Choose the appropriate panel/navigation scope;
-not every view opens in the lower center. Follow UR41–UR48 for disclosure,
+not every view opens in the lower center. Follow UR41–UR49 for disclosure,
 hover/pinned inspection, clean logs/hierarchy and faithful reference evidence.
 Lane briefs that touch UI link that file.
 

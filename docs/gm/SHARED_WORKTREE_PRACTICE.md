@@ -64,8 +64,10 @@ Weibao, 2026-10-14: merge finished work "each time" before a new wave
 ([direction](../USER_VISION.md#merge-before-dispatch-2026-10-14)).
 
 1. Check `git branch` for finished lanes: a `.last.md` exists and the process is gone.
-2. Merge those that pass their gates (build, `npm test`, smoke) and push under
-   the existing push authorization.
+2. Merge those that pass their gates (build, `npm test`, smoke). Pushing
+   waits for Weibao's yes (AGENTS.md; USER_VISION records no standing push
+   authorization). Corrected 2026-10-19; earlier wording said "push under the
+   existing push authorization".
 3. Lane owners merge their own work. Message idle owner sessions first; take over
    only with an explicit handoff.
 4. If the shared index is blocked by another session's staged files, prove the

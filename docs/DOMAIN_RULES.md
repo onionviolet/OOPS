@@ -273,6 +273,8 @@ and cost (AD5).
 | ECR18 | **Known wealth has many responses,** and theft needs an agent with motive, means and opportunity. A safe world can have none. (M25, M19 correction) | Thieves as a universal tax on success |
 | ECR19 | **Losses move goods to a recorded destination** (thief, fence, lender, collector), and offline losses always appear in the recap. (A20, A8) | Silent drains while the player is away |
 
+*Note 2026-10-19: read ECR19's "always appear in the recap" as bounded by [AD17](RULES_INDEX.md) (OD15): the recap shows a loss only to the extent the character's knowledge, means or cheats allow it; an unnoticed loss stays recorded at its destination and surfaces by its own route. AD17 is the owner where the two differ. ECR19's wording is unchanged pending Weibao's acceptance review.*
+
 ### Institutions, credit and law
 
 | Code | Rule | Mistake it prevents |

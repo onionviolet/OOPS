@@ -18,6 +18,14 @@ locator; inferred means interpretation.
 
 ## Bottom line
 
+> **Update 2026-10-19 (historical report, wording below kept):** two findings
+> are superseded. Cheat code now exists (`src/cheat_cards.js`, with
+> `tests/cheat_cards.test.js`, `tests/cheat_awakening.test.js`,
+> `tests/cheat_status_window.test.js`), and `buildLifeHeirSave` is imported at
+> `src/main.js:457` and called at `src/main.js:2763`. The test baseline and
+> source locators below are also out of date. Current cheat status lives in
+> [CHEAT_LIBRARY](../../CHEAT_LIBRARY.md).
+
 - **No cheat is implemented** (shown, B). Everything is Weibao's direction
   plus agent proposals; none is accepted in PROJECT.md.
 - **The engine is a better base than the docs assume** (shown, A, C). The

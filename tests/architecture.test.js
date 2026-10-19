@@ -16,3 +16,10 @@ test('architecture baseline can shrink but cannot grant new exemptions or erase 
  assert.ok(checkBaseline({mainImports:['a','c'],cycleEdges:['b']},{mainImports:['a','c'],cycleEdges:['b'],lineCounts:{main:11}},old).some(x=>x.includes('only shrink')));
  assert.ok(checkBaseline({mainImports:[],cycleEdges:[]},old).some(x=>x.includes('Remove resolved')));
 });
+test('every relative import under src resolves to a file in the graph',async()=>{
+ const {importGraph}=await import('../scripts/check_architecture.mjs');
+ const graph=await importGraph();
+ const missing=[];
+ for(const [from,targets] of graph)for(const to of targets)if(!graph.has(to))missing.push(`${from} -> ${to}`);
+ assert.deepEqual(missing,[]);
+});
