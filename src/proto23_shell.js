@@ -9,6 +9,7 @@ import {placeTypeEffectText} from './place_types_projection.js';
 import {SECONDARY_STATS,secondaryVisible,pinKey,isRate} from './condition_facts.js';
 import {mountConditionPanel} from './condition_panel.js';
 import {mountShellControlBoxes} from './shell_control_boxes.js';
+import {rendered} from './panel_reveal.js';
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
 // Preserve native tooltip content and markup; add presentation roles to its
 // existing lines, never synthesize item facts from names or hidden templates.
@@ -200,7 +201,8 @@ export function mountProto23Shell({read}) {
     function deferHide(){clearTimeout(hideTimer);hideTimer=setTimeout(hidePreview,180);}
     function showPreview(row){
         // A visible stable inspector owns this reading space; hover must not cover its commands.
-        if(selected&&document.getElementById('proto23_item_detail')?.checkVisibility()){hidePreview();return;}
+        const itemDetail=document.getElementById('proto23_item_detail');
+        if(selected&&itemDetail&&rendered(itemDetail)){hidePreview();return;}
         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
         const tooltip=row.querySelector('.item_tooltip');if(!tooltip)return;hideContext();
         clearTimeout(hideTimer);if(hovered!==row||previewSignature!==tooltip.innerHTML){hovered?.removeAttribute('aria-describedby');hovered=row;previewSignature=tooltip.innerHTML;previewBody.replaceChildren(descriptionCopy(tooltip));}
@@ -319,7 +321,7 @@ export function mountProto23Shell({read}) {
             const value=Math.ceil(minimum)+'px';shell.dataset.youMinimum='true';if(shell.style.minHeight!==value)shell.style.setProperty('min-height',value,'important');
         }
         const region=player.closest('.parity-region'),shell=player.closest('.workspace-module');
-        const siblings=region?[...region.children]:[],following=siblings.slice(siblings.indexOf(shell)+1).filter(n=>n.checkVisibility()).reduce((sum,n)=>sum+(parseFloat(getComputedStyle(n).minHeight)||n.getBoundingClientRect().height),0);
+        const siblings=region?[...region.children]:[],following=siblings.slice(siblings.indexOf(shell)+1).filter(rendered).reduce((sum,n)=>sum+(parseFloat(getComputedStyle(n).minHeight)||n.getBoundingClientRect().height),0);
         const available=region&&fitBody?region.getBoundingClientRect().bottom-fitBody.getBoundingClientRect().top-following-statline.getBoundingClientRect().height-characterTools.getBoundingClientRect().height:Infinity;
         const first=secondaryGrid.querySelector('button:not([hidden])'),rowHeight=first?.getBoundingClientRect().height||0;
         const cols=parseInt(getComputedStyle(secondaryGrid).gridTemplateColumns.split(' ').length)||2;

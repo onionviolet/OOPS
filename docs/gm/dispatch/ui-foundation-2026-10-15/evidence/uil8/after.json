@@ -9,7 +9,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -34,7 +34,7 @@
           }
         ],
         "rates": [],
-        "condition": "14.7 °C · comfortableCold exposureNo active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanEffects",
+        "condition": "No active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
         "conditionFont": "14px",
         "region": "player",
         "overflow": false,
@@ -52,12 +52,12 @@
             "place"
           ],
           "pending": [],
-          "refreshes": 5,
+          "refreshes": 6,
           "polls": 0,
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305241547
+            "at": 1792452559963
           },
           "error": null
         }
@@ -69,7 +69,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -100,7 +100,7 @@
             "visible": true
           }
         ],
-        "condition": "14.7 °C · comfortableCold exposureSpark of InspirationBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of InspirationHP %/s0 % /s",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanHP %/s0 % /s",
         "conditionFont": "14px",
         "region": "player",
         "overflow": false,
@@ -123,7 +123,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305252329
+            "at": 1792452569244
           },
           "error": null
         }
@@ -137,7 +137,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -162,7 +162,7 @@
           }
         ],
         "rates": [],
-        "condition": "14.7 °C · comfortableCold exposureSpark of InspirationBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of Inspiration",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
         "conditionFont": "14px",
         "region": "player",
         "overflow": false,
@@ -185,7 +185,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305262962
+            "at": 1792452578159
           },
           "error": null
         }
@@ -197,7 +197,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -228,7 +228,7 @@
             "visible": true
           }
         ],
-        "condition": "14.7 °C · comfortableCold exposureSpark of Inspiration · Basic mealBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of Inspiration +1Sta /s0.5 /s",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBasic meal150mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSta /s0.5 /s",
         "conditionFont": "14px",
         "region": "player",
         "overflow": false,
@@ -251,7 +251,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:effects_tooltip",
-            "at": 1792305263904
+            "at": 1792452579032
           },
           "error": null
         }
@@ -268,32 +268,11 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
-        "secondary": [
-          {
-            "id": "stamina_efficiency",
-            "text": "Sta eff.×1.087",
-            "visible": true
-          },
-          {
-            "id": "xp_hero",
-            "text": "Hero XP×1.459",
-            "visible": true
-          },
-          {
-            "id": "xp_all_skill",
-            "text": "Skill XP×1.389",
-            "visible": true
-          },
-          {
-            "id": "xp_all",
-            "text": "Global XP×1.323",
-            "visible": true
-          }
-        ],
+        "secondary": [],
         "rates": [],
-        "condition": "14.7 °C · comfortableCold exposureNo active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanEffects",
+        "condition": "No active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
         "conditionFont": "21px",
         "region": "player",
         "overflow": false,
@@ -311,12 +290,12 @@
             "place"
           ],
           "pending": [],
-          "refreshes": 5,
+          "refreshes": 6,
           "polls": 0,
           "last": {
-            "topic": "body",
-            "source": "legacy:character_bio_profile",
-            "at": 1792305269645
+            "topic": "place",
+            "source": "legacy:location_actions_div",
+            "at": 1792452584803
           },
           "error": null
         }
@@ -328,7 +307,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -359,7 +338,7 @@
             "visible": true
           }
         ],
-        "condition": "14.7 °C · comfortableCold exposureSpark of InspirationBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of InspirationHP %/s0 % /s",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanHP %/s0 % /s",
         "conditionFont": "21px",
         "region": "player",
         "overflow": false,
@@ -382,7 +361,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305281194
+            "at": 1792452594518
           },
           "error": null
         }
@@ -396,7 +375,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -408,20 +387,10 @@
             "id": "xp_hero",
             "text": "Hero XP×2.188",
             "visible": true
-          },
-          {
-            "id": "xp_all_skill",
-            "text": "Skill XP×2.084",
-            "visible": true
-          },
-          {
-            "id": "xp_all",
-            "text": "Global XP×1.984",
-            "visible": true
           }
         ],
         "rates": [],
-        "condition": "14.7 °C · comfortableCold exposureSpark of InspirationBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of Inspiration",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
         "conditionFont": "21px",
         "region": "player",
         "overflow": false,
@@ -444,7 +413,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305292147
+            "at": 1792452603634
           },
           "error": null
         }
@@ -456,7 +425,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -487,7 +456,7 @@
             "visible": true
           }
         ],
-        "condition": "14.7 °C · comfortableCold exposureSpark of Inspiration · Basic mealBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of Inspiration +1Sta /s0.5 /s",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBasic meal150mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSta /s0.5 /s",
         "conditionFont": "21px",
         "region": "player",
         "overflow": false,
@@ -510,7 +479,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:effects_tooltip",
-            "at": 1792305293173
+            "at": 1792452604523
           },
           "error": null
         }
@@ -527,7 +496,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -539,20 +508,10 @@
             "id": "xp_hero",
             "text": "Hero XP×1.459",
             "visible": true
-          },
-          {
-            "id": "xp_all_skill",
-            "text": "Skill XP×1.389",
-            "visible": true
-          },
-          {
-            "id": "xp_all",
-            "text": "Global XP×1.323",
-            "visible": true
           }
         ],
         "rates": [],
-        "condition": "14.7 °C · comfortableCold exposureNo active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanEffects",
+        "condition": "No active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
         "conditionFont": "14px",
         "region": "player",
         "overflow": false,
@@ -570,12 +529,12 @@
             "place"
           ],
           "pending": [],
-          "refreshes": 5,
+          "refreshes": 6,
           "polls": 0,
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305299600
+            "at": 1792452610328
           },
           "error": null
         }
@@ -587,7 +546,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -618,7 +577,7 @@
             "visible": true
           }
         ],
-        "condition": "14.7 °C · comfortableCold exposureSpark of InspirationBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of InspirationHP %/s0 % /s",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanHP %/s0 % /s",
         "conditionFont": "14px",
         "region": "player",
         "overflow": false,
@@ -641,7 +600,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305310249
+            "at": 1792452619159
           },
           "error": null
         }
@@ -655,7 +614,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -680,7 +639,7 @@
           }
         ],
         "rates": [],
-        "condition": "14.7 °C · comfortableCold exposureSpark of InspirationBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of Inspiration",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
         "conditionFont": "14px",
         "region": "player",
         "overflow": false,
@@ -703,7 +662,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305320661
+            "at": 1792452628093
           },
           "error": null
         }
@@ -715,7 +674,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -746,7 +705,7 @@
             "visible": true
           }
         ],
-        "condition": "14.7 °C · comfortableCold exposureSpark of Inspiration · Basic mealBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of Inspiration +1Sta /s0.5 /s",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBasic meal150mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSta /s0.5 /s",
         "conditionFont": "14px",
         "region": "player",
         "overflow": false,
@@ -769,7 +728,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:effects_tooltip",
-            "at": 1792305321557
+            "at": 1792452628930
           },
           "error": null
         }
@@ -786,32 +745,11 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
-        "secondary": [
-          {
-            "id": "stamina_efficiency",
-            "text": "Sta eff.×1.087",
-            "visible": true
-          },
-          {
-            "id": "xp_hero",
-            "text": "Hero XP×1.459",
-            "visible": true
-          },
-          {
-            "id": "xp_all_skill",
-            "text": "Skill XP×1.389",
-            "visible": true
-          },
-          {
-            "id": "xp_all",
-            "text": "Global XP×1.323",
-            "visible": true
-          }
-        ],
+        "secondary": [],
         "rates": [],
-        "condition": "14.7 °C · comfortableCold exposureNo active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanEffects",
+        "condition": "No active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
         "conditionFont": "21px",
         "region": "player",
         "overflow": false,
@@ -829,12 +767,12 @@
             "place"
           ],
           "pending": [],
-          "refreshes": 5,
+          "refreshes": 6,
           "polls": 0,
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305327180
+            "at": 1792452634350
           },
           "error": null
         }
@@ -846,7 +784,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -877,7 +815,7 @@
             "visible": true
           }
         ],
-        "condition": "14.7 °C · comfortableCold exposureSpark of InspirationBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of InspirationHP %/s0 % /s",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanHP %/s0 % /s",
         "conditionFont": "21px",
         "region": "player",
         "overflow": false,
@@ -900,7 +838,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305338662
+            "at": 1792452644148
           },
           "error": null
         }
@@ -914,7 +852,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -926,20 +864,10 @@
             "id": "xp_hero",
             "text": "Hero XP×2.188",
             "visible": true
-          },
-          {
-            "id": "xp_all_skill",
-            "text": "Skill XP×2.084",
-            "visible": true
-          },
-          {
-            "id": "xp_all",
-            "text": "Global XP×1.984",
-            "visible": true
           }
         ],
         "rates": [],
-        "condition": "14.7 °C · comfortableCold exposureSpark of InspirationBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of Inspiration",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
         "conditionFont": "21px",
         "region": "player",
         "overflow": false,
@@ -962,7 +890,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:character_bio_profile",
-            "at": 1792305350405
+            "at": 1792452653149
           },
           "error": null
         }
@@ -974,7 +902,7 @@
           "coldThreshold": "14",
           "temperatureLabel": "14.7 °C"
         },
-        "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+        "header": "Village☀ SummerDry14.7 °C · comfortable",
         "warnings": 0,
         "secondary": [
           {
@@ -1005,7 +933,7 @@
             "visible": true
           }
         ],
-        "condition": "14.7 °C · comfortableCold exposureSpark of Inspiration · Basic mealBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSpark of Inspiration +1Sta /s0.5 /s",
+        "condition": "No active effectsSpark of Inspiration1800mBuffBasic meal150mBuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanSta /s0.5 /s",
         "conditionFont": "21px",
         "region": "player",
         "overflow": false,
@@ -1028,7 +956,7 @@
           "last": {
             "topic": "body",
             "source": "legacy:effects_tooltip",
-            "at": 1792305351929
+            "at": 1792452654117
           },
           "error": null
         }
@@ -1045,32 +973,11 @@
         "coldThreshold": "14",
         "temperatureLabel": "14.7 °C"
       },
-      "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+      "header": "Village☀ SummerDry14.7 °C · comfortable",
       "warnings": 0,
-      "secondary": [
-        {
-          "id": "stamina_efficiency",
-          "text": "Sta eff.×1.087",
-          "visible": true
-        },
-        {
-          "id": "xp_hero",
-          "text": "Hero XP×1.459",
-          "visible": true
-        },
-        {
-          "id": "xp_all_skill",
-          "text": "Skill XP×1.389",
-          "visible": true
-        },
-        {
-          "id": "xp_all",
-          "text": "Global XP×1.323",
-          "visible": true
-        }
-      ],
+      "secondary": [],
       "rates": [],
-      "condition": "14.7 °C · comfortableCold exposureNo active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanEffects",
+      "condition": "No active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
       "conditionFont": "14px",
       "region": "player",
       "overflow": false,
@@ -1088,12 +995,12 @@
           "place"
         ],
         "pending": [],
-        "refreshes": 5,
+        "refreshes": 6,
         "polls": 0,
         "last": {
-          "topic": "body",
-          "source": "legacy:character_bio_profile",
-          "at": 1792305362311
+          "topic": "place",
+          "source": "legacy:location_actions_div",
+          "at": 1792452659635
         },
         "error": null
       },
@@ -1107,32 +1014,11 @@
         "coldThreshold": "14",
         "temperatureLabel": "14.7 °C"
       },
-      "header": "Village☀ SummerDry14.7 °C · coldCold exposure01/04/999 08:01, Mon · ☼ Day",
+      "header": "Village☀ SummerDry14.7 °C · coldCold exposure",
       "warnings": 1,
-      "secondary": [
-        {
-          "id": "stamina_efficiency",
-          "text": "Sta eff.×1.087",
-          "visible": true
-        },
-        {
-          "id": "xp_hero",
-          "text": "Hero XP×1.459",
-          "visible": true
-        },
-        {
-          "id": "xp_all_skill",
-          "text": "Skill XP×1.389",
-          "visible": true
-        },
-        {
-          "id": "xp_all",
-          "text": "Global XP×1.323",
-          "visible": true
-        }
-      ],
+      "secondary": [],
       "rates": [],
-      "condition": "14.7 °C · coldCold exposureWetBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanWet",
+      "condition": "No active effectsWet30mDebuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
       "conditionFont": "14px",
       "region": "player",
       "overflow": false,
@@ -1150,12 +1036,12 @@
           "place"
         ],
         "pending": [],
-        "refreshes": 5,
+        "refreshes": 6,
         "polls": 0,
         "last": {
-          "topic": "body",
-          "source": "legacy:character_bio_profile",
-          "at": 1792305370233
+          "topic": "place",
+          "source": "legacy:location_actions_div",
+          "at": 1792452662157
         },
         "error": null
       },
@@ -1169,32 +1055,11 @@
         "coldThreshold": "14",
         "temperatureLabel": "14.7 °C"
       },
-      "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+      "header": "Village☀ SummerDry14.7 °C · comfortable",
       "warnings": 0,
-      "secondary": [
-        {
-          "id": "stamina_efficiency",
-          "text": "Sta eff.×1.087",
-          "visible": true
-        },
-        {
-          "id": "xp_hero",
-          "text": "Hero XP×1.459",
-          "visible": true
-        },
-        {
-          "id": "xp_all_skill",
-          "text": "Skill XP×1.389",
-          "visible": true
-        },
-        {
-          "id": "xp_all",
-          "text": "Global XP×1.323",
-          "visible": true
-        }
-      ],
+      "secondary": [],
       "rates": [],
-      "condition": "14.7 °C · comfortableCold exposureNo active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanEffects",
+      "condition": "No active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
       "conditionFont": "21px",
       "region": "player",
       "overflow": false,
@@ -1212,12 +1077,12 @@
           "place"
         ],
         "pending": [],
-        "refreshes": 5,
+        "refreshes": 6,
         "polls": 0,
         "last": {
-          "topic": "body",
-          "source": "legacy:character_bio_profile",
-          "at": 1792305377184
+          "topic": "place",
+          "source": "legacy:location_actions_div",
+          "at": 1792452664694
         },
         "error": null
       },
@@ -1231,7 +1096,100 @@
         "coldThreshold": "14",
         "temperatureLabel": "14.7 °C"
       },
-      "header": "Village☀ SummerDry14.7 °C · coldCold exposure01/04/999 08:01, Mon · ☼ Day",
+      "header": "Village☀ SummerDry14.7 °C · coldCold exposure",
+      "warnings": 1,
+      "secondary": [
+        {
+          "id": "stamina_efficiency",
+          "text": "Sta eff.×1.087",
+          "visible": true
+        },
+        {
+          "id": "xp_hero",
+          "text": "Hero XP×1.459",
+          "visible": true
+        }
+      ],
+      "rates": [],
+      "condition": "No active effectsWet30mDebuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
+      "conditionFont": "21px",
+      "region": "player",
+      "overflow": false,
+      "reader": {
+        "id": "condition",
+        "surface": "condition",
+        "topics": [
+          "body",
+          "time",
+          "place"
+        ],
+        "declared": [
+          "body",
+          "time",
+          "place"
+        ],
+        "pending": [],
+        "refreshes": 6,
+        "polls": 0,
+        "last": {
+          "topic": "place",
+          "source": "legacy:location_actions_div",
+          "at": 1792452668414
+        },
+        "error": null
+      },
+      "case": "wet-cold",
+      "target": "1920-21"
+    },
+    {
+      "weather": {
+        "temperatureC": "14.7",
+        "coldTolerance": "1",
+        "coldThreshold": "14",
+        "temperatureLabel": "14.7 °C"
+      },
+      "header": "Village☀ SummerDry14.7 °C · comfortable",
+      "warnings": 0,
+      "secondary": [],
+      "rates": [],
+      "condition": "No active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
+      "conditionFont": "14px",
+      "region": "player",
+      "overflow": false,
+      "reader": {
+        "id": "condition",
+        "surface": "condition",
+        "topics": [
+          "body",
+          "time",
+          "place"
+        ],
+        "declared": [
+          "body",
+          "time",
+          "place"
+        ],
+        "pending": [],
+        "refreshes": 6,
+        "polls": 0,
+        "last": {
+          "topic": "place",
+          "source": "legacy:location_actions_div",
+          "at": 1792452672212
+        },
+        "error": null
+      },
+      "case": "warm",
+      "target": "1366-14"
+    },
+    {
+      "weather": {
+        "temperatureC": "14.7",
+        "coldTolerance": "-4",
+        "coldThreshold": "14",
+        "temperatureLabel": "14.7 °C"
+      },
+      "header": "Village☀ SummerDry14.7 °C · coldCold exposure",
       "warnings": 1,
       "secondary": [
         {
@@ -1256,69 +1214,7 @@
         }
       ],
       "rates": [],
-      "condition": "14.7 °C · coldCold exposureWetBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanWet",
-      "conditionFont": "21px",
-      "region": "player",
-      "overflow": false,
-      "reader": {
-        "id": "condition",
-        "surface": "condition",
-        "topics": [
-          "body",
-          "time",
-          "place"
-        ],
-        "declared": [
-          "body",
-          "time",
-          "place"
-        ],
-        "pending": [],
-        "refreshes": 5,
-        "polls": 0,
-        "last": {
-          "topic": "body",
-          "source": "legacy:character_bio_profile",
-          "at": 1792305384964
-        },
-        "error": null
-      },
-      "case": "wet-cold",
-      "target": "1920-21"
-    },
-    {
-      "weather": {
-        "temperatureC": "14.7",
-        "coldTolerance": "1",
-        "coldThreshold": "14",
-        "temperatureLabel": "14.7 °C"
-      },
-      "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
-      "warnings": 0,
-      "secondary": [
-        {
-          "id": "stamina_efficiency",
-          "text": "Sta eff.×1.087",
-          "visible": true
-        },
-        {
-          "id": "xp_hero",
-          "text": "Hero XP×1.459",
-          "visible": true
-        },
-        {
-          "id": "xp_all_skill",
-          "text": "Skill XP×1.389",
-          "visible": true
-        },
-        {
-          "id": "xp_all",
-          "text": "Global XP×1.323",
-          "visible": true
-        }
-      ],
-      "rates": [],
-      "condition": "14.7 °C · comfortableCold exposureNo active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanEffects",
+      "condition": "No active effectsWet30mDebuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
       "conditionFont": "14px",
       "region": "player",
       "overflow": false,
@@ -1336,74 +1232,12 @@
           "place"
         ],
         "pending": [],
-        "refreshes": 5,
+        "refreshes": 6,
         "polls": 0,
         "last": {
-          "topic": "body",
-          "source": "legacy:character_bio_profile",
-          "at": 1792305389927
-        },
-        "error": null
-      },
-      "case": "warm",
-      "target": "1366-14"
-    },
-    {
-      "weather": {
-        "temperatureC": "14.7",
-        "coldTolerance": "-4",
-        "coldThreshold": "14",
-        "temperatureLabel": "14.7 °C"
-      },
-      "header": "Village☀ SummerDry14.7 °C · coldCold exposure01/04/999 08:01, Mon · ☼ Day",
-      "warnings": 1,
-      "secondary": [
-        {
-          "id": "stamina_efficiency",
-          "text": "Sta eff.×1.087",
-          "visible": true
-        },
-        {
-          "id": "xp_hero",
-          "text": "Hero XP×1.459",
-          "visible": true
-        },
-        {
-          "id": "xp_all_skill",
-          "text": "Skill XP×1.389",
-          "visible": true
-        },
-        {
-          "id": "xp_all",
-          "text": "Global XP×1.323",
-          "visible": true
-        }
-      ],
-      "rates": [],
-      "condition": "14.7 °C · coldCold exposureWetBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanWet",
-      "conditionFont": "14px",
-      "region": "player",
-      "overflow": false,
-      "reader": {
-        "id": "condition",
-        "surface": "condition",
-        "topics": [
-          "body",
-          "time",
-          "place"
-        ],
-        "declared": [
-          "body",
-          "time",
-          "place"
-        ],
-        "pending": [],
-        "refreshes": 5,
-        "polls": 0,
-        "last": {
-          "topic": "body",
-          "source": "legacy:character_bio_profile",
-          "at": 1792305392972
+          "topic": "place",
+          "source": "legacy:location_actions_div",
+          "at": 1792452674601
         },
         "error": null
       },
@@ -1417,32 +1251,11 @@
         "coldThreshold": "14",
         "temperatureLabel": "14.7 °C"
       },
-      "header": "Village☀ SummerDry14.7 °C · comfortable01/04/999 08:01, Mon · ☼ Day",
+      "header": "Village☀ SummerDry14.7 °C · comfortable",
       "warnings": 0,
-      "secondary": [
-        {
-          "id": "stamina_efficiency",
-          "text": "Sta eff.×1.087",
-          "visible": true
-        },
-        {
-          "id": "xp_hero",
-          "text": "Hero XP×1.459",
-          "visible": true
-        },
-        {
-          "id": "xp_all_skill",
-          "text": "Skill XP×1.389",
-          "visible": true
-        },
-        {
-          "id": "xp_all",
-          "text": "Global XP×1.323",
-          "visible": true
-        }
-      ],
+      "secondary": [],
       "rates": [],
-      "condition": "14.7 °C · comfortableCold exposureNo active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanEffects",
+      "condition": "No active effectsBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
       "conditionFont": "21px",
       "region": "player",
       "overflow": false,
@@ -1460,12 +1273,12 @@
           "place"
         ],
         "pending": [],
-        "refreshes": 5,
+        "refreshes": 6,
         "polls": 0,
         "last": {
-          "topic": "body",
-          "source": "legacy:character_bio_profile",
-          "at": 1792305396037
+          "topic": "place",
+          "source": "legacy:location_actions_div",
+          "at": 1792452676967
         },
         "error": null
       },
@@ -1479,7 +1292,7 @@
         "coldThreshold": "14",
         "temperatureLabel": "14.7 °C"
       },
-      "header": "Village☀ SummerDry14.7 °C · coldCold exposure01/04/999 08:01, Mon · ☼ Day",
+      "header": "Village☀ SummerDry14.7 °C · coldCold exposure",
       "warnings": 1,
       "secondary": [
         {
@@ -1491,20 +1304,10 @@
           "id": "xp_hero",
           "text": "Hero XP×1.459",
           "visible": true
-        },
-        {
-          "id": "xp_all_skill",
-          "text": "Skill XP×1.389",
-          "visible": true
-        },
-        {
-          "id": "xp_all",
-          "text": "Global XP×1.323",
-          "visible": true
         }
       ],
       "rates": [],
-      "condition": "14.7 °C · coldCold exposureWetBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: HumanWet",
+      "condition": "No active effectsWet30mDebuffBody · HumanAge: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human",
       "conditionFont": "21px",
       "region": "player",
       "overflow": false,
@@ -1522,12 +1325,12 @@
           "place"
         ],
         "pending": [],
-        "refreshes": 5,
+        "refreshes": 6,
         "polls": 0,
         "last": {
-          "topic": "body",
-          "source": "legacy:character_bio_profile",
-          "at": 1792305400375
+          "topic": "place",
+          "source": "legacy:location_actions_div",
+          "at": 1792452680554
         },
         "error": null
       },

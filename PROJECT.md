@@ -4,7 +4,7 @@
 links the latest saved UI, engine, research and older packet states. UI A1/A2
 (inventory/nearby context) and engine A1/A2 (conditions/claims) are separate tracks.
 UIL7/UIL8 report candidate-specific technical passes; UI leaf delivery does not
-close combined integration or human acceptance. Engine A1/A2 are engine-only;
+close combined integration or human acceptance. The combined UI candidate (A1 + A2 + UIL7 + UIL8) was re-proved on the rebuilt 2026-10-19 tip at 1920/1366, 14/21px ([checkpoint](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md#integration-re-verification-2026-10-19)); human visual/play acceptance stays open. Engine A1/A2 are engine-only;
 RS26 retains the UI merge and Weibao play gate. M3 follows its later checkpoint;
 M4 is separately selected. See the [refresh record](docs/reviews/QUEUE_REFRESH_2026-10-18.md)
 for checked sources and open gates. Its [wider queue/plan pass](docs/reviews/QUEUE_REFRESH_2026-10-18.md#round-2-other-queues-and-plans-2026-10-18)

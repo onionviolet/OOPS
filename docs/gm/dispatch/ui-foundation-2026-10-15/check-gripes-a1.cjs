@@ -20,7 +20,7 @@ const measure=p=>p.evaluate(()=>{
    await p.evaluate(()=>{for(const s of document.styleSheets)if(s.href?.includes('/inventory_composition.css'))s.disabled=false;});await p.waitForTimeout(300);
    assert(after.inventory.w<before.inventory.w,`inventory narrows at ${T.tag(t)}`);
    assert(after.actions.w>before.actions.w,'freed width reaches actions');
-   assert(Math.abs(after.you.w-before.you.w)<12,`${T.tag(t)} You before ${before.you.w} after ${after.you.w}`);
+   const stacked=Math.abs(after.you.w-after.inventory.w)<12&&Math.abs(before.you.w-before.inventory.w)<12;assert(stacked||Math.abs(after.you.w-before.you.w)<12,`${T.tag(t)} You neither unchanged nor stacked in the inventory column: before ${before.you.w}/${before.inventory.w} after ${after.you.w}/${after.inventory.w}`);
    assert(Math.abs(after.reports.w-before.reports.w)<12,'Reports retains its width');
    assert(!after.overflow);
    const gear=p.locator('#inventory_content_div > .character_item_equippable').first();await gear.focus();await p.waitForTimeout(300);

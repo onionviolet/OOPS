@@ -141,3 +141,30 @@ Browser-local placement/resize preferences need reload/context/reset checks in
 their actual owner; game Export/Import only proves state serialized by that
 path. No new preference serialization is required to satisfy a misplaced test.
 No runtime changes, rerun, worker, merge, commit or push in this qualification.
+
+## Integration re-verification, 2026-10-19
+
+Target viewport: desktop, 1920×1080 primary and 1366×768 floor at 14px and 21px.
+Visible outcome: compact inventory with inspectable detail, Around you keeping
+nearby context through service use, adjustable panels (UIL7), Condition/stat tiers
+(UIL8). Deferred: mobile; the 1800×1040 MacBook and 1536×864 targets were not
+re-run (implemented-unverified). Rules applied: UR1–UR49 desktop-first, AR1–AR16,
+AD36 (existing checks first; no new regression added, one existing one corrected).
+
+Leaves were already merged on this branch. Defects found and fixed:
+
+- `src/proto23_shell.js` called `checkVisibility()` unguarded (item-detail preview
+  and `fitSecondary`); it threw in the headless DOM and failed
+  `crafting_native_reload`. Now uses `panel_reveal.rendered`. Browser behavior is unchanged.
+- `check-gripes-a1.cjs` asserted the You column keeps its width. Since R22b You
+  stacks in the inventory column at 1920 (336 vs 501 before the leaf CSS), so the
+  assertion now accepts "unchanged or stacked in the inventory column". Check was stale, product unchanged.
+
+Results on the rebuilt bundle (fresh browser context per target): `npm run build`
+ok; `npm test` 2226 tests, 2223 pass, 0 fail, 3 TODO; `check:arch` exit 0;
+`check:rules` PASS; `check:rule-behavior` pass. Browser: check-gripes-a1,
+check-gripes-a2, check-gripes-integration (inspect, service use and return,
+panel gutter, save, reload, Export, literal Import, combat), check-uil7 (after and
+LEGACY_ONLY), check-uil8, check-uil8-r2 all pass with no page errors.
+Screenshots refreshed under `evidence/gripes-a1`, `gripes-a1a2`, `uil7`, `uil8`.
+Fixtures are seeded, not natural progression. Human visual/play acceptance OPEN.
