@@ -343,3 +343,12 @@ Default: yes for runtime code; documentation continues.
 Q4. **Irreversible:** committing to the pack as the only route for new worlds
 (retiring `*_host.js` for new worlds) after P3 proves it. Default: adopt after
 the second world passes AR11.
+
+## 8. Weibao's answers, 2026-10-19
+
+Recorded from his reply in chat (his words are the authority; the readings below are mine).
+
+- **Q1** ("What is first? what even is done yet?"): he wants a plain status of what is finished before choosing an order. The status table is in the chat reply for this date; the standing fact is that **no slice is human-accepted**. [Acceptance prep](reviews/ACCEPTANCE_PREP_2026-10-19.md) is agent evidence for M4 lamplight, the money seam and the defeat publisher, and says acceptance stays open. First world choice is therefore not yet made; P1–P3 need no world choice.
+- **Q2**: agent work now runs on Sonnet, so there is more headroom. Reading: AU5's cheap-extraction route is now Sonnet-class; AU7's five-point default ceiling stays until a finite number is stated for P7.
+- **Q3**: pausing new engine proposals is not necessary. Reading: proposals and runtime work may proceed in parallel, still one writer per file area (AR15).
+- **Q4**: he does not know the optimum and suggests Opus for very hard, consideration-heavy work. Proposed routing (not yet accepted): Opus for format and seam design (pack loader and resolver growth, tiered-simulation design, the P3 format revision); Sonnet for readers, extraction, conversions, tests and journey specs. The Q4 retire-`*_host.js` choice is left open until P3 shows the result.
