@@ -33,3 +33,24 @@ Trial merge of L3, L2, L4, L1 onto HEAD 1d5ca8eed in a scratch worktree (`trial/
 Merged 2026-10-19 on Weibao's yes: codex/gameplay-foundations fast-forwarded to baa3a3297 (trial merge); L5/L6 docs committed from own paths only, other sessions' uncommitted hunks left unstaged. No push.
 
 Open: sealed-ID fix (L5 proposal), unapplied queue rows (L6), other clone stacks (L2 ranked list), R51 flake, headless runner village-route failure (L4), S4-F9 panels, X9/X10 bulk.
+
+## Issue pass, 2026-10-19 (branch `claude/features-and-fixes-f490c6`)
+
+- R51 flake: fixed. The p23 combat stub read `Date.now()` several times per start; a
+  millisecond boundary shifted the delays. The stub's engine clock is frozen; 17 straight
+  passing runs.
+- Headless village route: fixed, not a game bug. Center mode hides `.end_dialogue_button` and
+  the exit buttons by design (shared back bar), and the r3 shell hides the native [equip]
+  span. The route uses `#center_mode_back` and the shell Equip action; the DOM shim gained
+  `NodeFilter` and a `whatToShow`-aware TreeWalker. Runner 5/5.
+- Cafe traders: both "Cat cafe" traders fill all ten template items in the rebuilt build at
+  1920×1080 (first fill only; a later epoch roll was not exercised).
+- S2-F13: profile data corrected (Mother of Learning `nativeBound:true` with an
+  optional-campaign status; Paradise roster `nativeWorldId` and `nativeWorldIds`). No code
+  reads these fields.
+- Found during the M4 slice and fixed: trade back-bar exit (E2) and travel branches skipping
+  registry ticks (E1); details in the [modular checkpoint](../../gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md#m4-results-2026-10-19).
+
+Still open for Weibao: sealed-ID fix, unapplied queue rows, other clone stacks, S4-F9 panels,
+X9/X10 bulk.
+

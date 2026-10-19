@@ -79,6 +79,14 @@ export function createDom(options = {}) {
         }
     }
 
+    // Tree links, attributes and listeners live behind prototype accessors, as in a real DOM, where
+    // a node has no own data properties. Own-property walks (native transaction snapshots of a
+    // combat that holds UI slots) then see what a browser shows them instead of the whole tree.
+    for(const field of ['parentNode', 'childNodes', '_attrs', '_listeners']) {
+        const store = new WeakMap();
+        Object.defineProperty(EventTarget.prototype, field, {configurable:true, get() {return store.get(this);}, set(v) {store.set(this, v);}});
+    }
+
     class Node extends EventTarget {
         constructor(type) {super(); this.nodeType = type; this.parentNode = null; this.childNodes = [];}
         get ownerDocument() {return doc;}

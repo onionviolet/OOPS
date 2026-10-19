@@ -22,7 +22,7 @@ Brief: [BRIEF.md](BRIEF.md).
 | M1 cycle break + check | passed | 9e089696 | build, 1793 pass / 3 TODO, arch, rebuilt before/after route + full save equality |
 | M2 registry + two domains | passed | 4498c8e6 | build, 1795 pass / 3 TODO, arch, two-domain rebuilt comparison + old save |
 | M3 crafting consumer | passed on resume (B4), 2026-10-16 | see M3 resume below | build, 2045 pass / 3 TODO, arch, native browser journey 1366×768 |
-| M4 second case | not started | | separately recorded round; not authorized in this resume |
+| M4 second case | implemented 2026-10-19 (lamplight, PF52); see [M4 round](#m4-round-lamplight-2026-10-19) | branch `claude/features-and-fixes-f490c6` | build, 2243/2243 npm test, arch, rules, headless journey, 1920×1080 smoke; human play OPEN |
 
 The live checkpoint is the copy in the worktree; this shared copy records the
 dispatch. Fold the worktree copy back when the branch merges.
@@ -317,3 +317,106 @@ worktree" sentence describes its pre-merge arrangement. Fresh runtime input
 recovery is still required. MP13 carries the applicable G26–G30 cases and the
 current compatibility/viewport overrides. No runtime worker, retry, M4, test,
 build, merge, commit or push was launched by this docs-only reconciliation.
+
+## M4 round: lamplight, 2026-10-19
+
+Selected by a Claude session under Weibao's 2026-10-19 request "begin implementing
+features, and address issues; tests and more that take a long time can be deferred".
+Why this slice: QR1's remaining gates are human acceptance and extra viewport sweeps;
+QR2's native consumer is RS26, which waits on Weibao's play gate; M4 is the queue's one
+selected-separately item whose next gate is implementation. Rules: AR1–AR16, AD36, AD38,
+SR5, SR6, SR9, SR11, SR13, SR22–SR24, MR4 (quote reads only), UR touched only through
+native inventory use and log lines. Inputs recovered from this branch at `89e5a0618`
+(the M3 crafting/tools/registry seams as merged); no stale worktree copy is used.
+
+**MP4 candidate.** PF52 default: a real light changes a reading condition and lets
+observed evidence guide an actual route. Traced means: the native game already has
+`get_current_light_level()` (night 40, dark stages 40/20/0), a hero light-bonus reader
+that only living gear feeds, and no lamp item. The Cave depths (dark 2) fourth clear
+already reveals the Suspicious wall challenge that opens Hidden tunnel. No new power or
+world is needed, so PF52 stands (PF53 not needed).
+
+**MP5 seam (proposal values).**
+- Adapter and state owner: new `src/lamplight_domain.js`, registered through the domain
+  registry, slice `lamplight` `{schema:1, lit, oil, noticed}`; ports come through the
+  existing tools-domain configuration (main.js may not grow).
+- Actual method: native items Oil lamp (usable, manual use only) and Lamp oil, sold by the
+  village trader. Use lights or puts out the lamp; lighting spends one flask when the lamp
+  is dry. A flask burns 240 game minutes; put-out oil stays in the lamp.
+- Physical rule: a lit lamp held in the pack adds 40 light, capped at 100.
+- Readers: (1) the hero light reader, so dark/night combat uses it as living gear already
+  does; (2) everyday reading pace, which rises with the lamp's real gain over ambient
+  light (×1.2 at night, ×1 in daylight; old reading is unchanged without a lamp);
+  (3) exploration: in Cave depths, 20 minutes at 50+ light notices loose mortar and
+  reveals the existing Suspicious wall route early. Comparison means: the living-gear aura
+  (+25 at night) reaches 45 there, so it shows nothing; the lamp reaches 60.
+- Quote/commit: `useItem` quote reads only; execute revalidates, spends inside the native
+  transaction and persists once (tools-domain pattern). Projection: `lamplight` view for
+  tests. Save: the slice plus native location unlocks; old saves load with an unlit, empty
+  lamp and nothing noticed.
+
+**MP6 checks chosen before editing.** Existing: `tests/domain_registry*.test.js`, tools and
+crafting domain tests, `tests/headless/runner.test.js`, check:arch, check:rules, build.
+Failure scenario: a failed save write while lighting must leave the flask in the pack and
+the lamp unlit (failed-write conservation). Also: stale quote refusal, support loss (lamp
+leaves the pack while lit: light and notice progress stop), insufficient light learns
+nothing, old save without the slice, Save/reload/Export/Import of a lit lamp and a noticed
+place. Deferred per Weibao's 2026-10-19 deferral rule: real-browser Playwright journey,
+1366×768 and multi-viewport sweeps, human play acceptance.
+
+### M4 results, 2026-10-19
+
+**Changed.** `src/lamplight_domain.js` (new registry domain, slice `lamplight`);
+`src/models/hero.js` (named light sources plus `nativeLightBonus()`, the one authority for
+carried light); `src/reveal_chain.js` (reading light reader); `src/items.js` (Oil lamp,
+Lamp oil, reading pace × light factor); `src/data/inventory_templates.js` (both appended to
+the village trader's Basic stock); `src/display.js` (one line: manual-use items get no
+auto-use); `src/tools_domain.js` (forwards its ports to the lamp); `src/main.js` (three
+same-line edits, growth 0: two ports, and registry ticks on the two travel branches).
+
+**Defects found while building (fixed).**
+- E1, real: once the p23 market or freight owner exists (any village trade), travel advanced
+  the clock through `persistExpansion` without `domainRegistry.tick`, so registry domains
+  missed walking time. Both travel branches now tick the minutes they consume.
+- E2, real UI: the center-mode back bar left trade through the module `exit_trade`, skipping
+  the page's `exitTrade`, so `in_trade` stayed true, [use] buttons stayed hidden and the next
+  inventory click threw "No npc with id null". The back bar now calls `exitTrade`.
+- E3, harness: the headless DOM kept attributes, listeners and tree links as own data
+  properties (a `Map` among them), so any combat transaction snapshot failed with
+  "Unsupported native craft owner" and headless combat always paused. Those fields are now
+  prototype accessors, as in a real DOM. Real browsers were not affected.
+
+**Checks (input: this branch, rebuilt).** `tests/lamplight_domain.test.js` 7/7 (old save,
+spend-and-persist, refusals, stale quote, failed-write conservation, burn-out, support loss,
+night/day reading pace, Cave depths reveal versus the 45-light gear aura, once only, slice
+round trip, six malformed slices). `tests/headless/lamplight_journey.test.js` 1/1: fresh
+save with no slice, buy both items at the market, light through the shell Use action,
+Save/reload exact, walk to Cave depths (oil burns for the walk), the wall is revealed with
+no clear, Export/Import exact. `tests/headless/*.test.js` 6/6. `npm test` 2243/2243.
+`check:arch` growth 0, 6 main imports, 226 cyclic edges; `check:rules` PASS; build OK.
+Browser smoke at 1920×1080 on a fresh origin (port 19542, empty storage, seeded with the
+journey's fixture save): market purchase, no auto-use on the lamp, Back restores [use]
+display, lighting logs "about 4h 0m of light", the Cave depths line appears, Suspicious
+wall is listed from Nearby cave, page reload restores the lit lamp and the noticed place,
+putting it out keeps the oil. Only console errors: `private_packs/manifest.json` 404.
+Pointer clicks were unreliable in the emulated pane, so the smoke dispatched DOM clicks on
+the exact elements.
+
+**MP7 measurement.** One new adapter; bespoke core edits are the light-source seam in
+`hero.js`, the reading reader and three `items.js` call sites, one display line and three
+same-line main.js edits. Eligibility is not duplicated: combat, reading and inspection all
+read `nativeLightBonus()`. Most setup/debug time went to E1–E3, not to the feature. Seam
+notes (proposals): AR1's zero-growth ratchet forced the lamp to borrow the tools domain's
+port bag; a shared native-ports bag for registry domains would remove that coupling.
+Location unlock truth is `availabilities.location`, not `locations[...].is_unlocked`.
+
+**Acceptance backlog (implemented-unverified, deferred per the 2026-10-19 deferral rule).**
+- A1: Weibao plays the lamp: price (250/25 base), 240-minute flask, ×1.2 night reading and
+  the early wall reveal are proposal dials.
+- A2: real-browser Playwright journey with pointer input; 1366×768 floor and the other
+  UI_RULES viewports.
+- A3: lamp state disclosure beyond log lines and the item text (G8-style inspection of oil
+  left and lit state).
+- A4: `scripts/village_browser.cjs` still clicks `.end_dialogue_button`, which center mode
+  hides; update it when that Playwright route next runs.
+

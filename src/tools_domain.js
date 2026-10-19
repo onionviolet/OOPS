@@ -3,6 +3,7 @@ import {equipmentDurability as durability, setConditionCap, DURABILITY_PROPOSAL}
 import {instrumentProfile, improvisedRates, verbNumbers, VERB_LABEL, repairRequirements, REPAIR_BANDS} from './tool_profiles.js';
 import {createToolsPanel} from './tools_panel.js';
 import {beginNativeCraftTransaction} from './native_craft_transaction.js';
+import {configureLamplight} from './lamplight_domain.js';
 // Tools domain (IP1-IP3, 2026-10-17). Owns per-instance tool facts that durability does not:
 // max condition and repair history, plus one repair job. Condition itself stays in durability and
 // stays one scalar (the tool's body; layered repair is a later phase).
@@ -11,7 +12,8 @@ const MAX = DURABILITY_PROPOSAL.maximum;
 let state = null, ports, panel;
 const fresh = () => ({schema: 1, instances: {}, job: null});
 const INSTANCE = /"e2_instance":"e2\.[1-9]\d*"/;
-export function configureToolsDomain(operations) { ports = operations; }
+// The lamp is a carried tool with its own domain; it shares these native ports (main.js may not grow).
+export function configureToolsDomain(operations) { ports = operations; configureLamplight(operations); }
 export function toolsState() { return state; }
 export function setToolsState(value) { state = value ?? fresh(); }
 const facts = key => state.instances[key] ?? {max: MAX, repairs: 0, failures: 0};

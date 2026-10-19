@@ -17,9 +17,21 @@ import {get_current_light_level} from '../weather.js';
 
 class Hero extends Person {
     #nativeLightBonusReader = null;
+    #nativeLightSources = new Map();
     setNativeLightBonusReader(reader) {
         if(typeof reader !== 'function')throw Error('Invalid native light bonus reader.');
         this.#nativeLightBonusReader=reader;
+    }
+    /** Further carried light (a lit lamp). Each id contributes once; light from every source adds. */
+    setNativeLightSource(id, reader) {
+        if(typeof id !== 'string' || !id || typeof reader !== 'function')throw Error('Invalid native light source.');
+        this.#nativeLightSources.set(id, reader);
+    }
+    /** Light the hero brings to this place: the one authority for combat, reading and inspection. */
+    nativeLightBonus() {
+        let total=this.#nativeLightBonusReader?.()||0;
+        for(const reader of this.#nativeLightSources.values())total+=Math.max(0,reader()||0);
+        return total;
     }
     #simulationEffectReader = null;
     setSimulationEffectReader(reader) {
@@ -179,7 +191,7 @@ class Hero extends Person {
 
             if(location.light_level === "dark" || location.light_level === "normal" && is_night()) {
                 light_modifier = 0.5 + 0.5 * this.getTotalSkillLevel("Night vision")/skills["Night vision"].max_level;
-                const bonus=this.#nativeLightBonusReader?.()||0;
+                const bonus=this.nativeLightBonus();
                 if(bonus>0){const light=Math.max(0,Math.min(100,get_current_light_level()));
                     const lit=Math.min(100,light+bonus);
                     if(light<100)light_modifier+=(1-light_modifier)*(lit-light)/(100-light);}

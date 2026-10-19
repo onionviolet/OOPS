@@ -2625,7 +2625,7 @@ function beginFrontierJourney(to){
         'original_frontier.travel.remaining':minutes,'original_frontier.travel.startedAt':state.clock});
     const plan=minutes?advanceFrontierJourney({state,external:{money:character.money},gameplay:gameplaySnapshot()},minutes):
         {state,external:{money:character.money},gameplay:gameplaySnapshot(),nativeLocation:to,nativeEnterQuest:true,nativePatch:{'current location':to}};
-    persistExpansion(plan);
+    const consumed=plan.state.clock-expansionState.clock;persistExpansion(plan);domainRegistry.tick(consumed); // journey minutes reach registry domains, as joined-clock ticks do
     if(plan.state.actors.player.facts['original_frontier.travel.remaining']>0)log_message('The journey stopped for a waiting choice. Its remaining time is saved in local notes.','notification');
 }
 function actFrontierCampaign(command) {
@@ -3264,14 +3264,14 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         const minutes=Math.max(1,Math.ceil(travel_times[previous_location.id][location.id]*(running?.8:1)));
         if(!Number.isSafeInteger(minutes))throw Error('No admitted native route connects these places.');
         const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true);
-        if(plan.state.clock-expansionState.clock!==minutes){persistExpansion(plan);log_message('Finish the current local decision before completing this journey.','notification');return;}
+        if(plan.state.clock-expansionState.clock!==minutes){const consumed=plan.state.clock-expansionState.clock;persistExpansion(plan);domainRegistry.tick(consumed);log_message('Finish the current local decision before completing this journey.','notification');return;}
         plan.state.sequence++;
         if(plan.state.simulation?.people.player)plan.state.simulation.people.player.location=location.id;
         if(running)plan.native={...plan.native,staminaToFull:Math.min(full_stats.max_stamina,(plan.native?.staminaToFull??full_stats.max_stamina-full_stats.stamina)+2)};
         plan.nativeLocation=location.id;plan.nativeEnterQuest=do_quest_events;
         plan.nativePatch={...plan.nativePatch,'current location':location.id,native_encounter:null};
         if(p23CombatOptions&&['exchange-break','encounter-break'].includes(p23CombatOptions.phase))plan.nativePatch.combatOptions={...p23CombatOptions,phase:'active',breakRequested:false};
-        persistExpansion(plan);return;
+        persistExpansion(plan);domainRegistry.tick(minutes);return; // travel minutes reach registry domains, as joined-clock ticks do
     }
     if((optionalPackState.structured||expansionState.causalStories||expansionState.proto23Village)&&!realm_move&&!restoringNativeSave&&location.id!==current_location?.id){
         const state=structuredClone(expansionState);state.sequence++;state.simulation.people.player.location=location.id;
@@ -9677,7 +9677,7 @@ configureToolsDomain({actor:()=>character,skillLevel:skill=>character.getTotalSk
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The tool repair could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();durabilityPanel?.render();},
     blocked:harvestBlockReason,writable:harvestWritable,idle:()=>!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),
-    random:key=>gameKeyedRandom(STREAMS.craft,key),logMessage:log_message});
+    random:key=>gameKeyedRandom(STREAMS.craft,key),logMessage:log_message,locationRevealed:id=>locations[id].isUnlocked(),revealLocation:id=>unlock_location({location:locations[id]})});
 configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAutomaticReady,
     harvestTransaction,grantHarvest,logMessage:log_message,random:key=>gameKeyedRandom(STREAMS.loot,key),
     habitatContext,commitHabitatPlan,clock:()=>calendarMinutes(current_game_time),

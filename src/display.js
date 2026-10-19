@@ -1406,7 +1406,7 @@ function update_displayed_trader() {
     for(const row of seenVendorRows.values()) row.remove();
     seenVendorRows.clear();
     trader_item_divs = {};
-    centerModes().open('trade', () => window.exit_trade());
+    centerModes().open('trade', () => (window.exitTrade ?? window.exit_trade)()); // exitTrade also clears the page's in_trade and button display
     document.getElementById("trader_cost_mult_value").textContent = `${Math.round(100 * (NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region)))}%`
     update_displayed_trader_inventory();
 }
@@ -2275,8 +2275,8 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
             }
 
             item_additional.appendChild(item_use_button);
-            // Generated vials require deliberate use of their exact owned key.
-            if(!target_item.mixture)item_additional.appendChild(item_auto_use_button);
+            // Generated vials and manual-use tools (a lamp toggles) require deliberate use of their exact owned key.
+            if(!target_item.mixture&&!target_item.tags.manual_use)item_additional.appendChild(item_auto_use_button);
         } else if(target_item.item_type === "BOOK") {
             const item_read_button = document.createElement("div");
             item_read_button.classList.add("item_use_button");
