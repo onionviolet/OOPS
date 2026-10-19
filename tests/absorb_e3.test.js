@@ -1,10 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile, mkdtemp, rm} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {join, resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
-import {build} from 'esbuild';
+import {loadNative} from './helpers/native_loader.mjs';
 import {mitigateCombatDamage} from '../src/combat_math.js';
 import {normalizeElementalOption, getAttackAffinity, getItemAffinities, getEquipmentAffinities, getElementalDefenseModifier, describeElementalPreparation} from '../src/absorb_e3/elemental_affinities.js';
 
@@ -59,28 +55,18 @@ test('preparation view reveals only provided encounters, deduplicates and change
 });
 
 test('native equipped IDs and reconstructed component gear provide real preparation', async () => {
-    const dir=await mkdtemp(join(tmpdir(),'e3-native-'));
-    try {
-        const outfile=join(dir,'native.mjs');
-        await build({stdin:{contents:'export {item_templates,getItemFromKey} from "./src/items.js"; export {enemy_templates} from "./src/enemies.js";',resolveDir:resolve('.')},bundle:true,format:'esm',platform:'node',outfile,
-            plugins:[{name:'presentation-only',setup(b){b.onLoad({filter:/\/src\/(main|display)\.js$/},async a=>{
-                const source=await readFile(a.path,'utf8');
-                const names=[...source.matchAll(/export\s*\{([^}]+)\}/g)].flatMap(m=>m[1].split(',').map(s=>s.trim().split(/\s+as\s+/).at(-1))).filter(s=>/^[a-zA-Z_$][\w$]*$/.test(s));
-                return {contents:names.map(s=>`export const ${s} = ${s==='game_options'?'{}':s==='capitalize_first_letter'?'s=>s[0].toUpperCase()+s.slice(1)':'()=>{}'};`).join('\n')};
-            });}}]});
-        const {item_templates,getItemFromKey,enemy_templates}=await import(pathToFileURL(outfile));
-        for(const [id,element] of [['Iron chainmail armor','earth'],['Alligator armor','water'],['Rat pelt cape','air'],['Turtleshell platemail armor','earth']]) {
-            const item=item_templates[id];
-            assert.ok(item,`native ${id} exists`);
-            const restored=getItemFromKey(item.getInventoryKey());
-            assert.ok(getItemAffinities(restored).includes(element),id);
-            assert.equal(getEquipmentAffinities({[restored.equip_slot]:restored})[element],0.04);
-        }
-        assert.equal(getAttackAffinity(enemy_templates['Boar']),'earth');
-        assert.equal(getAttackAffinity(enemy_templates['Huge dragonfly']),'air');
-        assert.equal(getAttackAffinity(enemy_templates['River crab']),'water');
-        const attacker=enemy_templates['Boar'];
-        const equipment={torso:item_templates['Iron chainmail armor']};
-        assert.ok(getElementalDefenseModifier({enabled:true,attacker,equipment,baseDamage:attacker.getAttackPower()||attacker.stats.attack})>0);
-    } finally {await rm(dir,{recursive:true,force:true});}
+    const {item_templates,getItemFromKey,enemy_templates} = await loadNative('export {item_templates,getItemFromKey} from "./src/items.js"; export {enemy_templates} from "./src/enemies.js";', {prefix: 'e3-native-'});
+    for(const [id,element] of [['Iron chainmail armor','earth'],['Alligator armor','water'],['Rat pelt cape','air'],['Turtleshell platemail armor','earth']]) {
+        const item=item_templates[id];
+        assert.ok(item,`native ${id} exists`);
+        const restored=getItemFromKey(item.getInventoryKey());
+        assert.ok(getItemAffinities(restored).includes(element),id);
+        assert.equal(getEquipmentAffinities({[restored.equip_slot]:restored})[element],0.04);
+    }
+    assert.equal(getAttackAffinity(enemy_templates['Boar']),'earth');
+    assert.equal(getAttackAffinity(enemy_templates['Huge dragonfly']),'air');
+    assert.equal(getAttackAffinity(enemy_templates['River crab']),'water');
+    const attacker=enemy_templates['Boar'];
+    const equipment={torso:item_templates['Iron chainmail armor']};
+    assert.ok(getElementalDefenseModifier({enabled:true,attacker,equipment,baseDamage:attacker.getAttackPower()||attacker.stats.attack})>0);
 });

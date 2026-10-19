@@ -1,11 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createDurability, canonicalDurabilityKey} from '../src/absorb_e2/durability.js';
-import {build} from 'esbuild';
-import {readFile, mkdtemp, rm} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {join, resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
+import {loadNative} from './helpers/native_loader.mjs';
 const key = JSON.stringify({id:'test sword',quality:100});
 function fixture(durability) {
     function getItemFromKey(k) {
@@ -60,78 +56,68 @@ test('condition and ID allocation survive serialization, old missing condition d
     assert.throws(()=>createDurability({schema:2}),/schema/);
 });
 test('actual native inventory, Hero equip/unequip, key decoder and equipment publisher preserve worn copy',async(t)=>{
-    const dir=await mkdtemp(join(tmpdir(),'e2-native-'));
-    try {
-        const outfile=join(dir,'native.mjs');
-        await build({stdin:{contents:'export {getItemFromKey,item_templates} from "./src/items.js"; export {default as InventoryComponent} from "./src/components/inventory_component.js"; export {default as Hero} from "./src/models/hero.js"; export {Person} from "./src/models/person.js"; export {readNativeEquipment,prepareNativeEquipment} from "./src/native_equipment_transaction.js";',resolveDir:resolve('.')},bundle:true,format:'esm',platform:'node',outfile,
-            plugins:[{name:'presentation-only',setup(b){b.onLoad({filter:/\/src\/(main|display)\.js$/},async a=>{
-                const text=await readFile(a.path,'utf8');
-                const names=[...text.matchAll(/export\s*\{([^}]+)\}/g)].flatMap(m=>m[1].split(',').map(s=>s.trim().split(/\s+as\s+/).at(-1))).filter(s=>/^[a-zA-Z_$][\w$]*$/.test(s));
-                return {contents:names.map(s=>`export const ${s} = ${s==='game_options'?'{}':s==='capitalize_first_letter'?'s=>s[0].toUpperCase()+s.slice(1)':'()=>{}'};`).join('\n')};
-            });}}]});
-        const native=await import(pathToFileURL(outfile));
-        const d=createDurability({enabled:true});
-        // Root's decoder hook: wrap every reconstructed native item once.
-        const decode=k=>d.bindFromKey(k,native.getItemFromKey(k));
-        // Actual browser fixture armor and actual Person defense consumer.
-        const armorKey=JSON.stringify({components:{internal:'Goat leather pants',external:'Steel chainmail greaves'},quality:100});
-        const freshArmor=d.prepareEquip(decode(armorKey),decode);
-        const damagedArmor=d.prepareEquip(decode(armorKey),decode);
-        const freshDefense=freshArmor.getDefense();
-        assert.ok(freshDefense>0);
-        d.wearItem(damagedArmor,2000); // 20 condition, .32 protection factor.
-        assert.equal(d.condition(damagedArmor),20);
-        assert.equal(damagedArmor.getDefense(),freshDefense*0.32);
-        const levelable={stats:{flat:{},multiplier:{}},bonus_skill_levels:{flat:{}}};
-        const defenseActor={getLevelableComponent:()=>levelable,getEquipment:()=>({legs:freshArmor})};
-        native.Person.prototype.addAllEquipmentBonus.call(defenseActor);
-        const freshNative=levelable.stats.flat.equipment.defense;
-        defenseActor.getEquipment=()=>({legs:damagedArmor});
-        native.Person.prototype.addAllEquipmentBonus.call(defenseActor);
-        const wornNative=levelable.stats.flat.equipment.defense;
-        assert.equal(wornNative,freshNative*0.32);
-        assert.ok(freshNative>wornNative);
-        t.diagnostic(`Native steel greaves defense: fresh ${freshNative}, condition20 ${wornNative}; direct getter ${freshDefense}.`);
-        // Repeated reads must neither multiply cached stats nor compound wear.
-        native.Person.prototype.addAllEquipmentBonus.call(defenseActor);
-        assert.equal(levelable.stats.flat.equipment.defense,wornNative);
+    const native = await loadNative('export {getItemFromKey,item_templates} from "./src/items.js"; export {default as InventoryComponent} from "./src/components/inventory_component.js"; export {default as Hero} from "./src/models/hero.js"; export {Person} from "./src/models/person.js"; export {readNativeEquipment,prepareNativeEquipment} from "./src/native_equipment_transaction.js";', {prefix: 'e2-native-'});
+    const d=createDurability({enabled:true});
+    // Root's decoder hook: wrap every reconstructed native item once.
+    const decode=k=>d.bindFromKey(k,native.getItemFromKey(k));
+    // Actual browser fixture armor and actual Person defense consumer.
+    const armorKey=JSON.stringify({components:{internal:'Goat leather pants',external:'Steel chainmail greaves'},quality:100});
+    const freshArmor=d.prepareEquip(decode(armorKey),decode);
+    const damagedArmor=d.prepareEquip(decode(armorKey),decode);
+    const freshDefense=freshArmor.getDefense();
+    assert.ok(freshDefense>0);
+    d.wearItem(damagedArmor,2000); // 20 condition, .32 protection factor.
+    assert.equal(d.condition(damagedArmor),20);
+    assert.equal(damagedArmor.getDefense(),freshDefense*0.32);
+    const levelable={stats:{flat:{},multiplier:{}},bonus_skill_levels:{flat:{}}};
+    const defenseActor={getLevelableComponent:()=>levelable,getEquipment:()=>({legs:freshArmor})};
+    native.Person.prototype.addAllEquipmentBonus.call(defenseActor);
+    const freshNative=levelable.stats.flat.equipment.defense;
+    defenseActor.getEquipment=()=>({legs:damagedArmor});
+    native.Person.prototype.addAllEquipmentBonus.call(defenseActor);
+    const wornNative=levelable.stats.flat.equipment.defense;
+    assert.equal(wornNative,freshNative*0.32);
+    assert.ok(freshNative>wornNative);
+    t.diagnostic(`Native steel greaves defense: fresh ${freshNative}, condition20 ${wornNative}; direct getter ${freshDefense}.`);
+    // Repeated reads must neither multiply cached stats nor compound wear.
+    native.Person.prototype.addAllEquipmentBonus.call(defenseActor);
+    assert.equal(levelable.stats.flat.equipment.defense,wornNative);
 
-        const inventory=new native.InventoryComponent();
-        const template=Object.values(native.item_templates).find(item=>item.tags?.weapon);
-        assert.ok(template);
-        const nativeKey=template.getInventoryKey();inventory.addToInventory([{item_key:nativeKey,count:2}]);
-        const equipment={};
-        const actor={money:10,getItems:()=>inventory.getItems(),getEquipment:()=>equipment,
-            removeFromInventory:items=>inventory.removeFromInventory(items),
-            addToInventory(items){ // getItemFromKey root hook applied to created Items
-                inventory.addToInventory(items);
-                for(const [k,entry] of Object.entries(inventory.getItems()))entry.item=decode(k);
-            },
-            equipItem(item){equipment.weapon=d.prepareEquip(item,decode);},
-            addAllEquipmentBonus(){},updateStatsAndDisplay(){},manageChangedSkillBonuses(){},_equipItem(){}};
-        native.Hero.prototype.equipItemFromInventory.call(actor,nativeKey);
-        const wornKey=equipment.weapon.getInventoryKey();
-        d.wearItem(equipment.weapon,1000);
-        assert.equal(inventory.getItems()[nativeKey].count,1);
-        assert.equal(inventory.getItems()[nativeKey].item.getInventoryKey(),nativeKey);
-        native.Hero.prototype.unequipItem.call(actor,'weapon',true);
-        assert.equal(d.condition(inventory.getItems()[wornKey].item),60);
-        native.Hero.prototype.equipItemFromInventory.call(actor,nativeKey);
-        assert.notEqual(equipment.weapon.getInventoryKey(),wornKey);
-        native.Hero.prototype.unequipItem.call(actor,'weapon',true);
-        native.Hero.prototype.equipItemFromInventory.call(actor,wornKey);
-        assert.equal(d.condition(equipment.weapon),60);
-        const slots=native.readNativeEquipment({player:actor});
-        const publication=native.prepareNativeEquipment(slots,{actors:{player:actor},getItem:decode});
-        const envelope={character:{}};publication.write(envelope);publication.publish();
-        assert.equal(equipment.weapon.getInventoryKey(),wornKey);
-        assert.equal(d.condition(equipment.weapon),60);
-        const save=JSON.parse(JSON.stringify({state:d.serialize(),equipment:envelope.character.equipment,inventory:inventory.getItems()}));
-        const loaded=createDurability(save.state),decodeLoaded=k=>loaded.bindFromKey(k,native.getItemFromKey(k));
-        for(const [k,entry] of Object.entries(save.inventory))assert.equal(loaded.condition(decodeLoaded(k)),d.condition(k));
-        loaded.restoreEquipment(actor,save.equipment,decodeLoaded);
-        assert.equal(equipment.weapon.getInventoryKey(),wornKey);assert.equal(loaded.condition(equipment.weapon),60);
-    } finally {await rm(dir,{recursive:true,force:true});}
+    const inventory=new native.InventoryComponent();
+    const template=Object.values(native.item_templates).find(item=>item.tags?.weapon);
+    assert.ok(template);
+    const nativeKey=template.getInventoryKey();inventory.addToInventory([{item_key:nativeKey,count:2}]);
+    const equipment={};
+    const actor={money:10,getItems:()=>inventory.getItems(),getEquipment:()=>equipment,
+        removeFromInventory:items=>inventory.removeFromInventory(items),
+        addToInventory(items){ // getItemFromKey root hook applied to created Items
+            inventory.addToInventory(items);
+            for(const [k,entry] of Object.entries(inventory.getItems()))entry.item=decode(k);
+        },
+        equipItem(item){equipment.weapon=d.prepareEquip(item,decode);},
+        addAllEquipmentBonus(){},updateStatsAndDisplay(){},manageChangedSkillBonuses(){},_equipItem(){}};
+    native.Hero.prototype.equipItemFromInventory.call(actor,nativeKey);
+    const wornKey=equipment.weapon.getInventoryKey();
+    d.wearItem(equipment.weapon,1000);
+    assert.equal(inventory.getItems()[nativeKey].count,1);
+    assert.equal(inventory.getItems()[nativeKey].item.getInventoryKey(),nativeKey);
+    native.Hero.prototype.unequipItem.call(actor,'weapon',true);
+    assert.equal(d.condition(inventory.getItems()[wornKey].item),60);
+    native.Hero.prototype.equipItemFromInventory.call(actor,nativeKey);
+    assert.notEqual(equipment.weapon.getInventoryKey(),wornKey);
+    native.Hero.prototype.unequipItem.call(actor,'weapon',true);
+    native.Hero.prototype.equipItemFromInventory.call(actor,wornKey);
+    assert.equal(d.condition(equipment.weapon),60);
+    const slots=native.readNativeEquipment({player:actor});
+    const publication=native.prepareNativeEquipment(slots,{actors:{player:actor},getItem:decode});
+    const envelope={character:{}};publication.write(envelope);publication.publish();
+    assert.equal(equipment.weapon.getInventoryKey(),wornKey);
+    assert.equal(d.condition(equipment.weapon),60);
+    const save=JSON.parse(JSON.stringify({state:d.serialize(),equipment:envelope.character.equipment,inventory:inventory.getItems()}));
+    const loaded=createDurability(save.state),decodeLoaded=k=>loaded.bindFromKey(k,native.getItemFromKey(k));
+    for(const [k,entry] of Object.entries(save.inventory))assert.equal(loaded.condition(decodeLoaded(k)),d.condition(k));
+    loaded.restoreEquipment(actor,save.equipment,decodeLoaded);
+    assert.equal(equipment.weapon.getInventoryKey(),wornKey);assert.equal(loaded.condition(equipment.weapon),60);
 });
 test('staged repair and toggle reject storage/custody failures without live writes or ID forks',()=>{
     const d=createDurability(),f=fixture(d),{actor,getItemFromKey}=f;

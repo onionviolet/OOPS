@@ -1,44 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createContentPackPanel} from '../src/content_pack_ui.js';
+import {withPanelDom} from './helpers/mini_dom.mjs';
 
-// A small DOM model exercises the actual panel lifecycle, including removal
+// A small DOM model (tests/helpers/mini_dom.mjs) exercises the actual panel lifecycle, including removal
 // of focused nodes, disabled controls and moving an existing panel to a host.
-function withDom(run) {
-    const previous={document:globalThis.document,setInterval:globalThis.setInterval,clearInterval:globalThis.clearInterval};
-    let tick,cleared=false;
-    const document={activeElement:null};
-    class Element {
-        constructor(tag) {this.tagName=tag;this.children=[];this.parentElement=null;this.dataset={};this.attributes={};this.textContent='';this.disabled=false;}
-        setAttribute(name,value) {this.attributes[name]=String(value);}
-        getAttribute(name) {return this.attributes[name]??null;}
-        contains(node) {return node===this||this.children.some(child=>child.contains(node));}
-        get isConnected() {return this===document.root||!!this.parentElement?.isConnected;}
-        remove() {
-            if(this.contains(document.activeElement))document.activeElement=null;
-            if(this.parentElement)this.parentElement.children.splice(this.parentElement.children.indexOf(this),1);
-            this.parentElement=null;
-        }
-        append(...nodes) {for(const node of nodes){node.remove();node.parentElement=this;this.children.push(node);}}
-        prepend(node) {node.remove();node.parentElement=this;this.children.unshift(node);}
-        replaceChildren(...nodes) {for(const node of [...this.children])node.remove();this.append(...nodes);}
-        focus() {if(this.isConnected&&!this.disabled)document.activeElement=this;}
-        click() {if(!this.disabled)this.onclick?.();}
-    }
-    document.createElement=tag=>new Element(tag);
-    document.root=new Element('main');
-    const host=new Element('div');host.id='location_actions_div';document.root.append(host);
-    document.getElementById=id=>document.root.children.find(node=>node.id===id)||null;
-    globalThis.document=document;
-    globalThis.setInterval=fn=>{tick=fn;return 1;};
-    globalThis.clearInterval=id=>{assert.equal(id,1);cleared=true;};
-    const find=(node,action)=>node.dataset.packAction===action?node:node.children.map(child=>find(child,action)).find(Boolean);
-    const text=node=>[node.textContent,...node.children.map(text)].join(' ');
-    try {run({document,host,find,text,tick:()=>tick(),replaceHost:()=>{
-        host.remove();const replacement=new Element('div');replacement.id=host.id;document.root.append(replacement);return replacement;
-    },isCleared:()=>cleared});}
-    finally {for(const [key,value] of Object.entries(previous)){if(value===undefined)delete globalThis[key];else globalThis[key]=value;}}
-}
+const withDom=run=>withPanelDom(env=>run({...env,
+    find:function find(node,action){return node.dataset.packAction===action?node:node.children.map(child=>find(child,action)).find(Boolean);}}));
 
 const definitions=new Map([['example',{
     title:'Example realm',description:'A synthetic destination.',

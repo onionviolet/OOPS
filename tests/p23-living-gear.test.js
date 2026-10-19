@@ -3,11 +3,7 @@ import assert from 'node:assert/strict';
 import {createLivingGear, LIVING_GEAR, registerLivingGearItems} from '../src/absorb_p23/living_gear/index.js';
 import {createDurability} from '../src/absorb_e2/durability.js';
 import {Game_Time} from '../src/game_time.js';
-import {build} from 'esbuild';
-import {readFile, mkdtemp, rm} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {join, resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
+import {loadNative} from './helpers/native_loader.mjs';
 // Native items.js imports the browser host. These contract fixtures test isolated
 // state/identity behavior; native constructor/registration acceptance stays OPEN.
 const item_templates = {};
@@ -133,32 +129,19 @@ test('known-only rows and native custody failures cannot expose unknown gear', (
 });
 
 test('native item registration and decoder preserve original living weapon components and E2 copies', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'p04-items-'));
-    try {
-        const outfile = join(dir, 'native.mjs');
-        await build({stdin: {contents: 'export {item_templates, Amulet, getItem, WeaponComponent, Weapon, getItemFromKey} from "./src/items.js";', resolveDir: resolve('.')},
-            bundle: true, format: 'esm', platform: 'node', outfile,
-            plugins: [{name: 'presentation-only', setup(b) {
-                b.onLoad({filter: /\/src\/(main|display)\.js$/}, async a => {
-                    const source = await readFile(a.path, 'utf8');
-                    const names = [...source.matchAll(/export\s*\{([^}]+)\}/g)].flatMap(m => m[1].split(',').map(s => s.trim().split(/\s+as\s+/).at(-1))).filter(s => /^[a-zA-Z_$][\w$]*$/.test(s));
-                    return {contents: names.map(s => `export const ${s} = ${s === 'game_options' ? '{}' : s === 'capitalize_first_letter' ? 's=>s[0].toUpperCase()+s.slice(1)' : '()=>{}'};`).join('\n')};
-                });
-            }}]});
-        const native = await import(pathToFileURL(outfile));
-        registerLivingGearItems(native);
-        const gear = createLivingGear(), wear = createDurability();
-        const baseKey = native.item_templates[LIVING_GEAR.weapon].getInventoryKey();
-        const first = gear.prepareEquip(native.getItemFromKey(baseKey), wear, native.getItemFromKey);
-        const second = gear.prepareEquip(native.getItemFromKey(baseKey), wear, native.getItemFromKey);
-        assert.notEqual(first.getInventoryKey(), second.getInventoryKey());
-        assert.equal(first.components.head, LIVING_GEAR.blade);
-        assert.equal(first.weapon_type, 'dagger');
-        assert.ok(first.getAttack() > 0);
-        assert.equal(native.getItemFromKey(first.getInventoryKey()).getInventoryKey(), first.getInventoryKey());
-        for (const [id, slot] of [[LIVING_GEAR.aura, 'amulet'], [LIVING_GEAR.collector, 'ring']]) {
-            const item = native.getItemFromKey(native.item_templates[id].getInventoryKey());
-            assert.equal(item.equip_slot, slot); assert.equal(item.id, id);
-        }
-    } finally {await rm(dir, {recursive: true, force: true});}
+    const native = await loadNative('export {item_templates, Amulet, getItem, WeaponComponent, Weapon, getItemFromKey} from "./src/items.js";', {prefix: 'p04-items-'});
+    registerLivingGearItems(native);
+    const gear = createLivingGear(), wear = createDurability();
+    const baseKey = native.item_templates[LIVING_GEAR.weapon].getInventoryKey();
+    const first = gear.prepareEquip(native.getItemFromKey(baseKey), wear, native.getItemFromKey);
+    const second = gear.prepareEquip(native.getItemFromKey(baseKey), wear, native.getItemFromKey);
+    assert.notEqual(first.getInventoryKey(), second.getInventoryKey());
+    assert.equal(first.components.head, LIVING_GEAR.blade);
+    assert.equal(first.weapon_type, 'dagger');
+    assert.ok(first.getAttack() > 0);
+    assert.equal(native.getItemFromKey(first.getInventoryKey()).getInventoryKey(), first.getInventoryKey());
+    for (const [id, slot] of [[LIVING_GEAR.aura, 'amulet'], [LIVING_GEAR.collector, 'ring']]) {
+        const item = native.getItemFromKey(native.item_templates[id].getInventoryKey());
+        assert.equal(item.equip_slot, slot); assert.equal(item.id, id);
+    }
 });
