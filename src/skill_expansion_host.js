@@ -44,7 +44,7 @@ export function skillExpansionPresentation(state,registry,context){
   }
   const row=projectDiscoveryFeature({id:family.id,label:family.label,description:family.description,discovered:true,unlocked:!!power?.owned,
    eligible:actions.some(a=>a.row.control.enabled),reasons:safeReasons({eligible:actions.some(a=>a.row.control.enabled)})});
-  families.push({id:family.id,row,actions,mastery:power?.mastery||0,learned:!!power?.owned,
+  families.push({id:family.id,row,actions,mastery:power?.mastery||0,uses:power?.executions||0,learned:!!power?.owned,
    milestones:power?.owned?family.milestones.map(m=>({...m,met:(power.mastery||0)>=m.at})):[],
    records:[
     ...Object.entries(knowledge).filter(([k])=>k.startsWith(family.id+'.')||k.startsWith('skills.'+family.discoverCommandId.split('.')[1]+'.')).map(([id,r])=>({id,text:r.value,at:r.at})),

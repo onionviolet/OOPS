@@ -264,7 +264,7 @@ practice teach more. That is the slice this round begins (SLL7).
 |---|---|---|---|
 | SLL2 | Superseded by SLL7 (lessons already gate practice) | n/a | n/a |
 | SLL7 | **Coached practice** (SLC7, SLR6): practicing timber judgment with the craftsman's attention and a fee refines mastery by 2 instead of 1, same drill cap, same stops | Medium, S–M | **Done 2026-10-18, implemented and browser-verified; not yet human-accepted.** See the SLL7 evidence below |
-| SLL8 | Drill cap reasons name the next route (SLN6) | Light, S | All four practice caps name a route; text-only regression |
+| SLL8 | Drill cap reasons name the next route (SLN6) | Light, S | All four practice caps name a route; text-only regression  **Done 2026-10-19 with SLL12:** the caps are gone, and each drill text names what teaches more. See SLL12 evidence |
 | SLL9 | Apprenticeship contract as an idle routine (SLC49) | Strong, L | Separate scope; needs household owner |
 | SLL10 | Learning scenario fixture covering lesson, practice, coached practice (SLC74) | Medium, S | One test file runs all three from fresh state |
 
@@ -397,7 +397,7 @@ Read 2026-10-18, not run.
 | Code | Item | Level, effort | Done check |
 |---|---|---|---|
 | SLL11 | **Fluency from repetition** (SLC78–SLC83): timber kit cutting gets faster with `executions`, on a falling curve | Medium, M | **Done 2026-10-18, implemented and browser-verified; not yet human-accepted.** See SLL11 evidence below |
-| SLL12 | **Plateau instead of drill wall** (SLC81, SLX2): plain practice past mastery 4 still grants a reduced gain; coached lifts it | Medium, S–M | Regression on the curve; existing drill tests updated; panel names the route past the plateau |
+| SLL12 | **Plateau instead of drill wall** (SLC81, SLX2): plain practice past mastery 4 still grants a reduced gain; coached lifts it | Medium, S–M | Regression on the curve; existing drill tests updated; panel names the route past the plateau  **Done 2026-10-19, implemented and browser-verified; not human-accepted.** See SLL12 evidence below |
 | SLL13 | **Memory carrier and memory theft** (SLC88–SLC97) as a scoped design pass before any runtime work | Strong, M (design) | One world card states where memory lives; one worked case shows take, copy and seal outcomes per layer |
 
 ### SLL11 evidence, 2026-10-18
@@ -457,6 +457,44 @@ bind these two built slices as default dials. Checked against source as built.
   exists): fluency now exists as a layer, but the use count behind it is not
   shown. SLL8 and SLL12 below close the first two; the third is the "uses 10"
   follow-up in the SLL11 gaps.
+
+### SLL12 evidence (with SLL8 and the uses line), 2026-10-19
+
+Selected under the 2026-10-19 rulebook acceptance (task A4) because it closes
+the three departures recorded above: SLR34/SLN10 (hard drill wall), SLR29 (cap
+without a named route) and SLR24 (fluency shown without its use count). Rules:
+SLR5, SLR6, SLR14, SLR24, SLR29, SLR34, MR21, AR1–AR16, UR (text only), AD36.
+
+**Change** (proposal dials). `src/skill_expansion_content.js`: plain practice
+has no mastery requirement; its refine amount is the existing effect formula on
+`power.<id>.mastery`: 1 per session up to mastery 4, then 1.75 − 0.25 × mastery,
+floor 0.125 (0.75 at 4, 0.5 at 5, an eighth from 6.5). Coached practice is
+exactly double (max 2, floor 0.25) with no cap, so the craftsman's corrections
+lift the plateau. Texts name the route: timber names his corrections; brace,
+trail and inquiry say a watching teacher would teach more (no coached drill
+exists for them yet). Automation now stops on missing means only.
+`src/skill_expansion_host.js` and `src/skill_expansion_ui.js`: the method card
+reads "mastery N · U uses" (mastery to two decimals; uses from `executions`,
+SLN12). No save field: mastery was already a finite number; old saves load as
+they are.
+
+| Check | Result |
+|---|---|
+| `tests/skill_plateau.test.js` (new) | 1/1: real see/learn route, 30 plain sessions; gains 1,1,1,1,0.75, never rising, never below 0.125, last at the floor; 30 uses; no wall; text names the floor and the coached route and drops "drill limit" |
+| `tests/skill_coached_practice.test.js` (updated) | 3/3: the limit test now checks past-four plain 4 → 4.75 versus coached 4 → 5.5; attention and cancel checks unchanged |
+| `tests/skill_fluency.test.js` | 3/3 unchanged |
+| `npm run build && npm test` | build OK; 2247/2247 |
+| `node --test tests/headless/*.test.js` | 7/7 |
+| `npm run check:arch` | growth 0 on all three files; 6 main imports; 226 cyclic edges |
+| `npm run check:rules` | PASS |
+| Browser, new origin 127.0.0.1:19551, 1920×1080, bundle `v0.6-7041577bbff2` | Generated save with elder and craftsman met, 60 coins, 20 logs. Through the panel: enroll, see the grain, lesson, plain practice 0 → 1 → 2 → 3 → 4 → 4.75 (past the old wall), coached 4.75 → 5.875 for 1 coin and 1 attention (double the 0.5625 plain gain). Opened from More panels → Notes, practice & people: the card reads "Learned · mastery 5.88 · 6 uses" with the plateau text. Reload kept 5.875 and 6 uses; Export taken; one more plain session 5.875 → 6.15625; literal Import restored 5.875 and 6 uses; no console errors. Buttons were pressed by DOM click on the exact elements |
+
+**Gaps.** The disabled-button reason is still the panel's generic sentence
+(seen once during a passing village event); the per-requirement reason is a
+panel projection change for the UI owners. Gains are proposal dials for
+Weibao's play acceptance. A plateau with no coached drill (brace, trail,
+inquiry) names a teacher who does not exist yet in that method; that is the
+honest current route, and SLL9/SLL10 are where such teachers would come from.
 
 ## Round 4: carrier and clock fit, 2026-10-18
 

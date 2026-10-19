@@ -223,7 +223,7 @@ No migration of existing fields.
 | `node --test tests/headless/*.test.js` | 7/7 |
 | `npm run check:arch` | main.js growth 0; 6 main imports; 226 cyclic edges |
 | `npm run check:rules` | PASS |
-| Browser, fresh origin localhost:19551 (empty storage), 1920×1080, bundle `v0.6-29c0cb16f1c2` | Seeded a new hero with Nearby cave open; walked to Cave room; beaten by wolf rats; stored save and projection show the unconscious record; page reload keeps it; Export string taken, a second defeat made it 2, literal Import of the export restored 1; no console errors. Travel used DOM clicks on the exact elements (pointer clicks do not land in the emulated pane, as in M4) |
+| Browser, fresh origin localhost:19551 (empty storage), 1920×1080, bundle `v0.6-42beae88f170` | Seeded a new hero with Nearby cave open; walked to Cave room; beaten by wolf rats; stored save and projection show the unconscious record; page reload keeps it; Export string taken, a second defeat made it 2, literal Import of the export restored 1; no console errors. Travel used DOM clicks on the exact elements (pointer clicks do not land in the emulated pane, as in M4) |
 
 **Gaps and rule findings (for the conformance scan).**
 - CBR2 says all code paths call the publisher. Still outside it: the three saved
