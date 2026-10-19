@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB2 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § Kairos; succession row Kairos. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 MX3 MS1 TR3 TR6 WR1 HI4 OB4 OB6 SR1 | A crew handles remains, curses and inheritance law separately; a divine-parent start stays an explicitly qualified proposal. |
+| Fit | PH1 SG3 SG4 SG5 MX3 MS1 TR3 TR6 WR1 HI4 OB4 OB6 BSR1 | A crew handles remains, curses and inheritance law separately; a divine-parent start stays an explicitly qualified proposal. |
 | Skip families | GN LQ AG CN BD CL BP PR SB BM RP | GN/BD/CL/BP/RP/SB: heroic spirits, pantheon favor and a ship title do not establish inherited god powers or generic fertility. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

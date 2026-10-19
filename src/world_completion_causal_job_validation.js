@@ -1,11 +1,10 @@
 // The existing exact descriptor validator, separated from the runtime host so
 // static definitions/import readers do not initialize the entire executor.
 // Behavior and frozen causal revision meanings are unchanged.
+import {check, object} from './basics.js';
 import {CAUSAL_STORY_ENGINE_SCHEMA,CAUSAL_STORY_DEFINITION_REVISION,CAUSAL_STORY_LOCATION as LOCATION,
     CAUSAL_STORY_PEOPLE as P,causalStoryId} from './causal_story_ids.js';
 import {causalStoryDefinitions} from './causal_story_content.js';
-const check=(value,text)=>{if(!value)throw new Error(text);};
-const object=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 export function validateCausalStoryJob(job,state,registry) {
     if(job.causalStory==null) return true; // Full causal validation rejects a saved missing descriptor.
     const d=job.causalStory,p=d.proofId;

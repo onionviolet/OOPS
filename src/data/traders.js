@@ -24,12 +24,12 @@ const traders = {};
         profit_margin: 7,
     });
     traders["nekomimi trader"] = new TraderComponent({
-        inventory_template: "Cafe trader",
+        inventory_template: "Cat cafe",
         is_unlocked: false,
         profit_margin: 20, //it's the kind of place where you pay for the company as much as for the food
     });
     traders["cat cafe trader"] = new TraderComponent({
-        inventory_template: "Cafe trader",
+        inventory_template: "Cat cafe",
         is_unlocked: false,
         profit_margin: 18, //it's the kind of place where you pay for the company as much as for the food, but slightly less
     });

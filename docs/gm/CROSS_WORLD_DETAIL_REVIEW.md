@@ -1,5 +1,7 @@
 # Cross-world detail review reference
 
+> Codes renamed 2026-10-19 from CX1-CX6 to XWC1-XWC6 to avoid collision with registered CX (complexity guardrails). See [reserved prefixes](../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 2026-10-12. **Status: proposed authoring reference, document-checked; all gameplay cases specified-not-run.** Human authority accepts the cross-world review direction in the [rulebook precedent](../RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12). The families, record extensions, examples and sequencing below are agent proposals. They accept no world mechanic and authorize no implementation. The twelve accepted rules remain the authority.
 
 A small detail matters when it changes an actual choice, function, belief, relationship or later cause. A clean apron can remain description. A cleaned instrument matters mechanically when a selected test consumes its cleanliness. An extraordinary method can solve the whole problem outright. This reference does not require compensating fatigue, scarcity, decay, paradox damage, institutional resistance or power ceilings.
@@ -95,7 +97,7 @@ The tables below are **questions and original hypothetical cases**, not assertio
 
 These are original hypothetical design probes with declared local premises. They are not lore evidence, accepted mechanics, engine capability claims or hidden future content. Each includes alternatives, a causal cut and an observation that could later verify the selected contract. All six are **specified-not-run**.
 
-### CX1 A useful household repair
+### XWC1 A useful household repair
 
 **Premise:** one household has a cracked kettle; a chosen repair method restores the vessel but does not create water. Families CW02/06/10/15/20/29/36, sections S04–S06/S10/S14.
 
@@ -105,7 +107,7 @@ Borrow tools, use a held repair method, pay a repairer or replace the kettle. Re
 
 **Acceptance probe:** repair changes the kettle's usability; water stock changes only through the admitted operation; the particular guest response follows witnessed hospitality. Repeat/reload does not duplicate custody, consume tools twice or grant repeated first-service rewards. Native consumer and save fields are **to inspect if selected**, not established here.
 
-### CX2 A potion batch becomes a particular service
+### XWC2 A potion batch becomes a particular service
 
 **Premise:** an original setting has a defined remedy with a prepared base, recipient-specific final step and an actual assessment method. No franchise recipe is implied. Families CW04/09–14/16/18–20/25/28/30/36, S04–S11/S14.
 
@@ -115,7 +117,7 @@ Prepare or buy admitted ingredients, request a bench, choose a known procedure, 
 
 **Acceptance probe:** batch/base/portion identities, sample allocation, observed test scope and delivery settlement stay coherent through cancellation and save/reload/import. Only the relevant recipient condition and dependent departure change. Procedure timing, dose behavior, injury and storage remain explicitly authored/source-gap fields until qualified. A remedy produced correctly but incompatible with this recipient does not count as the promised service. No current native batch support is claimed.
 
-### CX3 A disguise meets a record and a witness
+### XWC3 A disguise meets a record and a witness
 
 **Premise:** a temporary appearance effect copies face and voice but not memories or personal authority; a gate clerk uses a face check and a separate work order. Families CW01/02/21/23–25/27/29/36, S02/S04/S09/S10/S14.
 
@@ -125,7 +127,7 @@ The actor may disguise, seek sponsorship, obtain legitimate work access or discl
 
 **Acceptance probe:** during and after expiry, body, equipment, controller, held order and each observer receipt remain separate; reload preserves the selected clock's remaining duration. Gate response uses that clerk's evidence. Source gaps include stacking, renewal and any memory-copy route; proposed native overlay and recognition bindings remain uninspected.
 
-### CX4 Extra study in an overlapping interval
+### XWC4 Extra study in an overlapping interval
 
 **Premise:** a selected temporal device permits a self-consistent overlapping interval and preserves its traveler's memories; it does not independently manufacture stock. Families CW10/11/19/24/29/31/36, S04/S06/S07/S11/S12/S14.
 
@@ -135,7 +137,7 @@ Use the device, use ordinary study time, seek a teacher or carry a written lesso
 
 **Acceptance probe:** restore the declared overlap, reconcile borrowed book custody at reunion, retain the actual lesson and account for exported results. A supported mechanism may duplicate objects, but repeated loading must not multiply them beyond that mechanism. Temporal identity, rollback, event receipts and persistence need a dedicated future engine audit; generic timers prove none of them.
 
-### CX5 A small intervention changes a meeting and a later institution
+### XWC5 A small intervention changes a meeting and a later institution
 
 **Premise:** a natural-course meeting requires a courier, a delivered notice and a particular available teacher. Families CW04/19/21/25/28/30/32/33/36, S01/S04/S05/S09–S11/S14.
 
@@ -145,7 +147,7 @@ Repair the courier's equipment, send the notice another way, warn the teacher, r
 
 **Acceptance probe:** save event occurrence separately from source expectation and each observer's receipt. Compare intervention, failed intervention and abstention for this same scope; only affected dependent plans change. Verify an era-late start's actual teacher/resources rather than granting future research knowledge to earlier actors. Historical causality and downstream cast support remain future binding/source gates.
 
-### CX6 A workshop, an heir and a returning traveler
+### XWC6 A workshop, an heir and a returning traveler
 
 **Premise:** a maker leaves a manual, a device, a workshop agreement and a willing apprentice. The selected crossing carries the manual and device; the origin world freezes during absence; a receiving heir has their own body and prior knowledge. Families CW01/10/17/19/22/24/26/29/33–36, S02/S04–S07/S11–S14.
 

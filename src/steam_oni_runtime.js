@@ -1,7 +1,7 @@
 // Pure current support and frozen-job checks. No save IO or native publication.
+import {check} from './basics.js';
 import {STEAM_ONI_IDS as I, STEAM_ONI_KEYS as K, steamONIDefinitions as D} from './steam_oni_content.js';
 import {statusCareSupportedBody, statusCareCondition} from './status_care_facts.js';
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 export const steamONINatural = n => Number.isSafeInteger(n) && n >= 0;
 export const steamONIRecord = v => v != null && typeof v === 'object' && !Array.isArray(v);
 export function sameSteamONIData(a, b) {

@@ -1,5 +1,6 @@
 // Pure read/validation of typed existing owners. No simulation executor, host,
 // namespace initialization, inventory mirror or alternative clock is used.
+import {sameStructural as same} from './basics.js';
 import {assert, natural, record} from './simulation_contracts.js';
 import {HOME_FURNISHING_IDS as I, HOME_FURNISHING_KEYS as K, homeFurnishingDefinitions as D,
     homeFurnishingProjects} from './home_furnishing_content.js';
@@ -9,13 +10,6 @@ import {molCommands} from './book_world_mol_actions.js';
 const P = I.prefix, definitions = new Map(D.commands.map(d => [d.id, d]));
 const count = n => natural(n) ? n : 0;
 const done = (state, id) => count(state.actors?.player?.completed?.[id]);
-const same = (a, b) => {
-    if(a === b) return true;
-    if(Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((v, i) => same(v, b[i]));
-    if(!record(a) || !record(b)) return false;
-    const keys = Object.keys(a);
-    return keys.length === Object.keys(b).length && keys.every(k => Object.hasOwn(b, k) && same(a[k], b[k]));
-};
 const sequence = cause => /^simulation:[1-9][0-9]*$/.test(cause || '') ? Number(cause.split(':')[1]) : NaN;
 const shape = (v, keys) => record(v) && Object.keys(v).length === keys.length && keys.every(k => Object.hasOwn(v, k));
 const receiptMatches = (state, actual, expected) => shape(actual, ['stage', 'value', 'at', 'cause', 'basis']) && !!expected && actual.value === expected.value && actual.stage === expected.stage &&

@@ -1,13 +1,12 @@
 // Original, finite Village interactions inspired by the audited CC-P01/P03
 // packets. No reference-game character, affection purchase or clock is added.
+import {all, eq, not} from './basics.js';
 import {CRUSH_SOCIAL_IDS} from './crush_social_facts.js';
 import {SOCIETY_IDS as S} from './feature_expansion_society.js';
 
 export {CRUSH_SOCIAL_IDS} from './crush_social_facts.js';
 export const CRUSH_SOCIAL_ITEMS = Object.freeze({wood: JSON.stringify({id: 'Rough wood log'}), kit: JSON.stringify({id: 'Prepared survey kit'})});
 const P = CRUSH_SOCIAL_IDS.prefix, W = CRUSH_SOCIAL_IDS.world, promiseId = CRUSH_SOCIAL_IDS.promise, visitorId = CRUSH_SOCIAL_IDS.visitor;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules}), not = rule => ({not: rule});
 const a = (key, value = true) => eq(`actor.${P}.${key}`, value);
 const fact = (key, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: `${P}.${key}`, value});
 const know = (key, value, actor = 'player') => ({type: 'knowledge', actor, key: `${P}.${key}`, stage: 'seen', value,

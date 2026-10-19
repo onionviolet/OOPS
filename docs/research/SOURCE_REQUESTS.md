@@ -16,7 +16,8 @@ You don't need to do most rows. In order of value:
    Formerly: **S3, then S2** (from chapter 11): the JJK-world book and the
    one-trait-a-year book. Ten free chapters each are already read; the rest
    feeds vows, domains and the law path.
-2. **S1, S4, S5**: the other three ttks books, full text.
+2. ~~**S1, S4, S5**: the other three ttks books, full text.~~ Update 2026-10-19:
+   done with item 1 (all five ttks books fully read 2026-10-10).
 3. **Wait on the wiki rows (S16 onward).** The wiki lane is retrying them
    through Fandom's public database dumps (no Cloudflare). Rows it covers
    get marked "covered by dump". Only the leftovers will need you.
@@ -56,7 +57,8 @@ browser if a book is there.
 
 ## Done
 
-(none yet)
+Update 2026-10-19: see the table rows marked "Done 2026-10-10" above (S1-S5, all
+five ttks books). Earlier text here read "(none yet)".
 
 ## Lane D: prioritized additional open requests (2026-10-10)
 

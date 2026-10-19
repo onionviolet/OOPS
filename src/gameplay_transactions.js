@@ -1,7 +1,7 @@
+import {check} from './basics.js';
 import {stageAcquisition} from "./acquisition.js";
 // Plain snapshots of owned v0.6 state. No component, DOM or storage mutation.
 const object = value => value && typeof value === "object" && !Array.isArray(value);
-const check = (condition, message) => {if(!condition) throw new Error(message);};
 const safeKey = value => typeof value === "string" && value.length > 0 &&
     !["__proto__", "constructor", "prototype"].includes(value);
 const amount = value => Number.isFinite(value) && value >= 0 && value <= Number.MAX_SAFE_INTEGER;

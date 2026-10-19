@@ -2,6 +2,7 @@
 // kit coverage. A pack is data a shared engine reads; this module validates it
 // and reports gaps. It owns no state, save slice, tick or UI. Passing lint means
 // "pack valid", never "integrated" (AR10, WA19).
+import {object, positive} from './basics.js';
 import {validateRuleModule} from './rule_modules.js';
 import {address, compareCodePoints, hash64} from './gen_kit.js';
 
@@ -28,9 +29,7 @@ const DEFAULT_PART = {law: 'K2', power: 'K3', technique: 'K3', rank: 'K3', start
     loop: 'K13', panel: 'K14', carry: 'K15', ending: 'K16', hook: 'K17', belief: 'K21', health: 'K22',
     news: 'K23', custom: 'K24'};
 
-const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
 const text = v => typeof v === 'string' && v.trim().length > 0;
-const positive = n => Number.isSafeInteger(n) && n > 0;
 const tierOf = t => typeof t === 'string' && /^T[1-5]$/.test(t) ? Number(t[1]) : 0;
 
 function allowed(issues, value, fields, path, rule) {

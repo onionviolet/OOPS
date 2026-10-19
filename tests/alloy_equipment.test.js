@@ -1,10 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile, mkdtemp, rm} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {join, resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
-import {build} from 'esbuild';
+import {resolve} from 'node:path';
+import {loadNative} from './helpers/native_loader.mjs';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats, alloyEquipmentFacts, alloyTechniqueEffects} from '../src/alloy_equipment.js';
@@ -17,48 +14,38 @@ import {simulationFacts} from '../src/simulation_effects.js';
 // Real native models/content; replace only presentation and main's startup.
 // Preserve the display string helper used by upstream component generation.
 test('native Smelting 10 earns the locked alloy recipe; its material crafts the brace', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'd1-native-test-'));
-    try {
-        const outfile = join(dir, 'native.mjs');
-        await build({stdin:{contents:'export {availabilities} from "./src/data/component_references.js"; export {fill_availability_methods} from "./src/component_management.js"; export {recipes} from "./src/crafting_recipes.js"; export {skills} from "./src/data/skills.js"; export {item_templates, getItemFromKey} from "./src/items.js";',resolveDir:resolve('.')},bundle:true,format:'esm',platform:'node',outfile,
-            plugins:[{name:'presentation-only',setup(b){b.onLoad({filter:/\/src\/(main|display)\.js$/},async a=>{
-                const text=await readFile(a.path,'utf8');
-                const names=[...text.matchAll(/export\s*\{([^}]+)\}/g)].flatMap(m=>m[1].split(',').map(s=>s.trim().split(/\s+as\s+/).at(-1))).filter(s=>/^[a-zA-Z_$][\w$]*$/.test(s));
-                return {contents:names.map(s=>`export const ${s} = ${s==='game_options'?'{}':s==='capitalize_first_letter'?'s=>s[0].toUpperCase()+s.slice(1)':'()=>{}'};`).join('\n')};
-            });}}]});
-        const {recipes, skills, item_templates, getItemFromKey, fill_availability_methods, availabilities} = await import(pathToFileURL(outfile));
-        fill_availability_methods();
-        const recipe = recipes.smelting.items[ALLOY_ID];
-        assert.equal(recipe.getAvailabilityComponent().getStatus().is_unlocked,false);
-        assert.deepEqual(recipe.recipe_level,[10,20]); assert.equal(recipe.recipe_skill,'Smelting');
-        assert.deepEqual(recipe.materials.map(m=>m.material_id || m.material_type),['Iron ingot','Steel ingot','coal']);
-        const skill=skills.Smelting;
-        const xp={current_level:0,total_xp:0,current_xp:0,total_xp_to_next_lvl:40,xp_to_next_lvl:40};
-        const threshold=Math.round(100*40*(1-1.5**10)/(1-1.5))/100;
-        const early=skill.add_xp({skillXP:xp,xp_to_add:threshold-1,track_dependencies:false});
-        assert.equal(xp.current_level,9);assert.deepEqual(early.unlocks.recipes,[]);
-        const earned=skill.add_xp({skillXP:xp,xp_to_add:1,track_dependencies:false});
-        assert.equal(xp.current_level,10);
-        assert.deepEqual(earned.unlocks.recipes,[{category:'smelting',subcategory:'items',recipe_id:ALLOY_ID}]);
-        assert.equal(availabilities.recipe[ALLOY_ID],recipe.getAvailabilityComponent());
-        const publication=prepareNativeUnlocks([{kind:'recipe',id:ALLOY_ID}],{availabilities,flags:{}});
-        const envelope={availabilities:{recipe:{[ALLOY_ID]:0}}};
-        publication.write(envelope);assert.equal(envelope.availabilities.recipe[ALLOY_ID],1);
-        publication.publish();assert.equal(recipe.getAvailabilityComponent().getStatus().is_unlocked,true);
-        const craft=recipes.crafting.equipment.Amulet;craft.roll_quality=()=>100;
-        const brace=craft.getResult(item_templates[ALLOY_ID]);
-        assert.equal(brace.id,BRACE_ID);assert.equal(brace.equip_slot,'amulet');
-        assert.deepEqual(brace.getStats(),deriveBraceStats(item_templates[ALLOY_ID]));
-        assert.deepEqual(getItemFromKey(brace.getInventoryKey()).getStats(),brace.getStats());
-        // The native recipe reads the input material at craft time, rather than
-        // copying the grade-one output template's fixed stats. Authored grade
-        // is fixed in gameplay; this mutation is confined to this test module.
-        const originalProfile=item_templates[ALLOY_ID].alloy_profile;
-        item_templates[ALLOY_ID].alloy_profile={...originalProfile,grade:2};
-        assert.deepEqual(craft.getResult(item_templates[ALLOY_ID]).getStats(),{agility:{flat:4},strength:{flat:-2}});
-        item_templates[ALLOY_ID].alloy_profile=originalProfile;
-        assert.ok(item_templates['Iron ingot']); // Existing save IDs still resolve.
-    } finally {await rm(dir,{recursive:true,force:true});}
+    const {recipes, skills, item_templates, getItemFromKey, fill_availability_methods, availabilities} = await loadNative('export {availabilities} from "./src/data/component_references.js"; export {fill_availability_methods} from "./src/component_management.js"; export {recipes} from "./src/crafting_recipes.js"; export {skills} from "./src/data/skills.js"; export {item_templates, getItemFromKey} from "./src/items.js";', {prefix: 'd1-native-test-'});
+    fill_availability_methods();
+    const recipe = recipes.smelting.items[ALLOY_ID];
+    assert.equal(recipe.getAvailabilityComponent().getStatus().is_unlocked,false);
+    assert.deepEqual(recipe.recipe_level,[10,20]); assert.equal(recipe.recipe_skill,'Smelting');
+    assert.deepEqual(recipe.materials.map(m=>m.material_id || m.material_type),['Iron ingot','Steel ingot','coal']);
+    const skill=skills.Smelting;
+    const xp={current_level:0,total_xp:0,current_xp:0,total_xp_to_next_lvl:40,xp_to_next_lvl:40};
+    const threshold=Math.round(100*40*(1-1.5**10)/(1-1.5))/100;
+    const early=skill.add_xp({skillXP:xp,xp_to_add:threshold-1,track_dependencies:false});
+    assert.equal(xp.current_level,9);assert.deepEqual(early.unlocks.recipes,[]);
+    const earned=skill.add_xp({skillXP:xp,xp_to_add:1,track_dependencies:false});
+    assert.equal(xp.current_level,10);
+    assert.deepEqual(earned.unlocks.recipes,[{category:'smelting',subcategory:'items',recipe_id:ALLOY_ID}]);
+    assert.equal(availabilities.recipe[ALLOY_ID],recipe.getAvailabilityComponent());
+    const publication=prepareNativeUnlocks([{kind:'recipe',id:ALLOY_ID}],{availabilities,flags:{}});
+    const envelope={availabilities:{recipe:{[ALLOY_ID]:0}}};
+    publication.write(envelope);assert.equal(envelope.availabilities.recipe[ALLOY_ID],1);
+    publication.publish();assert.equal(recipe.getAvailabilityComponent().getStatus().is_unlocked,true);
+    const craft=recipes.crafting.equipment.Amulet;craft.roll_quality=()=>100;
+    const brace=craft.getResult(item_templates[ALLOY_ID]);
+    assert.equal(brace.id,BRACE_ID);assert.equal(brace.equip_slot,'amulet');
+    assert.deepEqual(brace.getStats(),deriveBraceStats(item_templates[ALLOY_ID]));
+    assert.deepEqual(getItemFromKey(brace.getInventoryKey()).getStats(),brace.getStats());
+    // The native recipe reads the input material at craft time, rather than
+    // copying the grade-one output template's fixed stats. Authored grade
+    // is fixed in gameplay; this mutation is confined to this test module.
+    const originalProfile=item_templates[ALLOY_ID].alloy_profile;
+    item_templates[ALLOY_ID].alloy_profile={...originalProfile,grade:2};
+    assert.deepEqual(craft.getResult(item_templates[ALLOY_ID]).getStats(),{agility:{flat:4},strength:{flat:-2}});
+    item_templates[ALLOY_ID].alloy_profile=originalProfile;
+    assert.ok(item_templates['Iron ingot']); // Existing save IDs still resolve.
 });
 
 test('brace stats derive from the material grade, including its strength tradeoff',()=>{

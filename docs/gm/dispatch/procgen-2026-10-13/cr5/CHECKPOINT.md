@@ -4,7 +4,7 @@ Status: ACTIVE, 2026-10-14. Every deliverable is a proposal, not accepted produc
 
 Authorized write scope: this `cr5/` directory only. User's later CR5 instructions override COMMON.md's old worktree/build/commit defaults. No runtime edits, builds, commits, private saves, or sibling writes.
 
-Task: source-check root CM1-CM16, CX1-CX10 and SU10; extend comic/webtoon/manhua/manga making, reveal cheats and AB1-AB7 mappings. Audit merged P2 source in main checkout, never the superseded worktree.
+Task: source-check root CM1-CM16, PCX1-PCX10 and SU10; extend comic/webtoon/manhua/manga making, reveal cheats and AB1-AB7 mappings. Audit merged P2 source in main checkout, never the superseded worktree.
 
 Authority: root crafting palette round 3; PROJECT.md; USER_VISION.md; COMMON.md and PLAN.md; live sibling reports and lore continuity owner. Direct franchise material remains private-pack research proposals. Sealed truths never appear, only IDs/routes/status.
 
@@ -16,7 +16,7 @@ Progress: checkpoint created before other CR5 output. Dirty main checkout observ
 
 Status: DOCS PROPOSAL COMPLETE. Owned outputs: CHECKPOINT.md, SOURCED_CHECK.md, MORE_COMIC_MAKING.md, CHEATS_FOR_MAKING.md, MORE.md and REPORT.md. Exactly six files; no additional files/runtime paths written. No build, tests, native/browser journey, private save, worktree access, source asset acquisition, commit, merge or publication by CR5.
 
-Executed documentation gate: PASS, 6 required files; 40 resolved local Markdown file targets; 17 consistent tables/188 table lines; 31 valid source line spans; all 27 requested root row dispositions; all 15 CM17-CM31 and 12 CX11-CX22 mode/AB mappings; AB1-AB7 crosswalk; exactly five ranked adaptation rows and ports 21600/21610/21620/21630/21640. Direct newline/whitespace/conflict-marker/prohibited-dash checks passed. Scoped git diff --check clean, with direct content checks providing coverage of the untracked files. This is document/source-locator evidence only.
+Executed documentation gate: PASS, 6 required files; 40 resolved local Markdown file targets; 17 consistent tables/188 table lines; 31 valid source line spans; all 27 requested root row dispositions; all 15 CM17-CM31 and 12 PCX11-PCX22 mode/AB mappings; AB1-AB7 crosswalk; exactly five ranked adaptation rows and ports 21600/21610/21620/21630/21640. Direct newline/whitespace/conflict-marker/prohibited-dash checks passed. Scoped git diff --check clean, with direct content checks providing coverage of the untracked files. This is document/source-locator evidence only.
 
 Source snapshot: initial audit HEAD c47d5193; final checked HEAD 50615909 advanced concurrently through root/other work. Merge 4e13f97f ancestry remains confirmed. The five requested source hashes at final validation match the inspected source. Main seed/host locators were refreshed. No reset/staging or attempt to freeze shared work occurred.
 

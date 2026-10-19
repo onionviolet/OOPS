@@ -1,8 +1,7 @@
+import {check as assert, copy} from './basics.js';
 import {REALM_OPERATIONS, realmStableId, realmNatural, validateRealmJson, validateRealmEndpoint, realmEndpointKey, sameRealmEndpoint, validateRealmBoundaryRule, validateRealmContext, validateRealmCosts, evaluateRealmBoundary, quoteRealmCosts, realmBoundaryView} from "./realm_boundary_rules.js";
 
 // Plans are JSON descriptions for a future adapter, not simulation effects.
-const assert = (ok, message) => { if (!ok) throw new Error(message); };
-const copy = value => structuredClone(value);
 const movement = ["passage", "manifestation"];
 const interactions = ["sense", "identify", "reach", "contact"];
 const kinds = {physical: "passage", view: "view", projection: "projection", manifestation: "manifestation"};

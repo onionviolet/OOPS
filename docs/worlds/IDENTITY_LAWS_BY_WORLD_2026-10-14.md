@@ -1,5 +1,7 @@
 # Identity laws by world, 2026-10-14
 
+> Code namespace 2026-10-19 (no codes renamed): IL12 here is the Cosmere identity-law row; IL12 is also "Housemates" in world-depth 31. Outside this file cite `IDENTITY_LAWS_BY_WORLD_2026-10-14#IL12`. See [reserved prefixes](../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Status: local research and design proposals, not accepted defaults or gameplay implementation. Assigned identity lane; authority and scope: [COMMON](../gm/dispatch/start-sources-2026-10-14/COMMON.md). No web, secrets files, source-library changes or raw-book extraction used. This report paraphrases local dossiers, digests, audits and world briefs. The report is intended for version control; nothing is staged or committed.
 
 ## Reading the evidence and the dial

@@ -1,5 +1,7 @@
 # Intro flow considerations (2026-10-13)
 
+> Codes renamed 2026-10-19 from CX1-CX20 to ICX1-ICX20, SR1-SR10 to ISR1-ISR10 and AU1-AU6 to IAU1-IAU6 to avoid collision with registered CX (complexity guardrails), SR (site rules) and AU (agent usage). See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Status: proposals and a palette, not accepted rules. Accepted direction stays
 in [PROJECT.md](../PROJECT.md) and [USER_VISION.md](USER_VISION.md). Pick what
 fits each world and each life; every row is a dial, not a fixed rule.
@@ -361,20 +363,20 @@ accordingly". Builds on WC, WL, WQ above; timeline identities and parallel
 clocks stay owned by [TIMELINES_AND_DIVERGENCE](TIMELINES_AND_DIVERGENCE.md#implementation-planning-starts-histories-and-parallel-worlds-2026-10-11),
 heirs by [SUCCESSION_BY_WORLD](worlds/SUCCESSION_BY_WORLD.md).
 
-### SR: how a start record is built and kept
+### ISR: how a start record is built and kept
 
 | Code | Consideration |
 | --- | --- |
-| SR1 | **Layered records.** A start composes from overlays: world base, era, place, role, body, family, advantage. Authors write layers; the pool combines compatible ones, so ten roles × four eras doesn't mean forty handwritten records |
-| SR2 | **Compatibility rules between layers.** A layer declares what it needs and what it excludes (a noble role needs a city; an infant body excludes "conscripted") |
-| SR3 | **Record versions.** Each record has a revision; a saved life keeps the revision it started from, and a pack update shows "this start has changed" for new lives only |
-| SR4 | **Live eligibility.** A record can depend on current world state (only after the war began; only while the academy stands), read when the pool is built, not baked in |
-| SR5 | **Snapshot vs recipe.** Some starts are fixed snapshots (a book scene); others are recipes rolled at commit (a random farmhand). Both save the resolved result |
-| SR6 | **Validation test per record.** Loads, first action runs, lead exists, save/reload round-trips, no sealed text in previews. Same check runs for generated combos (WQ1 extended) |
-| SR7 | **Retired records.** A start removed from a pack stays playable for saves that used it (dormant, per compatibility rules) and leaves the pool |
-| SR8 | **Author notes.** Each record carries a short why (what life it offers, what it teaches) for world GMs, never shown to the player |
-| SR9 | **Difficulty spread, private.** Records carry an internal difficulty band for balancing the pool and testing; shown to the player only through what the character senses (RX9) |
-| SR10 | **Start record as data, not code.** Kept in the pack JSON beside `starts[]`, so adding starts needs no source change |
+| ISR1 | **Layered records.** A start composes from overlays: world base, era, place, role, body, family, advantage. Authors write layers; the pool combines compatible ones, so ten roles × four eras doesn't mean forty handwritten records |
+| ISR2 | **Compatibility rules between layers.** A layer declares what it needs and what it excludes (a noble role needs a city; an infant body excludes "conscripted") |
+| ISR3 | **Record versions.** Each record has a revision; a saved life keeps the revision it started from, and a pack update shows "this start has changed" for new lives only |
+| ISR4 | **Live eligibility.** A record can depend on current world state (only after the war began; only while the academy stands), read when the pool is built, not baked in |
+| ISR5 | **Snapshot vs recipe.** Some starts are fixed snapshots (a book scene); others are recipes rolled at commit (a random farmhand). Both save the resolved result |
+| ISR6 | **Validation test per record.** Loads, first action runs, lead exists, save/reload round-trips, no sealed text in previews. Same check runs for generated combos (WQ1 extended) |
+| ISR7 | **Retired records.** A start removed from a pack stays playable for saves that used it (dormant, per compatibility rules) and leaves the pool |
+| ISR8 | **Author notes.** Each record carries a short why (what life it offers, what it teaches) for world GMs, never shown to the player |
+| ISR9 | **Difficulty spread, private.** Records carry an internal difficulty band for balancing the pool and testing; shown to the player only through what the character senses (RX9) |
+| ISR10 | **Start record as data, not code.** Kept in the pack JSON beside `starts[]`, so adding starts needs no source change |
 
 ### SG: where starts come from besides authoring
 
@@ -444,17 +446,17 @@ heirs by [SUCCESSION_BY_WORLD](worlds/SUCCESSION_BY_WORLD.md).
 
 ### Round 4 suggestions (separate from the palette)
 
-1. SR1 + SR2 layered records: the only way starts scale to many worlds
+1. ISR1 + ISR2 layered records: the only way starts scale to many worlds
    without hand-writing every combination.
 2. LK1 + LG1 succession with "only what was left or taught": smallest real
    linked start, and it fits the existing heir direction.
 3. LV2 one-line "why is this here": makes links feel earned at almost no cost.
-4. SR6 per-record validation in the world template (WM5).
+4. ISR6 per-record validation in the world template (WM5).
 
 ## Round 5: more on layered records and start sources (2026-10-13)
 
 Weibao: "more to consider for layered records and start sources? Send codex
-to try and work accordingly?" Builds on SR and SG. A Codex lane tries the
+to try and work accordingly?" Builds on ISR and SG. A Codex lane tries the
 first slice: [start-records-2026-10-13](gm/dispatch/start-records-2026-10-13/GOAL.md).
 
 ### LY: layer mechanics
@@ -533,7 +535,7 @@ start. Each still needs a per-world record (WC) before it is playable.
 | SA10 | Hero-adjacent (protagonist's sibling, rival, classmate, mentor) | Life beside canon (WF1) | Owned (WF1, fan premises) |
 | SA11 | Background extra (shopkeeper, guard, mob character) | Pure life-sim inside a dramatic world | Partial (SS3, SG9) |
 | SA12 | Mentor or retired hero | Strong but declining; teaching as play | New |
-| SA13 | Ruler or leader | Management and delegation play | Partial (V1, SR rare starts) |
+| SA13 | Ruler or leader | Management and delegation play | Partial (V1, ISR rare starts) |
 | SA14 | Nonhuman body (monster, beast, reedling, spirit) | Different verbs | Owned (origins doc, reedling) |
 | SA15 | Object or place (sentient sword, dungeon core, haunted house, ship) | Act through holders or visitors | Partial (O6, GENETICS brood perspectives) |
 | SA16 | Collective (hive, brood, sect, family as one player) | Many bodies, one will | Owned (GENETICS brood play, LK4) |
@@ -557,7 +559,7 @@ compulsory evil choices. These add to it.
 | Code | Consideration |
 | --- | --- |
 | VS1 | **Villain is several separate axes.** Reputation (what people believe), role (what job you hold in a villain structure), history (what this body or life did), intent (what you choose now). A start sets the first three; play sets the fourth |
-| VS2 | **Villain role layers.** Dark lord, mastermind, cult leader, warlord, corrupt official, monster, rival young master, villainess, mad scientist; each a role layer (SR1) with its own verbs |
+| VS2 | **Villain role layers.** Dark lord, mastermind, cult leader, warlord, corrupt official, monster, rival young master, villainess, mad scientist; each a role layer (ISR1) with its own verbs |
 | VS3 | **Infrastructure as a start kit.** Minions, a lair, a treasury, debts, ongoing schemes queued as idle jobs; inherited half-finished, so the first choice is what to keep running |
 | VS4 | **Minions are people.** Henchmen have loyalty, fear, ambition and their own plans; a changed boss changes who stays (B3: others respond to evidence) |
 | VS5 | **Heroes rise in response.** Per-world dial for how the world answers a visible villain: none, local resistance, a destined hero, a guild bounty. Rising heroes can become rivals or later starts (LK3) |
@@ -998,7 +1000,7 @@ here use DV (derived snapshots), OT (offline time), MX (other).
 
 | Code | Consideration |
 | --- | --- |
-| MX1 | **Anchors from derived snapshots feed starts directly.** A start record's world snapshot can be a derived anchor plus role layers (SR1), so book-world starts stay consistent with canon automatically |
+| MX1 | **Anchors from derived snapshots feed starts directly.** A start record's world snapshot can be a derived anchor plus role layers (ISR1), so book-world starts stay consistent with canon automatically |
 | MX2 | **Branch size stays small.** Because branches store overrides only (DV6), many branches cost little until they diverge a lot |
 | MX3 | **Divergence meter source.** The number and weight of overrides gives the optional divergence sense from the timeline doc a real basis |
 | MX4 | **Testing.** Every anchor's derived snapshot gets a fixture test so content edits that break canon order are caught |
@@ -1142,7 +1144,7 @@ shortlist and N32-N42.
 - [START_AS_X_SOURCE_CATALOG](research/START_AS_X_SOURCE_CATALOG_2026-10-14.md): 57 works across 33 start kinds, ranked read-next list.
 - [VILLAIN_STARTS_AND_OTHER_SELVES](worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md): VX1-VX10, OX1-OX12, engine shapes, world fit.
 - [IDENTITY_LAWS_BY_WORLD](worlds/IDENTITY_LAWS_BY_WORLD_2026-10-14.md): IL1-IL35, per-world dial defaults; 126 entries still UNKNOWN; HP, Bleach, LOTM avatars, Roshar and Elden Ring need exact local reads before exceptional starts.
-- [GAMES_OTHER_SELVES_AND_VILLAIN_PLAY](research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md): 35 games, GR1-GR16.
+- [GAMES_OTHER_SELVES_AND_VILLAIN_PLAY](research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md): 35 games, OGR1-OGR16.
 - [OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT](research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md): the game has **no automatic offline catch-up today**; time advances per tick callback. OT1-OT10 are therefore new work, starting with an active-life elapsed ledger.
 - Derived snapshots module (`src/anchor_snapshots.js`, worktree branch `codex/start-records`): coordinator rerun of its check passed (G1-G9, npm 640/0). Override kinds lane now running on the same file.
 Round 6 there folds in transformation and senses/UI returns (C8-C11) and
@@ -1204,7 +1206,7 @@ Weibao: "more to consider? other stuff and more? save and extend accordingly
 Send out codex as usesful?" Earlier rounds covered single starts, worlds and
 branches. This round covers what sits around them: the player layer between
 lives, how it's saved, and how content gets made. Codes: MP (player layer),
-SV (saves), AU (authoring).
+SV (saves), IAU (authoring).
 
 First pilot return: the Fated Villain canon-event pilot built 33 events, 5
 anchors and 3 branches, all derived through the module
@@ -1241,16 +1243,16 @@ test; another source should supply one.
 | SV6 | **Size targets.** Rough budget per branch and per profile, measured on real play before choosing formats (engine and saves review owns measurement) |
 | SV7 | **Old saves stay playable.** A pre-branch save opens as one branch in the vanilla Village with its current state; nothing in it is rerolled |
 
-### AU: authoring
+### IAU: authoring
 
 | Code | Consideration |
 | --- | --- |
-| AU1 | **One authoring kit per story world.** Anchors, base snapshot, events with roles and motives, start layers, identity law, frame tokens; one folder, one template (WM5) |
-| AU2 | **Pilot first.** A new world gets a small pilot (20-60 events, 3-6 anchors) run through the module before wider authoring, as the two current pilots do |
-| AU3 | **Lint on save.** Authoring files are checked by `lintWorld` and the start validator before they reach a build |
-| AU4 | **Source evidence stays private.** Graphs built from books live in the ignored research folder; the game ships only original wording and facts paraphrased into data |
-| AU5 | **Author notes vs player text.** Event and start records keep author notes separate from any text the player sees (SR8) |
-| AU6 | **Effort table.** Per world: events, anchors, starts, tests, open gaps; one line each, so the next authoring pass picks the cheapest high-value world |
+| IAU1 | **One authoring kit per story world.** Anchors, base snapshot, events with roles and motives, start layers, identity law, frame tokens; one folder, one template (WM5) |
+| IAU2 | **Pilot first.** A new world gets a small pilot (20-60 events, 3-6 anchors) run through the module before wider authoring, as the two current pilots do |
+| IAU3 | **Lint on save.** Authoring files are checked by `lintWorld` and the start validator before they reach a build |
+| IAU4 | **Source evidence stays private.** Graphs built from books live in the ignored research folder; the game ships only original wording and facts paraphrased into data |
+| IAU5 | **Author notes vs player text.** Event and start records keep author notes separate from any text the player sees (ISR8) |
+| IAU6 | **Effort table.** Per world: events, anchors, starts, tests, open gaps; one line each, so the next authoring pass picks the cheapest high-value world |
 
 ### Round 16 dispatch
 
@@ -1269,7 +1271,7 @@ test; another source should supply one.
    is the one place for life select.
 2. SV1 + SV7: decide the profile/branch save shape and the migration of
    today's save before any branch code touches the real game.
-3. AU2 pilot-first for every new story world.
+3. IAU2 pilot-first for every new story world.
 
 ## Round 17: the first hour, early hardship and start variety (2026-10-14)
 
@@ -1311,7 +1313,7 @@ hour), EH (early hardship), VA (variety).
 | VA1 | **Variety by axes, not by count.** Track which axes recent lives covered (world, era, role, body, entry kind, tone) and favor uncovered ones when rolling (RX8 anti-repeat, opt-in) |
 | VA2 | **Repeat fatigue in openings.** Familiar beats compress on repeat (XS5, SX1); new beats get the time |
 | VA3 | **Same start, different seed.** Replaying one start should still differ in people, weather, minor events and rumors (RP2, DV10) |
-| VA4 | **Rare starts as surprises.** Rare records (SR9, RP8) show up occasionally in rolls so the pool doesn't feel exhausted |
+| VA4 | **Rare starts as surprises.** Rare records (ISR9, RP8) show up occasionally in rolls so the pool doesn't feel exhausted |
 | VA5 | **Tone variety.** Feel tags (WC6) let a roll alternate cozy, tense, strange and grim, unless the player filters tones out |
 | VA6 | **Variety report for developers.** Which starts get picked, abandoned in the first hour or replayed; dev only (MI7) |
 
@@ -1370,7 +1372,7 @@ Both canon-event pilots finished and ran through the module:
 | PR2 | Knowledge and warnings as their own state: receipt is not belief or action | v2 `knowledge` with channel and time; `knows` requirements |
 | PR3 | Event windows resolved by an explicit, seeded clock | v2 `window` / `resolvedAt` |
 | PR4 | A loop reset adapter that restores local facts and keeps declared knowledge | v2 `reset` change, `loop: true` events, `localAt` |
-| PR5 | Every substitution and fixed point needs source or premise justification | authoring rule (AU), not code |
+| PR5 | Every substitution and fixed point needs source or premise justification | authoring rule (IAU), not code |
 | PR6 | Keep the pilots' anchors and branches as regression fixtures | private fixtures, rerun by the v2 lane |
 
 The v2 code lane is running in
@@ -1493,7 +1495,7 @@ composed starts.
 | WS3 | **Show the situation, not the stats.** Text names what the character notices; numbers stay in panels |
 | WS4 | **No repeated openers.** Composed fragments avoid starting with the same word ("You remember... You remember..."); a simple lint can flag it |
 | WS5 | **Local words.** Per-world glossary: what coins, days, ranks and gods are called, so composed text uses one vocabulary (CR9, LB11) |
-| WS6 | **Original wording for book worlds.** Starts in a story world paraphrase canon facts in our own words; no source prose (AU4) |
+| WS6 | **Original wording for book worlds.** Starts in a story world paraphrase canon facts in our own words; no source prose (IAU4) |
 | WS7 | **Tone tags drive word choice.** Cozy, tense, strange, grim tags pick between fragment variants where authors provide them (VA5) |
 
 ### AY: comfort and accessibility at the start
@@ -1513,7 +1515,7 @@ composed starts.
 | FR1 | **Unequal is allowed, unexplained is not.** A rich start and a poor start can both exist; each has a cause in its snapshot (P1) |
 | FR2 | **Different kinds of advantage.** Money, skill, people and knowledge trade off across starts, so a poor start can be rich in people or knowledge |
 | FR3 | **No balance tax by default.** Strong starts don't automatically carry a penalty (everything possible, reasonably); costed starts are a separate choice (ST14) |
-| FR4 | **Start strength is private data.** A difficulty band helps testing and pool balance (SR9), shown only through what the character senses |
+| FR4 | **Start strength is private data.** A difficulty band helps testing and pool balance (ISR9), shown only through what the character senses |
 | FR5 | **First-hour reachability.** Every start's first goal is reachable with that start's means, checked by the first-hour beats (FH1) |
 
 ### QA: testing starts
@@ -1522,7 +1524,7 @@ composed starts.
 | --- | --- |
 | QA1 | **Fixture per start record.** Each record resolves under fixed seeds in a unit test (like the start-records and pockets gates) |
 | QA2 | **Screenshot gallery.** A dev script renders every start card at 1366x768 for quick visual review |
-| QA3 | **First-action smoke test.** For each start, a browser run checks the first action works and the save round-trips (SR6) |
+| QA3 | **First-action smoke test.** For each start, a browser run checks the first action works and the save round-trips (ISR6) |
 | QA4 | **Canon regression.** Each story-world anchor rederives in tests (MX4); the pilot graphs are the first fixtures (PR6) |
 | QA5 | **Gate first, worker second.** For code lanes, write and prove the gate against a scratch implementation before dispatch; it caught a broken import check once already |
 
@@ -1554,7 +1556,7 @@ proven to fail before work and to find a hidden-axis case.
 
 Weibao: "more to consider? other stuff and more? Cheats that would show stuff
 like these and more? ... Subtle stuff too? Overarching stuff? Implementation
-implciations and more?" Codes: CX (cheats that reveal), OG (overarching), IR
+implciations and more?" Codes: ICX (cheats that reveal), OG (overarching), IR
 (implementation implications).
 
 Everything in rounds 1-20 runs hidden by default: seeds, layers, anchors,
@@ -1563,28 +1565,28 @@ A cheat is the natural in-world way to see some of it. These extend the
 cheat library (CH1-CH10 panel cards, CT types, WR standing) rather than
 replace it.
 
-### CX: cheats that show hidden structure
+### ICX: cheats that show hidden structure
 
 | Code | Cheat | What it shows | Natural limits |
 | --- | --- | --- | --- |
-| CX1 | **Plot sense** | The next canon event's rough timing and how sure it is (TU5 with foreknowledge) | Fuzzy windows; drops as the branch drifts; silent about sealed truths |
-| CX2 | **Divergence gauge** | How far this branch has drifted from canon, as a number or a feeling (MX3) | Shows amount, not which events; reads only what the holder could perceive in grade |
-| CX3 | **Role sight** | Who currently fills a canon role ("the betrayer is now the quartermaster") and when a substitute takes over (SP, LD) | Only roles near the holder; may lag a day |
-| CX4 | **Motive reading** | An NPC's want, reason and means as short tags (MT1) | Needs contact or a look; can be fooled by a strong mind or disguise; costs focus |
-| CX5 | **Thread view** | Which outlets a frustrated motive is likely to try next (OL) | Probabilities, not certainty; per world rarity |
-| CX6 | **Seed glimpse** | The life's seed and which start layers made it (provenance) | A meta cheat; fits system or admin worlds (CT2), odd elsewhere |
-| CX7 | **Origin echo** | What happened to the former occupant or other selves (OS, IX) | Only for the holder's own body or soul; may arrive as dreams |
-| CX8 | **Object memory** | The history line of any item (pocket histories for everything, MZ2) | Touch needed; recent owners clearer than old ones |
-| CX9 | **Anchor recall** | Lets the holder mark a moment to return to as a new start or a loop point (SG6, TB9, OV10) | Rare; a regression-family cheat with its own costs |
-| CX10 | **Fixed-point sense** | Which events can't be stopped here (OV6) | Feels like dread or certainty; never names sealed causes |
-| CX11 | **Branch whisper** | Faint sense of another branch where things went differently (TU3 for the character) | Only in worlds whose identity law allows awareness across branches |
-| CX12 | **Ledger of causes** | "Why is this so?" for a fact: the event or change that set it (OV12 explainFact) | Small range; a scholar or system cheat; works on facts, not secrets |
+| ICX1 | **Plot sense** | The next canon event's rough timing and how sure it is (TU5 with foreknowledge) | Fuzzy windows; drops as the branch drifts; silent about sealed truths |
+| ICX2 | **Divergence gauge** | How far this branch has drifted from canon, as a number or a feeling (MX3) | Shows amount, not which events; reads only what the holder could perceive in grade |
+| ICX3 | **Role sight** | Who currently fills a canon role ("the betrayer is now the quartermaster") and when a substitute takes over (SP, LD) | Only roles near the holder; may lag a day |
+| ICX4 | **Motive reading** | An NPC's want, reason and means as short tags (MT1) | Needs contact or a look; can be fooled by a strong mind or disguise; costs focus |
+| ICX5 | **Thread view** | Which outlets a frustrated motive is likely to try next (OL) | Probabilities, not certainty; per world rarity |
+| ICX6 | **Seed glimpse** | The life's seed and which start layers made it (provenance) | A meta cheat; fits system or admin worlds (CT2), odd elsewhere |
+| ICX7 | **Origin echo** | What happened to the former occupant or other selves (OS, IX) | Only for the holder's own body or soul; may arrive as dreams |
+| ICX8 | **Object memory** | The history line of any item (pocket histories for everything, MZ2) | Touch needed; recent owners clearer than old ones |
+| ICX9 | **Anchor recall** | Lets the holder mark a moment to return to as a new start or a loop point (SG6, TB9, OV10) | Rare; a regression-family cheat with its own costs |
+| ICX10 | **Fixed-point sense** | Which events can't be stopped here (OV6) | Feels like dread or certainty; never names sealed causes |
+| ICX11 | **Branch whisper** | Faint sense of another branch where things went differently (TU3 for the character) | Only in worlds whose identity law allows awareness across branches |
+| ICX12 | **Ledger of causes** | "Why is this so?" for a fact: the event or change that set it (OV12 explainFact) | Small range; a scholar or system cheat; works on facts, not secrets |
 
-**Rules for all CX cheats:**
+**Rules for all ICX cheats:**
 
-- **Same data, different lens.** Each CX cheat reads existing structures (provenance, `explainFact`, `revealed`, knowledge, ladders) through the holder's grade and range; no separate truth store (WR6, panel kit).
+- **Same data, different lens.** Each ICX cheat reads existing structures (provenance, `explainFact`, `revealed`, knowledge, ladders) through the holder's grade and range; no separate truth store (WR6, panel kit).
 - **Reveal is knowledge, not world change.** What a cheat shows becomes the holder's knowledge (v2 `knowledge`), with channel "cheat", so NPCs and later lives treat it like any other known fact.
-- **Sealed truths stay sealed.** CX outputs refer to sealed facts by ID and status until discovered by their route.
+- **Sealed truths stay sealed.** ICX outputs refer to sealed facts by ID and status until discovered by their route.
 - **Standing by world.** In a system world, some of these are ordinary interface; in the Village they're true cheats (WR1-WR7).
 - **Panel or log.** Low-grade versions speak as log lines; higher grades get a panel card through the panel kit.
 
@@ -1612,7 +1614,7 @@ A read-only lane is mapping this against the real code (round 21 dispatch).
 | IR3 | **Clock binding.** Event `at`/windows need a game-calendar source (`lifeCalendarMinute`, local calendars); the offline audit found no catch-up, so events fire only during active ticks until OT work lands |
 | IR4 | **Save shape first.** Branch changes and knowledge need a home in the save; the save-shape report proposes keeping today's save as branch one, backup-first (SV1, SV7) |
 | IR5 | **Performance.** Full derivation per tick is wasteful; cache at anchors, derive incrementally, recompute only on change (DV5) |
-| IR6 | **Content pipeline.** Story-world graphs are private research; shipped content needs a paraphrased, original-wording data pack per world, plus lint and fixtures (AU) |
+| IR6 | **Content pipeline.** Story-world graphs are private research; shipped content needs a paraphrased, original-wording data pack per world, plus lint and fixtures (IAU) |
 | IR7 | **UI owners.** New panels (start card, branch list, timeline, between-lives) go through the panel kit and Workspace layout owners, not one-off DOM |
 | IR8 | **Ownership.** Foundation lanes own runtime and saves; these lanes stay in the worktree until an explicit integration decision; one writer per file area |
 | IR9 | **Test layers.** Pure-module gates (done), browser gates for the probe (done), then save/reload/import gates for any real integration (AGENTS verification) |
@@ -1622,14 +1624,14 @@ A read-only lane is mapping this against the real code (round 21 dispatch).
 - An implementation-map lane (read-only) maps IR1-IR9 onto the real code:
   integration seams, fact namespace options, clock binding, save fields,
   panel owners, and a staged integration plan with gates.
-- A cheat-cards lane writes data cards for CX1-CX12 in the panel-kit card
+- A cheat-cards lane writes data cards for ICX1-ICX12 in the panel-kit card
   format (id, panel, role, discoveredBy, holds, reveal, settings, sealedRule,
   needsFoundation, plus data source and grade limits).
 
 ### Round 21 suggestions (separate from the palette)
 
-1. CX12 ledger of causes and CX8 object memory: both read data that already
-   exists (`explainFact`, pocket histories), so they're the cheapest CX cheats.
+1. ICX12 ledger of causes and ICX8 object memory: both read data that already
+   exists (`explainFact`, pocket histories), so they're the cheapest ICX cheats.
 2. Adopt OG1-OG7 as the summary rules for this area (proposal; Weibao decides).
 3. Treat the implementation map as the gate before any integration work.
 
@@ -1645,7 +1647,7 @@ Weibao: "Considering comic worlds and stuff and more? ... Cheats that would
 show stuff like these ... Overarching stuff? Implementation implciations and
 more? Abstaction thats needed? Idle stuff to gain progress out of the game as
 well? like meditating and wheatver While Im gone? more to consider?" Codes:
-CC (comic quick map), AW (away progress), AB (abstractions), CX13+ (more
+CC (comic quick map), AW (away progress), AB (abstractions), ICX13+ (more
 revealing cheats). Existing comic research:
 [comics report](research/comics/REPORT.md),
 [24 playthrough targets](research/comics/PLAYTHROUGH_TARGETS.md).
@@ -1655,7 +1657,7 @@ revealing cheats). Existing comic research:
 | Code | Comic feature | Our mechanism |
 | --- | --- | --- |
 | CC1 | Reboot | Fresh canon at a new world revision; old branches keep their pin (TA5, DV12) |
-| CC2 | Retcon | A canon revision that changes past events; existing branches opt in or keep theirs; a retcon-aware cheat can notice (CX15) |
+| CC2 | Retcon | A canon revision that changes past events; existing branches opt in or keep theirs; a retcon-aware cheat can notice (ICX15) |
 | CC3 | Numbered realities | Parallel instances with branch IDs; travel between them is a crossing with identity rules (T4, IL) |
 | CC4 | Crossover event | A crossover anchor shared by several worlds' calendars (AH11, TX1) |
 | CC5 | Legacy mantles | A role with a substitute ladder: the mantle outlives the person (LD1, LD9) |
@@ -1700,19 +1702,19 @@ is a separate, later step.
 | AB3 | **Resolver** | Pure functions that turn records plus a seed and time into a result (`resolveStart`, `deriveSnapshot`, `computeAway`) |
 | AB4 | **Projection** | Maps resolver results onto the game's real owners (inventory, money, location, knowledge, quests); one adapter per owner (IR2) |
 | AB5 | **Clock** | Game time, local world time, loop local time and real time away, with conversions (IR3, v2 `localAt`, away ledger) |
-| AB6 | **Knowledge and Lens** | Who knows what (v2 `knowledge`) and how a viewer sees it (player layer, character, cheat grade) (OG3, CX) |
+| AB6 | **Knowledge and Lens** | Who knows what (v2 `knowledge`) and how a viewer sees it (player layer, character, cheat grade) (OG3, ICX) |
 | AB7 | **Provenance** | Why every fact is what it is (`explainFact`, start provenance) |
 | AB8 | **Revision pin and Dormancy** | Content versions per branch, and safe dormancy when content is missing (DV12, BR1) |
 | AB9 | **Gate** | A frozen check proven against a scratch implementation before a worker starts (QA5) |
 
-### CX13+: more cheats that reveal
+### ICX13+: more cheats that reveal
 
 | Code | Cheat | Shows | Limits |
 | --- | --- | --- | --- |
-| CX13 | **Away sense** | What the body did while you were away, in more detail than the report (AW6) | Only own body; dreams for long gaps |
-| CX14 | **Reality index** | Which numbered reality you're in and roughly how it differs (CC3) | Comic and multiverse worlds only |
-| CX15 | **Retcon awareness** | That the past changed (a canon revision applied) and roughly what | Rare, meta; often a curse in-world |
-| CX16 | **Mantle sight** | Who held a mantle before and who's next on its ladder (CC5, LD) | Only for mantles the holder has touched |
+| ICX13 | **Away sense** | What the body did while you were away, in more detail than the report (AW6) | Only own body; dreams for long gaps |
+| ICX14 | **Reality index** | Which numbered reality you're in and roughly how it differs (CC3) | Comic and multiverse worlds only |
+| ICX15 | **Retcon awareness** | That the past changed (a canon revision applied) and roughly what | Rare, meta; often a curse in-world |
+| ICX16 | **Mantle sight** | Who held a mantle before and who's next on its ladder (CC5, LD) | Only for mantles the holder has touched |
 
 ### Subtle and overarching notes
 
@@ -1743,7 +1745,7 @@ Return (2026-10-14): the away ledger (`src/away_ledger.js`, worktree branch `cod
 
 Weibao: "more to consider? ... Cheats that would show stuff like these ...
 Abstaction thats needed? Merging, commiting or pushing?" Codes: MG (merge and
-ship), PJ (projection layer), CX17+.
+ship), PJ (projection layer), ICX17+.
 
 ### MG: merging, committing and pushing this work
 
@@ -1780,14 +1782,14 @@ Current state (2026-10-14): two kinds of output exist.
 | PJ5 | **Provenance on apply.** Every projected change records its source (start layer, canon event, branch change, away ledger) for `explainFact` and the life record |
 | PJ6 | **Test each adapter in isolation**, then one browser save/reload/import gate per adapter that ships |
 
-### CX17+: more cheats that show hidden structure
+### ICX17+: more cheats that show hidden structure
 
 | Code | Cheat | Shows | Limits |
 | --- | --- | --- | --- |
-| CX17 | **Commitment sense** | Which of your choices just became permanent (a branch change, a fixed point engaged) | A feeling, not a list; system worlds may show a notice |
-| CX18 | **Projection sight** | What a planned action will change before you commit (PJ2 plan view) | Simple actions only; costs focus |
-| CX19 | **Record keeper** | Read your own life record and past lives' records in-world (player layer as diegetic book) | Fits archive or system frames (MP3) |
-| CX20 | **Pocket of time** | Store away time to use later (banked minutes, AW4) | Bank cap; decays slowly in harsh worlds |
+| ICX17 | **Commitment sense** | Which of your choices just became permanent (a branch change, a fixed point engaged) | A feeling, not a list; system worlds may show a notice |
+| ICX18 | **Projection sight** | What a planned action will change before you commit (PJ2 plan view) | Simple actions only; costs focus |
+| ICX19 | **Record keeper** | Read your own life record and past lives' records in-world (player layer as diegetic book) | Fits archive or system frames (MP3) |
+| ICX20 | **Pocket of time** | Store away time to use later (banked minutes, AW4) | Bank cap; decays slowly in harsh worlds |
 
 ### Subtle
 
@@ -1806,6 +1808,6 @@ layer that adds three.
 ### Returns since round 22
 
 - [Start micro details](worlds/START_MICRO_DETAILS_2026-10-14.md): 234 MD details (175 pure text or data), cheapest twenty with exact homes.
-- [CX cheat cards](gm/dispatch/canon-events-2026-10-14/cxcards/CX_CHEAT_CARDS.json) and [notes](gm/dispatch/canon-events-2026-10-14/cxcards/NOTES.md): twelve cards in the panel-kit format.
+- [ICX cheat cards](gm/dispatch/canon-events-2026-10-14/cxcards/CX_CHEAT_CARDS.json) and [notes](gm/dispatch/canon-events-2026-10-14/cxcards/NOTES.md): twelve cards in the panel-kit format.
 
 Shipped (2026-10-14): docs commit `2fec408b`; code on `codex/start-records` (`6b8a114b`), merged into `codex/gameplay-foundations` as `554435c9` after all gates passed on the merged result (npm 725/0, browser gates at three desktop sizes); main checkout rebuilt and npm 725/0; both branches pushed to origin. USER_VISION entries for this work remain in the working tree pending another session's de-duplication of that file.

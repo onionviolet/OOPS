@@ -15,14 +15,14 @@ save and extend accordingly Send out codex as usesful?"
 
 Design owner: [Technology and progression](../../../TECHNOLOGY_AND_PROGRESSION.md),
 rounds 3 and 4 (RV, RQ, RU, RB, RP, RE, SO, LB, TE, TP, RT, RX, RD, TC9-TC15,
-GR1-GR11, KD, RF, KL, UE, EV, LG, KM, BS, IN, EC, SR, IF). Everything here is
+TGR1-TGR11, KD, RF, KL, UE, EV, LG, KM, BS, IN, EC, SR, IF). Everything here is
 proposal and research. No runtime, build, save or commit work is selected.
 
 | Lane | Topic | Output folder |
 |---|---|---|
 | T1 | Code fit audit: existing research, knowledge, notebook, appraisal, workshop and crafting hooks; smallest slices for anomaly log (G4), eureka riders (G5), superstitions (G8) and bestiary research (G10) | `t1/` |
 | T2 | Research and technology by world: canon institutions, methods, forbidden knowledge, tech level and uplift fit per priority world | `t2/` |
-| T3 | Reference games: verified research mechanics beyond GR1-GR11, especially idle tech trees and knowledge games | `t3/` |
+| T3 | Reference games: verified research mechanics beyond TGR1-TGR11, especially idle tech trees and knowledge games | `t3/` |
 | T4 | Real history and models: diffusion of innovations, historical uplift cases, social technologies, lost knowledge, turned into mechanics | `t4/` |
 
 Root reads each REPORT.md and folds accepted-as-proposal angles back into the

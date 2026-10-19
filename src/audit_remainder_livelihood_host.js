@@ -1,11 +1,11 @@
 // Optional native-facing host. Root routes this through audit_remainder and the
 // existing durable publisher. Content/facts never import this executor module.
+import {check as assert} from './basics.js';
 import {commitSimulationCommand, cancelSimulationJob, previewSimulationCommand} from './simulation.js';
 import {REMAINDER_LIVELIHOOD_IDS as I, REMAINDER_LIVELIHOOD_COMMISSIONS as C,
     remainderLivelihoodDefinitions, remainderLivelihoodCommand} from './audit_remainder_livelihood_content.js';
 import {remainderLivelihoodFacts, remainderLivelihoodWindow, validateRemainderLivelihood} from './audit_remainder_livelihood_facts.js';
 const key = suffix => `${I.prefix}.${suffix}`;
-const assert = (ok, message) => {if(!ok) throw new Error(message);};
 export const remainderLivelihoodContext = (state, context, registry) => ({...context,
     facts: {...context.facts, ...remainderLivelihoodFacts(state, context, registry)}});
 

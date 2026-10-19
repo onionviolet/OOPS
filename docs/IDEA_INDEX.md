@@ -19,7 +19,7 @@ separates section-reviewed owners from text-scanned-only history.
 |---|---|---|---|
 | QR1 | Desktop UI | UIL7 adjustable panels and UIL8 Condition/stat tiers report scoped technical passes. UI A1 inventory and A2 nearby context report leaf delivery; combined integration/browser gates and human visual/play acceptance remain open. | [Integration checkpoint](gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md), [UIL7](gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL7_REPORT.md), [UIL8](gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL8_REPORT.md) |
 | QR2 | Ability conditions / dependent claims | Engine A1 and A2 are implemented with fixture checks, separate from UI A1/A2. RS26 retains the UI merge and Weibao play gate. 2026-10-19: native consumer (Reedbank joinery pegs and two held claims) with save, reload and import exercised in a browser; human play acceptance open. | [Engine A1/A2 and RS26](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#build-order-decided-by-weibao-2026-10-17) |
-| QR3 | Modular engine | Later M3 resume/merge/post-merge evidence supersedes its stopped summary. M4 remains unstarted and separately selected; recover current inputs before proof reuse. | [Modular checkpoint](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md) |
+| QR3 | Modular engine | Later M3 resume/merge/post-merge evidence supersedes its stopped summary. M4 lamplight (PF52) implemented and merged 2026-10-19 with focused, headless and 1920×1080 smoke checks; human play acceptance remains open. | [Modular checkpoint](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md) |
 | QR4 | Research / source acquisition | Later owned-game research supersedes original buy/install rows. SM5–SM7 high, SM9 next, anime deferred. | [Acquisition queue](research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md#current-routing-2026-10-18) |
 | QR5 | Older implementation packets and audits | Preserve partial delivery and acceptance states; old reservations need recovery. Domain audits/rule reconciliation remain proposals where labelled. | [Audit queue](gm/audit-implementation/QUEUE.json), [absorption queue](gm/game-absorption-2026-10-06/QUEUE.json), [plan/rule reconciliation](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md) |
 
@@ -146,8 +146,8 @@ owns the 2026-10-17 topic audit round that extends part 35 (H35): the body as th
 first instrument (BHC1-BHC6), medicine as making (BHC7-BHC12), knowing your own
 body (BHC13-BHC16), bodies across worlds (BHC17-BHC20), harm and defeat settings
 and one condition contract on any carrier (BHC21-BHC26), lane returns (BHC27-BHC31)
-and AD38 consequences (BHC32-BHC37). Proposed rulebook:
-[BODY_AND_HEALTH_RULES](BODY_AND_HEALTH_RULES.md) BHR1-BHR30. Proposals only.
+and AD38 consequences (BHC32-BHC37). Rulebook (accepted 2026-10-18, [record](USER_VISION.md#proposal-rulebooks-accepted-2026-10-18)):
+[BODY_AND_HEALTH_RULES](BODY_AND_HEALTH_RULES.md) BHR1-BHR30. The palette itself stays a proposal.
 
 [Combat and conflict](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md)
 owns the 2026-10-18 topic audit round (gap G2): corrections CBX1-CBX5 (six defeat
@@ -156,7 +156,7 @@ publisher (CBC1-CBC7), weapons as instruments with wear (CBC8-CBC14), bodies in 
 fight (CBC15-CBC19), knowing the opponent (CBC20-CBC23), idle combat
 (CBC24-CBC27), leaving and pursuit (CBC28-CBC30), conflict without killing
 (CBC31-CBC36), worlds and scale (CBC37-CBC42), ranked later steps CBL1-CBL10.
-Proposed rulebook: [COMBAT_RULES](COMBAT_RULES.md) CBR1-CBR30. Proposals only.
+Rulebook (accepted 2026-10-18, [record](USER_VISION.md#proposal-rulebooks-accepted-2026-10-18)): [COMBAT_RULES](COMBAT_RULES.md) CBR1-CBR30. The palette itself stays a proposal.
 
 [Economy and trade](ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md) owns the
 2026-10-18 topic audit round (gap G4), built on the markets palette rounds M1-M28:
@@ -165,7 +165,7 @@ income and hiring (ECC8-ECC9), crafting margins and market knowledge (ECC10-ECC1
 cheats (ECC13-ECC14), contracts and fraud (ECC15-ECC16), other world types
 (ECC17-ECC19), idle and prestige (ECC20-ECC21), micro details (ECC22-ECC24),
 implementation (ECC25-ECC26), lane corrections ECX1-ECX10 and angles ECC27-ECC36.
-Proposed rulebook: [ECONOMY_RULES](ECONOMY_RULES.md) ECR1-ECR33. Proposals only.
+Rulebook (accepted 2026-10-18, [record](USER_VISION.md#proposal-rulebooks-accepted-2026-10-18)): [ECONOMY_RULES](ECONOMY_RULES.md) ECR1-ECR33. The palette itself stays a proposal.
 
 [Skills, learning and teaching](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md)
 owns the 2026-10-18 more-to-consider round on gap G3: competence layers on
@@ -174,9 +174,9 @@ different carriers (SLC1-SLC4), gaining (SLC5-SLC12), holding and losing
 (SLC28-SLC33), knowing your own skill (SLC34-SLC36), code today (SLC37-SLC42),
 owner improvements (SLC43-SLC46), round 2 in all directions (SLC47-SLC77),
 round 3 on simple repetition and stolen memory (SLC78-SLC104, correction SLX1-SLX2),
-ranked later steps SLL1-SLL13 (SLL7 coached practice built). Proposed
-rulebook: [SKILL_AND_LEARNING_RULES](SKILL_AND_LEARNING_RULES.md) SLR1-SLR39.
-Proposals only.
+ranked later steps SLL1-SLL13 (SLL7 coached practice built). Rulebook
+(accepted 2026-10-18, [record](USER_VISION.md#proposal-rulebooks-accepted-2026-10-18)):
+[SKILL_AND_LEARNING_RULES](SKILL_AND_LEARNING_RULES.md) SLR1-SLR39. The palette itself stays a proposal.
 
 [Tools, cursed tools and instruments](TOOLS_AND_INSTRUMENTS_CONSIDERATIONS_2026-10-17.md)
 owns the 2026-10-17 palette for items as instruments (verbs and control, not

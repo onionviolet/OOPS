@@ -15,11 +15,11 @@ Complete as a documentation/source audit on 2026-10-14. No implementation, gamep
 
 | Code | Finding | Root codes informed |
 | --- | --- | --- |
-| ER15-F3 | Current native named RNG consumers supersede older blanket unseeded-native claims. Key/ordinal/salt and retained resolved outcomes still matter; whole-game replay is unproven. | RT9, IM4, CX2/CX3, MC11 |
+| ER15-F3 | Current native named RNG consumers supersede older blanket unseeded-native claims. Key/ordinal/salt and retained resolved outcomes still matter; whole-game replay is unproven. | RT9, IM4, ECX2/ECX3, MC11 |
 | ER15-F6 | Filtered read models have the best immediate cheat return per incremental effort. Single-clock ownership has the strongest temporal reach; full commands/snapshots belong to broad rewind/fork promises. Existing DA5 needs an executable hook bridge, not another inert card schema. | RT4, AI6/E9, DA5, SB5, RT5, LB3/DA2, IM1 |
-| ER15-F5 | CX8's tier lens, CX13's runtime-load lens and CX18's pseudo-source lens are distinct additions within the requested owners. Fifteen other CX rows reuse or extend documented ideas; none is automatically implemented. | CX1–CX18 |
+| ER15-F5 | ECX8's tier lens, ECX13's runtime-load lens and ECX18's pseudo-source lens are distinct additions within the requested owners. Fifteen other CX rows reuse or extend documented ideas; none is automatically implemented. | ECX1–ECX18 |
 | ER15-F8 | Native encounter snapshot/restore and idle authored-site replacement exist in current source. These are partial support, not full historical snapshots, headless combat or arbitrary module reload. | LB3/DA2, OE3, SB4, RT9 |
-| ER15-F9 | Proposed additions: snapshot diff, commit seal, boundary step, cursor ward, rule-version anchor, resumable dream thread, provenance compass and counterpart conflict sense. Candidate CX19–CX26 are local suggestions only; root palette was not edited. | RT4, E3/E8/E9, RT6/RT9, OE3, TS4, DA2/DA6 |
+| ER15-F9 | Proposed additions: snapshot diff, commit seal, boundary step, cursor ward, rule-version anchor, resumable dream thread, provenance compass and counterpart conflict sense. Candidate ECX19–ECX26 are local suggestions only; root palette was not edited. | RT4, E3/E8/E9, RT6/RT9, OE3, TS4, DA2/DA6 |
 
 ## Commands and evidence
 

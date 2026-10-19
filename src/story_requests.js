@@ -1,8 +1,9 @@
+import {natural as nat} from './basics.js';
+import {addSavedPurse} from './money.js';
 import {VILLAGE_ASKS,validateVillageGoal} from './village_traveler_asks.js';
 import {appendStoryOutcome,queryStoryOutcomes,validateLoreHistory} from './lore_history_state.js';
 export const LEGACY_REQUEST_CONTRACT=Object.freeze({revision:1,place:'Village',routes:['take','deliver','decline'],items:['Stale bread','Rat pelt','Rat tail'],expiry:'played-time defer; no absence penalty'});
 export const REQUEST_CONTRACT=Object.freeze({...LEGACY_REQUEST_CONTRACT,revision:2,items:[...new Set(Object.values(VILLAGE_ASKS).flat().map(a=>a.item))]});
-const nat=n=>Number.isSafeInteger(n)&&n>=0;
 const check=(ok,text='Invalid remembered request.')=>{if(!ok)throw Error(text);};
 const pending=r=>['offered','accepted'].includes(r.status);
 export function validateStoryRequests(people,expansion=null) {
@@ -60,7 +61,7 @@ export function planStoryRequest(envelope,{action,id=null,itemKey=null,expectedS
     check(itemKey===JSON.stringify({id:r.item}),'Bring the requested ordinary supply.');
     const stock=save.inventories?.person?.main_character;check(stock?.[itemKey]?.count>=r.quantity,`Bring ${r.quantity===1?'one':r.quantity} ${r.item} from your own inventory.`);
     stock[itemKey].count-=r.quantity;if(stock[itemKey].count===0)delete stock[itemKey];
-    p.possessions.supplies[r.item]=r.quantity;p.goal.fulfilled=true;p.relationship='helped with supplies';reward=r.held;supplyKey=itemKey;save.character.money+=reward;r.status='delivered';
+    p.possessions.supplies[r.item]=r.quantity;p.goal.fulfilled=true;p.relationship='helped with supplies';reward=r.held;supplyKey=itemKey;addSavedPurse(save,reward,'story request: deliver');r.status='delivered';
    } else {p.possessions.coins+=r.held;r.status='declined';}
    const held=r.held;r.held=0;
    const receipt=appendStoryOutcome(state,{operation:`${r.id}:settled`,worldId:'base.frontier',actor:'player',issuer:p.id,targetPerson:p.id,targetObject:r.item,targetPlace:'Village',action:action==='deliver'?'request.deliver':'request.decline',result:r.status,at:state.clock,producer:'P4.request',causeRefs:[r.needRef,r.id],historyCauses:[],audience:['player',p.id],known:{person:p.name,item:r.item,need:r.revision===1?'one missing journey supply':`${r.quantity} missing journey supplies`},applied:action==='deliver'?[{kind:'item',owner:'player',key:itemKey,delta:-r.quantity},{kind:'item',owner:p.id,key:itemKey,delta:r.quantity},{kind:'coin',owner:'player',key:'wood',delta:held},{kind:'coin',owner:`escrow:${r.id}`,key:'wood',delta:-held}]:[{kind:'coin',owner:p.id,key:'wood',delta:held},{kind:'coin',owner:`escrow:${r.id}`,key:'wood',delta:-held}]});
@@ -72,5 +73,5 @@ export function planStoryRequest(envelope,{action,id=null,itemKey=null,expectedS
 }
 export function publishStoryRequest(plan,{persist,publishSupply,publishReward}) {
  persist(JSON.stringify(plan.envelope));
- if(plan.supplyKey)publishSupply(plan.supplyKey,plan.supplyQuantity);if(plan.reward)publishReward(plan.reward);
+ if(plan.supplyKey)publishSupply(plan.supplyKey,plan.supplyQuantity);if(plan.reward)publishReward(plan.reward,'story request: deliver');
 }

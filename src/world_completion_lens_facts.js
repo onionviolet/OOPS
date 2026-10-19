@@ -1,18 +1,10 @@
 // Views and admission over the existing actors, jobs, custody and knowledge.
 // No read creates stock, refunds money, expires a duty or grants a procedure.
+import {check, natural, object as record, sameStructural as same} from './basics.js';
 import {WORLD_COMPLETION_LENS_IDS as I, WORLD_COMPLETION_LENS_KEYS as K, WORLD_COMPLETION_LENS_POLICY as P,
     worldCompletionLensDefinitions as D, worldCompletionLensCommand, worldCompletionLensIsMeasurement,
     worldCompletionLensFrozenDefinition} from './world_completion_lens_content.js';
 
-const check = (ok, message) => {if(!ok) throw new Error(message);};
-const natural = n => Number.isSafeInteger(n) && n >= 0;
-const record = v => v != null && typeof v === 'object' && !Array.isArray(v);
-const same = (a, b) => {
-    if(a === b) return true;
-    if(Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((v, i) => same(v, b[i]));
-    if(!record(a) || !record(b)) return false;
-    return Object.keys(a).length === Object.keys(b).length && Object.keys(a).every(k => Object.hasOwn(b, k) && same(a[k], b[k]));
-};
 const causeSequence = cause => /^simulation:[1-9][0-9]*$/.test(cause || '') ? Number(cause.split(':')[1]) : NaN;
 const count = (state, id) => state.actors?.player?.completed?.[id] || 0;
 const value = (context, key) => context.worldCompletion?.[key] ?? context.facts?.[`worldCompletion.${key}`];

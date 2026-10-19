@@ -1,4 +1,5 @@
 // Wolf-rat slice. Pure plans have no random calls or native mutations.
+import {natural} from './basics.js';
 export const HARVEST_CAP = 24;
 export const HARVEST_SPECIES = Object.freeze(['Starving wolf rat','Wolf rat','Elite wolf rat','Elite wolf rat guardian','Wall rat']);
 export const HARVEST_PARTS = Object.freeze({pelt:{id:'Rat pelt',count:1,minutes:2},tail:{id:'Rat tail',count:1,minutes:1},fang:{id:'Rat fang',count:2,minutes:1}});
@@ -76,7 +77,6 @@ export function consumedHarvestQuality(groups,requirements,attempts){
     groups.forEach((g,i)=>{let remaining=requirements[i].count*attempts;for(const row of g.items){const n=Math.min(remaining,row.count);remaining-=n;if(n&&row.item.quality!=null)graded=true;total+=n*(row.item.quality??100);weight+=n;if(!remaining)break;}});
     return graded&&weight?Math.round(total/weight/5)*5:null;
 }
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
 const fail=()=>{throw Error('Invalid or unsupported saved harvest state.');};
 export function validateHarvestDamage(d){

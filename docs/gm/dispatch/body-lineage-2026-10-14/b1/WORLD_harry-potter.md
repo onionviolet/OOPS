@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | AG2 CL4 CL9 | [SOURCE_LEDGER.md](../../../../worlds/harry-potter/SOURCE_LEDGER.md), H1 school-age opening; H2 companion-only registry; H3/H4 affinities/plants. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 LQ8 GN2 GN8 TR3 TR6 HI4 MS1 WR1 OB4 SB5 SR1 RP5 | Contrast a child with a magical family but no demonstrated faculty and an ordinary adult craft worker. A qualified test changes instruction and access; neither family name nor address grants spells. |
+| Fit | PH1 SG3 SG4 SG5 LQ8 GN2 GN8 TR3 TR6 HI4 MS1 WR1 OB4 SB5 BSR1 RP5 | Contrast a child with a magical family but no demonstrated faculty and an ordinary adult craft worker. A qualified test changes instruction and access; neither family name nor address grants spells. |
 | Skip families | CN BD BP MX PR BM | CN BD BP MX PR BM: veela charm, blood keys, soul inheritance, grafts and sex-changing procedures need exact selected-book evidence. GN11/RP3: no gene-editing or assisted-birth recipe supplied. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: assessed faculty and learned methods. Dial: family/child or declared tree AU; guardianship, time, tools and compatible source supply the costs.

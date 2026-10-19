@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. Owned means bounded source/design coverage, n
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | GN4 RP1 RP4 | STATED dated secondary evidence in [NONHUMAN_STARTS_BY_WORLD_2026-10-14.md](../../../../worlds/NONHUMAN_STARTS_BY_WORLD_2026-10-14.md), W11; Chimera Ant Queen r419578 Feeding/Offspring/Colony; HX-P1–P3. Retain its individual-case limits. |
-| Fit | PH1 SG3 SG4 SG5 SG8 GN2 GN8 CN8 MX2 MS1 TR3 TR6 WR1 HI4 OB4 SR1 | The particular queen’s food-derived offspring traits support lineage play; soldier mating is a different reproductive route. An independent worker gets usable limbs and training without gaining queen authority. |
+| Fit | PH1 SG3 SG4 SG5 SG8 GN2 GN8 CN8 MX2 MS1 TR3 TR6 WR1 HI4 OB4 BSR1 | The particular queen’s food-derived offspring traits support lineage play; soldier mating is a different reproductive route. An independent worker gets usable limbs and training without gaining queen authority. |
 | Skip families | LQ AG BD CL BP PR SB BM | BD CL BP PR SB BM: queen-derived inheritance is not every ant’s sampling power, universal telepathy, ancestor memory or purity dominance. Kurta eyes and transplant markets need their own scene evidence. MX2 is inferred body-mix fit, not a certified genetic formula. Other unpicked rows lack an exact source or useful selected action. |
 
 **Default + Dial + reason/cost:** Default: individual worker or explicitly selected queen. Dial: colony care and food/body mix with real supplies and member agency; exact birth rates, combinations, retained human memories and legal status remain unknown.

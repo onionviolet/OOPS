@@ -1,12 +1,11 @@
+import {check as assert, natural, sameJson as same} from './basics.js';
 import {PROTO23_IDS as I, PROTO23_LOCATIONS as L, PROTO23_OPTIONAL_NATIVE_LOCATIONS, PROTO23_FOOTPRINTS as footprints, PROTO23_FRONTIER,
     PROTO23_SOURCE_SNAPSHOT, PROTO23_SOURCE_HASH, PROTO23_INITIAL_FACTS, proto23Definitions} from './proto23_world_content.js';
 import {createRealmConnection, realmConnectionBinding, validateRealmConnectionBinding} from './realm_connections.js';
 import {validateWorldRecords, planWorldClock} from './world_instances.js';
 import {jsonData} from './simulation_contracts.js';
 import {compactEndedWorldVisits, previewWorldVisitRoom} from './world_visit_history.js';
-const assert = (ok, text) => {if(!ok) throw Error(text);}, natural = x => Number.isSafeInteger(x) && x >= 0;
 const shape = (v, keys, label) => assert(v && typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length === keys.length && keys.every(k => Object.hasOwn(v, k)), `Unsupported ${label} fields.`);
-const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const prefix = key => key.startsWith(I.prefix);
 export const PROTO23_VISIT_CAPACITY = 128;
 export const proto23LocationWorld = Object.fromEntries([...Object.values(L), ...PROTO23_OPTIONAL_NATIVE_LOCATIONS].map(id => [id, I.world]));

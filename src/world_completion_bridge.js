@@ -1,11 +1,11 @@
 // Pure cross-chapter views. Native/world truth is used for lawful support;
 // player-facing accounts come only from performed or received knowledge.
+import {natural} from './basics.js';
 import {lorePracticeFacts} from './lore_practice_facts.js';
 import {worldCompletionEnrolled,worldCompletionLifeFacts} from './world_completion_life_facts.js';
 import {REMAINDER_CONSEQUENCES_IDS as C} from './audit_remainder_consequences_content.js';
 import {REMAINDER_HOME_IDS as H} from './audit_remainder_home_content.js';
 import {worldCompletionLearningStripEvidence,worldCompletionLearningStripMatches} from './world_completion_learning_runtime.js';
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
 const seq=c=>/^simulation:[1-9][0-9]*$/.test(c||'');
 export function worldCompletionBridgeFacts(state,context={}){
     const s=state.simulation,a=state.actors?.player,w=state.worlds?.['base.frontier']?.facts||{},known=s?.knowledge?.player||{};

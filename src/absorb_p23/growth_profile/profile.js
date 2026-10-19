@@ -1,13 +1,12 @@
 // Original proposal inspired by Proto23 R21/N04 and mod-reader N30.
 // No foreign code/assets. No native registry mutation, timer, or save writes.
+import {check, natural} from '../../basics.js';
 export const GROWTH_DOMAIN = 'p23_growth_profile';
 export const PROFILE = Object.freeze({id: 'p23.visitor.study_body', revision: 1,
     worldId: 'reference.proto23.village', skillId: 'p23.study_conditioning',
     label: 'Study conditioning', baseCost: 100, tonicId: 'Visitor fortifying tonic',
     tonicHealth: 2, tonicPrice: 25});
 const milestones = Object.freeze({2: {max_health: 1}, 5: {max_stamina: 1}, 10: {max_health: 2}});
-const check = (ok, message) => { if (!ok) throw new Error(message); };
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const object = x => x && typeof x === 'object' && !Array.isArray(x);
 const exact = (x, keys) => check(object(x) && Object.keys(x).every(k => keys.includes(k)) && keys.every(k => Object.hasOwn(x, k)), 'Invalid growth record fields.');
 const identity = x => typeof x === 'string' && x.length > 0 && x.length <= 160;

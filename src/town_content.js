@@ -1,9 +1,9 @@
 // Optional original fork story. Inherited dialogue, quests and balance stay owned
 // by the native game; joining this chapter explicitly opens its locked town.
+import {eqRawReason as eq} from './basics.js';
 export const TOWN_FACTS = ["town.joined", "town.briefed", "town.worked", "town.settled", "town.returned"];
 const wood = JSON.stringify({id: "Rough wood log"});
 const kit = JSON.stringify({id: "Prepared survey kit"});
-const eq = (fact, value, reason) => ({fact, op: "eq", value, ...(reason ? {reason} : {})});
 const here = location => eq("location", location, `Travel to ${location} using the ordinary location menu.`);
 const fact = (key, value = true) => ({type: "fact", scope: "actor", key, value});
 const joined = eq("actor.town.joined", true, "Choose the optional town chapter at Town outskirts first.");

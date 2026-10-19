@@ -1,6 +1,7 @@
 // Original discrete-batch adapter. Factorio native-method qualification is
 // root-owned. These terms are not Factorio balance or progressive burner rules.
 // Importing definitions creates no stock, site, job, clock or publication.
+import {all} from './basics.js';
 import {REFERENCE_GAMEPLAY_IDS as R, REFERENCE_GAMEPLAY_KEYS as RK} from './reference_gameplay_content.js';
 import {FEATURE_OBJECT_KEYS as O} from './feature_expansion_objects.js';
 
@@ -34,7 +35,6 @@ export const factorioRetortItemSpecifications = Object.freeze([
     {id: 'Spent retort residue', value: 1, description: 'One actual spent residue collected from your retort tray. It is physical owned stock, with a separate effort-paid cold disposal at the rack. It grants no resin, fuel or crop bonus.'},
 ]);
 const eq = (fact, reason) => ({fact, op: 'eq', value: true, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const f = (name, reason) => eq(`factorioRetort.${name}`, reason);
 export const factorioRetortOperatingRequires = all(
     f('localSupported', 'Return to the Village with your actual living native body, usable hands and supported local clock.'),

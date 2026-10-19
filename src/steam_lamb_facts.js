@@ -1,9 +1,9 @@
 // Optional projection and history checks over the same Eda, items and jobs.
+import {check} from './basics.js';
 import {STEAM_LAMB_IDS as I, steamLambDefinitions as D} from './steam_lamb_content.js';
 import {steamLambNatural as natural, steamLambRecord as record, sameSteamLambData as same, steamLambCauseSequence as sequence,
     steamLambSupport, steamLambQualified, steamLambOffice, steamLambApproval, steamLambInspectionAvailable,
     steamLambUnappointed, validSteamLambWork, steamLambWorkCurrent} from './steam_lamb_runtime.js';
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 const owned = key => typeof key === 'string' && key.startsWith(I.prefix);
 const definitions = new Map(D.commands.map(d => [d.id, d]));
 const fixedKnowledge = new Map(D.commands.flatMap(d => d.effects.filter(e => e.type === 'knowledge').map(e => [e.key, {d, e}])));

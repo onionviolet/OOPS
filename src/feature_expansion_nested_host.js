@@ -1,3 +1,4 @@
+import {check as assert, copy, natural, object} from './basics.js';
 import {auditRemainderControllerAllowed} from './audit_remainder_state.js';
 import {remainderConsequencesExistingCommandGate} from './audit_remainder_consequences_facts.js';
 import {previewNestedCarriers,stageNestedCarrierMove} from './feature_expansion_nested_carriers.js';
@@ -13,8 +14,7 @@ import {deriveSimulationSeed} from './simulation_resolution.js';
 import {activePractice} from './techniques.js';
 import {jsonData} from './simulation_contracts.js';
 import {compactEndedWorldVisits,previewWorldVisitRoom} from './world_visit_history.js';
-const assert=(ok,message)=>{if(!ok)throw Error(message);},copy=x=>structuredClone(x),natural=n=>Number.isSafeInteger(n)&&n>=0;
-const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x),shape=(v,fields,label)=>assert(object(v)&&Object.keys(v).length===fields.length&&fields.every(k=>Object.hasOwn(v,k)),`Unsupported ${label} fields.`);
+const shape=(v,fields,label)=>assert(object(v)&&Object.keys(v).length===fields.length&&fields.every(k=>Object.hasOwn(v,k)),`Unsupported ${label} fields.`);
 const frontier={worldId:'base.frontier',instanceId:'frontier.main',regionId:'frontier.village',layerId:'surface'};
 const byWorld=new Map(footprints.map(f=>[f.worldId,f])),personIds=nestedDefinitions.people.map(d=>d.id),locationWorld={
  [L.hub]:I.hub,[L.workroom]:I.hub,[L.salt]:I.salt,[L.enginehouse]:I.salt,[L.archive]:I.archive,[L.records]:I.archive};

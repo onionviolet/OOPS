@@ -81,3 +81,11 @@ One implementation session (mid-to-high capability, about one day including
 the 21 script migrations). One writer for `src/village_workspace.js`,
 `src/nearby_context_view.js`, `src/display.js` dropdown section and the
 browser scripts during the slice.
+
+## Domain rule note, 2026-10-19
+
+The Trade verb touches economy only as a route. With the domain rulebooks accepted
+2026-10-19, the slice keeps `startTrade` as the one trade function (PIR8) and adds
+no money path (ECR16). A trader who cannot trade now shows the verb with its
+reason (PIR9), which is also ECR32's "a merchant who can't buy says why". No
+ECR, CBR, BHR or SLR change to the packet's scope or done check.

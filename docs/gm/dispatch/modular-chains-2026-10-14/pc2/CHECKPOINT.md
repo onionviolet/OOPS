@@ -6,7 +6,7 @@ DONE
 
 PC2-F1 / SHOWN: Read live authority and source. Palette MDF2 is stale: four production importers of `rules.js`; tag store still has only its test importer. Pocket rules construct a doorway, not a general player law editor. Village P2 chemistry and its version-1 product/exposure validators establish the actual first-reader compatibility seam. Exact evidence links are in REPORT.
 
-PC2-D1 / INFERRED: Proposed immutable module schema, tag-query compiler, typed effects, explicit scope/revisions/receipts and separate evaluator/resolver/publication/knowledge/institution ownership. All MR1-MR13 rows mapped. Nine worked conflicts, addressed grammars with feasible witnesses and causal freeze, partial confidence, social versus physical status, source-supported edits, fields/time/spread, indexing and 36 future acceptance cases are documented.
+PC2-D1 / INFERRED: Proposed immutable module schema, tag-query compiler, typed effects, explicit scope/revisions/receipts and separate evaluator/resolver/publication/knowledge/institution ownership. All MMR1-MMR13 rows mapped. Nine worked conflicts, addressed grammars with feasible witnesses and causal freeze, partial confidence, social versus physical status, source-supported edits, fields/time/spread, indexing and 36 future acceptance cases are documented.
 
 PC2-D2 / INFERRED: Three original per-world example packs: Frontier mixing, Folded Glasshouse field, and unregistered Lantern Compact fixture. PC2-S1 is referenced by ID/route/status only; reserved illustration, not authored or implemented truth. No canon priorities or accepted physics were changed.
 

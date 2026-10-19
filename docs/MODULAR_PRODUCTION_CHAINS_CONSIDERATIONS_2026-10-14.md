@@ -1,5 +1,7 @@
 # Modular production chains: harvesting to crafting and beyond
 
+> Codes renamed 2026-10-19 from SR1-SR4 to MSR1-MSR4 and MR1-MR13 to MMR1-MMR13 to avoid collision with registered SR (site rules) and MR (making rules). See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Claude (root), 2026-10-14. A palette, not a spec. Nothing here is selected for a
 build. Request: "modularity at every level and more? from harvesting, to
 extracting resources to crafting and more? procedural rules and more? Use more
@@ -108,7 +110,7 @@ sequence, not new code. Worlds add verbs through rule modules.
 | MV6 | Infuse, inscribe, refine qi, consecrate | Power-system verbs; per-world |
 | MV7 | Observe, test, assay | Produce knowledge, not goods (GR5) |
 
-## MR. Procedural rules
+## MMR. Procedural rules
 
 "Procedural rules" can mean three different things. All three fit one module
 shape: **selector** (tag query) + **effect** + **priority** + **scope** + 
@@ -116,13 +118,13 @@ shape: **selector** (tag query) + **effect** + **priority** + **scope** +
 
 | Code | Kind | Examples |
 |---|---|---|
-| MR1 | **World laws as modules** | "Cold iron disrupts fae", "impurities accumulate in pills", "metals remember their smith" (K2). Each world loads a set; overlays (GA4) add or remove by world, region, person or item |
-| MR2 | **Generated rules per save** | Which herbs react, which ore veins carry spirit, which beast part cures which sickness. Drawn from a rule grammar at a stable address (GR2), frozen on reveal (GR3). Discovering them is the science loop. Some may be sealed secrets |
-| MR3 | **Social rules** | Guild monopolies, taboos, sumptuary laws, sect bans on certain pills. Same module, enforced by institutions (K7) instead of physics |
-| MR4 | **Rules about rules** | Priority and conflict policy: specific beats general, world beats core, later overlay beats earlier, ties need an explicit order. A rule that forbids beats a rule that permits unless stated |
-| MR5 | **Discovered rule knowledge** | The player learns a rule partly ("seems to work at night") with confidence; truth applies regardless (AB3 observer-scoped knowledge) |
-| MR6 | **Player-made rules** | Late game: formations, wards, domains, laws of a pocket realm (`pocket_realm_rules.js` exists) that patch chain operations inside an area |
-| MR7 | **Cheats that edit rules** | Rewriting a local law, "everything I touch is pure", a system shop that sells rule overrides. Scoped and receipted so saves stay coherent |
+| MMR1 | **World laws as modules** | "Cold iron disrupts fae", "impurities accumulate in pills", "metals remember their smith" (K2). Each world loads a set; overlays (GA4) add or remove by world, region, person or item |
+| MMR2 | **Generated rules per save** | Which herbs react, which ore veins carry spirit, which beast part cures which sickness. Drawn from a rule grammar at a stable address (GR2), frozen on reveal (GR3). Discovering them is the science loop. Some may be sealed secrets |
+| MMR3 | **Social rules** | Guild monopolies, taboos, sumptuary laws, sect bans on certain pills. Same module, enforced by institutions (K7) instead of physics |
+| MMR4 | **Rules about rules** | Priority and conflict policy: specific beats general, world beats core, later overlay beats earlier, ties need an explicit order. A rule that forbids beats a rule that permits unless stated |
+| MMR5 | **Discovered rule knowledge** | The player learns a rule partly ("seems to work at night") with confidence; truth applies regardless (AB3 observer-scoped knowledge) |
+| MMR6 | **Player-made rules** | Late game: formations, wards, domains, laws of a pocket realm (`pocket_realm_rules.js` exists) that patch chain operations inside an area |
+| MMR7 | **Cheats that edit rules** | Rewriting a local law, "everything I touch is pure", a system shop that sells rule overrides. Scoped and receipted so saves stay coherent |
 
 Rule evaluation must stay pure (`rules.js` already promises this): no spending,
 no draws, no saved writes.
@@ -162,7 +164,7 @@ no draws, no saved writes.
 | Code | Tool | Kind |
 |---|---|---|
 | MC1 | **Chain inspector**: pick any item, see its provenance tree back to the harvest | Read only |
-| MC2 | **Operation receipt**: "yield 62% because tool worn, wet season, rule MR2-7" | Read only (AX15) |
+| MC2 | **Operation receipt**: "yield 62% because tool worn, wet season, rule MMR2-7" | Read only (AX15) |
 | MC3 | **Rule trace**: which modules matched, priority, what each changed | Read only |
 | MC4 | **Material sandbox**: run operations on a scratch copy; no spend, no draw advance | Isolated (TL1) |
 | MC5 | **Pin a generated rule** to test a chain path (GA5) | Mutating, receipted |
@@ -176,7 +178,7 @@ no draws, no saved writes.
 | MA2 | **Slot and part**: typed slots on an item, assembly or body | Weapons, armor, constructs, bodies, techniques | Weaponcraft identity, AB1 |
 | MA3 | **Rule module**: selector, effect, priority, scope, knowledge, receipt | World laws, generated rules, social rules, cheats | Extend `rules.js`; GA4 overlay; K2 |
 | MA4 | **Material catalogue on tags** | Gathering, mixture, smithing, cooking | II6, GA3, gives `tag_store.js` its reader |
-| MA5 | **Chain plan**: a saved sequence of operations for idle automation | Automation (crafting AU), NPC workshops, staff | Later; earns its place only after MA1 has three users |
+| MA5 | **Chain plan**: a saved sequence of operations for idle automation | Automation (crafting PAU), NPC workshops, staff | Later; earns its place only after MA1 has three users |
 
 Do not build a universal crafting engine first. MA1 and MA4 earn their keep on
 the first proof; MA2, MA3 and MA5 wait for second consumers.
@@ -197,7 +199,7 @@ the first proof; MA2, MA3 and MA5 wait for second consumers.
 One Village chain end to end, inside the first milestone's realm:
 **harvest herb (method choice) -> dry it (wait verb, freshness) -> mix (existing
 P2) -> drink -> rinse and reuse the vial (salvage)**, with one generated rule
-(MR2) and one world law (MR1) shown in the receipt (MC2) and the chain
+(MMR2) and one world law (MMR1) shown in the receipt (MC2) and the chain
 inspector (MC1). That proves MA1 and MA4, gives `tag_store.js` its first reader,
 and touches harvest, process, use and salvage without new families.
 
@@ -208,7 +210,7 @@ and touches harvest, process, use and salvage without new families.
 | MRK1 | Abstraction before consumers | MA build order above; GR12 |
 | MRK2 | Inventory explosion from modular parts | ML-C shallow identity |
 | MRK3 | Chain tedium in an idle game | Chain plans (MA5) and one-click repeat after first manual run |
-| MRK4 | Rule conflicts that nobody can explain | MR4 policy plus MC3 trace |
+| MRK4 | Rule conflicts that nobody can explain | MMR4 policy plus MC3 trace |
 | MRK5 | Seven making paths diverge further | MI1 shared seam for every new stage |
 
 ## LATER / DELEGATE (suggested, not dispatched)
@@ -217,8 +219,8 @@ and touches harvest, process, use and salvage without new families.
 |---|---|---|---|
 | MD-L1 | Build the smallest proof above on `codex/gameplay-foundations` | Strong, medium-high effort (cross-system, persistence) | Rebuilt browser run at 1366x768: harvest, dry, mix, drink, salvage; save/reload/import keeps batches and rule; GR16 tests pass |
 | MD-L2 | Map the seven making paths (MDF3) to MA1 operation fields: what each already has, what is missing | Balanced, medium | Table in this doc's fold section, one row per path, file and function cited |
-| MD-L3 | Draft the rule module schema extending `rules.js` with tag selectors, effects and MR4 priority, tests only | Balanced, medium | Pure tests: conflict ordering, unknown vs false, receipt reasons |
-| MD-L4 | Per-world chain sketches for three existing worlds (which verbs, laws and MR2 grammars each adds) | Balanced, medium | One table per world, linked from K9 |
+| MD-L3 | Draft the rule module schema extending `rules.js` with tag selectors, effects and MMR4 priority, tests only | Balanced, medium | Pure tests: conflict ordering, unknown vs false, receipt reasons |
+| MD-L4 | Per-world chain sketches for three existing worlds (which verbs, laws and MMR2 grammars each adds) | Balanced, medium | One table per world, linked from K9 |
 
 ## Round 2 (2026-10-14): more to consider, lanes sent
 
@@ -251,14 +253,14 @@ Round 1 missed an owner. The [harvest modules wave](gm/dispatch/harvest-modules-
 | FL5 | **Depth budget per world** | A village world has short chains; a tech or alchemy world has deep ones. Depth is a world adjective, not a global constant |
 | FL6 | **Cascade** | One shortage propagates downstream. The player should see which upstream stage starved |
 
-### SR. Scale changes the representation
+### MSR. Scale changes the representation
 
 | Code | Regime | Representation |
 |---|---|---|
-| SR1 | Hand work | Individual specimens and parts with full provenance |
-| SR2 | Workshop | Batches with averaged grade and a sampled provenance |
-| SR3 | Manufactory or sect pavilion | Rates per game day, closed-form catch-up (GR17) |
-| SR4 | Industry, nation, magic mass production | Flows and stockpiles summarized per site or network (ML7-ML8) |
+| MSR1 | Hand work | Individual specimens and parts with full provenance |
+| MSR2 | Workshop | Batches with averaged grade and a sampled provenance |
+| MSR3 | Manufactory or sect pavilion | Rates per game day, closed-form catch-up (GR17) |
+| MSR4 | Industry, nation, magic mass production | Flows and stockpiles summarized per site or network (ML7-ML8) |
 
 Rule: the same chemistry and laws apply at every regime; only resolution changes
 (P32 level of detail). Moving down a regime (inspecting one item from a flow)
@@ -285,16 +287,16 @@ promotes an address to a frozen record (GR3, GR4).
 | KS4 | **Copy drift.** Copied recipes lose detail per copy unless the copier understands it (links crafting KN) |
 | KS5 | **Stage-specific skills feed broad ones.** Skinning feeds Butchering; smelting feeds Smithing (HV2 SKILLS covers the harvest side) |
 
-### MR round 2. More rule kinds
+### MMR round 2. More rule kinds
 
 | Code | Rule kind | Example |
 |---|---|---|
-| MR8 | **Conservation laws** | Equivalent exchange in an alchemy world (public franchise rule, not sealed); mass and energy accounting by default |
-| MR9 | **Local fields** | Formations, holy ground, dead-magic zones and ley lines change operation results by place |
-| MR10 | **Timed rules** | Moon phase, season, festival, eclipse windows |
-| MR11 | **Spreading rules** | A discovered technique spreads to NPC makers over game time, changing prices and competition |
-| MR12 | **Exploits as play** | A solo player finding a loop that breaks the economy is a find, not a bug, unless it breaks saves. Limits are per-world adjectives |
-| MR13 | **Rule cost budget** | Rule matching is indexed by tag and route (audit P3), never every rule against every batch every tick |
+| MMR8 | **Conservation laws** | Equivalent exchange in an alchemy world (public franchise rule, not sealed); mass and energy accounting by default |
+| MMR9 | **Local fields** | Formations, holy ground, dead-magic zones and ley lines change operation results by place |
+| MMR10 | **Timed rules** | Moon phase, season, festival, eclipse windows |
+| MMR11 | **Spreading rules** | A discovered technique spreads to NPC makers over game time, changing prices and competition |
+| MMR12 | **Exploits as play** | A solo player finding a loop that breaks the economy is a find, not a bug, unless it breaks saves. Limits are per-world adjectives |
+| MMR13 | **Rule cost budget** | Rule matching is indexed by tag and route (audit P3), never every rule against every batch every tick |
 
 ### GC. Generating the chains themselves
 
@@ -312,7 +314,7 @@ promotes an address to a frozen record (GR3, GR4).
 | CS1 | System crafting menu: one click, no stages | Loses byproducts, stage knowledge and stage XP |
 | CS2 | Inventory pocket space | Breaks MS5 transport limits only by its own world rule; capacity has a cost curve |
 | CS3 | "Perfect harvest" touch | Completeness max, but leaves a trace (NPCs notice) |
-| CS4 | Rule rewrite in an area (MR7) | Scoped, timed, receipted; leaving the area ends it |
+| CS4 | Rule rewrite in an area (MMR7) | Scoped, timed, receipted; leaving the area ends it |
 | CS5 | Chain sight: see the whole graph for any item | Information only (MC1 in fiction) |
 
 ### OP. Overarching principles (proposal)
@@ -323,7 +325,7 @@ promotes an address to a frozen record (GR3, GR4).
 | OP2 | Depth must earn its tedium: a stage exists because it changes an outcome |
 | OP3 | Everything is traceable back to a source, an actor and a rule |
 | OP4 | Every output has a reader or a declared waste cost |
-| OP5 | Same law at every scale and for every actor (SR, GR13) |
+| OP5 | Same law at every scale and for every actor (MSR, GR13) |
 
 ### MT round 2. Subtle details
 
@@ -343,7 +345,7 @@ lane folder. Session ids in `SESSIONS.md` there.
 | Lane | Question | Effort |
 |---|---|---|
 | PC1 | Crosswalk: the seven making paths (MDF3), HV1 `src/harvest.js` and P2 mixture mapped onto HV2 M1 roles extended downstream; owners round 1 and 2 missed | medium |
-| PC2 | Procedural rule modules: schema extending `src/rules.js`, conflict policy (MR4), per-save rule grammars (MR2), social and local rules, discovery, cheats, test table, first reader | high |
+| PC2 | Procedural rule modules: schema extending `src/rules.js`, conflict policy (MMR4), per-save rule grammars (MMR2), social and local rules, discovery, cheats, test table, first reader | high |
 | PC3 | Assembly at every level: slots and parts across items, structures, sites, bodies and techniques, reconciled with weaponcraft identity, P6 buildings, CR1 bodies and genetics | medium |
 | PC4 | Idle chains and references: automation, logistics, bottleneck display, closed-form catch-up and NPC competition, from games such as Factorio, Dwarf Fortress, RimWorld, Vintage Story, GregTech, Oxygen Not Included and Melvor | medium |
 | PC5 | Per-world chains and stress journeys: four existing worlds (one comic) walked end to end; contradictions across HV2, materials audit, crafting palette and this doc | medium |
@@ -372,11 +374,11 @@ a cross-lane ranking.
 | X8 | ML3-ML4: parts and slots are new | `src/items.js` already has typed weapon components, head and handle assembly, armor components. The missing piece is saved mutable parts, custody, fit and restoration | PC3-F1 |
 | X9 | ML10: techniques as assemblies | `invention_planner.js` plans prerequisites; it spends nothing and executes nothing. It is not a spell compiler | PC3-F6 |
 | X10 | MT4: quality propagates with a cap | Cap a **named response** with a law and revision, not all material truth by one scalar | PC5-C1 |
-| X11 | SR2: averaged grade, sampled provenance | Average only properties whose consumers accept averaging; sample provenance for display only; keep exact identity where gameplay reads it (two half pelts never make a whole one) | PC4-F2, PC5-C2 |
-| X12 | MT5/SR3: whole-chain closed-form catch-up | Closed form only within a proven constant segment; advance shared causal boundaries; keep unsettled time. This is not authorization for closed-browser progress | PC4-F1, PC5-C5 |
-| X13 | MR4: one priority ladder | Separate physics, institutional rules and knowledge first; then explicit override permission; then deterministic priority. A ban has consequences without making cutting impossible. Overlay order selects content, it never bypasses eligibility | PC2-F4, PC5-C3 |
-| X14 | GC4/MR2: freeze on reveal | Also freeze at **causal commitment**: an unseen rule a worker already used has changed stock | PC5-C4 |
-| X15 | MR6: pocket realm rules | `pocket_realm_rules.js` builds a doorway; it is not a law editor. Player-made rules need new owners | PC2-F3 |
+| X11 | MSR2: averaged grade, sampled provenance | Average only properties whose consumers accept averaging; sample provenance for display only; keep exact identity where gameplay reads it (two half pelts never make a whole one) | PC4-F2, PC5-C2 |
+| X12 | MT5/MSR3: whole-chain closed-form catch-up | Closed form only within a proven constant segment; advance shared causal boundaries; keep unsettled time. This is not authorization for closed-browser progress | PC4-F1, PC5-C5 |
+| X13 | MMR4: one priority ladder | Separate physics, institutional rules and knowledge first; then explicit override permission; then deterministic priority. A ban has consequences without making cutting impossible. Overlay order selects content, it never bypasses eligibility | PC2-F4, PC5-C3 |
+| X14 | GC4/MMR2: freeze on reveal | Also freeze at **causal commitment**: an unseen rule a worker already used has changed stock | PC5-C4 |
+| X15 | MMR6: pocket realm rules | `pocket_realm_rules.js` builds a doorway; it is not a law editor. Player-made rules need new owners | PC2-F3 |
 | X16 | MT10/MI2: wrap old items as single-part assemblies | Readers only. Never infer recoverable parts, age or genealogy for old items | PC5-C6 |
 | X17 | MT12: a potion without a vial does not exist | Needs per-family applicability and real container custody; a carrier ID is not a reusable vial | PC5-C7 |
 | X18 | Maintenance and upkeep costs | Default to pausing or reducing optional production with notice; harsh consequences are per-world dials. No new mandatory survival chores (accepted food direction) | PC4-F5 |

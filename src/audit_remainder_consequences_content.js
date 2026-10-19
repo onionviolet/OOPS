@@ -1,5 +1,6 @@
 // Original, reversible local policies inspired by the audited packets. These
 // definitions create no people, stock, weather, debt or work on import/enrollment.
+import {all, eq, not} from './basics.js';
 import {EXCHANGE_CLERK, EXCHANGE_SITUATION, EXCHANGE_ITEMS} from './exchange_content.js';
 import {NESTED_IDS as N, NESTED_LOCATIONS as L, NESTED_KEYS as NK} from './feature_expansion_nested_content.js';
 
@@ -24,8 +25,6 @@ const K = REMAINDER_CONSEQUENCES_KEYS;
 export const remainderConsequencesItemSpecifications = Object.freeze([
     {id: 'Association herb seed packet', description: 'Nell’s one counted planting allocation for the permitted Village herb bed. Plant it once; this packet has no recurring supply or automatic replacement.', value: 2},
 ]);
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules}), not = rule => ({not: rule});
 const f = (name, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: `${P}${name}`, value});
 const item = (stock, amount, actor = 'player') => ({type: 'item', actor, key: stock, amount});
 const stamina = (amount, actor = 'player') => ({type: 'vital', actor, key: 'stamina', amount});

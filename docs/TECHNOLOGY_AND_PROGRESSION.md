@@ -1,5 +1,7 @@
 # Technology and technological progression (proposal)
 
+> Codes renamed 2026-10-19 from GR1-GR11 to TGR1-TGR11, SR1-SR4 to TSR1-TSR4 and MR1-MR7 to TMR1-TMR7 to avoid collision with registered GR (generation foundation rules), SR (site rules) and MR (making rules). See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 > **How to use this doc (Weibao, 2026-10-10):** these are considerations
 > for established and future worlds, to help ideaboard and implement
 > fitting characters at fitting times. Tiers, lists and tables are
@@ -537,11 +539,11 @@ is away, and how much attention it asks for.
 | RV1 | **Attention kinds** | Reading and repetitive testing can run unattended; a judgment call (which result to trust, which branch to try) waits for the player and says so |
 | RV2 | **Offline research** | Follows the active branch's offline clock ([offline audit](research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md)). Unattended work stops at a named reason: out of samples, a decision needed, an instrument broke |
 | RV3 | **Sleep on it** | A stuck project may resolve partly overnight or after a change of activity, where the world supports incubation. A flavor rider, not a mandatory timer |
-| RV4 | **Riders on other actions** | Ordinary play leaves notes: fighting a beast notes its weak joint, cooking notes a reaction. Doing related things boosts related research (the Civ VI eureka shape, see GR1) |
+| RV4 | **Riders on other actions** | Ordinary play leaves notes: fighting a beast notes its weak joint, cooking notes a reaction. Doing related things boosts related research (the Civ VI eureka shape, see TGR1) |
 | RV5 | **Slots and queues** | How many projects run at once comes from actual means: desks, assistants, instruments, a split mind. Not a fixed global cap |
 | RV6 | **Plateaus** | Repeating the same approach stops paying. Changing method, teacher, sample or world breaks it. The game can say "this approach is exhausted" when the actor would know |
 | RV7 | **Depth versus breadth** | Focus finishes one result; scatter leaves many partial leads. Both are valid ways to live |
-| RV8 | **Research across prestige** | Idle-genre convention: some research persists through a reset (GR11). Here it persists only through a carrier, per rule 5 and the first milestone's one prestige layer |
+| RV8 | **Research across prestige** | Idle-genre convention: some research persists through a reset (TGR11). Here it persists only through a carrier, per rule 5 and the first milestone's one prestige layer |
 
 ### RQ. Where questions come from
 
@@ -564,8 +566,8 @@ Questions can be wrong (rule 6): the anomaly might be an instrument fault.
 
 | Code | Presentation | Idea |
 |---|---|---|
-| RU1 | **Drawn options** | Instead of a full tree, the next choices are drawn from what is nearby, weighted by expertise and situation (Stellaris shape, GR2). Fits fogged worlds (TS5) |
-| RU2 | **Fragments** | Several partial finds combine into a design (Subnautica shape, GR3). Each fragment shows how much is still missing, when the actor could tell |
+| RU1 | **Drawn options** | Instead of a full tree, the next choices are drawn from what is nearby, weighted by expertise and situation (Stellaris shape, TGR2). Fits fogged worlds (TS5) |
+| RU2 | **Fragments** | Several partial finds combine into a design (Subnautica shape, TGR3). Each fragment shows how much is still missing, when the actor could tell |
 | RU3 | **Confidence per fact** | A note shows "seen once", "repeated", "confirmed by others" rather than a hidden number |
 | RU4 | **Known unknowns** | A short list of what the actor knows they don't know. Unknown unknowns stay invisible |
 | RU5 | **Estimates that can be wrong** | "About ten days" from a novice can turn into forty. Experience narrows estimates |
@@ -581,7 +583,7 @@ Questions can be wrong (rule 6): the anomaly might be an instrument fault.
 | RB3 | **Author bias and age** | An old text describes a world that has changed; a sect manual hides its key step on purpose |
 | RB4 | **Languages and scripts** | Translation is its own project; dead scripts need a key text |
 | RB5 | **Access** | Restricted stacks, fees, sponsors, stealing a key, befriending a librarian |
-| RB6 | **Knowledge that acts on the reader** | Some worlds have it: LOTM-style danger from knowing too much, Thaumcraft-style warp (GR6). Only where that world's rules say so |
+| RB6 | **Knowledge that acts on the reader** | Some worlds have it: LOTM-style danger from knowing too much, Thaumcraft-style warp (TGR6). Only where that world's rules say so |
 | RB7 | **Writing your own book** | Records survive you (TR), teach heirs, or leak to rivals. A book can become an item with provenance |
 | RB8 | **Index and search as tech** | Catalogs, cross-references, then search engines. Each raises how fast reading turns into findings |
 
@@ -719,7 +721,7 @@ by any machine.
 | TC14 | **Anomaly eye** | Sees what does not fit the known rules | Sees that, not why |
 | TC15 | **Mentor ghost** | A dead expert in your head | Their knowledge is old, their opinions strong |
 
-### GR. Reference mechanics (verified 2026-10-14)
+### TGR. Reference mechanics (verified 2026-10-14)
 
 Checked by a Claude web pass on 2026-10-14 through official or community
 wikis; some Fandom pages were read only as search excerpts. These describe
@@ -728,17 +730,17 @@ it informs. Flags mark what was not confirmed.
 
 | Code | Game | Mechanism | Informs | Source |
 |---|---|---|---|---|
-| GR1 | Civilization VI | Each tech has a Eureka (civics: Inspiration), an in-game objective such as building a quarry. Meeting it pays part of that item's cost: 50% at launch, 40% from Rise and Fall onward | RV4, TC9 | [Fandom](https://civilization.fandom.com/wiki/Boost_(Civ6)) (search excerpt) |
-| GR2 | Stellaris | Each of three fields offers a small hand of options (normally three) drawn by weight. Scientist expertise raises matching weights; rare techs appear far less without it; techs skipped last hand lose weight. Some techs are flagged dangerous and tied to endgame crises. Flag: current dangerous list and crisis weights unconfirmed | RU1, RE6 | [Official wiki](https://stellaris.paradoxwikis.com/Technology) |
-| GR3 | Subnautica | Scanning enough fragments of a blueprint unlocks it, with scanned/needed progress shown; data boxes grant blueprints outright. Flag: exact per-item counts from guides only | RU2, TN4 | [Steam discussion](https://steamcommunity.com/app/264710/discussions/0/412447524178931831) |
-| GR4 | RimWorld | Bench quality and an attached analyzer change research speed. A low-tech faction pays 1.5x to 2x for projects above its level. Techprints (Royalty DLC) are found or bought items consumed to make a project researchable | RV5, TG3, TN5 | [Research](https://rimworldwiki.com/wiki/Research), [Techprint](https://rimworldwiki.com/wiki/Techprint) |
-| GR5 | Caves of Qud | Disassembly yields bits; with Reverse Engineer each disassembly has a 25% chance to teach the item's recipe. Some recipes need data disks instead | TN3, RU2 | [Official wiki](https://wiki.cavesofqud.com/wiki/Tinkering) |
-| GR6 | Thaumcraft 4 (Minecraft mod) | Scanning the world earns aspect points; a research note is solved as a hex puzzle linking aspects through related aspects. Forbidden research gives Warp: bad events plus occasional free insight. Thaumcraft 6 replaced this with observation and theory knowledge. Flag: exact puzzle rule from memory | RQ1, RB6, RE6 | [FTB wiki](https://ftb.gamepedia.com/Crimson_Rites_(Thaumcraft_6)) |
-| GR7 | Oxygen Not Included | Each research tier needs its own station and input: dirt, then water plus a trained duplicant, then data banks from space missions | TG5, TG7, Factorio-style consumed products | [wiki.gg](https://oxygennotincluded.wiki.gg/wiki/Research) (marked possibly outdated) |
-| GR8 | Against the Storm | Each settlement drafts building blueprints from random weighted offers, with more picks as reputation rises; they do not carry to the next settlement | RU1, RV8 | [Hooded Horse wiki](https://wiki.hoodedhorse.com/Against_the_Storm/Blueprints) (search excerpt) |
-| GR9 | Kenshi | Higher research tiers consume found items: ancient books, engineering research and a scarce, uncraftable AI core supply | TN4, TS7, TE5 | [Fandom](https://kenshi.fandom.com/wiki/AI_Core) |
-| GR10 | Frostpunk | Engineers staff heated workshops; extra workshops add less each. Longer or emergency shifts speed research at the cost of discontent | RP4, SO11, TA5 | [Fandom](https://frostpunk.fandom.com/wiki/Workshop) (search excerpt) |
-| GR11 | Antimatter Dimensions | Time Studies are a tree bought with Time Theorems that persist through Eternity resets; some paths exclude each other and a respec refunds everything | RV8 | [wiki.gg](https://antimatterdimensions.wiki.gg/wiki/Time_Studies) |
+| TGR1 | Civilization VI | Each tech has a Eureka (civics: Inspiration), an in-game objective such as building a quarry. Meeting it pays part of that item's cost: 50% at launch, 40% from Rise and Fall onward | RV4, TC9 | [Fandom](https://civilization.fandom.com/wiki/Boost_(Civ6)) (search excerpt) |
+| TGR2 | Stellaris | Each of three fields offers a small hand of options (normally three) drawn by weight. Scientist expertise raises matching weights; rare techs appear far less without it; techs skipped last hand lose weight. Some techs are flagged dangerous and tied to endgame crises. Flag: current dangerous list and crisis weights unconfirmed | RU1, RE6 | [Official wiki](https://stellaris.paradoxwikis.com/Technology) |
+| TGR3 | Subnautica | Scanning enough fragments of a blueprint unlocks it, with scanned/needed progress shown; data boxes grant blueprints outright. Flag: exact per-item counts from guides only | RU2, TN4 | [Steam discussion](https://steamcommunity.com/app/264710/discussions/0/412447524178931831) |
+| TGR4 | RimWorld | Bench quality and an attached analyzer change research speed. A low-tech faction pays 1.5x to 2x for projects above its level. Techprints (Royalty DLC) are found or bought items consumed to make a project researchable | RV5, TG3, TN5 | [Research](https://rimworldwiki.com/wiki/Research), [Techprint](https://rimworldwiki.com/wiki/Techprint) |
+| TGR5 | Caves of Qud | Disassembly yields bits; with Reverse Engineer each disassembly has a 25% chance to teach the item's recipe. Some recipes need data disks instead | TN3, RU2 | [Official wiki](https://wiki.cavesofqud.com/wiki/Tinkering) |
+| TGR6 | Thaumcraft 4 (Minecraft mod) | Scanning the world earns aspect points; a research note is solved as a hex puzzle linking aspects through related aspects. Forbidden research gives Warp: bad events plus occasional free insight. Thaumcraft 6 replaced this with observation and theory knowledge. Flag: exact puzzle rule from memory | RQ1, RB6, RE6 | [FTB wiki](https://ftb.gamepedia.com/Crimson_Rites_(Thaumcraft_6)) |
+| TGR7 | Oxygen Not Included | Each research tier needs its own station and input: dirt, then water plus a trained duplicant, then data banks from space missions | TG5, TG7, Factorio-style consumed products | [wiki.gg](https://oxygennotincluded.wiki.gg/wiki/Research) (marked possibly outdated) |
+| TGR8 | Against the Storm | Each settlement drafts building blueprints from random weighted offers, with more picks as reputation rises; they do not carry to the next settlement | RU1, RV8 | [Hooded Horse wiki](https://wiki.hoodedhorse.com/Against_the_Storm/Blueprints) (search excerpt) |
+| TGR9 | Kenshi | Higher research tiers consume found items: ancient books, engineering research and a scarce, uncraftable AI core supply | TN4, TS7, TE5 | [Fandom](https://kenshi.fandom.com/wiki/AI_Core) |
+| TGR10 | Frostpunk | Engineers staff heated workshops; extra workshops add less each. Longer or emergency shifts speed research at the cost of discontent | RP4, SO11, TA5 | [Fandom](https://frostpunk.fandom.com/wiki/Workshop) (search excerpt) |
+| TGR11 | Antimatter Dimensions | Time Studies are a tree bought with Time Theorems that persist through Eternity resets; some paths exclude each other and a respec refunds everything | RV8 | [wiki.gg](https://antimatterdimensions.wiki.gg/wiki/Time_Studies) |
 
 Not confirmed: Stellaris crisis weights, Subnautica per-item counts,
 Thaumcraft puzzle rule, Against the Storm reroll cost, Frostpunk heat effect.
@@ -892,14 +894,14 @@ allocation.
 | EC3 | **Restoration** | Replant a forest, clean a river, heal a cursed land. Long, satisfying idle projects |
 | EC4 | **Pollution** | TW5 side effects as something to research away |
 
-### SR. Sacred and mysterious tech
+### TSR. Sacred and mysterious tech
 
 | Code | Consideration | Example |
 |---|---|---|
-| SR1 | **Priest-engineers** | Maintenance as ritual; knowledge kept by faith |
-| SR2 | **Miracle or mechanism** | A shrine's power might be a device, a god or both. The world decides |
-| SR3 | **Blasphemous study** | Studying a holy object can offend its keepers (RE6) |
-| SR4 | **Belief as input** | Faith-powered devices (TX6) need worshippers, not fuel |
+| TSR1 | **Priest-engineers** | Maintenance as ritual; knowledge kept by faith |
+| TSR2 | **Miracle or mechanism** | A shrine's power might be a device, a god or both. The world decides |
+| TSR3 | **Blasphemous study** | Studying a holy object can offend its keepers (RE6) |
+| TSR4 | **Belief as input** | Faith-powered devices (TX6) need worshippers, not fuel |
 
 ### IF. Open-ended and endgame research
 
@@ -1142,7 +1144,7 @@ Deep roadmaps are projects. Idle games are good at running them.
 |---|---|---|
 | PS1 | **Substitutes with costs** | No natron? Wood ash works, slower and weaker. Methods list acceptable substitutes and what each costs |
 | PS2 | **Jury-rigging** | A worse version now beats a good one later. Improvised products carry a quality and failure penalty (PA3) |
-| PS3 | **Salvage as a node source** | Taking apart old products supplies nodes (TN3, GR5) |
+| PS3 | **Salvage as a node source** | Taking apart old products supplies nodes (TN3, TGR5) |
 | PS4 | **Local genius** | A native's folk method turns out to be a branch the transmigrator never knew (RF3, KD6) |
 
 ### PC. Conceiving a goal at all
@@ -1180,7 +1182,7 @@ The same graphs can generate the world itself.
 | Code | Consideration | Example |
 |---|---|---|
 | PW1 | **Seeded tech maps** | Run diffusion from a few origin regions over the graph to decide what each region has: common, rare, unknown (TL5). Saved once, never rerolled |
-| PW2 | **Generated ruins** | A fallen civilization is a graph with nodes it had. Ruins hold its products and fragments at random fidelity (TS7, GR3) |
+| PW2 | **Generated ruins** | A fallen civilization is a graph with nodes it had. Ruins hold its products and fragments at random fidelity (TS7, TGR3) |
 | PW3 | **Generated histories of invention** | Who invented what, when, and who claimed it. Feeds procedural history and legends (P14) |
 | PW4 | **NPC inventors** | Generated people with targets, skills and temperaments pursuing their own roadmaps (PI11a) |
 | PW5 | **World adjectives** | "Fast-inventing", "guild-locked", "post-collapse", "magic-saturated" set diffusion speed and which branches are favored |
@@ -1276,17 +1278,17 @@ batch, a bat hears the crack.
 | MT6 | **Lost small things** | The one drill bit that rolled away. Rare, mild, sometimes found later |
 | MT7 | **Naming tools** | Players or characters name favorite tools; heirs inherit the names |
 
-### MR. The paper trail
+### TMR. The paper trail
 
 | Code | Detail | Example |
 |---|---|---|
-| MR1 | **Handwriting and shorthand** | Your notes use private abbreviations. An heir or rival reading them gets less than you did (TK, TR) |
-| MR2 | **Marginalia** | A borrowed book holds a previous reader's notes: a hint, a wrong guess, a name |
-| MR3 | **Fading labels** | Old jars lose their labels; an unknown jar becomes a small mystery (RU4) |
-| MR4 | **Misfiled samples** | A swapped sample explains a strange result (RF5) |
-| MR5 | **Stains and damage** | A burned page loses one step; a coffee ring hides a number |
-| MR6 | **Body units** | A thumb's width, a pinch, a cubit. Recipes in body units drift between people until standards exist (SO6) |
-| MR7 | **Dated entries** | Each note records season and place; reading them back is a life story (RD3) |
+| TMR1 | **Handwriting and shorthand** | Your notes use private abbreviations. An heir or rival reading them gets less than you did (TK, TR) |
+| TMR2 | **Marginalia** | A borrowed book holds a previous reader's notes: a hint, a wrong guess, a name |
+| TMR3 | **Fading labels** | Old jars lose their labels; an unknown jar becomes a small mystery (RU4) |
+| TMR4 | **Misfiled samples** | A swapped sample explains a strange result (RF5) |
+| TMR5 | **Stains and damage** | A burned page loses one step; a coffee ring hides a number |
+| TMR6 | **Body units** | A thumb's width, a pinch, a cubit. Recipes in body units drift between people until standards exist (SO6) |
+| TMR7 | **Dated entries** | Each note records season and place; reading them back is a life story (RD3) |
 
 ### MA. Small accidents and luck
 
@@ -1365,7 +1367,7 @@ Fidelity (TK) is one number. Real knowing has texture.
 | SC2 | **Curse of knowledge** | Experts skip steps when teaching because the steps feel obvious. A patient teacher trait or a written method helps |
 | SC3 | **Fixation** | Someone who knows one method keeps reaching for it and misses a simpler fix a novice sees (the Einstellung effect; T12 to verify) |
 | SC4 | **Fixed functions** | A tool seen only as a hammer is never tried as a weight. Breaking that habit is a small insight (functional fixedness) |
-| SC5 | **Gist without details** | Months later the actor remembers what a method does but not the ratios. Notes save details (MR) |
+| SC5 | **Gist without details** | Months later the actor remembers what a method does but not the ratios. Notes save details (TMR) |
 | SC6 | **Mixing up two recipes** | Similar methods interfere; the wrong step from one ends up in the other |
 | SC7 | **Context memory** | A method comes easier in the place it was learned; away from the workshop it is shakier |
 | SC8 | **Overconfidence** | Novices' estimates are confidently wrong (RU5). Calibration grows with experience |

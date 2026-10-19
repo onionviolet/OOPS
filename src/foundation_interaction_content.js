@@ -1,11 +1,11 @@
 // Optional original development arena. Definitions do not enroll its people,
 // grant sources or allocate demonstration budgets during ordinary play.
+import {eqNoReason as eq} from './basics.js';
 export const FOUNDATION_PROBE_GROUP = 'foundation_interaction';
 export const FOUNDATION_PROBE_SOURCE = 'foundation.probe.control';
 export const FOUNDATION_PROBE_ACTORS = ['foundation.probe.a','foundation.probe.b','foundation.probe.c'];
 export const foundationInteractionSources = [{id:FOUNDATION_PROBE_SOURCE,revision:1,label:'Experimental arena control',kind:'skill',origin:'trained',grants:[]}];
 const body = actor => `${actor}.body`;
-const eq=(fact,value=true)=>({fact,op:'eq',value});
 const command=d=>({revision:1,worldId:'base.frontier',group:FOUNDATION_PROBE_GROUP,costs:[],effects:[],requires:eq('foundation.probe.host'),...d});
 const cost=(actor,n=1)=>({type:'resource',actor,key:'demonstrationFuel',amount:-n});
 const source=(actor,operation='grant')=>({type:'source',actor,sourceId:FOUNDATION_PROBE_SOURCE,operation,...(operation==='grant'?{origin:'trained',awakened:true,active:true}:{})});

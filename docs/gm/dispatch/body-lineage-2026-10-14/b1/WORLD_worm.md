@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB5 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § Bay City; identity IL13, CONTINUITY E09–E11. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 CN8 MS1 TR3 TR6 WR1 HI4 OB4 BM4 BM6 PR4 SR1 | Copies and modified bodies acquire distinct histories; trained control and acquired graft function remain different. |
+| Fit | PH1 SG3 SG4 SG5 CN8 MS1 TR3 TR6 WR1 HI4 OB4 BM4 BM6 PR4 BSR1 | Copies and modified bodies acquire distinct histories; trained control and acquired graft function remain different. |
 | Skip families | GN LQ AG BD CL BP MX SB RP | GN/BD/CL/BP/MX/RP: trigger power is not a generic bloodline. Butcher fragments need their source-specific route, not breeding. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

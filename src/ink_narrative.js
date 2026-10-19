@@ -1,3 +1,4 @@
+import {check as assert, copy as clone, natural} from './basics.js';
 import {Story} from 'inkjs';
 import compiled from '../stories/feature_wave.json' with {type:'json'};
 import retainedV1 from '../docs/gm/feature-wave/ink/content/feature_wave_v1.json' with {type:'json'};
@@ -21,9 +22,6 @@ const artifactFor = saved => {
         'Saved conversation needs its retained compiled content. Keep its paid host effects and restore the matching build.');
     return artifact;
 };
-const clone = value => structuredClone(value);
-const assert = (condition, message) => {if(!condition) throw new Error(message);};
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const object = value => value && typeof value === 'object' && !Array.isArray(value);
 const text = (value, limit = 8192) => typeof value === 'string' && value.length <= limit;
 const identifier = value => text(value, 128) && value.length > 0 && /^[A-Za-z0-9_.:/-]+$/.test(value);

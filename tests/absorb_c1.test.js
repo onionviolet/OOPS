@@ -1,10 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile, mkdtemp, rm} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {join, resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
-import {build} from 'esbuild';
+import {loadNative, STANCE_LOCATION_STUBS} from './helpers/native_loader.mjs';
 import {ACCESSORY_IDS as IDS, ACCESSORIES, registerAccessoryItems,
     registerAccessoryRecipes, equippedAccessoryUtility, accessoryBonusText,
     accessoryCraftChance, accessoryDropModifier, accessoryTradeMargin,
@@ -70,69 +66,54 @@ test('injected equipment reader stays live and accepts the host custody filter',
 });
 
 test('native registration, material acquisition, equipment and save-key roundtrip use existing models', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'c1-native-test-'));
-    try {
-        const outfile = join(dir, 'native.mjs');
-        await build({stdin: {contents: `
+    const native = await loadNative(`
             export {item_templates, Amulet, getItemFromKey} from './src/items.js';
             export {recipes, ItemRecipe} from './src/crafting_recipes.js';
             export {character} from './src/data/character.js';
             export {availabilities} from './src/data/component_references.js';
-            export {fill_availability_methods} from './src/component_management.js';`,
-            resolveDir: resolve('.')}, bundle: true, format: 'esm', platform: 'node', outfile,
-            plugins: [{name: 'presentation-only', setup(b) {
-                b.onLoad({filter: /\/src\/(main|display)\.js$/}, async a => {
-                    const source = await readFile(a.path, 'utf8');
-                    const names = [...source.matchAll(/export\s*\{([^}]+)\}/g)]
-                        .flatMap(m => m[1].split(',').map(s => s.trim().split(/\s+as\s+/).at(-1)))
-                        .filter(s => /^[a-zA-Z_$][\w$]*$/.test(s));
-                    return {contents: names.map(s => `export const ${s} = ${s === 'game_options' ? '{}' : s === 'current_stance' ? '({getStats:()=>({})})' : s === 'current_location' ? 'null' : s === 'capitalize_first_letter' ? 's=>s[0].toUpperCase()+s.slice(1)' : '()=>{}'};`).join('\n')};
-                });
-            }}]});
-        const native = await import(pathToFileURL(outfile));
-        const items = registerAccessoryItems(native);
-        const recipes = registerAccessoryRecipes(native);
-        native.fill_availability_methods();
-        assert.equal(registerAccessoryItems(native)[0], items[0]);
-        assert.equal(registerAccessoryRecipes(native)[0], recipes[0]);
-        for (const [i, d] of ACCESSORIES.entries()) {
-            const item = items[i], recipe = recipes[i];
-            assert.equal(item.equip_slot, 'amulet');
-            assert.equal(item.use_quality, false);
-            assert.deepEqual(item.getStats(), {});
-            assert.equal(item.description, accessoryBonusText(item));
-            assert.equal(recipe.getAvailabilityComponent().getStatus().is_unlocked, true);
-            assert.equal(native.availabilities.recipe[d.id], recipe.getAvailabilityComponent());
-            assert.deepEqual(recipe.getResult(), {result_id: d.id, count: 1});
-            assert.equal(recipe.get_availability().available_ammount, 0);
-            for (const material of d.materials) {
-                const input = native.item_templates[material.material_id];
-                assert.ok(input, material.material_id);
-                native.character.addToInventory([{item_key: input.getInventoryKey(), count: material.count}]);
-            }
-            assert.equal(recipe.get_availability().available_ammount, 1);
-            // Use the native selected-input ledger for consumption, then native result key.
-            for (const group of recipe.get_availability().materials) {
-                let needed = group.items.reduce((sum, x) => sum + x.count, 0);
-                for (const entry of group.items) {
-                    const count = Math.min(needed, entry.count);
-                    native.character.removeFromInventory([{item_key: entry.item.getInventoryKey(), item_count: count}]);
-                    needed -= count;
-                }
-            }
-            const restored = native.getItemFromKey(item.getInventoryKey());
-            assert.equal(restored.id, d.id);
-            assert.equal(restored.equip_slot, 'amulet');
-            assert.equal(restored.use_quality, false);
-            native.character._equipItem(restored);
-            assert.deepEqual(equippedAccessoryUtility(native.character.getEquipment()), equippedAccessoryUtility(equipped(d.id)));
-            const serializedEquipment = JSON.parse(JSON.stringify(native.character.getEquipment()));
-            assert.equal(serializedEquipment.amulet.id, d.id);
-            assert.deepEqual(equippedAccessoryUtility(serializedEquipment), equippedAccessoryUtility(equipped(d.id)));
-            native.character.unequipItem('amulet');
-            assert.deepEqual(equippedAccessoryUtility(native.character.getEquipment()), equippedAccessoryUtility());
+            export {fill_availability_methods} from './src/component_management.js';`, {stubs: STANCE_LOCATION_STUBS, prefix: 'c1-native-test-'});
+    const items = registerAccessoryItems(native);
+    const recipes = registerAccessoryRecipes(native);
+    native.fill_availability_methods();
+    assert.equal(registerAccessoryItems(native)[0], items[0]);
+    assert.equal(registerAccessoryRecipes(native)[0], recipes[0]);
+    for (const [i, d] of ACCESSORIES.entries()) {
+        const item = items[i], recipe = recipes[i];
+        assert.equal(item.equip_slot, 'amulet');
+        assert.equal(item.use_quality, false);
+        assert.deepEqual(item.getStats(), {});
+        assert.equal(item.description, accessoryBonusText(item));
+        assert.equal(recipe.getAvailabilityComponent().getStatus().is_unlocked, true);
+        assert.equal(native.availabilities.recipe[d.id], recipe.getAvailabilityComponent());
+        assert.deepEqual(recipe.getResult(), {result_id: d.id, count: 1});
+        assert.equal(recipe.get_availability().available_ammount, 0);
+        for (const material of d.materials) {
+            const input = native.item_templates[material.material_id];
+            assert.ok(input, material.material_id);
+            native.character.addToInventory([{item_key: input.getInventoryKey(), count: material.count}]);
         }
-        assert.ok(native.item_templates['Iron ingot']);
-        assert.ok(native.item_templates["Old ram's horn"]);
-    } finally {await rm(dir, {recursive: true, force: true});}
+        assert.equal(recipe.get_availability().available_ammount, 1);
+        // Use the native selected-input ledger for consumption, then native result key.
+        for (const group of recipe.get_availability().materials) {
+            let needed = group.items.reduce((sum, x) => sum + x.count, 0);
+            for (const entry of group.items) {
+                const count = Math.min(needed, entry.count);
+                native.character.removeFromInventory([{item_key: entry.item.getInventoryKey(), item_count: count}]);
+                needed -= count;
+            }
+        }
+        const restored = native.getItemFromKey(item.getInventoryKey());
+        assert.equal(restored.id, d.id);
+        assert.equal(restored.equip_slot, 'amulet');
+        assert.equal(restored.use_quality, false);
+        native.character._equipItem(restored);
+        assert.deepEqual(equippedAccessoryUtility(native.character.getEquipment()), equippedAccessoryUtility(equipped(d.id)));
+        const serializedEquipment = JSON.parse(JSON.stringify(native.character.getEquipment()));
+        assert.equal(serializedEquipment.amulet.id, d.id);
+        assert.deepEqual(equippedAccessoryUtility(serializedEquipment), equippedAccessoryUtility(equipped(d.id)));
+        native.character.unequipItem('amulet');
+        assert.deepEqual(equippedAccessoryUtility(native.character.getEquipment()), equippedAccessoryUtility());
+    }
+    assert.ok(native.item_templates['Iron ingot']);
+    assert.ok(native.item_templates["Old ram's horn"]);
 });

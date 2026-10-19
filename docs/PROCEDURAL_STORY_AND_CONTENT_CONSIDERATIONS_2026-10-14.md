@@ -1,5 +1,7 @@
 # Procedural story and content generation: considerations
 
+> Codes renamed 2026-10-19 from the local rows AD1, AR1 and AU1 to PS-AD1, PS-AR1 and PS-AU1 to avoid collision with registered AD (accepted direction), AR (architecture) and AU (agent usage). See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Claude (root), 2026-10-14. A palette, not a spec. Nothing here is selected for a
 build. Request history is in [USER_VISION](USER_VISION.md) (2026-10-14 "Procedural
 story generation?" and follow-ups). Current state lives in the
@@ -340,7 +342,7 @@ for any agent mass-authoring, so it moves up next to the A1/E1/F1 picks.
 
 | Code | Idea | Notes |
 |---|---|---|
-| AD1 | **Weights that learn from bookmarks.** K5 marks gently shift card and genre weights for his saves, visible and resettable, never making anything unreachable. | A simple bandit, not a black box. |
+| PS-AD1 | **Weights that learn from bookmarks.** K5 marks gently shift card and genre weights for his saves, visible and resettable, never making anything unreachable. | A simple bandit, not a black box. |
 
 ## AE. Writers' room for agents
 
@@ -439,7 +441,7 @@ that a later life finds.
 | Code | Idea | Notes |
 |---|---|---|
 | AO1 | **Authoring budget.** Estimate how many cards, templates and people per world are needed for N hours to feel fresh, given generator recombination. Plan production against it. | Turns "infinite content" into a production plan. |
-| AO2 | **Local play logs.** An opt-in, local-only record of Weibao's own sessions (what he skips, bookmarks, lingers on) feeds F1 metrics and AD1 taste. | Never leaves the machine; never touches saves. |
+| AO2 | **Local play logs.** An opt-in, local-only record of Weibao's own sessions (what he skips, bookmarks, lingers on) feeds F1 metrics and PS-AD1 taste. | Never leaves the machine; never touches saves. |
 
 ## Round 5 suggested order
 
@@ -494,7 +496,7 @@ natural second steps.
 
 | Code | Idea | Notes |
 |---|---|---|
-| AR1 | **A social calendar.** Invitations, lessons, dates, festivals and deadlines compete for the same evening, as in Persona's calendar. Choosing is the story. | Pairs with Q time structures and AJ1 promises. Idle-safe if missed invitations just pass. |
+| PS-AR1 | **A social calendar.** Invitations, lessons, dates, festivals and deadlines compete for the same evening, as in Persona's calendar. Choosing is the story. | Pairs with Q time structures and AJ1 promises. Idle-safe if missed invitations just pass. |
 
 ## AS. Other outsiders
 
@@ -512,13 +514,13 @@ natural second steps.
 
 | Code | Idea | Notes |
 |---|---|---|
-| AU1 | **Losing opens arcs.** Defeat can lead to capture, ransom, rescue, debt, a new mentor or a grudge instead of only a reload or death, per world. | Extends P12 failure-forward to combat and social loss. |
+| PS-AU1 | **Losing opens arcs.** Defeat can lead to capture, ransom, rescue, debt, a new mentor or a grudge instead of only a reload or death, per world. | Extends P12 failure-forward to combat and social loss. |
 
 ## Round 6 suggested order
 
 Proposal only. Start the convergence slice above when Weibao wants something
 playable. Of the new ideas, AQ1 (in-world media) adds the most per-world flavor
-for the least simulation, and AU1 (defeat as story) protects long runs.
+for the least simulation, and PS-AU1 (defeat as story) protects long runs.
 
 ---
 
@@ -896,7 +898,7 @@ Folded at the request of the gameplay-foundations session after the returns were
 |---|---|---|---|---|
 | [P26](gm/dispatch/procgen-2026-10-13/p26/REPORT.md) W, X, Z | 89 beat templates over all 39 P9 routes; twelve-trope vocabulary with per-world weights; eleven genre packs; gag lifecycle | Foundation SB9/GC5 (rare events) vs Z2; MC13 vs X1; MC15 vs AQ1; MC18 vs Z3 | SB9 "at least once per N windows" vs Z2, which allows none; Z2 wins under the no-fixed-once rule | Already folded (Round 9) |
 | [P27](gm/dispatch/procgen-2026-10-13/p27/REPORT.md) AA, AB, AC | Journey commitment and stop policies; sponsor vs captain ledgers; group law, delegation, succession; teaching receipts; ten afterlife source rows | P27.S3 = P30.S3 = P31.S1 (teaching); S5 vs P30 aging and P16 endings; S2 = J3 and P21 ventures | F16 stale (deck is live). Keeps defeat as recovery, no absence casualties | S1 road interruption (folded R8), S2 sponsored crew return, S3 teach and follow the learner |
-| [P28](gm/dispatch/procgen-2026-10-13/p28/REPORT.md) Y, AD, AE, AF | Intent grammar with ambiguity corpus; taste as bounded integer weights with epoch reset and bug marks carrying no dislike; six-role writers' room; life-stage onboarding matrix | Y2 = P15.S3/V4; AD1 near AO2 (explicit marks only, separable); AE1 = K2 and P15 lint; AF1 vs Q3, P25 | F2 stale (deck is live) | S1 typed goal to next step (folded R8), S2 known-topic conversation, S3 bookmark to gentle variation |
+| [P28](gm/dispatch/procgen-2026-10-13/p28/REPORT.md) Y, AD, AE, AF | Intent grammar with ambiguity corpus; taste as bounded integer weights with epoch reset and bug marks carrying no dislike; six-role writers' room; life-stage onboarding matrix | Y2 = P15.S3/V4; PS-AD1 near AO2 (explicit marks only, separable); AE1 = K2 and P15 lint; AF1 vs Q3, P25 | F2 stale (deck is live) | S1 typed goal to next step (folded R8), S2 known-topic conversation, S3 bookmark to gentle variation |
 | [P30](gm/dispatch/procgen-2026-10-13/p30/REPORT.md) AG, AH, AI | Power-level stories (responsibility, politics, mentoring, legacy) with book locators; queued-care contract with no login delta; born, adopted, foster and chosen family over nine worlds; individual animal habits and retirement | AH2 and S5 = crafting C10/C16 and CR1; AI2 = companion owners, CR1-CR4; AI1 = P5 D7, P26 FAN_SEEDS; S3 = P27.S3 | None. States the no-absence rule outright | S1 role-aware support and success stories, S2 gentle caused recovery, S3 one child's chosen learning |
 | [P31](gm/dispatch/procgen-2026-10-13/p31/REPORT.md) AJ, AK, AL | Two-way promise ledger; oaths with automatic penalty vs judgment; secrets traded as evidence; player secrets found only by real evidence; optional shrine practice, doctrine vs truth; live narrow owners (favors in `village_career`, kit debt in `heir_inheritance`) | AJ3 vs debt card C06 (kept separate); AK1/AK2 vs G5, P19, P24; P31.M1-M6 and P33.M1-M6 audit P2 with different mappings | None. Breach clock counts eligible played time only; sealed secrets by ID | S1 reciprocal receipt-backed promises, S2 callable favor, S3 evidence trade |
 | [P32](gm/dispatch/procgen-2026-10-13/p32/REPORT.md) AM, AN, AO | Coverage labels for history intervals; size estimate (about 838 KiB decoded, up to about 3.3 MiB across two UTF-16 copies); default-off local play log | AM1.X4 vs foundation CG11; AO2.X1 vs P28, P22 | Live 4 MiB guard vs P19's 1 MiB budget (P32.C7) | Folded S1, S2; add S3 distant maker continues work |

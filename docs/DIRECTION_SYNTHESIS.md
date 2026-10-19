@@ -16,7 +16,7 @@ This is a recommended synthesis, not a vote to implement every researched system
 
 ## Full home world and divergent continuity proposal, 2026-10-03
 
-[PROJECT.md](gm/PROJECT_LOG.md#branch-dimension-identity-2026-10-03) owns the selected framing: our expanded YAIRPG setting is a separate branch dimension in the larger campaign, distinguished from the original source continuity. It retains the familiar adventure and receives full local development alongside other worlds. Working names, exact canon divergence and the detailed policies below remain proposals.
+[PROJECT_LOG.md](gm/PROJECT_LOG.md#branch-dimension-identity-2026-10-03) owns the selected framing: our expanded YAIRPG setting is a separate branch dimension in the larger campaign, distinguished from the original source continuity. It retains the familiar adventure and receives full local development alongside other worlds. Working names, exact canon divergence and the detailed policies below remain proposals.
 
 Execution update, 2026-10-03: [Optional town chapter](gm/PROJECT_LOG.md#optional-town-chapter-2026-10-03) owns the delivered first contract and compatibility. Authored metadata identifies this campaign as **YAIRPG: Parallel Frontier**, a branch dimension; [knowledge-aware presentation](gm/PROJECT_LOG.md#knowledge-aware-identity-and-notebook-menus-2026-10-03) now withholds name and branch status independently until the character learns them. Unknown authored values also remain unknown. The stable `base.frontier` identity and saved progress remain unchanged. Native opening/quests/dialogue remain available and town access is opt-in. No playable original counterpart, selector or dimensional travel is implied.
 

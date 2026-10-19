@@ -16,8 +16,10 @@ installed payload, source coverage and gameplay acceptance are separate facts.
 |---|---|---|---|
 | AQ1 | Academagia, Heaven's Vault, Immortal Life, The Scroll of Taiwu, Warsim, Idle Reincarnator | [October 14 wave results](../gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md) record finite PARTIAL research passes with named unread tables. Immortal Life and Taiwu installed after the initial waiting snapshot. | Recover each lane's checkpoint/unread scope; purchase/install is not a prerequisite for repeating those recorded local passes. No full-source-complete claim. |
 | AQ2 | NGU IDLE, Legends of Idleon, public/reference follow-ups | [Wave record](../gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md) contains later passes beyond the original free-title wishlist. | Reuse existing lanes, then name an unanswered mechanic before another pass. |
-| AQ3 | Magical Diaries, Songs of Syx, Stoneshard, Starsector | Not owned in the October 14 wave record; present entitlement unverified. | Check ownership before proposing acquisition; purchase/download still needs authorization. |
+| AQ3 | Magical Diaries, Songs of Syx, Stoneshard, Starsector | Not owned in the October 14 wave record; present entitlement unverified. Update 2026-10-19: Magical Diary: Wolf Hall is installed and was source-read (decoded payload, marker WolfHall-1.1.10; [REPORT](magical-diary-wolf-hall/REPORT.md), [CHECKPOINT](magical-diary-wolf-hall/CHECKPOINT.md)); drop it from this row. The other three remain unverified. | Check ownership before proposing acquisition; purchase/download still needs authorization. |
 | AQ4 | Canon-world media | [Media priorities](SOURCE_DEEP_DIVE_PLAYBOOK.md#weibaos-media-priorities-2026-10-18): games/sourcebooks/databooks high, side stories next, anime deferred. The shortlist retains unverified edition/availability labels. | Check saved/local sources first; use the shortlist when its world/mechanic is selected. |
+
+Update 2026-10-19, completed since the historical lists below (dossier folders verified to exist): [Kingdom of Loathing](kingdom-of-loathing/), [Discworld MUD](discworld-mud/), [Super Robot Wars](super-robot-wars/), [Modding Tree](modding-tree/), [cultivation idlers](cultivation-idlers/). Their rows in the historical short list, follow-ups and ranking are done as finite passes, not full-source-complete. Unapplied queue proposals (Vintage Story, TerraFirmaCraft, Kittens, Sims 4 free source reads from [feature scout E1/E2](feature-game-scout-2026-10-14/REPORT.md); `coverage-refresh-2026-10-14/QUEUE_EDITS.patch`) are not rows here; adding them is Weibao's or the queue owner's call. Game counts: see the [census note](coverage-refresh-2026-10-14/REPORT.md).
 
 No new inventory, acquisition or source-reading run was performed by this refresh.
 The October 13 tool list and October 14 installation observations below are dated
@@ -49,7 +51,7 @@ Decompile or source-read every queued game Weibao already owns. Re-run the local
 
 1. **Academagia**: exact exam, roll and event tables for a Harry Potter school year. .NET 4.0, ILSpy. Run only if its P2 or P4 is accepted.
 2. **The Scroll of Taiwu**: inheritance, sects and a deep cultivation life sim. Unity *unverified*.
-3. **Magical Diaries**: a second magic-school life sim to cross-check Academagia. Unity *unverified*.
+3. **Magical Diaries**: a second magic-school life sim to cross-check Academagia. Unity *unverified*. (Update 2026-10-19: owned and source-read as Wolf Hall, Ren'Py; see [REPORT](magical-diary-wolf-hall/REPORT.md). No purchase needed.)
 4. **Idle Reincarnator**: the only found idler with several realms inside one reincarnation loop. Engine *unverified*.
 5. **Heaven's Vault**: knowledge-as-progress. Its ink story scripts may be readable without decompiling *unverified*.
 
@@ -78,7 +80,7 @@ Decompile or source-read every queued game Weibao already owns. Re-run the local
 | 3 | Super Robot Wars series | Dozens of franchises per game with canon beats kept while the player diverges | Public wikis and scenario guides; console games, no decompile |
 | 4 | Idle Reincarnator | Multi-realm reincarnation idler (Steam, June 2025) | Buy; engine *unverified* |
 | 5 | The Scroll of Taiwu | Deep cultivation life sim with inheritance and sects | Buy; Unity *unverified*, ILSpy if Mono |
-| 6 | Magical Diaries | Magic-school life sim; second Harry Potter-adjacent reference after Academagia | Buy; Unity *unverified* |
+| 6 | Magical Diaries | Magic-school life sim; second Harry Potter-adjacent reference after Academagia | Buy; Unity *unverified* (Update 2026-10-19: owned, source-read; no purchase) |
 | 7 | Immortal Life | Cultivation life sim | Buy; engine *unverified* |
 | 8 | Heaven's Vault | Knowledge-as-progress through translation | Buy; inkle game, Unity plus ink *unverified* |
 | 9 | The Modding Tree / Prestige Tree | Framework for layered prestige | Open source; read directly |

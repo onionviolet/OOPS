@@ -29,7 +29,7 @@ owners/interfaces and reserve exact files before runtime writing.
 | [Three-scale support](../gm/MICRO_MESO_MACRO_IMPLEMENTATION_SUPPORT.md) | C01–C07 openings, E01–E10 authoring support, J01–J06 examples | Context, authoritative state and actual recipient |
 | [MM packets](../gm/dispatch/macro-micro-detail-2026-10-11/IMPLEMENTATION_PACKETS.md) | MM-P1 work/recognition, P2 material/care/ecology, P3 creation/body, P4 absence | U09/U08; U02/U07; U01/U12; U05/U13 |
 | [Connection packets](../gm/dispatch/connection-detail-2026-10-12/IMPLEMENTATION_PACKETS.md) | CD-P1 entry, P2 shared life, P3 evidence/use, P4 abundance, P5 author recipe | Contact, durable commitment, learning and informed response |
-| [Cross-world reference](../gm/CROSS_WORLD_DETAIL_REVIEW.md) | CW01–CW36, CX1–CX6, source admission and causal cuts | Relevant review lenses; not 36 compulsory subsystems |
+| [Cross-world reference](../gm/CROSS_WORLD_DETAIL_REVIEW.md) | CW01–CW36, XWC1–XWC6, source admission and causal cuts | Relevant review lenses; not 36 compulsory subsystems |
 | [Dialogue contract](../worlds/DIALOGUE_AND_INTERACTIONS.md) | Goals, channels, evidence, refusal, interruption and return | U06/U08/U10/U11, I01–I10 |
 | [Engine scout](../gm/world-implementation/second-pass/engine-absorption/REPORT.md) | Scoped conditions, action stages and conditional narrative/grid tooling | Extend current scheduler/save/host |
 | [Prior bank incorporation](../gm/world-implementation/second-pass/absorption-incorporation/REPORT.md) | Repository/fork/source dispositions and delivered subsets | Preserve qualified mechanisms and adoption states |
@@ -53,8 +53,8 @@ Macro: one represented institution receives a report and changes one funded
 order or access decision. Broader economic change waits for actual consumers;
 a synthetic institutional recipient is enough to prove this join.
 
-CW01/02/10/12/13/14/25/27/28/29/36 are relevant. CX1/CX5 provide comparison
-cases; CX3 adds recognition; CX6 adds surviving custody/records. CX4 remains a
+CW01/02/10/12/13/14/25/27/28/29/36 are relevant. XWC1/XWC5 provide comparison
+cases; XWC3 adds recognition; XWC6 adds surviving custody/records. XWC4 remains a
 dedicated temporal dependency, not something generic timers already implement.
 
 Record the causal cut: repair does not send a message, force agreement, restore

@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | PH6 MS5 OB5 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § The Dreaming; digest Legacy Clans r809, Effie r816, Cassie r822. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 CL10 CN8 MS1 TR3 TR6 WR1 HI4 OB4 SR1 | Young clan members receive training/items while their own Aspect, Flaw and bodily needs remain actor-specific. |
+| Fit | PH1 SG3 SG4 SG5 CL10 CN8 MS1 TR3 TR6 WR1 HI4 OB4 BSR1 | Young clan members receive training/items while their own Aspect, Flaw and bodily needs remain actor-specific. |
 | Skip families | GN LQ AG BD BP MX PR SB BM RP | BD/BP/MX/RP: legacy equipment is not inherited mastery; Echo is soulless, not the slain original. No universal fertility claim. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

@@ -1,13 +1,7 @@
 // W28 reversible prototype. Pure reads; no clocks, saves or live game bindings.
+import {check as requireValue, deepFreeze as freeze} from './basics.js';
 import {hashStreamSeed, mix32} from './seeded_streams.js';
 
-const freeze = value => {
-    if (value && typeof value === 'object') {
-        Object.values(value).forEach(freeze);
-        Object.freeze(value);
-    }
-    return value;
-};
 export const BASE_CLIMATE_PROFILE = freeze({
     id: 'base.frontier.climate', revision: 1, baseTemperature: 20,
     seasons: {Winter: -20, Spring: -5, Summer: 0, Autumn: -8},
@@ -37,7 +31,6 @@ export const PROPOSED_CLIMATE_PROFILES = freeze({
         environment: 'sealed', indoorTemperature: 18, indoorLight: 60,
     },
 });
-const requireValue = (ok, message) => { if (!ok) throw new Error(message); };
 const finite = Number.isFinite;
 const mod = (n, length) => ((n % length) + length) % length;
 

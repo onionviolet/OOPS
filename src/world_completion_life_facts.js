@@ -1,9 +1,7 @@
+import {check, natural, sameJson as same} from './basics.js';
 import {WORLD_COMPLETION_LIFE_IDS as I,worldCompletionLifeDefinitions as D,worldCompletionLifeFrozenDefinition} from './world_completion_life_content.js';
 import {statusCareSupportedBody} from './status_care_facts.js';
 import {worldCompletionStripStamp} from './world_completion_strip.js';
-const check=(ok,text)=>{if(!ok)throw new Error(text);};
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 export function exactWorldCompletionLifeJob(state,job){
     const original=D.commands.find(d=>d.id===job?.commandId),m=job?.worldCompletionLife;
     if(!original?.duration||!m||Object.keys(m).length!==7||m.schema!==1||!natural(m.acceptedAt)||!natural(m.pausedMinutes)||

@@ -328,7 +328,7 @@ continues to pass.
 
 | Code | SHOWN touchpoint | Proposed obligation |
 |---|---|---|
-| S1 | `src/main.js:4935,5183-5197` create_save and native world snapshots | Emit fork 3 and validated authoritative body; retain character/levels/inventories compatibility projections without making them body owners. Save/export during Tern keeps parked native Hero and controlled clay distinct. |
+| S1 | `src/main.js` `create_save` and native world snapshots | Emit fork 3 and validated authoritative body; retain character/levels/inventories compatibility projections without making them body owners. Save/export during Tern keeps parked native Hero and controlled clay distinct. |
 | S2 | `src/main.js:806,921`; `src/expansion_persistence.js:7-50` persistExpansion/plan | Validate combined body/gameplay/equipment envelope before storage, then publish. Failed write must leave live body/control/items/vitals unchanged. |
 | S3 | `src/save_migration.js:3-26`; `src/save_compatibility.js:9,56`; `src/main.js:5289-5308` | Shared idempotent migration before body-dependent validation, followed by retired-content retention and current expansion initialization. |
 | S4 | `src/expansion_engine.js:136-147,258-270`; `src/simulation_contracts.js:60,229-241` | Validate every admitted variant, nested body data and bounded ids/references/policies. Validate patches/replacements separately from scalar body effects. |

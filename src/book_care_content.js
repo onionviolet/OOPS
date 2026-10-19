@@ -1,6 +1,7 @@
 // Original, optional care inside the existing supplied-MTL qualified branch.
 // Costs, strains, services, work and durations are proposals, not source canon.
 // Registration supplies no person, item, clock, source or reward.
+import {all, eq, not} from './basics.js';
 import {PARADISE_IDS as P, PARADISE_LOCATIONS as L, PARADISE_KEYS as K} from './book_world_paradise_ids.js';
 
 export const BOOK_CARE_IDS = Object.freeze({
@@ -9,8 +10,6 @@ export const BOOK_CARE_IDS = Object.freeze({
     hubBegin:'book.care.hub.begin', goaBegin:'book.care.goa.begin',
 });
 const I=BOOK_CARE_IDS;
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
-const all=(...rules)=>({all:rules}), not=rule=>({not:rule});
 const af=(key,value=true,actor='player')=>({type:'fact',scope:'actor',actor,key:I.prefix+key,value});
 const item=(actor,key,amount,returned=false)=>({type:'item',actor,key,amount,...(returned?{reservationReturn:true}:{})});
 const vital=(actor,key,amount)=>({type:'vital',actor,key,amount});

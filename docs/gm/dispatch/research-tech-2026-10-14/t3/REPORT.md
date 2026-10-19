@@ -1,6 +1,6 @@
 # T3 report: research mechanics from reference games
 
-2026-10-14. Bounded docs-only lane complete. [GAMES](GAMES.md) adds Q1–Q30 without redoing GR1–GR11; [PATTERNS](PATTERNS.md) translates the evidence into Q31–Q40. Q41–Q45 below are ranked proposals. No slice is selected, implemented or accepted, and no shared owner was edited.
+2026-10-14. Bounded docs-only lane complete. [GAMES](GAMES.md) adds Q1–Q30 without redoing TGR1–TGR11; [PATTERNS](PATTERNS.md) translates the evidence into Q31–Q40. Q41–Q45 below are ranked proposals. No slice is selected, implemented or accepted, and no shared owner was edited.
 
 ## What the references add
 
@@ -23,7 +23,7 @@
 | Q31–Q40 | Original cross-game considerations with source-row joins, existing owner codes, concrete examples and integration costs. |
 | Q41–Q45 | Ranked candidate slices below. Future selection and code fit remain outside this lane. |
 
-All 30 game rows include a two- or three-sentence mechanism/question summary, URL/source locator, existing-code mapping and idle-fit note. The local Qud dossier was checked but not turned into another reverse-engineering row because GR5 already covers that ground. CDDA proficiencies remain with R1 in the existing [micro/macro research](../../../../research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md); its previously documented mechanism was not repackaged as new work.
+All 30 game rows include a two- or three-sentence mechanism/question summary, URL/source locator, existing-code mapping and idle-fit note. The local Qud dossier was checked but not turned into another reverse-engineering row because TGR5 already covers that ground. CDDA proficiencies remain with R1 in the existing [micro/macro research](../../../../research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md); its previously documented mechanism was not repackaged as new work.
 
 ## Ranked suggestions
 

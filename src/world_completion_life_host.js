@@ -1,10 +1,10 @@
+import {check} from './basics.js';
 import {WORLD_COMPLETION_LIFE_IDS as I,worldCompletionLifeDefinitions as D} from './world_completion_life_content.js';
 import {worldCompletionEnrolled,worldCompletionLifeFacts,worldCompletionKnownAccount,validateWorldCompletionLifeState} from './world_completion_life_facts.js';
 import {commitSimulationCommand,cancelSimulationJob} from './simulation.js';
 import {projectFeatureCommands,featureWorkControls,featureRecordedKnowledge} from './feature_expansion_host.js';
 import {artifactEquipmentReasons} from './artifact_collection.js';
 import {worldCompletionLifeRuntimeRegistry,stampWorldCompletionLifeJob} from './world_completion_life_runtime.js';
-const check=(ok,text)=>{if(!ok)throw new Error(text);};
 export function worldCompletionLifeContext(state,context={}){return {...context,facts:{...context.facts,...worldCompletionLifeFacts(state,context)}};}
 export function commitWorldCompletionLifeCommand(state,registry,command,context,sequence=state.sequence){
     check(sequence===state.sequence&&context.actorId==='player','The local account changed. Review its current terms.');

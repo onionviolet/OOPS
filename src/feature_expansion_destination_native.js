@@ -1,17 +1,15 @@
+import {check as assert, copy, natural, object, sameJson as same} from './basics.js';
 import {TIDEMARK_IDS as ids,TIDEMARK_LOCATIONS as places,TIDEMARK_KEYS as keys,TIDEMARK_NATIVE_DOMAIN as nativeDomain,
  TIDEMARK_ENDPOINT as endpoint,tidemarkDefinitions} from './feature_expansion_destination.js';
 import {activeTidemarkVisit,validateTidemarkState} from './feature_expansion_destination_host.js';
 import {validateItemKey} from './gameplay_transactions.js';
 import {jsonData} from './simulation_contracts.js';
-const assert=(ok,message)=>{if(!ok)throw Error(message);},copy=x=>structuredClone(x),natural=n=>Number.isSafeInteger(n)&&n>=0;
-const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
 const calendarSeed={year:1,month:1,day:1,hour:6,minute:0,day_count:1};
 function calendarAt(elapsed){const total=360+elapsed,day=Math.floor(total/1440),month=Math.floor(day/30),year=Math.floor(month/12);
  return {year:1+year,month:month%12+1,day:day%30+1,hour:Math.floor(total/60)%24,minute:total%60,day_count:day+1};}
 function inventory(record,label){assert(object(record),`Missing native ${label} inventory.`);for(const [key,count] of Object.entries(record)){validateItemKey(key);assert(natural(count)&&count>0,`Invalid native ${label} count.`);}return record;}
 function savedCounts(record,label){assert(object(record),`Missing saved ${label} inventory owner.`);const counts={};for(const [key,value] of Object.entries(record)){
  assert(object(value)&&natural(value.count)&&value.count>0,`Invalid saved ${label} inventory.`);counts[key]=value.count;}return inventory(counts,label);}
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 export function validateTidemarkNativeMetadata(value,state){
  jsonData(value);const allowed=['schema','definitionRevision','revision','initializedAt','calendar','shopCoins','stockOwner','shopOwner','peopleIds','questId'];
  assert(object(value)&&Object.keys(value).length===allowed.length&&allowed.every(k=>Object.hasOwn(value,k))&&value.schema===1&&value.definitionRevision===1&&natural(value.revision)&&value.revision>0,'Unsupported destination native owner envelope.');

@@ -1,3 +1,4 @@
+import {check as assert, copy} from './basics.js';
 import {PROTO23_IDS as I, PROTO23_LOCATIONS as L, PROTO23_FOOTPRINTS as footprints,
     PROTO23_INITIAL_FACTS, PROTO23_NATIVE_PEOPLE, PROTO23_SOURCE_SNAPSHOT, PROTO23_SOURCE_HASH, proto23Definitions} from './proto23_world_content.js';
 import {proto23Context} from './proto23_world_actions.js';
@@ -13,7 +14,6 @@ import {applySimulationEffects} from './simulation_effects.js';
 import {activePractice} from './techniques.js';
 export {proto23Facts, proto23Context} from './proto23_world_actions.js';
 export {activeProto23Visit, validateProto23State, syncProto23Clock, nextProto23Boundary} from './proto23_world_state.js';
-const assert = (ok, text) => {if(!ok) throw Error(text);}, copy = x => structuredClone(x);
 const base = (state, c) => ({state: copy(state), external: copy(c.external || {}), gameplay: copy(c.gameplay || {}),
     gameplayBefore: copy(c.gameplay || {}), vitals: copy(c.vitals || {}), equipment: copy(c.equipment || {}), acquisitions: [], unlocks: []});
 function bodySupported(state, c) {const p = state.simulation?.people.player, b = c.proto23Native?.body;

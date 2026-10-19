@@ -1,10 +1,9 @@
 // Finite original continuation over the already admitted Miri method/pump
 // commands. It is not a copied Wesnoth graph or a separate quest/clock engine.
+import {all, eq} from './basics.js';
 const MIRI='repositories.miri', METHOD='repositories.wick_control', LANTERN='repositories.lantern';
 const key=id=>JSON.stringify({id});
 const KIT=key('Prepared survey kit'), RESIN=key('Dry resin pellet'), WAX=key('Wax-sealed survey kit'), SOAKED=key('Soaked survey kit');
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
-const all=(...rules)=>({all:rules});
 const local=eq('repositories.clockSupported',true,'Return to the native Frontier for this local method work.');
 const healthy={fact:'vital.health',op:'gte',value:2,reason:'Recover before testing these fittings.'};
 const willing=eq('repositories.miriSupported',true,'Miri cannot offer shared work now.');

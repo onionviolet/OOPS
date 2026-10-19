@@ -1,11 +1,11 @@
 // Caller publishes the existing returned staged native plan exactly once.
+import {check} from './basics.js';
 import {STEAM_BOH_IDS as I} from './steam_boh_content.js';
 import {steamBOHFacts, validateSteamBOHState} from './steam_boh_facts.js';
 import {guardSteamBOHAdmission} from './steam_boh_runtime.js';
 import {commitSimulationCommand, cancelSimulationJob} from './simulation.js';
 import {projectFeatureCommands, featureWorkControls, featureRecordedKnowledge} from './feature_expansion_host.js';
 
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 export function steamBOHContext(state, registry, context = {}) {
     return {...context, steamBOHHost: true, facts: {...context.facts, ...steamBOHFacts(state, context, registry)}};
 }

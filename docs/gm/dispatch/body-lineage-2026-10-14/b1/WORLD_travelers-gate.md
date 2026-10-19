@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | None qualified | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § TG1–TG4; candidate synopsis. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 MS1 TR3 TR6 WR1 HI4 OB4 SR1 | A realm visitor learns a method and handles actual body wear; access/teaching privilege differs from inherited organs. |
+| Fit | PH1 SG3 SG4 SG5 MS1 TR3 TR6 WR1 HI4 OB4 BSR1 | A realm visitor learns a method and handles actual body wear; access/teaching privilege differs from inherited organs. |
 | Skip families | GN LQ AG CN BD CL BP MX PR SB BM RP | GN/CN/BD/CL/BP/MX/RP: synopsis supports dangerous realm acquisition, not hereditary gates, exact incarnations or sex rules. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

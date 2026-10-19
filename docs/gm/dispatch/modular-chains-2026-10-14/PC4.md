@@ -2,7 +2,7 @@
 
 Read COMMON.md in `/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/modular-chains-2026-10-14/` first. Folder `pc4/`.
 
-Goal: how modular chains stay fun and cheap in an idle game. Covers root SR1-SR4 scale regimes, AG1-AG6 actors, FL1-FL6 graph shapes, MT5-MT6 and crafting AU.
+Goal: how modular chains stay fun and cheap in an idle game. Covers root MSR1-MSR4 scale regimes, AG1-AG6 actors, FL1-FL6 graph shapes, MT5-MT6 and crafting AU.
 
 References to study (cite URLs or label MEMORY): Factorio, Satisfactory, Dwarf Fortress, RimWorld, Vintage Story, TerraFirmaCraft, GregTech packs, Oxygen Not Included, Melvor Idle, Kenshi, Caves of Qud, Stardew Valley, Anno, Victoria 3 production methods, and idle/incremental games with production trees. For each: one mechanic worth taking, one pitfall.
 

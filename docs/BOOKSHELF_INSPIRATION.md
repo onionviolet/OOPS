@@ -10,7 +10,7 @@ Only titles, public source links and our summaries belong here. Account names, b
 
 Evidence levels: **P** = author/publication-platform premise inspected; **M** = synopsis inspected on the supplied mirror, with exact canon still requiring verification; **C** = a bounded chapter scene inspected on that mirror; **T** = title inspected only. An M or T reference can suggest an original design question without establishing its answer. Fanfiction's invented rules do not establish the canon of Naruto, Marvel, Warhammer or any other underlying setting.
 
-[PROJECT.md](gm/PROJECT_LOG.md#books-and-original-worlds) owns adaptation policy. [Genre tropes](RESEARCH_GENRE_TROPES.md), [genre sweep](RESEARCH_GENRE_SWEEP.md), [powers](RESEARCH_LITRPG_SYSTEMS.md), [characters](CHARACTERS_AND_WORLD_EVENTS.md), [origins](RUN_DEFINING_ADVANTAGES.md) and [world journeys](DIRECTION_SYNTHESIS.md) retain their existing detail ownership. This dossier owns the shelf evidence and its synthesis.
+[PROJECT_LOG.md](gm/PROJECT_LOG.md#books-and-original-worlds) owns adaptation policy. [Genre tropes](RESEARCH_GENRE_TROPES.md), [genre sweep](RESEARCH_GENRE_SWEEP.md), [powers](RESEARCH_LITRPG_SYSTEMS.md), [characters](CHARACTERS_AND_WORLD_EVENTS.md), [origins](RUN_DEFINING_ADVANTAGES.md) and [world journeys](DIRECTION_SYNTHESIS.md) retain their existing detail ownership. This dossier owns the shelf evidence and its synthesis.
 
 ## Main interpretation
 

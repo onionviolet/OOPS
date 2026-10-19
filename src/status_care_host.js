@@ -1,10 +1,10 @@
+import {check} from './basics.js';
 import {STATUS_CARE_IDS as I, statusCareDefinitions as D} from './status_care_content.js';
 import {statusCareFacts,statusCareEnrolled,STATUS_CARE_POLICY,projectStatusCareEffects,validateStatusCareState} from './status_care_facts.js';
 import {enrollSimulation,commitSimulationCommand,cancelSimulationJob} from './simulation.js';
 import {projectFeatureCommands,featureWorkControls,featureRecordedKnowledge} from './feature_expansion_host.js';
 import {artifactEquipmentReasons} from './artifact_collection.js';
 
-const check=(ok,message)=>{if(!ok)throw new Error(message);};
 export function statusCareContext(state,context={}) {
     return {...context,facts:{...context.facts,...statusCareFacts(state,context)}};
 }

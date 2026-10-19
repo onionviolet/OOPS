@@ -1,11 +1,10 @@
 // Pure proposals over the existing joined played clock. The host owns payment,
 // support projection, simulation boundaries and atomic durable publication.
+import {check as assert, copyJson as clone} from './basics.js';
 import {validateWorldInstance, validateWorldEndpoint, validateWorldVisit} from './world_instances.js';
 import {validateRealmJson, realmNatural as natural, realmStableId as id} from './realm_boundary_rules.js';
 
 export const REALM_CLOCK_LEASE_SCHEMA = 1;
-const assert = (ok, message) => { if (!ok) throw Error(message); };
-const clone = value => JSON.parse(JSON.stringify(value));
 const fields = (value, keys, name) => {
     validateRealmJson(value);
     assert(value && typeof value === 'object' && !Array.isArray(value) &&

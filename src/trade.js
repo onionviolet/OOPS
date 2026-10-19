@@ -6,7 +6,9 @@ import { character } from "./data/character.js";
 import { skills } from "./data/skills.js";
 import { getItemFromKey } from "./items.js";
 import { add_to_sold, calculate_total_saturation, capped_at, equipment_capped_at, group_key_prefix, remove_from_sold } from "./market_saturation.js";
-import {commitNativeTrade, get_context, previewP23MarketPurchase, interruptP23NativeWork} from "./main.js";
+// Host callbacks are injected by main.js (bindTradeHost) so trade.js never imports main.js (AR5).
+const host={};
+export function bindTradeHost(callbacks) {Object.assign(host,callbacks);}
 import {current_location} from "./runtime_state.js";
 import { round_item_price } from "./misc.js";
 import {readInventoryOwner} from "./acquisition.js";
@@ -55,8 +57,8 @@ function set_current_trader(trader_key) {
  * @param {String} trader_key 
  */
 function start_trade(trader_key) {
-    interruptP23NativeWork();use_market_coupon=false;
-    NPCRegistry.get(trader_key).refreshTraderInventory(get_context());
+    host.interruptP23NativeWork();use_market_coupon=false;
+    NPCRegistry.get(trader_key).refreshTraderInventory(host.get_context());
     current_trader = trader_key;
     
     update_displayed_trader();
@@ -84,7 +86,7 @@ function readTradeQuote() {
         buy: to_buy.items.map(({item_key, count}) => ({item_key, count})),
         sell: to_sell.items.map(({item_key, count}) => ({item_key, count})),
         buyValue: to_buy.value, breadSubtotal:current_bread_subtotal, sellValue: to_sell.value, money: character.money,
-        marketLife:previewP23MarketPurchase(current_trader,{buySubtotal:to_buy.value,breadSubtotal:current_bread_subtotal,buyUnits:to_buy.items.reduce((n,row)=>n+row.count,0),useCoupon:use_market_coupon}),
+        marketLife:host.previewP23MarketPurchase(current_trader,{buySubtotal:to_buy.value,breadSubtotal:current_bread_subtotal,buyUnits:to_buy.items.reduce((n,row)=>n+row.count,0),useCoupon:use_market_coupon}),
         margin: NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region),
         player: readInventoryOwner(character.getItems()),
         vendor: readInventoryOwner(NPCRegistry.get(current_trader).getTraderInventory()),
@@ -101,7 +103,7 @@ function accept_trade() {
         update_displayed_total_price(to_sell.value - current_quote.marketLife.quote.total);
         throw new Error("Trade quote changed. Review the refreshed price before accepting again.");
     }
-    commitNativeTrade(quoted, current_quote);
+    host.commitNativeTrade(quoted, current_quote);
     cancel_trade();
     update_displayed_money();
 }

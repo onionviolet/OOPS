@@ -1,5 +1,6 @@
 // Original reversible Frontier prototypes. Native XP, method mastery, stock,
 // knowledge, jobs and publication remain owned by the existing shared services.
+import {all, any, eq} from './basics.js';
 export const SKILL_IDS = Object.freeze({
     brace: "frontier.brace_control",
     trail: "frontier.trail_reading",
@@ -9,10 +10,7 @@ export const SKILL_IDS = Object.freeze({
 const WORLD = "base.frontier", LIO = "partyPartner", TEACHER = "oldCraftsman";
 const LOG = JSON.stringify({id: "Rough wood log"});
 const KIT = JSON.stringify({id: "Prepared survey kit"});
-const eq = (fact, value = true, reason) => ({fact, op: "eq", value, ...(reason ? {reason} : {})});
 const atLeast = (fact, value, reason) => ({fact, op: "gte", value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
-const any = (...rules) => ({any: rules});
 const seen = id => eq(`knowledge.${id}.seen`);
 const owned = id => eq(`power.${id}.owned`);
 const mastery = (id, amount) => atLeast(`power.${id}.mastery`, amount, `Practice this method to mastery ${amount}.`);
@@ -111,15 +109,20 @@ const lessons = [
     lesson("timber", SKILL_IDS.timber, TEACHER, [...fee(1), item(LOG, -1), {type: "resource", actor: "$target", key: "focus", amount: -1}], [teacherReady, hands, eq("world.workbench.wet", false, "Use a dry bench for the cutting lesson.")]),
     lesson("inquiry", SKILL_IDS.inquiry, TEACHER, [...fee(2), {type: "resource", actor: "$target", key: "focus", amount: -1}], [teacherReady, evidence])
 ];
+// Plateau, not a wall (SLL12, SLR34, SLR29): one mastery per plain session up
+// to four, then a smoothly smaller gain that never reaches zero. Coached
+// practice is exactly double the plain gain, so a teacher lifts the plateau.
+const PLAIN_GAIN = id => ({fact: `power.${id}.mastery`, scale: -0.25, add: 1.75, min: 0.125, max: 1});
+const COACHED_GAIN = id => ({fact: `power.${id}.mastery`, scale: -0.5, add: 3.5, min: 0.25, max: 2});
 const practice = (kind, id, xpSkill, extraCosts = [], requirements = []) => command({id: `skills.${kind}.practice`, skillId: id,
     label: `Practice ${SKILL_CATALOGUE.find(s => s.id === id).label} slowly · 4 min`, powerId: id, duration: 4,
     cancellation: "forfeit", automatable: true, visibleWhen: owned(id),
     ...(kind === "timber" ? {siteId: "village.workbench"} : {}),
-    requires: all(living, {fact: `power.${id}.mastery`, op: "lte", value: 3, reason: "This prototype drill is complete at mastery four."}, ...requirements),
-    costs: [stamina(-2), ...extraCosts], effects: [refine(id), xp(xpSkill, 8)],
-    description: `Costs: ${costTerms([stamina(-2), ...extraCosts])}. Four played minutes earn one method mastery and eight native competence XP on completion. Cancel with spent inputs retained and no reward. Automation stops at the drill limit or missing means.`});
+    requires: all(living, ...requirements),
+    costs: [stamina(-2), ...extraCosts], effects: [refine(id, PLAIN_GAIN(id)), xp(xpSkill, 8)],
+    description: `Costs: ${costTerms([stamina(-2), ...extraCosts])}. Four played minutes earn one method mastery and eight native competence XP on completion, up to mastery four. Past four the drill keeps teaching, a little less each time (three quarters at four, half at five, never below an eighth)${id === SKILL_IDS.timber ? "; the craftsman's corrections teach twice as much" : "; a teacher who watches would teach more"}. Cancel with spent inputs retained and no reward. Automation stops when means run out.`});
 // Feedback is a means (SLR6, SLC7): the teacher's attention during practice
-// makes the same drill teach more. It does not raise the drill limit or grant
+// makes the same drill teach more (double, SLL12). It does not grant
 // mastery without the practice (SLR14).
 const coached = (kind, id, xpSkill, teacher, extraCosts = [], requirements = []) => {
     const costs = [stamina(-2), ...fee(1), {type: "resource", actor: "$target", key: "focus", amount: -1}, ...extraCosts];
@@ -127,9 +130,9 @@ const coached = (kind, id, xpSkill, teacher, extraCosts = [], requirements = [])
         label: `Practice ${SKILL_CATALOGUE.find(s => s.id === id).label} with his corrections · 4 min`, powerId: id, duration: 4,
         targetId: teacher, coLocated: true, participants: ["$target"], cancellation: "refund", automatable: true, visibleWhen: owned(id),
         ...(kind === "timber" ? {siteId: "village.workbench"} : {}),
-        requires: all(living, teacherReady, {fact: `power.${id}.mastery`, op: "lte", value: 2, reason: "Coached corrections fit this drill while mastery is two or below; slow practice finishes it at four."}, ...requirements),
-        costs, effects: [refine(id, 2), xp(xpSkill, 8)],
-        description: `Costs: ${costTerms(costs)}. The craftsman watches and corrects each cut, so four played minutes earn two method mastery instead of one, plus eight native competence XP. Cancellation refunds the costs and teaches nothing. Automation stops when his attention, the drill limit or other means run out.`});
+        requires: all(living, teacherReady, ...requirements),
+        costs, effects: [refine(id, COACHED_GAIN(id)), xp(xpSkill, 8)],
+        description: `Costs: ${costTerms(costs)}. The craftsman watches and corrects each cut, so four played minutes earn twice what slow practice would: two method mastery up to mastery three, then still double the plain drill's smaller gain. Plus eight native competence XP. Cancellation refunds the costs and teaches nothing. Automation stops when his attention or other means run out.`});
 };
 const practices = [
     practice("brace", SKILL_IDS.brace, "Equilibrium", [], [hands, atLeast("strength", 8)]),

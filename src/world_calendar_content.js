@@ -1,9 +1,6 @@
 // W36 content revision 1. These bindings preserve the existing authored dates.
 // Source-qualified starts and canon calendars require separate adoption.
-const freeze = value => {
-    if (value && typeof value === 'object') {Object.values(value).forEach(freeze); Object.freeze(value);}
-    return value;
-};
+import {deepFreeze as freeze} from './basics.js';
 const legacy = {
     revision: 1, algorithmId: 'fixed_months', algorithmRevision: 1,
     units: {minutesPerHour: 60, hoursPerDay: 24},

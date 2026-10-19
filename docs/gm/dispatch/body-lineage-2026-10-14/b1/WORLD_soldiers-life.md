@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB3 | [04_FALLOUT_SKYRIM_SL_TTKS.md](../../../../worlds/world-depth-2026-10-13/04_FALLOUT_SKYRIM_SL_TTKS.md), § A Soldier’s Life; SL source-bound unit/succession considerations. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 PH4 PH6 SG3 SG4 SG5 LQ14 GN8 HI4 MS1 TR3 TR6 WR1 OB4 SR1 RP5 | Body fit, recovery and march preparation change one supply duty; ancestry eligibility, muster records and a child’s pension are separate questions. |
+| Fit | PH1 PH4 PH6 SG3 SG4 SG5 LQ14 GN8 HI4 MS1 TR3 TR6 WR1 OB4 BSR1 RP5 | Body fit, recovery and march preparation change one supply duty; ancestry eligibility, muster records and a child’s pension are separate questions. |
 | Skip families | AG CN BD CL BP MX PR SB BM | BD/CL/BP/MX/PR/BM/RP1–4: do not infer hidden personal source, magical organ transfer or hereditary mastery. Source-qualified eligibility stays with private cards W1-SRC-01..26. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: current source-bound ordinary duty. Dial: inherited eligibility only when a private card qualifies it; actual instruction, provisioning and service history remain required. Full-world implementation remains paused.

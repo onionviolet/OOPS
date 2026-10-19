@@ -16,6 +16,9 @@ creating a separate policy document or a new approval stage:
 - Before editing, name the target viewport, concrete visible improvement and
   deferred scope. Use 1366×768 as the default laptop comparison unless the task
   names another target; check other affected desktop sizes as relevant.
+  *Update 2026-10-19: superseded for viewport choice. The 2026-10-17 targets in
+  [UI_RULES](UI_RULES.md) own it: 1920×1080 primary, 1366×768 floor (plus the
+  other floors listed there). Wording above kept as history.*
 - Bind the task to the relevant accepted direction and design owner. An audit's
   recommendation or inherited mobile criterion cannot expand the authorized scope.
 - Before claiming the UI behavior works, rebuild and exercise the changed route

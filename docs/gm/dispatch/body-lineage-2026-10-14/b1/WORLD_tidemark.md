@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB3 | [AUDIT.md](../../../multi-world-paths-2026-10-07/AUDIT.md), Current represented destinations; Concrete paths; Related systems. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 PH4 SG3 SG4 SG5 LQ6 MS1 TR3 TR6 WR1 HI4 OB4 SR1 | Body reach, a remedy for motion sickness and a fitted survey kit change tide-window salvage. |
+| Fit | PH1 PH4 SG3 SG4 SG5 LQ6 MS1 TR3 TR6 WR1 HI4 OB4 BSR1 | Body reach, a remedy for motion sickness and a fitted survey kit change tide-window salvage. |
 | Skip families | GN AG CN BD CL BP MX PR SB BM RP | GN AG CN BD CL BP MX PR SB BM RP: Harbor work and retained travel do not establish ancestral water bloodlines. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: retained same body. Dial: one useful bodily accommodation; real craft, lesson, care or transport costs apply. No travel healing/refill or new prestige.

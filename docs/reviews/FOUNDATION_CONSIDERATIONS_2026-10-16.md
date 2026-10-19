@@ -3,14 +3,16 @@
 Current continuation, updated 2026-10-16: [modular brief MP1–MP10](../gm/dispatch/modular-seams-2026-10-16/BRIEF.md)
 owns the next sequence. Its conditional hardening supersedes this historical
 note's suggested all-fields M2.5 bundle. M3 remains stopped; future C/N fields
-land for demonstrated consumers rather than as a prerequisite service set.
+land for demonstrated consumers rather than as a prerequisite service set. (Update 2026-10-19: M3 passed on resume, see the [CHECKPOINT](../gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md); the lane branch is not yet merged into `codex/gameplay-foundations`.)
+
+*Update 2026-10-19: M3 later passed on resume (B4, 2026-10-16; build 2045 pass / 3 TODO, native browser journey at 1366x768); M4 is not started. Current owner: [modular seams CHECKPOINT](../gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md). The "stopped" wording in this file is kept as history.*
 
 
 Weibao: "What about future considerations and more? would a stronger foundation
 be better and more? /more-to-consider accordingly?" Follows the
 [architecture rules](../ARCHITECTURE_RULES.md), the
 [rapid iteration note](RAPID_ITERATION_CONSIDERATIONS_2026-10-16.md) and the
-modular seams run (M1–M2 passed, M3 stopped unverified). Everything below is
+modular seams run (M1–M2 passed, M3 stopped unverified). (Update 2026-10-19: M3 later passed on resume, see top note.) Everything below is
 Claude's recommendation, not accepted direction. No runtime code changed.
 
 ## Answer
@@ -72,7 +74,7 @@ the registry.
 
 | Code | Item | Why now | Disposition |
 | --- | --- | --- | --- |
-| A1 | Do not merge `codex/modular-seams` M3 as playable | Crafting is implemented-unverified | Recorded in its checkpoint; merge M1–M2 only when merged |
+| A1 | Do not merge `codex/modular-seams` M3 as playable | Crafting is implemented-unverified | Recorded in its checkpoint; merge M1–M2 only when merged(Update 2026-10-19: M3 now passes its gates and browser journey on the lane; merge into the base is still Weibao's decision.) |
 | A2 | Merge order: `codex/rt-slice1`, `proc/ta1-village-asks` and the engine-perf lineage before `codex/modular-seams` | Each has `main.js` conflicts that get harder after the registry lands ([triage](../gm/BRANCH_TRIAGE_2026-10-16.md)) | Needs Weibao's go and owners |
 | A3 | Owners commit `UI_RULES.md`, `SITE_AND_EXPLORATION_RULES.md`, `MOCKUP_SYSTEM.md` and the modularity assessment | Worktree agents cannot see standing rules | Owners act; not swept by this pass |
 
@@ -95,7 +97,7 @@ adds N1–N8.
 | C8 | Registry IDs are in-world domain names, with dependencies declared |
 
 Suggested executor: strong model, medium effort, as an M2.5 round on
-`codex/modular-seams` before M3 resumes. Done check: two migrated domains satisfy
+`codex/modular-seams` before M3 resumes (Update 2026-10-19: M3 resumed and passed without an M2.5 bundle, per the BRIEF's conditional hardening). Done check: two migrated domains satisfy
 C1–C8, the conformance test passes, and saves stay byte-identical.
 
 ## LATER / DELEGATE

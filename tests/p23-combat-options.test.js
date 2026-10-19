@@ -114,7 +114,10 @@ function native(draw = 0, defense = 0, hp = 30, runtime, speeds = [1, 1]) {
         finish_combat_round: () => calls.rounds++, selected_stance: {id: 'normal', stamina_cost: 1}, current_stance: {id: 'normal', stamina_cost: 1},
         change_stance() {}, tickrate: 1, use_stamina() {}, setTimeout: (cb, delay) => (calls.delays.push(delay), calls.timers.push(cb), calls.timers.length), clearTimeout() {},
     };
-    Object.assign(context, {engineTimeout:context.setTimeout, clearEngineTimeout:context.clearTimeout, engineNow:()=>Date.now()});
+    // A frozen engine clock: combat.js reads engineNow() several times per start, and a wall clock
+    // that crosses a millisecond between reads shifted the R51 delays (flaky about half the runs).
+    const clock = 1_000_000;
+    Object.assign(context, {engineTimeout:context.setTimeout, clearEngineTimeout:context.clearTimeout, engineNow:()=>clock});
     for(const k of ['log_message','update_displayed_health','update_stance_tooltip','process_current_loot','do_onhit_animation','do_onstart_animation','fill_fighter_divs','remove_onhit_animation','update_attack_bar','update_displayed_health_of_fighter']) context[k] = () => {};
     let source = fs.readFileSync(new URL('../src/models/combat.js', import.meta.url), 'utf8').replace(/^import .*;\n/gm, '').replace('export default Combat;', 'globalThis.NativeCombat = Combat;');
     vm.runInNewContext(source, context);

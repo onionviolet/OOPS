@@ -1,8 +1,8 @@
 // Pure scheduler/effect hooks. No executor, host, UI, native publisher or save IO.
+import {check} from './basics.js';
 import {STEAM_DF_IDS as I, steamDFDefinitions as D} from './steam_df_content.js';
 import {statusCareSupportedBody, statusCareCondition} from './status_care_facts.js';
 
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 export const steamDFNatural = n => Number.isSafeInteger(n) && n >= 0;
 export const steamDFRecord = v => v != null && typeof v === 'object' && !Array.isArray(v);
 const id = v => typeof v === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !['__proto__', 'constructor', 'prototype'].includes(v);

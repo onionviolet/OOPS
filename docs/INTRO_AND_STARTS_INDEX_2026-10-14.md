@@ -41,7 +41,7 @@ Round numbers follow the intro headings. F/opening families are round 1; RV/RO a
 | WF | 3 | what "relevant" means per world type | Fit starts to a particular world and premise. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#wf-what-relevant-means-per-world-type) |
 | WQ | 3 | qualification, selection and fallback | Qualify before pooling; pin selection and handle availability. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#wq-qualification-selection-and-fallback) |
 | WM | 3 | more to consider | Template and check each world's first ten minutes. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#wm-more-to-consider) |
-| SR | 4 | how a start record is built and kept | Compose, version, validate and retire data records. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#sr-how-a-start-record-is-built-and-kept) |
+| SR | 4 | how a start record is built and kept | Compose, version, validate and retire data records. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#isr-how-a-start-record-is-built-and-kept) |
 | SG | 4 | where starts come from besides authoring | Derive starts from people, events, deeds and knowledge. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#sg-where-starts-come-from-besides-authoring) |
 | LK | 4 | kinds of link between starts | Name succession, causal, object, loop and door links. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#lk-kinds-of-link-between-starts) |
 | LG | 4 | rules on links | Declare carriers, costs, continuity and opt-out. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#lg-rules-on-links) |
@@ -81,11 +81,11 @@ Round numbers follow the intro headings. F/opening families are round 1; RV/RO a
 | NX | 15 | other things to consider | Inspect and fixture-test ladder/outlet behavior. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#nx-other-things-to-consider) |
 | MP | 16 | the player layer between lives | Offer a plain between-lives selection and knowledge layer. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#mp-the-player-layer-between-lives) |
 | SV | 16 | saves | Propose profile/branch saves, migration, backups and exports. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#sv-saves) |
-| AU | 16 | authoring | Pilot and lint an author kit per story world. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#au-authoring) |
+| AU | 16 | authoring | Pilot and lint an author kit per story world. | [section](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#iau-authoring) |
 | VX | lane, R7 | Villain additions | Attribute blame, services, captor beliefs and inherited know-how. | [section](worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md#vx-villain-starts) |
 | OX | lane, R7 | Other-self additions | Bind carriers, shared reserves, copy cutoffs, recognition and history access. | [section](worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md#ox-other-selves) |
 | IL | lane, R8 | Identity laws | Separate supported source operations from experience preferences and UNKNOWNs. | [section](worlds/IDENTITY_LAWS_BY_WORLD_2026-10-14.md#reading-the-evidence-and-the-dial) |
-| GR | lane, R8 | Game patterns | Compare continuity, inheritance, agency, infrastructure and situated roles. | [section](research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md#gr-patterns) |
+| GR | lane, R8 | Game patterns | Compare continuity, inheritance, agency, infrastructure and situated roles. | [section](research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md#ogr-patterns) |
 
 ## Proposed defaults, not accepted settings
 
@@ -98,7 +98,7 @@ Round numbers follow the intro headings. F/opening families are round 1; RV/RO a
 | Pacing / spoilers | Vanilla pacing off; learn as you go | Lived-in / harsh / individual toggles; current no-hunger-death direction remains | OP1, OP4 |
 | Unknown world | Neutral frame until learned; suspense opens paused or with grace | Calm / active / suspenseful; theme after name reveal | RW3-RW6, UI12 |
 | Selection | Equal-world pick, then compatible start; anti-repeat off | Feel weights / locked axes / draft / blind / rerolls | WQ2, RX1, RX3-RX8 |
-| Eligibility / saves | Working first action, content load and round-trip before pooling; resolved seed pinned | Private installed packs; no unmet-world catalog | WQ1, WQ4-WQ6, SR6 |
+| Eligibility / saves | Working first action, content load and round-trip before pooling; resolved seed pinned | Private installed packs; no unmet-world catalog | WQ1, WQ4-WQ6, ISR6 |
 | Layer recipe | Fixed world-specific order, patch rules, empty choices and provenance | Pinned snapshot axes; reactive weights | LY1-LY4, LY6, LY8, LY11 |
 | Alternate versions | None for ordinary starts | Implied / Present / Playable where supported; IL3 qualifies law versus experience | OS7, NS1-NS10, IL3, IL31 |
 | Prior characters | Ordinary background NPCs in persistent worlds, light simulation when far | IX0-IX5; no special prompts unless enabled | PN1-PN10, IX2, OS4 |
@@ -110,7 +110,7 @@ Round numbers follow the intro headings. F/opening families are round 1; RV/RO a
 | Substitution | Canon actor then eligible rungs; most roles need two authored rungs | Pressure, uniqueness, delays, exhaustion; tension C8 | SP2-SP3, SP8, LD1-LD10 |
 | Motive response | Canon outlet first; alternate affordable action after failure | Personality, patience, satisfaction and bounded off-screen work | MT1, MT4, OL1-OL3, OL6-OL10 |
 | Player layer | Plain menu after first ending, no narrator or separate grind currency | Optional fiction frame, collections and per-branch settings | MP1-MP3, MP6-MP9 |
-| Authoring | Small source-qualified pilot before expanding a world | Detail near used anchors; source evidence private | GE2, AU1-AU5 |
+| Authoring | Small source-qualified pilot before expanding a world | Detail near used anchors; source evidence private | GE2, IAU1-IAU5 |
 
 OP3's Classic proposal is retained only as conflict C1. D1's suspenseful random entry is accepted direction; selection mechanisms remain proposals. None of these defaults is made mandatory by this index.
 
@@ -155,12 +155,12 @@ INFERRED ranking for later selection, drawn from intro and lane suggestions. The
 | Rank / ref | Bounded candidate and payoff | Codes / suggestion locations |
 | --- | --- | --- |
 | 1 / P1 | Honest creation labels and visible consequential options; correct misleading cosmetic wording. | CR1, CR6, UI2; intro R1/R2 suggestions. |
-| 2 / P2 | Review/qualify the existing Village probe before widening the pool; deterministic patches, first action and saved provenance. | WL7, WC1-WC9, WQ1-WQ2/WQ5, SR1-SR2/SR6, LY1-LY2/LY8-LY9; intro R3-R5; [games P7](research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md#five-ranked-suggestions). |
+| 2 / P2 | Review/qualify the existing Village probe before widening the pool; deterministic patches, first action and saved provenance. | WL7, WC1-WC9, WQ1-WQ2/WQ5, ISR1-ISR2/ISR6, LY1-LY2/LY8-LY9; intro R3-R5; [games P7](research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md#five-ranked-suggestions). |
 | 3 / P3 | Discovery-gated panels and a neutral paused unknown-world opening; keep first action visible. | TE1-TE2, RX1/UI3, RW3-RW4/RW6, CO1/CO3; intro R1/R2. |
-| 4 / P4 | One ordinary successor, actual inheritance carrier and one-line continuity offer; ordinary predecessor NPC, reunion optional. | LK1/LG1, LV2, OS1/OS4, PN/IX2, BW1-BW2, LS1; intro R4/R6/R8/R9; games P3-P4/GR1-GR4/GR16; [ideas S5/OX6/OX12](worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md#6-suggestions-separate-from-the-palette). |
+| 4 / P4 | One ordinary successor, actual inheritance carrier and one-line continuity offer; ordinary predecessor NPC, reunion optional. | LK1/LG1, LV2, OS1/OS4, PN/IX2, BW1-BW2, LS1; intro R4/R6/R8/R9; games P3-P4/OGR1-OGR4/OGR16; [ideas S5/OX6/OX12](worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md#6-suggestions-separate-from-the-palette). |
 | 5 / P5 | One villain-adjacent worker or feared-body service with a named obligation/observer and useful choices; mentor scale also a candidate. | VS1/VS7, SA8/SA12, VM1/VM3, VX2-VX3, OX9; intro R6/R8; ideas S1/S3/S4; games P5-P6; [catalog RN1-RN3/RN5](research/START_AS_X_SOURCE_CATALOG_2026-10-14.md#ranked-read-next-at-most-ten) are research leads. |
 | 6 / P6 | Define branch-local/global save ownership and legacy migration before a three-route between-lives/start surface. | TB7, BR1, TA1/TU4, MP1/MP4, SV1/SV7; intro R10/R11/R16. Save shape is a proposal, not permission to migrate real saves. |
-| 7 / P7 | Small derived-anchor author kit: evidence, reveal/knowledge distinction, transaction IDs and genuine substitution/fixed-law fixture. | AH3, DV1-DV12, OV1-OV2/OV12, CV12, GE1, AU2; intro R11/R13/R14/R16; [FV S1-S5](gm/dispatch/canon-events-2026-10-14/pilot-fv/LESSONS.md#suggestions). MoL lessons pending. |
+| 7 / P7 | Small derived-anchor author kit: evidence, reveal/knowledge distinction, transaction IDs and genuine substitution/fixed-law fixture. | AH3, DV1-DV12, OV1-OV2/OV12, CV12, GE1, IAU2; intro R11/R13/R14/R16; [FV S1-S5](gm/dispatch/canon-events-2026-10-14/pilot-fv/LESSONS.md#suggestions). MoL lessons pending. |
 | 8 / P8 | One active-life elapsed ledger, one queued task/eligible passive condition, pause barrier and report; preserve selected freeze policies. | BR6, OT1-OT10, MP10; intro R11; [offline S1-S4](research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md#suggestions-ranked). No broad catch-up or E1 policy change implied. |
 | 9 / P9 | One role ladder and motive outlet with real means, delay and exhaustion; fixture/debug prototype first. | SP2-SP3, MT1/MT4, LD1-LD10, OL1-OL10, NX4-NX5; intro R14 suggestions and R15 next-prototype pointer. |
 | 10 / P10 | Compare one-subject avatar with independent copy on one workshop case; bind occupant fate, custody and recognition. | NS/OM, OX1-OX4, IL31-IL35; intro R8/R9; ideas S2/S4; [identity suggestions](worlds/IDENTITY_LAWS_BY_WORLD_2026-10-14.md#suggestions-at-most-five). Catalog RN7/RN8/RN10 are separate body/object/shared-host research, not exact equivalents. |

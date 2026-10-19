@@ -1,5 +1,7 @@
 # U: Renown and other subtle social stuff (2026-10-13)
 
+> Code namespace 2026-10-19 (no codes renamed): SU rows here are local to this part; SU3 is also defined in NONHUMAN_SENSES_SCALE_AND_UI, skyrim/SOURCE_LEDGER and parts 06 and 24. Outside this file cite `21_RENOWN_AND_SUBTLE#SU3`. See [reserved prefixes](../../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Weibao: "Renown? other subtle stuff?" Proposals only. Default + Dial + Reasonably. Nothing here is accepted.
 
 Already covered and not repeated (pointers instead):

@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB2 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § CRD2–CRD4; candidate synopsis; identity Remnant r8114. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 CN5 CN8 MS1 TR3 TR6 WR1 HI4 OB4 BM2 SR1 | Training at a specific site and bodily preparation alter a Path; a Remnant retains only its actual evidenced faculties. |
+| Fit | PH1 SG3 SG4 SG5 CN5 CN8 MS1 TR3 TR6 WR1 HI4 OB4 BM2 BSR1 | Training at a specific site and bodily preparation alter a Path; a Remnant retains only its actual evidenced faculties. |
 | Skip families | GN LQ AG BD CL BP MX PR SB RP | GN/BD/CL/BP/MX/RP: full sacred-arts bloodline catalogue is not supplied by the synopsis or unverified digest mappings. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

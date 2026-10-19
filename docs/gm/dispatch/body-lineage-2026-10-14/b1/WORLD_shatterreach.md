@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | None qualified | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § Genetic Ascension, named original card. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 GN2 GN9 CN8 MS1 TR3 TR6 WR1 HI4 OB4 SR1 | Author a test whose result affects one practical body action; status, expressed faculty and social standing remain distinct. |
+| Fit | PH1 SG3 SG4 SG5 GN2 GN9 CN8 MS1 TR3 TR6 WR1 HI4 OB4 BSR1 | Author a test whose result affects one practical body action; status, expressed faculty and social standing remain distinct. |
 | Skip families | LQ AG BD CL BP MX PR SB BM RP | AG/LQ/BD/CL/BP/MX/PR/SB/BM/RP and unpicked CN/GN: no public body rulebook frozen here. Source inspiration does not qualify a bloodline or reproduction law. No sealed truth is reproduced. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: conservative public proposal. Dial: one explicitly original mechanism with real authored inputs/cost; private card qualification remains open.

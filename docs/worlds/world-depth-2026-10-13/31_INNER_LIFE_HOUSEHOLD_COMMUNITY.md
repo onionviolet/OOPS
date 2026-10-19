@@ -1,5 +1,7 @@
 # Inner life, household and community (proposal, 2026-10-14)
 
+> Code namespace 2026-10-19 (no codes renamed): IL rows here are local to this part; IL12 is also a row in IDENTITY_LAWS_BY_WORLD. Outside this file cite `31_INNER_LIFE_HOUSEHOLD_COMMUNITY#IL12`. See [reserved prefixes](../../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Weibao (2026-10-14): "more to consider? other stuff and more? save and extend accordingly Send out codex as usesful?"
 
 Proposals only. Nothing here is accepted. Parts 29 and 30 cover ties and life stages. This part covers what sits around them: how the character feels, where and with whom they live, and how a community moves news, help and pressure. Rows follow Default + Dial + Reasonably where a dial fits. Code IL checked free.

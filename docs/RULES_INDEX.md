@@ -29,7 +29,7 @@ open here too.
 | 1 | Weibao's words in [USER_VISION](USER_VISION.md) and [PROJECT accepted decisions](../PROJECT.md#accepted-decisions) | Later direction supersedes earlier; superseded wording stays as dated history |
 | 2 | Standing rulebooks in the register below | Bind how agents design and build. Each rule is a default with a reason; a world or feature may propose an exception and must say why |
 | 3 | Source-qualified world law | Decides what is true inside one world (Rulebook 2–3). It narrows level 2 defaults for that world; it does not change project direction |
-| 4 | Proposals: palettes, audits, considerations, GR, CX, checkpoints | Never binding. Saving one does not authorize building it |
+| 4 | Proposals: palettes, audits, considerations, checkpoints (GR and CX were accepted, see the register) | Never binding. Saving one does not authorize building it |
 
 ## Register of rule sets
 
@@ -38,7 +38,7 @@ open here too.
 | Foundational rulebook | Rulebook 1–12 | Accepted 2026-10-10 | Multiverse-wide principles: worlds set their own rules, carriers, means, bodies, time, outliers | [RULES_FROM_SCRATCH](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) |
 | Accepted direction rules | AD1–AD38 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process | [Below](#accepted-direction-rules-ad) |
 | UI rules | UR1–UR58 | Standing 2026-10-15 | All player-facing UI | [UI_RULES](UI_RULES.md) |
-| Architecture rules | AR1–AR16 | Standing 2026-10-16 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
+| Architecture rules | AR1–AR16 | Standing 2026-10-16; AR1 net-zero wording 2026-10-19 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
 | Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
 | Making rules | MR1–MR36 | Standing 2026-10-15 | Potions, cooking, smithing, runes, enchanting, formations, constructs, any making; 2026-10-18 application: intermediate work and actual mechanism compatibility | [MAKING_RULES](MAKING_RULES.md) |
 | Site and exploration rules | SR1–SR24 | Standing 2026-10-16 | Sites, ruins, natural places, maps, discovery, restoration | [SITE_AND_EXPLORATION_RULES](SITE_AND_EXPLORATION_RULES.md) |
@@ -108,7 +108,7 @@ line they restate.
 | Research passes and sources | AD35, AD37, AU1–AU15 for readers; AGENTS scope and source acquisition | [Saved-source modes and playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#saved-sources-first), [source tools](research/SOURCE_ACQUISITION_TOOLS.md) |
 | Dispatching or coordinating agents | AU1–AU15, AD32, AD37; AGENTS multi-agent | [Agent usage rules](AGENT_USAGE_RULES.md), [GM prompt](GAME_MASTER_PROMPT.md) |
 | Selecting checks, adding regressions, reporting or handing off evidence | AD36; touched domain rules | [Efficient rule verification](#efficient-rule-verification-ad36) |
-| Reconciling plans, audits or composed system boundaries | AD32–AD36, AD38; affected AR/MR/SR and accepted time/knowledge rules | [Core-rule audit method](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md#core-rule-reconciliation-pass-2026-10-18), [current coverage and owner corrections](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md) |
+| Reconciling plans, audits or composed system boundaries | AD32–AD36, AD38; affected AR/MR/SR and accepted time/knowledge rules | [Core-rule audit method](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md#core-rule-reconciliation-pass-2026-10-18), [current coverage and owner corrections](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md); [domain rules conformance scan](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md) (2026-10-19, findings DRC1–DRC16, proposals only) |
 
 ## Accepted direction rules (AD)
 
@@ -304,6 +304,19 @@ Combat, cheats, characters and companions, lives and continuation, and time are
 covered only by AD rules and their owners. If Weibao asks for standing rules in
 one of these, write it like SR: a dated request in USER_VISION, a coded file
 with "prevents" columns, a row here and one line in PROJECT.
+
+## Reserved prefixes (2026-10-19)
+
+The prefixes of the [register](#register-of-rule-sets) are reserved: AD, UR, AR,
+MR, SR, AU, GR, CX, WA, BHR, CBR, ECR, SLR, PIR, plus T for the tension rows and
+"Rulebook". A bare code with one of these prefixes always means the register
+owner's rule. A palette, audit or considerations doc that needs its own numbered
+table picks a prefix that is not in this list and that a repo-wide grep shows
+unused, or writes a doc-qualified form (`PS-AR1`, `WD23-AR1`). A code cited
+outside the file that defines it is written `<file-stem>#<code>` (for example
+`NONHUMAN_SENSES_SCALE_AND_UI_2026-10-14#SU3`). Do not rename a registered
+rulebook's own codes. Collisions found by the dedup audit (X6) and their
+renames: [L5 report](reviews/DEDUP_AUDIT_2026-10-18/L5_REPORT.md).
 
 ## Changing this index
 

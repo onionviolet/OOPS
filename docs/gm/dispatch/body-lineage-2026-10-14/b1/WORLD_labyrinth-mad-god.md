@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | PH6 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § Labyrinth; LAB2/LAB11; identity rows volumes 1 and 2. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 CN8 MS1 TR3 TR6 WR1 HI4 OB4 SB5 SR1 | A class lowers a particular need and changes camp work; a healer’s actual reusable resource and injury remain explicit. |
+| Fit | PH1 SG3 SG4 SG5 CN8 MS1 TR3 TR6 WR1 HI4 OB4 SB5 BSR1 | A class lowers a particular need and changes camp work; a healer’s actual reusable resource and injury remain explicit. |
 | Skip families | GN LQ AG BD CL BP MX PR BM RP | GN/BD/CL/BP/MX/RP/OB5: no identity-copy law qualified for either volume. A class benefit is not hereditary memory. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

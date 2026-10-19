@@ -6,7 +6,7 @@ Candidate games (add others that fit better): Dwarf Fortress (retired adventurer
 
 Write one tracked doc (paraphrase, no long quotes, cite links or MEMORY): /Users/weiwei/code/yet-another-idle-rpg/docs/research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md
 1. Per game: what it does for (a)-(d), what works, what players complain about (label inference when from tags).
-2. Patterns with codes GR1.. (e.g. old characters as NPCs, legacy objects, ghost runs, scenario-start menus, villain management loops, heat/notoriety meters).
+2. Patterns with codes OGR1.. (e.g. old characters as NPCs, legacy objects, ghost runs, scenario-start menus, villain management loops, heat/notoriety meters).
 3. Mapping to our codes (OS, NS, VS, VM, LK, SA, RX, UI) and what YAIRPG should borrow or avoid, labeled PROPOSAL.
 4. Suggestions, at most five.
 Keep CHECKPOINT.md in /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/start-sources-2026-10-14/games/.

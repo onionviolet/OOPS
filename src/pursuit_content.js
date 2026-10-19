@@ -1,4 +1,4 @@
-const eq=(fact,value)=>({fact,op:"eq",value});
+import {eqRaw as eq} from './basics.js';
 const close=result=>({type:"pursuit",pursuitId:"village.trail_test",operation:"close",result});
 const money=amount=>({type:"resource",native:true,key:"money",amount});
 const command=d=>({revision:1,group:"pursuit",actorId:"player",worldId:"base.frontier",costs:[],effects:[],...d});

@@ -1,10 +1,10 @@
 // Optional reads and exact compatibility checks over existing saved owners.
+import {check} from './basics.js';
 import {STEAM_BOH_IDS as I, steamBOHDefinitions as D} from './steam_boh_content.js';
 import {steamBOHNatural as natural, steamBOHRecord as record, sameSteamBOHData as same,
     steamBOHSupport, steamBOHLearned, validSteamBOHWork} from './steam_boh_runtime.js';
 import {statusCareCondition} from './status_care_facts.js';
 
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 const owned = key => typeof key === 'string' && key.startsWith(I.prefix);
 const definitions = new Map(D.commands.map(d => [d.id, d]));
 const fixedKnowledge = new Map(D.commands.flatMap(d => d.effects.filter(e => e.type === 'knowledge').map(e => [e.key, {d, e}])));

@@ -1,9 +1,8 @@
 // Evidence directs travel. Actual target position is used only for a local
 // contact check, never to pick the next destination. All writes belong to the
 // caller's staged simulation plan and the existing common-clock executor.
-const assert = (ok, message) => {if(!ok) throw new Error(message);};
+import {check as assert, natural} from './basics.js';
 const id = v => typeof v === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !["__proto__","constructor","prototype"].includes(v);
-const natural = v => Number.isSafeInteger(v) && v >= 0;
 const active = new Set(["investigating","moving","searching","waiting","sheltered"]);
 const terminal = new Set(["lost","settled","tested","declined","withdrawn"]);
 export const pursuitReservesActor = (state, actorId, except = null) => Object.entries(state.simulation?.pursuits || {}).some(([key,p]) => key !== except && active.has(p.status) && p.actorId === actorId);

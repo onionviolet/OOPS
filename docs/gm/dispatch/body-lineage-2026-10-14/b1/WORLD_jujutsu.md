@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | PH7 CN8 CL2 CL4 SG7 MS5 WR5 | [SYNTHESIS.md](../../../../worlds/jujutsu/SYNTHESIS.md), §2 Cursed Technique r79254, Heavenly Restriction r79234, Reverse Cursed Technique r79210; §5 Inherited source. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 GN2 CL10 CN4 TR3 TR6 WR1 OB4 BM6 SR1 | A clan outsider receives a manual and conditional warehouse permission, while birth-imposed body conditions and actual technique execution remain separate. Body-targeted and soul-targeted treatment differ. |
+| Fit | PH1 SG3 SG4 SG5 GN2 CL10 CN4 TR3 TR6 WR1 OB4 BM6 BSR1 | A clan outsider receives a manual and conditional warehouse permission, while birth-imposed body conditions and actual technique execution remain separate. Body-targeted and soul-targeted treatment differ. |
 | Skip families | LQ AG BD BP MX HI PR SB RP | BD BP MX RP SB: co-occupancy is not hereditary memory, a hybrid breeding recipe or pill toxicity. Old brain-hop wording does not settle every technique-transfer rule. BP4: a physical warehouse key is not a blood lock. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: particular body/source plus observed eligibility. Dial: inherited source or imposed restriction with actual capability trade; no invented universal penalty.

@@ -1,3 +1,4 @@
+import {natural} from '../../basics.js';
 import {Game_Time} from '../../game_time.js';
 import {calendarMinutes} from '../../world_rhythm.js';
 
@@ -7,7 +8,6 @@ export const FIELD_SITE = Object.freeze({id:'frontier.village-moon-bed', locatio
     name:'Village moonlit herb bed', item:'Golmoon leaf', count:1,
     scoutLocation:'Village', combatLocation:'Infested field', familiarMinutes:30,
     searchMinutes:6, familiarSearchMinutes:3, closes:240});
-const natural = n => Number.isSafeInteger(n) && n>=0;
 const object = o => o && typeof o==='object' && !Array.isArray(o);
 const keys = (o, allowed) => Object.keys(o).every(k=>allowed.includes(k));
 const invalid = () => {throw new Error('Invalid field familiarity state.');};

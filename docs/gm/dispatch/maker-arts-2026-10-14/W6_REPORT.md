@@ -10,7 +10,7 @@ Deliverable: [OTHER_ARTS](OTHER_ARTS.md). Root owns folding it into the palette.
 |---|---|---|
 | F1 | Deepened all root OM1-OM16 with inputs, ordered process, useful product/consumer, separate skill/knowledge ladder, idle routine, social role, full OV1 lifecycle and AB mapping. | [OM1-OM16](OTHER_ARTS.md#om1-om16-deeper-cards) |
 | F2 | Added 12 proposed arts, W6:OM17-W6:OM28: pottery, ropework, dyes, soap/waxwork, cultures, masonry, calibration, assistive fittings, maps, toys/stage devices, access hardware and restoration. They extend existing P6 owners; they are not claimed new across the whole project. | [Additional arts](OTHER_ARTS.md#more-arts-outside-root-om1-om16) |
-| F3 | Surveyed all 16 requested games/families, with title/version scope, mechanism evidence, what transfers well, attention/design costs, OV1/AB joins and integration cost. | [GR1-GR16](OTHER_ARTS.md#games-documented-mechanism-and-idle-life-sim-fit) |
+| F3 | Surveyed all 16 requested games/families, with title/version scope, mechanism evidence, what transfers well, attention/design costs, OV1/AB joins and integration cost. | [MGR1-MGR16](OTHER_ARTS.md#games-documented-mechanism-and-idle-life-sim-fit) |
 | F4 | Ranked five transfer dispositions and supplied three worked joins: ceramic containment, strap/frame/gauge hauling, and training as bond change. Defaults, per-world dials and reasonable detail limits remain considerations. | [D1-D5 / EX1-EX3](OTHER_ARTS.md#transfer-priorities-and-worked-joins) |
 | F5 | Preserved four open evidence/design points, including dated P2 integration wording, unchecked novel laws, source-version limits and unselected first consumer. | [Q1-Q4](OTHER_ARTS.md#questions-and-evidence-limits-for-root) |
 

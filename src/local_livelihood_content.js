@@ -1,11 +1,11 @@
 // Original, opt-in district. Uses existing structured origins and native jobs.
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
 import {compileClaims, claimEffects} from './claim_runtime.js';
+import {eq} from './basics.js';
 export const LIVELIHOOD_PACK_ID = 'reedbank';
 const P = LIVELIHOOD_PACK_ID;
 export const livelihoodKey = name => JSON.stringify({id:`${P}.${name}`});
 const key = livelihoodKey;
-const eq = (fact,value=true,reason) => ({fact,op:'eq',value,...(reason?{reason}:{})});
 const gte = (fact,value,reason) => ({fact,op:'gte',value,...(reason?{reason}:{})});
 const all = (...rows) => ({all:rows});
 const flag = (name,value=true,actor='player') => ({type:'fact',scope:'actor',actor,key:`${P}.${name}`,value});

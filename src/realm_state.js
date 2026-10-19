@@ -1,3 +1,4 @@
+import {check as assert} from './basics.js';
 import {FOLDED_GLASSHOUSE_DEFINITION as baseDefinition, FOLDED_GLASSHOUSE_IDS as ids, createFoldedGlasshouseContent} from './pocket_realm_content.js';
 import {validateWorldRecords,planWorldClock,createWorldBindings,worldInstanceFacts} from './world_instances.js';
 import {POCKET_DOOR_BINDING} from './pocket_realm_rules.js';
@@ -12,7 +13,6 @@ export const GLASSHOUSE_DEFINITION={...baseDefinition,revision:2,initialFacts:{.
 const definition=GLASSHOUSE_DEFINITION;
 const bindingManifest=createWorldBindings(definition,{instanceId:ids.instanceId,worldFactPrefix:content.bindings.worldFactPrefix,siteBindings:Object.fromEntries(Object.entries(content.bindings.sites).map(([registered,local])=>[local,registered])),claimBindings:Object.fromEntries(Object.entries(content.bindings.uniqueClaims).map(([registered,local])=>[local,registered]))});
 const factKeys=bindingManifest.factKeys;
-const assert=(ok,message)=>{if(!ok)throw Error(message);};
 export const GLASSHOUSE_CONTENT=content;
 export function activeRealmVisit(state){const r=state.realmPrototype;return r?.visits.find(v=>v.id===r.activeVisitId&&v.status==='active')||null;}
 export function validateRealmState(state){

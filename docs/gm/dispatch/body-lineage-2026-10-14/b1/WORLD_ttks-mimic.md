@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | MS2 OB4 | [FINDINGS.md](../../ttks-novels-2026-10-10/FINDINGS.md), Addendum 3 F5–F9, B1 supplied-edition coverage. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 CN8 MS1 MS4 TR3 TR6 WR1 HI4 BM6 SR1 | Disguise evidence and bodily execution have distinct tests; memory/soul gains differ from matter in the reported loop. |
+| Fit | PH1 SG3 SG4 SG5 CN8 MS1 MS4 TR3 TR6 WR1 HI4 BM6 BSR1 | Disguise evidence and bodily execution have distinct tests; memory/soul gains differ from matter in the reported loop. |
 | Skip families | GN LQ AG BD CL BP MX PR SB RP | BD/BP/CL/MX/RP: mimic replacement and chalice ownership are not ancestry or reproductive copying. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: the supplied title’s own mechanics. Dial: one body/diagnostic detail; actual substrate, loadout, inspection, practice and reported price apply. Exact scene qualification remains open; no blanket copy degradation rule is adopted.

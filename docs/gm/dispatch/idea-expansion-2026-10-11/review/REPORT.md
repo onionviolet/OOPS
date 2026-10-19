@@ -85,7 +85,7 @@ A strong power can stay overwhelming; mastery can become quieter.
 | V6 | Fourth-wall/reach/meta variants | retained-with-gap | Retain fictional panel/tab/console/copy-stage possibilities; host files/user data not queried. Clock/clipboard observations need separately selected exact policy and cannot become generic cheats. |
 | V7 | Cozy/craft/social/horror/comedy/world-scale/endings | deepened | Carry quiet life, weather, craft rhythm, grief, ordinary emotion and continuing-world responses alongside combat; no universal ambient effect requirement. |
 | V8 | TX5 collisions; counters and information channel | deepened | Render actual result ordering through one composition; outcome and observer means determine what can be shown. |
-| V9 | ON sound words; GR1-GR8; emotion; ID1-ID8 | retained-with-gap | Preserve text sounds, grammar, quiet mastery and cosmetic age; confirm actual timestamp owners before asserting no new save data. |
+| V9 | ON sound words; PGR1-PGR8; emotion; ID1-ID8 | retained-with-gap | Preserve text sounds, grammar, quiet mastery and cosmetic age; confirm actual timestamp owners before asserting no new save data. |
 | V10 | BL1-BL6; AB1-AB10; KN0-KN5; plausible bluffs | deepened | Retain deception variants; later accepted plain-impression/held-means refinement supersedes universal enemy dossiers and automatic technique identification. |
 | V11 | VP1-VP4; both-way means; self/other readouts | retained | Actor-specific observation filters every form; numeric native compatibility remains explicit proposed policy. |
 | V12 | Mastery quietness; personal techniques; witness reactions | deepened | Growth may become quieter; G2 ownership/mastery and G3/G4 observed reactions provide actual causes and durable aftermath. |

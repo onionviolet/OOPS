@@ -1,5 +1,7 @@
 # W16: comic worlds through the kit
 
+> Code namespace 2026-10-19 (no codes renamed): CW3 here is a confirmation rating on the kit's CW3 row; CW3 also appears in NONHUMAN_STARTS_ENGINE_REQUIREMENTS. Outside this file cite `W16_COMIC_WORLDS#CW3`. See [reserved prefixes](../../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 ## CHECKPOINT
 
 2026-10-14. Design pass complete after the checks recorded in W16_REPORT.md. Owned writes: this file and that report only. Seventeen CW rows checked; ten cards cover Worm and Ward separately plus eight other requested/chosen settings. Every card proposes the eleven requested K parts and adds subtle rows. No playable-floor claim, source change, build, private pack, save, staging or commit. Resume by refreshing the root palette and source access, not by treating these proposals as accepted direction.

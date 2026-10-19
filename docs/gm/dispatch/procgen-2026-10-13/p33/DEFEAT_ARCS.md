@@ -1,8 +1,10 @@
-# AU1: loss opens fitting recovery stories
+# PS-AU1: loss opens fitting recovery stories
 
-2026-10-14. **PROPOSAL ONLY.** Extend root [AU1](../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#au-defeat-as-story) and [P12 S5 failure-forward](../p12/STRUCTURES.md#s5-failure-forward-open-endings-and-overwhelming-success). [P27 death/after](../p27/DEATH_AND_AFTER.md) owns terminal death/lifecycle; [P31](../p31/CHECKPOINT.md) debt/oath terms; [P19](../p19/) relationships; [P24](../p24/TIME_STRUCTURES.md) clocks. AU1 supplies loss outcome admission and arc hooks, not a second combat, debt, life or custody system.
+> Codes renamed 2026-10-19 from AU1 to PS-AU1 to avoid collision with registered AU (agent usage). See [reserved prefixes](../../../../RULES_INDEX.md#reserved-prefixes-2026-10-19).
 
-## AU1.1: what current loss actually means
+2026-10-14. **PROPOSAL ONLY.** Extend root [PS-AU1](../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#au-defeat-as-story) and [P12 S5 failure-forward](../p12/STRUCTURES.md#s5-failure-forward-open-endings-and-overwhelming-success). [P27 death/after](../p27/DEATH_AND_AFTER.md) owns terminal death/lifecycle; [P31](../p31/CHECKPOINT.md) debt/oath terms; [P19](../p19/) relationships; [P24](../p24/TIME_STRUCTURES.md) clocks. PS-AU1 supplies loss outcome admission and arc hooks, not a second combat, debt, life or custody system.
+
+## PS-AU1.1: what current loss actually means
 
 | ID / source locator | SHOWN/SOURCE finding | Proposed reuse boundary |
 |---|---|---|
@@ -16,13 +18,13 @@
 
 INFERRED gap: inspected loss paths lack one typed player defeat-to-recovery admission contract. Existing custody, debt and nonlethal results are useful building blocks. Neither a log line nor `total_deaths` can reconstruct who captured the hero, stole a bottle or paid a ransom.
 
-## AU1.2: outcome first, interpretation later
+## PS-AU1.2: outcome first, interpretation later
 
 Proposed outcome envelope references encounter/social-contest ID, scope/clock, actual participants, intent, supported loss kind, resulting body/vitals/life/custody/stock refs, applied costs, witnesses, recovery access and durable receipt. It is staged with the existing host's result. Classify `yielded`, `unconscious`, `withdrawn`, `captured`, `disqualified`, `lost_position`, `insolvent`, `injured` and `terminal` only when their actual consumers execute. Multiple consequences can coexist where compatible.
 
 Recovery hooks read the settled new state and an eligible interested actor. They preserve loss. A mentor offers real training rather than retroactive victory; rescue changes custody rather than restoring spent potions; debt remains in P31/economy until paid/released under terms. A grudge belongs to the relevant actor's goal/belief, not a compulsory status for every loser.
 
-## AU1.3: six arc families with concrete requirements
+## PS-AU1.3: six arc families with concrete requirements
 
 | Hook | Preconditions and generated content | Reachable routes / boundary |
 |---|---|---|
@@ -35,7 +37,7 @@ Recovery hooks read the settled new state and an eligible interested actor. They
 
 Idle-safe recovery offers can wait/expire by their shown game-time policy. A captured hero still needs actual useful allowed actions, a fitting safe automation/resume policy and an exit witness if the first slice promises recoverability. Grim worlds can have sourced terminal risk, but no unannounced offline execution or hunger death. Danger severity follows selected world adjectives, not an extra ignorance or global punishment roll.
 
-## AU1.4: world-fit menu and canon qualifications
+## PS-AU1.4: world-fit menu and canon qualifications
 
 Every generated arc below is INFERRED/ORIGINAL proposal. A candidate canon scene is a source gate, not a claim it was reread here.
 
@@ -52,7 +54,7 @@ Every generated arc below is INFERRED/ORIGINAL proposal. A candidate canon scene
 
 Capture/ransom are options where the world permits them, not required dramatic content in every world. Peaceful losses, overwhelming victory and ordinary fallback recovery remain legitimate complete outcomes.
 
-## AU1.5: narrow first slice and future gates
+## PS-AU1.5: narrow first slice and future gates
 
 AU-V1 starts at the agreed road contest loss, retaining current one-HP result/costs. An actual present qualified observer offers a narrow paid practice for the measured gap, followed by a lawful new contest occurrence or settlement conversation. Player may decline and recover normally. Sibling social/crafting owner supplies any real repair/product/teacher consumer; a new generated tonic name is not recovery proof.
 

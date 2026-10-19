@@ -1,5 +1,7 @@
 # World core kit: what each world needs to play in depth (proposal, 2026-10-14)
 
+> Code namespace 2026-10-19 (no codes renamed): NX1-NX15 (kit backlog), OM3 (a K6 dispatch pointer) and CW3 (many power origins) are local to this file and repeat elsewhere (NX in NONHUMAN_STARTS_BY_WORLD, INTRO_FLOW and the UI plan; OM3 in CONTINUATION_CHOICE and technology; CW3 in NONHUMAN_STARTS_ENGINE_REQUIREMENTS and W16). Outside this file cite `WORLD_CORE_KIT_2026-10-14#NX8`. "Codes are never reused (F14)" holds only inside the kit. See [reserved prefixes](../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Request (Weibao, 2026-10-14): "core stuff needed for each world to be
 implemented in depth? do a 'more to consider? other stuff and more? save and
 extend accordingly Send out codex as usesful?' for each aspect?"

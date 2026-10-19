@@ -1,5 +1,7 @@
 # Engine, runtime, performance and tech stack: considerations, 2026-10-14
 
+> Codes renamed 2026-10-19 from CX1-CX35 to ECX1-ECX35 to avoid collision with registered CX (complexity guardrails). See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Proposal palette, not a spec. Weibao asked: "engine level stuff, runtime,
 performance, and tech stack stuff, more to consider? other stuff and more?
 save and extend accordingly. Send out codex as useful?"
@@ -666,7 +668,7 @@ ties broken by id. Implicit import order is how heisenbugs start.
 **SB10. Escape hatches.** A module can still drop to raw code for one weird
 world rule. An engine that forbids escape hatches gets bypassed silently.
 
-## O. Cheats that show the engine (CX), round 5
+## O. Cheats that show the engine (ECX), round 5
 
 Engine features can double as in-fiction powers: a seeded stream becomes
 foresight, a snapshot becomes a save point, a perf overlay becomes a
@@ -679,27 +681,27 @@ seed locks, grades) and the
 
 | Code | Cheat (illustrative tier) | What the player sees | Needs |
 | --- | --- | --- | --- |
-| CX1 | **Debug eye** | Hidden numbers: exact odds, cooldown ms, damage rolls | RT4 read models, E9 sealed filter |
-| CX2 | **Seed reader** | Next few rolls of one stream ("the next chest is a dud") | RT9 named streams, MC11 no-consume peek |
-| CX3 | **Seed nudge / reroll** | Spend to reroll one stream, or skip one roll | RT9, E3 transaction, abuse dial per world |
-| CX4 | **Save point** | In-fiction checkpoint, load on death | LB3 snapshots, DA2 chunk cost, E2 recovery |
-| CX5 | **Rewind tape** | Scrub back minutes or days | RT5 command log + RT9 replay (OS7), bounded history E4 |
-| CX6 | **Time dilation** | Personal speed-up or slow-down of the local clock | SB5 single clock owner, F9 world clocks, MC4 split equality |
-| CX7 | **Catch-up harvest** | Bank offline time and spend it as a burst | RT8 fast-forward, offline policy |
-| CX8 | **World LOD sight** | See dormant worlds run while away, or wake one | RT7 tiers, AI5 off-screen abstraction |
-| CX9 | **Command echo** | Macro or "repeat my last day" automation | RT5 commands, MC25 idempotence |
-| CX10 | **Event log reader** | Read the raw world ledger: who did what, when | DA6 ledger, AI6 knowledge filter |
-| CX11 | **Rule editor** (Baba Is You style) | Change one world rule value for a cost | DA5 content as data, OE3 module reload, SB4 hot reload |
-| CX12 | **Admin rights / GM account** | Spawn, edit stat, teleport, gated and expensive | Devtools exposed as cheats (OE7), CH6 flags |
-| CX13 | **Lag sense** | Feel when the world is "heavy" (many actors, catch-up) | PF3 overlay data, SB8 module costs |
-| CX14 | **Glitch walker** | Exploit authored seams: clip rules, desync a stream | MC classes kept intentional, sealed and bounded |
-| CX15 | **Save-file awareness** (Undertale, DDLC) | A character remembers your reloads | Profile-level memory outside the run (E1 profile id) |
-| CX16 | **Parallel save slots as selves** | Two slots that can trade items or knowledge | E8 carrier transaction across runs |
-| CX17 | **Headless dreams** | Run 100 years of the world overnight, read the history | OS8 headless runner, worker (TS4) |
-| CX18 | **Code sight** (top tier, fourth wall) | Read a pseudo-source of a system's rule | DA5 tables rendered as text; never sealed truth |
+| ECX1 | **Debug eye** | Hidden numbers: exact odds, cooldown ms, damage rolls | RT4 read models, E9 sealed filter |
+| ECX2 | **Seed reader** | Next few rolls of one stream ("the next chest is a dud") | RT9 named streams, MC11 no-consume peek |
+| ECX3 | **Seed nudge / reroll** | Spend to reroll one stream, or skip one roll | RT9, E3 transaction, abuse dial per world |
+| ECX4 | **Save point** | In-fiction checkpoint, load on death | LB3 snapshots, DA2 chunk cost, E2 recovery |
+| ECX5 | **Rewind tape** | Scrub back minutes or days | RT5 command log + RT9 replay (OS7), bounded history E4 |
+| ECX6 | **Time dilation** | Personal speed-up or slow-down of the local clock | SB5 single clock owner, F9 world clocks, MC4 split equality |
+| ECX7 | **Catch-up harvest** | Bank offline time and spend it as a burst | RT8 fast-forward, offline policy |
+| ECX8 | **World LOD sight** | See dormant worlds run while away, or wake one | RT7 tiers, AI5 off-screen abstraction |
+| ECX9 | **Command echo** | Macro or "repeat my last day" automation | RT5 commands, MC25 idempotence |
+| ECX10 | **Event log reader** | Read the raw world ledger: who did what, when | DA6 ledger, AI6 knowledge filter |
+| ECX11 | **Rule editor** (Baba Is You style) | Change one world rule value for a cost | DA5 content as data, OE3 module reload, SB4 hot reload |
+| ECX12 | **Admin rights / GM account** | Spawn, edit stat, teleport, gated and expensive | Devtools exposed as cheats (OE7), CH6 flags |
+| ECX13 | **Lag sense** | Feel when the world is "heavy" (many actors, catch-up) | PF3 overlay data, SB8 module costs |
+| ECX14 | **Glitch walker** | Exploit authored seams: clip rules, desync a stream | MC classes kept intentional, sealed and bounded |
+| ECX15 | **Save-file awareness** (Undertale, DDLC) | A character remembers your reloads | Profile-level memory outside the run (E1 profile id) |
+| ECX16 | **Parallel save slots as selves** | Two slots that can trade items or knowledge | E8 carrier transaction across runs |
+| ECX17 | **Headless dreams** | Run 100 years of the world overnight, read the history | OS8 headless runner, worker (TS4) |
+| ECX18 | **Code sight** (top tier, fourth wall) | Read a pseudo-source of a system's rule | DA5 tables rendered as text; never sealed truth |
 
 Rules carried from existing direction: per-world dials, no fixed "once"
-limits, sealed secrets stay behind their routes even under CX1/CX10/CX18,
+limits, sealed secrets stay behind their routes even under ECX1/ECX10/ECX18,
 and anti-abuse beyond save safety is low priority.
 
 ## P. Overarching principles (OV)
@@ -714,7 +716,7 @@ cheats and bug replay all depend on it. Treat any unseeded gameplay roll
 as a bug class, not a style choice.
 
 **OV3. Knowledge is engine-level.** Who-knows-what (AI6, E9) must live in
-the kernel, because cheats like CX1/CX10 otherwise leak sealed truths.
+the kernel, because cheats like ECX1/ECX10 otherwise leak sealed truths.
 
 **OV4. Time has one owner.** Dilation, offline time, catch-up, rewind,
 world clocks and combat all need SB5. This is the most cross-cutting fix.
@@ -724,7 +726,7 @@ as commands (RT5) are what make modding, macros, rule cheats, replays and
 tests possible together.
 
 **OV6. Budgets are visible.** Perf, save size and catch-up cost are shown
-in dev and optionally in fiction (CX13), so scaling problems surface early.
+in dev and optionally in fiction (ECX13), so scaling problems surface early.
 
 **OV7. Desktop-first, local-first.** Engine choices assume a laptop
 browser or desktop shell, local saves, no server. Keep it until Weibao
@@ -737,7 +739,7 @@ the same move: grow a kernel from code that already works (OE10).
 
 **IM1. Dependency order.** Most cheats and scaling paths sit on four
 foundations: one clock owner (SB5), named seeded streams (RT9), a command
-log (RT5) and snapshot/chunked saves (LB3, DA2). Build those first; CX rows
+log (RT5) and snapshot/chunked saves (LB3, DA2). Build those first; ECX rows
 then become content work.
 
 **IM2. Snapshot cost sets cheat limits.** Rewind and save points cost save
@@ -753,7 +755,7 @@ TS4 is the path.
 Needs a compatibility decision: new streams start at migration, old
 history stays as recorded.
 
-**IM5. Dev vs player builds.** CX12 and devtools share code; a build flag
+**IM5. Dev vs player builds.** ECX12 and devtools share code; a build flag
 decides what ships ungated. Dev affordances must never be the only route to
 a sealed secret.
 
@@ -819,18 +821,18 @@ ladder.
 of a world with an explicit save policy: keep the old run on its old
 revision (E1), or migrate with a recorded retcon list.
 
-### Engine cheats from comics (CX, continued)
+### Engine cheats from comics (ECX, continued)
 
 Comic cheats live in the comic doc's CK rows; these are the engine-facing
 extras.
 
 | Code | Cheat | Needs |
 | --- | --- | --- |
-| CX19 | **Editor's desk**: see the content revision and pending retcons of a world | E1 revision pins, CE1 fact history |
-| CX20 | **Continuity anchor**: you remember facts across retcons others forget | CE1 per-observer memory |
-| CX21 | **Earth hopper's index**: list known instances, their tick tier and drift from yours | CE2 LOD tiers, diff of snapshots |
-| CX22 | **Gutter step**: act "between panels", i.e. inside a skipped catch-up window | RT8 chunked catch-up with yield points |
-| CX23 | **Cover date sense**: know how much time the world skipped while dormant | F9 world clocks, RT7 |
+| ECX19 | **Editor's desk**: see the content revision and pending retcons of a world | E1 revision pins, CE1 fact history |
+| ECX20 | **Continuity anchor**: you remember facts across retcons others forget | CE1 per-observer memory |
+| ECX21 | **Earth hopper's index**: list known instances, their tick tier and drift from yours | CE2 LOD tiers, diff of snapshots |
+| ECX22 | **Gutter step**: act "between panels", i.e. inside a skipped catch-up window | RT8 chunked catch-up with yield points |
+| ECX23 | **Cover date sense**: know how much time the world skipped while dormant | F9 world clocks, RT7 |
 
 ### Comic subtleties (MC, continued)
 
@@ -852,17 +854,17 @@ level; these are the kernel types under them.
 
 | Code | Abstraction | Minimal interface (sketch) | Serves |
 | --- | --- | --- | --- |
-| AB1 | **Clock** | `advance(minutes)`, `now()`, subscribers by phase | SB5, CX6, F9 |
+| AB1 | **Clock** | `advance(minutes)`, `now()`, subscribers by phase | SB5, ECX6, F9 |
 | AB2 | **Scheduler** | `schedule(at, key, payload)`, `due(until)`, `cancel(key)` | RT6, CE6, CE7 |
-| AB3 | **Command** | `{id, type, args, at}`; `dispatch(cmd) -> result` idempotent by id | RT5, MC25, CX9 |
-| AB4 | **RNG stream** | `stream(name).next()`, `peek(n)` without consuming, `state()` | RT9, MC11, CX2 |
+| AB3 | **Command** | `{id, type, args, at}`; `dispatch(cmd) -> result` idempotent by id | RT5, MC25, ECX9 |
+| AB4 | **RNG stream** | `stream(name).next()`, `peek(n)` without consuming, `state()` | RT9, MC11, ECX2 |
 | AB5 | **Store and entity** | `get(id)`, `query(components)`, read-only view | OE2, LB1, CE5 |
 | AB6 | **Fact store** | `assert(fact, at, source)`, `as_of(at, observer)`, `history(key)` | CE1, AI6, E9 |
 | AB7 | **Transaction** | `begin()`, `stage()`, `commit()` with rollback; one per command | E3, MC14 |
 | AB8 | **Persistence domain** | `{id, version, encode, decode, validate, migrate}` | DA2, DA4, MC21 |
 | AB9 | **Module manifest** | `{id, version, engine, depends, domains, commands, systems, panels}` | OE3, RT10, CE3 |
 | AB10 | **World instance** | `{id, template, revision, overrides, tier, clock}` | CE2, F9, RT7 |
-| AB11 | **Carrier** | `transfer(what, from, to)` conserving identity | E8, CE3, CX16 |
+| AB11 | **Carrier** | `transfer(what, from, to)` conserving identity | E8, CE3, ECX16 |
 | AB12 | **World law dials** | data block read by systems (comic CA1) | CE6, per-world dials |
 | AB13 | **Read model / selector** | `select(state) -> view`, memoized on deps | RT4, PF5 |
 | AB14 | **Presenter** | `render(view, target)`; DOM, canvas or comic panels | OE6, CE8, EG1 |
@@ -914,25 +916,25 @@ results so far" above.
 | [ER17 comic fit](research/COMIC_WORLDS_ENGINE_FIT_2026-10-14.md) | All 50 comic CL/CK/CA rows mapped to foundations; five stress verdicts; six missing contracts (ER17-N1-N6) | ER17-S5 clarifies E5/F8: the 512-boundary budget returning remaining time is correct; only claiming the whole skip settled would be a bug |
 | [ER18 inventory](research/ABSTRACTION_INVENTORY_2026-10-14.md) | Site counts for AB1-AB15 across 474 files (e.g. 65 clock sites, 86 RNG sites, 459 store/registry sites), the best existing candidate per AB, five ranked extractions | **Extends the "do not abstract yet" list:** nine semantics that must stay separate (ER18-N1-N9), e.g. native calendar vs joined elapsed vs local lease time, and saved RNG cursors vs cosmetic randomness |
 
-### Code renumbering (CX)
+### Code renumbering (ECX)
 
-ER15 and ER16 proposed new cheats while section R took CX19-CX23 for
+ER15 and ER16 proposed new cheats while section R took ECX19-ECX23 for
 comics. To keep codes unique, the root assigns:
 
 | Root code | Lane code | Cheat |
 | --- | --- | --- |
-| CX24 | ER15-X1 | Snapshot diff eye: what changed since an anchor, within what you may know |
-| CX25 | ER15-X2 | Commit seal: a ritual's cost and effect settle together or stay pending |
-| CX26 | ER15-X3 | Boundary step: stop before the next consequential event and take one step |
-| CX27 | ER15-X4 | Cursor ward: shield one domain's rolls from unrelated activity; detect a stale forecast |
-| CX28 | ER15-X5 | Rule-version anchor: keep one learned spell or dream on its pinned rules |
-| CX29 | ER15-X6 | Dream interruption thread: pause a long dream and resume without paying twice |
-| CX30 | ER15-X7 | Provenance compass: follow an item's real origin and custody within your grade |
-| CX31 | ER15-X8 | Counterpart conflict sense: notice two branch records disagree; reconcile by an authored rule |
-| CX32 | ER16-N1 | Perspective forge: apparent size or shape becomes real (Superliminal) |
-| CX33 | ER16-N2 | Interface hands: grab a UI label or fictional file as a world object |
-| CX34 | ER16-N3 | Narrative route lever: change who narrates or which scene follows |
-| CX35 | ER16-N4 | World-line compass: tell causal histories apart and move between them |
+| ECX24 | ER15-X1 | Snapshot diff eye: what changed since an anchor, within what you may know |
+| ECX25 | ER15-X2 | Commit seal: a ritual's cost and effect settle together or stay pending |
+| ECX26 | ER15-X3 | Boundary step: stop before the next consequential event and take one step |
+| ECX27 | ER15-X4 | Cursor ward: shield one domain's rolls from unrelated activity; detect a stale forecast |
+| ECX28 | ER15-X5 | Rule-version anchor: keep one learned spell or dream on its pinned rules |
+| ECX29 | ER15-X6 | Dream interruption thread: pause a long dream and resume without paying twice |
+| ECX30 | ER15-X7 | Provenance compass: follow an item's real origin and custody within your grade |
+| ECX31 | ER15-X8 | Counterpart conflict sense: notice two branch records disagree; reconcile by an authored rule |
+| ECX32 | ER16-N1 | Perspective forge: apparent size or shape becomes real (Superliminal) |
+| ECX33 | ER16-N2 | Interface hands: grab a UI label or fictional file as a world object |
+| ECX34 | ER16-N3 | Narrative route lever: change who narrates or which scene follows |
+| ECX35 | ER16-N4 | World-line compass: tell causal histories apart and move between them |
 
 ### New contracts and subtleties taken from the lanes
 

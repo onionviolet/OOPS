@@ -1,6 +1,7 @@
+import {all, eq} from './basics.js';
 export const EXCHANGE_CLERK='exchangeClerk',EXCHANGE_SITUATION='exchange.parcel',EXCHANGE_LOAN='exchange.gauge';
 export const EXCHANGE_ITEMS=Object.fromEntries(['Wet seal blank','Sound seal blank','Fitted parcel seal','Parcel gauge','Sealing template','Prepared survey kit','Rough wood log'].map(id=>[id,JSON.stringify({id})]));
-const key=id=>EXCHANGE_ITEMS[id],eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})}),all=(...rules)=>({all:rules});
+const key=id=>EXCHANGE_ITEMS[id];
 const phase=p=>eq(`situation.${EXCHANGE_SITUATION}.phase`,p),phases=(...ps)=>({any:ps.map(phase)});
 const money=amount=>({type:'resource',native:true,key:'money',amount});
 const item=(id,amount,actor)=>({type:'item',key:key(id),amount,...(actor?{actor}:{})});

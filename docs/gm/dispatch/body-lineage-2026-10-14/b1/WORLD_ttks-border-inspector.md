@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB4 HI4 | [FINDINGS.md](../../ttks-novels-2026-10-10/FINDINGS.md), Addendum 3 F5–F9, B5 supplied-edition coverage. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 CN8 MS1 TR3 TR6 WR1 BM4 BM5 BM6 SR1 | Use one detection channel with a named blind spot; a body-linked infection gift and its reported lifespan debt remain source-specific. |
+| Fit | PH1 SG3 SG4 SG5 CN8 MS1 TR3 TR6 WR1 BM4 BM5 BM6 BSR1 | Use one detection channel with a named blind spot; a body-linked infection gift and its reported lifespan debt remain source-specific. |
 | Skip families | GN LQ AG BD CL BP MX PR SB RP | GN/BD/CL/BP/MX/RP: consent-gated copying and substrate downgrade do not establish genetic inheritance or clone personhood. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: the supplied title’s own mechanics. Dial: one body/diagnostic detail; actual substrate, loadout, inspection, practice and reported price apply. Exact scene qualification remains open; no blanket copy degradation rule is adopted.

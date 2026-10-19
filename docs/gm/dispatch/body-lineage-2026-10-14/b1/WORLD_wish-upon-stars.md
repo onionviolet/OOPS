@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | MS2 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § WUS2–WUS4; entry matrix row. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 MS1 TR6 WR1 HI4 OB4 BM6 SR1 | Quote a body or memory price for one wish; a successor inherits an actual charter, not the payer’s erased relationships. |
+| Fit | PH1 SG3 SG4 SG5 MS1 TR6 WR1 HI4 OB4 BM6 BSR1 | Quote a body or memory price for one wish; a successor inherits an actual charter, not the payer’s erased relationships. |
 | Skip families | GN LQ AG CN BD CL BP MX PR SB RP | GN/CN/BD/CL/BP/MX/RP/SB: wish access and renown do not create a hereditary caste or substance mechanics. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

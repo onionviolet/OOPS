@@ -1,3 +1,4 @@
+import {check} from '../basics.js';
 import {enrollSimulation,commitSimulationCommand,cancelSimulationJob,previewSimulationCommand,simulationFacts,setSimulationProgram,pauseSimulationProgram,resumeSimulationProgram} from '../simulation.js';
 import {meets} from '../simulation_contracts.js';
 import {I} from './shared.js';
@@ -5,7 +6,6 @@ import {managementDefinitions} from './content.js';
 import {managementFacts} from './facts.js';
 import {validateManagementState} from './validation.js';
 export const managementContext=(state,context)=>({...context,facts:{...context.facts,...managementFacts(state,context)}});
-const check=(ok,msg)=>{if(!ok)throw new Error(msg);};
 export function commitManagement(state,registry,command,context,sequence=state.sequence) {
  check(context.actorId==='player'&&sequence===state.sequence,'The courtyard choice is stale.');
  check(['cancel','delegate_cancel','pause'].includes(command.type)||!context.busy,'Finish your current native activity before making a courtyard choice.');

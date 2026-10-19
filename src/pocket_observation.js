@@ -1,3 +1,4 @@
+import {all, check as assert, copy, eqNoReason as eq} from './basics.js';
 import {createFoldedGlasshouseContent} from './pocket_realm_content.js';
 import {createPocketRealmScenes} from './pocket_realm_scenes.js';
 import {createRealmConnection, realmConnectionBinding, validateRealmConnectionBinding} from './realm_connections.js';
@@ -9,11 +10,9 @@ import {createObservationChannel, createObservationChannelState, validateObserva
 
 // Selected original prototype. Inject common execution; no native/storage imports.
 const content = createFoldedGlasshouseContent(), scenes = createPocketRealmScenes();
-const copy = x => structuredClone(x), assert = (ok, text) => { if (!ok) throw Error(text); };
 const prefix = content.bindings.worldFactPrefix, scene = scenes.id, joss = content.caretakerId;
 const cmd = name => `pocket.observation.${name}`, key = name => `${prefix}.observation.${name}`;
 const item = name => JSON.stringify({id:name});
-const eq = (fact,value=true) => ({fact,op:'eq',value}), all = (...rules) => ({all:rules});
 const sourceId = scenes.listenerProposal.source.id, powerId = key('notice_power'), anchorId = key('frame_anchor');
 const deviceFact = 'glasshouse.observation.deviceOwned', listenerFact = 'glasshouse.observation.listenerInstalled';
 const local = all(eq('worldVisit.instanceId',content.endpoint.instanceId),eq(`person.${joss}.willing`));

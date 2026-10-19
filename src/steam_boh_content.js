@@ -1,4 +1,5 @@
 // BOH-P01: original deterministic workshop study. All fiction/costs are proposals.
+import {all, eq} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as K} from './feature_expansion_objects.js';
 import {PROTO23_KEYS as P} from './proto23_world_ids.js';
 
@@ -13,8 +14,6 @@ export const STEAM_BOH_KEYS = Object.freeze({...K, paper: P.paper, ink: P.ink,
 export const steamBOHItemSpecifications = Object.freeze([{id: 'Bench clearance manual', value: 4, kind: 'manual',
     description: 'Eda’s notes on setting a working strip and checking the knife’s clearance. The diagrams help at the bench once you understand the method.'}]);
 const I = STEAM_BOH_IDS, B = STEAM_BOH_KEYS;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const enrolled = eq('steamBOH.enrolled', true, 'Ask Eda about the clearance manual first.');
 const body = eq('steamBOH.supported', true, 'Return to the Village, recover above one health and finish any battle or journey first.');
 const live = all(body, eq('steamBOH.handsUsable', true, 'Let your hands recover before bench study or cutting.'),

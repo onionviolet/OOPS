@@ -68,12 +68,12 @@ AB3 governs what each observer sees; AB1/7 supply product/design facts; AB4 reco
 | Root AB | Minimum witness this lane contributes | Reuse seam / remaining work |
 |---|---|---|
 | AB1 family registry | Cartridge plus installed nozzle/device have distinct consumer/decoder while sharing holders/publication. CM7/18/23/29. | F3/F6. Keep old P2 key, validate all definitions before references. Existing item/structured equipment/P6 owners are root/CR6's integration questions. |
-| AB2 exposure ledger | Temporary power pill, bodily manufacture debit and recipient-fit observation refer to real body history. CM18/19/22, CX13/14. | F4/F7; CR1 owns quantity/route/body law. Retain exact old replace-family payload, no retroactive poison reinterpretation. |
+| AB2 exposure ledger | Temporary power pill, bodily manufacture debit and recipient-fit observation refer to real body history. CM18/19/22, PCX13/14. | F4/F7; CR1 owns quantity/route/body law. Retain exact old replace-family payload, no retroactive poison reinterpretation. |
 | AB3 observer knowledge | Blueprint, instrument reading, hypothesis and accepted canon label have scope/basis/contradictions. Every CX and SU10. | F5/F10. XA6 and existing knowledge owners supply shared contract; do not overload boolean observed. |
 | AB4 maker actor | Inventor/fabricator/enchanter contribute their actual means/stock/time. CM17/21/27. | F8/F11; CR4/P4 person and scheduler owners. Pure law callable by any actor; host admission/publication still recipient-specific. |
-| AB5 uniqueness | Original power identity versus synthetic media versus recipe scarcity versus object holder. CM3/4/14/19, CX8/16. | F12; world-instance-qualified identity and copy policies, one custody authority. Idempotent settlement limits a receipt, not new paid production. |
-| AB6 continuity | Same physical object, alternate counterpart, old product revision and dependent live source have explicit transition outcomes. CM24/29/31, CX22. | F6/F12; K5 source/transition semantics and existing transfer owner. Save/load/import use retained revisions, not automatic latest-canon rewriting. |
-| AB7 design lineage | Parent/variant design, current object, installed part, transmitted method edition and actual contribution remain separate. CM1/17/25/30, CX17. | F3/F6; CR4 knowledge/maker lineage and P6 part graphs. A new drawing doesn't auto-upgrade older owned objects. |
+| AB5 uniqueness | Original power identity versus synthetic media versus recipe scarcity versus object holder. CM3/4/14/19, PCX8/16. | F12; world-instance-qualified identity and copy policies, one custody authority. Idempotent settlement limits a receipt, not new paid production. |
+| AB6 continuity | Same physical object, alternate counterpart, old product revision and dependent live source have explicit transition outcomes. CM24/29/31, PCX22. | F6/F12; K5 source/transition semantics and existing transfer owner. Save/load/import use retained revisions, not automatic latest-canon rewriting. |
+| AB7 design lineage | Parent/variant design, current object, installed part, transmitted method edition and actual contribution remain separate. CM1/17/25/30, PCX17. | F3/F6; CR4 knowledge/maker lineage and P6 part graphs. A new drawing doesn't auto-upgrade older owned objects. |
 
 A narrowed first implementation need not build all seven registries. For the relay-thread witness, AB1/3/7 subsets and an existing actor/publication bridge can be enough; no universal magic-identity or reboot simulator prerequisite. A stronger later source changes required records and gates, not authority over siblings.
 
@@ -81,10 +81,10 @@ A narrowed first implementation need not build all seven registries. For the rel
 
 | Code | Read-only owner and result |
 |---|---|
-| C6 | [K1](../../comics-2026-10-14/K1_REPORT.md) independently separates UI eligibility, visibility, hunter certification and item grades. CM15/CX10 retain that distinction; no generic webtoon public-window law. |
+| C6 | [K1](../../comics-2026-10-14/K1_REPORT.md) independently separates UI eligibility, visibility, hunter certification and item grades. CM15/PCX10 retain that distinction; no generic webtoon public-window law. |
 | C7 | [K2](../../comics-2026-10-14/K2_REPORT.md) owns additional world rosters; CR5's source cards are **making claimsets**, not new world registrations or an alternate campaign priority. |
 | C8 | [K3](../../comics-2026-10-14/K3_REPORT.md) owns style/kind/read pace; SU10 adds only manufacture-specific causes. Silent damage card is not a simulation event. |
-| C9 | [K4](../../comics-2026-10-14/K4_REPORT.md) distinguishes capability, authority and build budgets, and category ratios from event chances. CM6/CX6 do not import census counts as production probabilities. |
+| C9 | [K4](../../comics-2026-10-14/K4_REPORT.md) distinguishes capability, authority and build budgets, and category ratios from event chances. CM6/PCX6 do not import census counts as production probabilities. |
 | C10 | [R2 game references](../../weaponcraft-runes-2026-10-14/R2_REPORT.md) separates parts/processes, glyph grammar and decorative writing. CM21/24 add source predicates, not an independent universal rune interpreter. [K5](../../comics-2026-10-14/K5_REPORT.md) owns reboot semantics, extended only with item dependents here. |
 
 At this refresh, CR6 has a completed proposal report, old `wr1/` contains a checkpoint; `wr2/`-`wr4/` folders and a K6 final report were not available. CR5 makes no completion claim for them. Root reviews whatever later lands. The weapon-reveal companion, recovered primary inscription root and parallel maker-arts palette are cross-linked with their distinct ownership preserved.

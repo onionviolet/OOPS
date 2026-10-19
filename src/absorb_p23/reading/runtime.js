@@ -1,6 +1,5 @@
+import {check, natural} from '../../basics.js';
 import {ANTHOLOGY_KEY, REST_KEY, STORIES, anthologyOutcome, LONG_REST_MINUTES, REST_BATCH_MINUTES} from './content.js';
-const check = (ok, message) => {if(!ok) throw Error(message);};
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const object = x => x && typeof x === 'object' && !Array.isArray(x);
 const keys = (x, expected) => object(x) && Object.keys(x).length === expected.length && expected.every(k => Object.hasOwn(x,k));
 const equal = (a,b) => Object.keys(a).length === Object.keys(b).length && Object.entries(a).every(([k,v]) => b[k] === v);

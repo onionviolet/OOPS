@@ -1,7 +1,6 @@
 // Energy policies use integer units. Recovery is an ordinary frozen job on the
 // shared clock; this module never runs a timer or writes a save.
-const check = (ok, message) => {if(!ok) throw new Error(message);};
-const natural = n => Number.isSafeInteger(n) && n >= 0;
+import {check, natural} from './basics.js';
 export function validateEnergyPolicy(d) {
     check(d && typeof d.id === "string" && Number.isSafeInteger(d.revision) && d.revision > 0 && typeof d.label === "string", "Invalid energy policy identity.");
     for(const key of ["capacity", "output", "control", "efficiencyNumerator", "efficiencyDenominator", "strainLimit", "strainPerUse"]) check(natural(d[key]), "Invalid energy policy dimension.");

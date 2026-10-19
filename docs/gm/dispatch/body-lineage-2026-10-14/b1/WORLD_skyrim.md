@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | TR3 OB3 | [WORLD_BRIEF.md](../../../../worlds/skyrim/WORLD_BRIEF.md), Owners and identity; Visits and consequences. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 LQ2 AG1 HI4 MS1 TR6 WR1 OB4 SB5 SR1 | Fit labor gear and a supported alchemical preparation to the traveler, with actual crafting and source costs. |
+| Fit | PH1 SG3 SG4 SG5 LQ2 AG1 HI4 MS1 TR6 WR1 OB4 SB5 BSR1 | Fit labor gear and a supported alchemical preparation to the traveler, with actual crafting and source costs. |
 | Skip families | GN CN BD CL BP MX PR BM RP | GN CN BD CL BP MX PR BM RP: race, Dragonborn status, vampirism and soul-gem lore need selected base-game scenes; no automatic inherited hero faculty. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: retain the ordinary traveler body and paused campaign. Dial: qualified local body route after separate authorization; actual supplies, procedure and source apply. This report does not resume it.

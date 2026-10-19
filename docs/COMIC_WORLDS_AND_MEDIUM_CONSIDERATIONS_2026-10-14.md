@@ -1,5 +1,7 @@
 # Comic worlds, the comic medium and comic cheats: considerations
 
+> Codes renamed 2026-10-19 from citations of intro CX13-CX16 to ICX13-ICX16 to avoid collision with registered CX (complexity guardrails). See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Claude (root), 2026-10-14. A palette, not a spec. Nothing here is selected for
 a build. Request: "Considering comic worlds and stuff and more? more to
 consider? other stuff and more? Cheats that would show stuff like these and
@@ -25,7 +27,7 @@ sessions answered this same request on 2026-10-14:
 (comic traits CW1-CW17, subtle CWS1-CWS7, lens cheats CL1-CL15, OV1-OV8,
 abstractions AX1-AX19, lanes W16-W18) and
 [intro flow round 22](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#round-22-comic-worlds-away-progress-abstractions-2026-10-14)
-(CC1-CC10, CX13-CX16, AB1-AB9). **Codes in this doc are local to it**: my CW
+(CC1-CC10, ICX13-ICX16, AB1-AB9). **Codes in this doc are local to it**: my CW
 and CL are not the kit's CW and CL. Where rows overlap, the kit owns the
 row and this doc only adds what it lacks; see the [reconciliation](#reconciliation-with-the-parallel-rounds)
 table. This doc's own ground: comic *traditions* beyond superheroes, the
@@ -252,15 +254,15 @@ which doc keeps the row; this doc's row then only adds the noted extra.
 | CL3 revolving-door death | Kit CW6, intro CC6 | Kit | Pairing note with CL1 |
 | CL4, CL5 retcon, reboot | Intro CC1, CC2; kit AX14 | Intro | CK11 retcon as a costed act, CK21 ink |
 | CL6 crossover | Kit CW7, intro CC4 | Kit | Opt-out dial |
-| CL7 legacy | Kit CW12, intro CC5, CX16 | Kit | CK15 claim any vacant title |
+| CL7 legacy | Kit CW12, intro CC5, ICX16 | Kit | CK15 claim any vacant title |
 | CL8, CL10-CL12, CL14, CL16-CL18 | none | This doc | Power by the writer, escalation, training arc, tournament, cancellation, comic science, power society, sponsors |
 | CL13 What If | Intro CC8 | Intro | CK17 What-If window cheat |
 | CL15 era tone | Kit CW15, intro CC9 | Kit | none |
 | CW1-CW10 traditions | Kit CW16 names Worm, MHA, OPM, Invincible, The Boys | This doc | Webtoon, manhua, BD, 2000 AD, creator-owned, rules-aware webcomics, strips, TTRPG, comic-framed games |
 | CK1 Power Grid sight | Kit CL5 | Kit | none |
 | CK2, CK3 captions, balloons | Kit CL4 | Kit | Caption versus thought split: captions are self-image and can be wrong |
-| CK8 continuity sense | Kit CL7, intro CX14 | Kit | none |
-| CK11 retcon | Kit CL13, intro CX15 | Kit | Witnesses remember the old version |
+| CK8 continuity sense | Kit CL7, intro ICX14 | Kit | none |
+| CK11 retcon | Kit CL13, intro ICX15 | Kit | Witnesses remember the old version |
 | CK20 fourth wall | Kit CL14, CW14 | Kit | none |
 | CK4-CK7, CK9, CK10, CK12-CK19, CK21, CK22 | none | This doc | Medium and law cheats not in the lens list. Most are not lenses: CK10-CK22 *act*, so they fall outside kit CLR1 "lens never invents truth" |
 | CS1-CS3, CS6 lettering, gutters | Kit CWS1, CWS6, CW13 | Kit for gutter time and lettering voice | Balloon tails as range, flashback borders, meanwhile cut-ins |

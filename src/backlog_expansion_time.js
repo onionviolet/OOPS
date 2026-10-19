@@ -1,5 +1,6 @@
 // Finite original proposals. Only unpublished plans are changed here.
 // The host joins elapsed requests to the existing clock and durable publisher.
+import {copy as clone, natural, object} from './basics.js';
 import {backlogAssert, backlogRecord, backlogActor, backlogInventory, backlogItem, backlogLog,
     assertBacklogBoundary} from './backlog_expansion_core.js';
 import {validateOwnership} from './acquisition.js';
@@ -10,9 +11,6 @@ const WORLD = 'base.frontier', LOCATION = 'Village';
 const KEEPER = 'backlog.bell_keeper', SITE = 'backlog.bell_yard';
 const FOCUS = 'backlog.bell_focus', PATTERN = 'backlog.bell_pattern', CLAIM = 'backlog.bell_trial';
 const WOOD = JSON.stringify({id:'Rough wood log'}), KIT = JSON.stringify({id:'Prepared survey kit'});
-const clone = value => structuredClone(value);
-const object = value => !!value && typeof value === 'object' && !Array.isArray(value);
-const natural = value => Number.isSafeInteger(value) && value >= 0;
 const equal = (a,b) => {
     if(a === b) return true;
     if(Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) && Array.isArray(b) &&

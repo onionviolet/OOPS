@@ -1,12 +1,10 @@
 // Pure full-envelope conservation. Native bags, chest, shops and accepted jobs
 // remain the owners; this reader never creates stock or publishes a plan.
+import {check, natural, object as record} from './basics.js';
 import {FACTORIO_RETORT_IDS as I, FACTORIO_RETORT_KEYS as K, FACTORIO_RETORT_TERMS as T,
     factorioRetortDefinitions} from './factorio_retort_content.js';
 import {validateFactorioRetortState, validateFactorioRetortAcceptedJob} from './factorio_retort_host.js';
 
-const check = (ok, text) => {if(!ok) throw new Error(text);};
-const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
-const natural = value => Number.isSafeInteger(value) && value >= 0;
 const names = ['resinEmpty', 'resinFull', 'residueEmpty', 'residueFull', 'residue'];
 const byKey = new Map(names.map(name => [K[name], name]));
 const byId = new Map(names.map(name => [JSON.parse(K[name]).id, name]));

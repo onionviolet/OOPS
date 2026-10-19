@@ -1,5 +1,7 @@
 # Procedural crafting, potions and consumables: more to consider
 
+> Codes renamed 2026-10-19 from CX1-CX10 to PCX1-PCX10 and AU1-AU5 to PAU1-PAU5 to avoid collision with registered CX (complexity guardrails) and AU (agent usage). See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Claude (root), 2026-10-14. A palette, not a spec. Nothing here is selected for a
 build. Request: "Procedural stuff like crafting and potion and other similar stuff
 and more? expand and consider accordingly?" (recorded in
@@ -111,17 +113,17 @@ declares how it interacts with conservation and observation laws.
 | CT5 | **Absorb and analyze** (Tensura-style) | Consuming a material grants its property to the body or to a synthesis skill. Ties the absorb-all dispatch. |
 | CT6 | **Fusion** | Combine two finished items into one, keeping selected traits. A product-to-product rule, not raw chemistry. |
 
-## AU. Automation and idle production
+## PAU. Automation and idle production
 
 Audit P9/P10 own learned procedures and queues. These extend them.
 
 | Code | Idea | Notes |
 |---|---|---|
-| AU1 | **Standing orders with thresholds.** "Keep 10 healing draughts; brew when below 5; stop if herb stock falls under 3." | The main idle crafting control. Stops on shortage, never silently substitutes. |
-| AU2 | **Production chains.** Grow herb, dry it, extract, brew, bottle, sell; each stage a station with a queue. | P6 buildings and P8 logistics own stations and transport. |
-| AU3 | **Workshop staff.** Hired or apprenticed NPCs run learned methods at their own skill, with their own style (MK1) and mistakes. | P4 people as workers; wages and loyalty real. |
-| AU4 | **Quality targets.** A queue can accept only output above a threshold and route the rest to a cheaper use (fertilizer, practice). | Uses FE5 failures. |
-| AU5 | **Batch planner.** Given stock, shows which known recipes are makeable and how many, with a known-effects preview. | Pure UI over the resolver's preview, which already must not spend or reroll. |
+| PAU1 | **Standing orders with thresholds.** "Keep 10 healing draughts; brew when below 5; stop if herb stock falls under 3." | The main idle crafting control. Stops on shortage, never silently substitutes. |
+| PAU2 | **Production chains.** Grow herb, dry it, extract, brew, bottle, sell; each stage a station with a queue. | P6 buildings and P8 logistics own stations and transport. |
+| PAU3 | **Workshop staff.** Hired or apprenticed NPCs run learned methods at their own skill, with their own style (MK1) and mistakes. | P4 people as workers; wages and loyalty real. |
+| PAU4 | **Quality targets.** A queue can accept only output above a threshold and route the rest to a cheaper use (fertilizer, practice). | Uses FE5 failures. |
+| PAU5 | **Batch planner.** Given stock, shows which known recipes are makeable and how many, with a known-effects preview. | Pure UI over the resolver's preview, which already must not spend or reroll. |
 
 ## EC. Economy around crafted goods
 
@@ -159,7 +161,7 @@ Proposal only.
 
 1. Merge P2 mixing (`proc/p2-mixing`) after its browser proof, since every entry
    above builds on it.
-2. TL1 recipe sandbox and AU1 standing orders. The first makes tuning fast; the
+2. TL1 recipe sandbox and PAU1 standing orders. The first makes tuning fast; the
    second makes crafting pleasant in idle play.
 3. FE1 property map as the visible front end, plus FE5 interesting failures.
 4. CO1 poisons/antidotes and CO4 tolerance, the two consumable kinds that add
@@ -205,7 +207,7 @@ P1 to P4 integration runs separately.
 | Code | Idea | Notes |
 |---|---|---|
 | SC1 | **Not every process scales.** Doubling a batch may lose precision, need a bigger vessel, or change heat behavior. Per-process scale law. | Stops "make 1000" from being free while keeping it reachable. |
-| SC2 | **Village to region production.** A plague needs hundreds of doses: staff, stations, supply and logistics become the challenge. | AU2 chains plus P8 logistics. |
+| SC2 | **Village to region production.** A plague needs hundreds of doses: staff, stations, supply and logistics become the challenge. | PAU2 chains plus P8 logistics. |
 | SC3 | **Tiny-scale precision.** Some outputs need micro-doses or perfect purity; scale down is its own skill. | Pills, poisons, catalysts. |
 
 ## RS. Risk in the workshop
@@ -322,16 +324,16 @@ knowledge store, never a direct truth dump.
 
 | Code | Cheat | Shows | Extends |
 |---|---|---|---|
-| CX1 | **Workshop AI** (JARVIS-like) | Suggests designs, simulates a build before spending stock, warns of failure modes | RV6 analysis advisor, FE4 journal |
-| CX2 | **HUD overlay** | Live readouts on any device or potion in view: charge, dose, wear | RV3 status view, at range |
-| CX3 | **Forensic lab** (Batcomputer-like) | Reconstructs how a crime-scene residue was made and by whom | RV2 tracing, MK1 signatures |
-| CX4 | **Blueprint sight** | The schematic of any device you hold, including hidden compartments | RV2, CM12 salvage |
-| CX5 | **Danger sense for mixes** (spider-sense-like) | A tingle before an unstable combination, without saying why | RS1, honest partial info |
-| CX6 | **Power Grid for products** | Comic CK1's six ranks applied to items: durability, energy, utility | CK1 |
-| CX7 | **Recipe ghost** | See the last person who brewed at this station and what they made | RX4 station memory, RV8 |
-| CX8 | **Uniqueness radar** | Know when a one-of-a-kind item or formula changes hands in the world | CM3, CM14 |
-| CX9 | **Copy-by-touch** | Learn a product's method by consuming or touching it, at a cost | CT5 absorb |
-| CX10 | **Grade window** | System-style E-S grades with a hidden true value the grade rounds | CM15, R3 naming leaks |
+| PCX1 | **Workshop AI** (JARVIS-like) | Suggests designs, simulates a build before spending stock, warns of failure modes | RV6 analysis advisor, FE4 journal |
+| PCX2 | **HUD overlay** | Live readouts on any device or potion in view: charge, dose, wear | RV3 status view, at range |
+| PCX3 | **Forensic lab** (Batcomputer-like) | Reconstructs how a crime-scene residue was made and by whom | RV2 tracing, MK1 signatures |
+| PCX4 | **Blueprint sight** | The schematic of any device you hold, including hidden compartments | RV2, CM12 salvage |
+| PCX5 | **Danger sense for mixes** (spider-sense-like) | A tingle before an unstable combination, without saying why | RS1, honest partial info |
+| PCX6 | **Power Grid for products** | Comic CK1's six ranks applied to items: durability, energy, utility | CK1 |
+| PCX7 | **Recipe ghost** | See the last person who brewed at this station and what they made | RX4 station memory, RV8 |
+| PCX8 | **Uniqueness radar** | Know when a one-of-a-kind item or formula changes hands in the world | CM3, CM14 |
+| PCX9 | **Copy-by-touch** | Learn a product's method by consuming or touching it, at a cost | CT5 absorb |
+| PCX10 | **Grade window** | System-style E-S grades with a hidden true value the grade rounds | CM15, R3 naming leaks |
 
 ## SU. Subtle making details
 
@@ -356,8 +358,8 @@ knowledge store, never a direct truth dump.
 | OA2 | **NPC parity.** NPC makers use the same resolver, stock and stations. Comic villains' chemistry (CM8) and village healers run on the same rules as the player. |
 | OA3 | **Uniqueness is a world law.** Some things exist once (CM3, CM4, CM14). A registry, not a hidden "once" flag; per-world adjectives decide how unique. |
 | OA4 | **Comic continuity meets items.** Status-quo pull, reboots and retcons (comic CL1, CL4, CL5) need an item policy: does the suit survive a reboot, does a retcon change what a potion did? Player-earned items should be protected unless the player opts in (comic CO5). |
-| OA5 | **Knowledge, not truth, is what the player sees.** Every cheat in CX and RV is a lens with scope and error that writes to knowledge. |
-| OA6 | **Idle making is learned methods.** Standing orders and NPC staff run saved methods (AU); active play discovers and refines them. |
+| OA5 | **Knowledge, not truth, is what the player sees.** Every cheat in PCX and RV is a lens with scope and error that writes to knowledge. |
+| OA6 | **Idle making is learned methods.** Standing orders and NPC staff run saved methods (PAU); active play discovers and refines them. |
 
 ## II. Implementation implications, against the merged P2 code
 
@@ -370,7 +372,7 @@ missing, from reading `src/mixture_state.js` and `src/mixture_native.js`:
 | II2 | **Product identity is one owner** (`MIXTURE_ID`, `mixtureKey`/`productFromKey`). It is Village-mixture-specific. Generalizing to other families means a product-family registry keyed by family ID, with P2 as the first entry, not a second inventory path. |
 | II3 | **Exposure is a single replace policy** (`mixtureExposure`, `validateExposure`, `policy:'replace'`). CR1's poison/antidote, tolerance and stacking need effect families and an exposure ledger per body. |
 | II4 | **Staging and publication** (`stageMixtureAction`, `commitMixturePlan`) are the right seam for every making family and for NPC makers; reuse them rather than writing per-family save code. |
-| II5 | **Knowledge is per player today.** Lenses (CX, RV), NPC knowledge (SU9) and codex views (CR3 S1) need knowledge scoped by observer. |
+| II5 | **Knowledge is per player today.** Lenses (PCX, RV), NPC knowledge (SU9) and codex views (CR3 S1) need knowledge scoped by observer. |
 | II6 | **Ingredients are a fixed list** (`INGREDIENTS`). Generated families (PG1, CM5) need a material catalogue with revisions, as the audit's R6 asks. |
 | II7 | **Uniqueness registry** (OA3) is new: a saved world-scoped record of one-of-a-kind items and formulas, checked at generation and transfer. |
 
@@ -400,7 +402,7 @@ consumables also work in original worlds.
 
 ## Round 3 lane returns (CR5, CR6)
 
-[CR5](gm/dispatch/procgen-2026-10-13/cr5/REPORT.md) source-checked all 27 CM/CX
+[CR5](gm/dispatch/procgen-2026-10-13/cr5/REPORT.md) source-checked all 27 CM/PCX
 rows ([SOURCED_CHECK](gm/dispatch/procgen-2026-10-13/cr5/SOURCED_CHECK.md)) and
 added 15 making patterns, 12 reveal cheats and 12 subtle details. Corrections to
 this palette:
@@ -408,9 +410,9 @@ this palette:
 | Code | Correction |
 |---|---|
 | CR5-C1 | "Only one source" claims are too strong. State the exact recipe, origin, identity, authority or body requirement instead; scarce know-how is not automatically AB5 uniqueness. |
-| CR5-C2 | Character rank, hunter licence, item grade and measured strength are separate things; a printed grade (CM15, CX10) does not set world odds or output strength. |
+| CR5-C2 | Character rank, hunter licence, item grade and measured strength are separate things; a printed grade (CM15, PCX10) does not set world odds or output strength. |
 | CR5-C3 | Pin a continuity before using canon: comic versus film suits, New Earth versus Prime Earth, manga versus anime, main webtoon versus sequel, album versus film. |
-| CR5-C5 | CX1-CX10 and SU10 are original proposals, not canon abilities, unless a selected scene proves one. Analogues stay useful. |
+| CR5-C5 | PCX1-PCX10 and SU10 are original proposals, not canon abilities, unless a selected scene proves one. Analogues stay useful. |
 
 CR5's top original-world picks: a refillable signature-fluid kit, a design-version
 comparison bench, a hired collaborator workshop, a temporary strength pill for one
@@ -443,7 +445,7 @@ here. Everything stays proposal.
 |---|---|---|---|
 | [W1 maker arts by world](worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md) | Weapon/armor/rune laws for all 25 world folders and 17 full-book folders; fabrication, exact identity, ownership, bond and fuel kept distinct | WL1-WL8, CR2 world laws (both now point here for weapons) | Of 11 memory rows, 4 confirmed and 7 corrected. Legendary Mechanic blueprints come from combining knowledge and talents, not fusing two finished blueprints. CT6 fusion stays an original idea. |
 | [W2 rune language](gm/dispatch/maker-arts-2026-10-14/W2_REPORT.md) | Runes as programs with execution traces and failures | XD1 enchanted potions only as a pointer | None |
-| [W3 reveal cheats](gm/dispatch/maker-arts-2026-10-14/REVEAL_CHEATS.md) | RC1-RC16 plus 12 additions, with status-text samples and companion ladders | CT1 appraisal, CX1-CX10 and RV1-RV8 overlap in purpose | None. Rule here: CX rows are making-specific lenses, and RC is the general item lens set. CR5-C5 still applies: both are original unless a scene proves it. |
+| [W3 reveal cheats](gm/dispatch/maker-arts-2026-10-14/REVEAL_CHEATS.md) | RC1-RC16 plus 12 additions, with status-text samples and companion ladders | CT1 appraisal, PCX1-PCX10 and RV1-RV8 overlap in purpose | None. Rule here: CX rows are making-specific lenses, and RC is the general item lens set. CR5-C5 still applies: both are original unless a scene proves it. |
 | [W4 implementation](gm/dispatch/maker-arts-2026-10-14/IMPLEMENTATION.md) | AB1-AB12 with live file:line evidence; PS1-PS5 ordered slices | II1-II7 analysis of P2 | **Code collision:** W4's AB1-AB12 is maker-arts-local. Crafting AB1-AB7 here map as below. **Build order:** W4 starts with braces, repair, blades, appraisal and a work lamp; CR6 starts with the registry adapter, then poison/antidote, then the notebook. Both are reachable and selectable separately. CR6 adopts W4's identity contract (ID1-ID5). |
 | [W5 micro craft](gm/dispatch/maker-arts-2026-10-14/MICRO_CRAFT.md) | 80 sourced text cues (SB13-SB92) across ten crafts | SU1-SU9 cover the same idea for potions | None; SU stays potion-side and SB covers the other crafts |
 | [W6 other arts](gm/dispatch/maker-arts-2026-10-14/OTHER_ARTS.md) | 12 more arts, 16 game references, worked joins (ceramic containers, hauling frames, training as bond) | P6 M1-M11, CO kinds | None |

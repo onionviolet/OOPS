@@ -13,7 +13,7 @@ priority or turns deferred work into a gate (AGENTS.md).
 | Owner | Role |
 |---|---|
 | [Combat and conflict palette](../COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md) | Root palette, rounds appended (CBC, CBX, CBL codes) |
-| [Combat rules](../COMBAT_RULES.md) | Proposed rulebook CBR1–CBR30, registered in RULES_INDEX |
+| [Combat rules](../COMBAT_RULES.md) | Rulebook CBR1–CBR30, accepted 2026-10-18 (see RULES_INDEX), registered there |
 | [W2 combat grammar](../worlds/world-core-kit-2026-10-14/W2_LAWS_POWER_COMBAT.md) | Per-world K10 rows; extended, not replaced |
 | [First run dispatch](../gm/dispatch/combat-2026-10-18/) | Lane outputs C1 and C2 |
 | Sibling owners | Body and health rules (BHR), tools palette (TQ, IP), encounters and pursuit, weaponcraft palettes, rivals and fate, means and appraisal |

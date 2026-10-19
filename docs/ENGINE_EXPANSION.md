@@ -200,7 +200,7 @@ Event chance and weighted outcomes accept the existing `{fact, scale, add, min, 
 
 ## Chronicle runtime increment, 2026-10-02
 
-**Source implemented, 66 tests pass, rebuilt generated-save browser proof passes; human acceptance pending.** This executes a bounded version of the endorsed elder/event scope and the latest time/inheritance request. Original content and tuning remain proposals. [PROJECT.md](gm/PROJECT_LOG.md#implemented-chronicle-and-time-policy-2026-10-02) owns the selected policy; [Playtest](PLAYTEST.md#chronicle-runtime-browser-and-save-proof-2026-10-02) owns evidence. Earlier audit and packet statements below retain their dated boundaries; this section is the current implementation answer.
+**Source implemented, 66 tests pass, rebuilt generated-save browser proof passes; human acceptance pending.** This executes a bounded version of the endorsed elder/event scope and the latest time/inheritance request. Original content and tuning remain proposals. [PROJECT_LOG.md](gm/PROJECT_LOG.md#implemented-chronicle-and-time-policy-2026-10-02) owns the selected policy; [Playtest](PLAYTEST.md#chronicle-runtime-browser-and-save-proof-2026-10-02) owns evidence. Earlier audit and packet statements below retain their dated boundaries; this section is the current implementation answer.
 
 | Delivered contract | Source and actual behavior | Limit |
 |---|---|---|

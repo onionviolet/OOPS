@@ -1,12 +1,10 @@
+import {xorshift32} from './hash_rng.js';
+import {check, copy as clone, finite, natural as integer} from './basics.js';
 import {LIFE_LESSONS, lifeVoice, learnedLifeLessons, lifeStage,lifeGrave} from './life_experience.js';
 // Original frontier content. Saved history is authoritative; views never roll events.
 export const GAME_YEAR = 360 * 24 * 60;
-const clone = value => structuredClone(value);
 const object = value => value && typeof value === "object" && !Array.isArray(value);
 const key = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) && !["__proto__", "constructor", "prototype"].includes(value);
-const integer = value => Number.isSafeInteger(value) && value >= 0;
-const check = (value, message) => {if(!value) throw new Error(message);};
-const finite = value => Number.isFinite(value) && Math.abs(value) <= Number.MAX_SAFE_INTEGER;
 const statuses = ["scheduled", "open", "resolved", "missed"];
 
 export function validateChronicle(c, clock) {
@@ -221,7 +219,7 @@ export function commandChronicle(state, command, context, expectedSequence = sta
             check(["spar", "assault"].includes(command.intent) && !c.session, "Choose an agreed challenge or hostile attack.");
             check(command.intent === "assault" || !r.ties.grievance, "Settle the previous assault before asking for another agreed challenge.");
             check(context.hero && context.stamina >= 3, "Rest before starting a control encounter.");
-            next.rng ^= next.rng << 13; next.rng ^= next.rng >>> 17; next.rng ^= next.rng << 5; next.rng >>>= 0; next.rng ||= 1;
+            next.rng = xorshift32(next.rng) || 1;
             c.session = {id: `elder:${next.sequence + 1}`, intent: command.intent, phase: "cue", cue: next.rng % 2 ? "tracking" : "sweep",
                 turn: 0, policy: "manual", heroPosture: 0, elderPosture: 0, hero: clone(context.hero), ratStep: !!context.ratStep, witness: !!context.witness};
             note(c, command.intent === "spar" ? "An agreed control challenge begins. Force a concession or withdraw; no lethal stakes." : "You initiate a hostile attack. The elder attempts nonlethal restraint; public witnesses can report this assault.", at);

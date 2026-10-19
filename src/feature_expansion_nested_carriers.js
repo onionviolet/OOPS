@@ -1,9 +1,9 @@
 // Transient conservation guard over the actual nested/native owners. No store,
 // passage engine, reward manager, wall timer or independent calendar is added.
+import {check, copy} from './basics.js';
 import {NESTED_FOOTPRINTS,NESTED_IDS,NESTED_MISSIONS,nestedDefinitions} from './feature_expansion_nested_content.js';
 import {nestedCalendarAt,nestedQuestProjection} from './feature_expansion_nested_native.js';
 import {carrierTransitContext,buildCarrierTransitSnapshot,previewCarrierTransit,stageCarrierTransit,stageCarrierClock,validateCarrierTransitRecord,summarizeCarrierTransitIntent,carrierTransitView} from './backlog_expansion_transit.js';
-const copy=x=>structuredClone(x),check=(ok,text)=>{if(!ok)throw Error(text);};
 const frontier={worldId:'base.frontier',instanceId:'frontier.main',regionId:'frontier.village',layerId:'surface'};
 const qualification={kind:'original_prototype',evidenceIds:[]};
 const kinds=['body','cargo','memory','method','source','fuel','office','credential','duty','debt','curse','observer','ally'];

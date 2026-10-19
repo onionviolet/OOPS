@@ -1,7 +1,7 @@
 // Recurring availability is derived from the saved native calendar. Rendering
 // never creates occurrences, simulates missed rewards or consumes randomness.
-const integer = value => Number.isSafeInteger(value) && value >= 0;
 
+import {natural as integer} from './basics.js';
 export function calendarMinutes(t) {
     if(!t || !["year", "month", "day", "hour", "minute"].every(k => integer(t[k])) ||
         t.month < 1 || t.month > 12 || t.day < 1 || t.day > 30 || t.hour >= 24 || t.minute >= 60) {

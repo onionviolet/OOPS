@@ -1,11 +1,11 @@
 import {configureCraftingDomain} from './crafting_domain.js';
 import {configureToolsDomain} from './tools_domain.js';
-import {domainRegistry} from './domain_registry.js';
+import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding,harmCollapse,heroStanding} from './defeat_domain.js';import {setPurse,addPurse,addSavedPurse,commitPlanMoney,moneyLedgerBinding} from './economy_domain.js';
 import {configureResourceDomains,harvestOwner,habitatOwner,harvestPanel,habitatPanel,setHarvestOwner,setHabitatOwner,receiveHarvest} from './native_resources_domain.js';
 import {bindNativeView} from './native_view.js';
 import {translate, bindTranslationReaders} from './native_translation.js';
 import {can_work, enough_time_for_earnings} from './activity_time.js';
-import {global_flags, languages, language, current_location, travel_times, unlocked_beds, last_location_with_bed, last_combat_location, active_effects, selected_stance, faved_stances, favourite_consumables, favourite_items, game_options, setLanguage, setCurrentLocation, setTravelTimes, setUnlockedBeds, setLastLocationWithBed, setLastCombatLocation, setSelectedStance} from './runtime_state.js';
+import {global_flags, languages, language, current_location, travel_times, unlocked_beds, last_location_with_bed, last_combat_location, active_effects, selected_stance, faved_stances, favourite_consumables, favourite_items, game_options, setLanguage, setCurrentLocation, setTravelTimes, setLastLocationWithBed, setLastCombatLocation, setSelectedStance} from './runtime_state.js';
 import {readNativeCombatFocus} from './combat_focus.js';
 import {mountProto23Shell} from './proto23_shell.js';
 import {mountWorkspaceNavigation} from './workspace_navigation.js';
@@ -20,7 +20,7 @@ import {createMistglassPanel} from './absorb_p23/host_joins/world_adaptation_ui.
 import {PROFILE,enrollGrowth,validateGrowthState,growthView,consumeTonic,setBackground,advanceBackground,settleAward,quoteTonicAcquisition} from './absorb_p23/growth_profile/profile.js';
 import {GROWTH_COUNTER_ID,GROWTH_COUNTER_TEMPLATE,GROWTH_TONIC_KEY,growthLearned,growthFlatSource,noHealGrowthVitals,GROWTH_EARNED_THRESHOLD,validateGrowthEarned,readNativeSkillXP,observeGrowthEarned,freezeEarnedGrowth} from './absorb_p23/host_joins/growth_profile.js';
 import {createGrowthPanel} from './absorb_p23/host_joins/growth_profile_ui.js';
-import {PROFILE_ID, ENEMY_ID, AREA_ID, WORLD_ID, readProfileState, beginAttempt, previewExchange, planExchange, planSettlement, finishAttempt} from './absorb_p23/encounter_profiles/profile.js';
+import {PROFILE_ID, AREA_ID, WORLD_ID, readProfileState, beginAttempt, previewExchange, planExchange, planSettlement, finishAttempt} from './absorb_p23/encounter_profiles/profile.js';
 import {registerTrainingProfile,trainingEnemy,trainingEnemyKey,initialTrainingEncounter} from './absorb_p23/host_joins/encounter_profiles.js';
 import {createTrainingPanel} from './absorb_p23/host_joins/encounter_profiles_ui.js';
 import {normalizeFieldFamiliarity,fieldAction,advanceFieldFamiliarity,fieldView} from './absorb_p23/field_familiarity/index.js';
@@ -84,7 +84,7 @@ import {worldCompletionSavedNativeItem} from './world_completion_native.js';
 import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
 import {foundationInteractionProbeContext,foundationInteractionProbeGuard,FOUNDATION_PROBE_GROUP} from './foundation_interaction_content.js';
 import {createFoundationStartContent,FOUNDATION_START_PACK_ID} from './foundation_start_content.js';
-import {createLocalLivelihoodContent,LIVELIHOOD_PACK_ID} from './local_livelihood_content.js';
+import {createLocalLivelihoodContent} from './local_livelihood_content.js';
 import {mountWorkspace,registerWorkspaceModule,registerLayoutSignal,workspaceOwns,openWorkspaceModule,updateWorkspace} from './workspace_layout.js';
 import {createWorkspaceViews,createEquipmentComparison} from './workspace_views.js';
 import {defaultCustomizationState,validateCustomizationState,getCustomizationSettings,applyCustomizationProfile} from './customization_profiles.js';
@@ -94,11 +94,11 @@ import {createSettledTextEffects} from './settled_text_effects.js';
 import {createNativeDiscoveryFeedback} from './native_discovery_feedback.js';
 import {nativeSkillDiscovery} from './skill_discovery_native.js';
 import {createQuietPlaceDetail} from './quiet_place_detail.js';
-import {createWorkLedger,migrateWorkLedger,validateWorkLedger,transitionWorkLedger,observeWorkLedgerCraft,modifyWorkLedgerChance,modifyWorkLedgerQuality,workLedgerPresentation,createWorkLedgerRulesDraft,applyWorkLedgerRulesDraft,resetWorkLedgerRules} from './work_ledger_system.js';
+import {createWorkLedger,migrateWorkLedger,transitionWorkLedger,observeWorkLedgerCraft,modifyWorkLedgerChance,modifyWorkLedgerQuality,workLedgerPresentation,createWorkLedgerRulesDraft,applyWorkLedgerRulesDraft,resetWorkLedgerRules} from './work_ledger_system.js';
 import {createWorkLedgerUI} from './work_ledger_ui.js';
 import {commitManagement} from './management/host.js';
 import {createManagementPanel} from './management/ui.js';
-import {normalizeElementalOption,describeElementalPreparation,ELEMENTAL_SETTING_DESCRIPTION} from './absorb_e3/elemental_affinities.js';
+import {normalizeElementalOption,describeElementalPreparation} from './absorb_e3/elemental_affinities.js';
 import {equipmentDurability as durability,canonicalDurabilityKey,createDurability} from './absorb_e2/durability.js';
 import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects as basePacingEffects} from './absorb_e1/pacing.js';
 import {mountPacingPanel,pacingStatus} from './absorb_e1/panel.js';
@@ -166,7 +166,7 @@ import {projectBookWorldEffects} from './book_world_effects.js';
 import {commitHomeFurnishingCommand} from './home_furnishing_host.js';
 import {commitCrushSocialAction} from './crush_social_host.js';
 import {createCrushSocialPanel} from './crush_social_views.js';
-import {PARADISE_IDS,PARADISE_LOCATIONS,PARADISE_FOOTPRINTS} from './book_world_paradise_content.js';
+import {PARADISE_LOCATIONS,PARADISE_FOOTPRINTS} from './book_world_paradise_content.js';
 import {BOOK_WORLD_AGENCY_CONTRACTS,validateBookWorldAgencyContracts} from './book_world_player_agency_contracts.js';
 import {activeParadiseVisit,paradiseContext,paradiseSimulationContexts,syncParadiseClock,commitParadiseCommand} from './book_world_paradise_host.js';
 import {stageParadiseCarrierClock,retainParadiseCarrierReceipt} from './book_world_paradise_carriers.js';
@@ -176,8 +176,8 @@ import {createNestedInkPanels} from './feature_expansion_nested_ink_ui.js';
 import {previewNestedCommand} from './feature_expansion_nested_host.js';
 import {createQualifiedBacklogAdapter,bookNativeContext,assertQualifiedOfficePlan} from './feature_expansion_book_host.js';
 import {replacementView,replacementCarrierView,validateReplacementRecord} from './backlog_expansion_replacement.js';
-import {createRelayHost,relayContext,validateRelayState} from './feature_expansion_subtlety_host.js';
-import {createReferenceDeskHost,referenceDeskContext} from './feature_expansion_reference_desk.js';
+import {createRelayHost,validateRelayState} from './feature_expansion_subtlety_host.js';
+import {createReferenceDeskHost} from './feature_expansion_reference_desk.js';
 import {createNestedNativeBindings} from './feature_expansion_nested_native.js';
 import {NESTED_IDS,NESTED_LOCATIONS} from './feature_expansion_nested_content.js';
 import {nestedContext,nestedSimulationContexts,activeNestedVisit,syncNestedCampaignClock,commitNestedCommand} from './feature_expansion_nested_host.js';
@@ -203,7 +203,7 @@ import {commitInkNarrativeAction,inkNarrativeView} from './ink_narrative.js';
 import {createTidemarkInkHost,createRelayInkHost} from './ink_scene_content.js';
 import {createInkNarrativeUI} from './ink_narrative_ui.js';
 import {beginFeatureObjects,commitFeatureObjectCommand,validateFeatureObjectState,featureObjectContext} from './feature_expansion_objects_host.js';
-import {beginSociety,commitSocietyAction,societyContext} from './feature_expansion_society_host.js';
+import {commitSocietyAction,societyContext} from './feature_expansion_society_host.js';
 import {createFeatureExpansionPanel} from './feature_expansion_ui.js';
 import {featureWavePresentation} from './feature_expansion_wave_host.js';
 import NPC from './models/npc.js';
@@ -240,7 +240,8 @@ installTrainingLink(skills);
 import { which_skills_affect_skill } from "./models/skill.js";
 import { Enemy, enemy_killcount, enemy_templates, tags_for_droprate_modifier_skills } from "./enemies.js";
 import { current_trader,is_in_trade, start_trade, cancel_trade, accept_trade, exit_trade,
-         add_to_buying_list, remove_from_buying_list, add_to_selling_list, remove_from_selling_list} from "./trade.js";
+         add_to_buying_list, remove_from_buying_list, add_to_selling_list, remove_from_selling_list, bindTradeHost} from "./trade.js";
+bindTradeHost({commitNativeTrade,get_context,previewP23MarketPurchase,interruptP23NativeWork});
 import { character, 
          time_until_wet,
          cold_status_temperatures,
@@ -437,10 +438,10 @@ import {createChroniclePanel} from "./chronicle_ui.js";
 import {techniqueFacts} from "./techniques.js";
 import {RAT_STEP} from "./technique_content.js";
 import {calendarMinutes} from "./world_rhythm.js";
-import {ROUTE_NOTES, NOTES_KEY, usesVillageClock} from "./village_content.js";
+import {ROUTE_NOTES, NOTES_KEY} from "./village_content.js";
 import {createVillagePanel} from "./village_ui.js";
 import {everydayFacts, recordRouteReading} from "./everyday_life.js";
-import {townUnlocks, usesTownClock, villageLedgerSentence} from "./town_content.js";
+import {townUnlocks, villageLedgerSentence} from "./town_content.js";
 import {createTownPanel} from "./town_ui.js";
 import {createExpansionQuests} from "./expansion_quest_ui.js";
 import {worldIdentityView} from "./world_knowledge.js";
@@ -486,7 +487,7 @@ function commitLocalDateHeader() {if (!restoringNativeSave) localDateLog.commit(
 
 import {prepareV06Save} from "./save_migration.js";
 
-import {beginContinuation, observeContinuation, continuationView, planContinuation} from './continuation_state.js';
+import {beginContinuation, observeContinuation, continuationView} from './continuation_state.js';
 import {createContinuationHost} from './continuation_host.js';
 import {createContinuationUI} from './continuation_ui.js';
 import {suspendEngine} from './simulation_clock.js';
@@ -570,7 +571,7 @@ const agencyIntegrity=validateBookWorldAgencyContracts();if(!agencyIntegrity.val
 expeditionRegistry.bookPlayerAgency={contracts:BOOK_WORLD_AGENCY_CONTRACTS,nativeBindings:new Map([['reincarnation-paradise',{revision:1,worldIds:PARADISE_FOOTPRINTS.map(f=>f.worldId),scope:'first-Goa supplied-MTL alternate branch',status:'implemented-unverified'}],['mother-of-learning',{revision:1,worldIds:MOL_FOOTPRINTS.map(f=>f.worldId),scope:'Cyoria academy independent visitor branch',status:'implemented-unverified'}]])};
 import {createLifeRecord, migrateLifeRecord, observeLifeSave, appendLifeMilestone, lifeCalendarMinute} from './life_record.js';
 import {createLifeRecordPanel} from './life_record_ui.js';
-import {normalizeTitles, grantEarnedTitles, titleBonuses, titleView, title_by_id, describeTitleBonus, yearsSince, titleCalendarMinute} from './titles.js';
+import {normalizeTitles, grantEarnedTitles, titleView, title_by_id, describeTitleBonus, yearsSince, titleCalendarMinute} from './titles.js';
 import {createTitlesPanel} from './titles_ui.js';
 let titlesPanel;
 let title_check_ticks = 0;
@@ -1737,7 +1738,7 @@ function buildExpeditionContext() {
 }
 
 function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readFrame = null) {
-    plan.p00WasRest ||= expansionState.p23Reading?.current?.kind==='rest';
+    plan.p00WasRest ||= expansionState.p23Reading?.current?.kind==='rest';const moneyFrom=expansionState.sequence;
     if(plan.state.p23Reading && !plan.p00StudyCommand){
         const context=studyContext(plan.state,plan.gameplay||gameplaySnapshot());
         const result=observeReadingClock(plan.state.p23Reading,context);
@@ -1901,7 +1902,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     if(plan.p00LifeRecord)lifeRecord=plan.p00LifeRecord;
     if(plan.nativePatch?.total_deaths!==undefined)game_stats.total_deaths=plan.nativePatch.total_deaths;
     for(const text of plan.p00TrancheFourNotices||[])log_message(text,'notification');
-    character.money = plan.external.money;
+    commitPlanMoney(character,plan,moneyFrom);
     if(plan.calendar) current_game_time.loadTime(plan.calendar);
 
     if(plan.effectDurations) {
@@ -2191,9 +2192,9 @@ function habitatContext(){return {owner:habitatOwner,clock:calendarMinutes(curre
 function commitHabitatPlan(plan){
     for(const row of plan.items)if(row.amount<0)assertNativeItemDisposition(expansionState,row.key);
     const transaction=beginNativeCraftTransaction({owners:[character,character.getItems(),item_log,favourite_items,favourite_consumables],
-        bindings:[{get:()=>habitatOwner,set:v=>{setHabitatOwner(v);}}]});
+        bindings:[moneyLedgerBinding,{get:()=>habitatOwner,set:v=>{setHabitatOwner(v);}}]});
     try{
-        setHabitatOwner(plan.state);character.money=plan.money;
+        setHabitatOwner(plan.state);setPurse(character,plan.money,'habitat',{detail:plan.message});
         for(const row of plan.items){
             if(row.amount<0)character.removeFromInventory([{item_key:row.key,item_count:-row.amount}]);
             else character.addToInventory([{item_key:row.key,count:row.amount}]);
@@ -2229,7 +2230,7 @@ function grantHarvest(plan){
 }
 
 function harvestTransaction(run){
-    const transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),item_log,global_flags,availabilities,...Object.values(skills).map(s=>s.getAvailabilityComponent()),which_skills_affect_skill,...nativeCraftQuestOwners(quests,active_quests)],bindings:[{get:()=>harvestOwner,set:v=>{setHarvestOwner(v);}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}}]});
+    const transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),item_log,global_flags,availabilities,...Object.values(skills).map(s=>s.getAvailabilityComponent()),which_skills_affect_skill,...nativeCraftQuestOwners(quests,active_quests)],bindings:[moneyLedgerBinding,{get:()=>harvestOwner,set:v=>{setHarvestOwner(v);}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}}]});
     try {run();const serialized=create_save();if(!serialized)throw Error('Could not save carcass processing.');validateSaveEnvelope(JSON.parse(serialized),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized,()=>transaction.markDurable());}
     catch(e){if(transaction.status==='pending'){transaction.rollback();update_displayed_character_inventory();}throw e;}
 }
@@ -2624,7 +2625,7 @@ function beginFrontierJourney(to){
         'original_frontier.travel.remaining':minutes,'original_frontier.travel.startedAt':state.clock});
     const plan=minutes?advanceFrontierJourney({state,external:{money:character.money},gameplay:gameplaySnapshot()},minutes):
         {state,external:{money:character.money},gameplay:gameplaySnapshot(),nativeLocation:to,nativeEnterQuest:true,nativePatch:{'current location':to}};
-    persistExpansion(plan);
+    const consumed=plan.state.clock-expansionState.clock;persistExpansion(plan);domainRegistry.tick(consumed); // journey minutes reach registry domains, as joined-clock ticks do
     if(plan.state.actors.player.facts['original_frontier.travel.remaining']>0)log_message('The journey stopped for a waiting choice. Its remaining time is saved in local notes.','notification');
 }
 function actFrontierCampaign(command) {
@@ -3263,14 +3264,14 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         const minutes=Math.max(1,Math.ceil(travel_times[previous_location.id][location.id]*(running?.8:1)));
         if(!Number.isSafeInteger(minutes))throw Error('No admitted native route connects these places.');
         const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true);
-        if(plan.state.clock-expansionState.clock!==minutes){persistExpansion(plan);log_message('Finish the current local decision before completing this journey.','notification');return;}
+        if(plan.state.clock-expansionState.clock!==minutes){const consumed=plan.state.clock-expansionState.clock;persistExpansion(plan);domainRegistry.tick(consumed);log_message('Finish the current local decision before completing this journey.','notification');return;}
         plan.state.sequence++;
         if(plan.state.simulation?.people.player)plan.state.simulation.people.player.location=location.id;
         if(running)plan.native={...plan.native,staminaToFull:Math.min(full_stats.max_stamina,(plan.native?.staminaToFull??full_stats.max_stamina-full_stats.stamina)+2)};
         plan.nativeLocation=location.id;plan.nativeEnterQuest=do_quest_events;
         plan.nativePatch={...plan.nativePatch,'current location':location.id,native_encounter:null};
         if(p23CombatOptions&&['exchange-break','encounter-break'].includes(p23CombatOptions.phase))plan.nativePatch.combatOptions={...p23CombatOptions,phase:'active',breakRequested:false};
-        persistExpansion(plan);return;
+        persistExpansion(plan);domainRegistry.tick(minutes);return; // travel minutes reach registry domains, as joined-clock ticks do
     }
     if((optionalPackState.structured||expansionState.causalStories||expansionState.proto23Village)&&!realm_move&&!restoringNativeSave&&location.id!==current_location?.id){
         const state=structuredClone(expansionState);state.sequence++;state.simulation.people.player.location=location.id;
@@ -3433,7 +3434,7 @@ function writeVillageCareer(choice) {
     } else if(choice.startsWith('tuition:')) {
         const p=npcLives?.people.find(p=>p.id==='iona');if(!p || current_game_time.year>=p.deathYear)throw new Error('Iona is no longer available.');
         save.village_career=resolveIonaTuition(villageCareer,choice.split(':')[1]);
-        if(choice==='tuition:accepted')save.character.money+=5;
+        if(choice==='tuition:accepted')addSavedPurse(save,5,'village career: tuition');
     } else if(choice==='tutor') {
         save.village_career=beginTessaInstruction(villageCareer);
     } else if(choice==='notes') {
@@ -3447,11 +3448,11 @@ function writeVillageCareer(choice) {
         save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:`Tessa named you a ${CAREER_RANKS[save.village_career.rank].toLowerCase()} on the Village patrol.`});
     } else {
         save.village_career=resolveVillageKit(villageCareer,choice);
-        if(choice==='pay') {if(save.character.money<50)throw new Error('You need 50 coins to settle the kit debt.');save.character.money-=50;}
+        if(choice==='pay') {if(save.character.money<50)throw new Error('You need 50 coins to settle the kit debt.');addSavedPurse(save,-50,'village career: kit debt');}
     }
     lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
-    if(choice==='pay')add_money_to_character(-50);
-    if(choice==='tuition:accepted')add_money_to_character(5);
+    if(choice==='pay')add_money_to_character(-50,'village career: kit debt');
+    if(choice==='tuition:accepted')add_money_to_character(5,'village career: tuition');
     if(choice==='teach:time'){current_activity.gathering_time=0;current_activity.earnings=0;}
     if(choice==='tutor'){start_activity('meditating');log_message('Tessa teaches sector scanning in person for six Village meditation minutes. No coins or book needed; leaving pauses the lesson.');}
     if(choice==='notes') {
@@ -3548,7 +3549,7 @@ function end_activity() {
     
     if(current_activity.earnings) {
         log_message(`%HeroName% earned ${format_money(current_activity.earnings)}`, "activity_money");
-        add_money_to_character(current_activity.earnings);
+        add_money_to_character(current_activity.earnings,`activity: ${current_activity.activity_name}`);
     }
 
     if(current_activity.gathered_materials) {
@@ -3856,8 +3857,8 @@ function lock_action({location_key, dialogue_key, action_key}) {
     }
 }
 
-function add_money_to_character(money_num) {
-    character.money += money_num;
+function add_money_to_character(money_num, source) {
+    addPurse(character, money_num, source);
     update_displayed_money();
 }
 
@@ -4080,7 +4081,7 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
         if(inform_overall) {
             nativeCraftMessage(`%HeroName% earned ${format_money(rewards.money)}`);
         }
-        add_money_to_character(rewards.money);
+        add_money_to_character(rewards.money,`reward: ${source_type} ${source_name}`);
     }
 
     if(rewards.xp && typeof rewards.xp === "number" && !only_unlocks) {
@@ -4772,7 +4773,7 @@ function runP23CombatExchange(combat,resolve) {
         validateCombatOptions(combat.combatOptions?.snapshot());if(p23LivingGear!==undefined)createLivingGear(p23LivingGear);
         transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),...combat.defenders,...combat.defenders.map(enemy=>enemy.getLevelableComponent()),...(current_location.id===AREA_ID?[locations[AREA_ID],locations[AREA_ID].getAvailabilityComponent()]:[]),item_log,game_stats,global_flags,availabilities,enemy_killcount,favourite_consumables,favourite_items,favourite_locations,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,active_effects,...nativeCraftQuestOwners(quests,active_quests)],
-            bindings:[{get:()=>harvestOwner,set:v=>{setHarvestOwner(v);}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}}]});
+            bindings:[moneyLedgerBinding,defeatBinding,{get:()=>harvestOwner,set:v=>{setHarvestOwner(v);}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}}]});
         scope={transaction,messages:[]};nativeP23Scope=scope;nativeCraftScopes.push(scope);
         nativeP23Transaction=transaction;nativeLivingStrike=true;result=resolve();
         if(combat.combatOptions)p23CombatOptions=combat.combatOptions.snapshot();
@@ -4910,13 +4911,13 @@ function kill_target({target_index, fighter_index, is_target_an_attacker, do_que
 
 function kill_player({is_combat = true}) {
     if(nativeLivingStrike&&is_combat){
-        game_stats.total_deaths++;log_message('%HeroName% has lost consciousness','hero_defeat');
+        game_stats.total_deaths++;publishDefeat(combatDefeat(current_location,current_combat));log_message('%HeroName% has lost consciousness','hero_defeat');
         const sleep=!!(game_options.auto_return_to_bed&&last_location_with_bed&&(!optionalPackState.structured||optionalPackState.structured.locationIds.includes(last_location_with_bed)));
         p23FaintDeparture=current_location.id===AREA_ID?{destination:PROTO23_LOCATIONS.dojo,sleep:false}:{destination:sleep?last_location_with_bed:current_location.parent_location.id,sleep};return;
     }
     if(is_combat) {
-        if(p23Leisure){const plan=p23Plan();stageP23Defeat(plan,game_stats.total_deaths+1);persistExpansion(plan);}
-        else game_stats.total_deaths++;
+        if(p23Leisure){const plan=p23Plan();stageP23Defeat(plan,game_stats.total_deaths+1);publishDefeat(combatDefeat(current_location,current_combat),()=>persistExpansion(plan));}
+        else {game_stats.total_deaths++;publishDefeat(combatDefeat(current_location,current_combat));}
         log_message("%HeroName% has lost consciousness", "hero_defeat");
 
         update_displayed_health();
@@ -4926,7 +4927,7 @@ function kill_player({is_combat = true}) {
         } else {
             change_location({location_id: current_location.parent_location.id});
         }
-    }
+    } else if(harmCollapse(current_location)) log_message("%HeroName% has collapsed", "hero_defeat");
 
     add_active_effect("Recovering", 2);
 }
@@ -5336,7 +5337,7 @@ function use_recipe(target, amount=1){
         const transaction=beginNativeCraftTransaction({owners:[expansionState.streams,character,character.getItems(),character.getLevelableComponent(),item_log,game_stats,global_flags,availabilities,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,favourite_consumables,favourite_items,favourite_locations,active_effects,
             ...nativeCraftQuestOwners(quests,active_quests)],
-            bindings:[{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>fortSupply,set:v=>{fortSupply=v;}},{get:()=>workLedger,set:v=>{workLedger=v;}},
+            bindings:[moneyLedgerBinding,{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>fortSupply,set:v=>{fortSupply=v;}},{get:()=>workLedger,set:v=>{workLedger=v;}},
                 {get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}}]});
         scope={transaction,messages:[]};nativeCraftScopes.push(scope);
         return execute_native_recipe(target,amount);
@@ -5864,7 +5865,7 @@ function commitKnownItemHotkey(request){
     if(domainRegistry.useItem(request.id))return;
     if(character.getItems()[request.id].item.id===MIXTURE_ID){performMixtureAction({type:'use',key:request.id});return;}
     const wear=durability.serialize(),before=character.getItems()[request.id].count;
-    const transaction=beginNativeCraftTransaction({owners:[character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),item_log,game_stats,active_effects,expansionState,...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill],bindings:[{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>getPacingState(),set:setPacingState}]});
+    const transaction=beginNativeCraftTransaction({owners:[character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),item_log,game_stats,active_effects,expansionState,...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill],bindings:[moneyLedgerBinding,{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>getPacingState(),set:setPacingState}]});
     const scope={transaction,messages:[]};nativeP23Scope=scope;nativeP23Transaction=transaction;nativeCraftScopes.push(scope);
     try{
         use_item(request.id);
@@ -5941,7 +5942,7 @@ function performMixtureAction(request) {
         write:text=>lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,text),publish:p=>{
             if(p.expansion)expansionState=p.expansion;
             setProductAppearanceOwner(expansionState.productAppearances);
-            setMixtureOwner(p.state);character.money=p.money;
+            setMixtureOwner(p.state);setPurse(character,p.money,'mixture',{detail:p.message});
             const stock=character.getItems();for(const key of Object.keys(stock))if(!p.inventory[key])delete stock[key];
             for(const [key,row]of Object.entries(p.inventory))stock[key]={item:getItemFromKey(key),count:row.count};
             if(p.effect)active_effects['Village mixture exposure']=restoreActiveEffect('Village mixture exposure',p.effect,p.state.products[p.effect.mixtureExposure.product]);
@@ -6834,7 +6835,7 @@ function load(save_data) {
         //compatibility for old saves, can be removed at some point
         const is_from_before_eco_rework = compare_game_version("v0.3.5", save_data["game version"]) == 1;
 
-        character.money = (save_data.character.money || 0) * ((is_from_before_eco_rework == 1)*10 || 1);
+        setPurse(character, (save_data.character.money || 0) * ((is_from_before_eco_rework == 1)*10 || 1), 'load', {baseline: true});
         update_displayed_money();
 
         rain_counter = save_data.rain_counter || 0;
@@ -8893,9 +8894,9 @@ function simulateTick() {
                 if(next.recruit.soloPatrols>villageCareer.recruit.soloPatrols) {
                     // Report, stipend and first biography publish together after durable storage.
                     try {
-                        const save=JSON.parse(create_save());save.village_career=next;const payment=villageCareer.recruit.covering?COVER_PAYMENT:SOLO_PAYMENT;save.character.money+=payment;
+                        const save=JSON.parse(create_save());save.village_career=next;const payment=villageCareer.recruit.covering?COVER_PAYMENT:SOLO_PAYMENT;addSavedPurse(save,payment,'village career: patrol stipend');
                         if(next.recruit.soloPatrols===1) {const t=save['current time'];save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:`Iona first patrolled Village alone using the Watchcraft you taught her. Tessa paid your career a ${payment}-coin ${villageCareer.recruit.covering?'covered-shift payment':'stipend'}.`});}
-                        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));add_money_to_character(payment);
+                        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));add_money_to_character(payment,'village career: patrol stipend');
                         log_message(`Iona returns with a clear solo report. Tessa pays ${payment} coins; Iona remembers ${next.recruit.taughtBy} as her teacher.`);
                     } catch(error) {log_message(`Iona’s report could not be saved: ${error.message}`);}
                 } else villageCareer=next;
@@ -9050,7 +9051,7 @@ function simulateTick() {
             health_to_subtract += full_stats.max_health * full_stats.health_loss_percent/100;
         }
 
-        update_health({ammount_to_restore: health_to_add, ammount_to_loose: health_to_subtract});
+        update_health({ammount_to_restore: health_to_add, ammount_to_loose: health_to_subtract});heroStanding(full_stats.health);
 
         //stamina regen
         if(!expansionState.chronicle?.session && full_stats.stamina_regeneration_flat) {
@@ -9524,7 +9525,7 @@ function enable_dev_console() {
                 ? {applied, held_back_by_a_stronger_effect: skipped}
                 : applied;
         },
-        add_money: (amount) => { add_money_to_character(amount); return character.money; },
+        add_money: (amount) => { add_money_to_character(amount, 'debug console'); return character.money; },
         add_xp: (amount) => { add_xp_to_character(amount); return character.xp.current_level; },
         add_skill_xp: (skill, amount) => {
             if(!skills[skill]) {
@@ -9676,7 +9677,7 @@ configureToolsDomain({actor:()=>character,skillLevel:skill=>character.getTotalSk
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The tool repair could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();durabilityPanel?.render();},
     blocked:harvestBlockReason,writable:harvestWritable,idle:()=>!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),
-    random:key=>gameKeyedRandom(STREAMS.craft,key),logMessage:log_message});
+    random:key=>gameKeyedRandom(STREAMS.craft,key),logMessage:log_message,locationRevealed:id=>locations[id].isUnlocked(),revealLocation:id=>unlock_location({location:locations[id]})});
 configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAutomaticReady,
     harvestTransaction,grantHarvest,logMessage:log_message,random:key=>gameKeyedRandom(STREAMS.loot,key),
     habitatContext,commitHabitatPlan,clock:()=>calendarMinutes(current_game_time),
@@ -9713,7 +9714,7 @@ if(authorityBootError){
                             ]);
 
     add_xp_to_character(0);
-    character.money = 102;
+    setPurse(character, 102, 'new game', {baseline: true});
     update_displayed_money();
     character.updateStatsAndDisplay();
 
@@ -9763,7 +9764,7 @@ if(newGameBeginning) {
             // Vanilla setup precedes PLAY; reapply before creation starts the clock.
             character.removeFromInventory(Object.entries(character.getItems()).map(([item_key,item])=>({item_key,item_count:item.count})));
             character.addToInventory(start.snapshot.items.map(({id,...item})=>({...item,item_id:id})),true);
-            character.money=start.snapshot.money;update_displayed_money();character.updateStatsAndDisplay();
+            setPurse(character,start.snapshot.money,'start layers',{baseline:true});update_displayed_money();character.updateStatsAndDisplay();
             change_location({location_id:start.snapshot.location,skip_travel_time:true});
             questManager.startQuest({quest_id:start.snapshot.quest});
             lifeRecord=appendLifeMilestone(lifeRecord,{year:current_game_time.year,at:lifeCalendarMinute(current_game_time),

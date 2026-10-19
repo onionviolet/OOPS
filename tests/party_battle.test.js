@@ -93,3 +93,14 @@ test('native strike wrapper supplies the actual redirected helper binding',async
  const next=commitNativeBattleStrike(p.state,registry,{actorId:'roadRival',targetId:'player',attacker:fighter,target:fighter,fighters},context(p));
  assert.equal(next.state.simulation.sessions.player.nativeBattle.lastTarget,PARTY_HELPER);assert.ok(next.state.simulation.people[PARTY_HELPER].vitals.health<28);
 });
+test('CBL3: a lost Lio party battle stages one unconscious record; a win or Lio stepping out stages none',async()=>{
+ const {publishDefeat,defeatState,setDefeatState}=await import('../src/defeat_domain.js');setDefeatState(null);
+ const p=begin(setup()),won=action(p,'player');assert.equal(won.defeat,undefined);
+ const lost=action(p,'roadRival','strike',{fighters:{...fighters,roadRival:{...fighter,attackPower:500}}});
+ assert.equal(lost.state.actors.player.facts['party.lastResult'],'lost');assert.deepEqual(lost.defeat,{outcome:'unconscious',cause:{kind:'combat',place:null,by:['Mara']}});
+ const bytes=JSON.stringify({character:{money:p.external.money},levels:{person:{main_character:{},oldCraftsman:{}}},inventories:{person:{main_character:{},oldCraftsman:{}}},expansion:p.state});
+ const bindings={player:{category:'person',id:'main_character'},oldCraftsman:{category:'person',id:'oldCraftsman'}};
+ assert.throws(()=>persistExpansionPlan(lost,{createSave:()=>{assert.equal(defeatState().counts.unconscious,1);return bytes;},key:'x',storage:{setItem(){throw Error('quota');}},bindings}),/quota/);
+ assert.equal(defeatState()?.last??null,null);
+ persistExpansionPlan(lost,{createSave:()=>bytes,key:'x',storage:{setItem(){}},bindings});assert.deepEqual(defeatState().counts,{unconscious:1});setDefeatState(null);
+});
