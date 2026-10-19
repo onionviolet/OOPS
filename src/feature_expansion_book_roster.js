@@ -481,7 +481,8 @@ export const bookRosterProfiles = freezeTree([
     "id": "reincarnation-paradise",
     "label": "Reincarnation Paradise",
     "authoringFamily": "source.reincarnation_paradise",
-    "nativeWorldId": null,
+    "nativeWorldId": "book.paradise.hub",
+    "nativeWorldIds": ["book.paradise.hub", "book.paradise.goa"],
     "source": {
       "kind": "supplied-novel-MTL",
       "edition": "Calibre 13 English MTL labelled Gemini 2.5 Flash; PD-MTL-67f15d112389-r1",
