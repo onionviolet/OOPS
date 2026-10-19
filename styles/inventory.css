@@ -39,3 +39,21 @@
 #main_content.workspace-active[data-parity="r3"] #inventory_content_div[data-inventory-category="usable"] > .inventory_item_control:not(.character_item_usable):not(.character_item_book),
 #main_content.workspace-active[data-parity="r3"] #inventory_content_div[data-inventory-category="other"] > .inventory_item_control:not(.character_item_other):not(.character_item_loot):not(.character_item_material):not(.character_item_component),
 #main_content.workspace-active[data-parity="r3"] #inventory_content_div[data-inventory-category="favorites"] > .inventory_item_control:not(.character_item_faved) {display:none!important;}
+
+/* R22c (FC5): each category tab carries its items' kind hue (the item name tokens), as a top rule
+   when idle and a tinted fill when chosen; the label stays the cue (UR37). */
+@media (min-width:1001px) {
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button {--tab-hue:var(--p23-text);border-top:2px solid color-mix(in srgb,var(--tab-hue) 45%,transparent);color:color-mix(in srgb,var(--tab-hue) 80%,var(--p23-text));}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[data-category="equipment"] {--tab-hue:var(--p23-item-equipment);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[data-category="usable"] {--tab-hue:var(--p23-item-usable);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[data-category="other"] {--tab-hue:var(--p23-item-component);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[data-category="favorites"] {--tab-hue:var(--p23-item-book);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button .inventory-tab-count {color:var(--tab-hue);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[aria-pressed="true"] {color:var(--p23-text);background:color-mix(in srgb,var(--tab-hue) 22%,transparent);border-top-color:var(--tab-hue);border-bottom-color:var(--tab-hue);}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[aria-pressed="true"] .inventory-tab-count {color:var(--p23-text);}
+/* FC7: the inventory region and the item detail slot get their own tints. */
+#main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) [data-region="inventory"] {background:var(--p23-inventory-fill);}
+#main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) [data-region="actions"] > .workspace-module[data-module="shell-detail"] {background:var(--p23-detail-slot-fill);}
+/* FC6: the session's new-item marker reads "new" in the parity shell (word, not only a dot). */
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div [data-item-new] .item_name::after {content:"new";width:auto;height:auto;margin-left:.4em;padding:0 .25em;font-size:.72em;font-weight:700;line-height:1.2;vertical-align:.15em;color:var(--p23-new);background:none;box-shadow:none;border:1px solid currentColor;}
+}

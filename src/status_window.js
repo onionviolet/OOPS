@@ -32,12 +32,13 @@ export function createStatusWindow({read, onKnown = () => {}}) {
         const newlyKnown = !known; known = true;
         panel.setAttribute('aria-label', 'Status window contents');
         onKnown();
-        panel.dataset.density = getDisplaySetting('panel.status-window.density') || 'comfortable';
+        panel.dataset.density = getDisplaySetting('panel.status-window.density') || 'compact';
         level.textContent = String(snapshot.level);
         for(const [stat, value] of values) value.textContent = snapshot.stats[stat].toFixed(1);
         fields.titles.textContent = snapshot.titles.join(', ') || 'No titles earned yet.';
         fields.points.textContent = String(entry.card.state.points ?? 0);
         fields.quests.textContent = 'No system quests yet. For now, the system only records what you know.';
+        // R22b (Weibao, 2026-10-17): compact by default; comfortable stays a setting.
         // R21c: in the parity shell the window sits under You and yields like the secondary stats:
         // it may grow the top row only to the elastic default, then scrolls inside You.
         const want = String(Math.ceil(panel.scrollHeight)); if(panel.dataset.fitWant !== want) panel.dataset.fitWant = want;
@@ -52,7 +53,7 @@ export function createStatusWindow({read, onKnown = () => {}}) {
         defaultDock: 'left', after: 'shell-character', discovered: () => !!awakenedStatusCard(read().cheats),
         eligible: () => !!awakenedStatusCard(read().cheats), unavailableReason: () => 'Your system has not awakened yet.',
         settings: [{key: 'density', label: 'Row spacing', description: 'Choose comfortable or compact spacing for your known stats.',
-            options: [['comfortable', 'Comfortable'], ['compact', 'Compact']], default: 'comfortable'}]});
+            options: [['comfortable', 'Comfortable'], ['compact', 'Compact']], default: 'compact'}]});
     const unsubscribe = subscribeDisplaySettings(render), timer = setInterval(render, 250);
     return {render, destroy() {clearInterval(timer); unsubscribe(); panel.remove();}};
 }

@@ -80,3 +80,70 @@
 /* A name button is as wide as its own text, so health text changing next to it on ticks never
    resizes the click target (UR52). */
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-name {justify-self:start;width:auto;max-width:100%;}
+
+/* R22b (SU1, SU2): the list in its own panel beside the actions. It fills the panel; the rows take
+   the height left under the caption and scroll inside it when a wave is larger than the slot. */
+#main_content.workspace-active[data-parity="r3"] .combat-opponents-view {display:flex;flex-direction:column;flex:1 1 auto;min-height:0;height:100%;gap:.15em;padding:0 .3em;font-size:var(--shell-context-size,var(--ui-type-body));}
+#main_content.workspace-active[data-parity="r3"] .combat-opponents-view > .enemy-cards[data-layout] {flex:0 1 auto;min-height:0;}
+#main_content.workspace-active[data-parity="r3"] .combat-opponents-view > .enemy-cards[data-layout] > .enemy-card {padding-left:.45em;}
+
+/* SU3: Around you in a fight names the inspected opponent with its health and cycle, level with
+   You's bars, and keeps its facts under it. */
+#main_content.workspace-active[data-parity="r3"] .opponent-target {display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name health" "cycle cycle";align-items:center;column-gap:.6em;padding:.1em .2em .2em;border-bottom:1px solid var(--p23-quiet-line);}
+#main_content.workspace-active[data-parity="r3"] .opponent-target[hidden] {display:none;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target > strong {grid-area:name;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target-health {grid-area:health;min-width:7em;text-align:right;font-variant-numeric:tabular-nums;padding:0 0 .18em;background-image:var(--p23-health-fill);background-size:var(--roster-health,0%) .22em;background-repeat:no-repeat;background-position:left bottom;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target-cycle {grid-area:cycle;width:100%;height:.2em;margin:.1em 0 0;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target-cycle[hidden] {display:block!important;visibility:hidden;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target[data-defeated="true"] > strong {text-decoration:line-through;color:var(--p23-muted);}
+/* With the list elsewhere the facts always show as a list with your own value beside them. */
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] > .opponent-detail > dl {grid-template-columns:repeat(auto-fill,minmax(9.5em,1fr));}
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] > .opponent-detail small:not(:empty) {display:block;}
+
+/* SU4: one hue per opponent kind on names, group labels and the inspected name; the letter and
+   name stay text (UR37). A custom palette keeps its own text color. */
+#main_content.workspace-active[data-parity="r3"] :is(.enemy-card[data-kind-hue] .enemy-card-name, .enemy-group-label[data-kind-hue], .opponent-target > strong[data-kind-hue]) {color:var(--kind-hue);}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-kind-hue]:not([data-inspected="true"]) {border-left-color:color-mix(in srgb,var(--kind-hue) 55%,transparent);}
+#main_content.workspace-active[data-parity="r3"] [data-kind-hue="0"] {--kind-hue:var(--opponent-kind-0);}
+#main_content.workspace-active[data-parity="r3"] [data-kind-hue="1"] {--kind-hue:var(--opponent-kind-1);}
+#main_content.workspace-active[data-parity="r3"] [data-kind-hue="2"] {--kind-hue:var(--opponent-kind-2);}
+#main_content.workspace-active[data-parity="r3"] [data-kind-hue="3"] {--kind-hue:var(--opponent-kind-3);}
+#main_content.workspace-active[data-parity="r3"] [data-kind-hue="4"] {--kind-hue:var(--opponent-kind-4);}
+#main_content.workspace-active[data-parity="r3"] [data-kind-hue="5"] {--kind-hue:var(--opponent-kind-5);}
+#main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] [data-kind-hue] {--kind-hue:var(--shell-user-text);}
+/* The inspected row sits on the health/hover fill, where a light hue drops under 4.5:1: its name
+   keeps the text color and the hue moves to its left rule (inspection still reads by fill and
+   underline). */
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-kind-hue][data-inspected="true"] {border-left-color:var(--kind-hue);border-left-width:3px;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-kind-hue][data-inspected="true"] .enemy-card-name {color:var(--p23-text);}
+
+/* R22c (FC2, FC14): in a fight with the list beside the actions, Around you is two halves: the
+   Target card (left, spanning the facts) and Encounter (right). */
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] {display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);grid-template-areas:"target encounter" "facts encounter";align-content:start;column-gap:.8em;}
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] > .opponent-target {grid-area:target;}
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] > .opponent-detail {grid-area:facts;}
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] > .encounter-summary {grid-area:encounter;}
+/* The Target's health reads like You's: a full-width bar with the value in a dark label. */
+#main_content.workspace-active[data-parity="r3"] .opponent-target {grid-template-columns:minmax(0,1fr);grid-template-areas:"name" "health" "cycle";row-gap:.15em;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target > strong {text-align:center;font-size:1.05em;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target-health {display:flex;justify-content:center;align-items:center;min-width:0;height:1.35em;padding:0;text-align:center;border:1px solid var(--p23-quiet-line);background-color:var(--p23-detail-fill);background-image:var(--p23-health-fill);background-size:var(--roster-health,0%) 100%;background-position:left center;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target-health::before {content:none;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target-health {color:var(--p23-text);text-shadow:0 0 2px var(--p23-blue),0 0 3px var(--p23-blue);font-weight:600;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary {display:flex;flex-direction:column;gap:.1em;border-left:1px solid var(--p23-quiet-line);padding-left:.6em;min-width:0;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary[hidden] {display:none;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary > strong {text-align:center;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary > dl {margin:0;display:grid;gap:0;text-align:left;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary > dl > div {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 .5em;padding:.1em 0;border-bottom:1px solid var(--p23-quiet-line);}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary dt {font:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary dd {margin:0;font-variant-numeric:tabular-nums;color:var(--p23-value);font-weight:600;white-space:nowrap;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary > dl > div[data-kind-hue]:not([data-kind-hue=""]) dt {color:var(--kind-hue);}
+/* The list's caption moved to Encounter; Compare stays with the list. */
+#main_content.workspace-active[data-parity="r3"] #opponent_list > .enemy-roster-toolbar > span {visibility:hidden;height:0!important;}
+#main_content.workspace-active[data-parity="r3"] #opponent_list > .enemy-roster-toolbar {justify-content:flex-end;}
+
+/* FC11: letters per the Opponent letters setting (data-opponent-letters on the shell root). */
+#main_content.workspace-active[data-parity="r3"] :is(.enemy-card-name, .opponent-target > strong)[data-letter]:not([data-letter=""])::after {content:" " attr(data-letter);font-size:.8em;color:var(--p23-muted);display:none;}
+#main_content.workspace-active[data-parity="r3"][data-opponent-letters="always"] :is(.enemy-card-name, .opponent-target > strong)[data-letter]::after,
+#main_content.workspace-active[data-parity="r3"][data-opponent-letters="hover"] .enemy-card:is(:hover,:focus-within,[data-linked]) .enemy-card-name[data-letter]::after {display:inline;}
+/* FC12: a linked row (hovered line or row) gets an outline; nothing moves (UR52). */
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-linked] {outline:2px solid var(--p23-value);outline-offset:-2px;}

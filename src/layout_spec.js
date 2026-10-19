@@ -26,10 +26,11 @@ const routed = ['view', 'route'];
 export const LAYOUT_SPEC = Object.freeze({
     // Version 2 (R21) adds boxes and slots; stored placements carry it (GU6). Versions 3 (UIL1,
     // surfaces and routes) and 4 (UIL4, contexts) add data only, so earlier placements read unchanged.
+    // Version 5 (R22b, SU8) adds the opponent list as a fight companion beside the actions (data only).
     // Version 4 (UIL4) adds the travel and service contexts; placements stored under 2 and 3 read
     // unchanged and a context they lack starts at the spec defaults.
-    version: 4,
-    placementReads: Object.freeze([2, 3]),
+    version: 5,
+    placementReads: Object.freeze([2, 3, 4]),
     // The five parity-shell regions in grid order. `panels` are fixed homes; a panel not listed in
     // any region lives in `fallback`. `contextual` homes depend on the context. R21c: the awakened
     // status window lives under You (it shows only once the system awakens).
@@ -38,11 +39,12 @@ export const LAYOUT_SPEC = Object.freeze({
         focus: Object.freeze({panels: ['focus']}),
         inventory: Object.freeze({panels: ['belongings', 'combat-controls', 'shell-inventory-tools']}),
         log: Object.freeze({panels: ['messages', 'shell-log-tools']}),
-        actions: Object.freeze({panels: ['records', 'skills']}),
+        actions: Object.freeze({panels: ['records', 'skills', 'opponents']}),
     }),
     fallback: 'actions',
     // A1: item inspection sits beside the activity area in idle/travel as well as combat,
     // keeping nearby context visible. Expanded services retain their existing inspector home.
+    // R22c (FC4): idle too, as the second column of the split place region, so Around you stays whole.
     // A context a panel does not name uses its idle home.
     contextual: Object.freeze({'shell-detail': Object.freeze({combat: 'actions', idle: 'actions', travel: 'actions', service: 'box:around'})}),
     // R21 (MB1): the boxes a player can move, as groups of panels. A main box has a home region and
@@ -57,6 +59,9 @@ export const LAYOUT_SPEC = Object.freeze({
         condition: Object.freeze({lead: 'condition', title: 'Condition', panels: Object.freeze(['condition']), companion: true, home: 'player', fit: 'content'}),
         journal: Object.freeze({lead: 'records', title: 'Journal', panels: Object.freeze(['records']), companion: true, fit: 'fill'}),
         skills: Object.freeze({lead: 'skills', title: 'Skills', panels: Object.freeze(['skills']), companion: true, fit: 'fill'}),
+        // R22b (SU1, SU2): in a fight the opponent list takes the second column beside the actions,
+        // where the place region had height to spare; Around you keeps the inspected opponent.
+        opponents: Object.freeze({lead: 'opponents', title: 'Opponents', panels: Object.freeze(['opponents']), companion: true, fit: 'fill'}),
     }),
     // Named slots a box can move to. The log is not a slot: it keeps its column (UR11). The actions
     // region keeps the place, current work and actions; only companions join it.
@@ -79,7 +84,7 @@ export const LAYOUT_SPEC = Object.freeze({
     // room at the 1366×768 floor, and a Journal the player places there shows as a strip.
     contexts: Object.freeze({
         idle: Object.freeze({label: 'idle', companions: Object.freeze(['records'])}),
-        combat: Object.freeze({label: 'fight', when: Object.freeze({combat: true}), companions: Object.freeze(['skills'])}),
+        combat: Object.freeze({label: 'fight', when: Object.freeze({combat: true}), companions: Object.freeze(['opponents', 'skills'])}),
         travel: Object.freeze({label: 'travel', when: Object.freeze({signal: 'travel'}), companions: Object.freeze(['records'])}),
         service: Object.freeze({label: 'service', when: Object.freeze({centerTasks: Object.freeze(['mixing', 'crafting'])}), companions: Object.freeze([])}),
     }),
@@ -111,6 +116,9 @@ export const LAYOUT_SPEC = Object.freeze({
         // From five opponents, repeated names group (UX17): the name once as a group label, then one
         // cell per opponent with its own letter, health and selection. Nothing is aggregated.
         groupFrom: 'grid', groupCellEm: 7, groupMaxColumns: 4,
+        // R22b (SU2): one row's height in em. Where the board knows its slot's height, one column
+        // is kept while every row (labels included) fits, so a tall slot stacks the opponents.
+        rowEm: 1.75,
     }),
     // UIM1: surface fields for every panel the game registers. Types follow the ST table and its
     // TR2 rehoming; shell parts (You, Around you, Inventory, the place, current work) have no ST
@@ -139,6 +147,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'pane-navigation': surface(UNSET),
         'records': surface('ST6', {representations: routed}),
         'skills': surface(UNSET, {representations: routed}),
+        'opponents': surface(UNSET, {contexts: ['combat']}),
         'preparation': surface(UNSET, {representations: routed}),
         'known-people': surface('ST6', {representations: routed}),
         'known-routes': surface('ST6'),
@@ -276,13 +285,21 @@ export function topRowHeight({player, focus, combat, board, fontSize, frame = LA
 // R20: the opponent board's layout for a count at the board's width in text lines (em).
 // `groups` are the opponent counts per name in board order; repeated names group from the
 // `groupFrom` band on. `visibleRows` counts group labels as rows.
-export function boardLayout({count, widthEm, groups = [count]}, spec = LAYOUT_SPEC) {
+// R22b (SU2): `heightEm`, when given, is the slot's height; while one column fits every row the
+// board stacks (R22c: without group labels), and the visible rows follow the slot instead of
+// `maxVisibleRows`.
+export function boardLayout({count, widthEm, heightEm = 0, groups = [count]}, spec = LAYOUT_SPEC) {
     const b = spec.opponentBoard, index = Math.max(0, b.bands.findIndex(x => count <= x.upTo)), band = b.bands[index];
     const grouped = index >= b.bands.findIndex(x => x.layout === b.groupFrom) && groups.length < count;
-    const columns = grouped ? Math.max(1, Math.min(b.groupMaxColumns, Math.floor(widthEm / b.groupCellEm), Math.max(...groups)))
+    const rowsAt = columns => grouped ? groups.reduce((n, g) => n + 1 + Math.ceil(g / columns), 0) : Math.ceil((count || 1) / columns);
+    const fitRows = heightEm > 0 ? Math.max(1, Math.floor(heightEm / b.rowEm)) : 0;
+    let columns = grouped ? Math.max(1, Math.min(b.groupMaxColumns, Math.floor(widthEm / b.groupCellEm), Math.max(...groups)))
         : Math.max(1, Math.min(band.columns, Math.floor(widthEm / b.minColumnEm), count || 1));
-    const rows = grouped ? groups.reduce((n, g) => n + 1 + Math.ceil(g / columns), 0) : Math.ceil((count || 1) / columns);
-    return {layout: band.layout, grouped, columns, facts: band.facts, visibleRows: Math.min(rows, b.maxVisibleRows)};
+    // R22c (FC11): a stacked board needs no group labels; rows sort by kind instead.
+    if (fitRows && (count || 1) <= fitRows) return {layout: band.layout, grouped: false, columns: 1, facts: band.facts, visibleRows: count || 1, stacked: count > 1};
+    if (fitRows && rowsAt(1) <= fitRows) columns = 1;
+    const rows = rowsAt(columns);
+    return {layout: band.layout, grouped, columns, facts: band.facts, visibleRows: Math.min(rows, fitRows || b.maxVisibleRows), stacked: false};
 }
 
 export const frameFor =(fontSize, spec = LAYOUT_SPEC) => spec.topRow.framePx + Math.ceil(fontSize * spec.topRow.frameLines);

@@ -17,7 +17,7 @@ try{
 for(const [kind,w,h,font,data] of CASES){const tag=`${kind}-${w}x${h}-${font}`;
     await run(`${tag}: each tab's count equals the rows the native filter shows; tabs stay put; no overflow`,async()=>{
         const {ctx,p}=await open(b,{w,h,data});if(font!==14)await L.textSize(p,font);await p.waitForTimeout(800);
-        const first=await tabs(p);assert.equal(first.length,5,'five tabs');assert.ok(first.find(t=>t.id==='all').pressed,'All not selected by default');
+        const first=await tabs(p);assert.equal(first.length,5,'five tabs');assert.ok(first.find(t=>t.id===(kind==='fight'?'usable':'all')).pressed,kind==='fight'?'R22c (FC17): a fight opens Usable':'All not selected by default');
         const seen={};
         for(const t of first){await p.locator(`.inventory-tabs > button[data-category="${t.id}"]`).click();await p.waitForTimeout(150);
             const now=await tabs(p);seen[t.id]={count:t.count,visible:await visibleRows(p),native:await p.evaluate(id=>document.getElementById(id)?.classList.contains('active_selection_button'),{all:'inventory_show_all',equipment:'inventory_show_equipment',usable:'inventory_show_consumable',other:'inventory_show_other',favorites:'inventory_show_favs'}[t.id])};

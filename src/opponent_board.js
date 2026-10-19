@@ -20,6 +20,16 @@ export function letterFor(slot) {
     return out;
 }
 
+// R22b (SU4): one hue per opponent kind, so "Wolf rat B" in Reports matches its row on the board.
+// Kinds take hues in first-appearance (native slot) order within the wave; the board and the log
+// both pass the side's names in slot order, so they agree. Letters still tell individuals apart,
+// and names stay text, so color never carries the meaning alone (UR37).
+export const KIND_HUES = 6;
+export function kindHue(names, name) {
+    const order = [...new Set(names)], at = order.indexOf(name);
+    return at < 0 ? null : at % KIND_HUES;
+}
+
 // Adapter for the existing read() rows (readNativeCombatFocus). Same facts the native renderer
 // already shows; marks them 'native'. Defeat comes from the shown health text ("0/20 hp").
 export function projectNativeOpponents(rows = [], {groupsLeft = '', clears = ''} = {}) {

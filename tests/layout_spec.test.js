@@ -8,7 +8,8 @@ function r16ParityRegion(id, combat) {
     // R21c: the status window joins You (R16 sent it to the fallback, where the shell parked it).
     if (['vitals', 'shell-character', 'status-window'].includes(id)) return 'player';
     if (id === 'focus') return 'focus';
-    if (id === 'shell-detail') return combat ? 'actions' : 'focus';
+    // R22c (FC4): the item detail sits beside the actions idle too (R16 put it in Around you).
+    if (id === 'shell-detail') return 'actions';
     if (['belongings', 'combat-controls', 'shell-inventory-tools'].includes(id)) return 'inventory';
     if (['messages', 'shell-log-tools'].includes(id)) return 'log';
     if (['records', 'skills'].includes(id)) return 'actions';
@@ -33,9 +34,10 @@ test('item inspection preserves nearby context during idle and travel, with serv
 });
 
 test('default shell order matches R16 for the parity shell and the plain shell', () => {
-    assert.deepEqual(shellOrder({parity: true}), r16Order(['records', 'skills']));
+    // R22b (SU1): the opponent list joins the fight companions, ahead of Skills.
+    assert.deepEqual(shellOrder({parity: true}), r16Order(['records', 'opponents', 'skills']));
     assert.deepEqual(shellOrder({parity: false}), r16Order([]));
-    assert.deepEqual(companionPanels(), ['records', 'skills']);
+    assert.deepEqual(companionPanels(), ['records', 'opponents', 'skills']);
 });
 
 test('companions and top-row numbers match R16 (R21: Skills left the idle default)', () => {
@@ -82,9 +84,12 @@ test('R21 placement: swaps main boxes, places companions, keeps the log and defa
     assert.equal(regionFor('records', {placement: p.contexts.idle}), 'inventory');
     p = swapCompanions(p, 'idle'); assert.equal(p.contexts.idle.swap, true);
     p = moveBox(p, 'idle', 'around', 'inventory');
-    assert.equal(regionFor('shell-detail', {placement: p.contexts.idle}), 'actions', 'item detail keeps its task companion home when Around you moves');
+    assert.equal(regionFor('shell-detail', {placement: p.contexts.idle}), 'actions', 'R22c: item detail stays beside the actions when Around you moves');
     assert.equal(isDefault(resetContext(p, 'idle'), 'idle'), true);
     assert.equal(normalizePlacement({version: 1, spec: 1, contexts: {idle: {boxes: {you: 'focus'}}}}).stale, true, 'an older spec version is dropped (GU6)');
+    // R22b: spec 3 only adds a box, so an R21 (spec 2) placement keeps its moves.
+    const kept = normalizePlacement({version: 1, spec: 2, contexts: {idle: {boxes: {you: 'focus'}, companions: {journal: 'inventory'}}}});
+    assert.equal(kept.contexts.idle.boxes.you, 'focus'); assert.equal(kept.contexts.idle.companions.journal, 'inventory');
     assert.equal(regionFit(['vitals', 'shell-character']), 'content');
     assert.equal(regionFit(['focus']), 'combat');
     assert.equal(regionFit(['belongings', 'records']), 'fill');
@@ -108,9 +113,9 @@ test('UIL1/UIL4 the spec reads v2 and v3 placements unchanged and still drops v1
     const {normalizePlacement} = await import('../src/shell_layout_edit.js');
     const v2 = {version: 1, spec: 2, contexts: {idle: {boxes: {inventory: 'player'}, companions: {journal: 'inventory'}, swap: true}, combat: {boxes: {}, companions: {}, swap: false}}};
     const read = normalizePlacement(v2);
-    assert.equal(LAYOUT_SPEC.version, 4);
+    assert.equal(LAYOUT_SPEC.version, 5);
     assert.equal(read.stale, false);
-    assert.equal(read.spec, 4);
+    assert.equal(read.spec, 5);
     // The contexts the old placement lacks (travel, service) start at the spec defaults.
     assert.deepEqual(Object.keys(read.contexts), ['idle', 'combat', 'travel', 'service']);
     assert.deepEqual({idle: read.contexts.idle, combat: read.contexts.combat}, Object.fromEntries(Object.entries(v2.contexts).map(([k,v])=>[k,{...v,sizes:{}}])));
@@ -138,7 +143,7 @@ test('UIL4 contextOf: combat beats an open service view, which beats travel, whi
 test('UIL4 the new contexts use spec defaults and keep the idle homes and the log column', () => {
     assert.deepEqual(companionsFor({context: 'travel', available: ['records', 'skills']}), ['records']);
     assert.deepEqual(companionsFor({context: 'service', available: ['records', 'skills']}), [], 'service recommends none');
-    assert.deepEqual(companionPanels(), ['records', 'skills'], 'the companion palette is unchanged');
+    assert.deepEqual(companionPanels(), ['records', 'opponents', 'skills'], 'the companion palette is Journal, Opponents (R22b) and Skills');
     for (const context of ['idle', 'travel', 'service']) {
         assert.equal(regionFor('shell-detail', {context}), context==='service'?'focus':'actions', `${context} item detail keeps its declared home`);
         assert.equal(regionFor('messages', {context}), 'log', `${context} keeps the log column (UR11)`);

@@ -102,9 +102,11 @@ const checks = {
     await context(a.p); await a.p.waitForTimeout(500);
     const c = a.p.locator('#customization_effects_host [data-display-setting="panel.status-window.density"]');
     if (!(await c.count())) bad.push('no panel.status-window.density setting');
-    else { await c.selectOption('compact'); await context(a.p); await a.p.waitForTimeout(400);
+    // R22b (Weibao, 2026-10-17): the window starts compact; Comfortable loosens the rows.
+    else { if (await c.inputValue() !== 'compact') bad.push(`default density ${await c.inputValue()}, expected compact`);
+      await c.selectOption('comfortable'); await context(a.p); await a.p.waitForTimeout(400);
       const h2 = await a.p.evaluate(() => document.querySelector('.workspace-module[data-module="status-window"] [data-status-stat]')?.getBoundingClientRect().height);
-      if (!(h2 < v.rowH)) bad.push(`compact did not tighten rows (${v.rowH} -> ${h2})`); }
+      if (!(h2 > v.rowH)) bad.push(`comfortable did not loosen rows (${v.rowH} -> ${h2})`); }
     await a.ctx.close(); rec('H4_panel_contents', !bad.length, bad.length ? bad : v);
   },
   async H5_persistence(b) {

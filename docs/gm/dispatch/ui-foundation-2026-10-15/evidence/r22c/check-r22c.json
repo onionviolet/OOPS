@@ -1,0 +1,73 @@
+{
+ "fight": {
+  "target": "1920-14",
+  "vis": {
+   "rowLetters": 0,
+   "logLetters": 0,
+   "names": [
+    "Starving wolf rat",
+    "Starving wolf rat",
+    "Starving wolf rat",
+    "Wolf rat",
+    "Wolf rat",
+    "Wolf rat",
+    "Elite wolf rat",
+    "Elite wolf rat"
+   ]
+  },
+  "fromLine": 1,
+  "fromRow": {
+   "slot": "1",
+   "lines": 5,
+   "same": true
+  },
+  "merged": [],
+  "mergedCount": 0,
+  "encounter": {
+   "Opponents": "8",
+   "Defeated": "0 of 8",
+   "Starving wolf rat": "3 of 3 left",
+   "Wolf rat": "3 of 3 left",
+   "Elite wolf rat": "2 of 2 left",
+   "Groups left": "15 / 15",
+   "Clears": "[0]"
+  }
+ },
+ "merge": {
+  "target": "1920-14",
+  "merged": 5,
+  "sample": [
+   "08:18 · Starving wolf rat 2 of 8",
+   "08:18 · Starving wolf rat 3 of 8"
+  ]
+ },
+ "always": {
+  "target": "1920-14",
+  "rowLetters": 8,
+  "logLetters": 28
+ },
+ "idle": {
+  "target": "1920-14",
+  "detail": "actions",
+  "detailShown": true,
+  "aroundShown": true,
+  "actions": true,
+  "top": "287px 730px",
+  "page": true,
+  "tabs": {
+   "hues": {
+    "all": "#bcfefe",
+    "equipment": "#f4d27e",
+    "usable": "#a9e88b",
+    "other": "#99dfff",
+    "favorites": "#d6bbff"
+   },
+   "tokens": {
+    "equipment": "#f4d27e",
+    "usable": "#a9e88b",
+    "other": "#99dfff"
+   },
+   "after": "\"new\""
+  }
+ }
+}
