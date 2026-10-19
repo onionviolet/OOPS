@@ -1,6 +1,6 @@
 import {configureCraftingDomain} from './crafting_domain.js';
 import {configureToolsDomain} from './tools_domain.js';
-import {domainRegistry} from './domain_registry.js';
+import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding} from './defeat_domain.js';
 import {configureResourceDomains,harvestOwner,habitatOwner,harvestPanel,habitatPanel,setHarvestOwner,setHabitatOwner,receiveHarvest} from './native_resources_domain.js';
 import {bindNativeView} from './native_view.js';
 import {translate, bindTranslationReaders} from './native_translation.js';
@@ -4773,7 +4773,7 @@ function runP23CombatExchange(combat,resolve) {
         validateCombatOptions(combat.combatOptions?.snapshot());if(p23LivingGear!==undefined)createLivingGear(p23LivingGear);
         transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),...combat.defenders,...combat.defenders.map(enemy=>enemy.getLevelableComponent()),...(current_location.id===AREA_ID?[locations[AREA_ID],locations[AREA_ID].getAvailabilityComponent()]:[]),item_log,game_stats,global_flags,availabilities,enemy_killcount,favourite_consumables,favourite_items,favourite_locations,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,active_effects,...nativeCraftQuestOwners(quests,active_quests)],
-            bindings:[{get:()=>harvestOwner,set:v=>{setHarvestOwner(v);}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}}]});
+            bindings:[defeatBinding,{get:()=>harvestOwner,set:v=>{setHarvestOwner(v);}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}}]});
         scope={transaction,messages:[]};nativeP23Scope=scope;nativeCraftScopes.push(scope);
         nativeP23Transaction=transaction;nativeLivingStrike=true;result=resolve();
         if(combat.combatOptions)p23CombatOptions=combat.combatOptions.snapshot();
@@ -4911,13 +4911,13 @@ function kill_target({target_index, fighter_index, is_target_an_attacker, do_que
 
 function kill_player({is_combat = true}) {
     if(nativeLivingStrike&&is_combat){
-        game_stats.total_deaths++;log_message('%HeroName% has lost consciousness','hero_defeat');
+        game_stats.total_deaths++;publishDefeat(combatDefeat(current_location,current_combat));log_message('%HeroName% has lost consciousness','hero_defeat');
         const sleep=!!(game_options.auto_return_to_bed&&last_location_with_bed&&(!optionalPackState.structured||optionalPackState.structured.locationIds.includes(last_location_with_bed)));
         p23FaintDeparture=current_location.id===AREA_ID?{destination:PROTO23_LOCATIONS.dojo,sleep:false}:{destination:sleep?last_location_with_bed:current_location.parent_location.id,sleep};return;
     }
     if(is_combat) {
-        if(p23Leisure){const plan=p23Plan();stageP23Defeat(plan,game_stats.total_deaths+1);persistExpansion(plan);}
-        else game_stats.total_deaths++;
+        if(p23Leisure){const plan=p23Plan();stageP23Defeat(plan,game_stats.total_deaths+1);publishDefeat(combatDefeat(current_location,current_combat),()=>persistExpansion(plan));}
+        else {game_stats.total_deaths++;publishDefeat(combatDefeat(current_location,current_combat));}
         log_message("%HeroName% has lost consciousness", "hero_defeat");
 
         update_displayed_health();
