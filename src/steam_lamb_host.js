@@ -1,10 +1,10 @@
 // The existing command scheduler stages the plan; the caller publishes it once.
+import {check} from './basics.js';
 import {STEAM_LAMB_IDS as I} from './steam_lamb_content.js';
 import {steamLambFacts, validateSteamLambState} from './steam_lamb_facts.js';
 import {guardSteamLambAdmission} from './steam_lamb_runtime.js';
 import {commitSimulationCommand, cancelSimulationJob} from './simulation.js';
 import {projectFeatureCommands, featureWorkControls} from './feature_expansion_host.js';
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 export function steamLambContext(state, registry, context = {}) {
     return {...context, steamLambHost: true, facts: {...context.facts, ...steamLambFacts(state, context, registry)}};
 }

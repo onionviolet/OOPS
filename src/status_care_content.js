@@ -1,5 +1,6 @@
 // Optional, original Village care proposals. Importing these definitions does
 // not enroll the player, grant supplies, or add another clock.
+import {all, any, eq} from './basics.js';
 export const STATUS_CARE_IDS = Object.freeze({
     world: 'base.frontier',
     group: 'status_care',
@@ -32,9 +33,6 @@ export const STATUS_CARE_KEYS = Object.freeze({
 });
 const K = STATUS_CARE_KEYS;
 
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
-const any = (...rules) => ({any: rules});
 const af = (name, value = true) => ({type: 'fact', scope: 'actor', key: I.prefix + name, value});
 const item = (itemKey, amount, returned = false) => ({type: 'item', key: itemKey, amount, ...(returned ? {reservationReturn: true} : {})});
 const money = amount => ({type: 'resource', native: true, key: 'money', amount, actor: 'player'});

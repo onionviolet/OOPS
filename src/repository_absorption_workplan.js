@@ -1,18 +1,12 @@
 // Original finite projections over YAIR's command/job/stock owners. Pattern
 // provenance: RB-PRO-01, RB-LIV-03 and RB-CAM-02. No upstream code is copied.
+import {deepFreeze as freeze, positive} from './basics.js';
 import {assert, natural, stableId, copy, jsonData} from './simulation_contracts.js';
 import {previewSimulationCommand} from './simulation.js';
 import {inventory, participant} from './simulation_effects.js';
 import {validateItemKey} from './gameplay_transactions.js';
 
 export const REPOSITORY_WORKPLAN_LIMITS = Object.freeze({steps: 16, starts: 10000});
-const freeze = value => {
-    if(value && typeof value === 'object') {
-        Object.values(value).forEach(freeze); Object.freeze(value);
-    }
-    return value;
-};
-const positive = n => natural(n) && n > 0;
 const commandsOf = registry => registry?.simulation?.commands;
 const unique = values => [...new Set(values)];
 const targetNeeded = d => d.targetId || d.targetDefinitionId || d.participants?.includes('$target') ||

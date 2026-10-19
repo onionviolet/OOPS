@@ -1,8 +1,9 @@
 // Original optional field-care procedures, not new medical/source-book canon.
+import {all, eqNoReason as eq} from './basics.js';
 export const FIELD_CARE_IDS=Object.freeze({group:'field_care',prefix:'field.care.',begin:'field.care.begin',study:'field.care.study',wipe:'field.care.wipe',venom:'field.care.venom',dress:'field.care.dress',arm:'field.care.arm',disarm:'field.care.disarm',cut:'field.care.open_cut'});
 const I=FIELD_CARE_IDS, key=id=>JSON.stringify({id});
 export const FIELD_CARE_KEYS=Object.freeze({cloth:key('Linen cloth'),leaf:key('Golmoon leaf'),thistle:key('Silver thistle'),berry:key('Oneberry')});
-const K=FIELD_CARE_KEYS,eq=(fact,value=true)=>({fact,op:'eq',value}),all=(...rules)=>({all:rules});
+const K=FIELD_CARE_KEYS;
 const known=(id,value)=>({type:'knowledge',key:I.prefix+id,stage:'understood',value});
 const af=(id,value=true)=>({type:'fact',scope:'actor',key:I.prefix+id,value});
 const consume=k=>({type:'item',key:k,amount:-1}),effort={type:'vital',actor:'player',key:'stamina',amount:-1};

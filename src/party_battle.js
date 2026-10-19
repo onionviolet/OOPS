@@ -1,3 +1,5 @@
+import {xorshift32} from './hash_rng.js';
+import {check} from './basics.js';
 import {validateNativeBattle,PARTY_HELPER,PARTY_METHOD} from './native_battle_contracts.js';
 import {commitSimulationCommand,simulationOccupiesActor} from './simulation.js';
 import {activePractice} from './techniques.js';
@@ -5,7 +7,7 @@ import {applySimulationEffects} from './simulation_effects.js';
 import {validateExpansionState} from './expansion_engine.js';
 import {rollCombatStrike,mitigateCombatDamage} from './combat_math.js';
 import {ROAD_RIVAL,RIVAL_PURSUIT} from './frontier_campaign.js';
-const kit=JSON.stringify({id:'Prepared survey kit'}),check=(ok,message)=>{if(!ok)throw new Error(message);};
+const kit=JSON.stringify({id:'Prepared survey kit'});
 function supportReasons(state) {
     const s=state.simulation,p=s?.people[PARTY_HELPER],a=state.actors[PARTY_HELPER],source=a?.sources[PARTY_METHOD],faculty=s?.faculties[PARTY_HELPER]?.[PARTY_METHOD];
     const reasons=[];
@@ -84,7 +86,7 @@ export function commitPartyBattleAction(state,registry,command,context) {
         check(attacker&&target&&Number.isFinite(attacker.attackPower)&&attacker.attackPower>=0,'Missing actual native fighter binding.');
         check(hp(actorId).health>1&&hp(targetId).health>1,'A fighter has already yielded.');
         const before=hp(actorId).stamina;hp(actorId).stamina=Math.max(0,before-Math.min(before,1/(attacker.stats.stamina_efficiency||1)));
-        const random=()=>{let n=b.seed;n^=n<<13;n^=n>>>17;n^=n<<5;b.seed=n>>>0;return b.seed/0x100000000;};
+        const random=()=>{b.seed=xorshift32(b.seed);return b.seed/0x100000000;};
         const strike=rollCombatStrike({attackPower:attacker.attackPower*(hp(actorId).stamina===0?(attacker.emptyStaminaMultiplier||.5):1),attacker:attacker.stats,target:target.stats,shield:target.shield,shieldSkill:target.shieldSkill,random});
         const damage=strike.kind==='hit'?mitigateCombatDamage(strike.values,target.stats.defense||0):0;
         hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;

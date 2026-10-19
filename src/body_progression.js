@@ -1,8 +1,8 @@
+import {eqRawReason as eq} from './basics.js';
 import {enrollSimulation, commitSimulationCommand} from "./simulation.js";
 
 export const SORE_HANDS = "body.sore_hands", SCRAPED_HANDS = "body.scraped_hands";
 export const NATURAL_BALANCE = "body.natural_balance", CONDITIONED_GRIP = "body.conditioned_grip", PALM_MARK = "body.palm_mark";
-const eq = (fact,value,reason) => ({fact,op:"eq",value,...(reason?{reason}:{})});
 const yes = eq("actor.body.enrolled",true,"Begin a body record first.");
 const village = eq("location","Village","Return to Village.");
 const fact = (key,value=true) => ({type:"fact",scope:"actor",key,value});

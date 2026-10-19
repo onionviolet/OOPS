@@ -1,4 +1,5 @@
 // Original proposal: one Village patrol career, using native time and wages.
+import {natural} from './basics.js';
 export const CAREER_RANKS = ['Apprentice', 'Dependable worker', 'Mentor'];
 export const KIT_DEBT = 50;
 export const WATCHCRAFT_BOOK = 'Tessa’s watchcraft notes';
@@ -6,7 +7,6 @@ export const WATCHCRAFT_READING = 6;
 export const WATCHCRAFT_PRACTICE = 5;
 export const WATCHCRAFT_BONUS = 10;
 const emptyStudy = () => ({issued:false,practiceMinutes:0,used:false,notesIssued:false,tutorMinutes:0,tutoring:false});
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const check = (ok, message) => {if(!ok) throw new Error(`Village career: ${message}.`);};
 export function createVillageCareer() {
     return {schema:4,rank:0,shifts:0,completed:0,returned:0,loan:null,debt:0,lastShift:null,watchcraft:emptyStudy(),recruit:null};

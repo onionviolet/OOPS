@@ -1,12 +1,9 @@
 // Pure read references and consent plans. Native stock and simulation custody
 // remain their actual owners. Nothing here publishes effects or inventory.
+import {check as assert, copy, natural, positive} from './basics.js';
 export const REALM_CARGO_SCHEMA = 1;
-const assert = (ok, message) => {if (!ok) throw new Error(message);};
 const object = v => v !== null && typeof v === 'object' && !Array.isArray(v) && [Object.prototype, null].includes(Object.getPrototypeOf(v));
 const id = v => typeof v === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !['__proto__', 'prototype', 'constructor'].includes(v);
-const natural = v => Number.isSafeInteger(v) && v >= 0;
-const positive = v => natural(v) && v > 0;
-const copy = v => structuredClone(v);
 const order = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 function json(v, parents = new Set(), depth = 0) {
     assert(depth < 24, 'Cargo data exceeds JSON depth.');

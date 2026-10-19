@@ -1,9 +1,8 @@
+import {check, natural} from './basics.js';
 import {drawUnit,ensureStreams,validateStreams,unitDecision} from './seeded_streams.js';
 import {APPEARANCE_POOL,APPEARANCE_STREAM,APPEARANCE_LIMIT,PRODUCT_APPEARANCES} from './product_appearance_content.js';
 import {validateMixtureState,validateProduct} from './mixture_state.js';
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
-const natural=v=>Number.isSafeInteger(v)&&v>=0;
-const check=(v,m)=>{if(!v)throw Error(m);};
 function keys(value,allowed){check(object(value)&&Object.keys(value).sort().join()===allowed.sort().join(),'Invalid appearance owner fields.');}
 function shuffled(start,salt,draw){
     const permutation=Object.keys(PRODUCT_APPEARANCES);

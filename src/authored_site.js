@@ -2,6 +2,7 @@
 // gather activity, compiled into the existing schema-1 optional pack adapter.
 // Supported properties are exactly the DRAFT_FIELDS below. Anything else is
 // rejected; this is not a universal editor and it never lists existing content.
+import {object} from './basics.js';
 import {validatePack, registerPack, validatePackState} from './content_packs.js';
 
 export const AUTHORED_PACK_ID = 'authored_site';
@@ -49,7 +50,6 @@ export const DEFAULT_DRAFT = Object.freeze({
     gatherAmount: 2,
 });
 
-const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
 const control = /[\u0000-\u001f\u007f]/;
 
 class DraftError extends Error {

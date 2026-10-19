@@ -1,10 +1,9 @@
+import {check, natural} from './basics.js';
 import {stageAcquisition} from './acquisition.js';
 import {applyEnergyEffect} from './energy_resources.js';
 import {validateItemKey} from './gameplay_transactions.js';
 
-const check=(ok,message)=>{if(!ok)throw Error(message);};
 const id=v=>typeof v==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(v)&&!['__proto__','constructor','prototype'].includes(v);
-const natural=v=>Number.isSafeInteger(v)&&v>=0;
 const dimensions=v=>Array.isArray(v)&&v.length===3&&v.every(n=>natural(n)&&n>0);
 const definitions=registry=>registry?.simulation?.containers||registry?.containers;
 const definition=(registry,key,frozen)=>{const d=definitions(registry)?.get(key)||(!registry?frozen:null);check(d,'Unsupported inventory compartment.');return d;};

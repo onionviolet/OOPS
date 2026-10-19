@@ -1,9 +1,9 @@
+import {check as assert, copy, natural, object, sameJson as same} from './basics.js';
 import {NESTED_IDS as I,NESTED_LOCATIONS as L,NESTED_FOOTPRINTS as footprints,NESTED_NATIVE_DOMAIN as nativeDomain,NESTED_NATIVE_STOCK,nestedDefinitions} from './feature_expansion_nested_content.js';
 import {activeNestedVisit,validateNestedCampaignState} from './feature_expansion_nested_host.js';
 import {validateItemKey} from './gameplay_transactions.js';
 import {jsonData} from './simulation_contracts.js';
-const assert=(ok,message)=>{if(!ok)throw Error(message);},copy=x=>structuredClone(x),natural=n=>Number.isSafeInteger(n)&&n>=0,object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b),shape=(v,fields,label)=>assert(object(v)&&Object.keys(v).length===fields.length&&fields.every(k=>Object.hasOwn(v,k)),`Unsupported ${label} fields.`);
+const shape=(v,fields,label)=>assert(object(v)&&Object.keys(v).length===fields.length&&fields.every(k=>Object.hasOwn(v,k)),`Unsupported ${label} fields.`);
 const people=nestedDefinitions.people.map(d=>d.id),places=Object.values(L),calendarSeed={year:1,month:1,day:1,hour:6,minute:0,day_count:1};
 const owners=[{worldId:I.hub,stockOwner:I.hubStock,shopOwner:I.hubShop,questId:I.hubQuest,locations:[L.hub,L.workroom]},
  {worldId:I.salt,stockOwner:I.saltStock,shopOwner:I.saltShop,questId:I.saltQuest,locations:[L.salt,L.enginehouse]},

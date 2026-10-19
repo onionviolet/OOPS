@@ -1,8 +1,8 @@
+import {check} from './basics.js';
 import {WORLD_COMPLETION_LIFE_IDS as I,worldCompletionLifeDefinitions as D,worldCompletionLifeFrozenDefinition} from './world_completion_life_content.js';
 import {worldCompletionEnrolled,exactWorldCompletionLifeJob} from './world_completion_life_facts.js';
 import {worldCompletionBridgeContext,worldCompletionDrainEffects} from './world_completion_bridge.js';
 import {worldCompletionStripStamp} from './world_completion_strip.js';
-const check=(ok,text)=>{if(!ok)throw new Error(text);};
 export function worldCompletionLifeRuntimeRegistry(state,registry,context={}){
     const original=registry.simulation.commands.get(I.measuredLine),key=context.facts?.['worldCompletion.measuredStripKey'];
     if(!original||!worldCompletionStripStamp(key))return registry;

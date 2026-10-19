@@ -1,7 +1,8 @@
 // Original optional Village household. Yearly public lives, no native NPC powers.
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
+import {natural} from './basics.js';
+import {fnv1a} from './hash_rng.js';
 const check=(v,m)=>{if(!v)throw new Error(`Invalid village lives: ${m}.`);};
-const hash=s=>{let n=2166136261;for(const c of s)n=Math.imul(n^c.charCodeAt(0),16777619);return n>>>0;};
+const hash=s=>fnv1a(2166136261,s);
 export function createVillageLives(year,seed=1) {
     check(natural(year)&&year>=100 && natural(seed)&&seed<=0xffffffff,'beginning');
     const people=[],events=[];

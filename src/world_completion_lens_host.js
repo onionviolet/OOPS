@@ -1,5 +1,6 @@
 // Public host for the separate current-sample service. Root owns shared routing,
 // admission, simulation joins, native publication and the rebuilt game.
+import {check} from './basics.js';
 import {WORLD_COMPLETION_LENS_IDS as I, WORLD_COMPLETION_LENS_POLICY as P, worldCompletionLensCommand} from './world_completion_lens_content.js';
 import {worldCompletionLensFacts, worldCompletionLensEnrolled, worldCompletionLensLoan, exactWorldCompletionLensJob,
     validateWorldCompletionLensState} from './world_completion_lens_facts.js';
@@ -8,7 +9,6 @@ import {commitSimulationCommand, cancelSimulationJob} from './simulation.js';
 import {artifactEquipmentReasons} from './artifact_collection.js';
 import {projectFeatureCommands, featureWorkControls, featureRecordedKnowledge} from './feature_expansion_host.js';
 
-const check = (ok, message) => {if(!ok) throw new Error(message);};
 export function worldCompletionLensContext(state, context = {}) {
     return {...context, facts: {...context.facts, ...worldCompletionLensFacts(state, context)}};
 }

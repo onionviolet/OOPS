@@ -1,11 +1,9 @@
 // Internal authoritative reads, not an observer's knowledge or a disclosure grant.
 // No store merge: simulation edges are directed; chronicle rows belong to a life
 // and describe its counterpart, without proving either person's private opinion.
-const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+import {check, finite, object} from './basics.js';
 const key = value => typeof value === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !['__proto__', 'constructor', 'prototype'].includes(value);
-const finite = value => Number.isFinite(value) && Math.abs(value) <= Number.MAX_SAFE_INTEGER;
-const check = (ok, message) => { if (!ok) throw new Error(message); };
 const own = (record, id) => record && Object.hasOwn(record, id) ? record[id] : undefined;
 
 export const RELATIONSHIP_READ_RULES = Object.freeze({

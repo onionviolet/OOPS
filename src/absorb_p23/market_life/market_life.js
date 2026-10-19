@@ -1,9 +1,8 @@
 // Original Village proposal inspired by customer favors and changing notices.
 // No foreign code/assets. Pure plans only: P00 owns native custody and saving.
+import {natural, positive} from '../../basics.js';
 export const MARKET_LIFE = Object.freeze({schema:1, traderId:'village trader',
     unitsPerCoupon:5, couponCoins:5, breadSupplyPercent:5});
-const natural = n => Number.isSafeInteger(n) && n >= 0;
-const positive = n => natural(n) && n > 0;
 const fail = message => { throw new Error(message); };
 const keys = ['schema','tradeIndex','deliveryIndex','purchasedUnits','couponsIssued',
     'couponsUsed','supplyDay','supplyClock'];

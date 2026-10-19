@@ -1,9 +1,7 @@
+import {check, natural as nat, object as record} from '../../basics.js';
 import {mistglassProfile as P} from './profile.js';
 export {mistglassProfile, mistglassContent, mistglassEnergyPolicy} from './profile.js';
 
-const check = (ok, message) => {if (!ok) throw new Error(message);};
-const nat = n => Number.isSafeInteger(n) && n >= 0;
-const record = o => o !== null && typeof o === 'object' && !Array.isArray(o);
 const fields = (o, keys) => check(record(o) && Object.keys(o).length === keys.length && keys.every(k => Object.hasOwn(o, k)), 'Invalid adaptation fields.');
 const add = (a, b) => {const n = a + b; check(nat(n), 'Adaptation integer overflow.'); return n;};
 const text = s => typeof s === 'string' && s.length > 0 && s.length <= 160;

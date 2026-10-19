@@ -4,14 +4,13 @@
 // material/batch records in docs/PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md.
 // Content packs supply axes, tags, families and authored materials; the engine
 // never names a specific ingredient.
+import {natural as nat, positive as pos} from './basics.js';
 import {TagRegistry} from './tag_store.js';
 import {address, compareCodePoints, drawU32, hash64, indexFromU32, pickWeighted, withRetries} from './gen_kit.js';
 
 export const MATRIX = 'matrix';
 export const MATERIAL_GENERATOR = 'craft.material@1';
 const fail = message => { throw new Error(message); };
-const nat = n => Number.isSafeInteger(n) && n >= 0;
-const pos = n => Number.isSafeInteger(n) && n > 0;
 const text = (value, label) => typeof value === 'string' && value.length ? value : fail(`${label} must be non-empty text.`);
 const plain = value => value && typeof value === 'object' && !Array.isArray(value);
 const only = (value, allowed, label) => {

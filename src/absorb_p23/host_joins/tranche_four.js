@@ -1,4 +1,5 @@
 // P00 native joins. Reducers remain proposals; this adapter owns no clock or bag.
+import {check, natural} from '../../basics.js';
 import {validateFieldSnapshot,normalizeFieldFamiliarity} from '../field_familiarity/index.js';
 import {normalizeMarketLife,quoteMarketPurchase} from '../market_life/market_life.js';
 import {validateLeisureMemory,LEISURE_PERSON} from '../leisure_memory/index.js';
@@ -7,8 +8,6 @@ import {applyGameplayEffect} from '../../gameplay_transactions.js';
 import {appendLifeMilestone,lifeCalendarMinute} from '../../life_record.js';
 import {relationshipChange} from '../../chronicle.js';
 import {calendarMinutes} from '../../world_rhythm.js';
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
-const check=(ok,text)=>{if(!ok)throw Error(text);};
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(k=>Object.hasOwn(value,k));
 export const P23_BED_FACT='p23.field.moonBedKnown';
 export const P23_LEISURE_RESERVATION='p23.leisure.pendingRound';

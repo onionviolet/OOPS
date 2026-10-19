@@ -1,8 +1,8 @@
 // Pure start recipes. Axis order belongs to the world; saves keep resolved native fields.
+import {fnv1a} from './hash_rng.js';
 export const START_MERGE_RULES = Object.freeze({money:'sum',items:'append by id+quality',pockets:'append',location:'last',quest:'last',skills:'sum',knowledge:'append',text:'append',lead:'last'});
 export function seededStartRng(seed) {
-    let h=2166136261;
-    for(const c of String(seed)) {h^=c.charCodeAt(0);h=Math.imul(h,16777619);}
+    let h=fnv1a(2166136261,String(seed));
     return () => {h=(h+0x6D2B79F5)|0;let t=Math.imul(h^(h>>>15),1|h);t^=t+Math.imul(t^(t>>>7),61|t);return ((t^(t>>>14))>>>0)/4294967296;};
 }
 function compose(layers,base={}) {

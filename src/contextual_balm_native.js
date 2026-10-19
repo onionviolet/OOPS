@@ -1,9 +1,8 @@
 // One bounded insertion into the existing native active_effects owner.
 // Prepare and write only staged data; publish is called after durable storage.
+import {check, natural} from './basics.js';
 import {CONTEXTUAL_BALM_IDS as I, CONTEXTUAL_BALM_NATIVE_EFFECT_REQUEST as EFFECT} from './contextual_balm_content.js';
 
-const check = (ok, message) => {if (!ok) throw new Error(message);};
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object'
     ? Object.fromEntries(Object.keys(value).sort().filter(key => value[key] !== undefined).map(key => [key, canonical(value[key])])) : value;
 const same = (a, b) => JSON.stringify(canonical(a)) === JSON.stringify(canonical(b));

@@ -1,4 +1,5 @@
 // Pure admission/projection of existing saved people, conditions and means.
+import {check, natural, sameJson as same} from './basics.js';
 import {BOOK_CARE_IDS as I, BOOK_CARE_CASES as C, bookCareDefinitions as D} from './book_care_content.js';
 import {paradiseFacts} from './book_world_paradise_actions.js';
 import {PARADISE_IDS as P} from './book_world_paradise_ids.js';
@@ -6,9 +7,6 @@ import {STATUS_CARE_IDS as B} from './status_care_content.js';
 import {statusCareCondition,statusCareEnrolled} from './status_care_facts.js';
 import {validateBookCareControllerState} from './book_care_runtime.js';
 
-const check=(ok,message)=>{if(!ok)throw Error(message);};
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const actorIds=['player',P.employee,P.porter];
 export const BOOK_CARE_POLICY=Object.freeze({
     [I.braced]:{duration:20,actors:['player'],stats:{},description:'A real ordinary load brace permits precise kit packing while it remains active. It grants no general source compatibility.'},

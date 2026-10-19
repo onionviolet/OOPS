@@ -1,9 +1,9 @@
 // Pure current-state facts. No simulation.js, host or inventory mutation: this
 // module may safely be read by simulation_effects.js at each real boundary.
+import {natural as count} from './basics.js';
 import {AUDITED_KIT_RESERVE_IDS as I, AUDITED_KIT_RESERVE_POLICY as P,
     AUDITED_KIT_RESERVE_TERMS as T} from './audited_kit_reserve_content.js';
 
-const count = value => Number.isSafeInteger(value) && value >= 0;
 export function availableOwnedNativeCount(state, context = {}, key) {
     if(state.simulation?.people?.player?.inventory !== 'native') return 0;
     const stock = context.gameplay?.player?.inventory;

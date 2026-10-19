@@ -1,13 +1,12 @@
 // Original reversible proposals. Import is inert; existing simulation owners
 // execute exact stock, purse, source, participant/site and publication effects.
+import {all, any, eq, not} from './basics.js';
 const W = "base.frontier", P = "original_frontier", M = P + ".mira", N = P + ".wen";
 const I = P + ".iven", H = P + ".halden", S = P + ".jun";
 const T = P + ".load_tally", STOP = P + ".stop_procedure", SAMPLE = P + ".sample_check";
 const LOG = JSON.stringify({id:"Rough wood log"}), KIT = JSON.stringify({id:"Prepared survey kit"});
 const WOOD = JSON.stringify({id:"Wood log"}), ASH = JSON.stringify({id:"Ash wood log"});
-const eq = (fact,value=true,reason) => ({fact,op:"eq",value,...(reason ? {reason} : {})});
 const gte = (fact,value,reason) => ({fact,op:"gte",value,...(reason ? {reason} : {})});
-const all = (...rules) => ({all:rules}), any = (...rules) => ({any:rules}), not = rule => ({not:rule});
 const a = (key,value=true,reason) => eq("actor." + P + "." + key,value,reason);
 const w = (key,value=true,reason) => eq("world." + P + "." + key,value,reason);
 const af = (key,value=true,actor="player") => ({type:"fact",scope:"actor",actor,key:P + "." + key,value});

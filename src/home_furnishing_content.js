@@ -1,5 +1,6 @@
 // Original reversible fit-out proposals. Importing these definitions creates
 // no home, resident, native item, source, stock, clock or persistence domain.
+import {all, deepFreeze as freeze, eq} from './basics.js';
 import {compileSiteProject} from './site_projects.js';
 import {REMAINDER_HOME_KEYS as existingKeys} from './audit_remainder_home_content.js';
 import {MOL_KEYS} from './book_world_mol_ids.js';
@@ -13,8 +14,6 @@ export const HOME_FURNISHING_KEYS = Object.freeze({log: existingKeys.log, sap: e
     green: existingKeys.green, offcut: existingKeys.offcut, sound: existingKeys.sound,
     sharp: existingKeys.sharp, dull: existingKeys.dull, notebook: MOL_KEYS.notes});
 const I = HOME_FURNISHING_IDS, K = HOME_FURNISHING_KEYS, P = I.prefix;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const af = (name, value = true) => ({type: 'fact', scope: 'actor', actor: 'player', key: P + name, value});
 const wf = (key, value = true) => ({type: 'world', worldId: I.world, key, value});
 const item = (key, amount, returned = false) => ({type: 'item', actor: 'player', key, amount, ...(returned ? {reservationReturn: true} : {})});
@@ -101,6 +100,5 @@ export const homeFurnishingDefinitions = {
                 know('drafted_kit', 'One actual Sound repair stave and one Tree sap became one Prepared survey kit using the fixed home stops and your actual sharp fitting knife. Three played minutes and one stamina were spent. The same knife returned dulled and the same notebook returned unchanged, each once. The ordinary native kit can supply existing expedition preparation, work, field commissions, stock orders and trade. A repeat needs another actual stave/sap and a restored owned sharp knife; no demand, wage or stock refills.')]}),
     ],
 };
-const freeze = v => {if(v && typeof v === 'object') {Object.values(v).forEach(freeze); Object.freeze(v);} return v;};
 freeze(homeFurnishingProjects); freeze(homeFurnishingDefinitions);
 export const homeFurnishingPublicCommandIds = Object.freeze(homeFurnishingDefinitions.commands.map(d => d.id));

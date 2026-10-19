@@ -1,8 +1,8 @@
 // Pure admission/frozen-work helpers. No executor, native publisher or save IO.
+import {check} from './basics.js';
 import {STEAM_BOH_IDS as I, STEAM_BOH_KEYS as K, steamBOHDefinitions as D} from './steam_boh_content.js';
 import {statusCareSupportedBody, statusCareCondition} from './status_care_facts.js';
 
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 export const steamBOHNatural = n => Number.isSafeInteger(n) && n >= 0;
 export const steamBOHRecord = v => v != null && typeof v === 'object' && !Array.isArray(v);
 export function sameSteamBOHData(a, b) {

@@ -1,9 +1,9 @@
+import {all, eqNoReason as eq} from './basics.js';
 import {commitSimulationCommand,previewSimulationCommand, previewCampaignTransition, commitCampaignTransition} from "./simulation.js";
 import {validateExpansionState} from "./expansion_engine.js";
 
 export const ROAD_RIVAL = "roadRival", RIVAL_PURSUIT = "frontier.road_rival";
 const wood=JSON.stringify({id:"Rough wood log"}),kit=JSON.stringify({id:"Prepared survey kit"}),rope=JSON.stringify({id:"Survey rope"});
-const eq=(fact,value=true)=>({fact,op:"eq",value}),all=(...rules)=>({all:rules});
 const fact=(key,value=true)=>({type:"fact",scope:"actor",key,value});
 const money=amount=>({type:"resource",native:true,key:"money",amount});
 const item=(key,amount)=>({type:"item",key,amount});

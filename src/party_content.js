@@ -1,7 +1,7 @@
+import {eqNoReason as eq} from './basics.js';
 import {partnerCommands} from './party_partner_content.js';
 import {PARTY_HELPER,PARTY_METHOD} from './native_battle_contracts.js';
 const wood=JSON.stringify({id:'Rough wood log'}),kit=JSON.stringify({id:'Prepared survey kit'});
-const eq=(fact,value=true)=>({fact,op:'eq',value});
 const fact=(key,value=true,actor)=>({type:'fact',scope:'actor',key,value,...(actor?{actor}:{})});
 const command=d=>({revision:1,worldId:'base.frontier',actorId:'player',location:'Village',group:'party',costs:[],effects:[],...d});
 export const partySources=[{id:PARTY_METHOD,revision:1,label:'Braced interposition',kind:'knowledge',grants:[]}];

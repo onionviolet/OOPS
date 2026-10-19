@@ -1,4 +1,5 @@
 // Original P02 proposal. Native crafting owns materials, output, XP and time.
+import {check as assert} from './basics.js';
 const SCHEMA = 2;
 const COMMISSIONS = Object.freeze({
     meal: Object.freeze({category:'cooking',subcategory:'items',recipeId:'Roasted rat meat',title:'A cooked meal',requirement:'Create roasted rat meat after accepting this commission.'}),
@@ -40,7 +41,6 @@ export function resetWorkLedgerRules(state,context,{sequence}={}) {
     return applyWorkLedgerRulesDraft(state,draft,context,{sequence});
 }
 const DEFAULT_SETTINGS = Object.freeze({effects:'reduced',sound:false,presentation:'inline'});
-function assert(ok,message) {if(!ok) throw new Error(message);}
 function integer(value) {return Number.isSafeInteger(value)&&value>=0;}
 function number(value,min,max) {return typeof value==='number'&&Number.isFinite(value)&&value>=min&&value<=max;}
 function clone(value) {return JSON.parse(JSON.stringify(value));}

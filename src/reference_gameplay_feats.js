@@ -1,3 +1,4 @@
+import {check as assert, natural, object} from './basics.js';
 import {remainderCombatObjectivesFeatDefinitions} from './audit_remainder_combat_objectives_content.js';
 // Persistent, character-local recognition for the reference gameplay wave.
 // This module only advances over a parent-published staged result; it owns no
@@ -6,11 +7,8 @@ import {remainderCombatObjectivesFeatDefinitions} from './audit_remainder_combat
 import {fieldcraftFeatDefinitions,fieldcraftFeatEvidence,visibleFieldcraftFeats} from './nethack_fieldcraft_feats.js';
 
 const SCHEMA = 1;
-const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
-const natural = value => Number.isSafeInteger(value) && value >= 0;
 const validId = value => typeof value === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !['__proto__', 'constructor', 'prototype'].includes(value);
-const assert = (condition, message) => { if(!condition) throw new Error(message); };
 
 const BASIC_FEATS = Object.freeze([
     {id:'repair_the_sluice', label:'Make a repair that lasts', description:'Install a real brace or matched seal at the leaking Village joint.', commands:['feature_objects.install_brace','feature_objects.install_seal']},

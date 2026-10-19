@@ -1,13 +1,7 @@
 // Read-only authoring and source-rule input. This module owns no runtime or saves.
 // A supported result means the supplied evidence fits a scoped rule, not that a
 // playable command, carrier transfer, reward, reset, or book world was activated.
-const freeze = value => {
-    if (value && typeof value === 'object' && !Object.isFrozen(value)) {
-        Object.values(value).forEach(freeze);
-        Object.freeze(value);
-    }
-    return value;
-};
+import {deepFreezeUnlessFrozen as freeze} from './basics.js';
 const root = 'docs/research/novels/full-book/';
 const evidence = (id, owner, locator, qualification, detail) => ({id, owner: root + owner, locator, qualification, detail});
 const check = (path, kind, expected, reason) => ({path, kind, expected, reason});

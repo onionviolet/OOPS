@@ -1,8 +1,7 @@
 // Compact only reconciled ended visits in an already detached command plan.
 // Existing instance clocks own elapsed time; no new save field or counter is added.
-const assert = (ok, text) => { if (!ok) throw Error(text); };
-const natural = value => Number.isSafeInteger(value) && value >= 0;
 
+import {check as assert, natural} from './basics.js';
 function referencedVisits(state, visits) {
     const ids = new Set(visits.map(visit => visit.id)), retained = new Set(), seen = new Set(), pending = [state];
     while (pending.length) {

@@ -1,4 +1,6 @@
 import {validateHarvestDamage} from './harvest.js';
+import {hashStreamSeed, xorshift32, mix32} from './hash_rng.js';
+import {natural} from './basics.js';
 // Per-save decisions. Legacy expansion/simulation/duel generators remain owners
 // of their own cursors. No cheat policies are applied here; receipts are the seam.
 export const STREAMS = Object.freeze({encounter:'encounter', combat:'encounter:core', loot:'loot', market:'market',
@@ -6,27 +8,13 @@ export const STREAMS = Object.freeze({encounter:'encounter', combat:'encounter:c
 const families = new Set(['world.events','world.people','people','deck','director','fate','interaction','encounter',
     'loot','market','craft','gather','reward','discovery','text','legacy.action','legacy.outcome']);
 const object = v => v && typeof v === 'object' && !Array.isArray(v);
-const natural = v => Number.isSafeInteger(v) && v >= 0;
 const uint = v => Number.isInteger(v) && v >= 0 && v <= 0xffffffff;
 function requireStream(name) {
     if(typeof name !== 'string' || !families.has(name.split('@')[0].split(':')[0]) || name.length > 240)
         throw Error('Unknown random stream.');
 }
-export function hashStreamSeed(seed, id) {
-    let n=seed; for(const ch of id) n=Math.imul(n ^ ch.charCodeAt(0),16777619) >>> 0;
-    return n || 1;
-}
-// The one xorshift32 13/17/5 step. Owned legacy cursors (storylet decks, mixture
-// seeds, generated-people fallback, native battles) call this so their saved
-// state and replay output stay byte-identical to the old inline copies.
-export function xorshift32(n) {
-    n^=n<<13;n^=n>>>17;n^=n<<5;return n>>>0;
-}
-export function mix32(n) {
-    n=Math.imul(n ^ (n >>> 16),0x85ebca6b);
-    n=Math.imul(n ^ (n >>> 13),0xc2b2ae35);
-    return (n ^ (n >>> 16)) >>> 0;
-}
+// Hash and xorshift bodies live in hash_rng.js (a leaf); re-exported here under their old names.
+export {hashStreamSeed, xorshift32, mix32};
 export function createStreams(seed) {
     if(!uint(seed)) throw Error('Invalid stream seed.');
     return {schema:1,root:hashStreamSeed(seed,'streams.root'),cells:{},log:[]};

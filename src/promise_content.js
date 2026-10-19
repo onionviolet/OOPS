@@ -1,9 +1,9 @@
+import {all, eqRaw as eq} from './basics.js';
 import {enrollSimulation, commitSimulationCommand} from "./simulation.js";
 import {assert} from "./simulation_contracts.js";
 
 export const promiseId = "promise.visitor", visitorId = "promiseVisitor";
 const wood=JSON.stringify({id:"Rough wood log"});
-const eq=(fact,value)=>({fact,op:"eq",value}), all=(...rules)=>({all:rules});
 const phase=p=>eq("situation."+promiseId+".phase",p);
 const shift=(from,to)=>({type:"situation",situationId:promiseId,operation:"advance",expected:[from],phase:to});
 const know=(key,value,kind="observation",actor="player",attributedTo=visitorId,stage="seen")=>({type:"knowledge",actor,key:"promise."+key,stage,value,basis:{kind,attributedTo,situationId:promiseId}});

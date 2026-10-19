@@ -1,13 +1,12 @@
 // LP4 original proposal. The native calendar and inventory remain authoritative.
 // Time is projected lazily, so rendering/reloading never grants native stock.
+import {check, natural} from './basics.js';
 export const HABITAT = Object.freeze({site:'village.meadow_pen',animal:'meadow.fleece_sheep',
     location:'Village',world:'base.frontier',buildCost:18,adoptCost:12,feedCost:2,
     careMinutes:12,batchMinutes:6,yield:5});
 export const HAY_KEY=JSON.stringify({id:'Meadow hay'});
 export const WOOL_KEY=JSON.stringify({id:'Wool'});
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
-const check=(v,m)=>{if(!v)throw Error(m);};
 export function validateHabitat(s,clock=Number.MAX_SAFE_INTEGER){
     if(s==null)return null;
     check(object(s)&&s.schema===1&&s.policy==='played_care_v1'&&s.site?.id===HABITAT.site&&

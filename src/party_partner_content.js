@@ -1,10 +1,9 @@
 // LP6: reversible original proposal. Reuses Lio, native kits, the shared
 // workbench, scheduled participant reservations and directed memories.
+import {all, eq, not} from './basics.js';
 import {PARTY_HELPER, PARTY_METHOD} from './native_battle_contracts.js';
 const wood=JSON.stringify({id:'Rough wood log'}),kit=JSON.stringify({id:'Prepared survey kit'});
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
 const gte=(fact,value,reason)=>({fact,op:'gte',value,reason});
-const all=(...rules)=>({all:rules}),not=rule=>({not:rule});
 const f=(key,value=true)=>({type:'fact',scope:'actor',key:`party.lp6.${key}`,value});
 const memory=text=>({type:'relationship',target:PARTY_HELPER,axis:'trust',amount:0,text});
 const note=(key,value)=>({type:'knowledge',key:`party.lp6.${key}`,stage:'seen',value});

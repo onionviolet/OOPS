@@ -1,6 +1,7 @@
 // Original finite content. Pinned NetHack/xNetHack, ToME, CoffeeMUD/CDDA and
 // Wesnoth mechanisms inform the design; no upstream code, prose or assets used.
 // Provenance and rights: docs/gm/feature-wave/repositories/SOURCE_MATRIX.json.
+import {all, eq} from './basics.js';
 import {repositoryAbsorptionSubstitutionCommands} from './repository_absorption_substitutions.js';
 import {repositoryAbsorptionChainCommands} from './repository_absorption_chains.js';
 export const REPOSITORY_ABSORPTION_VERSION = 1;
@@ -22,9 +23,7 @@ export const REPOSITORY_ABSORPTION_ITEMS = Object.freeze({
     protectedKit:key('Wax-sealed survey kit'), soakedKit:key('Soaked survey kit'),
 });
 const I = REPOSITORY_ABSORPTION_ITEMS;
-const eq = (fact,value=true,reason) => ({fact,op:'eq',value,...(reason?{reason}:{})});
 const gte = (fact,value,reason) => ({fact,op:'gte',value,...(reason?{reason}:{})});
-const all = (...rules) => ({all:rules});
 const phase = (id,...values) => values.length === 1 ? eq(`situation.${id}.phase`,values[0]) : {any:values.map(v=>eq(`situation.${id}.phase`,v))};
 const shift = (id,from,to) => ({type:'situation',situationId:id,operation:'advance',expected:Array.isArray(from)?from:[from],phase:to});
 const af = (name,value=true,actor='player') => ({type:'fact',scope:'actor',actor,key:`repositories.${name}`,value});

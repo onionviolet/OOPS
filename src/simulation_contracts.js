@@ -2,6 +2,9 @@ import {validateFoundationInteractionEffect,validateFoundationDelivery,validateF
 import {validateContainerDefinition,validateContainerEffect,validateContainerState} from './structured_container_runtime.js';
 import {validateSituationDefinition, validateSituationEffect, validateSituations, validateKnowledgeBasis} from "./causal_situations.js";
 import {evaluateRule} from "./rules.js";
+import {check as assert, object as record, natural, finite, copy} from './basics.js';
+// The leaf owns these bodies; they stay exported here for the existing importers.
+export {assert, record, natural, finite, copy};
 import {validateItemKey, validateGameplaySnapshot} from "./gameplay_transactions.js";
 import {validateEnergyPolicy, validateEnergyEffect, validateEnergyState} from "./energy_resources.js";
 import {validatePursuitDefinition, validatePursuitEffect, validatePursuits} from "./pursuit.js";
@@ -9,12 +12,7 @@ import {validateNativeBattle} from "./native_battle_contracts.js";
 import {validateCausalStoryJob} from './world_completion_causal_job_validation.js';
 import {causalStoryDefinitions} from './causal_story_content.js';
 
-export function assert(ok, message) {if(!ok) throw new Error(message);}
-export function record(v) {return v != null && typeof v === "object" && !Array.isArray(v);}
 export function stableId(v) {return typeof v === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !["__proto__", "constructor", "prototype"].includes(v);}
-export function natural(v) {return Number.isSafeInteger(v) && v >= 0;}
-export function finite(v) {return Number.isFinite(v) && Math.abs(v) <= Number.MAX_SAFE_INTEGER;}
-export function copy(v) {return structuredClone(v);}
 export function jsonData(value, depth = 0) {
     assert(depth < 32, "Simulation data is too deeply nested.");
     if(value === null || typeof value === "boolean" || typeof value === "string") return;

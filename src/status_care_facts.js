@@ -1,10 +1,8 @@
 // These are views of existing saved conditions and the actual native frame.
 // No native effect, body, clock, inventory or reward is created by a read.
+import {check, natural, sameJson as same} from './basics.js';
 import {STATUS_CARE_IDS as I, statusCareDefinitions as D} from './status_care_content.js';
 
-const natural = n => Number.isSafeInteger(n) && n >= 0;
-const check = (ok, message) => {if(!ok) throw new Error(message);};
-const same = (a,b) => JSON.stringify(a) === JSON.stringify(b);
 export const STATUS_CARE_POLICY = Object.freeze({
     [I.warmed]: {duration:20, stats:{cold_tolerance:{flat:3}}, description:'Sheltered warmth: +3 native cold tolerance. Existing Wet and cold still keep their own effects.'},
     [I.lined]: {duration:18, stats:{}, description:'Prepared lining halves the existing native rain or snow accumulation and permits the lined kit-packing approach.'},

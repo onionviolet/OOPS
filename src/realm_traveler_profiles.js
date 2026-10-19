@@ -1,18 +1,15 @@
 // Detached, unverified traveler prototype. Snapshots refer to actual owners;
 // returned intents are NOT registered simulation effects or native commands.
 // No imports, DOM, timers, stock mutation, save owner, origin reset or enrollment.
+import {check as assert, copy, natural, positive} from './basics.js';
 export const REALM_TRAVELER_SCHEMA = 1;
 export const REALM_TRAVELER_MODES = Object.freeze(["physical", "projection", "alternate_body", "shared_body"]);
 
-const assert = (ok, text) => { if (!ok) throw new Error(text); };
 const object = value => value !== null && typeof value === "object" && !Array.isArray(value) &&
     [Object.prototype, null].includes(Object.getPrototypeOf(value));
 const id = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !["__proto__", "constructor", "prototype"].includes(value);
-const natural = value => Number.isSafeInteger(value) && value >= 0;
-const positive = value => natural(value) && value > 0;
 const amount = value => Number.isFinite(value) && value >= 0 && value <= Number.MAX_SAFE_INTEGER;
-const copy = value => structuredClone(value);
 const sameEndpoint = (a, b) => ["worldId", "instanceId", "regionId", "layerId"].every(key => a[key] === b[key]);
 const ref = (domain, value) => ({domain, id: value.id, revision: value.revision});
 

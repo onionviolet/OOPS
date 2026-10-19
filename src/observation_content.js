@@ -1,8 +1,9 @@
+import {all, eqNoReason as eq} from './basics.js';
 import {commitSimulationCommand,enrollSimulation,previewSimulationCommand} from './simulation.js';
 import {validateExpansionState} from './expansion_engine.js';
 export const SUBJECT='observation.ilex',LENS='observation.lens',GAZE='observation.return_gaze',NOTICE='observation.return_notice',CUT='observation.inner_shutter';
 const wood=JSON.stringify({id:'Rough wood log'}),kit=JSON.stringify({id:'Prepared survey kit'});
-const eq=(fact,value=true)=>({fact,op:'eq',value}),all=(...rules)=>({all:rules}),phase=p=>eq(`situation.${LENS}.phase`,p),phases=(...ps)=>({any:ps.map(phase)});
+const phase=p=>eq(`situation.${LENS}.phase`,p), phases=(...ps)=>({any:ps.map(phase)});
 const active=all(phases('open','answered'),eq(`situation.${LENS}.responseOpen`),eq('world.observation.lens_active'));
 const fact=(key,value=true,actor)=>({type:'fact',scope:'actor',key,value,...(actor?{actor}:{})});
 const live=value=>({type:'world',worldId:'base.frontier',key:'observation.lens_active',value});

@@ -1,20 +1,16 @@
 // Original proposal inspired by level bands, readable moves and layered area loot.
 // No Proto23 source code/assets. Host owns native combat, custody, clock and commits.
+import {copyJson as clone, deepFreeze as freeze} from '../../basics.js';
 export const PROFILE_ID = 'p23.reed-circle.v1';
 export const ENEMY_ID = 'Reed-circle sparring construct';
 export const AREA_ID = 'Proto23 reed-circle training';
 export const WORLD_ID = 'reference.proto23.village';
-const freeze = value => {
-    if (value && typeof value === 'object') {Object.values(value).forEach(freeze); Object.freeze(value);}
-    return value;
-};
 export const PROFILE = freeze({id: PROFILE_ID, levels: [1, 3], move: 'Reed sweep',
     counter: 'defensive', status: 'p23.off-balance', moveChance: 0.35,
     description: 'A reed-padded construct practises Reed sweep. Defensive Measures counters its one-exchange off-balance lesson.',
     stats: {health: [24, 40], attack: [3, 5], agility: [6, 10], dexterity: [6, 10],
         intuition: [4, 6], magic: [0, 0], defense: [1, 3], attack_speed: [0.7, 0.9], attack_count: [1, 1]},
     drop: {item_id: 'Piece of willow wood', chance: 0.2, rankMinimum: 1, rankMaximum: 3}});
-const clone = value => JSON.parse(JSON.stringify(value));
 const integer = (n, min = 0, max = Number.MAX_SAFE_INTEGER) => Number.isSafeInteger(n) && n >= min && n <= max;
 function requireValue(ok, message) {if (!ok) throw new TypeError(message);}
 function keys(value, expected) {

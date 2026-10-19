@@ -1,3 +1,4 @@
+import {check} from './basics.js';
 import {CONTEXTUAL_BALM_IDS as I, CONTEXTUAL_BALM_DEFINITIONS as D,
     CONTEXTUAL_BALM_NATIVE_EFFECT_REQUEST as EFFECT} from './contextual_balm_content.js';
 import {contextualBalmContext, contextualBalmFacts, validateContextualBalmState} from './contextual_balm_facts.js';
@@ -5,7 +6,6 @@ import {commitSimulationCommand,cancelSimulationJob,simulationOccupiesActor} fro
 import {activePractice} from './techniques.js';
 import {projectFeatureCommands,featureWorkControls,featureRecordedKnowledge} from './feature_expansion_host.js';
 
-const check=(ok,message)=>{if(!ok)throw new Error(message);};
 const count=(o,k)=>o?.[k]||0;
 export {contextualBalmContext, contextualBalmFacts, validateContextualBalmState};
 

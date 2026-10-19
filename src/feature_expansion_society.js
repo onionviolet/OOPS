@@ -1,5 +1,6 @@
 // Original reversible content. Residents enter once through an explicit meeting.
 // Their purses, stock, consent, work and knowledge use existing simulation owners.
+import {all, eq, not} from './basics.js';
 export const SOCIETY_IDS = Object.freeze({prefix: 'feature_society', world: 'base.frontier',
     household: 'feature_society.hessa', craftsperson: 'feature_society.orr', apprentice: 'feature_society.vale',
     home: 'feature_society.home', bench: 'feature_society.bench', method: 'feature_society.ordinary_join',
@@ -8,9 +9,6 @@ const {prefix: P, world: W, household: H, craftsperson: O, apprentice: V, method
 export const SOCIETY_ITEMS = Object.freeze({wood: JSON.stringify({id: 'Rough wood log'}),
     kit: JSON.stringify({id: 'Prepared survey kit'}), rope: JSON.stringify({id: 'Survey rope'})});
 const {wood: LOG, kit: KIT, rope: ROPE} = SOCIETY_ITEMS;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
-const not = rule => ({not: rule});
 const af = (key, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: `${P}.${key}`, value});
 const wf = (key, value = true) => ({type: 'world', worldId: W, key: `${P}.${key}`, value});
 const a = (key, value = true) => eq(`actor.${P}.${key}`, value);

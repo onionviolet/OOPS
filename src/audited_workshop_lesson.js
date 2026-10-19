@@ -1,5 +1,6 @@
 // Original reversible ToME P3 proposal. Plain content and pure projections only;
 // the existing simulation publisher owns settlement, inventory, jobs and time.
+import {all, check as assert, eq, natural, object as record, sameStructural as sameData} from './basics.js';
 import {FEATURE_OBJECT_IDS as O} from './feature_expansion_objects.js';
 import {REFERENCE_GAMEPLAY_IDS as R, REFERENCE_GAMEPLAY_KEYS as K} from './reference_gameplay_content.js';
 
@@ -7,12 +8,7 @@ export const AUDITED_LESSON_IDS = Object.freeze({group: 'audit_lesson', commandT
     offer: 'audit_lesson.ask', sleeve: 'audit_lesson.choose_sleeve', lesson: 'audit_lesson.choose_lesson',
     defer: 'audit_lesson.defer', resin: 'audit_lesson.set_resin', knowledge: 'audit_lesson.resin_setting'});
 const I = AUDITED_LESSON_IDS, prefix = 'audit_lesson.';
-const assert = (ok, message) => {if(!ok) throw new Error(message);};
-const natural = value => Number.isSafeInteger(value) && value >= 0;
 const count = value => natural(value) ? value : 0;
-const record = value => value != null && typeof value === 'object' && !Array.isArray(value);
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const af = (key, value = true) => ({type: 'fact', scope: 'actor', actor: 'player', key: `${prefix}${key}`, value});
 const item = (key, amount, reservationReturn = false) => ({type: 'item', actor: 'player', key, amount,
     ...(reservationReturn ? {reservationReturn: true} : {})});
@@ -76,13 +72,6 @@ export const auditedLessonDefinitions = {commands: [
 ]};
 
 const definitions = new Map(auditedLessonDefinitions.commands.map(d => [d.id, d]));
-function sameData(a, b) {
-    if(a === b) return true;
-    if(Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((v, i) => sameData(v, b[i]));
-    if(!record(a) || !record(b)) return false;
-    const keys = Object.keys(a);
-    return keys.length === Object.keys(b).length && keys.every(k => Object.hasOwn(b, k) && sameData(a[k], b[k]));
-}
 function exactJob(state, job) {
     const d = definitions.get(job?.commandId);
     return !!d?.duration && job.revision === 1 && job.actorId === 'player' && job.targetId === (d.targetId || null) &&

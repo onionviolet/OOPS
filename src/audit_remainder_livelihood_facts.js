@@ -1,13 +1,11 @@
 // Pure current owner projection. Root binds the actual played-calendar anchor
 // and exact transient popped job; neither is retained in a second state owner.
+import {check as assert, natural, object as record} from './basics.js';
 import {REMAINDER_LIVELIHOOD_IDS as I, REMAINDER_LIVELIHOOD_ITEMS as K,
     REMAINDER_LIVELIHOOD_SCHEDULE as S, REMAINDER_LIVELIHOOD_COMMISSIONS as C,
     remainderLivelihoodDefinitions, remainderLivelihoodCommand} from './audit_remainder_livelihood_content.js';
 import {recurringWindow} from './world_rhythm.js';
 const P = I.prefix, key = suffix => `${P}.${suffix}`;
-const natural = value => Number.isSafeInteger(value) && value >= 0;
-const record = value => !!value && typeof value === 'object' && !Array.isArray(value);
-const assert = (ok, message) => {if(!ok) throw new Error(message);};
 export function remainderLivelihoodSame(a, b) {
     if(a === b) return true;
     if(Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((v, i) => remainderLivelihoodSame(v, b[i]));

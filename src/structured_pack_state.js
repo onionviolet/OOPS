@@ -1,5 +1,5 @@
+import {object} from './basics.js';
 import {canonicalDurabilityKey} from './absorb_e2/durability.js';
-const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
 const id=v=>typeof v==='string'&&/^[a-zA-Z0-9_.:-]+$/.test(v)&&!['__proto__','constructor','prototype'].includes(v);
 export function validateStructuredRecord(r) {
     if(r==null)return;

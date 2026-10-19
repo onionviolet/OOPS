@@ -1,8 +1,8 @@
 // Optional views and exact saved contracts over existing owners.
+import {check} from './basics.js';
 import {STEAM_ONI_IDS as I, steamONIDefinitions as D} from './steam_oni_content.js';
 import {steamONINatural as natural, steamONIRecord as record, sameSteamONIData as same,
     steamONISupport, steamONITrayPresent, validSteamONIWork} from './steam_oni_runtime.js';
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 const owned = key => typeof key === 'string' && key.startsWith(I.prefix);
 const definitions = new Map(D.commands.map(d => [d.id, d]));
 const fixedKnowledge = new Map(D.commands.flatMap(d => d.effects.filter(e => e.type === 'knowledge').map(e => [e.key, {d, e}])));

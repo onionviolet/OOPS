@@ -1,6 +1,6 @@
+import {check} from './basics.js';
 import {evaluateRule} from "./rules.js";
 
-const check = (condition, message) => {if(!condition) throw new Error(message);};
 export const SOURCE_KINDS = ["skill", "equipment", "knowledge", "trait", "bloodline", "technique", "condition", "world", "support"];
 export const SOURCE_ORIGINS = ["unknown", "inherited", "trained", "acquired"];
 const validId = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&

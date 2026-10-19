@@ -1,10 +1,10 @@
 // P00 native owner joins for the original opt-in Mistglass proposal.
+import {check, natural as nat} from '../../basics.js';
 import {mistglassProfile as P,mistglassEnergyPolicy,validateAdaptation,prepareEnrollment,prepareAdvance,prepareTrial,adaptationView,previewTrial} from '../world_adaptation/index.js';
 import {applyEnergyEffect} from '../../energy_resources.js';
 import {applyGameplayEffect} from '../../gameplay_transactions.js';
 import {drawUnit,scopedStream} from '../../seeded_streams.js';
 import {createWorldInstance,createWorldVisit,validateWorldInstance,validateWorldVisit,planWorldClock,planWorldDeparture} from '../../world_instances.js';
-const check=(ok,m)=>{if(!ok)throw Error(m);},nat=n=>Number.isSafeInteger(n)&&n>=0;
 export const MISTGLASS_LOCATION=P.locationId;
 export const MISTGLASS_KEEPER='p23.mistglass.keeper';
 export const MISTGLASS_DEFINITION=Object.freeze({id:'p23.mistglass',worldId:P.worldId,revision:1,label:'Mistglass conservatory (proposal)',unidentifiedLabel:'An optional conservatory',regions:[{id:'p23.mistglass.room',layerIds:['material']}],sites:[{id:MISTGLASS_LOCATION,label:'Conservatory',regionId:'p23.mistglass.room',layerId:'material',initialOpen:true}],initialFacts:{'method.available':true},uniqueClaimIds:[]});

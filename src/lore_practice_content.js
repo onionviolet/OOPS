@@ -1,5 +1,6 @@
 // Original, opt-in P1/P2 proposals. No source-world people, automatic stock,
 // second clock or publisher are created by these definitions.
+import {all, eq, not} from './basics.js';
 import {REMAINDER_HOME_IDS as H, REMAINDER_HOME_KEYS as K} from './audit_remainder_home_content.js';
 import {REMAINDER_LIVELIHOOD_IDS as L} from './audit_remainder_livelihood_content.js';
 
@@ -11,8 +12,6 @@ export const lorePracticeSources = [];
 export const lorePracticeItemSpecifications = [];
 const I = LORE_PRACTICE_IDS;
 export const lorePracticeGroups = Object.freeze(['lore_work', 'lore_warning']);
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules}), not = rule => ({not: rule});
 const f = (name, value = true, reason) => eq(`lore.${name}`, value, reason);
 const local = f('local', true, 'Use your actual living human body in the supported home realm and played clock.');
 const hands = f('playerHands', true, 'Recover your two usable hands first.');

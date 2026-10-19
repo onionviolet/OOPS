@@ -1,3 +1,4 @@
+import {check, natural, object} from '../../basics.js';
 import {PROFILE,validateGrowthState,growthBonuses,beginAward} from '../growth_profile/profile.js';
 
 export const GROWTH_COUNTER_ID = 'p23.study.tonic_counter';
@@ -5,9 +6,6 @@ export const GROWTH_COUNTER_TEMPLATE = 'P23 study tonics';
 export const GROWTH_TONIC_KEY = JSON.stringify({id:PROFILE.tonicId});
 export const GROWTH_LESSON_ID = 'proto23.instruction_study_conditioning';
 export const GROWTH_KNOWLEDGE_ID = 'proto23.study_conditioning';
-const check=(ok,message)=>{if(!ok)throw Error(message);};
-const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
-const natural=x=>Number.isSafeInteger(x)&&x>=0;
 export function growthLearned(state) {
     const record=state.simulation?.knowledge?.player?.[GROWTH_KNOWLEDGE_ID];
     return state.actors?.player?.completed?.[GROWTH_LESSON_ID]===1 &&

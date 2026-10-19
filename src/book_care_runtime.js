@@ -1,8 +1,7 @@
 // Enrollment creates only controller appointments for already existing people.
 // Scheduler, clock, reservations, NPC vitals and inventory keep their owners.
+import {check, natural} from './basics.js';
 import {BOOK_CARE_IDS as I, bookCareDefinitions as D} from './book_care_content.js';
-const check=(ok,message)=>{if(!ok)throw Error(message);};
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
 const enrolled=state=>state.actors?.player?.facts?.[I.prefix+'enrolled']===true&&
     (state.actors.player.completed?.[I.hubBegin]||0)+(state.actors.player.completed?.[I.goaBegin]||0)===1;
 export function bookCareControllerAllowed(state,definition) {

@@ -1,4 +1,5 @@
 // Original opt-in Village reader. No native owners or DOM are imported here.
+import {check, natural, sameJson as same} from './basics.js';
 import {TagRegistry} from './tag_store.js';
 import {address,drawU32,pickWeighted,hash64} from './gen_kit.js';
 import {createStreams,validateStreams} from './seeded_streams.js';
@@ -12,9 +13,6 @@ export const villageRuleTags=new TagRegistry([
     {id:'village.fluid',kind:'material',revision:1},{id:'village.salt',kind:'material',revision:1},
 ]);
 const tags={'River bellleaf':['village.restorative'],Emberseed:['village.plant'],'Spring water':['village.fluid'],'Mellow salt':['village.salt']};
-const check=(ok,msg)=>{if(!ok)throw Error(msg);};
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
 const fields=(v,ks)=>check(v&&typeof v==='object'&&!Array.isArray(v)&&Object.keys(v).sort().join()===ks.sort().join(),'Unsupported Village rule fields.');
 const options={registry:villageRuleTags};
 const module=(id,revision,process,value,kind='world_law')=>({schema:1,id,revision,resolver:'village.mix@2',kind,scope:{...VILLAGE_RULE_SCOPE},selector:{routes:['mix'],subjects:[{role:'input',quantifier:'some',query:{tag:'village.restorative'}}],requires:process?{fact:'procedure.process',op:'eq',value:process}:{all:[]}},priority:{layer:'world',depth:0,value:0,specificity:0,order:0},effects:[{id:'response',channel:'physics',kind:'parameter',target:RULE_TARGET,combine:process?'replace':'multiply',value,overrides:[]}]});

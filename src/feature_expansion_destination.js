@@ -1,5 +1,6 @@
 // Original opt-in prototype. No source-book setting, automatic enrollment,
 // second body, offline clock, level-scaled threat or independent publisher.
+import {all, eqNoReason as eq} from './basics.js';
 export const TIDEMARK_IDS = Object.freeze({world:'feature.tidemark',instance:'feature.tidemark.harbor',
  definition:'feature.tidemark.definition',era:'tidemark.breakwater.present',continuity:'tidemark.original',
  keeper:'tidemark.keeper',wright:'tidemark.wright',stock:'tidemark.communal_stock',shop:'tidemark.wright',
@@ -15,7 +16,7 @@ export const TIDEMARK_DEFINITION = Object.freeze({id:TIDEMARK_IDS.definition,wor
 export const TIDEMARK_INITIAL_FACTS = Object.freeze({'tidemark.met':false,'tidemark.agreed':false,'tidemark.refused':false,'tidemark.repaired':false,'tidemark.collected':false,'tidemark.route':'none'});
 export const TIDEMARK_NATIVE_SCHEMA = 1;
 export const TIDEMARK_NATIVE_DOMAIN = 'feature_destination_native';
-const eq=(fact,value=true)=>({fact,op:'eq',value}),all=(...rules)=>({all:rules}),world=(key,value)=>({type:'world',worldId:TIDEMARK_IDS.world,key:`tidemark.${key}`,value});
+const world=(key,value)=>({type:'world',worldId:TIDEMARK_IDS.world,key:`tidemark.${key}`,value});
 const know=(key,value)=>({type:'knowledge',actor:'player',key:`tidemark.${key}`,stage:'seen',value});
 const local=(name,label,extra={})=>({id:`tidemark.${name}`,revision:1,label,actorId:'player',worldId:TIDEMARK_IDS.world,location:TIDEMARK_LOCATIONS.dock,group:'tidemark',costs:[],effects:[],...extra});
 const meeting=eq('world.tidemark.met');

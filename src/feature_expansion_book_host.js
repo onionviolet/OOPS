@@ -1,12 +1,11 @@
 // Native admission bridge only. Backlog stages carriers; the existing publisher saves.
+import {copy, object} from './basics.js';
 import {evaluateOriginalFrontierOfficeReplacement,originalFrontierOfficeRuleContract as C} from './feature_expansion_book_roster.js';
 import {REPLACEMENT_IDS as I,REPLACEMENT_CONTRACT} from './backlog_expansion_replacement.js';
 import {bodyNativeInputs} from './backlog_expansion_body.js';
 import {simulationOccupiesActor} from './simulation.js';
 import {activePractice} from './techniques.js';
 
-const object=v=>!!v&&typeof v==='object'&&!Array.isArray(v);
-const copy=v=>structuredClone(v);
 const canonical=v=>v===undefined?'undefined':JSON.stringify(v,(_,value)=>object(value)?Object.fromEntries(Object.keys(value).sort().map(k=>[k,value[k]])):value);
 const equal=(a,b)=>canonical(a)===canonical(b);
 const without=(v,keys)=>Object.fromEntries(Object.entries(v||{}).filter(([key])=>!keys.includes(key)));

@@ -1,3 +1,4 @@
+import {fnv1a} from './hash_rng.js';
 function equal(a,b) {
     if(Object.is(a,b))return true;
     if(!a || !b || typeof a!=='object' || typeof b!=='object' || Array.isArray(a)!==Array.isArray(b))return false;
@@ -42,8 +43,7 @@ function eventTime(event,seed,fallback) {
     if(event.window) {
         const {from,to}=event.window;
         if(!Number.isFinite(from) || !Number.isFinite(to) || from>to)throw new Error(`Invalid event window: ${event.id}.`);
-        let hash=2166136261;
-        for(const char of JSON.stringify([seed,event.id]))hash=Math.imul(hash^char.charCodeAt(0),16777619)>>>0;
+        const hash=fnv1a(2166136261,JSON.stringify([seed,event.id]));
         if(Number.isInteger(from) && Number.isInteger(to))return from+hash%(to-from+1);
         return from+(to-from)*(hash/4294967296);
     }

@@ -1,5 +1,6 @@
 // Original reversible Frontier prototypes. Native XP, method mastery, stock,
 // knowledge, jobs and publication remain owned by the existing shared services.
+import {all, any, eq} from './basics.js';
 export const SKILL_IDS = Object.freeze({
     brace: "frontier.brace_control",
     trail: "frontier.trail_reading",
@@ -9,10 +10,7 @@ export const SKILL_IDS = Object.freeze({
 const WORLD = "base.frontier", LIO = "partyPartner", TEACHER = "oldCraftsman";
 const LOG = JSON.stringify({id: "Rough wood log"});
 const KIT = JSON.stringify({id: "Prepared survey kit"});
-const eq = (fact, value = true, reason) => ({fact, op: "eq", value, ...(reason ? {reason} : {})});
 const atLeast = (fact, value, reason) => ({fact, op: "gte", value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
-const any = (...rules) => ({any: rules});
 const seen = id => eq(`knowledge.${id}.seen`);
 const owned = id => eq(`power.${id}.owned`);
 const mastery = (id, amount) => atLeast(`power.${id}.mastery`, amount, `Practice this method to mastery ${amount}.`);

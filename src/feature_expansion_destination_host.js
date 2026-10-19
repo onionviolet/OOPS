@@ -1,3 +1,4 @@
+import {check as assert, copy, natural} from './basics.js';
 import {TIDEMARK_IDS as ids,TIDEMARK_LOCATIONS as places,TIDEMARK_KEYS as keys,TIDEMARK_ENDPOINT as endpoint,TIDEMARK_DEFINITION as definition,
  TIDEMARK_INITIAL_FACTS,tidemarkDefinitions,tidemarkActions} from './feature_expansion_destination.js';
 import {createWorldInstance,createWorldVisit,planWorldClock,planWorldDeparture,validateWorldRecords} from './world_instances.js';
@@ -7,7 +8,6 @@ import {previewNativeRealmTraveler} from './native_realm_traveler.js';
 import {enrollSimulation,commitSimulationCommand,previewSimulationCommand,cancelSimulationJob,simulationOccupiesActor,waitingSimulationChoice} from './simulation.js';
 import {activePractice} from './techniques.js';
 import {jsonData} from './simulation_contracts.js';
-const assert=(ok,message)=>{if(!ok)throw Error(message);},copy=x=>structuredClone(x),natural=n=>Number.isSafeInteger(n)&&n>=0;
 const frontierEndpoint={worldId:'base.frontier',instanceId:'frontier.main',regionId:'frontier.village',layerId:'surface'};
 const domain=()=>({facts:{},resources:{},completed:{},sources:{},techniques:{}});
 export function createTidemarkConnection(){return createRealmConnection({id:'tidemark.passage',revision:1,from:frontierEndpoint,to:endpoint,kind:'physical',controllerId:'player',bidirectional:true,duration:0,lifetime:null,

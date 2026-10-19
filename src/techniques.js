@@ -1,9 +1,8 @@
 // Technique knowledge and ownership are saved independently of derived execution
 // requirements. This is a narrow learning handler, not a general spell engine.
-const check = (ok, message) => {if(!ok) throw new Error(message);};
+import {check, natural as integer} from './basics.js';
 const object = v => v && typeof v === "object" && !Array.isArray(v);
 const id = v => typeof v === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !["__proto__", "constructor", "prototype"].includes(v);
-const integer = v => Number.isSafeInteger(v) && v >= 0;
 export const PRACTICE_RESPONSES = Object.freeze({hold: "Hold your ground", sidestep: "Step aside", advance: "Advance"});
 const freshRecord = () => ({observed: null, understood: null, owned: null, proficiency: 0, executions: 0, practice: null, lastPractice: null});
 

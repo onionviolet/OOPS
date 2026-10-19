@@ -1,13 +1,11 @@
 // One continuing self; native snapshots are flat records, never nested journeys.
+import {check, copy, natural} from './basics.js';
 export const CONTINUATION_SCHEMA = 1;
 export const STUDY_MINUTES = 10;
 // These native skills do not grant bodily stat milestones. Other learning stays
 // recorded, without copying its mixed body/stat XP into a new embodiment.
 export const COMPATIBLE_MASTERY = Object.freeze(['Literacy', 'Crafting', 'Smelting', 'Forging']);
-const copy = value => structuredClone(value);
-const check = (ok, message) => {if(!ok) throw Error(message);};
 const object = value => value && typeof value === 'object' && !Array.isArray(value);
-const natural = value => Number.isSafeInteger(value) && value >= 0;
 const id = value => typeof value === 'string' && /^[a-zA-Z0-9_.:-]{1,160}$/.test(value);
 const preferences = ['language','options','display_preferences','customization','favourite_consumables','favourite_items',
     'favourite_locations','skill_category_order','skill_list_state','message_filters','are_finished_quests_hidden',

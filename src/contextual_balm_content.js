@@ -1,5 +1,6 @@
 // Original contextual use of the existing native Healing balm. No new item,
 // recipe, stock source, clock, condition identity, or publication owner.
+import {all, eqNoReason as eq} from './basics.js';
 export const CONTEXTUAL_BALM_IDS = Object.freeze({
     group: 'contextual_balm',
     prefix: 'contextual_balm.',
@@ -12,8 +13,6 @@ export const CONTEXTUAL_BALM_IDS = Object.freeze({
 });
 
 const key = id => JSON.stringify({id});
-const eq = (fact,value=true) => ({fact,op:'eq',value});
-const all = (...rules) => ({all:rules});
 const I = CONTEXTUAL_BALM_IDS;
 const scrape = eq('contextualBalm.scraped');
 const supported = eq('contextualBalm.supportedBody');

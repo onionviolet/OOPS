@@ -1,3 +1,4 @@
+import {object as commandPresent} from './basics.js';
 import {causalStoryPresentation} from './causal_story_host.js';
 import {CAUSAL_STORY_LIMITS} from './causal_story_ids.js';
 
@@ -27,7 +28,6 @@ const remainingText = value => {
 };
 const hostErrorText = value => textOf(value) || (value
     ? 'The current story state is unavailable. Refresh the actions to try again.' : '');
-const commandPresent = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const canCancel = row => commandPresent(row.command) && row.eligible !== false
     && row.cancellation !== 'none' && row.cancellation?.canCancel !== false;
 
