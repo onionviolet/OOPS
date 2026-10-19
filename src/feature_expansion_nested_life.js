@@ -1,12 +1,11 @@
 // Original review prototypes. These opt-in local requests reuse the existing
 // residents, native stock, credits, body, sites, jobs and durable publisher.
 // Import, preview and rendering create no demand, reward, fund or inventory.
+import {all, deepFreeze as freeze, eqNoReason as eq, gte} from './basics.js';
 import {NESTED_IDS as I,NESTED_LOCATIONS as L,NESTED_KEYS as K,NESTED_MISSIONS} from './feature_expansion_nested_content.js';
 import {assert,natural,copy} from './simulation_contracts.js';
 import {previewSimulationCommand,commitSimulationCommand,cancelSimulationJob} from './simulation.js';
 
-const freeze=x=>{if(x&&typeof x==='object'){Object.values(x).forEach(freeze);Object.freeze(x);}return x;};
-const eq=(fact,value=true)=>({fact,op:'eq',value}),gte=(fact,value)=>({fact,op:'gte',value}),all=(...rules)=>({all:rules});
 const flag=(name,key,value=true)=>({type:'fact',scope:'actor',actor:'player',key:`nested.life.${name}.${key}`,value});
 const worldFlag=(world,key,value=true)=>({type:'world',worldId:world,key:`nested.life.${key}`,value});
 const credit=(actor,amount)=>({type:'resource',actor,key:'nested.credit',amount});

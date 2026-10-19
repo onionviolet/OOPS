@@ -1,3 +1,4 @@
+import {eqRawReason as requires} from './basics.js';
 import {storyAftermathDefinitions} from './story_aftermath.js';
 import {storyletDefinitions} from './storylet_content.js';
 import {foundationInteractionDefinitions} from './foundation_interaction_content.js';
@@ -48,7 +49,6 @@ const kit = JSON.stringify({id: "Prepared survey kit"});
 const fact = (key, value) => ({type: "fact", scope: "actor", key, value});
 const resource = (key, amount) => ({type: "resource", key, amount});
 const money = amount => ({...resource("money", amount), native: true});
-const requires = (fact, value, reason) => ({fact, op: "eq", value, ...(reason ? {reason} : {})});
 const command = d => ({revision: 1, worldId: "base.frontier", actorId: "player", location: "Village", costs: [], effects: [], ...d});
 const met = requires("village.craftsmanMet", true, "Help with the rats, then meet the old craftsman through the elder.");
 

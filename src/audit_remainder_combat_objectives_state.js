@@ -1,8 +1,8 @@
 // Pure staged-state recognition. Root calls this only before the existing
 // durable publication boundary; failed publication discards these changes.
+import {check, natural, object} from './basics.js';
 import {REMAINDER_COMBAT_OBJECTIVES as I,REMAINDER_COMBAT_OBJECTIVE_KEYS as K,REMAINDER_SUPPLY_FORBIDDEN_COMMANDS,
     combatObjectivesModule,newCombatObjectivesModule,fittingCarried} from './audit_remainder_combat_objectives_content.js';
-const check=(ok,message)=>{if(!ok)throw new Error(message);},object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x),natural=x=>Number.isSafeInteger(x)&&x>=0;
 const keys=(x,allowed)=>check(object(x)&&Object.keys(x).every(k=>allowed.includes(k)),'Unsupported combat-objective saved fields.');
 const sessionId=x=>typeof x==='string'&&/^simulation:[1-9][0-9]*$/.test(x),count=(state,id)=>state.actors?.player?.completed?.[id]||0;
 export function initializeRemainderCombatObjectives(state){

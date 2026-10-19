@@ -4,6 +4,7 @@
 // mixed-role recipes coexist). matchRecipe explains every miss so UI and
 // NPCs share one answer. generateRecipe builds a world's secret recipe from an
 // authored grammar (audit "seeded discovery recipe"); the caller freezes it.
+import {natural as nat, positive as pos} from './basics.js';
 import {address, compareCodePoints, drawU32, indexFromU32, withRetries, hash64} from './gen_kit.js';
 import {MATRIX, deepFreeze, matchesQuery, materialTags, pickMaterial, validateMaterial, versioned} from './craft_materials.js';
 import {resolveBatch} from './craft_resolver.js';
@@ -11,8 +12,6 @@ import {resolveBatch} from './craft_resolver.js';
 export const RECIPE_GENERATOR = 'craft.recipe@1';
 const ROLES = ['base', 'active', 'solvent', 'binder', 'catalyst', 'additive'];
 const fail = message => { throw new Error(message); };
-const pos = n => Number.isSafeInteger(n) && n > 0;
-const nat = n => Number.isSafeInteger(n) && n >= 0;
 const text = (value, label) => typeof value === 'string' && value.length ? value : fail(`${label} must be non-empty text.`);
 const only = (value, allowed, label) => {
     if(!value || typeof value !== 'object' || Array.isArray(value)) fail(`${label} must be an object.`);

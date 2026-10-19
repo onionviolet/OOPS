@@ -1,12 +1,11 @@
 // Narrow hooks for the one simulation/job/time publisher. These operate only
 // on the staged plan after real costs/effects, never on a rendered preview.
+import {check, natural} from './basics.js';
 import {WORLD_COMPLETION_LENS_IDS as I, WORLD_COMPLETION_LENS_POLICY as P, worldCompletionLensCommand,
     worldCompletionLensIsMeasurement, worldCompletionLensFrozenDefinition} from './world_completion_lens_content.js';
 import {worldCompletionLensCurrentSample, worldCompletionLensLoan, worldCompletionLensClockSupported,
     worldCompletionLensBody, exactWorldCompletionLensJob, validateWorldCompletionLensState} from './world_completion_lens_facts.js';
 
-const check = (ok, message) => {if(!ok) throw new Error(message);};
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const count = (state, id) => state.actors?.player?.completed?.[id] || 0;
 export function frozenWorldCompletionLensRegistry(state, registry) {
     const loan = worldCompletionLensLoan(state), cause = loan?.cause ?? null;

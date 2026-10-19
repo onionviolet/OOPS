@@ -1,5 +1,6 @@
 // Reversible original local commissions, using the existing residents, native
 // stock, purses, learned operations, sites, common clock and job executor.
+import {all, deepFreeze as freeze, eq, not} from './basics.js';
 export const REMAINDER_LIVELIHOOD_IDS = Object.freeze({
     prefix: 'remainder_livelihood', group: 'remainder_livelihood', world: 'base.frontier',
     orr: 'feature_society.orr', vale: 'feature_society.vale', lio: 'partyPartner',
@@ -16,8 +17,6 @@ export const REMAINDER_LIVELIHOOD_ITEMS = Object.freeze({
 const K = REMAINDER_LIVELIHOOD_ITEMS;
 export const REMAINDER_LIVELIHOOD_SCHEDULE = Object.freeze({period: 1440, opens: 480, closes: 1080});
 export const remainderLivelihoodItemSpecifications = Object.freeze([]);
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules}), not = rule => ({not: rule});
 const af = (key, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: `${P}.${key}`, value});
 const wf = (key, value) => ({type: 'world', worldId: I.world, key: `${P}.${key}`, value});
 const resource = (actor, key, amount) => ({type: 'resource', actor, key: `${P}.${key}`, amount});
@@ -164,6 +163,5 @@ const controllers = [I.orr, I.vale, I.lio].map(actorId => ({
         })),
     ],
 }));
-function freeze(value) {if(value && typeof value === 'object') {Object.values(value).forEach(freeze); Object.freeze(value);} return value;}
 export const remainderLivelihoodDefinitions = freeze({commands: [...terms, ...commissionCommands, ...finiteChoices], controllers});
 export const remainderLivelihoodCommand = id => remainderLivelihoodDefinitions.commands.find(d => d.id === id);

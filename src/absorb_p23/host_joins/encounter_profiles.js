@@ -1,13 +1,10 @@
+import {check as assert, natural, object, sameJson as same} from '../../basics.js';
 import {PROFILE_ID, ENEMY_ID, AREA_ID, WORLD_ID, readProfileState,
     enemySpecification, beginAttempt, planSettlement, createTrainingEnemy,
     createTrainingZone} from '../encounter_profiles/profile.js';
 import {PROTO23_LOCATIONS, PROTO23_OPTIONAL_NATIVE_LOCATIONS} from '../../proto23_world_ids.js';
 import {validateNativeEncounter} from '../../seeded_streams.js';
 
-const assert = (ok, message) => {if (!ok) throw Error(message);};
-const natural = n => Number.isSafeInteger(n) && n >= 0;
-const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
-const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const exact = (v, fields) => object(v) && Object.keys(v).length === fields.length && fields.every(k => Object.hasOwn(v, k));
 export const trainingEncounterKey = attempt => `${PROFILE_ID}:${attempt}`;
 export const trainingEnemyKey = attempt => `${trainingEncounterKey(attempt)}:enemy:0`;

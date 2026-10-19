@@ -1,3 +1,4 @@
+import {check as assert, copy as clone, eqNoReason as eq} from './basics.js';
 import {createPocketDoorConnection} from './pocket_realm_rules.js';
 import {exchangeContext} from './exchange.js';
 import {buildNativePocketCargo,previewNativeRealmTraveler} from './native_realm_traveler.js';
@@ -13,8 +14,6 @@ import {bodyFacts} from './body_progression.js';
 import {pocketObservationDefinitions,pocketObservationActions,pocketObservationContext,previewPocketObservationAction,commitPocketObservationAction,pocketObservationView} from './pocket_observation.js';
 import {openRealmObservationClock,closeRealmObservationClock} from './realm_state.js';
 export const POCKET_LOCATION='Folded Glasshouse';
-const clone=x=>structuredClone(x),assert=(ok,message)=>{if(!ok)throw Error(message);};
-const eq=(fact,value=true)=>({fact,op:'eq',value});
 const prefix=content.bindings.worldFactPrefix,commandId=name=>`${prefix}.${name}`,leadId=commandId('lead');
 const rootCommand=(id,label,worldId,location,costs=[],effects=[])=>({id,revision:1,label,actorId:'player',worldId,location,group:'glasshouse',costs,effects});
 const know=(key,value)=>({type:'knowledge',actor:'player',key:`${prefix}.${key}`,stage:'seen',value});

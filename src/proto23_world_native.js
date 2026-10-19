@@ -1,9 +1,9 @@
+import {check as assert, copy, natural, object, sameJson as same} from './basics.js';
 import {PROTO23_FOOTPRINTS as footprints,PROTO23_NATIVE_DOMAIN as nativeDomain,PROTO23_NATIVE_STOCK,PROTO23_KEYS as K,PROTO23_IDS as I,PROTO23_OPTIONAL_NATIVE_LOCATIONS,proto23Definitions} from './proto23_world_content.js';
 import {activeProto23Visit,validateProto23State} from './proto23_world_host.js';
 import {validateItemKey} from './gameplay_transactions.js';
 import {jsonData} from './simulation_contracts.js';
-const assert=(ok,message)=>{if(!ok)throw Error(message);},copy=x=>structuredClone(x),natural=n=>Number.isSafeInteger(n)&&n>=0,object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b),shape=(v,fields,label)=>assert(object(v)&&Object.keys(v).length===fields.length&&fields.every(k=>Object.hasOwn(v,k)),`Unsupported ${label} fields.`);
+const shape=(v,fields,label)=>assert(object(v)&&Object.keys(v).length===fields.length&&fields.every(k=>Object.hasOwn(v,k)),`Unsupported ${label} fields.`);
 const people=proto23Definitions.people.map(d=>d.id),calendarSeed={year:1,month:1,day:1,hour:6,minute:0,day_count:1};
 const owners=footprints.map(f=>({...f.native,worldId:f.worldId,instanceId:f.instanceId,
  peopleIds:proto23Definitions.people.filter(p=>p.worldId===f.worldId).map(p=>p.id)}));

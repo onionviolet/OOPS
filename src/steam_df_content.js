@@ -1,4 +1,5 @@
 // DF-P04 is an original optional service, not a reproduction of DF formulas.
+import {all, eq} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as K} from './feature_expansion_objects.js';
 
 export const STEAM_DF_IDS = Object.freeze({world: O.world, group: 'steam_df', prefix: 'steam.df.',
@@ -11,8 +12,6 @@ export const steamDFLegacyKnowledge = Object.freeze({
     'steam.df.purchase': 'You paid Eda four native coins and received two actual Sound repair staves from her offered stock. Those same carried items can brace the joint or feed fitting and ordinary survey-kit preparation. The withdrawal dated the previous report.',
 });
 const I = STEAM_DF_IDS;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const live = all(eq('steamDF.supported', true, 'Use your current living body and usable hands at the Village bench.'),
     eq('steamDF.ownerSupported', true, 'Eda must be present, willing and able to use her own hands.'),
     eq('steamDF.benchSupported', true, 'Eda must retain her actual fitting bench.'));

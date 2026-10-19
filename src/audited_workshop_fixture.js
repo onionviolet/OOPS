@@ -1,5 +1,6 @@
 // Original reversible ITR-P2 choice: a stationary ordinary frame at the
 // existing Village fitting bench. Plain definitions and pure facts only.
+import {all, eq, not, sameStructural as same} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as OK} from './feature_expansion_objects.js';
 import {assert, natural, record} from './simulation_contracts.js';
 
@@ -13,8 +14,6 @@ export const AUDITED_FIXTURE_KEYS = Object.freeze({
     log: OK.log, rope: JSON.stringify({id: 'Survey rope'}), sap: OK.sap, sound: OK.sound, kit: OK.kit,
 });
 const K = AUDITED_FIXTURE_KEYS;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules}), not = rule => ({not: rule});
 const af = (key, value = true) => ({type: 'fact', actor: 'player', scope: 'actor', key: `${prefix}${key}`, value});
 const wf = (key, value) => ({type: 'world', worldId: I.world, key: `${prefix}${key}`, value});
 const item = (key, amount) => ({type: 'item', actor: 'player', key, amount});
@@ -89,13 +88,6 @@ export function auditedFixtureFacts(state, context = {}) {
     };
 }
 
-const same = (a, b) => {
-    if(a === b) return true;
-    if(Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((v, i) => same(v, b[i]));
-    if(!record(a) || !record(b)) return false;
-    const keys = Object.keys(a);
-    return keys.length === Object.keys(b).length && keys.every(k => Object.hasOwn(b, k) && same(a[k], b[k]));
-};
 const count = (done, id) => done[id] == null ? 0 : done[id];
 const causeSequence = cause => /^simulation:[1-9][0-9]*$/.test(cause || '') ? Number(cause.slice(11)) : NaN;
 const definitionFor = id => auditedFixtureDefinitions.commands.find(d => d.id === id);

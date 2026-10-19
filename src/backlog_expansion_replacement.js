@@ -1,11 +1,9 @@
 // Original finite office-replacement proof. No novel canon, body/identity swap,
 // timer, native owner or persistence writer is introduced here.
+import {copy, deepFreeze as freeze, natural as nat, object as obj} from './basics.js';
 import {backlogAssert as assert,backlogRecord,backlogActor,backlogInventory,backlogItem,backlogTransfer,backlogLog,assertBacklogBoundary} from './backlog_expansion_core.js';
 import {simulationOccupiesActor} from './simulation.js';
 
-const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
-const copy=v=>structuredClone(v),nat=v=>Number.isSafeInteger(v)&&v>=0;
-const obj=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
 const key=id=>JSON.stringify({id});
 export const REPLACEMENT_IDS=freeze({holder:'backlog.registry.eda',clerk:'backlog.registry.orrin',witness:'backlog.registry.bera',
     office:'backlog.registry.seal_steward',duty:'backlog.registry.two_seals',loan:'backlog.registry.template_loan',

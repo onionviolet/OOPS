@@ -1,3 +1,4 @@
+import {sameJson as same} from './basics.js';
 import {lorePracticeOwnerDeltas} from './lore_practice_facts.js';
 import {auditRemainderFacts} from './audit_remainder_state.js';
 // Pure current-owner projections and exact optional-record validation.
@@ -9,7 +10,6 @@ const moduleRecord = state => state.auditRemainder?.modules?.offers;
 const situation = state => state.simulation?.situations?.[S.situation];
 const complete = (state,actor,id) => state.actors[actor]?.completed?.[id] || 0;
 const keys = (value,allowed,name) => assert(record(value)&&Object.keys(value).every(k=>allowed.includes(k)),`Invalid ${name} fields.`);
-const same = (a,b) => JSON.stringify(a)===JSON.stringify(b);
 const borrowed = (state,actor,key) => Object.values(state.simulation?.custody || {}).some(c=>c.holder===actor&&c.key===key);
 const activeCondition = (state,actor,id) => {const c=state.simulation?.conditions?.[actor]?.[id];return !!c&&c.intensity>0&&(c.expiresAt==null||c.expiresAt>state.clock);};
 const bodySupported = (state,id) => {const p=state.simulation?.people[id];return p?.life==='alive'&&state.actors[id]?.worldId===W&&(p.body?.hands||0)>=2&&p.body?.mobile!==false&&p.vitals?.health>1;};

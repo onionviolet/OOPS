@@ -1,5 +1,6 @@
 // Original Village prototype inspired by Weibao's Deluxe Meme RPG collection
 // and item-gated events. This is not a direct Marvel or other source-world copy.
+import {allTruthy as all, eq} from './basics.js';
 import {compileArtifactCollection, compileItemEncounter} from './artifact_collection.js';
 
 export const ARTIFACT_WORKSHOP_IDS = Object.freeze({world: 'base.frontier', group: 'artifact_collection',
@@ -10,8 +11,6 @@ export const ARTIFACT_WORKSHOP_KEYS = Object.freeze({frame: key('Empty resonance
     blue: key('Blue aligning prism'), single: key('Single-prism resonance frame'), paired: key('Paired resonance frame'),
     pin: key('Fine alignment pin'), log: key('Rough wood log'), kit: key('Prepared survey kit')});
 const K = ARTIFACT_WORKSHOP_KEYS;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules.filter(Boolean)});
 const live = eq('actor.life', 'alive', 'Recover before using the workshop.');
 const opened = eq('actor.artifact_collection.opened');
 const af = (key, value = true) => ({type: 'fact', scope: 'actor', key: `artifact_collection.${key}`, value});

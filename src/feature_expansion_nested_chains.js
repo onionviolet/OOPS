@@ -1,15 +1,14 @@
 // Original authored branches in the qualified opening Paradise service footprint.
 // Existing situations, people, native inventories, sources, jobs and publisher
 // own every mutable value. Importing these immutable definitions enrolls nothing.
+import {all, any, deepFreeze as freeze, eq, not} from './basics.js';
 export const NESTED_CHAIN_IDS = Object.freeze({roles:'nested.chain.roles',welfare:'nested.chain.welfare',method:'nested.chain.method',
  hub:'nested.paradise_hub',salt:'nested.saltworks',archive:'nested.archive',issuer:'nested.hub.issuer',trainer:'nested.hub.trainer',
  keeper:'nested.saltworks.keeper',foreman:'nested.saltworks.foreman',registrar:'nested.archive.registrar',claimant:'nested.archive.claimant',witness:'nested.archive.witness',
  pulse:'nested.pressure_pulse',office:'nested.chain.roles.provisional_office'});
 export const NESTED_CHAIN_ITEMS = Object.freeze({log:JSON.stringify({id:'Rough wood log'}),kit:JSON.stringify({id:'Prepared survey kit'}),rope:JSON.stringify({id:'Survey rope'})});
 const I=NESTED_CHAIN_IDS,K=NESTED_CHAIN_ITEMS;
-const freeze=x=>{if(x&&typeof x==='object'){Object.values(x).forEach(freeze);Object.freeze(x);}return x;};
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})}),gte=(fact,value,reason)=>({fact,op:'gte',value,...(reason?{reason}:{})});
-const all=(...rules)=>({all:rules}),any=(...rules)=>({any:rules}),not=rule=>({not:rule});
+const gte=(fact,value,reason)=>({fact,op:'gte',value,...(reason?{reason}:{})});
 const phase=(chain,...values)=>any(...values.map(value=>eq(`situation.${I[chain]}.phase`,value)));
 const af=(chain,key,value=true,actor='player')=>({type:'fact',scope:'actor',actor,key:`nested.chain.${chain}.${key}`,value});
 const wf=(world,key,value)=>({type:'world',worldId:world,key,value});

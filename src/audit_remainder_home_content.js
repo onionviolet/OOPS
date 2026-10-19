@@ -1,5 +1,6 @@
 // Original reversible local prototypes inspired by the audited Elin and
 // KeeperRL packets. Definitions do not enroll, provision or advance anyone.
+import {all, eq, not} from './basics.js';
 import {compileSiteProject} from './site_projects.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as OK} from './feature_expansion_objects.js';
 
@@ -24,8 +25,6 @@ export const remainderHomeItemSpecifications = Object.freeze([
     {id: 'Green repair offcut', description: 'A counted green side piece from the local one-log trimming job. Two pieces need real drying before precise salvage.', value: 0.5},
     {id: 'Compatible repair offcut', description: 'A counted dry side piece from that same local trimming stock. Two compatible pieces and a reusable jig can form one sound repair stave.', value: 1},
 ]);
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules}), not = rule => ({not: rule});
 const af = (name, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: P + name, value});
 const wf = (name, value = true) => ({type: 'world', worldId: I.world, key: P + name, value});
 const item = (key, amount, actor = 'player', returned = false) => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});

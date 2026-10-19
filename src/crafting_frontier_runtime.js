@@ -1,4 +1,5 @@
 // ORIGINAL Village trial. Uses the engine's composition law, not the older mixture law.
+import {natural} from './basics.js';
 import {frontierCatalogue as catalogue,frontierBrewLaw as law} from './craft_content_frontier.js';
 import {defineSourceTable,forecastHarvest,harvest,nodeKey} from './craft_sources.js';
 import {createCraftState,freezeMaterials,setSourceNode,recordProduct,observe,projectProduct,projectMaterial,validateCraftState} from './craft_state.js';
@@ -12,7 +13,6 @@ export const villageSources=defineSourceTable(catalogue,{id:'village.trial-sourc
 ]});
 export const materialKey=(material,quality)=>JSON.stringify({id:MATERIAL_CARRIER,materialRef:material.id,quality});
 const fail=m=>{throw Error(m);};
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
 export let craftingOwner=null;
 export function setCraftingOwner(value){craftingOwner=value??null;}
 export function materialFromKey(key,owner=craftingOwner) {

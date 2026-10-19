@@ -1,5 +1,6 @@
 // ACS-P03's one optional schedule preference composes into the existing
 // feature_society actors, world facts and controller. It creates no new owner.
+import {all} from './basics.js';
 import {SOCIETY_IDS as S} from './feature_expansion_society.js';
 import {agreedDutyContinuationDefinitions} from './agreed_duty_continuation.js';
 
@@ -15,7 +16,6 @@ const permission = (operation,key,actor,target) => ({type:'claim',operation,key,
 const fact = (key, value) => ({type: 'fact', scope: 'world', key: `${P}.${key}`, value});
 const actorFact = (key,value,actor='player') => ({type:'fact',scope:'actor',actor,key:`${P}.${key}`,value});
 const eq = (name, value = true, reason) => ({fact: name, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 
 export const AGREED_DUTY_IDS = Object.freeze({
     repair: `${P}.orr_repair`, lesson: `${P}.orr_teach`, controller: `${P}.orr_controller`,

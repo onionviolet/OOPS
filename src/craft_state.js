@@ -3,6 +3,7 @@
 // products with their retained law revision (audit R6), observer-scoped
 // knowledge (AB3, GR5) and harvest nodes. All functions are pure and return
 // a new owner. Absent owner = old save; nothing is created on load.
+import {copyJson as plainCopy, natural as nat, sameJson as same} from './basics.js';
 import {compareCodePoints} from './gen_kit.js';
 import {MATRIX, validateMaterial} from './craft_materials.js';
 import {validateBatchProduct} from './craft_resolver.js';
@@ -11,10 +12,7 @@ import {createSourceState, validateSourceState} from './craft_sources.js';
 
 export const CRAFT_SCHEMA = 1;
 const fail = message => { throw new Error(message); };
-const nat = n => Number.isSafeInteger(n) && n >= 0;
 const text = (value, label) => typeof value === 'string' && value.length ? value : fail(`${label} must be non-empty text.`);
-const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-const plainCopy = value => JSON.parse(JSON.stringify(value));
 
 export function createCraftState(scope) {
     return {schema: CRAFT_SCHEMA, scope: {world: text(scope?.world, 'World'), life: scope.life ?? 0}, sequence: 0,

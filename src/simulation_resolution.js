@@ -1,10 +1,8 @@
+import {hashStreamSeed} from './hash_rng.js';
 import {assert, copy, stableId} from "./simulation_contracts.js";
 import {resolveEffectAmount} from "./power_models.js";
 
-export function deriveSimulationSeed(seed, id) {
-    let n = seed; for(const ch of id) n = Math.imul(n ^ ch.charCodeAt(0),16777619) >>> 0;
-    return n || 1;
-}
+export {hashStreamSeed as deriveSimulationSeed};
 
 // Bind new participants once per cause. Frozen jobs retain both their identity
 // and their body/template rather than reading a changed template at settlement.

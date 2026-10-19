@@ -1,3 +1,4 @@
+import {natural as nat} from './basics.js';
 import {RELAY_IDS as I,RELAY_KEYS as K,RELAY_CARRIER_JOINS} from './feature_expansion_subtlety_scene.js';
 import {commitSimulationCommand,previewSimulationCommand,cancelSimulationJob,simulationOccupiesActor} from './simulation.js';
 import {assert,validateSimulationState} from './simulation_contracts.js';
@@ -5,7 +6,6 @@ import {projectFeatureCommands,featureWorkControls,featureRecordedKnowledge} fro
 import {projectSubtletyKnowledgeLegibility} from './action_legibility.js';
 
 const known=state=>state.actors?.player?.facts?.['subtlety.relay.introduced']===true;
-const nat=v=>Number.isSafeInteger(v)&&v>=0;
 const count=(state,context,actor,key)=>{
  const p=state.simulation?.people?.[actor];
  const stock=p?.inventory==='simulation'?state.simulation.owners?.[actor]:context.gameplay?.[actor]?.inventory;

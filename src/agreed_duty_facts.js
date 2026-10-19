@@ -1,4 +1,5 @@
 // Read-only facts and exact durable-receipt validation for ACS-P03.
+import {sameJson as same} from './basics.js';
 import {assert, natural, record, stableId} from './simulation_contracts.js';
 import {SOCIETY_IDS as S, SOCIETY_ITEMS} from './feature_expansion_society.js';
 import {AGREED_DUTY_IDS as I, AGREED_DUTY_POLICY as P, agreedDutyDefinitions} from './agreed_duty_content.js';
@@ -10,7 +11,6 @@ const seq = cause => {
 };
 const caused = (state, receipt) => natural(receipt?.at) && receipt.at <= state.clock && Number.isSafeInteger(seq(receipt?.cause)) &&
     seq(receipt.cause) > 0 && seq(receipt.cause) <= state.sequence;
-const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const W = S.world, PFX = S.prefix;
 const idForPreference = value => value === P.values.repairFirst ? 'repair' : value === P.values.lessonFirst ? 'lesson' : value === P.values.ordinary ? 'ordinary' : null;
 const choiceFor = route => route === 'repair' ? I.repairFirst : route === 'lesson' ? I.lessonFirst : I.ordinary;

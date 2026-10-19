@@ -1,3 +1,4 @@
+import {check} from './basics.js';
 import {rollCombatStrike,mitigateCombatDamage} from "./combat_math.js";
 import {applySimulationEffects} from "./simulation_effects.js";
 import {validateExpansionState} from "./expansion_engine.js";
@@ -6,7 +7,6 @@ import {validateNativeBattle} from "./native_battle_contracts.js";
 import {xorshift32} from "./seeded_streams.js";
 export {validateNativeBattle} from "./native_battle_contracts.js";
 import {commitPartyBattleAction,withdrawPartyBattle} from "./party_battle.js";
-const check=(ok,message)=>{if(!ok)throw new Error(message);};
 
 export function initializeNativeBattle(plan) {
     const session=plan.state.simulation?.sessions.player;

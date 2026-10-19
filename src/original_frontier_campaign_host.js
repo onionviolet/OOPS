@@ -1,3 +1,4 @@
+import {check} from './basics.js';
 import {ORIGINAL_FRONTIER_IDS, originalFrontierEpisodeView, originalFrontierQuestView} from './original_frontier_campaign_content.js';
 import {enrollSimulation, commitSimulationCommand, previewSimulationCommand, simulationFacts, previewSimulationResponse} from './simulation.js';
 import {meets} from './simulation_contracts.js';
@@ -5,7 +6,6 @@ import {originalFrontierFacts} from './original_frontier_facts.js';
 import {featureLegibilityRow, featureActionDisclosure} from './feature_expansion_legibility.js';
 import {projectAcceptedWorkLegibility, projectSimulationAftermath} from './action_legibility.js';
 
-const check = (ok, text) => {if(!ok) throw new Error(text);};
 const encounterPrefix = 'original_frontier.control.encounter';
 const acceptedZones = {original_frontier_accept_cave: ['Cave room','Nearby cave'], original_frontier_accept_forest: ['Forest','Forest road']};
 const acceptance = id => acceptedZones[id.replaceAll('.','_')];

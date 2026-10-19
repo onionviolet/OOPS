@@ -1,5 +1,6 @@
 // Root routes these controls through the existing durable publisher. No timer,
 // reward inventory, save owner or parallel combat adapter is created here.
+import {check} from './basics.js';
 import {commitSimulationCommand} from './simulation.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {referenceGameplayContext} from './reference_gameplay_host.js';
@@ -7,7 +8,6 @@ import {projectFeatureCommands,featureWorkControls,featureRecordedKnowledge} fro
 import {REMAINDER_COMBAT_OBJECTIVES as I,REMAINDER_COMBAT_OBJECTIVE_KEYS as K,remainderCombatObjectivesFacts,
     combatObjectivesModule,fittingCarried,fittingReturnEffect,ownedCombatObjectiveItem} from './audit_remainder_combat_objectives_content.js';
 import {acceptRemainderCombatObjective,endRemainderCombatObjective,validateRemainderCombatObjectives} from './audit_remainder_combat_objectives_state.js';
-const check=(ok,message)=>{if(!ok)throw new Error(message);};
 function currentContext(state,registry,context){const ref=referenceGameplayContext(state,registry,context);return {...ref,facts:{...ref.facts,...remainderCombatObjectivesFacts(state,ref,registry)}};}
 export function commitRemainderCombatObjectivesCommand(state,registry,command,context,sequence=state.sequence){
     check(state.sequence===sequence&&state.schema===11&&state.auditRemainder?.schema===1&&context.actorId==='player','This objective control is stale or not explicitly enrolled.');

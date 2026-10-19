@@ -1,13 +1,12 @@
 // Proposed, finite post-duty continuation. The root integration owns the
 // valid-receipt facts, truthful cancellation/support-loss accounts and wiring.
+import {all, deepFreezeUnlessFrozen as deepFreeze, eq, sameJson as same} from './basics.js';
 import {SOCIETY_IDS as S, SOCIETY_ITEMS} from './feature_expansion_society.js';
 import {assert,natural,record} from './simulation_contracts.js';
 
 const P = S.prefix, W = S.world, H = S.household, O = S.craftsperson;
 const LOG = SOCIETY_ITEMS.wood, KIT = SOCIETY_ITEMS.kit;
 
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const wf = (key, value) => ({type: 'world', worldId: W, key: `${P}.${key}`, value});
 const knowledge = (key, value) => ({type: 'knowledge', actor: 'player', key: `${P}.duty.continuation.${key}`,
     stage: 'seen', value, basis: {kind: 'observation', attributedTo: 'player', situationId: `${P}.home_agreement`}});
@@ -74,13 +73,6 @@ const decline = {
         knowledge('declined', 'Declined the optional later survey-kit continuation. No time, resources or earlier lawful result changed.')],
 };
 
-function deepFreeze(value) {
-    if(value && typeof value === 'object' && !Object.isFrozen(value)) {
-        Object.values(value).forEach(deepFreeze);
-        Object.freeze(value);
-    }
-    return value;
-}
 
 export const agreedDutyContinuationDefinitions = deepFreeze({commands: [sponsored, paid, decline]});
 
@@ -90,7 +82,6 @@ export function stampAgreedDutyContinuationJob(state,job){
         priorCause:state.simulation.knowledge.player[`${P}.duty.result`].cause};
 }
 
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const sequence=id=>{const match=/^(?:simulation|cancel|unsupported):([1-9][0-9]*)$/.exec(id||'');return match?Number(match[1]):NaN;};
 export function continuationAccountValue(job,status,priorCause){
     return JSON.stringify({schema:1,status,commandId:job.commandId,jobId:job.id,priorCause,acceptedAt:job.dutyContinuationTerms.acceptedAt,

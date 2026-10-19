@@ -1,5 +1,6 @@
 // Read-only projection from the actual Village calendar, a real current
 // preparation condition, paid completed failures and the attributed receipt.
+import {check, natural, object as record} from './basics.js';
 import {FEATURE_OBJECT_IDS} from './feature_expansion_objects.js';
 import {recurringWindow} from './world_rhythm.js';
 import {statusCareSupportedBody} from './status_care_facts.js';
@@ -7,9 +8,6 @@ import {COOLING_REFINEMENT_DEFINITION_MAP, coolingRefinementReceiptEffects} from
 
 const PREFIX = 'reference.coolingRefinement.';
 const WINDOW = Object.freeze({period: 1440, opens: 360, closes: 480});
-const natural = value => Number.isSafeInteger(value) && value >= 0;
-const record = value => value != null && typeof value === 'object' && !Array.isArray(value);
-const check = (ok, message) => {if(!ok) throw new Error(message);};
 const ownFacts = state => state.actors?.player?.facts || {};
 const ownDone = state => state.actors?.player?.completed || {};
 const REFINE_IDS = Object.freeze(['reference_gameplay.refine_first', 'reference_gameplay.refine_second',

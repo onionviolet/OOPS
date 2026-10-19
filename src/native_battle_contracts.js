@@ -1,7 +1,6 @@
+import {check, natural} from './basics.js';
 import {validateFeatureBattle,isFeatureBattleSchema} from './world_completion_battle_validation.js';
 export const PARTY_HELPER = 'partyPartner', PARTY_METHOD = 'party.guard_control';
-const check=(ok,message)=>{if(!ok)throw new Error(message);};
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
 export function validateNativeBattle(battle,session,state) {
     if(isFeatureBattleSchema(battle?.schema))return validateFeatureBattle(battle,session,state);
     check(battle && session?.definitionId==='rival.native_duel' && session.targetId==='roadRival' && session.participants?.includes('roadRival'),'Invalid native battle binding.');

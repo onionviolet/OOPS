@@ -1,3 +1,5 @@
+import {fnv1a, xorshift32} from './hash_rng.js';
+import {check, copy, natural, object} from './basics.js';
 import {validateCausalStoryJob} from './world_completion_causal_job_validation.js';
 export {validateCausalStoryJob};
 // Original causal cases use the existing native owners and one durable caller.
@@ -21,10 +23,6 @@ import {meets, validateSimulationState} from './simulation_contracts.js';
 import {activePractice} from './techniques.js';
 import {projectVillageScene} from './causal_story_scenes.js';
 
-const check=(value,text)=>{if(!value) throw new Error(text);};
-const copy=value=>structuredClone(value);
-const object=value=>value!==null && typeof value==='object' && !Array.isArray(value);
-const natural=value=>Number.isSafeInteger(value) && value>=0;
 const person=(state,id)=>state.simulation?.people?.[id];
 const flag=(state,id,p,key)=>state.actors?.[id]?.facts?.[causalStoryId(p,key)]===true;
 const known=(state,id,p,key)=>state.simulation?.knowledge?.[id]?.[causalStoryId(p,key)];
@@ -84,7 +82,7 @@ function token(state,context,id,jobId=null) {
     const value=JSON.stringify([id,jobId,state.sequence,state.clock,state.causalStories,context.causalStoryNative,
         context.external,context.gameplay,context.vitals,context.equipment,state.simulation?.jobs,state.simulation?.claims,
         state.simulation?.knowledge,state.actors,state.pending,context.busy]);
-    let n=2166136261;for(const ch of value)n=Math.imul(n^ch.charCodeAt(0),16777619)>>>0;
+    const n=fnv1a(2166136261,value);
     return `c${n.toString(16).padStart(8,'0')}`;
 }
 function localReasons(state,context,enrollment=false) {
@@ -219,8 +217,8 @@ function begin(plan,p,registry,context,id) {
     log(plan,text,id);
 }
 function draw(plan) {
-    let n=plan.state.simulation.seed;n^=n<<13;n^=n>>>17;n^=n<<5;plan.state.simulation.seed=n>>>0;
-    return (n>>>0)/0x100000000;
+    const n=xorshift32(plan.state.simulation.seed);plan.state.simulation.seed=n;
+    return n/0x100000000;
 }
 function returnRestraint(plan,p,registry,context,id) {
     const proof=plan.state.causalStories.proofs[p], r=proof.restraint;

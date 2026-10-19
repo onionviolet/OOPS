@@ -1,5 +1,6 @@
 // Original finite P3 lens proposals. Registry loading grants no stock, loan,
 // procedure or body. Vela and her one amber prism keep their existing owners.
+import {allTruthy as all, eq, not} from './basics.js';
 import {ARTIFACT_WORKSHOP_IDS as A, ARTIFACT_WORKSHOP_KEYS as AK} from './artifact_workshop_content.js';
 import {REMAINDER_HOME_IDS as H} from './audit_remainder_home_content.js';
 
@@ -13,9 +14,6 @@ export const WORLD_COMPLETION_LENS_IDS = Object.freeze({
 export const WORLD_COMPLETION_LENS_KEYS = Object.freeze({amber: AK.amber});
 export const WORLD_COMPLETION_LENS_POLICY = Object.freeze({revision: 1, deposit: 4, duration: 30, fee: 1});
 const I = WORLD_COMPLETION_LENS_IDS, K = WORLD_COMPLETION_LENS_KEYS, P = WORLD_COMPLETION_LENS_POLICY;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules.filter(Boolean)});
-const not = rule => ({not: rule});
 const f = (name, value = true, reason) => eq(`worldCompletionLens.${name}`, value, reason);
 const af = (name, value = true) => ({type: 'fact', actor: 'player', scope: 'actor', key: I.prefix + name, value});
 const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});

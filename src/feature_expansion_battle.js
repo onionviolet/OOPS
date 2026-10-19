@@ -1,4 +1,6 @@
 import {FEATURE_SHIELD,FEATURE_HOOK,FEATURE_BATTLE_FOES,featureBattleFacts} from './feature_battle_facts.js';
+import {xorshift32} from './hash_rng.js';
+import {all, check, eq, natural} from './basics.js';
 import {validateFeatureBattle} from './world_completion_battle_validation.js';
 export {validateFeatureBattle};
 import {admitFieldCareWatch,recordFieldCareStrike,finishFieldCareWatch} from './field_care_battle.js';
@@ -23,10 +25,7 @@ export const isFeatureBattleSchema=schema=>schema===FEATURE_BATTLE_SCHEMA||schem
 export const FEATURE_BATTLE_ID='feature_battle.sluice';
 export {FEATURE_SHIELD,FEATURE_HOOK,featureBattleFacts};
 export const FEATURE_HELPER='partyPartner';
-const foes=FEATURE_BATTLE_FOES,check=(ok,message)=>{if(!ok)throw new Error(message);};
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
-const all=(...rules)=>({all:rules});
+const foes=FEATURE_BATTLE_FOES;
 const af=(key,value=true)=>({type:'fact',scope:'actor',key,value});
 const stamina=(amount,actor)=>({type:'vital',key:'stamina',amount,...(actor?{actor}:{})});
 const command=d=>({revision:1,worldId:FEATURE_POWER_WORLD,actorId:'player',location:'Village',group:'feature_battle',costs:[],effects:[],...d});
@@ -269,7 +268,7 @@ export function commitFeatureBattleAction(state,registry,c,context,bindings={}) 
     const plan=planFor(state,context),s=plan.state.simulation,session=s.sessions.player,b=session.nativeBattle;
     const hp=id=>id==='player'?plan.vitals.player:s.people[id].vitals;
     const name=id=>id==='player'?'You':id===FEATURE_HELPER?'Lio':id===FEATURE_SHIELD?'Nera':'Oren';
-    const random=()=>{let n=b.seed;n^=n<<13;n^=n>>>17;n^=n<<5;b.seed=n>>>0;return b.seed/0x100000000;};
+    const random=()=>{b.seed=xorshift32(b.seed);return b.seed/0x100000000;};
     const role=b.fighters[c.actorId],hadStamina=hp(c.actorId).stamina>0;hp(c.actorId).stamina-=quote.cost;
     let result=null,targets=quote.targets,outcomes=[],fieldOutcomes=[],opportunityReceipt=null;
     const fitReceipts=[];

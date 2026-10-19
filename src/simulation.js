@@ -1,3 +1,4 @@
+import {hashStreamSeed as hash, xorshift32} from './hash_rng.js';
 import {AFTERMATH_ID,aftermathPersonPresent} from './story_aftermath.js';
 import {recordStoryletOutcome} from './lore_history_state.js';
 import {initializeStoryletDecks,nextStoryletBoundary,advanceStoryletDecks,validateStoryletState} from './storylet_deck.js';
@@ -41,8 +42,7 @@ const domain = () => ({facts: {}, resources: {}, completed: {}, sources: {}, tec
 const commandDuration = (state, d, actorId) => fluencyDuration(d.duration || 0, d.fluency, state.simulation?.powers?.[actorId]?.[d.powerId]?.executions || 0);
 const ruleReason = (rule, facts) => meets(rule, facts) ? [] : [rule?.reason || "The required knowledge, means or circumstances are missing."];
 const log = (s, clock, text, cause) => {s.log.push({at: clock, text, cause}); s.log = s.log.slice(-100);};
-const hash = (seed, id) => {let n = seed; for(const ch of id) n = Math.imul(n ^ ch.charCodeAt(0), 16777619) >>> 0; return n || 1;};
-function draw(check) {let n = check.rng; n ^= n << 13; n ^= n >>> 17; n ^= n << 5; check.rng = n >>> 0; return check.rng / 0x100000000;}
+function draw(check) {check.rng = xorshift32(check.rng); return check.rng / 0x100000000;}
 // gameplayBefore is the caller's read-only input snapshot. Plans never write it,
 // so it is shared instead of deep-copying the native inventory a second time.
 function plan(state, context) {return {state: cloneData(state), external: cloneData(context.external || {}), gameplay: cloneData(context.gameplay || {}), vitals: cloneData(context.vitals || {}), equipment: cloneData(context.equipment || {}), acquisitions: [], unlocks: [], gameplayBefore: context.gameplay || {}};}

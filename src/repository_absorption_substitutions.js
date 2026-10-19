@@ -1,10 +1,9 @@
 // Original Frontier detail, not a novel adaptation or universal replacement
 // rule. RB-INT-01/02 and RB-LIV-02 provide the qualified mechanism evidence.
 // Existing stock/custody, frozen job, knowledge and source owners do the work.
+import {all, eq} from './basics.js';
 const MIRI='repositories.miri', LANTERN='repositories.lantern';
 const protectedKit=JSON.stringify({id:'Wax-sealed survey kit'});
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
-const all=(...rules)=>({all:rules});
 const local=eq('repositories.clockSupported',true,'Return to the native Frontier for this courier work.');
 const present=eq('repositories.miriSupported',true,'Miri cannot offer that shared work now.');
 const repaired=eq(`situation.${LANTERN}.phase`,'repaired');

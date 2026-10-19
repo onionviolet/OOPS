@@ -1,8 +1,8 @@
+import {natural as nat} from './basics.js';
 import {VILLAGE_ASKS,validateVillageGoal} from './village_traveler_asks.js';
 import {appendStoryOutcome,queryStoryOutcomes,validateLoreHistory} from './lore_history_state.js';
 export const LEGACY_REQUEST_CONTRACT=Object.freeze({revision:1,place:'Village',routes:['take','deliver','decline'],items:['Stale bread','Rat pelt','Rat tail'],expiry:'played-time defer; no absence penalty'});
 export const REQUEST_CONTRACT=Object.freeze({...LEGACY_REQUEST_CONTRACT,revision:2,items:[...new Set(Object.values(VILLAGE_ASKS).flat().map(a=>a.item))]});
-const nat=n=>Number.isSafeInteger(n)&&n>=0;
 const check=(ok,text='Invalid remembered request.')=>{if(!ok)throw Error(text);};
 const pending=r=>['offered','accepted'].includes(r.status);
 export function validateStoryRequests(people,expansion=null) {

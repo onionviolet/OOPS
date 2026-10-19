@@ -1,3 +1,4 @@
+import {natural} from './basics.js';
 import {drawVillageAsk,validateVillageGoal} from './village_traveler_asks.js';
 import {validateStoryRequests} from './story_requests.js';
 import {drawUnit,scopedStream,xorshift32} from './seeded_streams.js';
@@ -11,7 +12,6 @@ export const peopleTemplates=Object.freeze([
     {id:'hill_carrier',role:'hill courier',requests:['Stale bread','Rat pelt'],keepsakes:['folded letter','brass clasp']}
 ]);
 const check=(ok,m)=>{if(!ok)throw Error(`Invalid generated people: ${m}.`);};
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
 export function createGeneratedPeople(seed,at,authoredNames=[],streamState=null,{revision=1,index=null,context={}}={}) {
     check(natural(seed)&&seed<=0xffffffff&&natural(at),'seed or clock');
     check([1,2].includes(revision)&& (revision===1||index),'generation revision/index');

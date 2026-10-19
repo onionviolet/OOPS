@@ -1,7 +1,7 @@
 // Derive eligibility from actual owners. No renderer, quote or import seeds
 // resident funds/items, completes work or installs a fixture.
+import {sameJson as same} from './basics.js';
 import {PROTO23_IDS as I, PROTO23_KEYS as K, PROTO23_LOCATIONS as L, PROTO23_OPTIONAL_NATIVE_LOCATIONS, proto23Commands} from './proto23_world_content.js';
-const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 export function proto23Facts(state, context = {}) {
     const d = state.proto23Village, s = state.simulation || {}, n = context.proto23Native || {}, p = s.people?.player;
     const actual = n.body, body = p?.body, at = context.facts?.location || p?.location;

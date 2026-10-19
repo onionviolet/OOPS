@@ -1,11 +1,10 @@
 // Compile physical artifact collections into the existing paid command system.
 // There is no second inventory, power owner, save namespace or reward publisher.
+import {allTruthy as all, positive} from './basics.js';
 import {assert, copy, jsonData, natural, record, stableId, validatePredicate, validateSimulationEffect} from './simulation_contracts.js';
 import {validateItemKey} from './gameplay_transactions.js';
 
-const all = (...rules) => ({all: rules.filter(Boolean)});
 const item = (key, amount, returned = false) => ({type: 'item', key, amount, ...(returned ? {reservationReturn: true} : {})});
-const positive = value => natural(value) && value > 0;
 
 export function itemPossessionRule(key, count = 1, reason = 'Carry the required actual item.') {
     validateItemKey(key); assert(positive(count), 'An item gate needs a positive exact count.');

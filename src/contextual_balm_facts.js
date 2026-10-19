@@ -1,8 +1,8 @@
 // Pure read of the actual supported native body, existing body condition,
 // carried item, custody/equipment and current native effect frame.
+import {natural} from './basics.js';
 import {CONTEXTUAL_BALM_IDS as I, CONTEXTUAL_BALM_DEFINITIONS as D} from './contextual_balm_content.js';
 
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const active = (state,id) => {
     const c=state.simulation?.conditions?.player?.[id];
     return !!c && c.intensity>0 && (c.expiresAt==null || c.expiresAt>state.clock);

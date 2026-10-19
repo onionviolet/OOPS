@@ -1,3 +1,4 @@
+import {natural as integer} from '../basics.js';
 import {clearRewardText} from '../fork_discovery_views.js';
 // Original adaptation of FNA04/05/08/12. Pins and attribution: W-D.md.
 // Player inventory, money, quest events and time retain their native owners.
@@ -7,7 +8,6 @@ export const FORT = Object.freeze({post:'Waypost Fort', yard:'Waypost Fort yard'
     notes:'Waypost repair notes', ledger:'Waypost storekeeper ledger', quest:'waypost_fort_repair'});
 export const ORDERS = Object.freeze({tails:{name:'Pest-proof packing',item:'Rat tail',count:2,pay:8},
     ore:{name:'Replacement hinge stock',item:'Iron ore',count:2,pay:12}});
-const integer = n => Number.isSafeInteger(n) && n >= 0;
 export function createFortSupply() {return {schema:1,notesIssued:false,repaired:false,funds:180,spent:0,
     received:{'Rat tail':0,'Iron ore':0},sources:[]};}
 export function migrateFortSupply(save) {

@@ -1,9 +1,9 @@
+import {check} from './basics.js';
 import {remainderCombatFitNativeStats} from './audit_remainder_combat_fit_hooks.js';
 import {readNativeFighter} from './native_battle.js';
 import {featureBattleToken,featureNativeAction,commitFeatureBattleAction,withdrawFeatureBattle,featureBattleView,validateFeatureBattle,
     featureFighterOwnership,featureOwnedGear,FEATURE_BATTLE_SCHEMA,isFeatureBattleSchema,FEATURE_SHIELD,FEATURE_HOOK,FEATURE_HELPER} from './feature_expansion_battle.js';
 import {FEATURE_HARNESS,FEATURE_HOOK_POLE,featurePowerFacts} from './feature_expansion_powers.js';
-const check=(ok,message)=>{if(!ok)throw new Error(message);};
 // No timer, inventory or publication owner is created here. Native Combat's
 // saved action adapter calls the one durable planner/publisher at each cadence.
 export function createFeatureBattleHost({Combat,Enemy,registry,player,getState,getContext,persist,getCombat,setCombat,endCombat,refresh=()=>{},render=()=>{},attackersSlot,defendersSlot}) {

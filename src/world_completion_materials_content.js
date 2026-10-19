@@ -1,5 +1,6 @@
 // Original, reversible P5 work. Existing crop/site/inventory owners keep their
 // authority. Importing this file creates no stock, plot, permission or storm.
+import {all, eq, sameJson as equal} from './basics.js';
 import {assert, copy} from './simulation_contracts.js';
 import {worldCompletionStripStamp} from './world_completion_strip.js';
 import {REMAINDER_HOME_KEYS as H} from './audit_remainder_home_content.js';
@@ -22,8 +23,6 @@ export const WORLD_COMPLETION_MATERIALS_KEYS = Object.freeze({
 const I = WORLD_COMPLETION_MATERIALS_IDS, K = WORLD_COMPLETION_MATERIALS_KEYS;
 export const worldCompletionMaterialsSources = [];
 export const worldCompletionMaterialsItemSpecifications = [];
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const f = (key, reason) => eq('worldCompletionMaterials.' + key, true, reason);
 const enrolled = f('enrolled', 'Accept the connected home-world work explicitly first.');
 const local = f('local', 'Use your own living supported body in the home realm.');
@@ -81,7 +80,6 @@ const baseDefinitions = ({notchLocation, notchSiteId}) => ({commands: [
 // covered terminal factory. No nonexistent shared API is imported here.
 export const worldCompletionMaterialsDefinitions = baseDefinitions({notchLocation: 'Village', notchSiteId: 'lore.warning.notch'});
 
-const equal = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 export function assertWorldCompletionMaterialsCropEffects(effects, text) {
     const original = remainderConsequencesDefinitions.commands.find(d => d.id === C.prefix + 'plot_cover');
     assert(original && Array.isArray(effects), 'The existing finite crop owner must supply its covered effects.');

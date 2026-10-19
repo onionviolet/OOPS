@@ -1,3 +1,4 @@
+import {sameStructural as same} from './basics.js';
 import {CRUSH_SOCIAL_IDS as I, crushSocialDefinitions, crushSocialWorkPlans, crushSocialCommand} from './crush_social_content.js';
 import {crushSocialContext} from './crush_social_facts.js';
 import {assert, natural, record} from './simulation_contracts.js';
@@ -6,13 +7,6 @@ import {startWorkPlan, controlWorkPlan} from './feature_expansion_work_plan.js';
 
 const P = I.prefix, visitorId = I.visitor, key = suffix => `${P}.${suffix}`;
 const done = (state, id) => state.actors?.player?.completed?.[key(id)] || 0;
-const same = (a, b) => {
-    if(a === b) return true;
-    if(Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((v, i) => same(v, b[i]));
-    if(!record(a) || !record(b)) return false;
-    const keys = Object.keys(a);
-    return keys.length === Object.keys(b).length && keys.every(k => Object.hasOwn(b, k) && same(a[k], b[k]));
-};
 
 export {crushSocialFacts, crushSocialContext} from './crush_social_facts.js';
 

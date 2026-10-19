@@ -1,7 +1,7 @@
+import {check} from './basics.js';
 import {SWK} from './systems_workshop_content.js';
 import {runIrrigationModel} from './systems_irrigation_model.js';
 const SW='systems_workshop',P=SW+'.provider',N=SW+'.apprentice';
-const check=(ok,message)=>{if(!ok)throw Error(message);};
 export function validateSystemsWorkshop(state){
  const a=state.actors?.player,f=a?.facts||{};
  if(!f[SW+'.joined'])return;

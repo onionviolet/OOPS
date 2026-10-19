@@ -1,3 +1,4 @@
+import {natural as validCount} from './basics.js';
 import {LEVER_PRACTICE_BRACE} from './lever_practice_supply.js';
 import {FEATURE_OBJECT_IDS as I, FEATURE_OBJECT_KEYS as K, featureObjectDefinitions} from './feature_expansion_objects.js';
 import {enrollSimulation, commitSimulationCommand, previewSimulationCommand, simulationFacts, simulationOccupiesActor} from './simulation.js';
@@ -6,7 +7,6 @@ import {originalFrontierFacts} from './original_frontier_facts.js';
 import {earnedDryingTracker,DRYING_REWARD_ID} from './earned_drying_tracker.js';
 
 const variants = ['sharp', 'dull', 'fine', 'fineDull'];
-const validCount = value => Number.isSafeInteger(value) && value >= 0;
 const active = (state, actor, id) => {
     const source = state.actors?.[actor]?.sources?.[id], faculty = state.simulation?.faculties?.[actor]?.[id];
     return !!source && (source.expiresAt == null || source.expiresAt > state.clock) && faculty?.awakened === true && faculty.active === true && faculty.suppressed !== true;

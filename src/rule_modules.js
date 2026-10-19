@@ -1,11 +1,10 @@
 // Inert module admission and pure matching. Existing rules.js callers retain
 // their contract. Only resolveRuleEffects applies admitted effect proposals.
+import {check, positive} from './basics.js';
 import {evaluateRule} from './rules.js';
 import {tagFacts} from './tag_store.js';
 import {address,hash64,compareCodePoints} from './gen_kit.js';
-const check=(ok,message)=>{if(!ok)throw Error(message);};
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
-const positive=n=>Number.isSafeInteger(n)&&n>0;
 const text=v=>typeof v==='string'&&v.length>0;
 const same=(a,b)=>address(a)===address(b);
 function shape(v,allowed,required=allowed){check(object(v)&&Object.keys(v).every(k=>allowed.includes(k))&&required.every(k=>Object.hasOwn(v,k)),'Unsupported rule fields.');}

@@ -1,14 +1,8 @@
 // Supplied-edition analytical rules. The host owns every body, source, item,
 // right, observer memory, command and publication. These helpers mutate none.
-const deepFreeze = value => {
-    if (value && typeof value === 'object' && !Object.isFrozen(value)) {
-        Object.values(value).forEach(deepFreeze);
-        Object.freeze(value);
-    }
-    return value;
-};
 
 // Source-qualified immutable profiles are appended below by this worker.
+import {deepFreezeUnlessFrozen as deepFreeze} from './basics.js';
 export const BOOK_RECOGNITION_PROFILES = deepFreeze([
   {
     "id": "mother-of-learning",

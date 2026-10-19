@@ -1,5 +1,6 @@
 // Original, reversible functional objects proposal. Importing definitions never
 // enrolls people, creates native stock, teaches a method or advances time.
+import {all, any, eq, not} from './basics.js';
 import {LEVER_PRACTICE_BRACE, leverPracticeBraceItem} from './lever_practice_supply.js';
 import {dryingRewardDefinition} from './earned_drying_tracker.js';
 export const FEATURE_OBJECT_IDS = Object.freeze({
@@ -31,9 +32,7 @@ export const FEATURE_OBJECT_KEYS = Object.freeze({
     log: key('Rough wood log'), sap: key('Tree sap'), kit: key('Prepared survey kit'),
 });
 const K = FEATURE_OBJECT_KEYS;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
 const gte = (fact, value, reason) => ({fact, op: 'gte', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules}), any = (...rules) => ({any: rules}), not = rule => ({not: rule});
 const af = (name, value = true, actor) => ({type: 'fact', scope: 'actor', key: `feature_objects.${name}`, value, ...(actor ? {actor} : {})});
 const wf = (name, value) => ({type: 'world', worldId: I.world, key: `feature_objects.${name}`, value});
 const item = (key, amount, actor = 'player', returned = false) => ({type: 'item', key, amount, actor, ...(returned ? {reservationReturn: true} : {})});

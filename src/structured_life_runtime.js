@@ -1,8 +1,8 @@
 // Adapted from MIT Air snapshot:
 // /Users/weiwei/MacTransferArchive/yair-private-work-20261013-extract/.codex/worktrees/wider-gameplay/yet-another-idle-rpg/src/structured_life_runtime.js
 // Copyright (c) 2021 Miktaew; see LICENSE. Scoped reversible proposal.
+import {check} from './basics.js';
 import {validateStructuredRecord} from './structured_pack_state.js';
-const check=(ok,message)=>{if(!ok)throw Error(message);};
 export function structuredLifeEnded(state,record){return !!record&&state?.actors?.player?.worldId===record.worldId&&state.simulation?.people?.player?.life==='dead';}
 function binding(state,r){
  validateStructuredRecord(r);const p=state?.simulation?.people?.player;

@@ -1,3 +1,4 @@
+import {sameStructural as same} from './basics.js';
 import {worldCompletionLearningNeriConservation} from './world_completion_learning_runtime.js';
 import {lorePracticeOwnerDeltas} from './lore_practice_facts.js';
 // Pure current support and strict typed-owner validation. No host, simulation
@@ -7,13 +8,6 @@ import {REMAINDER_HOME_IDS as I, REMAINDER_HOME_KEYS as K, remainderHomeDefiniti
 
 const P = 'remainder_home.', defs = {get: id => D.commands.find(d => d.id === id), has: id => D.commands.some(d => d.id === id)}, advances = {get: id => D.advancements.find(d => d.id === id)};
 const count = value => natural(value) ? value : 0;
-const same = (a, b) => {
-    if(a === b) return true;
-    if(Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((v, i) => same(v, b[i]));
-    if(!record(a) || !record(b)) return false;
-    const keys = Object.keys(a);
-    return keys.length === Object.keys(b).length && keys.every(k => Object.hasOwn(b, k) && same(a[k], b[k]));
-};
 const sequence = cause => /^(simulation|advance):[1-9][0-9]*$/.test(cause || '') ? Number(cause.split(':')[1]) : NaN;
 const currentCondition = (state, actor, id) => {
     const c = state.simulation?.conditions?.[actor]?.[id];

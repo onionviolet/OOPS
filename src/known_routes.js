@@ -1,6 +1,6 @@
 // Import-free, observer-safe composition for route rows already disclosed by
 // their native owners. This module never searches destinations or makes quotes.
-const isRecord = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+import {object as isRecord} from './basics.js';
 const knownText = value => value?.known === true && typeof value.text === 'string' ? value.text : '';
 
 /**

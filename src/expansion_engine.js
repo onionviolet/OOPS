@@ -1,3 +1,5 @@
+import {xorshift32} from './hash_rng.js';
+import {check, natural as integer} from './basics.js';
 import {validateAdaptation} from './absorb_p23/world_adaptation/index.js';
 import {validateReadingState} from './absorb_p23/reading/runtime.js';
 import {reconcileSystemsWorkshop} from './systems_workshop_runtime.js';
@@ -73,9 +75,7 @@ const clone = cloneData;
 const object = value => value && typeof value === "object" && !Array.isArray(value);
 const id = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !["__proto__", "constructor", "prototype"].includes(value);
-const integer = value => Number.isSafeInteger(value) && value >= 0;
 const domain = () => ({facts: {}, resources: {}, completed: {}});
-const check = (condition, message) => {if(!condition) throw new Error(message);};
 
 export function createExpansionState(seed = 1) {
     check(integer(seed) && seed <= 0xffffffff, "Invalid random seed.");
@@ -560,9 +560,7 @@ function applyEffects(state, external, effects, context, registry, gameplay = {}
 }
 
 function draw(state) {
-    let value = state.rng;
-    value ^= value << 13; value ^= value >>> 17; value ^= value << 5;
-    state.rng = value >>> 0;
+    state.rng = xorshift32(state.rng);
     return state.rng / 0x100000000;
 }
 

@@ -1,3 +1,4 @@
+import {check} from './basics.js';
 import {WORLD_COMPLETION_GROUPS} from './world_completion_content.js';
 import {worldCompletionContext,validateWorldCompletionState} from './world_completion_facts.js';
 import {commitWorldCompletionLifeCommand,worldCompletionLifePresentation} from './world_completion_life_host.js';
@@ -10,7 +11,6 @@ const lanes=[['world_completion_life',commitWorldCompletionLifeCommand,worldComp
     ['world_completion_lens',commitWorldCompletionLensCommand,worldCompletionLensPresentation],
     ['world_completion_learning',commitWorldCompletionLearningCommand,worldCompletionLearningPresentation],
     ['world_completion_materials',commitWorldCompletionMaterialsCommand,worldCompletionMaterialsPresentation]];
-const check=(ok,text)=>{if(!ok)throw new Error(text);};
 export function commitWorldCompletionCommand(state,registry,command,context,sequence=state.sequence){
     check(context.actorId==='player'&&sequence===state.sequence&&command.sequence===sequence,'This home-world request changed. Review its current controls.');
     const current=worldCompletionContext(state,context);

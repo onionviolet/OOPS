@@ -1,20 +1,11 @@
 // Original, optional refinement of the existing measured-cooling method.
 // Real ownership, paid costs, one frozen RNG draw, and timed conditions remain
 // with the shared simulation owners.
+import {all, deepFreezeUnlessFrozen as freezeDeep, eq, not} from './basics.js';
 import {FEATURE_OBJECT_IDS} from './feature_expansion_objects.js';
 import {REFERENCE_GAMEPLAY_IDS as I, REFERENCE_GAMEPLAY_KEYS as K} from './reference_gameplay_content.js';
 
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
 const gte = (fact, value, reason) => ({fact, op: 'gte', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
-const not = rule => ({not: rule});
-const freezeDeep = value => {
-    if(value && typeof value === 'object' && !Object.isFrozen(value)) {
-        Object.values(value).forEach(freezeDeep);
-        Object.freeze(value);
-    }
-    return value;
-};
 const item = (key, amount, returned = false) => ({type: 'item', key, amount, actor: 'player', ...(returned ? {reservationReturn: true} : {})});
 const stamina = amount => ({type: 'vital', actor: 'player', key: 'stamina', amount});
 const af = (key, value) => ({type: 'fact', scope: 'actor', actor: 'player', key: `reference.coolingRefinement.${key}`, value});

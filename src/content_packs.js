@@ -1,9 +1,8 @@
+import {check, object} from './basics.js';
 import {validateItemKey} from './gameplay_transactions.js';
 import {createContentRegistry} from './expansion_engine.js';
 import {stableId, jsonData} from './simulation_contracts.js';
 import {validateStructuredRecord,validateStructuredSelection} from './structured_pack_state.js';
-const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
-const check=(ok,message)=>{if(!ok)throw Error(message);};
 const scalar=v=>['string','boolean','number'].includes(typeof v)&& (typeof v!=='number'||Number.isFinite(v));
 export const MAX_PACK_PAY=10000;
 export const emptyPackState=()=>({schema:1,packs:{}});

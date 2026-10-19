@@ -1,7 +1,7 @@
 // D8-A / P14 S1's optional typed outcome owner. Feed and biography remain views.
+import {natural as nat} from './basics.js';
 export const HISTORY_LIMIT=96;
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
-const nat=v=>Number.isSafeInteger(v)&&v>=0;
 const ref=v=>typeof v==='string'&&v.length>0&&v.length<=240;
 const check=(ok)=>{if(!ok)throw Error('Invalid retained story outcome.');};
 export function queryStoryOutcomes(state,filter={}) {

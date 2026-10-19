@@ -1,3 +1,4 @@
+import {check} from './basics.js';
 import {BOOK_CARE_IDS as I, BOOK_CARE_CASES as C} from './book_care_content.js';
 import {bookCareFacts,bookCareEnrolled,bookCareCondition,validateBookCareState,projectBookCareEffects} from './book_care_facts.js';
 import {reconcileBookCareRuntime} from './book_care_runtime.js';
@@ -5,7 +6,6 @@ import {paradiseContext} from './book_world_paradise_actions.js';
 import {commitSimulationCommand,cancelSimulationJob} from './simulation.js';
 import {projectFeatureCommands,featureWorkControls,featureRecordedKnowledge} from './feature_expansion_host.js';
 import {artifactEquipmentReasons} from './artifact_collection.js';
-const check=(ok,message)=>{if(!ok)throw Error(message);};
 export function bookCareContext(state,context={}) {
     const current=paradiseContext(state,context);
     return {...current,facts:{...current.facts,...bookCareFacts(state,current)}};

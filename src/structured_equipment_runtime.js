@@ -1,12 +1,11 @@
+import {check, object} from './basics.js';
 import {validateItemKey} from './gameplay_transactions.js';
 import {canonicalDurabilityKey} from './absorb_e2/durability.js';
 
 const slots={head:'helmet interior',torso:'chestplate interior',legs:'leg armor interior',arms:'glove interior',feet:'shoes interior'};
 const regions=new Set(['head','chest','back','groin','thigh','shin','forearm','wrist','hand','foot','elbow','armpit']);
-const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
 const number=v=>typeof v==='number'&&Number.isFinite(v)&&v>=0;
 const fraction=v=>number(v)&&v<=1;
-const check=(v,m)=>{if(!v)throw Error(m);};
 const present=(facts,key)=>key==null||facts[key]===true||typeof facts[key]==='number'&&facts[key]>0;
 
 // Optional metadata changes no legacy item, save, inventory or equipment key.

@@ -1,8 +1,7 @@
+import {check, natural, sameJson as same} from './basics.js';
 import {FIELD_CARE_IDS as I,fieldCareDefinitions as D} from './field_care_content.js';
 import {statusCareSupportedBody,statusCareCondition} from './status_care_facts.js';
 import {PARADISE_IDS as P,PARADISE_LOCATIONS as L} from './book_world_paradise_ids.js';
-const check=(ok,message)=>{if(!ok)throw new Error(message);},natural=n=>Number.isSafeInteger(n)&&n>=0;
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 export function fieldCareRecord(value){if(value==null)return null;check(typeof value==='string','Field care receipts must use canonical JSON text.');let out;try{out=JSON.parse(value);}catch{throw new Error('Invalid field care receipt.');}check(out&&typeof out==='object'&&!Array.isArray(out)&&JSON.stringify(out)===value,'Invalid canonical field care receipt.');return out;}
 export const FIELD_VENOMS=Object.freeze(['Dragonfly venom','Dragonfly queen venom','Weak necrotizing venom','Mild necrotizing venom']);
 export function fieldCareEnrolled(state){return state.actors.player.facts[I.prefix+'enrolled']===true&&state.actors.player.completed[I.begin]===1;}

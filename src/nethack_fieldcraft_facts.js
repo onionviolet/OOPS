@@ -1,12 +1,12 @@
 // Pure live eligibility and state contract. Deliberately no simulation.js import:
 // the shared executor recomputes these facts at admission and job settlement.
+import {sameJson as same} from './basics.js';
 import {NETHACK_FIELDCRAFT_IDS as I, NETHACK_FIELDCRAFT_KEYS as K, nethackFieldcraftDefinitions} from './nethack_fieldcraft_content.js';
 import {originalFrontierFacts} from './original_frontier_facts.js';
 import {assert, natural, record} from './simulation_contracts.js';
 const count = n => natural(n) ? n : 0;
 const prefix = 'nethack_fieldcraft.';
 const definitions = new Map(nethackFieldcraftDefinitions.commands.map(d => [d.id, d]));
-const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 export function stampNethackFieldcraftJob(state, job) {
     if(definitions.get(job.commandId)?.duration) job.nethackFieldcraftWork = {schema: 1, startedAt: state.clock};
 }

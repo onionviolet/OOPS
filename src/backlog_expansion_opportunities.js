@@ -1,15 +1,10 @@
 // Two finite original proofs over actual simulation owners and the played clock.
 // Importing, viewing and loading this module never introduces a person or stock.
+import {deepFreeze as freeze, natural, object as record} from './basics.js';
 import {backlogAssert as assert, backlogRecord, backlogActor, backlogInventory,
     backlogItem, backlogTransfer, backlogLog, assertBacklogBoundary} from './backlog_expansion_core.js';
 import {simulationOccupiesActor} from './simulation.js';
 
-const freeze = value => {
-    if(value && typeof value === 'object') { Object.values(value).forEach(freeze); Object.freeze(value); }
-    return value;
-};
-const natural = value => Number.isSafeInteger(value) && value >= 0;
-const record = value => value != null && typeof value === 'object' && !Array.isArray(value);
 const keys = (value, expected, label) => assert(record(value) && Object.keys(value).length === expected.length &&
     expected.every(key => Object.hasOwn(value, key)), `Invalid ${label} record.`);
 
