@@ -1,10 +1,17 @@
 import {validateExpansionState} from "./expansion_engine.js";
 import {writeOwnershipToEnvelope} from "./acquisition.js";
+import {publishDefeat} from "./defeat_domain.js";
 import {writeGameplayToEnvelope} from "./gameplay_transactions.js";
 
 // Caller publishes plan.state and plan.external only after this succeeds.
 // The existing envelope is copied, retaining unrelated and dormant content.
-export function persistExpansionPlan(plan, {createSave, storage, key, bindings, ownershipBindings, validateEnvelope, unlockPublication, equipmentPublication, nativePublication}) {
+export function persistExpansionPlan(plan, options) {
+    // A staged defeat (saved-battle loss, structured death) is part of this write: in place while the
+    // save is built, undone if the write throws (CBR2).
+    if(plan.defeat) { let committed; publishDefeat(plan.defeat, () => { committed = writeExpansionPlan(plan, options); }); return committed; }
+    return writeExpansionPlan(plan, options);
+}
+function writeExpansionPlan(plan, {createSave, storage, key, bindings, ownershipBindings, validateEnvelope, unlockPublication, equipmentPublication, nativePublication}) {
     validateExpansionState(plan.state);
     const serialized = createSave();
     if(typeof serialized !== "string") throw new Error("No valid save could be created.");

@@ -246,3 +246,23 @@ test('actual battle host initializes combat display before refreshing while sync
     const before=structuredClone(battle);host.resume(featureBattleToken(battle.state));assert.deepEqual(calls,['set','start','refresh','render']);
     assert.equal(host.isRunning(),true);assert.deepEqual(battle,before);
 });
+
+test('CBL3: a lost sluice battle stages one unconscious record naming its active tollkeepers; a non-fatal blow stages none',()=>{
+    const {done}=outcome('success'),applied=refine(done,'reference_gameplay.steady_hook');
+    const battle=initializeFeatureBattle(applied.state,registry,{id:'feature_battle.start'},ctx(applied,{vitals:{player:{health:3,max_health:100,stamina:100,max_stamina:100}}}));
+    let liveCombat=null,power=0.01;
+    class MockEnemy {constructor(o){this.id=o.id;this.stats={attack_points:10000,attack_count:1,crit_rate:0,crit_multiplier:1,attack_speed:1,stamina_efficiency:1,agility:5,intuition:5,defense:0,...o.stats};}
+        init(){}getFullStats(){return this.stats;}getAttackPower(){return power;}getLevelableComponent(){return {getTotalLevelBonus:()=>0};}}
+    class MockCombat {constructor(o){this.options=o;}start(){}}
+    const player={name:'Source fixture',getFullStats:()=>({health:3,max_health:100,max_stamina:100,attack_speed:1,stamina:100,attack_points:10000,attack_count:1,crit_rate:0,crit_multiplier:1,stamina_efficiency:1,agility:5,intuition:5,defense:0}),getAttackPower:()=>1,getEquipment:()=>({}),
+        hasShield:()=>false,getBlockStrength:()=>0,getTotalSkillLevel:()=>0,getStats:()=>({}),getLevelableComponent:()=>({getTotalLevelBonus:()=>0})};
+    let staged=null;
+    const host=createFeatureBattleHost({Combat:MockCombat,Enemy:MockEnemy,registry,player,getState:()=>battle.state,getContext:()=>ctx(battle,{vitals:{player:{health:3,max_health:100,stamina:100,max_stamina:100}}}),
+        persist:plan=>{staged=plan;},getCombat:()=>liveCombat,setCombat:v=>{liveCombat=v;},endCombat:()=>{liveCombat=null;},refresh:()=>{},render:()=>{},attackersSlot:{},defendersSlot:{}});
+    host.resume(featureBattleToken(battle.state));
+    const strike=()=>host.act({...featureBattleToken(battle.state),type:'strike',actorId:I.hook,technique:'jab',targetIds:['player']});
+    liveCombat=liveCombat||{};liveCombat.featureBattleSessionId=battle.state.simulation.sessions.player.id;
+    const soft=strike();assert.equal(soft.defeat,undefined);
+    power=5000;const hard=strike();
+    assert.equal(hard.state.actors.player.facts['feature.battle.lastResult'],'lost');assert.equal(hard.defeat.outcome,'unconscious');assert.equal(hard.defeat.cause.kind,'combat');assert.ok(hard.defeat.cause.by.length>=1&&hard.defeat.cause.by.every(n=>['Oren','Nera'].includes(n)));
+});

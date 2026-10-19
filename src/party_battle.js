@@ -1,3 +1,4 @@
+import {savedBattleLoss} from './defeat_domain.js';
 import {xorshift32} from './hash_rng.js';
 import {check} from './basics.js';
 import {validateNativeBattle,PARTY_HELPER,PARTY_METHOD} from './native_battle_contracts.js';
@@ -92,7 +93,7 @@ export function commitPartyBattleAction(state,registry,command,context) {
         hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
         b.last=`${actorId==='player'?'You':'Mara'} ${strike.kind==='hit'?`hit ${targetId===PARTY_HELPER?'Lio':targetId==='player'?'you':'Mara'} for ${Math.round(damage*10)/10}`:strike.kind==='blocked'?'met a full block':'missed'}.`;
         if(targetId===PARTY_HELPER&&(hp(PARTY_HELPER).health===1||plan.state.actors[PARTY_HELPER].resources.brace_effort===0||hp(PARTY_HELPER).stamina<2))helperLeaves(plan,hp(PARTY_HELPER).health===1?'yielded':'exhausted');
-        if(hp(targetId).health===1&&targetId!==PARTY_HELPER)finish(plan,registry,targetId===ROAD_RIVAL?'won':'lost');
+        if(hp(targetId).health===1&&targetId!==PARTY_HELPER){finish(plan,registry,targetId===ROAD_RIVAL?'won':'lost');if(targetId==='player')plan.defeat=savedBattleLoss(['Mara']);}
     }
     b.actions++;b.fighters[actorId].moves++;plan.state.sequence++;
     plan.native={hpToFull:hp('player').max_health-hp('player').health,staminaToFull:hp('player').max_stamina-hp('player').stamina};

@@ -19,6 +19,7 @@ export function reconcileStructuredLifePlan(plan,record,{deaths=0}={}){
   check(Number.isSafeInteger(deaths)&&deaths>=0,'Invalid native death statistic.');
   p.structuredDeath={schema:1,instanceId:record.instanceId,at:p.lifeCause.at,maxHealth:v.max_health};
   plan.nativePatch={...plan.nativePatch,total_deaths:deaths+1};
+  plan.defeat={outcome:'killed',cause:{kind:'harm',place:typeof record.locationId==='string'?record.locationId:null,by:[]}};
  }
  check(p.structuredDeath.schema===1&&p.structuredDeath.instanceId===record.instanceId&&p.structuredDeath.at===p.lifeCause.at&&p.structuredDeath.maxHealth===v.max_health,'Unsupported ended-life proof.');
  v.health=0;plan.native={...plan.native,hpToFull:v.max_health,staminaToFull:Math.max(0,v.max_stamina-v.stamina)};

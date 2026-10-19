@@ -1,3 +1,4 @@
+import {savedBattleLoss} from './defeat_domain.js';
 import {check} from './basics.js';
 import {rollCombatStrike,mitigateCombatDamage} from "./combat_math.js";
 import {applySimulationEffects} from "./simulation_effects.js";
@@ -59,7 +60,7 @@ export function commitNativeBattleStrike(state,registry,{actorId,targetId,attack
     battle.last=`${actorId === "player" ? "You" : "Mara"} ${strike.kind === "hit" ? `hit for ${Math.round(damage*10)/10}${strike.critted ? " (critical)" : ""}` : strike.kind === "blocked" ? "met a full block" : "missed"}.`;
     plan.native={hpToFull:plan.vitals.player.max_health-plan.vitals.player.health,staminaToFull:plan.vitals.player.max_stamina-plan.vitals.player.stamina};
     plan.state.sequence++;
-    if(victim.health === 1) finish(plan,registry,targetId === ROAD_RIVAL ? "won" : "lost");
+    if(victim.health === 1) {finish(plan,registry,targetId === ROAD_RIVAL ? "won" : "lost");if(targetId === "player") plan.defeat=savedBattleLoss(["Mara"]);}
     validateExpansionState(plan.state,registry);return plan;
 }
 export function withdrawNativeBattle(state,registry,context,expectedSequence=state.sequence) {

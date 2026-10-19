@@ -1,3 +1,4 @@
+import {savedBattleLoss} from './defeat_domain.js';
 import {FEATURE_SHIELD,FEATURE_HOOK,FEATURE_BATTLE_FOES,featureBattleFacts} from './feature_battle_facts.js';
 import {xorshift32} from './hash_rng.js';
 import {all, check, eq, natural} from './basics.js';
@@ -346,7 +347,7 @@ export function commitFeatureBattleAction(state,registry,c,context,bindings={}) 
     if(!result&&b.objective.progress>=3)result='objective';
     if(!result&&b.escape.progress>=b.escape.required)result='escaped';
     if(!result&&!liveIds(b,'defenders').length)result='won';
-    if(result){finish(plan,registry,result,context);plan.featureBattleReceipt.result=result;if(reference)plan.featureBattleReceipt.opportunity=b.opportunityReceipts.at(-1)||null;}
+    if(result){if(result==='lost')plan.defeat=savedBattleLoss(foes.filter(id=>b.fighters[id]?.status==='active').map(name));finish(plan,registry,result,context);plan.featureBattleReceipt.result=result;if(reference)plan.featureBattleReceipt.opportunity=b.opportunityReceipts.at(-1)||null;}
     else if(reference)validateFeatureBattle(b,session,plan.state);
     plan.native={hpToFull:hp('player').max_health-hp('player').health,staminaToFull:hp('player').max_stamina-hp('player').stamina};
     validateExpansionState(plan.state,registry);return plan;

@@ -171,7 +171,7 @@ Ranked cheapest first. Each is a proposal; none is selected.
 |---|---|---|---|
 | CBL1 | Extract `publishDefeat` with typed outcome and cause; call it from the three `kill_player` branches; default outcome unconscious (C1-S1, CBC1) | Medium, S | Behavior identical on a golden fight; the defeat record shows outcome and cause; save, reload and import keep the new counter  **Done 2026-10-19, implemented and browser-verified; not human-accepted.** See CBL1 evidence below |
 | CBL2 | Wear on blocks and parries plus a per-instrument broken rule (C1-S3, CBC9, CBC10) | Low, S | Durability off: identical. On: blocks wear the shield, misses barely wear; a weapon at zero follows its declared rule; no save change |
-| CBL3 | Route the three saved battles through the publisher (C1-S2, CBX1) | Medium, S–M | The duel, party and sluice battles write the same defeat record; BHL7's injury applies in all six paths when on |
+| CBL3 | Route the three saved battles through the publisher (C1-S2, CBX1) | Medium, S–M | The duel, party and sluice battles write the same defeat record; BHL7's injury applies in all six paths when on**Done 2026-10-19 (publication only; BHL7 injury is a later consumer), implemented and browser-verified; not human-accepted.** See CBL3 evidence below |
 | CBL4 | Subdue stance and enemy `yields_at` for humanlike templates, through the existing `planDefeat` hook (C1-S7, CBC32) | Medium, M | A Slums thug yields in subdue; no harvest from a yielded enemy; loot reduced; log names the outcome |
 | CBL5 | AD8 migration of the opponent display to learned facts per kind (C1-S8, CBC20) | Medium, S–M | First sight shows impressions and `???`; kill count or identify fills fields; rebuilt browser check at 1920×1080 and 1366×768 |
 | CBL6 | Flee with an escape check, comfort setting keeping the free exit (C1-S5, CBC28) | Medium, M | Failed flee gives free exchanges; success publishes escaped; the setting restores today's behavior |
@@ -235,3 +235,29 @@ No migration of existing fields.
   holds `main.js` at zero growth with no headroom, so features join lines
   instead (this slice and M4 both did). Either the ratchet should grant one line
   per registered domain or AR1's wording should say "zero net growth".
+
+## CBL3 evidence, 2026-10-19
+
+Rules: CBR2, CBR5, CBX5, AR1, AD36. Target: desktop 1920x1080; mobile deferred. The three saved battles
+and the structured-pack terminal death now publish through `publishDefeat` ([DRC4, DRC3](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md)).
+
+- Each pure battle step stages `plan.defeat` only when the player is the one reduced to 1 HP:
+  road duel `src/native_battle.js`, Lio party `src/party_battle.js`, sluice `src/feature_expansion_battle.js`
+  (`savedBattleLoss`, outcome unconscious, cause kind combat, `by` = the active opponents, `place` null because a
+  saved battle sits in its own session). A win, withdrawal or Lio stepping out stages nothing.
+- `persistExpansionPlan` (`src/expansion_persistence.js`) publishes `plan.defeat` inside the durable write: the
+  record is in place while the save is built and undone if the write throws. No host or `main.js` change (growth 0).
+- Structured pack: `reconcileStructuredLifePlan` stages a `killed` / `harm` record only in the branch that creates
+  the `structuredDeath` proof, so it is once per life. `total_deaths` rules are unchanged (CBX5); no save-format
+  change (the existing defeat slice validates it).
+- Regressions: `frontier_campaign.test.js` (road duel: stage, rollback on quota failure, publish on success,
+  withdrawal none), `party_battle.test.js` (party: same), `cooling_refinement.test.js` (sluice: non-fatal blow
+  stages none, fatal stages unconscious naming tollkeepers), `structured_life_runtime.test.js` (killed once).
+- Gates: `npm run build && npm test` 2254 pass; `node --test tests/headless/*.test.js` 8 pass; `check:arch`
+  main.js growth 0; `check:rules` pass.
+- Browser (rebuilt bundle, fresh origin `127.0.0.1:18741`, 1920x1080, generated fixture with the Lio party battle
+  open and the player at low HP): the native timers played the duel to a `lost` result; the saved `defeat` slice
+  read `{unconscious: 1}`, last cause combat by Mara, and was identical after reload. A same-fixture run with more
+  HP resolved `won` with an empty slice. Sluice and structured death are covered by the unit regressions only
+  (implemented-unverified in the browser).
+- Not done: BHL7 injury consumer, per-battle outcomes other than unconscious (yield, escape), a CBL4 display.

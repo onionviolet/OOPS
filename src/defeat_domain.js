@@ -37,6 +37,11 @@ export function combatDefeat(location, combat) {
     return {outcome: 'unconscious', cause: {kind: 'combat', place: text(location?.id) ? location.id : null, by: [...new Set(by)]}};
 }
 
+// A saved battle's player loss (CBL3): the pure step stages `plan.defeat`; persistExpansionPlan publishes it
+// inside the same durable write, so a rolled-back write also undoes the record. `place` stays null: a saved
+// battle sits in its own session, not in a map location.
+export function savedBattleLoss(by) { return {outcome: 'unconscious', cause: {kind: 'combat', place: null, by: [...new Set(by.filter(text))]}}; }
+
 // One publication per actual outcome. With `commit`, the record is part of that durable write:
 // it is in place while the save is built and undone if the write throws.
 export function publishDefeat({outcome = 'unconscious', cause}, commit = null) {
