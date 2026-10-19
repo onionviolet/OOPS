@@ -16,3 +16,9 @@ test('architecture baseline can shrink but cannot grant new exemptions or erase 
  assert.ok(checkBaseline({mainImports:['a','c'],cycleEdges:['b']},{mainImports:['a','c'],cycleEdges:['b'],lineCounts:{main:11}},old).some(x=>x.includes('only shrink')));
  assert.ok(checkBaseline({mainImports:[],cycleEdges:[]},old).some(x=>x.includes('Remove resolved')));
 });
+test('architecture check fails when a ratcheted file grows past its line baseline',()=>{
+ const edges={mainImports:[],cycleEdges:[]},baseline={...edges,lineCounts:{'src/main.js':10}};
+ assert.deepEqual(checkBaseline(edges,baseline,undefined,{'src/main.js':10}),[]);
+ assert.deepEqual(checkBaseline(edges,baseline,undefined,{'src/main.js':9}),[]);
+ assert.ok(checkBaseline(edges,baseline,undefined,{'src/main.js':11}).some(x=>x.includes('grew past its baseline')));
+});

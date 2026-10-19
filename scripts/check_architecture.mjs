@@ -35,14 +35,16 @@ export function architectureEdges(graph) {
  }
  return {mainImports:[...new Set(mainImports)].sort(),cycleEdges:[...new Set(cycleEdges)].sort()};
 }
-export function checkBaseline(current,baseline,previous) {
+export function checkBaseline(current,baseline,previous,lineCounts) {
  const errors=[];
  for(const key of ['mainImports','cycleEdges']) {
   for(const edge of current[key])if(!baseline[key].includes(edge))errors.push(`New ${key}: ${edge}`);
   for(const edge of baseline[key])if(!current[key].includes(edge))errors.push(`Remove resolved baseline ${key}: ${edge}`);
   if(previous)for(const edge of baseline[key])if(!previous[key].includes(edge))errors.push(`Baseline may only shrink (${key}): ${edge}`);
  }
- if(previous)for(const [file,count]of Object.entries(baseline.lineCounts))if(count!==previous.lineCounts[file])errors.push(`Line baseline must remain fixed: ${file}`);
+ // Growth over the recorded line count fails (AR1). The baseline itself may only shrink against HEAD.
+ for(const [file,count]of Object.entries(lineCounts||{}))if(count>baseline.lineCounts[file])errors.push(`${file} grew past its baseline (${count} > ${baseline.lineCounts[file]}): move code into a domain module instead of growing it.`);
+ if(previous&&!process.env.ARCHITECTURE_BASELINE_RESET)for(const [file,count]of Object.entries(baseline.lineCounts))if(count>previous.lineCounts[file])errors.push(`Line baseline may only shrink: ${file} (${count} > ${previous.lineCounts[file]}). A reviewed reset needs ARCHITECTURE_BASELINE_RESET=1.`);
  return errors;
 }
 async function main() {
@@ -53,8 +55,8 @@ async function main() {
  if(!baseline){baseline={...current,lineCounts};await writeFile(baselinePath,JSON.stringify(baseline,null,2)+'\n');}
  let previous;
  try{previous=JSON.parse(execFileSync('git',['show',`HEAD:${baselinePath}`],{encoding:'utf8',stdio:['ignore','pipe','ignore']}));}catch{}
- if(process.argv.includes('--shrink')){for(const key of ['mainImports','cycleEdges'])baseline[key]=baseline[key].filter(e=>current[key].includes(e));await writeFile(baselinePath,JSON.stringify(baseline,null,2)+'\n');}
- const errors=checkBaseline(current,baseline,previous);
+ if(process.argv.includes('--shrink')){for(const key of ['mainImports','cycleEdges'])baseline[key]=baseline[key].filter(e=>current[key].includes(e));for(const [file,count] of Object.entries(lineCounts))baseline.lineCounts[file]=Math.min(baseline.lineCounts[file],count);await writeFile(baselinePath,JSON.stringify(baseline,null,2)+'\n');}
+ const errors=checkBaseline(current,baseline,previous,lineCounts);
  for(const [file,count] of Object.entries(lineCounts))console.log(`${file}: ${count} lines; baseline ${baseline.lineCounts[file]}; growth ${count-baseline.lineCounts[file]}`);
  console.log(`Grandfathered: ${current.mainImports.length} main imports, ${current.cycleEdges.length} cyclic edges.`);
  for(const error of errors)console.error(error);

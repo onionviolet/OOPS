@@ -47,7 +47,7 @@ import {societyFacts} from './feature_expansion_society.js';
 import {featureObjectFacts} from './feature_expansion_objects_host.js';
 import {referenceGameplayFacts} from './reference_gameplay_host.js';
 import {featurePowerFacts} from './feature_expansion_powers.js';
-import {featureBattleFacts} from './feature_expansion_battle.js';
+import {featureBattleFacts} from './feature_battle_facts.js';
 import {tidemarkContext} from './feature_expansion_destination_host.js';
 import {realmFacts,applyRealmWorldEffect,applyRealmSiteEffect} from './realm_state.js';
 import {originalFrontierFacts} from './original_frontier_facts.js';
