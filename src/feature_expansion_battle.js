@@ -1,3 +1,4 @@
+import {FEATURE_SHIELD,FEATURE_HOOK,FEATURE_BATTLE_FOES,featureBattleFacts} from './feature_battle_facts.js';
 import {validateFeatureBattle} from './world_completion_battle_validation.js';
 export {validateFeatureBattle};
 import {admitFieldCareWatch,recordFieldCareStrike,finishFieldCareWatch} from './field_care_battle.js';
@@ -20,8 +21,9 @@ export const FEATURE_REMAINDER_BATTLE_SCHEMA=5;
 export const FEATURE_HOOK_COOLING_CONDITION='reference_gameplay.hook_cooled';
 export const isFeatureBattleSchema=schema=>schema===FEATURE_BATTLE_SCHEMA||schema===FEATURE_REFERENCE_BATTLE_SCHEMA||schema===FEATURE_REMAINDER_BATTLE_SCHEMA;
 export const FEATURE_BATTLE_ID='feature_battle.sluice';
-export const FEATURE_SHIELD='featureBattleShield',FEATURE_HOOK='featureBattleHook',FEATURE_HELPER='partyPartner';
-const foes=[FEATURE_SHIELD,FEATURE_HOOK],check=(ok,message)=>{if(!ok)throw new Error(message);};
+export {FEATURE_SHIELD,FEATURE_HOOK,featureBattleFacts};
+export const FEATURE_HELPER='partyPartner';
+const foes=FEATURE_BATTLE_FOES,check=(ok,message)=>{if(!ok)throw new Error(message);};
 const natural=n=>Number.isSafeInteger(n)&&n>=0;
 const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
 const all=(...rules)=>({all:rules});
@@ -60,15 +62,6 @@ export const featureBattleDefinitions={
     ]
 };
 
-export function featureBattleFacts(state,context={}) {
-    const s=state.simulation,a=state.actors[context.actorId||'player'],fighters=foes.map(id=>s?.people[id]);
-    return {...featurePowerFacts(state,context),
-        'actor.feature.battle.seen':a?.facts['feature.battle.seen']===true,
-        'feature.battle.foesReady':fighters.every(p=>p?.life==='alive'&&p.location==='Village'&&p.vitals?.health>1)&&foes.every(id=>state.actors[id]?.worldId===a?.worldId),
-        'feature.battle.playerReady':context.vitals?.player?.health>1,
-        'feature.battle.foesNeedRest':fighters.some(p=>p?.vitals&&(p.vitals.health<p.vitals.max_health||p.vitals.stamina<p.vitals.max_stamina)),
-        'feature.battle.rationsReady':foes.every(id=>(state.actors[id]?.resources.watch_rations||0)>=1)};
-}
 function helperReasons(state,context,occupied=false) {
     const facts=featurePowerFacts(state,context),p=state.simulation?.people[FEATURE_HELPER],reasons=[];
     const current=state.simulation?.sessions.player?.nativeBattle,useFit=state.auditRemainder?.schema===1&&(!current||current.schema===5);
