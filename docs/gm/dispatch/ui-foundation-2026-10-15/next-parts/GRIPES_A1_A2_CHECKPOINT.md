@@ -168,3 +168,13 @@ panel gutter, save, reload, Export, literal Import, combat), check-uil7 (after a
 LEGACY_ONLY), check-uil8, check-uil8-r2 all pass with no page errors.
 Screenshots refreshed under `evidence/gripes-a1`, `gripes-a1a2`, `uil7`, `uil8`.
 Fixtures are seeded, not natural progression. Human visual/play acceptance OPEN.
+
+### Merge onto codex/gameplay-foundations and 1920 single-target rerun, 2026-10-19
+
+Weibao's correction: 1920×1080 is the single target viewport for this track. The
+1366×768 results above are retained as earlier evidence only; no further 1366 work was done
+(note: UI_RULES still lists 1366×768 as a floor, so it remains a rule-listed gap until that doc changes).
+Merged `codex/gameplay-foundations` (25 commits; dist and index.html conflicts resolved by taking
+theirs and rebuilding). On the merged, rebuilt tip: `npm test` 2258/2258 pass, `check:arch` exit 0,
+`check:rules` PASS, `check:rule-behavior` exit 0. At 1920×1080/14px in fresh contexts: check-gripes-a1,
+-a2, -integration, check-uil8-r2 and check-uil7 (after) all pass. Human acceptance OPEN.
