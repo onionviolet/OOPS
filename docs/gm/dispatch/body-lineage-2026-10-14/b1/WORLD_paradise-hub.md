@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | CN8 WR5 BM4 BM5 OB1 | [BEINGS_PETS_AND_BODIES_2026-10-14.md](../../../../worlds/paradise-hub/BEINGS_PETS_AND_BODIES_2026-10-14.md), BC10; BR1–BR6; L10/L11 blood items, L7/L8 modifications. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 GN9 MX4 MS1 TR3 TR6 WR1 OB4 BM6 SR1 | A typed blood item or repair service changes one actor’s capabilities, while Contractor, worker and companion status remain separately earned. |
+| Fit | PH1 SG3 SG4 SG5 GN9 MX4 MS1 TR3 TR6 WR1 OB4 BM6 BSR1 | A typed blood item or repair service changes one actor’s capabilities, while Contractor, worker and companion status remain separately earned. |
 | Skip families | LQ AG BD CL BP HI PR SB RP | BD CL BP RP AG: a bought bloodline is not a guaranteed dynasty, inherited memories, citizenship or suspended aging. SB1–3: no universal toxicity/dependence law. MX4 is the documented mixed-body lead, not a reproduction formula. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: actual body/item/role eligibility. Dial: known risky item or authored AU compatibility; price, lasting loss and remaining reserve follow that record.

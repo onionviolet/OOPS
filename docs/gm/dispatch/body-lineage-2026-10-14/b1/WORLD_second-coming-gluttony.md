@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB4 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § SCG1–SCG4; succession row. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 MS1 TR3 TR6 WR1 HI4 OB3 SR1 | A wounded returnee negotiates care and missed employment; observer-specific eyes do not disclose all body truth. |
+| Fit | PH1 SG3 SG4 SG5 MS1 TR3 TR6 WR1 HI4 OB3 BSR1 | A wounded returnee negotiates care and missed employment; observer-specific eyes do not disclose all body truth. |
 | Skip families | GN LQ AG CN BD CL BP MX PR SB BM RP | GN/CN/BD/CL/BP/MX/RP/OB5: marks and future-self influence are not a certified biological lineage/copy route. Earth ability stripping has a reported conflict. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

@@ -941,7 +941,7 @@ Interpretation: request a broad engine-development plan for deep local campaigns
 
 ## Scope and precedence
 
-Current scope returns active content to YAIRPG, preserves engine work and research, and includes full development of the starting world alongside other worlds. The latest dimension decision identifies our expanded YAIRPG setting as its own branch dimension, distinct from the original source continuity; earlier undecided framing below is request history. Returning to YAIRPG supersedes keeping Jade Hollow playable, not the ambition for deeper ordinary systems, multiple paths and distinct interconnected world campaigns. One realm, one prestige layer and one event are delivery gates, not permanent ceilings. [PROJECT.md](gm/PROJECT_LOG.md#branch-dimension-identity-2026-10-03) owns the current direction and shipped identity note.
+Current scope returns active content to YAIRPG, preserves engine work and research, and includes full development of the starting world alongside other worlds. The latest dimension decision identifies our expanded YAIRPG setting as its own branch dimension, distinct from the original source continuity; earlier undecided framing below is request history. Returning to YAIRPG supersedes keeping Jade Hollow playable, not the ambition for deeper ordinary systems, multiple paths and distinct interconnected world campaigns. One realm, one prestige layer and one event are delivery gates, not permanent ceilings. [PROJECT_LOG.md](gm/PROJECT_LOG.md#branch-dimension-identity-2026-10-03) owns the current direction and shipped identity note.
 
 The earlier agreed directions in PROJECT.md are multiple worlds/realms, prestige, dense interconnected skills, deeper existing systems, distinct world mechanics, and original worlds with verified book references. Their pre-chat provenance is the existing dated PROJECT.md and research coordination record; exact earlier user message IDs were not available in this chat, so none are invented. Specific home, faction, ecology, class and helper implementations remain research candidates unless separately accepted.
 
@@ -1573,7 +1573,7 @@ Source: direct user message in this repository chat. Original wording retained; 
 
 > But I want the original world to be fully expanded too, or we can start in a parallel universe of the 'original" which is the world upstream is trying to make, so we can branch it off accordingly? more to consider?
 
-Coverage: [PROJECT.md](gm/PROJECT_LOG.md#agreed-direction) records full home-world expansion as confirmed direction. [Divergent-continuity proposal](DIRECTION_SYNTHESIS.md#full-home-world-and-divergent-continuity-proposal-2026-10-03) covers inherited identity, regional completeness, local power/profession paths, return/absence/replay and selective upstream adoption. The upstream development FAQ was refreshed directly; its town-before-magic sequence does not establish a complete future canon.
+Coverage: [PROJECT_LOG.md](gm/PROJECT_LOG.md#agreed-direction) records full home-world expansion as confirmed direction. [Divergent-continuity proposal](DIRECTION_SYNTHESIS.md#full-home-world-and-divergent-continuity-proposal-2026-10-03) covers inherited identity, regional completeness, local power/profession paths, return/absence/replay and selective upstream adoption. The upstream development FAQ was refreshed directly; its town-before-magic sequence does not establish a complete future canon.
 
 State: **full starting-world expansion requested; parallel-universe framing explored, not selected.** The home world remains a substantial campaign as other worlds develop. Exact branching point, cast, local magic/cultivation rules, reset policy and implementation order remain proposals. Documentation only; no gameplay, saves or remote state changed.
 
@@ -1593,7 +1593,7 @@ Source: direct user message in this repository chat; original wording retained.
 
 > we can just have it be a seperate world for our worlds and stuff, since we are implementing seperate worlds and more? and then we can note the dimention as not the main one and stuff?
 
-Coverage: [PROJECT.md](gm/PROJECT_LOG.md#branch-dimension-identity-2026-10-03) records the selected separate-dimension framing. [Direction synthesis](DIRECTION_SYNTHESIS.md#full-home-world-and-divergent-continuity-proposal-2026-10-03) distinguishes source continuity, branch identity, local development and future independent original/branch state. The current starting adventure gains world metadata and a native-header continuity note; it remains the same saved world, with no reset or automatic travel.
+Coverage: [PROJECT_LOG.md](gm/PROJECT_LOG.md#branch-dimension-identity-2026-10-03) records the selected separate-dimension framing. [Direction synthesis](DIRECTION_SYNTHESIS.md#full-home-world-and-divergent-continuity-proposal-2026-10-03) distinguishes source continuity, branch identity, local development and future independent original/branch state. The current starting adventure gains world metadata and a native-header continuity note; it remains the same saved world, with no reset or automatic travel.
 
 State: **branch-dimension framing selected; working name and detailed cosmology remain proposals.** A visitable original YAIRPG counterpart, world selector, native world-state isolation and transfer policies still require implementation. The dimension label does not itself restore an untouched vanilla campaign or claim knowledge of upstream's future canon. Personal saves remain untouched.
 
@@ -1614,7 +1614,7 @@ Source: direct user instruction in this repository chat; original wording retain
 
 > doesnt the notebook overlap with the quest page? also things can probably be more vague
 
-Coverage: [PROJECT.md](gm/PROJECT_LOG.md#knowledge-aware-identity-and-notebook-menus-2026-10-03) owns the refined separation. The redundant Notebook Journal is removed, agreed town objectives project into the existing Quests pane, and local notes/actions suggest clues without revealing future discoveries. Unknown identity fields stay absent instead of advertising branch taxonomy. Costs, time, cancellation and known contract terms remain explicit.
+Coverage: [PROJECT_LOG.md](gm/PROJECT_LOG.md#knowledge-aware-identity-and-notebook-menus-2026-10-03) owns the refined separation. The redundant Notebook Journal is removed, agreed town objectives project into the existing Quests pane, and local notes/actions suggest clues without revealing future discoveries. Unknown identity fields stay absent instead of advertising branch taxonomy. Costs, time, cancellation and known contract terms remain explicit.
 
 State: **separation and mystery-copy refinement implemented; human wording/layout acceptance pending.** Existing facts own town progress, with no second quest reward or save path. Original quests and personal saves remain preserved. [Playtest](PLAYTEST.md#quest-and-notebook-separation-proof-2026-10-03) owns rebuilt browser and save verification. Dated earlier UI records remain provenance.
 
@@ -1625,7 +1625,7 @@ Source: direct user message in this repository chat; original wording retained.
 
 > should notebook take up somewhere else thats not the move menu? More details in bio? Skills that affect bio and more? more to consider?
 
-Coverage: [PROJECT.md](gm/PROJECT_LOG.md#notebook-placement-and-derived-bio-2026-10-03) owns a reversible playable placement/Bio proposal: a dedicated Journal Notebook, preserved native local actions, and Bio summaries of existing visible skill effects, lasting discoveries and observed/learned movements. Native profile fields remain intact; source/discovery state owns each projection and grants nothing on display/reload. Native skill links and the Practice link use the existing views.
+Coverage: [PROJECT_LOG.md](gm/PROJECT_LOG.md#notebook-placement-and-derived-bio-2026-10-03) owns a reversible playable placement/Bio proposal: a dedicated Journal Notebook, preserved native local actions, and Bio summaries of existing visible skill effects, lasting discoveries and observed/learned movements. Native profile fields remain intact; source/discovery state owns each projection and grants nothing on display/reload. Native skill links and the Practice link use the existing views.
 
 State: **placement and derived Bio implemented as review proposals; human acceptance pending.** Further body/condition/inheritance/NPC-recognition mechanics are considered and recorded as proposals. No physique transformation, new aging/loss rule, bloodline selection, extra race progression, world or save schema is introduced. [Playtest](PLAYTEST.md#journal-notebook-and-bio-proof-2026-10-03) owns verification; dated prior placement proofs remain historical.
 
@@ -1645,7 +1645,7 @@ Source: direct follow-through instruction in this repository chat; original word
 
 > implement accordnigly,
 
-Coverage: [PROJECT.md](gm/PROJECT_LOG.md#body-traits-conditions-and-recognition-2026-10-03) owns implementation of the preceding three proposals: acquisition origins, temporary conditions/recovery and NPC reactions to observed physical changes. The bounded Village body loop uses existing native stamina/XP/supplies and shared sources/jobs/conditions/memories; it keeps the vanilla opening/profile/quests and unknown world/ancestry boundaries.
+Coverage: [PROJECT_LOG.md](gm/PROJECT_LOG.md#body-traits-conditions-and-recognition-2026-10-03) owns implementation of the preceding three proposals: acquisition origins, temporary conditions/recovery and NPC reactions to observed physical changes. The bounded Village body loop uses existing native stamina/XP/supplies and shared sources/jobs/conditions/memories; it keeps the vanilla opening/profile/quests and unknown world/ancestry boundaries.
 
 State: **shared-origin/body/condition/disclosure integration and one playable body loop implemented; human content acceptance pending.** Natural balance, conditioned grip, rough work/scar and four craftsman demonstrations are review examples, not a universal lineage roster or completed physique/medical simulation. Broader bloodline transformations, race progression, recovery medicine and automatic NPC observation remain authored work. Personal saves remain untouched; [playtest](PLAYTEST.md#body-traits-conditions-and-recognition-proof-2026-10-03) owns verification.
 

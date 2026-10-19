@@ -1,9 +1,11 @@
 # Weaponcrafting, runes and the cheats that reveal them: considerations
 
+> Codes renamed 2026-10-19 from WC, RN, OV and IM codes to REV-prefixed forms (for example REV-OV1) because the four 2026-10-14 weaponcraft palettes reused them with different meanings. The canonical palette keeps its bare codes. See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 > **Companion doc (2026-10-14).** The same request reached several sessions. The
 > canonical palette is [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
 > (UI-at-scale session), expanded by its lanes R1 to R3. This file keeps the story
-> tie-ins (OV1), the reveal-lens rules (RV) and the agreement that P2's live
+> tie-ins (REV-OV1), the reveal-lens rules (RV) and the agreement that P2's live
 > records are the item identity authority. Lanes WR1 to WR4 were stopped or
 > cancelled as duplicates of R1 to R3.
 
@@ -27,16 +29,16 @@ round 7. Source facts below are my general knowledge of the franchises, labeled
 
 | Code | Idea | Notes |
 |---|---|---|
-| WC1 | **Weapons from parts.** Blade, guard, grip, pommel, haft, head, string, limbs; each part has material, shape and quality, and the parts' interfaces decide what fits. | P6's parts/interfaces product logic. Generated weapons are combinations, not a list. |
-| WC2 | **Technique changes the result.** Folding, differential hardening, quenching medium (water, oil, blood, quench oils from alchemy XD5), tempering, pattern welding. Each leaves readable traits. | The maker's skill and choices show in the product. |
-| WC3 | **Weapons that grow with their owner.** Recalled: Bleach zanpakuto awaken through shikai and bankai with the wielder; xianxia natal treasures and flying swords bind to the cultivator; Monster Hunter weapon trees upgrade from monster parts; Dark Souls reinforcement. | One shared "bond and stages" abstraction (XA4) with per-world rules. |
-| WC4 | **Weapons shaped by the wielder.** Recalled: Demon Slayer nichirin blades change color with the user; HP wands choose the wizard; Nen users shape conjured weapons by their type and vows. | The owner is an input to the item, not just a holder. |
-| WC5 | **Weapons with souls or wills.** Sentient blades, cursed tools (JJK, recalled), demon swords, spirit-bound relics: preferences, refusals, hunger, bargains. | Items as story actors (story P3 round 3). |
-| WC6 | **Named weapons and lineage.** A weapon earns a name from deeds (story BC2), passes through owners, and its history affects price, NPC reactions and sometimes power. | Reads the spine's receipts. |
-| WC7 | **Canon-reserved weapons.** Noble Phantasms, legendary swords and unique artifacts are found, earned, repaired or copied only through a world's own route, never minted randomly. | P9 reserved-item rule. |
-| WC8 | **Maintenance as gameplay.** Sharpening, oiling, re-wrapping grips, rust, chips, broken tips reforged shorter. Idle-friendly upkeep with small benefits, no punishment for absence. | Pairs with P6 repair and salvage. |
-| WC9 | **Commissions and smith reputations.** NPC smiths with styles and signatures; commissioning reads your stats and fighting style; famous smiths' work is recognizable. | Pairs with CR4 NPC crafters. |
-| WC10 | **Testing and trials.** Cutting tests, proof marks, tournaments for blades, a smith's guild examination. | Pairs with story B2 exams. |
+| REV-WC1 | **Weapons from parts.** Blade, guard, grip, pommel, haft, head, string, limbs; each part has material, shape and quality, and the parts' interfaces decide what fits. | P6's parts/interfaces product logic. Generated weapons are combinations, not a list. |
+| REV-WC2 | **Technique changes the result.** Folding, differential hardening, quenching medium (water, oil, blood, quench oils from alchemy XD5), tempering, pattern welding. Each leaves readable traits. | The maker's skill and choices show in the product. |
+| REV-WC3 | **Weapons that grow with their owner.** Recalled: Bleach zanpakuto awaken through shikai and bankai with the wielder; xianxia natal treasures and flying swords bind to the cultivator; Monster Hunter weapon trees upgrade from monster parts; Dark Souls reinforcement. | One shared "bond and stages" abstraction (XA4) with per-world rules. |
+| REV-WC4 | **Weapons shaped by the wielder.** Recalled: Demon Slayer nichirin blades change color with the user; HP wands choose the wizard; Nen users shape conjured weapons by their type and vows. | The owner is an input to the item, not just a holder. |
+| REV-WC5 | **Weapons with souls or wills.** Sentient blades, cursed tools (JJK, recalled), demon swords, spirit-bound relics: preferences, refusals, hunger, bargains. | Items as story actors (story P3 round 3). |
+| REV-WC6 | **Named weapons and lineage.** A weapon earns a name from deeds (story BC2), passes through owners, and its history affects price, NPC reactions and sometimes power. | Reads the spine's receipts. |
+| REV-WC7 | **Canon-reserved weapons.** Noble Phantasms, legendary swords and unique artifacts are found, earned, repaired or copied only through a world's own route, never minted randomly. | P9 reserved-item rule. |
+| REV-WC8 | **Maintenance as gameplay.** Sharpening, oiling, re-wrapping grips, rust, chips, broken tips reforged shorter. Idle-friendly upkeep with small benefits, no punishment for absence. | Pairs with P6 repair and salvage. |
+| REV-WC9 | **Commissions and smith reputations.** NPC smiths with styles and signatures; commissioning reads your stats and fighting style; famous smiths' work is recognizable. | Pairs with CR4 NPC crafters. |
+| REV-WC10 | **Testing and trials.** Cutting tests, proof marks, tournaments for blades, a smith's guild examination. | Pairs with story B2 exams. |
 
 ## RN. Runes, inscriptions, seals and circles
 
@@ -45,15 +47,15 @@ inscription layer can serve all of them with per-world grammar.
 
 | Code | Idea | Source patterns (recalled) |
 |---|---|---|
-| RN1 | **A symbol grammar per world.** Symbols have meanings, slots, connections and conflicts; a valid composition does something. | Naruto fuinjutsu seals, FMA transmutation circles, xianxia formation arrays and talismans, D&D glyphs and symbols, Witch Hat Atelier drawn spells, Rithmatist chalk lines, Norse-style runes in original worlds |
-| RN2 | **Surface capacity.** An object only holds so much inscription: by area, material quality, purity or spiritual capacity. Better materials hold richer runes. | Ties runes to materials and smithing. |
-| RN3 | **Resonance and conflict.** Some symbol pairs amplify, others cancel or explode. Discovering combinations is research (story O3). | Noita-style emergent combos; P2 experiment model. |
-| RN4 | **Activation and fuel.** Runes need a trigger (touch, word, blood, mana, time, condition) and a power source (wielder, stored charge, ambient, sacrifice). | Per-world energy laws (E9 world laws). |
-| RN5 | **Places as surfaces.** Wards on doors, formations around a sect, circles on floors, seals on prisons. A whole house can be inscribed. | Pairs with story H places and P6 buildings. |
-| RN6 | **Inscription skill and errors.** Steady hand, ink quality and knowledge decide accuracy. Small errors produce weaker, stranger or dangerous results. | Failed results as keepsakes or hazards (story BC3). |
-| RN7 | **Reading foreign runes.** Ancient or alien inscriptions are a puzzle and a knowledge route (story B5 scripts). | Discovery route for sealed secrets where authored. |
-| RN8 | **Rune drift and decay.** Inscriptions fade, crack or corrupt over time and use; maintenance or re-inking keeps them. | Idle-safe upkeep. |
-| RN9 | **Runes on bodies.** Tattoos, brands, curse marks, contracts written on skin. | Recalled: seals on people in Naruto, curse marks; per-world consent and cruelty adjectives. |
+| REV-RN1 | **A symbol grammar per world.** Symbols have meanings, slots, connections and conflicts; a valid composition does something. | Naruto fuinjutsu seals, FMA transmutation circles, xianxia formation arrays and talismans, D&D glyphs and symbols, Witch Hat Atelier drawn spells, Rithmatist chalk lines, Norse-style runes in original worlds |
+| REV-RN2 | **Surface capacity.** An object only holds so much inscription: by area, material quality, purity or spiritual capacity. Better materials hold richer runes. | Ties runes to materials and smithing. |
+| REV-RN3 | **Resonance and conflict.** Some symbol pairs amplify, others cancel or explode. Discovering combinations is research (story O3). | Noita-style emergent combos; P2 experiment model. |
+| REV-RN4 | **Activation and fuel.** Runes need a trigger (touch, word, blood, mana, time, condition) and a power source (wielder, stored charge, ambient, sacrifice). | Per-world energy laws (E9 world laws). |
+| REV-RN5 | **Places as surfaces.** Wards on doors, formations around a sect, circles on floors, seals on prisons. A whole house can be inscribed. | Pairs with story H places and P6 buildings. |
+| REV-RN6 | **Inscription skill and errors.** Steady hand, ink quality and knowledge decide accuracy. Small errors produce weaker, stranger or dangerous results. | Failed results as keepsakes or hazards (story BC3). |
+| REV-RN7 | **Reading foreign runes.** Ancient or alien inscriptions are a puzzle and a knowledge route (story B5 scripts). | Discovery route for sealed secrets where authored. |
+| REV-RN8 | **Rune drift and decay.** Inscriptions fade, crack or corrupt over time and use; maintenance or re-inking keeps them. | Idle-safe upkeep. |
+| REV-RN9 | **Runes on bodies.** Tattoos, brands, curse marks, contracts written on skin. | Recalled: seals on people in Naruto, curse marks; per-world consent and cruelty adjectives. |
 
 ## RV. Cheats that reveal
 
@@ -82,12 +84,12 @@ route; a lens can be that route only when the secret's file says so.
 
 | Code | Idea | Notes |
 |---|---|---|
-| OV1 | **Everything made is a story object.** First blood, naming, breaking and reforging write receipts that story generators read. | The spine's receipt log is the bridge. |
-| OV2 | **The same rule set for NPC makers.** NPC smiths and rune masters use the player's rules, so their products are coherent and comparable. | CR4 makes the same point for crafting. |
-| OV3 | **Economies react to good gear.** Well-armed villages change bandit behavior; a famous rune ward raises land value. | Story J economy, I conflict. |
-| OV4 | **Small honest tells.** A blade that sings when struck right, a rune that warms near its trigger, a wand that sputters for the wrong owner. Subtle feedback before full appraisal. | Micro texture (story BA to BH). |
-| OV5 | **Repair keeps identity.** A reforged sword is the same named sword with a new chapter, unless a world says otherwise. | Ship-of-Theseus rule per world. |
-| OV6 | **Per-world weapon culture.** Who may carry what, peace-bonding, duel etiquette, sect weapon traditions. | P37 per-world micro texture. |
+| REV-OV1 | **Everything made is a story object.** First blood, naming, breaking and reforging write receipts that story generators read. | The spine's receipt log is the bridge. |
+| REV-OV2 | **The same rule set for NPC makers.** NPC smiths and rune masters use the player's rules, so their products are coherent and comparable. | CR4 makes the same point for crafting. |
+| REV-OV3 | **Economies react to good gear.** Well-armed villages change bandit behavior; a famous rune ward raises land value. | Story J economy, I conflict. |
+| REV-OV4 | **Small honest tells.** A blade that sings when struck right, a rune that warms near its trigger, a wand that sputters for the wrong owner. Subtle feedback before full appraisal. | Micro texture (story BA to BH). |
+| REV-OV5 | **Repair keeps identity.** A reforged sword is the same named sword with a new chapter, unless a world says otherwise. | Ship-of-Theseus rule per world. |
+| REV-OV6 | **Per-world weapon culture.** Who may carry what, peace-bonding, duel etiquette, sect weapon traditions. | P37 per-world micro texture. |
 
 ## XA. Abstractions needed
 
@@ -117,18 +119,18 @@ Reveal lenses (XA6, RV) extend the crafting palette's CT codes and CR2.
 
 | Code | Implication |
 |---|---|
-| IM1 | **Hidden properties need a knowledge store from day one.** If an item's traits are shown directly from state, adding lenses later means rewriting every UI. Route item views through the same known-context projection as story (S-4, story BL9). |
-| IM2 | **Derived stats are computed, not saved.** Save parts, process record, inscriptions, bond state and revealed knowledge; derive numbers on load so balance changes don't corrupt saves. Pin a value only where a world says it is fixed. |
-| IM3 | **Inscription validation is a parser.** A rune composition is checked like code: grammar, capacity, connections, conflicts. That makes the lint tooling (P15, P40) reusable for content and for player-made runes. |
-| IM4 | **Seeded outcomes per process step**, on named streams, so reloading mid-forge never rerolls (story BL1 to BL5). |
-| IM5 | **Registry entries, not main.js edits.** New part types, symbols, lenses and bond rules register in their own files (story BJ3). |
-| IM6 | **Canon-reserved IDs are checked at generation time,** not just in docs. |
-| IM7 | **Desktop item view.** At 1366x768 an item panel shows known traits, unknown slots ("?"), provenance and bond; inscription editing needs a canvas-like area and is a larger UI investment. |
+| REV-IM1 | **Hidden properties need a knowledge store from day one.** If an item's traits are shown directly from state, adding lenses later means rewriting every UI. Route item views through the same known-context projection as story (S-4, story BL9). |
+| REV-IM2 | **Derived stats are computed, not saved.** Save parts, process record, inscriptions, bond state and revealed knowledge; derive numbers on load so balance changes don't corrupt saves. Pin a value only where a world says it is fixed. |
+| REV-IM3 | **Inscription validation is a parser.** A rune composition is checked like code: grammar, capacity, connections, conflicts. That makes the lint tooling (P15, P40) reusable for content and for player-made runes. |
+| REV-IM4 | **Seeded outcomes per process step**, on named streams, so reloading mid-forge never rerolls (story BL1 to BL5). |
+| REV-IM5 | **Registry entries, not main.js edits.** New part types, symbols, lenses and bond rules register in their own files (story BJ3). |
+| REV-IM6 | **Canon-reserved IDs are checked at generation time,** not just in docs. |
+| REV-IM7 | **Desktop item view.** At 1366x768 an item panel shows known traits, unknown slots ("?"), provenance and bond; inscription editing needs a canvas-like area and is a larger UI investment. |
 
 ## Suggested order
 
 Proposal only. Decide XA1 (item identity with knowledge state) and XA6 (lens)
 first, because they shape every item UI and every reveal cheat. Then a first
-playable slice: WC1 weapon from two parts with one technique choice, one RV1
-appraisal lens revealing one hidden trait, and WC6 a name earned from a recorded
+playable slice: REV-WC1 weapon from two parts with one technique choice, one RV1
+appraisal lens revealing one hidden trait, and REV-WC6 a name earned from a recorded
 deed. Runes (XA3) follow once the item model holds.

@@ -1,8 +1,10 @@
 # Weaponcrafting, runes and inscription: more to consider
 
+> Codes renamed 2026-10-19 from WW, SB, OV, AB, IM and OM codes to WFI-prefixed forms (for example WFI-AB3) because the four 2026-10-14 weaponcraft palettes reused them with different meanings. The canonical palette keeps its bare codes. See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Claude, 2026-10-14. A palette, not a spec. Nothing here is selected for a build.
 
-**Duplicate notice (2026-10-14).** Parallel sessions answered the same request in [WEAPONCRAFT_RUNES_AND_INSCRIPTION](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md) (listed first in IDEA_INDEX, lanes in `docs/gm/dispatch/weaponcraft-runes-2026-10-14/`) and [WEAPONCRAFT_RUNES_AND_MAKER_ARTS](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md). Treat the first as primary. Rows here that add something (assemblies on vanilla head plus handle WF1, rune as a program on a carrier RU1, base smith's sense vs cheat CS12, AB1-AB10) should be folded into it once its lanes finish; then this file can become a pointer.
+**Duplicate notice (2026-10-14).** Parallel sessions answered the same request in [WEAPONCRAFT_RUNES_AND_INSCRIPTION](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md) (listed first in IDEA_INDEX, lanes in `docs/gm/dispatch/weaponcraft-runes-2026-10-14/`) and [WEAPONCRAFT_RUNES_AND_MAKER_ARTS](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md). Treat the first as primary. Rows here that add something (assemblies on vanilla head plus handle WF1, rune as a program on a carrier RU1, base smith's sense vs cheat CS12, WFI-AB1-WFI-AB10) should be folded into it once its lanes finish; then this file can become a pointer.
 
 Weibao (2026-10-14): "Weaponcrafting, runestuff, other stuff and more? more to consider? other stuff and more? Cheats that would show stuff like these and more? MOre to consider save and extend accordingly Send out codex as usesful? Subtle stuff too? Overarching stuff? Implementation implciations and more? Abstaction thats needed?"
 
@@ -78,14 +80,14 @@ Runes here means any written or drawn power: runes, glyphs, seals, sigils, circl
 
 | Code | Consideration | Default | Why it matters |
 |---|---|---|---|
-| OM1 | **Enchanting** | Adding an effect to an item through a ritual, rune or infusion, with slots and conflicts. | Common fantasy craft. |
-| OM2 | **Socketing and gems** | Gems or cores set into fittings add properties; removal may destroy one or the other. | Modular upgrades. |
-| OM3 | **Golems, constructs and puppets** | Body (materials) plus control program (runes) plus power. | Same abstractions combined. |
-| OM4 | **Wands and foci** | Core plus wood plus maker, matched to a wielder (HP wandlore). | Fit (WF5) as a world law. |
-| OM5 | **Talismans and charms** | Single-use inscribed paper or objects; batchable. | Idle production. |
-| OM6 | **Jewelry and trinkets** | Small carriers with high rune affinity, low durability. | Trade and gift goods. |
-| OM7 | **Traps and devices** | Mechanical or runic; placed in the world. | Defense and hunting. |
-| OM8 | **Fusion of finished items** | Two items become one with chosen traits (crafting doc CT6). | Late-game crafting. |
+| WFI-OM1 | **Enchanting** | Adding an effect to an item through a ritual, rune or infusion, with slots and conflicts. | Common fantasy craft. |
+| WFI-OM2 | **Socketing and gems** | Gems or cores set into fittings add properties; removal may destroy one or the other. | Modular upgrades. |
+| WFI-OM3 | **Golems, constructs and puppets** | Body (materials) plus control program (runes) plus power. | Same abstractions combined. |
+| WFI-OM4 | **Wands and foci** | Core plus wood plus maker, matched to a wielder (HP wandlore). | Fit (WF5) as a world law. |
+| WFI-OM5 | **Talismans and charms** | Single-use inscribed paper or objects; batchable. | Idle production. |
+| WFI-OM6 | **Jewelry and trinkets** | Small carriers with high rune affinity, low durability. | Trade and gift goods. |
+| WFI-OM7 | **Traps and devices** | Mechanical or runic; placed in the world. | Defense and hunting. |
+| WFI-OM8 | **Fusion of finished items** | Two items become one with chosen traits (crafting doc CT6). | Late-game crafting. |
 
 ## 5. Cheats that show these things (CS)
 
@@ -112,81 +114,81 @@ Public franchise mechanics only; verify before building (codex lane C1).
 
 | Code | World | Making law worth modeling |
 |---|---|---|
-| WW1 | Harry Potter | Wandlore (core, wood, wand chooses the wizard); Ancient Runes as a school subject; goblin metalwork. |
-| WW2 | D&D | Magic item crafting by budget and time; scrolls, glyphs and symbols by spell; intelligent items. |
-| WW3 | Mother of Learning | Shaping, ward schemes, golem and enchanted item crafting with mana. |
-| WW4 | LOTM / CoI | Mystical items carry Beyonder characteristics and negative effects; symbols and rituals matter. |
-| WW5 | Shadow Slave | Memories (items) the Spell describes in runes; runes as the Spell's readable text. |
-| WW6 | JJK | Cursed tools, technique-imbued objects, binding vows on items. |
-| WW7 | Bleach | Zanpakuto are souls, not crafted; Kido incantations; Quincy tools. |
-| WW8 | Naruto | Ninja tools, sealing jutsu (fuinjutsu) as inscription, storage scrolls, explosive tags. |
-| WW9 | FMA | Transmutation circles; equivalent exchange on materials; automail engineering. |
-| WW10 | Fate | Mystic codes, Noble Phantasms as legends, not crafted; runes as a magecraft line. |
-| WW11 | HxH | Nen imbued into objects; conditions and vows strengthen them. |
-| WW12 | One Piece | Graded named swords, seastone, Den Den Mushi and dial technology. |
-| WW13 | Chainsaw Man | Devil contracts rather than crafting; few made items matter. |
-| WW14 | A Soldier's Life, TTKS | From private packs; codex lane checks. |
-| WW15 | Original worlds | One small original making law per world (crafting doc WL8). |
+| WFI-WW1 | Harry Potter | Wandlore (core, wood, wand chooses the wizard); Ancient Runes as a school subject; goblin metalwork. |
+| WFI-WW2 | D&D | Magic item crafting by budget and time; scrolls, glyphs and symbols by spell; intelligent items. |
+| WFI-WW3 | Mother of Learning | Shaping, ward schemes, golem and enchanted item crafting with mana. |
+| WFI-WW4 | LOTM / CoI | Mystical items carry Beyonder characteristics and negative effects; symbols and rituals matter. |
+| WFI-WW5 | Shadow Slave | Memories (items) the Spell describes in runes; runes as the Spell's readable text. |
+| WFI-WW6 | JJK | Cursed tools, technique-imbued objects, binding vows on items. |
+| WFI-WW7 | Bleach | Zanpakuto are souls, not crafted; Kido incantations; Quincy tools. |
+| WFI-WW8 | Naruto | Ninja tools, sealing jutsu (fuinjutsu) as inscription, storage scrolls, explosive tags. |
+| WFI-WW9 | FMA | Transmutation circles; equivalent exchange on materials; automail engineering. |
+| WFI-WW10 | Fate | Mystic codes, Noble Phantasms as legends, not crafted; runes as a magecraft line. |
+| WFI-WW11 | HxH | Nen imbued into objects; conditions and vows strengthen them. |
+| WFI-WW12 | One Piece | Graded named swords, seastone, Den Den Mushi and dial technology. |
+| WFI-WW13 | Chainsaw Man | Devil contracts rather than crafting; few made items matter. |
+| WFI-WW14 | A Soldier's Life, TTKS | From private packs; codex lane checks. |
+| WFI-WW15 | Original worlds | One small original making law per world (crafting doc WL8). |
 
 ## 7. Subtle stuff (SB)
 
 | Code | Detail | Why it matters |
 |---|---|---|
-| SB1 | The smithy is hot and loud; neighbors complain at night. | Place texture and social cost. |
-| SB2 | Burns and calluses on a smith's hands (MC13). | Practice shows on the body. |
-| SB3 | A new blade's first nick is mentioned once. | History begins. |
-| SB4 | Rune ink smells of iron or herbs by medium. | Sense detail per tradition. |
-| SB5 | A misread rune in an old ruin, corrected later in the notebook. | Knowledge with revision. |
-| SB6 | A famous maker's mark faked on cheap work at the market. | Forgery as world texture. |
-| SB7 | A weapon hums near the runes of its own tradition. | Hint of hidden links without stats. |
-| SB8 | Apprentices sweep, sort scrap and fail before they forge. | Training feels real. |
-| SB9 | A customer comes back to complain or to thank. | Work has afterlives (MDQ9). |
-| SB10 | Scrap and offcuts pile up and can be sold or reused. | Material conservation felt. |
+| WFI-SB1 | The smithy is hot and loud; neighbors complain at night. | Place texture and social cost. |
+| WFI-SB2 | Burns and calluses on a smith's hands (MC13). | Practice shows on the body. |
+| WFI-SB3 | A new blade's first nick is mentioned once. | History begins. |
+| WFI-SB4 | Rune ink smells of iron or herbs by medium. | Sense detail per tradition. |
+| WFI-SB5 | A misread rune in an old ruin, corrected later in the notebook. | Knowledge with revision. |
+| WFI-SB6 | A famous maker's mark faked on cheap work at the market. | Forgery as world texture. |
+| WFI-SB7 | A weapon hums near the runes of its own tradition. | Hint of hidden links without stats. |
+| WFI-SB8 | Apprentices sweep, sort scrap and fail before they forge. | Training feels real. |
+| WFI-SB9 | A customer comes back to complain or to thank. | Work has afterlives (MDQ9). |
+| WFI-SB10 | Scrap and offcuts pile up and can be sold or reused. | Material conservation felt. |
 
 ## 8. Overarching (OV)
 
 | Code | Principle | Why it matters |
 |---|---|---|
-| OV1 | **One making model for all things** | Weapons, armor, potions, runes, golems, food use the same records: material, owned batch, process, product, knowledge (audit P2), plus carrier and inscription for runes. | Systems combine instead of multiplying. |
-| OV2 | **Truth vs knowledge** | The item's real properties are separate from what any actor knows about them. Cheats and skills change knowledge, not truth. | Appraisal, misreading and cheats all fit. |
-| OV3 | **Ceilings from materials, closeness from skill** | Applies to forging, inscribing, brewing. | One rule players learn once. |
-| OV4 | **History is part of an item** | Provenance, owners and events are data, not flavor. | Legends, heirlooms and theft all need it. |
-| OV5 | **World laws plug in** | Each world declares its making laws over the shared resolver (crafting doc WL). | Distinct worlds, one engine. |
-| OV6 | **Everything idles by batch and routine** | Routine-able steps for ammo, talismans, repairs; turning points stay active. | Idle fit. |
+| WFI-OV1 | **One making model for all things** | Weapons, armor, potions, runes, golems, food use the same records: material, owned batch, process, product, knowledge (audit P2), plus carrier and inscription for runes. | Systems combine instead of multiplying. |
+| WFI-OV2 | **Truth vs knowledge** | The item's real properties are separate from what any actor knows about them. Cheats and skills change knowledge, not truth. | Appraisal, misreading and cheats all fit. |
+| WFI-OV3 | **Ceilings from materials, closeness from skill** | Applies to forging, inscribing, brewing. | One rule players learn once. |
+| WFI-OV4 | **History is part of an item** | Provenance, owners and events are data, not flavor. | Legends, heirlooms and theft all need it. |
+| WFI-OV5 | **World laws plug in** | Each world declares its making laws over the shared resolver (crafting doc WL). | Distinct worlds, one engine. |
+| WFI-OV6 | **Everything idles by batch and routine** | Routine-able steps for ammo, talismans, repairs; turning points stay active. | Idle fit. |
 
 ## 9. Abstractions needed (AB)
 
 | Code | Abstraction | Fields (minimum) | Notes |
 |---|---|---|---|
-| AB1 | **Material** | id, revision, properties (hardness, flex, weight, affinities), tags | Audit P2 material definition. |
-| AB2 | **Part** | part type (head, handle, guard, plate, core, carrier), material batch ref, quality, process record ref | Generalizes vanilla `component_type`. |
-| AB3 | **Assembly** | slots by item type, parts in slots, fit (wielder ref), derived stats | Vanilla head plus handle becomes one case. |
-| AB4 | **Process record** | ordered steps with parameters and actor skill, station, commit draw refs | Audit P2 process; one per part. |
-| AB5 | **Inscription** | symbols, arrangement, carrier ref, medium, power source, precision, maker | RU1. A small program evaluated by world rules. |
-| AB6 | **Effect** | E4 tag rule or authored effect id with parameters | Effects stay authored; generation picks and combines. |
-| AB7 | **Knowledge entry** | actor, subject (material, rune, item), what is known, confidence, source | Audit P2 knowledge; drives CS cheats and appraisal. |
-| AB8 | **Item history** | stable item id, maker, owners, notable events, repairs, name | WP3; bounded and compactable. |
-| AB9 | **World making law** | world id, allowed processes, rune grammar rules, conservation rules, forbidden combos | OV5, crafting doc WL. |
-| AB10 | **Stat derivation** | pure function from assembly plus inscriptions plus world law to stats | Replaces hardcoded multipliers gradually; vanilla items keep their numbers. |
+| WFI-AB1 | **Material** | id, revision, properties (hardness, flex, weight, affinities), tags | Audit P2 material definition. |
+| WFI-AB2 | **Part** | part type (head, handle, guard, plate, core, carrier), material batch ref, quality, process record ref | Generalizes vanilla `component_type`. |
+| WFI-AB3 | **Assembly** | slots by item type, parts in slots, fit (wielder ref), derived stats | Vanilla head plus handle becomes one case. |
+| WFI-AB4 | **Process record** | ordered steps with parameters and actor skill, station, commit draw refs | Audit P2 process; one per part. |
+| WFI-AB5 | **Inscription** | symbols, arrangement, carrier ref, medium, power source, precision, maker | RU1. A small program evaluated by world rules. |
+| WFI-AB6 | **Effect** | E4 tag rule or authored effect id with parameters | Effects stay authored; generation picks and combines. |
+| WFI-AB7 | **Knowledge entry** | actor, subject (material, rune, item), what is known, confidence, source | Audit P2 knowledge; drives CS cheats and appraisal. |
+| WFI-AB8 | **Item history** | stable item id, maker, owners, notable events, repairs, name | WP3; bounded and compactable. |
+| WFI-AB9 | **World making law** | world id, allowed processes, rune grammar rules, conservation rules, forbidden combos | WFI-OV5, crafting doc WL. |
+| WFI-AB10 | **Stat derivation** | pure function from assembly plus inscriptions plus world law to stats | Replaces hardcoded multipliers gradually; vanilla items keep their numbers. |
 
 ## 10. Implementation implications (IM)
 
 | Code | Consideration | Implication |
 |---|---|---|
-| IM1 | **Vanilla compatibility** | Existing items keep their stats and `component_type`; AB2-AB3 wrap them as single-material parts. Old saves load unchanged (rule 8). |
-| IM2 | **Item identity** | History and names need a stable per-item id; vanilla stacks items by template and quality. Unique items must stop stacking. Migration: only new crafted or named items get ids. |
-| IM3 | **Save size** | Per-item history is bounded and compacted (part 22 IS1, 4 MiB budget). |
-| IM4 | **Pure resolvers** | Forging and inscription resolve through pure functions over committed draws, testable with fixed seeds (audit resolver). |
-| IM5 | **Knowledge filter in UI** | Item tooltips show only the actor's knowledge (part 22 IP6); cheats raise knowledge, never print hidden truth directly. |
-| IM6 | **Rune evaluation safety** | Inscription programs are data evaluated by a bounded interpreter: no loops without limits, capped symbol counts, validated grammar. |
-| IM7 | **Content scale** | Symbols, materials and part types live in data tables per world with validators (part 22 IA1). |
-| IM8 | **Browser proof** | Any slice is checked rebuilt, fresh origin, 1366x768, save, reload, import (AGENTS.md). |
+| WFI-IM1 | **Vanilla compatibility** | Existing items keep their stats and `component_type`; WFI-AB2-WFI-AB3 wrap them as single-material parts. Old saves load unchanged (rule 8). |
+| WFI-IM2 | **Item identity** | History and names need a stable per-item id; vanilla stacks items by template and quality. Unique items must stop stacking. Migration: only new crafted or named items get ids. |
+| WFI-IM3 | **Save size** | Per-item history is bounded and compacted (part 22 IS1, 4 MiB budget). |
+| WFI-IM4 | **Pure resolvers** | Forging and inscription resolve through pure functions over committed draws, testable with fixed seeds (audit resolver). |
+| WFI-IM5 | **Knowledge filter in UI** | Item tooltips show only the actor's knowledge (part 22 IP6); cheats raise knowledge, never print hidden truth directly. |
+| WFI-IM6 | **Rune evaluation safety** | Inscription programs are data evaluated by a bounded interpreter: no loops without limits, capped symbol counts, validated grammar. |
+| WFI-IM7 | **Content scale** | Symbols, materials and part types live in data tables per world with validators (part 22 IA1). |
+| WFI-IM8 | **Browser proof** | Any slice is checked rebuilt, fresh origin, 1366x768, save, reload, import (AGENTS.md). |
 
 ## Suggested smallest slice, if Weibao picks any
 
-1. **Guard and pommel parts** added to vanilla's head plus handle assembly, each with material and quality (WF1, AB2-AB3).
-2. **A maker's mark and five-line history** on newly crafted weapons (WF7, WP3, AB8), with stable ids only for new items (IM2).
-3. **One rune on one carrier**: a single learned symbol that sharpens or warms a blade, with precision from skill (RU1-RU5, AB5).
+1. **Guard and pommel parts** added to vanilla's head plus handle assembly, each with material and quality (WF1, WFI-AB2-WFI-AB3).
+2. **A maker's mark and five-line history** on newly crafted weapons (WF7, WP3, WFI-AB8), with stable ids only for new items (WFI-IM2).
+3. **One rune on one carrier**: a single learned symbol that sharpens or warms a blade, with precision from skill (RU1-RU5, WFI-AB5).
 4. **A base smith's sense** (CS12) and one cheat version (CS1 item status window) to show the line between skill and cheat.
 
 Codex lanes `docs/gm/dispatch/making-runes-2026-10-14/` C1 and C2 were stopped as duplicates of the primary doc's lanes.

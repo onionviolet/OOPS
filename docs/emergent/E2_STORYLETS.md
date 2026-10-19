@@ -29,7 +29,7 @@ this slice does not implement all twenty cards or the full E2 engine.
 Each line is checked against the file named. Section 2 lists where these
 disagree with the parent doc.
 
-- **V1.** `occur()` (`src/simulation.js:383`) builds one event record from a
+- **V1.** `occur()` (`src/simulation.js`) builds one event record from a
   definition: `id`, `definitionId`, `actorId`, `targetId`, `mode`, `expiresAt`,
   a *copy* of `responses` and `onExpire`, `discoveredBy`, `cause`. Ambient
   events resolve at once. `public` events write to the log and show to the

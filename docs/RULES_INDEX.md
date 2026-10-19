@@ -305,6 +305,19 @@ covered only by AD rules and their owners. If Weibao asks for standing rules in
 one of these, write it like SR: a dated request in USER_VISION, a coded file
 with "prevents" columns, a row here and one line in PROJECT.
 
+## Reserved prefixes (2026-10-19)
+
+The prefixes of the [register](#register-of-rule-sets) are reserved: AD, UR, AR,
+MR, SR, AU, GR, CX, WA, BHR, CBR, ECR, SLR, PIR, plus T for the tension rows and
+"Rulebook". A bare code with one of these prefixes always means the register
+owner's rule. A palette, audit or considerations doc that needs its own numbered
+table picks a prefix that is not in this list and that a repo-wide grep shows
+unused, or writes a doc-qualified form (`PS-AR1`, `WD23-AR1`). A code cited
+outside the file that defines it is written `<file-stem>#<code>` (for example
+`NONHUMAN_SENSES_SCALE_AND_UI_2026-10-14#SU3`). Do not rename a registered
+rulebook's own codes. Collisions found by the dedup audit (X6) and their
+renames: [L5 report](reviews/DEDUP_AUDIT_2026-10-18/L5_REPORT.md).
+
 ## Changing this index
 
 For implementation evidence, `npm run check:rule-behavior` maps a small set of

@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | TR3 | [AUDIT.md](../../../multi-world-paths-2026-10-07/AUDIT.md), Current represented destinations; Concrete paths; Related systems. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 LQ14 MS2 TR6 WR1 HI4 OB3 OB4 SR1 | Change workbench reach and tool grips; a supported Step repair uses its actual learned source. |
+| Fit | PH1 SG3 SG4 SG5 LQ14 MS2 TR6 WR1 HI4 OB3 OB4 BSR1 | Change workbench reach and tool grips; a supported Step repair uses its actual learned source. |
 | Skip families | GN AG CN BD CL BP MX PR SB BM RP | GN AG CN BD CL BP MX PR SB BM RP: A template gift is not hereditary faculty, clone personhood or compulsory constitution. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: retained same body. Dial: one useful bodily accommodation; real craft, lesson, care or transport costs apply. No travel healing/refill or new prestige.

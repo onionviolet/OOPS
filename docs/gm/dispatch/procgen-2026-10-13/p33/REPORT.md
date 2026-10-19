@@ -4,7 +4,7 @@
 
 ## Outcome and delivery
 
-Six domain papers extend root story AP1-AU1: [rankings](RANKINGS.md), [in-world media](IN_WORLD_MEDIA.md), [calendar](CALENDAR.md), [other outsiders](OTHER_OUTSIDERS.md), [session pacing](SESSION_PACING.md), [defeat arcs](DEFEAT_ARCS.md). [MORE](MORE.md) adds AP2-AP4, AQ2-AQ4, AR2-AR4, AS2-AS4, AT2-AT4, AU2-AU5 and five cross-domain experiments. These are options, not accepted product decisions or extra required gates.
+Six domain papers extend root story AP1-PS-AU1: [rankings](RANKINGS.md), [in-world media](IN_WORLD_MEDIA.md), [calendar](CALENDAR.md), [other outsiders](OTHER_OUTSIDERS.md), [session pacing](SESSION_PACING.md), [defeat arcs](DEFEAT_ARCS.md). [MORE](MORE.md) adds AP2-AP4, AQ2-AQ4, PS-AR2-PS-AR4, AS2-AS4, AT2-AT4, PS-AU2-PS-AU5 and five cross-domain experiments. These are options, not accepted product decisions or extra required gates.
 
 Proposed visible outcome at 1366x768, checked later at 1600x1000: ordinary actions remain beside a useful public ladder/bulletin, known appointment conflicts, short/expanded episode views and recoverable loss choices. Mobile deferred. One realm/one prestige remains the milestone. Limits follow per-world adjectives; repeats remain reachable; food optional with comfortable unfed play and no hunger death. Public franchise summaries carry locators and SHOWN/STATED/INFERRED qualification, contradictions remain explicit, sealed truths appear only as IDs/routes/status. No raw canon prose or private-note quotation copied.
 
@@ -26,9 +26,9 @@ AT1's deeper adaptive inference is reachable beyond the explicit short/expanded 
 
 F1: main source has earned career ranks, reputation totals and titles, but the inspected paths do not establish a generated-rival public ladder. [AP1.2](RANKINGS.md#ap12-source-audited-seams) gives exact `village_career`, reputation and duel locators. Fame, certification and competence must remain separate.
 
-F2: `src/event_feed.js:3-6,37-55,87-102` is an audience-filtered read-only projection. Chronicle invitations already expire: `src/chronicle.js:103-114`; its native calendar anchor is validated at 93-100. [AQ1](IN_WORLD_MEDIA.md) and [AR1](CALENDAR.md) extend those owners rather than creating another rumor store or clock.
+F2: `src/event_feed.js:3-6,37-55,87-102` is an audience-filtered read-only projection. Chronicle invitations already expire: `src/chronicle.js:103-114`; its native calendar anchor is validated at 93-100. [AQ1](IN_WORLD_MEDIA.md) and [PS-AR1](CALENDAR.md) extend those owners rather than creating another rumor store or clock.
 
-F3: legacy defeat is consciousness loss/recovery, not terminal death, now at `src/main.js:3751-3766`; counter save/load at 4991/5416. Agreed duel loss floors HP at1 (`src/native_battle.js:55-67`); party loss retains costs/helper state (`src/party_battle.js:48-59,90-97`). Player-captures-NPC source at `src/causal_story_host.js:327-337` is not proof of the reverse player-capture route. [AU1](DEFEAT_ARCS.md) keeps these distinct.
+F3: legacy defeat is consciousness loss/recovery, not terminal death, now at `src/main.js:3751-3766`; counter save/load at 4991/5416. Agreed duel loss floors HP at1 (`src/native_battle.js:55-67`); party loss retains costs/helper state (`src/party_battle.js:48-59,90-97`). Player-captures-NPC source at `src/causal_story_host.js:327-337` is not proof of the reverse player-capture route. [PS-AU1](DEFEAT_ARCS.md) keeps these distinct.
 
 F4: live main now includes `src/storylet_deck.js:29-40,47-74`, with eligibility/weighting and a single saved draw at a common boundary. `src/simulation.js:407,459-468,501-502` marks new storylet decisions nonblocking, schedules expiry and settles it. D9's earlier main-no-deck audit is historical. New pacing should attach here after compatible hook/validator design; current deck validator at `storylet_deck.js:87` fixes interval equality, so variable cadence needs an explicit compatibility decision, not a casual interval assignment. Candidate `once` at 33 is existing content policy, not authority to impose global lifetime caps on these new systems.
 

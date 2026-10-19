@@ -1,5 +1,7 @@
 # Skyrim source ledger
 
+> Code namespace 2026-10-19 (no codes renamed): SU1-SU6 here are local source-ledger rows; SU3 is also defined in NONHUMAN_SENSES_SCALE_AND_UI and world-depth 06, 21 and 24. Outside this file cite `skyrim/SOURCE_LEDGER#SU3`. See [reserved prefixes](../../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Status: bounded primary-source review, revision 1, 2026-10-03. Lore GM owns this ledger; local campaign/module writers own proposed content. No game adaptation, complete lore audit or runtime verification is claimed.
 Inherit [continuity rules](../LORE_AND_CONTINUITY.md), [campaign framework](../CAMPAIGN_FRAMEWORK.md) and [assembly contract](../PROGRESSION_AND_ASSEMBLY.md). [Brief](WORLD_BRIEF.md) owns entry and original cast.
 

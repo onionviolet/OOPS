@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | SB5 MS4 OB2 OB6 | [WORLD_CARDS.md](../../../../WORLD_CARDS.md), §4; How you grow. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 LQ3 CN7 CN8 MS1 TR6 WR1 HI4 OB4 BM6 SR1 | A potion role changes daily work and bodily risk; a funeral becomes a custody dispute over an actual hazardous remnant. |
+| Fit | PH1 SG3 SG4 SG5 LQ3 CN7 CN8 MS1 TR6 WR1 HI4 OB4 BM6 BSR1 | A potion role changes daily work and bodily risk; a funeral becomes a custody dispute over an actual hazardous remnant. |
 | Skip families | GN AG BD CL BP MX PR RP | GN/BD/CL/BP/MX/RP: do not copy every LOTM hereditary mechanism into this original city. Acting is not inherited mastery. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: the card’s selected local mechanism. Dial: detail or explicitly declared alternative premise; actual materials, support, preparation and time pay for the change, without universal side effects.

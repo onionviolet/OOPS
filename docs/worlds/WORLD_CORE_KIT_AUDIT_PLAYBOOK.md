@@ -1,5 +1,7 @@
 # World core kit audit playbook (repeatable, 2026-10-14)
 
+> Code namespace 2026-10-19 (no codes renamed): WT2 here is an audit rerun trigger; WT2 is also defined in CONTINUATION_CHOICE (fresh-life walkthrough), UI_AT_SCALE (dormant panels) and others. Outside this file cite `WORLD_CORE_KIT_AUDIT_PLAYBOOK#WT2`. See [reserved prefixes](../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Weibao asked on 2026-10-14 to "save this core auditing for long term
 repeating". This playbook turns the first run (rounds 1-7, lanes W1-W20) into
 a method any later session can rerun. It is registered as a core audit in

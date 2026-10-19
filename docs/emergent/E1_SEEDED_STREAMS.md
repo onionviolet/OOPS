@@ -16,7 +16,7 @@ storyteller or player decides.
 
 | Code | Fact | Where |
 |---|---|---|
-| F1 | The expansion engine keeps one xorshift32 state, `state.rng`. `draw(state)` advances it with shifts 13, 17, 5 and returns `rng / 2^32`. | `src/expansion_engine.js:511-516` |
+| F1 | The expansion engine keeps one xorshift32 state, `state.rng`. `draw(state)` advances it with shifts 13, 17, 5 and returns `rng / 2^32`. | `src/expansion_engine.js` `draw` |
 | F2 | A fresh game seeds that state from `crypto.getRandomValues` at page load. The default seed argument is `1`. Validation needs an integer in `1..0xffffffff`. | `src/main.js:346`, `src/expansion_engine.js:69-71`, `:135` |
 | F3 | `rng` is a moving cursor, not a stored root. Nothing keeps the original seed. | F1, F2 |
 | F4 | A new life builds fresh expansion state seeded from the previous life's current `rng`. Lives are chained by cursor position. | `src/life_experience_host.js:16` |

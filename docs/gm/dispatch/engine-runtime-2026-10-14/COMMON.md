@@ -64,7 +64,7 @@ Cheat work follows the user's standing rules: per-world dials, no fixed
 ## Round 6 (ER17-ER18), same rules
 
 Weibao: "Considering comic worlds and stuff? Abstraction that's needed?"
-Root palette sections R (CE, CX19-CX23, MC35-MC37) and S (AB1-AB15).
+Root palette sections R (CE, ECX19-ECX23, MC35-MC37) and S (AB1-AB15).
 Comic world design is owned by docs/COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md
 and its K lanes; read, link, never edit. Canon-first order is unchanged.
 

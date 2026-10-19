@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB4 | [AUDIT.md](../../../multi-world-paths-2026-10-07/AUDIT.md), Current represented destinations; Concrete paths; Related systems. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 PH8 SG3 SG4 SG5 LQ8 MS2 TR3 TR6 WR1 OB3 SR1 | Fit lenses and carrying supports to archive work; testimony and measured traces have distinct provenance. |
+| Fit | PH1 PH8 SG3 SG4 SG5 LQ8 MS2 TR3 TR6 WR1 OB3 BSR1 | Fit lenses and carrying supports to archive work; testimony and measured traces have distinct provenance. |
 | Skip families | GN AG CN BD CL BP MX HI PR SB BM RP | GN AG CN BD CL BP MX PR SB BM RP: Records of ancestry are not a blood key, ancestor soul or copied competence. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: retained same body. Dial: one useful bodily accommodation; real craft, lesson, care or transport costs apply. No travel healing/refill or new prestige.

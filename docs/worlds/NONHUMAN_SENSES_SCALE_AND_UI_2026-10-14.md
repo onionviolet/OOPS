@@ -1,5 +1,7 @@
 # Nonhuman senses, scale and UI, 2026-10-14
 
+> Code namespace 2026-10-19 (no codes renamed): SU1-SU15 are local to this file; SU3 is also defined in skyrim/SOURCE_LEDGER, world-depth 06, 21 and 24. Outside this file cite `NONHUMAN_SENSES_SCALE_AND_UI_2026-10-14#SU3`. See [reserved prefixes](../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Status: source-read audit and **INFERRED original proposals**, not accepted
 mechanics, implemented UI or browser proof. This is the SENSES, SCALE AND UI
 lane of [the dispatch](../gm/dispatch/nonhuman-starts-2026-10-14/COMMON.md).
@@ -256,7 +258,7 @@ display nickname is not silently such an action. A nameless start can render
 
 ### Existing name tokens and nonverbal narration
 
-**SHOWN:** `src/display.js:868` replaces `%HeroName%` with `character.name` in
+**SHOWN:** `src/display.js` (`log_message`) replaces `%HeroName%` with `character.name` in
 log messages; `src/main.js:2126-2127` resolves `{%dynamic(HeroName)%}` separately.
 Neither shown branch selects an event actor/member name from a supplied viewpoint.
 

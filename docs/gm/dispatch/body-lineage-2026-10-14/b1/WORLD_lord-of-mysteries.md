@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB2 OB6 MS4 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § The Fog City; succession row LOTM; identity IL11. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 GN4 CN7 CN8 MS1 TR6 WR1 HI4 OB4 SB5 BM6 SR1 | Potions, actual characteristics, learned acting and family consequences have different carriers. |
+| Fit | PH1 SG3 SG4 SG5 GN4 CN7 CN8 MS1 TR6 WR1 HI4 OB4 SB5 BM6 BSR1 | Potions, actual characteristics, learned acting and family consequences have different carriers. |
 | Skip families | LQ AG BD CL BP MX PR RP | BD/CL/BP/MX/RP: hereditary transfer is a bounded, U source lead, not a generic purification rule. Precise avatar continuity remains open. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

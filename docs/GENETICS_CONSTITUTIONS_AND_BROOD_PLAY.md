@@ -1,5 +1,7 @@
 # Genetics, constitutions and brood play
 
+> Codes renamed 2026-10-19 from SR1-SR5 (social reading) to BSR1-BSR5 to avoid collision with registered SR (site rules). See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Proposal palette, 2026-10-11. User prompt: “Genetics, constitutions and more?
 pllaying as a genestealer? more to consider?”
 
@@ -849,11 +851,11 @@ references are in [body-lineage-2026-10-14](gm/dispatch/body-lineage-2026-10-14/
 
 | Code | Idea | Play |
 |---|---|---|
-| SR1 | Tells | Sweat, pulse, pupils, posture; lie detection by observation or senses |
-| SR2 | Poker face | Composure (MS1) and training hide tells |
-| SR3 | Beauty standards | Each culture values different bodies; the same face is plain in one world and striking in another |
-| SR4 | Body and class | Calloused hands, a tan, posture and teeth show upbringing; nobles in disguise give themselves away |
-| SR5 | First impressions | Size, scars and aura (PR2) set how strangers open a conversation |
+| BSR1 | Tells | Sweat, pulse, pupils, posture; lie detection by observation or senses |
+| BSR2 | Poker face | Composure (MS1) and training hide tells |
+| BSR3 | Beauty standards | Each culture values different bodies; the same face is plain in one world and striking in another |
+| BSR4 | Body and class | Calloused hands, a tan, posture and teeth show upbringing; nobles in disguise give themselves away |
+| BSR5 | First impressions | Size, scars and aura (PR2) set how strangers open a conversation |
 
 ### G42 Suggestions
 
@@ -893,7 +895,7 @@ docs-only lanes (B6-B8) in the
 | EM2 | Stress load | Long stress harms sleep, digestion and recovery; rest, friends and hobbies repair it |
 | EM3 | Emotion as fuel | Some powers run on feelings (JJK's cursed energy from negative emotion is the public reference); calm can be a weakness or a strength per world |
 | EM4 | Berserk and trance | Lose control for power, or enter a focused trance; triggers, recovery and who gets hurt |
-| EM5 | Body tells emotion | Blushing, trembling, tears; SR1 tells come from here |
+| EM5 | Body tells emotion | Blushing, trembling, tears; BSR1 tells come from here |
 | EM6 | Heart-body links | A cultivation heart demon shows in the body; a broken heart slows healing where a world says so |
 
 ### G45 Time and the body
@@ -1125,7 +1127,7 @@ for the other.
 | BC1 | Always warm, never sick | A dormant constitution before awakening | A mother, a doctor, an old master |
 | BC2 | Animals calm or wary | Bloodline or presence (PR3) | Stable hands, hunters, pets |
 | BC3 | Plants lean or wilt nearby | An affinity or a curse | Gardeners, herbalists |
-| BC4 | Ink-stained fingers, calluses, tan lines | Trade and habits (SR4) | Observant NPCs and the player with practice |
+| BC4 | Ink-stained fingers, calluses, tan lines | Trade and habits (BSR4) | Observant NPCs and the player with practice |
 | BC5 | A ring mark on a bare finger | A marriage, an oath, a hidden rank | Spouses, investigators |
 | BC6 | Smell of herbs, oil, smoke | Workplace or recent activity | Beastkin, hounds, nosy neighbours |
 | BC7 | Healing too fast | Regeneration or a hidden source | Medics, rivals, the curious |
@@ -1305,7 +1307,7 @@ them to bodies and lineage.
 | CV4 | Pedigree reader | Family trees, true parentage, hidden heirs (GN8, CL6) | Reveals secrets others will kill to keep; sealed truths only through their routes |
 | CV5 | Potential gauge | A ceiling or grade for a body or talent | Ceilings move (aptitude change); a low grade may be misleading (CN8) |
 | CV6 | Breeding forecaster | Odds for a child's traits (UI4) | Odds, not outcomes; parents' unknown carried traits blur it |
-| CV7 | Tell reader | Pulse, sweat, micro-expressions (SR1, EM5) | Confused by composure training (SR2) and nonhuman bodies |
+| CV7 | Tell reader | Pulse, sweat, micro-expressions (BSR1, EM5) | Confused by composure training (BSR2) and nonhuman bodies |
 | CV8 | Breadcrumb lens | Highlights G58 tells others miss | Highlights false leads too; the player still interprets |
 | CV9 | Compatibility check | Whether a graft, pill, technique or partner fits a body (BM5, SB5, TR6) | Fit today, not after the body changes |
 | CV10 | Lifespan counter | Remaining years for self or others | An information hazard: knowing changes behaviour, and others want it |
@@ -1349,7 +1351,7 @@ together; they are the proposed spine, not accepted rules.
 | OV7 | Randomness is seeded and fixed once drawn | G47, MG6, B6, B7 |
 
 The body links outward to every other system: combat (PH, WR, EM), crafting
-(TR6, GD9, OB1), social (SS, SR, PR), economy (MC, OB3, SO7), crossing worlds
+(TR6, GD9, OB1), social (SS, BSR, PR), economy (MC, OB3, SO7), crossing worlds
 (EV, G16), lineage and prestige (G30, B3), story (SP, ST, B14) and cheats
 (G70, G71).
 
@@ -1581,7 +1583,7 @@ cultivation lane cards BC01-BC12 in G16).
 | HI health | G31 | MS mind and soul | G32 | PR presence | G33 |
 | TR training | G35 | SB substances | G36 | WR wear and injury | G37 |
 | OB body as object | G38 | BM modification | G39 | RP reproduction | G40 |
-| SR social reading | G41 | EV world physics | G43 | EM emotion | G44 |
+| BSR social reading | G41 | EV world physics | G43 | EM emotion | G44 |
 | TM time | G45 | PG populations | G46 | UI player tools | G49 |
 | SO sourcing | G52 | GM, GD modification | G53 | MC more | G54 |
 | MI moment states | G56 | LA look-alikes | G57 | BC breadcrumbs | G58 |

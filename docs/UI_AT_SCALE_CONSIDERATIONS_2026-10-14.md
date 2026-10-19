@@ -1,5 +1,7 @@
 # UI at scale: long-term considerations, 2026-10-14
 
+> Codes renamed 2026-10-19 from GR1-GR22 to UGR1-UGR22 to avoid collision with registered GR (generation foundation rules); lane U1 proposals keep the existing U1-GR form. See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Proposal palette, not a spec. Weibao asked: "Long term ui considerations for
 when the scope gets bigger and more? more to consider?"
 
@@ -479,32 +481,32 @@ verify it with sources:
 
 Their results land in that folder and get folded in here afterward.
 
-### L. Patterns from other games (GR, MEMORY)
+### L. Patterns from other games (UGR, MEMORY)
 
 | Code | Game(s) | What they do | Lesson for YAIRPG | Supports |
 | --- | --- | --- | --- | --- |
-| GR1 | Kittens Game, Evolve | Resource column always visible on the left; tabs per domain unlock over the run | One persistent "what I have" strip beats repeating numbers in every panel | ZN1, SC3 |
-| GR2 | Melvor Idle | Sidebar of skills, grouped and collapsible; each skill is its own page | Page-per-system works when navigation is grouped and the active job shows everywhere | NV1, PL2 |
-| GR3 | NGU Idle | One long menu of unlocked features | It works, but it's famous clutter by late game. A warning for SC1 | SC1 (caution) |
-| GR4 | Antimatter Dimensions | Tabs and subtabs unlock per prestige layer; notation options; a scripting automator late on | Unlocking UI is itself a reward, and automation arrives as a late, earned layer | PL3, IN2, IN7 |
-| GR5 | A Dark Room, Candy Box | The interface itself grows as the story unfolds | Progressive reveal as narrative fits a text game | PL3, PC2 |
-| GR6 | Crusader Kings 3 | Nested tooltips you can lock and drill into; encyclopedia links | Explanation in place, without leaving the screen | IN1, MC5 |
-| GR7 | CK3, Stellaris | Alerts bar ranked by importance; pinned outliner of tracked things | Attention queue plus watchlist | SC5, NV5 |
-| GR8 | RimWorld | Alerts on the right; hovering highlights the pawn; work-priority grid; colonist bar | Hover links alerts to entities; a policy grid for many people | MC1, IN7, MW3 |
-| GR9 | Dwarf Fortress (Steam) | Keyboard menus replaced by clickable icons and panels, while depth stays | Depth survives a friendlier surface; onboarding was the real fix | PC2 |
-| GR10 | Factorio | Alt-mode overlays, recipe-tree tooltips, an in-game encyclopedia | Overlays toggle a layer of information on and off over the same view | PL2 overlay, MC5 |
-| GR11 | World of Warcraft | Edit Mode moves default frames; addons like WeakAuras let players build their own alerts | Players want to move and build UI; make the default movable | PL4, MC4 |
-| GR12 | Final Fantasy XIV | HUD layouts saved and switched per job | Layout per body, per role or per activity | MC3, NV2 |
-| GR13 | Path of Exile | Player-written loot filters; a zoomable passive tree; hold a key to compare | Rules the player writes, which scale to thousands of items | IN7, IN5 |
-| GR14 | Disco Elysium | Skills speak as voices in the log; a thought cabinet with slots | Powers as voices in the log, not panels | CS1 voice |
-| GR15 | Hades, Slay the Spire | Boons and relics as an icon row, with detail on hover or pause | A compact row for many held powers | CS3 |
-| GR16 | Balatro | Few joker slots, order visible and mechanically meaningful | A slot limit and an order shown in the UI become part of the mechanic | CS2 |
-| GR17 | Persona, Stardew Valley | A calendar is the spine of the UI | A life sim can hang everything on time | NV2, MO2 |
-| GR18 | Football Manager | Inbox for events; customizable table views with saved column sets | Inbox as the attention queue; tables for hundreds of people | SC5, IN6 |
-| GR19 | Outer Wilds | Ship log as a rumor map that grows with discovery | Known and suspected knowledge as a map | IN4 |
-| GR20 | Mudlet and MUD clients | Split panes, triggers, aliases, text maps | Desktop text-game layouts and player automation | ZN1, IN7, MC9 |
-| GR21 | Fallen London | Storylet cards; a "Myself" page grouping qualities by category | Many hundreds of stats stay readable through grouping | IN6 |
-| GR22 | EVE Online | Overview columns customizable; windows everywhere | Powerful, but window soup is the warning for floating panels | ZN2 (caution) |
+| UGR1 | Kittens Game, Evolve | Resource column always visible on the left; tabs per domain unlock over the run | One persistent "what I have" strip beats repeating numbers in every panel | ZN1, SC3 |
+| UGR2 | Melvor Idle | Sidebar of skills, grouped and collapsible; each skill is its own page | Page-per-system works when navigation is grouped and the active job shows everywhere | NV1, PL2 |
+| UGR3 | NGU Idle | One long menu of unlocked features | It works, but it's famous clutter by late game. A warning for SC1 | SC1 (caution) |
+| UGR4 | Antimatter Dimensions | Tabs and subtabs unlock per prestige layer; notation options; a scripting automator late on | Unlocking UI is itself a reward, and automation arrives as a late, earned layer | PL3, IN2, IN7 |
+| UGR5 | A Dark Room, Candy Box | The interface itself grows as the story unfolds | Progressive reveal as narrative fits a text game | PL3, PC2 |
+| UGR6 | Crusader Kings 3 | Nested tooltips you can lock and drill into; encyclopedia links | Explanation in place, without leaving the screen | IN1, MC5 |
+| UGR7 | CK3, Stellaris | Alerts bar ranked by importance; pinned outliner of tracked things | Attention queue plus watchlist | SC5, NV5 |
+| UGR8 | RimWorld | Alerts on the right; hovering highlights the pawn; work-priority grid; colonist bar | Hover links alerts to entities; a policy grid for many people | MC1, IN7, MW3 |
+| UGR9 | Dwarf Fortress (Steam) | Keyboard menus replaced by clickable icons and panels, while depth stays | Depth survives a friendlier surface; onboarding was the real fix | PC2 |
+| UGR10 | Factorio | Alt-mode overlays, recipe-tree tooltips, an in-game encyclopedia | Overlays toggle a layer of information on and off over the same view | PL2 overlay, MC5 |
+| UGR11 | World of Warcraft | Edit Mode moves default frames; addons like WeakAuras let players build their own alerts | Players want to move and build UI; make the default movable | PL4, MC4 |
+| UGR12 | Final Fantasy XIV | HUD layouts saved and switched per job | Layout per body, per role or per activity | MC3, NV2 |
+| UGR13 | Path of Exile | Player-written loot filters; a zoomable passive tree; hold a key to compare | Rules the player writes, which scale to thousands of items | IN7, IN5 |
+| UGR14 | Disco Elysium | Skills speak as voices in the log; a thought cabinet with slots | Powers as voices in the log, not panels | CS1 voice |
+| UGR15 | Hades, Slay the Spire | Boons and relics as an icon row, with detail on hover or pause | A compact row for many held powers | CS3 |
+| UGR16 | Balatro | Few joker slots, order visible and mechanically meaningful | A slot limit and an order shown in the UI become part of the mechanic | CS2 |
+| UGR17 | Persona, Stardew Valley | A calendar is the spine of the UI | A life sim can hang everything on time | NV2, MO2 |
+| UGR18 | Football Manager | Inbox for events; customizable table views with saved column sets | Inbox as the attention queue; tables for hundreds of people | SC5, IN6 |
+| UGR19 | Outer Wilds | Ship log as a rumor map that grows with discovery | Known and suspected knowledge as a map | IN4 |
+| UGR20 | Mudlet and MUD clients | Split panes, triggers, aliases, text maps | Desktop text-game layouts and player automation | ZN1, IN7, MC9 |
+| UGR21 | Fallen London | Storylet cards; a "Myself" page grouping qualities by category | Many hundreds of stats stay readable through grouping | IN6 |
+| UGR22 | EVE Online | Overview columns customizable; windows everywhere | Powerful, but window soup is the warning for floating panels | ZN2 (caution) |
 
 **What failed elsewhere:**
 - NGU's endless menu.
@@ -569,18 +571,18 @@ handles the remap; this tells the player about it.
 
 ### Round 3 suggestions, ranked
 
-1. **GR7 + GR18 + MO1: ranked attention queue with an inbox skin.** Every
+1. **UGR7 + UGR18 + MO1: ranked attention queue with an inbox skin.** Every
    genre that scales has one.
-2. **GR6 + MO5: lockable nested tooltips.** This is how CK3 makes a huge
+2. **UGR6 + MO5: lockable nested tooltips.** This is how CK3 makes a huge
    system readable, and it's text-native.
-3. **GR11 + GR12 + MC3: movable default frames with per-activity or per-body
+3. **UGR11 + UGR12 + MC3: movable default frames with per-activity or per-body
    layouts.** Proven by WoW and FFXIV.
 4. **MO3: three-tier policy UI.** It keeps a large idle game playable late in
    a run.
 5. **MO11: UI debt rule plus census.** It costs almost nothing now and keeps
    the screen sane at 50 systems.
 
-Codex lane results will confirm, correct or extend the GR table. Nothing here
+Codex lane results will confirm, correct or extend the UGR table. Nothing here
 is selected for a build.
 
 ## Round 4: time, decisions, stories, worlds and upkeep (2026-10-14)
@@ -1119,9 +1121,9 @@ decisions, and how fast the player recovers from a mistake.
 **U1, game references**
 ([GAME_REFERENCES.md](gm/dispatch/ui-at-scale-2026-10-14/GAME_REFERENCES.md),
 [report](gm/dispatch/ui-at-scale-2026-10-14/U1_REPORT.md)) covers 25 titles
-with URLs. It confirms or corrects my round-3 GR table, which was written
+with URLs. It confirms or corrects my round-3 UGR table, which was written
 from memory; read U1's file where they differ. Its own new codes reuse the
-letters GR1 to GR12, so this doc calls them **U1-GR** to avoid a clash.
+letters UGR1 to UGR12, so this doc calls them **U1-GR** to avoid a clash.
 
 Findings that change this palette:
 - **Reveal isn't navigation.** Hiding undiscovered systems helps early, but

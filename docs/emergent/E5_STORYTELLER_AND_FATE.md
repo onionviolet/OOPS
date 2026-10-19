@@ -27,8 +27,8 @@ borrows the shape, not the numbers.
 | V3 | A due check requires: actor alive, `maxOccurrences` not reached, `requires` met, no open event of the same definition for that actor. | `src/simulation.js:484-490` |
 | V4 | `chance` is resolved from facts and must be 0 to 1 (asserted). `guaranteeAfter` forces a hit when `misses + 1 >= guaranteeAfter`. `misses`, `attempts`, `occurrences` are facts. | `src/simulation.js:484-495` |
 | V5 | The roll is drawn on every attempt that passes `requires`, hit or miss. So a stream's position depends on attempt count, not on hits. | `src/simulation.js:491-493` |
-| V6 | An `occur()` creates an event with mode `ambient` (resolved at once) or `decision` (open), optional `lifetime`, `onExpire`, and a stored `roll`. Only `public` events write to the log. Closed events are pruned past 100. | `src/simulation.js:383-397` |
-| V7 | Event checks are simulation boundaries: `nextSimulationBoundary` takes the minimum `due` of jobs, checks, controllers, events, conditions and life policies. The scheduler visits them in due order. | `src/simulation.js:440-447` |
+| V6 | An `occur()` creates an event with mode `ambient` (resolved at once) or `decision` (open), optional `lifetime`, `onExpire`, and a stored `roll`. Only `public` events write to the log. Closed events are pruned past 100. | `src/simulation.js` `occur` |
+| V7 | Event checks are simulation boundaries: `nextSimulationBoundary` takes the minimum `due` of jobs, checks, controllers, events, conditions and life policies. The scheduler visits them in due order. | `src/simulation.js` `nextSimulationBoundary` |
 | V8 | Controllers run each NPC on an interval and take the highest-priority eligible action. | `src/simulation.js:510-525` |
 | V9 | Source states the simulation advances only on played game time. I found no idle, offline or real-time signal in `simulation*.js` or `chronicle.js`. | `src/simulation.js:67` |
 | V10 | Game time is in minutes. `GAME_YEAR = 360*24*60`. | `src/chronicle.js:3`, `src/life_experience.js:2` |

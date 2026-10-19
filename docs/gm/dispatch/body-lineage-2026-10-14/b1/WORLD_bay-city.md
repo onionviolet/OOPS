@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | TR3 OB4 | [WORLD_CARDS.md](../../../../WORLD_CARDS.md), §7; How you grow. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 LQ11 MS1 TR6 WR1 HI4 CN8 PR4 SR1 | An injured licensed hero changes patrol technique and concealment, and an agency reevaluates demonstrated function. |
+| Fit | PH1 SG3 SG4 SG5 LQ11 MS1 TR6 WR1 HI4 CN8 PR4 BSR1 | An injured licensed hero changes patrol technique and concealment, and an agency reevaluates demonstrated function. |
 | Skip families | GN AG BD CL BP MX SB BM RP | GN/BD/CL/BP/MX/RP: crisis acquisition is not ancestry. Do not import Worm’s actual shard or Butcher laws into the original card. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: the card’s selected local mechanism. Dial: detail or explicitly declared alternative premise; actual materials, support, preparation and time pay for the change, without universal side effects.

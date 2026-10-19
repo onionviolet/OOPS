@@ -2,14 +2,14 @@
 
 2026-10-14. **DOCS COMPLETE; EVERYTHING IS PROPOSAL.** No runtime edits, tests, build, browser, save access, dispatched workers, server or commit. Root owns selection/integration/commits. [CHECKPOINT](CHECKPOINT.md) is the resume surface; [CHECKS.json](CHECKS.json) records documentation checks and source fingerprints.
 
-The proposed visible result is a small goal box that opens real supported routes, conversations about learned subjects, gentle bookmark-driven variety, a reviewed content-pack writers' room and complexity that arrives as the life deepens. These extend root **Y1–Y2, AD1, AE1, AF1**, P15's existing Ink/text/authoring work and P22/P23's later proposal owners. They do not imply arbitrary typed actions, adaptive generation or a full onboarding system already works.
+The proposed visible result is a small goal box that opens real supported routes, conversations about learned subjects, gentle bookmark-driven variety, a reviewed content-pack writers' room and complexity that arrives as the life deepens. These extend root **Y1–Y2, PS-AD1, AE1, AF1**, P15's existing Ink/text/authoring work and P22/P23's later proposal owners. They do not imply arbitrary typed actions, adaptive generation or a full onboarding system already works.
 
 ## F1–F5: findings and their limits
 
 | Code | Finding / proposal implication | Evidence |
 |---|---|---|
 | F1 | Existing authored conversations, safe received accounts and checked action previews can support a bounded input translator. A general intent/topic resolver still needs an adapter | [INTENT F27–F30](INTENT.md#y22-source-audit-extension-after-p15-f26); reuse P15 DIALOGUE F9–F16 |
-| F2 | Main's audited event checks do not supply competing adaptive weights. Taste must join the actual integrated P3 deck, preserve hard filters and protect positive eligible weights | `src/simulation.js:497–510`; [TASTE AD1.2/AD1.5](TASTE.md#ad12-small-inspectable-weight-changes). P3/P4 evidence remains attributed branch evidence |
+| F2 | Main's audited event checks do not supply competing adaptive weights. Taste must join the actual integrated P3 deck, preserve hard filters and protect positive eligible weights | `src/simulation.js:497–510`; [TASTE PS-AD1.2/PS-AD1.5](TASTE.md#ps-ad12-small-inspectable-weight-changes). P3/P4 evidence remains attributed branch evidence |
 | F3 | The existing GM/dispatch hierarchy fits editorial roles with exclusive outputs and one integrator. P15 lint modules are proposed, so a room cannot claim their gate ran from a prompt alone | [WRITERS_ROOM AE1.1–AE1.4](WRITERS_ROOM.md#ae11-fit-the-existing-dispatch-pattern); P15 AUTHORING_PIPELINE F17–F26 and QA1–QA14 |
 | F4 | Creation bio age and chronicle numeric age are distinct; current chronicle stage is youth/adult/elder. Discovery/unlock/eligibility and settled cues exist, while general generator onboarding remains unestablished in audited paths | [ONBOARDING F31–F37](ONBOARDING.md#af12-current-unlock-and-tutorial-audit-after-p15-f26), with exact file:line |
 | F5 | News, biography and visits have bounded/compacted projections. Goals, votes, help acknowledgment and contradictory claims cannot be reconstructed reliably from their prose | P15 F5; `src/event_feed.js:102`, `src/life_record.js:1,32–58`, `src/world_visit_history.js:21–58`, `src/simulation_effects.js:281–292` |
@@ -21,10 +21,10 @@ These are SHOWN/SOURCE observations and explicitly labelled INFERRED implication
 | File | Concrete extension |
 |---|---|
 | [INTENT](INTENT.md) | Y1.1–Y1.3 keyword/menu grammar, ambiguity/negation/stale/missing route behavior, goal/thread/director joins and optional constrained model; Y2.1–Y2.2 learned-topic questions using existing Ink lifecycle |
-| [TASTE](TASTE.md) | AD1.1–AD1.5 explicit mixed bookmarks, inspectable bounded weights/exploration, immutable feedback revisions, edit/undo/pause/reset epoch, selected draw and import boundaries |
+| [TASTE](TASTE.md) | PS-AD1.1–PS-AD1.5 explicit mixed bookmarks, inspectable bounded weights/exploration, immutable feedback revisions, edit/undo/pause/reset epoch, selected draw and import boundaries |
 | [WRITERS_ROOM](WRITERS_ROOM.md) | AE1.1–AE1.5 six requested editorial roles, exclusive review outputs, P15 B1–B5/lint gates, dispatch mapping and concrete common/role prompt kit |
 | [ONBOARDING](ONBOARDING.md) | AF1.1–AF1.5 life-stage/play-depth matrix, current unlock/tutorial source audit, direct starts, supported early access, help/commitment/disclosure/persistence distinctions |
-| [MORE](MORE.md) | Y3–Y8, AD2–AD6, AE2–AE6 and AF2–AF6: 21 further concrete angles with consumers, costs and gates; book-world qualification and contradictions |
+| [MORE](MORE.md) | Y3–Y8, PS-AD2–PS-AD6, AE2–AE6 and AF2–AF6: 21 further concrete angles with consumers, costs and gates; book-world qualification and contradictions |
 
 ## Reading and sibling boundaries
 

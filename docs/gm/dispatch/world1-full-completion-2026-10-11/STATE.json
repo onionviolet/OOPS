@@ -2,7 +2,7 @@
   "schema": "world1-full-completion-chain-1",
   "ownerThreadId": "w1-campaign Codex coordinator",
   "predecessorThreadId": "01a12dee-d943-7cf2-ade3-8b5163bd0532",
-  "goalStatus": "active",
+  "goalStatus": "ended_section_gates_open",
   "soleGoal": "ASSIGNMENT.md",
   "candidate": "/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/w1-campaign",
   "rootScopes": [
@@ -111,5 +111,8 @@
     "foundationMerge": "4df76598"
   },
   "stopReason": "recoverable context/budget boundary; full campaign remains authorized",
-  "integrationCommit": "4df76598"
+  "integrationCommit": "4df76598",
+  "previousGoalStatus": "active",
+  "reconciledAt": "2026-10-19",
+  "reconciliationNote": "Update 2026-10-19: this file was last written 2026-10-13 while the campaign was active (pause lifted by Weibao's 'send the full World1 campaign after G9 with codex'). Latest dated evidence: foundation-adoption-next-2026-10-13/CHECKPOINT.md records the W1 session ended 2026-10-14 11:22 EDT at the twelve-hour deadline, not full-world complete, all 15 section gates OPEN, final tip bc999ea49 UNMERGED. PROJECT.md:539 'World1 stays paused' is a dated 2026-10-12 sentence, superseded by the 2026-10-13 pause-lift entry (PROJECT.md ~1486). Fields above (activeWriteReservation, successors, nextAction) are as of 2026-10-13 and no longer mean a live writer. Today's branch/process state was not re-verified; any continuation recovers the actual owner and gate first."
 }

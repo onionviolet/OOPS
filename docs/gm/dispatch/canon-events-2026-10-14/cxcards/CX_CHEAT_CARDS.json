@@ -1,6 +1,6 @@
 [
   {
-    "id": "CX1",
+    "id": "ICX1",
     "panel": "plot-sense",
     "role": "records",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first successful timing impression; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -45,7 +45,7 @@
     "lowGradeLogLine": "The day ahead feels crowded, though I cannot tell with what."
   },
   {
-    "id": "CX2",
+    "id": "ICX2",
     "panel": "divergence-gauge",
     "role": "records",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first successful drift impression; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -90,7 +90,7 @@
     "lowGradeLogLine": "The familiar road feels a little further from the story I remember."
   },
   {
-    "id": "CX3",
+    "id": "ICX3",
     "panel": "role-sight",
     "role": "records",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first successful local role reading; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -135,7 +135,7 @@
     "lowGradeLogLine": "Someone else seems to have taken up the familiar task."
   },
   {
-    "id": "CX4",
+    "id": "ICX4",
     "panel": "motive-reading",
     "role": "overlay",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first successful contact-based motive reading; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -180,7 +180,7 @@
     "lowGradeLogLine": "Their attention keeps returning to the door; perhaps they want a way out."
   },
   {
-    "id": "CX5",
+    "id": "ICX5",
     "panel": "thread-view",
     "role": "records",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first successful outlet forecast; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -225,7 +225,7 @@
     "lowGradeLogLine": "If that refusal still stings, asking someone else might be their next move."
   },
   {
-    "id": "CX6",
+    "id": "ICX6",
     "panel": "seed-glimpse",
     "role": "records",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first authorized start-provenance reading; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -270,7 +270,7 @@
     "lowGradeLogLine": "A short string of digits lingers behind my closed eyes."
   },
   {
-    "id": "CX7",
+    "id": "ICX7",
     "panel": "origin-echo",
     "role": "log",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first authorized body or soul echo; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -315,7 +315,7 @@
     "lowGradeLogLine": "My hand pauses at a doorway I do not remember visiting."
   },
   {
-    "id": "CX8",
+    "id": "ICX8",
     "panel": "object-memory",
     "role": "overlay",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first successful touch reading; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -360,7 +360,7 @@
     "lowGradeLogLine": "The worn edge recalls many ordinary mornings in someone's hand."
   },
   {
-    "id": "CX9",
+    "id": "ICX9",
     "panel": "anchor-recall",
     "role": "actions",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first paid, recorded personal anchor; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -405,7 +405,7 @@
     "lowGradeLogLine": "I hold this moment in mind, unsure how often I can find it again."
   },
   {
-    "id": "CX10",
+    "id": "ICX10",
     "panel": "fixed-point-sense",
     "role": "log",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first authorized fixed-point impression; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -450,7 +450,7 @@
     "lowGradeLogLine": "The air feels stubborn, as if this hour will be hard to turn aside."
   },
   {
-    "id": "CX11",
+    "id": "ICX11",
     "panel": "branch-whisper",
     "role": "log",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first identity-law-authorized branch echo; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
@@ -495,7 +495,7 @@
     "lowGradeLogLine": "For a breath, this corner feels as though I once reached it in different weather."
   },
   {
-    "id": "CX12",
+    "id": "ICX12",
     "panel": "ledger-of-causes",
     "role": "records",
     "discoveredBy": "Proposal: persist holder discovery, grade and a first successful cause query about a known fact; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",

@@ -37,7 +37,7 @@ Chronicle and simulation semantics differ, SHOWN: `src/chronicle.js:34-39,62-69`
 
 ## 2. Save strategy and compatibility
 
-SHOWN current format: `src/main.js:4935-4967,5178-5197` serializes native component owners plus `fork_schema:1`, independently versioned expansion and optional domains. JSON is stored directly; export is `YAIR-UTF8-1:` plus base64 UTF-8 (`src/save_files.js:158-182`). The decoder supports older unmarked Latin-1 and qualifying upstream UTF-8 layouts, then validates. Base64 is encoding, not compression or secrecy.
+SHOWN current format: `src/main.js` `create_save` serializes native component owners plus `fork_schema:1`, independently versioned expansion and optional domains. JSON is stored directly; export is `YAIR-UTF8-1:` plus base64 UTF-8 (`src/save_files.js:158-182`). The decoder supports older unmarked Latin-1 and qualifying upstream UTF-8 layouts, then validates. Base64 is encoding, not compression or secrecy.
 
 SHOWN guarded path: `src/main.js:414-438` stages life/NPC observations and calls `writeGuardedSave` at line 421 before publishing those observations. The ordinary wrapper is not itself full-envelope validation. Expansion persistence calls `validateSaveEnvelope` before the wrapper (`src/main.js:921-922`). Writer ownership uses a Web Lock per live/dev key (`:588-596`). Import structurally decodes, runs the real loader preflight, then writes (`src/save_files.js:185-190`); the probe has a 60-second timeout and rejects loader warnings (`src/import_probe.js:1-57`). Failed storage does not authorize another writer or deletion.
 

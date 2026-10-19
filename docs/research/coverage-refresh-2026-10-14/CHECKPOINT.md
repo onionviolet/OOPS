@@ -2,6 +2,8 @@
 
 Status: COMPLETE
 
+*Update 2026-10-19: `QUEUE_EDITS.patch` and `QUEUE_PROPOSED.md` here were never applied and no longer apply to the live queue (rewritten 2026-10-18); treat both as superseded history, do not apply the patch. The live owner is [FUTURE_ACQUISITION_QUEUE](../FUTURE_ACQUISITION_QUEUE_2026-10-13.md).*
+
 2026-10-14, 17:10 America/New_York. Complete for the assigned docs-only reconciliation and read-only local inventory. This does not complete another lane, prove a running worker, verify account ownership or implement gameplay.
 
 ## Delivered

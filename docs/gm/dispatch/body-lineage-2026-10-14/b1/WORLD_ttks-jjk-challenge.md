@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB5 | [FINDINGS.md](../../ttks-novels-2026-10-10/FINDINGS.md), Addendum 3 F5–F9, B3 supplied-edition coverage. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 CN8 MS1 TR3 TR6 WR1 HI4 OB4 SR1 | Adapt a projected challenge drill to the chosen loadout; submission and later visit preserve distinct history. |
+| Fit | PH1 SG3 SG4 SG5 CN8 MS1 TR3 TR6 WR1 HI4 OB4 BSR1 | Adapt a projected challenge drill to the chosen loadout; submission and later visit preserve distinct history. |
 | Skip families | GN LQ AG BD CL BP MX PR SB BM RP | GN/BD/CL/BP/MX/RP: projected attempts and related redesigns do not import every parent-franchise bloodline or free reset. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: the supplied title’s own mechanics. Dial: one body/diagnostic detail; actual substrate, loadout, inspection, practice and reported price apply. Exact scene qualification remains open; no blanket copy degradation rule is adopted.

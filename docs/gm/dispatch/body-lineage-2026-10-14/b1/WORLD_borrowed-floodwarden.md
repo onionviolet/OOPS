@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | PH4 MS2 OB5 | [ORIGINAL_WORLDS.md](../../../../worlds/self-as-player-expansion-2026-10-13/ORIGINAL_WORLDS.md), O1. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 MS1 TR6 WR1 HI4 OB4 BM6 SR1 | Adapt rescue engineering to the restored body while courts distinguish familiar appearance, actual subject and gateworks ownership. |
+| Fit | PH1 SG3 SG4 SG5 MS1 TR6 WR1 HI4 OB4 BM6 BSR1 | Adapt rescue engineering to the restored body while courts distinguish familiar appearance, actual subject and gateworks ownership. |
 | Skip families | GN LQ AG CN BD CL BP MX PR SB RP | GN AG CN BD CL BP MX PR SB RP: the restored operating faculty and memory are not inherited bloodline supremacy or a reproductive programme. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: competent replacement body and departed predecessor. Dial: another declared empty vessel; apparatus, compatible passage and real cargo loss remain distinct.

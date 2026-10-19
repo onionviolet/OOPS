@@ -1,5 +1,7 @@
 # Nonhuman starts: engine requirements and more (2026-10-14)
 
+> Code namespace 2026-10-19 (no codes renamed): CW3 here is "secret identity as two records"; CW3 also means power origins in WORLD_CORE_KIT and a confirmation rating in W16. Outside this file cite `NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14#CW3`. See [reserved prefixes](../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Weibao: "required stuff for non human starts and more? lIke engine stuff and
 more?"
 

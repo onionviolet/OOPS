@@ -4,7 +4,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
-| Owned | SR1 | [WORLD_BRIEF.md](../../../../worlds/proving-ground/WORLD_BRIEF.md), Two faces; Rules; Contents. Retain that owner’s evidence channel and limits. |
+| Owned | BSR1 | [WORLD_BRIEF.md](../../../../worlds/proving-ground/WORLD_BRIEF.md), Two faces; Rules; Contents. Retain that owner’s evidence channel and limits. |
 | Fit | PH1 MS1 TR3 TR6 WR1 OB4 | Compare the same drill with two authored frames, one opponent reading movement cues and a simulated arm injury. |
 | Skip families | GN SG LQ AG CN BD CL BP MX HI PR SB BM RP | GN SG LQ AG CN BD CL BP MX HI PR SB BM RP: a training fixture does not establish a population, dynasty or biological transition. WR losses are test states, not automatic wounds on the visitor. Remaining unpicked subrows add no selected action or lack exact evidence. |
 

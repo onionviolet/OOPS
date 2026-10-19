@@ -4,11 +4,11 @@ Updated: 2026-10-14. Status: complete, docs only; write ownership released.
 
 ## Scope and ownership
 
-Write ownership is limited to this `t3/` folder. Preserve all other workers' files and the dirty checkout. Do not build, stage, commit, or change gameplay. Extend verified GR1–GR11 without re-verifying them; new consideration codes use Q1 onward. Findings are proposals, not accepted decisions or specifications.
+Write ownership is limited to this `t3/` folder. Preserve all other workers' files and the dirty checkout. Do not build, stage, commit, or change gameplay. Extend verified TGR1–TGR11 without re-verifying them; new consideration codes use Q1 onward. Findings are proposals, not accepted decisions or specifications.
 
 ## Resume point
 
-Common, PLAN, T3, AGENTS, PROJECT, the technology owner in full, required companion research owners and relevant life-sim research sections have been read. Local dossiers were checked before web research. GR1–GR11 remain untouched. Reuse source-qualified Book of Hours, Bitburner, Increlution, Melvor, Outer Wilds, Dwarf Fortress, Academagia and Trimps evidence with exact scope labels; the Qud dossier does not justify redoing GR5.
+Common, PLAN, T3, AGENTS, PROJECT, the technology owner in full, required companion research owners and relevant life-sim research sections have been read. Local dossiers were checked before web research. TGR1–TGR11 remain untouched. Reuse source-qualified Book of Hours, Bitburner, Increlution, Melvor, Outer Wilds, Dwarf Fortress, Academagia and Trimps evidence with exact scope labels; the Qud dossier does not justify redoing TGR5.
 
 New primary evidence includes pinned Kittens Game, Evolve and A Dark Room source; original Paperclips source; inkle's Heaven's Vault explanation; Factorio's infinite-research diary/API; Victoria 3's DD27 recovered through the Steam news API after its forum route failed; developer descriptions of deduction and procedural mysteries; and edition-specific Songs of Syx replies. `GAMES.md` contains Q1–Q30, `PATTERNS.md` Q31–Q40, and `REPORT.md` Q41–Q45 ranked proposals, findings and exact open limits. REPORT was created after the topic files and their initial structural checks.
 

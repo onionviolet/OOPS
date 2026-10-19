@@ -6,16 +6,16 @@ Completed 2026-10-14. Design/research only; adoption and gameplay acceptance ope
 
 | Code | Owned output | Contents |
 | --- | --- | --- |
-| O1 | [GAME_REFERENCES.md](GAME_REFERENCES.md) | Checkpoint, evidence policy, 25 references in groups of 8/6/6/5, individual support/contradiction mappings, qualitative tab-growth analysis, ranked ten adaptations, nine failure/tradeoff rows, GR1-GR12 proposals. |
+| O1 | [GAME_REFERENCES.md](GAME_REFERENCES.md) | Checkpoint, evidence policy, 25 references in groups of 8/6/6/5, individual support/contradiction mappings, qualitative tab-growth analysis, ranked ten adaptations, nine failure/tradeoff rows, U1-GR1-U1-GR12 proposals. |
 | O2 | This report | Scope, sources, validation and remaining evidence gaps. |
 
 ## Findings for the root owner
 
 | Code | Finding | Root reconciliation |
 | --- | --- | --- |
-| F1 | Progressive disclosure reduces initial burden but does not solve late-run navigation. | SC3 needs the existing Panel kit distinction between discovery and eligibility applied to all navigation. GR1 proposes a stable known index, with active-only as a player dial. |
+| F1 | Progressive disclosure reduces initial burden but does not solve late-run navigation. | SC3 needs the existing Panel kit distinction between discovery and eligibility applied to all navigation. U1-GR1 proposes a stable known index, with active-only as a player dial. |
 | F2 | Many-entity overview and ranked attention answer different questions. | Keep SC5's priority model; pair it with NV5/ZN3 grouped watches. Healthy assets and flavor text need not disappear. |
-| F3 | Automation, filters, queues and command entry require different controls. | IN7 remains useful; GR3 proposes named forms, exact-target/cost preview, rule-priority explanation and an override. Last Epoch's filter bypass and KoL's query mode are strong concrete references. |
+| F3 | Automation, filters, queues and command entry require different controls. | IN7 remains useful; U1-GR3 proposes named forms, exact-target/cost preview, rule-priority explanation and an override. Last Epoch's filter bypass and KoL's query mode are strong concrete references. |
 | F4 | Desktop readability needs independent controls and specialist surfaces. | Keep independent useful panels and text regions at 1366x768/1920x1080. One contextual slot and fixed zoning are defaults, with PL4 alternatives reachable. Sunless Sea documents why text size alone cannot be frame size. |
 | F5 | Root numerical thresholds are design estimates, not demonstrated game limits. | No evidence supports a universal 20-system, 30-card or tab-count ceiling. Future comparison should measure common-action reachability and missed decisions instead. |
 
@@ -67,8 +67,8 @@ No files named SECRETS were opened.
 | Code | Open evidence | Default pending evidence |
 | --- | --- | --- |
 | Q1 | How much navigation burden occurs in YAIRPG's actual early/mid/late known states? | Later authorized task comparison at both desktop sizes, including larger text; record root tabs, subtabs, surfaces and hops separately. No browser gate was authorized or run in U1. |
-| Q2 | Which GR additions are worth incorporating into the root? | Root owner reconciles GR1 with Panel kit first, then GR4/GR7/GR3. These are recommendations, not accepted decisions or a build request. |
-| Q3 | Which specific tree/item-compare and prestige-screen interaction is best? | GR2/GR9/GR12 remain proposals. A later focused inspection should compare reset losses, item units/conditions and return-to-current behavior before selecting a UI. No new prestige scope follows from this report. |
+| Q2 | Which GR additions are worth incorporating into the root? | Root owner reconciles U1-GR1 with Panel kit first, then U1-GR4/U1-GR7/U1-GR3. These are recommendations, not accepted decisions or a build request. |
+| Q3 | Which specific tree/item-compare and prestige-screen interaction is best? | U1-GR2/U1-GR9/U1-GR12 remain proposals. A later focused inspection should compare reset losses, item units/conditions and return-to-current behavior before selecting a UI. No new prestige scope follows from this report. |
 | Q4 | Are historical patterns unchanged in current releases? | Refresh only a version-sensitive claim selected for adoption. This survey does not claim current runtime parity for historical diaries or failed-fetch excerpts. |
 
 Playable acceptance: none claimed. This lane completes the requested research

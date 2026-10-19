@@ -1,8 +1,10 @@
 # CR3 automation and scale
 
-Status: PROPOSAL ONLY, 2026-10-14. Extends root AU1–AU5 and SC1–SC3. Reuse materials audit P9/P10, P6 [queue/custody contract](../p6/REPORT.md), P8 [supply and logistics](../p8/REPORT.md) and P11 [context](../p11/CONTEXT.md). These proposed field names are semantic, not P2 APIs or reserved save schemas.
+> Codes renamed 2026-10-19 from AU1-AU5 to PAU1-PAU5 to avoid collision with registered AU (agent usage). See [reserved prefixes](../../../../RULES_INDEX.md#reserved-prefixes-2026-10-19).
 
-## AU1.a: standing orders with hysteresis and honest stops
+Status: PROPOSAL ONLY, 2026-10-14. Extends root PAU1–PAU5 and SC1–SC3. Reuse materials audit P9/P10, P6 [queue/custody contract](../p6/REPORT.md), P8 [supply and logistics](../p8/REPORT.md) and P11 [context](../p11/CONTEXT.md). These proposed field names are semantic, not P2 APIs or reserved save schemas.
+
+## PAU1.a: standing orders with hysteresis and honest stops
 
 Order record: stable order ID/revision; learned method/revision; eligible output predicate; exact ingredient-selection policy; receiver; lower trigger and upper target; per-input protected reserve; acceptable forecast/assay policy; priority; permitted station/worker; game-time applicability; repeat policy; pause/stop reason and last admission/settlement refs. A threshold counts actual usable stock held in the chosen receiver plus eligible owned in-flight output, excluding sold/promised/quarantined/other-party stock.
 
@@ -14,7 +16,7 @@ Stop reasons distinguish input shortage, protected reserve, station/worker occup
 
 At 1366x768, order list and current stock remain beside a selected-order editor; show trigger, target, input floors, next admission costs and stop reason together. Keep Pause/Resume/Cancel current batch distinct. At 1600x1000 add a compact recent-settlements pane. Selection, scroll and numeric input survive updates.
 
-## AU2.a: production chains are linked real jobs
+## PAU2.a: production chains are linked real jobs
 
 Represent a plan as references to existing stage methods, stations, intermediates, transport manifests and receivers. P8 owns harvest/cargo; P6 owns drying/extraction/bottling/other transformations. CR3 composes their supported stages. The illustrative grow → dry → extract → brew → bottle → deliver chain is not provided by P2 today. First candidate chain can use two actual stages once one extra adapter exists.
 
@@ -22,9 +24,9 @@ Admission binds only the next payable stage, rather than conjuring all future ou
 
 Acyclic plans are easiest initially. Reachable recycling is also reasonable: represent it as explicit repeated stages with actual costs, new occurrence IDs and a progress boundary, never recursive instant resolution. Report a detected deadlock with known occupied resources; allow reprioritizing, partial collection or canceling untransformed work. Pausing a plan does not freeze a world-law aging process unless that law permits it. CR4 owns [NPC workers and their compensation](../cr4/NPC_CRAFTERS.md); a worker requires skill, willingness, wages/terms and exclusive labor capacity, not a generated name alone. Reuse world-scoped material truth with actor-scoped methods/observations; a worker's assay reaches the hero through a real report/teaching route, rather than setting the hero's discovery flag directly.
 
-## AU3.a / AU4.a: worker execution and quality routing
+## PAU3.a / PAU4.a: worker execution and quality routing
 
-AU3 is the integration surface for CR4's worker contract. Each admitted batch freezes the actual maker's supported skill/style and available means. A helper can operate while the player is elsewhere only after a real autonomous-labor/time adapter exists. P2 currently requires the player free in Village for settlement.
+PAU3 is the integration surface for CR4's worker contract. Each admitted batch freezes the actual maker's supported skill/style and available means. A helper can operate while the player is elsewhere only after a real autonomous-labor/time adapter exists. P2 currently requires the player free in Village for settlement.
 
 Quality is a vector tied to a receiver: known recovery interval, observed side effect, purity measurement, strength, consistency or container suitability. There is no universal additive quality score. A player-visible route evaluates the operator's known measurements, certification or an explicitly purchased assay. Raw unseen truth cannot sort a perfect high-grade bin. World-supported automated instruments can measure a property through their own observation route and then route the real batch.
 
@@ -32,7 +34,7 @@ Original rule set: certified target grade → reserve receiver; lower measured g
 
 If a forecast meets target but actual execution misses it, store both forecast basis and observation. Output remains owned; choose Stop after first miss or Continue and route under policy. The forecast never suppresses actual side effects. CR1 owns [body/use law](../cr1/DOSE_AND_TOLERANCE.md), CR2 [world-law compatibility](../cr2/ORIGINAL_WORLDS.md), CR4 [economy](../cr4/ECONOMY.md). CR1's RS2 observation-backed safe-work threshold can stop an opted-in routine before its next exposure boundary; a constitution with a supported immunity/no-hazard law can instead permit continuous work.
 
-## AU5.a: batch planner over known recipes
+## PAU5.a: batch planner over known recipes
 
 Planner inputs: chosen learned methods, current exact free stock, protected reserves, station/time horizon, receiver demand, known quality constraints and allocation objective. Offer Make most doses, Minimize known cost, Meet a selected request and Leave rare stock untouched as selectable objectives. Show alternatives, not an imposed either/or. Initial planner can be a transparent greedy allocator; label it heuristic and show the concrete plan. Claiming optimality requires a solver and proof for that bounded objective.
 

@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB5 MS2 BP8 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § SPM3; identity F1/F2/F4; Succession row: bloodline-gated legacy trials. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 AG6 CN8 MS1 TR3 TR6 WR1 HI4 OB4 SR1 | A bloodline-gated legacy trial checks its actual eligible carrier. Choose which remembered art to adapt to a new vessel; reserve bodies are not independently minded descendants. |
+| Fit | PH1 SG3 SG4 SG5 AG6 CN8 MS1 TR3 TR6 WR1 HI4 OB4 BSR1 | A bloodline-gated legacy trial checks its actual eligible carrier. Choose which remembered art to adapt to a new vessel; reserve bodies are not independently minded descendants. |
 | Skip families | GN LQ BD CL MX PR SB BM RP | GN/BD/CL/MX/RP: estate custody and soul-bound cores do not confer taught mastery or reproductive powers on an heir. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

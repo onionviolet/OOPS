@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | OB4 | [WORLD_BRIEF.md](../../../../worlds/fallout/WORLD_BRIEF.md), Owners and identity; Visits and consequences. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 GN5 AG6 LQ2 HI4 MS1 TR3 TR6 WR1 WR5 OB3 BM1 BM6 SB3 SB5 SR1 | Compare mundane care, an authored implant service and chemical support for a Commonwealth worker; mutation, acquired tissue and descendants remain separate. |
+| Fit | PH1 SG3 SG4 SG5 GN5 AG6 LQ2 HI4 MS1 TR3 TR6 WR1 WR5 OB3 BM1 BM6 SB3 SB5 BSR1 | Compare mundane care, an authored implant service and chemical support for a Commonwealth worker; mutation, acquired tissue and descendants remain separate. |
 | Skip families | CN BD CL BP MX PR RP | CN BD CL BP MX PR RP: radiation does not certify a hereditary clan system. Synth/clone continuity and ghoul fertility remain unqualified. Addiction/implants are fit leads, not certified by this narrow water-line ledger. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: retain the ordinary traveler body and paused campaign. Dial: qualified local body route after separate authorization; actual supplies, procedure and source apply. This report does not resume it.

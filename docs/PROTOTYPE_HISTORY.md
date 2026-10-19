@@ -350,7 +350,7 @@ Confirmed refinement, 2026-10-03: Weibao wants the original YAIRPG world fully e
 
 ### Retired DIRECTION_SYNTHESIS.md framing
 
-[PROJECT.md](gm/PROJECT_LOG.md#agreed-direction) owns the confirmed requirement to fully expand the starting YAIRPG world. The parallel-universe framing and the choices below remain proposals. This section changes no gameplay, saves or native unlocks.
+[PROJECT_LOG.md](gm/PROJECT_LOG.md#agreed-direction) owns the confirmed requirement to fully expand the starting YAIRPG world. The parallel-universe framing and the choices below remain proposals. This section changes no gameplay, saves or native unlocks.
 
 Execution update, 2026-10-03: the user authorized proceeding while preserving the vanilla experience. [Optional town chapter](gm/PROJECT_LOG.md#optional-town-chapter-2026-10-03) owns the delivered first contract and compatibility. Native opening/quests/dialogue remain available and town access is opt-in. The broader regional catalogue and final cosmology remain proposals; a separate untouched upstream build was not selected or shipped.
 

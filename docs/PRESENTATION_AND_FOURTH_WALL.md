@@ -1,5 +1,7 @@
 # Presentation, animation and the fourth wall (proposal)
 
+> Codes renamed 2026-10-19 from GR1-GR8 to PGR1-PGR8 to avoid collision with registered GR (generation foundation rules). See [reserved prefixes](RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 > **How to use this doc (Weibao, 2026-10-10):** these are considerations
 > for established and future worlds, to help ideaboard and implement
 > fitting characters at fitting times. Tiers, lists and tables are
@@ -1427,14 +1429,14 @@ as deeply strange.
 
 | Code | Effect | Example |
 |---|---|---|
-| GR1 | **Pronoun loss** | Losing yourself to possession: `You draw the blade` becomes `It draws the blade`, then `We draw the blade` |
-| GR2 | **Tense as time** | Prophecy prints in future tense, memories in past, a time loop in present continuous that never ends: `You are walking to the market. You are walking to the market.` |
-| GR3 | **Person shift** | A cutscene from the enemy's side switches the log to first person in their voice for a few lines |
-| GR4 | **Register** | A noble's presence makes your own lines formal; a drinking hall makes them sloppy |
-| GR5 | **Language decay** | A curse of forgetting strips grammar first: articles go, then verbs, then only nouns remain: `sword. door. blood.` |
-| GR6 | **Passive voice of fate** | Under a fate power, your lines go passive: `The door is opened.` You aren't the one doing things anymore |
-| GR7 | **Commands obeyed** | Cursed speech can force the target's next line into the imperative's grammar: `DON'T MOVE.` / `The curse does not move.` |
-| GR8 | **The diary world** | A whole world whose log is your character's first-person diary, written in the evening. Combat reads as remembered, with the hindsight bias a diary has |
+| PGR1 | **Pronoun loss** | Losing yourself to possession: `You draw the blade` becomes `It draws the blade`, then `We draw the blade` |
+| PGR2 | **Tense as time** | Prophecy prints in future tense, memories in past, a time loop in present continuous that never ends: `You are walking to the market. You are walking to the market.` |
+| PGR3 | **Person shift** | A cutscene from the enemy's side switches the log to first person in their voice for a few lines |
+| PGR4 | **Register** | A noble's presence makes your own lines formal; a drinking hall makes them sloppy |
+| PGR5 | **Language decay** | A curse of forgetting strips grammar first: articles go, then verbs, then only nouns remain: `sword. door. blood.` |
+| PGR6 | **Passive voice of fate** | Under a fate power, your lines go passive: `The door is opened.` You aren't the one doing things anymore |
+| PGR7 | **Commands obeyed** | Cursed speech can force the target's next line into the imperative's grammar: `DON'T MOVE.` / `The curse does not move.` |
+| PGR8 | **The diary world** | A whole world whose log is your character's first-person diary, written in the evening. Combat reads as remembered, with the hindsight bias a diary has |
 
 ### Emotion
 
@@ -1813,7 +1815,7 @@ Rules:
 - The player's view is their character's knowledge. Learning more about
   a technique literally upgrades how it looks, and that's a reward you
   can see.
-- Cutscenes from an NPC's view (GR3) render with *their* knowledge, so
+- Cutscenes from an NPC's view (PGR3) render with *their* knowledge, so
   the same fight can be shown twice, once with full effects and once
   through a terrified bystander.
 - This is TX13 extended from text to the whole effect: the effect shows

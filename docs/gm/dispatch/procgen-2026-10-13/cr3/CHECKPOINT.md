@@ -6,7 +6,7 @@ Status: DOCS COMPLETE, 2026-10-14. Everything authored in this lane is a proposa
 
 - Sole write area: `docs/gm/dispatch/procgen-2026-10-13/cr3/` in the main checkout. User's CR3 instruction overrides COMMON.md's older worktree, build and commit instructions for this documentation lane.
 - No runtime edits, builds, commits, private saves or writes in P2's worktree. Root owns integration and commits. Do not read or write `p28/`.
-- Extend root FE1–FE7, AU1–AU5, SC1–SC3, CL1–CL2, PG2 and TL1–TL4; cross-link prior and sibling work rather than repeat it.
+- Extend root FE1–FE7, PAU1–PAU5, SC1–SC3, CL1–CL2, PG2 and TL1–TL4; cross-link prior and sibling work rather than repeat it.
 - Desktop target: 1366x768, with a proposed 1600x1000 acceptance check. Visible outcome: understandable experimentation, queue control and collection tools. Mobile optimization deferred.
 - Sealed content is referenced by ID only. Canon is summarized with locators; no raw prose or quoted private notes. Evidence labels: shown, stated, inferred; record contradictions.
 
