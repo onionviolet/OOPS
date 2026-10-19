@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {domainRegistry} from '../src/domain_registry.js';
-import {DEFEAT_OUTCOMES, combatDefeat, defeatBinding, defeatState, publishDefeat, setDefeatState, validateDefeat} from '../src/defeat_domain.js';
+import {DEFEAT_OUTCOMES, combatDefeat, defeatBinding, defeatState, harmCollapse, heroStanding, publishDefeat, setDefeatState, validateDefeat} from '../src/defeat_domain.js';
 
 // CBL1 (CBR2/CBR5): one publisher, typed outcome, separate cause, one record per actual outcome.
 const cave = {id: 'Nearby cave'};
@@ -48,4 +48,20 @@ test('save slice round trip, old saves and malformed slices', () => {
         {...good, last: {...good.last, outcome: 'escaped'}}, {...good, last: {...good.last, cause: {kind: 'combat', by: 'Wolf rat'}}},
         {...good, last: {...good.last, extra: 1}}])
         assert.throws(() => validateDefeat(bad), /Invalid|need/, JSON.stringify(bad));
+});
+
+test('harm collapse: one record per collapse; a tick ending above 0 HP ends it (RC2, BHR17)', () => {
+    setDefeatState(null);
+    assert.equal(harmCollapse({id: 'Village'}), null, 'starts armed: a hero loaded at 0 HP is already down');
+    heroStanding(12);
+    assert.deepEqual(harmCollapse({id: 'Village'}), {outcome: 'unconscious', cause: {kind: 'harm', place: 'Village', by: []}});
+    heroStanding(0);
+    assert.equal(harmCollapse({id: 'Village'}), null, 'still at 0 HP: the same collapse');
+    heroStanding(5);
+    assert.ok(harmCollapse({id: 'Village'}), 'standing again, then down: a new collapse');
+    heroStanding(5);
+    publishDefeat(combatDefeat(cave, fight));
+    assert.equal(harmCollapse({id: 'Village'}), null, 'a combat defeat arms the guard too');
+    assert.deepEqual(defeatState().counts, {unconscious: 3});
+    validateDefeat(defeatState());
 });

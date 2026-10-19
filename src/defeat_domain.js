@@ -45,7 +45,20 @@ export function publishDefeat({outcome = 'unconscious', cause}, commit = null) {
     const before = state ?? fresh(), record = {outcome, cause: structuredClone(cause)};
     state = {...before, counts: {...before.counts, [outcome]: (before.counts[outcome] ?? 0) + 1}, last: record};
     if (commit) try { commit(); } catch (error) { state = before; throw error; }
+    down = true;
     return record;
+}
+
+// Once per collapse (RC2, BHR17, 2026-10-19). The 0-HP check runs every tick, and a rest heal can
+// lift HP above 0 in the middle of a tick, so the guard clears only when a whole tick ends above
+// 0 HP (main's per-tick effect update calls heroStanding). Any publication arms it, so a combat
+// defeat that leaves the hero at 0 HP in town is not counted again as harm. It starts armed: a
+// hero loaded at 0 HP is already down, and the first tick that ends above 0 clears it. Not saved.
+let down = true;
+export function heroStanding(health) { if (health > 0) down = false; }
+export function harmCollapse(location) {
+    if (down) return null;
+    return publishDefeat({outcome: 'unconscious', cause: {kind: 'harm', place: text(location?.id) ? location.id : null, by: []}});
 }
 
 registerDomain({id: 'defeat', deps: [], initialState: () => null,

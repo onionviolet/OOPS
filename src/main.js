@@ -1,6 +1,6 @@
 import {configureCraftingDomain} from './crafting_domain.js';
 import {configureToolsDomain} from './tools_domain.js';
-import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding} from './defeat_domain.js';
+import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding,harmCollapse,heroStanding} from './defeat_domain.js';
 import {configureResourceDomains,harvestOwner,habitatOwner,harvestPanel,habitatPanel,setHarvestOwner,setHabitatOwner,receiveHarvest} from './native_resources_domain.js';
 import {bindNativeView} from './native_view.js';
 import {translate, bindTranslationReaders} from './native_translation.js';
@@ -4927,7 +4927,7 @@ function kill_player({is_combat = true}) {
         } else {
             change_location({location_id: current_location.parent_location.id});
         }
-    }
+    } else if(harmCollapse(current_location)) log_message("%HeroName% has collapsed", "hero_defeat");
 
     add_active_effect("Recovering", 2);
 }
@@ -9051,7 +9051,7 @@ function simulateTick() {
             health_to_subtract += full_stats.max_health * full_stats.health_loss_percent/100;
         }
 
-        update_health({ammount_to_restore: health_to_add, ammount_to_loose: health_to_subtract});
+        update_health({ammount_to_restore: health_to_add, ammount_to_loose: health_to_subtract});heroStanding(full_stats.health);
 
         //stamina regen
         if(!expansionState.chronicle?.session && full_stats.stamina_regeneration_flat) {
