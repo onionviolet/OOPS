@@ -23,6 +23,11 @@ separates section-reviewed owners from text-scanned-only history.
 | QR4 | Research / source acquisition | Later owned-game research supersedes original buy/install rows. SM5–SM7 high, SM9 next, anime deferred. | [Acquisition queue](research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md#current-routing-2026-10-18) |
 | QR5 | Older implementation packets and audits | Preserve partial delivery and acceptance states; old reservations need recovery. Domain audits/rule reconciliation remain proposals where labelled. | [Audit queue](gm/audit-implementation/QUEUE.json), [absorption queue](gm/game-absorption-2026-10-06/QUEUE.json), [plan/rule reconciliation](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md) |
 
+[Ideaboard scale plan](IDEABOARD_SCALE_PLAN_2026-10-19.md) (2026-10-19, proposal)
+inventories the idea families, ranks the shared seams by unlock count, names the
+binding scale limits with measured numbers, and proposes strategies and a
+sequenced slice order (P1–P8). Navigation and proposal only; no new priority.
+
 ## Historical implementation routing, 2026-10-04
 
 [Native Glasshouse delivery](ENGINE_EXPANSION.md#native-folded-glasshouse-and-engine-specialists-2026-10-04) now connects existing Exchange/Gaze groundwork to an optional real room, canonical instance and manual physical doorway. [Specialist packet](gm/dispatch/ENGINE_SPECIALISTS.md) routes exact cargo, sampled observation and supported local clocks; [authoring](ENGINE_AUTHORING.md#native-folded-glasshouse-bindings-2026-10-04) owns APIs/compatibility. New source is implemented-unverified, with tests deferred by the user. [Current request](USER_VISION.md#engine-gm-expansion-and-current-implementation-2026-10-04) and [playtest](PLAYTEST.md#glasshouse-build-and-deferred-acceptance-2026-10-04) retain acceptance boundaries. [Full-book index](research/novels/full-book/README.md) owns independent source lanes; reading is not a runtime feature.
