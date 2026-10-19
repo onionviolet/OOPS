@@ -262,7 +262,7 @@ and cost (AD5).
 | ECR13 | **Universal currencies exist where an issuer or network spans worlds;** carried valuables keep value wherever the destination values them. (M7 correction, M16) | Treating locality as a wall |
 | ECR14 | **Value depends on recognition, usability and access.** An item's price changes when a world learns what it is and whether its mechanism works there. (M14, AD38) | A mana crystal priced the same in a world with no way to use it |
 | ECR15 | **Every monetary creation/destruction has a cause; transfers settle actual currency and custody once.** Intended money engines, asymmetric valuation and arbitrage remain allowed. This is accounting, not a universal conservation law for economic value. (ECC4, N5, AD22, AD27) | Coin/items duplicated or lost through publication; profitable trade mistaken for a bug |
-| ECR16 | **One money authority:** one purse per currency and transactions through one seam. Use exact units appropriate to that currency and a plan for very large values. (ECC25, ECX1, A10, A15, A18; a target: 14+ direct writes exist today) | Features writing money directly, rounding loss and overflow in long idle runs |
+| ECR16 | **One money authority:** one purse per currency and transactions through one seam. Use exact units appropriate to that currency and a plan for very large values. (ECC25, ECX1, A10, A15, A18; the seam exists since 2026-10-19: `src/economy_domain.js`, with units and range still a target) | Features writing money directly, rounding loss and overflow in long idle runs |
 | ECR33 | **Each currency states its time horizon** (now, this life, next life), and each reset states what happens to every horizon. (ECC29, ECC21) | A prestige reset silently deleting an economy |
 
 ### Wealth, exposure and safety

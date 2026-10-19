@@ -4,6 +4,7 @@
 // proposals: half reputation, the Shack as the village home, the apprentice
 // as recipient when one was taught.
 import {check, positive as count} from './basics.js';
+import {setSavedPurse} from './money.js';
 const LESSON_IDS = Object.freeze(['routeSignals', 'guardLesson', 'controlPattern']);
 export const HEIR_OBLIGATIONS = Object.freeze({
     grievance: 'An unsettled assault grievance with the elder (3-coin restitution still owed)',
@@ -79,7 +80,7 @@ export function validateHeirLeftovers(l) {
 // starting belongings, skills and XP stay their own.
 export function applyHeirLeftovers(next, leftovers) {
     validateHeirLeftovers(leftovers);
-    next.character.money = (next.character.money || 0) + leftovers.money;
+    setSavedPurse(next, (next.character.money || 0) + leftovers.money, 'heir inheritance');
     const inv = next.inventories ||= {};
     merge(((inv.person ||= {}).main_character ||= {}), leftovers.belongings);
     merge(((inv.storage ||= {}).player ||= {}), leftovers.chest);

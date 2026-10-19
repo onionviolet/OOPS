@@ -1,5 +1,6 @@
 import {RESPONSIVE_METHOD,villageRuleRoot,createVillageRuleOwner,quoteResponsiveMixture,freezeVillageLaw} from './mixture_rules.js';
 import {address,hash64} from './gen_kit.js';
+import {setSavedPurse} from './money.js';
 import {stageProductAppearanceAcquisition} from './product_appearance_state.js';
 import {createMixtureState,validateMixtureState,resolveMixture,mixtureKey,productFromKey,mixtureExposure,INGREDIENTS,MIXTURE_ID} from './mixture_state.js';
 const ingredientKey=id=>JSON.stringify({id});
@@ -55,7 +56,7 @@ export function commitMixturePlan(plan,{createSave,validateEnvelope,write,publis
     if(!plan)return false;
     const text=createSave();if(typeof text!=='string')throw new Error('Could not create mixture save.');const envelope=JSON.parse(text);
     if(plan.expansion)envelope.expansion=plan.expansion;
-    envelope.mixtures=plan.state;envelope.inventories.person.main_character=plan.inventory;envelope.character.money=plan.money;
+    envelope.mixtures=plan.state;envelope.inventories.person.main_character=plan.inventory;setSavedPurse(envelope,plan.money,'mixture');
     if(plan.effect){envelope.active_effects??={};envelope.active_effects['Village mixture exposure']=plan.effect;}
     validateEnvelope(envelope);write(JSON.stringify(envelope));publish(plan);return true;
 }

@@ -1,4 +1,5 @@
 import {definePanel} from './panel_kit.js';
+import {addSavedPurse} from './money.js';
 import {travelerSourceHint} from './traveler_source_hint.js';
 import {storyRecap} from './lore_history_view.js';
 import {planStoryRequest,publishStoryRequest,salientRequestPerson,validateStoryRequests} from './story_requests.js';
@@ -27,9 +28,9 @@ export function registerGeneratedPeople({read,save,persist,authoredNames=[],item
                 }
                 ({state:next,reward}=interactGeneratedPerson(base,id,action,{inVillage:context.inVillage,suppliedItem:key?p.goal.item:null,suppliedQuantity:quantity}));
             }
-            envelope.generated_people=next;envelope.character.money+=reward;
+            envelope.generated_people=next;addSavedPurse(envelope,reward,`generated people: ${action}`);
             persist(JSON.stringify(envelope)); // No native reward or cost before durable publication.
-            if(key)publishSupply(key,quantity);if(reward)publishReward(reward);
+            if(key)publishSupply(key,quantity);if(reward)publishReward(reward,`generated people: ${action}`);
             status.textContent=action==='help'?`Supply delivered; earned ${reward} wood coins. They remember your help.`:action==='enroll'?'Two travelers have arrived. Another will follow tomorrow.':action==='settle'?'They choose to settle in Village.':'Meeting remembered.';
         } catch(e){status.textContent=e.message;}render();
     }
