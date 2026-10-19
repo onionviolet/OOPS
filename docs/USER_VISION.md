@@ -5310,3 +5310,20 @@ conflict with a core rule, the core rule wins. Stale "Proposed" and "never bindi
 wording in IDEA_INDEX, RULES_INDEX tier 4 and three core audits was updated the same
 day; the dedup audit's claim that no USER_VISION record existed
 (D4-F2) was wrong, the record is the section above.
+
+## AR1 net-zero registration lines (2026-10-19)
+
+Weibao, 2026-10-19, approved the conformance audit's DRC1 proposal: "zero-growth
+stays the check, a feature line must be paid for by moving a line out, and a reset
+with a named reason is allowed when that needs an unrelated refactor."
+
+Resolves the conflict between AR1 ("at most one registration line" in `main.js`,
+`save_files.js` and `display.js`) and `npm run check:arch`, which fails any growth
+over the line baseline. Default: the zero-growth ratchet stays the check. A feature
+may spend its one registration line in a file only by moving at least one line out
+of that same file in the same change (net zero). Dial and reason: when paying for
+the line would need an unrelated refactor, the feature may raise that file's baseline
+by one line with `ARCHITECTURE_BASELINE_RESET=1` and name the reason in its commit.
+Joining several statements onto one line to dodge the count is not paying for it.
+Owners: [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) AR1,
+[audit DRC1](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md#drc1-proposal).

@@ -681,6 +681,11 @@ build/browser/save acceptance is claimed.
 
 ## Accepted decisions
 
+- **AR1 net-zero registration lines (2026-10-19, Weibao):** approved DRC1, "zero-growth stays
+  the check, a feature line must be paid for by moving a line out, and a reset with a named
+  reason is allowed when that needs an unrelated refactor". Owner: AR1 in
+  [ARCHITECTURE_RULES](docs/ARCHITECTURE_RULES.md).
+  [Record](docs/USER_VISION.md#ar1-net-zero-registration-lines-2026-10-19).
 - **Things work by how they work (2026-10-17, Weibao):** "potions work by virtue of how they
   work, if it's methodolocgy reasonably wotks it works, that shoukd be a standing rule things can
   happen if they can happen". An outcome follows the actual mechanism, not a label, category or

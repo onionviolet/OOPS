@@ -38,7 +38,7 @@ open here too.
 | Foundational rulebook | Rulebook 1–12 | Accepted 2026-10-10 | Multiverse-wide principles: worlds set their own rules, carriers, means, bodies, time, outliers | [RULES_FROM_SCRATCH](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) |
 | Accepted direction rules | AD1–AD38 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process | [Below](#accepted-direction-rules-ad) |
 | UI rules | UR1–UR58 | Standing 2026-10-15 | All player-facing UI | [UI_RULES](UI_RULES.md) |
-| Architecture rules | AR1–AR16 | Standing 2026-10-16 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
+| Architecture rules | AR1–AR16 | Standing 2026-10-16; AR1 net-zero wording 2026-10-19 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
 | Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
 | Making rules | MR1–MR36 | Standing 2026-10-15 | Potions, cooking, smithing, runes, enchanting, formations, constructs, any making; 2026-10-18 application: intermediate work and actual mechanism compatibility | [MAKING_RULES](MAKING_RULES.md) |
 | Site and exploration rules | SR1–SR24 | Standing 2026-10-16 | Sites, ruins, natural places, maps, discovery, restoration | [SITE_AND_EXPLORATION_RULES](SITE_AND_EXPLORATION_RULES.md) |
