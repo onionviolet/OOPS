@@ -4,6 +4,8 @@ import {applySimulationEffects} from './simulation_effects.js';
 import {structuredReachabilityHints} from './structured_reachability.js';
 import {simulationFacts} from './simulation_effects.js';
 import {previewSimulationCommand} from './simulation.js';
+import {compileClaims,claimStale} from './claim_runtime.js';
+import {evaluateRule} from './rules.js';
 import {requireStructuredContent,validateStructuredRecord,requireStructuredSelection,validateStructuredSelection} from './structured_pack_state.js';
 
 export function validateStructuredBootstrap(d, startId) {
@@ -95,6 +97,17 @@ export function structuredCampaignView(state,d,record,context) {
         if(known[key])people.push({name:p.label,details:[known[key].value]});
     }
     const status=d.presentation.status.filter(row=>known[row.knowledgeKey]).map(row=>({label:row.label,value:known[row.knowledgeKey].value}));
+    // Held claims (A2): the observer sees the belief and whether a test or a changed
+    // precondition has revised it, never the hidden truth a test reads.
+    if(d.claims?.length) {
+        const compiled=compileClaims(d),facts=simulationFacts(state,{...context,targetId:null},context.registry);
+        for(const id of compiled.claims.keys()) {
+            const belief=known[`belief.${id}`];
+            if(!belief)continue;
+            const rule=claimStale(compiled,id),verdict=facts[`actor.belief.${id}.status`],stale=!verdict&&rule&&evaluateRule(rule,facts).met;
+            status.push({label:verdict==='refuted'?'A belief you corrected':stale?'A belief that may be out of date':'What you believe',value:stale?`${belief.value} (something it depended on has changed)`:belief.value});
+        }
+    }
     const actions=[],reachFacts=new Map();
     const hints=a=>{const target=a.targetId||null;if(!reachFacts.has(target))reachFacts.set(target,simulationFacts(state,{...context,targetId:target},context.registry));return structuredReachabilityHints(d,a,reachFacts.get(target));};
     for(const a of d.simulation.commands||[]) {
@@ -115,6 +128,7 @@ export function structuredActionCosts(quote, definition) {
         if(e.amount != null && !Number.isFinite(e.amount))continue;
         if(e.actor!=null&&!['player','$actor'].includes(e.actor))continue;
         if(e.type==='vital'&&e.amount<0)rows.push(`${-e.amount} ${e.key}`);
+        else if(e.type==='resource'&&e.amount<0&&e.key.endsWith('.charges'))rows.push(`${-e.amount} charge${e.amount===-1?'':'s'}`);
         else if(e.type==='resource'&&e.amount<0)rows.push(e.native&&e.key==='money'?`${-e.amount} coins`:`${-e.amount} local resource units`);
         else if(e.type==='transfer'&&['player','$actor'].includes(e.from)) {
             const item=definition.items?.find(i=>i.id===JSON.parse(e.key).id);

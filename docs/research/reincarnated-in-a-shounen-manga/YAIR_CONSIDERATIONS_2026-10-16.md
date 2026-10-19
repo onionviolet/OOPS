@@ -329,3 +329,50 @@ pass, the same 3 unrelated failures as after A1 (`cheat_awakening` 2, `ui_contra
 Not wired into structured packs. Save/reload is a JSON roundtrip of expansion
 state, not native Save/Import. One test per hypothesis (repeat tests are a later
 dial). A world must author the truth fact or the test refuses.
+
+## A1 and A2 native consumer, Reedbank, 2026-10-19
+
+Task: close the QR2 native-consumer and persistence gates. Rules: AR1–AR16 (no
+`main.js` line, no new save slice, no import cycle), G1 (world data is the gate),
+AD36. Consumer picked from existing play: the Reedbank livelihood pack
+(`src/local_livelihood_content.js`), the smallest real structured pack already in
+the game. All values below are reversible proposals.
+
+**A1 (ability condition).** "Braced joinery" is now a held source granted by
+`reedbank.learn`. The existing `reedbank.routine` fitting job is its ability row.
+Condition `reedbank.brace_pegs`: two charges, refit only once empty at the bench
+("Refit the brace pegs with Mara"), and a lasting price (sore fingers: an actor
+fact plus knowledge) that a refit does not undo. Starting charges come from the
+compiled `seeds`, appended to the pack's explicit start effects. Not exercised
+natively: transfer to another holder (no Reedbank route moves the method; the
+engine fixtures still cover subject binding), breach and enforcement.
+
+**A2 (dependent claims).** Two held claims, given by existing commands. The crate
+pay belief depends on "not a joint repair" and is shown as out of date once joint
+work is chosen; the standing-offer belief has no dependency and stays usable. A
+once-only test ("Ask Sella how many more fittings her fund covers") corrects the
+open-ended belief from a hidden world truth without showing that truth. Beliefs
+appear in the existing structured panel's status list (projection only, no UI file
+changed). The hidden truth is a design flag, not a second owner of Sella's fund.
+
+**Engine seams touched.** `structured_pack_definitions.js` compiles a pack
+`claims` list next to `abilities` and gives condition commands an actor audience;
+`structured_pack_runtime.js` projects beliefs and shows charge costs as charges;
+recharge commands accept an optional `label`.
+
+**Checks.** `node --test tests/reedbank_ability_claims.test.js` 4/4 (charges, refit
+only when empty, price survives refit, missing method closes the job, stale versus
+fresh claim, hypothesis test once, JSON reload mid-run); `local_livelihood` 6/6.
+Full `npm test`: 2226 pass, 1 fail (`crafting_native_reload`: headless
+`checkVisibility is not a function` in display code, inferred unrelated). `check:arch`,
+`check:rules` and `check:rule-behavior` exit 0. Browser (rebuilt bundle, fresh
+origin `localhost:19601`, 1920×1080): Begin Reedbank, learn joinery, joint crate
+(belief shown out of date), talk to Sella, two fittings (cost shows 1 charge, job
+closes at 0), test corrected the other belief, Save, page reload (charges 0, both
+beliefs, refit available), refit, Import of the pre-refit save in the game's
+`YAIR-UTF8-1:` export encoding restored charges 0 and both beliefs.
+
+**Gaps (implemented-unverified).** The Export button's file download was not
+clicked; the import file was built in the same encoding from the saved string.
+1366×768 not checked. No automatic host runs `enforce` commands. Human play
+acceptance and the RS26 UI merge stay open.

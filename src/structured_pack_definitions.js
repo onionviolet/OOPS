@@ -1,5 +1,6 @@
 import {compileStructuredExpeditions} from './structured_expedition_runtime.js';
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
+import {compileClaims} from './claim_runtime.js';
 import {validateStructuredEquipmentDefinition} from './structured_equipment_runtime.js';
 import {validateStructuredRenewalDefinition} from './structured_renewal.js';
 import {createContentRegistry} from './expansion_engine.js';
@@ -104,8 +105,14 @@ export function compileStructuredPack(raw, existingRegistry = null) {
     // Absent metadata leaves the original definition and receipt hash unchanged.
     if(Object.hasOwn(d, 'abilities')) {
         const abilities = compileStructuredAbilities(d);
-        d.simulation.commands = abilities.commands;
+        // Condition commands (recharge, enforcement) are ordinary actor commands.
+        d.simulation.commands = abilities.commands.map(c => c.audience ? c : {...c, audience: ['$actor']});
         if(d.simulation.powers) d.simulation.powers = abilities.powers;
+    }
+    // A2 claims: hypothesis tests join the commands; beliefs stay ordinary knowledge.
+    if(Object.hasOwn(d, 'claims')) {
+        const claims = compileClaims(d);
+        d.simulation.commands = [...(d.simulation.commands || []), ...claims.commands.map(c => ({group: 'structured_local', audience: ['$actor'], ...c}))];
     }
     if(Object.hasOwn(d, 'expeditions'))d.simulation.commands = compileStructuredExpeditions(d).commands;
     const authored = {worlds: [d.world], simulation: d.simulation};
