@@ -1,0 +1,184 @@
+{
+  "bundle": {
+    "url": "http://127.0.0.1:19300/dist/bundle.js?version=v0.6-74207cc30614",
+    "loaded": "74207cc3061498aa23cecdeac83d9b1a6d3ab8f149bd0eab5f9e95afdd2999a6",
+    "disk": "74207cc3061498aa23cecdeac83d9b1a6d3ab8f149bd0eab5f9e95afdd2999a6"
+  },
+  "results": [
+    {
+      "id": "C01-normal-installed-entry",
+      "label": "seeded-native",
+      "status": "PASS",
+      "fixtureDefinitionMapEdits": false,
+      "magicalAccessGranted": false
+    },
+    {
+      "id": "C01-known",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "f6c6a2935485069723f4ff5253182642c690153edd501a7f4a432790b0d3a73c"
+    },
+    {
+      "id": "C01-pending",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "4657ed3da42ad5f3f2309dde2e5fe3b93d93c816aed1e87329c292243fa121d4"
+    },
+    {
+      "id": "C01-cancel",
+      "label": "seeded-native",
+      "status": "PASS",
+      "lessonNotGranted": true
+    },
+    {
+      "id": "C01-cancelled",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "c33daf5176d9fa0ee1346bf80efc0055e6325a68d7eaf0613dff432ae0440558"
+    },
+    {
+      "id": "C01-practiced",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "6295a2aef6c275c64cd52a455bcadee48526ed0b63a792c894f57dc64d30759d"
+    },
+    {
+      "id": "C01-regional-conversation-sale",
+      "label": "seeded-native",
+      "status": "PASS",
+      "sameOrdinaryLife": true,
+      "withoutAid": true,
+      "fullFluencyGranted": false,
+      "silver": 2
+    },
+    {
+      "id": "C01-sold",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "15c0fd1e17c8b3f52cea584e8e9f665eb794c763eae5548adb6ff2f11bb6453e"
+    },
+    {
+      "id": "C01-regional-report",
+      "label": "seeded-native",
+      "status": "PASS",
+      "wardenPaid": 3
+    },
+    {
+      "id": "C01-reported",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "4a1ed68048b97ebe6945f328492fb7aa0692a88a376077bc3bde3ceabcbf56e0"
+    },
+    {
+      "id": "C01-returned",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "1e470706c87eae3fac8f08d24394e03cdd39d2c528afa11e5d07809a2f0d6321"
+    },
+    {
+      "id": "C01-expired-aid",
+      "label": "seeded-native",
+      "status": "PASS",
+      "noPracticeGranted": true
+    },
+    {
+      "id": "C01-expired",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "809f3348192ceee6b11d7ab17bb511ba7d360865361cc96103ae4831ceda7f5c"
+    },
+    {
+      "id": "C01-aided-retention",
+      "label": "seeded-native",
+      "status": "PASS",
+      "returnedSameAid": true,
+      "practicedWordsRetained": true
+    },
+    {
+      "id": "C01-aided-returned",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "2fe6992ab27aafd7938c8a0d814ecdcc16045fc9bc7b137d713e4bb55edef452"
+    },
+    {
+      "id": "C01-visible-desktop-controls",
+      "label": "seeded-native",
+      "status": "PASS",
+      "realPointerClicks": true,
+      "viewport": [
+        1600,
+        1100
+      ]
+    },
+    {
+      "id": "C01-visible-practiced",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "7d3a704267a5506a10b3e908ee76e018bda793094b4bb98744beb460091ddc58"
+    },
+    {
+      "id": "C01-ordinary-exposure",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saleRefused": true,
+      "titleRetained": true,
+      "buyerUncharged": true
+    },
+    {
+      "id": "C01-stale",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "a5590f43ee534b2454805c80053caadffc87f146d6261e1d34020044168e4a13"
+    },
+    {
+      "id": "C01-prior-p08",
+      "label": "seeded-native",
+      "status": "PASS",
+      "saveReload": true,
+      "exportLiteralFileImport": true,
+      "exactState": true,
+      "exportSha256": "db051044a1ce7966c19be4a7cb87bf33ae536fce52fbadd54328d58ea7f20cdd"
+    },
+    {
+      "id": "C01-prior-exact-content",
+      "label": "seeded-native",
+      "status": "PASS",
+      "priorPackRetained": true,
+      "noConversion": true
+    }
+  ],
+  "errors": []
+}

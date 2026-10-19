@@ -11,19 +11,42 @@ resume either run. Do not ask Weibao to re-authorize the already recorded scope
 merely because an older paragraph says the campaign remains paused (AD32).
 Any continuation still recovers the actual current owner, input and remaining gate.
 
-2026-10-12. Owner `01a12e25-4154-7090-bcc2-d434478da4cc`. Weibao explicitly paused this goal for foundational/progression work. STATE.goalStatus is paused and requires explicit human resume. No successor was created. No active implementation writer, internal worker or proof browser remains. API get_goal returned null in this chat; no update_goal call applied.
+# Full World1 campaign checkpoint
 
-[Paused handoff](PAUSED_HANDOFF.md) owns exact delivery/evidence limits and resumption.
-[Predecessor foundation coordination](PAUSE_COORDINATION.md) indexes current foundation/progression owners without accepting their proposals.
-Ignored `docs/research/novels/world1-full-completion-2026-10-11/pause/INPUTS.json` binds current source/tests/build/packs/manifest, generated proof states, dirty status and recoverable runtime/build archive. Shared is intended p08 integration; candidate remains the preserved older authoring mirror. Never overwrite shared from that dated candidate.
+2026-10-13. Active single writer: Codex coordinator in branch `w1-campaign`,
+worktree `.claude/worktrees/w1-campaign`. Weibao: “send the full World1 campaign
+after G9 with codex”. This fully lifts the 2026-10-12 pause. Commits here are
+authorized; root Claude Code merges. No main-checkout source writes, pushes or
+new-chat daisy chain. Old ownership mechanics/chats are superseded.
 
-Current bundle `5b3863b2a2c2f04dfd4318b80349aca4610c2cf49ccb980bfe1a0777705055cf`; p08 `b7da41fd1a55720792f7c132fe64c6fbb84bb45c66c12c3c23caeb497601f213`. Frozen p01–p07 and predecessor receipts remain intact.417source tests before latest refinements;56affected tests after hidden-panel repair, then16affected final checks;13private engine groups; final shared rebuild before pause. These scopes are not a current full-suite or whole-world acceptance claim.
+The sole outcome remains [ASSIGNMENT](ASSIGNMENT.md): full supplied-source and
+existing design horizon, S00–S14. [PROGRESS](PROGRESS.md) owns current playable
+units, proof labels and the next action. The [pre-resumption checkpoint](history/2026-10-13-before-full-resumption-CHECKPOINT.md)
+and [paused handoff](PAUSED_HANDOFF.md) retain historical inputs and failures.
 
-N1 same-run ordinary acquisition/care/riding/gathering/sales/returns and relevant import/reload observations survive in exact earlier-input receipts. Source delta afterward changes generic UI/host behavior only; refresh affected current native criteria before combined acceptance. Prior exact p07 native import/reload passed. N2/N3/N4 unrun. N5 actual charge debit observed, cancellation raced a completed short job; native depletion/recovery/changed-body/source/persistence remain failed/unrun. Latest N5 generated save has no pending job. Never recreate a fake pending job or reroll its origin.
+G9 closes N1–N4 and requested N5 provider leaves **seeded-native**; broader
+regional conversation remains OPEN. Its exact [report](../foundation-adoption-next-2026-10-13/rounds/r15/g9/REPORT.md)
+is retained. No old proof is relabeled natural. All 15 section gates remain
+OPEN across 3,803 mixed accounting rows; no completion percentage is inferred.
 
-Full source qualification added40chapters privately,214semantic contexts,228child proposals and169correction joins.3803mixed ledger rows/all15section gates remain open; supplied remainder, all179prior parent IDs,110later claims/twelve later packets, full source/cast/starts/forms/lives/progression/materials/institutions/chronology/ends/continuation/presentation and unextracted audits are retained. Semantic child intake is not equivalent-resolution or runtime completion.
+W1-C01 verified; [report](campaign/c01/REPORT.md) owns 620 full tests, 8 focused
+source groups, seeded-native journeys and 12 exact persistence checkpoints.
+Normal installed entry, regional continuation, alternatives and ordinary
+exposure now work at this scope. Root must install the ignored p09 companion
+when merging; no main runtime write was made.
 
-All six workers complete/released, all root proof sessions exited; task-specific process inventory empty. Static inherited HTTP previews18554/18555/18556 remain idle and require socket verification before reuse. UI/customization/source-audit owners keep separate candidates; no shared integration window is granted by pausing.
+W1-C02 verified: [report](campaign/c02/REPORT.md), 625 full tests, 8 C02/8
+C01 affected source groups, 5 reproduced-regression tests, 24 seeded-native
+groups and 14 exact persistence checkpoints on final rebuilt origin19304.
+Companions p10/p09 remain ignored for root installation. No whole section closed.
+
+Foundation `638241e9` is now integrated here with628 source tests,8+8 affected
+contracts and9 seeded-native integration groups/5 exact persistence checkpoints.
+[Integration](campaign/integration/REPORT.md) preserves input/correction details.
+Next: W1-C03/L2-U02 following [NEXT_UNIT](NEXT_UNIT.md). Source, libraries and personal saves remain
+untouched outside the explicitly authorized new private notes.
+Preserve frozen p01–p08; new immutable content edition, existing engine/clock/
+stock/knowledge/publisher. Desktop proof at 1600×1100; mobile deferred.
 
 RESUME ONLY AFTER HUMAN RESUMPTION: recover current AGENTS/PROJECT, paused handoff/STATE and live foundations/dialogue/MM/connection/CW/skill-growth/body/starts/cheats/continuity owners, then verify source/ownership drift against private capsule. Select a source-grounded progression/consumer join and the unfinished native gate without widening audit proposals into global mechanics or restarting valid prior work. All S00–S14/full-world gates and director acceptance stay open. No commits/push/publish/acquisition or user-save changes occurred.
 
@@ -45,3 +68,8 @@ owns exact scope, controlled-clock/persistence evidence and the broader regional
 language-native limit. Historical failures and receipts stay unchanged. At this bounded G9 handoff, the full S00–S14 campaign remained paused. The
 parent checkpoint later records the separately authorized W1 campaign and its
 ended/incomplete disposition; use that later scoped record for recovery.
+
+Recoverable boundary: C01 `dd7501bb`, C02 `2a355072`, foundation merge `4df76598`.
+All campaign proof browsers/harnesses closed. Full campaign remains authorized
+and incomplete; resume W1-C03 here without a new chat or permission. Local
+rebuilt dist/index are unstaged; root retains main integration/installation.

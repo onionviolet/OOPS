@@ -1412,7 +1412,7 @@ director acceptance and broader full-world horizons remain open.
 [Report, play path and remainder](docs/gm/dispatch/world1-expansion-2026-10-11/REPORT.md);
 [checkpoint](docs/gm/dispatch/world1-expansion-2026-10-11/CHECKPOINT.md).
 
-## Full book world 1 delivery, paused 2026-10-12
+## Full book world 1 campaign resumed, 2026-10-13
 
 Weibao requested a dedicated fresh GM to implement the whole supplied-source
 book world, including meaningful small details, and continue through useful
@@ -1482,3 +1482,15 @@ nearby list/detail. Desktop 1920×1080 first, 1366×768 floor, 14/21px; mobile
 remains deferred. [Checkpoint](docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md)
 owns scope, writers and evidence. Candidate implementation is distinct from
 Weibao's pending visual/play acceptance; no commit or push requested.
+
+Weibao: “send the full World1 campaign after G9 with codex”. The full pause
+is lifted, including the complete supplied-source and existing design horizon
+across S00–S14. G9’s local N1–N5 seeded-native evidence is retained at its
+exact scope; broader campaign, natural pacing and director acceptance remain
+OPEN. [Live checkpoint](docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md)
+and [progress](docs/gm/dispatch/world1-full-completion-2026-10-11/PROGRESS.md) own
+execution. Codex is sole World1 writer in `.claude/worktrees/w1-campaign`,
+committing units on `w1-campaign`; root merges. Main checkout is not written.
+Old reservation mechanics, no-commit rule and new-chat daisy chain are
+superseded. The [pause snapshot](docs/gm/dispatch/world1-full-completion-2026-10-11/history/2026-10-13-paused-project-section.md)
+retains previous authority and evidence without competing live instructions.

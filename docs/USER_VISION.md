@@ -36,6 +36,15 @@ can be adapted when revisited. Individual layouts and gameplay remain proposals
 until separately selected and natively integrated; this is not a new game UI
 baseline, gameplay priority or mobile workstream.
 
+## Full World1 campaign resumed, 2026-10-13
+
+Weibao: “send the full World1 campaign after G9 with codex”. The full
+S00–S14 campaign pause is lifted. Work proceeds in `w1-campaign`, with each
+verified unit committed and root merging. Old ownership/no-commit/daisy-chain
+mechanics are superseded; source, save, sealed-secret and desktop priorities
+remain. [Live checkpoint](gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md)
+owns progress, including the complete remaining horizon.
+
 ## Standing UI priority, 2026-10-13
 
 Accepted direction, reaffirmed by Weibao in this session: desktop and laptop play

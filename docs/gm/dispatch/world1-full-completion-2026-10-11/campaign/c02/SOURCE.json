@@ -1,0 +1,38 @@
+{
+  "label": "source",
+  "status": "PASS",
+  "groups": [
+    {
+      "id": "C02-E01",
+      "status": "pass"
+    },
+    {
+      "id": "C02-E02",
+      "status": "pass"
+    },
+    {
+      "id": "C02-E03",
+      "status": "pass"
+    },
+    {
+      "id": "C02-E04",
+      "status": "pass"
+    },
+    {
+      "id": "C02-E05",
+      "status": "pass"
+    },
+    {
+      "id": "C02-E06",
+      "status": "pass"
+    },
+    {
+      "id": "C02-E07",
+      "status": "pass"
+    },
+    {
+      "id": "C02-E08",
+      "status": "pass"
+    }
+  ]
+}

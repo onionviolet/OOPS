@@ -1,0 +1,24 @@
+{
+  "upstreamCommit": "638241e95bb0d6ee0678d487ca6cdfd8b42c2129",
+  "branch": "w1-campaign",
+  "bundleSha256": "a4726aad55358ec09f47f09eb8e628b3e8a3192c6c4edc9908a9d8945dc9fb81",
+  "privatePackSha256": "0740a1a5f541cb53583e0439fab6bec6c1211e410b8f0c8ad72808bae1eb31f2",
+  "label": "source",
+  "fullTests": 628,
+  "affectedSource": {
+    "C01": 8,
+    "C02": 8
+  },
+  "nativeGroups": 9,
+  "persistenceCheckpoints": 5,
+  "origin": "http://127.0.0.1:19306/",
+  "profile": "/private/tmp/w1-campaign-profile-integration-first",
+  "currentSource": {
+    "src/main.js": "62165f6ce1f8fe77717a0b06d0265fade727124e97a29be0085e88cb5789e6ef",
+    "src/simulation.js": "f9bbaaceee892f0c1ca301f0e11db45257a215cfb08a0a4c1841032b1176f433",
+    "src/simulation_effects.js": "46f194d3392660a7fd5c9c13fe05dadce71c826892549bc24a5184c647e162b9",
+    "src/inventory_requirement_facts.js": "e76c9fa5e6440163425e38fe8bd67e627536910f72ee6d6c817a53600fc0c784"
+  },
+  "ownBuildOutputsStaged": false,
+  "upstreamAssets": "Existing upstream generated/HTML commits carried unchanged by merge; local rebuild remains unstaged."
+}

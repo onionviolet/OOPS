@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+const out=new URL('.',import.meta.url).pathname;
+let root=out;while(!fs.existsSync(path.join(root,'package.json')))root=path.dirname(root);
+const input='/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/world1-full-completion-2026-10-11/campaign-2026-10-13/c02/behavior.mjs';
+const lines=execFileSync(process.execPath,[input,root],{encoding:'utf8'}).trim().split('\n');
+const result=JSON.parse(lines.at(-1));
+fs.writeFileSync(path.join(out,'SOURCE.json'),JSON.stringify(result,null,2)+'\n');
+console.log('source: '+result.groups.length+' groups PASS');
