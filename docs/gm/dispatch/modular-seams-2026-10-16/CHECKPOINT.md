@@ -420,3 +420,45 @@ Location unlock truth is `availabilities.location`, not `locations[...].is_unloc
 - A4: `scripts/village_browser.cjs` still clicks `.end_dialogue_button`, which center mode
   hides; update it when that Playwright route next runs.
 
+
+## Domain rule application, 2026-10-19
+
+Weibao accepted the domain rulebooks on 2026-10-19 "as long as core rules are
+followed"; codes are from [DOMAIN_RULES](../../../DOMAIN_RULES.md) and act as
+default dials under the core rules. Checked against M3 and M4 as merged; no runtime
+change in this note.
+
+**M3 crafting consumer (herbal home).**
+- Meets: BHR20 (the drinkable remedy is made through the crafting envelope with
+  maker and provenance, not a separate medicine engine); BHR21/MR1 (a dose drunk
+  under an unknown projection still works by its actual effect: the browser
+  journey measured native recovery against a no-dose control); BHR5 (the dose
+  changes HP recovery only and claims nothing about injury or illness); SLR2/MR21
+  (practice changes control, not what the herb is).
+- Departs, minor: BHR25 asks action text to name the specific outcome (restores
+  HP, eases pain) with stock, time and cost. The drink action is named by the item
+  and its known projection; when the projection is unknown the player cannot see
+  "restores HP" until observed, which is correct for knowledge (AD6) but the
+  known case should name the outcome. Owner: crafting projection text; not built.
+- BHR23 one authority for combined effects: meets in its narrow form, since a
+  new dose replaces the previous preparation (item text in
+  `src/crafting_native_items.js`), so one owner holds it. Interaction tags
+  between different remedy kinds stay open until a second kind exists.
+
+**M4 lamplight.**
+- Meets: CBR17/CBR18 (the lamp feeds the one light authority
+  `nativeLightBonus()`, which combat, reading and inspection all read; a light
+  works by how light works, no tool or weapon list); CBR26 (light in idle dark
+  combat is paid from real oil stock and stops when it burns out); ECR2 (bought
+  from the local trader through the native trade path); ECR16 (lighting spends
+  oil, not money; the purchase uses the existing staged native trade, adding no
+  direct money write); SLR3/SLR4 (reading pace rises only from the lamp's real
+  gain over ambient light; the gain's cause is the reading itself).
+- Departs: ECR6 says prices follow a per-world reference basket. Village has no
+  basket yet (ECL1 unbuilt), so the 250/25 prices are proposal dials set by hand.
+  Already listed as acceptance item A1; reconcile when ECL1 lands.
+- Inherited, not M4's: ECR10 (selling never destroys silently). A lamp sold back
+  to the trader is deleted at the next trader refresh (ECX3). Not a new departure,
+  but the lamp is now one more durable good it applies to.
+- No BHR rule applies; eyesight is not modelled as a body function here (BHR27
+  would apply if a world made darkness block reading outright).

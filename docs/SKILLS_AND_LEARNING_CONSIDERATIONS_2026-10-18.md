@@ -436,6 +436,28 @@ built). Mastery and fluency now move separately on purpose: ten real cuts left
 mastery at 0 and made cutting faster, which is the layer model working, and it
 may still surprise a first-time player.
 
+### Domain rule application to SLL7 and SLL11, 2026-10-19
+
+Weibao accepted the domain rulebooks on 2026-10-19 "as long as core rules are
+followed"; SLR codes in [DOMAIN_RULES](DOMAIN_RULES.md#skill-and-learning-rules)
+bind these two built slices as default dials. Checked against source as built.
+
+- **SLL7 coached practice meets** SLR6 (the craftsman's attention is a feedback
+  means that raises what practice yields), SLR14 (the lesson does not hand over
+  mastery; the student still practices), SLR15 (he teaches only with presence,
+  teaching hours and his own `focus`, SLN9) and SLR16 (fee, time, attention and
+  access make it a transaction).
+- **SLL11 fluency meets** SLR5/SLR34 (repetition keeps paying on a smooth falling
+  curve with a floor), SLR35 (real cuts count as uses) and SLN12 (reads
+  `executions`, no second counter).
+- **Departs: SLR29** (a drill cap names its next route). The mastery-4 cap shows
+  the panel's generic refusal. **SLR34/SLN10** (repetition does not stop by
+  default; a plateau names what lifts it): plain practice stops dead at mastery 4,
+  a hard wall. **SLR24** (own numbers exact; the layer split appears once it
+  exists): fluency now exists as a layer, but the use count behind it is not
+  shown. SLL8 and SLL12 below close the first two; the third is the "uses 10"
+  follow-up in the SLL11 gaps.
+
 ## Round 4: carrier and clock fit, 2026-10-18
 
 **SLC105.** Body fluency is a useful default, not a law that memory/soul/construct means cannot bypass. Name the faculty actually changed by practice and the clock that advances it; copied memory grants whatever its actual mechanism transfers (AD11/AD38, SLR1/SLR20/SLR37). A lesson cannot borrow participation from a frozen teacher. Interrupted learning settles paid/performed segments and preserves acquired knowledge (G27/G28).
