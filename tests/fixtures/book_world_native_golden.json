@@ -1,0 +1,1898 @@
+{
+ "mol": {
+  "calendars": [
+   {
+    "year": 1,
+    "month": 1,
+    "day": 1,
+    "hour": 6,
+    "minute": 0,
+    "day_count": 1
+   },
+   {
+    "year": 1,
+    "month": 1,
+    "day": 1,
+    "hour": 6,
+    "minute": 1,
+    "day_count": 1
+   },
+   {
+    "year": 1,
+    "month": 1,
+    "day": 1,
+    "hour": 11,
+    "minute": 59,
+    "day_count": 1
+   },
+   {
+    "year": 1,
+    "month": 1,
+    "day": 1,
+    "hour": 12,
+    "minute": 0,
+    "day_count": 1
+   },
+   {
+    "year": 1,
+    "month": 1,
+    "day": 2,
+    "hour": 5,
+    "minute": 59,
+    "day_count": 2
+   },
+   {
+    "year": 1,
+    "month": 2,
+    "day": 1,
+    "hour": 6,
+    "minute": 0,
+    "day_count": 31
+   },
+   {
+    "year": 2,
+    "month": 12,
+    "day": 5,
+    "hour": 16,
+    "minute": 39,
+    "day_count": 695
+   }
+  ],
+  "calendarError": "Invalid local calendar elapsed time.",
+  "projectionError": "Not a Mol quest world.",
+  "projections": [
+   {
+    "is_active": true,
+    "is_finished": false,
+    "task_status": [
+     {
+      "is_finished": false
+     },
+     {
+      "is_finished": false
+     }
+    ]
+   }
+  ],
+  "projectionAbsent": [
+   {
+    "is_active": false,
+    "is_finished": false,
+    "task_status": [
+     {
+      "is_finished": false
+     },
+     {
+      "is_finished": false
+     }
+    ]
+   }
+  ],
+  "registerOnlyRead": "Register native campaign definitions before reading.",
+  "registered": {
+   "locations": [
+    "Cyoria visitor arrival",
+    "Cyoria Imaya household",
+    "Cyoria academy guest desk",
+    "Cyoria academy guest library",
+    "Cyoria formula workshop",
+    "Cyoria supervised practice court",
+    "Cyoria sewer service hatch"
+   ],
+   "npcs": [
+    "book.mol.imaya",
+    "book.mol.ilsa",
+    "book.mol.ibery",
+    "book.mol.nora",
+    "book.mol.xvim",
+    "book.mol.taiven",
+    "book.mol.kael",
+    "book.mol.zorian",
+    "book.mol.hatch_scavenger"
+   ],
+   "quests": [
+    "book.mol.cyoria.local_campaign"
+   ],
+   "invNs": [
+    "book.mol.household.stock"
+   ],
+   "tags": [
+    {
+     "book_world_mol": true
+    },
+    {
+     "book_world_mol": true
+    },
+    {
+     "book_world_mol": true
+    },
+    {
+     "book_world_mol": true
+    },
+    {
+     "book_world_mol": true
+    },
+    {
+     "book_world_mol": true
+    },
+    {
+     "book_world_mol": true
+    }
+   ],
+   "questMeta": [
+    [
+     "Cyoria: independent study and local aftermath",
+     "Committed campaign facts own this local agreement. Actual local retrieval, research and continuing life are independent retained consequences.",
+     "Cyoria · independent academy visitor",
+     2
+    ]
+   ],
+   "shops": [
+    "book.mol.academy.shop"
+   ],
+   "npcDesc": [
+    "Own household, costs, chores and guests. Guest work is an original explicit agreement; no automatic home ownership or private family knowledge.",
+    "Academy representative and invocation teacher. Guest library permission, practical competence and commercial certification are distinct.",
+    "Library assistant with actual books/materials, work and attention. A received observation is separate from author knowledge.",
+    "Formula teacher who requires understanding and functional reconstruction. Her own attuned mana anchors a narrow authored device; she shares neither mastery nor personal source.",
+    "Demanding mentor evaluates attention and controlled procedure. This paid guest exercise is manual device control, not a copied mage faculty.",
+    "Recent graduate seeking paid retrieval work with trained physical/combat means. She can receive a bounded survey and refuse an unsafe plan; no invulnerable escort.",
+    "Widowed healer/alchemist with scarce supplies and a daughter. Early guest collaboration and numerical budgets are original proposals; research privacy and family time remain his.",
+    "Third-year student following his own ordinary studies. His private perceptions, later loop discoveries and memories are not the visitor’s knowledge.",
+    "Original independent local scavenger guarding a short hatch for salvage. Own hook, meal, finite effort and purse; no sourced antagonist identity or future intelligence. Intervention changes actual injury/position/means."
+   ],
+   "locDesc": [
+    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure."
+   ]
+  },
+  "absentValidate": true,
+  "absentSnapshot": {
+   "inventories": {
+    "trader": {},
+    "person": {}
+   },
+   "quests": {},
+   "availabilities": {
+    "quest": {},
+    "trader": {},
+    "location": {},
+    "person": {}
+   },
+   "expansion": {}
+  },
+  "absentBadStock": "Absent Mol cannot retain finite world stock.",
+  "absentBadMeta": "This save requires its optional Mol campaign/native owner binding.",
+  "absentBadLocation": "This save requires its optional Mol campaign/native owner binding.",
+  "absentBadQuest": "Absent Mol cannot retain an active local quest.",
+  "absentBadPerson": "Absent Mol cannot retain an enrolled native person.",
+  "metaGood": true,
+  "metaBadShape": "Unsupported Mol native envelope fields.",
+  "metaBadRevision": "Native campaign revision and optional state disagree.",
+  "staleStage": "Unsupported initial native stock requests.",
+  "ordinaryDrop": "Ordinary publication cannot drop or mutate an active campaign.",
+  "written": {
+   "inventories": {
+    "trader": {
+     "book.mol.academy.shop": {
+      "{\"id\":\"Cyorian research paper\"}": {
+       "count": 6
+      },
+      "{\"id\":\"Cyorian formula ink\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Cyorian blank stone cube\"}": {
+       "count": 3
+      },
+      "{\"id\":\"Cyorian lamp oil\"}": {
+       "count": 3
+      },
+      "{\"id\":\"Cyorian bread parcel\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Survey rope\"}": {
+       "count": 3
+      }
+     }
+    },
+    "book_world_mol": {
+     "book.mol.household.stock": {
+      "{\"id\":\"Cyorian retrieved watch\"}": {
+       "count": 1
+      }
+     }
+    }
+   },
+   "quests": {
+    "book.mol.cyoria.local_campaign": {
+     "is_active": true,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": false
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    }
+   },
+   "availabilities": {
+    "quest": {
+     "book.mol.cyoria.local_campaign": 1,
+     "book.mol.cyoria.local_campaign:task:0": 0,
+     "book.mol.cyoria.local_campaign:task:1": 0
+    },
+    "trader": {
+     "book.mol.academy.shop": 0
+    },
+    "location": {
+     "Cyoria visitor arrival": 1,
+     "Cyoria Imaya household": 1,
+     "Cyoria academy guest desk": 1,
+     "Cyoria academy guest library": 1,
+     "Cyoria formula workshop": 1,
+     "Cyoria supervised practice court": 1,
+     "Cyoria sewer service hatch": 1
+    },
+    "person": {
+     "book.mol.imaya": 1,
+     "book.mol.ilsa": 1,
+     "book.mol.ibery": 1,
+     "book.mol.nora": 1,
+     "book.mol.xvim": 1,
+     "book.mol.taiven": 1,
+     "book.mol.kael": 1,
+     "book.mol.zorian": 1,
+     "book.mol.hatch_scavenger": 1
+    }
+   },
+   "book_world_mol_native": {
+    "schema": 1,
+    "definitionRevision": 1,
+    "revision": 1,
+    "initializedAt": 5,
+    "worldOwners": [
+     {
+      "worldId": "book.mol.cyoria",
+      "instanceId": "book.mol.cyoria.main",
+      "calendar": {
+       "year": 1,
+       "month": 1,
+       "day": 1,
+       "hour": 6,
+       "minute": 30,
+       "day_count": 1
+      },
+      "stockOwner": "book.mol.household.stock",
+      "shopOwner": "book.mol.academy.shop",
+      "peopleIds": [
+       "book.mol.imaya",
+       "book.mol.ilsa",
+       "book.mol.ibery",
+       "book.mol.nora",
+       "book.mol.xvim",
+       "book.mol.taiven",
+       "book.mol.kael",
+       "book.mol.zorian",
+       "book.mol.hatch_scavenger"
+      ],
+      "questId": "book.mol.cyoria.local_campaign"
+     }
+    ]
+   }
+  },
+  "afterPublish": {
+   "revision": 1,
+   "read": {
+    "bound": true,
+    "revision": 1,
+    "body": null,
+    "stock": {
+     "book.mol.household.stock": {
+      "{\"id\":\"Cyorian retrieved watch\"}": 1
+     },
+     "book.mol.academy.shop": {
+      "{\"id\":\"Cyorian research paper\"}": 6,
+      "{\"id\":\"Cyorian formula ink\"}": 4,
+      "{\"id\":\"Cyorian blank stone cube\"}": 3,
+      "{\"id\":\"Cyorian lamp oil\"}": 3,
+      "{\"id\":\"Cyorian bread parcel\"}": 4,
+      "{\"id\":\"Survey rope\"}": 3
+     }
+    },
+    "calendars": {
+     "book.mol.cyoria": {
+      "year": 1,
+      "month": 1,
+      "day": 1,
+      "hour": 6,
+      "minute": 30,
+      "day_count": 1
+     }
+    },
+    "quests": {
+     "book.mol.cyoria.local_campaign": {
+      "is_active": true,
+      "is_finished": false,
+      "task_status": [
+       {
+        "is_finished": false
+       },
+       {
+        "is_finished": false
+       }
+      ]
+     }
+    },
+    "endpointBindings": [
+     {
+      "endpoint": {
+       "worldId": "base.frontier",
+       "instanceId": "frontier.main",
+       "regionId": "frontier.village",
+       "layerId": "surface"
+      },
+      "available": false,
+      "positions": [
+       {
+        "id": "gate.arrival",
+        "free": true,
+        "bodyForms": [
+         "human"
+        ]
+       }
+      ]
+     },
+     {
+      "endpoint": {
+       "worldId": "book.mol.cyoria",
+       "instanceId": "book.mol.cyoria.main",
+       "regionId": "book.mol.cyoria.city",
+       "layerId": "book.mol.surface"
+      },
+      "available": true,
+      "positions": [
+       {
+        "id": "gate.arrival",
+        "free": true,
+        "bodyForms": [
+         "human"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "stock": {
+    "book.mol.household.stock": {
+     "{\"id\":\"Cyorian retrieved watch\"}": {
+      "item": {
+       "key": "{\"id\":\"Cyorian retrieved watch\"}"
+      },
+      "count": 1
+     }
+    }
+   }
+  },
+  "readStaleRevision": "Restore matching campaign metadata before reading its native owners.",
+  "activeSnapshot": {
+   "inventories": {
+    "trader": {}
+   },
+   "quests": {
+    "book.mol.cyoria.local_campaign": {
+     "is_active": true,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": false
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    }
+   },
+   "availabilities": {
+    "quest": {
+     "book.mol.cyoria.local_campaign": 1,
+     "book.mol.cyoria.local_campaign:task:0": 0,
+     "book.mol.cyoria.local_campaign:task:1": 0
+    },
+    "trader": {
+     "book.mol.academy.shop": 0
+    },
+    "location": {
+     "Cyoria visitor arrival": 1,
+     "Cyoria Imaya household": 1,
+     "Cyoria academy guest desk": 1,
+     "Cyoria academy guest library": 1,
+     "Cyoria formula workshop": 1,
+     "Cyoria supervised practice court": 1,
+     "Cyoria sewer service hatch": 1
+    },
+    "person": {
+     "book.mol.imaya": 1,
+     "book.mol.ilsa": 1,
+     "book.mol.ibery": 1,
+     "book.mol.nora": 1,
+     "book.mol.xvim": 1,
+     "book.mol.taiven": 1,
+     "book.mol.kael": 1,
+     "book.mol.zorian": 1,
+     "book.mol.hatch_scavenger": 1
+    }
+   },
+   "book_world_mol_native": {
+    "schema": 1,
+    "definitionRevision": 1,
+    "revision": 1,
+    "initializedAt": 5,
+    "worldOwners": [
+     {
+      "worldId": "book.mol.cyoria",
+      "instanceId": "book.mol.cyoria.main",
+      "calendar": {
+       "year": 1,
+       "month": 1,
+       "day": 1,
+       "hour": 6,
+       "minute": 30,
+       "day_count": 1
+      },
+      "stockOwner": "book.mol.household.stock",
+      "shopOwner": "book.mol.academy.shop",
+      "peopleIds": [
+       "book.mol.imaya",
+       "book.mol.ilsa",
+       "book.mol.ibery",
+       "book.mol.nora",
+       "book.mol.xvim",
+       "book.mol.taiven",
+       "book.mol.kael",
+       "book.mol.zorian",
+       "book.mol.hatch_scavenger"
+      ],
+      "questId": "book.mol.cyoria.local_campaign"
+     }
+    ]
+   }
+  },
+  "snapshotStale": "Live campaign native metadata is stale.",
+  "snapshotDropped": "An active native Mol binding cannot be omitted from its save.",
+  "accessors": {
+   "ownsPerson": true,
+   "ownsNot": false,
+   "personErr": "Not a campaign resident.",
+   "calErr": "Not a campaign calendar.",
+   "stockErr": "Not a campaign communal stock.",
+   "shopErr": "Not a campaign shop.",
+   "questErr": "Not a campaign quest.",
+   "calendar": {
+    "year": 1,
+    "month": 1,
+    "day": 1,
+    "hour": 6,
+    "minute": 30,
+    "day_count": 1
+   }
+  },
+  "hasBuyCommand": true,
+  "buyNoAcquisition": "A native stock transfer needs its matching acquisition receipt.",
+  "buyDuplicate": "Duplicate Mol stock command in one publication.",
+  "buyBadShape": "Unsupported native campaign stock request fields.",
+  "buyStale": "The native stock request lacks its exact authored command and current revision.",
+  "buy": {
+   "revision": 2,
+   "envelope": {
+    "inventories": {
+     "trader": {
+      "book.mol.academy.shop": {
+       "{\"id\":\"Cyorian research paper\"}": {
+        "count": 4
+       },
+       "{\"id\":\"Cyorian formula ink\"}": {
+        "count": 4
+       },
+       "{\"id\":\"Cyorian blank stone cube\"}": {
+        "count": 3
+       },
+       "{\"id\":\"Cyorian lamp oil\"}": {
+        "count": 3
+       },
+       "{\"id\":\"Cyorian bread parcel\"}": {
+        "count": 4
+       },
+       "{\"id\":\"Survey rope\"}": {
+        "count": 3
+       }
+      }
+     },
+     "book_world_mol": {
+      "book.mol.household.stock": {
+       "{\"id\":\"Cyorian retrieved watch\"}": {
+        "count": 1
+       }
+      }
+     }
+    },
+    "quests": {
+     "book.mol.cyoria.local_campaign": {
+      "is_active": true,
+      "is_finished": false,
+      "task_status": [
+       {
+        "is_finished": false
+       },
+       {
+        "is_finished": false
+       }
+      ]
+     }
+    },
+    "availabilities": {
+     "quest": {
+      "book.mol.cyoria.local_campaign": 1,
+      "book.mol.cyoria.local_campaign:task:0": 0,
+      "book.mol.cyoria.local_campaign:task:1": 0
+     },
+     "trader": {
+      "book.mol.academy.shop": 0
+     },
+     "location": {
+      "Cyoria visitor arrival": 1,
+      "Cyoria Imaya household": 1,
+      "Cyoria academy guest desk": 1,
+      "Cyoria academy guest library": 1,
+      "Cyoria formula workshop": 1,
+      "Cyoria supervised practice court": 1,
+      "Cyoria sewer service hatch": 1
+     },
+     "person": {
+      "book.mol.imaya": 1,
+      "book.mol.ilsa": 1,
+      "book.mol.ibery": 1,
+      "book.mol.nora": 1,
+      "book.mol.xvim": 1,
+      "book.mol.taiven": 1,
+      "book.mol.kael": 1,
+      "book.mol.zorian": 1,
+      "book.mol.hatch_scavenger": 1
+     }
+    },
+    "book_world_mol_native": {
+     "schema": 1,
+     "definitionRevision": 1,
+     "revision": 2,
+     "initializedAt": 5,
+     "worldOwners": [
+      {
+       "worldId": "book.mol.cyoria",
+       "instanceId": "book.mol.cyoria.main",
+       "calendar": {
+        "year": 1,
+        "month": 1,
+        "day": 1,
+        "hour": 6,
+        "minute": 30,
+        "day_count": 1
+       },
+       "stockOwner": "book.mol.household.stock",
+       "shopOwner": "book.mol.academy.shop",
+       "peopleIds": [
+        "book.mol.imaya",
+        "book.mol.ilsa",
+        "book.mol.ibery",
+        "book.mol.nora",
+        "book.mol.xvim",
+        "book.mol.taiven",
+        "book.mol.kael",
+        "book.mol.zorian",
+        "book.mol.hatch_scavenger"
+       ],
+       "questId": "book.mol.cyoria.local_campaign"
+      }
+     ]
+    }
+   },
+   "stock": {
+    "book.mol.household.stock": {
+     "{\"id\":\"Cyorian retrieved watch\"}": {
+      "item": {
+       "key": "{\"id\":\"Cyorian retrieved watch\"}"
+      },
+      "count": 1
+     }
+    }
+   }
+  }
+ },
+ "paradise": {
+  "calendars": [
+   {
+    "year": 1,
+    "month": 1,
+    "day": 1,
+    "hour": 6,
+    "minute": 0,
+    "day_count": 1
+   },
+   {
+    "year": 1,
+    "month": 1,
+    "day": 1,
+    "hour": 6,
+    "minute": 1,
+    "day_count": 1
+   },
+   {
+    "year": 1,
+    "month": 1,
+    "day": 1,
+    "hour": 11,
+    "minute": 59,
+    "day_count": 1
+   },
+   {
+    "year": 1,
+    "month": 1,
+    "day": 1,
+    "hour": 12,
+    "minute": 0,
+    "day_count": 1
+   },
+   {
+    "year": 1,
+    "month": 1,
+    "day": 2,
+    "hour": 5,
+    "minute": 59,
+    "day_count": 2
+   },
+   {
+    "year": 1,
+    "month": 2,
+    "day": 1,
+    "hour": 6,
+    "minute": 0,
+    "day_count": 31
+   },
+   {
+    "year": 2,
+    "month": 12,
+    "day": 5,
+    "hour": 16,
+    "minute": 39,
+    "day_count": 695
+   }
+  ],
+  "calendarError": "Invalid local calendar elapsed time.",
+  "projectionError": "Not a Paradise quest world.",
+  "projections": [
+   {
+    "is_active": true,
+    "is_finished": false,
+    "task_status": [
+     {
+      "is_finished": false
+     },
+     {
+      "is_finished": false
+     }
+    ]
+   },
+   {
+    "is_active": true,
+    "is_finished": false,
+    "task_status": [
+     {
+      "is_finished": false
+     },
+     {
+      "is_finished": false
+     }
+    ]
+   }
+  ],
+  "projectionAbsent": [
+   {
+    "is_active": false,
+    "is_finished": false,
+    "task_status": [
+     {
+      "is_finished": false
+     },
+     {
+      "is_finished": false
+     }
+    ]
+   },
+   {
+    "is_active": false,
+    "is_finished": false,
+    "task_status": [
+     {
+      "is_finished": false
+     },
+     {
+      "is_finished": false
+     }
+    ]
+   }
+  ],
+  "registerOnlyRead": "Register native campaign definitions before reading.",
+  "registered": {
+   "locations": [
+    "Paradise independent-contractor desk",
+    "Paradise paid training booth",
+    "Goa Gray Terminal",
+    "Goa provision pier",
+    "Goa guardhouse",
+    "Goa city gate",
+    "Goa palace approach"
+   ],
+   "npcs": [
+    "book.paradise.employee",
+    "book.paradise.porter",
+    "book.paradise.mia",
+    "book.paradise.hank",
+    "book.paradise.su_xiao",
+    "book.paradise.krieg",
+    "book.paradise.philip_herbert"
+   ],
+   "quests": [
+    "book.paradise.hub.services",
+    "book.paradise.goa.civil_branch"
+   ],
+   "invNs": [
+    "book.paradise.hub.stock",
+    "book.paradise.goa.stock"
+   ],
+   "tags": [
+    {
+     "book_world_campaign": true
+    },
+    {
+     "book_world_campaign": true
+    },
+    {
+     "book_world_campaign": true
+    },
+    {
+     "book_world_campaign": true
+    },
+    {
+     "book_world_campaign": true
+    },
+    {
+     "book_world_campaign": true
+    },
+    {
+     "book_world_campaign": true
+    }
+   ],
+   "questMeta": [
+    [
+     "Independent contractor services",
+     "Committed campaign facts own this local agreement. Mission extraction and payout belong to their distinct contract receipts.",
+     "Paradise independent entry",
+     2
+    ],
+    [
+     "Gray Terminal civil aftermath",
+     "Committed campaign facts own this local agreement. Mission extraction and payout belong to their distinct contract receipts.",
+     "Goa before the Gray Terminal fire",
+     2
+    ]
+   ],
+   "shops": [
+    "book.paradise.hub.shop",
+    "book.paradise.goa.shop"
+   ],
+   "npcDesc": [
+    "A resident of Paradise independent entry. Native stock, equipment, XP and vitals remain their actual owners.",
+    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners.",
+    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners.",
+    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners.",
+    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners.",
+    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners.",
+    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners."
+   ],
+   "locDesc": [
+    "Paradise independent entry. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Paradise independent entry. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Goa before the Gray Terminal fire. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Goa before the Gray Terminal fire. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Goa before the Gray Terminal fire. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Goa before the Gray Terminal fire. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Goa before the Gray Terminal fire. Use Notebook for retained local work, actual stock, optional assignments and departure."
+   ]
+  },
+  "absentValidate": true,
+  "absentSnapshot": {
+   "inventories": {
+    "trader": {},
+    "person": {}
+   },
+   "quests": {},
+   "availabilities": {
+    "quest": {},
+    "trader": {},
+    "location": {},
+    "person": {}
+   },
+   "expansion": {}
+  },
+  "absentBadStock": "Absent Paradise cannot retain finite world stock.",
+  "absentBadMeta": "This save requires its optional Paradise campaign/native owner binding.",
+  "absentBadLocation": "This save requires its optional Paradise campaign/native owner binding.",
+  "absentBadQuest": "Absent Paradise cannot retain an active local quest.",
+  "absentBadPerson": "Absent Paradise cannot retain an enrolled native person.",
+  "metaGood": true,
+  "metaBadShape": "Unsupported Paradise native envelope fields.",
+  "metaBadRevision": "Native campaign revision and optional state disagree.",
+  "staleStage": "Unsupported initial native stock requests.",
+  "ordinaryDrop": "Ordinary publication cannot drop or mutate an active campaign.",
+  "written": {
+   "inventories": {
+    "trader": {
+     "book.paradise.hub.shop": {
+      "{\"id\":\"Prepared survey kit\"}": {
+       "count": 3
+      },
+      "{\"id\":\"Survey rope\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Goa ration parcel\"}": {
+       "count": 2
+      }
+     },
+     "book.paradise.goa.shop": {
+      "{\"id\":\"Goa ration parcel\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Survey rope\"}": {
+       "count": 3
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 4
+      }
+     }
+    },
+    "book_world_campaign": {
+     "book.paradise.hub.stock": {
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Survey rope\"}": {
+       "count": 2
+      }
+     },
+     "book.paradise.goa.stock": {}
+    }
+   },
+   "quests": {
+    "book.paradise.hub.services": {
+     "is_active": true,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": false
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    },
+    "book.paradise.goa.civil_branch": {
+     "is_active": true,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": false
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    }
+   },
+   "availabilities": {
+    "quest": {
+     "book.paradise.hub.services": 1,
+     "book.paradise.hub.services:task:0": 0,
+     "book.paradise.hub.services:task:1": 0,
+     "book.paradise.goa.civil_branch": 1,
+     "book.paradise.goa.civil_branch:task:0": 0,
+     "book.paradise.goa.civil_branch:task:1": 0
+    },
+    "trader": {
+     "book.paradise.hub.shop": 0,
+     "book.paradise.goa.shop": 0
+    },
+    "location": {
+     "Paradise independent-contractor desk": 1,
+     "Paradise paid training booth": 1,
+     "Goa Gray Terminal": 1,
+     "Goa provision pier": 1,
+     "Goa guardhouse": 1,
+     "Goa city gate": 1,
+     "Goa palace approach": 1
+    },
+    "person": {
+     "book.paradise.employee": 1,
+     "book.paradise.porter": 1,
+     "book.paradise.mia": 1,
+     "book.paradise.hank": 1,
+     "book.paradise.su_xiao": 1,
+     "book.paradise.krieg": 1,
+     "book.paradise.philip_herbert": 1
+    }
+   },
+   "book_world_campaign_native": {
+    "schema": 1,
+    "definitionRevision": 1,
+    "revision": 1,
+    "initializedAt": 5,
+    "worldOwners": [
+     {
+      "worldId": "book.paradise.hub",
+      "instanceId": "book.paradise.hub.main",
+      "calendar": {
+       "year": 1,
+       "month": 1,
+       "day": 1,
+       "hour": 6,
+       "minute": 30,
+       "day_count": 1
+      },
+      "stockOwner": "book.paradise.hub.stock",
+      "shopOwner": "book.paradise.hub.shop",
+      "peopleIds": [
+       "book.paradise.employee"
+      ],
+      "questId": "book.paradise.hub.services"
+     },
+     {
+      "worldId": "book.paradise.goa",
+      "instanceId": "book.paradise.goa.main",
+      "calendar": {
+       "year": 1,
+       "month": 1,
+       "day": 1,
+       "hour": 14,
+       "minute": 50,
+       "day_count": 1
+      },
+      "stockOwner": "book.paradise.goa.stock",
+      "shopOwner": "book.paradise.goa.shop",
+      "peopleIds": [
+       "book.paradise.porter",
+       "book.paradise.mia",
+       "book.paradise.hank",
+       "book.paradise.su_xiao",
+       "book.paradise.krieg",
+       "book.paradise.philip_herbert"
+      ],
+      "questId": "book.paradise.goa.civil_branch"
+     }
+    ]
+   }
+  },
+  "afterPublish": {
+   "revision": 1,
+   "read": {
+    "bound": true,
+    "revision": 1,
+    "body": null,
+    "stock": {
+     "book.paradise.hub.stock": {
+      "{\"id\":\"Rough wood log\"}": 2,
+      "{\"id\":\"Survey rope\"}": 2
+     },
+     "book.paradise.hub.shop": {
+      "{\"id\":\"Prepared survey kit\"}": 3,
+      "{\"id\":\"Survey rope\"}": 4,
+      "{\"id\":\"Goa ration parcel\"}": 2
+     },
+     "book.paradise.goa.stock": {},
+     "book.paradise.goa.shop": {
+      "{\"id\":\"Goa ration parcel\"}": 4,
+      "{\"id\":\"Survey rope\"}": 3,
+      "{\"id\":\"Rough wood log\"}": 4
+     }
+    },
+    "calendars": {
+     "book.paradise.hub": {
+      "year": 1,
+      "month": 1,
+      "day": 1,
+      "hour": 6,
+      "minute": 30,
+      "day_count": 1
+     },
+     "book.paradise.goa": {
+      "year": 1,
+      "month": 1,
+      "day": 1,
+      "hour": 14,
+      "minute": 50,
+      "day_count": 1
+     }
+    },
+    "quests": {
+     "book.paradise.hub.services": {
+      "is_active": true,
+      "is_finished": false,
+      "task_status": [
+       {
+        "is_finished": false
+       },
+       {
+        "is_finished": false
+       }
+      ]
+     },
+     "book.paradise.goa.civil_branch": {
+      "is_active": true,
+      "is_finished": false,
+      "task_status": [
+       {
+        "is_finished": false
+       },
+       {
+        "is_finished": false
+       }
+      ]
+     }
+    },
+    "endpointBindings": [
+     {
+      "endpoint": {
+       "worldId": "base.frontier",
+       "instanceId": "frontier.main",
+       "regionId": "frontier.village",
+       "layerId": "surface"
+      },
+      "available": false,
+      "positions": [
+       {
+        "id": "gate.arrival",
+        "free": true,
+        "bodyForms": [
+         "human"
+        ]
+       }
+      ]
+     },
+     {
+      "endpoint": {
+       "worldId": "book.paradise.hub",
+       "instanceId": "book.paradise.hub.main",
+       "regionId": "book.paradise.service",
+       "layerId": "book.paradise.hub.surface"
+      },
+      "available": true,
+      "positions": [
+       {
+        "id": "gate.arrival",
+        "free": true,
+        "bodyForms": [
+         "human"
+        ]
+       }
+      ]
+     },
+     {
+      "endpoint": {
+       "worldId": "book.paradise.goa",
+       "instanceId": "book.paradise.goa.main",
+       "regionId": "book.paradise.goa.kingdom",
+       "layerId": "book.paradise.goa.surface"
+      },
+      "available": true,
+      "positions": [
+       {
+        "id": "gate.arrival",
+        "free": true,
+        "bodyForms": [
+         "human"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "stock": {
+    "book.paradise.hub.stock": {
+     "{\"id\":\"Rough wood log\"}": {
+      "item": {
+       "key": "{\"id\":\"Rough wood log\"}"
+      },
+      "count": 2
+     },
+     "{\"id\":\"Survey rope\"}": {
+      "item": {
+       "key": "{\"id\":\"Survey rope\"}"
+      },
+      "count": 2
+     }
+    },
+    "book.paradise.goa.stock": {}
+   }
+  },
+  "readStaleRevision": "Restore matching campaign metadata before reading its native owners.",
+  "activeSnapshot": {
+   "inventories": {
+    "trader": {}
+   },
+   "quests": {
+    "book.paradise.hub.services": {
+     "is_active": true,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": false
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    },
+    "book.paradise.goa.civil_branch": {
+     "is_active": true,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": false
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    }
+   },
+   "availabilities": {
+    "quest": {
+     "book.paradise.hub.services": 1,
+     "book.paradise.hub.services:task:0": 0,
+     "book.paradise.hub.services:task:1": 0,
+     "book.paradise.goa.civil_branch": 1,
+     "book.paradise.goa.civil_branch:task:0": 0,
+     "book.paradise.goa.civil_branch:task:1": 0
+    },
+    "trader": {
+     "book.paradise.hub.shop": 0,
+     "book.paradise.goa.shop": 0
+    },
+    "location": {
+     "Paradise independent-contractor desk": 1,
+     "Paradise paid training booth": 1,
+     "Goa Gray Terminal": 1,
+     "Goa provision pier": 1,
+     "Goa guardhouse": 1,
+     "Goa city gate": 1,
+     "Goa palace approach": 1
+    },
+    "person": {
+     "book.paradise.employee": 1,
+     "book.paradise.porter": 1,
+     "book.paradise.mia": 1,
+     "book.paradise.hank": 1,
+     "book.paradise.su_xiao": 1,
+     "book.paradise.krieg": 1,
+     "book.paradise.philip_herbert": 1
+    }
+   },
+   "book_world_campaign_native": {
+    "schema": 1,
+    "definitionRevision": 1,
+    "revision": 1,
+    "initializedAt": 5,
+    "worldOwners": [
+     {
+      "worldId": "book.paradise.hub",
+      "instanceId": "book.paradise.hub.main",
+      "calendar": {
+       "year": 1,
+       "month": 1,
+       "day": 1,
+       "hour": 6,
+       "minute": 30,
+       "day_count": 1
+      },
+      "stockOwner": "book.paradise.hub.stock",
+      "shopOwner": "book.paradise.hub.shop",
+      "peopleIds": [
+       "book.paradise.employee"
+      ],
+      "questId": "book.paradise.hub.services"
+     },
+     {
+      "worldId": "book.paradise.goa",
+      "instanceId": "book.paradise.goa.main",
+      "calendar": {
+       "year": 1,
+       "month": 1,
+       "day": 1,
+       "hour": 14,
+       "minute": 50,
+       "day_count": 1
+      },
+      "stockOwner": "book.paradise.goa.stock",
+      "shopOwner": "book.paradise.goa.shop",
+      "peopleIds": [
+       "book.paradise.porter",
+       "book.paradise.mia",
+       "book.paradise.hank",
+       "book.paradise.su_xiao",
+       "book.paradise.krieg",
+       "book.paradise.philip_herbert"
+      ],
+      "questId": "book.paradise.goa.civil_branch"
+     }
+    ]
+   }
+  },
+  "snapshotStale": "Live campaign native metadata is stale.",
+  "snapshotDropped": "An active native Paradise binding cannot be omitted from its save.",
+  "accessors": {
+   "ownsPerson": true,
+   "ownsNot": false,
+   "personErr": "Not a campaign resident.",
+   "calErr": "Not a campaign calendar.",
+   "stockErr": "Not a campaign communal stock.",
+   "shopErr": "Not a campaign shop.",
+   "questErr": "Not a campaign quest.",
+   "calendar": {
+    "year": 1,
+    "month": 1,
+    "day": 1,
+    "hour": 6,
+    "minute": 30,
+    "day_count": 1
+   }
+  },
+  "hasBuyCommand": true,
+  "buyNoAcquisition": "A native stock transfer needs its matching acquisition receipt.",
+  "buyDuplicate": "Duplicate Paradise stock command in one publication.",
+  "buyBadShape": "Unsupported native campaign stock request fields.",
+  "buyStale": "The native stock request lacks its exact authored command and current revision.",
+  "buy": {
+   "revision": 2,
+   "envelope": {
+    "inventories": {
+     "trader": {
+      "book.paradise.hub.shop": {
+       "{\"id\":\"Prepared survey kit\"}": {
+        "count": 2
+       },
+       "{\"id\":\"Survey rope\"}": {
+        "count": 4
+       },
+       "{\"id\":\"Goa ration parcel\"}": {
+        "count": 2
+       }
+      },
+      "book.paradise.goa.shop": {
+       "{\"id\":\"Goa ration parcel\"}": {
+        "count": 4
+       },
+       "{\"id\":\"Survey rope\"}": {
+        "count": 3
+       },
+       "{\"id\":\"Rough wood log\"}": {
+        "count": 4
+       }
+      }
+     },
+     "book_world_campaign": {
+      "book.paradise.hub.stock": {
+       "{\"id\":\"Rough wood log\"}": {
+        "count": 2
+       },
+       "{\"id\":\"Survey rope\"}": {
+        "count": 2
+       }
+      },
+      "book.paradise.goa.stock": {}
+     }
+    },
+    "quests": {
+     "book.paradise.hub.services": {
+      "is_active": true,
+      "is_finished": false,
+      "task_status": [
+       {
+        "is_finished": false
+       },
+       {
+        "is_finished": false
+       }
+      ]
+     },
+     "book.paradise.goa.civil_branch": {
+      "is_active": true,
+      "is_finished": false,
+      "task_status": [
+       {
+        "is_finished": false
+       },
+       {
+        "is_finished": false
+       }
+      ]
+     }
+    },
+    "availabilities": {
+     "quest": {
+      "book.paradise.hub.services": 1,
+      "book.paradise.hub.services:task:0": 0,
+      "book.paradise.hub.services:task:1": 0,
+      "book.paradise.goa.civil_branch": 1,
+      "book.paradise.goa.civil_branch:task:0": 0,
+      "book.paradise.goa.civil_branch:task:1": 0
+     },
+     "trader": {
+      "book.paradise.hub.shop": 0,
+      "book.paradise.goa.shop": 0
+     },
+     "location": {
+      "Paradise independent-contractor desk": 1,
+      "Paradise paid training booth": 1,
+      "Goa Gray Terminal": 1,
+      "Goa provision pier": 1,
+      "Goa guardhouse": 1,
+      "Goa city gate": 1,
+      "Goa palace approach": 1
+     },
+     "person": {
+      "book.paradise.employee": 1,
+      "book.paradise.porter": 1,
+      "book.paradise.mia": 1,
+      "book.paradise.hank": 1,
+      "book.paradise.su_xiao": 1,
+      "book.paradise.krieg": 1,
+      "book.paradise.philip_herbert": 1
+     }
+    },
+    "book_world_campaign_native": {
+     "schema": 1,
+     "definitionRevision": 1,
+     "revision": 2,
+     "initializedAt": 5,
+     "worldOwners": [
+      {
+       "worldId": "book.paradise.hub",
+       "instanceId": "book.paradise.hub.main",
+       "calendar": {
+        "year": 1,
+        "month": 1,
+        "day": 1,
+        "hour": 6,
+        "minute": 30,
+        "day_count": 1
+       },
+       "stockOwner": "book.paradise.hub.stock",
+       "shopOwner": "book.paradise.hub.shop",
+       "peopleIds": [
+        "book.paradise.employee"
+       ],
+       "questId": "book.paradise.hub.services"
+      },
+      {
+       "worldId": "book.paradise.goa",
+       "instanceId": "book.paradise.goa.main",
+       "calendar": {
+        "year": 1,
+        "month": 1,
+        "day": 1,
+        "hour": 14,
+        "minute": 50,
+        "day_count": 1
+       },
+       "stockOwner": "book.paradise.goa.stock",
+       "shopOwner": "book.paradise.goa.shop",
+       "peopleIds": [
+        "book.paradise.porter",
+        "book.paradise.mia",
+        "book.paradise.hank",
+        "book.paradise.su_xiao",
+        "book.paradise.krieg",
+        "book.paradise.philip_herbert"
+       ],
+       "questId": "book.paradise.goa.civil_branch"
+      }
+     ]
+    }
+   },
+   "stock": {
+    "book.paradise.hub.stock": {
+     "{\"id\":\"Rough wood log\"}": {
+      "item": {
+       "key": "{\"id\":\"Rough wood log\"}"
+      },
+      "count": 2
+     },
+     "{\"id\":\"Survey rope\"}": {
+      "item": {
+       "key": "{\"id\":\"Survey rope\"}"
+      },
+      "count": 2
+     }
+    },
+    "book.paradise.goa.stock": {}
+   }
+  }
+ },
+ "molFixture": {
+  "validate": true,
+  "snapshot": {
+   "domainEqual": true,
+   "quests": {
+    "Lost memory": {
+     "is_active": true,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": true
+      },
+      {
+       "is_finished": true
+      },
+      {
+       "progress": {}
+      }
+     ]
+    },
+    "The Infinite Rat Saga": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "It won't mill itself": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "Village expansion": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "Bonemeal delivery": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "Light in the darkness": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "Ploughs to swords": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "Swimming/climbing unlock": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "Swimming alternative unlock": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "Giant Enemy Crab": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "In Times of Need": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": true
+      },
+      {
+       "is_finished": true
+      }
+     ]
+    },
+    "waypost_fort_repair": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "tidemark.sluice_agreement": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "nested.hub.service_ledger": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "nested.saltworks.water_agreement": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "nested.archive.claim_ledger": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "book.paradise.hub.services": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "book.paradise.goa.civil_branch": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "book.mol.cyoria.local_campaign": {
+     "is_active": true,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": true
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    },
+    "proto23.visitor.local_life": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": []
+    },
+    "causal.story.mortal.quest": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": false
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    },
+    "causal.story.covenant.quest": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": false
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    },
+    "causal.story.anchor.quest": {
+     "is_active": false,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": false
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    }
+   },
+   "availQuest": {
+    "undefined": 0,
+    "undefined:task:0": 2,
+    "undefined:task:1": 0,
+    "undefined:task:2": 0,
+    "undefined:task:3": 0,
+    "undefined:task:4": 0,
+    "undefined:task:5": 0,
+    "undefined:task:6": 0,
+    "undefined:task:7": 0,
+    "undefined:task:8": 0,
+    "undefined:task:9": 0,
+    "undefined:task:10": 0,
+    "waypost_fort_repair": 0,
+    "waypost_fort_repair:task:0": 0,
+    "waypost_fort_repair:task:1": 0,
+    "tidemark.sluice_agreement": 0,
+    "tidemark.sluice_agreement:task:0": 0,
+    "tidemark.sluice_agreement:task:1": 0,
+    "nested.hub.service_ledger": 0,
+    "nested.hub.service_ledger:task:0": 0,
+    "nested.hub.service_ledger:task:1": 0,
+    "nested.saltworks.water_agreement": 0,
+    "nested.saltworks.water_agreement:task:0": 0,
+    "nested.saltworks.water_agreement:task:1": 0,
+    "nested.archive.claim_ledger": 0,
+    "nested.archive.claim_ledger:task:0": 0,
+    "nested.archive.claim_ledger:task:1": 0,
+    "book.paradise.hub.services": 0,
+    "book.paradise.hub.services:task:0": 0,
+    "book.paradise.hub.services:task:1": 0,
+    "book.paradise.goa.civil_branch": 0,
+    "book.paradise.goa.civil_branch:task:0": 0,
+    "book.paradise.goa.civil_branch:task:1": 0,
+    "book.mol.cyoria.local_campaign": 1,
+    "book.mol.cyoria.local_campaign:task:0": 2,
+    "book.mol.cyoria.local_campaign:task:1": 0,
+    "proto23.visitor.local_life": 0,
+    "proto23.visitor.local_life:task:0": 0,
+    "proto23.visitor.local_life:task:1": 0,
+    "causal.story.mortal.quest": 4,
+    "causal.story.mortal.quest:task:0": 4,
+    "causal.story.mortal.quest:task:1": 4,
+    "causal.story.covenant.quest": 4,
+    "causal.story.covenant.quest:task:0": 4,
+    "causal.story.covenant.quest:task:1": 4,
+    "causal.story.anchor.quest": 4,
+    "causal.story.anchor.quest:task:0": 4,
+    "causal.story.anchor.quest:task:1": 4
+   },
+   "availLoc": {
+    "Village": 1,
+    "Village:crafting": 1,
+    "Shack": 1,
+    "Shack:housing": 1,
+    "Eastern mill": 0,
+    "Eastern storehouse": 0,
+    "Infested field": 1,
+    "Infested woods": 0,
+    "Nearby cave": 1,
+    "Cave room": 1,
+    "Cave depths": 0,
+    "Hidden tunnel": 0,
+    "Pitch black tunnel": 0,
+    "Mysterious gate": 0,
+    "Writhing tunnel": 0,
+    "Mysterious depths": 0,
+    "Forest road": 0,
+    "Forest": 1,
+    "Deep forest": 0,
+    "Forest clearing": 0,
+    "Carya Canyon": 0,
+    "Warthog": 0,
+    "Forest den": 0,
+    "Bears' den": 0,
+    "Forest lake": 0,
+    "Water's edge": 0,
+    "Motherwood": 0,
+    "Primeval forest": 1,
+    "Bramble path": 0,
+    "Forest ant nest": 0,
+    "Town outskirts": 1,
+    "Slums": 1,
+    "Town farms": 1,
+    "Red ant nest 1": 0,
+    "Red ant nest 2": 0,
+    "Red ant nest 3": 0,
+    "Gang hideout": 0,
+    "Town square": 0,
+    "Cat café": 1,
+    "Nekomimi café": 1,
+    "Antique store": 1,
+    "Adventurer's guild": 1,
+    "Mages guild": 0,
+    "Mountain path": 0,
+    "Small flat area in mountains": 0,
+    "Mountain camp": 0,
+    "Mountain camp:housing": 1,
+    "Mountain camp:crafting": 1,
+    "Gentle mountain slope": 0,
+    "Downstream from the village": 0,
+    "Riverbank": 0,
+    "Riverbank shore": 1,
+    "Further downstream": 0,
+    "Lake beach": 0,
+    "Lake beach:housing": 0,
+    "Lake beach:crafting": 0,
+    "Waterfall basin": 0,
+    "Crab spawning grounds": 1,
+    "Swampland fields": 0,
+    "The swamplands": 1,
+    "Swampland tribe": 0,
+    "Swampland tribe:crafting": 0,
+    "Longhouse": 0,
+    "Longhouse:housing": 1,
+    "Sparring with the village guard (heavy)": 0,
+    "Sparring with the village guard (quick)": 0,
+    "Suspicious wall": 0,
+    "Fight off the assailant": 0,
+    "Fight the angry mountain goat": 0,
+    "Fight the giant crab": 1,
+    "Fight the giant crab again!": 1,
+    "Forest den traversal": 0,
+    "Waypost Fort": 0,
+    "Waypost Fort yard": 0,
+    "Waypost Fort cellar": 0,
+    "Folded Glasshouse": 1,
+    "Tidemark landing": 0,
+    "Tidemark terraces": 0,
+    "Paradise service street": 0,
+    "Paradise workroom": 0,
+    "Saltworks landing": 0,
+    "Saltworks enginehouse": 0,
+    "Archive reception": 0,
+    "Archive records room": 0,
+    "Paradise independent-contractor desk": 0,
+    "Paradise paid training booth": 0,
+    "Goa Gray Terminal": 0,
+    "Goa provision pier": 0,
+    "Goa guardhouse": 0,
+    "Goa city gate": 0,
+    "Goa palace approach": 0,
+    "Cyoria visitor arrival": 1,
+    "Cyoria Imaya household": 1,
+    "Cyoria academy guest desk": 1,
+    "Cyoria academy guest library": 1,
+    "Cyoria formula workshop": 1,
+    "Cyoria supervised practice court": 1,
+    "Cyoria sewer service hatch": 1,
+    "Proto23 Village Center": 0,
+    "Proto23 Dojo lobby": 0,
+    "Proto23 visitor cottage": 0
+   }
+  },
+  "snapshotNativeStockEqualsSave": [
+   "book.mol.household.stock"
+  ],
+  "read": {
+   "bound": true,
+   "revision": 69,
+   "body": null,
+   "stock": {
+    "book.mol.household.stock": {
+     "{\"id\":\"Cyorian retrieved watch\"}": 1
+    },
+    "book.mol.academy.shop": {
+     "{\"id\":\"Cyorian research paper\"}": 6,
+     "{\"id\":\"Cyorian formula ink\"}": 4,
+     "{\"id\":\"Cyorian blank stone cube\"}": 3,
+     "{\"id\":\"Cyorian lamp oil\"}": 3,
+     "{\"id\":\"Cyorian bread parcel\"}": 4,
+     "{\"id\":\"Survey rope\"}": 3
+    }
+   },
+   "calendars": {
+    "book.mol.cyoria": {
+     "year": 1,
+     "month": 1,
+     "day": 1,
+     "hour": 6,
+     "minute": 44,
+     "day_count": 1
+    }
+   },
+   "quests": {
+    "book.mol.cyoria.local_campaign": {
+     "is_active": true,
+     "is_finished": false,
+     "task_status": [
+      {
+       "is_finished": true
+      },
+      {
+       "is_finished": false
+      }
+     ]
+    }
+   },
+   "endpointBindings": [
+    {
+     "endpoint": {
+      "worldId": "base.frontier",
+      "instanceId": "frontier.main",
+      "regionId": "frontier.village",
+      "layerId": "surface"
+     },
+     "available": false,
+     "positions": [
+      {
+       "id": "gate.arrival",
+       "free": false,
+       "bodyForms": [
+        "human"
+       ]
+      }
+     ]
+    },
+    {
+     "endpoint": {
+      "worldId": "book.mol.cyoria",
+      "instanceId": "book.mol.cyoria.main",
+      "regionId": "book.mol.cyoria.city",
+      "layerId": "book.mol.surface"
+     },
+     "available": true,
+     "positions": [
+      {
+       "id": "gate.arrival",
+       "free": false,
+       "bodyForms": [
+        "human"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "calendar": {
+   "year": 1,
+   "month": 1,
+   "day": 1,
+   "hour": 6,
+   "minute": 44,
+   "day_count": 1
+  },
+  "stockAfterRestore": {
+   "book.mol.household.stock": {
+    "{\"id\":\"Cyorian retrieved watch\"}": {
+     "item": {
+      "key": "{\"id\":\"Cyorian retrieved watch\"}"
+     },
+     "count": 1
+    }
+   }
+  },
+  "badRevision": "Native campaign revision and optional state disagree.",
+  "badStock": "Invalid inventory key.",
+  "badNpc": "Missing distinct native person/XP/equipment owner.",
+  "badTrade": "Legacy native trade cannot bypass the local crown owner.",
+  "badQuest": "Native local quest projection does not match its committed objective facts.",
+  "slice": {
+   "domain": "book_world_mol_native",
+   "ns": "book_world_mol",
+   "stock": {
+    "book.mol.household.stock": {
+     "{\"id\":\"Cyorian retrieved watch\"}": 1
+    },
+    "book.mol.academy.shop": {
+     "{\"id\":\"Cyorian research paper\"}": 6,
+     "{\"id\":\"Cyorian formula ink\"}": 4,
+     "{\"id\":\"Cyorian blank stone cube\"}": 3,
+     "{\"id\":\"Cyorian lamp oil\"}": 3,
+     "{\"id\":\"Cyorian bread parcel\"}": 4,
+     "{\"id\":\"Survey rope\"}": 3
+    }
+   }
+  }
+ }
+}
