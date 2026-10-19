@@ -29,7 +29,7 @@ open here too.
 | 1 | Weibao's words in [USER_VISION](USER_VISION.md) and [PROJECT accepted decisions](../PROJECT.md#accepted-decisions) | Later direction supersedes earlier; superseded wording stays as dated history |
 | 2 | Standing rulebooks in the register below | Bind how agents design and build. Each rule is a default with a reason; a world or feature may propose an exception and must say why |
 | 3 | Source-qualified world law | Decides what is true inside one world (Rulebook 2–3). It narrows level 2 defaults for that world; it does not change project direction |
-| 4 | Proposals: palettes, audits, considerations, GR, CX, checkpoints | Never binding. Saving one does not authorize building it |
+| 4 | Proposals: palettes, audits, considerations, checkpoints (GR and CX were accepted, see the register) | Never binding. Saving one does not authorize building it |
 
 ## Register of rule sets
 

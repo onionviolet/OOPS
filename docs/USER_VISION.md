@@ -5301,3 +5301,12 @@ ordinary case, exceptions need an in-world reason and cost): BHR, CBR, ECR, SLR,
 PIR, WA and GR. CX was already accepted 2026-10-16 (P9Z40). Owner:
 [RULES_INDEX](RULES_INDEX.md). Same message asked to consider combining rulebooks;
 the recommendation is in the session reply and nothing is merged yet.
+
+Weibao, 2026-10-19, asked what "acceptance" meant for BHR, CBR, ECR, SLR, GR and CX
+and answered: "accepted as long as core rules are followed." This confirms the
+2026-10-18 record above with its condition stated: each rulebook binds as default
+dials under the core rules (Rulebook 1–12, AD1–AD38). Where a rulebook line would
+conflict with a core rule, the core rule wins. Stale "Proposed" and "never binding"
+wording in IDEA_INDEX, RULES_INDEX tier 4 and three core audits was updated the same
+day; the dedup audit's claim that no USER_VISION record existed
+(D4-F2) was wrong, the record is the section above.
