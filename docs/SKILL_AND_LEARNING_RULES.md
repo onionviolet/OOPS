@@ -1,6 +1,6 @@
 # Skill and learning rules
 
-**Proposal, 2026-10-18. Not accepted until Weibao says so (AD32).** Drafted for
+**Accepted 2026-10-18 as standing defaults** (Weibao: "accept based on base and existing rules"; checked against Rulebook 1–12 and AD1–AD38, no conflict found). Every rule reads as the ordinary case under AD5: a world or feature may propose an exception with an in-world reason and cost. Drafted for
 every agent that designs or builds skills, methods, techniques, practice,
 lessons, teachers, manuals, talents that change learning, rust, skill loss, and
 what skills do across lives, bodies and worlds. Weibao, 2026-10-18, on gap G3:
@@ -8,7 +8,7 @@ what skills do across lives, bodies and worlds. Weibao, 2026-10-18, on gap G3:
 
 Each rule names the mistake it prevents. Rules marked **(standing)** or
 **(accepted)** restate an existing rule or accepted decision and bind now through
-it; the rest are proposals. Sources: [round 1 of the skills and learning
+it; the rest are now accepted by the 2026-10-18 decision. Sources: [round 1 of the skills and learning
 palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md) (SLC codes),
 [Skills and talents](SKILLS_AND_TALENTS.md), [skill mechanisms and
 means](worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md) (M codes),

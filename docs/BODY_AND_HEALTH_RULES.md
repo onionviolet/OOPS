@@ -1,6 +1,6 @@
 # Body and health rules
 
-**Proposal, 2026-10-17. Not accepted until Weibao says so (AD32).** Drafted for
+**Accepted 2026-10-18 as standing defaults** (Weibao: "accept based on base and existing rules"; checked against Rulebook 1–12 and AD1–AD38, no conflict found). Every rule reads as the ordinary case under AD5: a world or feature may propose an exception with an in-world reason and cost. Drafted for
 every agent that designs or builds bodies, vitality, injury, illness, poison,
 needs, healing, medicine, healers, recovery, aging effects and body change.
 Weibao, 2026-10-17: "run a topic-expansion-audit round on body, health, injury
@@ -8,8 +8,7 @@ and medicine (G1), saving the palette and a proposed rulebook."
 
 Each rule names the mistake it prevents. Rules marked **(accepted)** restate an
 existing accepted decision (AD38, things work by how they work, accepted
-2026-10-17, binds BHR21 and BHR30) and bind now through that decision; the rest are
-proposals. Sources: AD13, AD19 and related AD lines in the
+2026-10-17, binds BHR21 and BHR30) and bind now through that decision; the rest are now accepted by the 2026-10-18 decision. Sources: AD13, AD19 and related AD lines in the
 [rules index](RULES_INDEX.md), the
 [part 35 palette](worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md)
 (H35 codes) and [round 1 of the body and health palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md)

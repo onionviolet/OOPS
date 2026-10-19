@@ -1,13 +1,13 @@
 # Economy rules
 
-**Proposal, 2026-10-18. Not accepted until Weibao says so (AD32).** Drafted for
+**Accepted 2026-10-18 as standing defaults** (Weibao: "accept based on base and existing rules"; checked against Rulebook 1–12 and AD1–AD38, no conflict found). Every rule reads as the ordinary case under AD5: a world or feature may propose an exception with an in-world reason and cost. Drafted for
 every agent that designs or builds money, prices, merchants, trade, currencies,
 credit, property, wealth and carryover of wealth. Weibao, 2026-10-18: "we might
 want a core rules audit for rules accordingly", after five rounds in the
 [markets palette](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md).
 
 Each rule names the mistake it prevents. Rules marked **(accepted)** restate an
-existing accepted decision and bind now through it; the rest are proposals.
+existing accepted decision and bind now through it; the rest are now accepted by the 2026-10-18 decision.
 Sources: AD lines in the [rules index](RULES_INDEX.md), the markets palette
 (N, M, A codes), [OD11 EC1–EC5](worlds/MULTIVERSE_STRUCTURES.md#od11-local-economies-and-cross-world-value-2026-10-15)
 and the [economy palette](ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md) (ECC).

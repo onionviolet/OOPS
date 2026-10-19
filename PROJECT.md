@@ -61,7 +61,7 @@ The exploratory four-reader limit does not cap full-book coverage.
 
 **Rules index (2026-10-16):** start any task at the [rules index](docs/RULES_INDEX.md).
 It orders authority, registers every rule set (Rulebook 1–12, AR, UR, MR, SR,
-sealed secrets, agent workflow; GR and CX as proposals), routes each task type to
+sealed secrets, agent workflow; GR and CX accepted; BHR, CBR, ECR, SLR, PIR and WA accepted 2026-10-18), routes each task type to
 the codes that apply and restates accepted decisions as AD1–AD38 for aspects
 without a rulebook (knowledge, lives, time, recovery, entry, goals, economy, cheats).
 Shared principles and tensions T1–T7 are reconciled there. The accepted decisions

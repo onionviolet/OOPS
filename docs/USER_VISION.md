@@ -5291,3 +5291,13 @@ was requested. [Checkpoint and scope](gm/dispatch/ui-foundation-2026-10-15/next-
 After the UIL8 before/after comparison, Weibao: "fix misalignment in up like gear with attribute, and comfortable and the dry and stuff? Why do we need duploicate condition along the other one? Also consider status effects at the same time?"
 
 This authorizes the bounded correction: align Attributes and Gear, align weather facts, remove the duplicate ambient temperature/comfort representation, and handle active status effects together. The implementation keeps ambient weather and native exposure warnings in the place header, with body, effects and relevant rates in Condition. A native cold effect may remain after the weather becomes comfortable; exposure and an existing status are distinct facts. Existing clocks and effect owners remain authoritative. [UIL8 round 2](gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL8_REPORT.md#round-2-alignment-single-homes-and-status-effects-2026-10-18) owns implementation and verification; visual acceptance stays open.
+
+## Proposal rulebooks accepted (2026-10-18)
+
+Weibao, 2026-10-18, after being shown the eight proposal sets: "accept based on
+base and existing rules." Checked against Rulebook 1–12 and AD1–AD38 with no
+conflict found. Accepted as standing defaults (AD5 reading: each rule is the
+ordinary case, exceptions need an in-world reason and cost): BHR, CBR, ECR, SLR,
+PIR, WA and GR. CX was already accepted 2026-10-16 (P9Z40). Owner:
+[RULES_INDEX](RULES_INDEX.md). Same message asked to consider combining rulebooks;
+the recommendation is in the session reply and nothing is merged yet.

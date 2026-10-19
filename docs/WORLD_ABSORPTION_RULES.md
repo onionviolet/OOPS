@@ -18,9 +18,9 @@ than restating them:
 | [Architecture rules](ARCHITECTURE_RULES.md) AR1–AR16 | Runtime seams, saves, proof | Landing and proof |
 | [Rulebook](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) 2–3, AD1–AD5 | Worlds set their own rules | Authority for world law |
 
-Status: proposal from 2026-10-17, written at Weibao's request; it becomes
-standing when he accepts it (AD32). Until then agents use the WA rules as the
-recommended way to absorb a world once a world is selected. They do not
+Status: accepted 2026-10-18 as standing defaults (Weibao: "accept based on base
+and existing rules"; no conflict with Rulebook 1–12 or AD1–AD38). Agents use the
+WA rules to absorb a world once a world is selected. They do not
 select a world, accept lore, or authorize implementation of any world's slice.
 
 ## The pipeline

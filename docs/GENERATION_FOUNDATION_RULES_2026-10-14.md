@@ -2,7 +2,7 @@
 
 Date: 2026-10-14. Weibao asked for "procedural generation/foundation
 generation rules to make everything else easier", plus more to consider and
-subtle stuff. This is a proposal, not an accepted decision. It sits under the
+subtle stuff. GR1–GR17 were accepted 2026-10-18 as the standing generator contract (Weibao: "accept based on base and existing rules"; no conflict with MR2 or AD22). Suggested order, lanes and top picks below remain proposals. It sits under the
 [procedural status map](PROCEDURAL_GENERATION_STATUS_2026-10-13.md) and turns
 the one-paragraph root note (V in [story considerations](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#v-generator-architecture-root-note))
 into rules a builder can check.
