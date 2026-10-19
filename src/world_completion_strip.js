@@ -1,7 +1,7 @@
 // One measured-material identity, carried by the existing native inventory key.
 // This is metadata on an item, never another inventory or custody publisher.
+import {check} from './basics.js';
 const sequence=c=>/^simulation:[1-9][0-9]*$/.test(c||'')?Number(c.slice(11)):NaN;
-const check=(ok,text)=>{if(!ok)throw new Error(text);};
 export function worldCompletionStripKey({sampleCause,measuredCause,productionCause,makerId}){
     const values=[sampleCause,measuredCause,productionCause].map(sequence);
     check(values.every(n=>Number.isSafeInteger(n)&&n>0)&&values[0]<values[1]&&values[1]<values[2]&&

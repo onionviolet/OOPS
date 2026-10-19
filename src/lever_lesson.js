@@ -1,11 +1,11 @@
 // LP1 original proposal. Existing field UI and simulation scheduler own all work.
+import {eq} from './basics.js';
 import {LEVER_PRACTICE_BRACE} from './lever_practice_supply.js';
 import {bodyFacts} from './body_progression.js';
 export const LEVER = 'field.lp1.lever';
 export const LEVER_WOOD = JSON.stringify({id:'Rough wood log'});
 export const LEVER_KIT = JSON.stringify({id:'Prepared survey kit'});
 const scene = 'field.lp1.lesson';
-const eq = (fact,value=true,reason) => ({fact,op:'eq',value,...(reason?{reason}:{})});
 const all = (...rules) => ({all:rules,reason:rules.map(r=>r.reason).filter(Boolean).join(' ')});
 const known = eq('actor.field.introduced');
 const body = eq('lp1.body',true,'Lever work needs two usable hands and a mobile body. Let tender hands recover or use a supported body.');

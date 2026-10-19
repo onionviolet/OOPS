@@ -10,7 +10,7 @@ Read dispatch COMMON.md and PLAN.md. Inspected dirty working tree; unrelated cha
 
 ## Outcome and scope
 
-Extended root AP1, AQ1, AR1, AS1, AT1 and AU1 with rankings, in-world media, social calendar, other outsiders, session pacing and defeat arcs. Deliverables: RANKINGS.md, IN_WORLD_MEDIA.md, CALENDAR.md, OTHER_OUTSIDERS.md, SESSION_PACING.md, DEFEAT_ARCS.md, MORE.md and REPORT.md. Main ranking/feed/calendar/defeat and named P2 worktree mixing source audited with file:line evidence. MORE extends codes and adds five cross-domain experiments; REPORT recommends at most five future slices.
+Extended root AP1, AQ1, PS-AR1, AS1, AT1 and PS-AU1 with rankings, in-world media, social calendar, other outsiders, session pacing and defeat arcs. Deliverables: RANKINGS.md, IN_WORLD_MEDIA.md, CALENDAR.md, OTHER_OUTSIDERS.md, SESSION_PACING.md, DEFEAT_ARCS.md, MORE.md and REPORT.md. Main ranking/feed/calendar/defeat and named P2 worktree mixing source audited with file:line evidence. MORE extends codes and adds five cross-domain experiments; REPORT recommends at most five future slices.
 
 Design target: desktop/laptop 1366x768 and 1600x1000; visible public ladder, attributed feed, calendar choices, session-sized episodes and consequential recovery routes. Mobile deferred. No browser behavior claimed by this docs-only packet. Future test-port reservations start at 22300; no server will be started here.
 

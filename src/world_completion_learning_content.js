@@ -1,5 +1,6 @@
 // Original optional local instruction. Definitions grant no teacher, body,
 // stock, source, energy or controller merely by being imported.
+import {all, eq, not} from './basics.js';
 import {REMAINDER_HOME_IDS as H, REMAINDER_HOME_KEYS as K} from './audit_remainder_home_content.js';
 import {worldCompletionStripStamp} from './world_completion_strip.js';
 
@@ -15,9 +16,7 @@ export const worldCompletionLearningSources = [{id: I.method, revision: 1, label
     bioDetail: 'Eda taught the measurement procedure through an actual paid demonstration. Execution needs this learner’s own usable human hands, current sample and compatible material; Eda retains her Grain matching source.'}];
 export const worldCompletionLearningItemSpecifications = [{id: 'Measured drain strip', value: 1,
     description: 'One compatible offcut marked and fitted by an actual trained learner against the current local sample. Its measured provenance stays with the maker or exact recorded transfer. It can line the opted-in notch or fit one timber cover; ordinary larger-material work remains available.'}];
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
 const f = (name, reason) => eq('worldCompletionLearning.' + name, true, reason);
-const all = (...rules) => ({all: rules}), not = rule => ({not: rule});
 const af = (name, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: P + name, value});
 const wf = (name, value) => ({type: 'world', worldId: I.world, key: P + name, value});
 const item = (actor, key, amount, returned = false) => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});

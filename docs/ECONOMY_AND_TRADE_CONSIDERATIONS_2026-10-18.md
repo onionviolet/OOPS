@@ -168,7 +168,7 @@ Lane outputs: [E1 owners and engine](gm/dispatch/economy-2026-10-18/E1_OWNERS_AN
 | Code | Item | Level | Effort | Done check |
 |---|---|---|---|---|
 | ECL1 | Reference basket field on the world card, with one filled example | designer | S | Two worlds list basket prices; a default exchange rate computes from them |
-| ECL2 | Faucet and sink ledger (debug) | mid coder | S–M | Ledger lists each money change with its named source over a window; read-only |
+| ECL2 | Faucet and sink ledger (debug) | mid coder | S–M | Ledger lists each money change with its named source over a window; read-only  **Done 2026-10-19 with ECX1, implemented and browser-verified; not human-accepted.** See ECX1 and ECL2 evidence below |
 | ECL3 | Baseline job income tied to the basket | mid coder | S | A day of the job pays about one day's basket wage in that world |
 | ECL4 | Property upkeep and rent for one owned room | mid coder | M | Rent arrives and upkeep leaves on schedule, offline included, with a recap line |
 | ECL5 | Margin display on the sale of a crafted item | mid coder | S | Sale shows known input cost and price; unknown inputs show as unknown |
@@ -275,3 +275,59 @@ clock or generic resolver. LATER: one synthetic composed case at that seam,
 strong cross-domain agent, medium effort when selected; done by relevant source
 checks and a useful rebuilt desktop journey with current-state persistence.
 No runtime change or new implementation priority in this round.
+
+## ECX1 and ECL2 evidence, 2026-10-19
+
+Selected under the 2026-10-19 rulebook acceptance as step 1 of E1's build
+order. Rules: ECR15, ECR16, AR1–AR16, AD36. No player-visible change by design:
+the seam keeps today's arithmetic, and the ledger is a debug projection.
+
+**Write sites found (grep, 2026-10-19 after CBL1/SLL12).** 15 direct writes to
+the hero's purse: 10 in `src/main.js` (persistExpansion commit, habitat commit,
+mixture publish, `add_money_to_character`, save load, new game, start layers,
+and three writes to a save copy for the village career's tuition, kit debt and
+patrol stipend) and 5 in other modules (`expansion_persistence.js`,
+`generated_people_ui.js`, `story_requests.js`, `heir_inheritance.js`,
+`mixture_native.js`, all save copies). Not counted as purse writes: staged plan
+values (`plan.external.money`, `plan.money`, `p.native.money`, the durability
+repair's shadow actor), whose net change commits through the seam, and the
+`Hero` constructor's `money = 0` field declaration.
+
+**Change.** `src/money.js` (no imports) writes a save copy with a named source
+and no ledger row. `src/economy_domain.js` (registry domain `economy`, no save
+slice) owns `setPurse`/`addPurse` for the live purse; each nonzero change is one
+row `{n, at, source, delta, balance, detail?, baseline?}`, last 500 kept.
+Expansion plans are named by the action ids of the events they appended (a
+trade is `native.trade` with its label as detail); `add_money_to_character` now
+takes a source from each caller (activity, reward, village career, generated
+people, story request, debug console). Load, new game and start layers are
+baseline rows, listed but not totalled. Five native transactions that own the
+purse bind the ledger, so a rolled-back batch drops its rows. `src/main.js`
+growth 0 (one import joined, one `const` joined, call sites edited in place).
+
+**Compatibility decision.** No save change: the ledger is session memory, never
+a slice, so save, reload and import need no migration; a reload starts a new
+window with a `load` row. ECL2's "over a window" is the session's last 500 rows,
+filtered by game minute.
+
+| Check | Result |
+|---|---|
+| `node --test tests/economy_domain.test.js` (new) | 4/4: named rows and unchanged arithmetic, zero changes skipped, baseline not a faucet, unnamed writes refused, window filter, save copies add no row, rollback drops rows, plan naming |
+| `tests/headless/economy_journey.test.js` (new) | 1/1: village market buy then sale through the UI, two `native.trade` rows with labels, sink then faucet, no `economy` key in the save, reload starts with `load` |
+| Golden journey, `git archive HEAD` copy versus this change (village route plus one sale, seed 20261014) | Canonical saves identical at all five checkpoints (talked, worked, bought, sold, final), message log identical, no page errors; money 102, 102, 74, 84, 84 in both |
+| `npm run build && npm test` | build OK; 2251/2251 |
+| `node --test tests/headless/*.test.js` | 8/8 |
+| `npm run check:arch` | main.js growth 0; 6 main imports; 226 cyclic edges |
+| `npm run check:rules` | PASS |
+| Browser, fresh origin localhost:19561, 1920×1080, `?test_hooks=1`, bundle `v0.6-ad95d6c1e9d2` | New hero; village trader unlocked in the stored save, reloaded; bought one Coal (102 to 74), sold it back (74 to 81); `simulationTestHooks.project('economy')` lists `load` +102 baseline, `native.trade` −28 and +7 with trade labels; sinks −28, faucets +7. Console errors only the expected `private_packs/manifest.json` 404 |
+
+**Gaps and findings.**
+- Seam, not policy yet: no integer rule, range check or overflow plan (ECR16's
+  "exact units" and "very large values" stay open); the seam is where they go.
+- Heir leftovers write the heir's starting envelope, so they appear as the next
+  session's `load` baseline rather than an inheritance faucet.
+- Plans that append no event get the generic name `native.plan`; a stager can
+  set `plan.moneySource` when one shows up in the ledger.
+- Code collision: `ECX1` also names "Debug eye" in
+  `ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md` after its
+  CX→ECX rename the same day.

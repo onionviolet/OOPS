@@ -4,7 +4,7 @@ Status: COMPLETE for the requested document/web research scope. Writer: this gam
 
 Output: [GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md](../../../../research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md).
 
-Counts: 35 comparison cases cover all supplied candidates, with several installments separated and three additions (Sunless Sea, DCSS, Cavernous II). 16 patterns GR1-GR16; 8 YAIRPG mapping families (OS, NS, VS, VM, LK, SA, RX, UI); 5 ranked suggestions, all PROPOSAL. Eleven prior candidate dossiers reused, plus Sunless Sea/DCSS and Qud's deeper re-audit. All cases have (a)-(d), inferred design fit, and an attributed complaint or explicit UNKNOWN plus separate inferred friction.
+Counts: 35 comparison cases cover all supplied candidates, with several installments separated and three additions (Sunless Sea, DCSS, Cavernous II). 16 patterns OGR1-OGR16; 8 YAIRPG mapping families (OS, NS, VS, VM, LK, SA, RX, UI); 5 ranked suggestions, all PROPOSAL. Eleven prior candidate dossiers reused, plus Sunless Sea/DCSS and Qud's deeper re-audit. All cases have (a)-(d), inferred design fit, and an attributed complaint or explicit UNKNOWN plus separate inferred friction.
 
 Authority read: COMMON.md, AGENTS.md, PROJECT.md current-priority summary, USER_VISION start direction, intro rounds 3-8. Existing NICHE_GAME_REFERENCES, RESEARCH_IDLE_GAMES and coverage reconciliation reused. Conclusions do not change accepted direction. Desktop proposal target: 1366x768; mobile deferred. One realm/one prestige remains the milestone scope.
 

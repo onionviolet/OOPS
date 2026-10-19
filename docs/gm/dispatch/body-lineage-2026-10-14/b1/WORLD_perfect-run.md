@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | MS2 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § PR1–PR4; novel candidates bounded author premise. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 CN7 CN8 MS1 TR3 TR6 WR1 HI4 OB4 SB5 BM6 SR1 | Price and qualify one elixir-body change while the checkpoint’s retention stays attached to its holder, not every citizen. |
+| Fit | PH1 SG3 SG4 SG5 CN7 CN8 MS1 TR3 TR6 WR1 HI4 OB4 SB5 BM6 BSR1 | Price and qualify one elixir-body change while the checkpoint’s retention stays attached to its holder, not every citizen. |
 | Skip families | GN LQ AG BD CL BP MX PR RP | GN/BD/CL/BP/MX/RP: elixir categories are acquisition leads, not genetic clans. Do not reveal PR-S1/PR-S2 or changed holder truth. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | BM1 OB5 | [WORLD_CARDS.md](../../../../WORLD_CARDS.md), §8; How you grow. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 LQ14 MS1 TR3 TR6 WR1 WR5 HI4 OB4 BM5 BM6 SR1 | Fit and maintain an implant, then train coordination; a paid backup preserves only its declared body/memory transfer. |
+| Fit | PH1 SG3 SG4 SG5 LQ14 MS1 TR3 TR6 WR1 WR5 HI4 OB4 BM5 BM6 BSR1 | Fit and maintain an implant, then train coordination; a paid backup preserves only its declared body/memory transfer. |
 | Skip families | GN AG CN BD CL BP MX PR SB RP | BD/CL/BP/MX/RP: blueprints and bought backups do not establish bloodline powers. A backup is not automatically an autonomous copied self. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: the card’s selected local mechanism. Dial: detail or explicitly declared alternative premise; actual materials, support, preparation and time pay for the change, without universal side effects.

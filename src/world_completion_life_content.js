@@ -1,5 +1,6 @@
 // Original home-world completion proposals. Registration grants no history,
 // stock, person, access, prestige or automatic enrollment.
+import {all, eq} from './basics.js';
 import {REMAINDER_HOME_IDS as H, REMAINDER_HOME_KEYS as K} from './audit_remainder_home_content.js';
 import {worldCompletionStripStamp} from './world_completion_strip.js';
 
@@ -8,8 +9,6 @@ export const WORLD_COMPLETION_LIFE_IDS = Object.freeze({world:'base.frontier', g
     public:'world.completion.life.public_account', private:'world.completion.life.private_account',
     revisit:'world.completion.life.changed_return', loadedDrain:'world.completion.life.loaded_drain', measuredLine:'world.completion.life.measured_line', eda:H.eda});
 const I=WORLD_COMPLETION_LIFE_IDS;
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
-const all=(...rules)=>({all:rules});
 const af=(key,value=true)=>({type:'fact',scope:'actor',actor:'player',key:I.prefix+key,value});
 const know=(key,value,kind='observation',by='player')=>({type:'knowledge',actor:'player',key:I.prefix+key,stage:'seen',value,
     basis:{kind,attributedTo:by,situationId:I.situation}});

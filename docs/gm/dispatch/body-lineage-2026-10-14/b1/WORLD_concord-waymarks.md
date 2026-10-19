@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | None qualified | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § Wish Upon the Stars, named original card. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 MS1 MS2 TR6 WR1 HI4 OB4 BM6 SR1 | Author one openly quoted body or memory exchange; keep succession and remembered relationships separately owned. |
+| Fit | PH1 SG3 SG4 SG5 MS1 MS2 TR6 WR1 HI4 OB4 BM6 BSR1 | Author one openly quoted body or memory exchange; keep succession and remembered relationships separately owned. |
 | Skip families | GN LQ AG CN BD CL BP MX PR SB RP | AG/LQ/BD/CL/BP/MX/PR/SB/BM/RP and unpicked CN/GN: no public body rulebook frozen here. Source inspiration does not qualify a bloodline or reproduction law. No sealed truth is reproduced. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: conservative public proposal. Dial: one explicitly original mechanism with real authored inputs/cost; private card qualification remains open.

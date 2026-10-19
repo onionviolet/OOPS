@@ -79,6 +79,14 @@ export function createDom(options = {}) {
         }
     }
 
+    // Tree links, attributes and listeners live behind prototype accessors, as in a real DOM, where
+    // a node has no own data properties. Own-property walks (native transaction snapshots of a
+    // combat that holds UI slots) then see what a browser shows them instead of the whole tree.
+    for(const field of ['parentNode', 'childNodes', '_attrs', '_listeners']) {
+        const store = new WeakMap();
+        Object.defineProperty(EventTarget.prototype, field, {configurable:true, get() {return store.get(this);}, set(v) {store.set(this, v);}});
+    }
+
     class Node extends EventTarget {
         constructor(type) {super(); this.nodeType = type; this.parentNode = null; this.childNodes = [];}
         get ownerDocument() {return doc;}
@@ -332,6 +340,17 @@ export function createDom(options = {}) {
         getAnimations() {return [];}
         getBoundingClientRect() {return {x:0, y:0, top:0, left:0, right:0, bottom:0, width:0, height:0, toJSON() {return this;}};}
         getClientRects() {return [];}
+        // Layout is not modeled, so this reports the DOM-level answer: false when detached, or when this node or an
+        // ancestor has the hidden attribute or an inline display:none/contents (real Chrome 105+, Firefox 106+, Safari 17.4+).
+        // Stylesheet display is judged by the runner's whyHidden, not here.
+        checkVisibility() {
+            if(!this.isConnected) return false;
+            for(let n = this; n && n.nodeType === 1; n = n.parentNode) {
+                const d = (n.style?.display ?? '').trim();
+                if(d === 'none' || d === 'contents' || (n.hasAttribute('hidden') && n.getAttribute('hidden') !== 'until-found')) return false;
+            }
+            return true;
+        }
         get offsetWidth() {return 0;} get offsetHeight() {return 0;} get offsetTop() {return 0;} get offsetLeft() {return 0;} get offsetParent() {return this.parentElement;}
         get clientWidth() {return 0;} get clientHeight() {return 0;} get scrollWidth() {return 0;} get scrollHeight() {return 0;}
         setPointerCapture() {} releasePointerCapture() {} hasPointerCapture() {return false;}
@@ -354,6 +373,7 @@ export function createDom(options = {}) {
     for(const [p, a] of Object.entries(STR_PROPS)) if(!Object.getOwnPropertyDescriptor(Element.prototype, p))
         Object.defineProperty(Element.prototype, p, {get() {return this.getAttribute(a) ?? (p === 'type' && this.localName === 'input' ? 'text' : p === 'type' && this.localName === 'button' ? 'submit' : '');}, set(v) {this.setAttribute(a, v);}, configurable:true});
 
+    const NodeFilter = Object.freeze({SHOW_ALL:0xFFFFFFFF, SHOW_ELEMENT:0x1, SHOW_TEXT:0x4, SHOW_COMMENT:0x80, FILTER_ACCEPT:1, FILTER_REJECT:2, FILTER_SKIP:3});
     function descendants(root, out = []) {
         for(const c of root.childNodes) if(c.nodeType === 1) {out.push(c); descendants(c, out);}
         return out;
@@ -559,7 +579,12 @@ export function createDom(options = {}) {
         createDocumentFragment() {return new DocumentFragment();}
         createEvent() {return new Event('');}
         createRange() {return {selectNodeContents() {}, setStart() {}, setEnd() {}, collapse() {}, getBoundingClientRect() {return {width:0,height:0,top:0,left:0};}, createContextualFragment: h => {const f = new DocumentFragment(); f.append(...parseHTML(h)); return f;}};}
-        createTreeWalker(root) {const all = descendants(root); let i = -1; return {currentNode:root, nextNode() {i++; return this.currentNode = all[i] ?? null;}};}
+        // whatToShow is a NodeFilter mask: bit (nodeType - 1), as in the DOM spec. Snapshot order is document order.
+        createTreeWalker(root, whatToShow = NodeFilter.SHOW_ALL) {
+            const all = [], walk = n => {for(const c of n.childNodes) {if(whatToShow & (1 << (c.nodeType - 1))) all.push(c); walk(c);}};
+            walk(root); let i = -1;
+            return {root, whatToShow, currentNode:root, nextNode() {i++; return this.currentNode = all[i] ?? null;}};
+        }
         getElementById(id) {
             const hit = byId.get(id);
             if(hit && hit._attrs.get('id') === id && hit.isConnected) return hit;
@@ -594,5 +619,5 @@ export function createDom(options = {}) {
         indexIds(root);
     }
     return {document:doc, loadHTML, parseHTML, setWindow(w) {win = w;}, unsupported,
-        classes:{Event, CustomEvent, UIEvent, MouseEvent, PointerEvent, KeyboardEvent, FocusEvent, InputEvent, DragEvent, EventTarget, Node, Text, Comment, Element, HTMLElement:Element, DocumentFragment, Document}};
+        classes:{NodeFilter, Event, CustomEvent, UIEvent, MouseEvent, PointerEvent, KeyboardEvent, FocusEvent, InputEvent, DragEvent, EventTarget, Node, Text, Comment, Element, HTMLElement:Element, DocumentFragment, Document}};
 }

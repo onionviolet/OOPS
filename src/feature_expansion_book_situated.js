@@ -1,12 +1,6 @@
 // Reviewed supplied-edition analysis and inert local authoring proposals.
 // These helpers inspect supplied snapshots. They never settle native state.
-const freeze = value => {
-  if (value && typeof value === 'object' && !Object.isFrozen(value)) {
-    Object.values(value).forEach(freeze);
-    Object.freeze(value);
-  }
-  return value;
-};
+import {deepFreezeUnlessFrozen as freeze} from './basics.js';
 const isId = value => typeof value === 'string' && value.length > 0;
 const outputId = value => isId(value) ? value : null;
 const evidence = (lane, claimId, locator, file) => ({

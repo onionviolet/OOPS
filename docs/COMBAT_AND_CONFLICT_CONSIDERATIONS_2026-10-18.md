@@ -169,9 +169,9 @@ Ranked cheapest first. Each is a proposal; none is selected.
 
 | Code | Step | Level, effort | Done check |
 |---|---|---|---|
-| CBL1 | Extract `publishDefeat` with typed outcome and cause; call it from the three `kill_player` branches; default outcome unconscious (C1-S1, CBC1) | Medium, S | Behavior identical on a golden fight; the defeat record shows outcome and cause; save, reload and import keep the new counter |
+| CBL1 | Extract `publishDefeat` with typed outcome and cause; call it from the three `kill_player` branches; default outcome unconscious (C1-S1, CBC1) | Medium, S | Behavior identical on a golden fight; the defeat record shows outcome and cause; save, reload and import keep the new counter  **Done 2026-10-19, implemented and browser-verified; not human-accepted.** See CBL1 evidence below |
 | CBL2 | Wear on blocks and parries plus a per-instrument broken rule (C1-S3, CBC9, CBC10) | Low, S | Durability off: identical. On: blocks wear the shield, misses barely wear; a weapon at zero follows its declared rule; no save change |
-| CBL3 | Route the three saved battles through the publisher (C1-S2, CBX1) | Medium, S–M | The duel, party and sluice battles write the same defeat record; BHL7's injury applies in all six paths when on |
+| CBL3 | Route the three saved battles through the publisher (C1-S2, CBX1) | Medium, S–M | The duel, party and sluice battles write the same defeat record; BHL7's injury applies in all six paths when on**Done 2026-10-19 (publication only; BHL7 injury is a later consumer), implemented and browser-verified; not human-accepted.** See CBL3 evidence below |
 | CBL4 | Subdue stance and enemy `yields_at` for humanlike templates, through the existing `planDefeat` hook (C1-S7, CBC32) | Medium, M | A Slums thug yields in subdue; no harvest from a yielded enemy; loot reduced; log names the outcome |
 | CBL5 | AD8 migration of the opponent display to learned facts per kind (C1-S8, CBC20) | Medium, S–M | First sight shows impressions and `???`; kill count or identify fills fields; rebuilt browser check at 1920×1080 and 1366×768 |
 | CBL6 | Flee with an escape check, comfort setting keeping the free exit (C1-S5, CBC28) | Medium, M | Failed flee gives free exchanges; success publishes escaped; the setting restores today's behavior |
@@ -190,3 +190,74 @@ clock or generic resolver. LATER: one synthetic composed case at that seam,
 strong cross-domain agent, medium effort when selected; done by relevant source
 checks and a useful rebuilt desktop journey with current-state persistence.
 No runtime change or new implementation priority in this round.
+
+## CBL1 evidence, 2026-10-19
+
+Selected under the 2026-10-19 rulebook acceptance (task A4: highest-ranked
+LATER items that fit the milestone). Rules: CBR2, CBR5, CBX2, CBX5, AR1–AR16,
+AD36. No player-visible change by design: CBL1's done check asks for identical
+behavior; CBL3/CBL4 are the consumers that will show outcomes.
+
+**Change.** New registry domain `src/defeat_domain.js` (slice `defeat`,
+`{schema:1, counts:{outcome:n}, last:{outcome, cause:{kind, place, by}}}`).
+`publishDefeat` takes one of eight typed outcomes (unconscious, knocked_out,
+yielded, routed, captured, withdrew, escaped, killed) and a separate cause; the
+cause lists the opponents still standing by their shown names only (AD8).
+`src/main.js`, growth 0: one import joined to the registry import line, the
+domain added to the native strike transaction's bindings (a rolled-back strike
+rolls back its publication), and one call in each of the three combat
+`kill_player` branches. The leisure branch publishes inside its
+`persistExpansion` write and undoes the record if the write throws.
+`total_deaths` is untouched (CBX5); titles still read it.
+
+**Compatibility decision.** Old saves have no slice and load an empty record;
+the record is not seeded from `total_deaths`, which keeps the earlier history.
+No migration of existing fields.
+
+| Check | Result |
+|---|---|
+| `node --test tests/defeat_domain.test.js` (new) | 3/3: typed outcome and cause, refusals change nothing, failed durable write and transaction rollback restore the record, slice round trip, old save, seven malformed slices |
+| `tests/headless/defeat_journey.test.js` (new) | 1/1: fresh save with no slice, walk to Cave room, beaten; `total_deaths` 1 and the usual log line; record `unconscious` by Wolf rat in Cave room; reload and Export/Import exact |
+| Golden fight, same seed, HEAD copy versus HEAD plus this change | Canonical save identical except the new `defeat` key; message log identical; no errors |
+| `npm run build && npm test` | build OK; 2246/2246 |
+| `node --test tests/headless/*.test.js` | 7/7 |
+| `npm run check:arch` | main.js growth 0; 6 main imports; 226 cyclic edges |
+| `npm run check:rules` | PASS |
+| Browser, fresh origin localhost:19551 (empty storage), 1920×1080, bundle `v0.6-42beae88f170` | Seeded a new hero with Nearby cave open; walked to Cave room; beaten by wolf rats; stored save and projection show the unconscious record; page reload keeps it; Export string taken, a second defeat made it 2, literal Import of the export restored 1; no console errors. Travel used DOM clicks on the exact elements (pointer clicks do not land in the emulated pane, as in M4) |
+
+**Gaps and rule findings (for the conformance scan).**
+- CBR2 says all code paths call the publisher. Still outside it: the three saved
+  battles (CBL3), the structured-pack terminal death in
+  `structured_life_runtime.js` (it raises `total_deaths` directly), and the
+  non-combat collapse branch of `kill_player`, which is called every tick while
+  health stays at zero and so cannot publish without a once-per-collapse guard.
+- AR1 allows one registration line in `main.js` per feature, but `check:arch`
+  holds `main.js` at zero growth with no headroom, so features join lines
+  instead (this slice and M4 both did). Either the ratchet should grant one line
+  per registered domain or AR1's wording should say "zero net growth".
+
+## CBL3 evidence, 2026-10-19
+
+Rules: CBR2, CBR5, CBX5, AR1, AD36. Target: desktop 1920x1080; mobile deferred. The three saved battles
+and the structured-pack terminal death now publish through `publishDefeat` ([DRC4, DRC3](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md)).
+
+- Each pure battle step stages `plan.defeat` only when the player is the one reduced to 1 HP:
+  road duel `src/native_battle.js`, Lio party `src/party_battle.js`, sluice `src/feature_expansion_battle.js`
+  (`savedBattleLoss`, outcome unconscious, cause kind combat, `by` = the active opponents, `place` null because a
+  saved battle sits in its own session). A win, withdrawal or Lio stepping out stages nothing.
+- `persistExpansionPlan` (`src/expansion_persistence.js`) publishes `plan.defeat` inside the durable write: the
+  record is in place while the save is built and undone if the write throws. No host or `main.js` change (growth 0).
+- Structured pack: `reconcileStructuredLifePlan` stages a `killed` / `harm` record only in the branch that creates
+  the `structuredDeath` proof, so it is once per life. `total_deaths` rules are unchanged (CBX5); no save-format
+  change (the existing defeat slice validates it).
+- Regressions: `frontier_campaign.test.js` (road duel: stage, rollback on quota failure, publish on success,
+  withdrawal none), `party_battle.test.js` (party: same), `cooling_refinement.test.js` (sluice: non-fatal blow
+  stages none, fatal stages unconscious naming tollkeepers), `structured_life_runtime.test.js` (killed once).
+- Gates: `npm run build && npm test` 2254 pass; `node --test tests/headless/*.test.js` 8 pass; `check:arch`
+  main.js growth 0; `check:rules` pass.
+- Browser (rebuilt bundle, fresh origin `127.0.0.1:18741`, 1920x1080, generated fixture with the Lio party battle
+  open and the player at low HP): the native timers played the duel to a `lost` result; the saved `defeat` slice
+  read `{unconscious: 1}`, last cause combat by Mara, and was identical after reload. A same-fixture run with more
+  HP resolved `won` with an empty slice. Sluice and structured death are covered by the unit regressions only
+  (implemented-unverified in the browser).
+- Not done: BHL7 injury consumer, per-battle outcomes other than unconscious (yield, escape), a CBL4 display.

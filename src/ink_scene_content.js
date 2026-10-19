@@ -1,3 +1,4 @@
+import {deepFreeze as freeze, eqNoReason as eq} from './basics.js';
 import {TIDEMARK_IDS as ids, TIDEMARK_LOCATIONS as places} from './feature_expansion_destination.js';
 import {tidemarkContext, previewTidemarkAction, commitTidemarkAction, activeTidemarkVisit} from './feature_expansion_destination_host.js';
 import {previewSimulationCommand, commitSimulationCommand} from './simulation.js';
@@ -8,7 +9,6 @@ import voiceCues from '../docs/gm/feature-wave/ink/voice-cues/VOICE_CUES.json' w
 
 export const INK_RESPONSES = Object.freeze(['ask_terms', 'material', 'coin', 'borrow_tool', 'return_tool', 'use_tool', 'teach', 'refuse', 'leave', 'relay_terms', 'relay_honest', 'relay_alias', 'relay_credential', 'relay_registry', 'relay_personal', 'relay_office', 'relay_work', 'relay_correction', 'relay_refuse', 'relay_leave', 'nested_lin_open', 'nested_lin_work', 'nested_lin_refuse', 'nested_lin_texture', 'nested_lin_account', 'nested_lin_supply', 'nested_hub_terms', 'nested_hub_work', 'nested_hub_train', 'nested_hub_refit', 'nested_hub_role', 'nested_hub_leave', 'nested_offer_terms', 'nested_offer_accept', 'nested_offer_cooperate', 'nested_offer_decline', 'nested_offer_leave', 'nested_local_report', 'nested_local_objective', 'nested_local_support', 'nested_local_extend', 'nested_local_withdraw', 'nested_local_extract', 'nested_local_recover', 'nested_local_refuse', 'nested_local_leave', 'nested_return_report', 'nested_return_settle', 'nested_return_dispute', 'nested_return_refit', 'nested_return_revisit', 'nested_return_stay', 'nested_return_leave']);
 export const INK_SCENE_IDS = Object.freeze({scene:'feature-wave-negotiation',world:ids.world,keeper:ids.keeper,location:places.dock});
-const eq=(fact,value=true)=>({fact,op:'eq',value});
 const knowledge=(key,value)=>({type:'knowledge',actor:'player',key:`ink.tidemark.${key}`,stage:'seen',value});
 const narrative=(name,label,effects=[])=>({id:`ink.tidemark.${name}`,revision:1,label,actorId:'player',worldId:ids.world,location:places.dock,
     targetId:ids.keeper,coLocated:true,participants:[ids.keeper],group:'ink',requires:{all:[eq('tidemark.nativeBound'),eq('world.tidemark.met')]},costs:[],effects});
@@ -113,7 +113,6 @@ export function createTidemarkInkHost({bindings=INK_COMMAND_BINDINGS}={}) {
 }
 
 
-const freeze = value => {if(value && typeof value === 'object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};
 export const INK_WORLD_VOICE_CUES = freeze(voiceCues.rows);
 export const ORIGINAL_RELAY_VOICE = freeze({id:'ink.voice.original_relay',provenance:'original',worldId:'base.frontier',sceneId:'relay.office',
     actorIds:[relayIds.holder,relayIds.clerk,relayIds.witness],greeting:'The desk is open; the work still has to be done.',

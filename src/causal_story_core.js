@@ -1,3 +1,4 @@
+import {check, copy, finite, natural, object, sameJson as same} from './basics.js';
 import {
     CAUSAL_STORY_SCHEMA, CAUSAL_STORY_ENGINE_SCHEMA, CAUSAL_STORY_DEFINITION_REVISION,
     CAUSAL_STORY_WORLD, CAUSAL_STORY_LOCATION, CAUSAL_STORY_PEOPLE, CAUSAL_STORY_PROOFS,
@@ -7,13 +8,7 @@ import {rollCombatStrike, mitigateCombatDamage} from './combat_math.js';
 
 // These functions stage only the optional causal ledger. The existing native,
 // simulation, job, clock and durable publication owners retain all actual means.
-const check = (ok, message) => {if(!ok) throw new Error(message);};
-const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
-const natural = v => Number.isSafeInteger(v) && v >= 0;
-const finite = v => Number.isFinite(v) && Math.abs(v) <= Number.MAX_SAFE_INTEGER;
 const id = v => typeof v === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !['__proto__','constructor','prototype'].includes(v);
-const copy = v => structuredClone(v);
-const same = (a,b) => JSON.stringify(a) === JSON.stringify(b);
 const prefix = p => `causal.story.${p}.`;
 const sourceIds = new Set(Object.values(CAUSAL_STORY_SOURCES));
 const siteIds = new Set(['causal.story.research','causal.story.care','causal.story.ordinary',

@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | GN2 BD9 MS5 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § The Crucible; succession row A Novel Concept. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 PH4 PH6 SG3 SG4 SG5 CN5 CN6 CN8 TR3 TR6 WR1 HI4 OB4 BM2 SR1 | Distinguish body tempering, purification and learned action; a revived body does not erase retained soul injury. |
+| Fit | PH1 PH4 PH6 SG3 SG4 SG5 CN5 CN6 CN8 TR3 TR6 WR1 HI4 OB4 BM2 BSR1 | Distinguish body tempering, purification and learned action; a revived body does not erase retained soul injury. |
 | Skip families | LQ AG CL BP MX PR SB RP | BP/CL/MX/RP: named bloodline routes need exact source cards; do not promote every trope to canon. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

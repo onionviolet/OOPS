@@ -1,3 +1,4 @@
+import {check as assert, copy, finite, natural, object, sameStructural as same} from './basics.js';
 import {BODY_IDS,validateBodyRecord} from './backlog_expansion_body.js';
 import {
     CAUSAL_STORY_SCHEMA, CAUSAL_STORY_ENGINE_SCHEMA, CAUSAL_STORY_DEFINITION_REVISION,
@@ -11,18 +12,8 @@ import {readNativeEquipment} from './native_equipment_transaction.js';
 import {validateItemKey, validateGameplaySnapshot} from './gameplay_transactions.js';
 import {jsonData, stableId} from './simulation_contracts.js';
 
-const assert = (ok, message) => {if(!ok) throw new Error(message);};
-const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
-const copy = value => structuredClone(value);
-const natural = value => Number.isSafeInteger(value) && value >= 0;
-const finite = value => Number.isFinite(value) && Math.abs(value) <= Number.MAX_SAFE_INTEGER;
 const shape = (value, fields, label) => assert(object(value) && Object.keys(value).length === fields.length &&
     fields.every(key => Object.hasOwn(value, key)), `Unsupported ${label} fields.`);
-const same = (a, b) => {
-    if(a === b) return true;
-    if(Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((v, i) => same(v, b[i]));
-    return object(a) && object(b) && Object.keys(a).length === Object.keys(b).length && Object.keys(a).every(k => Object.hasOwn(b, k) && same(a[k], b[k]));
-};
 const people = causalStoryPersonIds;
 const places = Object.freeze([CAUSAL_STORY_LOCATION, 'Shack']);
 const questIds = Object.freeze(CAUSAL_STORY_PROOFS.map(id => causalStoryId(id, 'quest')));

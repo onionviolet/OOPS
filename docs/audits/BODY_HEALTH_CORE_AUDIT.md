@@ -13,7 +13,7 @@ priority or turns deferred work into a gate (AGENTS.md).
 | Owner | Role |
 |---|---|
 | [Body and health palette](../BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md) | Root palette, rounds appended (BHC codes) |
-| [Body and health rules](../BODY_AND_HEALTH_RULES.md) | Proposed rulebook BHR1–BHR30, registered in RULES_INDEX |
+| [Body and health rules](../BODY_AND_HEALTH_RULES.md) | Rulebook BHR1–BHR30, accepted 2026-10-18 (see RULES_INDEX), registered there |
 | [Part 35](../worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md) | Earlier palette (H35 codes); extended, not replaced |
 | [First run dispatch](../gm/dispatch/body-health-2026-10-17/) | Lane outputs B1 and B2 |
 | Sibling owners | Hunger and needs, genetics plan GHS44/GHS86, genetics and brood, nonhuman body docs, tools palette, making rules |

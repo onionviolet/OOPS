@@ -1,3 +1,4 @@
+import {all, eq} from './basics.js';
 import {remainderCombatFitLioSupported,remainderCombatFitHandsUsable} from './audit_remainder_combat_fit_facts.js';
 // Original finite preparations/objectives over existing native stock and jobs.
 // All balance, stock and fiction are reversible local proposals.
@@ -70,7 +71,6 @@ export function remainderCombatObjectivesFacts(state,context={},registry){
             (m?.supply.next||1)<=3&&!m?.supply.history.some(e=>e.status==='completed'),
         'remainder.combatObjectives.maintainSupported':remainderMaintainedBraceSupported(state,context)};
 }
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})}),all=(...rules)=>({all:rules});
 const item=(key,amount,actor='player',reservationReturn=false)=>({type:'item',actor,key,amount,...(reservationReturn?{reservationReturn:true}:{})});
 const stamina=amount=>({type:'vital',key:'stamina',amount}),af=(key,value=true)=>({type:'fact',scope:'actor',key:`remainder.combat_objectives.${key}`,value});
 const know=(key,value,stage='seen')=>({type:'knowledge',key:`remainder_combat_objectives.${key}`,stage,value});

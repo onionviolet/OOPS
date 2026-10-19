@@ -1,5 +1,7 @@
 # PC2: procedural rule modules
 
+> Codes renamed 2026-10-19 from MR1-MR13 to MMR1-MMR13 to avoid collision with registered MR (making rules). See [reserved prefixes](../../../../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 2026-10-14. **DOCS DELIVERED; PROPOSALS ONLY.** Authorized by the user, [lane prompt](../PC2.md) and [COMMON](../COMMON.md). This report owns a proposed module contract and future acceptance cases, not world physics or an implementation dispatch. Writes belong only to `pc2/`. No source edits, staging, commits, builds, gameplay tests, browser runs or private-save access.
 
 Evidence labels: **SHOWN** means read source at the cited path and line; **STATED** means a live document says it; **INFERRED** means a proposed contract or conclusion. All new schemas, policies, numbers, packs, tests and next steps below are INFERRED proposals. A section's label applies to its tables and examples. No external canon claims are made.
@@ -10,8 +12,8 @@ Evidence labels: **SHOWN** means read source at the cited path and line; **STATE
 |---|---|---|
 | PC2-F1 / SHOWN | MDF2's one-consumer count is stale. Production importers of `rules.js` are [action legibility](../../../../../src/action_legibility.js) (`src/action_legibility.js:3`), [simulation contracts](../../../../../src/simulation_contracts.js) (`src/simulation_contracts.js:4`), [capabilities](../../../../../src/capabilities.js) (`src/capabilities.js:1`) and [expansion engine](../../../../../src/expansion_engine.js) (`src/expansion_engine.js:55`). [Evaluator](../../../../../src/rules.js) (`src/rules.js:3`) returns `met`, `known`, `reasons`; it does not publish effects. | Reuse its predicate contract without changing existing callers. Four direct production importers does not prove a general rule-module resolver exists. |
 | PC2-F2 / SHOWN | Search of `src/` and `tests/` found the tag-store import only in [its test](../../../../../tests/tag_store.test.js) (`tests/tag_store.test.js:3`). [TagStore.matches](../../../../../src/tag_store.js) (`src/tag_store.js:181`) returns a boolean, not an explanation; [tagFacts](../../../../../src/tag_store.js) (`src/tag_store.js:100`) can feed missing-aware predicates. | MDF1 remains supported at this read. Indexing and an explanatory rule adapter still need a first production reader. |
-| PC2-F3 / SHOWN | [Pocket rules](../../../../../src/pocket_realm_rules.js) (`src/pocket_realm_rules.js:4`) construct a doorway connection. [Boundary rules](../../../../../src/realm_boundary_rules.js) (`src/realm_boundary_rules.js:103`) evaluate explicit means/exceptions; [cost quoting](../../../../../src/realm_boundary_rules.js) (`src/realm_boundary_rules.js:125`) aggregates debits; [boundary view](../../../../../src/realm_boundary_rules.js) (`src/realm_boundary_rules.js:143`) uses retained observer evidence. | MR6 must not describe an existing player-authored physics editor. These are useful contracts, not a general law-edit API. |
-| PC2-F4 / STATED + INFERRED | MR4 suggests specific beats general, world beats core, later overlay wins and forbid beats permit. [G3 overlay order](../../gen-rules-2026-10-14/g3/OVERLAYS.md#o2-merge-order) is for selection; it explicitly cannot bypass hard eligibility. [Typed reactions P6](../../../../research/procedural-materials-2026-10-13/deep/RULE_CONTRACTS.md#resolution-and-publication-stages) require explicit allocation and named overrides. | Separate overlay assembly, scalar composition, exclusive reactions and veto exemptions. An exact tag/ID or newer overlay must not silently authorize double consumption or a physics bypass. |
+| PC2-F3 / SHOWN | [Pocket rules](../../../../../src/pocket_realm_rules.js) (`src/pocket_realm_rules.js:4`) construct a doorway connection. [Boundary rules](../../../../../src/realm_boundary_rules.js) (`src/realm_boundary_rules.js:103`) evaluate explicit means/exceptions; [cost quoting](../../../../../src/realm_boundary_rules.js) (`src/realm_boundary_rules.js:125`) aggregates debits; [boundary view](../../../../../src/realm_boundary_rules.js) (`src/realm_boundary_rules.js:143`) uses retained observer evidence. | MMR6 must not describe an existing player-authored physics editor. These are useful contracts, not a general law-edit API. |
+| PC2-F4 / STATED + INFERRED | MMR4 suggests specific beats general, world beats core, later overlay wins and forbid beats permit. [G3 overlay order](../../gen-rules-2026-10-14/g3/OVERLAYS.md#o2-merge-order) is for selection; it explicitly cannot bypass hard eligibility. [Typed reactions P6](../../../../research/procedural-materials-2026-10-13/deep/RULE_CONTRACTS.md#resolution-and-publication-stages) require explicit allocation and named overrides. | Separate overlay assembly, scalar composition, exclusive reactions and veto exemptions. An exact tag/ID or newer overlay must not silently authorize double consumption or a physics bypass. |
 | PC2-F5 / SHOWN + INFERRED | [Village chemistry](../../../../../src/mixture_state.js) (`src/mixture_state.js:53`) already resolves composition and dose, and [validators](../../../../../src/mixture_state.js) (`src/mixture_state.js:33`) recompute revision-1 products. [Exposure validation](../../../../../src/mixture_state.js) (`src/mixture_state.js:102`) also reconstructs that identity. | The materials audit is a dated inspection. Its broad generated-pipeline gap does not erase landed P2. A new module cannot be bolted onto a tooltip or append arbitrary dose fields; it needs version-aware product, job and exposure readers. |
 | PC2-F6 / STATED + INFERRED | [Root round 2](../../../../MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#correction-first) gives HV2 ownership of acquisition. [HV2 M3a](../../harvest-modules-2026-10-14/hv2/MODEL.md#m3-harvest-verbs) distinguishes physical impossibility, missing means, prohibition, observer ignorance and unsupported simulation. | Keep those states separate downstream. Proposed first reader is an existing mixing stage, with existing acquisition retained. No parallel herb-harvest engine. |
 
@@ -212,12 +214,12 @@ An institution observes via people, devices, reports or public records with scop
 
 | MR kind | Proposed lifecycle contract |
 |---|---|
-| MR9 local field | Source-owned region/layer bounds, operating/charge state and stacking group; site containment uses actual location relations. Boundary crossing activates/deactivates applicable evaluation. Imported item home law and use-site field combine through explicit crossing/compatibility adapter. |
-| MR10 timed rule | Own clock/era, half-open windows and next transition; same boundary result for chunked time. Pending stages retain admitted definition lock and declared sampling; live continuous fields split only at causal boundaries. |
-| MR11 spreading rule | Technique truth stays fixed; observer skill/knowledge moves on supported teacher/contact/document edges. Social adoption/policy edits create new dated revisions. No automatic world-wide teaching or resource grant when the player discovers a rule. Price/competition changes need actual maker/market readers. |
-| MR6 player-made rule | Creator composes supported atoms through formation/domain/pocket-law grammar. Require actual source, scope anchor, maintenance, targeted exceptions and compatible field policy. Save creator/source/body/method/charge and edit lineage. Creation preview is reversible/no-spend; admitted installation is durable. |
-| MR8 conservation | Ordinary physical ledger checks constituent/charge/identity movement in each world's declared units. Magical creation/destruction uses a named exception ledger. No universal physics cap on accepted outliers. |
-| MR12 exploits | Distinct lawful production loops remain play. Receipt idempotency, invalid numbers, stale quotes and duplicated custody remain save bugs. World-specific supply/loss/attention can constrain a loop only when that world actually declares it. |
+| MMR9 local field | Source-owned region/layer bounds, operating/charge state and stacking group; site containment uses actual location relations. Boundary crossing activates/deactivates applicable evaluation. Imported item home law and use-site field combine through explicit crossing/compatibility adapter. |
+| MMR10 timed rule | Own clock/era, half-open windows and next transition; same boundary result for chunked time. Pending stages retain admitted definition lock and declared sampling; live continuous fields split only at causal boundaries. |
+| MMR11 spreading rule | Technique truth stays fixed; observer skill/knowledge moves on supported teacher/contact/document edges. Social adoption/policy edits create new dated revisions. No automatic world-wide teaching or resource grant when the player discovers a rule. Price/competition changes need actual maker/market readers. |
+| MMR6 player-made rule | Creator composes supported atoms through formation/domain/pocket-law grammar. Require actual source, scope anchor, maintenance, targeted exceptions and compatible field policy. Save creator/source/body/method/charge and edit lineage. Creation preview is reversible/no-spend; admitted installation is durable. |
+| MMR8 conservation | Ordinary physical ledger checks constituent/charge/identity movement in each world's declared units. Magical creation/destruction uses a named exception ledger. No universal physics cap on accepted outliers. |
+| MMR12 exploits | Distinct lawful production loops remain play. Receipt idempotency, invalid numbers, stale quotes and duplicated custody remain save bugs. World-specific supply/loss/attention can constrain a loop only when that world actually declares it. |
 
 ## Cheats that edit rules
 
@@ -266,9 +268,9 @@ PC2-D13 / INFERRED compatibility decision: Keep P2 revision-1 products, learned 
 
 PC2-R3 / INFERRED: Visible proof at 1366x768 and 1600x1000: counter uses the screen for inputs/process and selected product/known comparison receipt; routine Mix/Drink/Repeat actions and actual shortage/uncertainty stay visible. Rebuilt fresh-origin natural paid mix → drink → native stat/effect change, then Save/reload/Export/literal-file Import into a second fresh origin is the authoritative implementation gate. Mobile, a universal chemistry engine, new harvesting, general NPC automation, multiple realms and closed-browser progression are deferred. Human fiction/balance acceptance remains separate.
 
-## Performance and indexing (MR13)
+## Performance and indexing (MMR13)
 
-PC2-D14 / INFERRED: Compile indexes at admitted pack/revision boundaries. `TagStore.query` currently scans tracked entities ([source](../../../../../src/tag_store.js) (`src/tag_store.js:191`)); no production performance index was verified. Do not claim MR13 already implemented.
+PC2-D14 / INFERRED: Compile indexes at admitted pack/revision boundaries. `TagStore.query` currently scans tracked entities ([source](../../../../../src/tag_store.js) (`src/tag_store.js:191`)); no production performance index was verified. Do not claim MMR13 already implemented.
 
 | Index / cache | Correct candidate selection / invalidation |
 |---|---|
@@ -280,7 +282,7 @@ PC2-D14 / INFERRED: Compile indexes at admitted pack/revision boundaries. `TagSt
 | Resolved product | Cache immutable semantics by canonical retained input/process/law fingerprint. Quote still revalidates actual stock/access/capacity at commit; cache cannot authorize stale ownership. |
 | Traces / history | Bounded detailed active traces, compact terminal summaries only when no consumer needs detail. Never garbage-collect a rule/product needed by an active exposure, pending job, taught document or holder. |
 
-Proposed cost class: candidate lookup proportional to touched posting lists plus route fallback bucket; full evaluation proportional to candidate rules and declared AST size. State explicit maximum AST depth, candidates, reaction extents and retry budgets at implementation time. Reject over-budget admitted content or offer an authored equivalent coarse resolver; never silently truncate effect-bearing material or reaction traces. Closed-form scale representations must retain law-equivalent results and named rounding/remainders. MR13 is measured by candidate counts and chunk-equivalence, not by an unsupported universal millisecond claim.
+Proposed cost class: candidate lookup proportional to touched posting lists plus route fallback bucket; full evaluation proportional to candidate rules and declared AST size. State explicit maximum AST depth, candidates, reaction extents and retry budgets at implementation time. Reject over-budget admitted content or offer an authored equivalent coarse resolver; never silently truncate effect-bearing material or reaction traces. Closed-form scale representations must retain law-equivalent results and named rounding/remainders. MMR13 is measured by candidate counts and chunk-equivalence, not by an unsupported universal millisecond claim.
 
 ## Implementable acceptance-case table
 
@@ -325,25 +327,25 @@ PC2-T0 / INFERRED: These are future cases, **NOT RUN**. Suggested unit fixture f
 | PC2-T35 | PC2-S1 public projection/test manifest | ID/route/status only; no hidden selectors, names, numbers, slot counts or cause truth. Private solvability gate stays OPEN until authored. |
 | PC2-T36 | Rebuilt fresh-origin desktop native route | Paid counter mix, uncertainty/known comparison, drink stat change, shortage, persistence at 1366x768 and 1600x1000. Served rebuild/source binding and human acceptance tracked separately. |
 
-## MR1-MR13 coverage map
+## MMR1-MMR13 coverage map
 
 PC2-V1 / INFERRED: Coverage of the requested docs contract, not implementation status.
 
 | Root row | Contract location / acceptance cases |
 |---|---|
-| MR1 world laws | Schema/effect kinds, K2 and packs W1-W3; T7-T10 |
-| MR2 generated per-save rules | Grammars G1-G3, addressed scope/freeze/solvability; T16-T22 |
-| MR3 social/institution rules | Typed feasibility and actual evidence enforcement; T10 |
-| MR4 rules about rules | Assembly versus resolver order, channel policy, C1-C9; T7-T15 |
-| MR5 discovered knowledge | Observer claims, confidence, safe projection; T2-T3, T21-T23, T35 |
-| MR6 player-made rules | Supported atoms, creator/anchor/upkeep/exception lifecycle; T9, T24, T27 |
-| MR7 rule-editing cheats | Scoped immutable edits, actual contact, purchase and receipts; T20, T26-T27 |
-| MR8 conservation | Typed ordinary and explicit exception ledgers; T6, T11, T26 |
-| MR9 local fields | Containment, overlap, source and crossing reader; T24 |
-| MR10 timed rules | Half-open windows, admitted versus continuous sampling; T24 |
-| MR11 spreading rules | Technique truth versus contact-scoped knowledge/social revision; T25 |
-| MR12 exploits as play | Distinct lawful loops versus duplicate settlement; T28 |
-| MR13 rule cost budget | Route/scope/tag indexes, negative fallback bucket, revision cache; T34 |
+| MMR1 world laws | Schema/effect kinds, K2 and packs W1-W3; T7-T10 |
+| MMR2 generated per-save rules | Grammars G1-G3, addressed scope/freeze/solvability; T16-T22 |
+| MMR3 social/institution rules | Typed feasibility and actual evidence enforcement; T10 |
+| MMR4 rules about rules | Assembly versus resolver order, channel policy, C1-C9; T7-T15 |
+| MMR5 discovered knowledge | Observer claims, confidence, safe projection; T2-T3, T21-T23, T35 |
+| MMR6 player-made rules | Supported atoms, creator/anchor/upkeep/exception lifecycle; T9, T24, T27 |
+| MMR7 rule-editing cheats | Scoped immutable edits, actual contact, purchase and receipts; T20, T26-T27 |
+| MMR8 conservation | Typed ordinary and explicit exception ledgers; T6, T11, T26 |
+| MMR9 local fields | Containment, overlap, source and crossing reader; T24 |
+| MMR10 timed rules | Half-open windows, admitted versus continuous sampling; T24 |
+| MMR11 spreading rules | Technique truth versus contact-scoped knowledge/social revision; T25 |
+| MMR12 exploits as play | Distinct lawful loops versus duplicate settlement; T28 |
+| MMR13 rule cost budget | Route/scope/tag indexes, negative fallback bucket, revision cache; T34 |
 
 ## Ranked next steps, if selected by root
 
@@ -364,4 +366,4 @@ PC2-V3 / SHOWN: Documentation validation is recorded in [CHECKPOINT](CHECKPOINT.
 
 PC2-R4 / STATED + INFERRED: First authoritative playable gate remains A2's rebuilt fresh-origin Village mix/use plus exact save/reload/export/literal import and failure controls. Desktop-first scope and one-realm milestone remain; proposals do not change accepted owners. Human fiction/balance/taste remains unaccepted. Root owns any commit and fold; PC2 changed only its two docs.
 
-Summary: one revisioned rule-module shape covers MR1-MR13 while keeping evaluation, resolution, publication, knowledge and enforcement separate. Conflict cases, generation witnesses, three original packs, 36 future acceptance cases and a single Village mix reader make the proposal executable without claiming new gameplay.
+Summary: one revisioned rule-module shape covers MMR1-MMR13 while keeping evaluation, resolution, publication, knowledge and enforcement separate. Conflict cases, generation witnesses, three original packs, 36 future acceptance cases and a single Village mix reader make the proposal executable without claiming new gameplay.

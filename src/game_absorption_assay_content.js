@@ -1,5 +1,6 @@
 // Original finite workshop proposal, inspired by Brogue's evidence-constrained
 // identification after a harmless spent throw. No reference code is copied.
+import {all, eq, not} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as OK} from './feature_expansion_objects.js';
 import {NETHACK_FIELDCRAFT_KEYS as NK} from './nethack_fieldcraft_content.js';
 
@@ -21,8 +22,6 @@ export const gameAbsorptionAssayItemSpecifications = Object.freeze([
     {id: 'Gummed fitting pin', description: 'An actual fitting pin recovered from Eda\'s old packing case, still covered by packing gum. Washing or scraping can recover it for the existing pin-and-resin kit recipe.', value: 1},
 ]);
 
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules}), not = rule => ({not: rule});
 const fact = (name, value = true) => ({type: 'fact', scope: 'actor', actor: 'player', key: `${I.prefix}${name}`, value});
 const item = (key, amount, actor = 'player', reservationReturn = false) => ({type: 'item', actor, key, amount,
     ...(reservationReturn ? {reservationReturn: true} : {})});

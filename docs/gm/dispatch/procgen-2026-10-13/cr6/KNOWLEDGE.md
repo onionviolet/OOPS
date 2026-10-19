@@ -1,6 +1,6 @@
 # CR6 observer evidence, notebook and safe projection
 
-2026-10-14. PROPOSAL ONLY. Extends root **II5/AB3, OA5, CX1-CX10 and SU1-SU10** through the existing P2 authority. CR3 owns the wider [collection](../cr3/COLLECTION.md) and [play-feel](../cr3/PLAY_FEEL.md) design; this file supplies the bounded build APIs and compatibility rules. No lens cheat, NPC research or comic world is newly implemented.
+2026-10-14. PROPOSAL ONLY. Extends root **II5/AB3, OA5, PCX1-PCX10 and SU1-SU10** through the existing P2 authority. CR3 owns the wider [collection](../cr3/COLLECTION.md) and [play-feel](../cr3/PLAY_FEEL.md) design; this file supplies the bounded build APIs and compatibility rules. No lens cheat, NPC research or comic world is newly implemented.
 
 ## F9-F11: shown/SOURCE versus stated design
 
@@ -52,7 +52,7 @@ Proposed `crafting.knowledge`:
 
 Unknown is absence of acquired evidence, not numeric zero. `inapplicable` and `unsupported model` are different states. Claims store an attributed speaker/edition/source root and acquisition receipt; inferred hypotheses store supporting/conflicting evidence IDs and scoped conclusion. Shown experiment result is only what its protocol actually measures. A false claim changes knowledge/prediction, never product truth.
 
-Grade/fidelity for this slice is semantic `seen`, `tested-exact-P2`, `measured-interval`, `claimed`, `inferred`; no global numeric grade ladder is imposed on other owners. Canonical weaponcraft's later F0-F5 mapping belongs to its reveal integration. Do not equate its F tiers with effect strength, source certainty or notebook completeness. A lens can later call `stageObservation` with its authorized scope/error/cost receipt; merely rendering a CX2 overlay learns nothing.
+Grade/fidelity for this slice is semantic `seen`, `tested-exact-P2`, `measured-interval`, `claimed`, `inferred`; no global numeric grade ladder is imposed on other owners. Canonical weaponcraft's later F0-F5 mapping belongs to its reveal integration. Do not equate its F tiers with effect strength, source certainty or notebook completeness. A lens can later call `stageObservation` with its authorized scope/error/cost receipt; merely rendering a PCX2 overlay learns nothing.
 
 ## AB3.b: additive P2 bridge, no competing truth or evidence owner
 

@@ -934,7 +934,7 @@
     },
     {
       "id": "V9",
-      "priorIdsOrFamily": "ON sound words; GR1-GR8; emotion; ID1-ID8",
+      "priorIdsOrFamily": "ON sound words; PGR1-PGR8; emotion; ID1-ID8",
       "sourceRef": {
         "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
         "locator": "1369-1443"

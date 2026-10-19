@@ -1,13 +1,12 @@
 // ONI-P04: original sheltered nursery fiction and compressed timing.
 // Optional native work only; neither source plant code nor ecology is imported.
+import {all, eq} from './basics.js';
 export const STEAM_ONI_IDS = Object.freeze({world: 'base.frontier', group: 'steam_oni', prefix: 'steam.oni.',
     begin: 'steam.oni.begin', build: 'steam.oni.build_tray', cycle: 'steam.oni.tend_cycle',
     enrolled: 'steam.oni.enrolled', built: 'steam.oni.trayBuilt', site: 'steam.oni.nursery_tray', situation: 'steam.oni.nursery_plan', version: 1});
 export const STEAM_ONI_KEYS = Object.freeze({log: JSON.stringify({id: 'Rough wood log'}),
     herbs: JSON.stringify({id: 'Cooking herbs'}), sap: JSON.stringify({id: 'Tree sap'})});
 const I = STEAM_ONI_IDS, K = STEAM_ONI_KEYS;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const plan = eq('steamONI.enrolled', true, 'Consider the nursery plan first.');
 const support = all(eq('steamONI.supported', true, 'Return beneath the Shack roof, recover above one health and finish any battle or journey.'),
     eq('steamONI.handsUsable', true, 'Let your sore or scraped hands recover before tending the tray.'));

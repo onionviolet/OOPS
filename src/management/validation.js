@@ -1,8 +1,7 @@
+import {natural, sameJson as same} from '../basics.js';
 import {I} from './shared.js';
 import {managementDefinitions} from './content.js';
 const check=(ok,msg)=>{if(!ok)throw new Error(`Courtyard: ${msg}`);};
-const natural=n=>Number.isSafeInteger(n)&&n>=0;
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 export function stampManagementJob(state,job) {
  if(job.commandId.startsWith('mg.')&&managementDefinitions.commands.some(d=>d.id===job.commandId&&d.duration>0))
   job.managementWork={schema:1,startedAt:state.clock};

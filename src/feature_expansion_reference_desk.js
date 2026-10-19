@@ -1,4 +1,5 @@
 // A finite original registry discussion. No book world, power or carrier is granted.
+import {all, any, eq, not} from './basics.js';
 import {BOOK_RECOGNITION_SCENE,getBookRecognitionProfile,recognizeBookWorld} from './feature_expansion_book_recognition.js';
 import {qualifiedOfficeBody} from './feature_expansion_book_host.js';
 import {commitSimulationCommand,previewSimulationCommand,simulationOccupiesActor} from './simulation.js';
@@ -9,8 +10,6 @@ export const REFERENCE_DESK_IDS=Object.freeze({scene:'subtlety.reference_desk',g
     keeper:'backlog.registry.eda',clerk:'backlog.registry.orrin',witness:'backlog.registry.bera',
     office:'backlog.registry.seal_steward',begin:'subtlety.reference_begin'});
 const I=REFERENCE_DESK_IDS,P='subtlety.reference.';
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
-const all=(...rules)=>({all:rules}),any=(...rules)=>({any:rules}),not=rule=>({not:rule});
 const introduced=eq(`actor.${P}introduced`),open=all(introduced,not(eq(`actor.${P}declined`)));
 const fact=(key,value=true)=>({type:'fact',scope:'actor',actor:'player',key:P+key,value});
 const know=(key,value,attributedTo,actor='player')=>({type:'knowledge',actor,key:P+key,stage:'understood',value,

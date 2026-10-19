@@ -45,7 +45,7 @@ versus unknown information.
 
 ## B5-M02 Visible resemblance without a portrait engine
 
-**Maps:** G17/G18/G19/G41, PH11, GN1/GN6/GN8/GN9, SG4/SG6, SR3/SR5.
+**Maps:** G17/G18/G19/G41, PH11, GN1/GN6/GN8/GN9, SG4/SG6, BSR3/BSR5.
 **References:** B5-G02 Sims by edition, B5-G01 CK3. **Disposition:** small trial.
 
 **Default:** a few appearance descriptors inherit separately from identity,
@@ -231,7 +231,7 @@ physical remolding remains open, separate from its existing C01-C10 trace.
 ## B5-M10 Quirks at the action that uses them
 
 **Maps:** G20/G32/G35/G41, LQ1/LQ2/LQ3/LQ5/LQ6/LQ7/LQ8/LQ11,
-MS1/MS4, TR5, SR1/SR2.
+MS1/MS4, TR5, BSR1/BSR2.
 **References:** B5-G13 Darkest Dungeon, B5-G06 RimWorld, B5-G11 Rogue Legacy.
 **Disposition:** strongest small mechanic trial.
 

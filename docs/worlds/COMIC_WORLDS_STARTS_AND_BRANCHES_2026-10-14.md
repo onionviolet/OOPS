@@ -1,5 +1,7 @@
 # Comic worlds: starts and branches, 2026-10-14
 
+> Codes renamed 2026-10-19 from the local comic cheat table CX1-CX12 to CCX1-CCX12 to avoid collision with registered CX (complexity guardrails); citations of intro CX13-CX20 now read ICX13-ICX20. See [reserved prefixes](../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Status: **local research and proposals**, not accepted decisions, registered worlds or implemented gameplay. Scope: comic-worlds mapping lane under [COMMON](../gm/dispatch/start-sources-2026-10-14/COMMON.md). Public premises are paraphrased; no sealed YAIRPG truth or raw source prose is included. No network used.
 
 ## Answer and evidence boundary
@@ -59,26 +61,26 @@ Every start below is an **INFERRED authoring palette**, not a sourced admission 
 
 ## Cheats that reveal the structure
 
-These are **INFERRED original abilities**, not claims that the named targets canonically grant them. Locators: [intro CX1-CX12 and rules for all CX cheats](../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#cx-cheats-that-show-hidden-structure), mapping table above, REPORT F7-F9 and targets T5/T9/T15/C5. Default: hidden machinery and local clues. Dial: range, grade, reliability and cost. Reasonably: one low-grade clue can serve a slice before a full panel exists.
+These are **INFERRED original abilities**, not claims that the named targets canonically grant them. Locators: [intro ICX1-ICX12 and rules for all ICX cheats](../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#icx-cheats-that-show-hidden-structure), mapping table above, REPORT F7-F9 and targets T5/T9/T15/C5. Default: hidden machinery and local clues. Dial: range, grade, reliability and cost. Reasonably: one low-grade clue can serve a slice before a full panel exists.
 
-| CX | Comic-fitting expression | What it reads and useful limit |
+| CCX | Comic-fitting expression | What it reads and useful limit |
 | --- | --- | --- |
-| CX1 | Event tremor | A local crisis window and its confidence, not a publisher's schedule or promised ending. Drift makes it less reliable. |
-| CX2 | Continuity vertigo | Perceived divergence from this branch's pinned baseline. Does not compare against whichever era has the most convenient powers. |
-| CX3 | Mantle sight | Known holder/office transitions and nearby substitutes. It can detect disputed claims without deciding a claimant owns the unique gear. |
-| CX4 | Mask intuition | Contact-based want/reason/means. A public heroic identity does not reveal its civilian identity automatically. |
-| CX5 | Rogue thread | Likely next outlet after a foiled scheme, conditioned on retained funds, allies and patience. Does not create the means it predicts. |
-| CX6 | Origin caption | A rare meta ability senses start-layer provenance. Fits a deliberately authored metafictional continuity; ordinary protagonists need not see seed numbers. |
-| CX7 | Variant dreams | Echoes from this person's evidenced origin/copy relation. Memory resemblance remains uncertain evidence of shared identity. |
-| CX8 | Legacy touch | An item's known custody history, useful for a mantle's helmet or costume. Touch and grade limits; touching a replica does not read the original's history. |
-| CX9 | Crisis bookmark | Marks a supported fork or return anchor. New branch versus same-world rewind follows its law, with declared retention and cost. |
-| CX10 | Convergence warning | Senses a supported fixed event locally. The report of dread neither names a sealed cause nor makes an otherwise mutable event fixed. |
-| CX11 | Other-Earth resonance | A reality-hopper senses nearby counterpart worlds or crossing opportunities. Awareness, travel and replacement are three separate permissions; a player save slot is not automatically an in-world Earth. |
-| CX12 | Retcon scar | Compares remembered evidence with a causally recorded rewrite, giving a limited clue about a changed fact. Reading a new canon revision cannot retroactively grant this character memories from an old branch. |
+| CCX1 | Event tremor | A local crisis window and its confidence, not a publisher's schedule or promised ending. Drift makes it less reliable. |
+| CCX2 | Continuity vertigo | Perceived divergence from this branch's pinned baseline. Does not compare against whichever era has the most convenient powers. |
+| CCX3 | Mantle sight | Known holder/office transitions and nearby substitutes. It can detect disputed claims without deciding a claimant owns the unique gear. |
+| CCX4 | Mask intuition | Contact-based want/reason/means. A public heroic identity does not reveal its civilian identity automatically. |
+| CCX5 | Rogue thread | Likely next outlet after a foiled scheme, conditioned on retained funds, allies and patience. Does not create the means it predicts. |
+| CCX6 | Origin caption | A rare meta ability senses start-layer provenance. Fits a deliberately authored metafictional continuity; ordinary protagonists need not see seed numbers. |
+| CCX7 | Variant dreams | Echoes from this person's evidenced origin/copy relation. Memory resemblance remains uncertain evidence of shared identity. |
+| CCX8 | Legacy touch | An item's known custody history, useful for a mantle's helmet or costume. Touch and grade limits; touching a replica does not read the original's history. |
+| CCX9 | Crisis bookmark | Marks a supported fork or return anchor. New branch versus same-world rewind follows its law, with declared retention and cost. |
+| CCX10 | Convergence warning | Senses a supported fixed event locally. The report of dread neither names a sealed cause nor makes an otherwise mutable event fixed. |
+| CCX11 | Other-Earth resonance | A reality-hopper senses nearby counterpart worlds or crossing opportunities. Awareness, travel and replacement are three separate permissions; a player save slot is not automatically an in-world Earth. |
+| CCX12 | Retcon scar | Compares remembered evidence with a causally recorded rewrite, giving a limited clue about a changed fact. Reading a new canon revision cannot retroactively grant this character memories from an old branch. |
 
-**INFERRED:** A retcon-aware character can combine CX7, CX11 and CX12 only when a selected rewrite law supplies an actual retained-memory or cross-reality channel. An editorial correction outside the fictional world has no automatic diegetic scar. For an original meta world, editorial awareness can itself be a declared premise. In either case use the same event/provenance data through character knowledge, grade and range. Sealed facts remain IDs/status until their discovery route authorizes disclosure; no cheat duplicates the hidden truth store.
+**INFERRED:** A retcon-aware character can combine CCX7, CCX11 and CCX12 only when a selected rewrite law supplies an actual retained-memory or cross-reality channel. An editorial correction outside the fictional world has no automatic diegetic scar. For an original meta world, editorial awareness can itself be a declared premise. In either case use the same event/provenance data through character knowledge, grade and range. Sealed facts remain IDs/status until their discovery route authorizes disclosure; no cheat duplicates the hidden truth store.
 
-**INFERRED, round22 reconciliation:** CX14 reality index can read the continuity binding through CX11's lens; CX16 mantle sight adds touched-mantle holder history and possible successors to CX3/CX8. CX15 retcon awareness extends the retcon-scar example, but “revision applied” needs a declared meta premise or an in-world memory-retention channel before a character notices. CX13 away sense reads the own-body AW report, not off-screen omniscience. These share AB6 knowledge/lens and AB7 provenance; none makes an editorial correction automatically happen as an event inside the fiction.
+**INFERRED, round22 reconciliation:** ICX14 reality index can read the continuity binding through CCX11's lens; ICX16 mantle sight adds touched-mantle holder history and possible successors to CCX3/CCX8. ICX15 retcon awareness extends the retcon-scar example, but “revision applied” needs a declared meta premise or an in-world memory-retention channel before a character notices. ICX13 away sense reads the own-body AW report, not off-screen omniscience. These share AB6 knowledge/lens and AB7 provenance; none makes an editorial correction automatically happen as an event inside the fiction.
 
 ## Small pilot recommendation
 
@@ -105,7 +107,7 @@ These are **INFERRED original abilities**, not claims that the named targets can
 | CM2 | Bind source reality, editorial era and pinned canon/law revisions separately from branch/run IDs. | Small metadata addition, reusing TA3/TA5/DV12 and IL29. Prevents Earth numbers or familiar names from collapsing independent runs. |
 | CM3 | Keep editorial corrections, historical revelations and diegetic rewrites distinct. | TA5 for research updates; CV5/CV7 for discovery; a declared law and timed cause for rewrites. Old saved pasts need an explicit migration, not TA5's unreached-event shortcut. |
 | CM4 | Pair one mantle succession example with one death/return identity example before generalizing either. | Local source gaps remain open. Distinguishes role vacancy from person loss, costed return from a new counterpart, and holder from gear custody. |
-| CM5 | Prototype a low-grade legacy-touch or retcon-scar clue from existing provenance, before a full reality-hopping interface. | CX8/CX12 are narrow; retcon scars require a real retention channel. Use character knowledge and sealed-route masking. No runtime change authorized here. |
+| CM5 | Prototype a low-grade legacy-touch or retcon-scar clue from existing provenance, before a full reality-hopping interface. | CCX8/CCX12 are narrow; retcon scars require a real retention channel. Use character knowledge and sealed-route masking. No runtime change authorized here. |
 
 ## Delivery and remaining gates
 

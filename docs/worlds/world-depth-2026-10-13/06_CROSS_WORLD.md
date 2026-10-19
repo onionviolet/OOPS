@@ -1,5 +1,7 @@
 # Cross-world considerations: iteration, parallels, starts, subtle joins (proposal, 2026-10-13)
 
+> Code namespace 2026-10-19 (no codes renamed): SU rows here are local to this part; SU3 is also defined in NONHUMAN_SENSES_SCALE_AND_UI, skyrim/SOURCE_LEDGER and parts 21 and 24. Outside this file cite `06_CROSS_WORLD#SU3`. See [reserved prefixes](../../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Responding to Weibao: "more to consider? subtle stuff too, workflow to iterate worlds, parallel worlds, different starting points and more?"
 
 Everything here is a proposal. Nothing is accepted, implemented or verified. Rows add to existing owners and point to them rather than restating them:

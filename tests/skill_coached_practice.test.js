@@ -7,7 +7,8 @@ import {skillExpansionContext} from '../src/skill_expansion_host.js';
 import {SKILL_IDS} from '../src/skill_expansion_content.js';
 
 // SLR6 / SLL7: the craftsman's corrections make the same timber drill teach
-// two mastery instead of one; the drill limit and stops stay the same.
+// two mastery instead of one. SLL12 (2026-10-19): no drill wall; past mastery
+// three his corrections still teach double the plain drill's smaller gain.
 const LOG=JSON.stringify({id:'Rough wood log'});
 const ID=SKILL_IDS.timber, PLAIN='skills.timber.practice', COACHED='skills.timber.coached_practice';
 const base=p=>({actorId:'player',external:p.external,gameplay:p.gameplay,
@@ -41,10 +42,10 @@ test('coached practice teaches two mastery where the same plain drill teaches on
     assert.equal(plain.external.money,before.external.money,'plain practice is free');
 });
 
-test('coached practice stops at its limit, without his attention, and refunds on cancel',()=>{
-    const limit=dry(learned(3)), why=previewSimulationCommand(limit.state,registry,COACHED,ctx(limit,'oldCraftsman'));
-    assert.equal(why.eligible,false);
-    assert.equal(previewSimulationCommand(limit.state,registry,PLAIN,ctx(limit)).eligible,true,'plain practice still finishes the drill');
+test('coached practice lifts the plateau, stops without his attention, and refunds on cancel',()=>{
+    const past=learned(4), plain=run(past,PLAIN), coached=run(learned(4),COACHED);
+    assert.equal(mastery(plain),4.75,'plain drilling past four still teaches, less');
+    assert.equal(mastery(coached),5.5,'his corrections teach double the plain gain');
     const tired=learned(); tired.state.actors.oldCraftsman.resources.focus=0;
     assert.equal(previewSimulationCommand(tired.state,registry,COACHED,ctx(tired,'oldCraftsman')).eligible,false);
     let p=learned(); const started=commitSimulationCommand(p.state,registry,{id:COACHED},ctx(p,'oldCraftsman'));

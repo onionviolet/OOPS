@@ -1,11 +1,10 @@
 // Original proposal. Proto23 tactical choices are inspiration only.
+import {check, natural} from '../../basics.js';
 export const TACTICS = Object.freeze({
     throw: Object.freeze({itemId: 'P23 throwing stone', power: 5}),
     smoke: Object.freeze({itemId: 'P23 smoke pellet'}),
     lure: Object.freeze({itemId: 'P23 scent pouch'}),
 });
-const check = (ok, message) => { if (!ok) throw new Error(message); };
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 
 export function validateCombatOptions(state) {
     if (state === undefined) return; // Old saves have no optional family.

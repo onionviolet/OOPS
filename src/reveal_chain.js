@@ -5,6 +5,16 @@ export function heldLesson(inventory, learned) {
     if (learned) return false;
     return Object.values(inventory).reduce((n,row)=>n+(row.item?.id===HERB_LESSON.material?row.count:0),0)>=HERB_LESSON.count;
 }
+// Light at the reader's place (proposal, M4 2026-10-19): a source brighter than the ambient light
+// speeds reading up to x1.5 at full gain. With no reader set, or in daylight, the pace is unchanged.
+let readingLight = null;
+export function setReadingLightReader(reader) { readingLight = typeof reader === 'function' ? reader : null; }
+export function readingLightFactor() {
+    const light = readingLight?.();
+    if (!light) return 1;
+    const ambient = Math.max(0, Math.min(100, light.ambient)), lit = Math.max(ambient, Math.min(100, ambient + Math.max(0, light.bonus || 0)));
+    return 1 + 0.5 * (lit - ambient) / 100;
+}
 export function readingRate(level) { return 1 + Math.min(10,Math.max(0,Number.isFinite(level)?level:0))*.05; }
 export function practiceMethods(progress) {
     return [

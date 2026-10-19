@@ -1,3 +1,4 @@
+import {check, object} from './basics.js';
 import {compileStructuredExpeditions} from './structured_expedition_runtime.js';
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
 import {validateStructuredEquipmentDefinition} from './structured_equipment_runtime.js';
@@ -9,8 +10,6 @@ import {jsonData, stableId} from './simulation_contracts.js';
 const contentFamilies = ['worlds', 'actions', 'opportunities', 'capabilities', 'sources', 'rollTables', 'techniques'];
 const simulationFamilies = ['people', 'commands', 'powers', 'advancements', 'sites', 'events', 'controllers', 'transitions', 'origins', 'conditions', 'encounters', 'energies', 'pursuits', 'situations', 'containers'];
 const supportedCapabilities = new Set(['native-stock', 'custody', 'jobs', 'recipient-care', 'source-function']);
-const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
-const check = (ok, message) => {if(!ok) throw Error(message);};
 const freeze = value => {
     if(object(value) || Array.isArray(value)) {Object.values(value).forEach(freeze); Object.freeze(value);}
     return value;

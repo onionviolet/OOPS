@@ -13,15 +13,15 @@
 | Y7 | **Delegation requests:** “Ask a qualified maker to handle this” opens a supported helper quote instead of assuming the hero must do everything | P11 M1/M4, P27 groups; medium/high | Actual willing helper, tools/time and payment/custody; request is not consent or appointment; interrupted helper/import preserves obligations |
 | Y8 | **Exploration goals:** “Surprise me with something local” draws only at the existing admitted deck tick or opens a safe known lead menu | P3/D9/P22; medium | Typing/preview never rolls; no reroll-until-liked loop, hidden candidates or unsupported new content. Powerful world-supported reroll abilities remain separate options |
 
-## AD2–AD6: better feedback without a black box
+## PS-AD2–PS-AD6: better feedback without a black box
 
 | Code | New angle / concrete suggestion | Owner joins / cost | Specific future gate |
 |---|---|---|---|
-| AD2 | **Why the bookmark matters:** allow “liked the callback, disliked the length,” with selected known features | P22 K5, P15 QA8; low/medium | Text-length/tone feedback routes to authoring, not necessarily card eligibility; contradictory feedback stays explicit |
-| AD3 | **Several situational tastes:** save optional profiles for quiet crafting, exploration or harsher play, switch deliberately | D9 cadence, P26 genre; medium | Switching affects future draws only; all profiles inspectable/resettable; none rewrites world law or hidden facts |
-| AD4 | **Cross-world transfer by permission:** choose which broad known preferences transfer into another world's vocabulary | P9/P10 profiles; medium | Preview mappings, default neutral for unknown terms; no merging “curse”/“dark” mechanics or leaking later-world genres |
-| AD5 | **Compare baseline with tuning:** a safe author-only corpus compares accepted variety and starvation; player view compares known categories only | P18 metrics, P25 views; medium | Same eligible contexts/policies, measured exclusions, no hidden candidate list; generated content count is not proof of taste fit |
-| AD6 | **Feedback export for another writing pass:** P22 exports chosen bookmarks and original annotations; room receives the selected safe subset | P22 packs, P15 LLM boundary; medium | Explicit selected export, no private-save/source/secret dump; feedback is creative direction for a proposed draft, not retrospective fiction acceptance |
+| PS-AD2 | **Why the bookmark matters:** allow “liked the callback, disliked the length,” with selected known features | P22 K5, P15 QA8; low/medium | Text-length/tone feedback routes to authoring, not necessarily card eligibility; contradictory feedback stays explicit |
+| PS-AD3 | **Several situational tastes:** save optional profiles for quiet crafting, exploration or harsher play, switch deliberately | D9 cadence, P26 genre; medium | Switching affects future draws only; all profiles inspectable/resettable; none rewrites world law or hidden facts |
+| PS-AD4 | **Cross-world transfer by permission:** choose which broad known preferences transfer into another world's vocabulary | P9/P10 profiles; medium | Preview mappings, default neutral for unknown terms; no merging “curse”/“dark” mechanics or leaking later-world genres |
+| PS-AD5 | **Compare baseline with tuning:** a safe author-only corpus compares accepted variety and starvation; player view compares known categories only | P18 metrics, P25 views; medium | Same eligible contexts/policies, measured exclusions, no hidden candidate list; generated content count is not proof of taste fit |
+| PS-AD6 | **Feedback export for another writing pass:** P22 exports chosen bookmarks and original annotations; room receives the selected safe subset | P22 packs, P15 LLM boundary; medium | Explicit selected export, no private-save/source/secret dump; feedback is creative direction for a proposed draft, not retrospective fiction acceptance |
 
 ## AE2–AE6: a room that improves the content
 

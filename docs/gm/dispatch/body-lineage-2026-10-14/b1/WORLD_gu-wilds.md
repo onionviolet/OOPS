@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | CL9 GN9 | [WORLD_CARDS.md](../../../../WORLD_CARDS.md), §3; How you grow. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 GN2 CN8 CL4 TR3 TR6 WR1 HI4 OB4 BM6 SR1 | An aptitude assessment changes school placement, while a body alteration needs a living Gu, actual food and a recipe. |
+| Fit | PH1 SG3 SG4 SG5 GN2 CN8 CL4 TR3 TR6 WR1 HI4 OB4 BM6 BSR1 | An aptitude assessment changes school placement, while a body alteration needs a living Gu, actual food and a recipe. |
 | Skip families | LQ AG BD BP MX MS PR SB RP | BD/BP/MX/RP: Gu ownership, clan membership and inherited body traits differ; no invented universal blood-power ladder. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: the card’s selected local mechanism. Dial: detail or explicitly declared alternative premise; actual materials, support, preparation and time pay for the change, without universal side effects.

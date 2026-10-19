@@ -1,5 +1,5 @@
+import {eqRaw as req} from './basics.js';
 const wood = JSON.stringify({id:"Rough wood log"}), kit = JSON.stringify({id:"Prepared survey kit"});
-const req = (fact,value) => ({fact,op:"eq",value});
 const fact = (key,value,actor = "$actor") => ({type:"fact",scope:"actor",key,value,actor});
 const command = d => ({revision:1,worldId:"base.frontier",costs:[],effects:[],...d});
 const role = "village.route_helper", encounter = "village.helper_crossing", report = "village.helper_report";

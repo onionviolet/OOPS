@@ -1,14 +1,8 @@
 // Supplied-edition analytical rules. The host owns every body, source, item,
 // right, observer memory, command and publication. These helpers mutate none.
-const deepFreeze = value => {
-    if (value && typeof value === 'object' && !Object.isFrozen(value)) {
-        Object.values(value).forEach(deepFreeze);
-        Object.freeze(value);
-    }
-    return value;
-};
 
 // Source-qualified immutable profiles are appended below by this worker.
+import {deepFreezeUnlessFrozen as deepFreeze} from './basics.js';
 export const BOOK_RECOGNITION_PROFILES = deepFreeze([
   {
     "id": "mother-of-learning",
@@ -34,8 +28,8 @@ export const BOOK_RECOGNITION_PROFILES = deepFreeze([
       "provenance": "Exact supplied compilation. Primary publication/translation authenticity and whole-series coverage are unverified."
     },
     "baselineImmutable": true,
-    "nativeBound": false,
-    "nativeWorldStatus": "unactivated-source-qualified-adapter",
+    "nativeBound": true,
+    "nativeWorldStatus": "bound-optional-campaign: book_world_mol_native (book.mol.cyoria) is live; the campaign starts per save on the player's choice (S2-F13, 2026-10-19)",
     "era": {
       "id": "mol.cyoria.first-chariot.school",
       "place": "Cirin arrival and Cyoria academy district",

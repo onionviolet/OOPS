@@ -1,4 +1,5 @@
 // Original finite relay continuation. Backlog retains exact office/identity carriers.
+import {eq} from './basics.js';
 export const RELAY_IDS=Object.freeze({scene:'subtlety.relay_office',group:'subtlety_relay',world:'base.frontier',
  keeper:'backlog.registry.eda',clerk:'backlog.registry.orrin',witness:'backlog.registry.bera',office:'backlog.registry.seal_steward',
  invitation:'subtlety.relay_fitting_invitation',loan:'subtlety.relay_badge_loan',site:'subtlety.relay_counter',begin:'subtlety.relay_begin',purse:'subtlety.relay.coins'});
@@ -11,7 +12,7 @@ export const RELAY_ITEMS=Object.freeze([
  {id:'Loose Village relay badge',value:1,description:'The same borrowed badge after its fastening catches. Return or repair its exact loan.'},
  {id:'Relay badge fastening',value:1,description:'A compatible replacement made from one dry log and Tree sap. The actual badge repair consumes it.'},
  {id:'Packed Village relay parcel',value:3,description:'One real survey kit packed for relay delivery. Deliver it under the existing office right or unpack the same kit.'}]);
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})}),all=(...r)=>({all:r}),any=(...r)=>({any:r}),not=r=>({not:r});
+const all=(...r)=>({all:r}), any=(...r)=>({any:r}), not=r=>({not:r});
 const a=(name,value=true)=>eq(`actor.subtlety.relay.${name}`,value),af=(name,value=true,actor='player')=>({type:'fact',scope:'actor',actor,key:`subtlety.relay.${name}`,value});
 const item=(key,amount,actor='player',returned=false)=>({type:'item',actor,key,amount,...(returned?{reservationReturn:true}:{})});
 const res=(actor,key,amount)=>({type:'resource',actor,key,amount}),coin=(actor,amount)=>res(actor,I.purse,amount);

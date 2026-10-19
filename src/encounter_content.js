@@ -1,7 +1,6 @@
 // Original reversible proofs of distinct discovery and trigger policies. These
 // are not a selected antagonist roster, lethal policy or direct book setting.
-const eq=(fact,value)=>({fact,op:"eq",value});
-const all=(...rules)=>({all:rules});
+import {all, eqRaw as eq} from './basics.js';
 const member=eq("actor.field.member",true);
 const source=(sourceId,actor)=>({type:"source",sourceId,actor,operation:"grant",awakened:true,active:true});
 const command=d=>({revision:1,group:"pursuit",actorId:"player",worldId:"base.frontier",costs:[],effects:[],...d});

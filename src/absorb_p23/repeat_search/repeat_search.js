@@ -1,7 +1,7 @@
 // Original proposal. Proto23 informed finite search/stop feedback only; no
 // foreign code/assets. The host commits these plans with native resource diffs.
+import {natural} from '../../basics.js';
 export const REPEAT_SEARCH = Object.freeze({location:'Village',worldId:'base.frontier',minutes:5,item:'Linen cloth'});
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const record = value => value && typeof value === 'object' && !Array.isArray(value);
 export function normalizeRepeatSearch(raw) {
     if(raw === undefined) return {schema:1,departure:0,remaining:0,claims:0,looking:false,progress:0,lastClock:null};

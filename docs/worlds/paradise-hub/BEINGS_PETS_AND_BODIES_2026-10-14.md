@@ -132,8 +132,8 @@ engine/body admission and persistence work first; **M** would require a supporte
 body adapter plus new place/role content. These are not cosmetic snapshot swaps.
 
 Common record revision `proposal-r1`: compose world → source cutoff/instance →
-place → role → body → relationship → advantage (SR1/SR2, LY1-LY3). Resolve and
-save layer IDs/revisions, seed, unknown axes and inventory once (SR3/SR5, LY5/LY8).
+place → role → body → relationship → advantage (ISR1/ISR2, LY1-LY3). Resolve and
+save layer IDs/revisions, seed, unknown axes and inventory once (ISR3/ISR5, LY5/LY8).
 Human-memory reincarnator, native mind and emerging mind are separate N11 dials;
 none receives narrator or future-source knowledge for free. Linked seats not
 controlled by the player remain NPCs. No hunger death; meals offer useful benefits.

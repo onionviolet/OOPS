@@ -13,7 +13,7 @@ priority or turns deferred work into a gate (AGENTS.md).
 | Owner | Role |
 |---|---|
 | [Economy palette](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md) | Root palette, rounds appended (ECC, ECX, ECL codes) |
-| [Economy rules](../ECONOMY_RULES.md) | Proposed rulebook ECR1–ECR33, registered in RULES_INDEX |
+| [Economy rules](../ECONOMY_RULES.md) | Rulebook ECR1–ECR33, accepted 2026-10-18 (see RULES_INDEX), registered there |
 | [Markets palette](../gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md) | N1–N10 and M1–M28 (rounds 1–5); extended, not replaced |
 | [OD11 cross-world value](../worlds/MULTIVERSE_STRUCTURES.md#od11-local-economies-and-cross-world-value-2026-10-15) | EC1–EC5 |
 | [First run dispatch](../gm/dispatch/economy-2026-10-18/) | Lane outputs E1 and E2 |

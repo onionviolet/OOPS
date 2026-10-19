@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | TR3 | [AUDIT.md](../../../multi-world-paths-2026-10-07/AUDIT.md), Current represented destinations; Concrete paths; Related systems. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 MS1 TR6 WR1 HI4 OB3 OB4 SR1 | Adapt the pressure lesson to a worker and settle funded service contracts. |
+| Fit | PH1 SG3 SG4 SG5 MS1 TR6 WR1 HI4 OB3 OB4 BSR1 | Adapt the pressure lesson to a worker and settle funded service contracts. |
 | Skip families | GN LQ AG CN BD CL BP MX PR SB BM RP | GN AG CN BD CL BP MX PR SB BM RP: Do not inherit the contractor hub’s purchased bloodlines or novel recruitment law. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: retained same body. Dial: one useful bodily accommodation; real craft, lesson, care or transport costs apply. No travel healing/refill or new prestige.

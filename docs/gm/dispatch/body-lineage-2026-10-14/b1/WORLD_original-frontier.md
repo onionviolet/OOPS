@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | TR3 OB4 | [WORLD_BRIEF.md](../../../../worlds/original-frontier/WORLD_BRIEF.md), Signature decisions; Residents, means and knowledge; Continuity. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 PH6 PH12 SG3 SG4 SG5 LQ3 LQ8 HI4 MS1 TR6 WR1 OB3 SR1 SR4 | A porter learns a load-specific method, gets fitted handles and later teaches a smaller recruit. An arm wound changes hauling and care, while ordinary rest and quiet work remain useful. |
+| Fit | PH1 PH6 PH12 SG3 SG4 SG5 LQ3 LQ8 HI4 MS1 TR6 WR1 OB3 BSR1 BSR4 | A porter learns a load-specific method, gets fitted handles and later teaches a smaller recruit. An arm wound changes hauling and care, while ordinary rest and quiet work remain useful. |
 | Skip families | GN AG CN BD CL BP MX PR SB BM RP | GN BD CL BP MX RP: no selected hereditary campaign. CN PR SB BM: no supported extraordinary body, aura, pill or graft route in this corridor. AG: creation age is not a new childhood simulation. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: practical fit and one quirk. Dial: bodily detail or ordinary extremes; tailoring, instruction and care spend real local time/materials. No hunger death or compulsory upkeep.

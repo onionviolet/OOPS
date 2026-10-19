@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | MS2 OB4 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § Circle of Inevitability; succession row COI. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 CN7 CN8 MS1 TR6 WR1 HI4 SB5 BM6 SR1 | A boon or reset changes declared body state while memory, pact terms and a conditional estate remain distinct. |
+| Fit | PH1 SG3 SG4 SG5 CN7 CN8 MS1 TR6 WR1 HI4 SB5 BM6 BSR1 | A boon or reset changes declared body state while memory, pact terms and a conditional estate remain distinct. |
 | Skip families | GN LQ AG BD CL BP MX PR RP | GN/BD/CL/BP/MX/RP: a condition in a will is not blood-only succession, and a nontransferable core is not inherited biology. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

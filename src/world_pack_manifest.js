@@ -1,6 +1,7 @@
 // Proposal (WPL2): world pack manifest and record validation. Pure; nothing is
 // registered, ticked or saved here. See
 // docs/gm/dispatch/world-pack-loader-2026-10-16/DESIGN.md.
+import {natural, object, positive} from './basics.js';
 import {address, hash64, compareCodePoints} from './gen_kit.js';
 import {stableId, jsonData} from './simulation_contracts.js';
 
@@ -31,10 +32,7 @@ export const FAMILIES = Object.freeze(['catalog', 'areas', 'institutions', 'coho
 // Display text: excluded from the fingerprint (P9P2c) and linted for sealed terms (IS7).
 export const TEXT_KEYS = Object.freeze(['label', 'title', 'name', 'description', 'notice', 'text', 'summary']);
 
-const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
 const text = v => typeof v === 'string' && v.length > 0;
-const positive = n => Number.isSafeInteger(n) && n > 0;
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const axisMap = v => object(v) && Object.keys(v).every(k => WORLD_AXES.includes(k)) &&
     Object.values(v).every(x => text(x) || Array.isArray(x) && x.every(text) || object(x));
 const ids = v => Array.isArray(v) && v.every(stableId) && new Set(v).size === v.length;

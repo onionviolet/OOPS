@@ -1,10 +1,9 @@
+import {all, eqRawReason as eq} from './basics.js';
 import {leverDefinitions} from './lever_lesson.js';
 import {compileSiteProject, projectView} from "./site_projects.js";
 import {compileSituation} from "./scene_definitions.js";
 import {enrollSimulation, commitSimulationCommand} from "./simulation.js";
 const worldId = "base.frontier", wood = JSON.stringify({id:"Rough wood log"}), kit = JSON.stringify({id:"Prepared survey kit"});
-const eq = (fact,value,reason) => ({fact,op:"eq",value,...(reason ? {reason} : {})});
-const all = (...rules) => ({all:rules});
 const af = (key,value=true,actor) => ({type:"fact",scope:"actor",key,value,...(actor ? {actor} : {})});
 const wf = (key,value=true) => ({type:"world",worldId,key,value});
 const money = amount => ({type:"resource",key:"money",native:true,amount});

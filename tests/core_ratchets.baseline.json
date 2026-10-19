@@ -1,14 +1,14 @@
 {
   "schema": 1,
-  "recordedOn": "2026-10-14",
+  "recordedOn": "2026-10-19",
   "maximum": {
-    "mathRandomCalls": 60,
-    "mathRandomReferences": 63,
+    "mathRandomCalls": 24,
+    "mathRandomReferences": 28,
     "worldModuleImports": 23,
     "xorshiftCopies": 7
   },
   "minimum": {
-    "definePanelCalls": 6,
-    "definePanelCallers": 3
+    "definePanelCalls": 23,
+    "definePanelCallers": 15
   }
 }

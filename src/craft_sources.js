@@ -5,6 +5,7 @@
 // gathering. Pure: callers pass the node owner and receive the next one.
 // Draw addresses follow GR2/GR14/GR17: world, location, source, game minute
 // and the node's own harvest ordinal; never a shared counter or wall clock.
+import {natural as nat, positive as pos} from './basics.js';
 import {address, compareCodePoints, drawU32, indexFromU32, pickWeighted, pity} from './gen_kit.js';
 import {deepFreeze, generateMaterial, matchesQuery, validateMaterial, versioned} from './craft_materials.js';
 
@@ -12,8 +13,6 @@ export const MINUTES_PER_DAY = 1440;
 export const MAX_IDLE_HARVESTS = 500;
 const KINDS = ['gather', 'mine', 'fish', 'hunt', 'salvage', 'tap', 'other'];
 const fail = message => { throw new Error(message); };
-const nat = n => Number.isSafeInteger(n) && n >= 0;
-const pos = n => Number.isSafeInteger(n) && n > 0;
 const text = (value, label) => typeof value === 'string' && value.length ? value : fail(`${label} must be non-empty text.`);
 const only = (value, allowed, label) => {
     if(!value || typeof value !== 'object' || Array.isArray(value)) fail(`${label} must be an object.`);

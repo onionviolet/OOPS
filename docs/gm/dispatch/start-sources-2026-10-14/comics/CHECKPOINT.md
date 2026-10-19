@@ -6,7 +6,7 @@ Output: [Comic worlds starts and branches](../../../../worlds/COMIC_WORLDS_START
 
 Counts: 13 feature mappings; eight start kinds; 12 CX cheat lenses; one pilot (T22 original Watchmen #1-12, small investigation packet proposed); five suggestions CM1-CM5. No graph or gameplay implementation.
 
-Sources: COMMON and AGENTS read first; PROJECT/USER_VISION direction, comics REPORT/PLAYTHROUGH_TARGETS, bounded LORE comparisons, DC digest, Comic/verse-integration North Star sections, intro/starts index, intro rounds9-15/21-22 and identity-law owner consulted. Round22 landed during final checks; read and reconciled CC/AW/AB/CX13-CX16 without editing its owner. No network or sealed files. Memory registry search had no relevant hits; no memory claim used.
+Sources: COMMON and AGENTS read first; PROJECT/USER_VISION direction, comics REPORT/PLAYTHROUGH_TARGETS, bounded LORE comparisons, DC digest, Comic/verse-integration North Star sections, intro/starts index, intro rounds9-15/21-22 and identity-law owner consulted. Round22 landed during final checks; read and reconciled CC/AW/AB/ICX13-ICX16 without editing its owner. No network or sealed files. Memory registry search had no relevant hits; no memory claim used.
 
 Gaps: no primary comic issues read by this lane; exact scene/timing/identity/return/rewrite/sliding-clock rules remain unverified. Watchmen finite range and synopsis are locally documented secondary/source-selection evidence, not issue-level audit. Full local issue-corpus availability not established. Initial missing-round22 observation is superseded by its live append and reconciliation.
 

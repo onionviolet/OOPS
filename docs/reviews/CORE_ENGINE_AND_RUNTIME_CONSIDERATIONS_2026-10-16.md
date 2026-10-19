@@ -5,6 +5,8 @@ owns the next sequence. Its conditional hardening supersedes this historical
 note's suggested all-fields M2.5 bundle. M3 remains stopped; future C/N fields
 land for demonstrated consumers rather than as a prerequisite service set.
 
+*Update 2026-10-19: M3 later passed on resume (B4, 2026-10-16; build 2045 pass / 3 TODO, native browser journey at 1366x768); M4 is not started. Current owner: [modular seams CHECKPOINT](../gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md). The "stopped" wording in this file is kept as history.*
+
 
 Weibao: "we need a /more-to-consider for the core engine and runtime accordingly
 to cover these? we can inherit/be inspired by caves of cud and other games with

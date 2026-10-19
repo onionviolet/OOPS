@@ -1,12 +1,11 @@
 // Original finite local proposals. Registration creates no actor or offer.
+import {all, eq} from './basics.js';
 export const REMAINDER_OFFERS_GROUP = 'remainder_offers';
 export const REMAINDER_OFFERS_WORLD = 'base.frontier';
 export const REMAINDER_OFFERS_KEYS = Object.freeze({log:JSON.stringify({id:'Rough wood log'}),kit:JSON.stringify({id:'Prepared survey kit'})});
 export const REMAINDER_SUPPLY = Object.freeze({client:'remainder.offers.ressa',situation:'remainder.offers.supply',price:4,window:20,
     purseSource:'association.one_local_supply_purse',needSource:'ressa.one_loaded_bank_job'});
 const P = 'remainder_offers', W = REMAINDER_OFFERS_WORLD, K = REMAINDER_OFFERS_KEYS, S = REMAINDER_SUPPLY;
-const eq = (fact,value=true,reason) => ({fact,op:'eq',value,...(reason?{reason}:{})});
-const all = (...rules) => ({all:rules});
 const yes = eq('auditRemainder.enrolled');
 const local = all(yes,eq('remainder.offers.clockSupported',true,'This local offer needs supported home-realm played time.'));
 const hands = eq('remainder.offers.handsUsable',true,'Use your recovered hands for this material work.');

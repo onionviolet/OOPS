@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | PH6 CN8 MS5 | [WORLD_CARDS.md](../../../../WORLD_CARDS.md), §5; How you grow. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 LQ3 TR3 TR6 WR1 HI4 OB4 SR1 | Guarded rest and body-specific preparation matter before a trial; a functional Flaw is a local condition, not the whole physique system. |
+| Fit | PH1 SG3 SG4 SG5 LQ3 TR3 TR6 WR1 HI4 OB4 BSR1 | Guarded rest and body-specific preparation matter before a trial; a functional Flaw is a local condition, not the whole physique system. |
 | Skip families | GN AG BD CL BP MX PR SB BM RP | GN/BD/CL/BP/MX/RP: no generic hereditary Aspect, copied soul or dynasty rule follows from trial rewards. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: the card’s selected local mechanism. Dial: detail or explicitly declared alternative premise; actual materials, support, preparation and time pay for the change, without universal side effects.

@@ -1,3 +1,4 @@
+import {sameStructural as same} from './basics.js';
 import {worldCompletionCropClockSupported} from './world_completion_crop_clock.js';
 import {worldCompletionMaterialsValidationDefinitions} from './world_completion_materials_content.js';
 // Pure current-owner projections and bounded invariants. No executor/host/UI
@@ -10,13 +11,6 @@ const P = I.facts;
 const terminalPlots = new Set(['covered', 'early', 'neglected', 'expired']);
 const terminalCollections = new Set(['deferred', 'refused', 'expired', 'restored']);
 const definition = id => D.commands.find(d => d.id === id);
-const same = (a, b) => {
-    if(a === b) return true;
-    if(Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((v, i) => same(v, b[i]));
-    if(!record(a) || !record(b)) return false;
-    const keys = Object.keys(a);
-    return keys.length === Object.keys(b).length && keys.every(k => Object.hasOwn(b, k) && same(a[k], b[k]));
-};
 const count = (state, actor, id) => state.actors?.[actor]?.completed?.[id] || 0;
 const frontierPresent = state => state.actors?.player?.worldId === I.frontier && !state.realmPrototype?.activeVisitId;
 const saltPresent = state => {

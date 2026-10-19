@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | HI4 MS2 | [WORLD_BRIEF.md](../../../../worlds/mother-of-learning/WORLD_BRIEF.md), Source and branch boundary; Source pins MOL-C001-06/07/10; Useful same-instance return. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 LQ8 TR3 TR6 WR1 OB4 SR1 | The retained non-mage visitor learns a precise lamp task, accommodates poor eyesight and buys bounded treatment without acquiring an inner magical source. |
+| Fit | PH1 SG3 SG4 SG5 LQ8 TR3 TR6 WR1 OB4 BSR1 | The retained non-mage visitor learns a precise lamp task, accommodates poor eyesight and buys bounded treatment without acquiring an inner magical source. |
 | Skip families | GN AG CN BD CL BP MX PR SB BM RP | GN CN BD CL BP MX PR BM RP: visitor assessment and local rights do not create innate magic, a family or a new body. AG/SB: no reset-aging or generic toxicity meter in this branch. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: current continuous visitor. Dial: source-qualified native/loop start in another profile; source, soul and body gains need separate retention, not free reset.

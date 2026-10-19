@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | AG6 GN9 | [05_RESEARCHED_WORLDS.md](../../../../worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md), § WMW1–WMW3; succession row Warlock. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 GN2 CN8 BD8 BD9 BP6 CL3 MS1 MS2 TR3 TR6 WR1 HI4 OB1 OB4 SB5 BM2 SR1 | A sample-backed diagnosis changes a bloodline research plan, with BP6 transformation, BD8 sealing and CL3 family strategy as INFERRED candidates needing exact scene qualification, while long-lived teachers meet short-lived families. |
+| Fit | PH1 SG3 SG4 SG5 GN2 CN8 BD8 BD9 BP6 CL3 MS1 MS2 TR3 TR6 WR1 HI4 OB1 OB4 SB5 BM2 BSR1 | A sample-backed diagnosis changes a bloodline research plan, with BP6 transformation, BD8 sealing and CL3 family strategy as INFERRED candidates needing exact scene qualification, while long-lived teachers meet short-lived families. |
 | Skip families | LQ MX PR RP | BP/CL/MX/RP unpicked rows: exact lineage ceilings, flaw editing and transmission need reviewed MTL locators; no automatic purity-to-mastery rule. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: one start-compatible row, preserving the cited owner’s qualifiers. Dial: bodily detail or exceptional route after its exact source range is qualified; actual technique, carrier, care, materials and time supply local costs. This is INFERRED design fit, not a new canon audit.

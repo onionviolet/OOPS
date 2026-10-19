@@ -75,3 +75,15 @@ test("native attack timing retains the previous timestamp and clamps drift in bo
     assert.deepEqual(nextAttackTiming(100,101,16,0,10),{variance:-15,adjustment:-10});
     assert.deepEqual(nextAttackTiming(100,150,16,2,10),{variance:36,adjustment:10});
 });
+test("CBL3: a lost road duel publishes one unconscious record inside the save write and a failed write leaves none",async()=>{
+    const {defeatState,setDefeatState}=await import("../src/defeat_domain.js");setDefeatState(null);
+    const p=begin(setup()),win=commitNativeBattleStrike(p.state,registry,{actorId:"player",targetId:ROAD_RIVAL,attacker,target},context(p));
+    assert.equal(win.defeat,undefined);
+    const lost=commitNativeBattleStrike(p.state,registry,{actorId:ROAD_RIVAL,targetId:"player",attacker:{...attacker,attackPower:500},target},context(p));
+    assert.equal(lost.state.actors.player.facts["rival.lastResult"],"lost");assert.deepEqual(lost.defeat,{outcome:"unconscious",cause:{kind:"combat",place:null,by:["Mara"]}});
+    const bytes=JSON.stringify(envelope(p));
+    assert.throws(()=>persistExpansionPlan(lost,{createSave:()=>{assert.equal(defeatState().counts.unconscious,1);return bytes;},key:"test",bindings,storage:{setItem(){throw Error("quota");}}}),/quota/);
+    assert.equal(defeatState()?.last??null,null);
+    persistExpansionPlan(lost,{createSave:()=>bytes,key:"test",bindings,storage:{setItem(){}}});assert.deepEqual(defeatState().counts,{unconscious:1});
+    withdrawNativeBattle(p.state,registry,context(p));assert.deepEqual(defeatState().counts,{unconscious:1});setDefeatState(null);
+});

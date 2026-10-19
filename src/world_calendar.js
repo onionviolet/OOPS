@@ -1,7 +1,6 @@
+import {check as assert, natural} from './basics.js';
 import {WORLD_CALENDAR_PROFILES} from './world_calendar_content.js';
 import {legacyClimateEnvironment} from './world_climate.js';
-const assert = (ok, message) => {if (!ok) throw new Error(message);};
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const pad = n => String(n).padStart(2, '0');
 const seasons = ['Spring', 'Summer', 'Autumn', 'Winter'];
 

@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | PH6 TR3 | [WORLD_BRIEF.md](../../../../worlds/proto23/WORLD_BRIEF.md), Source facts versus authored branch; Preservation and later acceptance. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 LQ3 LQ14 MS2 TR6 WR1 OB3 OB4 SR1 | Adapt a dojo drill to the retained visitor and fit a tool for their hand; cottage rest supports the next practice. |
+| Fit | PH1 SG3 SG4 SG5 LQ3 LQ14 MS2 TR6 WR1 OB3 OB4 BSR1 | Adapt a dojo drill to the retained visitor and fit a tool for their hand; cottage rest supports the next practice. |
 | Skip families | GN AG CN BD CL BP MX HI PR SB BM RP | GN AG CN BD CL BP MX HI PR SB BM RP: no copied protagonist childhood, house ancestry, bloodline or healing entitlement. Other bodily detail waits for a source-specific action. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: ordinary guest body. Dial: one quirk or recovery plan; paid cottage, instructor time and real materials remain costs.

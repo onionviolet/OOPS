@@ -1,13 +1,8 @@
+import {all, deepFreeze as freeze, eq} from './basics.js';
 import {createWorldInstance, createWorldBindings, validateWorldEndpoint} from "./world_instances.js";
 
 // Original exploration content. Importing this file grants no stock, source,
 // residence or passage. The master must bind/register it explicitly.
-const freeze = value => {
-    if (value && typeof value === "object") { Object.values(value).forEach(freeze); Object.freeze(value); }
-    return value;
-};
-const eq = (fact, value = true, reason) => ({fact, op: "eq", value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const itemKey = id => JSON.stringify({id});
 const item = (id, amount, actor) => ({type: "item", key: itemKey(id), amount, ...(actor ? {actor} : {})});
 const vital = (amount, actor) => ({type: "vital", key: "stamina", amount, ...(actor ? {actor} : {})});

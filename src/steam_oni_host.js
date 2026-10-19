@@ -1,11 +1,11 @@
 // Stage through the existing scheduler; the caller publishes the returned plan.
+import {check} from './basics.js';
 import {STEAM_ONI_IDS as I, steamONIDefinitions as D} from './steam_oni_content.js';
 import {steamONIFacts, validateSteamONIState} from './steam_oni_facts.js';
 import {guardSteamONIAdmission} from './steam_oni_runtime.js';
 import {enrollSimulation, commitSimulationCommand, cancelSimulationJob, simulationOccupiesActor} from './simulation.js';
 import {activePractice} from './techniques.js';
 import {projectFeatureCommands, featureWorkControls} from './feature_expansion_host.js';
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 export function steamONIContext(state, registry, context = {}) {
     return {...context, steamONIHost: true, facts: {...context.facts, ...steamONIFacts(state, context, registry)}};
 }

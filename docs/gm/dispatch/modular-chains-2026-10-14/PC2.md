@@ -2,7 +2,7 @@
 
 Read COMMON.md in `/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/modular-chains-2026-10-14/` first. Folder `pc2/`.
 
-Goal: one rule module shape covering root MR1-MR13: world laws, generated per-save rules, social and institutional rules, local fields, timed rules, spreading rules, player-made rules and cheats that edit rules.
+Goal: one rule module shape covering root MMR1-MMR13: world laws, generated per-save rules, social and institutional rules, local fields, timed rules, spreading rules, player-made rules and cheats that edit rules.
 
 Start from `src/rules.js` (SHOWN: pure, all/any/not, eq/gte/lte, known plus reasons) and `src/tag_store.js`, `src/pocket_realm_rules.js`, `src/realm_boundary_rules.js`, plus GENERATION_FOUNDATION_RULES GR1-GR17 and GA4 overlays, world core kit K2 world laws, and the materials audit resolver contract.
 

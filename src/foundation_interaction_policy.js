@@ -1,10 +1,8 @@
 // Original, opt-in development policies. No book-world precedence is implied.
 // This service owns neither costs nor vitals: callers use the existing plan,
 // simulation clock and durable publication path for those operations.
-const check = (ok, message) => {if (!ok) throw new Error(message);};
+import {check, copy as clone, natural} from './basics.js';
 const id = v => typeof v === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !['__proto__','prototype','constructor'].includes(v);
-const natural = n => Number.isSafeInteger(n) && n >= 0;
-const clone = v => structuredClone(v);
 const selector = v => ['$actor','$target'].includes(v) || id(v);
 const bind = (v, c) => v === '$actor' || v == null ? c.actorId : v === '$target' ? c.targetId : v;
 export const FOUNDATION_INTERACTION_POLICIES = Object.freeze(['P-A','P-B']);

@@ -1,5 +1,6 @@
 // Ephemeral adapters over actual native/campaign owners. The shared host owns
 // movement, time, saves and publication; this module enrolls no campaign store.
+import {check as assert, copy, object} from './basics.js';
 import {buildNativeRealmCargoSnapshot, validateRealmCargoSnapshot, previewRealmCargoPassage} from './realm_cargo.js';
 import {validateRealmJson, validateRealmEndpoint, sameRealmEndpoint, realmStableId as id, realmNatural as natural} from './realm_boundary_rules.js';
 import {validateRealmConnection, previewRealmPassage} from './realm_connections.js';
@@ -10,9 +11,6 @@ import {simulationOccupiesActor, waitingSimulationChoice} from './simulation.js'
 import {Game_Time} from './game_time.js';
 
 export const CARRIER_TRANSIT_SCHEMA = 1;
-const assert = (ok, text) => {if (!ok) throw Error(text);};
-const copy = value => structuredClone(value);
-const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const positive = value => natural(value) && value > 0;
 const canonical = value => JSON.stringify(Array.isArray(value) ? value.map(value => JSON.parse(canonical(value))) : object(value)
     ? Object.fromEntries(Object.keys(value).sort().map(key => [key, JSON.parse(canonical(value[key]))])) : value);

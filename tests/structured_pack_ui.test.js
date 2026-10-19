@@ -1,31 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createStructuredPackPanel} from '../src/structured_pack_ui.js';
+import {withPanelDom} from './helpers/mini_dom.mjs';
 
-function withDom(run) {
-    const previous={document:globalThis.document,setInterval:globalThis.setInterval,clearInterval:globalThis.clearInterval};
-    let tick,cleared=false;const document={activeElement:null};
-    class Element {
-        constructor(tag){this.tagName=tag;this.children=[];this.parentElement=null;this.dataset={};this.textContent='';this.disabled=false;}
-        setAttribute(name,value){(this.attributes??={})[name]=String(value);}
-        contains(node){return node===this||this.children.some(c=>c.contains(node));}
-        get isConnected(){return this===document.root||!!this.parentElement?.isConnected;}
-        remove(){if(this.contains(document.activeElement))document.activeElement=null;if(this.parentElement)this.parentElement.children.splice(this.parentElement.children.indexOf(this),1);this.parentElement=null;}
-        append(...nodes){for(const n of nodes){n.remove();n.parentElement=this;this.children.push(n);}}
-        prepend(n){n.remove();n.parentElement=this;this.children.unshift(n);}
-        replaceChildren(...nodes){for(const n of [...this.children])n.remove();this.append(...nodes);}
-        focus(){if(this.isConnected&&!this.disabled)document.activeElement=this;}
-        click(){if(!this.disabled)this.onclick?.();}
-    }
-    document.createElement=tag=>new Element(tag);document.root=new Element('main');
-    const host=new Element('div');host.id='location_actions_div';document.root.append(host);
-    document.getElementById=id=>document.root.children.find(n=>n.id===id)||null;
-    globalThis.document=document;globalThis.setInterval=fn=>{tick=fn;return 1;};globalThis.clearInterval=()=>{cleared=true;};
-    const find=(node,key,id)=>node.dataset[key]===id?node:node.children.map(c=>find(c,key,id)).find(Boolean);
-    const text=node=>[node.textContent,...node.children.map(text)].join(' ');
-    try{run({document,host,find,text,tick:()=>tick(),cleared:()=>cleared});}
-    finally{for(const [k,v] of Object.entries(previous)){if(v===undefined)delete globalThis[k];else globalThis[k]=v;}}
-}
+const withDom=run=>withPanelDom(env=>run({...env,cleared:env.isCleared,
+    find:function find(node,key,id){return node.dataset[key]===id?node:node.children.map(c=>find(c,key,id)).find(Boolean);}}));
 const view=()=>({available:true,active:true,title:'A local beginning',place:'Workroom',description:'A modest room.',people:[{name:'Keeper',details:['You met today.']}],status:[{label:'Held',value:2}],actions:[{id:'work',label:'Prepare supplies',description:'Use your actual supplies.',eligible:true,reasons:[]}],jobs:[{id:'job.1',label:'Sorting',remaining:3,cancellable:true}],canWrite:true});
 
 test('unchanged projection retains focus and remounts the same controls',()=>withDom(({document,host,find,text,tick,cleared})=>{

@@ -1,5 +1,6 @@
 // Pure evidence for the existing character feat catalogue. This module owns
 // neither recognition mutation nor a reward/save publisher.
+import {natural} from './basics.js';
 import {NETHACK_FIELDCRAFT_KEYS as K, NETHACK_FIELDCRAFT_IDS as I} from './nethack_fieldcraft_content.js';
 
 export const fieldcraftFeatDefinitions = Object.freeze([
@@ -9,7 +10,6 @@ export const fieldcraftFeatDefinitions = Object.freeze([
 ]);
 const trials = ['nethack_fieldcraft.trial_dull','nethack_fieldcraft.trial_fineDull'];
 const discoveryCommands = ['nethack_fieldcraft.assay', ...trials];
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const count = (state,id) => natural(state?.actors?.player?.completed?.[id]) ? state.actors.player.completed[id] : 0;
 const increased = (before,out,id) => count(out,id) > count(before,id);
 const validObservation = (state,key) => {

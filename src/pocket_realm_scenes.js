@@ -1,17 +1,10 @@
 // Original, detached scene/content entries. Importing creates no actor, stock,
 // registry, DOM, timer or save. The engine master binds and commits every action.
+import {all, check as assert, copyJson as copy, deepFreeze as freeze, eq} from './basics.js';
 import {createRealmConnection, realmConnectionBinding} from "./realm_connections.js";
 import {validateRealmBoundaryRule, validateRealmEndpoint} from "./realm_boundary_rules.js";
-const copy = value => JSON.parse(JSON.stringify(value));
-const freeze = value => {
-    if (value && typeof value === "object") { Object.values(value).forEach(freeze); Object.freeze(value); }
-    return value;
-};
 const stable = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !["__proto__", "constructor", "prototype"].includes(value);
-const assert = (condition, message) => { if (!condition) throw new Error(message); };
-const eq = (fact, value = true, reason) => ({fact, op: "eq", value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const itemKey = id => JSON.stringify({id});
 const item = (id, amount, actor) => ({type: "item", key: itemKey(id), amount, ...(actor ? {actor} : {})});
 const stamina = (amount, actor) => ({type: "vital", key: "stamina", amount, ...(actor ? {actor} : {})});

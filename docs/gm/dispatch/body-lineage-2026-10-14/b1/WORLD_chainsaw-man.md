@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | WR5 OB1 OB6 BM4 | [SYNTHESIS.md](../../../../worlds/chainsaw-man/SYNTHESIS.md), §2 Devil r25098, Fiend r24028, Hybrid r25122, Contract r25006; §3 conflicts. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 CN7 CN8 MS1 TR3 TR6 WR1 OB4 BM6 SR1 | Track a blood-paid recovery or a contract body price against the actual eligible person. Fiend possession and Hybrid fusion need separate carriers, terms and return states. |
+| Fit | PH1 SG3 SG4 SG5 CN7 CN8 MS1 TR3 TR6 WR1 OB4 BM6 BSR1 | Track a blood-paid recovery or a contract body price against the actual eligible person. Fiend possession and Hybrid fusion need separate carriers, terms and return states. |
 | Skip families | GN LQ AG BD CL BP MX HI PR SB RP | GN BD CL BP MX RP: human/Devil fusion is not reproductive hybrid ancestry or inherited contract rights. PR: public fear strengthening a Devil is not hereditary dominance aura. SB: blood fuel is not generic pill dependence. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: civilian/hunter profile. Dial: source-qualified Fiend/Hybrid; actor-specific blood, organ or life price and contract eligibility govern it.

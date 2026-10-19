@@ -3,7 +3,7 @@
 Authority: Weibao, 2026-10-13: "more to consider for layered records and start
 sources? Send codex to try and work accordingly?" Design owner:
 [intro flow considerations](../../../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md)
-rounds 2-5 (RX1, UI3, UI4, WC1-WC9, WL7, SR1, SR2, SR5, SR6, LY1, LY2, LY5,
+rounds 2-5 (RX1, UI3, UI4, WC1-WC9, WL7, ISR1, ISR2, ISR5, ISR6, LY1, LY2, LY5,
 LY6, LY7, LY8, LY9). Proposals; this lane is a reversible prototype.
 
 Worker: one Codex CLI run (`runs/`) in its own worktree
@@ -28,7 +28,7 @@ and a dev-probe roll panel that can begin a life from a composed start.
 | ID | What |
 | --- | --- |
 | SR-A | `src/start_records.js` (pure, no DOM): `resolveStart(world, choices, seed)` where `choices[axis]` is `{mode:'lock'|'roll'|'unknown', layerId?}`. Fixed axis order per world (LY1). Layers patch a snapshot (`money`, `items[]`, `location`, `quest`, `skills{}`, `knowledge[]`, `text[]`) with declared merge rules (LY2). Layers carry `tags`, `needs`, `excludes` (LY3) and `weight`. Seeded deterministic RNG (same world+choices+seed gives same result). Returns `{snapshot, provenance:{worldId, revision, seed, layers:[{axis,id,revision}]}, hidden:[axes]}` (LY8, LY5). Every axis may resolve to an empty layer (LY6) |
-| SR-B | Validator `validateStart(result)` (SR6, LY9): has location, a first lead (quest or lead text), no layer conflict; if a rolled axis breaks it, reroll that axis inside the seed, not the whole start |
+| SR-B | Validator `validateStart(result)` (ISR6, LY9): has location, a first lead (quest or lead text), no layer conflict; if a rolled axis breaks it, reroll that axis inside the seed, not the whole start |
 | SR-C | `src/data/start_layers_frontier.js`: world `base.frontier` with axes `entry`, `background`, `possessions`. `vanilla` layers reproduce today's new game exactly: 102 coins, Cheap leather pants q40, Stale bread x5, Village, quest "Lost memory", entry text of the amnesia wake-up (WL7). At least 3 background layers (e.g. farmhand, runaway, scholar's child; CR10) and 2 possession layers, each a small patch plus one text fragment (LY7); at least one `excludes` pair |
 | SR-D | Unit tests `tests/start_records.test.js`: determinism; lock respected; unknown axis resolved but listed hidden; excludes never co-occur over 200 seeds; vanilla parity equals the values in SR-C; validator reroll; provenance complete |
 | SR-E | Dev probe UI: only when `location.hostname` is localhost/127.0.0.1 and `?start_probe=1`. Inside `#hero_creation_panel`: `[data-start-roll]` section with one row `[data-start-axis="<axis>"]` per axis holding a `select[data-start-mode]` (lock/roll/unknown) and a `select[data-start-layer]`; `input[data-start-seed]`; `button[data-start-roll-button]`; result card `[data-start-card]` with the composed text, seed, and hidden axes shown as "not yet known" (UI4, UI10); attribute `data-start-resolved` holding JSON `{money, items, location, quest, provenance}`; `input[type=checkbox][data-start-use]` "Begin with this start" (default unchecked). Laid out wide (not collapsed) at 1366x768 per the standing UI priority |

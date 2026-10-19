@@ -28,7 +28,7 @@ All packets are **INFERRED PROPOSALS**, not execution authority. Rank and identi
 
 ## RW-D3: Study a safe subject into a usable method
 
-**Route:** NEW subject-study leaf; P03/P11/P20; K9/K11/K13/K18. **Owner:** docs/TECHNOLOGY_AND_PROGRESSION.md GR4/RW5/RW7; docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md.
+**Route:** NEW subject-study leaf; P03/P11/P20; K9/K11/K13/K18. **Owner:** docs/TECHNOLOGY_AND_PROGRESSION.md TGR4/RW5/RW7; docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md.
 
 **Bounded change:** One original safe specimen or object, one paid study action and one method with an existing useful consumer. Store custody/reference, study receipt, resolved reveal threshold and attributed observation. Knowledge belongs to actor; method usability reads current means.
 

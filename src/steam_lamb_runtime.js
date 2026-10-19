@@ -1,8 +1,8 @@
 // Pure admission and accepted-work views. No executor, host or save IO.
+import {check} from './basics.js';
 import {STEAM_LAMB_IDS as I, STEAM_LAMB_KEYS as K, steamLambDefinitions as D} from './steam_lamb_content.js';
 import {featureObjectDefinitions as O} from './feature_expansion_objects.js';
 import {statusCareSupportedBody, statusCareCondition} from './status_care_facts.js';
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 export const steamLambNatural = n => Number.isSafeInteger(n) && n >= 0;
 export const steamLambRecord = v => v != null && typeof v === 'object' && !Array.isArray(v);
 export function sameSteamLambData(a, b) {

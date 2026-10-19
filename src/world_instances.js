@@ -1,17 +1,15 @@
 // Detached prototype records. The integrator owns registration, native bindings
 // and durable publication. This module never advances the joined game clock.
+import {check as assert, copyJson as copy, natural} from './basics.js';
 export const WORLD_INSTANCE_SCHEMA = 1;
 export const WORLD_BINDING_SCHEMA = 1;
 
-const assert = (ok, message) => { if (!ok) throw new Error(message); };
 const record = value => value !== null && typeof value === "object" &&
     !Array.isArray(value) && [Object.prototype, null].includes(Object.getPrototypeOf(value));
-const natural = value => Number.isSafeInteger(value) && value >= 0;
 const stableId = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !["__proto__", "prototype", "constructor"].includes(value);
 const scalar = value => ["boolean", "string"].includes(typeof value) ||
     typeof value === "number" && Number.isFinite(value) && Math.abs(value) <= Number.MAX_SAFE_INTEGER;
-const copy = value => JSON.parse(JSON.stringify(value));
 const sameEndpoint = (a, b) => ["worldId", "instanceId", "regionId", "layerId"].every(key => a[key] === b[key]);
 
 function json(value, depth = 0, ancestors = new Set()) {

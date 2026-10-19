@@ -1,16 +1,10 @@
 // Finite original body/property proofs. Only unpublished plans are changed.
+import {copy as clone, deepFreeze as freeze, eqRaw as eq, natural, object} from './basics.js';
 import {activePractice} from './techniques.js';
 import {simulationOccupiesActor} from './simulation.js';
 import {backlogAssert as assert, backlogRecord, backlogActor, backlogInventory,
     backlogItem, backlogTransfer, backlogLog, assertBacklogBoundary} from './backlog_expansion_core.js';
 
-const freeze = value => {
-    if(value && typeof value === 'object') {Object.values(value).forEach(freeze);Object.freeze(value);}
-    return value;
-};
-const object = value => !!value && typeof value === 'object' && !Array.isArray(value);
-const natural = value => Number.isSafeInteger(value) && value >= 0;
-const clone = value => structuredClone(value);
 const key = id => JSON.stringify({id});
 export const BODY_IDS = freeze({brasswright:'backlog.brasswright',clay:'backlog.clay_vessel',
     donor:'backlog.family_mara',recipient:'backlog.family_ren',specimen:'backlog.brass_lung.bl01',
@@ -45,7 +39,6 @@ export const bodyCapabilities = freeze([
     {id:'backlog.clay_sealing',label:'Controlled clay pressing',stacking:'max',providers:[]},
     {id:'backlog.family_bench',label:'Family workbench operation',stacking:'max',providers:[]},
 ]);
-const eq = (fact,value) => ({fact,op:'eq',value});
 const usableHands = {fact:'body.hands',op:'gte',value:2};
 export const bodySources = freeze([
     {id:BODY_IDS.reedSource,revision:1,label:'Living reed fronds',kind:'trait',origin:'inherited',

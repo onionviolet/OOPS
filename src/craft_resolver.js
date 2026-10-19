@@ -4,6 +4,7 @@
 // draws are taken, so previews, NPC makers and sandboxes can call it freely
 // (crafting palette II1, GR13). Integer math only; mass is conserved and
 // every constituent, including traces, is retained (audit R4, C3).
+import {natural as nat, positive as pos} from './basics.js';
 import {address, compareCodePoints} from './gen_kit.js';
 import {MATRIX, deepFreeze, matchesQuery, materialTags, validateMaterial, versioned} from './craft_materials.js';
 
@@ -11,8 +12,6 @@ export const BATCH_FAMILY = 'craft.batch@1';
 export const MAX_INPUT_QTY = 999;
 export const MAX_STEPS = 12;
 const fail = message => { throw new Error(message); };
-const nat = n => Number.isSafeInteger(n) && n >= 0;
-const pos = n => Number.isSafeInteger(n) && n > 0;
 const text = (value, label) => typeof value === 'string' && value.length ? value : fail(`${label} must be non-empty text.`);
 const only = (value, allowed, label) => {
     if(!value || typeof value !== 'object' || Array.isArray(value)) fail(`${label} must be an object.`);

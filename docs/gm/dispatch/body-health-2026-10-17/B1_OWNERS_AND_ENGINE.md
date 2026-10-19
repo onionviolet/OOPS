@@ -63,7 +63,7 @@ Status column: **ACC** = carries accepted direction (section 1). **PROP** = prop
 | B1-O17 | `docs/worlds/world-depth-2026-10-13/22_FEATURES_AS_CHEATS.md` section 17.4 | Wills, executors, funerals, presumed death, rebirth claims. | PW1-PW8 | PROP |
 | B1-O18 | `docs/worlds/world-depth-2026-10-13/30_LIFE_STAGES_AND_CUSTOM.md`, `31_INNER_LIFE_HOUSEHOLD_COMMUNITY.md` | Life stages and custom; trauma and support (IL7), supernatural corruption (IL8), care roles (IL17). | LSW/LSE/LSL/LSX, IL1-IL39 | PROP |
 | B1-O19 | `docs/worlds/world-core-kit-2026-10-14/W8_LIVED_LAYER.md` + `docs/worlds/WORLD_CORE_KIT_2026-10-14.md:355` | K22 "Bodies and health" kit floor per world: how people get sick, heal and age, one local medicine. | K22, W8.<world> | PROP |
-| B1-O20 | `docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md` | Activation/recovery profile, fresh-life return walkthrough, unconscious access (AR4), automatic recovery (AU1-AU4). | AR4 (local), AU1-AU4 | ACC answers + PROP profile |
+| B1-O20 | `docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md` | Activation/recovery profile, fresh-life return walkthrough, unconscious access (CCH-AR4), automatic recovery (CCH-AU1-CCH-AU4). | CCH-AR4 (local), CCH-AU1-CCH-AU4 | ACC answers + PROP profile |
 | B1-O21 | `docs/TRIALS_AND_TRIBULATIONS.md` | Trial injury, flesh vs soul consequences, loss of control leads. | Section rows | PROP |
 | B1-O22 | `docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md` | Death/regression/tower book patterns. | R, B, T, L rows | RES |
 | B1-O23 | `docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_BODY_*.md` | Reconciled body interface proposals (AB1-AB12), body-lineage lanes B1-B18. | AB1-AB12, B1-B18 | REC |

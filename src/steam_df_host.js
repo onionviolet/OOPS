@@ -1,4 +1,5 @@
 // The normal caller publishes the returned native staged plan exactly once.
+import {check} from './basics.js';
 import {STEAM_DF_IDS as I, steamDFDefinitions as D, steamDFLegacyKnowledge} from './steam_df_content.js';
 import {steamDFFacts, validateSteamDFState} from './steam_df_facts.js';
 import {steamDFCurrentReport, steamDFReportText, guardSteamDFAdmission} from './steam_df_runtime.js';
@@ -13,7 +14,6 @@ const visibleTerms = Object.freeze({
     'Obtain a current exact report of at least two staves before buying this pair.': 'Ask for a fresh full count showing at least two staves before ordering a pair.',
 });
 const inWorld = value => typeof value === 'string' ? visibleTerms[value] || value : Array.isArray(value) ? value.map(inWorld) : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).map(([k, v]) => [k, ['text', 'label', 'description', 'reason'].includes(k) ? inWorld(v) : typeof v === 'object' ? inWorld(v) : v])) : value;
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 export function steamDFContext(state, registry, context = {}) {
     return {...context, steamDFHost: true, facts: {...context.facts, ...steamDFFacts(state, context, registry)}};
 }

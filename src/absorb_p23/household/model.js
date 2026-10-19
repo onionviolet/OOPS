@@ -1,11 +1,11 @@
 // Original domestic proposals. Proto23 is inspiration only; no copied code/assets.
 // Pure transaction plans. P00 publishes these with native inventory/conditions
 // and the root sequence atomically; this module never owns those resources.
+import {natural} from '../../basics.js';
 export const HOUSEHOLD = Object.freeze({schema: 1, animalId: 'household.moss', name: 'Moss',
     fuelKey: JSON.stringify({id: 'Rough wood log'}), giftKey: JSON.stringify({id: 'Rat tail'}),
     burnMinutes: 20, dryMinutes: 3, giftMinutes: 60, growMinutes: 1440});
 const check = (ok, message) => {if(!ok) throw new Error(`Household: ${message}`);};
-const natural = n => Number.isSafeInteger(n) && n >= 0;
 const shape = (o, keys) => o && typeof o === 'object' && !Array.isArray(o) &&
     Object.keys(o).length === keys.length && keys.every(k => Object.hasOwn(o, k));
 const id = v => typeof v === 'string' && v.length > 0 && v.length <= 120;

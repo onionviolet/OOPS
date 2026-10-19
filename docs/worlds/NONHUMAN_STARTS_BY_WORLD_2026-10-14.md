@@ -1,5 +1,7 @@
 # Nonhuman starts by canon world, 2026-10-14
 
+> Code namespace 2026-10-19 (no codes renamed): NX1-NX10 here are nonhuman design principles; NX1-NX15 are also a backlog in WORLD_CORE_KIT_2026-10-14, NX1-NX5 in INTRO_FLOW and NX1-NX14 in the UI next-parts plan. Outside this file cite `NONHUMAN_STARTS_BY_WORLD_2026-10-14#NX3`. See [reserved prefixes](../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 CANON lane research and proposal palette. No option here is an accepted decision, implemented start or gameplay proof. Source order follows PROJECT.md's canon-first priority of 2026-10-13. This is a bounded synthesis of existing project material, with selected public-page cross-checks. No whole books, new downloads or sealed world files were read.
 
 ## Authority, evidence and engine shorthand

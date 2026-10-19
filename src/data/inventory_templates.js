@@ -109,6 +109,9 @@ inventory_templates["Basic"] =
             new TradeItem({item_name: "Old axe", count: [1], chance: 1}),
             new TradeItem({item_name: "Old sickle", count: [1], chance: 1}),
             new TradeItem({item_name: "Old shovel", count: [1], chance: 1}),
+            // Appended last so earlier rows keep their market draws (M4 lamplight, 2026-10-19).
+            new TradeItem({item_name: "Oil lamp", count: [1], chance: 1}),
+            new TradeItem({item_name: "Lamp oil", count: [3,6], chance: 1}),
         ]
     })
 ];

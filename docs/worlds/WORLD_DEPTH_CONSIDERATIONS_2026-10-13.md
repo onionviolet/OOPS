@@ -88,6 +88,10 @@ in part 02 use `DDC` to stay distinct from the coverage map's `DND00` to `DND15`
   (`src/reputation_state.js:6-16`). These need one migration slice (part 07 BO10).
 - **The heir path is built but unwired** (`buildLifeHeirSave` is never called;
   source-reading inference, not browser-checked).
+  *Update 2026-10-19: no longer true. `src/main.js:457` imports and
+  `src/main.js:2763` calls `buildLifeHeirSave`; current owner is
+  [W6 F2a](world-core-kit-2026-10-14/W6_ENGINE_TEMPLATE.md). Old wording
+  kept as history.*
 
 ## Recommended first arc (part 23)
 

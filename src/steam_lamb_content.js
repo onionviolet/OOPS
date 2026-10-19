@@ -1,4 +1,5 @@
 // LAMB-P02: original local agreement and service, separate from learned means.
+import {all, eq} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as K} from './feature_expansion_objects.js';
 
 export const STEAM_LAMB_IDS = Object.freeze({world: O.world, group: 'steam_lamb', prefix: 'steam.lamb.',
@@ -8,8 +9,6 @@ export const STEAM_LAMB_IDS = Object.freeze({world: O.world, group: 'steam_lamb'
     deliver: 'steam.lamb.deliver', end: 'steam.lamb.end', office: 'steam.lamb.office', approval: 'steam.lamb.approval'});
 export const STEAM_LAMB_KEYS = Object.freeze({matched: K.matched, fine: K.fine, fineDull: K.fineDull});
 const I = STEAM_LAMB_IDS;
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules});
 const local = eq('steamLamb.supported', true, 'Return to the Village with your living body and finish any battle or journey.');
 const qualified = eq('steamLamb.qualified', true, 'Watch Eda’s actual cut and complete Grain matching practice with her first.');
 const office = eq('steamLamb.office', true, 'Eda must still hold your agreed fitting appointment.');

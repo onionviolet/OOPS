@@ -1,5 +1,6 @@
 // Original opt-in retort host. Shared registry, native-envelope reader, UI,
 // clock and durable publication are root-owned integrations. No storage writes.
+import {sameJson as same} from './basics.js';
 import {FACTORIO_RETORT_IDS as I, FACTORIO_RETORT_KEYS as K, FACTORIO_RETORT_TERMS as T,
     factorioRetortDefinitions, factorioRetortPlanDefinitions} from './factorio_retort_content.js';
 import {factorioRetortFacts, factorioRetortBenchSupported} from './factorio_retort_facts.js';
@@ -13,7 +14,6 @@ const definitions = new Map(factorioRetortDefinitions.commands.map(d => [d.id, d
 const itemIDs = new Map(['resinEmpty', 'resinFull', 'residueEmpty', 'residueFull', 'residue'].map(name => [JSON.parse(K[name]).id, K[name]]));
 const receiptFor = new Map([[I.install, 'installed'], [I.batch, 'batch'], [I.collectResin, 'collected_resin'],
     [I.collectResidue, 'collected_residue'], [I.disposeFilled, 'disposed_filled_residue'], [I.disposeLoose, 'disposed_residue']]);
-const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const keysOnly = (value, keys, text) => assert(record(value) && Object.keys(value).every(k => keys.includes(k)), text);
 const completed = (state, id) => state.actors?.player?.completed?.[id] || 0;
 

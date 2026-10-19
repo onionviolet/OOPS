@@ -3,7 +3,7 @@ import {GRADED_IDS,validateGradedKey} from './harvest.js';
 import {systemsWorkshopItems} from './systems_workshop_content.js';
 import {registerFortItems} from "./fork_fort_content.js";
 import {MIXTURE_ID,INGREDIENTS,getMixtureOwner,productFromKey,mixturePresentation} from './mixture_state.js';
-import {readingRate} from './reveal_chain.js';
+import {readingRate,readingLightFactor} from './reveal_chain.js';
 import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
@@ -1137,7 +1137,7 @@ class Book extends Item {
     getReadingTime() {
         // Progress stays in original work units, so old saves need no conversion.
         let {required_time} = book_stats[this.name];
-        return required_time / readingRate(character.getTotalSkillLevel("Literacy"));
+        return required_time / (readingRate(character.getTotalSkillLevel("Literacy"))*readingLightFactor());
     }
 
     /**
@@ -1146,11 +1146,11 @@ class Book extends Item {
      */
     getRemainingTime() {
         let remaining_time = Math.max(book_stats[this.name].required_time - book_stats[this.name].accumulated_time, 0);
-        return remaining_time / readingRate(character.getTotalSkillLevel("Literacy"));
+        return remaining_time / (readingRate(character.getTotalSkillLevel("Literacy"))*readingLightFactor());
     }
 
     addProgress(time = 1, {study = true} = {}) {
-        book_stats[this.name].accumulated_time += time * (study ? readingRate(character.getTotalSkillLevel("Literacy")) : 1);
+        book_stats[this.name].accumulated_time += time * (study ? (readingRate(character.getTotalSkillLevel("Literacy"))*readingLightFactor()) : 1);
         if(book_stats[this.name].accumulated_time >= book_stats[this.name].required_time) {
             this.setAsFinished();
         }
@@ -1534,6 +1534,19 @@ book_stats[ROUTE_NOTES] = new BookData({required_time: 4, literacy_xp_rate: 1});
         name: "Coil of rope",
         description: "A nice, long coil of rope, for whatever use you might find (although you have a feeling it will only be very situational)",
         value: 400,
+    });
+    // Lamplight (M4 proposal, 2026-10-19): the lamplight domain owns lit state and the oil in the lamp.
+    item_templates["Oil lamp"] = new UsableItem({
+        name: "Oil lamp",
+        description: "A small brass lamp with a glass chimney. Use it to light it or put it out; a flask of lamp oil burns about four hours. Its light helps you read after dark and see in dark places.",
+        value: 250,
+        effects: [],
+        tags: {manual_use: true},
+    });
+    item_templates["Lamp oil"] = new OtherItem({
+        name: "Lamp oil",
+        description: "A stoppered flask of lamp oil, enough to fill an oil lamp once",
+        value: 25,
     });
     item_templates["Mountain goat horn"] = new OtherItem({
         name: "Mountain goat horn",

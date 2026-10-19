@@ -1,3 +1,4 @@
+import {all, any, eq, gte} from './basics.js';
 import {originalFrontierCareerDefinitions,originalFrontierCareerSources} from './original_frontier_career_content.js';
 import {originalFrontierFieldDefinitions,originalFrontierFieldSources} from './original_frontier_field_content.js';
 // Original Frontier proposal content. Registration never enrolls actors;
@@ -11,10 +12,6 @@ export const ORIGINAL_FRONTIER_IDS = Object.freeze({
 const ids = ORIGINAL_FRONTIER_IDS;
 const wood = JSON.stringify({id: "Rough wood log"});
 const prefix = "original_frontier.freight";
-const eq = (fact, value = true, reason) => ({fact, op: "eq", value, ...(reason ? {reason} : {})});
-const gte = (fact, value) => ({fact, op: "gte", value});
-const all = (...rules) => ({all: rules});
-const any = (...rules) => ({any: rules});
 const phase = value => eq(`situation.${ids.situation}.phase`, value);
 const route = value => eq(`world.${prefix}.route`, value);
 const af = (key, value = true, actor = "player") => ({type: "fact", scope: "actor", actor, key: `${prefix}.${key}`, value});

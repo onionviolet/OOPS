@@ -1,3 +1,4 @@
+import {all, deepFreeze as freeze, eq, not} from './basics.js';
 import {PROTO23_IDS as I, PROTO23_LOCATIONS as L, PROTO23_KEYS as K} from './proto23_world_ids.js';
 export * from './proto23_world_ids.js';
 export const proto23Worlds = [{id: I.world, label: 'Proto23 village · furnished visitor life', publicName: 'Proto23 village',
@@ -21,8 +22,6 @@ const people = [
     description: 'Original independent village resident. Own body, finite purse, attention and stock; no source protagonist or automatic private knowledge.',
     inventory: 'native', provision: false, resources, body: {form: 'human', hands: 2, mobile: true},
     vitals: {health: 24, max_health: 24, stamina: 18, max_stamina: 18}}));
-const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all: rules}), not = rule => ({not: rule});
 const af = (name, value = true) => ({type: 'fact', scope: 'actor', actor: 'player', key: I.prefix + name, value});
 const wf = (name, value = true) => ({type: 'world', worldId: I.world, key: I.prefix + name, value});
 const item = (key, amount, returned = false, actor = 'player') => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});
@@ -156,5 +155,4 @@ export const proto23ItemSpecifications = [
 ].map(([id, description]) => ({id, name: id, description, value: 1, tags: {expedition: true, proto23_world: true}}));
 export const PROTO23_ITEM_SPECIFICATIONS = proto23ItemSpecifications;
 export function registerProto23Items({itemTemplates, OtherItem}) {for(const spec of proto23ItemSpecifications) {if(itemTemplates[spec.id]) throw Error(`Duplicate Proto23 item ${spec.id}.`); itemTemplates[spec.id] = new OtherItem(spec);}}
-const freeze = v => {if(v && typeof v === 'object') {Object.values(v).forEach(freeze); Object.freeze(v);} return v;};
 [proto23Definitions, proto23Worlds, proto23ItemSpecifications, PROTO23_INITIAL_FACTS, PROTO23_NATIVE_PEOPLE, PROTO23_NATIVE_STOCK].forEach(freeze);

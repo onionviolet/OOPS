@@ -1,5 +1,7 @@
 # Game research adoption re-audit, 2026-10-14
 
+*Update 2026-10-19: historical snapshot (2026-10-14). The 597 rows / 77 routes count dossier routes, not owned games; see the [census reconciliation](../coverage-refresh-2026-10-14/REPORT.md).*
+
 The older audit's representative joins are still useful, but its parking advice cannot define today's scope. This pass classifies **597 row entries** across **77 game/aggregate dossier routes**, including repeated report/table/packet representations, and rechecks **26 negative row entries**. The ledger is a conservative source audit, not proof of gameplay or proof that an untraced feature is absent.
 
 **HEAD:** `70a0a8d224c0298adc7f8f96989a4f6a05266db6`. The private source snapshot began at `f1fd6cf08c0f5338c7b2797a22cee7158edf674d`. HEAD advanced during this lane; `git diff --name-only initial final -- src tests` found zero changed source/test paths, so the same source bytes bind the final HEAD. Current dossier bytes are separately SHA-256 bound in [LEDGER.json](LEDGER.json). Dirty/untracked peer work was read only; no source, build, global owner, save, install or commit changed in this lane.

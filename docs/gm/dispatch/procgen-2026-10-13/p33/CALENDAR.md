@@ -1,20 +1,22 @@
-# AR1: competing plans in a social calendar
+# PS-AR1: competing plans in a social calendar
 
-2026-10-14. **PROPOSAL ONLY.** Extend root [AR1](../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#ar-calendar-and-appointments). [P24 time structures](../p24/TIME_STRUCTURES.md) owns world clocks, recurrence, seasons and countdowns; [P11 M1/M4/M11](../p11/MORE.md) providers/lessons/correspondence; [P31 checkpoint](../p31/CHECKPOINT.md) promises and accepted obligations. P33 proposes booking/conflict presentation and safe missed-invitation semantics over those owners. P31 files were still being authored during this inspection; its final contract must be refreshed before integration.
+> Codes renamed 2026-10-19 from AR1 to PS-AR1 to avoid collision with registered AR (architecture). See [reserved prefixes](../../../../RULES_INDEX.md#reserved-prefixes-2026-10-19).
 
-## AR1.1: Persona inspiration, qualified
+2026-10-14. **PROPOSAL ONLY.** Extend root [PS-AR1](../../../../PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#ar-calendar-and-appointments). [P24 time structures](../p24/TIME_STRUCTURES.md) owns world clocks, recurrence, seasons and countdowns; [P11 M1/M4/M11](../p11/MORE.md) providers/lessons/correspondence; [P31 checkpoint](../p31/CHECKPOINT.md) promises and accepted obligations. P33 proposes booking/conflict presentation and safe missed-invitation semantics over those owners. P31 files were still being authored during this inspection; its final contract must be refreshed before integration.
+
+## PS-AR1.1: Persona inspiration, qualified
 
 STATED-primary: ATLUS [Persona 5 Royal official site](https://persona.atlus.com/p5r/sp/?lang=en), school/day/night activities and Confidants sections, supports classes, friends, after-school/seasonal activities and relationship development. P33's calendar booking algorithm, resumable lessons and miss policy are INFERRED/ORIGINAL adaptations. The public page does not certify a complete slot algorithm or arbitrary missed-date penalty. Credit ATLUS; no dialogue or source graphics copied.
 
-## AR1.2: live calendar audit
+## PS-AR1.2: live calendar audit
 
 SHOWN/SOURCE: `src/game_time.js:18-41` advances native minutes through 30-day months/12-month years; 63-73 derives seasons; 77-87 and 188-190 contain distinct time-of-day/night signals. Use the named applicable signal, not a guessed shared night threshold.
 
 `src/chronicle.js:43-47,73-89` retains dated scheduled/open/resolved/missed invitations; 103-114 exposes next boundaries and expiry; `src/event_feed.js:10-20,101` projects invitations and later missed reports. `src/chronicle.js:93-100` validates its calendar anchor against the enrolled expansion clock. `src/main.js:7214-7215` pauses joined advancement for certain waiting choices/manual encounters. `src/audit_remainder_livelihood_facts.js:63-65` binds a local work window to native calendar/expansion anchors. `src/feature_expansion_destination_native.js:8-20` retains a separate absence-frozen instance calendar.
 
-INFERRED: clocks and dated invitation paths exist, but the inspected paths lack a general multi-person reservation/conflict calendar for lessons, dates and deadlines. Native calendar may advance before expansion enrollment, as P2's report explicitly notes. AR1 must map clock domains, preserve already-admitted times and hook the existing scheduler; a new `setInterval` or wall-clock deadline cannot safely substitute.
+INFERRED: clocks and dated invitation paths exist, but the inspected paths lack a general multi-person reservation/conflict calendar for lessons, dates and deadlines. Native calendar may advance before expansion enrollment, as P2's report explicitly notes. PS-AR1 must map clock domains, preserve already-admitted times and hook the existing scheduler; a new `setInterval` or wall-clock deadline cannot safely substitute.
 
-## AR1.3: invite is not promise
+## PS-AR1.3: invite is not promise
 
 | State | Proposed meaning and consumer |
 |---|---|
@@ -30,7 +32,7 @@ Absence from an unaccepted date must not count as betrayal. Accepted obligations
 
 Logical calendar entry: appointment ref, host/participant actor refs, place/service ref, local clock/anchor revision, known earliest/latest times, duration/travel estimate, recurrence key, invitation delivery ref, commitment ref, reservation refs, visibility and settlement status. Money/stock/jobs/promises live in their current owners. Store a minimal appointment record there or join it into their agreed shape; calendar is a view and conflict query, not another booking database.
 
-## AR1.4: competition that keeps options reachable
+## PS-AR1.4: competition that keeps options reachable
 
 Two plans conflict only if the same real participant, station, tool, route or interval is exclusively required. A passive brewing vessel can operate while the hero meets someone only where the P2/CR3 selected unattended policy permits it. Date overlap does not imply the entire questline is mutually exclusive.
 
@@ -40,13 +42,13 @@ Original evening fixture: a maker offers an assay lesson 18:00-18:20, a friend s
 
 World adjectives specify flexible, punctual, seasonal, recurring, remote-capable, recorded, exclusive or urgent. A serene sect can have renewable lessons; an exam has its selected source conditions. No global daily action cap or fixed once invitation law. Rest, training, creative work and optional meals are legitimate plans without hunger death or required eating. Cross-world calendars use separate lanes until a real clock/travel conversion exists.
 
-## AR1.5: idle-safe time policy
+## PS-AR1.5: idle-safe time policy
 
 Unaccepted invitations expire at their declared eligible game-time boundary, produce an optional safe report and leave ordinary work progressing. Acceptance displays the existing absence/time policy before committing. This packet does not enable closed-browser progress. Continued game-time idle can run lawful jobs and expire opportunities; real-world absence alone creates no missed appointment, debt or death unless a separately accepted clock law authorizes it.
 
 Only actions already requiring a manual response should pause under their existing contract. Adding a calendar cannot freeze the game for each new invitation. If a scheduled date becomes impossible because the provider leaves or a supported rescue changes attendance, retain cancellation and return actual escrow under terms. Handle month/year boundaries, loops, travel and changed body/availability using P24/P16 adapters; a refresh does not create a new recurrence.
 
-## AR1.6: visible outcome and gates
+## PS-AR1.6: visible outcome and gates
 
 At 1366x768 propose today's known commitments and near opportunities beside ordinary actions, with an expandable conflict pane showing time, travel, participant and actual consequence. 1600x1000 adds the week/context view. Filters separate tentative/accepted/expired; inaccessible or unknown dates are not exact countdowns. Mobile deferred.
 

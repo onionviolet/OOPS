@@ -5,7 +5,7 @@ B1 selective proposal, 2026-10-14. **Owned** means a bounded source or existing 
 | Decision | Picked rows | Basis / consequence |
 |---|---|---|
 | Owned | PR2 OB4 TR3 | [SYNTHESIS.md](../../../../worlds/frieren/SYNTHESIS.md), §2 mana concealment Frieren r14471/Fern r14749/Flamme r14594; §3 priest/warrior; §9 age gaps. Retain that owner’s evidence channel and limits. |
-| Fit | PH1 SG3 SG4 SG5 AG1 AG4 GN12 HI4 MS1 MS2 TR6 WR1 SR1 RP5 | A long-lived teacher adapts training for a human apprentice; concealed mana changes what a qualified observer believes, while practical medicine and travel gear remain useful. |
+| Fit | PH1 SG3 SG4 SG5 AG1 AG4 GN12 HI4 MS1 MS2 TR6 WR1 BSR1 RP5 | A long-lived teacher adapts training for a human apprentice; concealed mana changes what a qualified observer believes, while practical medicine and travel gear remain useful. |
 | Skip families | LQ CN BD CL BP MX SB BM | CN BD CL BP MX SB BM: no generic cultivation bloodlines, pill residues, implants or ancestral memories. RP2: long lifespan alone does not establish low fertility. Precise elf aging is still a gap. Remaining unpicked subrows add no selected action or lack exact evidence. |
 
 **Default + Dial + reason/cost:** Default: qualitative life curves and attributed mana impressions. Dial: generational chronology or one treatment case; study, care and travel consume local time/resources.

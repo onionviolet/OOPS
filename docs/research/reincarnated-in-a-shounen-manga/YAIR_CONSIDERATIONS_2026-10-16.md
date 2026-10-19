@@ -329,3 +329,50 @@ pass, the same 3 unrelated failures as after A1 (`cheat_awakening` 2, `ui_contra
 Not wired into structured packs. Save/reload is a JSON roundtrip of expansion
 state, not native Save/Import. One test per hypothesis (repeat tests are a later
 dial). A world must author the truth fact or the test refuses.
+
+## Domain rule application, 2026-10-19
+
+Weibao accepted the domain rulebooks on 2026-10-19 "as long as core rules are
+followed" ([record](../../USER_VISION.md)); the codes below are from
+[DOMAIN_RULES](../../DOMAIN_RULES.md) and bind A1, A2 and RS26 as default dials
+under Rulebook 1–12 and AD1–AD38. Checked against the A1/A2 source as built; no
+runtime change in this note.
+
+**A1 conditions.**
+- Meets: SLR1/SLR3 (a condition gates the source and expression layers through
+  actual held sources and carriers, not labels); SLR13 (the transfer fixture uses
+  the simulation `transfer` operation, so the taken power is conserved and the
+  `author`-bound restriction stays behind); ECR22 (a breach consequence binds
+  through a named `enforcer {kind, id, reason}` or a law; no self-enforcing
+  contract); SLR20/BHR30 (G5 keeps the source world's condition because the
+  condition is part of the ability's mechanism; a destination override needs an
+  in-world reason, AD5); CBR11 (charges and recharge-when-empty are mechanisms,
+  not inflated numbers); BHR22 for healing abilities (the lasting `price` is the
+  declared cost).
+- Departs (gap for RS26, not a defect in A1's engine-only scope): BHR2/BHR3 and
+  SLR8 want each lasting price and each grant to name the carrier or layer it
+  touches (body, mind, soul, lifespan; understanding, fluency, source). A1's
+  `price` is a list of ordinary effects with no declared carrier, and `subject:
+  body` is the only body-scoped binding. Default for RS26: each authored price
+  names its carrier in its effect's actor fact key, and a price that harms a body
+  is keyed to the body instance (BHR3), not the actor, once a body-instance key
+  exists.
+- Watch: BHR11/CBR23 disclose before a lasting consequence. A1 can spend a
+  lasting price on use; RS26's UI must show a known price before the use (G8).
+
+**A2 claims.**
+- Meets: SLR18 and BHR8 (texts and medical lore are claims with a source: A2's
+  `means` and `precision`); CBR14 (hidden abilities and limits are learned fields
+  with source and confidence, per observer); CBR16/ECR23 (the interfering
+  precognition fixture writes a wrong belief, never a wrong truth, AD7); SLR38
+  (a hypothesis test returns the authored result, not the rule, so sealed truth
+  stays behind its route); SLR32 (test outcomes resolve through the simulation's
+  seeded check; weights are 0/1 from the truth fact, so there is nothing to
+  reload-scum).
+- No departure found.
+
+**RS26 (queued, not started).** Applies CBR13/AD8 if the slice shows opponents
+(learned fields, `???` on first sight), SLR24 for the protagonist's own exact
+ability numbers, SLR22 for a remembered technique the current body cannot express,
+and the A1 gap above. The RS26 done check stays as written; these codes are
+constraints on it, not new gates.

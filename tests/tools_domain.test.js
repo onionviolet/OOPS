@@ -1,10 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {build} from 'esbuild';
-import {readFile, mkdtemp, rm} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {join, resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
+import {loadNative as loadNativeModule} from './helpers/native_loader.mjs';
 import {createDurability, equipmentDurability} from '../src/absorb_e2/durability.js';
 import {instrumentProfile, gatherRates, verbNumbers, improvisedRates} from '../src/tool_profiles.js';
 import {domainRegistry} from '../src/domain_registry.js';
@@ -14,19 +10,7 @@ const quoteHandRepair = key => quoteRepair({kind: 'hand', key}), executeHandRepa
 // Native item, location and activity tables, bundled with presentation stubbed (as absorb_e2 does).
 let native;
 async function loadNative() {
-    if (native) return native;
-    const dir = await mkdtemp(join(tmpdir(), 'tools-native-')), outfile = join(dir, 'native.mjs');
-    try {
-        await build({stdin: {contents: 'export {item_templates} from "./src/items.js"; export {locations} from "./src/data/locations.js"; export {character} from "./src/data/character.js"; export {activities} from "./src/activities.js";', resolveDir: resolve('.')},
-            bundle: true, format: 'esm', platform: 'node', outfile, logLevel: 'error',
-            plugins: [{name: 'presentation-only', setup(b) { b.onLoad({filter: /\/src\/(main|display)\.js$/}, async a => {
-                const text = await readFile(a.path, 'utf8');
-                const names = [...text.matchAll(/export\s*\{([^}]+)\}/g)].flatMap(m => m[1].split(',').map(s => s.trim().split(/\s+as\s+/).at(-1))).filter(s => /^[a-zA-Z_$][\w$]*$/.test(s));
-                return {contents: names.map(s => `export const ${s} = ${s === 'game_options' ? '{}' : s === 'capitalize_first_letter' ? 's=>s[0].toUpperCase()+s.slice(1)' : '()=>{}'};`).join('\n')};
-            }); }}]});
-        native = await import(pathToFileURL(outfile));
-    } finally { await rm(dir, {recursive: true, force: true}); }
-    return native;
+    return native ??= await loadNativeModule('export {item_templates} from "./src/items.js"; export {locations} from "./src/data/locations.js"; export {character} from "./src/data/character.js"; export {activities} from "./src/activities.js";', {logLevel: 'error', prefix: 'tools-native-'});
 }
 function toolActivities(n) {
     const rows = [];

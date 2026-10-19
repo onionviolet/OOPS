@@ -1,8 +1,7 @@
 // Detached prototype rules. The host supplies actual means and owns publication.
+import {check as assert, object} from './basics.js';
 export const REALM_OPERATIONS = Object.freeze(["passage", "view", "projection", "manifestation", "sense", "identify", "reach", "contact"]);
 const bypasses = ["operation", "source", "method", "authority", "anchor", "closed", "expired", "direction", "layer", "observation", "route_cost"];
-const object = v => v !== null && typeof v === "object" && !Array.isArray(v);
-const assert = (ok, message) => { if (!ok) throw new Error(message); };
 export const realmStableId = v => typeof v === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !["__proto__", "constructor", "prototype"].includes(v);
 export const realmNatural = v => Number.isSafeInteger(v) && v >= 0;
 

@@ -1,14 +1,12 @@
 // Original proposals inspired by Proto23 R12/R33/N10. No foreign code/assets.
 // Native custody, played clock, combat settlement and save publication stay host-owned.
+import {check, natural, object as record} from '../../basics.js';
 import {is_night} from '../../game_time.js';
 
 export const LIVING_GEAR = Object.freeze({
     aura: 'Wayfarer dial', collector: 'Cinder keeper ring',
     blade: 'Tempered memory blade', weapon: 'Road memory knife',
 });
-const record = x => x !== null && typeof x === 'object' && !Array.isArray(x);
-const natural = n => Number.isSafeInteger(n) && n >= 0;
-const check = (ok, why) => { if (!ok) throw new Error(why); };
 const kindOf = item => item?.equip_slot === 'weapon' && item.components?.head === LIVING_GEAR.blade
     ? 'weapon' : item?.equip_slot === 'ring' && item.id === LIVING_GEAR.collector
         ? 'collector' : item?.equip_slot === 'amulet' && item.id === LIVING_GEAR.aura ? 'aura' : null;

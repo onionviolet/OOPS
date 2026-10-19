@@ -1,5 +1,6 @@
 import {SKILL_CATALOGUE,skillFamilyDefinitions,skillExpansionFacts} from './skill_expansion_content.js';
-import {previewSimulationCommand,previewSimulationResponse} from './simulation.js';
+import {previewSimulationCommand,previewSimulationResponse,simulationFacts} from './simulation.js';
+import {evaluateRule} from './rules.js';
 import {meets} from './simulation_contracts.js';
 import {projectDiscoveryFeature,projectAcceptedWork,projectDiscoveryPanel} from './skill_discovery.js';
 
@@ -7,6 +8,23 @@ export function skillExpansionContext(state,context){
  return {...context,facts:{...context.facts,...skillExpansionFacts(state,context)}};
 }
 const safeReasons = preview => preview?.eligible?[]:[{known:true,text:'Current preparation, access or agreed attention does not support this action.'}];
+// A disabled method names the requirement that failed (PIR9, SLR29, RC8, 2026-10-19), but only
+// through text its author wrote for the player (`reason` on a requires leaf) or the shared busy
+// line. Engine fallbacks and cost errors can name the craftsman's private attention, so anything
+// else keeps the generic line.
+const authoredReasons = (rule, out = new Set()) => {
+ if(!rule||typeof rule!=='object')return out;if(typeof rule.reason==='string')out.add(rule.reason);
+ for(const child of [...(rule.all||rule.any||[]),...(rule.not?[rule.not]:[])])authoredReasons(child,out);return out;
+};
+const BUSY='Finish your current activity first.';
+function knownReasons(state,registry,d,preview,context){
+ if(preview.eligible&&preview.visible)return [];
+ if(!state.simulation)return safeReasons({eligible:false});
+ const authored=authoredReasons(d.requires),targetId=state.simulation?.people[context.targetId]?context.targetId:null;
+ const failed=d.requires?evaluateRule(d.requires,simulationFacts(state,{...context,targetId},registry,[d.requires])).reasons:[];
+ const named=[...new Set([...failed.filter(r=>authored.has(r)),...preview.reasons.filter(r=>r===BUSY)])];
+ return named.length?named.map(text=>({known:true,text})):safeReasons({eligible:false});
+}
 function publicFacts(state,context){const a=state.actors.player;return {...context.facts,
  ...Object.fromEntries(Object.entries(a.facts).map(([k,v])=>[`actor.${k}`,v])),
  ...Object.fromEntries(Object.entries(state.campaign.facts).map(([k,v])=>[`campaign.${k}`,v]))};}
@@ -38,13 +56,13 @@ export function skillExpansionPresentation(state,registry,context){
    if(!p.visible&&!reportWait&&!(id==='skills.timber.precise_pack'&&power?.owned))continue;
    const knownRequirements=reportWait?[{known:true,text:'Start the shared field workshop before requesting its contribution report.',met:false}]:[];
    const row=projectDiscoveryFeature({id,label:d.label,description:d.description||'',discovered:true,unlocked:true,eligible:p.eligible&&p.visible,
-    requirements:knownRequirements,reasons:reportWait?knownRequirements:safeReasons({...p,eligible:p.eligible&&p.visible}),
+    requirements:knownRequirements,reasons:reportWait?knownRequirements:knownReasons(state,registry,d,p,{...context,targetId:d.targetId||null}),
     details:[{known:true,surface:'preview',text:`${p.duration??d.duration??0} played minutes${d.fluency&&p.duration<d.duration?` (practiced from ${d.duration})`:''}; cancellation: ${d.cancellation||'none'}.`} ]});
    actions.push({id,targetId:d.targetId||null,row});
   }
   const row=projectDiscoveryFeature({id:family.id,label:family.label,description:family.description,discovered:true,unlocked:!!power?.owned,
    eligible:actions.some(a=>a.row.control.enabled),reasons:safeReasons({eligible:actions.some(a=>a.row.control.enabled)})});
-  families.push({id:family.id,row,actions,mastery:power?.mastery||0,learned:!!power?.owned,
+  families.push({id:family.id,row,actions,mastery:power?.mastery||0,uses:power?.executions||0,learned:!!power?.owned,
    milestones:power?.owned?family.milestones.map(m=>({...m,met:(power.mastery||0)>=m.at})):[],
    records:[
     ...Object.entries(knowledge).filter(([k])=>k.startsWith(family.id+'.')||k.startsWith('skills.'+family.discoverCommandId.split('.')[1]+'.')).map(([id,r])=>({id,text:r.value,at:r.at})),

@@ -1,6 +1,7 @@
 // Proposal (WPL3): per-pack save sections {packId, packRevision, schema, delta}.
 // Pure functions over a proposed `world_packs` save key that nothing writes yet.
 // Store only what play changed or revealed (P9Y30); never delete what a save holds.
+import {check, object} from './basics.js';
 import {compareCodePoints} from './gen_kit.js';
 import {stableId, jsonData} from './simulation_contracts.js';
 import {EXCEPTION_PRIORITY, PARENT_LAYERS} from './world_pack_manifest.js';
@@ -8,8 +9,6 @@ import {edgeKey} from './world_pack_population.js';
 
 export const WORLD_PACK_SAVES_SCHEMA = 1;
 export const RUNGS = Object.freeze(['met', 'known', 'authored']);
-const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
-const check = (ok, message) => {if (!ok) throw Error(message);};
 const byId = (a, b) => compareCodePoints(a, b);
 const only = (v, allowed) => object(v) && Object.keys(v).every(k => allowed.includes(k));
 

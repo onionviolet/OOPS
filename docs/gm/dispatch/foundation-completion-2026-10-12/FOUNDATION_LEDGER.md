@@ -147,7 +147,7 @@ Audit IDs below refer exclusively to SHARED_FOUNDATIONS_AUDIT_2026-10-12.md; CD 
 
 ## CW reference dispositions
 
-Reference lenses require the selected shared consumer, not every hypothetical law. CX1–CX6 are W worked probes, not six additional required campaigns.
+Reference lenses require the selected shared consumer, not every hypothetical law. XWC1–XWC6 are W worked probes, not six additional required campaigns.
 
 | ID | Lens | Disposition | Concrete selected gate and owner |
 | CW01 | Body affordances S02/07 | R | Technically qualified; F2 F3 F5: Actual admitted human/body/fit/controller guards and supported hand-dependent execution; no arbitrary replacement, disguise, childhood or species simulation. Evidence keys: FINAL_RECONCILIATION_DRAFT.md; G6 final ASSERTIONS. |

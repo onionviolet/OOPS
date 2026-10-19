@@ -1,4 +1,5 @@
 // Three finite original Village cases. Root owns named physical results/closure.
+import {all, eq} from './basics.js';
 import {CAUSAL_STORY_PEOPLE as P, CAUSAL_STORY_PROFILES as PROFILES, CAUSAL_STORY_PROOFS as PROOFS,
     CAUSAL_STORY_WORLD as WORLD, CAUSAL_STORY_LOCATION as LOCATION, CAUSAL_STORY_ITEMS as K,
     CAUSAL_STORY_SOURCES as SOURCES, causalStoryId} from './causal_story_ids.js';
@@ -9,8 +10,6 @@ export const CAUSAL_STORY_SITES = freeze({delivery:Object.fromEntries(PROOFS.map
     research:'causal.story.research', care:'causal.story.care', ordinary:'causal.story.ordinary'});
 export const CAUSAL_STORY_MEETING_ID = 'causal.story.meeting.situation';
 const sites = CAUSAL_STORY_SITES;
-const eq = (fact, value=true, reason) => ({fact, op:'eq', value, ...(reason ? {reason} : {})});
-const all = (...rules) => ({all:rules});
 const enrolled = all(eq('causal.enrolled'), eq('causal.nativeBound'), eq('causal.local'));
 const person = id => eq(`causal.person.${id}.available`, true, 'This person needs their actual free living Village body.');
 const player = all(enrolled, eq('causal.playerSupported'));

@@ -118,10 +118,7 @@ test('loaded expedition content replays commission, NPC work and event boundarie
     t.diagnostic(`expedition; boundaries=${boundaries}; clock=${first.plan.state.clock}; sha256=${first.trace.at(-1)}`);
 });
 
-// TODOs describe excluded default-random paths. They are not executed or claimed
-// deterministic by injecting a replacement RNG. Enable after native stream
-// binding/save support merges from proc/p1-streams; retain cells and receipts in
-// durable(), then assert unrelated stream draws cannot perturb the replay.
-test.todo('legacy native combat default RNG: src/combat_math.js:34,44; src/models/combat.js:160,323,351,377');
-test.todo('legacy local-life search/contact default RNG: src/absorb_c2/local_life.js:42');
-test.todo('legacy encounter, loot, craft, market and gather RNG: src/models/location.js:344; src/enemies.js:170; src/main.js:4224,4694,7503; src/components/trader_component.js:117');
+// The former test.todo entries for legacy default-RNG paths (combat, local life, encounter/loot/craft/market)
+// were removed 2026-10-19: those sites now draw from saved streams and fail loudly when unseeded. The native
+// replay with Math.random forbidden lives in seeded_streams.test.js ("native lineup, loot, stock and pending
+// fighter turns survive save/restore with Math.random forbidden"). Remaining Math.random sites are cosmetic.

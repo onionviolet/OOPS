@@ -1,5 +1,5 @@
+import {check} from './basics.js';
 import {worldCompletionStripStamp,worldCompletionStripKey} from './world_completion_strip.js';
-const check=(ok,text)=>{if(!ok)throw new Error(text);};
 export function worldCompletionSavedNativeItem(key,entry,getItem){
     const value=JSON.parse(key);
     if(value?.id!=='Measured drain strip'||value.datum==null)return null;

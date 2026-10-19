@@ -1,8 +1,8 @@
 // A lossy biography, never an authority for rewards, relationships or quests.
+import {natural as safe} from './basics.js';
 export const LIFE_RECORD_SCHEMA = 1;
 export const LIFE_YEAR_MINUTES = 360 * 24 * 60;
 export const LIFE_KINDS = ['beginning', 'journey', 'memory', 'birthday', 'career', 'loss', 'family', 'rumor', 'legacy'];
-const safe = n => Number.isSafeInteger(n) && n >= 0;
 const object = v => v && typeof v === 'object' && !Array.isArray(v);
 const world = s => typeof s === 'string' && s.length <= 96 && /^[a-zA-Z0-9_.:-]+$/.test(s);
 const prose = s => typeof s === 'string' && s.length > 0 && s.length <= 240;

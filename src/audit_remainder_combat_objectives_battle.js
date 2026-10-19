@@ -1,3 +1,4 @@
+import {check, natural, object} from './basics.js';
 import {remainderCombatFitHandsUsable} from './audit_remainder_combat_fit_facts.js';
 // Deterministic hooks for root's existing schema5 native battle transaction.
 // These stage changes/effects; the shared host still owns cadence and publish.
@@ -5,7 +6,6 @@ import {REMAINDER_COMBAT_OBJECTIVES as I,REMAINDER_COMBAT_OBJECTIVE_KEYS as K,co
     ownedCombatObjectiveItem,fittingCarried,fittingReturnEffect,remainderMaintainedBraceSupported} from './audit_remainder_combat_objectives_content.js';
 import {endRemainderCombatObjective} from './audit_remainder_combat_objectives_state.js';
 import {SKILL_IDS} from './skill_expansion_content.js';
-const check=(ok,message)=>{if(!ok)throw new Error(message);},object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x),natural=x=>Number.isSafeInteger(x)&&x>=0;
 const exact=(x,fields)=>object(x)&&Object.keys(x).sort().join('|')===[...fields].sort().join('|');
 const targets=c=>c.targetIds||(c.targetId?[c.targetId]:[]),battle=state=>state.simulation?.sessions?.player?.nativeBattle;
 const stagedContext=(plan,context)=>({...context,gameplay:plan.gameplay,vitals:plan.vitals,equipment:plan.equipment});

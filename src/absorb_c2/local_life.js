@@ -1,3 +1,4 @@
+import {natural} from '../basics.js';
 import {recurringWindow} from '../world_rhythm.js';
 
 // Original, bounded Village/household texture. All rewards are plans; the host
@@ -15,7 +16,6 @@ export const PARCEL_STOPS = Object.freeze([
 ]);
 export const MEAL_SCHEDULE = Object.freeze({period:1440,opens:720,closes:840});
 const places = Object.freeze({Village:{item:'Linen cloth',label:'a dropped scrap of linen'},Shack:{item:'Stale bread',label:'a forgotten heel of bread'}});
-const natural = n => Number.isSafeInteger(n) && n>=0;
 const finite = n => Number.isFinite(n) && n>=0;
 const count = n => natural(n)?n:0;
 const stamp = n => natural(n)?n:null;

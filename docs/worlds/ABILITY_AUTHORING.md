@@ -1,5 +1,7 @@
 # Ability families, variants and execution
 
+> Codes renamed 2026-10-19 from SR1-SR15 (simple rules) to ASR1-ASR15 to avoid collision with registered SR (site rules); USER_VISION still cites the old SR1-SR8 and SR9-SR15 for this doc. See [reserved prefixes](../RULES_INDEX.md#reserved-prefixes-2026-10-19).
+
 Status: requested design direction and proposed contract v2, 2026-10-03. Master owner until an ability-GM assignment explicitly reserves this file. User permits multiple versions of similar abilities, situational or stage-dependent superiority, and simply stronger variants when their actual mechanism makes sense. [Ability GM](../gm/ABILITY_IMPLEMENTATION_GM_PROMPT.md) owns the reusable role; runtime implementation is not dispatched.
 
 ## Similar results do not imply identical sources
@@ -247,14 +249,14 @@ Verified groundwork: `src/rules.js` already evaluates `eq`, `gte` and `lte` fact
 
 | ID | Angle |
 |---|---|
-| SR1 | Keep the kernel small on purpose: if a new verb is proposed, first try to build it from existing verbs and tags |
-| SR2 | Special-case test: when a designer must hand-write an exception, note which kernel piece was missing; add it only if three cases need it |
-| SR3 | Discovery log: the first time a chain happens, the Notebook records it and lets the player name it |
-| SR4 | Teaching by small steps: the game introduces one tag or trigger at a time, and the first combos are nearly guaranteed so players see the idea work |
-| SR5 | Same rules for enemies: an enemy using wet plus lightning teaches the player the trick by doing it to them |
-| SR6 | Worlds as rule swaps: a world changes a few rules ("fire does not burn underwater", "names have power"), and everything built on them shifts |
-| SR7 | Habits that write tags: the simplest D2 line can still start a long chain, so depth comes from the world, not from the habit editor |
-| SR8 | Emergence check in playtests: count combinations nobody authored that players found; zero means the kernel is too closed, chaos means too open |
+| ASR1 | Keep the kernel small on purpose: if a new verb is proposed, first try to build it from existing verbs and tags |
+| ASR2 | Special-case test: when a designer must hand-write an exception, note which kernel piece was missing; add it only if three cases need it |
+| ASR3 | Discovery log: the first time a chain happens, the Notebook records it and lets the player name it |
+| ASR4 | Teaching by small steps: the game introduces one tag or trigger at a time, and the first combos are nearly guaranteed so players see the idea work |
+| ASR5 | Same rules for enemies: an enemy using wet plus lightning teaches the player the trick by doing it to them |
+| ASR6 | Worlds as rule swaps: a world changes a few rules ("fire does not burn underwater", "names have power"), and everything built on them shifts |
+| ASR7 | Habits that write tags: the simplest D2 line can still start a long chain, so depth comes from the world, not from the habit editor |
+| ASR8 | Emergence check in playtests: count combinations nobody authored that players found; zero means the kernel is too closed, chaos means too open |
 
 #### More to consider (simple rules, second pass, 2026-10-13)
 
@@ -262,13 +264,13 @@ Verified groundwork: `src/rules.js` already evaluates `eq`, `gte` and `lte` fact
 
 | ID | Angle | Kept simple by |
 |---|---|---|
-| SR9 | Habit words grow with discovery: a habit can only test a tag you have seen or appraised ("when target is wet" needs wet in your Notebook) | Progression with no menu; the editor's word list is the Notebook |
-| SR10 | Same rules at every scale: a wet person, a flooded street and a drowned district read the same tag at a different size | One tag, a scale field; regions reuse person rules |
-| SR11 | Social tags: proud, insulted, grateful, owed. "Proud and insulted: challenge" makes relationships use the same kernel | No separate drama engine; E3 living people read the tags |
-| SR12 | Loops that pay: a chain that keeps producing value offline is allowed; existing base-game pressure (`market_saturation.js` prices, spoilage, attention) softens it, and the return summary names the loop | Uses limits the game already has, no new anti-abuse rule |
-| SR13 | Designer bench: run a small scene and print every chain; a lint lists tags no rule reads and rules nothing can reach | One test script and one report, not a new tool suite |
-| SR14 | Chains become stories: a notable chain is logged as one line the [storyteller](../emergent/E5_STORYTELLER_AND_FATE.md) and gossip can reuse ("the day the mill burned") | Reuses the chain log; only big chains qualify |
-| SR15 | Honest backfires: your own fire habit can light the tavern if the rules say so. Rare, explained, often funny | No special case; the rules just apply to you too |
+| ASR9 | Habit words grow with discovery: a habit can only test a tag you have seen or appraised ("when target is wet" needs wet in your Notebook) | Progression with no menu; the editor's word list is the Notebook |
+| ASR10 | Same rules at every scale: a wet person, a flooded street and a drowned district read the same tag at a different size | One tag, a scale field; regions reuse person rules |
+| ASR11 | Social tags: proud, insulted, grateful, owed. "Proud and insulted: challenge" makes relationships use the same kernel | No separate drama engine; E3 living people read the tags |
+| ASR12 | Loops that pay: a chain that keeps producing value offline is allowed; existing base-game pressure (`market_saturation.js` prices, spoilage, attention) softens it, and the return summary names the loop | Uses limits the game already has, no new anti-abuse rule |
+| ASR13 | Designer bench: run a small scene and print every chain; a lint lists tags no rule reads and rules nothing can reach | One test script and one report, not a new tool suite |
+| ASR14 | Chains become stories: a notable chain is logged as one line the [storyteller](../emergent/E5_STORYTELLER_AND_FATE.md) and gossip can reuse ("the day the mill burned") | Reuses the chain log; only big chains qualify |
+| ASR15 | Honest backfires: your own fire habit can light the tavern if the rules say so. Rare, explained, often funny | No special case; the rules just apply to you too |
 
 #### Foundations check and other systems that share the pattern (2026-10-13)
 
@@ -292,11 +294,11 @@ Reading (inference): many foundations exist but sit side by side. The four-piece
 | Daily life | Routines are habits (H2) |
 | Trade | "Sell anything tagged junk; buy bread when below 3" |
 | Travel and expeditions | "Retreat when hurt; rest at the next safe tag" |
-| Companions and NPCs | Controllers become readable, teachable lists (SR5) |
+| Companions and NPCs | Controllers become readable, teachable lists (ASR5) |
 | Items and gear | Items are tag bundles; enchantments add tags |
-| World laws | A world swaps a few rules (SR6, [E9](../emergent/E9_WORLD_LAWS.md)) |
+| World laws | A world swaps a few rules (ASR6, [E9](../emergent/E9_WORLD_LAWS.md)) |
 
-**Progression through the kernel.** A character grows along five simple lines: more verbs (new abilities), more tags they can see (perception, appraisal), more triggers they can use (reflexes), more rules they can write (habit words, SR9), and more capacity (slots, fuel, scale). Levels and numbers still exist; these five say what a level actually unlocks.
+**Progression through the kernel.** A character grows along five simple lines: more verbs (new abilities), more tags they can see (perception, appraisal), more triggers they can use (reflexes), more rules they can write (habit words, ASR9), and more capacity (slots, fuel, scale). Levels and numbers still exist; these five say what a level actually unlocks.
 
 **Cheats through the kernel** (a mechanism index beside the library's gameplay families):
 
@@ -340,7 +342,7 @@ Example: **danger sense** in eight versions. Dread (yes or no). Compass (which w
 
 Look-alike pairs that should not be merged: life sense and soul sight (undead show in one, not the other); lie detection and insight (one flags a falsehood, the other reads intent, so a sincere mistake fools only the first); appraisal and value sense (what it is versus what it is worth here).
 
-A sense grows along its dials: wider filter, longer reach, less delay, more detail, fewer errors, quieter tell. Because habits can only read tags the character can sense (SR9), better senses directly make smarter automation.
+A sense grows along its dials: wider filter, longer reach, less delay, more detail, fewer errors, quieter tell. Because habits can only read tags the character can sense (ASR9), better senses directly make smarter automation.
 
 #### World progression (2026-10-13)
 
@@ -352,7 +354,7 @@ Weibao asked about world progression. [Technology](../TECHNOLOGY_AND_PROGRESSION
 | Settlements | Hamlet to village to town, by population, trade and safety | Your repairs and deliveries raise the village a step |
 | Era | Tech, magic or institutions advance | A school opens; printing spreads rumors faster |
 | Attention | How much the world notices you | Bigger deeds draw rivals, patrons and stronger threats |
-| Danger | Threats adapt and escalate | Monsters you farm learn your habits (SR5) |
+| Danger | Threats adapt and escalate | Monsters you farm learn your habits (ASR5) |
 | Memory | The world keeps what happened | Ruins stay ruined; a saved town remembers |
 | Rules | The world's own laws shift | An eclipse season changes which rules apply |
 

@@ -11,7 +11,7 @@ decisions, except where a USER_VISION entry says otherwise.
 | --- | --- | --- |
 | Modularity and rewrite assessment (source of the thread) | `docs/reviews/MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md` | **Untracked** in the shared checkout; its owner should commit it so worktrees can see it |
 | Architecture rules AR1–AR16 | [ARCHITECTURE_RULES.md](../ARCHITECTURE_RULES.md) | Standing direction (USER_VISION 2026-10-16) |
-| Modular seams Codex run | [dispatch checkpoint](../gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md); live copy on branch `codex/modular-seams` | M1 and M2 passed; M3 crafting stopped, implemented-unverified; branch behind HEAD |
+| Modular seams Codex run | [dispatch checkpoint](../gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md); live copy on branch `codex/modular-seams` | M1 and M2 passed; M3 crafting stopped, implemented-unverified; branch behind HEAD (Update 2026-10-19: M3 passed on resume, see CHECKPOINT) |
 | Branch triage | [BRANCH_TRIAGE_2026-10-16.md](../gm/BRANCH_TRIAGE_2026-10-16.md) | 9 merged, 19 deleted, `w1-campaign` left for Weibao |
 | Rapid iteration | [RAPID_ITERATION_CONSIDERATIONS_2026-10-16.md](RAPID_ITERATION_CONSIDERATIONS_2026-10-16.md) | O2 (headless runner) now landed through the triage merges |
 | Foundation and kernel contract | [FOUNDATION_CONSIDERATIONS_2026-10-16.md](FOUNDATION_CONSIDERATIONS_2026-10-16.md) | C1–C8 proposed |
@@ -59,6 +59,8 @@ latter too bougie.
 
 No name is selected.
 
+*Update 2026-10-19: superseded. OOPS (Optimistic Progression Simulator) was accepted as the fork's name; see [OOPS project identity](../USER_VISION.md#oops-project-identity-2026-10-16) and PROJECT.md. The GN rows above stay as the naming history.*
+
 ## Core loop
 
 Weibao (2026-10-16): "heir loop doesnt have to be the core loop, the core loop
@@ -82,6 +84,7 @@ unimplemented (CL25). Open for Weibao: build order and first prestige trigger.
 1. Game name (GN4 or another), then the player-facing rename (GN9).
 2. Resume timing for the [updated modular plan](../gm/dispatch/modular-seams-2026-10-16/BRIEF.md).
    M3 remains stopped; M2.5 is conditional hardening rather than a C/N bundle.
+   (Update 2026-10-19: M3 passed on resume; see the [CHECKPOINT](../gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md). The Saved-outputs row and the continuation plan below carry the same stale "stopped" wording, kept as history.)
 3. `w1-campaign` from the triage.
 
 ## Deeper passes worth running when wanted

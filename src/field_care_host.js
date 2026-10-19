@@ -1,9 +1,9 @@
+import {check} from './basics.js';
 import {FIELD_CARE_IDS as I,fieldCareDefinitions as D} from './field_care_content.js';
 import {FIELD_VENOMS,fieldCareFacts,fieldCareEnrolled,validateFieldCareState} from './field_care_facts.js';
 import {enrollSimulation,commitSimulationCommand,cancelSimulationJob} from './simulation.js';
 import {artifactEquipmentReasons} from './artifact_collection.js';
 import {projectFeatureCommands,featureWorkControls,featureRecordedKnowledge} from './feature_expansion_host.js';
-const check=(ok,message)=>{if(!ok)throw new Error(message);};
 export const fieldCareContext=(state,context={})=>({...context,fieldCareHost:true,facts:{...context.facts,...fieldCareFacts(state,context)}});
 export function commitFieldCareCommand(state,registry,c,context,sequence=state.sequence){
     check(sequence===state.sequence&&context.actorId==='player','Review this current field-care choice.');

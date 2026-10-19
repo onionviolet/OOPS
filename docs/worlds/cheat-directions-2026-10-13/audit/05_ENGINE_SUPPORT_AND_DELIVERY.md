@@ -20,7 +20,7 @@ comment requires durable commitment before origin publication.
 [`beginStructuredCampaign`](../../../../src/structured_pack_runtime.js) requires
 that selection, checks it against the declared definition, creates actual actors
 and applies the selected beginning's effects.
-[`validateStructuredEnvelope`](../../../../src/structured_pack_state.js:36)
+[`validateStructuredEnvelope`](../../../../src/structured_pack_state.js)
 cross-checks saved native and simulation state rather than accepting a seed alone.
 
 **Implication:** random selection among precompiled compatible starts can be a
@@ -32,14 +32,14 @@ Evidence limit: source inspection, no current natural start/restore exercise.
 
 ## F2. A valid source is not a complete mechanic
 
-[`capabilities.js:9`](../../../../src/capabilities.js:9) validates numeric
+[`capabilities.js:9`](../../../../src/capabilities.js) validates numeric
 max/sum capability definitions and grants. Its pure query at line 41 resolves
 actual acquired sources and faculty activation/suppression, retaining provenance.
-[`simulation_effects.js:321`](../../../../src/simulation_effects.js:321) grants
+[`simulation_effects.js:321`](../../../../src/simulation_effects.js) grants
 known sources and faculty states, while power copying at line 335 requires an
 existing executable power and an actual donor.
 
-The observed pattern in [`field_workshop.js:68`](../../../../src/field_workshop.js:68)
+The observed pattern in [`field_workshop.js:68`](../../../../src/field_workshop.js)
 acquires a bounded imprint, copies one demonstrated method, and later refines it.
 It does not copy any arbitrary future power. Source entries, mastery and labels
 alone cannot create appraisal, soul recognition, a recorder or autonomous reward
@@ -54,7 +54,7 @@ engineering slice. Evidence limit: bounded source semantics only.
 
 ## F3. Definition admission and world initialization are separate deliveries
 
-[`structured_pack_definitions.js:30`](../../../../src/structured_pack_definitions.js:30)
+[`structured_pack_definitions.js:30`](../../../../src/structured_pack_definitions.js)
 explicitly separates compilation from actor/stock/native-object/timer creation.
 The compiler checks pack-owned IDs, collisions, JSON data, declared capabilities,
 observer knowledge and registry references. It rejects executable evaluation and
@@ -64,7 +64,7 @@ consumer at line 100; that name is not a generic scripting escape hatch.
 `mergeStructuredPack` at line 149 mutates registry maps after preflight;
 `stageStructuredNativeObjects` at line 159 constructs locations/items/inventories
 with availability rollback on construction failure. The admission path in
-[`main.js:8058`](../../../../src/main.js:8058) compiles and stages before merging
+[`main.js:8058`](../../../../src/main.js) compiles and stages before merging
 and registering the definition. Runtime initialization remains a later step.
 
 **Implication:** a generated quest promising a supplier is incomplete until the
@@ -75,7 +75,7 @@ Evidence limit: inspected admission/initialization code, not compiler execution.
 
 ## F4. Dynamic generated definitions need a load contract
 
-[`expansion_engine.js:58`](../../../../src/expansion_engine.js:58) distinguishes
+[`expansion_engine.js:58`](../../../../src/expansion_engine.js) distinguishes
 immutable definitions from persisted JSON state. Saved sources are checked
 against registry entries and revisions; the effects validator at line 104 has a
 finite operation set and rejects unknown types. Typed origins additionally pin
@@ -100,12 +100,12 @@ all existing optional-pack loading is broken.
 
 ## F5. Atomic commitment includes the native result and failed publication
 
-[`commitAction`](../../../../src/expansion_engine.js:536) checks the expected
+[`commitAction`](../../../../src/expansion_engine.js) checks the expected
 sequence, quotes eligibility, clones budgets, reserves costs, samples and freezes
 outcomes, validates possible results, then returns a plan. It does not publish.
-[`persistExpansionPlan`](../../../../src/expansion_persistence.js:7) writes staged
+[`persistExpansionPlan`](../../../../src/expansion_persistence.js) writes staged
 expansion/gameplay/ownership/native changes into one envelope, validates it, and
-calls storage once at line 49. [`main.js:789`](../../../../src/main.js:789)
+calls storage once at line 49. [`main.js:789`](../../../../src/main.js)
 integrates native publication and pauses progression on persistence failure.
 
 **Extension proposal:** generation, payment, selected truth and actual placement
@@ -120,12 +120,12 @@ storage failure or browser restoration was exercised here.
 
 ## F6. Timed work needs a named clock and support boundary
 
-[`advanceSimulation`](../../../../src/expansion_engine.js:588) advances integral
+[`advanceSimulation`](../../../../src/expansion_engine.js) advances integral
 simulation minutes through due jobs/opportunities in stable order, stops for
 choices and has a finite boundary budget. Native hosting is conditional:
-[`advanceExpeditions`](../../../../src/main.js:1169) only advances relevant active
+[`advanceExpeditions`](../../../../src/main.js) only advances relevant active
 state and refuses progression during save/import/loading failures.
-[`realm_clock_leases.js:1`](../../../../src/realm_clock_leases.js:1) explicitly
+[`realm_clock_leases.js:1`](../../../../src/realm_clock_leases.js) explicitly
 models supported work/observation on the joined played clock and checks source,
 anchor, contact and authorization support.
 

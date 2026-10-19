@@ -1,11 +1,11 @@
 // Read models and authored social content use the existing actor/condition
 // engine. No mood currency, hidden rolls, retroactive history or second clock.
+import {eqRawReason as eq} from './basics.js';
 import {recurringWindow} from './world_rhythm.js';
 export const TEACHER_WINDOW = Object.freeze({period: 1440, opens: 480, closes: 1080});
 export const IRRITATED = "mood.irritated";
 export const UNSETTLED = "mood.unsettled";
 export const REASSURED = "mood.reassured";
-const eq = (fact, value, reason) => ({fact, op: "eq", value, ...(reason ? {reason} : {})});
 const met = eq("village.craftsmanMet", true, "Meet the old craftsman first.");
 const wood = JSON.stringify({id: "Rough wood log"});
 const condition = (id, operation, actor, duration) => ({type: "condition", id, operation, ...(actor ? {actor} : {}), ...(duration ? {duration} : {})});

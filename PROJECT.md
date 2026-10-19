@@ -536,7 +536,7 @@ a real kit purchase, two useful customer repairs, functional braced-joinery
 learning, Mara’s optional own-means joint contribution, a history-dependent
 later work offer and continued local paid work. Names, numbers and fiction
 remain proposals. Foundation released shared ownership before implementation;
-World1 stays paused. Final 108/108 affected checks and 14 rebuilt native-browser
+World1 stays paused (Update 2026-10-19: historical for 2026-10-12; the pause was lifted 2026-10-13 and the W1 session later ended 2026-10-14 with section gates open, see the pause-lift entry below and the world1 CHECKPOINT). Final 108/108 affected checks and 14 rebuilt native-browser
 checks pass, including actual export/reload/literal-file import at three
 checkpoints. No commit/push/publication or director acceptance is claimed.
 [Report and exact play routes](docs/gm/dispatch/dependable-local-livelihood-2026-10-12/REPORT.md)
@@ -681,6 +681,11 @@ build/browser/save acceptance is claimed.
 
 ## Accepted decisions
 
+- **AR1 net-zero registration lines (2026-10-19, Weibao):** approved DRC1, "zero-growth stays
+  the check, a feature line must be paid for by moving a line out, and a reset with a named
+  reason is allowed when that needs an unrelated refactor". Owner: AR1 in
+  [ARCHITECTURE_RULES](docs/ARCHITECTURE_RULES.md).
+  [Record](docs/USER_VISION.md#ar1-net-zero-registration-lines-2026-10-19).
 - **Things work by how they work (2026-10-17, Weibao):** "potions work by virtue of how they
   work, if it's methodolocgy reasonably wotks it works, that shoukd be a standing rule things can
   happen if they can happen". An outcome follows the actual mechanism, not a label, category or

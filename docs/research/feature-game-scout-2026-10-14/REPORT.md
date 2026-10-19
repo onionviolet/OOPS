@@ -78,6 +78,8 @@ At most 5 per primary feature. Most rows also serve a second feature, listed aft
 
 ## Proposed queue edits (not applied)
 
+*Update 2026-10-19: still not applied; none of Vintage Story, TerraFirmaCraft, Kittens or Sims 4 has a row in the live queue (rewritten 2026-10-18). Listed for Weibao or the queue owner; unchanged here.*
+
 Target: [FUTURE_ACQUISITION_QUEUE_2026-10-13.md](../FUTURE_ACQUISITION_QUEUE_2026-10-13.md). The coverage refresh's [QUEUE_EDITS.patch](../coverage-refresh-2026-10-14/QUEUE_EDITS.patch) is also unapplied; apply that first or merge by hand.
 
 **E1.** Under "Free titles to consider", add:

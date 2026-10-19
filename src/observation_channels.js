@@ -1,3 +1,4 @@
+import {check as assert, copy, object} from './basics.js';
 import {realmStableId as id, realmNatural as natural, validateRealmJson as json,
     validateRealmEndpoint as endpoint, sameRealmEndpoint as same, validateRealmCosts,
     validateRealmContext, evaluateRealmBoundary, quoteRealmCosts} from './realm_boundary_rules.js';
@@ -5,9 +6,6 @@ import {validateRealmConnection, previewRealmPassage} from './realm_connections.
 
 // Detached information-only plans. The common durable executor owns all spending,
 // source execution, publication and persistence. No import enrolls a channel.
-const assert = (ok, message) => { if (!ok) throw new Error(message); };
-const copy = value => structuredClone(value);
-const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const positive = value => natural(value) && value > 0;
 const ids = values => Array.isArray(values) && new Set(values).size === values.length && values.every(id);
 const bindingKeys = ['schema', 'id', 'revision', 'connectionId', 'from', 'to', 'subjectId',

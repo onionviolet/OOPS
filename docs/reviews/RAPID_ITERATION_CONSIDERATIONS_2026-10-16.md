@@ -42,6 +42,7 @@ headless, and cut per-tick engine cost.
 1. O1, then O2 (owner decision on triage A2).
 2. O3 and O4 together, with crafting as the first scenario. Resume modular seams
    M3 on top: its blocker is exactly the setup problem O3 solves.
+   (Update 2026-10-19: M3 passed on resume 2026-10-16; see the [CHECKPOINT](../gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md). The F2 "stopped after two browser failures" account above is dated history.)
 3. O6 under AR9.
 4. O5, O7 and O8 as they pay off.
 

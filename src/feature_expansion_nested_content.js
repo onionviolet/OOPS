@@ -1,6 +1,7 @@
 // A Paradise-qualified service-district frame with original residents,
 // destinations, contracts, dialogue and prototype prices. PR01–PR08 qualify
 // distinctions, not these invented scenes or any original franchise canon.
+import {all, eqNoReason as eq, gte} from './basics.js';
 export const NESTED_SCHEMA = 1;
 export const NESTED_NATIVE_DOMAIN = 'nested_campaign_native';
 export const NESTED_IDS = Object.freeze({hub:'nested.paradise_hub',salt:'nested.saltworks',archive:'nested.archive',
@@ -41,7 +42,6 @@ export const NESTED_MISSIONS=Object.freeze([
  {id:'nested.mission.archive.followup',worldId:I.archive,issuerId:I.issuer,label:'Revisit the retained claim',kind:'followup',reward:3,partialReward:0,deadline:24,extension:12,extensionCost:1,
   objective:'Return to the same archive and review its retained claim and witnesses. No new award, witness or stock is created by reentry.',extraction:2,interference:false}
 ]);
-const eq=(fact,value=true)=>({fact,op:'eq',value}),gte=(fact,value)=>({fact,op:'gte',value}),all=(...rules)=>({all:rules});
 const unstarted=chain=>eq(`nested.chain.${chain}.started`,false);
 const af=(key,value,actor='player')=>({type:'fact',scope:'actor',actor,key:`nested.${key}`,value});
 const wf=(worldId,key,value)=>({type:'world',worldId,key,value});

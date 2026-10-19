@@ -1,5 +1,6 @@
 // Original proposal inspired by Proto23 disassembly/portable-tool mechanisms.
 // No foreign code/assets. Native owners retain clock, custody and publication.
+import {check, object as record} from '../../basics.js';
 import {validateGameplaySnapshot, validateItemKey, applyGameplayEffect} from '../../gameplay_transactions.js';
 import {stageAcquisition} from '../../acquisition.js';
 import {assertNativeItemDisposition, nativeActionReasons} from '../../native_gameplay_adapter.js';
@@ -13,8 +14,6 @@ export const SALVAGE = Object.freeze({salvage: 'p23.salvage.vest', craft: 'p23.s
 export const salvageItemSpecifications = Object.freeze([{id: SALVAGE.tool, value: 30,
     description: 'A portable blade and awl for reclaiming leather. Needs quality 60 or better and a usable condition.',
     quality: 100, equip_slot: 'sickle'}]);
-const record = v => v !== null && typeof v === 'object' && !Array.isArray(v);
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 const stableCopy = k => {validateItemKey(k); const id = JSON.parse(k).e2_instance; return /^e2\.[1-9]\d*$/.test(id || '') && Number.isSafeInteger(Number(id.slice(3)));};
 
 // Optional save domain: absence grants no knowledge and changes no old inventory.

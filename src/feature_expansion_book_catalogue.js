@@ -1,3 +1,4 @@
+import {check} from './basics.js';
 import {cultivationBookProfiles,evaluateCultivationBookRule} from './feature_expansion_book_cultivation.js';
 import {BOOK_RECOGNITION_PROFILES,recognizeBookWorld} from './feature_expansion_book_recognition.js';
 import {SITUATED_BOOK_PROFILES,evaluateSituatedBookRule} from './feature_expansion_book_situated.js';
@@ -5,7 +6,6 @@ import {bookRosterProfiles,evaluateBookRosterRule} from './feature_expansion_boo
 
 const situatedAliases={'book.omniscient_reader':'omniscient-reader','book.worm':'worm',
     'book.legendary_mechanic':'legendary-mechanic','book.labyrinth_mad_god':'labyrinth-mad-god'};
-const check=(ok,message)=>{if(!ok)throw Error(message);};
 
 // Authoring declarations are registered without creating native worlds, people,
 // knowledge or stock. Only a separately admitted native package binds a rule.

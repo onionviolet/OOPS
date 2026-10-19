@@ -43,6 +43,8 @@ The [original request consolidation](../USER_VISION.md#1-learn-from-other-games-
 
 ## Inventory and verification boundary
 
+*Update 2026-10-19: historical snapshot (2026-10-13 counts). Current census reconciliation is in the [coverage-refresh REPORT](coverage-refresh-2026-10-14/REPORT.md) top note; the counts here are not purchase or ownership counts.*
+
 The direct `docs/research/*/REPORT.md` scan found 60 report directories. Excluding aggregate waves, non-game topic research and the superseded Six Ages 1 identity leaves **48 game-focused dossier directories**. This is a routing count, not 48 completed full-game audits; the combined DCSS/DDA dossier covers two titles and open-idle multi-game dossiers sit outside this count. Repository-bank rows overlap these games and must not be added as a count of unique games.
 
 Checked the original requested list, wave assignments/checkpoints, individual report status/intake boundaries, repository-bank dispositions and later library updates. No raw proprietary corpus hashes, installed state, live workers, gameplay, balance or save behavior was reverified. No purchases, installs, exports or gameplay edits were performed.

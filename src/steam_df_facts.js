@@ -1,9 +1,9 @@
 // Pure reads and compatibility checks over the existing fact/knowledge/job owners.
+import {check} from './basics.js';
 import {STEAM_DF_IDS as I, steamDFDefinitions as D, steamDFLegacyKnowledge} from './steam_df_content.js';
 import {steamDFNatural as natural, steamDFRecord as record, sameSteamDFData as same, decodeSteamDFJSON as decode,
     steamDFStockWitness, validSteamDFWitness, steamDFSupport, steamDFCurrentReport, steamDFReportTextMatches, steamDFReportEffects} from './steam_df_runtime.js';
 
-const check = (ok, message) => {if (!ok) throw new Error(message);};
 const definitions = new Map(D.commands.map(d => [d.id, d]));
 const owned = key => typeof key === 'string' && key.startsWith(I.prefix);
 const sequence = cause => /^simulation:[1-9][0-9]*$/.test(cause || '') ? Number(cause.slice(11)) : NaN;
