@@ -22,7 +22,7 @@ Brief: [BRIEF.md](BRIEF.md).
 | M1 cycle break + check | passed | 9e089696 | build, 1793 pass / 3 TODO, arch, rebuilt before/after route + full save equality |
 | M2 registry + two domains | passed | 4498c8e6 | build, 1795 pass / 3 TODO, arch, two-domain rebuilt comparison + old save |
 | M3 crafting consumer | passed on resume (B4), 2026-10-16 | see M3 resume below | build, 2045 pass / 3 TODO, arch, native browser journey 1366×768 |
-| M4 second case | implemented 2026-10-19 (lamplight, PF52); see [M4 round](#m4-round-lamplight-2026-10-19) | branch `claude/features-and-fixes-f490c6` | build, 2243/2243 npm test, arch, rules, headless journey, 1920×1080 smoke; human play OPEN |
+| M4 second case | implemented 2026-10-19 (lamplight, PF52); see [M4 round](#m4-round-lamplight-2026-10-19) | 914e8d579, fast-forwarded into codex/gameplay-foundations 2026-10-19 on Weibao's yes, not pushed | build, 2243/2243 npm test, arch, rules, headless journey, 1920×1080 smoke; human play OPEN |
 
 The live checkpoint is the copy in the worktree; this shared copy records the
 dispatch. Fold the worktree copy back when the branch merges.
