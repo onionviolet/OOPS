@@ -332,6 +332,17 @@ export function createDom(options = {}) {
         getAnimations() {return [];}
         getBoundingClientRect() {return {x:0, y:0, top:0, left:0, right:0, bottom:0, width:0, height:0, toJSON() {return this;}};}
         getClientRects() {return [];}
+        // Layout is not modeled, so this reports the DOM-level answer: false when detached, or when this node or an
+        // ancestor has the hidden attribute or an inline display:none/contents (real Chrome 105+, Firefox 106+, Safari 17.4+).
+        // Stylesheet display is judged by the runner's whyHidden, not here.
+        checkVisibility() {
+            if(!this.isConnected) return false;
+            for(let n = this; n && n.nodeType === 1; n = n.parentNode) {
+                const d = (n.style?.display ?? '').trim();
+                if(d === 'none' || d === 'contents' || (n.hasAttribute('hidden') && n.getAttribute('hidden') !== 'until-found')) return false;
+            }
+            return true;
+        }
         get offsetWidth() {return 0;} get offsetHeight() {return 0;} get offsetTop() {return 0;} get offsetLeft() {return 0;} get offsetParent() {return this.parentElement;}
         get clientWidth() {return 0;} get clientHeight() {return 0;} get scrollWidth() {return 0;} get scrollHeight() {return 0;}
         setPointerCapture() {} releasePointerCapture() {} hasPointerCapture() {return false;}

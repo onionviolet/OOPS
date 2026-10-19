@@ -1,10 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,readFile,rm} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {join,resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
-import {build} from 'esbuild';
+import {loadNative} from './helpers/native_loader.mjs';
 import {beginNativeCraftTransaction} from '../src/native_craft_transaction.js';
 import {createExpansionState,loadExpansionState} from '../src/expansion_engine.js';
 import {createStreams,ensureStreams,drawUnit,keyedUnit,unitDecision,rollChance,rollInt,rollTable,validateStreams,
@@ -80,17 +76,9 @@ test('failed native craft restores consumed stream state with the existing trans
 // Bundle real native sites while replacing presentation/startup and timers.
 // No gameplay modules or seeded decision implementation are mocked.
 test('native lineup, loot, stock and pending fighter turns survive save/restore with Math.random forbidden',async()=>{
-    const dir=await mkdtemp(join(tmpdir(),'p1-native-unit-'));
     const originalRandom=Math.random,originalDocument=globalThis.document,originalTimeout=globalThis.setTimeout;
     try {
-        const outfile=join(dir,'native.mjs');
-        await build({stdin:{contents:'export {character} from "./src/data/character.js"; export {locations} from "./src/data/locations.js"; export * from "./src/seeded_streams.js"; export {CombatZone} from "./src/models/location.js"; export {Enemy,enemy_templates} from "./src/enemies.js"; export {TraderComponent as Trader} from "./src/components/trader_component.js"; export {default as templates} from "./src/data/inventory_templates.js"; export {default as Combat} from "./src/models/combat.js";',resolveDir:resolve('.')},bundle:true,format:'esm',platform:'node',outfile,
-            plugins:[{name:'presentation',setup(b){b.onLoad({filter:/\/src\/(main|display|ui\/combat_display)\.js$/},async a=>{
-                const source=await readFile(a.path,'utf8');
-                const names=[...source.matchAll(/export\s*\{([^}]+)\}/g)].flatMap(m=>m[1].split(',').map(s=>s.trim().split(/\s+as\s+/).at(-1))).filter(s=>/^[a-zA-Z_$][\w$]*$/.test(s));
-                return {contents:names.map(s=>`export const ${s} = ${['game_options','game_stats'].includes(s)?'{}':s==='current_stance'?'({id:"normal",stamina_cost:0})':s==='capitalize_first_letter'?'s=>s[0].toUpperCase()+s.slice(1)':'()=>{}'};`).join('\n')};
-            });}}]});
-        const m=await import(pathToFileURL(outfile));let current=state(535);m.bindGameStreams(()=>current);
+        const m = await loadNative('export {character} from "./src/data/character.js"; export {locations} from "./src/data/locations.js"; export * from "./src/seeded_streams.js"; export {CombatZone} from "./src/models/location.js"; export {Enemy,enemy_templates} from "./src/enemies.js"; export {TraderComponent as Trader} from "./src/components/trader_component.js"; export {default as templates} from "./src/data/inventory_templates.js"; export {default as Combat} from "./src/models/combat.js";', {stubs: {game_stats: '{}', current_stance: '({id:"normal",stamina_cost:0})'}, presentation: /\/src\/(main|display|ui\/combat_display)\.js$/, prefix: 'p1-native-unit-'});let current=state(535);m.bindGameStreams(()=>current);
         Math.random=()=>{throw Error('unseeded gameplay draw');};
         globalThis.document={getElementById:()=>null};globalThis.setTimeout=()=>0;
         // Guardian bleed chance draws the saved combat stream, so a restored save replays it.
@@ -125,5 +113,5 @@ test('native lineup, loot, stock and pending fighter turns survive save/restore 
         for(const mutate of [s=>s.enemies[0].full.health=-1,s=>s.turns.attackers=[-1],s=>s.loops['attackers:0'].count=70]) {
             const bad=clone(saved);mutate(bad);assert.throws(()=>validateNativeEncounter(bad,'test'));
         }
-    } finally {Math.random=originalRandom;globalThis.document=originalDocument;globalThis.setTimeout=originalTimeout;await rm(dir,{recursive:true,force:true});}
+    } finally {Math.random=originalRandom;globalThis.document=originalDocument;globalThis.setTimeout=originalTimeout;}
 });

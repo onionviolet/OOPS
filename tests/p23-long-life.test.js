@@ -1,10 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {build} from 'esbuild';
-import {mkdtemp, readFile, rm} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {join, resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
+import {loadNative, STANCE_LOCATION_STUBS} from './helpers/native_loader.mjs';
 import {title_catalog, grantEarnedTitles, normalizeTitles, titleBonuses, titleView} from '../src/titles.js';
 import {installTrainingLink, trainingView} from '../src/absorb_p23/long_life/training.js';
 import {validateWornTitle, selectWornTitle, longLifeTitleBonuses, wornTitleView} from '../src/absorb_p23/long_life/worn.js';
@@ -80,32 +76,22 @@ test('training projection names only known skills and never settles XP',()=>{
 });
 
 test('native milestone awards once, repeat training progresses, XP reconstruction restores exact rate',async()=>{
-    const dir=await mkdtemp(join(tmpdir(),'p23-long-life-'));
-    try {
-        const outfile=join(dir,'native.mjs');
-        await build({stdin:{contents:`export {character} from './src/data/character.js'; export {skills} from './src/data/skills.js'; export {fill_availability_methods} from './src/component_management.js';`,resolveDir:resolve('.')},bundle:true,format:'esm',platform:'node',outfile,
-            plugins:[{name:'presentation-only',setup(b){b.onLoad({filter:/\/src\/(main|display)\.js$/},async a=>{
-                const source=await readFile(a.path,'utf8');
-                const names=[...source.matchAll(/export\s*\{([^}]+)\}/g)].flatMap(m=>m[1].split(',').map(s=>s.trim().split(/\s+as\s+/).at(-1))).filter(s=>/^[a-zA-Z_$][\w$]*$/.test(s));
-                return {contents:names.map(s=>`export const ${s} = ${s==='game_options'?'{}':s==='current_stance'?'({getStats:()=>({})})':s==='current_location'?'null':s==='capitalize_first_letter'?'s=>s[0].toUpperCase()+s.slice(1)':'()=>{}'};`).join('\n')};
-            });}}]});
-        const {character,skills,fill_availability_methods}=await import(pathToFileURL(outfile));fill_availability_methods();installTrainingLink(skills);
-        const xp=id=>character.getSkillXPObject({skill_id:id});
-        const grant=(id,n,use_bonus=false)=>{const result=character.addXPToSkill({skill:skills[id],xp_to_add:n,use_bonus,cap_gained_xp:false,add_to_parent:false});character.updateStatsAndDisplay();return result;};
-        grant('Alchemy',1,true); const before=xp('Alchemy').total_xp;
-        for(let i=0;i<40;i++)grant('Cooking',5);
-        assert.equal(xp('Cooking').current_level,3);
-        grant('Alchemy',1,true);assert.ok(Math.abs(xp('Alchemy').total_xp-before-1.05)<1e-9);
-        const rate=character.getLevelableComponent().xp_bonuses.total_multiplier.Alchemy;
-        const saved=JSON.parse(JSON.stringify(xp('Cooking')));
-        grant('Cooking',5);assert.equal(xp('Cooking').total_xp,saved.total_xp+5);
-        assert.equal(character.getLevelableComponent().xp_bonuses.total_multiplier.Alchemy,rate);
-        // Reconstruct from zero XP, as load does, with bonus reset before replay.
-        delete character.getLevelableComponent().skill_progress.Cooking;
-        character.getLevelableComponent().xp_bonuses.total_multiplier.Alchemy=1;
-        character.getLevelableComponent().xp_bonuses.multiplier.skills.Alchemy=1;
-        grant('Cooking',saved.total_xp);
-        assert.deepEqual(JSON.parse(JSON.stringify(xp('Cooking'))),saved);
-        assert.equal(character.getLevelableComponent().xp_bonuses.total_multiplier.Alchemy,rate);
-    } finally {await rm(dir,{recursive:true,force:true});}
+    const {character,skills,fill_availability_methods} = await loadNative(`export {character} from './src/data/character.js'; export {skills} from './src/data/skills.js'; export {fill_availability_methods} from './src/component_management.js';`, {stubs: STANCE_LOCATION_STUBS, prefix: 'p23-long-life-'});fill_availability_methods();installTrainingLink(skills);
+    const xp=id=>character.getSkillXPObject({skill_id:id});
+    const grant=(id,n,use_bonus=false)=>{const result=character.addXPToSkill({skill:skills[id],xp_to_add:n,use_bonus,cap_gained_xp:false,add_to_parent:false});character.updateStatsAndDisplay();return result;};
+    grant('Alchemy',1,true); const before=xp('Alchemy').total_xp;
+    for(let i=0;i<40;i++)grant('Cooking',5);
+    assert.equal(xp('Cooking').current_level,3);
+    grant('Alchemy',1,true);assert.ok(Math.abs(xp('Alchemy').total_xp-before-1.05)<1e-9);
+    const rate=character.getLevelableComponent().xp_bonuses.total_multiplier.Alchemy;
+    const saved=JSON.parse(JSON.stringify(xp('Cooking')));
+    grant('Cooking',5);assert.equal(xp('Cooking').total_xp,saved.total_xp+5);
+    assert.equal(character.getLevelableComponent().xp_bonuses.total_multiplier.Alchemy,rate);
+    // Reconstruct from zero XP, as load does, with bonus reset before replay.
+    delete character.getLevelableComponent().skill_progress.Cooking;
+    character.getLevelableComponent().xp_bonuses.total_multiplier.Alchemy=1;
+    character.getLevelableComponent().xp_bonuses.multiplier.skills.Alchemy=1;
+    grant('Cooking',saved.total_xp);
+    assert.deepEqual(JSON.parse(JSON.stringify(xp('Cooking'))),saved);
+    assert.equal(character.getLevelableComponent().xp_bonuses.total_multiplier.Alchemy,rate);
 });
