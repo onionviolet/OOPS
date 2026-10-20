@@ -28,6 +28,8 @@ inventories the idea families, ranks the shared seams by unlock count, names the
 binding scale limits with measured numbers, and proposes strategies and a
 sequenced slice order (P1–P8). Navigation and proposal only; no new priority.
 
+P1 measurement result: [baseline and budgets](reviews/P1_BASELINE_AND_BUDGETS_2026-10-19.md) (2026-10-19; per-minute browser cost, not actor tick, is the measured technical limit).
+
 ## Historical implementation routing, 2026-10-04
 
 [Native Glasshouse delivery](ENGINE_EXPANSION.md#native-folded-glasshouse-and-engine-specialists-2026-10-04) now connects existing Exchange/Gaze groundwork to an optional real room, canonical instance and manual physical doorway. [Specialist packet](gm/dispatch/ENGINE_SPECIALISTS.md) routes exact cargo, sampled observation and supported local clocks; [authoring](ENGINE_AUTHORING.md#native-folded-glasshouse-bindings-2026-10-04) owns APIs/compatibility. New source is implemented-unverified, with tests deferred by the user. [Current request](USER_VISION.md#engine-gm-expansion-and-current-implementation-2026-10-04) and [playtest](PLAYTEST.md#glasshouse-build-and-deferred-acceptance-2026-10-04) retain acceptance boundaries. [Full-book index](research/novels/full-book/README.md) owns independent source lanes; reading is not a runtime feature.

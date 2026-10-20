@@ -259,6 +259,8 @@ own this. Nothing below should dispatch implementation into the same files
 | P7 Absorption pipeline pilot (S6, WAC12) | One new world's signature loop from a fresh read | Coordinator plus readers under AU13 | Ledger to draft pack lints with only WA4 law gaps; usage recorded against a stated budget; first real per-world cost number (fixes F4) |
 | P8 Rule-module growth (WAC3) and combination report | Laws for the new world as rules; absence messages in play | Coder, medium | Pilot coverage shows K2 at T2 with laws as rules |
 
+P1 result (2026-10-19, measurement report, revises section 3.2 item 4): [P1 baseline and budgets](reviews/P1_BASELINE_AND_BUDGETS_2026-10-19.md).
+
 Recommended first three: **P1, P2, P3.** They cost almost no agent budget,
 unlock ranks 1, 3 and 9, and produce the first honest numbers. P7 is the first
 slice that spends the large agent budget, which is why it comes after the format
