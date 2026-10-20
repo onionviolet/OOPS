@@ -352,3 +352,15 @@ Recorded from his reply in chat (his words are the authority; the readings below
 - **Q2**: agent work now runs on Sonnet, so there is more headroom. Reading: AU5's cheap-extraction route is now Sonnet-class; AU7's five-point default ceiling stays until a finite number is stated for P7.
 - **Q3**: pausing new engine proposals is not necessary. Reading: proposals and runtime work may proceed in parallel, still one writer per file area (AR15).
 - **Q4**: he does not know the optimum and suggests Opus for very hard, consideration-heavy work. Proposed routing (not yet accepted): Opus for format and seam design (pack loader and resolver growth, tiered-simulation design, the P3 format revision); Sonnet for readers, extraction, conversions, tests and journey specs. The Q4 retire-`*_host.js` choice is left open until P3 shows the result.
+
+### Next world, 2026-10-19 (Weibao: "something that can have so much depth? Maybe Naruto or LOTM or something deep")
+
+His words name a direction (deep world) and two candidates, not a final pick. Proposal, labeled as such: **Lord of the Mysteries first, Naruto second.**
+
+Evidence for the order (V, file sizes and docs):
+- LOTM has 464 KB of saved reading in [docs/research/novels/lord-of-mysteries](research/novels/lord-of-mysteries/BRIEF.md) (pathways deep dive, wiki cross-check, reader notes, world design), and the [HP versus LOTM recommendation](worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md) found the strongest primary-text support there and recommended an early-LOTM acquisition-to-controlled-use feature. A Fog City card and entry row exist.
+- Naruto has a design packet (about 1,000 doc lines) but only a 16 KB fanfic survey under research, and its databook acquisition sits in the [queue](research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md). Its packet leans on general knowledge, so absorbing it means a fresh read first (AU13 cost).
+- Depth fit: LOTM's signature loop (acquire, act, digest, mask, madness) stresses WA4 laws-as-rules, hidden state and sealed secrets, which is the strongest test of the pack format for P3/P7. Naruto stresses breadth (bodies, jutsu, villages, ranks), a useful contrast later.
+- Cost: LOTM P7 reuses existing reading, so it spends little new agent budget; Naruto spends a full read.
+
+Not decided: Weibao may still pick Naruto or another world; P1–P3 do not depend on it.
