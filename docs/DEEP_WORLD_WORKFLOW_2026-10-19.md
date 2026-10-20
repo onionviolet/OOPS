@@ -344,3 +344,52 @@ profile, and improvisation is a discovery route with risk, not a gap in canon.
 - **DWF63 (LATER).** HP wand wood and core pairing came from search summaries only. Fetch the
   official wand-wood and flexibility pages' pairing statements already linked in the HP ledger,
   or the Wizarding World wand pages, before encoding any pairing.
+
+### On-demand lore item audits (2026-10-19)
+
+Weibao: "we can audit for specific lore items as needed and more." Recorded as the standing route
+for checking one named lore item (a spell, potion, ingredient, ritual, Sequence, artifact, person
+or place) instead of re-reading a source. It reuses what exists; no new tool.
+
+| Step | What happens | Owner |
+| --- | --- | --- |
+| 1 | Find the item's census row (`hp.*` or `lotm.*`). No row: add one from step 3. | Private census JSONL |
+| 2 | Read the row's `evidence`: `read`, `read-window`, `notes`, `checked`, `searched` or `rejected`. Stop if it already answers the question at the needed depth. | Row |
+| 3 | Targeted check: HP through the prepared FTS index and page locator; LOTM through the reader-note locator and one EPUB member; wiki or official pages online as a secondary source (Fandom may answer 402, then use search summaries or the in-app browser). | [Playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md) |
+| 4 | Update the row (`evidence`, `locator`, `scene`, relations, alias) and keep the old state as history. | Row |
+| 5 | If the answer changes a rule or a recorded conflict, say so in the owning grammar or router entry. | Router, grammar file |
+
+Defaults and dials: one item per check, a few source windows (AU10 bounds), no sub-agent unless the
+question needs more than one lookup. A cluster of items goes to one reader with a preassembled
+window file, as in DWF49. Sealed in-game secrets are referenced by ID only (WA11). The result is
+research and proposal until Weibao accepts it.
+
+### Open lore audits sent out (2026-10-19)
+
+Weibao: "send accordingly", read as running the open lore audits from DWF50, DWF62 and DWF63. AU
+ledger: two Sonnet readers, one each, outputs private (`.../harry-potter/census-2026-10-19/audit2/`,
+`.../lord-of-mysteries/census-2026-10-19/audit2/`).
+
+**HP.** The 28 rows that had only a chapter-title or contents hit each gained an in-text scene
+(about 3,500 words printed, an estimate). Three are mention-level only (potions, astronomy, ancient
+runes): no lesson scene was read. Wolfsbane now resolves as a potion. Census state: 223
+`read-window`, 32 `read`, 1 `searched`. Merged; the earlier file is kept as
+`HP_CENSUS.pre-audit2.jsonl`. **Wand pairing (DWF63):** two official pages were fetched (class
+C-X); neither states which woods pair with which cores. The wood and core pairing guidance
+appears only in a search summary of an already-checked page, so it stays low confidence and
+nothing is encoded.
+
+**LOTM.** 14 of 16 lookups, about 3,000 of 12,000 source characters, six-response cap reached.
+- Resolved: Hanged Man Sequence 3 is the Chinese name for a three-headed hall (the translated
+  "Trinity Templar" is not in the text); the Sun swap-group chapters do not conflict; Hermit
+  Sequence 8 was a false gap, since the Sequence 8 name is blank in the in-world book.
+- Narrowed: the church has 13 archbishops and 9 senior deacons, with no checked chapter tying
+  Sequence 4 to a rank.
+- Not found: the named Sequence 2 names and Paragon Sequence 5.
+- Not attempted: C4, C9, Chained 2, White Tower 2 and the DWF62 substitute-ingredient lookup.
+- The reader's own report miscounts "resolved" as 4; the correct count is 3.
+
+**Net open (DWF64, LATER).** About nine LOTM items stay open or unattempted. A fresh bounded shard
+should take C4, C9, Chained 2, White Tower 2, the Sequence 2 names and Paragon 5, with the wiki
+through the in-app browser as a second route. Sonnet medium; done check: each item resolved or
+recorded as not found with locators.
