@@ -1,7 +1,7 @@
 # P2 pack loader and Cyoria conversion: task record (2026-10-19)
 
 Slice P2 of the [scale plan](../../../IDEABOARD_SCALE_PLAN_2026-10-19.md#5-sequenced-build-order-proposal).
-Status: **implemented-unverified until the evidence table below is filled.** Not human-accepted.
+Status: conversion verified on a 30-step scripted Cyoria journey (before equals after); Cyoria is not reachable through the visible UI (finding below). Not human-accepted.
 
 ## Rule codes applied
 
@@ -74,12 +74,19 @@ not mix other lanes' src into it).
 | WAC28 | `every installed pack lints clean` test iterates the install registry; a broken copy fails to install. Verified. Covers packs whose module a test imports |
 | Browser: bundle boot, after build | No page errors; `simulationTestHooks.project('world_packs')` returns the installed Cyoria pack with fingerprint `book.mol.pack.cyoria_visitor@2#d0a7e7d073bb9680`; before bundle returns null. Verified |
 | Browser: opening-state save, before vs after | Same 64 top-level keys, no `world_packs` key, no Mol keys; the 21 differing values are random seeds, journey ids, timestamps and a one-minute tick race, not pack-related. Reload round trip changes only the same kinds of values |
-| **Browser: Cyoria loop (chart, enroll, enter, jobs, shop, save/reload/Export/Import)** | **Not exercised: implemented-unverified.** The Cyoria section never appeared after meeting the elder and following local people; reaching it needs a longer unlock chain than this session explored (the Worlds route stays disabled and the knowledge chain behind Iona's ledger was not completed). No journey script for Cyoria exists in `scripts/`; one is needed. Add to the acceptance backlog |
+| **Browser: Cyoria journey, before vs after** | `scripts/cyoria_journey_browser.cjs`, same script on both bundles (after bundle sha `7e0ae905b64c`), fresh origin, 1920×1080: elder hello, then chart, enroll, enter, arrival, house, shift pay, meal, guest pass, mana assessment, paper and ink, library, invocation study, catalog shift, cube, formula study, lamp assembly, charge, control drill, lamp test, return (30 of 30 steps on both). Normalized state digest (player, Cyoria slice, people, Cyoria knowledge keys, native stock) **identical** before and after; absolute game times excluded because retries pass a varying number of minutes. Save then reload digest equal; `save_to_file()` export fed back through `#saved_file_input` (literal Import) digest equal, on both bundles. No page errors. Verified for this path |
+| Not exercised | The hatch encounter and retrieval branch, Taiven and Kael routes, the aftermath routes, and a byte-level diff of the full save envelope (digest covers the Cyoria-relevant slices only) |
+
+Finding (not fixed, out of scope): in the current layout the feature panel that hosts the Cyoria offers
+(`#feature_expansion_panel`, under the hidden notebook module) is never rendered, so a player cannot reach
+Cyoria through the visible UI. The journey script unhides that module to drive the real card handlers. This
+is a UI reachability gap for the Cyoria entry, worth its own slice (the Worlds route is also disabled).
+Also noted: the first click on a card right after a state change, or while earlier work still runs, is
+silently refused; the script retries after letting game time pass.
 
 ## Follow-ups (not done, named)
 
-1. Cyoria browser journey script (chart to aftermath, with save, reload, Export, literal Import), run on before
-   and after bundles. Until it passes, P2 is not accepted and WA19/AR10 are open.
+1. Extend the journey to the hatch encounter, Taiven and Kael routes and aftermath, and diff the full save envelope.
 2. Record `id@revision#fingerprint` in saves (WA10): needs a save slice, migration or a compatibility decision.
 3. Move commands, controllers, conditions, situations and encounters into the pack (they are logic over facts
    and need a loader that can carry predicates as data; they already are plain JSON).

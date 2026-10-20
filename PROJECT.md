@@ -80,7 +80,7 @@ pack of data and rule modules over shared verbs: read once, sort into kit parts,
 encode laws as rules, generate labelled gaps, prove with a played journey.
 `src/world_pack.js` lints packs; since P2 (2026-10-19) `src/world_pack_runtime.js`
 installs the Cyoria pack and its people, items, techniques and powers come from it
-(K2 and K8 now at floor). Browser journey not yet exercised: implemented-unverified.
+(K2 and K8 now at floor). A 30-step scripted Cyoria journey is equal before and after; not human-accepted.
 [Request](docs/USER_VISION.md#world-absorption-rules-2026-10-17).
 
 **Plan/rule reconciliation (2026-10-18):** at Weibao's request, the

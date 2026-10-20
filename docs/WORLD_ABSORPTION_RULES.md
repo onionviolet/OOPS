@@ -118,9 +118,9 @@ follow-up, needs a slice and a compatibility call).
 
 Tests: [`tests/world_pack.test.js`](../tests/world_pack.test.js).
 
-Status (2026-10-19, P2): the Cyoria definitions install from the pack at boot; unit evidence and a
-bundle boot check pass, but the Cyoria journey was **not** exercised in a browser, so the conversion is
-implemented-unverified (AR10, WA19). See the [P2 task record](gm/dispatch/p2-pack-loader-2026-10-19/TASK_RECORD.md).
+Status (2026-10-19, P2): the Cyoria definitions install from the pack at boot; unit evidence passes and a
+30-step scripted Cyoria journey (`scripts/cyoria_journey_browser.cjs`) gives the same normalized state before
+and after, with reload and Import equal; later branches are unexercised and Weibao has not accepted it (AR10, WA19). See the [P2 task record](gm/dispatch/p2-pack-loader-2026-10-19/TASK_RECORD.md).
 
 ## More to consider, round 1 (2026-10-17)
 
@@ -156,7 +156,7 @@ implemented-unverified (AR10, WA19). See the [P2 task record](gm/dispatch/p2-pac
 
 | Code | Item | Level, effort | Done check |
 | --- | --- | --- | --- |
-| WAC8 | Cyoria conversion: install people, items and techniques from the pack instead of `book_world_mol_content.js` | Strong coder, one focused session, structural only (WA17) | Same rebuilt journey before and after, save/reload/import identical · **Done 2026-10-19 (P2): people, items, techniques and powers install from the pack (journey implemented-unverified).** |
+| WAC8 | Cyoria conversion: install people, items and techniques from the pack instead of `book_world_mol_content.js` | Strong coder, one focused session, structural only (WA17) | Same rebuilt journey before and after, save/reload/import identical · **Done 2026-10-19 (P2): people, items, techniques and powers install from the pack (scripted journey equal before and after).** |
 | WAC9 | Encode Cyoria's remaining K2 laws (5–10) as engine facts or gate modules | Designer plus coder, small | Pilot coverage shows K2 at T2 with laws as rules · **Done 2026-10-19 (P2): eight K2 laws as engine-fact records; K2 at T2.** |
 | WAC10 | Map K8 jobs, meals and prices into pack records | Coder, small | Coverage K8 at floor · **Done 2026-10-19 (P2): thirteen K8 records; K8 at floor.** |
 | WAC11 | Second world through the format, contrasting with Cyoria (LOTM pathways or Worm powers) | Coordinator plus readers under AU13 | Pack lints clean; format changes recorded here (WA20) |
