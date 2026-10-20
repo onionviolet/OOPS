@@ -107,6 +107,10 @@ async function recoverFrom(app, label, cause, report) {
             YAIRPG_USER_DATA: path.join(work, 'userData'), YAIRPG_DOWNLOAD_DIR: path.join(work, 'downloads'),
         },
     });
+    const hostLog = [];
+    for (const stream of [app.process().stdout, app.process().stderr]) {
+        stream.on('data', d => hostLog.push(...String(d).split('\n').filter(l => l.includes('[yairpg]'))));
+    }
     try {
         await app.firstWindow();
         await play(app);
@@ -116,10 +120,17 @@ async function recoverFrom(app, label, cause, report) {
         await new Promise(r => setTimeout(r, HANG_MS * 2));
         assert.ok((await url(app)).endsWith('/index.html'), 'no false hang while playing');
 
+        // A stalled host (or a sleeping Mac) is not a hung page.
+        await app.evaluate(ms => { const end = Date.now() + ms; while (Date.now() < end); }, HANG_MS * 3);
+        await new Promise(r => setTimeout(r, 2000));
+        assert.ok((await url(app)).endsWith('/index.html'), 'no false hang after a main-process stall');
+        report.stallSurvived = true;
+
         await recoverFrom(app, 'crash', () => app.evaluate(({ BrowserWindow }) =>
             BrowserWindow.getAllWindows()[0].webContents.forcefullyCrashRenderer()), report);
         await recoverFrom(app, 'hang', () => js(app, 'setTimeout(() => { for (;;) { /* hang */ } }, 0); true'), report);
 
+        report.hostLog = hostLog;
         report.windows = await windowState(app);
         assert.ok(report.windows.every(w => !w.visible && !w.focused), 'never shown or focused');
         report.result = 'PASS';

@@ -6,7 +6,7 @@
 const path = require('node:path');
 const fs = require('node:fs');
 const { pathToFileURL } = require('node:url');
-const { app, BrowserWindow, protocol, net, shell, screen, session, ipcMain } = require('electron');
+const { app, BrowserWindow, protocol, net, shell, screen, session, ipcMain, powerMonitor } = require('electron');
 const { APP_SCHEME, APP_ORIGIN, resolveAppPath } = require('./app_path.cjs');
 const { promptPage, PROMPT_RESULT } = require('./prompt_page.cjs');
 const { RECOVER_PATH, recoverPage } = require('./recover_page.cjs');
@@ -157,7 +157,15 @@ function guardRenderer(win) {
             contents.loadURL(`${APP_ORIGIN}${RECOVER_PATH}?reason=${encodeURIComponent(reason)}`);
         });
     });
+    const every = Math.min(1000, Math.max(100, hangMs / 4));
+    let lastTick = Date.now();
     const timer = setInterval(() => {
+        // A late tick means the host itself stalled or the Mac slept; the
+        // page had no chance to answer, so silence counts from now.
+        const now = Date.now();
+        const late = now - lastTick > every * 3;
+        lastTick = now;
+        if (late) beat();
         if (contents.isDestroyed() || contents.isCrashed() || stoppedForHang) return;
         const quiet = Date.now() - (heartbeats.get(id) || Date.now());
         if (quiet > hangMs && !promptOpen.has(id) && !contents.isDevToolsOpened()) {
@@ -167,7 +175,7 @@ function guardRenderer(win) {
             return;
         }
         contents.send('yairpg:ping');
-    }, Math.min(1000, Math.max(100, hangMs / 4)));
+    }, every);
     win.on('closed', () => { clearInterval(timer); heartbeats.delete(id); });
 }
 
@@ -231,6 +239,11 @@ if (primary) app.whenReady().then(() => {
         app.setActivationPolicy('accessory');
         app.dock?.hide();
     }
+
+    // Sleep and lock pause everything; nobody missed a heartbeat.
+    const rebeat = () => { for (const id of heartbeats.keys()) heartbeats.set(id, Date.now()); };
+    powerMonitor.on('resume', rebeat);
+    powerMonitor.on('unlock-screen', rebeat);
 
     if (!serving.root) startFrozenBuilds();
     else ipcMain.handle('yairpg:adopt-build', () => false);
