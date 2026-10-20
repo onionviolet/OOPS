@@ -42,6 +42,11 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+[Deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (2026-10-19, proposal) is the
+run order for deeply implementing one world: recover, read, census the whole canon as
+data, grammar and dials, pack, playable rings, routes past canon, prove (DWF1 to DWF8),
+with LOTM mapped by stage. It links the owners and restates none of them.
+
 [Subtle rule gaps, round 4](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18)
 connects the latest domain audits: observer-safe idle stops, exact time settlement,
 interrupted work, effect-chain resolution and mechanism versus implementation
