@@ -265,3 +265,11 @@ current UI_RULES targets. Authored start/world floors do not override accepted
 guided-random entry or require the vanilla campaign first (AD23). Apply
 [G26–G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18)
 only to affected seams, with an actual player consumer.
+
+## Per-world subtle gaps sweep, 2026-10-20
+
+A read-only sweep applied this standard to every world folder: supported level
+(none above C1), signature, and one subtle missing aspect per world with a done
+check, plus cross-world patterns. Proposals only. Index:
+[world subtle gaps](audits/WORLD_SUBTLE_GAPS_2026-10-20.md) (WG1-WG26, WGP1-WGP4,
+WGX1-WGX6).

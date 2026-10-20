@@ -1184,7 +1184,7 @@ the same save never made the app frontmost; only Weibao's own apps were.
 
 | Code | Point | Disposition |
 | --- | --- | --- |
-| EL27 | **Three run modes.** Player (normal window), `YAIRPG_INACTIVE=1` (visible, never focused, may sit in the Dock so he can click in), `YAIRPG_HIDDEN=1` (no window, no Dock icon, macOS accessory app that cannot activate). Agent and test runs default to hidden; the smoke check does | DONE; INACTIVE Dock behavior implemented-unverified (testing it would show a window) |
+| EL27 | **Three run modes.** Player (normal window), `YAIRPG_INACTIVE=1` (visible, never focused, may sit in the Dock so he can click in), `YAIRPG_HIDDEN=1` (no window, no Dock icon, macOS accessory app that cannot activate). Agent and test runs default to hidden; the smoke check does | DONE; INACTIVE mode verified once on screen 2026-10-20 (visible, unfocused, in the Dock; see On-screen checks) |
 | EL28 | **Accidental second launch.** A launch on the player's save used to raise his window. Background launches now pass a flag with the single-instance lock and his window stays put; only his own Dock click or relaunch raises it | DONE, verified hidden (second exits, window stays unfocused) |
 | EL29 | **Dialogs are focus thieves.** Native `alert`/`confirm` would pop over his screen from an agent run. Background runs cancel them (logged as warnings). Electron also has no `prompt()`, which broke Reset, Load backup and Import other release in the app; the preload now shows a small modal for the player and returns cancel in background | DONE, verified hidden; player modal tested through hidden windows, not clicked on screen |
 | EL30 | **Downloads and links.** A background Export saves to a temp folder instead of opening a save dialog; external links from background runs are dropped instead of opening the browser | DONE |
@@ -1212,6 +1212,31 @@ agent checks never open visible windows (hidden Electron, headless browsers).
   hidden and was not retried on screen. Status for visible windows:
   implemented-unverified. Export before a Reset until he has seen it work.
 
+
+### More to consider, round 4 (EL39-EL52), 2026-10-20
+
+Weibao: "What was the answers to my questions on what this opens up and more?
+more to consider?" New angles only; EL1-EL38 stand. Proposals.
+
+| Code | Angle | Disposition |
+| --- | --- | --- |
+| EL39 | **Save history as files.** Once saves are files (EL1), keep a rolling snapshot per in-game day or per big choice. That gives cheap rewinds, a "what changed" diff between two days, and the raw material for branch lives and echoes ([branch save shape](research/PROFILE_AND_BRANCH_SAVE_SHAPE_2026-10-14.md)). Disk cost is small at today's save sizes | LATER with EL1 |
+| EL40 | **Bot playtests.** Hidden instances driven through game MCP tools (EL16) play scripted or agent-chosen routes overnight and report time-to-milestone, stuck points and errors. Balance evidence without Weibao grinding. Results are proposals, not balance decisions | LATER after EL16, Opus to design, Sonnet to run |
+| EL41 | **Live authoring window.** A separate dev instance (own userData) reloads one world's content or ink when its files change, while his play instance stays frozen (EL18). Writing a world becomes edit-and-see | LATER after EL18 |
+| EL42 | **AI calls stay in the main process.** If NPC dialogue, narration or a GM helper ever calls a local model or the Claude API, keys and requests live in the main process, never the page. Sealed truths pass only through observer-safe projections (AR8). Cost and privacy are dials per world | LATER, design only |
+| EL43 | **Deep links and save files.** A `oops://` link or double-clicking a save file opens it in a sandbox window, not over his current life. Agents can hand him "open this state" links for bug repros or demos | LATER, small |
+| EL44 | **Who owns state with many windows.** Default: the game page stays the one authority; pop-out windows (EL3) and outside agents get projections and send commands through it. Moving state into the main process is the dial only if a profile asks for it (AR3 one authority) | ACCOUNT FOR NOW |
+| EL45 | **Show me what the agent saw.** Agents attach hidden-window screenshots or a short frame capture to reports, so he reviews visually without his screen being used | LATER with EL17 |
+| EL46 | **Hang and crash guard.** The main process sees a hung or crashed page (`unresponsive`, `render-process-gone`), keeps the last good save and offers reload. This protects long idle sessions | LATER, small, high value for idle play |
+| EL47 | **Build per life.** With frozen builds (EL18), an old life can keep the build it was made on, which fits the frozen-world idle decision. Old builds are only folders | LATER with EL18 |
+| EL48 | **Local play log for tuning.** An opt-in local log of his sessions (what he did, where he waited) lets agents tune pacing from real play. It stays on his Mac; agents read it only when he asks (saves stay private) | LATER, ask first |
+| EL49 | **OS polish for free.** Native menu shortcuts, system dark mode, OS text scaling and spell check in text fields come with the shell | LATER, small |
+| EL50 | **Controller and Steam Deck.** The Gamepad API works in Electron's Chromium; a controller layout is a UI project, not a host one | LATER, deferred like mobile |
+| EL51 | **Browser parity list.** Desktop-only features can quietly make the browser second-class. Keep a short list of what each host has; a feature that needs the host must have a browser fallback or say plainly that it is desktop-only | ACCOUNT FOR NOW |
+| EL52 | **One upgrade owner.** Electron, Chromium and Node versions move together. One person per upgrade reruns `desktop_smoke`, the hidden checks and a perf pass, then pins the new version | ACCOUNT FOR NOW |
+
+Ranked next steps (proposal): EL18 frozen build, EL46 hang guard, EL16 game MCP
+tools, EL1 file saves with EL39 history, EL40 bot playtests.
 
 ### Delivered: EL18 frozen build and EL46 hang and crash guard, 2026-10-20
 

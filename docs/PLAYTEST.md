@@ -1,3 +1,5 @@
+Checkout list of delivered work awaiting your play or answer, 2026-10-20: [CHECKOUT_CHECKLIST.md](CHECKOUT_CHECKLIST.md). It points here; this file stays the acceptance record.
+
 ## Feature-wave native delivery, 2026-10-05
 
 The interrupted selected wave is source/native/UI/save/build delivered, implemented-unverified. [Delivery](gm/feature-wave/features/DELIVERY.md), [coverage](gm/feature-wave/features/COVERAGE.json) and [build](gm/feature-wave/features/BUILD.json) own current bundle `48e8a7514ff2`/195local source matches,126registered wave commands,41Backlog controls and two finite mixed plans. Objects, mature methods/native team objectives, funded society, independent opt-in Tidemark, eight explicit Backlog families, legibility, actual pinned Ink and useful mechanisms from all30reviewed repository rows have actual consumers. Older held-scope statements below are historical for these selected families. Gameplay/save/failure/keyboard/regression/director checks remain deferred; prior checks do not prove changed code.

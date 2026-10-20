@@ -5381,3 +5381,41 @@ Idle RPG by Miktaew and Proto23 by 23html" under the subtitle, both linked
 (desktop 1920x1080 checked headless). Same message: agent work must stay in the
 background and never take over his screen.
 
+### Electron leeway recap and round 4, 2026-10-20
+
+Weibao, 2026-10-20: "What was the answers to my questions on what this opens up
+and more? more to consider?" Answered with a recap of EL1-EL38 and a new round
+EL39-EL52 (save history, bot playtests, live authoring, AI calls kept in the main
+process, deep links, state ownership, hang guard, builds per life, local play
+log, browser parity). Proposals only. Owner:
+[Electron host round 4](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#more-to-consider-round-4-el39-el52-2026-10-20).
+
+### Frozen build, AI playthroughs and the harness, 2026-10-20
+
+Weibao, 2026-10-20: "Send EL18 and next parts accordingly, how can each play
+through identify gaps and more? can we tune/have an local ai play through the
+game? Would we need a harness/ other stuff and more? anything better than
+electron?" Dispatched as two sessions: the desktop host lane (EL18 frozen player
+build, then EL46 hang guard) and an AI playthrough harness lane (design plus a
+first scripted-bot slice with gap detectors). Answer on hosts: keep Electron
+(AD39); bot playthroughs run headless in a hidden or headless page, so they
+need no better shell. Owners: the
+[engine stack doc](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md)
+and the harness lane's new doc.
+
+Follow-up, same day: "Can it consider taking UI and more? What harness should we
+use? Local AI versions? Missing stuff, other little details and more? Having a
+checklist of to dos?" Forwarded to the harness lane: UI checks in playthroughs,
+a default harness per layer, current local model options for his Mac, a more to
+consider list and one ordered to-do checklist in the harness doc.
+
+### World full implementation and subtle gaps per world, 2026-10-20
+
+Weibao, 2026-10-20: "Consider stuff like the world full implementation and more?
+more to consider? Subtle aspect missing in each world?" and "Subagents should use
+like sonnet level and more". Running as a per-world sweep on Sonnet subagents
+against the [completion standard](WORLD_COMPLETION_STANDARD.md) (S00-S14,
+C0-C5): each world's supported level, its signature and its most consequential
+subtle missing aspect, folded into one audit doc. Subagents default to Sonnet
+from here.
+
