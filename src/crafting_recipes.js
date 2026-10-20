@@ -1,4 +1,5 @@
 import {GRADED_IDS} from './harvest.js';
+import {quoteHeat} from './heat_grades.js';
 import {registerFortRecipes} from "./fork_fort_content.js";
 import {registerAccessoryRecipes, accessoryCraftChance} from './absorb_c1/accessories.js';
 import {BRACE_ID, deriveBraceStats} from "./alloy_equipment.js";
@@ -131,7 +132,7 @@ class ItemRecipe extends Recipe {
         let materials = [];
         for (let i = 0; i < this.materials.length; i++) {
             let material = find_recipe_material({material: this.materials[i], needed_count: this.materials[i].count});
-            amount = Math.floor(Math.min(material.count / this.materials[i].count, amount));
+            amount = Math.floor(Math.min(material.count / (material.need ?? this.materials[i].count), amount));
             materials.push(material);
 
             if (amount == 0) {
@@ -319,6 +320,13 @@ function find_recipe_material({material, ignore_stop, needed_count}) {
     let items = [];
     let materials;
 
+    if (material.heat) {
+        // Fuel slot: any held fuel row; the heat quote picks the item and says why none runs.
+        const held = Object.values(character.getItems()).filter(entry => entry.count > 0);
+        const quote = quoteHeat(material.heat, held.map(entry => ({id: entry.item.id, count: entry.count})));
+        const fuel = quote.ok ? held.filter(entry => entry.item.id === quote.fuelId) : [];
+        return {count: quote.ok ? quote.have : 0, items: fuel, need: quote.unitsPerCraft, heat: quote};
+    }
     if (material.material_id) {
         const key = item_templates[material.material_id].getInventoryKey();
         //material without quality exists, no need to search further
@@ -1195,7 +1203,8 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
     smelting_recipes.items["Iron ingot"] = new ItemRecipe({
         name: "Iron ingot",
         recipe_type: "material",
-        materials: [{material_id: "Iron ore", count: 5}, {material_type: "coal", count: 1}], 
+        // Heat gate (L3): any fuel of forge grade or better; Charcoal and Coal run, a log fails by name.
+        materials: [{material_id: "Iron ore", count: 5}, {material_type: "fuel", heat: {minGrade: 2, load: 4}, count: 1}], 
         result: {result_id: "Iron ingot", count: 1},
         success_chance: [0.4,1],
         recipe_level: [5,15],

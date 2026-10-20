@@ -5456,7 +5456,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 const harvestQuality = category==='butchering' && GRADED_IDS.includes(result_id) ? consumedHarvestQuality(materials,selected_recipe.materials,attempted_crafting_ammount) : null;
                 //remove used materials
                 for (let i = 0; i < selected_recipe.materials.length; i++) {
-                    let to_remove = selected_recipe.materials[i].count * attempted_crafting_ammount;
+                    let to_remove = (materials[i].need ?? selected_recipe.materials[i].count) * attempted_crafting_ammount;
 
                     for (let j = 0; j < materials[i].items.length && to_remove > 0; j++) {
                         const removed = Math.min(materials[i].items[j].count, to_remove);
@@ -5529,7 +5529,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                     //reload all recipe tooltips of matching category, except it's kinda pointless if reload happens anyway?
                 }
             } else {
-                console.warn(`Tried to use a recipe without having enough materials!`);
+                nativeCraftMessage(selected_recipe.get_availability().materials.find(m=>m.heat&&!m.heat.ok)?.heat.reason||"Not enough materials.","notification");
             }
             
         } else if(subcategory === "components" || selected_recipe.recipe_type === "component" || selected_recipe.recipe_type === "componentless" ) {
