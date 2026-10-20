@@ -8,6 +8,7 @@
 // truths stay out of the files) and REPORT.md. --shots adds a 1920x1080 PNG per
 // played op; screenshots can show sealed text, so they stay in the out dir.
 // Exit 0 = every detector passed.
+import {execFileSync} from 'node:child_process';
 import {mkdir, writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
@@ -50,6 +51,13 @@ async function uiPass(s, op, findings, notes, seen, run) {
         fresh.forEach(x => seen.add(kind + x));
         if(fresh.length) notes.push({run, detector:'ui', kind, op, detail:fresh.slice(0, 8).join(', ') + (fresh.length > 8 ? ` (+${fresh.length - 8})` : '')});
     }
+}
+
+/** Build stamp for traces (PT85): commit plus whether game sources differ from it. */
+function buildStamp() {
+    const git = (...a) => {try {return execFileSync('git', a, {cwd:new URL('../..', import.meta.url).pathname, encoding:'utf8'}).trim();} catch {return null;}};
+    const dirty = git('status', '--porcelain', '--', 'src', 'index.html', 'styles');
+    return {commit:git('rev-parse', '--short', 'HEAD'), sourcesDirty:dirty === null ? null : dirty.length > 0};
 }
 
 /** Policy: the scripted route. A later policy returns the next op from an observation. */
@@ -153,7 +161,14 @@ export async function playtest({seed = SEED, runs = 2, inject = null, out, url, 
             findings.push({run:r, detector:'determinism', kind:'runs diverged', op:name, detail:diffSaves(save, other, 5).map(d => d.path).join(', ')});
     }
     const verdict = Object.fromEntries(DETECTORS.map(d => [d, runs < 2 && d === 'determinism' ? 'skipped' : findings.some(f => f.detector === d) ? 'FAIL' : 'pass']));
-    const report = {seed, runs, inject, ms:Math.round(performance.now() - t0), verdict, findings, notes,
+    // Speed KPIs (PT85): game minutes played and per wall second, per run.
+    const speed = results.map(r => {
+        const mins = r.ops.map(o => o.obs?.minute).filter(Number.isFinite), wall = r.ops.reduce((a, o) => a + o.ms, 0);
+        const played = mins.length ? mins.at(-1) - mins[0] : 0;
+        return {run:r.runIndex, gameMinutes:played, routeWallS:+(wall / 1000).toFixed(1), gameMinPerWallS:wall ? +(played / wall * 1000).toFixed(1) : 0};
+    });
+    const report = {seed, runs, inject, tier:'chrome dev-stepped', viewport:'1920x1080', build:buildStamp(), speed,
+        ms:Math.round(performance.now() - t0), verdict, findings, notes,
         runs_detail:results.map(({raw, notes, ...r}) => r)};
     if(out) {
         await mkdir(out, {recursive:true});
@@ -164,7 +179,8 @@ export async function playtest({seed = SEED, runs = 2, inject = null, out, url, 
 }
 
 function markdown(r) {
-    const lines = [`# Playtest report`, '', `Route: scripts/headless/village_route.mjs, ${ROUTE.length} ops. Seed ${r.seed}, ${r.runs} run(s), fault: ${r.inject ?? 'none'}, ${(r.ms / 1000).toFixed(1)} s wall.`, '',
+    const lines = [`# Playtest report`, '', `Route: scripts/headless/village_route.mjs, ${ROUTE.length} ops. Seed ${r.seed}, ${r.runs} run(s), fault: ${r.inject ?? 'none'}, ${(r.ms / 1000).toFixed(1)} s wall.`,
+        `Tier: ${r.tier} at ${r.viewport}. Build: ${r.build.commit ?? 'unknown'}${r.build.sourcesDirty ? ' plus uncommitted game-source edits' : ''}. Speed: ${r.speed.map(x => `run ${x.run} ${x.gameMinutes} game min in ${x.routeWallS} s`).join('; ')}.`, '',
         '| Detector | Verdict | Findings |', '| --- | --- | --- |',
         ...DETECTORS.map(d => `| ${d} | ${r.verdict[d]} | ${r.findings.filter(f => f.detector === d).length} |`), ''];
     if(r.findings.length) lines.push('## Findings', '', ...r.findings.slice(0, 40).map(f => `- run ${f.run}, op ${f.op}, ${f.detector} (${f.kind}): ${String(f.detail).replace(/\s+/g, ' ').slice(0, 240)}`), '');

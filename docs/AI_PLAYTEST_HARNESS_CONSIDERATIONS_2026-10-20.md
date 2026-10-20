@@ -1,7 +1,8 @@
 # AI playtest harness considerations (2026-10-20)
 
 Palette, not spec. Every row is a proposal unless it says DONE; nothing here is
-an accepted decision (AD32). Codes PT1 onward are stable; later rounds append.
+an accepted decision (AD32). Codes PT1 onward are stable; later rounds append. Round 2 (speed dial and
+parallel playthroughs) starts at [PT83](#round-2-speed-dial-and-parallel-playthroughs-2026-10-20).
 
 Authority: Weibao's questions on 2026-10-20: "how can each play through identify
 gaps and more? can we tune/have a local ai play through the game? Would we need
@@ -44,7 +45,7 @@ Weibao's no-visible-windows rule.
 | Code | Layer | Default | Dial | Reason |
 |---|---|---|---|---|
 | PT1 | **One loop, swappable parts.** observe, choose, act, record, detect, repeat; report at the end | DONE in the slice as a generator policy plus a detector pass | A policy is any function from observation to the next op | Scripted, random and LLM policies then share every detector and trace format |
-| PT2 | **Runner.** Where the game runs | Headless Chrome on a private localhost port with `?test_hooks=1` (`simulationTestHooks` pause, resume, snapshot, project, tickrate, saveStatus; `advanceTicks`). DONE | Node full-game runner (`scripts/headless/runner.mjs`, 3-10x faster, no layout); hidden Electron host (`YAIRPG_HIDDEN=1`, own temp userData) for host-specific behavior; Node `advanceSimulation` for expansion systems only (simfuzz, perf gate) | Chrome is the real target and catches layout and CSS-visibility bugs; Node is for volume; Electron only when the host itself is under test |
+| PT2 | **Runner.** Where the game runs | Headless Chrome on a private localhost port with `?test_hooks=1` (`simulationTestHooks` pause, resume, snapshot, project, tickrate, saveStatus; `advanceTicks`). DONE | Node full-game runner (`scripts/headless/runner.mjs`, no layout; about the same game minutes per second as Chrome stepping, but cheap to run many at once, see PT84); hidden Electron host (`YAIRPG_HIDDEN=1`, own temp userData) for host-specific behavior; Node `advanceSimulation` for expansion systems only (simfuzz, perf gate) | Chrome is the real target and catches layout and CSS-visibility bugs; Node is for volume; Electron only when the host itself is under test |
 | PT3 | **Fresh origin per run.** Every run gets its own browser context and seeded storage, never Weibao's profile or saves | DONE (new context per open, temp bundle dir, private port) | Fixture saves from `tests/fixtures/perf/` for mid-game starts | AGENTS safety: user saves stay private and untouched |
 | PT4 | **Recorder.** A JSON trace of op, target, wall ms, game minute, location and observation hashes | DONE (`trace.json`) | Add projection excerpts per op once PT6 exists; keep full saves only in the temp out dir | Raw snapshots hold sealed truth; hashes prove sameness without revealing contents |
 | PT5 | **Observation, two tiers.** Detectors may read truth (snapshots, saves) because they never show it; policies read only observer-safe projections (AR8) and visible UI | DONE for detectors; policy tier waits on PT36 | A debug-truth tier for scripted bots only, behind an explicit flag | An LLM that reads a snapshot can repeat a sealed secret in its notes. A detector that compares hashes cannot |
@@ -209,6 +210,52 @@ append.
 | PT81 | **Bots and the frozen clock.** Wall-clock features (export rewards) do not move under a frozen `Date` | Routes that test them advance the wall clock explicitly |
 | PT82 | **Concurrent runs on a shared machine.** Several sessions share this Mac | One playtest batch at a time, at most two parallel browsers; local model runs off while a perf gate measures |
 
+## Round 2: speed dial and parallel playthroughs (2026-10-20)
+
+Weibao, 2026-10-20, in the desktop-host session (relayed verbatim): "consider
+speed dial to run the game at a high speed that only ais and process or run
+multiple playthoughs at the same time? more to consider?" Angles first raised by
+the desktop-host session (EL18/EL46) and checked here against the code and
+measurements. Proposals unless marked done.
+
+Measured on 2026-10-20 (this Mac, 18 cores): Chrome dev stepping runs about 85
+game minutes per wall second (60 minutes in about 0.7 s); the Node full-game
+runner runs about 75 (`bench.mjs --minutes 600 fresh`). The 33-op scripted
+route plays 105 game minutes in about 17 s, and most of that is the fixed
+300 ms settle after each op, not game time. Local models take about 6 s per
+decision (PT64).
+
+### ACT NOW (done)
+
+| Code | Idea | Evidence |
+|---|---|---|
+| PT83 | **Correction to PT2.** The Node runner is not faster per game minute than Chrome stepping (75 versus about 85 game minutes per wall second). Its advantage is that many processes are cheap to run at once, with no browser | Measured above; PT2 reworded |
+| PT84 | **Where the time goes.** For scripted bots the wall-time cost is fixed settles and page work per op; for model bots it is model latency. The game clock is already fast in both | Route trace: 3 steps of 105 minutes take about 2.4 s of 17 s |
+| PT85 | **Every trace states its tier, build and speed.** `trace.json` and `REPORT.md` now record tier (`chrome dev-stepped`), viewport, build commit with a flag for uncommitted game-source edits, and per run the game minutes played and game minutes per wall second | `scripts/playtest/run.mjs` (`buildStamp`, `speed`); clean run passes with the stamp |
+
+### ACCOUNT FOR NOW
+
+| Code | Idea | Default | Dial | Reason |
+|---|---|---|---|---|
+| PT86 | **One speed dial with named tiers.** 1x player; tickrate dial; sliced `fastForward` (main.js:9199, 30 ms slices, autosaves coalesced); synchronous `advanceTicks` (the playtest default); Node runner with no DOM | A run declares its tier (PT85) | Tier per run | Findings from different tiers are not comparable without the tier on them |
+| PT87 | **Decision skipping for model bots.** Step ticks until something a player would choose changes (new action available, event, combat end, work finished or idle), then ask the model once | Default for every model policy | What counts as a decision point; a cap on minutes per skip | At 6 s per decision a faster clock barely helps; asking less often is the real multiplier |
+| PT88 | **The speed dial stays a test hook.** Only on localhost with `test_hooks=1` or in a hidden test host; never shown to the player | Standing | | Player speed and offline catch-up are still an open design decision (main.js:9305: no player offline policy exists yet) |
+| PT89 | **Parallel isolation.** Each run gets its own origin storage: the game holds a Web Locks save lock (`yairpg-save:...`, main.js:1224) and `ownsSave`, so two pages on one origin fight over the save. Separate Playwright contexts (already the case), or a separate `YAIRPG_USER_DATA` per hidden Electron run. Each run has a distinct seed. Bot saves are never imported into a player profile | Standing | | A shared origin would turn a parallel run into a save-ownership bug that is not real |
+| PT90 | **Hang guard in hidden Electron.** The host stops a page that misses heartbeats for `YAIRPG_HANG_MS` (default 30 s). Sliced `fastForward` yields and is safe; a large synchronous `advanceTicks` would be killed | Bot runs in hidden Electron use `fastForward` or raise `YAIRPG_HANG_MS`; headless Chrome has no such guard | Hang timeout per run | Otherwise a long stepped batch looks like a crash |
+| PT91 | **Machine budget for parallel runs.** Node runner pool of about cores minus 2 (16 here); at most two browsers (PT82); at most one 27B to 31B model loaded beside browsers on 64 GB; model fleets paused during perf gates | Standing | Pool size | Several sessions share the Mac, and two big models plus browsers would swap |
+| PT92 | **Run KPIs.** Decisions per hour and game days per hour per tier, from the PT85 stamp | Reported per run | | Shows which tier a question should use |
+
+### LATER / DELEGATE
+
+| Code | Idea | Level, effort | Done check |
+|---|---|---|---|
+| PT93 | **Differential speed test.** The same seeded route at a slow tier and a fast tier must end in the same canonical save. A difference is wall-clock leakage (timers, animations, real-time throttles) or tick-order dependence | Sonnet, S | Chrome 1x tickrate versus dev stepping on a 30-minute route gives identical saves, or the first differing path is reported; an injected `Date.now` read is caught |
+| PT94 | **Shorter settles.** Replace the fixed 300 ms settle with "until the page is idle" (no pending panel render, no running animation frame work) | Sonnet, S | The route runs in under half its current wall time with the same saves and no new flakes across 5 reruns |
+| PT95 | **Fork from checkpoints.** Snapshot a mid-game save once, then branch N seeded runs from it instead of replaying the start | Sonnet, S | 16 forks of one fixture run in the Node pool and report coverage per fork |
+| PT96 | **Node runner pool.** A small process pool (seed list in, one JSONL row out per seed, resumable) like simfuzz's | Sonnet, M | 16 parallel seeds of the village route finish with per-seed verdicts and CPU seconds |
+| PT97 | **Parallel model calls.** One Ollama model with `OLLAMA_NUM_PARALLEL` 2 to 4 serves several bots over the same weights: total throughput rises, each answer gets slower, each slot costs memory for its context | Sonnet, S | Measured decisions per hour at 1, 2 and 4 slots with one model loaded |
+| PT98 | **A sparse model for action picking.** Mixture-of-experts models with about 3B active parameters (35B-A3B class, per community guides; unverified here) should answer several times faster than a dense 27B | Sonnet, S | Same PT64 prompt measured; choose only if its notes stay as useful |
+
 ## Harness checklist
 
 The single to-do list for the harness. Level is the suggested model; effort is
@@ -225,3 +272,8 @@ a rough size; the done check is what must pass.
 - [ ] **Visual diff against base** (PT50). Sonnet, M. Done check: an injected CSS change shows on the right op with clock and weather masked.
 - [ ] **Persona comparison and parameter sweeps** (PT32, PT33). Opus to design, Sonnet to run, M. Done check: one report comparing four personas' time to the first three unlocks, labeled as proposals.
 - [ ] **Offline catch-up route** (PT68). Sonnet, S. Done check: stepped and offline paths agree, or the difference is reported.
+- [x] **Round 2 ACT NOW: tier, build and speed stamp on every trace** (PT83-PT85). Sonnet, S. Done check: `REPORT.md` shows tier, build and game minutes per wall second. DONE 2026-10-20.
+- [ ] **Differential speed test** (PT93). Sonnet, S. Done check as in PT93.
+- [ ] **Idle-based settles** (PT94). Sonnet, S. Done check as in PT94.
+- [ ] **Node runner pool with checkpoint forks** (PT95, PT96). Sonnet, M. Done check as in PT96.
+- [ ] **Parallel and sparse local models** (PT97, PT98). Sonnet, S. Done check as in PT97.

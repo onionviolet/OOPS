@@ -3,7 +3,7 @@
 Plays a real route in headless Chrome at 1920x1080 and asks every run the same
 questions: did anything throw, did a control do nothing, does a save survive a
 reload, does the same seed give the same game, does the page overflow. Design and later layers:
-[AI playtest harness considerations](../../docs/AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md) (PT1-PT82, with the harness checklist).
+[AI playtest harness considerations](../../docs/AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md) (PT1-PT98, with the harness checklist).
 
 ```bash
 node scripts/playtest/run.mjs                      # two seeded runs, all detectors, exit 0 = pass
