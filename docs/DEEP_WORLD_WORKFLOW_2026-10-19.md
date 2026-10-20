@@ -134,3 +134,213 @@ the same files (AR15).
 | DWF38 | LOTM census as catalog records (DWF3) from the reviewed span | Sonnet medium, four bounded readers | Coverage printout per kit part; every record cites a fact ID |
 | DWF39 | LOTM grammar pass: Sequence names, pathway structure, potion formula shape (DWF4, DG-C) | Opus design, one session | Grammar rows derive tags for every Seer-pathway item already in the slice, inference labelled |
 | DWF40 | Seer slice to pack conversion (DWF34) after the second-world proof; extends scale plan LC12 (pack draft), which stays the owner of the draft | Strong coder, one structural session | Same rebuilt journey before and after; `check:arch` shows fewer world files |
+
+## Round 2: LOTM and Harry Potter, data first (2026-10-19)
+
+Weibao: "Deep world implementation for lotm and HP, referring to source text
+accordingly, and relevant datastuff and other stuff, spell books and more? more to
+consider?" **Status: proposal.** Codes continue from DWF41. This round ran DWF3
+(census) for both worlds as private catalog data and changed no runtime code. The
+LOTM Seer slice files belong to another session and are untouched (AR15). HP gets no
+runtime ring until the Seer slice has its DWF6 browser checkpoint, since AGENTS says
+finish one playable slice before starting the next.
+
+### What ran (AU ledger)
+
+| Item | Detail |
+| --- | --- |
+| Mode | Reuse and targeted check, not a full read ([playbook modes](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#saved-sources-first)) |
+| Budget | AU1 to AU15: two Sonnet readers, one per world, one at a time slot each, own output files, no sub-agents. HP reader printed about 5,900 source words (cap 12,000); it used one response more than the six allowed. LOTM reader reused about 200 KB of existing notes plus five EPUB spot-checks. |
+| HP source | Seven novels, prepared text and FTS index in the private [source preparation](research/novels/harry-potter/source-preparation-2026-10-11/README.md). Extraction is reproducibility, not reading. |
+| LOTM source | Reader notes with inherited locators; Book 1 stays 1,402 read and 363 reviewed (LC1, LC3). |
+| Outputs (private, gitignored) | `research/novels/harry-potter/census-2026-10-19/` and `research/novels/lord-of-mysteries/census-2026-10-19/`: a JSONL census and a report each |
+
+| World | Records | Evidence state |
+| --- | --- | --- |
+| HP | 256: 100 spells, 32 textbooks, 18 plants, 18 creatures, 14 potions, 14 subjects, 15 offices, 29 objects and artifacts, 12 wand woods and cores, 4 ingredients | 33 read in full passages, 223 located by search only (name seen at a locator, nothing more). No wiki or memory rows. |
+| LOTM | 466: 22 pathways, 220 sequences, 63 potion formula rows, 27 rituals, 45 rules, 33 organizations, 11 sealed artifacts, 26 persons, 19 locations | 462 from notes, 4 checked in the EPUB; one more check was inconclusive. 14 of 22 pathways have all ten Sequence names. 12 note conflicts are listed, not resolved. |
+
+### ACT NOW (done)
+
+- **DWF41 Census shape settled (answers DWF34a for catalog rows).** Census rows use the
+  pack manifest's `catalog` record fields (`id, label, kind, locator, era, canonWeight,
+  containedIn, licence, counterpartOf`, in `src/world_pack_manifest.js`) plus four
+  sidecar fields: `kit` (kit part), `evidence`, `confidence`, `note`. One row then serves
+  the manifest family and kit-part coverage. Proposal; whether the lint accepts the
+  sidecar fields is unverified, and nothing was loaded. Rows carry licence
+  `private-research`, which the loader refuses by design (`REFUSED_LICENCES`), so the
+  private census can never ship by accident; a shippable catalog is a later filtered copy.
+- **DWF42 HP ledger correction.** The 2026-10-03 [HP source ledger](worlds/harry-potter/SOURCE_LEDGER.md)
+  says no book text was acquired. That is superseded by the 2026-10-11 source
+  preparation (seven novels extracted, 4,441 searchable passages); only the 2026-10-15
+  pass added no novel reading. Read the ledger as dated history.
+- **DWF43 Coverage labels are per row.** `read`, `searched`, `notes`, `checked` are
+  different claims. Only 33 of 256 HP rows and 4 of 466 LOTM rows were checked against
+  text this run; do not report the census as source-verified.
+
+### ACCOUNT FOR NOW
+
+- **DWF44 Knowledge items versus powers.** Spell books, booklists, margin notes and
+  LOTM formula papers all hold a recipe or incantation that the owner may not be able to
+  use. Model them as one item family that confers a knowledge state only (AD6, SLR
+  rows): reading the Standard Book of Spells does not give a casting skill; a formula
+  sheet does not give a potion or a Sequence. HP's wand-mediated method and LOTM's
+  potion plus acting are the consumers.
+- **DWF45 Grammar rows to derive, not author.** The most valuable next pass is the
+  grammar (DWF4): LOTM formula shape (main and supplementary ingredient classes from
+  neighbouring Sequences, as the notes state it), the honorific-name rite, and HP's
+  incantation, wand-affinity and class-taught layers. Derive only where the text states
+  the rule; label the rest inferred.
+- **DWF46 Name layers.** LOTM canon names exist in Chinese and in translation (WAC30).
+  Census labels hold the working English name; add the native-script name when the
+  pack is built. HP has US and UK titles (`Sorcerer's` versus `Philosopher's` Stone):
+  keep both as aliases of one record.
+- **DWF47 Spoilers stay in the private folder.** Tracked docs cite pathway, Sequence
+  and spell records by ID only; sealed in-game secrets stay out of the canon census
+  entirely (WA11).
+- **DWF48 Edition boundary.** HP rows are the seven novels. Cursed Child, films, games
+  and the companion writings are separate source sets (SM rows, WA3). LOTM rows are
+  Book 1 plus notes; COI is an era overlay (LC2), not merged.
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| DWF49 | Promote HP `searched` rows to `read`: one reader per two books, spells and textbooks first, taught-in scene and counter relations | Sonnet medium, bounded shards under AU13 | Coverage printout: share of rows `read`, counters filled where stated |
+| DWF50 | LOTM conflicts and gaps: resolve the 12 listed conflicts and 8 incomplete pathways by targeted EPUB checks | Sonnet medium, small | Conflict list closed or kept open with locators |
+| DWF51 | HP companion books as in-world spell books: Fantastic Beasts, Quidditch Through the Ages, Beedle the Bard are real published texts (SM7). Not held locally; buying needs Weibao's yes. | Acquisition by Weibao, then a reader | Receipt plus census rows tagged `supplement` |
+| DWF52 | Grammar pass for both worlds (DWF45), LOTM first since it is the active ring | Opus design, one session | Grammar rows derive tags for every Seer-slice item already in the code, inference labelled |
+| DWF53 | Hogwarts Legacy and similar games as SM5 number sources for spell and potion tables | Game-read, existing standing task | Rows tagged `game`, kept out of the novel baseline |
+| DWF54 | HP first ring proposal (after Seer DWF6): a beginner potion or charm lesson built on the [beginner potion proposal](research/novels/harry-potter/craft-integration-2026-10-12/BEGINNER_POTION_PROPOSAL.md), wand tool contract from the [HP and LOTM comparison](worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md) | Strong coder, one ring | Rebuilt 1366×768 journey with save, reload, Export, Import |
+| DWF55 | Combination report over both censuses once grammar rows exist (DWF28), e.g. where a formula sheet and a spell book route share a consumer | Script plus review | Report lists unplanned interactions without printing sealed truths |
+
+### DWF49 result: HP searched rows checked against text (2026-10-19)
+
+Ran the HP promotion from round 2. AU ledger: four Sonnet readers, one shard each, two at a
+time, each reading one preassembled file of about 8,200 to 9,700 source words (37,199 in all
+across 223 rows; the total is above the 12,000 cap only because it is split over four fresh
+readers, none above it). Each window is about 1,200 characters of text around the term on the
+row's page, built offline from the private source preparation. A shard reader read each
+window and judged the row. The first of the four wrote its rows but the harness would not let
+it write a report file, so counts come from the outputs.
+
+| Evidence state after merge | Rows |
+| --- | --- |
+| `read` (round 2 full passages) | 33 |
+| `read-window` (confirmed in a 1,200-character window) | 195 |
+| `searched` (partial, not in window) | 27 |
+| `rejected` (word found in another sense: Wolfsbane potion, only the plant shown) | 1 |
+
+- **Meaning of `read-window`.** The named thing appears in that window in the row's sense. It
+  is not a full-scene read and says nothing about who teaches it, counters or later changes.
+  Roughly 11 rows gained a stated relation; most spell types stay null because windows
+  rarely state them.
+- **Partial rows** (24) are mostly chapter or contents titles (Dementor, Boggart, Marauder's
+  Map, Sectumsempra, Felix Felicis and so on). Their sense needs a later in-text scene.
+- **Not in window** (3): Quidditch Through the Ages, Philosopher's Stone (first hit was the
+  opening page) and a Skeeter-book title. Keep them as `searched`.
+- **Label fixes recorded as aliases**: Cleansweep Seven, Full Body-Bind, Pixie, Pepperup
+  potion, Bat Bogey Hex, Muggle-Repelling Charm, Curse-breaker. One spell label
+  (`funnunculus`) probably carries an OCR slip for the nearby Furnunculus spelling;
+  unresolved.
+- **Unchanged limits.** Still no counters, wiki contradictions or taught-in scenes beyond the
+  windows. The pre-merge file is kept as `HP_CENSUS.pre-dwf49.jsonl`. DWF49's done check
+  ("share of rows read, counters filled where stated") is met for the share (228 of 256
+  text-checked), not for counters.
+
+### DWF50 and DWF52 results: LOTM conflicts and grammar (2026-10-19)
+
+Weibao asked for both next steps. AU ledger: two Sonnet readers, one each, no sub-agents, run
+together. Outputs are private (`research/novels/lord-of-mysteries/census-2026-10-19/dwf50/` and
+`.../grammar/`); this entry paraphrases. The reader notes were not written into tracked files.
+
+**DWF50, conflicts and gaps.** 14 EPUB member lookups, about 4,900 of 12,000 source characters.
+Of 20 items: 2 resolved, 5 narrowed, 2 open, 11 not attempted (the budget went to conflicts that
+change a Sequence name or rank).
+- Resolved: the Fool, Error and Door swap point is Sequence 3 as Azik states it; the Sequence 4
+  figure was Klein's own guess. Swaps begin at the step into Sequence 4.
+- Narrowed: Death's Spirit Guide at Sequence 5 versus 6 (kept 6); the Ferryman label; Paragon
+  Sequence 1; Error Sequences 2 and 1; the Reader/White Tower Sequence 8 name, which the in-world
+  book leaves blank.
+- Hermit Sequence 8 was not actually checked, and may be a pathway mismatch in the census.
+- Evidence state: `checked` lookups plus any items the reader labelled `memory`.
+
+**DWF52, grammar.** 27 rows (9 high, 14 medium, 4 low confidence); no new reading.
+- Derives well: the Sequence ladder and tiers, advancement and acquisition, sealed-artifact
+  grades, the prayer rite.
+- Does not derive: **the potion ingredient rule.** Main and supplementary ingredient classes are
+  only inferred and only the Seer line is complete; the census states no relation between
+  neighbouring Sequences. This is the key finding: a per-thing ingredient generator cannot be
+  grammar-driven yet, so Seer formulas stay authored rows.
+- Seer slice check: the prepared dose derives its tags (pathway, Sequence 9, tier, formula).
+  The comparator and two sample lots have no supporting grammar row. Nine gaps are listed in
+  the private file.
+
+**ACCOUNT FOR NOW (DWF56).** Treat the comparator and sample lots as authored original rows
+(the slice already labels them so), not canon-derived items. Do not build an ingredient
+generator for other pathways until a source pass states the rule; the old ACT NOW "derive tags
+for every Seer item" done check of DWF52 is only partly met.
+
+**LATER (DWF57).** Finish DWF50's 11 unattempted items; a focused source pass on potion formula
+ingredient patterns (needed before any non-Seer pathway ring). Sonnet medium, one bounded shard.
+Done check: ingredient relation stated or recorded as not stated, with locators.
+
+### DWF57 result: potion ingredient rule (2026-10-19)
+
+AU ledger: one Sonnet reader, 12 EPUB members, about 5,100 of 12,000 source characters, plus the
+census and reader notes. Private output in `research/novels/lord-of-mysteries/census-2026-10-19/dwf57/`.
+
+- **Verdict: the text states no rule relating formula ingredients across Sequences or pathways.**
+  "Not stated" means not found in the members searched and the reader notes, not a proof of
+  absence in all 1,402 entries.
+- **Stated, but not an ingredient rule:** Beyonder characteristics are conserved, and a dead
+  Beyonder's characteristic is "a potion without auxiliaries", so auxiliaries are still needed
+  and Sequences cannot be skipped.
+- **Shown:** a main ingredient can be replaced by a same-Sequence characteristic; some formulas
+  list alternate mains.
+- **Inferred only:** a few materials recur across pathways (for example one octopus blood in two
+  pathways) with no stated reason.
+- **Consequence (DWF58, ACCOUNT FOR NOW).** Ingredient lists stay authored per formula. A
+  generator may safely derive only the stated parts: characteristic conservation, the
+  auxiliaries requirement, no skipping, and same-Sequence main-ingredient substitution. Any
+  cross-pathway ingredient pattern is a labelled `inferred` tag, never a law. This closes DWF57's
+  done check and settles that the Seer formula stays an authored row.
+
+### DWF59 result: interchangeable materials in LOTM and HP (2026-10-19)
+
+Weibao: online lookup is allowed, and this ties into interchangeable materials with the same or
+similar qualities. Owners already exist: [CRAFTING_ENGINE](CRAFTING_ENGINE.md) WR3 (substitution
+policy: exact identity, functional profile or none), TQ7, UV8, MA5, IX22 and the E4B profile
+substitution notes. This pass supplies world evidence for WR3; it adds no new rule. AU ledger: two
+Sonnet readers, at most 12 fetches each, outputs private
+(`.../harry-potter/census-2026-10-19/dwf59/` and `.../lord-of-mysteries/census-2026-10-19/dwf59/`).
+Fetch limits: the Fandom wiki answered 402 on both worlds, so online evidence is search summaries and
+a few official pages, not full wiki pages; no revision ids were captured.
+
+| Material kind | HP evidence | LOTM evidence | Reading for WR3 |
+| --- | --- | --- | --- |
+| Potion main ingredient | Exact identity; no working swap shown | Exact identity per formula; two stated stand-ins: a listed alternate main (one formula), and a same-Sequence Beyonder characteristic | Default exact identity; stated alternates as authored rows |
+| Supplementary ingredient | Exact identity; names for one plant (monkshood, wolfsbane, aconite) are aliases | Exact identity; a low-confidence wiki line shows alternates with different amounts, so not 1:1 | Aliases are one record; alternates carry their own quantity |
+| Effect class | Bezoar protects against "most" poisons and stood in for an unfinished antidote (B6) | Not found | A bounded effect class can stand in, with a stated limit |
+| Tools | Borrowed or won wand works at reduced quality until allegiance changes (B7); no wood-core pairing table | Not applicable | Graded substitution is the only HP case, and it is quality, not yes/no |
+| Functional profile swaps | Not stated | Not stated; no pathway-affinity swap rule | Neither world states one |
+
+**Reading.** Both books default to exact identity and show substitution only where it is stated.
+Silence is not prohibition: AD38 (things work by how they work) and AD5 let a player-found
+substitute work when its mechanism reasonably does, at a cost. Canon therefore sets the default
+profile, and improvisation is a discovery route with risk, not a gap in canon.
+
+- **DWF60 (ACCOUNT FOR NOW).** Per world, set WR3 to `exact identity` with stated alternates as
+  authored rows; allow functional-profile improvisation as a learned, costed, partly failable
+  route (MA5, UV8 "only substitute what you understand"). HP wand quality is graded, never a
+  hard cannot-cast (matches the BF1 correction).
+- **DWF61 (ACCOUNT FOR NOW).** Substitution rows keep `relation` (`stands_in`, `equivalent_class`,
+  `complements`, `not_interchangeable`) and `basis` (stated, shown or inferred). Their `basis` is
+  `inferred` unless the text states it, so a generator never turns an inference into a law.
+- **DWF62 (LATER).** Improvised and bought substitutes in LOTM, and HP dragon and unicorn products,
+  have no evidence yet. Needs a novel pass or the wiki through the in-app browser (the scripted
+  route is blocked). Sonnet medium, one bounded shard each; done check: rows added or "not
+  stated" recorded with locators.
+- **DWF63 (LATER).** HP wand wood and core pairing came from search summaries only. Fetch the
+  official wand-wood and flexibility pages' pairing statements already linked in the HP ledger,
+  or the Wizarding World wand pages, before encoding any pairing.

@@ -46,6 +46,8 @@ Remaining gaps, in order:
 run order for deeply implementing one world: recover, read, census the whole canon as
 data, grammar and dials, pack, playable rings, routes past canon, prove (DWF1 to DWF8),
 with LOTM mapped by stage. It links the owners and restates none of them.
+Round 2 (2026-10-19) adds the LOTM and Harry Potter data census (spell books, potions,
+pathways, formulas), kept in private research folders, and codes DWF41 to DWF55.
 
 [Subtle rule gaps, round 4](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18)
 connects the latest domain audits: observer-safe idle stops, exact time settlement,

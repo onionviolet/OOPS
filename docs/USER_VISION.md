@@ -5327,3 +5327,12 @@ by one line with `ARCHITECTURE_BASELINE_RESET=1` and name the reason in its comm
 Joining several statements onto one line to dodge the count is not paying for it.
 Owners: [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) AR1,
 [audit DRC1](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md#drc1-proposal).
+
+### LOTM and HP deep implementation, data first, 2026-10-19
+
+Weibao, 2026-10-19: "Deep world implementation for lotm and HP, referring to source text accordingly, and
+relevant datastuff and other stuff, spell books and more? more to consider?" Delivered as round 2 of the
+deep world workflow: a private catalog census for both worlds (HP 256 rows, LOTM 466 rows, with per-row
+read versus searched evidence), the census record shape, and a codes list DWF41 to DWF55. No runtime code
+changed; the HP ring waits for the Seer slice's browser checkpoint. Owner:
+[deep world workflow, round 2](DEEP_WORLD_WORKFLOW_2026-10-19.md#round-2-lotm-and-harry-potter-data-first-2026-10-19).
