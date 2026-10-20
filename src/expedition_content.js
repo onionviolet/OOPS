@@ -6,6 +6,7 @@ import {proto23Worlds} from './proto23_world_content.js';
 import {worldCompletionSources} from './world_completion_content.js';
 import {paradiseWorlds} from './book_world_paradise_content.js';
 import {molWorlds} from './book_world_mol_content.js';
+import {lotmWorlds} from './book_world_lotm_content.js';
 import {nestedWorlds} from './feature_expansion_nested_content.js';
 import {backlogCapabilities} from './backlog_expansion_content.js';
 import {TIDEMARK_WORLD} from './feature_expansion_destination.js';
@@ -46,7 +47,7 @@ export const expeditionRegistry = createContentRegistry({
         controllers:[...simulationDefinitions.controllers,...systemsWorkshopDefinitions.controllers],
         commands:[...simulationDefinitions.commands,...systemsWorkshopDefinitions.commands,...trancheFourDefinitions.commands],
     },
-    worlds: [...proto23Worlds,...molWorlds,...paradiseWorlds,...nestedWorlds,TIDEMARK_WORLD,{id:"pocket.folded_glasshouse",label:"Folded Glasshouse",publicName:"Folded Glasshouse",continuityLabel:"Original contained workshop",provenance:"Original optional persistent pocket prototype; native isolation checks deferred."},{id: "base.frontier", label: "YAIRPG: Parallel Frontier", publicName: "Frontier", continuity: "branch", sourceWorld: "YAIRPG",
+    worlds: [...proto23Worlds,...molWorlds,...lotmWorlds,...paradiseWorlds,...nestedWorlds,TIDEMARK_WORLD,{id:"pocket.folded_glasshouse",label:"Folded Glasshouse",publicName:"Folded Glasshouse",continuityLabel:"Original contained workshop",provenance:"Original optional persistent pocket prototype; native isolation checks deferred."},{id: "base.frontier", label: "YAIRPG: Parallel Frontier", publicName: "Frontier", continuity: "branch", sourceWorld: "YAIRPG",
         continuityLabel: "YAIRPG · Branch dimension",
         provenance: "Alternate continuity derived from Miktaew's YAIRPG. Expanded fork content belongs to this dimension; the original continuity remains the reference."}],
     techniques: techniqueDefinitions,

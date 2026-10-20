@@ -167,6 +167,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'continuation': surface(UNSET),
         'equipment-comparison': surface(UNSET),
         'tools': surface(UNSET),
+        'lotm': surface('ST2', {home: 'Tingen supervised workroom'}),
         'customization': surface('ST7', {representations: routed}),
         'customization-effects': surface('ST7'),
         'customization-preview': surface(UNSET),

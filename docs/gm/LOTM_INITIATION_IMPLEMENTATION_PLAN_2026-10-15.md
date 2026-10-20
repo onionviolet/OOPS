@@ -610,3 +610,56 @@ Recover current schema admission and authority first.
 A frozen-world proposal does not supply a participating supervisor or free sleep
 recovery. Source-qualified hazard limits and the selected first slice stay intact;
 no new canon fact, live run or market feature is authorized here.
+
+## Runtime authorization and first engine slice, 2026-10-19
+
+Weibao chose the LOTM Seer slice as the next deep world implementation (answer to "What should this
+pass produce?", 2026-10-19; basis: [scale plan](../IDEABOARD_SCALE_PLAN_2026-10-19.md)). This supersedes the
+planning-only transfer above for the leaves named here; shared native, save and UI wiring still needs its
+own writer check. **Seam:** pure simulation content and facts (AR1 to AR16; LIP1 and LIP2 only). **Target
+viewport for the later UI step:** desktop 1920×1080 and 1366×768, mobile deferred. **Visible outcome of this
+slice:** none yet; it is engine-level and unreachable from the game. **Deferred:** native binding, entry
+start, root publication, save/reload/Import, native sleep join (D4), UI, browser proof, digestion, other pathways, full Tingen.
+
+| Item | State | Evidence |
+|---|---|---|
+| Ids, content, commands, source, power, energy policy, facts | Source edit, registered in the shared registry | [`book_world_lotm_*.js`](../../src/book_world_lotm_actions.js), `book_definitions.js` |
+| World-law rows | Proposal | [LTS1 to LTS10](../worlds/LOTM_SEER_SLICE_LAWS_2026-10-19.md) |
+| Optional `state.lotm` owner | Source edit; validated from `expansion_engine.js`; only `enrollLotmBranch` creates it | [`book_world_lotm_state.js`](../../src/book_world_lotm_state.js) |
+| Engine-level checks LP1 to LP4 | Test slice passes (8 tests); full `npm test` 2271 pass, `check:arch`, `check:rules` pass | `tests/lotm_seer_slice.test.js`; covers decline, allocation-not-grant, one ingestion, forfeit on cancel, two-sample reuse, a real empty-reserve refusal then completion-only sleep, and the owner's phases and tampering |
+| LP5 reload/import and UI, native sleep, activation | Not started | Implemented-unverified; stays on the acceptance backlog |
+
+**Engine findings that change the plan.** (1) Cancel semantics: `cancellation:'forfeit'` exists and is
+valid on commands, so D3's "no refund" needs no engine change; `completionRequires` cannot be combined
+with it outside `remainder_` groups, so a lesson that must re-check support at completion needs a decision.
+(2) Knowledge needs an opened situation: a first `report_in` command opens it. (3) Absent facts fail `not()`
+(LTS10). (4) Source kinds are fixed (`trait` used) and origins are unknown/inherited/trained/acquired.
+(5) The ratchet on world imports in `simulation_*` forced one aggregator, `book_definitions.js`.
+(6) Tuning change: spirituality capacity is **3** (not 6) so the lesson and the two lots use the pool up and
+sleep unlocks the comparator; otherwise the limit never binds. (7) Observations use `cancellation:'none'`:
+`refund` would also refund the unit, and a plain cancel would delete the reserved sample. (8) The aggregator is
+`book_world_definitions.js` so the world-import ratchet still sees it; the count fell from the 23 ceiling to 22, and a
+lower ceiling is a proposal for review, not an edit made here. (9) `world_calendar.js` has no Tingen profile, so a
+Tingen player gets no world calendar (null, not Paradise's); a calendar is part of the native step.
+
+**Next (not started): LIP3/LIP4 native join.** Reach the branch from a disposable prototype start, bind the supervisor,
+workroom, lodging, dose and sample stock to real native owners (model on `book_world_native_base.js`, via the domain
+registry and AR1 net-zero), join native sleep to `book.lotm.sleep` exactly once (D4), then `save_files` validation,
+Save/reload/Export/literal Import at the ingestion and held-lesson phases, a desktop UI home, and rebuilt-browser proof
+at 1920×1080 and 1366×768. Build to a scratch outfile, since the shared `dist/` is dirty from another session.
+
+## Native join, save and desktop UI, 2026-10-19 (LIP3/LIP4)
+
+**Seam:** runtime (AR1 to AR16, AR2 registry). **Target viewport:** desktop 1920×1080 and 1366×768; mobile deferred. **Visible outcome:** a local opt-in start (`?lotm_probe=1` on localhost, a disposable test save) opens the "Tingen workroom" panel (ST2 place service, home in `layout_spec.js`), where decline, ingest, lesson, observe, sleep and recovery play through the real native publisher.
+
+| Item | State | Evidence |
+|---|---|---|
+| Start | Source edit, observed | `book_world_lotm_host.js` `enroll`: Village to workroom, supervisor stock seeded once into the supervisor's native inventory (single stock owner, AR3). No Frontier visitor chart. |
+| Native binding | Source edit, observed | Locked supervisor NPC and two SafeLocations in `book_world_lotm_domain.js`; no `createBookWorldNative` (no footprints, shops or visits). Contexts reach job completion through `domainRegistry.project('lotm','contexts',…)` on the existing chain line. |
+| Sleep join (D4) | Observed | Sleep commits `book.lotm.sleep` then starts native sleep; native wake (Stop or `end_sleeping`) forfeits the job and restores nothing; completion ends native sleep. Reload mid-sleep keeps one job, no restore, native sleep not resumed; the job then completes on played time only. |
+| Save validation | Observed | `book_world_lotm_envelope.js` (registry `validate`, no `save_files` line): place agrees with branch, one holder per sample and dose, a sample reserved by an observation job counts as held. Tampered stock and wrong place were rejected by literal Import with "Current save kept". |
+| Reload/Import phases | Observed | Reload after lesson, mid-observe, mid-sleep; literal Import of ingestion, held-lesson and post-sleep saves. |
+| Export button | Implemented-unverified | The Export click downloads a file (needs approval); Import was fed the same `YAIR-UTF8-1:` text built from the save. |
+| 1920×1080 / 1366×768 | 1366×768 by DOM metrics only (no page scroll, every action button above y 560, one internal scroll); a real screenshot was taken at 1800×944 (screen-limited) | Weibao's visual acceptance still open (UR16). |
+| Known gaps | Open | Native Frontier travel guard for Tingen places (no walk-out guard added; only panel moves exist); `main.js` net -1 line (merged two duplicate imports). Proposed, not edited: a lower baseline. |
+Checks: `npm test` 2272 pass (new envelope test), `check:arch`, `check:rules` pass. Scratch build served from the session scratchpad, not `dist/`.

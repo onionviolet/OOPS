@@ -32,7 +32,7 @@ import {createTrancheFourPanel} from './absorb_p23/host_joins/tranche_four_ui.js
 import {stageTitleRecognition} from './absorb_p23/host_joins/long_life.js';
 import {installTrainingLink,trainingView} from './absorb_p23/long_life/training.js';
 import {validateWornTitle,selectWornTitle,wornTitleView,longLifeTitleBonuses} from './absorb_p23/long_life/worn.js';
-import {engineTimeout,engineInterval,clearEngineInterval,engineNow,stepping,testHooksEnabled,pauseEngine,resumeEngine,runEngineTicks} from './simulation_clock.js';
+import {engineTimeout,engineInterval,clearEngineInterval,engineNow,stepping,testHooksEnabled,pauseEngine,resumeEngine,runEngineTicks,suspendEngine} from './simulation_clock.js';
 import {createPlanningReadFrame} from './planning_read_frame.js';
 import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch,framedSimulationRead,withSimulationFrame,deferWhileHidden} from './simulation_render.js';
 import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
@@ -118,7 +118,7 @@ import {coolingRefinementContext,commitCoolingRefinementCommand} from './cooling
 import {commitAgreedDutyAction} from './agreed_duty_host.js';
 import {createKnownRoutesPanel} from './known_routes_ui.js';
 import {knownRoutesPresentation} from './known_routes_host.js';
-import {pocketRealmView,pocketRealmActions,previewPocketRealmAction} from './pocket_realm_host.js';
+import {pocketRealmView,pocketRealmActions,previewPocketRealmAction,commitPocketRealmAction,pocketContext} from './pocket_realm_host.js';
 import {proto23Presentation} from './proto23_world_host.js';
 import {gameAbsorptionAssayContext,commitGameAbsorptionAssayCommand,cancelGameAbsorptionAssayJob} from './game_absorption_assay_host.js';
 import {validateGameAbsorptionAssay} from './game_absorption_assay_facts.js';
@@ -153,6 +153,7 @@ import {nethackFieldcraftContext,commitNethackFieldcraftCommand} from './nethack
 import {auditedWorkshopContext,commitAuditedWorkshopCommand} from './audited_workshop_host.js';
 import {startAuditedKitReserve,controlAuditedKitReserve} from './audited_kit_reserve_host.js';
 import {createParadiseNativeBindings} from './book_world_paradise_native.js';
+import {configureLotm} from './book_world_lotm_domain.js';
 import {createMolNativeBindings} from './book_world_mol_native.js';
 import {MOL_LOCATIONS,MOL_FOOTPRINTS} from './book_world_mol_content.js';
 import {activeMolVisit,molContext,molSimulationContexts,commitMolCommand} from './book_world_mol_host.js';
@@ -209,7 +210,6 @@ import {featureWavePresentation} from './feature_expansion_wave_host.js';
 import NPC from './models/npc.js';
 import {SafeLocation, CombatZone} from './models/location.js';
 import {TraderComponent} from './components/trader_component.js';
-import {commitPocketRealmAction,pocketContext} from './pocket_realm_host.js';
 import {skillExpansionContext} from './skill_expansion_host.js';
 import {createSkillExpansionPanel} from './skill_expansion_ui.js';
 import {createOriginalFrontierPanel} from './original_frontier_campaign_ui.js';
@@ -490,7 +490,6 @@ import {prepareV06Save} from "./save_migration.js";
 import {beginContinuation, observeContinuation, continuationView} from './continuation_state.js';
 import {createContinuationHost} from './continuation_host.js';
 import {createContinuationUI} from './continuation_ui.js';
-import {suspendEngine} from './simulation_clock.js';
 let continuationState=null, continuationPanel=null, continuationArrivalRelease=null;
 
 const save_key = "save data";
@@ -1128,7 +1127,7 @@ const paradiseNative=createParadiseNativeBindings({NPC,NPCRegistry,SafeLocation,
 }});
 paradiseNative.register();
 const molNative=createMolNativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
-molNative.register();
+molNative.register();configureLotm({NPC,NPCRegistry,SafeLocation,locations,registry:expeditionRegistry,home:()=>document.getElementById('main_content'),state:()=>expansionState,context:()=>campaignContext(),persist:plan=>persistExpansion(plan),writable:()=>ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!restoringNativeSave&&!expansionError,restoring:()=>restoringNativeSave,location:()=>current_location?.id,busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),sleeping:()=>is_sleeping,beginSleep:()=>{interruptP23NativeWork();start_sleeping_display();is_sleeping=true;pursuitPanel?.render();},endSleep:()=>end_sleeping()});
 const proto23Native=createProto23NativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
 proto23Native.register();
 item_templates[PROFILE.tonicId] ||= new OtherItem({id:PROFILE.tonicId,name:PROFILE.tonicId,value:PROFILE.tonicPrice,saturates_market:false,description:'Optional learned visitor tonic: +2 raw max-health on the enrolled body, no healing.'});
@@ -1693,7 +1692,7 @@ function buildSimulationNativeContexts(readFrame) {
     contexts.player.generatedPeopleFrame={people:generatedPeopleSnapshot(calendarMinutes(current_game_time)),clock:expansionState.clock};
     const joined=nestedChainSimulationContexts(expansionState,nestedSimulationContexts(expansionState,contexts));
     for(const [id,c] of Object.entries(joined))joined[id]=nestedLifeContext(expansionState,c);
-    return proto23SimulationContexts(expansionState,worldCompletionSimulationContexts(expansionState,lorePracticeSimulationContexts(expansionState,causalStorySimulationContexts(expansionState,auditRemainderSimulationContexts(expansionState,molSimulationContexts(expansionState,paradiseSimulationContexts(expansionState,joined)))))));
+    return proto23SimulationContexts(expansionState,worldCompletionSimulationContexts(expansionState,lorePracticeSimulationContexts(expansionState,causalStorySimulationContexts(expansionState,auditRemainderSimulationContexts(expansionState,domainRegistry.project('lotm','contexts',expansionState,molSimulationContexts(expansionState,paradiseSimulationContexts(expansionState,joined))))))));
 }
 
 function frontierNativeEvidence(){
@@ -1770,7 +1769,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     // Played-time settlements may retain their original job sequence. Opted-in
     // characters give this committed boundary a fresh nonce before recognition.
     if(plan.state.referenceGameplay && expansionState.referenceGameplay && plan.state.sequence===expansionState.sequence && plan.state.clock>expansionState.clock)plan.state.sequence++;
-    if(plan.state.auditRemainder||plan.state.causalStories||plan.state.motherOfLearning||plan.state.proto23Village)plan.state.schema=11;
+    if(plan.state.auditRemainder||plan.state.causalStories||plan.state.motherOfLearning||plan.state.lotm||plan.state.proto23Village)plan.state.schema=11;
     else if(plan.state.bookWorldCampaign)plan.state.schema=10;
     else if(plan.state.referenceGameplay)plan.state.schema=9;
     if(plan.state.causalStories){const current=gameplaySnapshot();plan.gameplay={...current,...plan.gameplay};}
@@ -1799,7 +1798,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     retainParadiseCarrierReceipt(plan);
     assertBacklogPublication(expansionState,plan);
     assertQualifiedOfficePlan(expansionState,plan,{id:plan.backlogCommand},backlogContext(readFrame));
-    if(plan.state.auditRemainder||plan.state.causalStories||plan.state.motherOfLearning||plan.state.proto23Village)plan.state.schema=11;
+    if(plan.state.auditRemainder||plan.state.causalStories||plan.state.motherOfLearning||plan.state.lotm||plan.state.proto23Village)plan.state.schema=11;
     else if(plan.state.bookWorldCampaign)plan.state.schema=10;
     else if(plan.state.referenceGameplay)plan.state.schema=9;
     else if(plan.state.nestedCampaign)plan.state.schema=plan.state.actors.player.facts['nested.personal.version']===1||plan.state.actors.player.facts['nested.life.version']===1?8:7;
@@ -3952,7 +3951,7 @@ function start_sleeping() {
 
 function end_sleeping() {
     if(expansionState.p23Reading?.current?.kind==='rest'&&!restoringNativeSave)return actStudy('cancelRest');
-    is_sleeping = false;
+    is_sleeping = false;domainRegistry.command('lotm','wake')();
     pursuitPanel?.render();
     change_location({location_id: current_location.id, skip_travel_time: true});
     end_activity_animation();

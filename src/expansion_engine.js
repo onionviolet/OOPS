@@ -39,6 +39,8 @@ import {AUDIT_REMAINDER_ENGINE_SCHEMA,validateAuditRemainder} from './audit_rema
 import {BOOK_WORLD_ENGINE_SCHEMA,validateParadiseCampaignState,syncParadiseClock,nextParadiseBoundary} from './book_world_paradise_state.js';
 import {paradiseSimulationContexts} from './book_world_paradise_host.js';
 import {validateMolCampaignState,syncMolClock,nextMolBoundary} from './book_world_mol_state.js';
+import {validateLotmState} from './book_world_lotm_state.js';
+import './book_world_lotm_envelope.js';
 import {molSimulationContexts} from './book_world_mol_host.js';
 import {validateBacklogState} from './backlog_expansion_host.js';
 import {validateInkNarrative} from './ink_narrative.js';
@@ -177,7 +179,7 @@ function fullyValidateExpansionState(state, registry) {
     check(object(state) && [ENGINE_SCHEMA,FEATURE_ENGINE_SCHEMA,NESTED_ENGINE_SCHEMA,CONTINUED_LIFE_ENGINE_SCHEMA,REFERENCE_ENGINE_SCHEMA,BOOK_WORLD_ENGINE_SCHEMA,AUDIT_REMAINDER_ENGINE_SCHEMA].includes(state.schema), "This expansion save needs a compatible engine schema.");
     check(integer(state.sequence) && integer(state.clock) && integer(state.rng) && state.rng > 0 && state.rng <= 0xffffffff,
         "Invalid expansion clock or random state.");
-    check(state.schema !== AUDIT_REMAINDER_ENGINE_SCHEMA || state.auditRemainder != null || state.causalStories != null || state.motherOfLearning?.schema === 1 || state.proto23Village?.schema === 1,
+    check(state.schema !== AUDIT_REMAINDER_ENGINE_SCHEMA || state.auditRemainder != null || state.causalStories != null || state.motherOfLearning?.schema === 1 || state.lotm?.schema === 1 || state.proto23Village?.schema === 1,
         'Expansion11 requires its actual optional audit, causal, Cyoria or Proto23 owner.');
     check([state.realmPrototype,state.featureDestination,state.nestedCampaign,state.bookWorldCampaign,state.motherOfLearning,state.proto23Village,state.mistglassRealm]
         .filter(owner=>owner?.activeVisitId!=null).length<=1,'One controlled native body requires one active retained-world visit.');
@@ -213,6 +215,7 @@ function fullyValidateExpansionState(state, registry) {
     validateParadiseCampaignDepthState(state,registry);
     validateParadiseCampaignDepthControllers(state,registry);
     validateMolCampaignState(state);
+    validateLotmState(state);
     validateProto23State(state);
     validateNestedChains(state,registry);
     validateNestedLife(state,registry);

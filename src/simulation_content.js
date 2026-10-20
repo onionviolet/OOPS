@@ -17,8 +17,7 @@ import {lorePracticeDefinitions} from './lore_practice_content.js';
 import {bookCareDefinitions} from './book_care_content.js';
 import {fieldCareDefinitions} from './field_care_content.js';
 import {statusCareDefinitions} from './status_care_content.js';
-import {paradiseDefinitions,paradiseSources} from './book_world_paradise_content.js';
-import {molDefinitions,molSources} from './book_world_mol_content.js';
+import {paradiseDefinitions,paradiseSources,molDefinitions,molSources,lotmDefinitions,lotmSources} from './book_world_definitions.js';
 import {nestedLifeDefinitions} from './feature_expansion_nested_life.js';
 import {relayDefinitions} from './feature_expansion_subtlety_scene.js';
 import {referenceDeskDefinitions} from './feature_expansion_reference_desk.js';
@@ -54,17 +53,17 @@ const met = requires("village.craftsmanMet", true, "Help with the rats, then mee
 
 // Original, reversible proof content. These are ordinary Village services, not
 // an adopted cast, a book adaptation, a second world or an automatic prestige.
-export const simulationSources = [...paradiseCampaignSources,...molSources,...paradiseSources,...nestedSources,...nestedChainSources,...backlogSources,...repositoryAbsorptionSources,...featureExpansionSources,...originalFrontierSources,...skillSources,...pocketObservationSources,...observationSources,...partySources,...promiseSources,...campaignSources,...pursuitSources,...encounterSources,{id: "frontier.measured_work", revision: 1, label: "Measured work", kind: "knowledge",
+export const simulationSources = [...paradiseCampaignSources,...molSources,...lotmSources,...paradiseSources,...nestedSources,...nestedChainSources,...backlogSources,...repositoryAbsorptionSources,...featureExpansionSources,...originalFrontierSources,...skillSources,...pocketObservationSources,...observationSources,...partySources,...promiseSources,...campaignSources,...pursuitSources,...encounterSources,{id: "frontier.measured_work", revision: 1, label: "Measured work", kind: "knowledge",
     grants: [{capability: "frontier.preparation", amount: 1, when: requires("actor.sim.measured", true)}]}];
 export const simulationDefinitions = {
-    situations:[...fieldDefinitions.situations,...(paradiseCampaignDefinitions.situations||[]),...(molDefinitions.situations||[]),...(paradiseDefinitions.situations||[]),...originalFrontierDefinitions.situations,...pocketSimulationDefinitions.situations,...observationDefinitions.situations,...promiseDefinitions.situations,...exchangeDefinitions.situations],
+    situations:[...fieldDefinitions.situations,...lotmDefinitions.situations,...(paradiseCampaignDefinitions.situations||[]),...(molDefinitions.situations||[]),...(paradiseDefinitions.situations||[]),...originalFrontierDefinitions.situations,...pocketSimulationDefinitions.situations,...observationDefinitions.situations,...promiseDefinitions.situations,...exchangeDefinitions.situations],
     onEnroll: [{type: "world", worldId: "base.frontier", key: "workbench.wet", value: false}],
-    people: [...(molDefinitions.people||[]),...(paradiseDefinitions.people||[]),...originalFrontierDefinitions.people,...pocketSimulationDefinitions.people,...observationDefinitions.people,...exchangeDefinitions.people,...partyDefinitions.people,...promiseDefinitions.people,{id: "oldCraftsman", revision: 1, label: "Old craftsman", worldId: "base.frontier", location: "Village", inventory: "native", resources: {focus: 3}}, ...campaignDefinitions.people,...helperDefinitions.people,...fieldDefinitions.people,...pursuitDefinitions.people,...encounterDefinitions.people],
+    people: [...(molDefinitions.people||[]),...lotmDefinitions.people,...(paradiseDefinitions.people||[]),...originalFrontierDefinitions.people,...pocketSimulationDefinitions.people,...observationDefinitions.people,...exchangeDefinitions.people,...partyDefinitions.people,...promiseDefinitions.people,{id: "oldCraftsman", revision: 1, label: "Old craftsman", worldId: "base.frontier", location: "Village", inventory: "native", resources: {focus: 3}}, ...campaignDefinitions.people,...helperDefinitions.people,...fieldDefinitions.people,...pursuitDefinitions.people,...encounterDefinitions.people],
     pursuits:[...campaignDefinitions.pursuits,...pursuitDefinitions.pursuits,...encounterDefinitions.pursuits],
-    energies:[...(molDefinitions.energies||[]),...fieldDefinitions.energies],
-    sites: [...paradiseCampaignDefinitions.sites,...(molDefinitions.sites||[]),...(paradiseDefinitions.sites||[]),...originalFrontierDefinitions.sites,...pocketSimulationDefinitions.sites,{id: "village.workbench", revision: 1, label: "Craftsman's workbench", capacity: 1},...fieldDefinitions.sites],
+    energies:[...(molDefinitions.energies||[]),...lotmDefinitions.energies,...fieldDefinitions.energies],
+    sites: [...paradiseCampaignDefinitions.sites,...(molDefinitions.sites||[]),...lotmDefinitions.sites,...(paradiseDefinitions.sites||[]),...originalFrontierDefinitions.sites,...pocketSimulationDefinitions.sites,{id: "village.workbench", revision: 1, label: "Craftsman's workbench", capacity: 1},...fieldDefinitions.sites],
     conditions: [...paradiseCampaignDefinitions.conditions,...(molDefinitions.conditions||[]),...fieldCareDefinitions.conditions,...statusCareDefinitions.conditions, ...moodConditions, ...bodyConditions, {id: "soaked", revision: 1, label: "Soaked supplies", stacking: "max"}],
-    powers: [...paradiseCampaignDefinitions.powers,...(molDefinitions.powers||[]),...(paradiseDefinitions.powers||[]),...originalFrontierDefinitions.powers,...skillDefinitions.powers,...pocketSimulationDefinitions.powers,...observationDefinitions.powers,{id: "frontier.measured_pack", revision: 1, label: "Measured packing", model: "practice", capacity: 1, cooldown: 2,
+    powers: [...paradiseCampaignDefinitions.powers,...(molDefinitions.powers||[]),...lotmDefinitions.powers,...(paradiseDefinitions.powers||[]),...originalFrontierDefinitions.powers,...skillDefinitions.powers,...pocketSimulationDefinitions.powers,...observationDefinitions.powers,{id: "frontier.measured_pack", revision: 1, label: "Measured packing", model: "practice", capacity: 1, cooldown: 2,
         execution: requires("knowledge.workbench.understood", true, "Learn the craftsman's packing notes first.")},...fieldDefinitions.powers],
     advancements: [{id: "frontier.measurement", revision: 1, label: "Understand the workbench method", track: "craft", branch: "measurement",
         requires: requires("knowledge.workbench.seen", true), costs: [money(-1)],
@@ -72,7 +71,7 @@ export const simulationDefinitions = {
             {type: "power", powerId: "frontier.measured_pack", operation: "learn"},
             {type: "source", sourceId: "frontier.measured_work", operation: "grant", awakened: true, active: true}, fact("sim.measured", true)]}],
     encounters: [...paradiseCampaignDefinitions.encounters,...(molDefinitions.encounters||[]),...originalFrontierDefinitions.encounters,...skillDefinitions.encounters,...campaignDefinitions.encounters,...helperDefinitions.encounters,...fieldDefinitions.encounters,...pursuitDefinitions.encounters,...encounterDefinitions.encounters],
-    commands: [...paradiseCampaignDefinitions.commands,...(molDefinitions.commands||[]),...fieldCareDefinitions.commands,...statusCareDefinitions.commands,...(paradiseDefinitions.commands||[]),...originalFrontierDefinitions.commands,...skillDefinitions.commands,...pocketSimulationDefinitions.commands,...observationDefinitions.commands,...exchangeDefinitions.commands,...partyDefinitions.commands,...promiseDefinitions.commands,...campaignDefinitions.commands,
+    commands: [...paradiseCampaignDefinitions.commands,...(molDefinitions.commands||[]),...lotmDefinitions.commands,...fieldCareDefinitions.commands,...statusCareDefinitions.commands,...(paradiseDefinitions.commands||[]),...originalFrontierDefinitions.commands,...skillDefinitions.commands,...pocketSimulationDefinitions.commands,...observationDefinitions.commands,...exchangeDefinitions.commands,...partyDefinitions.commands,...promiseDefinitions.commands,...campaignDefinitions.commands,
         ...pursuitDefinitions.commands,
         ...encounterDefinitions.commands,
         ...fieldDefinitions.commands,
