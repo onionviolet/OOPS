@@ -3369,7 +3369,7 @@ function handle_item_recipe_key(event, recipe_div, selection) {
 }
 
 function material_type_known(material_type) {
-    return Object.values(item_templates).some(t => t.material_type === material_type && item_log.is_known(t.id));
+    return material_type === "fuel" || Object.values(item_templates).some(t => t.material_type === material_type && item_log.is_known(t.id));
 }
 
 function build_item_recipe_model(selection) {
@@ -3383,7 +3383,7 @@ function build_item_recipe_model(selection) {
         // Unknown ingredients stay unnamed: no item name and no material type (CP2).
         const unknown = m.material_type ? !material_type_known(m.material_type) : !req.known;
         const label = unknown ? UNKNOWN_MATERIAL_LABEL : m.material_type ? `Any ${m.material_type}` : item_templates[m.material_id].getName();
-        return {label, have: req.have, need: req.need, missing: req.missing, unknown, held_back: req.held_back};
+        return {label: req.heat ? `${label} (${req.heat.note})` : label, have: req.have, need: req.need, missing: req.missing, unknown, held_back: req.held_back, heat_reason: req.heat?.ok === false ? req.heat.reason : ""};
     });
     const station_name = document.querySelector(`.crafting_mainpage_button[data-crafting_category="${category}"]`)?.textContent.trim() || category;
     const chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier || 1), category, subcategory));
@@ -3397,6 +3397,7 @@ function build_item_recipe_model(selection) {
     if(!state.available) {
         const missing = requirements.filter(r => r.missing);
         if(!(station_tier > 0)) blocked_reason = `Can't craft here: no ${station_name.toLowerCase()} station.`;
+        else if(requirements.some(r => r.heat_reason)) blocked_reason = `Can't craft yet: ${requirements.find(r => r.heat_reason).heat_reason}`;
         else if(missing.length) blocked_reason = `Can't craft yet: missing ${missing.map(r => `${r.need - r.have} ${r.label}`).join(", ")}.`;
         else if(requirements.some(r => r.held_back)) blocked_reason = "Can't craft now: a material is reserved, or you are busy elsewhere.";
         else blocked_reason = "Can't craft this right now.";
@@ -3844,9 +3845,9 @@ function create_recipe_tooltip_content({category, subcategory, recipe_id, materi
 
             //base type
             let main_name = recipe.materials[i].material_type ? "Any " + recipe.materials[i].material_type + ":" : obscure_name_to_type(recipe.materials[i].material_id);
-            let any_available = recipe.materials[i].count <= material.count;
+            let any_available = (material.need ?? recipe.materials[i].count) <= material.count;
 
-            tooltip += `<span style="color:${any_available?"lime":"red"}"><b>${main_name} x${material.count}/${recipe.materials[i].count}</b></span><br>`;
+            tooltip += `<span style="color:${any_available?"lime":"red"}"><b>${main_name} x${material.count}/${material.need ?? recipe.materials[i].count}</b></span><br>${material.heat ? `<i>${material.heat.note}</i><br>` : ""}`;
 
             //specific items - either material type, or materials with quality
             if (recipe.materials[i].material_type || (material.items.length > 0 && material.items[0].quality)) {
