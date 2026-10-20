@@ -1031,3 +1031,44 @@ inventing a world law or silently discarding valid effects (AD22/AD36, G27/G29).
 Record today's source/content/fixture identity before reusing old performance or
 passing-test claims. [Current plan coverage](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md)
 separates section review from historical filename inventory.
+
+## Desktop shell round, 2026-10-20 (DS)
+
+Weibao asked whether the game needs a browser engine or shell, which is
+optimal, what else to consider and how other games do it. Proposals, not
+accepted decisions. Extends TS6, EG5 and
+[ER5 desktop shells](research/GAME_ENGINE_OPTIONS_2026-10-14.md#desktop-shells-and-a-godotwebview-hybrid).
+
+### How shipped web games do it (sourced 2026-10-20)
+
+| Game | Shell | Note |
+| --- | --- | --- |
+| Melvor Idle | NW.js on Steam | Developer reply, 2021 [Steam forum](https://steamcommunity.com/app/1267910/discussions/0/3114770279394818584); may have changed since |
+| Antimatter Dimensions | Web game since 2016, Steam build Dec 2022 with cloud save; the web version stays live | [Steam page](https://store.steampowered.com/app/1399720/Antimatter_Dimensions/), [player thread](https://steamcommunity.com/app/1399720/discussions/0/5562542086335544983). Third-party Nix packaging builds it as Electron ([commit](https://code.ornl.gov/mdf/nixpkgs/-/commit/f35da175e1acf205a506d26503c8182de294c5e5)); the official Steam stack is not confirmed |
+| CrossCode | NW.js around a modified impact.js | [Steam thread](https://steamcommunity.com/app/368340/discussions/0/1741106440027709150) |
+| Vampire Survivors | Phaser in Electron through 1.0, moved to Unity in 1.6 (Aug 2023) for performance and platforms; Steam Deck then ran far better | [GamingOnLinux](https://gamingonlinux.com/2023/07/vampire-survivors-switching-to-new-game-engine-on-august-17) |
+
+Pattern: one web codebase, the browser version stays, a Chromium-bundling
+shell (NW.js or Electron) carries the Steam build. The one well-known exit
+(Vampire Survivors) was a real-time game with hundreds of moving sprites, not
+a text and panel game.
+
+### Considerations
+
+| Code | Point | Disposition |
+| --- | --- | --- |
+| DS1 | **A shell is not needed yet.** Weibao is the only player and plays in Chrome. A shell fixes four things: save durability and size (localStorage, 4 MiB guard), background-tab throttling, a real save folder, and Steam. Default: no shell until one of those bites. Dial: the save nears the guard, or Weibao wants a Dock/Steam app | ACCOUNT FOR NOW |
+| DS2 | **Cheap middle step: installable PWA plus better storage.** A standalone window and Dock icon with no shell, IndexedDB or OPFS for saves (DA owner) and `navigator.storage.persist()` against eviction. Covers most of "feels like an app" for little work. It does not lift throttling or give Steam | LATER: small spike, Sonnet-level, done when the installed window plays, saves, reloads and imports |
+| DS3 | **Electron versus Tauri for this repo.** ER5 leaned Tauri for size. New angle: every test, perf gate and browser proof here runs on Chrome. Electron (or NW.js) ships that same Chromium, so existing evidence carries over. Tauri on macOS runs WebKit (Safari's engine), so CSS, fonts, perf budgets and input need requalifying, and on Linux and Steam Deck it runs WebKitGTK with known blank-window and slow-WebGL reports ([Tauri Linux graphics](https://v2.tauri.app/develop/debug/linux-graphics/)). The roughly 150 MB Electron size does not matter for one player. Revised default (proposal): Electron for a Steam or cross-OS build; Tauri for a small personal Mac app if requalifying is acceptable | ACCOUNT FOR NOW |
+| DS4 | **Steam is a native-module job.** [steamworks.js](https://www.npmjs.com/package/steamworks.js) is the usual Electron binding (achievements, cloud, workshop, overlay helper); it runs in the main process and its renderer setup weakens isolation. Overlay reliability in current Electron is reported as mixed, so test it. Tauri needs a Rust Steamworks binding (not verified here) | LATER |
+| DS5 | **Saves must be able to live as files.** A shell's app origin starts empty (ER5-O7), and Steam Cloud syncs files, not localStorage. Keep the save envelope byte-identical across hosts so Export/Import is the bridge and a file backend is a drop-in (AR6, DA owner) | ACCOUNT FOR NOW |
+| DS6 | **Idle time is a game rule, not a shell feature.** Turning off background throttling lets a minimized window keep ticking but costs battery. Closed-app progress is still computed on launch by the offline policy (ER4, AR3 one clock) | ACCOUNT FOR NOW |
+| DS7 | **One host adapter seam.** Storage, file pick/save, window and Steam calls go behind a small host interface with a browser implementation as the default and test target. Matches the 2026-10-11 "replaceable platform adapters" proposal. Add it the next time storage code is touched, not as its own refactor (AR4) | ACCOUNT FOR NOW |
+| DS8 | **Distribution chores.** macOS Gatekeeper warns on unsigned apps; public distribution needs signing and notarization (paid Apple developer account). Steam handles updates; outside Steam use the shell's updater. A personal build needs none of this | LATER |
+| DS9 | **Mods and saves are untrusted input in a shell.** With Node or native access, a malicious save or mod could reach the file system. Keep native calls in the main or preload process, keep context isolation on, never `eval` save text | ACCOUNT FOR NOW when a shell lands |
+| DS10 | **Mobile stays deferred** (UI priority). Capacitor or Tauri mobile later reuse the same web build and the DS7 seam | LATER |
+| DS11 | **The port trigger is a scene-heavy real-time world** (the Vampire Survivors case). First answer is PixiJS for that panel (EG1); a Godot or Unity port only if that still fails measured budgets | ACCOUNT FOR NOW |
+
+Suggested order (proposal): DS2 PWA plus storage spike when save size or
+eviction becomes real; DS7 seam alongside it; an Electron shell (DS3) when
+Weibao wants a Steam or Dock build; DS4 and DS8 only for public release.

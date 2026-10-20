@@ -5348,3 +5348,16 @@ as history. Direction now: many native stat dimensions on gear through one sourc
 modifier pipeline, with affixes and sockets as data. Build order, the first playable
 slice and any save decisions are still open. Owner:
 [equipment stat dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md).
+
+### Desktop shell, 2026-10-20
+
+Weibao, 2026-10-20, after the platform rescope answer (stay on the web stack,
+build the engine inside it): "would we need some sort of browser engine/shell?
+what is more optimal? more to consider? how does other games do it?" Recorded as
+a considerations round with sourced precedents (Melvor Idle and CrossCode on
+NW.js, Antimatter Dimensions web plus Steam, Vampire Survivors leaving Electron
+for Unity as a real-time sprite game). Proposals only: no shell needed yet, a
+PWA plus storage step first, Electron preferred over Tauri for a Steam build
+because the repo's tests and perf gate run on Chromium. No shell, install or
+runtime change selected. Owner:
+[desktop shell round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#desktop-shell-round-2026-10-20-ds).
