@@ -35,6 +35,8 @@ Run it on a quiet host; one gate at a time.
    On a mismatch both saves are dumped to the OS temp dir and listed.
 5. Prints a table against [budgets.json](budgets.json) and writes a JSON report.
 
+Set `YAIRPG_PERF_VIEWPORT=1920x1080` to change the browser viewport (default 1366x768).
+
 Playwright resolves from `YAIRPG_PLAYWRIGHT`, then `playwright`, then the Codex
 runtime copy; Chrome from `YAIRPG_CHROME`, then `/Applications/Google Chrome.app`,
 then Playwright's bundled Chromium.

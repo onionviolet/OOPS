@@ -101,7 +101,7 @@ export const readFixture = name => fs.readFileSync(path.join(FIXTURE_DIR, name +
 
 // Opens a fresh origin, seeds the fixture once (reloads keep the game's own save), clicks PLAY.
 export async function openGame(browser, url, fixtureText, {instrument = false} = {}) {
-  const context = await browser.newContext({viewport: {width: 1366, height: 768}});
+  const context = await browser.newContext({viewport: (([w, h]) => ({width: +w || 1366, height: +h || 768}))((process.env.YAIRPG_PERF_VIEWPORT || '').split('x'))});
   await context.addInitScript(([d, inst]) => {
     if (d && !sessionStorage.getItem('perf-seeded')) { localStorage.setItem('save data', d); sessionStorage.setItem('perf-seeded', '1'); }
     if (!inst) return;
