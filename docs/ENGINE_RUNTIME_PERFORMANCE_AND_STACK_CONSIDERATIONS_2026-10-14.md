@@ -1212,3 +1212,53 @@ agent checks never open visible windows (hidden Electron, headless browsers).
   hidden and was not retried on screen. Status for visible windows:
   implemented-unverified. Export before a Reset until he has seen it work.
 
+
+### Delivered: EL18 frozen build and EL46 hang and crash guard, 2026-10-20
+
+Commits `09fe5e36d` (EL18) and `0ea1758ee` (EL46) on `codex/gameplay-foundations`,
+not pushed. Every check below ran with `YAIRPG_HIDDEN=1` on a temp `YAIRPG_USER_DATA`.
+
+**EL18.** The player's window serves `userData/builds/<version>-<fingerprint>/`,
+copied by `desktop/snapshot.cjs`. `npm run desktop` now builds, snapshots and
+launches; `npm run desktop:snapshot` alone makes a snapshot. The snapshot holds
+the page files (index, bundle and map, styles, resources, assets, locales,
+stories, help, changelog, `src/game_version.js`) plus the listed
+`private_packs`. `latest.json` names the newest snapshot and `current.json` the
+adopted one; both are written by temp+rename, and pruning keeps three plus
+current. The origin stays `app://yairpg`, so saves are where they were. When a
+newer snapshot appears, a small bottom-left "New build ready: Save and reload /
+Later" notice shows. Its button calls the game's own `saveProgress`, and the
+host adopts only the id it announced. Nothing reloads unasked. Agent runs:
+`YAIRPG_ROOT` serves a folder live, hidden runs serve the working tree unless
+`YAIRPG_FROZEN=1`, and the snapshot script refuses a background run without
+`YAIRPG_USER_DATA`.
+
+- Evidence: `node scripts/desktop_frozen_build.cjs`, PASS twice. A rebuild of a
+  temp source copy during play leaves the open game and a plain reload on the
+  old bundle (no-store fetch plus the host's serve log). Save and reload then
+  serves the new one with the same hero and no page errors. Every same-origin
+  reference in the HTML and CSS (31) resolves, with no 404s while playing. The
+  sweep found two files a naive copy would miss: `src/game_version.js` (changelog)
+  and `private_packs/` (his optional content packs).
+- `tests/desktop_snapshot.test.js` covers ids, packs, pruning and pointer escapes.
+
+**EL46.** If the renderer crashes, or misses heartbeats for `YAIRPG_HANG_MS`
+(default 30 s; paused during `window.prompt` and with DevTools open), the host
+stops it and loads `app://yairpg/__host/recover.html`. That page reads the last
+save (never writes it, AR3), shows its time and offers "Reload the game". The
+host never shows or focuses a window (EL32). Chromium's own `unresponsive`
+only fires on unanswered input, so the heartbeat is the real detector.
+
+- Evidence: `node scripts/desktop_crash_guard.cjs`, PASS. With a 4 s limit, play
+  ran past it with no false hang. A forced crash recovered in about 0.2 s and a
+  busy-loop hang in about 5 s. Both kept the save byte-identical and reloaded
+  into the same hero with the clock not going back. The window stayed hidden
+  and unfocused.
+
+Gates: `npm run build`, `npm test` (2307 pass), `check:arch`, `check:rules` and
+`desktop_smoke.cjs` all pass. Implemented-unverified, since no visible window
+was opened: the notice and the recovery page in his real on-screen window, and
+the snapshot written to his real profile by `npm run desktop`. That profile
+path is derived from the package name the way Electron does it, but was not
+checked against his machine. Progress since the last autosave (60 s) is lost
+on a crash or hang by design.
