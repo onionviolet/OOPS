@@ -1196,3 +1196,19 @@ the same save never made the app frontmost; only Weibao's own apps were.
 | EL36 | **Spaces and full screen.** Hidden runs create no window, so they cannot switch Spaces. INACTIVE windows open on the current Space; if he presents full screen, launch watchable runs only when asked | ACCOUNT FOR NOW |
 | EL37 | **CPU during presentations.** Several hidden instances can make fans spin or stutter a screen share. `YAIRPG_THROTTLE=1` for state-only checks, and keep agent instance counts small | ACCOUNT FOR NOW |
 | EL38 | **Prompt UX in the browser.** The browser still uses the native prompt; an in-page confirm for Reset and backups would match both hosts and the game's styling | LATER: UI rules apply (UR) |
+
+#### On-screen checks, 2026-10-20
+
+Weibao asked to try the two on-screen gaps, then stopped it: "its taking over my
+screen, I want it to be worked on in the background". Standing rule from here:
+agent checks never open visible windows (hidden Electron, headless browsers).
+
+- **EL27 INACTIVE mode, verified once on screen:** window visible, not focused,
+  Claude stayed frontmost, and the app had a Dock presence (not background-only).
+- **EL29 Reset through the prompt modal:** cancel keeps the save; typing "reset"
+  clears it and reloads. Verified hidden with `YAIRPG_DIALOGS=1` (a test-only
+  switch that opens the prompt off screen), both alone and after a cancelled
+  prompt. One on-screen run reloaded but kept the save; it did not reproduce
+  hidden and was not retried on screen. Status for visible windows:
+  implemented-unverified. Export before a Reset until he has seen it work.
+

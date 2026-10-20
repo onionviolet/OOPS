@@ -204,6 +204,18 @@ input[type=checkbox], input[type=radio] {
 		animation-iteration-count: infinite;
 		animation-direction: alternate;
 	}
+
+	#loading_screen_inspirations {
+		font-size: var(--ui-type-body);
+		font-weight: normal;
+		text-align: left;
+		opacity: 0.85;
+		margin-top: 0.6em;
+	}
+
+	#loading_screen_inspirations a {
+		color: inherit;
+	}
 		@keyframes titleSizeAnimation {
 			from {font-size: var(--ui-type-title);}
 			to {font-size: var(--ui-type-title);}

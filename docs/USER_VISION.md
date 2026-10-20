@@ -5372,3 +5372,12 @@ codebase that runs in the browser and inside an Electron desktop host. How the
 host is built is proposed in the owner. Owner:
 [Electron host round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el).
 
+
+### Loading screen inspirations, 2026-10-20
+
+Weibao, 2026-10-20: "make it so that the loading screen cites Mik... and proto 23
+guy as the inspirations". The loading screen now reads "Inspired by Yet Another
+Idle RPG by Miktaew and Proto23 by 23html" under the subtitle, both linked
+(desktop 1920x1080 checked headless). Same message: agent work must stay in the
+background and never take over his screen.
+

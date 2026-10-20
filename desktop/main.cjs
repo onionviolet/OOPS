@@ -81,12 +81,14 @@ function guardContents(contents) {
 // Electron has no window.prompt; the game uses it to confirm reset and backup
 // loads. The preload routes prompt() here and this shows a small modal.
 ipcMain.on('yairpg:host-info', event => { event.returnValue = { desktop: true, background }; });
+// YAIRPG_DIALOGS=1 lets a background test open the prompt off screen and answer it.
+const backgroundDialogs = background && process.env.YAIRPG_DIALOGS === '1';
 ipcMain.on('yairpg:prompt', (event, message, initial) => {
-    if (background) { event.returnValue = null; return; }
+    if (background && !backgroundDialogs) { event.returnValue = null; return; }
     const parent = BrowserWindow.fromWebContents(event.sender) || undefined;
     const win = new BrowserWindow({
         parent, modal: !!parent, width: 520, height: 230, resizable: false, minimizable: false,
-        maximizable: false, title: 'YAIRPG', backgroundColor: '#1b1b1b',
+        maximizable: false, title: 'YAIRPG', backgroundColor: '#1b1b1b', show: !background,
         webPreferences: { contextIsolation: true, sandbox: true, nodeIntegration: false },
     });
     let answered = false;
