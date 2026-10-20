@@ -34,6 +34,7 @@ import { book_stats, item_templates, Weapon, Armor, Shield, rarity_multipliers, 
 import { favourite_locations, location_types, locations } from "./data/locations.js";
 import { get_location_type_penalty } from "./models/location.js";
 import { enemy_killcount, enemy_templates } from "./enemies.js";
+import { playerAttributeDefinitions } from "./player_attribute_definitions.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
@@ -4393,43 +4394,7 @@ function update_xp_bar_tooltip() {
 }
 
 // Read-only current-player projection. Keep this whitelist separate from enemy appraisal.
-const playerAttributeDefinitions = [
-    ['strength','Strength','primary','points'],
-    ['agility','Agility','primary','points'],
-    ['dexterity','Dexterity','primary','points'],
-    ['intuition','Intuition','primary','points'],
-    ['magic','Magic','primary','points'],
-    ['attack_power','Attack power','offense','damage'],
-    ['attack_speed','Attack speed','offense','/s'],
-    ['attack_points','Attack rating','offense','AP'],
-    ['attack_count','Hits per attack','offense','hits'],
-    ['crit_rate','Critical chance','offense','%'],
-    ['crit_multiplier','Critical damage','offense','×'],
-    ['unarmed_power','Unarmed base power','offense','damage'],
-    ['armor_penetration','Armor penetration','offense','points'],
-    ['defense','Defense','defense','points'],
-    ['evasion_points','Evasion rating','defense','EP'],
-    ['block_chance','Block chance','defense','%'],
-    ['block_strength','Shield block strength','defense','damage'],
-    ['health','Current health','health','hp'],
-    ['max_health','Maximum health','health','hp'],
-    ['health_regeneration_flat','Health recovery','health','hp/s'],
-    ['health_regeneration_percent','Health recovery from maximum','health','% max hp/s'],
-    ['health_loss_flat','Health loss component','health','hp/s'],
-    ['health_loss_percent','Health percentage loss component','health','% max hp/s'],
-    ['stamina','Current stamina','stamina','stamina'],
-    ['max_stamina','Maximum stamina','stamina','stamina'],
-    ['stamina_regeneration_flat','Stamina recovery','stamina','stamina/s'],
-    ['stamina_regeneration_percent','Stamina recovery from maximum','stamina','% max stamina/s'],
-    ['stamina_efficiency','Stamina efficiency','stamina','×'],
-    ['mana','Current mana','mana','mana'],
-    ['max_mana','Maximum mana','mana','mana'],
-    ['mana_regeneration_flat','Mana recovery','mana','mana/s'],
-    ['mana_regeneration_percent','Mana recovery from maximum','mana','% max mana/s'],
-    ['mana_efficiency','Mana efficiency','mana','×'],
-    ['cold_tolerance','Cold tolerance','environment','°C difference'],
-    ['heat_tolerance','Heat tolerance','environment','°C difference'],
-];
+
 const playerAttributeSourceLabels = {
     race:'Race', height:'Height', level:'Level', levels:'Level', skills:'Skills',
     equipment:'Equipment', skill_milestones:'Skill milestones', books:'Books',
