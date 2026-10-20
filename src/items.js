@@ -8,7 +8,7 @@ import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
 import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats} from "./alloy_equipment.js";
-import {isReductionStat, scaleReduction} from "./gear_dimensions.js";
+import {isReductionStat, scaleReduction, wearScale} from "./gear_dimensions.js";
 import {preserveWorldCompletionNativeItem} from './world_completion_native.js';
 "use strict";
 
@@ -513,6 +513,24 @@ class Equippable extends Item {
         this.quality = Math.round(Number(item_data.quality)) || 100;
 
         this.tags["equippable"] = true;
+    }
+
+    //Toughness and hardness of the materials this instance is made from (GDP15 L1), derived from its
+    //components, so no save data. Items without material-filled components have none (wear scale 1).
+    getWearProfile() {
+        if(!this.components) return null;
+        const parts = Object.entries(this.components)
+            .map(([slot, key]) => ({slot, template: item_templates[key]}))
+            .filter(({template}) => Number.isFinite(template?.material_strength));
+        if(!parts.length) return null;
+        const mean = pick => parts.reduce((sum, {template}) => sum + pick(template), 0) / parts.length;
+        const strength = mean(t => t.material_strength), toughness = mean(t => t.material_toughness);
+        return {strength, toughness, scale: wearScale({strength, toughness}),
+            parts: parts.map(({slot, template}) => ({slot, material: template.material_label, toughness: template.material_toughness, source: template.material_toughness_source}))};
+    }
+
+    getWearScale() {
+        return this.getWearProfile()?.scale ?? 1;
     }
 
     getItemTier() {

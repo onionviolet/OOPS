@@ -1,6 +1,6 @@
 "use strict";
 import { Armor, ArmorComponent, item_templates, ShieldComponent, WeaponComponent } from "./items.js";
-import { paddingDimensions, shellDimensions } from "./gear_dimensions.js";
+import { materialToughness, paddingDimensions, shellDimensions } from "./gear_dimensions.js";
 import { capitalize_first_letter } from "./display.js";
 
 /*
@@ -21,7 +21,8 @@ import { capitalize_first_letter } from "./display.js";
     STATS:
         tier - affects multiple stats and value
         weight - affects weapon dmg, attack speed (negatively), and shield block
-        strength - affects weapon dmg and shield block
+        strength - affects weapon dmg and shield block; hardness = strength/100 slows wear
+        toughness - optional; slows wear (chipping/fracture), derived from strength when absent
         handling - affects dexterity on clothing
         warmth - affects cold resistance
 
@@ -99,6 +100,7 @@ const material_properties = {
         tier: 1,
         weight: 100,
         strength: 100,
+        toughness: 45, //cheap cast iron: as hard as steel but brittle, it chips and cracks sooner (dial; derived default would be 70)
         types: [
             ...ALL_WEAPON_HEADS,
             ...ALL_WEAPON_HANDLES,
@@ -898,6 +900,13 @@ const crafting_component_manager = {
                         });
                 }
 
+                if(item) { //authored or derived material data, read by wear and the Attributes view (no save data)
+                    const toughness = materialToughness(material);
+                    item.material_strength = material.strength;
+                    item.material_toughness = toughness.value;
+                    item.material_toughness_source = toughness.source;
+                    item.material_label = material.name || material_key;
+                }
                 if(!item_templates[item_id]) {
                     item_templates[item_id] = item;
                 } else {

@@ -53,3 +53,29 @@ export function effectiveDamageTaken(multiplier, floor = DAMAGE_TAKEN_FLOOR) {
 export function effectiveCritChance(critRate, resistance = 0, cap = CRIT_RESISTANCE_CAP) {
     return critRate * (1 - Math.min(Math.max(resistance, 0), cap));
 }
+
+// Toughness (GDP15, slice L1): how much a material bends and absorbs a blow before it chips or cracks.
+// Hardness (strength/100) resists scratching and denting; toughness resists chipping and fracture.
+// Authored per material as `toughness` next to strength; absent, it is derived from strength.
+//
+//   DEFAULT_TOUGHNESS: 130 - 0.6 * strength, clamped 20..120. Rigid, hard materials (strong metals)
+//     default lower because stiffness trades against shatter resistance: strength 60 gives 94,
+//     100 gives 70, 200 gives 20. Soft or fibrous materials (wood, leather, cloth) land high.
+//     A material can override it with an in-world reason (a quenched blade can be hard and brittle,
+//     a folded one hard and tough).
+//   WEAR_SCALE_RANGE 0.5..2: wear per hit is divided by the mean of hardness and toughness
+//     (relative to the reference 100 strength / 70 toughness material, scale 1), so no material
+//     is immune and none wears more than twice as fast as the reference.
+export const REFERENCE_RESISTANCE = 0.85;
+export const WEAR_SCALE_RANGE = Object.freeze({min: 0.5, max: 2});
+
+export function materialToughness({strength, toughness}) {
+    if (Number.isFinite(toughness)) return {value: toughness, source: "authored"};
+    const derived = Math.min(120, Math.max(20, 130 - 0.6 * (Number.isFinite(strength) ? strength : 100)));
+    return {value: round(derived, 1), source: "derived from strength"};
+}
+
+export function wearScale({strength, toughness}) {
+    const resistance = 0.5 * (strength / 100) + 0.5 * (toughness / 100);
+    return round(Math.min(WEAR_SCALE_RANGE.max, Math.max(WEAR_SCALE_RANGE.min, REFERENCE_RESISTANCE / resistance)), 3);
+}

@@ -4478,6 +4478,18 @@ export function readPlayerAttributeInspector() {
             sources.push({label:'Default floor',flat:0,multiplier:DAMAGE_TAKEN_FLOOR / value});
             value = DAMAGE_TAKEN_FLOOR;
         }
+        if(id === 'toughness') {
+            const worn = Object.values(character.getEquipment()).filter(item => item?.getWearProfile?.());
+            sources = [];
+            for(const item of worn) for(const part of item.getWearProfile().parts) {
+                sources.push({label:`${item.getName()}: ${part.material} ${part.slot} (${part.source})`,flat:part.toughness,multiplier:1});
+            }
+            value = worn.length ? finite(worn.reduce((sum,item) => sum + item.getWearProfile().toughness,0) / worn.length) : null;
+            baseValue = preMultiplier = value;
+            totalMultiplier = 1;
+            if(!worn.length) { status = 'unavailable'; note = 'No equipped gear is made from materials with toughness data.'; }
+            else note = `Wear per landed hit ×${worn.map(item => `${item.getName()} ${item.getWearScale()}`).join(', ')}. Only applies when equipment durability is enabled.`;
+        }
         if(id === 'block_strength') {
             if(hasShield) {
                 value = finite(character.getBlockStrength());

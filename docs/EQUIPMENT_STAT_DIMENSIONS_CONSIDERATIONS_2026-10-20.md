@@ -141,6 +141,42 @@ Checks (evidence is for the inputs named):
 Open for Weibao: build order for L3 (affix data and seeded rolls) and whether the party and
 village duel models should read the new dimensions too.
 
+## L1 record, 2026-10-20: toughness (GDP15/GDP16)
+
+Viewport target 1920x1080 desktop; mobile deferred. Rules: AD5, AD38, AD36, AR1-AR16.
+
+- Material data: `toughness` is an optional property beside strength in
+  `src/crafting_component_filling.js` material_properties. Absent, it derives as
+  `130 - 0.6 * strength` clamped 20..120 (strength 60 gives 94, 100 gives 70, 200 gives 20), so
+  rigid strong metals default lower and soft fibrous materials higher. Dial and reason: stiffness
+  trades against shatter resistance; any material may override it with an in-world reason. First
+  override: "cheap iron" 45 (cast iron, hard but brittle) against steel and iron at the derived 70.
+- Math (`src/gear_dimensions.js`): `materialToughness` returns value and source (authored or
+  derived); `wearScale` divides wear by the mean of hardness (strength/100) and toughness/100,
+  relative to a 100-strength, 70-toughness reference (scale 1), clamped 0.5..2. Defaults, not absolutes.
+- Consumer: `wearItem` in `src/absorb_e2/durability.js` multiplies `wearPerHit` by the instance's
+  `getWearScale()` (items.js `Equippable.getWearProfile`, the mean over its filled components).
+  `wearItem` is reached in play from `durability.landedHit` (`src/models/combat.js:591`) for the
+  hero's weapon and worn shield/armor on a landed hit in non-special combat. Tool `wearUse` is
+  unchanged. Gear without material-filled components (hand-authored clothing such as Cheap leather
+  pants, native items) has no profile and wears at scale 1; that gap is open.
+- View: Attributes has a "Gear toughness" row (mean over worn component gear), with one source row
+  per part "<item>: <material> <slot> (authored | derived from strength)" and the wear-per-hit scale per item.
+- Save format: no change. Toughness derives from component templates; nothing is stored or migrated.
+- Checks: focused `node --test tests/gear_dimensions.test.js tests/absorb_e2.test.js` (the new
+  regression runs real `wearItem` on Weapon instances; the absorb_e2 native-weapon test now expects
+  the item's own scale instead of a flat 40 loss). Then `npm run build && npm test` (2281 tests),
+  `npm run check:arch` and `npm run check:rules` passed after that test update (the one failing
+  absorb_e2 expectation was fixed and re-run green on its file).
+- Browser (rebuilt bundle, scratch copy with dev console on, repo config untouched, fresh origin,
+  1920x1080, durability on): Iron sword and Cheap iron sword share a 100-strength blade and the same
+  handle. Attributes showed Gear toughness 82 (wear x1.049, iron head derived) against 69.5 (wear
+  x1.137, cheap iron head authored 45, wooden handle derived 94), each with source rows.
+- Not exercised: a real landed-hit fight comparing condition loss in the bundle (the Infested field
+  was locked and `simulate_combat` is a special combat that skips wear), so the per-hit difference is
+  proven by the regression only; save, reload and import (nothing stored); enemy and party models.
+  Backlog owner: this record.
+
 ## Sources
 
 [Apotheosis author page](https://www.curseforge.com/minecraft/mc-mods/apotheosis),
