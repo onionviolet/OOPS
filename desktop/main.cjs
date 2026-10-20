@@ -1,13 +1,15 @@
 'use strict';
 // Electron desktop host for the web build (AD39). The game itself stays a
 // browser page: src/ never imports this, and the browser build is still the
-// default and test target. Run `npm run build` first; this serves dist/ as is.
+// default and test target. The player's window serves a frozen snapshot of the
+// built page (EL18, desktop/snapshot.cjs); agent runs serve the working tree.
 const path = require('node:path');
 const fs = require('node:fs');
 const { pathToFileURL } = require('node:url');
 const { app, BrowserWindow, protocol, net, shell, screen, session, ipcMain } = require('electron');
 const { APP_SCHEME, APP_ORIGIN, resolveAppPath } = require('./app_path.cjs');
 const { promptPage, PROMPT_RESULT } = require('./prompt_page.cjs');
+const { makeSnapshot, readPointer, writePointer, snapshotRoot, buildsDir } = require('./snapshot.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -28,6 +30,17 @@ if (process.env.YAIRPG_CDP_PORT) {
 // to temp. The host never raises, focuses or bounces a window on its own.
 const hidden = process.env.YAIRPG_HIDDEN === '1';
 const background = hidden || process.env.YAIRPG_INACTIVE === '1';
+
+// What app://yairpg serves (EL18). YAIRPG_ROOT always serves that folder live.
+// Hidden runs serve the working tree so checks test it, unless YAIRPG_FROZEN=1
+// asks for the player's frozen path. Everything else serves a snapshot.
+const liveRoot = process.env.YAIRPG_ROOT ? path.resolve(process.env.YAIRPG_ROOT)
+    : (hidden && process.env.YAIRPG_FROZEN !== '1' ? ROOT : null);
+const serving = { id: liveRoot ? 'live' : null, root: liveRoot, announced: null };
+// Test hook: YAIRPG_SERVE_LOG=1 records which root served each request and
+// which paths were missing, for app.evaluate in scripts/desktop_*.cjs.
+const serveLog = process.env.YAIRPG_SERVE_LOG === '1' ? (globalThis.yairpgServeLog = { served: [], misses: [] }) : null;
+globalThis.yairpgServing = () => ({ ...serving });
 
 // Web Locks guard tabs inside one process; a second app instance would share
 // the same userData and could write the same save, so allow one per userData.
@@ -80,7 +93,7 @@ function guardContents(contents) {
 
 // Electron has no window.prompt; the game uses it to confirm reset and backup
 // loads. The preload routes prompt() here and this shows a small modal.
-ipcMain.on('yairpg:host-info', event => { event.returnValue = { desktop: true, background }; });
+ipcMain.on('yairpg:host-info', event => { event.returnValue = { desktop: true, background, build: serving.id }; });
 // YAIRPG_DIALOGS=1 lets a background test open the prompt off screen and answer it.
 const backgroundDialogs = background && process.env.YAIRPG_DIALOGS === '1';
 ipcMain.on('yairpg:prompt', (event, message, initial) => {
@@ -124,6 +137,42 @@ function createWindow() {
     return win;
 }
 
+// Frozen builds: serve the newest snapshot at launch (making one from the
+// working tree on first run), then tell open pages when a newer one appears.
+// The page asks to adopt it; the host never reloads on its own.
+function startFrozenBuilds() {
+    const userData = app.getPath('userData');
+    let id = readPointer(userData, 'latest.json');
+    if (!id) id = makeSnapshot(ROOT, userData).id;
+    serving.id = id;
+    serving.root = snapshotRoot(userData, id);
+    writePointer(userData, 'current.json', id);
+
+    const latestFile = path.join(buildsDir(userData), 'latest.json');
+    const poll = Number(process.env.YAIRPG_BUILD_POLL_MS) || 3000;
+    fs.watchFile(latestFile, { interval: poll }, () => {
+        const latest = readPointer(userData, 'latest.json');
+        if (!latest || latest === serving.id || latest === serving.announced) return;
+        serving.announced = latest;
+        for (const win of BrowserWindow.getAllWindows()) announceBuild(win.webContents);
+    });
+
+    ipcMain.handle('yairpg:adopt-build', event => {
+        const next = serving.announced;
+        if (!next || readPointer(userData, 'latest.json') !== next) return false;
+        serving.id = next;
+        serving.root = snapshotRoot(userData, next);
+        serving.announced = null;
+        writePointer(userData, 'current.json', next);
+        event.sender.reloadIgnoringCache();
+        return true;
+    });
+}
+
+function announceBuild(contents) {
+    if (serving.announced && !contents.isDestroyed()) contents.send('yairpg:build-ready', { id: serving.announced, serving: serving.id });
+}
+
 if (primary) app.whenReady().then(() => {
     // Accessory apps never activate on macOS, which is the strongest guard.
     if (hidden && process.platform === 'darwin') {
@@ -131,15 +180,25 @@ if (primary) app.whenReady().then(() => {
         app.dock?.hide();
     }
 
+    if (!serving.root) startFrozenBuilds();
+    else ipcMain.handle('yairpg:adopt-build', () => false);
+
     protocol.handle(APP_SCHEME, request => {
-        const file = resolveAppPath(ROOT, request.url);
+        const root = serving.root;
+        const file = resolveAppPath(root, request.url);
         if (!file || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
+            serveLog?.misses.push(request.url);
             return new Response('Not found', { status: 404 });
         }
+        serveLog?.served.push({ url: request.url, root });
         return net.fetch(pathToFileURL(file).toString());
     });
 
-    app.on('web-contents-created', (_event, contents) => guardContents(contents));
+    app.on('web-contents-created', (_event, contents) => {
+        guardContents(contents);
+        // A reload keeps the notice until the player adopts the build.
+        contents.on('did-finish-load', () => announceBuild(contents));
+    });
 
     // Export uses an anchor download. Without a set path Electron asks where
     // to save; background runs and tests save to a folder instead.

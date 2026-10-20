@@ -13,7 +13,8 @@
     "check:rules": "node scripts/check_rules_index.mjs",
     "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
     "build:preview": "node scripts/build_ui_preview.mjs",
-    "desktop": "npm run build && electron ."
+    "desktop": "npm run build && npm run desktop:snapshot && electron .",
+    "desktop:snapshot": "node desktop/snapshot.cjs"
   },
   "engines": {
     "node": ">=22.13.0"
