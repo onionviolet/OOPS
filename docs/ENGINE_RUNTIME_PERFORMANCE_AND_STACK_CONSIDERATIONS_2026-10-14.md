@@ -1091,7 +1091,9 @@ one adapter with a browser fallback (EL2; AR3, AR4).
 - Fixed origin `app://yairpg`, served by a custom privileged scheme
   (`desktop/app_path.cjs`, query strings dropped, paths outside the repo
   refused). localStorage is keyed by this origin, so it never changes.
-- Context isolation and sandbox on, no Node in the page, no preload yet (DS9).
+- Context isolation and sandbox on, no Node in the page (DS9). A small
+  sandboxed preload (added with EL29) exposes only `window.yairpgHost` and the
+  `prompt()` stand-in.
   External links open in the system browser; help and changelog stay in app.
 - Agent switches, off by default: `YAIRPG_HIDDEN=1` (no window or Dock icon),
   `YAIRPG_CDP_PORT` (DevTools Protocol on 127.0.0.1), `YAIRPG_USER_DATA`.
@@ -1168,3 +1170,29 @@ Layers, lowest first. Each can sit on the one below.
 
 Suggested order (proposal): EL18 frozen player build first (it answers "without
 affecting my front page" fully), then EL16 game MCP tools, then EL1 file saves.
+
+### Never take the foreground (EL27-EL38), 2026-10-20
+
+Weibao, same day: "work in the background without bringing the game to my
+foreground? More to consider?" and "it can take up space in [the] dock but
+just doesn't need to show up in foreground mid showing someone something".
+The rule: background work may be visible in the Dock, never raise a window.
+
+**Measured on this Mac** (frontmost app sampled every 0.3 s): the full hidden
+desktop smoke, a background dialog check and a background second launch onto
+the same save never made the app frontmost; only Weibao's own apps were.
+
+| Code | Point | Disposition |
+| --- | --- | --- |
+| EL27 | **Three run modes.** Player (normal window), `YAIRPG_INACTIVE=1` (visible, never focused, may sit in the Dock so he can click in), `YAIRPG_HIDDEN=1` (no window, no Dock icon, macOS accessory app that cannot activate). Agent and test runs default to hidden; the smoke check does | DONE; INACTIVE Dock behavior implemented-unverified (testing it would show a window) |
+| EL28 | **Accidental second launch.** A launch on the player's save used to raise his window. Background launches now pass a flag with the single-instance lock and his window stays put; only his own Dock click or relaunch raises it | DONE, verified hidden (second exits, window stays unfocused) |
+| EL29 | **Dialogs are focus thieves.** Native `alert`/`confirm` would pop over his screen from an agent run. Background runs cancel them (logged as warnings). Electron also has no `prompt()`, which broke Reset, Load backup and Import other release in the app; the preload now shows a small modal for the player and returns cancel in background | DONE, verified hidden; player modal tested through hidden windows, not clicked on screen |
+| EL30 | **Downloads and links.** A background Export saves to a temp folder instead of opening a save dialog; external links from background runs are dropped instead of opening the browser | DONE |
+| EL31 | **Sound.** Background runs are muted so a test never plays audio during a presentation | DONE |
+| EL32 | **Host never self-raises.** No `focus()`, `show()`, `flashFrame` or Dock bounce from timers, finished jobs or game events, even on the player's instance. Future notifications (EL4) go through the OS, which respects Focus modes | ACCOUNT FOR NOW |
+| EL33 | **Other foreground thieves in agent work.** Visible Playwright windows, `open <url>`, Simulator, headful Chrome. Repo browser checks already run headless; desktop checks run hidden. Agents should not launch visible windows unless Weibao asks to watch | ACCOUNT FOR NOW: add to agent lane briefs that launch the app |
+| EL34 | **Presenting mode for the player's window.** Optional: a menu toggle that pauses notifications and sounds from his own game while presenting. macOS Focus modes already silence OS notifications | LATER, small |
+| EL35 | **App Nap and timers.** macOS may nap a covered or minimized app regardless of Chromium throttling, slowing his idle clock. Measure ticks over 10 minutes minimized before adding any power blocker; `prevent-app-suspension` also keeps the Mac awake, so it is the costly dial | LATER: measure first |
+| EL36 | **Spaces and full screen.** Hidden runs create no window, so they cannot switch Spaces. INACTIVE windows open on the current Space; if he presents full screen, launch watchable runs only when asked | ACCOUNT FOR NOW |
+| EL37 | **CPU during presentations.** Several hidden instances can make fans spin or stutter a screen share. `YAIRPG_THROTTLE=1` for state-only checks, and keep agent instance counts small | ACCOUNT FOR NOW |
+| EL38 | **Prompt UX in the browser.** The browser still uses the native prompt; an in-page confirm for Reset and backups would match both hosts and the game's styling | LATER: UI rules apply (UR) |
