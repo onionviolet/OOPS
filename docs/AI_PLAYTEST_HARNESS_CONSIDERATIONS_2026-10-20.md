@@ -2,7 +2,8 @@
 
 Palette, not spec. Every row is a proposal unless it says DONE; nothing here is
 an accepted decision (AD32). Codes PT1 onward are stable; later rounds append. Round 2 (speed dial and
-parallel playthroughs) starts at [PT83](#round-2-speed-dial-and-parallel-playthroughs-2026-10-20).
+parallel playthroughs) starts at [PT83](#round-2-speed-dial-and-parallel-playthroughs-2026-10-20);
+round 3 (adaptive dial) at [PT100](#round-3-an-adaptive-dial-fast-for-fast-and-slow-for-slow-2026-10-20).
 
 Authority: Weibao's questions on 2026-10-20: "how can each play through identify
 gaps and more? can we tune/have a local ai play through the game? Would we need
@@ -257,6 +258,44 @@ decision with a JSON reason (PT64), about 0.4 s for a bare choice (PT99).
 | PT97 | **Parallel model calls.** One Ollama model with `OLLAMA_NUM_PARALLEL` 2 to 4 serves several bots over the same weights: total throughput rises, each answer gets slower, each slot costs memory for its context | Sonnet, S | Measured decisions per hour at 1, 2 and 4 slots with one model loaded |
 | PT98 | **A sparse model for action picking.** Mixture-of-experts models with about 3B active parameters (35B-A3B class, per community guides; unverified here) should answer several times faster than a dense 27B | Sonnet, S | Same PT64 prompt measured; choose only if its notes stay as useful |
 
+## Round 3: an adaptive dial, fast for fast and slow for slow (2026-10-20)
+
+Weibao, 2026-10-20: "can the dial be adjusted, fast for fast, slow for slow?
+more to consider?" Yes. Default proposal: one dial set per decision and per
+stretch of game time, not per run. Routine moments take the fast setting and
+consequential or new ones take the slow setting, chosen by rules over the game
+projection, so the choice is cheap, repeatable and recorded. The dial has three
+knobs that move together or apart: answer shape (PT99), model size (PT62) and
+game-time step (PT86).
+
+### ACT NOW (done)
+
+| Code | Idea | Evidence |
+|---|---|---|
+| PT100 | **The bot already runs slow only where the screen is new.** The ui detector (PT46) runs only when the screen hash changed, and repeats are skipped | `uiPass` call in `scripts/playtest/run.mjs`, gated on `obs.screen !== prev.screen` |
+
+### ACCOUNT FOR NOW
+
+| Code | Idea | Default | Dial | Reason |
+|---|---|---|---|---|
+| PT101 | **Stakes from the game, not from the model.** A rule scores each decision from the projection: irreversible (sell, spend most of what is held, equip over a better item, travel toward danger, a dialogue line that locks itself), cost relative to holdings, first time this action or screen appears, combat or health risk | Score at or above a threshold takes the slow lane | Threshold per persona and per world | Asking the model whether a choice matters costs the time the fast lane saves |
+| PT102 | **Escalation ladder.** Bare number, then number plus reason, then thinking on, then the larger or q8 model, then Claude for one named moment. A step is taken only when the lower one is invalid, low-confidence or the stakes rule says so | Start at the bottom | Highest rung allowed per run (AU2 budget) | Most clicks never need the upper rungs |
+| PT103 | **Disagreement as the confidence signal.** Ask the fast lane twice with different seeds; if the answers differ, escalate | On for scored-medium decisions only | Number of samples | A second 0.4 s call is cheaper than a reasoned answer, and Ollama confidence values are not assumed available (unverified) |
+| PT104 | **Slow can change the answer, not just explain it.** PT99 saw Qwen pick a different option when asked for a reason. Lane is part of the policy | Trace records the lane per decision; a reason flip rate is reported per decision kind | | A high flip rate marks decisions where quick play and careful play really diverge, which is itself a design signal |
+| PT105 | **Audit the fast lane by sampling.** A small share of fast decisions is also asked the slow way, and agreement is reported per decision kind | 5% sample | Sample share | Tells whether a decision kind can stay fast or needs reclassifying |
+| PT106 | **The clock has the same dial.** Skip quickly through idle stretches (PT87); slow to single ticks with screenshots and ui checks around unlocks, combat ends, new messages and finished work | Slow window of a few ticks around each event | Window size | Detectors see the transition, which is where UI and state bugs show |
+| PT107 | **Persona sets the default position.** The impatient newcomer stays fast and skims, as real skimmers do; the min-maxer slows at spending and gear; the explorer slows at new places | Per persona table | | Fast play is a playstyle to test, not only a cost saving |
+| PT108 | **Deterministic dial.** The lane comes from seed, state and rules, never from wall time or load, so a rerun takes the same lanes | Standing | | Otherwise PT21 determinism breaks for model runs |
+| PT109 | **Budget lowers the ceiling, never the floor.** As the call or wall budget runs down the top rung drops; detectors keep running at full strength | Standing (AU7) | | Running out of budget should make play cruder, not blind |
+
+### LATER / DELEGATE
+
+| Code | Idea | Level, effort | Done check |
+|---|---|---|---|
+| PT110 | **Deferred second looks.** A fast run logs "would like a second look" at a scored decision and keeps going with its fast answer; a later batch replays those states the slow way | Sonnet, S | A replay from the logged state gives the slow answer and both land in one report |
+| PT111 | **Stakes rule from the projection** (PT101) with a small test table of decisions and expected lanes | Sonnet, S | Unit test over 20 sample decisions; an irreversible sale always routes slow |
+| PT112 | **Seed the rule from Weibao's own friction.** Moments he notes as confusing or costly in his play become slow-lane examples | Sonnet, S | Each noted moment appears in the PT111 table with its lane |
+
 ## Harness checklist
 
 The single to-do list for the harness. Level is the suggested model; effort is
@@ -278,3 +317,4 @@ a rough size; the done check is what must pass.
 - [ ] **Idle-based settles** (PT94). Sonnet, S. Done check as in PT94.
 - [ ] **Node runner pool with checkpoint forks** (PT95, PT96). Sonnet, M. Done check as in PT96.
 - [ ] **Parallel and sparse local models** (PT97, PT98). Sonnet, S. Done check as in PT97.
+- [ ] **Adaptive dial: stakes rule, escalation ladder, lane in the trace** (PT101, PT102, PT104, PT111). Sonnet, S. Done check: PT111's test table passes and a model run's trace shows the lane and any reason flip per decision.
