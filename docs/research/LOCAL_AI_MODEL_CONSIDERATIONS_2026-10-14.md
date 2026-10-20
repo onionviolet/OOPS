@@ -41,3 +41,37 @@ Use schema-constrained proposals where supported, then semantic and native-consu
 Compare the existing digest, Qwen3.8 27B MXFP8 and Gemma 4 31B sequentially on identical synthetic, source-neutral fixtures. Use dialogue, structured content proposals, ambiguous intent and contradiction cases. Record exact revisions, quantization, context, decoding settings, cold/warm latency, peak memory, valid-and-useful output rate, factual changes and blind voice preference. Measure task success per elapsed second rather than parameter count. Keep sensitive scenes authored and test secrecy only with synthetic IDs.
 
 Stop a candidate on unacceptable memory pressure or loss of foreground responsiveness. A proposed adapter trial must later cover unavailable model, timeout, malformed/stale output, failed save and exact reload/import while the model is absent. Rebuilt desktop browser behavior and director taste remain separate future gates. All model-quality, performance and gameplay gates are OPEN. Only this report was added; shared live owners and unrelated dirty files were preserved.
+
+## Round 2, 2026-10-20: speed for game decisions
+
+Weibao: "best local ai to use and other stuff and more?", then "would the 35b
+even be faster? More to consider?" Context: AI playthroughs
+([harness palette](../AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md), where
+PT64 measured about 6 s and 600 decisions an hour). Measured on this Mac, quiet
+machine, one synthetic five-choice village scene (131 to 142 prompt tokens),
+thinking off, temperature 0, seed 42, two warm runs each.
+
+| Model | Answer format | Output tokens | Warm time per decision |
+| --- | --- | --- | --- |
+| `qwen3.8:27b` (NVFP4) | JSON with a one-sentence reason | 37 | 3.5 to 5.4 s |
+| `qwen3.8:27b` | JSON `{"choice": n}` | 9 | 1.3 to 2.0 s |
+| `qwen3.8:27b` | bare number | 1 | 0.39 to 0.43 s |
+| `gemma4:31b-mlx` | JSON with a reason | 32 | 6.1 to 8.9 s |
+| `gemma4:31b-mlx` | JSON `{"choice": n}` | 6 | 1.5 to 1.9 s |
+| `gemma4:31b-mlx` | bare number | 1 | 0.53 to 0.55 s |
+
+Cold load was 9 to 11 s. Repeating the same prompt prefix dropped prompt time
+from 1.25 s to 0.16 s, because Ollama reuses the cached prefix.
+
+| Code | Finding or angle | Disposition |
+| --- | --- | --- |
+| F2 | **Output length is the cost, not the model.** On the same 27B, a bare choice number is about ten times faster than JSON with a reason. That takes the harness from about 600 to several thousand decisions an hour with no download | ACT NOW (measured above) |
+| F3 | **Would a 35B-A3B MoE be faster? Yes at writing text, barely at picking.** On Apple Silicon each generated token reads the active weights from memory. The dense 27B reads about 17 GB per token (measured 9 to 11 tokens/s); a 3B-active MoE reads about 2 GB, so it could plausibly write 3 to 5 times faster (estimate; community guides report 25 to 45 tokens/s). A one-token pick already takes about 0.4 s, mostly fixed overhead, so the MoE saves a fraction of a second there. It is an older generation (Qwen3.6) with far fewer active parameters, so choice quality is the open question | ACCOUNT FOR NOW: download it for a measured quality check, not for speed |
+| F4 | **Asking for a reason changed the choice.** Qwen picked 3 (sell bread) with a reason and 2 (chop wood) as a bare number; Gemma picked 2 both ways. A short reason acts like brief thinking. Default: bare numbers for routine steps, a reason on sampled, surprising or high-stakes steps (danger, spending, choices that cannot be undone) | ACCOUNT FOR NOW. LATER: a fixture set scoring choice quality per format, Sonnet, low effort, done when each format has a hit rate on 20 or more scenes |
+| F5 | **The 2026-10-14 upgrade stalled.** Its installer died with `qwen3.8:27b-mxfp8` at 72%. Gemma and the abliterated Q8 downloaded but were never checked or enabled, so `local-ai` still offers only `fast`, and its speed/cleanup job has polled since then | LATER: waits for Weibao's yes to finish it |
+| O3 | **Stable prefix first, changing state last.** Rules, persona and hero sheet go in an unchanging prefix; the current scene and choices go at the end, so each step pays only for new tokens (measured 1.25 s down to 0.16 s) | ACCOUNT FOR NOW |
+| O4 | **Cap and validate rather than constrain.** A `num_predict` of 1 to 3 plus parsing the number is enough for picks. Gemma generated about half as fast under `format: json` here as PT64 measured without it (cause unverified) | ACCOUNT FOR NOW |
+| O5 | **Score every choice in one pass.** The model's probability for each choice number ranks all options for the price of one token, which helps "what else would a player try" coverage. Needs log-probability support in the runner (unverified for Ollama 0.40.3) | LATER, small: check runner support first |
+| O6 | **The bottleneck moves.** At about 0.4 s a decision, the game clock and browsers become the limit again, which ties into the harness round on the speed dial and parallel runs. One loaded model with `OLLAMA_NUM_PARALLEL` can feed several bots | ACCOUNT FOR NOW |
+| O7 | **Long overnight runs on a laptop.** Sustained inference heats the machine and drains battery. Default: plugged in, sleep held off (for example `caffeinate`) only for the run, stop on thermal pressure | LATER, with the first overnight run |
+| O8 | **Smaller dense models (7B to 14B)** follow F3's logic: little gain on one-token picks and a likely quality loss | Park unless a fixture shows they pick as well |
