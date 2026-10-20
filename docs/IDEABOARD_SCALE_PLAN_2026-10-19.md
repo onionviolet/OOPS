@@ -364,3 +364,33 @@ Evidence for the order (V, file sizes and docs):
 - Cost: LOTM P7 reuses existing reading, so it spends little new agent budget; Naruto spends a full read.
 
 Not decided: Weibao may still pick Naruto or another world; P1–P3 do not depend on it.
+
+### LOTM and COI readiness, more to consider (2026-10-19)
+
+"COI" here is the sequel *Circle of Inevitability*. Sealed MYSTERIES files were not opened; secrets stay by ID (WA11).
+
+**What exists (V, from the two COVERAGE/CHECKPOINT files):**
+- COI: 1,178 of 1,178 narrative entries read, reviewed and integrated; final audit rev 73 repaired 11 errors; WORLD_BRIEF, PEOPLE, POWERS, WORLD, TIMELINE, MYSTERIES and INTEGRATION_PACKET exist ([checkpoint](research/novels/full-book/circle-of-inevitability/CHECKPOINT.md)).
+- LOTM book 1: all 1,402 entries read, but only **363 reviewed and integrated** (all 213 of Part One plus Part Two 1–150), 1,313 claims, 246 context cards; its goal is host-blocked ([checkpoint](research/novels/full-book/lord-of-mysteries/CHECKPOINT.md)).
+
+**ACT NOW (done in this note)**
+- **LC1 Early LOTM is already covered.** The reviewed span (all Part One, start of Part Two) is the early-game material the recommended Seer slice needs, so P7 for early LOTM needs no new reading.
+- **LC2 COI is ready as an era overlay, not a first slice.** It is fully reviewed but later in the timeline; model it as a continuity overlay on the same pack (WA18, GR8), with rules versioned by era (identity-laws IL28).
+
+**ACCOUNT FOR NOW**
+- **LC3 Review gap is the real remaining cost.** About 1,039 LOTM1 entries are read but not reviewed. This is coordinator review work, not new source reading, so Sonnet at medium effort fits (AU5, AU13). Do it only when a slice needs a later span (CX1).
+- **LC4 COI engine fit is unverified.** The packet's "lend and recall" mapping was written against documentation and validators only; the apply code was not read. The pack route (P2/P3) replaces the old "deliver to the implementation master" step, so re-check the mapping against the real loader then.
+- **LC5 Engine seams LOTM needs, by existing owner.** Borrowed-source grant and termination (BF5 in [feature gaps](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md)); ability conditions and dependent claims (QR2 engine A1/A2, implemented with fixtures, **no native consumer yet**, so LOTM can be the first); hidden state and sanity (AD6, AD8); masks and identity (AD23). Native mode currently returns no LOTM grants or commits (gap doc line 54).
+- **LC6 Scope trap to avoid.** Full potion crafting, arbitrary pathways, numeric digestion and next-Sequence play are the named expansion risk (HP/LOTM note). Default: one pathway (Seer), one supervised acquisition, one bounded action with stop and recovery. Dial: widen after Weibao plays it (CX7).
+- **LC7 Source caveats.** The compilation's authenticity and completeness are unverified and the text is a translation, so facts carry confidence `translated` (WA3) and direct recreation stays in the private pack path (AD1, WAC24).
+- **LC8 Sealed truths.** MYSTERIES and any twist the pack encodes are stored as IDs with discovery routes (WA11); agents implement them without showing truths in chat (AGENTS Sealed secrets).
+- **LC9 Beside the protagonist.** The [pathways deep dive](research/novels/lord-of-mysteries/PATHWAYS_DEEP_DIVE_2026-10-10.md) is built around living beside the canon cast; canon-people rules (RLCE, P9Y12) apply, with spine characters authored and gaps generated and labelled.
+- **LC10 Host state.** The LOTM1 reading goal shows blocked from an external status; check live state before any resume (shared-worktree practice) and do not reuse its old process handles.
+
+**LATER / DELEGATE**
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| LC11 | Review the next LOTM1 span a slice needs | Sonnet medium, bounded shards | Coverage file shows the span reviewed with claims integrated |
+| LC12 | LOTM pack draft from the ledger (WAC12) | Sonnet scaffold, Opus reviews the law encoding | Pack lints with only WA4 law gaps |
+| LC13 | Native consumer for engine A1/A2 via the Seer feature | Opus design, Sonnet build | Seer action refuses and succeeds by conditions in a rebuilt browser with save, reload, import |
