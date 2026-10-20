@@ -1246,11 +1246,15 @@ host adopts only the id it announced. Nothing reloads unasked. Agent runs:
 (default 30 s; paused during `window.prompt` and with DevTools open), the host
 stops it and loads `app://yairpg/__host/recover.html`. That page reads the last
 save (never writes it, AR3), shows its time and offers "Reload the game". The
-host never shows or focuses a window (EL32). Chromium's own `unresponsive`
-only fires on unanswered input, so the heartbeat is the real detector.
+host never shows or focuses a window (EL32). A late tick (the host stalled or
+the Mac slept) and `powerMonitor` resume or unlock restart the count, so a lid
+close is not a hang. In the hidden hang run only the heartbeat fired;
+Chromium's `unresponsive` event logged nothing within the 4.8 s, so the
+heartbeat is the detector.
 
-- Evidence: `node scripts/desktop_crash_guard.cjs`, PASS. With a 4 s limit, play
-  ran past it with no false hang. A forced crash recovered in about 0.2 s and a
+- Evidence: `node scripts/desktop_crash_guard.cjs`, PASS (also with
+  `YAIRPG_THROTTLE=1`). With a 4 s limit, play ran past it with no false hang,
+  and a 12 s main-process stall did not trigger one either. A forced crash recovered in about 0.2 s and a
   busy-loop hang in about 5 s. Both kept the save byte-identical and reloaded
   into the same hero with the clock not going back. The window stayed hidden
   and unfocused.
@@ -1261,4 +1265,6 @@ was opened: the notice and the recovery page in his real on-screen window, and
 the snapshot written to his real profile by `npm run desktop`. That profile
 path is derived from the package name the way Electron does it, but was not
 checked against his machine. Progress since the last autosave (60 s) is lost
-on a crash or hang by design.
+on a crash or hang by design. The game has no native `alert` or `confirm` today;
+only `window.prompt` pauses the guard, so a future blocking dialog needs the
+same pause.
