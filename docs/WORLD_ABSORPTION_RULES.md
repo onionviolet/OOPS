@@ -112,7 +112,9 @@ overlap: `book.mol.formula_operator` is both a technique source and a power.
 
 Tests: [`tests/world_pack.test.js`](../tests/world_pack.test.js).
 
-Status: engine ready, not integrated (AR10). No runtime reads a pack yet.
+Status: engine ready. The Cyoria runtime now installs from the bundled `book.mol`
+pack (P2, 2026-10-19; see [Round 3 outcome](#p2-outcome-2026-10-19)); no other world
+does yet (AR10).
 
 ## More to consider, round 1 (2026-10-17)
 
@@ -223,3 +225,28 @@ intermediate effects. A content-edge pause follows the existing
 with an observer-safe explanation and exact time/resource settlement
 ([G26–G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18)).
 WA's proposed status and current world/layout/NPC deferrals remain unchanged.
+
+## P2 outcome (2026-10-19)
+
+Task record: [world-pack-p2](gm/dispatch/world-pack-p2-2026-10-19/CHECKPOINT.md).
+[`src/world_pack_registry.js`](../src/world_pack_registry.js) loads the bundled
+list through `loadWorldPacks` and registers a `world_packs` domain with a pack
+identity projection and no save slice. `book_world_mol_content.js` and
+`book_world_mol_actions.js` are adapters over `book.mol`; the pack file is the
+authority for Cyoria's people, items, stock, powers, sources, conditions, commands,
+controllers, encounters and situations.
+
+- **WAC8 done.** Exports are byte-identical to the hand-coded baseline (pinned
+  hash in the registry test).
+- **WAC9 done in part.** Six laws point at facts `molFacts` already reads; K2 is T2.
+  Laws with no existing fact stay prose (a new gate would change gameplay, WA17).
+- **WAC10 done.** K8 job, food and price records cite command IDs and store no price.
+- **WAC28 done.** `tests/world_pack_registry.test.js` loads the same list the runtime
+  installs and fails on a broken pack.
+- **WA20 format finding.** The manifest's `native` block was specified as a schema-2
+  structured pack. Cyoria's definitions are already in the engine's simulation shape,
+  so `native` carries them as a definitions payload that nothing compiles. Adopting
+  schema-2 compilation for hand-coded worlds is a separate behavior-risking change.
+- **WA10 save pin not done.** The `world_packs` domain writes no save slice, so saves
+  are byte-identical in shape. Pinning pack revision in saves is the next slice.
+

@@ -58,16 +58,17 @@ test('coverage reports the core floor honestly', () => {
     assert.deepEqual(cov.floor.filter(f => !f.met).map(f => f.part), ['K3', 'K6', 'K8', 'K13']);
 });
 
-test('Cyoria pilot pack is valid and shows its real gaps', () => {
+test('Cyoria pilot pack is valid and meets the core floor', () => {
     const mol = buildMolWorldPack();
     // Laws must point at facts the Cyoria definitions actually read.
     const engineFacts = new Set(JSON.stringify(molDefinitions).match(/"fact":"[^"]+"/g).map(s => s.slice(8, -1)));
     assert.deepEqual(lintWorldPack(mol, {engineFacts}).issues, []);
     const cov = worldPackCoverage(mol);
-    assert.equal(cov.coreFloorMet, false);
-    assert.deepEqual(cov.floor.filter(f => !f.met).map(f => f.part), ['K2', 'K8']);
+    // WAC9/WAC10: K2 laws are engine facts and K8 jobs, meals and prices cite their commands.
+    assert.equal(cov.coreFloorMet, true);
+    assert.deepEqual(cov.floor.filter(f => !f.met).map(f => f.part), []);
     assert.equal(cov.parts.K6.records, 9);
-    assert.equal(cov.lawsAsRules, 2);
+    assert.equal(cov.lawsAsRules, 8);
     assert.ok(cov.unknowns >= 4);
 });
 
