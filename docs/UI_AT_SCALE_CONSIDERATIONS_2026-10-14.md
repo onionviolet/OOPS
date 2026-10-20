@@ -1567,3 +1567,39 @@ already partly true.
 
 ER11's measurements cover its frozen candidate only. Every runtime claim
 here still needs a rebuilt desktop check on current source.
+
+## Round 13: item details placement (2026-10-20)
+
+Weibao, 2026-10-20: "sbould item details be on the left instead of hte right?
+more to consider?" Proposal only: no UR code is registered, nothing is
+implemented, and UR43 still leaves the item-inspection interaction (hover,
+hover then pin, stable inspector) to his selection. Evidence: a 1920x1080
+headless screenshot from the playtest bot (`scripts/playtest/run.mjs --shots`,
+route op 13, inventory row selected). In it, the inventory is the far-left
+column and Item details opens in the right half of the center panel, with the
+whole action list between the row clicked and its details. The V1 shell
+receipt ([UI foundation round](UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md#v1-technical-receipt-2026-10-15))
+described "dense inventory and adjacent item detail", so the current
+placement has drifted from that.
+
+Default proposal: details open beside whatever was selected. For inventory
+picks that means docked at the inventory's edge (the left of the center
+column), not across the action list. UR41 already says related views change
+their appropriate panel rather than one fixed place.
+
+### ACCOUNT FOR NOW
+
+| Code | Idea | Default | Dial | Reason |
+|---|---|---|---|---|
+| ID1 | **The source decides the side.** Inventory picks dock details beside the inventory; trader, crafting and Around you picks keep details beside those lists | Beside the source list | Per-source override | Eye travel from row to details stays short, which matters for a list clicked many times in a row |
+| ID2 | **A popover removes the question for quick looks.** The pending hover then pin recommendation (UR43, not selected) anchors a preview at the row itself; only the pinned or full view needs a docked place | Preview at the row; pinned view docked per ID1 | Hover delay; pin key | Most item looks are glances; a dock is for reading and acting |
+| ID3 | **Comparison needs width.** Equipping wants the equipped item and the candidate side by side | Compare opens wider in the center, even when ID1 docks a single item left | Compare on demand or automatic for gear | The left column is too narrow for two item cards |
+| ID4 | **Know what gets covered.** Docking over the left column hides stats and condition; docking in the center hides the action list | During inventory work, cover stats rather than actions | Which panel yields | Actions are what the player reaches for next; stats are glanced at |
+| ID5 | **Same source, same place.** Details from one source always open in the same spot | Stable per source | | Muscle memory forms only if the spot does not move |
+
+### LATER / DELEGATE
+
+| Code | Idea | Level, effort | Done check |
+|---|---|---|---|
+| ID6 | **Player setting for where details open**, with beside the source as the default | Sonnet, S | Setting persists through save, reload and import; default unchanged for existing layouts |
+| ID7 | **Prove it with screens, not words.** Capture current and docked-left layouts on the same seeded route at 1920x1080 with `--shots` and put them side by side for Weibao | Sonnet, S | Two screenshots of the same op, plus the playtest bot's ui detector passing on both builds |
