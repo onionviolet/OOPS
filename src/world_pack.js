@@ -101,7 +101,7 @@ export function lintWorldPack(pack, options = {}) {
         const path = `$.records[${i}]`;
         if(!object(r)) { add('WA1', path, 'Record is an object.'); continue; }
         allowed(issues, r, ['id', 'kind', 'part', 'status', 'facts', 'locator', 'summary', 'reason', 'rule',
-            'engine', 'tier', 'sealed', 'route', 'secretStatus', 'requires', 'carries', 'generator'], path, 'WA1');
+            'engine', 'tier', 'sealed', 'route', 'secretStatus', 'requires', 'carries', 'generator', 'data'], path, 'WA1');
         if(!text(r.id) || !r.id.startsWith(ns)) add('WA9', path, 'Record ID must sit in the world namespace.');
         else if(records.has(r.id)) add('WA9', path, `Duplicate record ${r.id}.`);
         else records.set(r.id, r);
@@ -135,6 +135,8 @@ export function lintWorldPack(pack, options = {}) {
             // IDs are public: a descriptive sealed ID spoils the secret it names.
             if(text(r.id) && !/\.s\d+$/.test(r.id)) add('WA11', path, 'Sealed record IDs end in an opaque code like .s2.');
         } else if(r.kind === 'secret') add('WA11', path, 'Secrets are sealed by default.');
+        // `data` is the engine definition a loader installs; it never carries a sealed truth (WA11).
+        if(r.data !== undefined && (!object(r.data) || r.sealed === true)) add('WA21', path, 'Record data is a plain object and never sits on a sealed record.');
         if(r.tier !== undefined && !tierOf(r.tier)) add('WA6', path, 'Tier is T1–T5.');
         if(r.summary !== undefined && (!text(r.summary) || r.summary.length > 400)) add('WA2', path, 'Summaries paraphrase in at most 400 characters.');
     }
