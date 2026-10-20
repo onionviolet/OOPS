@@ -103,16 +103,24 @@ model. It owns no state, save slice, tick or UI, and adds nothing to `main.js`.
   canon mix, laws encoded as rules, unknowns and whether the WA6 core floor is
   met.
 
-[`src/world_pack_mol.js`](../src/world_pack_mol.js) is the pilot. It derives a
-pack read-only from the existing Cyoria content. It lints clean and shows two
-real gaps: K2 laws (two of Cyoria's laws are engine facts, the rest are prose
-in briefs and bespoke commands) and K8 daily life (jobs, meals and prices exist
-as commands but are not yet pack records). The lint also caught one real
-overlap: `book.mol.formula_operator` is both a technique source and a power.
+[`src/packs/mol_cyoria.pack.js`](../src/packs/mol_cyoria.pack.js) is the Cyoria
+pack (revision 2, 2026-10-19). Its person, technique, power and item records
+carry the engine definitions in `data`; [`src/world_pack_runtime.js`](../src/world_pack_runtime.js)
+lints and installs it, registers a projection-only `world_packs` domain, and
+`book_world_mol_content.js` reads those definitions from the pack (WAC8, WA17).
+It also holds eight K2 laws that name facts `molFacts` produces (WAC9) and
+thirteen K8 job, meal and price records that name real commands (WAC10). Left
+in code: commands, controllers, conditions, situations, encounters, footprints,
+native people and stock. `world_pack_mol.js` now only returns a copy of the pack.
+Revision 1 was a derived lint pilot that nothing loaded or saved, so its record
+IDs changed with no WA9 impact. Pack identity is not yet written to saves (WA10
+follow-up, needs a slice and a compatibility call).
 
 Tests: [`tests/world_pack.test.js`](../tests/world_pack.test.js).
 
-Status: engine ready, not integrated (AR10). No runtime reads a pack yet.
+Status (2026-10-19, P2): the Cyoria definitions install from the pack at boot; unit evidence and a
+bundle boot check pass, but the Cyoria journey was **not** exercised in a browser, so the conversion is
+implemented-unverified (AR10, WA19). See the [P2 task record](gm/dispatch/p2-pack-loader-2026-10-19/TASK_RECORD.md).
 
 ## More to consider, round 1 (2026-10-17)
 
@@ -148,9 +156,9 @@ Status: engine ready, not integrated (AR10). No runtime reads a pack yet.
 
 | Code | Item | Level, effort | Done check |
 | --- | --- | --- | --- |
-| WAC8 | Cyoria conversion: install people, items and techniques from the pack instead of `book_world_mol_content.js` | Strong coder, one focused session, structural only (WA17) | Same rebuilt journey before and after, save/reload/import identical |
-| WAC9 | Encode Cyoria's remaining K2 laws (5–10) as engine facts or gate modules | Designer plus coder, small | Pilot coverage shows K2 at T2 with laws as rules |
-| WAC10 | Map K8 jobs, meals and prices into pack records | Coder, small | Coverage K8 at floor |
+| WAC8 | Cyoria conversion: install people, items and techniques from the pack instead of `book_world_mol_content.js` | Strong coder, one focused session, structural only (WA17) | Same rebuilt journey before and after, save/reload/import identical · **Done 2026-10-19 (P2): people, items, techniques and powers install from the pack (journey implemented-unverified).** |
+| WAC9 | Encode Cyoria's remaining K2 laws (5–10) as engine facts or gate modules | Designer plus coder, small | Pilot coverage shows K2 at T2 with laws as rules · **Done 2026-10-19 (P2): eight K2 laws as engine-fact records; K2 at T2.** |
+| WAC10 | Map K8 jobs, meals and prices into pack records | Coder, small | Coverage K8 at floor · **Done 2026-10-19 (P2): thirteen K8 records; K8 at floor.** |
 | WAC11 | Second world through the format, contrasting with Cyoria (LOTM pathways or Worm powers) | Coordinator plus readers under AU13 | Pack lints clean; format changes recorded here (WA20) |
 | WAC12 | Ledger to pack scaffolder: turn a deep dive's fact ledger into draft records with status and locators | Coder, medium | A saved ledger produces a pack that lints with only WA4 law gaps |
 | WAC13 | Evidence-checked tiers: tie a declared tier to a recorded journey ID | Coder, small, after WAC8 | Lint flags a T4 claim with no journey |
@@ -203,7 +211,7 @@ Status: engine ready, not integrated (AR10). No runtime reads a pack yet.
 | WAC25 | Serials and retcons: facts gain `supersededBy`; a source update bumps the pack and lists contradicted records | Coder, small | A superseded fact cited by a live record is flagged |
 | WAC26 | Pack diff tool: changed, added and removed records between two revisions, with which ones saves may have frozen | Coder, medium, after a loader | Diff of the pilot against an edited copy lists exactly the edits |
 | WAC27 | Canon contradictions: a `conflicts` list on facts and the reading the pack chose, keeping both sources (unbiased lens) | Designer, small | A record citing one side of a conflict names the chosen reading |
-| WAC28 | Lint every registered pack inside `npm test` once packs have a registry | Coder, small, after WAC8 | Adding a broken pack fails the suite |
+| WAC28 | Lint every registered pack inside `npm test` once packs have a registry | Coder, small, after WAC8 | Adding a broken pack fails the suite · **Done 2026-10-19 (P2): test lints every installed pack.** |
 | WAC29 | Author CLI: `node scripts/lint_world_pack.mjs <pack>` printing coverage and issues by WA code | Coder, small | Running it on the pilot prints the K2 and K8 gaps |
 | WAC30 | Native-script names and aliases for translated sources (Reverend Insanity, LOTM) so readers and packs match terms | Designer plus coder, small | Two translations of one term resolve to one record |
 

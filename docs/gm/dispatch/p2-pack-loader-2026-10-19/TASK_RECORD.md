@@ -56,8 +56,31 @@ Import journey must be byte-identical for the Cyoria slice before and after.
 `npm run build`, `npm test`, `npm run check:arch`, `npm run check:rules`; focused: `node --test
 tests/world_pack.test.js tests/world_pack_runtime.test.js tests/book_world_native_binding.test.js`.
 
-## Evidence (fill as run)
+## Evidence (2026-10-19)
 
-| Check | Input identity | Result |
-|---|---|---|
-| _pending_ | | |
+Inputs: base `d394a229a` (`codex/gameplay-foundations`), code commit `1dc975f89`; before bundle sha `9fc4faeac53c`
+(built from the base tree), after bundle sha `7e0ae905b64c`. Chrome headless, fresh origins (127.0.0.1:18801 before,
+:18802 after), 1920×1080, `?test_hooks=1`. `dist/` and `index.html` were rebuilt locally and left uncommitted
+(recent src commits do carry `dist/bundle.js`; this slice leaves the rebuild to the integrating commit so it does
+not mix other lanes' src into it).
+
+| Check | Result |
+|---|---|
+| Content identity (failure 1) | SHA-256 of people, items, sources, powers equal before and after (`tests/world_pack_runtime.test.js`). Verified |
+| `node --test` focused (world_pack, world_pack_runtime, book_world_native_binding, mol_held_job_facts) | 17/17 pass |
+| `npm test` (via test queue, after code change) | 2263 pass, 0 fail. Verified for this slice |
+| `npm run check:arch` | main.js 10310, display.js 6767, save_files.js 310: growth 0 each; baseline unchanged. Verified |
+| `npm run check:rules` | PASS, 0 warnings (run before the doc edits; rerun below) |
+| WAC28 | `every installed pack lints clean` test iterates the install registry; a broken copy fails to install. Verified. Covers packs whose module a test imports |
+| Browser: bundle boot, after build | No page errors; `simulationTestHooks.project('world_packs')` returns the installed Cyoria pack with fingerprint `book.mol.pack.cyoria_visitor@2#d0a7e7d073bb9680`; before bundle returns null. Verified |
+| Browser: opening-state save, before vs after | Same 64 top-level keys, no `world_packs` key, no Mol keys; the 21 differing values are random seeds, journey ids, timestamps and a one-minute tick race, not pack-related. Reload round trip changes only the same kinds of values |
+| **Browser: Cyoria loop (chart, enroll, enter, jobs, shop, save/reload/Export/Import)** | **Not exercised: implemented-unverified.** The Cyoria section never appeared after meeting the elder and following local people; reaching it needs a longer unlock chain than this session explored (the Worlds route stays disabled and the knowledge chain behind Iona's ledger was not completed). No journey script for Cyoria exists in `scripts/`; one is needed. Add to the acceptance backlog |
+
+## Follow-ups (not done, named)
+
+1. Cyoria browser journey script (chart to aftermath, with save, reload, Export, literal Import), run on before
+   and after bundles. Until it passes, P2 is not accepted and WA19/AR10 are open.
+2. Record `id@revision#fingerprint` in saves (WA10): needs a save slice, migration or a compatibility decision.
+3. Move commands, controllers, conditions, situations and encounters into the pack (they are logic over facts
+   and need a loader that can carry predicates as data; they already are plain JSON).
+4. K8 test reads command ids out of record summaries; give records a `command` reference field if the format keeps K8.

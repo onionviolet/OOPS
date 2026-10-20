@@ -78,9 +78,9 @@ unchanged inputs. [Request](docs/USER_VISION.md#efficient-rule-checks-and-regres
 [WA1–WA21](docs/WORLD_ABSORPTION_RULES.md) describe absorbing a book world as a
 pack of data and rule modules over shared verbs: read once, sort into kit parts,
 encode laws as rules, generate labelled gaps, prove with a played journey.
-`src/world_pack.js` lints packs; the Cyoria pilot pack lints clean and shows K2
-and K8 below floor. Round 2 closed six lint holes (WAC14–WAC19). Engine
-ready, not integrated.
+`src/world_pack.js` lints packs; since P2 (2026-10-19) `src/world_pack_runtime.js`
+installs the Cyoria pack and its people, items, techniques and powers come from it
+(K2 and K8 now at floor). Browser journey not yet exercised: implemented-unverified.
 [Request](docs/USER_VISION.md#world-absorption-rules-2026-10-17).
 
 **Plan/rule reconciliation (2026-10-18):** at Weibao's request, the
