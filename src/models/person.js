@@ -1,5 +1,6 @@
 "use strict";
 import {mitigateCombatDamage} from "../combat_math.js";
+import {effectiveDamageTaken} from "../gear_dimensions.js";
 
 import InventoryComponent, { inventories } from "../components/inventory_component.js";
 import { playable_races, racial_height_modifiers } from "../races.js";
@@ -476,7 +477,10 @@ class Person{
         const levelable = this.getLevelableComponent();
         let fainted;
     
-        const damage_taken = mitigateCombatDamage(damage_values,levelable.stats.full.defense+defense_modifier);
+        const damage_taken = mitigateCombatDamage(damage_values,levelable.stats.full.defense+defense_modifier,{
+            floorShare: levelable.stats.full.min_damage_share,
+            taken: effectiveDamageTaken(levelable.stats.full.damage_taken),
+        });
         levelable.stats.full.health -= damage_taken;
     
         if(levelable.stats.full.health <= 0 && can_faint) {

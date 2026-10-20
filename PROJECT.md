@@ -12,6 +12,8 @@ checks all seven public queue owners and records corrected technology/procgen,
 Foundation and paused-world routes, with explicit review coverage.
 Dated entries below retain their history.
 
+Equipment direction, 2026-10-20: gear may carry many native stat dimensions through one sourced modifier pipeline, with affixes and sockets as data (Weibao's later instruction on the 2026-10-15 Apotheosis inspection-only line). Build order and first slice are open. [Owner](docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md).
+
 ## OOPS identity, 2026-10-16
 
 **OOPS · Optimistic Progression Simulator** is the accepted name of this fork. OOPS is deliberately stylized; the full name has no “Overly”. [Naming direction](docs/USER_VISION.md#oops-project-identity-2026-10-16) owns the decision. Upstream remains Miktaew's Yet Another Idle RPG; historical YAIRPG wording and source-world credits are retained. The branding leaves gameplay direction and save identifiers intact. The GitHub repository is now [onionviolet/OOPS](https://github.com/onionviolet/OOPS), renamed with Weibao’s explicit authorization on 2026-10-16. [Branding implementation and checks](docs/reviews/OOPS_BRANDING_2026-10-16.md).

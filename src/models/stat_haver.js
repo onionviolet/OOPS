@@ -39,6 +39,9 @@ class StatHaver {
             cold_tolerance: data.cold_tolerance ?? 0,
             unarmed_power: data.unarmed_power || 1, //base damage for unarmed, as it has no weapon dmg to scale with
             armor_penetration: data.armor_penetration ?? 0,
+            damage_taken: data.damage_taken ?? 1, //multiplier on hits after defense, gear below 1 reduces it (gear_dimensions.js)
+            min_damage_share: data.min_damage_share ?? 0.05, //share of a hit that always gets through, gear multiplies it down
+            crit_resistance: data.crit_resistance ?? 0, //fraction of attackers' crit chance removed
         };
 
         this.stats = {

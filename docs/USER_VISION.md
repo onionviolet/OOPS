@@ -5336,3 +5336,15 @@ deep world workflow: a private catalog census for both worlds (HP 256 rows, LOTM
 read versus searched evidence), the census record shape, and a codes list DWF41 to DWF55. No runtime code
 changed; the HP ring waits for the Seer slice's browser checkpoint. Owner:
 [deep world workflow, round 2](DEEP_WORLD_WORKFLOW_2026-10-19.md#round-2-lotm-and-harry-potter-data-first-2026-10-19).
+
+### Equipment stat dimensions, affixes and sockets, 2026-10-20
+
+Weibao, 2026-10-20, after the Arcanum Discord armor notes: instead of choosing one
+armor model, gear can carry different stat dimensions at once and "just implement
+them all", like the Minecraft Apotheosis mod, with more to consider. This is his
+later instruction on the 2026-10-15 entry above, which allowed Apotheosis only as an
+inspection reference and did not authorize gem or affix mechanics; that wording stays
+as history. Direction now: many native stat dimensions on gear through one sourced
+modifier pipeline, with affixes and sockets as data. Build order, the first playable
+slice and any save decisions are still open. Owner:
+[equipment stat dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md).

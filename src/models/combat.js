@@ -1,4 +1,5 @@
 import {damageRecord,supportedHarvest} from '../harvest.js';
+import {effectiveCritChance} from '../gear_dimensions.js';
 import {engineTimeout,clearEngineTimeout,engineNow} from '../simulation_clock.js';
 import {combatHitText} from '../ui_polish.js';
 import {combatLogEvent} from '../combat_log.js';
@@ -595,7 +596,7 @@ class Combat {
         game_stats.total_hits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
         game_stats.total_hits_done += Number(!this.is_special_combat && !!fighter.tags.main_character);
 
-        if(fighter.getFullStats().crit_rate > random("crit")){
+        if(effectiveCritChance(fighter.getFullStats().crit_rate, target.getFullStats().crit_resistance) > random("crit")){
             damages_dealt = damages_dealt.map(val => val*fighter.getFullStats().crit_multiplier);
             critted = true;
             game_stats.total_crits_taken += Number(!this.is_special_combat && !!target.tags.main_character);

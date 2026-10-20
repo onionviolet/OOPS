@@ -1,3 +1,5 @@
+import {BASE_MIN_DAMAGE_SHARE} from "./gear_dimensions.js";
+
 export function get_hit_chance(attack_points, evasion_points) {
     let result = attack_points/(attack_points+evasion_points);
 
@@ -26,9 +28,11 @@ export function get_hit_chance(attack_points, evasion_points) {
 
 
 // Used by native Combat and saved NPC battles. The caller owns draws and effects.
-export function mitigateCombatDamage(values, defense = 0) {
-    return values.map(val => val < 1 ? Math.max(Math.ceil(10*val)/10,0)
-        : Math.ceil(10*Math.max(val-defense,val*.05,1))/10).reduce((sum,val) => sum+val,0);
+// Order: flat defense and the chip floor first, then the percent layer (ESD1). The
+// defaults reproduce the original math exactly.
+export function mitigateCombatDamage(values, defense = 0, {floorShare = BASE_MIN_DAMAGE_SHARE, taken = 1} = {}) {
+    return values.map(val => val < 1 ? Math.max(Math.ceil(10*val*taken)/10,0)
+        : Math.ceil(10*Math.max(val-defense,val*floorShare,1)*taken)/10).reduce((sum,val) => sum+val,0);
 }
 
 // Every caller passes a draw from a saved stream; an unseeded call fails loudly

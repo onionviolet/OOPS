@@ -8,6 +8,7 @@ import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
 import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats} from "./alloy_equipment.js";
+import {isReductionStat, scaleReduction} from "./gear_dimensions.js";
 import {preserveWorldCompletionNativeItem} from './world_completion_native.js';
 "use strict";
 
@@ -601,7 +602,10 @@ class Equippable extends Item {
                             }
                         }
                     } else {
-                        if(stat === "stamina_efficiency") {
+                        if(isReductionStat(stat)) {
+                            //below 1 is the good direction, so rarity strengthens the reduction instead of undoing it
+                            stats[stat].multiplier = scaleReduction(stats[stat].multiplier, rarity_multipliers[this.getRarity(quality)]);
+                        } else if(stat === "stamina_efficiency") {
                             //special treatment because this one just really should never be a buff
                             if(rarity_multipliers[this.getRarity(quality)] >= 2) {
                                 //penalty is removed
@@ -628,6 +632,9 @@ class Equippable extends Item {
                         if(stat === "crit_rate") {
                             //special treatment for crit rate as otherwise it would be too good
                             stats[stat].flat = Math.round(100 * stats[stat].flat * rarity_multipliers[this.getRarity(quality)]**0.5)/100;
+                        } else if(stat === "crit_resistance") {
+                            //small per-part values, so keep three decimals
+                            stats[stat].flat = Math.round(1000 * stats[stat].flat * rarity_multipliers[this.getRarity(quality)])/1000;
                         } else {
                             stats[stat].flat = Math.round(100 * stats[stat].flat * rarity_multipliers[this.getRarity(quality)])/100;
                         }
@@ -663,14 +670,18 @@ class Equippable extends Item {
                     }
                 } else {
                     if(used_stats[stat].multiplier) {
-                        stats[stat].multiplier = Math.round(100 * (used_stats[stat].multiplier * rarity_multipliers[this.getRarity(quality)]**0.33))/100;
+                        stats[stat].multiplier = isReductionStat(stat)
+                            ? scaleReduction(used_stats[stat].multiplier, rarity_multipliers[this.getRarity(quality)])
+                            : Math.round(100 * (used_stats[stat].multiplier * rarity_multipliers[this.getRarity(quality)]**0.33))/100;
                     }
                 }
 
                 if(used_stats[stat].flat){
                     stats[stat].flat = 0;
                     if(used_stats[stat].flat > 0) {
-                        stats[stat].flat = Math.round(100 * used_stats[stat].flat * rarity_multipliers[this.getRarity(quality)])/100;
+                        stats[stat].flat = stat === "crit_resistance"
+                            ? Math.round(1000 * used_stats[stat].flat * rarity_multipliers[this.getRarity(quality)])/1000
+                            : Math.round(100 * used_stats[stat].flat * rarity_multipliers[this.getRarity(quality)])/100;
                     } else {
                         stats[stat].flat = Math.round(100 * used_stats[stat].flat)/100;
                     }

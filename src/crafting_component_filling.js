@@ -1,5 +1,6 @@
 "use strict";
 import { Armor, ArmorComponent, item_templates, ShieldComponent, WeaponComponent } from "./items.js";
+import { paddingDimensions, shellDimensions } from "./gear_dimensions.js";
 import { capitalize_first_letter } from "./display.js";
 
 /*
@@ -833,6 +834,8 @@ const crafting_component_manager = {
                             add_properties(component_stats, {cold_tolerance: {flat: cold_tolerance_bonus}});
                         }
 
+                        add_properties(component_stats, paddingDimensions({tier: material.tier, warmth: material.warmth, partCount: material_count}));
+
                         item = new Armor({
                             name: item_id,
                             description,
@@ -879,6 +882,8 @@ const crafting_component_manager = {
                         if(stamina_efficiency_multiplier !== 1) {
                             add_properties(component_stats, {stamina_efficiency: {multiplier: stamina_efficiency_multiplier}});
                         }
+
+                        add_properties(component_stats, shellDimensions({tier: material.tier, strength: material.strength, partCount: material_count}));
 
                         item = new ArmorComponent({
                             name: item_id,

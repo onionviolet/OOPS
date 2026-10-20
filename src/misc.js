@@ -34,6 +34,9 @@ const stat_names = {  //can be removed once everything is moved to translations
     "cold_tolerance": "cold resistance",
     "unarmed_power": "unarmed base dmg",
     "armor_penetration": "armor pen",
+    "damage_taken": "damage taken",
+    "min_damage_share": "min hit share",
+    "crit_resistance": "crit resist",
     "defense": "defense",
 };
 

@@ -34,7 +34,7 @@ import { book_stats, item_templates, Weapon, Armor, Shield, rarity_multipliers, 
 import { favourite_locations, location_types, locations } from "./data/locations.js";
 import { get_location_type_penalty } from "./models/location.js";
 import { enemy_killcount, enemy_templates } from "./enemies.js";
-import { playerAttributeDefinitions } from "./player_attribute_definitions.js";
+import { playerAttributeDefinitions, GEAR_DIMENSION_NOTES, PERCENT_ATTRIBUTES, DAMAGE_TAKEN_FLOOR } from "./player_attribute_definitions.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
@@ -4410,7 +4410,7 @@ export function readPlayerAttributeInspector() {
     const number = value => value == null ? 'Unavailable' : String(Number(value.toFixed(value !== 0 && Math.abs(value) < .01 ? 6 : 3)));
     const format = (value, unit, key) => {
         if(value == null) return 'Unavailable';
-        if(key === 'crit_rate' || key === 'block_chance') return `${number(value * 100)}%`;
+        if(PERCENT_ATTRIBUTES.has(key)) return `${number(value * 100)}%`;
         if(unit === '×') return `×${number(value)}`;
         return `${number(value)} ${unit}`;
     };
@@ -4446,6 +4446,7 @@ export function readPlayerAttributeInspector() {
         unarmed_power:'Base power used in the unarmed strength-scaling formula. This is not an additive bonus to every equipped weapon.',
         attack_count:'Number of damage hits rolled per native attack, not the number of enemies selected by a stance.',
         crit_rate:'Native chance that a combat attack is critical.',
+        ...GEAR_DIMENSION_NOTES,
         crit_multiplier:'Damage multiplier applied when the native critical roll succeeds.',
         cold_tolerance:'Temperature difference added to the cold threshold comparison. This is a Celsius difference, not an absolute temperature.',
     };
@@ -4472,6 +4473,10 @@ export function readPlayerAttributeInspector() {
                 ? (id === 'attack_power' ? character.getAttackPower() : character.getAttackSpeed())
                 : full[id] * exhaustion);
             if(exhaustion !== 1) sources.push({label:'Current stamina condition',flat:0,multiplier:exhaustion});
+        }
+        if(id === 'damage_taken' && value != null && value < DAMAGE_TAKEN_FLOOR) {
+            sources.push({label:'Default floor',flat:0,multiplier:DAMAGE_TAKEN_FLOOR / value});
+            value = DAMAGE_TAKEN_FLOOR;
         }
         if(id === 'block_strength') {
             if(hasShield) {
