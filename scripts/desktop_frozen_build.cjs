@@ -131,9 +131,11 @@ const bundleRoots = log => [...new Set(log.served.filter(s => new URL(s.url).pat
         await clearLog(app);
         await page.reload();
         await play(page);
+        // The reload may take the bundle from cache; a no-store fetch reaches the host.
+        assert.ok(!(await bundleText(page)).includes(MARKER));
         log = await serveLog(app);
         assert.deepEqual(bundleRoots(log), [first.root], 'reload still serves the old snapshot');
-        assert.ok(!(await bundleText(page)).includes(MARKER));
+        assert.deepEqual([...new Set(log.served.map(e => e.root))], [first.root], 'every reload request came from the old snapshot');
         assert.ok(!(await page.evaluate(() => document.querySelector('script[src*="bundle.js"]').src)).includes('frozen-test'));
         await notice.waitFor({ state: 'visible', timeout: 10000 });
         assert.equal(readPointer(userData, 'current.json'), first.id);
@@ -145,9 +147,10 @@ const bundleRoots = log => [...new Set(log.served.filter(s => new URL(s.url).pat
             page.locator('#yairpg_host_build_reload').click(),
         ]);
         await play(page);
+        assert.ok((await bundleText(page)).includes(MARKER));
         log = await serveLog(app);
         assert.deepEqual(bundleRoots(log), [snapshotRoot(userData, second.id)], 'adopted snapshot serves the new bundle');
-        assert.ok((await bundleText(page)).includes(MARKER));
+        assert.deepEqual([...new Set(log.served.map(e => e.root))], [snapshotRoot(userData, second.id)]);
         assert.ok((await page.evaluate(() => document.querySelector('script[src*="bundle.js"]').src)).includes('frozen-test'));
         assert.equal(readPointer(userData, 'current.json'), second.id);
         assert.equal(await notice.count(), 0, 'no notice once adopted');

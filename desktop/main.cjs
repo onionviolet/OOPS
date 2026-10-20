@@ -9,6 +9,7 @@ const { pathToFileURL } = require('node:url');
 const { app, BrowserWindow, protocol, net, shell, screen, session, ipcMain } = require('electron');
 const { APP_SCHEME, APP_ORIGIN, resolveAppPath } = require('./app_path.cjs');
 const { promptPage, PROMPT_RESULT } = require('./prompt_page.cjs');
+const { RECOVER_PATH, recoverPage } = require('./recover_page.cjs');
 const { makeSnapshot, readPointer, writePointer, snapshotRoot, buildsDir } = require('./snapshot.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -98,6 +99,9 @@ ipcMain.on('yairpg:host-info', event => { event.returnValue = { desktop: true, b
 const backgroundDialogs = background && process.env.YAIRPG_DIALOGS === '1';
 ipcMain.on('yairpg:prompt', (event, message, initial) => {
     if (background && !backgroundDialogs) { event.returnValue = null; return; }
+    // The sync prompt blocks the page, so the hang guard waits it out.
+    const senderId = event.sender.id;
+    promptOpen.add(senderId);
     const parent = BrowserWindow.fromWebContents(event.sender) || undefined;
     const win = new BrowserWindow({
         parent, modal: !!parent, width: 520, height: 230, resizable: false, minimizable: false,
@@ -108,6 +112,8 @@ ipcMain.on('yairpg:prompt', (event, message, initial) => {
     const answer = value => {
         if (answered) return;
         answered = true;
+        promptOpen.delete(senderId);
+        heartbeats.set(senderId, Date.now());
         event.returnValue = value;
         if (!win.isDestroyed()) win.close();
     };
@@ -119,6 +125,51 @@ ipcMain.on('yairpg:prompt', (event, message, initial) => {
     win.on('closed', () => answer(null));
     win.loadURL('data:text/html;charset=utf-8,' + encodeURIComponent(promptPage(message, initial)));
 });
+
+// Hang and crash guard (EL46). The game page keeps its own save in
+// localStorage; the host never writes it (AR3). A crash or a hang shows a
+// recovery page on the same origin that reads the last save and reloads from
+// it. A hang is a missed heartbeat: main pings, the preload answers, and a
+// busy page answers neither. YAIRPG_HANG_MS sets how long to wait (default
+// 30 s). The guard never shows, raises or focuses a window (EL32).
+const hangMs = Number(process.env.YAIRPG_HANG_MS) || 30000;
+const heartbeats = new Map();
+const promptOpen = new Set();
+ipcMain.on('yairpg:pong', event => heartbeats.set(event.sender.id, Date.now()));
+
+function guardRenderer(win) {
+    const contents = win.webContents;
+    const id = contents.id;
+    let stoppedForHang = false;
+    const beat = () => heartbeats.set(id, Date.now());
+    beat();
+    contents.on('did-start-loading', beat);
+    contents.on('dom-ready', beat);
+    contents.on('unresponsive', () => console.warn('[yairpg] renderer unresponsive'));
+    contents.on('render-process-gone', (_event, details) => {
+        if (details.reason === 'clean-exit') return;
+        const reason = stoppedForHang ? 'hung' : details.reason === 'oom' ? 'oom' : 'crashed';
+        stoppedForHang = false;
+        console.error(`[yairpg] renderer gone: ${details.reason} (exit ${details.exitCode}), showing recovery`);
+        setImmediate(() => {
+            if (win.isDestroyed() || contents.isDestroyed()) return;
+            beat();
+            contents.loadURL(`${APP_ORIGIN}${RECOVER_PATH}?reason=${encodeURIComponent(reason)}`);
+        });
+    });
+    const timer = setInterval(() => {
+        if (contents.isDestroyed() || contents.isCrashed() || stoppedForHang) return;
+        const quiet = Date.now() - (heartbeats.get(id) || Date.now());
+        if (quiet > hangMs && !promptOpen.has(id) && !contents.isDevToolsOpened()) {
+            console.error(`[yairpg] no heartbeat for ${quiet} ms, stopping the renderer`);
+            stoppedForHang = true;
+            contents.forcefullyCrashRenderer();
+            return;
+        }
+        contents.send('yairpg:ping');
+    }, Math.min(1000, Math.max(100, hangMs / 4)));
+    win.on('closed', () => { clearInterval(timer); heartbeats.delete(id); });
+}
 
 function createWindow() {
     const { workAreaSize } = screen.getPrimaryDisplay();
@@ -133,6 +184,7 @@ function createWindow() {
         webPreferences,
     });
     if (background && !hidden) win.once('ready-to-show', () => win.showInactive());
+    guardRenderer(win);
     win.loadURL(APP_ORIGIN + '/index.html');
     return win;
 }
@@ -184,6 +236,10 @@ if (primary) app.whenReady().then(() => {
     else ipcMain.handle('yairpg:adopt-build', () => false);
 
     protocol.handle(APP_SCHEME, request => {
+        const url = new URL(request.url);
+        if (url.pathname === RECOVER_PATH) {
+            return new Response(recoverPage(url.searchParams.get('reason') || 'crashed'), { headers: { 'content-type': 'text/html; charset=utf-8' } });
+        }
         const root = serving.root;
         const file = resolveAppPath(root, request.url);
         if (!file || !fs.existsSync(file) || !fs.statSync(file).isFile()) {

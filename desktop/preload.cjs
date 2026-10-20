@@ -12,6 +12,9 @@ contextBridge.exposeInMainWorld('yairpgHost', {
     prompt: (message, initial) => ipcRenderer.sendSync('yairpg:prompt', String(message), String(initial)),
 });
 
+// Hang guard heartbeat (EL46): a page stuck in a busy loop cannot answer.
+ipcRenderer.on('yairpg:ping', () => ipcRenderer.send('yairpg:pong'));
+
 // Electron has no window.prompt. Background runs also cancel alert and confirm
 // so a native dialog never appears over the player's screen.
 contextBridge.executeInMainWorld({
