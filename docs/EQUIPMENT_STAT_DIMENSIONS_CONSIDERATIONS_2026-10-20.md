@@ -141,6 +141,57 @@ Checks (evidence is for the inputs named):
 Open for Weibao: build order for L3 (affix data and seeded rolls) and whether the party and
 village duel models should read the new dimensions too.
 
+## L3 slice record, 2026-10-20 (implemented; crafting commit unit-tested only)
+
+Target viewport laptop width (1440x900); mobile deferred. Visible outcome: armor carries affixes
+and Attributes shows one source row per affix. Applied codes: ESD3, ESD4, ESD10, ESD12-ESD14;
+GR1-GR17 (random injected, rolls at craft commit only); AR1-AR16 (main.js 10310 baseline to
+10304, display.js 6737 vs 6767); CBR (battle models untouched); AD5, AD36, AD38.
+
+What changed. `src/gear_affixes.js` (new, pure): affix records (stable ID, gear class, stat,
+operation flat or percent, base range, weight, exclusive set, tags, optional mechanism cause),
+8 native armor affixes (reinforced, padded, hardened, cushioned, nimble, lightweight, vital,
+insulated) and three exclusive sets (mitigation, mobility, climate). Defaults and dials with
+reasons are in the file header: `AFFIX_COUNT_BY_RARITY` (none below uncommon, up to 5 at mythical),
+`RARITY_RANGE_SCALE` (ranges widen up the existing `getItemRarity` ladder, so no second ladder),
+`WORLD_AFFIX_DIALS` (random rolls on or off per world; only the base world is listed, main passes
+no world yet). Source order: mechanism first (padded follows the internal part tier, hardened the
+external part tier; not capped by rarity), then random rolls fill up to the rarity count. Reduction
+affixes store the reduction fraction, so a higher roll or rarity always means less damage taken.
+Pipeline: new `affixes` category in `stats.flat/multiplier` (stat_haver.js), refilled on every
+`addAllEquipmentBonus`, so totals include affixes and Attributes shows "Affix Padded (item, from
+its parts)" rows through `affixSourceRows` (re-exported by `player_attribute_definitions.js`). Affixes do not
+pass through the item rarity block in `calculateStats` (the ranges already encode rarity).
+
+Persistence (ESD10). Armor with components saves `affixes: [{id, v, s}]` in its inventory key
+and on the equipped item; `normalizeAffixes` makes it canonical (sorted by id, 3 decimals, one
+per exclusive set, clamped to the widest range, unknown IDs dropped without throwing), so a key
+built after load equals the saved key and different rolls never share a stack. Totals derive on
+load. Rolls resolve in `affixedCraftEntries` at the crafting commit (one `gameRandom(STREAMS.craft)`
+draw sequence per crafted piece); previews, `getResult`, loading and tooltips never roll.
+Old-save compatibility: deferred by the 2026-10-17 decision; saves without `affixes` load as
+plain armor, no migration was written. Scope: armor made from components only (clothing and
+weapons, shields, trinkets carry none yet).
+
+Checks (evidence is for the inputs named):
+- Focused: `node --test tests/gear_affixes.test.js tests/gear_dimensions.test.js` 13/13 (affixes:
+  determinism, rarity count and dial, exclusive sets over 200 seeds, range monotonic in rarity,
+  mechanism, canonical normalize, craft grouping, and a real-armor key round trip with pipeline
+  totals, cleared category on re-equip).
+- Full: `npm run build && npm test` 2288 pass, 0 fail; `npm run check:arch` and `npm run check:rules` pass.
+- Browser (1440x900 emulation, scratch copy of the rebuilt bundle with dev mode on, fresh origin):
+  injected a save with an affixed and a plain copy of the same armor: they load as two stacks
+  (this caught the inventory load path dropping affixes, fixed in main.js), equipping the
+  affixed one shows Damage taken "Equipment x0.935" plus "Affix Padded (Steel plate armor, from
+  its parts) x0.955"; saving writes the affixes on the equipped item; reload restores the same rows.
+- Not exercised: the crafting commit in a browser (unit-tested through `affixedCraftEntries`
+  only), save export and file import (same load code as the localStorage reload, not clicked),
+  item tooltip and inventory names do not list affixes yet (ESD11 gap: only Attributes shows them),
+  drops and trader stock (no affixes rolled), battle models (ignore the dimensions by design).
+
+One remaining acceptance gate: craft a chestplate in the Village at a rare-or-better quality in
+the browser, confirm the affixes appear in Attributes, and save, reload and import.
+
 ## Sources
 
 [Apotheosis author page](https://www.curseforge.com/minecraft/mc-mods/apotheosis),

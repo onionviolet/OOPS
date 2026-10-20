@@ -232,6 +232,7 @@ import {prepareRivalRematch,commitFieldRenewal,RIVAL_PURSUIT} from "./frontier_c
 "use strict";
 
 import { current_game_time, is_night, Game_Time } from "./game_time.js";
+import {affixedCraftEntries} from "./gear_affixes.js";
 import { Amulet, Weapon, WeaponComponent, Book, BookData, OtherItem, Armor, item_templates, restoreSystemsWorkshopAvailability, item_log, getItem, book_stats, rarity_multipliers, getArmorSlot, getItemFromKey, getItemRarity} from "./items.js";
 import { loot_sold_count, market_region_mapping, recover_item_prices, trickle_market_saturations, set_loot_sold_count, capped_at } from "./market_saturation.js";
 import { locations, favourite_locations, location_types } from "./data/locations.js";
@@ -5728,15 +5729,9 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
             }
 
             //grab key, modify it with proper quality value, add (together with count) to list for adding to inv
-            const result_key = result.getInventoryKey();
-            const parsed_key = JSON.parse(result_key);
-            const crafted_qualities = Object.keys(all_crafted).map(x => Number(x));
-            const to_add = [];
-            for(let i = 0; i < crafted_qualities.length; i++ ) {
-                const new_key = JSON.stringify({...parsed_key, quality: crafted_qualities[i]});
-                to_add.push({item_key: new_key, count: all_crafted[crafted_qualities[i]]});
-            }
-            character.addToInventory(to_add);
+            //armor affixes roll here, once per crafted piece, at commit time (gear_affixes.js)
+            character.addToInventory(affixedCraftEntries({parsedKey: JSON.parse(result.getInventoryKey()), crafted: all_crafted, rarityOf: getItemRarity,
+                partsOf: c => ({internal: item_templates[c.internal], external: item_templates[c.external]}), random: () => gameRandom(STREAMS.craft, 'gear.affix')}));
 
             //remove used mats
             for (let i in comp) {
@@ -7116,7 +7111,7 @@ function load(save_data) {
                             console.warn(`Skipped item: external armor component "${components.external}" couldn't be found!`);
                             any_warnings = true;
                         } else {
-                            const item = getItem({components, quality:quality*quality_mult, equip_slot, item_type: "EQUIPPABLE"});
+                            const item = getItem({components, quality:quality*quality_mult, equip_slot, item_type: "EQUIPPABLE", affixes: save_data.character.equipment[key].affixes});
                             character._equipItem(item, true);
                         }
                     } else {
@@ -7345,7 +7340,7 @@ function load(save_data) {
                             if(!item.tags.equippable||item.getInventoryKey()!==key||saved_inventory[key].count!==1)throw Error('Invalid identified equipment copy.');
                             item_list.push({item_key:key,count:1});return;
                         }
-                        let {id, components, quality} = parsedKey;
+                        let {id, components, quality, affixes} = parsedKey;
                         if(id && !quality) { 
                             //id is just a key of item_templates
                             //if it's present, item is "simple" (no components)
@@ -7409,7 +7404,7 @@ function load(save_data) {
                                     if(!equip_slot) {
                                         return;
                                     }
-                                    const item = getItem({components, quality, equip_slot:  getArmorSlot(internal), item_type: "EQUIPPABLE"});
+                                    const item = getItem({components, quality, equip_slot:  getArmorSlot(internal), item_type: "EQUIPPABLE", affixes});
                                     item_list.push({item_key: item.getInventoryKey(), count: saved_inventory[key].count, quality: quality});
                                 }
                             } else {

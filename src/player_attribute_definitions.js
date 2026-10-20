@@ -4,6 +4,7 @@
 // (gear_dimensions.js, docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md).
 import {DAMAGE_TAKEN_FLOOR, CRIT_RESISTANCE_CAP} from "./gear_dimensions.js";
 export {DAMAGE_TAKEN_FLOOR};
+export {affixSourceRows} from "./gear_affixes.js"; // per-affix source rows for the inspector
 
 export const playerAttributeDefinitions = [
     ['strength','Strength','primary','points'],

@@ -34,7 +34,7 @@ import { book_stats, item_templates, Weapon, Armor, Shield, rarity_multipliers, 
 import { favourite_locations, location_types, locations } from "./data/locations.js";
 import { get_location_type_penalty } from "./models/location.js";
 import { enemy_killcount, enemy_templates } from "./enemies.js";
-import { playerAttributeDefinitions, GEAR_DIMENSION_NOTES, PERCENT_ATTRIBUTES, DAMAGE_TAKEN_FLOOR } from "./player_attribute_definitions.js";
+import { playerAttributeDefinitions, GEAR_DIMENSION_NOTES, PERCENT_ATTRIBUTES, DAMAGE_TAKEN_FLOOR, affixSourceRows } from "./player_attribute_definitions.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
@@ -4463,7 +4463,7 @@ export function readPlayerAttributeInspector() {
         let baseValue = mutable ? null : finite(base[id]);
         let preMultiplier = mutable ? null : finite(stats.total_flat?.[id]);
         let totalMultiplier = mutable ? null : finite(stats.total_multiplier?.[id]);
-        let sources = mutable ? [] : sourcesFor(stats.flat, stats.multiplier, id, !specialFormula);
+        let sources = mutable ? [] : [...sourcesFor(stats.flat, stats.multiplier, id, !specialFormula), ...affixSourceRows(character.getEquipment(), id)];
         let description = formulaNotes[id] || 'Native current-player attribute. Additive source categories combine before multiplicative factors.';
         let status = 'active';
         let note = '';

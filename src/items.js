@@ -9,6 +9,7 @@ import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
 import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats} from "./alloy_equipment.js";
 import {isReductionStat, scaleReduction} from "./gear_dimensions.js";
+import {normalizeAffixes} from "./gear_affixes.js";
 import {preserveWorldCompletionNativeItem} from './world_completion_native.js';
 "use strict";
 
@@ -254,6 +255,9 @@ class Item {
         }
         if(this.quality) {
             key.quality = this.quality;
+        }
+        if(this.affixes?.length) {
+            key.affixes = this.affixes;
         }
         return JSON.stringify(key);
     }
@@ -841,6 +845,7 @@ class Armor extends Equippable {
 
             this.components.internal = item_data.components.internal; //only the name
             this.components.external = item_data.components.external; //only the name
+            this.affixes = normalizeAffixes(item_data.affixes); //saved rolls and mechanism results, totals derive from them
 
             if(item_templates[this.components.internal].component_type === "helmet interior") {
                 this.equip_slot = "head";
@@ -1232,7 +1237,7 @@ function getItem(item_data) {
 function getItemFromKey(key) {return durability.bindFromKey(key,nativeGetItemFromKey(key));}
 function nativeGetItemFromKey(key) {
     const crafted=resolveNativeCraftingItem(key,{Material,UsableItem});if(crafted)return crafted;
-    let {id, components, quality, completeness} = JSON.parse(key);
+    let {id, components, quality, completeness, affixes} = JSON.parse(key);
     if(GRADED_IDS.includes(id) && quality != null) {
         validateGradedKey(key);
         const item=getItem({...item_templates[id],quality});item.inventory_key=key;item.completeness=completeness;
@@ -1281,7 +1286,7 @@ function nativeGetItemFromKey(key) {
                 if(!equip_slot) {
                     return;
                 }
-                return getItem({components, quality, equip_slot, item_type: "EQUIPPABLE"});
+                return getItem({components, quality, equip_slot, item_type: "EQUIPPABLE", affixes});
             }
         } else {
             throw new Error(`Inventory key "${key}" seems to refer to non-existing item type!`);

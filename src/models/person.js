@@ -1,6 +1,7 @@
 "use strict";
 import {mitigateCombatDamage} from "../combat_math.js";
 import {effectiveDamageTaken} from "../gear_dimensions.js";
+import {addAffixesToStats} from "../gear_affixes.js";
 
 import InventoryComponent, { inventories } from "../components/inventory_component.js";
 import { playable_races, racial_height_modifiers } from "../races.js";
@@ -283,6 +284,8 @@ class Person{
         levelable.stats.flat.equipment = {};
         levelable.stats.multiplier.equipment = {};
         levelable.bonus_skill_levels.flat.equipment = {};
+        levelable.stats.flat.affixes = {};
+        levelable.stats.multiplier.affixes = {};
 
         //iterate over slots
         Object.keys(equipment).forEach(slot => {
@@ -293,6 +296,7 @@ class Person{
             if(equipment[slot].getDefense) {
                 levelable.stats.flat.equipment.defense = (levelable.stats.flat.equipment.defense || 0) + equipment[slot].getDefense();
             }
+            addAffixesToStats(levelable.stats, equipment[slot].affixes);
             const stats = equipment[slot].getStats();
             const bonuses = equipment[slot].getBonusSkillLevels();
             //iterate over stats in slotted item
