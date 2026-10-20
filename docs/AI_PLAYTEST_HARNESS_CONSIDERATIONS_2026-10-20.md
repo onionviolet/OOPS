@@ -223,7 +223,7 @@ game minutes per wall second (60 minutes in about 0.7 s); the Node full-game
 runner runs about 75 (`bench.mjs --minutes 600 fresh`). The 33-op scripted
 route plays 105 game minutes in about 17 s, and most of that is the fixed
 300 ms settle after each op, not game time. Local models take about 6 s per
-decision (PT64).
+decision with a JSON reason (PT64), about 0.4 s for a bare choice (PT99).
 
 ### ACT NOW (done)
 
@@ -243,6 +243,7 @@ decision (PT64).
 | PT89 | **Parallel isolation.** Each run gets its own origin storage: the game holds a Web Locks save lock (`yairpg-save:...`, main.js:1224) and `ownsSave`, so two pages on one origin fight over the save. Separate Playwright contexts (already the case), or a separate `YAIRPG_USER_DATA` per hidden Electron run. Each run has a distinct seed. Bot saves are never imported into a player profile | Standing | | A shared origin would turn a parallel run into a save-ownership bug that is not real |
 | PT90 | **Hang guard in hidden Electron.** The host stops a page that misses heartbeats for `YAIRPG_HANG_MS` (default 30 s). Sliced `fastForward` yields and is safe; a large synchronous `advanceTicks` would be killed | Bot runs in hidden Electron use `fastForward` or raise `YAIRPG_HANG_MS`; headless Chrome has no such guard | Hang timeout per run | Otherwise a long stepped batch looks like a crash |
 | PT91 | **Machine budget for parallel runs.** Node runner pool of about cores minus 2 (16 here); at most two browsers (PT82); at most one 27B to 31B model loaded beside browsers on 64 GB; model fleets paused during perf gates | Standing | Pool size | Several sessions share the Mac, and two big models plus browsers would swap |
+| PT99 | **Answer shape is a speed dial too.** Measured by the desktop-host session on a quiet Mac, warm, thinking off ([local AI round 2](research/LOCAL_AI_MODEL_CONSIDERATIONS_2026-10-14.md#round-2-2026-10-20-speed-for-game-decisions), F2-F5, O3-O8): `qwen3.8:27b` answers a bare choice number in about 0.4 s, `{"choice":n}` in 1.3 to 2.0 s and JSON with a reason in 3.5 to 5.4 s; a repeated prompt prefix cut prompt time from 1.25 s to 0.16 s. Qwen picked a different option when asked for a reason | Bare number with a stable prompt prefix for routine picks; reason requested only at sampled decisions or when writing a note | How often to ask for a reason | About ten times more decisions per hour than PT64's JSON probe. Asking for a reason can change the choice itself, so a run records which answer shape it used |
 | PT92 | **Run KPIs.** Decisions per hour and game days per hour per tier, from the PT85 stamp | Reported per run | | Shows which tier a question should use |
 
 ### LATER / DELEGATE
