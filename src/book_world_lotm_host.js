@@ -9,6 +9,14 @@ import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES} from './b
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
 const SLEEP='book.lotm.sleep',MOVES={'lotm.move.workroom':L.workroom,'lotm.move.lodging':L.lodging};
 export const LOTM_MOVE_LABELS={'lotm.move.workroom':'Walk to the supervised workroom','lotm.move.lodging':'Walk to your probationer lodging'};
+// Meters are views of the energy record, which already owns reserve, strain and the limit
+// (energy_resources.js). Nothing new is saved. At the strain limit the engine refuses the next use.
+export function lotmMeters(e){
+ if(!e)return [];
+ return [
+  {id:'lotm.spirituality',label:'Spirituality',kind:'pool',value:e.reserve,max:e.policy.capacity,note:'Spent by practice and observation. Sleeping at your lodging restores it.'},
+  {id:'lotm.strain',label:'Strain',kind:'accumulator',value:e.strain,max:e.policy.strainLimit,note:'Each use adds strain. At the limit you cannot use the method until you sleep and cool off.'}];
+}
 export function lotmSimulationContexts(state,contexts){
  if(!state.lotm)return contexts;
  return Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,lotmContext(state,{...c,actorId:id})]));
@@ -69,7 +77,7 @@ export function createLotmHost(ports){
   const jobs=s.simulation.jobs.filter(j=>lotmCommands.some(d=>d.id===j.commandId)).map(j=>({id:j.id,label:registry.simulation.commands.get(j.commandId).label,due:j.due,left:Math.max(0,j.due-s.clock),cancellable:j.cancellation==='forfeit'}));
   const holds=Object.fromEntries(['dose',...LOTM_SAMPLES].map(n=>[n,f[`lotm.holds.${n}`]||0]));
   const records=Object.entries(know).filter(([k])=>k.startsWith('book.lotm.')).map(([k,r])=>({id:k,text:r.value,stage:r.stage,at:r.at})).sort((a,b)=>(b.at??0)-(a.at??0));
-  return {enrolled:true,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,holds,actions,moves,jobs,records};
+  return {enrolled:true,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),holds,actions,moves,jobs,records};
  }
  return {enroll,act,cancel,move,wake,tick,view,startable};
 }

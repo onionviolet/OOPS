@@ -6,6 +6,7 @@
     --ui-radius: 0; --ui-frame: 3px solid #020309; --ui-shadow: none;
     --ui-navy: #000533; --ui-teal: #00416b; --ui-text: #bcfefe;
     --ui-hairline: #647dd4; --ui-accent: #ffcf6a;
+    --ui-meter-pool: #8198d8; --ui-meter-accumulator: #b5651d; --ui-meter-track: #6b8f71; --ui-meter-warn: #e0b040; --ui-meter-limit: #e05a4a; --ui-meter-track-bg: #182342;
     --ui-fill: linear-gradient(90deg, var(--ui-navy), var(--ui-teal));
     --ui-log-fill: linear-gradient(90deg, #3c325a, #181031);
     --ui-button-fill: color-mix(in srgb, var(--workspace-surface, var(--ui-navy)) 78%, var(--ui-teal));

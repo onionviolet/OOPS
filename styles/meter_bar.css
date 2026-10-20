@@ -1,0 +1,10 @@
+/* World meters (src/meter_bar.js). Color is paired with the label text and a state outline, never alone. */
+.meter-bar { position: relative; height: 1.4em; min-height: 20px; margin: 2px 0; background: var(--ui-meter-track-bg); overflow: hidden; }
+.meter-bar-fill { height: 100%; background: var(--meter-fill, var(--ui-meter-pool)); transition: width .2s; }
+.meter-bar[data-kind="accumulator"] { --meter-fill: var(--ui-meter-accumulator); }
+.meter-bar[data-kind="track"] { --meter-fill: var(--ui-meter-track); }
+.meter-bar-text { position: absolute; inset: 0; display: flex; align-items: center; padding: 0 .5em; color: var(--ui-text); text-shadow: 0 0 3px var(--ui-navy); font-size: var(--ui-type-body, inherit); white-space: nowrap; }
+.meter-bar[data-state="high"] { outline: 2px dashed var(--ui-meter-warn); outline-offset: -2px; }
+.meter-bar[data-state="full"] { outline: 2px solid var(--ui-meter-limit); outline-offset: -2px; }
+.meter-bar[data-state="full"] .meter-bar-text::after { content: " · limit"; }
+@media (prefers-reduced-motion: reduce) { .meter-bar-fill { transition: none; } }
