@@ -22,6 +22,8 @@ Using the "export" feature every now and then is highly recommended, even on mai
 ##### Running
 To run the project locally, you will need a server - even a most basic static server will be enough, as it's only about CORS policy. Npm module 'live-server' works perfectly for this purpose https://www.npmjs.com/package/live-server
 
+Desktop app (Electron): `npm install`, then `npm run desktop` builds and opens the game in its own window. It keeps its own save; move a browser save over with Export, then Import in the app.
+
 ##### Modifying/Modding and making standalone projects using this as an engine
 Making actual changes in code will require either running the build script (`npm run build`) after installing esbuild, or simply changing script source in `index.html` from `dist/bundle.js` to `src/main.js`
 

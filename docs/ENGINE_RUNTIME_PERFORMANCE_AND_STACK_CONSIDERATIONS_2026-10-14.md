@@ -1057,9 +1057,9 @@ a text and panel game.
 
 | Code | Point | Disposition |
 | --- | --- | --- |
-| DS1 | **A shell is not needed yet.** Weibao is the only player and plays in Chrome. A shell fixes four things: save durability and size (localStorage, 4 MiB guard), background-tab throttling, a real save folder, and Steam. Default: no shell until one of those bites. Dial: the save nears the guard, or Weibao wants a Dock/Steam app | ACCOUNT FOR NOW |
+| DS1 | **Superseded 2026-10-20 by AD39 (Electron plus web); kept as history.** **A shell is not needed yet.** Weibao is the only player and plays in Chrome. A shell fixes four things: save durability and size (localStorage, 4 MiB guard), background-tab throttling, a real save folder, and Steam. Default: no shell until one of those bites. Dial: the save nears the guard, or Weibao wants a Dock/Steam app | ACCOUNT FOR NOW |
 | DS2 | **Cheap middle step: installable PWA plus better storage.** A standalone window and Dock icon with no shell, IndexedDB or OPFS for saves (DA owner) and `navigator.storage.persist()` against eviction. Covers most of "feels like an app" for little work. It does not lift throttling or give Steam | LATER: small spike, Sonnet-level, done when the installed window plays, saves, reloads and imports |
-| DS3 | **Electron versus Tauri for this repo.** ER5 leaned Tauri for size. New angle: every test, perf gate and browser proof here runs on Chrome. Electron (or NW.js) ships that same Chromium, so existing evidence carries over. Tauri on macOS runs WebKit (Safari's engine), so CSS, fonts, perf budgets and input need requalifying, and on Linux and Steam Deck it runs WebKitGTK with known blank-window and slow-WebGL reports ([Tauri Linux graphics](https://v2.tauri.app/develop/debug/linux-graphics/)). The roughly 150 MB Electron size does not matter for one player. Revised default (proposal): Electron for a Steam or cross-OS build; Tauri for a small personal Mac app if requalifying is acceptable | ACCOUNT FOR NOW |
+| DS3 | **Accepted 2026-10-20 as AD39 (Electron); the Tauri branch is history.** **Electron versus Tauri for this repo.** ER5 leaned Tauri for size. New angle: every test, perf gate and browser proof here runs on Chrome. Electron (or NW.js) ships that same Chromium, so existing evidence carries over. Tauri on macOS runs WebKit (Safari's engine), so CSS, fonts, perf budgets and input need requalifying, and on Linux and Steam Deck it runs WebKitGTK with known blank-window and slow-WebGL reports ([Tauri Linux graphics](https://v2.tauri.app/develop/debug/linux-graphics/)). The roughly 150 MB Electron size does not matter for one player. Revised default (proposal): Electron for a Steam or cross-OS build; Tauri for a small personal Mac app if requalifying is acceptable | ACCOUNT FOR NOW |
 | DS4 | **Steam is a native-module job.** [steamworks.js](https://www.npmjs.com/package/steamworks.js) is the usual Electron binding (achievements, cloud, workshop, overlay helper); it runs in the main process and its renderer setup weakens isolation. Overlay reliability in current Electron is reported as mixed, so test it. Tauri needs a Rust Steamworks binding (not verified here) | LATER |
 | DS5 | **Saves must be able to live as files.** A shell's app origin starts empty (ER5-O7), and Steam Cloud syncs files, not localStorage. Keep the save envelope byte-identical across hosts so Export/Import is the bridge and a file backend is a drop-in (AR6, DA owner) | ACCOUNT FOR NOW |
 | DS6 | **Idle time is a game rule, not a shell feature.** Turning off background throttling lets a minimized window keep ticking but costs battery. Closed-app progress is still computed on launch by the offline policy (ER4, AR3 one clock) | ACCOUNT FOR NOW |
@@ -1072,3 +1072,99 @@ a text and panel game.
 Suggested order (proposal): DS2 PWA plus storage spike when save size or
 eviction becomes real; DS7 seam alongside it; an Electron shell (DS3) when
 Weibao wants a Steam or Dock build; DS4 and DS8 only for public release.
+
+## Electron host, 2026-10-20 (EL)
+
+Weibao, 2026-10-20: "We should transition to electron + web like the others,
+and consider the leeway that gives us and better options for the future and
+more". Accepted as AD39 ([record](USER_VISION.md#electron-plus-web-2026-10-20)).
+DS1 and the Tauri side of DS3 are superseded and kept above as history.
+
+### First slice (delivered 2026-10-20)
+
+Implementation defaults (proposal, Claude): `src/` never imports Electron, the
+browser build stays the default test target, and host-only features go through
+one adapter with a browser fallback (EL2; AR3, AR4).
+
+- `desktop/main.cjs` hosts the unchanged web build in Electron 44.9.2 (pinned
+  devDependency). `npm run desktop` builds, then opens the app.
+- Fixed origin `app://yairpg`, served by a custom privileged scheme
+  (`desktop/app_path.cjs`, query strings dropped, paths outside the repo
+  refused). localStorage is keyed by this origin, so it never changes.
+- Context isolation and sandbox on, no Node in the page, no preload yet (DS9).
+  External links open in the system browser; help and changelog stay in app.
+- Agent switches, off by default: `YAIRPG_HIDDEN=1` (no window or Dock icon),
+  `YAIRPG_CDP_PORT` (DevTools Protocol on 127.0.0.1), `YAIRPG_USER_DATA`.
+- One app instance per userData (verified: a second launch on the same save
+  exits with one window kept; a separate userData runs alongside); background throttling off so the clock runs
+  while minimized (`YAIRPG_THROTTLE=1` turns it back on, DS6).
+- Window opens at up to 1920x1080, minimum 1366x768.
+- **Save compatibility decision:** the app is a new origin and starts empty.
+  The Chrome save is untouched; move it with Export in Chrome, Import in the app.
+- **Evidence:** `node scripts/desktop_smoke.cjs` on a rebuilt bundle and a
+  fresh userData: play, Save, reload, full quit and relaunch, Export to a file,
+  literal Import, no page errors. PASS on this Mac (HEAD f5e99069e plus working
+  tree, `bundle.js?version=v0.6-e36d9fdb35aa`). `tests/desktop_app_path.test.js`
+  covers the path guard. Not exercised: real Export through the native save
+  dialog (the smoke sets a download folder), minimized ticking rate, Windows and
+  Linux, packaging. Chrome perf budgets do not transfer; Electron's Chromium
+  differs from system Chrome.
+
+### Leeway this gives us
+
+Proposals unless marked. Disposition per row.
+
+| Code | Leeway | Disposition |
+| --- | --- | --- |
+| EL1 | **Real save files.** A preload bridge can write saves to a folder with write-temp-then-rename, rolling backups, no 4 MiB localStorage ceiling and saves Weibao can see and copy. Same envelope as Export, so browser and app stay interchangeable (AR6, DS5). Steam Cloud then syncs that folder | LATER: next slice, Sonnet or Opus, done when save, quit, relaunch and corrupt-file recovery pass in `desktop_smoke` |
+| EL2 | **Host adapter seam (DS7) made concrete.** One leaf `src/host.js` with a browser implementation; the desktop preload exposes a narrow `window.yairpgHost` through `contextBridge`. Features feature-detect it; nothing imports Electron | ACCOUNT FOR NOW: EL1 lands through it |
+| EL3 | **Windows and monitors.** Pop a panel (map, ledger, log) into its own window on a second screen; this game is panel-heavy, so this is the biggest UI gain. Needs one state owner and projections per window (AR3, AR8) | LATER: after EL2 |
+| EL4 | **Desktop presence.** Tray or Dock badge with the current job, OS notifications when long work finishes or a choice waits, app menu with real shortcuts | LATER, small each |
+| EL5 | **Time while away.** Minimized play keeps ticking now. Closed-app time stays the offline rule (DS6, ER4). Power use is the dial | ACCOUNT FOR NOW: measure before relying on it |
+| EL6 | **Fully offline.** Material Icons still load from Google Fonts; bundle the font locally so the app works with no network | LATER: tiny, done when icons render with networking off |
+| EL7 | **Heavier simulation off the page.** Electron adds `utilityProcess` and Node worker threads beside the Web Workers the browser already has. Only after the pure core exists (RT2, TS4) and a profile asks for it | LATER |
+| EL8 | **Content and mods from a folder.** Private packs, authored worlds and future mods read from a user folder, with file watching for live reload while authoring. Treat files as untrusted (DS9) | LATER |
+| EL9 | **Fixed Chromium.** Every machine runs the same engine, so perf numbers and layout are reproducible. Each Electron upgrade reruns `desktop_smoke` and a perf pass; Electron ships a major about every 8 weeks, so pick upgrade points instead of chasing each one | ACCOUNT FOR NOW |
+| EL10 | **Distribution when wanted.** Packaged `.app` (electron-builder or Forge) for the Dock, then signing, auto-update and Steam through steamworks.js (DS4, DS8). Same Chromium on Steam Deck avoids the Tauri WebKitGTK risk | LATER: packaged personal `.app` first |
+| EL11 | **Dev tools.** DevTools in the app menu, local crash reports (`crashReporter`), a save inspector and the perf overlay (PF3) as app windows | LATER |
+| EL12 | **Test hooks in the app.** `?test_hooks=1` stepping is localhost-only, so the desktop smoke runs at natural pace. An env-gated hook for the app would make desktop checks deterministic | LATER: only if desktop checks grow |
+| EL13 | **Costs to keep paying.** App size in the hundreds of MB, Electron security updates, and two hosts to keep green. The browser stays the default test target, so most work needs no desktop check; host changes do | ACCOUNT FOR NOW |
+| EL14 | **Mobile is not covered by Electron.** A later phone build would use Capacitor or similar over the same web build and the EL2 seam (UI priority: deferred) | LATER |
+
+Suggested next slice (proposal): EL2 seam plus EL1 file saves, then EL6 and a
+packaged `.app` (EL10) so the game opens from the Dock.
+
+### Agent access and background work (EL15-EL26), 2026-10-20
+
+Weibao, same day: "consider options with the electron client that makes
+everything else easier? MCP and then direct view? Or even better protocols?
+also will it still be able to do edits and stuff in the background without
+affecting my front page? More to consider?"
+
+**Answer on background work:** yes, with two conditions. Agent and test runs
+use their own `YAIRPG_USER_DATA`, so they never touch his save, and the
+single-instance lock is per userData, so they run beside his window
+(verified). `YAIRPG_HIDDEN=1` keeps them off screen and out of the Dock
+(verified: the full desktop smoke passes hidden). The open gap is EL18: his
+app serves the live repo, so an agent's `npm run build` changes what his
+window loads on its next reload.
+
+Layers, lowest first. Each can sit on the one below.
+
+| Code | Option | Disposition |
+| --- | --- | --- |
+| EL15 | **CDP attach (built in).** `YAIRPG_CDP_PORT=9333` opens Chrome DevTools Protocol on 127.0.0.1. Existing tools then drive the real app with no new code: Playwright `connectOverCDP` (verified on a hidden instance), [Playwright MCP](https://www.mdskills.ai/mcp-servers/playwright-mcp) with `--cdp-endpoint`, or [chrome-devtools-mcp](https://github.com/ctrlshiftbryan/chrome-devtools-mcp) with `--browser-url`. Reaches the page, not Electron's main process. Any local process can use an open port, so it stays off on the player's instance | DONE as a switch; ACCOUNT FOR NOW: never on his own instance |
+| EL16 | **Game MCP server (better protocol for agents).** The main process serves MCP on localhost (or a stdio bridge) with game-level tools instead of clicks: read the projection (AR8), quote and run a command (AR7), save, export, step time, screenshot. Agents then talk in game terms, and the tools are the same seams the UI uses. Projections are observer-safe, so sealed truths stay sealed; a debug-truth tool would need its own explicit flag. Needs EL2 plus a small page-side bridge. Bind 127.0.0.1, check Origin, require a token, off by default. An embeddable package exists ([electron-mcp](https://glama.ai/mcp/servers/agent-labs-dev/electron-mcp)) but drives UI over CDP; the game tools would be ours | LATER: next agent-tooling slice, Opus, done when an agent plays the elder greeting through MCP tools on a hidden instance and the save round-trips |
+| EL17 | **Direct view without focus.** `webContents.capturePage()` in the main process (or CDP screenshots) gives agents a picture of a hidden window; offscreen rendering is the dial for many parallel instances. The player can also watch an agent instance by launching it visible (`YAIRPG_SHOW=1`) | Hidden switch DONE; capture tool LATER with EL16 |
+| EL18 | **Freeze the player's build.** Serve his instance from a snapshot (a packaged `.app` under EL10, or a copied build folder per version) instead of the live repo. Agents then build and test freely; his app offers "new build ready, save and reload" instead of changing under him. Without it, avoid reloading while agents rebuild | LATER: highest value of this round, Sonnet, done when a rebuild during play leaves his window and a reload on the old build unchanged |
+| EL19 | **Live agent instance as a sandbox.** A long-running hidden instance with its own save that agents keep warm (CDP or EL16), so checks skip the launch cost and several agents can share one fixture origin | LATER |
+| EL20 | **Hand a save to an agent.** "Debug my situation" copies his current save into an agent instance through Export/Import (never his userData), so an agent can reproduce a bug from his real state. It is his private save, so this happens only when he asks (AGENTS safety) | LATER |
+| EL21 | **Agent changes reaching his game.** With EL18, a finished, gate-passing lane produces a new build; his app shows what changed (changelog lines) and reloads on his yes. Ties to the merge-before-dispatch practice | LATER |
+| EL22 | **Better than MCP for in-process work.** Inside the app, plain IPC (`contextBridge` plus `ipcMain.handle`) is the fastest path and needs no network. MCP is for outside agents; CDP is for UI-level checks. Use each where it fits instead of choosing one | ACCOUNT FOR NOW |
+| EL23 | **Determinism for agent runs.** Agent instances can seed time and RNG as the localhost test hooks do (EL12), so two agents reproduce the same run | LATER with EL12 |
+| EL24 | **Ports and collisions.** Each agent instance takes its own CDP port and userData; record them in the task record like Codex PIDs, and stop instances by PID, never by name | ACCOUNT FOR NOW |
+| EL25 | **Cost to his machine.** Hidden instances still use CPU and memory, and background throttling is off by default. Agent runs may set `YAIRPG_THROTTLE=1` when they only need state, not timing | ACCOUNT FOR NOW |
+| EL26 | **Security floor.** CDP and MCP give full control of an instance. Localhost only, off by default, token for MCP, and never on his play instance unless he turns it on | ACCOUNT FOR NOW |
+
+Suggested order (proposal): EL18 frozen player build first (it answers "without
+affecting my front page" fully), then EL16 game MCP tools, then EL1 file saves.

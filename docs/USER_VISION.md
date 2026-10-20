@@ -5361,3 +5361,14 @@ PWA plus storage step first, Electron preferred over Tauri for a Steam build
 because the repo's tests and perf gate run on Chromium. No shell, install or
 runtime change selected. Owner:
 [desktop shell round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#desktop-shell-round-2026-10-20-ds).
+
+### Electron plus web, 2026-10-20
+
+Weibao, 2026-10-20, after the desktop shell round: "We should transition to
+electron + web like the others, and consider the leeway that gives us and better
+options for the future and more". This is his later instruction on DS1 (no shell
+yet) and on the ER5-D2 Tauri lean, which stay as history. Direction now: one web
+codebase that runs in the browser and inside an Electron desktop host. How the
+host is built is proposed in the owner. Owner:
+[Electron host round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el).
+

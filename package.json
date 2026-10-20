@@ -2,6 +2,7 @@
   "name": "oops-progression-simulator",
   "private": true,
   "type": "module",
+  "main": "desktop/main.cjs",
   "scripts": {
     "build": "node build.js",
     "serve": "python3 -m http.server 8123 --bind 127.0.0.1",
@@ -11,12 +12,14 @@
     "check:arch": "node scripts/check_architecture.mjs",
     "check:rules": "node scripts/check_rules_index.mjs",
     "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
-    "build:preview": "node scripts/build_ui_preview.mjs"
+    "build:preview": "node scripts/build_ui_preview.mjs",
+    "desktop": "npm run build && electron ."
   },
   "engines": {
     "node": ">=22.13.0"
   },
   "devDependencies": {
+    "electron": "44.9.2",
     "esbuild": "0.25.10"
   },
   "dependencies": {

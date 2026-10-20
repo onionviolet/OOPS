@@ -683,6 +683,13 @@ build/browser/save acceptance is claimed.
 
 ## Accepted decisions
 
+- **Electron plus web (2026-10-20, Weibao):** "We should transition to electron + web like the
+  others". One web codebase runs in the browser and in an Electron desktop host. Supersedes DS1
+  and the Tauri lean. Implementation defaults (host-free `src/`, browser as test target, one
+  host adapter) are proposals in the owner. AD39. Owner:
+  [Electron host round](docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el).
+  [Record](docs/USER_VISION.md#electron-plus-web-2026-10-20).
+- **AR1 net-zero registration lines (2026-10-19, Weibao):** approved DRC1, "zero-growth stays
 - **AR1 net-zero registration lines (2026-10-19, Weibao):** approved DRC1, "zero-growth stays
   the check, a feature line must be paid for by moving a line out, and a reset with a named
   reason is allowed when that needs an unrelated refactor". Owner: AR1 in

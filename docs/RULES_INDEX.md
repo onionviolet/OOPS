@@ -36,7 +36,7 @@ open here too.
 | Set | Codes | Status | Covers | Owner |
 |---|---|---|---|---|
 | Foundational rulebook | Rulebook 1–12 | Accepted 2026-10-10 | Multiverse-wide principles: worlds set their own rules, carriers, means, bodies, time, outliers | [RULES_FROM_SCRATCH](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) |
-| Accepted direction rules | AD1–AD38 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process | [Below](#accepted-direction-rules-ad) |
+| Accepted direction rules | AD1–AD39 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process | [Below](#accepted-direction-rules-ad) |
 | UI rules | UR1–UR58 | Standing 2026-10-15 | All player-facing UI | [UI_RULES](UI_RULES.md) |
 | Architecture rules | AR1–AR16 | Standing 2026-10-16; AR1 net-zero wording 2026-10-19 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
 | Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
@@ -84,6 +84,7 @@ line they restate.
 | If the task touches | Apply | Then read |
 |---|---|---|
 | Any runtime code | AR1–AR16; AR14 for lane briefs, AR16 before calling it done | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md); AR3/AR7/AR8 applications cover reaction, interruption and disclosure boundaries |
+| Desktop host, Electron shell, packaging, Steam | AD39, AR3, AR4, AR6 | [Electron host round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el); `desktop/` owns the host, `src/` stays host-free |
 | Any player-facing UI | UR1–UR58, AD34; mockup workflow if layout is unsettled | [UI_RULES](UI_RULES.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md) |
 | Making or crafting of any kind | MR1–MR36, AD9, AD38 | [CRAFTING_ENGINE](CRAFTING_ENGINE.md); MR1/MR5/MR29 also govern interrupted stages |
 | Sites, ruins, caves, maps, exploration, restoration | SR1–SR24, AD3, AD33 | [Site palette](gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md), [ruins](gm/dispatch/procgen-2026-10-13/p11/DUNGEON_CONTENT.md) |
@@ -200,6 +201,7 @@ unless another owner is linked.
 | Code | Rule | Source |
 |---|---|---|
 | AD38 | **Things work by how they work.** If a method, item or plan reasonably works by the mechanisms in play, it works, whatever its label, category or origin; nothing needs a permission list to happen. Costs, means and the world's actual mechanisms decide "reasonably". | [Things work by how they work](USER_VISION.md#things-work-by-how-they-work-2026-10-17) |
+| AD39 | **Electron plus web.** The game moves to Electron plus web, like other shipped web games: one web codebase in the browser and in an Electron desktop host. Implementation defaults are proposals in the EL round. | [Request](USER_VISION.md#electron-plus-web-2026-10-20); [EL round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el) |
 
 ## Efficient rule verification (AD36)
 
