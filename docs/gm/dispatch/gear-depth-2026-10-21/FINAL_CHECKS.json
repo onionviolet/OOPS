@@ -1,0 +1,66 @@
+{
+  "parent": "83bbba0ff56852a06bd4d58db2caf529a17ae2ba",
+  "tests": {
+    "command": "npm test",
+    "pass": 2440,
+    "fail": 0
+  },
+  "architecture": "PASS",
+  "rules": "PASS,0 warnings",
+  "rule_behavior": 36,
+  "browser": {
+    "workshop": {
+      "passed": 11,
+      "receipt": "final-gear/receipt.json"
+    },
+    "lineage": {
+      "passed": 6,
+      "receipt": "final-lineage/receipt.json"
+    },
+    "acquisition": {
+      "passed": 6,
+      "receipt": "final-acquisition/browser.json"
+    }
+  },
+  "bundle_sha256": "5b392baf523e3a98f900ed2821eb57b5e2666865c3ad160b804024a2e3096daa",
+  "sourcemap_project_matches": 690,
+  "source_sha256": {
+    "index.html": "76acac578c93bbeaa787863f73668b478f5c009634966874596e1c78104bf679",
+    "scripts/playtest/gear-acquisition.mjs": "a77b16858ae117afac46f1c39a0dda2f83b178b238e55e10ad2dec4190e58b6a",
+    "scripts/playtest/gear-depth.mjs": "512f453aaafc8122388e428a19496c16d336d331dbea1c7447e19f099ca88984",
+    "scripts/playtest/material-lineage.mjs": "088952c9616e0b014b0234c1455f2d1009cd17210e6278121f6815b04957928f",
+    "src/absorb_e2/durability.js": "3147fc5a4fc47630430ea31a07526691ce1e642f3943206ec7b043ef1025482a",
+    "src/components/trader_component.js": "5123af4599564e143a548071ace4f9e373884116f188a969207a255e0c43470b",
+    "src/crafting_component_filling.js": "3fa3ce6e0ea0ba07faf92947e1ab6c862ac90ad6eb08941b4f4f4c85b51e166a",
+    "src/data/inventory_templates.js": "c35e73878f12fd744e312cbbf6d4f015c1dbb5b597c16b0c427528fb05499937",
+    "src/data/npcs.js": "eabfa161e74a3714161fec6d652e7697a3ac256e38b3fa1f568d3981499365db",
+    "src/display.js": "73566e315051da2e92839991f8dab23aceccbc4a53cc031efe9296165b2acef3",
+    "src/enemies.js": "576f7fa6496ea003954619a2ed092e5e6b7d1b057695fa3e2de537c44a91c98c",
+    "src/gear_acquisition.js": "9010da665c74a69d85fdb695444a1fa1b9d2154165b6778c7dcf3df6694f9411",
+    "src/gear_item_facts.js": "cd79acdc2575ef51f6a3a228f847f10a95675be26f714ea485f8d653a0bd025b",
+    "src/gear_native_content.js": "1d04b8e481cdcd6b0368b6a98a0ed685e1550c8280696a7a834e68a692f7185e",
+    "src/gear_work.js": "d0f389d9604ab9da398b2a5a9e733cabd0b5cb71d854f0b7aa0752c2ba5a4d78",
+    "src/gear_workshop_domain.js": "535491a5cb8c2873928b95fcdfc1deed0005e27f37b633486cde19b28d64717f",
+    "src/gear_workshop_panel.js": "4d8d34aa9566fcfa85862e22bd00acf399f266fa2bd88c926ef693bdbfe037d8",
+    "src/harvest.js": "39c6aba7b8113fa8c8d01889a5fc41495b38d047698a4f2e631c7c67e72b274f",
+    "src/harvest_ui.js": "62d6c6a0a44350b7ee78552e8dc9a2f57fec308f419e21531a44828bdc948444",
+    "src/items.js": "b4a60669fdfe629282026aff8ee8318236eb5680b34e3f81bb3719a9e9606a1f",
+    "src/layout_spec.js": "aa1a8bf1c5d58cb9a21feaf511d232f221d5c437223a7bfdd9be3ca892d7e7df",
+    "src/loadouts.js": "c0171e7d287949e835fb56921be637085565698411bee17374a64eb8c96c37f0",
+    "src/main.js": "95d953dcea6b69d6cdcdb1cb02c587ed2501a46b19f818a47898dac000668dcd",
+    "src/material_lineage.js": "5546a5e1c3d9685c64534baca46c213077a8192aeec2c6397576b6196489c8f9",
+    "src/material_lineage_domain.js": "b4465091cffff46bdbdf030fd9184886ff976e27f01ea9433b01eedec06097d8",
+    "src/models/combat.js": "1e99c4466655e731dc103c027555ee215b988ef22a16d75bddb1d98f1a840135",
+    "src/models/trade_item.js": "c927ed77b4514d873e3e71eb5ad34ecc72b0c97eed6b3a6c56495452566436fe",
+    "src/native_tool_domains.js": "e744833235c9a72c973dd2671a2631e9b53dddf687ab0a9eb534f21acc12b992",
+    "src/player_attribute_definitions.js": "172afa0c5e38703850bba3309b1859f80e81f952c935bde23ad3d6375199bc42",
+    "src/processed_materials.js": "c99deeacda3bd280a6658b928686c0909ce4ed7fbc44287eb120b0edcd7e3b08",
+    "src/tools_domain.js": "27001c94794c3f2a67c9283eaa7f97bcf0af7334159bb488fcbbfa197bf0326a",
+    "tests/gear_acquisition.test.js": "0451324ee2e1a987e3bc405431d94f5c41e1027e219f5637b1be7b8e144189d4",
+    "tests/gear_workshop.test.js": "43c6307c46fe02ea215aa9f3cbca3b96abd4af67e21e39b9576f5541c8bfc4f8",
+    "tests/material_lineage.test.js": "2e20fe31cb35c0b127e0084a4f854693fd41658b7d0483d5a3d9e26224ccaadf",
+    "tests/p23-market-life.test.js": "1c026c6942cb35e66d9286a157579ac3b7bcadedb265eae39ccd71cfa752260e",
+    "tests/processed_materials.test.js": "b9e2e92edbd237d85686acb445b5e966d232360acabd8b9179291d79911f6313"
+  },
+  "source_changes": "No runtime edits after final checks; source metadata alignment to83bb does not change checked inputs."
+}

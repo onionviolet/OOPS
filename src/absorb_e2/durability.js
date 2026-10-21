@@ -36,8 +36,25 @@ export function createDurability(initial) {
                 state.nextId = Math.max(state.nextId, Number(identity(key).slice(3)) + 1);
             }
             if (Number.isSafeInteger(value?.nextId) && value.nextId > 0) state.nextId = Math.max(state.nextId, value.nextId);
+            if(value?.uses != null) {
+                if(!record(value.uses)) throw Error('Invalid equipment uses.');
+                state.uses = {};
+                for(const [key, uses] of Object.entries(value.uses)) {
+                    if(!identity(key) || !Number.isSafeInteger(uses) || uses < 0) throw Error('Invalid equipment uses.');
+                    state.uses[key] = uses;
+                }
+            }
             return api;
         },
+        uses: itemOrKey => state.uses?.[typeof itemOrKey === 'string' ? itemOrKey : itemOrKey.getInventoryKey()] ?? 0,
+        rekey(from, to) {
+            if(!identity(from) || identity(from) !== identity(to)) throw Error('Equipment rewrite must preserve its instance.');
+            if(from === to) return;
+            if(own(state.condition, to)) throw Error('Equipment rewrite collides with another condition record.');
+            state.condition[to] = api.condition(from); delete state.condition[from];
+            if(state.uses && own(state.uses, from)) {state.uses[to] = state.uses[from]; delete state.uses[from];}
+        },
+        forget(key) {delete state.condition[key]; if(state.uses) delete state.uses[key];},
         serialize: () => structuredClone(state),
         get enabled() { return state.enabled; },
         setEnabled(enabled) { state.enabled = enabled === true; },
@@ -109,11 +126,13 @@ export function createDurability(initial) {
             }
         },
         wearItem(item, hits = 1) {
-            if (!state.enabled || !item?.tags?.equippable || !identity(item.getInventoryKey())) return false;
+            if (!item?.tags?.equippable || !identity(item.getInventoryKey())) return false;
             if (!Number.isSafeInteger(hits) || hits < 0) throw new Error('Invalid equipment use count.');
             const key = item.getInventoryKey();
+            if (!state.enabled) {if(item.gearwork && hits > 0) (state.uses ||= {})[key] = (state.uses[key] || 0) + hits; return false;}
             const before = api.condition(key);
             state.condition[key] = Math.max(0, Math.round((before - hits * DURABILITY_PROPOSAL.wearPerHit * (item.getWearScale?.() ?? 1)) * 10000) / 10000);
+            if(state.condition[key] < before) (state.uses ||= {})[key] = (state.uses[key] || 0) + hits;
             return state.condition[key] !== before;
         },
         // IP2: one call per completed work cycle with the cycle's tool verb.
@@ -123,6 +142,7 @@ export function createDurability(initial) {
             if (!Number.isSafeInteger(uses) || uses < 0) throw new Error('Invalid tool use count.');
             const key = item.getInventoryKey(), before = api.condition(key);
             state.condition[key] = Math.max(0, Math.round((before - uses * per) * 10000) / 10000);
+            if(state.condition[key] < before) (state.uses ||= {})[key] = (state.uses[key] || 0) + uses;
             return state.condition[key] !== before;
         },
         broken(item) { return state.enabled && !!item && identity(item.getInventoryKey()) !== null && api.condition(item) <= 0; },
@@ -134,8 +154,8 @@ export function createDurability(initial) {
         // Root calls only on an actual landed hit. No additional combat loop.
         landedHit(fighter, target) {
             let changed = false;
-            if (fighter?.tags?.main_character) changed = api.wearItem(fighter.getEquipment().weapon) || changed;
-            if (target?.tags?.main_character) for (const slot of ['off-hand', 'head', 'torso', 'arms', 'legs', 'feet', 'cape']) {
+            if (fighter?.getEquipment) changed = api.wearItem(fighter.getEquipment().weapon) || changed;
+            if (target?.getEquipment) for (const slot of ['off-hand', 'head', 'torso', 'arms', 'legs', 'feet', 'cape']) {
                 const item = target.getEquipment()[slot];
                 if (item && (typeof item.getDefense === 'function' || typeof item.getShieldStrength === 'function')) changed = api.wearItem(item) || changed;
             }

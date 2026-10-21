@@ -1,0 +1,73 @@
+{
+  "checks": [
+    "Actual native merchant purchase acquires the ordinary gemstone setting; no gem was injected into carried stock",
+    "Actual workshop controls consume a native component, assign identity and show sourced handling plus mass cost",
+    "Native stock-funded heat/shape/oil-quench/temper retains identity and physical tradeoffs",
+    "Actual rigid mount construction and typed gem installation consume owned inputs and add a native equipment contribution",
+    "Actual old-craftsman commission uses his native capability and transfers the quoted service fee into his own native stock",
+    "Native material repair restores fixture-damaged condition, and actual component replacement preserves the same item identity",
+    "Actual Save/reload/Export/literal Import preserves worked item key, history, material roles and condition",
+    "Native equip and equipped save reload retain the exact worked key",
+    "Native paid armor reforge commits stored affixes, preview draws nothing, inventory tooltip shows resolved facts, and save/reload/export/import retains the result",
+    "Actual native dismantle consumes a spare assembly, returns both parts at degraded quality and removes the spent choice so repeat cannot duplicate returns",
+    "Actual 14px and 21px typography at 1920×1080 and 1536×864 retains document width"
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "fixture": "Native midgame fixture stock; acquisition and natural pacing remain separate acceptance gates."
+}

@@ -167,6 +167,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'continuation': surface(UNSET),
         'equipment-comparison': surface(UNSET),
         'tools': surface(UNSET),
+        'gear-workshop': surface('ST2', {home: 'Native forging station; carried equipment', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'equipment', 'place', 'time'], representations: routed}),
         'lotm': surface('ST2', {home: 'Tingen supervised workroom'}),
         'customization': surface('ST7', {representations: routed}),
         'customization-effects': surface('ST7'),

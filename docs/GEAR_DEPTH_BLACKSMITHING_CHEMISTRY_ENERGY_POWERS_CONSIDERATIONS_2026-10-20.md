@@ -341,3 +341,7 @@ world's rules defining what makes gear good. Applied codes: GDP38, ESD1, ESD3, E
   proposed response is ESD16 in the equipment dimensions owner: separate workmanship, rarity and
   concrete effects, while letting each world define its own standard. This is not an accepted UI
   decision.
+
+## Native connected slice, 2026-10-21
+
+Implementation evidence: [gear-depth checkpoint](gm/dispatch/gear-depth-2026-10-21/CHECKPOINT.md). ACT NOW: native gear processes, typed settings, paid reforge, capable maker service, shared item effects, and processed-material cohort lineage are source-implemented and exercised on rebuilt desktop fixtures with persistence. ACCOUNT FOR NOW: native key/count/clock/transaction owners remain authoritative; hidden true age is not a player appraisal, and legacy inputs gain no invented origin. LATER: GX8 connected chemistry/energy/power readers, CRL44 conditional salvage, and CRL24/25 spatial consequence require their own playable consumers and checks. These remaining proposals do not block the verified native gear/material slice or become accepted world laws. Combined-master full gates and merge belong to the integration coordinator.

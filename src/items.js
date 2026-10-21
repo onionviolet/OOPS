@@ -1,3 +1,7 @@
+import {registerGearMaterials} from './gear_native_content.js';
+import {readMaterialLineage} from './material_lineage.js';
+import {lineagePresentation} from './processed_materials.js';
+import {validateWork, workedWearProfile, workContributions, mergeWorkStats} from './gear_work.js';
 import {resolveNativeCraftingItem,registerCraftingCarriers} from './crafting_native_items.js';
 import {GRADED_IDS,validateGradedKey} from './harvest.js';
 import {systemsWorkshopItems} from './systems_workshop_content.js';
@@ -9,7 +13,7 @@ import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
 import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats} from "./alloy_equipment.js";
 import {isReductionStat, scaleReduction, wearScale} from "./gear_dimensions.js";
-import {normalizeAffixes} from "./gear_affixes.js";
+import {normalizeAffixes,getAffix} from "./gear_affixes.js";
 import {preserveWorldCompletionNativeItem} from './world_completion_native.js';
 "use strict";
 
@@ -259,6 +263,7 @@ class Item {
         if(this.affixes?.length) {
             key.affixes = this.affixes;
         }
+        if(this.gearwork) key.gearwork = this.gearwork;
         return JSON.stringify(key);
     }
 
@@ -372,6 +377,7 @@ class ItemComponent extends Item {
         super(item_data);
         this.item_type = "COMPONENT";
         this.component_tier = item_data.component_tier || 1;
+        this.component_type = item_data.component_type;
         this.component_stats = item_data.component_stats || {};
         this.component_bonus_skill_levels = item_data.component_bonus_skill_levels || {};
         this.tags["component"] = true;
@@ -529,8 +535,12 @@ class Equippable extends Item {
         if(!parts.length) return null;
         const mean = pick => parts.reduce((sum, {template}) => sum + pick(template), 0) / parts.length;
         const strength = mean(t => t.material_strength), toughness = mean(t => t.material_toughness);
-        return {strength, toughness, scale: wearScale({strength, toughness}),
-            parts: parts.map(({slot, template}) => ({slot, material: template.material_label, toughness: template.material_toughness, source: template.material_toughness_source}))};
+        return workedWearProfile({strength, toughness, scale: wearScale({strength, toughness}),
+            parts: parts.map(({slot, template}) => ({slot, material: template.material_label, strength: template.material_strength, family: template.material_family, toughness: template.material_toughness, source: template.material_toughness_source}))}, this.gearwork);
+    }
+
+    getWorkContributions() {
+        return workContributions(this.gearwork, {condition: durability.enabled ? durability.condition(this) : 100, tier: this.getItemTier(), weapon: !!this.tags.weapon});
     }
 
     getWearScale() {
@@ -570,9 +580,9 @@ class Equippable extends Item {
             if(!this.stats) {
                 this.stats = this.calculateStats(this.quality);
             }
-            return this.stats;
+            return mergeWorkStats(this.stats, this.getWorkContributions());
         } else {
-            return this.calculateStats(quality);
+            return mergeWorkStats(this.calculateStats(quality), this.getWorkContributions());
         }
     }
 
@@ -1239,6 +1249,7 @@ function getItem(item_data) {
                 return new ArmorComponent(item_data);
             else if(item_data.tags["shield component"])
                 return new ShieldComponent(item_data);
+            else if(item_data.tags['setting component']) return new ItemComponent(item_data);
             else throw new Error(`Item ${item_data.name} has a wrong component type`);
         case "MATERIAL":
             return new Material(item_data);
@@ -1252,7 +1263,29 @@ function getItem(item_data) {
  * @param {String} item_data
  * @returns {Item} item of proper type, created based on item_key
  */
-function getItemFromKey(key) {return durability.bindFromKey(key,nativeGetItemFromKey(key));}
+function getItemFromKey(key) {
+    const item = durability.bindFromKey(key,nativeGetItemFromKey(key));
+    const lineage = readMaterialLineage(key);
+    if(lineage) {
+        if(!item || item.tags.equippable || !GRADED_IDS.includes(item.id)) throw Error('Unsupported processed material carrier.');
+        item.materialLineage = lineage; item.inventory_key = key;
+        const name = item.getName(), view = lineagePresentation(key, lineage.history.at(-1).at);
+        item.getName = () => `${name} · batch ${view.at}`;
+        const observations = view.observations.map(o => `Source estimate at game minute ${o.at}, Butchering ${o.skill}: age ${o.min} to ${o.max} minutes, ${o.freshness}, ${o.integrity}.`);
+        item.description = `${item.description || ''} Processed by ${view.process} at game minute ${view.at}. ${view.note} ${observations.join(' ')}`;
+    }
+    const work = JSON.parse(key).gearwork;
+    if(work != null) {
+        if(!item?.tags?.equippable) throw Error('Worked gear must be equipment.');
+        item.gearwork = structuredClone(validateWork(work));
+        item.inventory_key = key;
+    }
+    if(item.affixes?.length) {
+        const name=item.getName(),labels=item.affixes.map(a=>getAffix(a.id)?.name).filter(Boolean);
+        item.getName=()=>`${name} [${labels.join(', ')}]`;
+    }
+    return item;
+}
 function nativeGetItemFromKey(key) {
     const crafted=resolveNativeCraftingItem(key,{Material,UsableItem});if(crafted)return crafted;
     let {id, components, quality, completeness, affixes} = JSON.parse(key);
@@ -4616,6 +4649,7 @@ add_gear_components();
 crafting_component_manager.fill_components();
 add_gear();
 registerAccessoryItems({item_templates, Amulet});
+registerGearMaterials({templates:item_templates,ItemComponent});
 registerFortItems({item_templates, book_stats, Book, BookData, Material});
 setup_ids();
 // Air workshop proposal: optional templates must not enrich absent-edition saves.

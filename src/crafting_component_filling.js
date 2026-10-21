@@ -87,6 +87,7 @@ const ALL_EXTERIORS = [component_types.HELMET_EXTERIOR, component_types.CHESTPLA
  */
 const material_properties = {
     "rough wood": {
+        family: "wood",
         tier: 1,
         weight: 60,
         strength: 60,
@@ -97,6 +98,7 @@ const material_properties = {
         ],
     },
     "cheap iron": {
+        family: "metal",
         tier: 1,
         weight: 100,
         strength: 100,
@@ -109,6 +111,7 @@ const material_properties = {
         value: 35,
     },
     "cheap leather": {
+        family: "fiber",
         tier: 1,
         weight: 60,
         strength: 70,
@@ -120,6 +123,7 @@ const material_properties = {
         ]
     },
     "wood": {
+        family: "wood",
         tier: 2,
         weight: 60,
         strength: 60,
@@ -130,6 +134,7 @@ const material_properties = {
         name: "wooden",
     },
     "iron": {
+        family: "metal",
         tier: 2,
         weight: 100,
         strength: 100,
@@ -141,6 +146,7 @@ const material_properties = {
         value: 80,
     },
     "iron chainmail": {
+        family: "metal",
         tier: 2,
         weight: 100,
         strength: 100,
@@ -151,6 +157,7 @@ const material_properties = {
         base_value: 120,
     },
     "wolf leather": {
+        family: "fiber",
         tier: 2,
         weight: 60,
         strength: 60,
@@ -159,7 +166,8 @@ const material_properties = {
             ...ALL_EXTERIORS,
         ],
     },
-    "leather": { //this is wolf leather too, but different stats for interiors
+    "leather": {
+        family: "fiber", //this is wolf leather too, but different stats for interiors
         tier: 2,
         weight: 60,
         strength: 70,
@@ -170,6 +178,7 @@ const material_properties = {
         ],
     },
     "wool": {
+        family: "fiber",
         tier: 2,
         weight: 40,
         strength: 50,
@@ -180,6 +189,7 @@ const material_properties = {
         ],
     },
     "ash wood": {
+        family: "wood",
         tier: 3,
         weight: 60,
         strength: 60,
@@ -189,6 +199,7 @@ const material_properties = {
         ]
     },
     "weak bone": {
+        family: "bone",
         tier: 3,
         weight: 80,
         strength: 80,
@@ -197,6 +208,7 @@ const material_properties = {
         ]
     },
     "steel": {
+        family: "metal",
         tier: 3,
         weight: 100,
         strength: 100,
@@ -208,6 +220,7 @@ const material_properties = {
         value: 120,
     },
     "steel chainmail": {
+        family: "metal",
         tier: 3,
         weight: 100,
         strength: 100,
@@ -218,6 +231,7 @@ const material_properties = {
         value: 240,
     },
     "steel plate": {
+        family: "metal",
         tier: 3,
         weight: 160,
         strength: 160,
@@ -228,6 +242,7 @@ const material_properties = {
         value: 360,
     },
     "boar leather": {
+        family: "fiber",
         tier: 3,
         weight: 60,
         strength: 60,
@@ -237,6 +252,7 @@ const material_properties = {
         ]
     },
     "goat leather": {
+        family: "fiber",
         tier: 3,
         weight: 60,
         strength: 100,
@@ -247,6 +263,7 @@ const material_properties = {
         ]
     },
     "hickory": {
+        family: "wood",
         tier: 4,
         weight: 60,
         strength: 60,
@@ -256,6 +273,7 @@ const material_properties = {
         ]
     },
     "turtleshell": {
+        family: "bone",
         tier: 4,
         weight: 80,
         strength: 80,
@@ -269,6 +287,7 @@ const material_properties = {
         }
     },
     "turtleshell plate": {
+        family: "bone",
         tier: 4,
         weight: 80,
         strength: 80,
@@ -279,6 +298,7 @@ const material_properties = {
         name: "turtleshell"
     },
     "frumious": {
+        family: "unclassified",
         tier: 4,
         weight: 80,
         strength: 80,
@@ -287,6 +307,7 @@ const material_properties = {
         ]
     },
     "white iron": {
+        family: "metal",
         tier: 4,
         weight: 130,
         strength: 100,
@@ -298,6 +319,7 @@ const material_properties = {
         value: 160,
     },
     "white iron chainmail": {
+        family: "metal",
         tier: 4,
         weight: 130,
         strength: 100,
@@ -308,6 +330,7 @@ const material_properties = {
         value: 320,
     },
     "white iron plate": {
+        family: "metal",
         tier: 4,
         weight: 200,
         strength: 200,
@@ -318,6 +341,7 @@ const material_properties = {
         value: 480,
     },
     "black iron": {
+        family: "metal",
         tier: 4,
         weight: 80,
         strength: 110,
@@ -329,6 +353,7 @@ const material_properties = {
         value: 160,
     },
     "black iron chainmail": {
+        family: "metal",
         tier: 4,
         weight: 80,
         strength: 110,
@@ -339,6 +364,7 @@ const material_properties = {
         value: 320,
     },
     "black iron plate": {
+        family: "metal",
         tier: 4,
         weight: 140,
         strength: 180,
@@ -349,6 +375,7 @@ const material_properties = {
         value: 480,
     },
     "bear leather": {
+        family: "fiber",
         tier: 4,
         weight: 60,
         strength: 60,
@@ -358,6 +385,7 @@ const material_properties = {
         ]
     },
     "turtle shellplate": {
+        family: "bone",
         tier: 4,
         weight: 100,
         strength: 140,
@@ -367,6 +395,7 @@ const material_properties = {
         ]
     },
     "linen": {
+        family: "fiber",
         tier: 4,
         weight: 50,
         strength: 50,
@@ -377,6 +406,7 @@ const material_properties = {
         ],
     },
     "silk": {
+        family: "fiber",
         tier: 5,
         weight: 40,
         strength: 40,
@@ -387,6 +417,7 @@ const material_properties = {
         ],
     },
     "alchemical wood": {
+        family: "wood",
         tier: 5,
         weight: 60,
         strength: 60,
@@ -396,6 +427,7 @@ const material_properties = {
         ]
     },
     "white steel": {
+        family: "metal",
         tier: 5,
         weight: 130,
         strength: 100,
@@ -409,6 +441,7 @@ const material_properties = {
         value: 200,
     },
     "white chainmail": {
+        family: "metal",
         tier: 5,
         weight: 100,
         strength: 120,
@@ -419,6 +452,7 @@ const material_properties = {
         value: 400,
     },
     "white plate": {
+        family: "metal",
         tier: 5,
         weight: 200,
         strength: 240,
@@ -429,6 +463,7 @@ const material_properties = {
         value: 600,
     },
     "black steel": {
+        family: "metal",
         tier: 5,
         weight: 80,
         strength: 110,
@@ -442,6 +477,7 @@ const material_properties = {
         value: 200,
     },
     "black chainmail": {
+        family: "metal",
         tier: 5,
         weight: 80,
         strength: 110,
@@ -452,6 +488,7 @@ const material_properties = {
         value: 400,
     },
     "black plate": {
+        family: "metal",
         tier: 5,
         weight: 140,
         strength: 180,
@@ -462,6 +499,7 @@ const material_properties = {
         value: 600
     },
     "alligator": {
+        family: "fiber",
         tier: 5,
         weight: 60,
         strength: 60,
@@ -471,6 +509,7 @@ const material_properties = {
         ]
     },
     "snakeskin": {
+        family: "fiber",
         tier: 5,
         weight: 60, //a bit heavier than usual but with separate atk spd bonus
         strength: 100,
@@ -486,6 +525,7 @@ const material_properties = {
         }
     },
     "monster bone": {
+        family: "bone",
         tier: 5,
         weight: 80,
         strength: 80,
@@ -906,6 +946,9 @@ const crafting_component_manager = {
                     item.material_toughness = toughness.value;
                     item.material_toughness_source = toughness.source;
                     item.material_label = material.name || material_key;
+                    item.material_weight = material.weight ?? 100;
+                    item.material_warmth = material.warmth ?? 100;
+                    item.material_family = material.family;
                 }
                 if(!item_templates[item_id]) {
                     item_templates[item_id] = item;

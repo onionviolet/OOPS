@@ -1,3 +1,4 @@
+import {allocatedRecipeInputs,recipeMaterialOutput} from './processed_materials.js';
 import {configureCraftingDomain} from './crafting_domain.js';
 import {configureNativeToolDomains} from './native_tool_domains.js';
 import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding,harmCollapse,heroStanding} from './defeat_domain.js';import {setPurse,addPurse,addSavedPurse,commitPlanMoney,moneyLedgerBinding} from './economy_domain.js';
@@ -5456,19 +5457,8 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 game_stats.total_crafting_successes += successful_crafting_ammount;
 
                 const harvestQuality = category==='butchering' && GRADED_IDS.includes(result_id) ? consumedHarvestQuality(materials,selected_recipe.materials,attempted_crafting_ammount) : null;
-                //remove used materials
-                for (let i = 0; i < selected_recipe.materials.length; i++) {
-                    let to_remove = (materials[i].need ?? selected_recipe.materials[i].count) * attempted_crafting_ammount;
-
-                    for (let j = 0; j < materials[i].items.length && to_remove > 0; j++) {
-                        const removed = Math.min(materials[i].items[j].count, to_remove);
-                        const key = materials[i].items[j].item.getInventoryKey();
-
-                        character.removeFromInventory([{ item_key: key, item_count: removed }]);
-
-                        to_remove -= removed;
-                    }
-                }
+                const lineageInputs = allocatedRecipeInputs(materials,selected_recipe.materials,attempted_crafting_ammount);
+                for(const row of lineageInputs) character.removeFromInventory([{item_key:row.item_key,item_count:row.count}]);
 
                 const final_result_count =  count * successful_crafting_ammount; 
                 //recipe is either full success or full fail
@@ -5480,7 +5470,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 const final_count = scale_results ? fuzzy_final_result_count : final_result_count;
 
                 if(final_count) {
-                    character.addToInventory([{item_key: harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey(), count: final_count}]);
+                    character.addToInventory([{item_key: recipeMaterialOutput({resultId:result_id,count:final_count,quality:harvestQuality,allocations:lineageInputs,recipeId:selected_recipe.id,clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId}) || (harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey()), count: final_count}]);
                     observeFortAcquisition(result_id,final_count,"craft",selected_recipe.id,selected_recipe.name);
                     let msg = `Created ${item_templates[result_id].getName()}`;
                     if(attempted_crafting_ammount > 1 || scale_results) {
@@ -9661,8 +9651,8 @@ configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_character_inventory();update_displayed_effects();update_displayed_crafting_recipes();}});
-configureNativeToolDomains({actor:()=>character,skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
-    itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:id=>assertNativeItemDisposition(expansionState,item_templates[id].getInventoryKey()),
+configureNativeToolDomains({actor:()=>character,world:()=>expansionState.actors.player.worldId,templates:item_templates,itemFactory:getItemFromKey,craftsman:()=>NPCRegistry.get('oldCraftsman'),craftsmanHere:()=>current_location?.npcs?.includes('oldCraftsman')&&NPCRegistry.get('oldCraftsman').getDialogueAvailability().getStatus().is_unlocked&&(!expansionState.simulation?.people.oldCraftsman||expansionState.simulation.people.oldCraftsman.life==='alive'&&expansionState.simulation.people.oldCraftsman.location===current_location.id),skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
+    itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables,expansionState.streams,NPCRegistry.get('oldCraftsman').getItems()],assertSpend:id=>assertNativeItemDisposition(expansionState,id.startsWith('{')?id:item_templates[id].getInventoryKey()),
     addItem:(id,count)=>character.addToInventory([{item_id:id,count}]),removeItem:(id,count)=>character.removeFromInventory([{item_key:item_templates[id].getInventoryKey(),item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The tool repair could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();durabilityPanel?.render();localLifePanel?.render();practicePanel?.render();},

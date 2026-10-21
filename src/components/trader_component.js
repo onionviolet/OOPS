@@ -11,6 +11,8 @@ import AvailabilityComponent from "./availability_component.js";
 import { availabilities, availability_havers } from "../data/component_references.js";
 import {factorioRetortItemSpecifications} from '../factorio_retort_content.js';
 import {proto23ItemSpecifications} from '../proto23_world_content.js';
+import {affixedStockEntries} from '../gear_acquisition.js';
+import {getItemFromKey} from '../items.js';
 
 const conservedCampaignItems = [...factorioRetortItemSpecifications,...proto23ItemSpecifications];
 const conservedCampaignKeys = new Set(conservedCampaignItems.map(spec => JSON.stringify({id:spec.id})));
@@ -128,14 +130,24 @@ class TraderComponent {
                         inventory_template[i].items[j].count[0] : Math.round(random(i,j,"count") *
                             (inventory_template[i].items[j].count[1] - inventory_template[i].items[j].count[0]) + inventory_template[i].items[j].count[0]);
                         
-                        if(inventory_template[i].items[j].quality) {
+                        const specification = inventory_template[i].items[j];
+                        let item;
+                        if(specification.quality) {
                             let quality = Math.round(random(i,j,"quality") *
                                 (inventory_template[i].items[j].quality[1] - inventory_template[i].items[j].quality[0]) + inventory_template[i].items[j].quality[0]);
 
-                            const item = getItem({...item_templates[inventory_template[i].items[j].item_name], quality});
-                            items[item.getInventoryKey()] = { item: item, count: item_count };
+                            item = getItem({...item_templates[specification.item_name], quality});
                         } else {
-                            items[item_templates[inventory_template[i].items[j].item_name].getInventoryKey()] = { item: getItem(item_templates[inventory_template[i].items[j].item_name]), count: item_count }; 
+                            item = getItem(item_templates[specification.item_name]);
+                        }
+                        let draw = 0;
+                        const entries = affixedStockEntries({item, count: item_count,
+                            partsOf: components => Object.fromEntries(Object.entries(components).map(([slot, id]) => [slot, item_templates[id]])),
+                            random: piece => random(i,j,`affix:${piece}:${draw++}`),
+                            plain: specification.roll_affixes === false});
+                        for (const entry of entries) {
+                            const existing = items[entry.item_key];
+                            items[entry.item_key] = {item: existing?.item || getItemFromKey(entry.item_key), count: (existing?.count || 0) + entry.count};
                         }
                     }
                 }

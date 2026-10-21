@@ -1,0 +1,77 @@
+{
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "No such element with availability as \"recipe\" -> \"undefined\""
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "missing": [
+    "/resources/fonts/private/gothic-bitmap-14.woff2",
+    "/resources/fonts/private/gothic-bitmap-14.woff2",
+    "/resources/fonts/private/gothic-bitmap-14.woff2",
+    "/resources/fonts/private/gothic-bitmap-14.woff2",
+    "/resources/fonts/private/gothic-bitmap-14.woff2",
+    "/resources/fonts/private/gothic-bitmap-14.woff2",
+    "/resources/fonts/private/gothic-bitmap-14.woff2",
+    "/resources/fonts/private/gothic-bitmap-14.woff2",
+    "/resources/fonts/private/gothic-bitmap-14.woff2",
+    "/resources/fonts/private/gothic-bitmap-14.woff2",
+    "/resources/fonts/private/gothic-bitmap-21.woff2"
+  ]
+}

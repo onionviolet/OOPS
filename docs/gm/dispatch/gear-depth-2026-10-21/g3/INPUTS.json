@@ -1,0 +1,13 @@
+{
+  "head": "a052e0794c8f47f13abe3f15b4825d223b17a743",
+  "files": {
+    "src/gear_acquisition.js": "9010da665c74a69d85fdb695444a1fa1b9d2154165b6778c7dcf3df6694f9411",
+    "src/components/trader_component.js": "5123af4599564e143a548071ace4f9e373884116f188a969207a255e0c43470b",
+    "src/enemies.js": "576f7fa6496ea003954619a2ed092e5e6b7d1b057695fa3e2de537c44a91c98c",
+    "src/models/trade_item.js": "c927ed77b4514d873e3e71eb5ad34ecc72b0c97eed6b3a6c56495452566436fe",
+    "src/models/combat.js": "1e99c4466655e731dc103c027555ee215b988ef22a16d75bddb1d98f1a840135",
+    "src/display.js": "ef481264e1ca06fc47c01e93b56909a41a0356924b2610420b8df09f93f5bd71",
+    "tests/gear_acquisition.test.js": "0451324ee2e1a987e3bc405431d94f5c41e1027e219f5637b1be7b8e144189d4",
+    "scripts/playtest/gear-acquisition.mjs": "b0c906dc52264bf166df1a0972face8323cd7f5d4bccdf70e4384fa827473f6a"
+  }
+}

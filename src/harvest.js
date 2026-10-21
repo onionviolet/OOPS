@@ -1,3 +1,5 @@
+import {harvestedMaterialOutput} from './processed_materials.js';
+import {readMaterialLineage} from './material_lineage.js';
 // Wolf-rat slice. Pure plans have no random calls or native mutations.
 import {natural} from './basics.js';
 export const HARVEST_CAP = 24;
@@ -30,6 +32,7 @@ export function harvestGrade(specimen,{clock,skill=0,tool=0},part){
 export function gradedKey(id,quality,completeness){return JSON.stringify({id,quality,...(completeness?{completeness}:{})});}
 export function validateGradedKey(key){
     const v=JSON.parse(key);
+    if(v.lineage){readMaterialLineage(key);const plain={...v};delete plain.lineage;validateGradedKey(JSON.stringify(plain));return v;}
     if(v.completeness==null)return v; // Legacy quality-only keys retain their original reader contract.
     if(v.completeness!=null){
         if(!GRADED_IDS.includes(v.id)||!Number.isInteger(v.quality)||v.quality<10||v.quality>150||v.quality%5||
@@ -60,8 +63,12 @@ export function harvestWorkStages(job){
     const parts=job.choice==='whole'?partNames(job.specimen.species):[job.choice],weight=parts.reduce((n,p)=>n+HARVEST_PARTS[p].minutes,0);
     return parts.map(p=>({label:`${p} work`,duration:job.total*HARVEST_PARTS[p].minutes/weight}));
 }
+export function settledHarvestPlan(specimen,choice,context){
+    const plan=planHarvest(specimen,choice,context);
+    return {...plan,outputs:plan.outputs.map(o=>harvestedMaterialOutput(specimen,o,context))};
+}
 export function finishHarvest(state,specimen,choice,context){
-    const plan=planHarvest(specimen,choice,context);state.processed++;state.sequence++;
+    const plan=settledHarvestPlan(specimen,choice,context);state.processed++;state.sequence++;
     const r=state.routine;
     if(r&&['active','paused'].includes(r.status)&&r.completed<r.target){r.completed++;for(const o of plan.outputs)r.outputs[o.item_key]=(r.outputs[o.item_key]??0)+o.count;if(r.completed===r.target){r.status='complete';state.auto=false;}}
     state.last={specimen:structuredClone(specimen),key:specimen.key,species:specimen.species,choice,outputs:plan.outputs,damage:specimen.damage,draw:specimen.draw,skill:context.skill,tool:context.tool,clock:context.clock};
@@ -123,11 +130,11 @@ export function validateSpecimen(s,clock=Number.MAX_SAFE_INTEGER){
 export function validateHarvest(s,clock=Number.MAX_SAFE_INTEGER){
     if(s==null)return null;
     if(!object(s)||s.schema!==1||s.revision!==1||!natural(s.sequence)||!natural(s.left)||!natural(s.processed)||typeof s.auto!=='boolean'||!object(s.lots))fail();
-    if(s.routine!=null){const r=s.routine;if(!object(r)||Object.keys(r).some(k=>!['target','completed','outputs','started','status'].includes(k))||!Number.isSafeInteger(r.target)||r.target<1||r.target>10000||!natural(r.completed)||r.completed>r.target||r.completed>s.processed||!natural(r.started)||r.started>clock||!['active','paused','complete','cancelled'].includes(r.status)||!object(r.outputs)||Object.keys(r.outputs).length>1500||r.status==='complete'&&r.completed!==r.target||r.completed===r.target&&r.status!=='complete'||r.status==='active'&&!s.auto||['paused','complete','cancelled'].includes(r.status)&&s.auto)fail();let count=0;for(const [key,n]of Object.entries(r.outputs)){const v=validateGradedKey(key);if(!['Rat pelt','Rat tail','Rat fang'].includes(v.id)||v.completeness==null||!Number.isSafeInteger(n)||n<1)fail();count+=n;}if(count<r.completed||count>r.completed*5)fail();}
+    if(s.routine!=null){const r=s.routine;if(!object(r)||Object.keys(r).some(k=>!['target','completed','outputs','started','status'].includes(k))||!Number.isSafeInteger(r.target)||r.target<1||r.target>10000||!natural(r.completed)||r.completed>r.target||r.completed>s.processed||!natural(r.started)||r.started>clock||!['active','paused','complete','cancelled'].includes(r.status)||!object(r.outputs)||Object.keys(r.outputs).length>r.target*5||r.status==='complete'&&r.completed!==r.target||r.completed===r.target&&r.status!=='complete'||r.status==='active'&&!s.auto||['paused','complete','cancelled'].includes(r.status)&&s.auto)fail();let count=0;for(const [key,n]of Object.entries(r.outputs)){const v=validateGradedKey(key);if(!['Rat pelt','Rat tail','Rat fang'].includes(v.id)||v.completeness==null||!Number.isSafeInteger(n)||n<1)fail();count+=n;}if(count<r.completed||count>r.completed*5)fail();}
     const keys=new Set();const visit=x=>{validateSpecimen(x,clock);if(keys.has(x.key))fail();keys.add(x.key);};
     for(const [species,lot] of Object.entries(s.lots)){if(!supportedHarvest(species)||!Array.isArray(lot)||lot.length>HARVEST_CAP)fail();for(const x of lot){if(x.species!==species)fail();visit(x);}}
     if(s.job!=null){const j=s.job;if(!object(j)||typeof j.automatic!=='boolean'||!Number.isFinite(j.remaining)||j.remaining<=0)fail();visit(j.specimen);const plan=planHarvest(j.specimen,j.choice,{clock,skill:0,tool:0});if(j.remaining>plan.minutes||(s.lots[j.specimen.species]?.length??0)+1>HARVEST_CAP)fail();if(j.total!=null&&(![plan.minutes,plan.minutes/2].includes(j.total)||j.remaining>j.total))fail();}
-    if(s.last!=null){const l=s.last;validateSpecimen(l.specimen,clock);if(!natural(l.clock)||l.clock>clock||l.clock<l.specimen.born||!Number.isFinite(l.skill)||l.skill<0||!Number.isFinite(l.tool)||l.tool<0)fail();const expected=planHarvest(l.specimen,l.choice,l);if(JSON.stringify(expected.outputs)!==JSON.stringify(l.outputs)||l.key!==l.specimen.key||l.species!==l.specimen.species||l.draw!==l.specimen.draw||JSON.stringify(l.damage)!==JSON.stringify(l.specimen.damage))fail();}
+    if(s.last!=null){const l=s.last;validateSpecimen(l.specimen,clock);if(!natural(l.clock)||l.clock>clock||l.clock<l.specimen.born||!Number.isFinite(l.skill)||l.skill<0||!Number.isFinite(l.tool)||l.tool<0)fail();const expected=(l.outputs?.some(o=>JSON.parse(o.item_key).lineage)?settledHarvestPlan:planHarvest)(l.specimen,l.choice,l);if(JSON.stringify(expected.outputs)!==JSON.stringify(l.outputs)||l.key!==l.specimen.key||l.species!==l.specimen.species||l.draw!==l.specimen.draw||JSON.stringify(l.damage)!==JSON.stringify(l.specimen.damage))fail();}
     return s;
 }
 export function validateHarvestEnvelope(envelope,clock=Number.MAX_SAFE_INTEGER){

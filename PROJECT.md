@@ -1,3 +1,16 @@
+## Native gear completion, 2026-10-21
+
+The coordinated native gear slice now delivers typed gem settings and material
+roles, treatment/reforge/repair/component-swap/salvage, commissioned craftsmanship,
+affixed merchant stock and recoverable worn loot, native inventory/tooltip facts
+and processed-material lineage. [Integration report](docs/gm/dispatch/gear-depth-2026-10-21/INTEGRATION_REPORT.md)
+records the2440-test combined gate,23 rebuilt native browser checks, persistence
+and scoped master integration atop the released UI commit.
+[Direction](docs/USER_VISION.md#finish-and-merge-remaining-gear-features-2026-10-21)
+and [coordination](docs/gm/dispatch/gear-depth-2026-10-21/COORDINATION.md) retain
+ownership and the finite allowance. Broader chemical/energy/power palettes and
+natural pacing or human visual acceptance are not claimed complete. No gear push.
+
 ## Shared master baseline, 2026-10-21
 
 Weibao requested one consolidated master baseline and explicitly authorized

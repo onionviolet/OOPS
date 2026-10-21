@@ -95,7 +95,7 @@ const doubles = {
     'character.js':`export const character={reputation:{Village:0},getTotalLevelBonus:()=>0};`,
     'inventory_templates.js':`export const row={item_name:'bread',chance:.5,count:[2,4],canBeStarted:()=>true}; export default {Test:[{canBeStarted:()=>true,items:[row]}]};`,
     'game_time.js':`export const current_game_time={day_count:0};`,
-    'items.js':`export const item_templates={bread:{id:'bread',getInventoryKey(){return 'bread'}}}; export const getItem=x=>({...x,getInventoryKey:()=>x.id}); export const round_item_price=Math.round;`,
+    'items.js':`export const item_templates={bread:{id:'bread',getInventoryKey(){return 'bread'}}}; export const getItem=x=>({...x,getInventoryKey:()=>x.id}); export const getItemFromKey=key=>getItem(item_templates[key]); export const round_item_price=Math.round;`,
     'inventory_component.js':`export const inventories={};export default class {items={};getItems(){return this.items}emptyInventory(){this.items={}}}`,
     'availability_component.js':`export default class {constructor(x){Object.assign(this,x)}}`,
     'component_references.js':`export const availabilities={},availability_havers=[];`,

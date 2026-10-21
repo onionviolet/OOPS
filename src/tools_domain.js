@@ -15,6 +15,14 @@ const INSTANCE = /"e2_instance":"e2\.[1-9]\d*"/;
 // Composition supplies each domain's ports directly; Tools owns its panel refresh.
 export function configureToolsDomain(operations) { ports = operations; }
 export function refreshToolsPanel() { panel?.render(); }
+export function rekeyToolFacts(from, to) {
+    if(!state) return;
+    if(state.job?.key === from) throw Error('Finish the current tool repair before reworking it.');
+    if(!state.instances[from]) return;
+    const instances = {...state.instances};
+    if(to) instances[to] = instances[from];
+    delete instances[from]; state = {...state, instances};
+}
 export function toolsState() { return state; }
 export function setToolsState(value) { state = value ?? fresh(); }
 const facts = key => state.instances[key] ?? {max: MAX, repairs: 0, failures: 0};

@@ -1,0 +1,22 @@
+{
+  "src/harvest.js": {
+    "shared_input": "e726ee714e79603cd7a72ca29c2ace1de85e9fa8e5ec074f55da0e8b80ccba0a",
+    "candidate_before": "8b3f7cba39c349313196dcd46bb9920e59cf623daa85f35efd312a5d2476bbb5"
+  },
+  "src/harvest_ui.js": {
+    "shared_input": "15f58a611abd01fafd1033c454739e54dd0a22e8cb9872647c634200bf07d376",
+    "candidate_before": "94addeacc731762cfba0f95f2851ddaa5e9c0a05fa99400bd27dedd13a352e3a"
+  },
+  "src/native_resources_domain.js": {
+    "shared_input": "134e5b0da5b831cade3332fe8ea202e58bc36d8a35b2acd90adcdfee6554d83b",
+    "candidate_before": "26b865c878ff5e8b14f1a6ce0b84b5e30da9e832c49e29120f055c39816caf16"
+  },
+  "tests/perishable_observation.test.js": {
+    "shared_input": "50c24a1f43f1c643b094408c81369b243e32ce83512da76af5c1f1b7a7919cce",
+    "candidate_before": null
+  },
+  "docs/reviews/PROTO23_PERISHABLE_2026-10-21.md": {
+    "shared_input": "f9bce37cb6c5c611f241f8372689a2ef560b0afb6833539e6f17dbb6ddb558af",
+    "candidate_before": null
+  }
+}

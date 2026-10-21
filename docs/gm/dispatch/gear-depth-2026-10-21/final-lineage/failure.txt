@@ -1,0 +1,19 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   '/resources/fonts/private/gothic-bitmap-14.woff2',
++   '/resources/fonts/private/gothic-bitmap-14.woff2',
++   '/resources/fonts/private/gothic-bitmap-14.woff2',
++   '/resources/fonts/private/gothic-bitmap-14.woff2',
++   '/resources/fonts/private/gothic-bitmap-14.woff2',
++   '/resources/fonts/private/gothic-bitmap-14.woff2',
++   '/resources/fonts/private/gothic-bitmap-14.woff2',
++   '/resources/fonts/private/gothic-bitmap-14.woff2',
++   '/resources/fonts/private/gothic-bitmap-14.woff2',
++   '/resources/fonts/private/gothic-bitmap-14.woff2',
++   '/resources/fonts/private/gothic-bitmap-21.woff2'
++ ]
+- []
+
+    at file:///Users/weiwei/.codex/worktrees/master-except-start-menu/yet-another-idle-rpg/scripts/playtest/material-lineage.mjs:55:71

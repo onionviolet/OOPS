@@ -1,0 +1,106 @@
+TAP version 13
+# Subtest: workshop native journey: process, source effects, field repair, swap, preserved identity and material custody
+ok 1 - workshop native journey: process, source effects, field repair, swap, preserved identity and material custody
+  ---
+  duration_ms: 58.160584
+  type: 'test'
+  ...
+# Subtest: workshop atomic rejection: stale input, custody, failed save and rollback of ID/condition/tool facts
+ok 2 - workshop atomic rejection: stale input, custody, failed save and rollback of ID/condition/tool facts
+  ---
+  duration_ms: 1.868625
+  type: 'test'
+  ...
+# Subtest: process law: real heat, cooling, material families, independent world rules and no repeated free improvement
+ok 3 - process law: real heat, cooling, material families, independent world rules and no repeated free improvement
+  ---
+  duration_ms: 1.210875
+  type: 'test'
+  ...
+# Subtest: same worked-item modifiers feed both equipment consumers; wear uses persist and honing cannot reroll
+ok 4 - same worked-item modifiers feed both equipment consumers; wear uses persist and honing cannot reroll
+  ---
+  duration_ms: 3.861166
+  type: 'test'
+  ...
+# Subtest: work records reject unsupported revisions and nonfinite physical modifiers
+ok 5 - work records reject unsupported revisions and nonfinite physical modifiers
+  ---
+  duration_ms: 0.287375
+  type: 'test'
+  ...
+# Subtest: rigid gem settings and commissioned native maker preserve identity, costs, sources and reforge draw boundary
+ok 6 - rigid gem settings and commissioned native maker preserve identity, costs, sources and reforge draw boundary
+  ---
+  duration_ms: 1.110667
+  type: 'test'
+  ...
+# Subtest: armor reforge resolves stored affixes only at commit and rolls back its native receipt owner after a failed save
+ok 7 - armor reforge resolves stored affixes only at commit and rolls back its native receipt owner after a failed save
+  ---
+  duration_ms: 1.086625
+  type: 'test'
+  ...
+# Subtest: processed output retains exact parent key, birth, origin, grade and completeness through later processing
+ok 8 - processed output retains exact parent key, birth, origin, grade and completeness through later processing
+  ---
+  duration_ms: 2.227083
+  type: 'test'
+  ...
+# Subtest: splits conserve exact stack identity and quantity; only identical cohorts can merge
+ok 9 - splits conserve exact stack identity and quantity; only identical cohorts can merge
+  ---
+  duration_ms: 0.236291
+  type: 'test'
+  ...
+# Subtest: planning spends exact available input counts and rejects stale, duplicate, excessive-yield and bad revisions
+ok 10 - planning spends exact available input counts and rejects stale, duplicate, excessive-yield and bad revisions
+  ---
+  duration_ms: 0.128209
+  type: 'test'
+  ...
+# Subtest: legacy stock keys remain opaque and unsupported lineage revisions fail closed
+ok 11 - legacy stock keys remain opaque and unsupported lineage revisions fail closed
+  ---
+  duration_ms: 0.092417
+  type: 'test'
+  ...
+# Subtest: carcass observations retain timestamped estimates and later Butchering narrows only the new estimate
+ok 12 - carcass observations retain timestamped estimates and later Butchering narrows only the new estimate
+  ---
+  duration_ms: 1.802541
+  type: 'test'
+  ...
+# Subtest: legacy specimen lots load without invented observations; invalid or future history is rejected
+ok 13 - legacy specimen lots load without invented observations; invalid or future history is rejected
+  ---
+  duration_ms: 0.288083
+  type: 'test'
+  ...
+# Subtest: native material factory and actual two-holder split/merge keep independent cohort ages and source observations
+ok 14 - native material factory and actual two-holder split/merge keep independent cohort ages and source observations
+  ---
+  duration_ms: 54.178625
+  type: 'test'
+  ...
+# Subtest: actual recipe allocation partially consumes exact cohorts; new product retains all consumed histories without rewriting remaining stock
+ok 15 - actual recipe allocation partially consumes exact cohorts; new product retains all consumed histories without rewriting remaining stock
+  ---
+  duration_ms: 1.850041
+  type: 'test'
+  ...
+# Subtest: lineage rejects future processes and altered source observations through the saved-envelope validator
+ok 16 - lineage rejects future processes and altered source observations through the saved-envelope validator
+  ---
+  duration_ms: 0.566916
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 120.837292

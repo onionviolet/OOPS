@@ -5745,3 +5745,24 @@ private artifacts remain preserved; new UI work after the recorded snapshot
 retains its separate owner and release gate. [Consolidation record](gm/BASELINE_CONSOLIDATION_2026-10-21.md)
 owns exact inputs, reconciliation and verification. [AD41](RULES_INDEX.md#checkout-workflow)
 retains the primary-checkout default and justified temporary isolation.
+
+
+## Finish and merge remaining gear features, 2026-10-21
+
+Weibao: “Coordinate with the gear-depth chat to finish the remaining Apotheosis and related gear features, verify them in game, and merge the finished work into master.”
+
+This selects completion of the remaining connected gear features through native
+world rules, in-game verification and a scoped local master integration/commit.
+The existing gear-depth chat remains implementation owner; the coordinating
+chat owns final integration after release. Preserve active UI work and later
+master fixes. [Coordination and completion gates](gm/dispatch/gear-depth-2026-10-21/COORDINATION.md)
+link the existing gear owners and the builder's running checkpoint. This request
+does not itself request a new push.
+
+
+### Finite gear completion allowance, 2026-10-21
+
+After the shared gear packet reached its recorded 64% used-meter stop point,
+Weibao explicitly answered “Approve up to 67% used” for final browser repairs,
+combined verification and master merge. This is one aggregate finite extension,
+not a per-chat budget reset or permission for paid fallback/new agents.

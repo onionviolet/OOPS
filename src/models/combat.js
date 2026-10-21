@@ -1,5 +1,6 @@
 import {damageRecord,supportedHarvest} from '../harvest.js';
 import {effectiveCritChance} from '../gear_dimensions.js';
+import {acquiredLootKeys} from '../gear_acquisition.js';
 import {engineTimeout,clearEngineTimeout,engineNow} from '../simulation_clock.js';
 import {combatHitText} from '../ui_polish.js';
 import {combatLogEvent} from '../combat_log.js';
@@ -671,10 +672,10 @@ class Combat {
                     add_xp_to_character(target.xp_value * target_count_xp_modifier, true);
 
                     let loot = settlement ? settlement.loot : target.get_loot({drop_chance_modifier: accessoryDropModifier(1/target_count**0.6667) * (this.encounterProfile?.dropChanceModifier ?? 1)});
-                    observedDrops=loot.map(row=>({item_id:row.item_id,count:row.count}));
+                    observedDrops=loot.filter(row=>row.item_id).map(row=>({item_id:row.item_id,count:row.count}));
                     if(loot.length > 0) {
                         process_current_loot({loot_list: loot, is_combat: true});
-                        loot = loot.map(x => {return {item_key: item_templates[x.item_id].getInventoryKey(), count: x.count}});
+                        loot = acquiredLootKeys(loot, item_templates);
                         character.addToInventory(loot);
                     }
                 }

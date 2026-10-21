@@ -41,6 +41,10 @@ export const migrateLoadouts = slice => (slice == null ? fresh() : structuredClo
 // Pure: what equipping `set` would do, given the worn keys and the held keys.
 // worn {slot: key|null}, held: array of keys. Returns one row per slot the set names.
 const baseKey = key => { try { const data = JSON.parse(key); delete data.e2_instance; return JSON.stringify(data); } catch { return key; } };
+const sameWorkedInstance = (a,b) => {
+    try {const left=JSON.parse(a),right=JSON.parse(b);return !!(left.gearwork||right.gearwork)&&!!left.e2_instance&&left.e2_instance===right.e2_instance;}
+    catch {return false;}
+};
 export function planLoadout(set, worn, held, {bareOthers = false} = {}) {
     const rows = [];
     const unused = [...held];
@@ -48,8 +52,8 @@ export function planLoadout(set, worn, held, {bareOthers = false} = {}) {
         if (worn[slot] === key) { rows.push({slot, key, action: 'keep'}); continue; }
         let use = unused.indexOf(key);
         // The same item under another durability instance is still that item.
-        if (use < 0) use = unused.findIndex(k => baseKey(k) === baseKey(key));
-        if (use < 0 && worn[slot] && baseKey(worn[slot]) === baseKey(key)) { rows.push({slot, key, action: 'keep'}); continue; }
+        if (use < 0) use = unused.findIndex(k => (baseKey(k) === baseKey(key) || sameWorkedInstance(k,key)));
+        if (use < 0 && worn[slot] && (baseKey(worn[slot]) === baseKey(key) || sameWorkedInstance(worn[slot],key))) { rows.push({slot, key, action: 'keep'}); continue; }
         if (use < 0) { rows.push({slot, key, action: 'missing'}); continue; }
         rows.push({slot, key: unused[use], action: 'equip', replaces: worn[slot] || null}); unused.splice(use, 1);
     }

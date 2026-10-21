@@ -1,0 +1,22 @@
+{
+  "fixture": "Fresh disposable origin; funded buyer, authored high-quality shop fixture and unlocked existing encounter. Native shop, trade, combat, inventory and save consumers execute unchanged.",
+  "checks": [
+    "shop generation resolves affixes into carried stock keys",
+    "closing and reopening shop does not reroll stock",
+    "native accept trade transfers exact affixed key and removes one vendor unit",
+    "last-unit sale and repurchase preserve rolled identity without stale-preview errors",
+    "actual native combat defeat awards worn affixed key through normal loot consumer",
+    "Save/reload/Export/literal Import preserve acquired keys, counts and affixes"
+  ],
+  "combat": {
+    "key": "{\"components\":{\"internal\":\"Leather vest\",\"external\":\"Steel chainmail vest\"},\"quality\":212,\"affixes\":[{\"id\":\"armor.cushioned\",\"v\":0.033,\"s\":\"roll\"},{\"id\":\"armor.hardened\",\"v\":0.072,\"s\":\"mechanism\"},{\"id\":\"armor.reinforced\",\"v\":5.478,\"s\":\"roll\"},{\"id\":\"armor.vital\",\"v\":0.062,\"s\":\"roll\"}]}",
+    "before": 0,
+    "after": 1,
+    "defeated": true,
+    "health": 0,
+    "ended": false,
+    "log": ""
+  },
+  "status": "PASS",
+  "errors": []
+}

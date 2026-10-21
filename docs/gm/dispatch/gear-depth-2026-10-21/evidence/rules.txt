@@ -1,0 +1,6 @@
+
+> check:rules
+> node scripts/check_rules_index.mjs
+
+Rules index check: 21 register rows, 40 AD codes, 101 relative links
+PASS (0 warnings)

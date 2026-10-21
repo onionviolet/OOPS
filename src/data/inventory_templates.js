@@ -30,6 +30,7 @@ const inventory_templates = {};
 
 inventory_templates["Basic"] = 
 [
+    new TradeItemGroup({items:[new TradeItem({item_name:"Cloudy quartz setting",count:[1],chance:1})]}),
     // Ordinary preparation stays reliable. Rare stock must not gate the first
     // expedition; existing saves gain these offers at their next normal refresh.
     new TradeItemGroup({items: [

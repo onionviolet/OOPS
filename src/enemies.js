@@ -4,6 +4,7 @@ import {STREAMS,gameRandom,gameKeyedRandom} from "./seeded_streams.js";
 "use strict";
 import {mitigateCombatDamageFromStats} from "./combat_math.js";
 import {applyEquipmentStats} from "./equipment_stats.js";
+import {recoveredEquipmentLoot} from './gear_acquisition.js';
 
 import LevelableComponent from "./components/levelable_component.js";
 import { config } from "./config.js";
@@ -73,6 +74,7 @@ class Enemy {
         add_to_bestiary = true,
         tags = [],
         equipment_keys = {},
+        equipment_drop_chance = .25,
         on_hit = (attacker) => { },
         on_damaged = (target) => { },
         on_death = (attacker) => { },
@@ -91,6 +93,7 @@ class Enemy {
 
         this.#levelable = new LevelableComponent(stats);
         this.equipment_keys = equipment_keys;
+        this.equipment_drop_chance = equipment_drop_chance;
         this.#equipment = {};
 
         if(tags.length) {
@@ -217,7 +220,7 @@ class Enemy {
             }
         }
 
-        return loot;
+        return loot.concat(recoveredEquipmentLoot(this.#equipment, slot => random(`equipment:${slot}`), this.equipment_drop_chance));
     }
 
     /**

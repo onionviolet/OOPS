@@ -15,6 +15,7 @@ class TradeItem {
         //how many can appear, will randomly choose something between min and max if specificed, otherwise will go with specific ammount
         
         this.quality = data.quality; //min and max quality of item
+        this.roll_affixes = data.roll_affixes ?? true; //authored stock may retain plain gear
         this.#availability = new AvailabilityComponent({...data, is_unlocked: true});
         //component not saved to availabilities, not meant to use unlock status for this class, just conditions
     }

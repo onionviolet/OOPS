@@ -1,3 +1,4 @@
+import {setCraftsmanPractice} from '../gear_native_content.js';
 "use strict";
 
 import { availabilities, talkables } from "./component_references.js";
@@ -63,6 +64,7 @@ const NPCRegistry = new NPCRegistryC();
 NPCRegistry.add("villageElder", new NPC({name: "village elder", dialogue: dialogues["village elder"]}));
 NPCRegistry.add("villageGuard", new NPC({name: "village guard", dialogue: dialogues["village guard"]}));
 NPCRegistry.add("oldCraftsman", new NPC({name: "old craftsman", dialogue: dialogues["old craftsman"]}));
+setCraftsmanPractice(NPCRegistry.get("oldCraftsman"));
 NPCRegistry.add("villageMillers", new NPC({name: "village millers", dialogue: dialogues["village millers"]}));
 
 NPCRegistry.add("suspiciousMan", new NPC({name: "suspicious man", dialogue: dialogues["suspicious man"]}));

@@ -1,3 +1,4 @@
+import {gearItemFactsHtml} from './gear_item_facts.js';
 import {craftBatchGoal} from './craft_batch_goal.js';
 import {knownRecipeVariants, relatedKnownRecipes, knownUsesHTML, installKnownRecipeLinks, renderRecipeConnections, materialPolicyText, bindSubjectGesture} from './recipe_connections.js';
 import {mountMaterialChoice} from './material_choice_view.js';
@@ -542,9 +543,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
     
     const item_view=nativeItemView(item);
     item_tooltip = `<b>${item_view.name}</b>`;
-    if(item_view.description) {
-        item_tooltip += `<br>${item_view.description}`;
-    }
+    item_tooltip += gearItemFactsHtml(item,item_view.description);
 
     let show_quality = item.quality && !options.skip_quality && item.use_quality;
     let quality = item.quality;
@@ -2086,7 +2085,8 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
                 target_item = character.getItems()[key].item;
                 item_count = item_count || character.getItems()[key].count;
             } else {
-                target_item = NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[to_buy.items[trade_index].item_key].item;
+                const selected = to_buy.items[trade_index].item_key;
+                target_item = NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[selected]?.item ?? getItemFromKey(selected);
                 item_count = item_count || to_buy.items[trade_index].count;
             }
             target_class_name = "character_item";
@@ -2095,7 +2095,8 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
                 target_item = NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[key].item;
                 item_count = item_count || NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[key].count;
             } else {
-                target_item = character.getItems()[to_sell.items[trade_index].item_key].item;
+                const selected = to_sell.items[trade_index].item_key;
+                target_item = character.getItems()[selected]?.item ?? getItemFromKey(selected);
                 item_count = item_count || to_sell.items[trade_index].count;
             }
             target_class_name = "trader_item";

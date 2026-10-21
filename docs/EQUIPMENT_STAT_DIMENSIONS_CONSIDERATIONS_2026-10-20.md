@@ -302,3 +302,65 @@ ESD16 (proposal), GDP38, CBR, AR1-AR16, AD5, AD36, AD38.
 The current quality display proposal is ESD16 above: workmanship grade, rarity, and concrete
 effects are separate signals. It is not an accepted global display decision. Each world may define
 its own standards and what a person or creature values in an item.
+
+
+## Current implementation status check, 2026-10-21
+
+Weibao asked whether Apotheosis and related work were all implemented while
+retiring the final four old process-occupied worktrees. This section reports
+implementation state; it does not authorize new mechanics or turn palette
+proposals into accepted decisions. Rules: AD32, AD36, AD38, AD41; ESD and GDP
+own their detailed scope.
+
+**F1, integrated:** primary checkout is now on master. The native armor affix
+module defines eight affixes, rarity-scaled rolls, mechanism-derived modifiers,
+exclusive sets and canonical saved item keys. Craft commits call
+`affixedCraftEntries`; item loading preserves affixes. Existing browser receipts
+above cover actual craft, Attributes inspection and save/reload/export/import.
+Those receipts are prior evidence, not a new browser run in this status check.
+
+**F2, integrated:** `equipment_stats.js` shares equipment aggregation between
+people and an initial creature example; toughness-based wear and heat/fuel
+requirements are present in native source. The older statement that four battle
+models ignore the dimensions is superseded for damage readers by the later
+shared combat work: `native_battle.js`, `party_battle.js`,
+`feature_expansion_battle.js` and `causal_story_core.js` now import the shared
+strike/mitigation functions from `combat_math.js`. This source check does not
+claim every actor, source or interaction is fully covered. The earlier enemy
+browser encounter acceptance gate remains unclosed by this audit.
+
+**F3, in progress:** the active gear-depth checkout has newly written
+`gear_work.js`, `gear_workshop_domain.js` and `gear_workshop_panel.js`, including
+quotes for component replacement, material repair and salvage. That checkout is
+still active and distinct from integrated master; these files are not present
+as completed native master gameplay in this snapshot. Its owner is responsible
+for integration, focused invariants and rebuilt playable proof.
+
+**F4, incomplete:** the full sockets/gems, upgrade/reforge/salvage lifecycle,
+broader affixed drops/trader stock and fully expressive inventory/tooltips are
+not certified complete by the current owner records or this audit. Capable
+non-player crafters and wider world-specific quality/energy/chemistry/power
+mechanisms likewise cannot be inferred complete from the first shared-wearer
+example. Existing narrower systems may cover parts; the palettes remain larger
+than the delivered slices.
+
+Current focused check: `node --test tests/gear_dimensions.test.js
+tests/gear_affixes.test.js tests/equipment_stats.test.js tests/heat_grades.test.js`
+passed **18/18** on primary master at `a052e0794` (working source unchanged by
+this audit; concurrent UI edits remain separately owned). No new runtime
+implementation, build, browser playthrough, commit or push was performed here.
+Input hashes and test log are in the private cleanup follow-up archive.
+
+
+## Later coordinated native completion, 2026-10-21
+
+Weibao subsequently authorized finishing and merging the remaining connected
+Apotheosis-related gear features. The [combined integration report](gm/dispatch/gear-depth-2026-10-21/INTEGRATION_REPORT.md)
+supersedes the earlier status snapshot for G1–G5: native settings/gem installation,
+workshop lifecycle and commissioned maker, affixed merchant stock/recoverable
+worn loot, inventory affix suffixes and sourced tooltip facts are implemented.
+Processed-material split/merge and consumed cohort history also cross native
+recipe/storage/persistence boundaries. Final2440/2440 tests, build/architecture/
+rules/36 rule-behavior checks and23 rebuilt browser checks pass. Fixture access
+and test stock are explicit; natural acquisition pacing and human taste remain
+separate. The broader equipment palettes are not declared exhausted.

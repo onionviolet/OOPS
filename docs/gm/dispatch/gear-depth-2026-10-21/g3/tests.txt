@@ -1,0 +1,142 @@
+TAP version 13
+# Subtest: native stock resolves every piece once, conserves counts and reloads exact saved keys
+ok 1 - native stock resolves every piece once, conserves counts and reloads exact saved keys
+  ---
+  duration_ms: 76.832375
+  type: 'test'
+  ...
+# Subtest: shop restocks replay by saved epoch and keep independent identities through sale stock
+ok 2 - shop restocks replay by saved epoch and keep independent identities through sale stock
+  ---
+  duration_ms: 78.404458
+  type: 'test'
+  ...
+# Subtest: victory recovers the worn affixed key without rerolling or replacing normal loot keys
+ok 3 - victory recovers the worn affixed key without rerolling or replacing normal loot keys
+  ---
+  duration_ms: 59.100959
+  type: 'test'
+  ...
+# Subtest: records are plain data with stable unique ids, valid ranges and exclusive sets
+ok 4 - records are plain data with stable unique ids, valid ranges and exclusive sets
+  ---
+  duration_ms: 0.855875
+  type: 'test'
+  ...
+# Subtest: rolls are deterministic for one random sequence, differ for another, and follow the rarity ladder
+ok 5 - rolls are deterministic for one random sequence, differ for another, and follow the rarity ladder
+  ---
+  duration_ms: 0.892875
+  type: 'test'
+  ...
+# Subtest: exclusive sets never roll together, over many seeds at the highest count
+ok 6 - exclusive sets never roll together, over many seeds at the highest count
+  ---
+  duration_ms: 3.126583
+  type: 'test'
+  ...
+# Subtest: values stay inside the rarity range and higher rarity is never worse, including reductions
+ok 7 - values stay inside the rarity range and higher rarity is never worse, including reductions
+  ---
+  duration_ms: 0.237916
+  type: 'test'
+  ...
+# Subtest: mechanism is the default cause: part tier decides the affix and value, no dice
+ok 8 - mechanism is the default cause: part tier decides the affix and value, no dice
+  ---
+  duration_ms: 0.644125
+  type: 'test'
+  ...
+# Subtest: saved form is canonical: sorted, rounded, clamped; unknown ids and clashes are dropped without throwing
+ok 9 - saved form is canonical: sorted, rounded, clamped; unknown ids and clashes are dropped without throwing
+  ---
+  duration_ms: 0.221833
+  type: 'test'
+  ...
+# Subtest: crafting commit groups by quality and affixes; plain items keep their original key
+ok 10 - crafting commit groups by quality and affixes; plain items keep their original key
+  ---
+  duration_ms: 0.335208
+  type: 'test'
+  ...
+# Subtest: affixes on real armor: key round trip, pipeline totals and a source row per affix
+ok 11 - affixes on real armor: key round trip, pipeline totals and a source row per affix
+  ---
+  duration_ms: 73.782375
+  type: 'test'
+  ...
+# Subtest: dynamic loot joins gains by identity across alternating acquisitions
+ok 12 - dynamic loot joins gains by identity across alternating acquisitions
+  ---
+  duration_ms: 1.516791
+  type: 'test'
+  ...
+# Subtest: dynamic loot handles subset and reordered recent acquisitions
+ok 13 - dynamic loot handles subset and reordered recent acquisitions
+  ---
+  duration_ms: 0.382375
+  type: 'test'
+  ...
+# Subtest: item keys retain distinct same-name items and non-dynamic summary wording
+ok 14 - item keys retain distinct same-name items and non-dynamic summary wording
+  ---
+  duration_ms: 1.029583
+  type: 'test'
+  ...
+# Subtest: same seed and decision order replay across all native system streams
+ok 15 - same seed and decision order replay across all native system streams
+  ---
+  duration_ms: 18.44075
+  type: 'test'
+  ...
+# Subtest: shop/craft/gather draws cannot shift combat, lineup or loot, including keyed order changes
+ok 16 - shop/craft/gather draws cannot shift combat, lineup or loot, including keyed order changes
+  ---
+  duration_ms: 12.153792
+  type: 'test'
+  ...
+# Subtest: save/restore resumes next draws and old expansion saves derive a deterministic root without changing legacy RNG
+ok 17 - save/restore resumes next draws and old expansion saves derive a deterministic root without changing legacy RNG
+  ---
+  duration_ms: 15.7545
+  type: 'test'
+  ...
+# Subtest: decisions are pure, integer ports keep legacy rounding, zero/one chances and tables are explicit
+ok 18 - decisions are pure, integer ports keep legacy rounding, zero/one chances and tables are explicit
+  ---
+  duration_ms: 0.362
+  type: 'test'
+  ...
+# Subtest: stream imports reject broken/newer state, preserve unknown cells and cap receipts without dropping counters
+ok 19 - stream imports reject broken/newer state, preserve unknown cells and cap receipts without dropping counters
+  ---
+  duration_ms: 4.608875
+  type: 'test'
+  ...
+# Subtest: commit-only recipe view preserves private methods and redirects internal result quality; original preview stays untouched
+ok 20 - commit-only recipe view preserves private methods and redirects internal result quality; original preview stays untouched
+  ---
+  duration_ms: 0.252042
+  type: 'test'
+  ...
+# Subtest: failed native craft restores consumed stream state with the existing transaction
+ok 21 - failed native craft restores consumed stream state with the existing transaction
+  ---
+  duration_ms: 0.346417
+  type: 'test'
+  ...
+# Subtest: native lineup, loot, stock and pending fighter turns survive save/restore with Math.random forbidden
+ok 22 - native lineup, loot, stock and pending fighter turns survive save/restore with Math.random forbidden
+  ---
+  duration_ms: 80.585708
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 450.585

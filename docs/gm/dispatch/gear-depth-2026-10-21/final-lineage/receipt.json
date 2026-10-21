@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "Explicit native condition refresh appends a narrower skill-supported estimate; the earlier source reading stays unchanged",
+    "Pending exact specimen with both observations Save/reload/Export/literal Import",
+    "Split cohort across pack and native chest Save/reload/Export/literal Import",
+    "Native partial chest deposit/withdraw splits and coalesces one exact cohort; distinct source-age keys stay distinct",
+    "Actual native Butchering consumes six exact lineage-bearing inputs, leaves the seventh unchanged and creates one processed product retaining every consumed cohort",
+    "Processed product and unspent source stock Save/reload/Export/literal Import"
+  ],
+  "missing": [],
+  "errors": [],
+  "setup": "Native midgame fixture. Encounter stock, skill upgrade and Shack access are seeded. All observations, processing, recipe and chest operations are native controls. No personal saves; natural acquisition/pacing and human acceptance remain separate."
+}
