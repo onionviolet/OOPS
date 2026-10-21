@@ -108,3 +108,10 @@ Current inspected input fingerprints, 2026-10-03; rediscover affected drift befo
 - `src/native_gameplay_adapter.js` SHA256 `41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad`.
 
 Checkpoint: the brief owns the live specialist checkpoint. The inherited opening proof remains a proposed fixture, now stage 1 of the expanded campaign. Local document/link/coverage/evidence-vocabulary checks passed; every runtime/unit/build/browser/save/migration and human gate remains unrun. Verified design evidence: twenty reserved paths, 307 local links/ten anchors resolved, campaign coverage checked, no authored em dashes or trailing whitespace. Runtime acceptance remains unrun.
+
+
+## Detail audit: sample evidence survives the test, 2026-10-20
+
+WPD-R9, ACCOUNT FOR NOW: WG25's certificate is evidence about a sampled lot at a time under a method, not a permanent clean-water truth flag. Keep the sampled container/lot identity and test receipt attached when a cartridge is consumed. Mixing water, replacing the filter or changing the intake may make that receipt insufficient; a supported new test spends new stock. A failed/old test does not reveal the hidden correct fault through its menu label.
+
+Before selected implementation: decide what the one authored test actually observes and whether the proposed repair changes its target; bind both to existing observation/item/job/publication owners. Level/effort: Luna low for exact record fields and locators; coordinator medium for transaction and observer projections. Done check: test payment, sample custody, attributed conclusion and later recheck remain distinct across current-format pending/final round trips, without another clean-water reward. A full certification market, recall network, radiation/body model and every device's power chemistry stay later depth.

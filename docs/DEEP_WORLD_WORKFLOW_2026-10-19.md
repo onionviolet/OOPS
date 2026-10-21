@@ -3,8 +3,9 @@
 Weibao, 2026-10-19: "workflow to deeply implement a world? all aspects of its
 source material? extending beyond it? more to consider?"
 
-**Status: proposal.** Nothing here is accepted (AD32), no runtime code changed and
-no agent run started. Codes **DWF1 to DWF40** (prefix checked unused by `git grep`
+**Status: proposal workflow (AD32).** The initial workflow round changed no runtime
+code. Later dated rounds below record actual research runs; the separately authorized
+LOTM slice records its own implementation. Codes **DWF1 to DWF40** (prefix checked unused by `git grep`
 2026-10-19). Rounds are appended, never rewritten.
 
 ## Why a new file
@@ -31,7 +32,7 @@ This file is only the run order. Each row names its owner; the owner keeps the d
 | DWF3 | **Census** the whole canon as data | Scale plan S5, kit K1 to K24, S00 to S14 | Ledger | Catalog records at Count/Address rung for every named person, place, thing, law, event | Coverage printout per kit part and section | Catalog, not playable; no tuning here |
 | DWF4 | **Grammar and dials** | [Rule grammars](WORLD_RULE_GRAMMARS_AND_DERIVED_DETAIL_2026-10-19.md) DG, [world dials](WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md) WDI, [deep-level lenses](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md#round-21-deep-level-lenses-for-every-world-2026-10-19) KL1 to KL12 | Ledger laws and structures | Grammar rows that derive per-thing tags; dial profile | Each derived tag cites its grammar row; inference labelled | Derive only where the source states the rule |
 | DWF5 | **Pack** | WA1 to WA21, `src/world_pack*.js` | Census, grammar, dials | Pack `id@revision` that lints | Lint clean except named WA4 law gaps | Lint is "pack valid", not absorbed (WA19) |
-| DWF6 | **Rings** of play | WA6, scale plan S5 and P6, completion P4 | Pack | One playable ring at a time, signature loop first | Rebuilt browser at 1920×1080 and 1366×768 with save, reload, Export, Import (AR10) | One ring per checkpoint Weibao can play |
+| DWF6 | **Rings** of play | WA6, scale plan S5 and P6, completion P4 | Pack | One playable ring at a time, signature loop first | Rebuilt browser at 1920×1080, with 1536×864 desktop-floor evidence where relevant, and save, reload, Export, Import (AR10); 1366×768 retired | One ring per checkpoint Weibao can play |
 | DWF7 | **Past canon** | See [beyond the source](#beyond-the-source) | Pack plus play evidence | Overlays, generators, starts, carry records | Each overlay lints against the base pack; generated records labelled | Only what a ring or a start needs next |
 | DWF8 | **Prove and fold** | WA19, AD36, completion P5 | Ring evidence | Ledger update, remaining gates, next ring | Evidence states kept distinct; backlog named | Ends at a checkpoint, not a batch boundary |
 
@@ -86,30 +87,28 @@ Weibao picked the LOTM Seer slice as the next deep world implementation on 2026-
 | --- | --- | --- |
 | DWF1 | Done in effect | [Scale plan LC1 to LC13](IDEABOARD_SCALE_PLAN_2026-10-19.md#lotm-and-coi-readiness-more-to-consider-2026-10-19) |
 | DWF2 | Book 1: all 1,402 entries read, 363 reviewed; COI: 1,178 of 1,178 reviewed | Coverage and checkpoint files (scale plan LC1, LC3) |
-| DWF3 | Not started as catalog data | Research exists as prose and claims |
-| DWF4 | Not started | DG-C lists LOTM as a target only |
+| DWF3 | Catalog census delivered: 466 LOTM rows, with per-row evidence limits | Round 2 below; notes/search coverage is not primary verification |
+| DWF4 | 27 grammar rows and bounded ingredient/interchangeability follow-ups delivered; inference and gaps remain | DWF50/DWF52/DWF57/DWF59 below; not a general recipe generator |
 | DWF5 | Not started; the Seer slice is hand-coded `book_world_lotm_*` files | [Initiation plan, runtime authorization](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#runtime-authorization-and-first-engine-slice-2026-10-19), [LTS1 to LTS10](worlds/LOTM_SEER_SLICE_LAWS_2026-10-19.md) |
-| DWF6 | Engine test slice passes; no native binding, UI or browser proof | Same; LP5 not started |
+| DWF6 | Native join and opt-in workroom prototype delivered with recorded scratch-browser/persistence observations; acceptance incomplete | [Native join receipt](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#native-join-save-and-desktop-ui-2026-10-19-lip3lip4); Export-click, target-view evidence and travel guard remain open |
 | DWF7 | COI planned as an era overlay (LC2) | Scale plan |
-| DWF8 | Backlog named in the initiation plan | LIP3, LIP4 |
+| DWF8 | Partial technical proof and exact unrun gates recorded; no whole-world or human acceptance | Initiation plan native-join receipt and its current gate note |
 
 Another session owns the Seer slice files. This file cites them and changes nothing there.
 
 ## A runnable version (not run)
 
-The stages map onto a Workflow script without new tooling. One pass for one ring,
-under the session's ten-agent guideline:
+The stages can share one coordinator and existing evidence instead of a fixed
+eight-or-nine-agent swarm. Use AU1–AU15: preassemble only the selected missing
+source spans, qualify one bounded Luna pilot, then release disjoint fresh jobs
+under the same finite budget with at most two active workers. The coordinator
+reconciles canon, lifecycle and shared integration. Reuse completed census and
+grammar outputs; a selected ring reads only its consequential dependencies.
 
-1. One recover agent (DWF1), read only.
-2. Up to four census readers in parallel, one kit-part group each, writing their own files (DWF3).
-3. One grammar and dials agent (DWF4).
-4. One pack scaffolder (DWF5), then lint.
-5. One ring builder that owns the slice files (DWF6), then a separate verifier that rebuilds and drives the browser (DWF8).
-
-Rough cost (**E**): eight or nine agents, most of it in census reading; readers at
-Sonnet medium (AU5), the law encoding reviewed at Opus. Running it needs Weibao to
-ask for a workflow run, and the ring builder must not overlap a session that owns
-the same files (AR15).
+No workflow run is dispatched by this template. A future selected run records
+its input manifest, model/effort, invocation/source/output ceilings, shared
+allowance stop and exact unread remainder before launching. Stronger review is
+for a named unresolved judgment, not an automatic tier for every law row.
 
 ## More to consider, round 1 (2026-10-19)
 
@@ -211,7 +210,7 @@ finish one playable slice before starting the next.
 | DWF51 | HP companion books as in-world spell books: Fantastic Beasts, Quidditch Through the Ages, Beedle the Bard are real published texts (SM7). Not held locally; buying needs Weibao's yes. | Acquisition by Weibao, then a reader | Receipt plus census rows tagged `supplement` |
 | DWF52 | Grammar pass for both worlds (DWF45), LOTM first since it is the active ring | Opus design, one session | Grammar rows derive tags for every Seer-slice item already in the code, inference labelled |
 | DWF53 | Hogwarts Legacy and similar games as SM5 number sources for spell and potion tables | Game-read, existing standing task | Rows tagged `game`, kept out of the novel baseline |
-| DWF54 | HP first ring proposal (after Seer DWF6): a beginner potion or charm lesson built on the [beginner potion proposal](research/novels/harry-potter/craft-integration-2026-10-12/BEGINNER_POTION_PROPOSAL.md), wand tool contract from the [HP and LOTM comparison](worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md) | Strong coder, one ring | Rebuilt 1366×768 journey with save, reload, Export, Import |
+| DWF54 | HP first ring proposal (after Seer DWF6): a beginner potion or charm lesson built on the [beginner potion proposal](research/novels/harry-potter/craft-integration-2026-10-12/BEGINNER_POTION_PROPOSAL.md), wand tool contract from the [HP and LOTM comparison](worlds/HP_LOTM_NEXT_PLAYABLE_FEATURE_2026-10-15.md) | Strong coder, one ring | Rebuilt 1920×1080 journey, relevant 1536×864 floor check, with save, reload, Export, Import |
 | DWF55 | Combination report over both censuses once grammar rows exist (DWF28), e.g. where a formula sheet and a spell book route share a consumer | Script plus review | Report lists unplanned interactions without printing sealed truths |
 
 ### DWF49 result: HP searched rows checked against text (2026-10-19)
@@ -290,7 +289,7 @@ Done check: ingredient relation stated or recorded as not stated, with locators.
 AU ledger: one Sonnet reader, 12 EPUB members, about 5,100 of 12,000 source characters, plus the
 census and reader notes. Private output in `research/novels/lord-of-mysteries/census-2026-10-19/dwf57/`.
 
-- **Verdict: the text states no rule relating formula ingredients across Sequences or pathways.**
+- **Bounded verdict: no general ingredient relation across Sequences or pathways was established in the 12 inspected members plus reused notes.** This is not a proof of absence from the complete novel.
   "Not stated" means not found in the members searched and the reader notes, not a proof of
   absence in all 1,402 entries.
 - **Stated, but not an ingredient rule:** Beyonder characteristics are conserved, and a dead
@@ -319,19 +318,21 @@ a few official pages, not full wiki pages; no revision ids were captured.
 
 | Material kind | HP evidence | LOTM evidence | Reading for WR3 |
 | --- | --- | --- | --- |
-| Potion main ingredient | Exact identity; no working swap shown | Exact identity per formula; two stated stand-ins: a listed alternate main (one formula), and a same-Sequence Beyonder characteristic | Default exact identity; stated alternates as authored rows |
+| Potion main ingredient | Named formula identities; no working swap shown in the inspected windows | Named formula identities; two stated stand-ins: a listed alternate main (one formula), and a same-Sequence Beyonder characteristic | Named-formula requirements and documented alternatives; other mixes still resolve under MR6–MR7 |
 | Supplementary ingredient | Exact identity; names for one plant (monkshood, wolfsbane, aconite) are aliases | Exact identity; a low-confidence wiki line shows alternates with different amounts, so not 1:1 | Aliases are one record; alternates carry their own quantity |
 | Effect class | Bezoar protects against "most" poisons and stood in for an unfinished antidote (B6) | Not found | A bounded effect class can stand in, with a stated limit |
 | Tools | Borrowed or won wand works at reduced quality until allegiance changes (B7); no wood-core pairing table | Not applicable | Graded substitution is the only HP case, and it is quality, not yes/no |
 | Functional profile swaps | Not stated | Not stated; no pathway-affinity swap rule | Neither world states one |
 
-**Reading.** Both books default to exact identity and show substitution only where it is stated.
+**Source-reading boundary.** The inspected examples document named formulas and particular substitutions; they do not establish an exhaustive permission list for making.
 Silence is not prohibition: AD38 (things work by how they work) and AD5 let a player-found
 substitute work when its mechanism reasonably does, at a cost. Canon therefore sets the default
 profile, and improvisation is a discovery route with risk, not a gap in canon.
 
-- **DWF60 (ACCOUNT FOR NOW).** Per world, set WR3 to `exact identity` with stated alternates as
-  authored rows; allow functional-profile improvisation as a learned, costed, partly failable
+- **DWF60 (ACCOUNT FOR NOW).** Keep source-qualified named-formula matches and stated alternates as
+  attractors, with their evidence attached; free mixing remains valid under MR6–MR7,
+  including accidental exact matches, degraded near matches and original outcomes.
+  Allow functional-profile improvisation as a learned, costed, partly failable
   route (MA5, UV8 "only substitute what you understand"). HP wand quality is graded, never a
   hard cannot-cast (matches the BF1 correction).
 - **DWF61 (ACCOUNT FOR NOW).** Substitution rows keep `relation` (`stands_in`, `equivalent_class`,
@@ -393,3 +394,109 @@ nothing is encoded.
 should take C4, C9, Chained 2, White Tower 2, the Sequence 2 names and Paragon 5, with the wiki
 through the in-app browser as a second route. Sonnet medium; done check: each item resolved or
 recorded as not found with locators.
+
+## Round 3: whole worlds, characters, dialogue and a local churn (2026-10-20)
+
+Weibao: "what else is missing to implement entire worlds? what about characters? dialogue? more to
+consider? Have local AI slow churn through them?" Design and tooling only; no runtime, save or
+canon change. Evidence: [completion standard](WORLD_COMPLETION_STANDARD.md) S00-S14, the dialogue
+owner's Missing D1-D6 ([dialogue](worlds/DIALOGUE_AND_INTERACTIONS.md#inspected-native-fit-and-missing-adapters)),
+[characters](CHARACTERS_AND_WORLD_EVENTS.md) headings, and `scripts/lint_story_spine.mjs`.
+
+The S-sections already name people (S04), dialogue (S10) and knowledge (S09), and D1-D6 already
+list the engine gaps. What none of them names is below: tiers, time, volume, repetition and the
+layer a line comes from. All items are proposals.
+
+### ACT NOW (done)
+
+- **DWF65 Local churn set up and piloted.** [Runner and queue](audits/local_churn_2026-10-20/run.mjs),
+  21 tasks (worlds, characters, dialogue, each through 7 lenses) in `tasks.json`. One serial
+  request at a time to the installed `qwen3.8:27b` (thinking off, 8k context), `nice 10`,
+  detached in its own process group (PID in `queue.pid`, log in `queue.log`), resumable because a
+  finished `out/<id>.md` is skipped. Pilot `dlg-verify`: 38 s, 639 tokens, about 17 tokens a
+  second including load (one sample). Stop by PID or group, never `pkill -f`.
+- **DWF66 Pilot read.** Items 1, 3, 4 and 10 (knowledge leak test, refusal state, return memory,
+  tree cycles) are real checks; 5, 9 and 11 repeat D4 or are generic. The local model saw only
+  document headings, so output is generic by design. Treat the queue as a cheap net, not a source.
+
+### ACCOUNT FOR NOW (what is missing)
+
+**Worlds**
+- **DWF67 Cast tiers.** Default: principals authored, recurring people from templates plus overrides, crowd derived from name, occupation and look grammars the way items are. The dial is per world; reason: a book with 40 named people and a city with 40,000 cannot share one authoring route.
+- **DWF68 Time-sliced character state.** Knowledge, goal, place and directed relationships at a timeline point, because divergence (S11) moves them and "who knows what when" is the commonest canon error. Sealed facts stay by ID (DWF37).
+- **DWF69 Role vacancy.** When a named teacher, shopkeeper or antagonist dies or leaves, who fills the role. Default: a derived successor from the role template, with an in-world delay and cost, so a world never develops a hole.
+- **DWF70 Everyone-knows layer.** News, rumors, festivals, idiom, local currency names, weather talk. It is separate from secrets (S09) and derived from the event log with a travel delay, so rumor speed matches the map.
+- **DWF71 Long-play soak per world.** Advance N in-game years idle and measure dead states, stuck people, economy drift and text repetition. Crashes are the cheap half; repetition is what a player notices first.
+- **DWF72 Thin-world fallback.** A partly written world should still play, with generic fill and a visible "unwritten" marker. Missing functionality is not not-applicable (completion standard), so the marker is how a gap stays honest.
+- **DWF73 Content-volume ledger.** Per world: lines, scenes and people, by route (authored, grammar, local draft, frontier), with review state. This is where cost per world becomes visible.
+
+**Characters**
+- **DWF74 Voice sheet.** For each principal: diction, register, address forms per listener, taboo topics, tics, what they lie about, three anchor lines. Small enough to write, and it is the input that makes bulk drafting by a weaker model usable.
+- **DWF75 Directed attitude to the player** by identity, body and reputation, using the identity owner's L4 rather than a second relationship model.
+
+**Dialogue**
+- **DWF76 Line layers.** Default stack: authored key scenes; templated barks keyed by voice, situation and knowledge channel; rumor and news lines derived from facts; optional runtime local-model expression limited to admitted facts (P15/T5 stay the owners). Each line records its layer, and every layer has a deterministic fallback.
+- **DWF77 Dialogue lint.** Extend the `lint_story_spine.mjs` pattern (it already has a sealed-string canary): speaker cites a fact they cannot know, unreachable line, dead-end node, tree cycle, repeated-line rate, over-length, voice-sheet taboo hit. Static and cheap, so it also screens local drafts.
+- **DWF78 Repetition budget.** Variant count and cooldown per speaker and situation; metric is the unique-line ratio over a one-hour idle session.
+- **DWF79 Claimed versus true.** People may lie or withhold, so a line needs a "claimed" mark distinct from truth, feeding the evidence ledger (D5). Without it the player cannot be legitimately misled.
+- **DWF80 Partial comprehension display.** How unknown-language speech renders as skill grows. The dialogue owner says learning needs practice; the on-screen form is unowned.
+- **DWF81 Text can start before D1-D6.** Voice sheets, scene files and barks are plain text per the scene-writer packet, so content authoring and the knowledge-aware bridge can proceed in parallel.
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| DWF82 | Triage `out/*.md`: dedupe against owners, land survivors in the right palette, drop the rest | Sonnet medium, one session | Each survivor has an owner link; each drop a reason |
+| DWF83 | Second queue with real inputs: voice sheet plus fact packet per principal, then bark and variant drafts (LM1 first-pass, LM6 accuracy gate on 3-5 samples) | Local draft, frontier review of a sample | Sampled error rate recorded; drafts labelled `machine-drafted` until checked |
+| DWF84 | Dialogue lint (DWF77) as a script with fixtures | Strong coder, one session | Fixtures for leak, cycle, unreachable and repetition fail as intended |
+| DWF85 | Cast tier and crowd grammar for one world (LOTM first, since it has the census) | Opus design | Crowd records derive for one city district with no hand-written names |
+| DWF86 | Soak harness with a repetition metric | Strong coder | One world advanced 10 in-game years, report of dead states and unique-line ratio |
+
+### Churn triage (DWF82 done, 2026-10-20)
+
+All 21 outputs finished, none failed. After de-duplication about 8 of roughly 250 items were new;
+the rest repeat existing owners or each other. [Full triage](audits/local_churn_2026-10-20/TRIAGE.md)
+lists routes and drops. Survivors are leads to check, since only item titles were reviewed.
+
+- **DWF87 Memory growth.** Named people accumulate memory for years. Default: recent detail kept, older detail compressed into a relationship summary; dial per world; reason: save size and legible recall. Existing capped memory prose is the starting point.
+- **DWF88 Line provenance mark.** Record and, where it helps, show whether a line is authored, templated, derived or model-expressed, and keep a log of which accepted speech came from where. Extends DWF76 and the frozen-speech rule.
+- **DWF89 Rumor and refusal fixtures.** A rumor must not reach a place sooner than travel allows and decays without reinforcement; repeated refusal or persuasion must neither farm a reward nor lose all meaning. Both join DWF77's fixtures.
+- **DWF90 Soak counters.** Add stale-loop count and accumulated lore contradictions to DWF71's report.
+- **DWF91 Fixture set.** Random-start usable action (S02), one companion not duplicated across worlds (S12), trait and title conflicts, and name collisions within a district.
+- **DWF92 Sealed canary in prompts.** Runtime or batch local prompts carry only admitted facts, and a canary string in sealed material proves it never reached a prompt or output. Reuses the lint's sealed-string canary.
+- **DWF93 Voice swap test.** Remove speaker names from a sample of lines; a reviewer (or the lint, against the voice sheet) should still tell speakers apart. A cheap check on DWF74.
+- **DWF94 Next queue needs real inputs.** Repeats DWF83: the next local run takes voice sheets and fact packets, with a 3-5 sample accuracy gate before any bulk run.
+
+Local-model fit (measured once at about 17 tokens a second): good for brainstorm lenses, bark and
+variant drafts from a voice sheet, name pools and census structuring (LM4); poor for canon
+accuracy, key-scene prose and anything reasoning over sealed truth. Disk was 144 GiB free at
+setup. Nothing here is accepted direction until Weibao says so.
+
+
+## World-pack detail corrections, 2026-10-20
+
+The [bounded correction audit](audits/world_pack_details_2026-10-20/REPORT.md)
+reconciles current status against later receipts, without claiming a new world
+implementation. HP now has 256 census rows: 32 full-passage and 224 window-level
+checks; the final subject locator was directly checked in extracted text. A
+spell spelling variant is retained with its stable ID and source windows.
+These counts do not mean complete scenes, counters, instruction or seven-book
+coverage. LOTM's 466 catalog rows still have 462 note-derived and four checked
+evidence labels; targeted later resolutions live in sidecars and do not
+automatically upgrade all catalog rows. Twelve-member ingredient sampling cannot
+prove that a law is absent everywhere in the novel.
+
+**ACCOUNT FOR NOW:** encode only the selected operation's supported source
+conditions; preserve acquisition versus knowledge versus execution, sampled
+observation versus author truth, settled transformations versus reusable tools,
+and actual local-time/absence policy. Formulas remain attractors, not admission
+gates (MR6–MR7); no missing grammar permits a formula-only canon world.
+
+**LATER / DELEGATE:** resolve the exact LOTM sidecar IDs or an HP spell/recipe
+scene only when the selected ring consumes them. Level: Luna low for a supplied
+locator/field correction, Luna medium for bounded extraction, coordinator for
+conflicting canon or shared mechanisms. Done check: each selected claim has a
+locator, bounded scope and explicit disposition; its eventual runtime journey
+uses the actual state owner and survives current-format round trips. Wider
+catalog enrichment and full-world depth remain parallel proposals, not a new
+barrier to the authorized Seer slice.

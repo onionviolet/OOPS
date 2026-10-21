@@ -1,0 +1,19 @@
+{
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "checks": [
+    "Native existing button: two coins spent, four stamina restored through the actual character adapter",
+    "Current-format paid job Save/reload exact; Export/literal Import preserves complete post-export canonical envelope, including the normal export reward",
+    "Changed and missing definition both suspend native load; original durable save bytes remain exact",
+    "Restored exact revision settles frozen v1 paid reward of three coins",
+    "Future native instance selects revision two and earns seven coins; no bespoke main/display/save wiring"
+  ],
+  "nativeConnected": [
+    "author_workshop.rest",
+    "author_workshop.paid"
+  ],
+  "setup": "Original optional synthetic pack served only to a disposable origin. No personal saves or real book content.",
+  "errors": []
+}

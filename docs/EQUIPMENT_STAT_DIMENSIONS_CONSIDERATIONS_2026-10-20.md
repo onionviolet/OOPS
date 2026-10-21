@@ -199,3 +199,12 @@ the browser, confirm the affixes appear in Attributes, and save, reload and impo
 [modpack scout R1](research/MINECRAFT_MODPACK_SCOUT_2026-10-14-report.md),
 private Arcanum notes (gitignored) at
 `docs/research/discord-arcanum/private/ARCANUM_DISCORD_NOTES_2026-10-20.md`.
+
+
+## P1 implementation receipt, 2026-10-20
+
+The later five-pilot dispatch selects the previously ignored alternate readers; the earlier historical “ignore by design” wording above does not describe this selected change. AR1–AR16, AD5/6–8/22/32/36/38, CBR11/17–19 and ESD1–6 apply. Shared effective input now carries damage_taken/min_damage_share/crit_resistance across B1 native duel, B2 party interception, B3 causal strike and B4 feature battle; local guard, stamina, yield and physical-frame policy remains local. Person/Enemy reuse the equipment source aggregator from gear branch 2ddfdbc26, including actual source removal and explicit zero multipliers. No new campaign, balance dial or save schema.
+
+[P1 status and exact release evidence](gm/dispatch/deep-engine-2026-10-20/P1_STATUS.md): 42 focused checks, isolated build/architecture/rules pass. Full suite is 2363/2364, with the same pre-existing Sinew/Boar-meat craft failure reproduced without P1 changes. Rebuilt disposable 1920×1080 native source journey: bare 33.1 health lost, equipped 15.6, removed 33.1; current-format Save/reload/Export/literal Import retains source and derived stats. Provisional P2 item-factory registration also has actual native creature-constructor/strike/removal evidence, 20.3 versus 38. Source files released=true.
+
+Group integration still needs the two-line items factory registration after palette release. Ordinary equipped Direwolf/Forest den access, ordinary acquisition/crafting, natural cadence and human play acceptance remain open. Synthetic creature proof does not close its ordinary encounter gate. No commit/push. Generated files were restored byte-for-byte after an accidental root build; the recovery hash receipt is linked from P1 status.

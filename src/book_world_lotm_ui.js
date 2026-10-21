@@ -13,13 +13,15 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
  function render(){
   const v=read(),next=JSON.stringify([v,notice.textContent]);if(next===signature)return;signature=next;
-  meters.replaceChildren();work.replaceChildren();actions.replaceChildren();walks.replaceChildren();notebook.replaceChildren();
+  work.replaceChildren();actions.replaceChildren();walks.replaceChildren();notebook.replaceChildren();
   if(!v.enrolled){
+   for(const b of bars.values())b.node.remove();bars.clear();
    status.textContent='A disposable test start: you become a clerk of the supervised workroom in early Tingen. Nothing here is canon; this save is for testing.';
    actions.append(row(button('Begin as a Tingen probationer','enroll',()=>run(enroll,'You report to the workroom.'),!v.startable,v.startable?'':'Begin from the Village with nothing else under way.')));return;
   }
   status.textContent=`${v.at} · ${v.supervisorHere?'Warden Hale is here':'Warden Hale is elsewhere'}${v.energy?'':' · no Seer source'} · Hale's attention ${v.attention}${v.sleeping?' · asleep':''}`;
-  for(const m of v.meters||[]){let b=bars.get(m.id);if(!b){b=createMeterBar();bars.set(m.id,b);}b.update(m);meters.append(b.node);}
+  const live=new Set();for(const m of v.meters||[]){live.add(m.id);let b=bars.get(m.id);if(!b){b=createMeterBar();bars.set(m.id,b);}b.update({...m,compact:true});if(b.node.parentNode!==meters)meters.append(b.node);}
+  for(const [id,b] of bars){if(!live.has(id)){b.node.remove();bars.delete(id);}}
   const held=[v.holds.dose?'prepared dose':'',...['comparator','sampleA','sampleB'].filter(n=>v.holds[n]).map(n=>n==='comparator'?'comparator sample':`sample lot ${n.slice(-1)}`)].filter(Boolean);
   work.append(node('p',`You hold: ${held.length?held.join(', '):'nothing from the bench'}.`));
   for(const j of v.jobs)work.append(row(node('span',`${j.label} · ${j.left} min left`),...(j.cancellable?[button('Stop (cost not returned)','cancel',()=>run(()=>cancel(j.id),'You stopped. What it cost is gone.'),false,'Stopping forfeits what this spent.')]:[])));

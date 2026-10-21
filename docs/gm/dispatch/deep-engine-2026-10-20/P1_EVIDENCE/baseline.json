@@ -1,0 +1,13 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "paths": {
+    "src/combat_math.js": "663cdbfdeb1efc352b3d0343fcf9b9e8f5e7dc31dc4f6e068843bf6f8c614cca",
+    "src/native_battle.js": "2d28198bc722e2483d630e92e3272722cdc6c13109fc19f9028afef1ecb3a05c",
+    "src/party_battle.js": "17abeb423611198f5295306a8b58a0288c5e122cc3d3054bd62e7c08bfc80d28",
+    "src/causal_story_core.js": "3368166d4f2982b83a625da2d17617f0ea8067628300fff11be6a147a55b6f7f",
+    "src/feature_expansion_battle.js": "c7046d46cde8a9bc1a5531c0ef4a43bfdfcae7df9deef8ac1663eef65ac98247",
+    "src/models/person.js": "82e6d60a46ce6c28765c968eb0f190e1088466e18f050af532c81dc6b041e362",
+    "src/enemies.js": "a1dfd14cfc936dab472e8e5326e48e70dc93b8588b76ae5f7878eb7466f952b2",
+    "src/equipment_stats.js": null
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "bundle": "27b627308d043cd2397c74c0d21668cf2ff8b64e7246649ffdaa9769d78afb0c",
+  "runtimeInputs": {
+    "src/meter_bar.js": {
+      "live": "fd7ea4bae1ffbaadcabe5a6a9af57dfdc24e52424f2a3beb853a5a1be9b31c6b",
+      "candidate": "fd7ea4bae1ffbaadcabe5a6a9af57dfdc24e52424f2a3beb853a5a1be9b31c6b"
+    },
+    "src/work_status_view.js": {
+      "live": "a4813da9a01b335e74b3a1f2242c831a07feb97bdf572ae29101a5ac2609e468",
+      "candidate": "a4813da9a01b335e74b3a1f2242c831a07feb97bdf572ae29101a5ac2609e468"
+    },
+    "src/tools_panel.js": {
+      "live": "4dc09a7f3b90170e0cf260abf34e90c0d062501256fee252c2b7270a6b6d8a7b",
+      "candidate": "4dc09a7f3b90170e0cf260abf34e90c0d062501256fee252c2b7270a6b6d8a7b"
+    },
+    "src/tools_domain.js": {
+      "live": "2b13e8f0ea57cfd5e8c0c9ee2278eb113010907e5183b7220a59d97b4c857144",
+      "candidate": "2b13e8f0ea57cfd5e8c0c9ee2278eb113010907e5183b7220a59d97b4c857144"
+    },
+    "src/lamplight_domain.js": {
+      "live": "a0557f4ef641a0be3b04f22dd4d6c8bbe60083a4acabc068793dc4c8af307112",
+      "candidate": "a0557f4ef641a0be3b04f22dd4d6c8bbe60083a4acabc068793dc4c8af307112"
+    },
+    "src/crafting_detail.js": {
+      "live": "94186e0d9231115c19c27d3d7aea3737382ef5efa8f6dcb3c4fa3613fb386ffe",
+      "candidate": "94186e0d9231115c19c27d3d7aea3737382ef5efa8f6dcb3c4fa3613fb386ffe"
+    },
+    "src/crafting_visibility.js": {
+      "live": "7c4c917ab7ba51e635638d2b0dcff66028affd3f1a670cbe3b074a0f098c7f5e",
+      "candidate": "7c4c917ab7ba51e635638d2b0dcff66028affd3f1a670cbe3b074a0f098c7f5e"
+    },
+    "src/crafting_home.js": {
+      "live": "dd73f267064b8e00b623fddd369c221f7fdbc26d7ea2c7e1d2e0db3cef03c661",
+      "candidate": "dd73f267064b8e00b623fddd369c221f7fdbc26d7ea2c7e1d2e0db3cef03c661"
+    },
+    "src/display.js": {
+      "live": "741e982f5ee40f33435b0a6045f7742eee2ee219c3fe26dd1e76c54bf6f92159",
+      "candidate": "741e982f5ee40f33435b0a6045f7742eee2ee219c3fe26dd1e76c54bf6f92159"
+    },
+    "src/palette_feedback.js": {
+      "live": "871c409077747eb79d943dfe4b12fcf4c5a79b325ed74aec49fab3deb08ea1c1",
+      "candidate": "871c409077747eb79d943dfe4b12fcf4c5a79b325ed74aec49fab3deb08ea1c1"
+    },
+    "src/palette_feedback_domain.js": {
+      "live": "d95113029a70ea9cdd12e7483466dbbf8172f49cd9be348abbbe3dd7582e305a",
+      "candidate": "d95113029a70ea9cdd12e7483466dbbf8172f49cd9be348abbbe3dd7582e305a"
+    },
+    "src/quiet_place_detail.js": {
+      "live": "acc92a20c5572d61c603f48cac7bd3f6a51deabf29942433cd10b7b213983aad",
+      "candidate": "acc92a20c5572d61c603f48cac7bd3f6a51deabf29942433cd10b7b213983aad"
+    },
+    "src/temperature_band.js": {
+      "live": "775319c94a9f9725e3099dbd4b4ef8e10a469f28742ea45f8e54122c521ec45c",
+      "candidate": "775319c94a9f9725e3099dbd4b4ef8e10a469f28742ea45f8e54122c521ec45c"
+    },
+    "src/condition_panel.js": {
+      "live": "e6d144342cb6dd146ceb4b228ff9b6201dadc029de035c4103d556d8b6451628",
+      "candidate": "e6d144342cb6dd146ceb4b228ff9b6201dadc029de035c4103d556d8b6451628"
+    },
+    "src/proto23_shell.js": {
+      "live": "cce04e4d23195ab20b643e8023ddc3a84264438ae72b9cd8ac4bbbfab36acd44",
+      "candidate": "cce04e4d23195ab20b643e8023ddc3a84264438ae72b9cd8ac4bbbfab36acd44"
+    },
+    "src/harvest.js": {
+      "live": "c33c124d106aeee7119a44b21d28adf2e6f2f60f8596ea5398c12cce1315737e",
+      "candidate": "c33c124d106aeee7119a44b21d28adf2e6f2f60f8596ea5398c12cce1315737e"
+    },
+    "src/harvest_ui.js": {
+      "live": "cb285cb7b4c91db8663228c16a5b904f095943718a8760d624bcc2e0aa6e3a90",
+      "candidate": "cb285cb7b4c91db8663228c16a5b904f095943718a8760d624bcc2e0aa6e3a90"
+    },
+    "src/native_resources_domain.js": {
+      "live": "75f1beceb694f809961087fa616d380e67e002e2b62bd9b50207392c612007ed",
+      "candidate": "75f1beceb694f809961087fa616d380e67e002e2b62bd9b50207392c612007ed"
+    },
+    "src/household_scene.js": {
+      "live": "042138c7d6d7c45a6dd6004b19cbdd763d2b04cac7dc2551dac83aa3342e9e27",
+      "candidate": "042138c7d6d7c45a6dd6004b19cbdd763d2b04cac7dc2551dac83aa3342e9e27"
+    },
+    "src/absorb_p23/household/host.js": {
+      "live": "c8485bcc95d20eea0adc84191396961822e562b46b2d2d5e04e531c79421119d",
+      "candidate": "c8485bcc95d20eea0adc84191396961822e562b46b2d2d5e04e531c79421119d"
+    },
+    "src/absorb_p23/host_joins/tranche_one_ui.js": {
+      "live": "af553a78ac5b324580c3061e54b181af4f7710f8a75ab868654ebb430844c99d",
+      "candidate": "af553a78ac5b324580c3061e54b181af4f7710f8a75ab868654ebb430844c99d"
+    },
+    "src/main.js": {
+      "live": "fc0f8e290b7337b17924609ab677b920fa16f82e579635d633fc2f21c4e8f60b",
+      "candidate": "fc0f8e290b7337b17924609ab677b920fa16f82e579635d633fc2f21c4e8f60b"
+    },
+    "src/village_workspace.js": {
+      "live": "5243022dfbe79a2315ec13e6dc9c259c35a60f417397012725ea2909d1c52c98",
+      "candidate": "5243022dfbe79a2315ec13e6dc9c259c35a60f417397012725ea2909d1c52c98"
+    },
+    "src/layout_spec.js": {
+      "live": "7d80c6ca8555c302ce50a6950934fd4d5fc00ee518fc451266e881d3df6c766c",
+      "candidate": "7d80c6ca8555c302ce50a6950934fd4d5fc00ee518fc451266e881d3df6c766c"
+    },
+    "src/ui_ports.js": {
+      "live": "24b5e3607d346bc5ee603f29bfaa98c01581d458dcb3385750cd103e8a1bba61",
+      "candidate": "24b5e3607d346bc5ee603f29bfaa98c01581d458dcb3385750cd103e8a1bba61"
+    },
+    "src/ui_extras.js": {
+      "live": "59764ed2d74749381a5d54849c53f9cbdba2e3376a1f9249cafd5631bee5bd9a",
+      "candidate": "59764ed2d74749381a5d54849c53f9cbdba2e3376a1f9249cafd5631bee5bd9a"
+    },
+    "src/display_settings.js": {
+      "live": "c1338b0bc3cb310327f3f8e390c86c9a11508afdb4e8b192af8a458915bb1dae",
+      "candidate": "c1338b0bc3cb310327f3f8e390c86c9a11508afdb4e8b192af8a458915bb1dae"
+    },
+    "styles/meter_bar.css": {
+      "live": "ecab5e79254dc18f794799e15bcfb3300eaa1a91a1957d31f04e1097f2522186",
+      "candidate": "ecab5e79254dc18f794799e15bcfb3300eaa1a91a1957d31f04e1097f2522186"
+    },
+    "styles/palette_feedback.css": {
+      "live": "8f320a8df9035abfdf87d98df806fec13bd251d763e68b7952a533513a5d6719",
+      "candidate": "8f320a8df9035abfdf87d98df806fec13bd251d763e68b7952a533513a5d6719"
+    },
+    "styles/palette_reports.css": {
+      "live": "1d86506a3e61862f98074c8af6b2467baf46b6273df16137445258605cc172c9",
+      "candidate": "1d86506a3e61862f98074c8af6b2467baf46b6273df16137445258605cc172c9"
+    },
+    "style.css": {
+      "live": "4b717d59ae7dd51fbd949a1f6d1bd77e3939f183b442e33b1d1680a2b07a3f98",
+      "candidate": "4b717d59ae7dd51fbd949a1f6d1bd77e3939f183b442e33b1d1680a2b07a3f98"
+    }
+  },
+  "candidateDrift": []
+}

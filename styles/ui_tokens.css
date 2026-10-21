@@ -1,7 +1,8 @@
 /* Shared UI foundation. Measurements from Proto23; original CSS, no copied code/assets.
    Legacy swatches preserve Standard, semantic colors and Appearance overrides. */
 :root {
-    --ui-font: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "PingFang SC", "Noto Sans CJK SC", "Noto Sans CJK JP", "Yu Gothic", system-ui, sans-serif;
+    --ui-font-launch: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "PingFang SC", "Noto Sans CJK SC", "Noto Sans CJK JP", "Yu Gothic", system-ui, sans-serif;
+    --ui-font: var(--ui-font-gothic);
     --ui-type-small: 12px; --ui-type-body: 14px; --ui-type-title: 16px;
     --ui-radius: 0; --ui-frame: 3px solid #020309; --ui-shadow: none;
     --ui-navy: #000533; --ui-teal: #00416b; --ui-text: #bcfefe;
@@ -227,6 +228,7 @@
 }
 
 body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
+#loading_screen { --ui-font: var(--ui-font-launch); font-family: var(--ui-font-launch); }
 :root[data-color-scheme="vivid"] { --vivid-text: var(--ui-text); }
 #main_content.workspace-active { --workspace-gap: 4px; }
 #main_content.workspace-active .workspace-module {
@@ -1157,7 +1159,7 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 
 #main_content.workspace-active[data-parity="r3"] .shell-context-preview:not([data-interactive="true"]) {pointer-events:none;}
 /* Crisp reading treatment. Individual palettes and font choices remain native. */
-#main_content.workspace-active[data-parity="r3"] {--ui-font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--p23-growth:#f1a6d1;--p23-log-prose:#e5e9f2;}
+#main_content.workspace-active[data-parity="r3"] {--ui-font:var(--ui-font-gothic);--p23-growth:#f1a6d1;--p23-log-prose:#e5e9f2;}
 #main_content.workspace-active[data-parity="r3"] .workspace-module-header strong {letter-spacing:0!important;text-transform:none;font-weight:600;}
 #main_content.workspace-active[data-parity="r3"] #basic_character_info_div:not([data-custom-palette="true"]) :is(#character_health_value,#character_xp_value,#character_stamina_value,#character_mana_value) {width:max-content!important;max-width:100%;left:50%;transform:translateX(-50%);padding:0 .35em;background:var(--p23-dark-value);color:var(--p23-text)!important;text-shadow:none!important;font-weight:600;font-variant-numeric:tabular-nums;}
 #main_content.workspace-active[data-parity="r3"] #character_mana_div[data-zero-capacity="true"] {display:none!important;}
@@ -1457,6 +1459,7 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
 
 /* R22 combat log roles and Report kinds (consumed by styles/combat_log.css). */
 :root {
+ --ui-font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
  --log-ally: #8fe8ff; --log-hostile: #f0b6ff;
  --log-dealt: #ffe2a0; --log-taken: #ffa3b2; --log-defeat: #9aefb3;
  --log-quiet: #aeb8cc;
@@ -1481,4 +1484,183 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
    it; the freed width goes to Around you. The floors keep the R21 widths. */
 @media (min-width:1700px) {
 #main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-areas:"player focus focus log" "inventory actions actions log";}
+}
+
+/* GU10 (Round 12): High contrast, a per-browser display setting (display_settings.js `contrast`).
+   It redefines the same tokens every panel already reads, on every element with !important so the
+   per-role tints, the Vivid scheme and player palettes cannot lift it. Black surfaces, white text,
+   white frames and bright accents; gains, losses and blocks keep distinct hues beside their words. */
+:root[data-display-contrast="high"] *, :root[data-display-contrast="high"] {
+ --ui-navy: #000000 !important; --ui-teal: #0d0d0d !important; --ui-text: #ffffff !important; --ui-hairline: #ffffff !important; --ui-accent: #ffe14d !important;
+ --ui-fill: #000000 !important; --ui-log-fill: #000000 !important; --ui-button-fill: #1a1a1a !important; --ui-button-disabled-fill: #000000 !important;
+ --workspace-surface: #000000 !important; --workspace-header: #000000 !important; --workspace-text: #ffffff !important; --workspace-muted: #e6e6e6 !important;
+ --workspace-accent: #ffe14d !important; --workspace-focus: #ffe14d !important; --workspace-border: #ffffff !important; --workspace-button: #1a1a1a !important;
+ --vivid-page: #000000 !important; --vivid-text: #ffffff !important; --vivid-muted: #e6e6e6 !important; --vivid-accent: #ffe14d !important; --vivid-focus: #ffe14d !important;
+ --vivid-control: #1a1a1a !important; --vivid-control-hover: #333333 !important; --vivid-surface: #000000 !important; --vivid-header: #000000 !important; --vivid-edge: #ffffff !important;
+ --theme-bg: #000000 !important; --theme-surface: #000000 !important; --theme-control: #1a1a1a !important; --theme-text: #ffffff !important; --theme-surface-text: #ffffff !important;
+ --theme-control-text: #ffffff !important; --theme-muted: #e6e6e6 !important; --theme-accent: #ffe14d !important; --theme-border: #ffffff !important; --theme-selected: #ffe14d !important;
+ --theme-selected-text: #000000 !important; --theme-focus: #ffe14d !important; --theme-warning: #ffb347 !important; --theme-danger: #ff7a7a !important;
+ --p23-text: #ffffff !important; --p23-muted: #e6e6e6 !important; --p23-frame: #ffffff !important; --p23-line: #ffffff !important; --p23-quiet-line: #bfbfbf !important;
+ --p23-region-fill: #000000 !important; --p23-log-fill: #000000 !important; --p23-message-fill: #000000 !important; --p23-inventory-fill: #000000 !important;
+ --p23-detail-fill: #000000 !important; --p23-detail-slot-fill: #000000 !important; --p23-preview-fill: #000000 !important; --p23-context: #1a1a1a !important; --p23-hover-fill: #333333 !important;
+ --p23-critical: #ff7a7a !important; --p23-gain: #5dff8a !important; --p23-loss: #ff7a7a !important; --p23-new: #ffe14d !important;
+ --sem-gain: #5dff8a !important; --sem-loss: #ff7a7a !important; --sem-money: #ffe14d !important; --sem-blocked: #ff9d57 !important;
+}
+:root[data-display-contrast="high"] body { background-color: #000000; color: #ffffff; }
+:root[data-display-contrast="high"] :focus-visible { outline: 3px solid #ffe14d; outline-offset: 1px; }
+
+/* TSG1–TSG8: opt-in Luminous Gothic component treatment. Appearance owns selection,
+   palettes, type size and persistence; these are shared role tokens and consumers. */
+:root {
+ --ui-font-gothic: "OOPS MS Gothic", "MS Gothic", "Menlo", "AppleGothic", "Hiragino Sans GB", monospace;
+ --ui-font-numeric: "OOPS MS Gothic", "MS Gothic", "Menlo", "AppleGothic", monospace;
+ --ui-font-prose: var(--ui-font-gothic);
+ --ui-luminous-radius: 0;
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"],
+.theme-preview .customization-module[data-component-theme="luminous"] {
+ --ui-shadow: 0 0 12px color-mix(in srgb, var(--theme-accent) 18%, transparent);
+ --ui-luminous-glow: 0 0 9px color-mix(in srgb, var(--theme-accent) 48%, transparent);
+ --ui-luminous-edge: inset 0 1px color-mix(in srgb, var(--theme-accent) 65%, transparent), 0 0 14px color-mix(in srgb, var(--theme-accent) 22%, transparent);
+ --ui-luminous-rule: color-mix(in srgb, var(--theme-accent) 42%, var(--theme-bg));
+ --theme-heading-font: var(--custom-font) !important;
+ --ui-text: var(--theme-text);
+ --ui-type-body: var(--custom-size);
+ --ui-type-small: var(--custom-size);
+ --ui-radius: var(--ui-luminous-radius);
+ color: var(--theme-text); font-family: var(--custom-font);
+ background: linear-gradient(115deg, var(--theme-bg), color-mix(in srgb, var(--theme-bg) 90%, var(--theme-accent))) !important;
+ line-height: 1.45;
+}
+/* Surrounding shell frames consume their module's established colors, not a new palette. */
+#main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="luminous"]) {
+ border: 1px solid var(--ui-hairline) !important;
+ box-shadow: 0 0 15px color-mix(in srgb, var(--ui-teal) 38%, transparent), inset 0 0 0 1px color-mix(in srgb, var(--ui-text) 12%, transparent) !important;
+}
+#main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="luminous"]) > .workspace-module-header {
+ border-bottom: 1px solid var(--ui-hairline);
+ background: linear-gradient(90deg, var(--ui-navy), var(--ui-teal)) !important;
+}
+#main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="luminous"]) > .workspace-module-header strong {
+ font-family: var(--ui-font-gothic); font-size: var(--shell-context-size, var(--ui-type-body)); font-weight: 600;
+ text-transform: none; letter-spacing: .025em; color: var(--ui-text);
+ text-shadow: 0 0 9px color-mix(in srgb, var(--ui-text) 42%, transparent);
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(h2,h3,h4,.scene-location-header > strong,.shell-stat-group > strong) {
+ font-family: var(--custom-font); font-weight: 600; letter-spacing: .025em;
+ color: var(--theme-accent); text-shadow: var(--ui-luminous-glow);
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(p,.log-original,.log-compact,.log-occurrences,.item_description,.skill_description,.ui-disabled-reason,.customization-explanation,.customization-draft-status,.meter-bar-note,.al-detail,.al-summary) {
+ font-family: var(--custom-prose-font, var(--custom-font)); text-shadow: none; line-height: 1.5;
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"][data-typography-font="gothic"] :is(.stat_value,.character_stat_value,.inventory_item_count,.item_count,.meter-bar-value,.log-value,.log-repeat,.scene-calendar,.scene-glyph,pre) {
+ font-family: var(--ui-font-numeric); font-variant-numeric: tabular-nums; text-shadow: none;
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(.meter-bar,.stat_slot_div,.inventory_item_control,.skill_bar_div,.action_div,.recipe_div) {
+ border-bottom-color: var(--ui-luminous-rule); line-height: 1.45;
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(button,select,input,textarea,.activable_buttons > div,.recipe_name,.action_travel,.start_dialogue,.start_activity,.dialogue_textline) {
+ font-family: var(--custom-font); border-radius: var(--ui-luminous-radius);
+ border-color: var(--ui-luminous-rule); background-image: none;
+ transition: border-color .12s, box-shadow .12s;
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(button,select,summary,[tabindex],.inventory_item_control,.recipe_name):hover {
+ box-shadow: var(--ui-luminous-glow); border-color: var(--theme-accent);
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is([aria-selected="true"],.selected_recipe,.active_selection_button,[aria-pressed="true"]) {
+ box-shadow: inset 0 -2px var(--theme-accent), var(--ui-luminous-glow);
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] :focus-visible {
+ outline: 2px solid var(--theme-focus) !important; outline-offset: 2px; box-shadow: var(--ui-luminous-glow);
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(button:disabled,[aria-disabled="true"],.action_unavailable,.activity_unavailable,.recipe_unavailable) {
+ text-shadow: none; box-shadow: none; border-style: dashed; opacity: 1;
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(#proto23_item_detail,.customization-panel,.recipe_tooltip,.skill_tooltip,.item_tooltip) {
+ border: 1px solid var(--theme-border); box-shadow: var(--ui-luminous-edge);
+ background: var(--theme-surface) !important; color: var(--theme-surface-text) !important;
+}
+#main_content.workspace-active #proto23_item_detail.customization-module[data-component-theme="luminous"] {
+ border-inline-start: 2px solid var(--theme-accent); box-shadow: var(--ui-luminous-edge);
+}
+#main_content.workspace-active #message_log_div.customization-module[data-component-theme="luminous"] {
+ --ui-log-fill: linear-gradient(110deg, var(--theme-bg), color-mix(in srgb, var(--theme-bg) 90%, var(--theme-accent)));
+ background: var(--ui-log-fill) !important;
+}
+#main_content.workspace-active #message_log_div.customization-module[data-component-theme="luminous"] .message_common {
+ line-height: 1.5; padding-block: .2em; border-bottom-color: var(--ui-luminous-rule);
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] .meter-bar-track {
+ height: 5px; border-inline: 1px solid var(--theme-border); box-shadow: 0 0 6px color-mix(in srgb, var(--theme-accent) 20%, transparent);
+}
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] .meter-bar-fill {
+ background-image: linear-gradient(180deg, color-mix(in srgb, currentColor 20%, transparent), transparent);
+}
+/* Quiet keeps the static luminous frame but suppresses reactions/transitions; Off and
+   high contrast remove blur. No animation or cosmetic draw participates in gameplay. */
+:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .customization-module[data-component-theme="luminous"],
+:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .customization-module[data-component-theme="luminous"] *,
+:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="luminous"]),
+:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="luminous"]) > .workspace-module-header strong {
+ box-shadow: none !important; text-shadow: none !important; transition: none !important;
+}
+:root[data-effects="reduced"] #main_content.workspace-active .customization-module[data-component-theme="luminous"] * {transition: none !important;}
+@media (prefers-reduced-motion: reduce) {
+ #main_content.workspace-active .customization-module[data-component-theme="luminous"] * {transition: none !important;}
+}
+
+/* Local private MS Gothic collection, face 0. The original Office font stays untouched.
+   The optional binary is deliberately excluded from public source/distribution. */
+@font-face {
+ font-family: "OOPS MS Gothic";
+ src: local("MS Gothic"), local("MS-Gothic"), url("../resources/fonts/private/msgothic.ttc") format("collection");
+ font-weight: 400 700; font-style: normal; font-display: swap;
+}
+/* Rarity comes from the native known rarity span, never the selected/focused row.
+   The solid glyph remains sharp; a faint halo sits behind that same hue. */
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] [data-rarity]:not([data-rarity="common"]):not([data-rarity="trash"]) {
+ text-shadow: 0 0 7px color-mix(in srgb, currentColor 55%, transparent);
+ border-bottom: 1px solid currentColor; text-underline-offset: .15em;
+}
+/* The existing shell already derives its context font/colors from local actions.
+   Carry that same owner into the adjacent known-subject scene and chrome. */
+#main_content.workspace-active:has(#location_related_div[data-component-theme="luminous"][data-typography-font="gothic"]) :is(#village_scene,.nearby-context-view) {
+ font-family: var(--shell-context-font, var(--ui-font-gothic));
+}
+#main_content.workspace-active:has(#location_related_div[data-component-theme="luminous"]) .nearby-context-view {
+ background: linear-gradient(115deg, var(--shell-user-fill), color-mix(in srgb, var(--shell-user-fill) 92%, var(--shell-user-accent)));
+}
+#main_content.workspace-active:has(#location_related_div[data-component-theme="luminous"]) .nearby-context-view :is(h2,h3,summary) {
+ text-shadow: 0 0 9px color-mix(in srgb, var(--shell-user-accent) 45%, transparent);
+}
+body:has(#main_content #location_related_div[data-component-theme="luminous"][data-typography-font="gothic"]) #workspace_navigation :is(button,select) {
+ font-family: var(--ui-font-gothic);
+}
+:root:is([data-effects="off"],[data-display-contrast="high"]) .nearby-context-view * {text-shadow: none !important; box-shadow: none !important;}
+
+:root[data-display-contrast="high"] #main_content.workspace-active .customization-module[data-component-theme="luminous"] {
+ --custom-background: var(--theme-bg) !important; --custom-text: var(--theme-text) !important; --custom-accent: var(--theme-accent) !important;
+}
+:root[data-display-contrast="high"] #main_content.workspace-active .customization-module[data-component-theme="luminous"] [data-rarity] {color: var(--theme-text) !important;}
+
+/* Corc reference: private native bitmap faces, original outline fallback retained. */
+:root {--ui-font-gothic: "OOPS Gothic Bitmap 14", "OOPS MS Gothic", "MS Gothic", "Menlo", "AppleGothic", monospace;}
+@font-face {font-family:"OOPS Gothic Bitmap 7";src:url("../resources/fonts/private/gothic-bitmap-7.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 8";src:url("../resources/fonts/private/gothic-bitmap-8.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 9";src:url("../resources/fonts/private/gothic-bitmap-9.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 10";src:url("../resources/fonts/private/gothic-bitmap-10.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 11";src:url("../resources/fonts/private/gothic-bitmap-11.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 12";src:url("../resources/fonts/private/gothic-bitmap-12.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 13";src:url("../resources/fonts/private/gothic-bitmap-13.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 14";src:url("../resources/fonts/private/gothic-bitmap-14.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 15";src:url("../resources/fonts/private/gothic-bitmap-15.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 16";src:url("../resources/fonts/private/gothic-bitmap-16.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 17";src:url("../resources/fonts/private/gothic-bitmap-17.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 18";src:url("../resources/fonts/private/gothic-bitmap-18.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 19";src:url("../resources/fonts/private/gothic-bitmap-19.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 20";src:url("../resources/fonts/private/gothic-bitmap-20.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 21";src:url("../resources/fonts/private/gothic-bitmap-21.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 22";src:url("../resources/fonts/private/gothic-bitmap-22.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+#main_content.workspace-active .customization-module[data-typography-font="gothic"] :is(.stat_value,.character_stat_value,.inventory_item_count,.item_count,.meter-bar-value,.log-value,.log-repeat,.scene-calendar,.scene-glyph,pre) {
+ font-family:var(--custom-font);
 }

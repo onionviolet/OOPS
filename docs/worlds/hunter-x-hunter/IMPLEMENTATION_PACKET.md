@@ -8,11 +8,17 @@ Build one independently authored applicant's ordinary preparation and one variab
 
 Target form: desktop/laptop browser as required by standing UI direction. Visible outcome: an applicant can earn fare through a real local job, choose whether to register, face an authored uncertain test, and see the persistent result and actual evidence. Mobile optimization is deferred.
 
+## First-slice prerequisites and later depth
+
+Before implementation, pin a primary manga cutoff and verify the source claims used by the chosen exam, credential and any selected Nen lesson. Local jobs/fares remain explicitly authored unless a particular source claim is selected. Keep the two opening phases as a preview unless the source supports an explicitly exceptional complete exam; do not award a license for the preview. Inspect current owners for applicant identity, work/funds/time, credential custody, evidence and knowledge, scenario clock and persistence; assign one writer to each changed fact. Select a compatible existing save shape and exercise save, reload, export and import for any newly selected state. An old-save migration decision is needed only if schema/compatibility is actually changed.
+
+Done check: chosen source locators establish the scenario's actual participation terms and outcome; two routes resolve their costs and information; an incomplete preview cannot grant a license; persisted state round-trips without duplicated work, funds or credential. WG12's per-observer visibility of a Nen construct is a constraint only if the chosen first slice actually uses such a construct. Construct catalogues, broad arc coverage, power progression, Greed Island and other WG extensions remain later proposals unless a chosen route requires them.
+
 ## P2. Staged dependencies and gates
 
 | Stage | Proposed owner area | Deliverable | Observable gate |
 |---|---|---|---|
-| IP1 Source freeze | Lore/source owner | Primary manga chapter/volume list for exam, license, Nen introduction, gradual/forced awakening, core techniques and license rights | Each core rule has direct chapter evidence, continuity boundary and unresolved exception list. |
+| IP1 Source freeze | Lore/source owner | Primary chapter/volume locators for the source-facing claims actually used by this exam/credential slice; Nen details only if selected | Each selected claim has bounded evidence and continuity/exception labels; unused Nen catalogues do not block the ordinary applicant loop. |
 | IP2 Scenario authoring | World GM | One local place, original supporting cast, one exam preview or explicitly complete exceptional exam, ordinary work route and exact participation terms | Two materially different routes resolve actual funds/time/knowledge; no license for a partial preview; no claim the exam is universal. Record any third-phase pass's next-year access separately. |
 | IP3 Capability/state model | Existing system owners | Proposed integration map for identity, skills, aura, abilities, custody and actor knowledge | No duplicate state owner; write authority and compatibility decision approved before code. |
 | IP4 Source implementation | Runtime owner | Actual job and exam interactions using existing lawful command/effect/save path | Focused source checks; no invented free outcome; fixed threat/cost remains fixed. |

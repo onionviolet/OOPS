@@ -2,7 +2,8 @@ import {replacedHarvestDrop,supportedHarvest} from './harvest.js';
 import {registerFortEnemies} from "./fork_fort_content.js";
 import {STREAMS,gameRandom,gameKeyedRandom} from "./seeded_streams.js";
 "use strict";
-import {mitigateCombatDamage} from "./combat_math.js";
+import {mitigateCombatDamageFromStats} from "./combat_math.js";
+import {applyEquipmentStats} from "./equipment_stats.js";
 
 import LevelableComponent from "./components/levelable_component.js";
 import { config } from "./config.js";
@@ -13,6 +14,8 @@ import {add_active_effect} from "./main.js";
 
 let enemy_templates = {};
 let enemy_killcount = {};
+let enemyEquipmentItemFactory = null;
+export const registerEnemyEquipmentItemFactory = factory => { enemyEquipmentItemFactory = factory; };
 //enemy templates; locations create new enemies based on them
 
 const enemy_sizes = {
@@ -43,6 +46,7 @@ const droplist = {};
 class Enemy {
 
     #levelable;
+    #equipment;
 
     constructor({
         name, 
@@ -55,6 +59,7 @@ class Enemy {
         size = "small",
         add_to_bestiary = true,
         tags = [],
+        equipment_keys = {},
         on_hit = (attacker) => { },
         on_damaged = (target) => { },
         on_death = (attacker) => { },
@@ -72,6 +77,8 @@ class Enemy {
         this.tags = {};
 
         this.#levelable = new LevelableComponent(stats);
+        this.equipment_keys = equipment_keys;
+        this.#equipment = {};
 
         if(tags.length) {
             for(let i = 0; i < tags.length; i++) {
@@ -101,6 +108,19 @@ class Enemy {
 
     init() {
         const levelable = this.getLevelableComponent();
+        if (Object.keys(this.equipment_keys).length && !enemyEquipmentItemFactory) {
+            throw new Error("Enemy equipment item factory has not been registered");
+        }
+        this.#equipment = Object.fromEntries(Object.entries(this.equipment_keys).map(([slot, key]) => [slot, enemyEquipmentItemFactory(key)]));
+        applyEquipmentStats(levelable, this.#equipment);
+
+        // Enemies have no skill, race or location stat sources. Apply the same
+        // equipment sources as Person, then materialize their resulting stats.
+        Object.keys(levelable.stats.full).forEach(stat => {
+            const flat = Object.values(levelable.stats.flat).reduce((sum, source) => sum + (source[stat] || 0), 0);
+            const multiplier = Object.values(levelable.stats.multiplier).reduce((product, source) => product * (source[stat] ?? 1), 1);
+            levelable.stats.full[stat] = (levelable.base_stats[stat] + flat) * multiplier;
+        });
         levelable.stats.full.attack_power = this.stats.attack;
         levelable.stats.full.attack_points = levelable.stats.full.dexterity * Math.sqrt(levelable.stats.full.intuition);
         levelable.stats.full.evasion_points = levelable.stats.full.agility * Math.sqrt(levelable.stats.full.intuition);
@@ -123,11 +143,11 @@ class Enemy {
     }
 
     isWearingArmor() {
-        return false;
+        return Object.values(this.getEquipment()).some(item => item?.getDefense?.() > 0);
     }
 
     getEquipment() {
-        return {};
+        return this.#equipment;
     }
 
     /**
@@ -150,7 +170,7 @@ class Enemy {
         const levelable = this.getLevelableComponent();
         let fainted;
     
-        const damage_taken = mitigateCombatDamage(damage_values,levelable.stats.full.defense+defense_modifier);
+        const damage_taken = mitigateCombatDamageFromStats(damage_values, levelable.stats.full, defense_modifier);
         levelable.stats.full.health -= damage_taken;
     
         if(levelable.stats.full.health <= 0 && can_faint) {

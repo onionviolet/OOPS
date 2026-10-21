@@ -1,5 +1,11 @@
 # Remaining gaps and evidence routes
 
+2026-10-21 current tooling pointer: use the [tool registry](../../TOOL_REGISTRY.md).
+REA's later trial/use receipts supersede the no-trial state below. The cached
+research root exists now, but exact old exports and repaired-state transfer
+remain per-artifact questions. The October 13 gap dispositions are preserved
+as history, not current installation or readiness claims.
+
 2026-10-13. Routes are proposals. A finite completed pass keeps its status when a deeper question remains open. No acquisition, repair or trial ran. R claims below are supported by existing records read during this audit; V names direct availability or current-source checks.
 
 | ID | Gap type and exact unresolved question | Evidence owner / qualification | Next disposition and cost |

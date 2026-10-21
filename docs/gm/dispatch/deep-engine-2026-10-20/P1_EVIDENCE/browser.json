@@ -1,0 +1,117 @@
+{
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "setup": "Disposable synthetic current-format fixture. Plain component armor seeded, unlocked Infested field. Actual equip/unequip, native Combat.doCombatAction with fixed explicit strike power and replay checkpoint, native saved item round trip. No natural crafting/acquisition/cadence claim.",
+  "checks": [
+    "Native equipped armor lowers actual native Combat health loss",
+    "Actual Save/reload/Export/literal Import retains equipped source and derived stats",
+    "Native unequip removes source and restores baseline dimensions",
+    "Pending P2 item-factory hunk: actual native Enemy equipment keys and native Combat strike protect creature; removal restores defaults. Synthetic constructor case, no ordinary Direwolf route claim."
+  ],
+  "bare": {
+    "loss": 33.1,
+    "defense": 1,
+    "taken": 1,
+    "share": 0.05,
+    "resistance": 0
+  },
+  "worn": {
+    "loss": 15.600000000000001,
+    "defense": 18,
+    "taken": 0.963,
+    "share": 0.045000000000000005,
+    "resistance": 0.083
+  },
+  "equipment": {
+    "torso": {
+      "name": "Steel chainmail armor",
+      "id": "Steel chainmail armor",
+      "saturates_market": true,
+      "material_type": null,
+      "use_quality": true,
+      "quality": 100,
+      "components": {
+        "internal": "Leather vest",
+        "external": "Steel chainmail vest"
+      },
+      "value": 10,
+      "tags": {
+        "item": true,
+        "equippable": true,
+        "armor": true
+      },
+      "market_saturation_group": {
+        "group_key": "type_armor",
+        "group_tier": 2
+      },
+      "item_type": "EQUIPPABLE",
+      "affixes": [],
+      "equip_slot": "torso",
+      "rarity": "common",
+      "defense_value": 17,
+      "stats": {
+        "agility": {
+          "multiplier": 0.88
+        },
+        "cold_tolerance": {
+          "flat": -0.5
+        },
+        "crit_resistance": {
+          "flat": 0.083
+        },
+        "attack_speed": {
+          "multiplier": 0.98
+        },
+        "stamina_efficiency": {
+          "multiplier": 0.95
+        },
+        "damage_taken": {
+          "multiplier": 0.963
+        },
+        "min_damage_share": {
+          "multiplier": 0.9
+        }
+      },
+      "bonus_skill_levels": {},
+      "inventory_key": "{\"components\":{\"internal\":\"Leather vest\",\"external\":\"Steel chainmail vest\"},\"quality\":100}"
+    }
+  },
+  "restored": {
+    "defense": 18,
+    "taken": 0.963,
+    "share": 0.045000000000000005,
+    "resistance": 0.083
+  },
+  "removedHit": {
+    "loss": 33.1,
+    "defense": 1,
+    "taken": 1,
+    "share": 0.05,
+    "resistance": 0
+  },
+  "removed": {
+    "defense": 1,
+    "taken": 1,
+    "share": 0.05,
+    "resistance": 0
+  },
+  "creature": {
+    "worn": {
+      "loss": 20.299999999999997,
+      "defense": 17,
+      "taken": 0.963,
+      "share": 0.045000000000000005,
+      "resistance": 0.083
+    },
+    "removed": {
+      "loss": 38,
+      "defense": 0,
+      "taken": 1,
+      "share": 0.05,
+      "resistance": 0
+    }
+  },
+  "errors": []
+}

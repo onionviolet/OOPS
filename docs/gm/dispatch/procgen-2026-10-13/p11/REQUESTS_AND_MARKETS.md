@@ -978,3 +978,29 @@ what the player knows.
 | L27 | Death or departure conversion through one carrier | strong designer + coder | M–L | Ending converts chosen goods at the carrier's rate; the new start lists what came from the old life; the receipt survives reload and import |
 | L28 | Memory-keyed cache found by a later life in the same world | designer + coder | M | A buried cache persists across the life change and is retrievable only by going there |
 | L29 | Cross-save legacy start setting | strong coder | M | A new save imports an export's summary at the chosen rate; the source save file is unchanged (checksum) |
+
+
+## Recovered Corc round 8, 2026-10-21: restocking while someone is shopping
+
+Later user authority requests implementation of useful recovered-26 details; [CRL51](../../../../research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-8-2026-10-21-useful-mechanics-beyond-titles) is a bounded native-shop application of N2, not authorization to build the earlier broad commission/supply-chain palette. Existing quote, trader, market and time owners remain authoritative.
+
+Historical source vendors restock on day boundaries, signal a change and tell the shopper to step out. The useful mechanism is the living shop and changed terms, not compulsory ejection. OOPS already refreshes trader inventory and rechecks a quote during acceptance; treat that as existing support to inspect and exercise, not missing code. Preserve the user's selected subject and useful return context where still valid; show why changed stock/price requires review. Do not silently accept a different item/price, recreate depleted stock by reopening, or reroll stock because the panel renders. A short known restock remark may carry personality after an actual refresh; a static stock-change notice remains sufficient.
+
+ACT NOW (done): folded this case into N2. ACCOUNT FOR NOW: retain one stock/quote owner and the actual market calendar; no new restock RNG or revision service merely for this example. IMPLEMENTATION: native selected shop, quote before the refresh, cross the real refresh boundary, accept/review through actual controls, and save/reload/import where stock/terms persist. Sol medium for transaction/history, Luna low for the settled notice; small/medium. Done: accurate changed terms and accounting, no repeat refresh on inspect, useful selection recovery and no stale bargain charged silently. If current behavior already meets this, record rebuilt evidence rather than adding another stock mechanism.
+
+
+### Native open-shop restock delivery, 2026-10-21
+
+CRL51 now has a native registry tick while a legacy day-cadence shop remains
+open. TraderComponent retains calendar, seeded inventory generation and save
+ownership. Existing special played-minute shop adapters retain their own route.
+The same requested subjects are kept where available, reduced to current stock
+where needed and never substituted. A static trade-surface notice explains the
+change, and first acceptance after the refresh charges nothing and requests
+review. A reviewed second acceptance uses the current native quote.
+
+The rebuilt real day boundary verifies stock change, retained selection, no
+first-click charge, exact accepted stock/money, persistence and no regeneration
+on reopen/hover. [Continuation evidence](../../title-rules-implementation-2026-10-21/CONTINUATION_REPORT.md)
+records fixture limits and desktop checks. This adds no macroeconomy or second
+restock calendar.

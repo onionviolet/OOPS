@@ -29,7 +29,7 @@ The fixture uses a canon continuity with an original local service. It must not 
 | `P0` Ownership review | Identify current active writers, available state/effect owners and one integrator. | Fresh worktree/process/owner check; preserve existing dirty files. |
 | `P1` Source qualification | Select exact source version and exact command/supply cases. | Direct primary source locator; reconcile digest DF1–DF3 and wiki revisions. |
 | `P2` Authoring validation | Validate continuity, actors, authority, supply, ability, target, failure and knowledge references. | Static card contract; no runtime claim. |
-| `P3` Observable scene | Show costs/known uncertainty and record actual result/refusal. | Rebuilt browser from fresh desktop origin at 1366x768; distinct acceptance per route. |
+| `P3` Observable scene | Show costs/known uncertainty and record actual result/refusal. | Rebuilt browser from fresh desktop origin at 1920×1080 (1536×864 desktop floor); distinct acceptance per route. |
 | `P4` Persistence | Preserve unique commitment, actor states, supply, authority and knowledge. | Save, reload, export and literal-file import with exact before/after comparisons. |
 | `P5` Human acceptance | Let Weibao play the authored slice and accept/change it. | His separate review; no inference from tests. |
 
@@ -44,3 +44,11 @@ Stages are proposal order, not a claim that current APIs support these records. 
 5. Which source-grounded Fuyuki scene supplies the selected positive, resistance and charge-spend cases?
 
 Until these are answered, this packet is source/design preparation only. It does not green-light code or runtime edits.
+
+## Selected-slice prerequisites and later depth
+
+**Before this slice can be implemented:** select and primary-source-check the exact *stay night* edition/route context, verify the local service remains original fiction, and identify live owners for authority, supply, helper action, interruption and settlement. Newly selected state needs current-format persistence; decide old-save compatibility only if schema/compatibility is changed under the current policy. Done check: one implementation brief cites those owners and records a single observable request with distinct authority, energy, willingness and refusal outcomes; the source locator and uncertainty are attached to each canon-facing claim.
+
+**Account for in the selected slice:** a helper's willingness, capacity and communication channel can change during the request; supply can be interrupted or provided through a separate route; reports reach only actors with an actual observer/communication path. Extend WG18's witness/cleanup/cover-story concern as a local aftermath proposal: if the service becomes visible to a civilian witness, record what that witness saw and how an original cover explanation affects later work access. Done check: the authored journey shows the observed act, resulting belief/report, and any later consequence for the same local job, without selecting an unreviewed canon incident.
+
+**Later depth:** full Grail War route graphs, servant roster/summoning, lethal combat, institutional jurisdiction, branch divergence and broader witness cleanup stay out of this slice. Done check for a later packet: name a source-pinned branch and its own observable interaction rather than treating the contract scene as those systems.

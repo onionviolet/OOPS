@@ -39,3 +39,11 @@ Status: design proposal only. No runtime implementation is authorized by this pa
 ## Dependencies and gate
 
 First verify source pages/primary scenes for the chosen transmutation, inspect current inventory, crafting, knowledge, location and persistence owners, and obtain a live source-writer transfer before editing shared code. Then rebuild and exercise the changed behavior on a fresh browser origin. Source tests, bundle bytes, served bytes, browser behavior, persistence, installation and human acceptance are separate states. No executable dependency or native pass is claimed here.
+
+## Selected-slice prerequisites and later depth
+
+**Before this slice can be implemented:** pin a manga or *Brotherhood* scene and its material/energy inputs; identify live owners for sample custody, learned method, tool readiness, operation commit, bench access and persistence. Keep the initial exercise to one simple non-taboo transmutation and a review/stop choice. Done check: an implementation brief names those owners, the selected primary locator, the actual input/output contract and a non-mutating preview boundary.
+
+**Account for in the selected slice:** knowledge provenance and the bench observer's inspection determine what can be inferred about the sample; a visible array or prepared method can be inspected, copied, erased or falsified when actors have the relevant skill/time/tools. This carries WG20's array-as-legible-evidence interaction into the bench. Done check: the journey records array custody and who could read or alter it, and keeps observation/report distinct from actual composition and result.
+
+**Later depth:** automail treatment/repair, Stone use, soul carriers, the Father's interference, State Military obligations, taboo consequences and other branches remain outside this slice. Done check for a later packet: each gets a branch-pinned source gate and one bounded interaction with its own carrier/cost, rather than being implied by the simple transmutation proof.

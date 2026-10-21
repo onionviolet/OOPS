@@ -1,0 +1,30 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "release": true,
+  "owned_sha256": {
+    "src/combat_math.js": "2920f224675053aded167848a20445cc5171c6a0e30b4ae702fe11ed5e93bbe0",
+    "src/native_battle.js": "cad198b369d12f89d5c060568db7264d7278d8fe680e953766b9aa3d66fcf0ae",
+    "src/party_battle.js": "f32d0c60bfddd30e35ac46cf768068fa900fbacd3725d70496975c07b067a732",
+    "src/causal_story_core.js": "0a226b610917fe056dca78a3567e9c0da7dbb814624fcd86c6de9427314a79cc",
+    "src/feature_expansion_battle.js": "22724d5066ae41c14a4801ed351d46a44613fe9eb927575a2b2366ef1bef0d19",
+    "src/models/person.js": "cc57b6335b0b6d6d209ec21f81e105e449bd8435bb864b00dab887d4d1e8a4f3",
+    "src/enemies.js": "0d45f6f11d3ef92737616644f880ba0c54ed505a8fd2fe8774d47d9d31fd81b9",
+    "src/equipment_stats.js": "d6e7e2133b52a6f94be270a160e4696621b6598893f1398da429192ce663e302",
+    "tests/combat_effect_semantics.test.js": "921cfb82d6543a0b4583f00252be7b17748b136c0c753097e753f2bf6867704e",
+    "tests/equipment_stats.test.js": "35f0299b27240ec82ef00225d01fb5349367c059ba37c4fd1aa7295736cb903c"
+  },
+  "candidate": "/tmp/oops-p1-candidate-20261020",
+  "candidate_inputs": "candidate-inputs.json",
+  "checks": {
+    "focused": "42/42 pass",
+    "build": "pass",
+    "arch": "pass, no new cycles/main imports",
+    "rules": "pass, 96 non-git-copy tracking warnings",
+    "full": "2363/2364 pass; same crafting-stock failure with P1 source reverted",
+    "browser_source_only": "pass",
+    "browser_with_provisional_items_registration": "pass",
+    "persistence": "hero equipped source Save/reload/Export/literal Import pass"
+  },
+  "pending_root_hunk": "items-registration.patch",
+  "no_commits": true
+}

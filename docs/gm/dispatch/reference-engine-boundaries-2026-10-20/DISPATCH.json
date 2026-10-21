@@ -1,0 +1,11 @@
+{
+  "threadId": "01a15be7-2e00-7a13-a826-7eb4f9ad4771",
+  "hostId": "local",
+  "state": "active; initial engine trace started; no completion claim",
+  "brief": "BRIEF.md",
+  "notices_sent": [
+    "01a15bc5-de54-7e50-b46c-7419cc27b266",
+    "01a15bd7-90cd-7c93-9b53-65bc5796206a"
+  ],
+  "authorization": "send engine level work while the ui work is working"
+}

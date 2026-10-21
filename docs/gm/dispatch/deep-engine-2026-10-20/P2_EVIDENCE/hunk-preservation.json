@@ -1,0 +1,22 @@
+{
+  "src/main.js": {
+    "preExistingBytesPreserved": true,
+    "baselineSha256": "fc0f8e290b7337b17924609ab677b920fa16f82e579635d633fc2f21c4e8f60b"
+  },
+  "src/items.js": {
+    "preExistingBytesPreserved": true,
+    "baselineSha256": "dce3617cfc63955538d0b98e5c89370ace069f257d6aef0a8c037372f6389f08"
+  },
+  "src/tools_domain.js": {
+    "preExistingBytesPreserved": true,
+    "baselineSha256": "2b13e8f0ea57cfd5e8c0c9ee2278eb113010907e5183b7220a59d97b4c857144"
+  },
+  "src/reveal_chain.js": {
+    "preExistingBytesPreserved": true,
+    "baselineSha256": "e1460d810c8e96d23b52d56826466602e85fbe999dd880d32c441655789c4fcb"
+  },
+  "src/models/hero.js": {
+    "preExistingBytesPreserved": true,
+    "baselineSha256": "359a0b906397608256db13f1fe8621c9db7cebec40299884f563e49f4675c75c"
+  }
+}

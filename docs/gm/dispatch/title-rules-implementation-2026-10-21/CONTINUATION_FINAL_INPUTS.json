@@ -1,0 +1,25 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "sha256": {
+    "src/material_insights.js": "e5b261356a298344d592d79f9ba77dc54e279c4d0112cbe200470a12bdd22136",
+    "src/shop_restock.js": "edac072c45ffc05552b4eea5908e5f05a3845fb1ef80f32e9b1ff911536f030f",
+    "src/reveal_chain.js": "e714d9f98c6eda6da2ca458b1146084235845a43fc95c322f986e928e647a6a9",
+    "src/models/hero.js": "0d2bfb4a2c69139cb87ddaaa2890a518ff27c82ce45df83f56de3893c7787e99",
+    "src/crafting_recipes.js": "2d94e23b7f7c49964630bb1e9f37fc093e5cfbb8ee8c0d4c49d516e0040826c9",
+    "src/main.js": "91d558d007135f235b2fa9d78dd03c5103f3437f6c5b935ae3ae03c142c8e258",
+    "src/trade.js": "df0804d0d41e0a6040fe81922b5bdff732a56e721b9946ff351067239283f40b",
+    "src/absorb_c2/local_life.js": "41f32f531370efb6478b1f24de1285ea249873f77354a9274bfec5cffcc1aa43",
+    "index.html": "37f3a7d6dc764ca7caf9fd48c9fd781a1c3a0a3954591ee0541492990662e60e",
+    "tests/material_insights.test.js": "94e1df4014f12a37cef1b3d77fd70a8d7586434be7dbb02f889456cef74a2c26",
+    "tests/shop_restock.test.js": "98700573220ba97e3d26dce3b76a480bc3b97d9a1d34d961af2ef7d9c06bbd16",
+    "tests/absorb_c2.test.js": "5d22b0b3a308f86b1ad2b943ee117200df790c19ac374c67458099b10ba29bb6",
+    "scripts/playtest/material-insights.mjs": "7f6fe63f77702e41d1cba750e9a478b4c69879853a8c76d6dadd9fc27deac09e",
+    "scripts/playtest/shop-restock.mjs": "7f85dc288778222d82487404e0842cc9aebd4916bb5a72c2eb0056334fff4ba0",
+    "scripts/playtest/recovered-study-search.mjs": "6354491bad4427f4ead59be1dead037655a9cf7657fba4b76527c44d83fb4b49",
+    "scripts/playtest/lamplight-continuity.mjs": "755daeecba2a3b4907f72268a16954c55d6d3a98fef66841d1ad9484152b76c5",
+    "dist/bundle.js": "102a09a4e478df896f2fdebbce64a1e3575345cd2d448f9a5de030c45888a236",
+    "dist/bundle.js.map": "a4e9dcaaa06a95a9c17528dc8af4539ef4b10d9475d794b7b26159885abb5a4f"
+  },
+  "sourcemap_matches_current_input_files": 677,
+  "mismatches": []
+}

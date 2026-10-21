@@ -1,4 +1,23 @@
+# Preserve existing trusted-project access; unfamiliar projects use user defaults.
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
+
 # Project-local capacity for future sessions; an already-running tool pool may
 # retain its original limit. The primary agent is excluded from this setting.
 [agents]
 max_concurrent_threads_per_session = 7
+
+# Existing research servers for trusted-project chats. Refresh the client to
+# load new tools; PROJECT.md and docs/TOOL_REGISTRY.md own scope and usage.
+[mcp_servers.rea]
+command = "/opt/homebrew/bin/python3"
+args = ["/Users/weiwei/code/yet-another-idle-rpg/scripts/toolsets.py", "run", "rea", "--", "--mcp"]
+startup_timeout_sec = 30
+tool_timeout_sec = 180
+enabled_tools = ["binary_session", "open_binary", "close_binary", "binary_overview", "search_strings", "search_procedures", "procedure_pseudo_code", "read_function_instructions", "xrefs", "batch_decompile", "read_bytes", "analyze_javascript_application", "inspect_managed_artifact", "inspect_managed_members"]
+
+[mcp_servers.book_research]
+command = "/opt/homebrew/bin/python3"
+args = ["/Users/weiwei/code/yet-another-idle-rpg/scripts/toolsets.py", "run", "zlibrary-mcp"]
+startup_timeout_sec = 30
+tool_timeout_sec = 180

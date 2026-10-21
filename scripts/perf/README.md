@@ -23,7 +23,7 @@ Run it on a quiet host; one gate at a time.
 2. **Node tick**: per fixture, best of 15 one-minute `advanceSimulation` calls
    after 3 warmups on the loaded expansion state (head source,
    `expeditionRegistry`); the median is reported too.
-3. **Browser idle** (head build, system Chrome headless, 1366x768): seed the
+3. **Browser idle** (head build, system Chrome headless, 1920x1080; 1366x768 baselines before 2026-10-19 are not comparable): seed the
    fixture into a fresh origin, PLAY, warm 4 s, then a 15 s window of CDP
    `Performance.getMetrics` deltas, `longtask` entries and a `Storage.setItem`
    counter. Method ported from
@@ -35,7 +35,7 @@ Run it on a quiet host; one gate at a time.
    On a mismatch both saves are dumped to the OS temp dir and listed.
 5. Prints a table against [budgets.json](budgets.json) and writes a JSON report.
 
-Set `YAIRPG_PERF_VIEWPORT=1920x1080` to change the browser viewport (default 1366x768).
+Set `YAIRPG_PERF_VIEWPORT=1920x1080` to change the browser viewport (default 1920x1080).
 
 Playwright resolves from `YAIRPG_PLAYWRIGHT`, then `playwright`, then the Codex
 runtime copy; Chrome from `YAIRPG_CHROME`, then `/Applications/Google Chrome.app`,

@@ -1,0 +1,191 @@
+[
+ {
+  "id": "world-volume",
+  "topic": "Implementing entire worlds end to end (everything between a source book and a playable, finished world)",
+  "lens": "how much content must exist, who writes it, and what it costs per world",
+  "files": [
+   "docs/WORLD_COMPLETION_STANDARD.md",
+   "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+  ]
+ },
+ {
+  "id": "world-longplay",
+  "topic": "Implementing entire worlds end to end (everything between a source book and a playable, finished world)",
+  "lens": "what breaks, repeats or goes stale after ten hours or ten idle in-game years",
+  "files": [
+   "docs/WORLD_COMPLETION_STANDARD.md",
+   "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+  ]
+ },
+ {
+  "id": "world-reuse",
+  "topic": "Implementing entire worlds end to end (everything between a source book and a playable, finished world)",
+  "lens": "what should be shared across worlds as a grammar or kit versus authored per world",
+  "files": [
+   "docs/WORLD_COMPLETION_STANDARD.md",
+   "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+  ]
+ },
+ {
+  "id": "world-legibility",
+  "topic": "Implementing entire worlds end to end (everything between a source book and a playable, finished world)",
+  "lens": "what the player can see, inspect, trust or be confused by on screen",
+  "files": [
+   "docs/WORLD_COMPLETION_STANDARD.md",
+   "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+  ]
+ },
+ {
+  "id": "world-verify",
+  "topic": "Implementing entire worlds end to end (everything between a source book and a playable, finished world)",
+  "lens": "linters, soak tests, fixtures and scenarios that would catch defects early",
+  "files": [
+   "docs/WORLD_COMPLETION_STANDARD.md",
+   "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+  ]
+ },
+ {
+  "id": "world-fidelity",
+  "topic": "Implementing entire worlds end to end (everything between a source book and a playable, finished world)",
+  "lens": "source fidelity, original-content boundaries, sealed secrets and attribution",
+  "files": [
+   "docs/WORLD_COMPLETION_STANDARD.md",
+   "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+  ]
+ },
+ {
+  "id": "world-absence",
+  "topic": "Implementing entire worlds end to end (everything between a source book and a playable, finished world)",
+  "lens": "what Weibao would notice missing after a long session, from a creative director's view",
+  "files": [
+   "docs/WORLD_COMPLETION_STANDARD.md",
+   "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+  ]
+ },
+ {
+  "id": "char-volume",
+  "topic": "Characters: named cast, crowds, rivals, companions, their state over time",
+  "lens": "how much content must exist, who writes it, and what it costs per world",
+  "files": [
+   "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+   "docs/worlds/COMPANIONS_BY_WORLD_2026-10-14.md"
+  ]
+ },
+ {
+  "id": "char-longplay",
+  "topic": "Characters: named cast, crowds, rivals, companions, their state over time",
+  "lens": "what breaks, repeats or goes stale after ten hours or ten idle in-game years",
+  "files": [
+   "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+   "docs/worlds/COMPANIONS_BY_WORLD_2026-10-14.md"
+  ]
+ },
+ {
+  "id": "char-reuse",
+  "topic": "Characters: named cast, crowds, rivals, companions, their state over time",
+  "lens": "what should be shared across worlds as a grammar or kit versus authored per world",
+  "files": [
+   "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+   "docs/worlds/COMPANIONS_BY_WORLD_2026-10-14.md"
+  ]
+ },
+ {
+  "id": "char-legibility",
+  "topic": "Characters: named cast, crowds, rivals, companions, their state over time",
+  "lens": "what the player can see, inspect, trust or be confused by on screen",
+  "files": [
+   "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+   "docs/worlds/COMPANIONS_BY_WORLD_2026-10-14.md"
+  ]
+ },
+ {
+  "id": "char-verify",
+  "topic": "Characters: named cast, crowds, rivals, companions, their state over time",
+  "lens": "linters, soak tests, fixtures and scenarios that would catch defects early",
+  "files": [
+   "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+   "docs/worlds/COMPANIONS_BY_WORLD_2026-10-14.md"
+  ]
+ },
+ {
+  "id": "char-fidelity",
+  "topic": "Characters: named cast, crowds, rivals, companions, their state over time",
+  "lens": "source fidelity, original-content boundaries, sealed secrets and attribution",
+  "files": [
+   "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+   "docs/worlds/COMPANIONS_BY_WORLD_2026-10-14.md"
+  ]
+ },
+ {
+  "id": "char-absence",
+  "topic": "Characters: named cast, crowds, rivals, companions, their state over time",
+  "lens": "what Weibao would notice missing after a long session, from a creative director's view",
+  "files": [
+   "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+   "docs/worlds/COMPANIONS_BY_WORLD_2026-10-14.md"
+  ]
+ },
+ {
+  "id": "dlg-volume",
+  "topic": "Dialogue: voice, knowledge-aware lines, barks, rumor, reactions, refusal, return visits",
+  "lens": "how much content must exist, who writes it, and what it costs per world",
+  "files": [
+   "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+   "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md"
+  ]
+ },
+ {
+  "id": "dlg-longplay",
+  "topic": "Dialogue: voice, knowledge-aware lines, barks, rumor, reactions, refusal, return visits",
+  "lens": "what breaks, repeats or goes stale after ten hours or ten idle in-game years",
+  "files": [
+   "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+   "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md"
+  ]
+ },
+ {
+  "id": "dlg-reuse",
+  "topic": "Dialogue: voice, knowledge-aware lines, barks, rumor, reactions, refusal, return visits",
+  "lens": "what should be shared across worlds as a grammar or kit versus authored per world",
+  "files": [
+   "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+   "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md"
+  ]
+ },
+ {
+  "id": "dlg-legibility",
+  "topic": "Dialogue: voice, knowledge-aware lines, barks, rumor, reactions, refusal, return visits",
+  "lens": "what the player can see, inspect, trust or be confused by on screen",
+  "files": [
+   "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+   "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md"
+  ]
+ },
+ {
+  "id": "dlg-verify",
+  "topic": "Dialogue: voice, knowledge-aware lines, barks, rumor, reactions, refusal, return visits",
+  "lens": "linters, soak tests, fixtures and scenarios that would catch defects early",
+  "files": [
+   "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+   "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md"
+  ]
+ },
+ {
+  "id": "dlg-fidelity",
+  "topic": "Dialogue: voice, knowledge-aware lines, barks, rumor, reactions, refusal, return visits",
+  "lens": "source fidelity, original-content boundaries, sealed secrets and attribution",
+  "files": [
+   "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+   "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md"
+  ]
+ },
+ {
+  "id": "dlg-absence",
+  "topic": "Dialogue: voice, knowledge-aware lines, barks, rumor, reactions, refusal, return visits",
+  "lens": "what Weibao would notice missing after a long session, from a creative director's view",
+  "files": [
+   "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+   "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md"
+  ]
+ }
+]

@@ -4,7 +4,7 @@
 (source-qualified world law for one pack slice, WA4). Not a register entry and not
 project direction.** Prefix LTS checked unused by `git grep` 2026-10-19. Weibao picked the LOTM
 Seer slice as the next deep world implementation on 2026-10-19 (see
-[scale plan, next world](../IDEABOARD_SCALE_PLAN_2026-10-19.md)).
+[recorded slice authorization](../gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#runtime-authorization-and-first-engine-slice-2026-10-19)).
 Source facts and locators live in the [initiation plan](../gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md)
 (H1 to H7); this file only states how the engine reads them. Each row is default, dial, reason.
 
@@ -24,5 +24,8 @@ Source facts and locators live in the [initiation plan](../gm/LOTM_INITIATION_IM
 ## What this slice does not claim
 
 Digestion and promotion, other pathways, a general potion editor, a dangerous-contact or
-loss-of-control branch (H3 to H7), Klein's body or memories, full Tingen, and any native
-binding, save slice, entry screen or UI. Those are separate, later work.
+loss-of-control branch (H3 to H7), Klein's body or memories, full Tingen. Native binding, optional state validation, the localhost opt-in
+entry and the workroom UI were subsequently delivered in LIP3/LIP4; the earlier
+engine-only exclusion is superseded by the [native-join receipt](../gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#native-join-save-and-desktop-ui-2026-10-19-lip3lip4).
+That receipt retains its incomplete Export-click, target-view and travel-guard
+gates; no full-world or human acceptance follows.

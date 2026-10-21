@@ -1,5 +1,6 @@
-import {HOUSEHOLD, validateHousehold, planHousehold, householdRest} from './model.js';
-import {furnitureProjection, furnitureComfort} from '../../absorb_b/furniture.js';
+import {HOUSEHOLD, validateHousehold, planHousehold, householdRest, householdFirewood, householdPlayCloth} from './model.js';
+import {furnitureProjection, furnitureComfort, furnitureBonusText} from '../../absorb_b/furniture.js';
+import {projectHouseholdScene} from '../../household_scene.js';
 
 /** P00 adapter, deliberately not registered by this lane.
  * read() -> {household?: save block, context: model's native snapshot,
@@ -38,7 +39,7 @@ export function householdPresentation(snapshot) {
     const supported = c.alive === true && c.controlled === true && c.homeOwned === true && c.atHome === true;
     if(!supported || (s && s.homeId !== c.homeId) || (!s && c.animalKnown !== true && c.hearthOwned !== true))
         return {visible: false, sections: []};
-    const comfort = furnitureComfort(furnitureProjection(snapshot.furnitureInput));
+    const fixtures=furnitureProjection(snapshot.furnitureInput),comfort = furnitureComfort(fixtures);
     const h = s?.hearth, animal = s?.animal;
     const actions = [], records = [];
     const add = (type, label, enabled = true, reason = '') => actions.push({id: `household.${type}`, label,
@@ -50,11 +51,26 @@ export function householdPresentation(snapshot) {
                 text: `Moss · ${animal.ageMinutes >= HOUSEHOLD.growMinutes ? 'grown' : 'young'} brindled cat · ${animal.mood} · bond ${animal.bond}/100 · ${animal.adopted ? 'at home with you' : 'getting to know you'} · ${animal.gifts} gifts received.`});
             add('pet', 'Sit with Moss', c.clock >= animal.lastInteraction + 5 && h.smoke === 0,
                 h.smoke > 0 ? 'Moss is sheltering outside. Ventilate first.' : 'Allow five played minutes between visits.');
+            add('play', 'Play with Moss · reuse 1 carried Linen cloth', c.clock >= animal.lastInteraction + 5 && h.smoke === 0 && householdPlayCloth(c),
+                h.smoke > 0 ? 'Moss is sheltering outside. Ventilate first.' : c.clock < animal.lastInteraction + 5 ?
+                    'Allow five played minutes between visits.' : 'Carry your own usable Linen cloth. Play returns it and shares the sitting cooldown.');
         }
     }
     if(c.hearthOwned === true) {
         records.push({id: 'household.hearth', at: c.clock, basis: null,
-            text: `Hearth · ${h?.fuelMinutes || 0} prepaid minutes · vent ${h?.ventilated === false ? 'closed' : 'open'} · smoke ${h?.smoke || 0}/10 · smoke trial ${h?.smokeOptIn ? 'on' : 'off'}. One owned log burns twenty played minutes, dries Wet after three warm minutes, and never refuels itself.`});
+            text: `Hearth · ${h?.fuelMinutes || 0} prepaid minutes · vent ${h?.ventilated === false ? 'closed' : 'open'} · smoke ${h?.smoke || 0}/10 · smoke trial ${h?.smokeOptIn ? 'on' : 'off'}. One owned log burns twenty played minutes, dries Wet after three warm minutes, and uses the firewood pile only when auto-feed is selected.`});
+        const supply = householdFirewood(s, c);
+        records.push({id:'household.firewood',at:c.clock,basis:null,
+            text:`Firewood pile · ${supply.logs.length}/${supply.capacity} stocked logs · auto-feed ${supply.enabled ? 'on' : 'off'}. Stocked logs feed an already burning hearth while you are home. Extinguish keeps the reserve; lighting remains manual.`});
+        for(const row of supply.available) {
+            const quality = JSON.parse(row.key).quality;
+            add(row.action, `Stock 1 Rough wood log${quality == null ? '' : ` · ${quality}% quality`}`,
+                supply.logs.length < supply.capacity, 'The five-log local pile needs space.');
+        }
+        if(h) {
+            add(supply.enabled ? 'supply_off' : 'supply_on', supply.enabled ? 'Disable firewood auto-feed' : 'Enable firewood auto-feed');
+            add('withdraw_firewood', 'Take 1 stocked log back', supply.logs.length > 0, 'The pile is empty.');
+        }
         add('light', 'Light hearth · 1 Rough wood log', !h?.fuelMinutes && c.ownedInventory?.[HOUSEHOLD.fuelKey] >= 1,
             'Carry an owned log and let the previous fuel finish.');
         if(h) {
@@ -69,6 +85,6 @@ export function householdPresentation(snapshot) {
     }
     records.push({id: 'household.comfort', at: c.clock, basis: null,
         text: `${comfort.label} · ${comfort.score} owned furnishing comfort. Sleeping recovery +${Math.round((householdRest(s, c, comfort) - 1) * 100)}% from this household, alongside existing bedding.`});
-    return {visible: true, sections: [{id: 'household', label: 'A lived hearth',
+    return {visible: true, scene:{...projectHouseholdScene(s,c,HOUSEHOLD.name),fixtures:fixtures.rows.map(row=>({id:row.id,name:row.name,active:row.active,scope:row.scope,description:furnitureBonusText(row)}))}, sections: [{id: 'household', label: 'A lived hearth',
         description: 'Original household proposal · played time only · no compulsory upkeep', actions, records}]};
 }

@@ -1,6 +1,20 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { LAYOUT_SPEC, regionFor, shellOrder, companionsFor, companionPanels, topRowHeight, contextOf, contextLabel } from '../src/layout_spec.js';
+import { LAYOUT_SPEC, workspaceRegions, regionFor, shellOrder, companionsFor, companionPanels, topRowHeight, contextOf, contextLabel } from '../src/layout_spec.js';
+
+test('workspace region descriptors preserve native reading order and labels', () => {
+    assert.deepEqual(workspaceRegions(), [
+        {id:'player', label:'player'}, {id:'focus', label:'Around you'},
+        {id:'inventory', label:'inventory'}, {id:'actions', label:'actions'}, {id:'log', label:'log'},
+    ]);
+});
+test('a new or reordered region is supplied by the spec without another host list', () => {
+    const regions = {map:{label:'Local map',panels:[]}, ...LAYOUT_SPEC.regions};
+    const spec = {...LAYOUT_SPEC, regions};
+    assert.deepEqual(workspaceRegions(spec).map(r=>r.id), ['map','player','focus','inventory','actions','log']);
+    assert.deepEqual(workspaceRegions(spec)[0], {id:'map',label:'Local map'});
+    assert.equal(workspaceRegions().length, 5);
+});
 
 // R17 is structural (AR9): the spec must reproduce the R16 decisions exactly. The R16 code is kept
 // here verbatim as the reference.

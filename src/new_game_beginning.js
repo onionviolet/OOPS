@@ -9,6 +9,10 @@ export function mountNewGameBeginning({screen, panel}) {
     const section = document.createElement('section');
     section.id = 'new_game_beginning'; section.className = 'new-game-beginning';
     section.setAttribute('aria-label', 'Beginning');
+    // 2026-10-20: keep the launch screen to PLAY; start-menu UI is deferred.
+    // Retain existing command values and the local authoring probe without a public picker.
+    section.hidden = !(typeof location !== 'undefined' && ['localhost', '127.0.0.1'].includes(location.hostname)
+        && new URLSearchParams(location.search).get('start_probe') === '1');
     const title = document.createElement('h2'); title.textContent = 'Beginning';
     const note = document.createElement('p'); note.className = 'new-game-beginning-note';
     note.textContent = 'You start as Hero. Rename yourself any time in the You panel header.';

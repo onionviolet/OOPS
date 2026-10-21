@@ -1,0 +1,54 @@
+/* Launch threshold: one flow owns scrolling; choices precede the existing PLAY command. */
+body #loading_screen {
+    display:flex; flex-direction:column; align-items:center; justify-content:safe center;
+    gap:.5em; box-sizing:border-box; padding:1em 2em; overflow:auto;
+    font-size:var(--ui-type-body); line-height:1.5; color:var(--p23-text);
+    background:var(--ui-log-fill);
+}
+body #loading_screen > * {position:static !important; inset:auto !important; flex-shrink:0; transform:none;}
+body #loading_screen_game_title {
+    order:0; width:min(68rem,100%); max-width:none; text-align:center;
+    font-size:calc(var(--ui-type-title) * 3); line-height:1.1;
+}
+body #loading_screen_game_subtitle {margin-top:.4em; font-size:var(--ui-type-title); letter-spacing:.08em;}
+body #loading_screen_author {
+    position:static; display:block; margin-top:.7em; width:auto; text-align:center;
+    font-size:var(--ui-type-body); rotate:none; animation:none; color:var(--p23-muted);
+}
+body #loading_screen_inspirations {margin:1em auto 0; max-width:48em; text-align:center; font-size:var(--ui-type-small); line-height:1.5;}
+body #loading_screen_loading_text {order:1; font-size:var(--ui-type-title);}
+body #loading_screen_loading_text.fade {display:none;}
+body #loading_screen_loading_progress {order:1; width:auto; font-size:var(--ui-type-body); color:var(--p23-muted);}
+body #loading_screen:has(#loading_screen_play_button:not(.none_display)) #loading_screen_loading_progress {display:none;}
+body #loading_screen > #new_game_beginning {
+    order:2; width:min(68rem,100%); max-height:none; overflow:visible; z-index:auto;
+    transform:none;
+    margin:0; padding:1em; box-sizing:border-box; background:var(--p23-context);
+    border:1px solid var(--p23-line); font-size:inherit;
+}
+#new_game_beginning > h2 {font-size:var(--ui-type-title); letter-spacing:.04em;}
+#new_game_beginning .new-game-beginning-note {margin:.5em 0 1em;}
+#new_game_beginning .cheat_start_choice {display:block; max-width:none; padding:0;}
+#new_game_beginning .beginning-options {display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.8em; min-width:0; margin:0; padding:0; border:0;}
+#new_game_beginning .beginning-options legend {margin-bottom:.5em; color:var(--p23-muted);}
+#new_game_beginning .beginning-option {
+    display:grid; grid-template-columns:auto 1fr; align-content:start; align-items:baseline;
+    gap:.4em .6em; padding:1em; border:1px solid var(--p23-line); background:var(--ui-button-fill); cursor:pointer;
+}
+#new_game_beginning .beginning-option input {margin:0; accent-color:var(--ui-accent);}
+#new_game_beginning .beginning-option span {grid-column:2; color:var(--p23-muted); line-height:1.5;}
+#new_game_beginning .beginning-option:has(:checked) {border-color:var(--ui-accent); box-shadow:inset 0 -2px var(--ui-accent);}
+#new_game_beginning .beginning-option:hover {background:var(--p23-hover-fill);}
+#new_game_beginning .beginning-option:has(:focus-visible) {outline:2px solid var(--ui-accent); outline-offset:3px;}
+#new_game_beginning .cheat_start_choice > p {margin:.7em 0 0; min-height:3em; font-size:inherit; line-height:1.5;}
+body #loading_screen_play_button {
+    order:3; width:min(18em,100%); padding:.65em 1em; box-sizing:border-box;
+    font-size:var(--ui-type-title); font-weight:bold; cursor:pointer;
+    background:var(--ui-button-fill); border:1px solid var(--p23-line); color:var(--p23-text);
+}
+body #loading_screen_play_button:hover {background:var(--p23-hover-fill);}
+body #loading_screen_version_info {order:4; max-width:58rem; font-size:var(--ui-type-small); color:var(--p23-muted); text-align:center;}
+body #loading_screen_status {order:5; max-width:48em; font-size:var(--ui-type-small); font-weight:normal; padding:.5em 1em; border:1px solid var(--p23-line);}
+:root[data-start-screen="open"] :is(#game_bar,#workspace_navigation,#workspace_pane_navigation,#bottom_panel_div) {visibility:hidden;}
+@media (max-height:850px) {body #loading_screen {justify-content:flex-start;}}
+@media (max-width:800px) {#new_game_beginning .beginning-options {grid-template-columns:1fr;}}

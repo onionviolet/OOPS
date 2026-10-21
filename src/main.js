@@ -1,5 +1,5 @@
 import {configureCraftingDomain} from './crafting_domain.js';
-import {configureToolsDomain} from './tools_domain.js';
+import {configureNativeToolDomains} from './native_tool_domains.js';
 import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding,harmCollapse,heroStanding} from './defeat_domain.js';import {setPurse,addPurse,addSavedPurse,commitPlanMoney,moneyLedgerBinding} from './economy_domain.js';
 import {configureResourceDomains,harvestOwner,habitatOwner,harvestPanel,habitatPanel,setHarvestOwner,setHabitatOwner,receiveHarvest} from './native_resources_domain.js';
 import {bindNativeView} from './native_view.js';
@@ -69,7 +69,7 @@ import {getMixtureOwner,setMixtureOwner,MIXTURE_ID} from './mixture_state.js';
 import {stageMixtureAction,commitMixturePlan} from './mixture_native.js';
 import {createMixturePanel} from './mixture_ui.js';
 import {createStoryletPanel} from './storylet_ui.js';
-import {HERB_LESSON,heldLesson,bindAcquisitionLesson,bindDenominationKnowledge,createPracticePanel,knownPracticeHints,openingAllows,stageRevealKnowledge} from './reveal_chain.js';
+import {createAcquisitionLesson,revealLessonMessages,bindAcquisitionLesson,bindDenominationKnowledge,createPracticePanel,knownPracticeHints,openingAllows,stageRevealKnowledge} from './reveal_chain.js';
 import {getDisplaySetting,subscribeDisplaySettings,DISPLAY_KEY,exportDisplayPreferences,adoptDisplayPreferences} from './display_settings.js';
 import {settleObservedDrops,validateDropObservations} from './absorb_p23/known_detail/observations.js';
 import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absorb_p23/known_detail/presentation.js';
@@ -106,7 +106,7 @@ import {setKnownClearTextReader} from './display.js';
 import {FORT, createFortSupply, migrateFortSupply, stageFortAction, observeFortSource, fortDisclosures, knownClearText} from './absorb_d/fort.js';
 import {registerFortContent} from './absorb_d/register.js';
 import {createFortControls} from './absorb_d/ui.js';
-import {normalizeLocalLife, advanceLocalLife, localLifeAction, recordLocalPurchases} from './absorb_c2/local_life.js';
+import {normalizeLocalLife, advanceLocalLife, localLifeAction, localSearchMethod, recordLocalPurchases} from './absorb_c2/local_life.js';
 import {createLocalLifePanel} from './absorb_c2/panel.js';
 import {setAccessoryEquipmentReader, accessoryCraftingTiers} from './absorb_c1/accessories.js';
 import {furnitureProjection, furnitureComfort, furnitureSkillMultiplier, furnitureRecovery, furniturePresentation, furnitureItemBonusText} from './absorb_b/furniture.js';
@@ -1324,7 +1324,7 @@ function p00HouseholdFrame(){
     const actions=view.sections.flatMap(s=>s.actions.map(a=>({...a,id:a.command.id}))),records=view.sections.flatMap(s=>s.records.map(r=>r.text));
     if(c.homeOwned&&c.atHome&&c.controlled&&!household?.animal)actions.unshift({id:'meet',label:'Meet the brindled cat at this home'});
     if(c.homeId==='base.frontier:Shack'&&c.atHome&&c.homeOwned&&!c.hearthOwned)actions.push({id:'install_hearth',label:'Install a home hearth · 3 Rough wood logs + 5 coins',enabled:(c.ownedInventory[HOUSEHOLD.fuelKey]||0)>=3&&character.money>=5});
-    return {visible:c.atHome&&c.homeOwned&&c.controlled&&!current_dialogue&&!current_combat,records,actions,
+    return {subjectKey:c.homeId,visible:c.atHome&&c.homeOwned&&c.controlled&&!current_dialogue&&!current_combat,scene:view.scene,records,actions,
         disabled:!ownsSave||foundationSaveBlocked||!!importProbeToken||!!nativeOccupationReason()||!!current_game_action||!!current_activity||is_sleeping||is_reading||is_in_trade()};
 }
 function p00HouseholdEffects(plan,result){
@@ -1350,7 +1350,7 @@ function stageP00Time(plan){
         stageExposureJoin(plan,p23Exposure,expansionState.clock,p00ExposureContext());
         if(household){
             if(plan.state.sequence===expansionState.sequence)plan.state.sequence++;
-            const c={...p00HouseholdContext(plan.state.clock,plan.state),sequence:plan.state.sequence-1};
+            const c={...p00HouseholdContext(plan.state.clock,plan.state),...(plan.nativeLocation&&plan.nativeLocation!==current_location?.id?{atHome:false}:{}),sequence:plan.state.sequence-1};
             stageHouseholdJoin(plan,household,c);
         }
     }
@@ -1608,7 +1608,7 @@ function localLifeContext(calendar=current_game_time, state=expansionState, loca
         alive:character.is_alive===true&&state.chronicle?.life.endedAt==null,
         idle:!current_combat&&!current_activity&&!current_game_action&&!is_sleeping&&!is_reading&&!current_dialogue&&!is_in_trade()&&nativeActionReasons(state).length===0,
         clock:calendarMinutes(calendar),calendarMinute:calendarMinutes(calendar),
-        perception:character.getTotalSkillLevel('Perception'),money:character.money,
+        perception:character.getTotalSkillLevel('Perception'),money:character.money,illumination:domainRegistry.project('lamplight')?.light?.light,nightVisionRatio:character.getTotalSkillLevel('Night vision')/skills['Night vision'].max_level,
         millUnlocked:locations['Eastern mill'].getAvailabilityComponent().getStatus().is_unlocked===true,
         bleedingRemaining:active_effects.Bleeding?.duration||0,
         foodPoisonRemaining:active_effects['Slight food poisoning']?.duration||0};
@@ -1825,7 +1825,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         const active = activePractice(actor);
         if(active && !Object.hasOwn(skills, active[1].practice.xpSkill)) throw new Error("Unsupported saved practice skill.");
     }
-    stageRevealKnowledge(plan,readInventoryOwner(character.getItems()),character.money);
+    stageRevealKnowledge(plan,readInventoryOwner(character.getItems()),character.money,materialInsightContext());
     readFrame?.invalidate(); // Staged actor bindings begin a new read phase.
     const stagedGameplay = nativeGameplay.stageBindings(plan.gameplay,plan.state);
     const actorBindings = stagedGameplay.actors;
@@ -1936,7 +1936,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     publication.publish();
     readFrame?.invalidate();
     unlockPublication.publish();
-    if(plan.revealLesson)log_message('Handling twenty Golmoon leaves taught you a preparation. Review it in Learned preparations.','notification');
+    for(const text of revealLessonMessages(plan))log_message(text,'notification');
     readFrame?.invalidate();
     equipmentPublication.publish();
     if(plan.p00GrowthSource)publishGrowthProjection(plan.p00GrowthSource);
@@ -3343,6 +3343,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
     }
 
     process_rewards({rewards: current_location.entrance_rewards});
+    if(!restoringNativeSave)domainRegistry.refresh();
 }
 
 function handle_location_icon_click() {
@@ -4011,14 +4012,14 @@ function end_reading() {
 let practicePanel, referenceRender=()=>{}, openingStep=0;
 try{const step=Number(localStorage.getItem('yairpg.opening.v1'));if(Number.isInteger(step)&&step>=0&&step<=3)openingStep=step;}catch{/* Session-only presentation if browser storage is unavailable. */}
 function revealFacts(){return expansionState.actors.player.facts;}
-function recipeLesson(inventory){
-    if(restoringNativeSave || !ownsSave || foundationSaveBlocked || importProbeToken)return;
-    if(!heldLesson(inventory,revealFacts()['reveal.herbLesson']))return;
-    revealFacts()['reveal.herbLesson']=true;
-    process_rewards({rewards:{recipes:[{category:'alchemy',subcategory:'items',recipe_id:HERB_LESSON.recipe}]}});
-    log_message('Handling twenty Golmoon leaves taught you a preparation. Review it in Learned preparations.','notification');
-    update_displayed_crafting_recipes();practicePanel?.render();updateWorkspace();
-}
+function materialInsightContext(){return {facts:revealFacts(),worldId:expansionState.actors.player.worldId,recipes,known:id=>(item_log.items[id]?.number||0)>0,level:id=>character.getTotalSkillLevel(id)};}
+const recipeLesson=createAcquisitionLesson({
+    canWrite:()=>!restoringNativeSave&&ownsSave&&!foundationSaveBlocked&&!importProbeToken,
+    read:materialInsightContext,
+    unlock:recipes=>process_rewards({rewards:{recipes}}),
+    notify:text=>log_message(text,'notification'),
+    refresh:()=>{update_displayed_crafting_recipes();practicePanel?.render();updateWorkspace();}
+});
 function practiceRunReason({toggle=false}={}){
     if(!ownsSave||foundationSaveBlocked||importProbeToken)return 'Saving is unavailable.';
     if(expansionState.actors.player.worldId!=='base.frontier')return 'Run is practiced for frontier travel.';
@@ -4592,7 +4593,7 @@ function get_textline_answer(textline) {
  */
 // Read-only eligibility shared by native crafting and its optional UI filter.
 export function canConsumeNativeCraftingItem(key) {
-    if(nativeOccupationReason()) return false;
+    if(!workLedgerCanWrite() || !character.is_alive || workLedgerContext().busy) return false;
     try {
         assertNativeItemDisposition(expansionState, key);
         return true;
@@ -5330,8 +5331,8 @@ function nativeCraftMessage(...args){
 }
 function use_recipe(target, amount=1){
     const kind=target?.parentNode?.parentNode?.dataset.crafting_subcategory;
-    if(!['items','components'].includes(kind))return execute_native_recipe(target,amount);
-    if(expeditionOccupiesPlayer()||!workLedgerCanWrite())return;
+    if(!['items','components','equipment'].includes(kind))return execute_native_recipe(target,amount);
+    if(expeditionOccupiesPlayer()||!workLedgerCanWrite()||workLedgerContext().busy||!character.is_alive)return;
     let scope;
     try {
         const transaction=beginNativeCraftTransaction({owners:[expansionState.streams,character,character.getItems(),character.getLevelableComponent(),item_log,game_stats,global_flags,availabilities,
@@ -5366,7 +5367,7 @@ function use_recipe(target, amount=1){
     }
 }
 function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
-    if(expeditionOccupiesPlayer() || !workLedgerCanWrite()) return;
+    if(expeditionOccupiesPlayer() || !workLedgerCanWrite() || workLedgerContext().busy || !character.is_alive) return;
     workLedgerCraftEffects?.gesture();
 
     const category = target.parentNode.parentNode.dataset.crafting_category;
@@ -5382,6 +5383,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
         //shouldn't be possible to reach this
         throw new Error(`Tried to use a recipe that doesn't exist: ${category} -> ${subcategory} -> ${recipe_id}`);
     } else {
+        if(!recipes[category][subcategory][recipe_id].isUnlocked()) {nativeCraftMessage('This recipe is no longer learned.','notification');return;}
         const selected_recipe = seededRecipe(recipes[category][subcategory][recipe_id],()=>gameRandom(STREAMS.craft, `recipe:${recipe_id}:quality`));
         const recipe_div = document.querySelector(`[data-crafting_category="${category}"][data-crafting_subcategory="${subcategory}"] [data-recipe_id="${recipe_id}"]`);
         try {
@@ -5622,8 +5624,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                     }
                     character.addToInventory(to_add);
 
-                    //remove used mats
-                    character.removeFromInventory([{item_key: material_1_key, item_count: recipe_material.count*ammount_that_can_be_crafted}]);
+                            character.removeFromInventory([{item_key: material_1_key, item_count: recipe_material.count*ammount_that_can_be_crafted}]);
                     settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:ammount_that_can_be_crafted,successes:ammount_that_can_be_crafted,outputs:to_add.reduce((n,r)=>n+r.count,0),outputLabel:result.getName(),...ledgerQuality},recipe_div);
 
                     //update display
@@ -5649,7 +5650,6 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
             const comp = [];
             const component_keys = {};
 
-            //read the selected components, pass them as params
             for (var i = 0; i < selected_recipe.components.length; i++) {
                 const component_1_key = recipe_div.children[1].children[i].children[1].querySelector(".selected_component")?.dataset.item_key;
                 if(!component_1_key) {
@@ -5733,11 +5733,11 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
             character.addToInventory(affixedCraftEntries({parsedKey: JSON.parse(result.getInventoryKey()), crafted: all_crafted, rarityOf: getItemRarity,
                 partsOf: c => ({internal: item_templates[c.internal], external: item_templates[c.external]}), random: () => gameRandom(STREAMS.craft, 'gear.affix')}));
 
-            //remove used mats
             for (let i in comp) {
                 character.removeFromInventory([{ item_key: comp[i].item.getInventoryKey(), item_count: ammount_that_can_be_crafted }]);
             }
 
+            settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:ammount_that_can_be_crafted,successes:ammount_that_can_be_crafted,outputs:Object.values(all_crafted).reduce((n,c)=>n+c,0),outputLabel:result.getName()},recipe_div);
             update_displayed_component_choice({ category, subcategory, recipe_id, component_keys });
         }  
     }
@@ -6200,9 +6200,6 @@ function get_date() {
 
 function is_on_dev() {
     return window.location.href === "https://miktaew.github.io/yet-another-idle-rpg-dev/";
-}
-function is_on_main() {
-    return window.location.href === "https://miktaew.github.io/yet-another-idle-rpg/";
 }
 
 function is_JSON(str) {
@@ -8462,7 +8459,7 @@ function load(save_data) {
         loadingReputationTotals = null;
         restoringNativeSave = false;
         if(p23LivingGear!==undefined){character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}
-        trancheFourPanel?.render();domainRegistry.refresh();
+        trancheFourPanel?.render();householdPanel?.render();domainRegistry.refresh();
         awakenOptionalStart();
     }
 } 
@@ -9349,7 +9346,7 @@ window.cancel_trade = cancel_trade;
 window.accept_trade = () => {
     try {accept_trade();}
     catch(error) {
-        log_message("Trade cancelled: " + error.message, "message_critical");
+        log_message("Trade not completed: " + error.message, "message_critical");
         update_displayed_trader_inventory();
         update_displayed_character_inventory({is_trade: true});
     }
@@ -9437,7 +9434,7 @@ const saveOwnership = acquireSaveOwnership().then(owned => {
     frontierCampaignPanel?.render();partyPanel?.render();
     featureExpansionPanel?.render();foundationInteractionPanel?.render();
     knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render(); worldEventFeed?.render();
-    trancheFourPanel?.render();trainingPanel?.render();growthPanel?.render();mistglassPanel?.render();readingSalvagePanel?.render();titlesPanel?.render();updateWorkspace();domainRegistry.refresh();
+    trancheFourPanel?.render();trainingPanel?.render();growthPanel?.render();mistglassPanel?.render();readingSalvagePanel?.render();titlesPanel?.render();householdPanel?.render();updateWorkspace();domainRegistry.refresh();
     awakenOptionalStart();
     return owned;
 });
@@ -9665,11 +9662,11 @@ configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_character_inventory();update_displayed_effects();update_displayed_crafting_recipes();}});
-configureToolsDomain({actor:()=>character,skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
+configureNativeToolDomains({actor:()=>character,skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
     itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:id=>assertNativeItemDisposition(expansionState,item_templates[id].getInventoryKey()),
     addItem:(id,count)=>character.addToInventory([{item_id:id,count}]),removeItem:(id,count)=>character.removeFromInventory([{item_key:item_templates[id].getInventoryKey(),item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The tool repair could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
-    refresh:()=>{character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();durabilityPanel?.render();},
+    refresh:()=>{character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();durabilityPanel?.render();localLifePanel?.render();practicePanel?.render();},
     blocked:harvestBlockReason,writable:harvestWritable,idle:()=>!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),
     random:key=>gameKeyedRandom(STREAMS.craft,key),logMessage:log_message,locationRevealed:id=>locations[id].isUnlocked(),revealLocation:id=>unlock_location({location:locations[id]})});
 configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAutomaticReady,
@@ -9956,8 +9953,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     document.getElementById('location_actions_div').append(customizationHost,effectsHost,rulesHost,previewHost);
     customizationPanel=createCustomizationUI({container:customizationHost,effectsContainer:effectsHost,previewContainer:previewHost,readPreview:()=>[{label:'Known place',value:document.getElementById('location_name_span')?.innerText.trim()||'Unavailable'},{label:'Level',value:document.getElementById('character_level_div')?.innerText.trim()||'Unavailable'}],read:()=>customization,save:saveCustomization,season:()=>current_game_time.getSeason(),canWrite:workLedgerCanWrite,moduleIds:['ledger','crafting','local-actions','vitals','preparation','belongings','records','time','location','skills','messages','notebook','customization']});
     workLedgerAuthor=createWorkLedgerAuthorUI({container:rulesHost,read:()=>createWorkLedgerRulesDraft(workLedger),apply:draft=>publishWorkLedger(applyWorkLedgerRulesDraft(workLedger,draft,workLedgerContext(),{sequence:workLedger.sequence+1})),reset:()=>publishWorkLedger(resetWorkLedgerRules(workLedger,workLedgerContext(),{sequence:workLedger.sequence+1})),canWrite:()=>workLedgerCanWrite()&&workLedgerContext().alive&&!workLedgerContext().busy&&workLedgerContext().locationId==='Village'});
-    const quietPlaceDetail=createQuietPlaceDetail({container:document.getElementById('location_div'),before:document.getElementById('location_description_div'),read:()=>({
-        knownVillage:expansionState.actors.player.worldId==='base.frontier'&&current_location?.id==='Village',
+    const quietPlaceDetail=createQuietPlaceDetail({container:document.getElementById('location_div'),before:document.getElementById('location_description_div'),readSettings:()=>getCustomizationSettings(customization,'location',{season:current_game_time.getSeason()}),read:()=>({placeId:current_location?.id,worldId:expansionState.actors.player.worldId,
         roofed:!!current_location?.is_under_roof,raining:is_raining(),daylight:current_game_time.getTimeOfDaySimple(),
         effects:getCustomizationSettings(customization,'location',{season:current_game_time.getSeason()}).effects
     })});
@@ -10087,7 +10083,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     practicePanel=createPracticePanel({register:registerWorkspaceModule,update:updateWorkspace,
         read:()=>{const context=localLifeContext(),found=localLife.searches[current_location?.id]?.found;
             return {hints:context.worldId==='base.frontier'?knownPracticeHints(character.getLevelableComponent().skill_progress,character.getItems(),revealFacts()['reveal.herbLesson']):[],progress:character.getLevelableComponent().skill_progress,run:revealFacts()['reveal.run']===true,reason:practiceRunReason({toggle:true}),runFallback:character.getFullStats().stamina<2,recipe:revealFacts()['reveal.herbLesson']===true,craftReason:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy?'':'Requires an accessible alchemy station before crafting.',
-                search:{on:localLife.looking,reason:!ownsSave||foundationSaveBlocked||importProbeToken?'Saving is unavailable.':!context.idle?'Finish your current activity before investigating.':!['Village','Shack'].includes(context.location)?'Investigate is practiced in Village and Shack.':found?'Nothing remains to find here.':''}};},
+                search:{on:localLife.looking,text:localSearchMethod(context).text,reason:!ownsSave||foundationSaveBlocked||importProbeToken?'Saving is unavailable.':!context.idle?'Finish your current activity before investigating.':!['Village','Shack'].includes(context.location)?'Investigate is practiced in Village and Shack.':found?'Nothing remains to find here.':''}};},
         toggleRun:()=>{if(practiceRunReason({toggle:true}))return;const next=structuredClone(expansionState);next.sequence++;next.actors.player.facts['reveal.run']=!revealFacts()['reveal.run'];persistExpansion({state:next,gameplay:gameplaySnapshot(),external:{money:character.money},messages:[]});},
         investigate:()=>dispatchLocalLifePlan(localLifeAction(localLife,localLifeContext(),'look')),
         craft:()=>{if(!accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy)return;open_crafting_window();switch_crafting_recipes_page('alchemy');}});
@@ -10113,7 +10109,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             equipment:[...document.querySelectorAll('#character_equipment_div .equipment_slot_div')].map(slot=>{const id=slot.id.replace(/_slot$/,'');const item=character.getEquipment()[id==='fishing'?'fishing_pole':id];return {id,label:id.replaceAll('_',' '),name:item?item.getName():null};}),
             reason:nativeActionReasons(expansionState).join(' ')};
     }});
-    createVillageWorkspace({read:()=>{
+    createVillageWorkspace({placeDetail:quietPlaceDetail.node,read:()=>{
         const inVillage=current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier';
         const travelers=inVillage?generatedPeopleView(generatedPeopleSnapshot(calendarMinutes(current_game_time))).filter(p=>p.status!=='on_road'):[];
         const authored=inVillage?current_location.npcs.filter(id=>{const p=NPCRegistry.get(id);return p.canBeDisplayed(get_context())&&p.getDialogueComponent().canBeDisplayed(get_context());}).map(id=>({id,name:NPCRegistry.get(id).getName({is_mofu_mofu_enabled:global_flags.is_mofu_mofu_enabled}),role:NPCRegistry.get(id).tags.trader?'Merchant':'Village neighbor',met:id==='villageElder'?metVillageElder():true,traits:[],relationship:null})):[];
@@ -10163,7 +10159,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     continuationPanel=createContinuationUI({read:readContinuationUI,command:commandContinuation});
     setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();}},500);
     mountWorkspace();
-    mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId})});
+    mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId}),ports:{sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,gameStats:()=>game_stats,expansion:()=>expansionState,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
     refreshCustomization();
     expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife,readLocalContext:localLifeContext});
     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);
@@ -10222,25 +10218,11 @@ if(is_on_dev()) {
 }
 
 
-//attach proper hitcounter, plus noindex for dev page
+// Preserve the upstream development page's noindex metadata.
 if(is_on_dev()) {
     insert_HTML(
         document.head,
         `<meta name="robots" content="noindex">`
-    );
-    insert_HTML(
-        document.getElementById("bottom_panel_div"), 
-        `<img id = "hits_counter" src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fmiktaew.github.io%2Fyet-another-idle-rpg-dev%2F&label=Visitors&color=%23084298&message=&style=flat&tz=UTC">`
-    );
-} else if(is_on_main()) {
-    insert_HTML(
-        document.getElementById("bottom_panel_div"), 
-        `<img id = "hits_counter" src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fmiktaew.github.io%2Fyet-another-idle-rpg%2F&label=Visitors&color=%23084298&message=&style=flat&tz=UTC">`
-    );
-} else {
-    insert_HTML(
-        document.getElementById("bottom_panel_div"), 
-        `<img id = "hits_counter" src="https://hitscounter.dev/api/hit?label=dummy+hit+counter&color=%23084298&message=&style=flat&tz=UTC">`
     );
 }
 

@@ -1,3 +1,8 @@
+import {craftBatchGoal} from './craft_batch_goal.js';
+import {knownRecipeVariants, relatedKnownRecipes, knownUsesHTML, installKnownRecipeLinks, renderRecipeConnections, materialPolicyText, bindSubjectGesture} from './recipe_connections.js';
+import {mountMaterialChoice} from './material_choice_view.js';
+import {renderRecentLearning} from './recent_learning.js';
+import {equipmentComparisonHTML} from './equipment_comparison.js';
 import {centerModes} from './center_modes.js';
 import {expandWorkspaceModule} from './workspace_layout.js';
 let nativeObservedDropReader;
@@ -6,7 +11,7 @@ import {GRADED_IDS} from './harvest.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
-import {combatLogKey, renderCombatLine, addCombatOccurrence, occurrenceLabel, hostileSlot} from './combat_log.js';
+import {combatLogKey, renderCombatLine, addCombatOccurrence, occurrenceLabel, hostileSlot, hostileSubject} from './combat_log.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
 import {denominationsKnown} from './reveal_chain.js';
 import {foodPacingDescription} from './absorb_e1/panel.js';
@@ -39,6 +44,7 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 //import { stances } from "./combat_stances.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
 import {recipeMakeableNow, itemRecipeStatus} from "./crafting_visibility.js";
+import {readPort} from './ui_ports.js';
 import {craftCue} from "./craft_cues.js";
 import {renderCraftingDetail, focusFirstBlocker, craftReceiptText, UNKNOWN_MATERIAL_LABEL} from "./crafting_detail.js";
 import { effect_templates } from "./active_effects.js";
@@ -510,63 +516,8 @@ function round(number) {
  * @param {Number} quality
  * @returns {String} HTML string
  */
-function create_equipment_comparison(item, quality) {
-    if(!item?.equip_slot) {
-        return "";
-    }
-
-    const worn = character.getEquipment()[item.equip_slot];
-    if(!worn || worn === item) {
-        return "";
-    }
-
-    let comparison = "";
-
-    const flat_line = (label, mine, theirs) => {
-        const delta = Math.round(((mine || 0) - (theirs || 0))*100)/100;
-        if(!delta) {
-            return;
-        }
-        const better = delta > 0 ? "comparison_better" : "comparison_worse";
-        comparison += `<br><span class="${better}">${label}: ${delta > 0 ? "+" : ""}${delta}</span>`;
-    };
-
-    const multiplier_line = (label, mine, theirs) => {
-        const multi = 1 + Math.round(((mine || 1) / (theirs || 1) - 1) * 100) / 100;
-        if(multi == 1) {
-            return;
-        }
-        const better = multi > 1 ? "comparison_better" : "comparison_worse";
-        comparison += `<br><span class="${better}">${label}: ${multi > 0 ? "x" : "x"}${multi}</span>`;
-    };
-
-
-    if(item.getAttack && worn.getAttack) {
-        flat_line("Attack", item.getAttack(quality), worn.getAttack());
-    } else if(item.getDefense && worn.getDefense) {
-        flat_line("Defense", item.getDefense(quality), worn.getDefense());
-    } else if(item.getShieldStrength && worn.getShieldStrength) {
-        flat_line("Block", item.getShieldStrength(quality), worn.getShieldStrength());
-    }
-
-    const mine = item.getStats(quality);
-    const theirs = worn.getStats();
-    for(const stat_key of new Set([...Object.keys(mine), ...Object.keys(theirs)])) {
-        const label = capitalize_first_letter(stat_names[stat_key] ?? stat_key.replace("_", " "));
-        if(mine[stat_key]?.flat != null || theirs[stat_key]?.flat != null) {
-            flat_line(label, mine[stat_key]?.flat, theirs[stat_key]?.flat);
-        }
-        if(mine[stat_key]?.multiplier != null || theirs[stat_key]?.multiplier != null) {
-            multiplier_line(label, mine[stat_key]?.multiplier, theirs[stat_key]?.multiplier);
-        }
-    }
-
-    if(!comparison) {
-        return "";
-    } else {
-        return "<br><br>Compared to equipped:" + comparison;
-    }
-
+function create_equipment_comparison(item, quality, baseline, qualityRange) {
+    return equipmentComparisonHTML(item, baseline ?? character.getEquipment()[item?.equip_slot], {quality, qualityRange, baselineRole:baseline ? 'selected part' : 'equipped item', templates: item_templates, statNames: stat_names});
 }
 
 /**
@@ -752,8 +703,8 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
     }
 
     //for singular tooltips (i.e. not ones in crafting), add comparison with worn item
-    if(!options.skip_comparison&&!(options?.quality?.length > 1)) {
-        item_tooltip += create_equipment_comparison(item, quality);
+    if(!options.skip_comparison) {
+        item_tooltip += create_equipment_comparison(item, quality, options.comparisonBaseline, options.quality);
     }
 
     if(item?.base_size) {
@@ -798,14 +749,8 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
         item_tooltip += `<br><br>Material type: ${item.material_type}`;
     }
 
-    if(!item.quality || !item.use_quality) {
-        const count_in_main = character.getItems()[item.getInventoryKey()]?.count;
-
-        if(count_in_main&&!options.skip_inventory_count) {
-            item_tooltip += `<br><br>Count in player inventory: ${count_in_main}`;
-            //always show how much player currently has in inventory; this makes it easier to find (with no need for scrolling) when buying, crafting, or taking out of storage
-        }
-    }
+    if(!options.skip_inventory_count && !(options.quality?.length>1)) item_tooltip += `<br><br>Carried, exact variant: ${character.getItems()[item.getInventoryKey()]?.count || 0}`;
+    if(!options.skip_known_uses) item_tooltip += knownUsesHTML(item, known_recipe_variants());
 
     if(!item.tags.unique && item.getBaseValue()) {
         if(!options.skip_quality && options?.quality?.length == 2) { 
@@ -969,12 +914,13 @@ function mark_combat_line(message,event){
     message.dataset.combatOutcome=event.outcome;message.dataset.combatDirection=event.direction;
     message.dataset.combatKey=combatLogKey(event,combat_key_options());message.dataset.encounter=String(event.encounter);
     const slot=hostileSlot(event);if(slot!=null)message.dataset.combatSlot=String(slot);
+    const subject=hostileSubject(event);if(subject)message.dataset.combatSubject=subject;
     addCombatOccurrence(message,combat_occurrence(event));
 }
 // Parity shell only: the next equivalent event on the newest line adds to its ×N instead of a line.
 // Message counts and pruning stay per line; follow and unread keep their meaning.
 function collapse_combat_repeat(event){
-    if(!message_log||document.getElementById('main_content')?.dataset.parity!=='r3')return false;
+    if(getDisplaySetting('combatRepeatMode')==='detailed'||!message_log||document.getElementById('main_content')?.dataset.parity!=='r3')return false;
     const key=combatLogKey(event,combat_key_options());if(!key)return false;
     let last=message_log.lastElementChild;
     while(last&&!last.classList.contains('message_common'))last=last.previousElementSibling;
@@ -984,7 +930,7 @@ function collapse_combat_repeat(event){
         :getDisplaySetting("logFollow")==="always"||is_message_log_near_bottom();
     if(batch_log)batched_log_following=following;
     // A merged line may stand for several opponents: it links to none of them (FC12).
-    if(last.dataset.combatSlot!==undefined&&String(hostileSlot(event))!==last.dataset.combatSlot)last.dataset.combatSlot='many';
+    if(last.dataset.combatSlot!==undefined&&String(hostileSlot(event))!==last.dataset.combatSlot){last.dataset.combatSlot='many';delete last.dataset.combatSubject;}
     addCombatOccurrence(last,combat_occurrence(event));
     if(document.getElementById('message_show_combat')?.classList.contains('active_selection_button')){
         if(following){if(batch_log)batched_log_scroll_requested=true;else message_log.scrollTop=message_log.scrollHeight;}
@@ -1337,26 +1283,23 @@ function log_loot({loot_list, is_combat=false, is_a_summary=false, is_dynamic=fa
     }
 
     const loot_to_use = is_dynamic?total_loot:recent_loot;
-    let gains_msg = is_dynamic?`(+${recent_loot[0].item_count})`:"";
+    const recentByIdentity = new Map(recent_loot.map(entry => [entry.item_id || entry.item_key, entry]));
+    const gainSuffix = entry => {
+        const recent = recentByIdentity.get(entry.item_id || entry.item_key);
+        return is_dynamic && recent ? `(+${recent.item_count})` : "";
+    };
+    let gains_msg = gainSuffix(loot_to_use[0]);
 
-    let item;
-    if(loot_to_use[0].item_id) {
-        item = item_templates[loot_to_use[0].item_id];
-    } else if(loot_to_use[0].item_key) {
-        item = getItemFromKey(loot_to_use[0].item_key);
-    }
+    const resolveItem = entry => entry.item_id ? item_templates[entry.item_id] : getItemFromKey(entry.item_key);
+    let item = resolveItem(loot_to_use[0]);
 
     message += item.getName() + `" x` + loot_to_use[0].item_count + gains_msg;
 
     if(loot_to_use.length > 1) {
         for(let i = 1; i < loot_to_use.length; i++) {
-            gains_msg = is_dynamic&&recent_loot[i]?`(+${recent_loot[i].item_count})`:"";
+            gains_msg = gainSuffix(loot_to_use[i]);
 
-            if(loot_to_use[i].item_id) {
-                item = item_templates[loot_to_use[i].item_id];
-            } else if(loot_to_use[i].item_key) {
-                item = getItemFromKey(loot_to_use[i].item_key);
-            }
+            item = resolveItem(loot_to_use[i]);
             message += (`, "` + item.getName() + `" x` + loot_to_use[i].item_count + gains_msg);
         }
     }
@@ -3133,13 +3076,14 @@ function open_crafting_window() {
     for (let i = 0; i < elements.length; i++) {
         let is_available = accessoryCraftingTiers(current_location, undefined, global_flags.is_crafting_unlocked)[elements[i].dataset.crafting_category]
 
-        elements[i].style.display = is_available ? "" : "none";
-        //TODO maybe just graying it out would make more obvious what is happening?
+        const known = known_recipe_variants().some(v=>v.category===elements[i].dataset.crafting_category);
+        elements[i].style.display = is_available || known ? "" : "none";
+        elements[i].title = is_available ? 'Station available here' : 'Known recipes; no station here';
 
-        if (is_available && !first_available_category) {
+        if ((is_available || known) && !first_available_category) {
             first_available_category = elements[i];
         }
-        if (!is_available && selected_crafting_category == elements[i].dataset.crafting_category) {
+        if (!is_available && !known && selected_crafting_category == elements[i].dataset.crafting_category) {
             selected_crafting_category = null;
         }
     }
@@ -3240,7 +3184,7 @@ function apply_crafting_filter() {
                 }
                 // Keep an open/focused recipe stable while its last material is consumed.
                 // Items rows are never retained: Makeable now shows exactly the craftable rows.
-                const retained = subcategory !== "items" && (row.classList.contains("selected_recipe") || row.contains(document.activeElement));
+                const retained = (subcategory !== "items" && (row.classList.contains("selected_recipe") || row.contains(document.activeElement))) || (item_recipe_return && is_selected_item_recipe(category,subcategory,row.dataset.recipe_id));
                 const hidden = filtered && !makeable && !retained;
                 if(row.hidden !== hidden) {
                     row.hidden = hidden;
@@ -3294,26 +3238,49 @@ function show_item_recipe_row(selection, scroll) {
     row?.focus({preventScroll: true});
 }
 
-function follow_related_item_recipe(recipe_id) {
-    const from = selected_item_recipe;
-    if(!from) return;
-    const page = crafting_pages[from.category]?.[from.subcategory];
-    if(!page?.querySelector(`.recipe_div[data-recipe_id="${recipe_id}"]`)) return;
-    const return_to = {selection: from, title: recipes[from.category][from.subcategory][from.recipe_id].name, scroll: page.scrollTop};
-    selected_item_recipe = {...from, recipe_id};
-    item_recipe_return = return_to;
-    refresh_crafting_detail();
-    show_item_recipe_row(selected_item_recipe);
+function known_recipe_variants() {
+    return knownRecipeVariants(recipes, id => item_log.is_known(id), item_templates);
 }
-
+function capture_recipe_return(selection) {
+    const page = crafting_pages[selection.category]?.[selection.subcategory];
+    const row = page?.querySelector(`[data-recipe_id="${selection.recipe_id}"]`);
+    return {selection: {...selection}, title: recipes[selection.category][selection.subcategory][selection.recipe_id].name,
+        scroll: page?.scrollTop, outerScroll: document.getElementById('recipe_categories').scrollTop,
+        filter: document.getElementById('crafting_makeable_filter').checked,
+        components: [...(row?.querySelectorAll('.selected_component') || [])].map(n=>n.dataset.item_key), focusKey:document.activeElement?.closest?.('[data-item_key]')?.dataset.item_key, parent: item_recipe_return};
+}
+function visit_recipe(selection) {
+    if(!known_recipe_variants().some(v=>v.category===selection.category && v.subcategory===selection.subcategory && v.recipe_id===selection.recipe_id && (!selection.material_id||v.material_id===selection.material_id))) return;
+    switch_crafting_recipes_page(selection.category);
+    switch_crafting_recipes_subpage(selection.subcategory);
+    selected_item_recipe = selection;
+    const row = crafting_pages[selection.category]?.[selection.subcategory]?.querySelector(`[data-recipe_id="${selection.recipe_id}"]`);
+    if(selection.subcategory !== 'items') {
+        row?.querySelector('.recipe_name')?.click();
+        if(selection.material_id) [...(row?.querySelectorAll('.selectable_material')||[])].find(n=>selection.material_key ? n.dataset.item_key===selection.material_key : JSON.parse(n.dataset.item_key).id===selection.material_id)?.classList.add('selected_material');
+    }
+    selected_item_recipe = selection;
+    if(row) {row.hidden=false;row.style.display='';row.classList.remove('recipe_hidden');}
+    refresh_crafting_detail();show_item_recipe_row(selection);
+}
+function follow_related_item_recipe(target) {
+    const selection = typeof target === 'string' ? {...selected_item_recipe, recipe_id:target} : target;
+    const back = selected_item_recipe ? capture_recipe_return(selected_item_recipe) : null;
+    item_recipe_return = back;
+    visit_recipe(selection);
+}
 function return_from_related_item_recipe() {
     const back = item_recipe_return;
     if(!back) return;
-    selected_item_recipe = back.selection;
-    item_recipe_return = null;
-    refresh_crafting_detail();
+    document.getElementById('crafting_makeable_filter').checked = back.filter;
+    item_recipe_return = back.parent;
+    visit_recipe(back.selection);
+    if(back.components.length) update_displayed_component_choice({...back.selection,component_keys:Object.fromEntries(back.components.map(k=>[k,true]))});
     show_item_recipe_row(back.selection, back.scroll);
+    document.getElementById('recipe_categories').scrollTop = back.outerScroll;
+    if(back.focusKey){const row=crafting_pages[back.selection.category]?.[back.selection.subcategory]?.querySelector(`[data-item_key="${CSS.escape(back.focusKey)}"]`);(row?.querySelector('.recipe_comp_name') || row)?.focus({preventScroll:true});}
 }
+installKnownRecipeLinks(document, selection => {open_crafting_window();follow_related_item_recipe(selection);});
 
 // Known effects of a usable result: the same item.effects/effect_templates data its Result details tooltip shows.
 function item_recipe_result_effects(item) {
@@ -3328,26 +3295,9 @@ function item_recipe_result_effects(item) {
 
 // Other unlocked recipes on this station page sharing a known, named ingredient or using this result.
 // Built only from rows the list already shows; unknown or "any type" materials never create links.
-function item_recipe_related_uses(selection, requirements_known, result_id) {
-    const {category, subcategory, recipe_id} = selection;
-    const page = crafting_pages[category]?.[subcategory];
-    if(!page) return [];
-    const related = [];
-    for(const row of page.querySelectorAll(".recipe_div[data-recipe_id]")) {
-        const other_id = row.dataset.recipe_id;
-        if(other_id === recipe_id) continue;
-        const other = recipes[category][subcategory][other_id];
-        const ids = new Set(other.materials.map(m => m.material_id).filter(Boolean));
-        let via = null;
-        if(ids.has(result_id)) via = `uses ${item_templates[result_id].getName()}`;
-        else {
-            const shared = requirements_known.find(id => ids.has(id));
-            if(shared) via = `also uses ${item_templates[shared].getName()}`;
-        }
-        if(via) related.push({recipe_id: other_id, title: other.name, via, available: item_recipe_state(category, other).available});
-        if(related.length >= 6) break;
-    }
-    return related;
+function item_recipe_related_uses(selection) {
+    return relatedKnownRecipes(selection, known_recipe_variants(), item_templates).map(v=>({...v,target:{category:v.category,subcategory:v.subcategory,recipe_id:v.recipe_id,material_id:v.material_id},
+        available: recipeMakeableNow({recipe:recipes[v.category][v.subcategory][v.recipe_id],stationTier:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked)[v.category],inventory:character.getItems(),itemTemplates:item_templates,isMaterialKnown:id=>item_log.is_known(id),canConsume:canConsumeNativeCraftingItem})}));
 }
 
 function handle_item_recipe_key(event, recipe_div, selection) {
@@ -3383,7 +3333,7 @@ function build_item_recipe_model(selection) {
         // Unknown ingredients stay unnamed: no item name and no material type (CP2).
         const unknown = m.material_type ? !material_type_known(m.material_type) : !req.known;
         const label = unknown ? UNKNOWN_MATERIAL_LABEL : m.material_type ? `Any ${m.material_type}` : item_templates[m.material_id].getName();
-        return {label, have: req.have, need: req.need, missing: req.missing, unknown, held_back: req.held_back};
+        return {label, have: req.have, owned:req.owned, usable:req.usable, blocked:req.blocked, stockKnown:req.stockKnown, stock:find_recipe_material({material:m,ignore_stop:true}).count, variants:req.items.map(e=>({name:e.item.getName(),quality:e.item.quality,count:e.count})), need: req.need, missing: req.missing, unknown, held_back: req.held_back};
     });
     const station_name = document.querySelector(`.crafting_mainpage_button[data-crafting_category="${category}"]`)?.textContent.trim() || category;
     const chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier || 1), category, subcategory));
@@ -3411,7 +3361,7 @@ function build_item_recipe_model(selection) {
         related: item_recipe_related_uses(selection, known_ids, result_id), back,
         output: {name: item_templates[result_id].getName(), count, scaled: !!recipe.scale_results && count > 1},
         chance, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
-        xp, available: state.available, blocked_reason, receipt, cue,
+        xp, policy: materialPolicyText(game_options.stop_crafting_on_material_change), available: state.available, blocked_reason, receipt, cue, goal:craftBatchGoal.read()?.key===item_recipe_key(selection)?craftBatchGoal.read():null,
         result_details: create_item_tooltip_content({item: item_templates[result_id], options: {skip_quality: true, anchor_tooltip: true}})};
 }
 
@@ -3449,7 +3399,13 @@ function refresh_crafting_detail() {
     const items_page = selected_crafting_subcategory === "items";
     win.dataset.craftView = items_page ? "items" : "other";
     root.hidden = !items_page;
-    if(!items_page) return;
+    if(!items_page) {
+        const selection = selected_item_recipe?.category === selected_crafting_category && selected_item_recipe?.subcategory === selected_crafting_subcategory ? selected_item_recipe : null;
+        const page = crafting_pages[selected_crafting_category]?.[selected_crafting_subcategory];
+        if(selection && page) renderRecipeConnections(page, {selection, links:item_recipe_related_uses(selection), back:item_recipe_return?.title,
+            follow:follow_related_item_recipe,goBack:return_from_related_item_recipe,policy:'Select a material or part to inspect. Craft buttons commit; quality ranges describe possible outcomes.'});
+        return;
+    }
     const page = crafting_pages[selected_crafting_category]?.items;
     if(page) {
         for(const row of page.querySelectorAll(".recipe_div[data-recipe_id]")) {
@@ -3463,6 +3419,8 @@ function refresh_crafting_detail() {
         && selected_item_recipe.subcategory === "items" && page?.querySelector(`[data-recipe_id="${selected_item_recipe.recipe_id}"]`);
     renderCraftingDetail(root, visible ? build_item_recipe_model(selected_item_recipe) : null, {
         onCommit: amount => commit_selected_item_recipe(amount),
+        onContinue:()=>commit_selected_item_recipe(null),
+        onCancelGoal:()=>{craftBatchGoal.clear();refresh_crafting_detail();},
         onBlocked: focusFirstBlocker,
         onRelated: recipe_id => follow_related_item_recipe(recipe_id),
         onBack: () => return_from_related_item_recipe(),
@@ -3477,6 +3435,10 @@ function commit_selected_item_recipe(amount) {
     const recipe = recipes[category][subcategory][recipe_id];
     const row = crafting_pages[category][subcategory].querySelector(`[data-recipe_id="${recipe_id}"]`);
     if(!row || !item_recipe_state(category, recipe).available) { focusFirstBlocker(document.getElementById("crafting_detail")); return; }
+    const goalKey=item_recipe_key(selection), oldGoal=craftBatchGoal.read();
+    if(amount==null && (!oldGoal||oldGoal.key!==goalKey||oldGoal.attempted>=oldGoal.target))return;
+    if(amount!=null)craftBatchGoal.start(goalKey,Number.isFinite(amount)?amount:item_recipe_state(category,recipe).amount);
+    const goal=craftBatchGoal.read();amount=goal.target-goal.attempted;
     const result_id=recipe.getResult().result_id;
     const result_key = item_templates[result_id].getInventoryKey();
     const resultCount=()=>GRADED_IDS.includes(result_id)?Object.values(character.getItems()).filter(row=>row.item.id===result_id).reduce((n,row)=>n+row.count,0):(character.getItems()[result_key]?.count||0);
@@ -3489,14 +3451,17 @@ function commit_selected_item_recipe(amount) {
     const skill = skills[recipe.recipe_skill];
     const skill_level = skill.getCurrentLvl(); // Capture before craft XP can level the skill.
     const made_before = resultCount(), xp_before = skill.getTotalXP();
+    const attempts_before = readPort('gameStats')?.total_crafting_attempts, successes_before = readPort('gameStats')?.total_crafting_successes;
     const list = row.parentNode, scroll = list.scrollTop;
     window.useRecipe(row.querySelector(".recipe_item_name"), amount);
     const items = character.getItems();
     const used = Object.entries(inputs).map(([key, v]) => ({name: v.name, count: v.before - (items[key]?.count || 0)})).filter(u => u.count > 0);
     const made = resultCount() - made_before;
+    const attempted = readPort('gameStats')?.total_crafting_attempts - attempts_before, successful = readPort('gameStats')?.total_crafting_successes - successes_before;
+    craftBatchGoal.settle(goalKey,{attempted,successful,made});
     crafting_receipt = {key: item_recipe_key(selection), skill_id: recipe.recipe_skill, skill_level, made, text: craftReceiptText({
         skill_id: recipe.recipe_skill, skill_level, made, result_name: item_templates[recipe.getResult().result_id].getName(),
-        used, xp: skill.getTotalXP() - xp_before})};
+        used, xp: skill.getTotalXP() - xp_before, attempted, successful})};
     refresh_crafting_detail();
     list.scrollTop = scroll;
 }
@@ -3552,6 +3517,8 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
     recipe_name_span.innerText = recipe.name;
 
     recipe_div.append(recipe_name_span);
+    recipe_div.tabIndex=-1;
+    if(subcategory!=='items'){recipe_name_span.tabIndex=0;recipe_name_span.setAttribute('role','button');recipe_name_span.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();recipe_name_span.click();}});}
     recipe_div.classList.add("recipe_div");
     recipe_div.dataset.recipe_id = recipe_id;
 
@@ -3581,7 +3548,9 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
         material_selection.classList.add("folded_material_list");
         recipe_div.addEventListener("click", (event)=>{
             if(event.target.classList.contains("recipe_name") || event.target.classList.contains("crafting_dropdown_icon")) {
+                selected_item_recipe = {category, subcategory, recipe_id};
                 window.updateDisplayedMaterialChoice({category, subcategory, recipe_id});
+                refresh_crafting_detail();
                 toggle_exclusive_class({element: recipe_div, class_name: "selected_recipe"});
             } 
         });
@@ -3605,7 +3574,9 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
                 remove_class_from_all("selected_component_list");
                 remove_class_from_all("selected_component_category");
                 
+                selected_item_recipe = {category, subcategory, recipe_id};
                 window.updateDisplayedMaterialChoice({category, subcategory, recipe_id});
+                refresh_crafting_detail();
                 toggle_exclusive_class({element: recipe_div, class_name: "selected_recipe"});
             } 
         });
@@ -3647,7 +3618,9 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
 
                 toggle_exclusive_class({element: recipe_div, class_name: "selected_recipe"});
 
+                selected_item_recipe = {category, subcategory, recipe_id};
                 window.updateDisplayedComponentChoice({category, subcategory, recipe_id});
+                refresh_crafting_detail();
 
                 update_recipe_tooltip({category, subcategory, recipe_id, components: []});
             }
@@ -3659,7 +3632,7 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
         accept_recipe_button.classList.add("recipe_creation_button");
         accept_recipe_button.append(create_craft_amount_buttons());
 
-        accept_recipe_button.addEventListener("click", (event)=>{
+        bindSubjectGesture(accept_recipe_button, ()=>JSON.stringify([...recipe_div.querySelectorAll('.selected_component')].map(n=>n.dataset.item_key)), (event)=>{
             if(event.target.classList.contains("recipe_creation_button")) {
                 window.useRecipe(event.target);
             } else if(!event.target.classList.contains("craft_ammount_button")) {
@@ -3868,10 +3841,10 @@ function create_recipe_tooltip_content({category, subcategory, recipe_id, materi
 
         //TODO maybe allow material type?
         tooltip += `Material required:<br>`;
-        if(character.getItems()[item_templates[material.material_id].getInventoryKey()]?.count >= material.count) {
-            tooltip += `<span style="color:lime"><b>${name} x${character.getItems()[item_templates[material.material_id].getInventoryKey()]?.count || 0}/${material.count}</b></span><br>`;
+        if(character.getItems()[material.item_key || item_templates[material.material_id].getInventoryKey()]?.count >= material.count) {
+            tooltip += `<span style="color:lime"><b>${name} x${character.getItems()[material.item_key || item_templates[material.material_id].getInventoryKey()]?.count || 0}/${material.count}</b></span><br>`;
         } else {
-            tooltip += `<span style="color:red"><b>${name} x${character.getItems()[item_templates[material.material_id].getInventoryKey()]?.count || 0}/${material.count}</b></span><br>`;
+            tooltip += `<span style="color:red"><b>${name} x${character.getItems()[material.item_key || item_templates[material.material_id].getInventoryKey()]?.count || 0}/${material.count}</b></span><br>`;
         }
 
         const result_tier = item_templates[material.result_id].component_tier ?? item_templates[material.result_id].item_tier;
@@ -3958,6 +3931,7 @@ function update_displayed_component_choice({category, subcategory, recipe_id, co
     const component_selections_div = crafting_pages[category][subcategory].querySelector(`[data-recipe_id='${recipe_id}']`).children[1].children;
 
     for (let i = 0; i < recipe.components.length; i++) {
+        const retained_key = component_selections_div[i].children[1].querySelector('.selected_component')?.dataset.item_key;
         clear_HTML_content(component_selections_div[i].children[1]);
 
         const components = Object.values(character.getItems())
@@ -3965,10 +3939,10 @@ function update_displayed_component_choice({category, subcategory, recipe_id, co
             .sort((a, b) => {
                 if (a.item.component_tier != b.item.component_tier) {
                     return b.item.component_tier - a.item.component_tier;
-                } else if (a.item.item_name != b.item.item_name) {
-                    return b.item.item_name - b.item.item_name;
+                } else if (a.item.getName() !== b.item.getName()) {
+                    return String(a.item.getName()).localeCompare(String(b.item.getName()));
                 } else {
-                    return b.item.quality - a.item.quality;
+                    return b.item.quality - a.item.quality || a.item.getInventoryKey().localeCompare(b.item.getInventoryKey());
                 }
         });
 
@@ -3980,7 +3954,7 @@ function update_displayed_component_choice({category, subcategory, recipe_id, co
             item_div.dataset.item_quality = components[j].item.quality;
             item_div.dataset.item_name = components[j].item.getName();
             item_div.dataset.component_tier = components[j].item.component_tier;
-            item_div.appendChild(create_item_tooltip(components[j].item, {class_name: "recipe_tooltip"}));
+            item_div.appendChild(create_item_tooltip(components[j].item, {class_name: "recipe_tooltip", comparisonBaseline:character.getItems()[retained_key]?.item}));
             
             item_div.addEventListener("click", () => {
                 toggle_exclusive_class({element: item_div, siblings_only: true, class_name: "selected_component"});
@@ -3994,12 +3968,17 @@ function update_displayed_component_choice({category, subcategory, recipe_id, co
                 if(component_2_key && character.getItems()[component_2_key]) {
                     components.push(character.getItems()[component_2_key]);
                 }
+                const baseline=character.getItems()[item_div.dataset.item_key]?.item;
+                for(const option of component_selections_div[i].children[1].children) {
+                    const candidate=character.getItems()[option.dataset.item_key]?.item;
+                    if(candidate)set_HTML(option.querySelector('.recipe_tooltip'),create_item_tooltip_content({item:candidate,options:{comparisonBaseline:baseline}}));
+                }
                 update_recipe_tooltip({category, subcategory, recipe_id, components});
             });
                 
             component_selections_div[i].children[1].appendChild(item_div);
 
-            if(component_keys[item_div.dataset.item_key]) {
+            if(component_keys[item_div.dataset.item_key] || item_div.dataset.item_key===retained_key) {
                 item_div.click();
             }
         }
@@ -4019,49 +3998,31 @@ function update_displayed_material_choice({category, subcategory, recipe_id, ref
 
     const material_selections_div = crafting_pages[category][subcategory].querySelector(`[data-recipe_id='${recipe_id}']`).children[1];
     
+    const retained_key = material_selections_div.querySelector('.selected_material')?.dataset.item_key || selected_item_recipe?.material_key;
     clear_HTML_content(material_selections_div);
 
     if (!recipe.materials) {
         return;
     }
 
-    for (let i = 0; i < recipe.materials.length; i++) {
-        const material_recipe = recipe.materials[i];
-
-        //hide recipes which use undiscovered materials
-        if (!item_log.is_known(material_recipe.material_id)) {
-            continue;
+    for(const material_recipe of recipe.materials) {
+        if(!item_log.is_known(material_recipe.material_id)) continue;
+        const entries = Object.values(character.getItems()).filter(e=>e.item.id===material_recipe.material_id).sort((a,b)=>b.item.quality-a.item.quality || a.item.getInventoryKey().localeCompare(b.item.getInventoryKey()));
+        if(!entries.length) entries.push({item:item_templates[material_recipe.material_id],count:0});
+        for(const entry of entries) {
+            const item_div=document.createElement('div'), name_span=document.createElement('span');
+            name_span.textContent=`${item_templates[material_recipe.result_id].getName()}${Number.isFinite(entry.item.quality)?` · input ${entry.item.quality}%`:''}`;
+            name_span.classList.add('recipe_comp_name');item_div.append(name_span);item_div.classList.add('selectable_material');
+            item_div.dataset.item_key=entry.item.getInventoryKey();
+            const available=canConsumeNativeCraftingItem(item_div.dataset.item_key) && accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked)[category]>0;
+            if(entry.count<material_recipe.count||!available)item_div.classList.add('recipe_unavailable');
+            mountMaterialChoice(item_div,{key:item_div.dataset.item_key,count:entry.count,need:material_recipe.count,name:name_span.textContent,allowed:available,
+                select:()=>{for(const other of material_selections_div.children)other.classList.remove('selected_material');selected_item_recipe={category,subcategory,recipe_id,material_id:material_recipe.material_id,material_key:item_div.dataset.item_key};refresh_crafting_detail();},
+                commit:amount=>window.useRecipe(material_selections_div,amount)});
+            item_div.append(create_recipe_tooltip({category,subcategory,recipe_id,material:{...material_recipe,item_key:item_div.dataset.item_key}}));
+            if(item_div.dataset.item_key===retained_key)item_div.classList.add('selected_material');
+            material_selections_div.append(item_div);
         }
-
-        const material = find_recipe_material({material: material_recipe, ignore_stop: true}); //TODO currently doesn't support items with quality
-
-        const item_div = document.createElement("div");
-        const name_span = document.createElement("span");
-        insert_HTML(name_span, `<i class="material-icons icon selected_material_icon"> check </i>${item_templates[material_recipe.result_id].getName()}`);
-        name_span.classList.add("recipe_comp_name");
-        item_div.append(name_span);
-        item_div.classList.add("selectable_material");
-        item_div.dataset.item_key = item_templates[material_recipe.material_id].getInventoryKey();
-
-        if(material_recipe.count <= material.count) {
-            item_div.addEventListener("click", (event)=>{
-                item_div.classList.add("selected_material");
-                if(event.target.classList.contains("selectable_material")) {
-                    window.useRecipe(event.target.parentNode);
-                } else if(!event.target.classList.contains("craft_ammount_button")) {
-                    window.useRecipe(event.target.parentNode.parentNode);
-                } else{
-                    window.useRecipe(event.target.parentNode.parentNode.parentNode, Number(event.target.dataset.craft_ammount));
-                }
-                item_div.classList.remove("selected_material"); //this is so stupid
-            });
-        } else {
-            item_div.classList.add("recipe_unavailable");
-        }
-
-        item_div.append(create_craft_amount_buttons());
-        item_div.append(create_recipe_tooltip({category, subcategory, recipe_id, material: material_recipe}));
-        material_selections_div.appendChild(item_div);
     }
     if(!refreshing) {
         material_selections_div.lastChild?.scrollIntoView();
@@ -5443,6 +5404,7 @@ function create_new_skill_bar(skill) {
  */
 function update_displayed_skill_bar(skill, leveled_up=true) {
     if(deferSimulationRender(`skill:${skill.skill_id}`, () => update_displayed_skill_bar(skill, true))) return;
+    renderRecentLearning(skill_list, character.getLevelableComponent(), {visible: id => nativeSkillDiscovery(skills[id], character), name: id => skills[id].getName()});
     if(!nativeSkillDiscovery(skill,character)){
         skill_bar_divs[skill.category]?.[skill.skill_id]?.remove();
         if(skill_bar_divs[skill.category])delete skill_bar_divs[skill.category][skill.skill_id];

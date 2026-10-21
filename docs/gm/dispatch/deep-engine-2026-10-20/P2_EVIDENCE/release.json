@@ -1,0 +1,68 @@
+{
+  "release": true,
+  "candidate": "/tmp/oops-p2-domains-WqdffR",
+  "paths": {
+    "src/lamplight_factory.js": {
+      "shared": "32a4cb38c1b9e466012d6a2dd970d38c39cca257788335352aca276bba54ecc1",
+      "tested": "32a4cb38c1b9e466012d6a2dd970d38c39cca257788335352aca276bba54ecc1"
+    },
+    "src/lamplight_domain.js": {
+      "shared": "fce888083f7eab9dca93079d0ba9d8b8d69fd50d5b61bb28f12255298166aaa3",
+      "tested": "fce888083f7eab9dca93079d0ba9d8b8d69fd50d5b61bb28f12255298166aaa3"
+    },
+    "src/native_tool_domains.js": {
+      "shared": "279fa40e12f4e1e02b5d7bff605546f7cb75276a6cbd830daed5f78a32966ad3",
+      "tested": "279fa40e12f4e1e02b5d7bff605546f7cb75276a6cbd830daed5f78a32966ad3"
+    },
+    "src/tools_domain.js": {
+      "shared": "5b976ee80401b6041daf5b53e8007e390668cd5a830a1687ba13231a49f604c3",
+      "tested": "5b976ee80401b6041daf5b53e8007e390668cd5a830a1687ba13231a49f604c3"
+    },
+    "src/reveal_chain.js": {
+      "shared": "2d77335257cb05ce252614fe0039d0eb13305bdc554efddf4c8f2008de3f8b6f",
+      "tested": "2d77335257cb05ce252614fe0039d0eb13305bdc554efddf4c8f2008de3f8b6f"
+    },
+    "src/models/hero.js": {
+      "shared": "505873be1b220b2f9e0a4ed520a46dee44a38808f3aa3270bbf934bee3b926cf",
+      "tested": "505873be1b220b2f9e0a4ed520a46dee44a38808f3aa3270bbf934bee3b926cf"
+    },
+    "src/main.js": {
+      "shared": "82975bd830f5d5ae53e4aaf1fedda1c76dcc9bdbe9b42b9a328c203f43f3a427",
+      "tested": "82975bd830f5d5ae53e4aaf1fedda1c76dcc9bdbe9b42b9a328c203f43f3a427"
+    },
+    "src/items.js": {
+      "shared": "65178d2dd1bd753c9acc8d3dbec499556d4cbfd6444b340bf0552ecbc088c8a4",
+      "tested": "65178d2dd1bd753c9acc8d3dbec499556d4cbfd6444b340bf0552ecbc088c8a4"
+    },
+    "tests/domain_instance_isolation.test.js": {
+      "shared": "7cc579fab11ddc22a2f0e687d049bd101d67248d0ebb03a6128fbfd12e3f0d84",
+      "tested": "7cc579fab11ddc22a2f0e687d049bd101d67248d0ebb03a6128fbfd12e3f0d84"
+    }
+  },
+  "sharedGeneratedPreserved": {
+    "index.html": {
+      "before": "7f37dc96e11d0e624eeb6d7497f6f2969169ddc7937c22cf6a7b5eadf3fd5119",
+      "now": "7f37dc96e11d0e624eeb6d7497f6f2969169ddc7937c22cf6a7b5eadf3fd5119"
+    },
+    "dist/bundle.js": {
+      "before": "35b9775188f88069827dc7943a75a48e5eff06944de73a548ef26da82a5a5ef2",
+      "now": "35b9775188f88069827dc7943a75a48e5eff06944de73a548ef26da82a5a5ef2"
+    },
+    "dist/bundle.js.map": {
+      "before": "7682113ba5e9f6cd94face28d54e21a0a3bb57245fc70b9480170941f3f5212f",
+      "now": "7682113ba5e9f6cd94face28d54e21a0a3bb57245fc70b9480170941f3f5212f"
+    }
+  },
+  "officialBundleSha256": "fe54b35000ccca0ed84931c715cc84c99d419b9671d784d832682101c6c78ebe",
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "checks": {
+    "focused": "36/36",
+    "fullSuite": "2383/2383",
+    "headless": "7/7",
+    "build": "pass",
+    "arch": "pass",
+    "rules": "pass",
+    "nativeBrowserPersistence": "pass",
+    "humanAcceptance": "open"
+  }
+}

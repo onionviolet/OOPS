@@ -2,6 +2,19 @@
 
 Browser checks (`*_browser.cjs`, `systems_workshop_*.cjs`) and their tooling. Perf gate tooling lives in `perf/`.
 
+## Tool discovery and isolated launchers
+
+Start at [the tool registry](../docs/TOOL_REGISTRY.md), or run
+`python3 scripts/toolsets.py list`. `show ID` inspects a route, `doctor --probe ID...`
+runs its offline checks, and `run ID -- ARG...` launches it without changing
+global PATH/config or installing anything. Command definitions live in
+`scripts/toolsets/registry.json`. Launcher regressions:
+`python3 -m unittest discover -s scripts/toolsets/tests -v`.
+
+`npm test` selects root `tests/*.test.js`. Nested `tests/headless/`,
+`tests/simfuzz/` and replay tests require their own relevant checks. The Node
+headless DOM has no layout; current UI proof uses rebuilt Chrome at 1920x1080.
+
 ## Run heavy work through the queue
 
 Several sessions and lanes share this machine. Run a full `node --test` suite or a browser check through

@@ -1,5 +1,10 @@
 # Long term game master prompt
 
+**Checkout default (AD41, 2026-10-21):** run ordinary work in the primary
+checkout, `/Users/weiwei/code/yet-another-idle-rpg`. A new role/chat does not
+require a worktree. Follow the [current checkout procedure](gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21)
+for justified temporary isolation, reuse, ownership and retirement.
+
 This is the reusable prompt for the game's lead creative partner. It turns loose ideas into connected game designs, develops useful new ideas and gives individual world game masters a shared foundation. The rules below are proposed working defaults within the direction already recorded in [PROJECT.md](../PROJECT.md); they do not select a final world roster, balance model or prestige policy.
 
 Give the coordinating agent this file and the relevant project documents. It directs world game masters using the [World game master template](WORLD_GAME_MASTER_TEMPLATE.md); world game masters direct bounded workers using the [Game implementer template](GAME_IMPLEMENTER_TEMPLATE.md). The role structure is **master GM → world GMs → implementers**, used when separate scopes improve delivery. Use subagents within an assigned workflow when available and authorized. Useful project chats and successors follow the existing human-authorized capacity policy; recurring tasks need their own request. Reading this file alone does not start implementation.

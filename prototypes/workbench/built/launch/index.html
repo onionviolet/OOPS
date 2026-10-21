@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>OOPS · Beginning layout study</title>
+<link rel="stylesheet" href="legacy.css"><link rel="stylesheet" href="ui_tokens.css"><link rel="stylesheet" href="launch_screen.css"><link rel="stylesheet" href="study.css"></head>
+<body>
+<main id="loading_screen" data-layout="columns">
+<header id="loading_screen_game_title">OOPS<div id="loading_screen_game_subtitle">Optimistic Progression Simulator</div><div id="loading_screen_author">by <strong>onionv</strong></div><p class="study-intro">Every life begins somewhere.<br>A home, a trade, a debt, a lucky break.</p><p class="study-limit">Layout study · proposed starts<br>No game or save is loaded.</p></header>
+<button id="loading_screen_play_button" type="button">Preview opening</button>
+<aside id="beginning_summary" aria-label="Your beginning summary"><h2>Your first moments</h2><p data-summary-text></p><dl><dt>Place</dt><dd>Village · preview fixture</dd><dt>System</dt><dd data-summary-system></dd></dl><p data-preview-result role="status"></p><button type="button" data-return hidden>Return to choices</button></aside>
+<footer id="launch_credits">Built on Miktaew’s Yet Another Idle RPG · inspired by Proto23<br>Credits and version belong here, away from the choices.</footer>
+</main>
+<div id="fixture_panel" hidden><div class="cheat_start_choice"><label for="fixture_system">System</label><select id="fixture_system" data-cheat-start><option value="none">No system</option><option value="system-quests">Dormant system</option><option value="surprise">Surprise me</option></select><p data-cheat-start-desc></p></div></div>
+<script type="module" src="study.js"></script></body></html>

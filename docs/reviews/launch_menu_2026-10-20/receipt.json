@@ -1,0 +1,158 @@
+{
+  "base": "http://127.0.0.1:19232/",
+  "checks": [
+    "Native radio arrow keys synchronize the command selection without starting play.",
+    "none: explicit keyboard PLAY applies the native choice, Save/reload retains it, existing launch has no fresh choices.",
+    "system-quests: explicit keyboard PLAY applies the native choice, Save/reload retains it, existing launch has no fresh choices.",
+    "surprise: explicit keyboard PLAY applies the native choice, Save/reload retains it, existing launch has no fresh choices.",
+    "All three desktop targets at actual 14/21px body text: centered choices, no overlap, PLAY visible, no launch overflow."
+  ],
+  "sizes": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "panel": {
+        "x": 416,
+        "y": 408.765625,
+        "w": 1088,
+        "h": 265.65625,
+        "bottom": 674.421875
+      },
+      "play": {
+        "x": 816,
+        "y": 681.421875,
+        "w": 288,
+        "h": 46.78125,
+        "bottom": 728.203125
+      },
+      "screenScroll": 1080,
+      "screenHeight": 1080,
+      "pageScroll": 1080,
+      "bodySize": "14px",
+      "selected": "system-quests"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "panel": {
+        "x": 416,
+        "y": 338.0625,
+        "w": 1088,
+        "h": 426.65625,
+        "bottom": 764.71875
+      },
+      "play": {
+        "x": 753,
+        "y": 775.21875,
+        "w": 414,
+        "h": 66.375,
+        "bottom": 841.59375
+      },
+      "screenScroll": 1080,
+      "screenHeight": 1080,
+      "pageScroll": 1080,
+      "bodySize": "21px",
+      "selected": "system-quests"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "panel": {
+        "x": 356,
+        "y": 388.765625,
+        "w": 1088,
+        "h": 265.65625,
+        "bottom": 654.421875
+      },
+      "play": {
+        "x": 756,
+        "y": 661.421875,
+        "w": 288,
+        "h": 46.78125,
+        "bottom": 708.203125
+      },
+      "screenScroll": 1040,
+      "screenHeight": 1040,
+      "pageScroll": 1040,
+      "bodySize": "14px",
+      "selected": "system-quests"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "panel": {
+        "x": 356,
+        "y": 318.0625,
+        "w": 1088,
+        "h": 426.65625,
+        "bottom": 744.71875
+      },
+      "play": {
+        "x": 693,
+        "y": 755.21875,
+        "w": 414,
+        "h": 66.375,
+        "bottom": 821.59375
+      },
+      "screenScroll": 1040,
+      "screenHeight": 1040,
+      "pageScroll": 1040,
+      "bodySize": "21px",
+      "selected": "system-quests"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "panel": {
+        "x": 224,
+        "y": 300.765625,
+        "w": 1088,
+        "h": 265.65625,
+        "bottom": 566.421875
+      },
+      "play": {
+        "x": 624,
+        "y": 573.421875,
+        "w": 288,
+        "h": 46.78125,
+        "bottom": 620.203125
+      },
+      "screenScroll": 864,
+      "screenHeight": 864,
+      "pageScroll": 864,
+      "bodySize": "14px",
+      "selected": "system-quests"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "panel": {
+        "x": 224,
+        "y": 230.0625,
+        "w": 1088,
+        "h": 426.65625,
+        "bottom": 656.71875
+      },
+      "play": {
+        "x": 561,
+        "y": 667.21875,
+        "w": 414,
+        "h": 66.375,
+        "bottom": 733.59375
+      },
+      "screenScroll": 864,
+      "screenHeight": 864,
+      "pageScroll": 864,
+      "bodySize": "21px",
+      "selected": "system-quests"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

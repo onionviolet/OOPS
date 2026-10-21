@@ -12,7 +12,7 @@ no further dispatch. Other sessions are writing in this checkout; do not stash, 
 Read first: repo `AGENTS.md`; `docs/gm/dispatch/ui-foundation-2026-10-15/NEXT_PARTS_2026-10-15.md`
 (whole, including Round 7 and its corrected rows, which supersede older rows);
 `R14_FOLLOWUP_CONSIDERATIONS.md` sections your lane needs; `docs/UI_RULES.md` (UR41–UR58);
-`PARITY_INTENT_2026-10-15.md` K1–K9. Desktop 1366×768 at 14/21px and 1920×1080 at 21px; mobile deferred.
+`PARITY_INTENT_2026-10-15.md` K1–K9. Desktop 1920×1080 at 14/21px (1366×768 retired 2026-10-19); mobile deferred.
 
 Rules:
 - Label every claim **shown** (capture/pixels), **stated** (source line or doc), or **inferred**. Cite path:line.

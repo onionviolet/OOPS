@@ -8,7 +8,13 @@ Implement `mha.arc.route-and-rollcall` as one local rescue/work slice: a generat
 
 ## Proposed visible result
 
-Desktop/laptop browser at 1366x768 or wider: a district incident panel displays route state, responders actually available, the player's authority and compatible means, known versus unknown people, action costs and resulting witness report. Mobile optimization is deferred. A source edit or test does not establish playable behavior.
+Desktop/laptop browser at 1920x1080 primary, 1536x864 floor: a district incident panel displays route state, responders actually available, the player's authority and compatible means, known versus unknown people, action costs and resulting witness report. Mobile optimization is deferred. A source edit or test does not establish playable behavior.
+
+## First-slice prerequisites and later depth
+
+Before implementation, pin the selected era and source rules used by the chosen start, public-use authority and rescue methods; the local rescue event/outcome stays explicitly authored, not a required match to a primary scene; the 2023 wiki snapshot and inferred Pro Hero privilege do not settle them. Inspect the named live state, effect, UI and save owners; choose a route that existing mechanisms can represent, assign one owner per changed fact, and make a compatibility decision if persistence changes. The minimum selected slice is one local blocked route, one incomplete roll call, two materially different valid responses, decline, one failure/interruption, and a witness report whose contents follow each witness's actual information. If changed state is selected, test the current save format through save, reload, export and import. The current no-schema-change proposal remains conditional on owner inspection.
+
+Done check: the selected primary-source rows, state owners, authority/means for each valid route, observer-specific report, and round-trip evidence are recorded and agree with the played result. A proposed future slice may include WG14's public hero information as a combat input only when public visibility and an actual encounter make it relevant. Quirk registration refinement, deep combat, copy-effect edge cases, broader law, additional districts and other WG ideas remain later proposals unless the selected route depends on them.
 
 ## Dependencies to inspect before authorization
 

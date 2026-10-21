@@ -1,4 +1,10 @@
 /* UIL9: native item kinds, never a rarity/quality scale. Shared palette tokens. */
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div > .equipped_item_control {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.35em;align-items:baseline;padding:.12em .25em;border-bottom:1px solid var(--p23-line);box-sizing:border-box;}
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div .equipped_item {min-width:0;}
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div .equipped_item_name {display:flex;flex-wrap:wrap;gap:0 .35em;min-width:0;}
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div .equipped_item_name .item_name {white-space:normal;overflow-wrap:anywhere;}
+/* Take off remains in the selected slot inspector, alongside the other commands. */
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div .unequip_item_button {display:none;}
 #main_content.workspace-active[data-parity="r3"] [data-inventory-kind="equipment"] {--inventory-kind-color:var(--p23-item-equipment);}
 #main_content.workspace-active[data-parity="r3"] [data-inventory-kind="usable"] {--inventory-kind-color:var(--p23-item-usable);}
 #main_content.workspace-active[data-parity="r3"] [data-inventory-kind="component"] {--inventory-kind-color:var(--p23-item-component);}

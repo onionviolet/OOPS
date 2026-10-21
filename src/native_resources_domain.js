@@ -1,5 +1,5 @@
 import {registerDomain} from './domain_registry.js';
-import {createHarvest,validateHarvest,validateHarvestEnvelope,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest} from './harvest.js';
+import {createHarvest,validateHarvest,validateHarvestEnvelope,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,setHarvestRoutine,pauseHarvestRoutine,resumeHarvestRoutine,cancelHarvestRoutine,observeCarcass} from './harvest.js';
 import {validateHabitat,planHabitatAction} from './habitat_care.js';
 import {createHarvestPanel} from './harvest_ui.js';
 import {createHabitatPanel} from './habitat_care_ui.js';
@@ -23,9 +23,14 @@ function actHarvest(request){
     if(!ports.harvestWritable())throw Error('Processing requires a living player in the writable frontier game.');
     if(request.type==='begin'&&!ports.harvestReady())throw Error('Finish the current activity before processing.');
     ports.harvestTransaction(()=>{harvestOwner??=createHarvest();
-    if(request.type==='auto')harvestOwner.auto=!!request.value;
+    if(request.type==='routine')setHarvestRoutine(harvestOwner,request.target,ports.clock());
+    else if(request.type==='pause-routine')pauseHarvestRoutine(harvestOwner);
+    else if(request.type==='resume-routine')resumeHarvestRoutine(harvestOwner);
+    else if(request.type==='cancel-routine')cancelHarvestRoutine(harvestOwner);
+    else if(request.type==='auto'){if(harvestOwner.routine&&['active','paused'].includes(harvestOwner.routine.status)){if(request.value)resumeHarvestRoutine(harvestOwner);else pauseHarvestRoutine(harvestOwner);}else {delete harvestOwner.routine;harvestOwner.auto=!!request.value;}}
     else if(request.type==='cancel')cancelHarvest(harvestOwner);
-    else if(request.type==='begin')beginHarvest(harvestOwner,request.species,request.choice,ports.harvestContext());
+    else if(request.type==='begin')beginHarvest(harvestOwner,request.species,request.choice,ports.harvestContext(),false,request.specimenKey);
+    else if(request.type==='observe')observeCarcass(harvestOwner,request.species,request.specimenKey,ports.harvestContext());
     else throw Error('Unknown processing action.');});
     harvestPanel?.render();
 }
@@ -53,5 +58,5 @@ registerDomain({id:'harvest',initialState:()=>null,
     validate:(_,save)=>validateHarvestEnvelope(save,envelopeClock(save)),
     migrate:(slice,save)=>slice==null?null:structuredClone(validateHarvest(slice,envelopeClock(save))),load:setHarvestOwner,
     tick:tickHarvest,commands:{act:actHarvest,receive:receiveHarvest},
-    projection:()=>({state:harvestOwner,context:ports.harvestContext(),writable:ports.harvestWritable(),ready:ports.harvestReady()}),
-    panels:[()=>{harvestPanel=createHarvestPanel({container:ports.harvestContainer(),read:()=>({state:harvestOwner,context:ports.harvestContext(),writable:ports.harvestWritable(),ready:ports.harvestReady()}),readInspector:ports.readInspector,act:actHarvest,developer:ports.developer()});}]});
+    projection:()=>({state:harvestOwner,context:ports.harvestContext(),writable:ports.harvestWritable(),ready:ports.harvestReady(),automaticReady:ports.harvestAutomaticReady()}),
+    panels:[()=>{harvestPanel=createHarvestPanel({container:ports.harvestContainer(),read:()=>({state:harvestOwner,context:ports.harvestContext(),writable:ports.harvestWritable(),ready:ports.harvestReady(),automaticReady:ports.harvestAutomaticReady()}),readInspector:ports.readInspector,act:actHarvest,developer:ports.developer()});}]});

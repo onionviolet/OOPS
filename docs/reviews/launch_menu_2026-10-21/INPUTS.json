@@ -1,0 +1,34 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "candidate": "/tmp/oops-launch-counter-20261021",
+  "files": {
+    "index.html": {
+      "candidate": "8d25bca35aaba2c5993d92437b89b4506d0ca791eb753455f8cc0932cc6d2feb",
+      "live": "8d25bca35aaba2c5993d92437b89b4506d0ca791eb753455f8cc0932cc6d2feb"
+    },
+    "style.css": {
+      "candidate": "782583166527291c26f47d5795abecd7f8630d52325f44c5d6ff780e72f80ca5",
+      "live": "782583166527291c26f47d5795abecd7f8630d52325f44c5d6ff780e72f80ca5"
+    },
+    "styles/workspace.css": {
+      "candidate": "d6084d59bd977d433ac9335567e081e3cec5e605ffb6ff5413226b1fee05e84a",
+      "live": "d6084d59bd977d433ac9335567e081e3cec5e605ffb6ff5413226b1fee05e84a"
+    },
+    "styles/ui_tokens.css": {
+      "candidate": "5b2b1415f28792f91d2d037517dc53a7fde3f3ebbe05f04e0732e2ea3018f651",
+      "live": "5b2b1415f28792f91d2d037517dc53a7fde3f3ebbe05f04e0732e2ea3018f651"
+    },
+    "src/main.js": {
+      "candidate": "6db6f4de06b712c9e151373f6c1e8ccb42a8b55844a640360b5fc2c281922275",
+      "live": "6db6f4de06b712c9e151373f6c1e8ccb42a8b55844a640360b5fc2c281922275"
+    },
+    "src/game_bar.js": {
+      "candidate": "90ad602d5df8a2c6a0cfd43245c1469b6aa25832ee01bcd56365caaf764ae175",
+      "live": "90ad602d5df8a2c6a0cfd43245c1469b6aa25832ee01bcd56365caaf764ae175"
+    },
+    "dist/bundle.js": {
+      "candidate": "a9c02f8fddea32ff5b06c114cab85d42859950c3b1b3143890a55689fb6e8a9d",
+      "live": "a9c02f8fddea32ff5b06c114cab85d42859950c3b1b3143890a55689fb6e8a9d"
+    }
+  }
+}

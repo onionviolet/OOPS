@@ -66,7 +66,7 @@ class Recipe {
         this.id = id;
 
         this.#availability = new AvailabilityComponent({is_unlocked});
-        availabilities["recipe"][this.id] = this.#availability;
+        if(id) availabilities.recipe[id] = this.#availability;
         this.recipe_type = recipe_type;
         this.result = result;
         this.scale_results = scale_results;
@@ -332,13 +332,13 @@ function find_recipe_material({material, ignore_stop, needed_count}) {
         //grab materials with provided id, sorted by price 
         materials = Object.values(character.getItems())
             .filter(item => (material.material_id && item.item.id === material.material_id))
-            .sort((a, b) => a.item.getBaseValue() - b.item.getBaseValue());
+            .sort((a, b) => a.item.getBaseValue() - b.item.getBaseValue() || a.item.getInventoryKey().localeCompare(b.item.getInventoryKey()));
 
     } else if (material.material_type) {
         //grab materials of provided type, sorted by price 
         materials = Object.values(character.getItems())
             .filter(item => (material.material_type && item.item.material_type === material.material_type))
-            .sort((a, b) => a.item.getBaseValue() - b.item.getBaseValue());
+            .sort((a, b) => a.item.getBaseValue() - b.item.getBaseValue() || a.item.getInventoryKey().localeCompare(b.item.getInventoryKey()));
     }
 
     if(game_options.stop_crafting_on_material_change && !ignore_stop) {
@@ -2113,6 +2113,8 @@ Object.keys(recipes).forEach(recipe_category => {
     Object.keys(recipes[recipe_category]).forEach(recipe_subcategory => {
         Object.keys(recipes[recipe_category][recipe_subcategory]).forEach(recipe_key => {
             recipes[recipe_category][recipe_subcategory][recipe_key].id = recipe_key;
+            // Item recipes use global final ids; component labels may repeat across crafts.
+            if(recipe_subcategory === "items") availabilities.recipe[recipe_key] = recipes[recipe_category][recipe_subcategory][recipe_key].getAvailabilityComponent();
         });
     });
 });

@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "Open native shop crosses actual day restock, preserves selected Coal, requires review before charging, then conserves stock at current terms",
+    "Save/reload/Export/literal Import retain stock/terms; reopen and hover do not regenerate stock or repeat the notice",
+    "Open native shop crosses actual day restock, preserves selected Coal, requires review before charging, then conserves stock at current terms",
+    "Save/reload/Export/literal Import retain stock/terms; reopen and hover do not regenerate stock or repeat the notice",
+    "No pending quote at restock: selecting current stock afterward completes on the first acceptance"
+  ],
+  "errors": [],
+  "setup": "Disposable mid fixture with native day boundary, access, shop stock and money seeded; native quote and clock/accept UI."
+}

@@ -663,3 +663,36 @@ at 1920×1080 and 1366×768. Build to a scratch outfile, since the shared `dist/
 | 1920×1080 / 1366×768 | 1366×768 by DOM metrics only (no page scroll, every action button above y 560, one internal scroll); a real screenshot was taken at 1800×944 (screen-limited) | Weibao's visual acceptance still open (UR16). |
 | Known gaps | Open | Native Frontier travel guard for Tingen places (no walk-out guard added; only panel moves exist); `main.js` net -1 line (merged two duplicate imports). Proposed, not edited: a lower baseline. |
 Checks: `npm test` 2272 pass (new envelope test), `check:arch`, `check:rules` pass. Scratch build served from the session scratchpad, not `dist/`.
+
+
+## Current pre-implementation and completion remainder, 2026-10-20
+
+WPD root audit, AD6–AD9/AD15–AD19/AD32–AD38, WA1–WA21. LIP3/LIP4 above
+already delivered the bounded native prototype; do not dispatch its native
+binding, state owner or workroom again from the earlier engine-only backlog.
+The 2026-10-19 browser observations and test counts remain candidate-specific
+history. Current target is 1920×1080, with 1536×864 desktop-floor checks where
+relevant; all earlier 1366×768 requirements are retired, while measurements
+already taken there stay as historical evidence. Mobile stays deferred.
+
+**ACT NOW (documentation corrected):** workflow and LTS owners now point to the
+later native delivery. Source-derived initiation/control is distinct from the
+authored supervisor, sample lots, reserve values and 120-minute recovery.
+
+**ACCOUNT FOR NOW:** the remaining selected-slice closure is the native travel
+boundary (branch and native place cannot disagree), actual Export download plus
+literal import, and rebuilt evidence at the current desktop target before a new
+completion claim. Reuse valid prior evidence only for unchanged relevant inputs.
+Interrupted native sleep restores nothing; mid-sleep reload retains one played
+job and must not invent offline rest. WG8's unreliable-reading proposal is not
+a source-qualified mandate to add random false readings or strain degradation;
+current reserve/strain refusals remain the implemented bounded policy.
+
+**LATER / DELEGATE:** digestion, other pathways, wider Tingen and variable
+perception reliability remain separate proposals. Level/effort: Luna low for
+exact owner/locator reconciliation; coordinator medium for travel/sleep/save
+seams; bounded source reader for a selected new method. Done check for the
+current slice: a fresh rebuilt desktop journey demonstrates acquired source,
+separate lesson, real sample custody, refusal/recovery and exact pending/final
+current-format Save/reload/Export/literal Import; then Weibao's play judgment.
+This audit changes no runtime or saved state and selects no next world.

@@ -1,0 +1,15 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "hashes": {
+    "src/lamplight_domain.js": "a0557f4ef641a0be3b04f22dd4d6c8bbe60083a4acabc068793dc4c8af307112",
+    "src/tools_domain.js": "2b13e8f0ea57cfd5e8c0c9ee2278eb113010907e5183b7220a59d97b4c857144",
+    "src/reveal_chain.js": "e1460d810c8e96d23b52d56826466602e85fbe999dd880d32c441655789c4fcb",
+    "src/main.js": "fc0f8e290b7337b17924609ab677b920fa16f82e579635d633fc2f21c4e8f60b",
+    "src/items.js": "dce3617cfc63955538d0b98e5c89370ace069f257d6aef0a8c037372f6389f08",
+    "src/models/hero.js": "359a0b906397608256db13f1fe8621c9db7cebec40299884f563e49f4675c75c",
+    "docs/ENGINE_EXPANSION.md": "b02b41ecf4b5e229f4da1053f992404c2261ddd88a5ca684ecff40c5d149c4b6",
+    "index.html": "7f37dc96e11d0e624eeb6d7497f6f2969169ddc7937c22cf6a7b5eadf3fd5119",
+    "dist/bundle.js": "35b9775188f88069827dc7943a75a48e5eff06944de73a548ef26da82a5a5ef2",
+    "dist/bundle.js.map": "7682113ba5e9f6cd94face28d54e21a0a3bb57245fc70b9480170941f3f5212f"
+  }
+}

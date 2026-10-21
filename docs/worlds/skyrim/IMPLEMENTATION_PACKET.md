@@ -106,3 +106,10 @@ Current inspected input fingerprints, 2026-10-03; rediscover affected drift befo
 - `src/native_gameplay_adapter.js` SHA256 `41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad`.
 
 Checkpoint: the brief owns the live specialist checkpoint. The inherited opening proof remains a proposed fixture, now stage 1 of the expanded campaign. Local document/link/coverage/evidence-vocabulary checks passed; every runtime/unit/build/browser/save/migration and human gate remains unrun. Verified design evidence: twenty reserved paths, 307 local links/ten anchors resolved, campaign coverage checked, no authored em dashes or trailing whitespace. Runtime acceptance remains unrun.
+
+
+## Detail audit: destructive knowledge and owned artifacts, 2026-10-20
+
+WPD-R10, ACCOUNT FOR NOW: SU1 still leaves the named ring-to-boots effect unqualified. Before using canon labels, pin an effect legal on the target equipment; alternatively the proposed hauling benefit must stay an explicitly original branch effect rather than a claimed Skyrim recipe. Do not silently fix source uncertainty by calling the result canonical. The ring's destruction, learned pattern, later gem/boots reservation and hauler's temporary custody remain distinct settlements.
+
+Before selected implementation: resolve that exact effect/slot case and bind the already-owned ring, unspent craft inputs and returned boots to existing owners. Level/effort: bounded source reader for SU1; coordinator medium for staged custody/publication. Done check: cancellation never restores the studied ring, does return only declared unspent inputs, and never duplicates pattern/boots on current-format round trips. WG26's pledged/gifted-ring history matters only when this particular item has another party's actual claim; a generic social-history simulator is later depth.

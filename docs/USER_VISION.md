@@ -1,5 +1,68 @@
 # User vision and research coverage
 
+## Tool registry, launch wrappers and discovery reconciliation, 2026-10-21
+
+Later follow-up, Weibao:
+
+> go ahead and fix Cpp2IL too, then verify it on one of the games we already own, consider also improving access for chats here tool? so changing project.md? more to consider?
+
+He then requested updating `https://github.com/morluto/rea` too. This extends
+the earlier registry scope to repair/owned-game verification, the upstream REA
+update and useful project-chat access. The [live registry](TOOL_REGISTRY.md)
+and [follow-up receipt](audits/toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md)
+own current routes and distinct verification states. Existing analysis projects,
+old tool identities and installed game inputs remain preserved.
+
+Weibao, after the toolsets audit:
+
+> go ahead and make the tool registry and launch wrappers, and reconcile the stale docs so other agents can actually find and use all of this
+
+He also requested a more-to-consider pass for improvements to each toolset.
+This authorizes the shared operational registry, existing-tool wrappers and
+discovery-document corrections. The [registry](TOOL_REGISTRY.md) is the live
+entry point; the [implementation receipt](audits/toolsets_2026-10-21/IMPLEMENTATION.md)
+records actual checks, readiness gaps and per-tool follow-ups. Suggestions for
+new acquisition, registration, upgrades and target execution keep their own
+scope and acceptance gates; this request does not claim those completed.
+
+## Discord design guide and missing-media recovery, 2026-10-21
+
+Weibao, after the Discord absorption audit:
+
+> 26 MIssing attachments? go and send out a chat to get those, absorb the design guide into our set of UI reference rules?
+
+This authorizes one new chat to recover the exact 26 missing Corc/Proto23
+attachments, and the design-guide fold into the standing UI reference rules.
+[UR59–UR64](UI_RULES.md#discord-derived-reference-guide-2026-10-21) make the
+reusable source/typography/meter/reaction/task/summary guidance standing,
+with CRL1–CRL26 and the detailed comparison palettes routed to their existing
+owners. This accepts the reference-guidance fold, not every source mechanic,
+unresolved interpretation or candidate's visual feel. Current desktop targets,
+OOPS-specific reasons, original launch direction and player overrides remain.
+The [recovery brief](gm/dispatch/corc-missing-media-2026-10-21/BRIEF.md) owns the
+finite ID request, private evidence, disjoint writing scope and budget. Recovery
+completion is separate from design review and gameplay implementation.
+
+## Upstream-derived interaction-system execution, 2026-10-20
+
+Weibao, after the deeper YAIR media review and its remaining-work assessment:
+
+> Send new chat do work on doing something fullly, not just the crafting journey but the completet system, use luna and then sol for important things, fix in full
+
+This selects an implementation successor for the connected system identified
+in that review, with Luna first for bounded mapping/settled work and Sol for
+important semantic, integration and review work. The dispatched interpretation
+covers crafting/material use and producer navigation, shared inventory/planning,
+gear comparison, skill feedback/discovery and combat inspection/navigation.
+One successful crafting journey is a check within that program, not its endpoint.
+The [execution brief](gm/dispatch/upstream-interaction-system-2026-10-20/BRIEF.md)
+owns the finite IS1–IS5 outcome, current writer dependency and completion checks.
+Existing support is reused and the UI/engine owner folds remain applicable.
+This authorizes implementation within that scope; it does not accept every
+reference mechanic or palette treatment, change standing world/UI laws, select
+unrelated future systems, or authorize commits/pushes. Earlier research-only
+records retain their dated scope and evidence.
+
 ## Agent generation and book usage, 2026-10-16
 
 Latest correction: “How do we stop readers from carrying huge contexts through hundreds of calls? Update the rules accordingly so we can still read whole books without burning that much usage, those books should fit into one or two or 3 chats properly? more to consider?”
@@ -62,7 +125,7 @@ mobile-design workstream. Existing mobile behavior and saved layouts remain
 subject to affected compatibility checks, without promoting mobile optimization
 into a product priority.
 
-Updated 2026-10-17: the primary design target is now 1920×1080 with 1366×768 as a floor
+Updated 2026-10-17: the primary design target is now 1920×1080 with 1366×768 as a floor (floor retired 2026-10-19)
 ([viewport targets](#viewport-targets-and-moving-menu-boxes-2026-10-17)); desktop first still holds.
 
 This section owns the accepted direction and its reason. [PROJECT.md](../PROJECT.md)
@@ -77,6 +140,84 @@ are historical scope, not standing requirements for future UI work. Agent
 proposals and external reviews cannot change this direction. Later changes from
 Weibao must update this owner, its project summary and affected active guidance,
 with superseded wording retained as dated history.
+
+## Small contextual UI details for future work, 2026-10-20
+
+Weibao, after the tiny oxygen meter and MS Gothic review:
+
+> Use those ideas for other bar ideas and more in the future? Other little aspects? MOre  Details like these?
+
+Then, while that palette was being expanded:
+
+> We can absorb all the types of Uis, especially the progress bars and more? condensing messages options?
+
+Follow-up after the actual UI comparison and engine pass:
+
+> Can you fold all these UI and engine ideas into the existing plans accordingly, and look for more subtle interactions and fun stuff to consider before implementing? I like their implementations and coloring and more in a way?
+
+Keep the full reference-derived idea palette in the existing UI and engine
+plans, including the implementation/interaction patterns, vivid coloring and
+small playful details. Consider their subtle mechanism and presentation
+interactions before implementation. This is planning/design attention; it does
+not select every concrete treatment, an exact palette/font, a runtime wave or a
+new build order. The [plan fold](research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md#plan-fold-and-further-interactions-2026-10-20)
+routes source-qualified findings into the existing owners and retains their
+scope/acceptance boundaries.
+
+Implementation follow-up, 2026-10-20: Weibao requested, “Send new chat to work
+through this, using Luna agents accordingly and then Sol for high level stuff?”
+This selects the bounded IG1–IG5 gap corrections and integration, with applicable
+reference-fold interactions reviewed in that candidate. It does not select the
+whole palette or accept its visual defaults. The [execution receipt](research/proto23/UI_AND_PLAYFUL_PRESENTATION_OPPORTUNITIES_2026-10-20.md#ig-execution-receipt-implemented-candidate-2026-10-20)
+records implementation, rebuilt checks and the separate human/play gate.
+
+Direction: carry the useful UI families and small details from the reference
+work into future OOPS design, with particular attention to progress/resource
+bars and options for condensing messages. This includes more than copying a
+color scheme: consider readable density, contextual inspection, small scenes,
+local reactions, typography and the surrounding interaction. Adapt them to
+OOPS's accepted shell and each system's actual mechanisms. Different reasonable
+treatments can coexist according to task, world and player display preferences.
+
+This accepts the ongoing design direction, not every proposed treatment or a
+whole-interface replacement. The existing desktop priority, one useful slice
+at a time, knowledge/discovery boundaries and explicit actions remain in force.
+Specific resources, message modes, fonts and visual defaults still follow their
+own selected implementation and acceptance. The
+[UI owner](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20)
+holds the reusable palette, source/capability distinctions and player checks;
+[AD40](RULES_INDEX.md#interface-design-attention) routes future UI work to it.
+
+## Typography, component styling and glow, 2026-10-20
+
+Weibao, after the plan fold and existing-chat coordination:
+
+> Also change the fonts and more? and the UI style? the Glowing aand more? use each part and more
+
+This later request authorizes implementation of a reference-informed typography,
+component-style and glow candidate across the existing UI, using role-appropriate
+treatments for its parts. It supersedes the earlier planning-only boundary for
+this selected presentation work. Fonts, panel frames/gradients, headings, value
+bands, lists, inspection, Reports, controls and existing small scenes should feel
+coherent and visibly deliberate. Keep the reference's vivid character and adapt
+it to OOPS rather than requiring literal pixel parity.
+
+Choose reversible candidate details and show the actual result. A specific font
+file, exact palette/glow amount, shell replacement or new gameplay system is not
+selected by this request. Preserve explicit Appearance choices, readable enlarged
+text, keyboard focus, high contrast and reduced-motion behavior. The existing
+[UI owner](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#typography-component-style-and-glow-implementation-2026-10-20)
+owns the role map and verification; the current UI implementation chat receives
+this continuation. Desktop/laptop first and mobile deferred remain in force.
+
+Specific-font follow-up, 2026-10-20: Weibao asked, “we can use their specific
+font? since we identified it?” Use **MS Gothic** as the selected reference-font
+family for the styling candidate, with sensible glyph/readability fallbacks.
+Read-only local inspection found the existing PowerPoint `msgothic.ttc` and
+confirmed distinct MS Gothic, MS PGothic and MS UI Gothic faces. This selects
+the family, not proof that the candidate already loads it or that its bytes
+match every reference image. The UI implementation owner must verify actual
+rendered face and glyph fallback before reporting the result.
 
 ## Calmer Vivid and progressive UI disclosure, 2026-10-14
 
@@ -5328,6 +5469,81 @@ Joining several statements onto one line to dodge the count is not paying for it
 Owners: [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) AR1,
 [audit DRC1](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md#drc1-proposal).
 
+## World dials, interpreter and constitutions round (2026-10-19)
+
+Weibao asked whether constitutions, crafting and other systems should be tied to
+world details that turn dials, and whether an interpreter is needed ("Anything
+missing?"), then asked for the advisor's view and to "send out accordingly".
+Saved as a proposal palette (WDI1 to WDI40) with corrections to my earlier chat
+answer: world profiles and a resolver already exist in part. Owner:
+[WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19](WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md);
+repeatable via the [core audit](audits/WORLD_DIALS_AND_INTERPRETER_CORE_AUDIT.md).
+Two doc lanes were sent out; the code and UI lanes are held for his go.
+
+## Tags, materials, harvest places and display round (2026-10-19)
+
+Weibao asked for more tags and subtle stuff, new crafting materials, places to harvest
+them, and how to show them in the UI, then to send considerations out accordingly.
+Saved as CRAFTING_ENGINE Round 6 (TQ1 to TQ15, NX1 to NX14, PG1 to PG14, UV1 to UV14),
+proposal only, in the existing owner rather than a new palette. Two doc lanes were sent
+(tag inventory, display placement); per-world source reading is held for the AU budget.
+Owner: [CRAFTING_ENGINE](CRAFTING_ENGINE.md#round-6-2026-10-19-tags-subtle-properties-new-material-families-places-and-display).
+
+## Alchemy and procedural interactions round (2026-10-19)
+
+Weibao asked about alchemy, other stuff and more, and about procedural stuff giving basically
+unlimited interactions from tier, differences and tags. Saved as CRAFTING_ENGINE Round 7
+(IX1 to IX24), proposal only, in the existing owner. One doc lane was sent (interaction model
+feasibility); the dominance search and per-world tier vocabulary are held.
+Owner: [CRAFTING_ENGINE](CRAFTING_ENGINE.md#round-7-2026-10-19-alchemy-and-procedural-interactions-from-tier-difference-and-tags).
+
+## Rule grammars and derived per-world detail round (2026-10-19)
+
+Weibao asked for other aspects, and for subtle per-world stuff derived from source rules, like
+Harry Potter spellbook rules, to see what each little thing is about. Saved as a proposal palette
+(DG1 to DG30) that links the cross-world audit precedent, the runes grammar palette and the HP craft
+research. Two doc lanes were sent (HP from existing private notes, no raw reading; D&D from the structured
+SRD data); LOTM, cultivation and comic grammars are held for the reading budget.
+Owner: [WORLD_RULE_GRAMMARS_AND_DERIVED_DETAIL_2026-10-19](WORLD_RULE_GRAMMARS_AND_DERIVED_DETAIL_2026-10-19.md).
+
+## Deep-level lenses for every world, saved for the long term (2026-10-19)
+
+Weibao asked what is next, to consider similar deep-level work for each world, and to save it for
+long-term consideration across every world. Saved as Round 21 of the world core kit successor root
+(lenses KL1 to KL12, a per-world map whose leads are unverified memory, and method lessons KR21-1 to
+KR21-10), with a run-log row in the repeating core-kit audit. Two doc lanes were sent to fill the map from
+existing cards and ledgers only (book worlds; anime worlds and others). No raw reading was started.
+Owner: [WORLD_CORE_KIT_SUCCESSOR](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md#round-21-deep-level-lenses-for-every-world-2026-10-19).
+
+### LOTM Seer slice as the next deep world implementation, 2026-10-19
+
+Weibao, 2026-10-19: "deep world implementation? Rule creations and more." Asked what the pass should
+produce, he chose **the LOTM Seer slice** (playable early-LOTM pack: one pathway, one supervised
+acquisition, one bounded action, with LOTM world-law rows added as gaps appear). First step delivered
+as an engine-level source slice with world-law proposals LTS1 to LTS10; native binding, save, UI and browser
+proof remain open. Owners: [initiation plan](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#runtime-authorization-and-first-engine-slice-2026-10-19),
+[law rows](worlds/LOTM_SEER_SLICE_LAWS_2026-10-19.md).
+
+## Retire the 1366×768 floor, 2026-10-19
+
+Weibao: "deeper considerations and more, implement each, and make sure no placeholders? we dont need to consider 1366x768, remove any rules that force that"
+
+Accepted direction: 1366×768 is no longer a design target, floor or evidence
+gate. The primary target stays 1920×1080, and the 1536×864 floor and the
+MacBook size (about 1800×1040) stay as already recorded. Rules that required
+1366×768 evidence are rewritten in [UI_RULES](UI_RULES.md) (UR14, UR25 and the
+viewport note), [RULES_INDEX](RULES_INDEX.md), `.claude/rules/player-ui.md` and
+[PROJECT](../PROJECT.md). Dated measurements taken at 1366×768 and the section
+above stay as history; they do not bind new work. Old 1366 perf baselines are
+not comparable with 1920 runs.
+
+The same message asked to implement each Round 11 UI item with no placeholders.
+Authorized and done as [Round 12](UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md#round-12-round-11-implemented-with-corrections-2026-10-20):
+command palette, row menu, shortcut registry, divider reset, text-size presets,
+high contrast, change badges, empty states, and six sections (Known things,
+Loadouts, Statistics, Today, Where I am, Companions). Weibao's play acceptance
+and any promotion of a section to a route remain his call.
+
 ### LOTM and HP deep implementation, data first, 2026-10-19
 
 Weibao, 2026-10-19: "Deep world implementation for lotm and HP, referring to source text accordingly, and
@@ -5348,6 +5564,17 @@ as history. Direction now: many native stat dimensions on gear through one sourc
 modifier pipeline, with affixes and sockets as data. Build order, the first playable
 slice and any save decisions are still open. Owner:
 [equipment stat dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md).
+
+### Gear depth: blacksmithing, chemistry, energy and powers, 2026-10-20
+
+Weibao, 2026-10-20, after the equipment stat slice: incorporate Silent Gear (a Minecraft gear
+mod) and similar, blacksmithing, deeper details, chemistry, energy and superpowers. Recorded as
+a considerations round (palette, proposals only): material-to-stat mechanism table, parts with
+add-on roles, trait stacking, lot grade, material-unit repair, heat grade shared by smithing,
+chemistry and fuel, vessels as gear, energy quantity versus grade, and powers writing through
+the same sourced stat pipeline. Minecraft evidence is structure only, not copied. Build order,
+the first slice and any save decisions are open. Owner:
+[gear depth considerations](GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md).
 
 ### Desktop shell, 2026-10-20
 
@@ -5371,7 +5598,6 @@ yet) and on the ER5-D2 Tauri lean, which stay as history. Direction now: one web
 codebase that runs in the browser and inside an Electron desktop host. How the
 host is built is proposed in the owner. Owner:
 [Electron host round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el).
-
 
 ### Loading screen inspirations, 2026-10-20
 
@@ -5409,6 +5635,12 @@ checklist of to dos?" Forwarded to the harness lane: UI checks in playthroughs,
 a default harness per layer, current local model options for his Mac, a more to
 consider list and one ordered to-do checklist in the harness doc.
 
+### Full retained UI and engine palette implementation, 2026-10-20
+
+After the status review distinguished captured plans from partial implementation (the 53-entry UI checklist had 27 checked and 26 open), Weibao requested: “Fully implement”, then “use luna subagents accordingly and then audit”, then “After auditing, consider better implementation, or just consider implementing yourself after”. This authorizes implementation and subsequent repairs of the retained palette, with native OOPS mechanisms and the accepted shell. Independent audit is followed by root implementation where it improves correctness or integration. The [checkpoint](gm/dispatch/palette-completion-2026-10-20/CHECKPOINT.md) owns execution and evidence. The 90 reference comparison rows remain source evidence, including explicitly unresolved claims, rather than proof that the referenced mechanics exist. Human visual/play acceptance remains separate from implementation and checks.
+
+Later same-day instruction: “Yes, use another five points. Finish the remaining palette by yourself, then audit and fix anything that still needs a better implementation.” This authorizes the solo completion/repair continuation, with a fresh 30% included-usage reading and 35% ceiling. The prior 24%→29% stop remains historical; no new subagents or paid fallback were selected. The current [report](gm/dispatch/palette-completion-2026-10-20/REPORT.md) and [solo audit](gm/dispatch/palette-completion-2026-10-20/SOLO_AUDIT.md) record completion of the named 53 bounded treatments and retain the human play gate.
+
 ### World full implementation and subtle gaps per world, 2026-10-20
 
 Weibao, 2026-10-20: "Consider stuff like the world full implementation and more?
@@ -5419,3 +5651,77 @@ C0-C5): each world's supported level, its signature and its most consequential
 subtle missing aspect, folded into one audit doc. Subagents default to Sonnet
 from here.
 
+
+
+## Five connected deep-engine implementation chats, 2026-10-20
+
+After the source-backed deep-engine consideration round, Weibao requested:
+
+> Connect accordingly, send new chats to address each, maybe one for each
+
+This selects five bounded implementation pilots from [the saved engine round](ENGINE_EXPANSION.md#deep-engine-support-for-future-design-2026-10-20). The [dispatch](gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md) connects their source owners, existing gear/light/time work, acceptance gates and serialized shared-file dependencies. It does not adopt every future proposal, create a new rulebook, authorize commit/push, or replace the existing palette owner's reservations. Original planning-only statements retain their dated history.
+
+## Current reference gaps and fitting implementation, 2026-10-20
+
+After asking what Proto23/upstream YAIR had that OOPS lacked, Weibao asked:
+
+> Which of those are still actually missing now, and which have we already implemented? We should implement sutff we are missing accordingly
+
+This authorizes a current-source reconciliation and fitting implementation, preserving existing owners and standing scope. The [F1–F7 report](gm/dispatch/reference-gap-followup-2026-10-20/REPORT.md) corrects dated absence claims, reuses the released connected interaction/palette work, and records the native household follow-up. Reference experiments and world-specific mechanics stay distinguishable from universal rules; unbuilt content remains explicit rather than inferred complete from shared helpers. No new global rule, commit, push or publication is selected by this implementation request.
+
+
+### Launch menu identity and Beginning choices, 2026-10-20
+
+Weibao: "need to improve on the system start menu thingy", clarified as "maybe the launch menu before clicking play, we can replace weibao with onionv, and then adjust the beginning choices?" This selects launch-screen presentation work and the displayed author handle **onionv**. The first implementation keeps existing beginning effects and improves choice explanations/placement. It does not select the broader genetics or world-start proposals. The existing OOPS project name and upstream attribution remain. [Implementation and desktop verification](reviews/launch_menu_2026-10-20/REPORT.md); [intro flow owner](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#launch-menu-presentation-2026-10-20). Human visual acceptance remains separate.
+
+
+### Restore the original loading screen and defer the start menu, 2026-10-20
+
+Later direction supersedes this chat's launch redesign and round-24 layout recommendation. Weibao: "just make it a play screen, we will make the start menu a seperate page after that or come back to it in the future, We can use the olf font or whatever for the old screen, and then gothic for the internal text and more", followed by "Highkey just make it the way it was before and stuff". Restore the original loading appearance and PLAY flow, retain the selected onionv credit, and leave a separate start menu for later. No newly written playful messages. Keep existing upstream loading text and the earlier internal MS Gothic direction; the loading screen may use its original font. This does not authorize merging/committing all shared dirty work. [Restoration receipt](reviews/launch_menu_2026-10-20/REPORT.md#restored-original-play-screen-final-direction).
+
+
+### Creator-specific credit identities, 2026-10-21
+
+Weibao: "maybe we dont need to copy them, we should put their name in the fun ways they hadd it before? and then give ourself our own fun way?", clarified as "It does not need to be onion themed, rather, guinea pig themed". Keep reference creators' identities with their attribution; give onionv its own guinea-pig-themed signature. [Current implementation](reviews/launch_menu_2026-10-21/REPORT.md#creator-specific-signatures-later-2026-10-21-direction). This changes the credit treatment, not the earlier simple PLAY/deferred start-menu direction.
+
+
+### Credit flair, author links and edited guinea pig, 2026-10-21
+
+Weibao specified his own edited guinea-pig file, diagonal treatment for Miktaew and Proto23, a different individual treatment for onionv, corner arrows/text supporting the original authors, GitHub-link consideration, and removal of the guinea pig's white background. [Current receipt](reviews/launch_menu_2026-10-21/REPORT.md#edited-source-distinct-flair-corner-links-and-transparent-cutout) records the exact source, non-destructive cutout, distinct credit treatments and verified links. Proto23/Corc's donation link needs its correct URL. No donation/star/publication is authorized or performed by adding these links. The simple PLAY screen and deferred separate start menu remain.
+
+
+### Titles versus skills: rule clarification, 2026-10-21
+
+Weibao: "wont those titles simply be skills? more to conisder? Distinctions we should establish and put into rulees?"
+
+This question prompted a clarification of existing AD30/AD38, not selection of a new title system: some proposed title benefits are skills, techniques or faculties named or granted by a title. Recognition/designation, grant source, actual capability and activation describe different roles. A title may genuinely supply authority or power through its world's mechanism. One effect is not counted twice for being labelled both skill and title; independent real rewards remain possible. [SLR40–SLR43](DOMAIN_RULES.md#titles-skills-and-effect-causes-2026-10-21) record the rule applications; [title owner C14](emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c14-titles-versus-the-capabilities-they-name-or-grant) holds examples. Specific mechanics, schemas, current title bonus behavior and implementation scope remain unchanged.
+
+
+### Implement useful recovered-26 additions, 2026-10-21
+
+Weibao: “Continue with the next fitting implementation slice from the coverage table, implement all the stuff we found and added to the oop palette”, followed by “implement all the useful stuff from the 26 missing” (coordinator relay). This authorizes fitting native implementation of the recovered additions, with reasonable reversible mechanism choices. Earlier planning-only statements describe their earlier passes; they do not defer useful fitting work indefinitely. Preserve actual live deferrals, private saves, sealed truths and existing owners. Source constants, personal media and unrelated toys are not requirements to copy literally. Complete playable slices in sequence and record exact unimplemented dependencies rather than marking them done from metadata. The cumulative implementation ceiling remains 56%, including repairs and verification, with no reset or automatic successor. [Runtime coverage and checkpoint](gm/dispatch/title-rules-implementation-2026-10-21/CHECKPOINT.md); [additional CRL49–52](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-8-2026-10-21-useful-mechanics-beyond-titles).
+
+
+### Gothic default and visible Proto23 delivery, 2026-10-21
+
+Weibao: "Then fix it accordingly, make Gothic the default internal font and make sure the inventory and other Proto23 UI improvements actually show up. Check the current app and finish the missing bits. We can also work on completing the research candidates and the partial implemtations to completion". He then directed: "Work on absorbing stuff that is done already, and then work on the parts we need? Use lesser agents to assist accordingly?"
+
+This selects MS Gothic as the internal default, including prose and controls, with existing explicit player/module font choices retained. The original PLAY/loading appearance stays under its earlier owner. Reconcile completed native work before implementing fitting gaps from the existing CUI/CRL/PFA owners; source extraction, implementation, visible delivery and human acceptance stay distinct. The [delivery record](reviews/PROTO23_UI_DELIVERY_CHECK_2026-10-21.md) owns current scope, exact input/check evidence, helper reservations and remaining work. This newly requested pass has a 55% to 60% included-usage window under AU7; the prior recovered-title run's 56% ceiling remains its historical bound. No commit, push or publication is selected.
+
+
+## Primary checkout default and finished-worktree cleanup, 2026-10-21
+
+Weibao: "Check which worktrees are still needed, clean up the finished ones safely, and make the primary checkout the default for future work."
+
+Accepted operational direction: ordinary future work defaults to
+`/Users/weiwei/code/yet-another-idle-rpg`. Separate worktrees are temporary
+exceptions for a concrete concurrent-write conflict, an isolated verification or
+integration candidate, or an explicit user request. Reuse a suitable existing
+checkout before creating another. Retire finished lanes after integration,
+active-use checks and preservation of local evidence and artifacts.
+
+This selects the working directory default; branch convergence is coordinated
+separately and must preserve current dirty files, indexes and active writers.
+[AD41 and operating procedure](gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21)
+own the workflow; [cleanup receipt](gm/WORKTREE_CLEANUP_2026-10-21.md) records
+per-checkout dispositions and recovery. No commit or push is requested here.

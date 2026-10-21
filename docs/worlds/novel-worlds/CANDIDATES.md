@@ -18,7 +18,13 @@ Each premise is paraphrased from primary author material. Current publishing/lis
 
 ## Paradise and original alternatives
 
-The user's Reincarnation Paradise direction has a separate [hub candidate](../paradise-hub/WORLD_BRIEF.md). Its primary chapter pages were unavailable in the recorded acquisition attempts; exact novel cosmology and mission/retention rules remain unresolved. Its proposed lived Exchange plus bounded destinations is original source-inspired structure. A mission destination may be a persistent whole world, a region of one, or a constructed trial, with explicit differences.
+The user's Reincarnation Paradise direction has a separate [hub candidate](../paradise-hub/WORLD_BRIEF.md). The original scouting attempt lacked primary chapter access. Later retained
+source and native-branch work is recorded by the hub brief; that history
+supersedes treating the whole Paradise family as an unacquired synopsis-only
+idea. Exact translation/source fidelity and wider novel laws remain qualified.
+The proposed lived Exchange is separate original content. A mission destination
+may be a persistent whole world, a region, or a constructed trial, with its
+actual retention and clock policy declared.
 
 The [multiverse guide](../MULTIVERSE_STRUCTURES.md) supplies original alternatives across local fantasy, cultivation, expedition institutions, professions, apocalypse, trials, science fiction, mysteries, conceptual powers and nonhuman ecology. Original seed rulebooks can be authored now. Direct adaptations need a bounded primary source pack before a GM makes consequential lore claims.
 
@@ -31,3 +37,17 @@ Promote a candidate to a local world folder when its distinct decision rule, con
 A completed source offers a stable cutoff. A serial offers a selected inspected cutoff. Either can support an alternate branch with original people and outcomes. Several references can inspire one original setting if their mechanics are reconciled explicitly; they are not silently merged into a claim of shared canon.
 
 Checkpoint: root researched the five author pages and saved scope/limits; no novel-world GM, purchase, runtime content, source-download audit or playthrough dispatched. Next selected source packet can deepen one candidate while the existing five game/manga campaigns continue through their native-world integration gate. Master owns this shortlist; source-specific detail returns to its local folder after promotion.
+
+
+## Everyday-life promotion remainder, 2026-10-20
+
+WPD-R12, ACCOUNT FOR NOW: WG7 identifies missing S05 evidence, not permission to
+invent canon economies. Before promoting a selected new candidate, add one
+source-qualified or explicitly original daily need, an actual provider/input,
+a useful career choice and its later consequence. MoL already has a separate
+retained campaign owner; do not restart its delivered source/runtime work from
+this old shortlist. Level/effort: bounded Luna medium for one supplied scene,
+coordinator for continuity. Done check: one concrete ordinary-life loop links
+means/time/custody/knowledge without granting the protagonist's power. Deepening
+all five candidates, author-page refresh and whole-novel reads remain later
+work; historical completion claims here keep their 2026-10-03 date.

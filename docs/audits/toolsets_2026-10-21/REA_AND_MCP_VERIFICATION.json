@@ -1,0 +1,175 @@
+{
+  "date": "2026-10-21",
+  "rea_before": "d9cd239c5ed7b078ac07e1bad633723fb49d8f80",
+  "rea_after": "6d356b84344659085f2b912857b5e27fe0160c9b",
+  "upstream_commits_fast_forwarded": 858,
+  "rea_version": "6.7.0",
+  "commands": [
+    {
+      "command": "git fetch origin main; git merge --ff-only --quiet origin/main",
+      "result": "fast-forward from clean main"
+    },
+    {
+      "command": "HUSKY=0 npm exec --yes --package=npm@11.16.0 -- npm ci --ignore-scripts --no-audit --no-fund",
+      "exit_code": 0,
+      "packages_added": 544
+    },
+    {
+      "command": "HUSKY=0 npm exec --yes --package=npm@11.16.0 -- npm run build:cached",
+      "exit_code": 0,
+      "build_tasks_passed": 3
+    }
+  ],
+  "native_provider_verification": {
+    "run": {
+      "argv": [
+        "python3",
+        "/Users/weiwei/code/yet-another-idle-rpg/scripts/toolsets.py",
+        "run",
+        "rea",
+        "--",
+        "function",
+        "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-rea-native-9bmdjkjy/fixture",
+        "_triple",
+        "--provider",
+        "ghidra",
+        "--json"
+      ],
+      "exit_code": 0,
+      "target": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-rea-native-9bmdjkjy/fixture",
+      "source": "__attribute__((noinline)) int triple(int n) { return n * 3; }\nint main(void) { return triple(7); }\n",
+      "target_sha256": "b333d01001146aa9ddef761798426036a6e2d5842c379c1f5530bc7d13631bcb",
+      "tool_commit": "6d356b84344659085f2b912857b5e27fe0160c9b",
+      "target_executed": false,
+      "private_output": "/Users/weiwei/.codex/research/tool-validation-2026-10-21/rea-native-function.json"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "relationship_coverage": {
+      "status": "complete",
+      "diagnostics": [
+        "Only resolved Ghidra call references are returned; unresolved computed or indirect calls remain unknown, while function classifications distinguish thunks and externals."
+      ]
+    },
+    "pseudocode_matches_synthetic_source": true,
+    "synthetic_function": "triple",
+    "private_raw_evidence": "/Users/weiwei/.codex/research/tool-validation-2026-10-21/rea-native-function.json"
+  },
+  "health": [
+    {
+      "id": "rea",
+      "argv": [
+        "node",
+        "/Users/weiwei/code/rea/scripts/rea.mjs"
+      ],
+      "tool_root": "/Users/weiwei/code/rea",
+      "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+      "env_overrides": {
+        "GHIDRA_INSTALL_DIR": "/opt/homebrew/opt/ghidra/libexec",
+        "JAVA_HOME": "/opt/homebrew/opt/openjdk@21",
+        "REA_ANALYSIS_PROVIDER": "ghidra"
+      },
+      "missing": [],
+      "ready": true,
+      "state": "probe-passed",
+      "exit_code": 0,
+      "stdout": "{\"healthy\":true,\"environment_healthy\":false,\"scope\":{\"mode\":\"explicit\",\"clients\":[],\"providers\":[\"ghidra\"],\"skill\":false,\"target\":null},\"scope_checks\":[{\"name\":\"node\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"22.23.3\",\"details\":{\"runtime\":\"node\",\"version\":\"22.23.3\"}},{\"name\":\"ghidra\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec\"},{\"name\":\"ghidra-platform\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"darwin\"},{\"name\":\"ghidra-architecture\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"arm64\"},{\"name\":\"ghidra-installation\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/application.properties\"},{\"name\":\"ghidra-version\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"12.1.4\"},{\"name\":\"ghidra-headless\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/support/analyzeHeadless\"},{\"name\":\"ghidra-native_decompiler\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/Features/Decompiler/os/mac_arm_64/decompile reports mach-o arm64, which matches darwin/arm64\"},{\"name\":\"ghidra-java\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"21.0.12.1; 64-bit; JDK; /opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home; accepted a 64-bit full JDK 21 or newer\"}],\"informational_checks\":[{\"name\":\"host\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"27.2\"},{\"name\":\"hopper\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"remediation\":\"Run rea setup to install Hopper, or set HOPPER_LAUNCHER_PATH.\"},{\"name\":\"ida-registration\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"detail\":\"IDA MCP registration is not configured.\",\"remediation\":\"Set REA_IDA_MCP_CONFIG to your upstream IDA MCP registration JSON; see docs/ida-provider.md.\"},{\"name\":\"jadx\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"detail\":\"Set REA_JADX_MCP_JAR to the absolute path of a caller-supplied jadx-headless-mcp 0.7.1 JAR. REA does not download or install it.\",\"remediation\":\"Set REA_JADX_MCP_JAR to the absolute path of a caller-supplied jadx-headless-mcp 0.7.1 JAR. REA does not download or install it.\"},{\"name\":\"kuna-installation\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"detail\":\"Set REA_KUNA_COMMAND to the absolute path of a caller-supplied kuna executable (verified with 1.833). REA does not download, install or update Kuna.\",\"remediation\":\"Set REA_KUNA_COMMAND to the absolute path of a caller-supplied kuna executable (verified with 1.833). REA does not download, install or update Kuna.\",\"details\":{\"configured\":false}},{\"name\":\"skill:identity\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"Installed REA skill identity is missing.\",\"remediation\":\"Run rea setup to update the installed REA skill.\"},{\"name\":\"registration:antigravity\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.gemini/config/mcp_config.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:claude_code\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.claude.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:claude_desktop\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/Library/Application Support/Claude/claude_desktop_config.json\",\"remediation\":\"Quit Claude Desktop fully, run rea setup to refresh this registration, then start Claude Desktop again. A running Claude Desktop can rewrite its configuration from memory and drop the registration.\"},{\"name\":\"registration:codex\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.codex/config.toml\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:gemini_cli\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.gemini/settings.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"}],\"providerInspections\":[{\"id\":\"ghidra\",\"configured\":true,\"available\":true,\"providerVersion\":\"12.1.4\",\"registrationEnvironment\":{\"GHIDRA_INSTALL_DIR\":\"/opt/homebrew/opt/ghidra/libexec\",\"JAVA_HOME\":\"/opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home\"},\"checks\":[{\"name\":\"configuration\",\"ok\":true,\"code\":null,\"detail\":\"/opt/homebrew/opt/ghidra/libexec\",\"remediation\":null,\"classification\":\"config_drift\"},{\"name\":\"platform\",\"ok\":true,\"code\":null,\"detail\":\"darwin\",\"remediation\":null,\"classification\":\"unsupported_host\"},{\"name\":\"architecture\",\"ok\":true,\"code\":null,\"detail\":\"arm64\",\"remediation\":null,\"classification\":\"unsupported_host\"},{\"name\":\"installation\",\"ok\":true,\"code\":null,\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/application.properties\",\"remediation\":null,\"classification\":\"config_drift\"},{\"name\":\"version\",\"ok\":true,\"code\":null,\"detail\":\"12.1.4\",\"remediation\":null,\"classification\":\"config_drift\"},{\"name\":\"headless\",\"ok\":true,\"code\":null,\"detail\":\"/opt/homebrew/opt/ghidra/libexec/support/analyzeHeadless\",\"remediation\":null,\"classification\":\"config_drift\"},{\"name\":\"native_decompiler\",\"ok\":true,\"code\":null,\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/Features/Decompiler/os/mac_arm_64/decompile reports mach-o arm64, which matches darwin/arm64\",\"remediation\":null,\"classification\":\"config_drift\"},{\"name\":\"java\",\"ok\":true,\"code\":null,\"detail\":\"21.0.12.1; 64-bit; JDK; /opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home; accepted a 64-bit full JDK 21 or newer\",\"remediation\":null,\"classification\":\"config_drift\"}]},{\"id\":\"ida\",\"configured\":false,\"available\":false,\"providerVersion\":null,\"registrationEnvironment\":{},\"checks\":[{\"name\":\"registration\",\"ok\":false,\"code\":\"not_configured\",\"detail\":\"IDA MCP registration is not configured.\",\"remediation\":\"Set REA_IDA_MCP_CONFIG to your upstream IDA MCP registration JSON; see docs/ida-provider.md.\",\"classification\":\"missing_analysis_engine\"}]},{\"id\":\"jadx\",\"configured\":false,\"available\":false,\"providerVersion\":null,\"registrationEnvironment\":{},\"checks\":[{\"name\":\"configuration\",\"ok\":false,\"code\":\"not_configured\",\"detail\":\"Set REA_JADX_MCP_JAR to the absolute path of a caller-supplied jadx-headless-mcp 0.7.1 JAR. REA does not download or install it.\",\"remediation\":\"Set REA_JADX_MCP_JAR to the absolute path of a caller-supplied jadx-headless-mcp 0.7.1 JAR. REA does not download or install it.\",\"classification\":\"missing_analysis_engine\"}]},{\"id\":\"kuna\",\"configured\":false,\"available\":false,\"providerVersion\":null,\"registrationEnvironment\":{},\"checks\":[{\"name\":\"installation\",\"ok\":false,\"code\":\"not_configured\",\"detail\":\"Set REA_KUNA_COMMAND to the absolute path of a caller-supplied kuna executable (verified with 1.833). REA does not download, install or update Kuna.\",\"remediation\":\"Set REA_KUNA_COMMAND to the absolute path of a caller-supplied kuna executable (verified with 1.833). REA does not download, install or update Kuna.\",\"classification\":\"missing_analysis_engine\",\"details\":{\"configured\":false}}]}],\"checks\":[{\"name\":\"node\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"22.23.3\",\"details\":{\"runtime\":\"node\",\"version\":\"22.23.3\"}},{\"name\":\"host\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"27.2\"},{\"name\":\"hopper\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"remediation\":\"Run rea setup to install Hopper, or set HOPPER_LAUNCHER_PATH.\"},{\"name\":\"ghidra\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec\"},{\"name\":\"ghidra-platform\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"darwin\"},{\"name\":\"ghidra-architecture\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"arm64\"},{\"name\":\"ghidra-installation\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/application.properties\"},{\"name\":\"ghidra-version\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"12.1.4\"},{\"name\":\"ghidra-headless\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/support/analyzeHeadless\"},{\"name\":\"ghidra-native_decompiler\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/Features/Decompiler/os/mac_arm_64/decompile reports mach-o arm64, which matches darwin/arm64\"},{\"name\":\"ghidra-java\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"21.0.12.1; 64-bit; JDK; /opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home; accepted a 64-bit full JDK 21 or newer\"},{\"name\":\"ida-registration\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"detail\":\"IDA MCP registration is not configured.\",\"remediation\":\"Set REA_IDA_MCP_CONFIG to your upstream IDA MCP registration JSON; see docs/ida-provider.md.\"},{\"name\":\"jadx\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"detail\":\"Set REA_JADX_MCP_JAR to the absolute path of a caller-supplied jadx-headless-mcp 0.7.1 JAR. REA does not download or install it.\",\"remediation\":\"Set REA_JADX_MCP_JAR to the absolute path of a caller-supplied jadx-headless-mcp 0.7.1 JAR. REA does not download or install it.\"},{\"name\":\"kuna-installation\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"detail\":\"Set REA_KUNA_COMMAND to the absolute path of a caller-supplied kuna executable (verified with 1.833). REA does not download, install or update Kuna.\",\"remediation\":\"Set REA_KUNA_COMMAND to the absolute path of a caller-supplied kuna executable (verified with 1.833). REA does not download, install or update Kuna.\",\"details\":{\"configured\":false}},{\"name\":\"skill:identity\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"Installed REA skill identity is missing.\",\"remediation\":\"Run rea setup to update the installed REA skill.\"},{\"name\":\"registration:antigravity\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.gemini/config/mcp_config.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:claude_code\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.claude.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:claude_desktop\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/Library/Application Support/Claude/claude_desktop_config.json\",\"remediation\":\"Quit Claude Desktop fully, run rea setup to refresh this registration, then start Claude Desktop again. A running Claude Desktop can rewrite its configuration from memory and drop the registration.\"},{\"name\":\"registration:codex\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.codex/config.toml\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:gemini_cli\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.gemini/settings.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"}],\"identity\":{\"cli_package_version\":\"6.7.0\",\"expected_skill_version\":\"44\",\"sdk\":{\"server\":\"2.3.1\",\"client_test\":\"2.3.1\",\"core\":\"2.3.1\"},\"catalog\":{\"counts\":{\"cli_commands\":160,\"mcp_tools\":213,\"mcp_prompts\":6},\"digests\":{\"tools_sha256\":\"7362fced4ad2726682316d0f1e8acf65e90c59192ef163c7cc4ce00c3d756767\",\"prompts_sha256\":\"84c719b1aa48a7b12ad29e16278fc4c4254d9364f6620792cba6ceaef5b4a98c\",\"combined_sha256\":\"5ab16853c717a6e98473cb6c5ac1871e186b9784f32ce1ac54d59ccaf1d3634e\"}},\"live_server\":{\"state\":\"unknown\",\"remediation\":\"Call binary_session in the active client to inspect the running server identity.\"},\"installations\":{\"paths\":[],\"state\":\"unknown\"},\"skill\":{\"installed_version\":null,\"installed_tool_count\":null,\"state\":\"missing\",\"remediation\":\"Run rea setup to update the installed REA skill.\"},\"registrations\":[{\"client\":\"antigravity\",\"config_path\":\"/Users/weiwei/.gemini/config/mcp_config.json\",\"command\":[],\"state\":\"missing\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"client\":\"claude_code\",\"config_path\":\"/Users/weiwei/.claude.json\",\"command\":[],\"state\":\"missing\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"client\":\"claude_desktop\",\"config_path\":\"/Users/weiwei/Library/Application Support/Claude/claude_desktop_config.json\",\"command\":[],\"state\":\"missing\",\"remediation\":\"Quit Claude Desktop fully, run rea setup to refresh this registration, then start Claude Desktop again. A running Claude Desktop can rewrite its configuration from memory and drop the registration.\"},{\"client\":\"codex\",\"config_path\":\"/Users/weiwei/.codex/config.toml\",\"command\":[],\"state\":\"missing\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"client\":\"gemini_cli\",\"config_path\":\"/Users/weiwei/.gemini/settings.json\",\"command\":[],\"state\":\"missing\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"}]}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "rea-pinned",
+      "argv": [
+        "node",
+        "/Users/weiwei/.codex/research/hogwarts-legacy/repos/rea-pinned/scripts/rea.mjs"
+      ],
+      "tool_root": "/Users/weiwei/.codex/research/hogwarts-legacy/repos/rea-pinned",
+      "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+      "env_overrides": {
+        "GHIDRA_INSTALL_DIR": "/opt/homebrew/opt/ghidra/libexec",
+        "JAVA_HOME": "/opt/homebrew/opt/openjdk@21",
+        "REA_ANALYSIS_PROVIDER": "ghidra"
+      },
+      "missing": [],
+      "ready": true,
+      "state": "probe-passed",
+      "exit_code": 0,
+      "stdout": "{\"healthy\":true,\"environment_healthy\":false,\"scope\":{\"mode\":\"explicit\",\"clients\":[],\"providers\":[\"ghidra\"],\"skill\":false,\"target\":null},\"scope_checks\":[{\"name\":\"node\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"22.23.3\",\"details\":{\"runtime\":\"node\",\"version\":\"22.23.3\"}},{\"name\":\"ghidra\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec\"},{\"name\":\"ghidra-platform\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"darwin\"},{\"name\":\"ghidra-architecture\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"arm64\"},{\"name\":\"ghidra-installation\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/application.properties\"},{\"name\":\"ghidra-version\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"12.1.4\"},{\"name\":\"ghidra-headless\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/support/analyzeHeadless\"},{\"name\":\"ghidra-native_decompiler\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/Features/Decompiler/os/mac_arm_64/decompile reports mach-o arm64, which matches darwin/arm64\"},{\"name\":\"ghidra-java\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"21.0.12.1; 64-bit; JDK; /opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home; accepted a 64-bit full JDK 21 or newer\"}],\"informational_checks\":[{\"name\":\"host\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"27.2\"},{\"name\":\"hopper\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"remediation\":\"Run rea setup to install Hopper, or set HOPPER_LAUNCHER_PATH.\"},{\"name\":\"ida-registration\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"detail\":\"IDA MCP registration is not configured.\",\"remediation\":\"Set REA_IDA_MCP_CONFIG to your upstream IDA MCP registration JSON; see docs/ida-provider.md.\"},{\"name\":\"skill:identity\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"Installed REA skill identity is missing.\",\"remediation\":\"Run rea setup to update the installed REA skill.\"},{\"name\":\"registration:antigravity\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.gemini/config/mcp_config.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:claude_code\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.claude.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:claude_desktop\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/Library/Application Support/Claude/claude_desktop_config.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:codex\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.codex/config.toml\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:gemini_cli\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.gemini/settings.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"}],\"providerInspections\":[{\"id\":\"ghidra\",\"configured\":true,\"available\":true,\"providerVersion\":\"12.1.4\",\"registrationEnvironment\":{\"GHIDRA_INSTALL_DIR\":\"/opt/homebrew/opt/ghidra/libexec\",\"JAVA_HOME\":\"/opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home\"},\"checks\":[{\"name\":\"configuration\",\"ok\":true,\"code\":null,\"detail\":\"/opt/homebrew/opt/ghidra/libexec\",\"remediation\":null,\"classification\":\"config_drift\"},{\"name\":\"platform\",\"ok\":true,\"code\":null,\"detail\":\"darwin\",\"remediation\":null,\"classification\":\"unsupported_host\"},{\"name\":\"architecture\",\"ok\":true,\"code\":null,\"detail\":\"arm64\",\"remediation\":null,\"classification\":\"unsupported_host\"},{\"name\":\"installation\",\"ok\":true,\"code\":null,\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/application.properties\",\"remediation\":null,\"classification\":\"config_drift\"},{\"name\":\"version\",\"ok\":true,\"code\":null,\"detail\":\"12.1.4\",\"remediation\":null,\"classification\":\"config_drift\"},{\"name\":\"headless\",\"ok\":true,\"code\":null,\"detail\":\"/opt/homebrew/opt/ghidra/libexec/support/analyzeHeadless\",\"remediation\":null,\"classification\":\"config_drift\"},{\"name\":\"native_decompiler\",\"ok\":true,\"code\":null,\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/Features/Decompiler/os/mac_arm_64/decompile reports mach-o arm64, which matches darwin/arm64\",\"remediation\":null,\"classification\":\"config_drift\"},{\"name\":\"java\",\"ok\":true,\"code\":null,\"detail\":\"21.0.12.1; 64-bit; JDK; /opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home; accepted a 64-bit full JDK 21 or newer\",\"remediation\":null,\"classification\":\"config_drift\"}]},{\"id\":\"ida\",\"configured\":false,\"available\":false,\"providerVersion\":null,\"registrationEnvironment\":{},\"checks\":[{\"name\":\"registration\",\"ok\":false,\"code\":\"not_configured\",\"detail\":\"IDA MCP registration is not configured.\",\"remediation\":\"Set REA_IDA_MCP_CONFIG to your upstream IDA MCP registration JSON; see docs/ida-provider.md.\",\"classification\":\"missing_analysis_engine\"}]}],\"checks\":[{\"name\":\"node\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"22.23.3\",\"details\":{\"runtime\":\"node\",\"version\":\"22.23.3\"}},{\"name\":\"host\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"27.2\"},{\"name\":\"hopper\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"remediation\":\"Run rea setup to install Hopper, or set HOPPER_LAUNCHER_PATH.\"},{\"name\":\"ghidra\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec\"},{\"name\":\"ghidra-platform\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"darwin\"},{\"name\":\"ghidra-architecture\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"arm64\"},{\"name\":\"ghidra-installation\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/application.properties\"},{\"name\":\"ghidra-version\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"12.1.4\"},{\"name\":\"ghidra-headless\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/support/analyzeHeadless\"},{\"name\":\"ghidra-native_decompiler\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"/opt/homebrew/opt/ghidra/libexec/Ghidra/Features/Decompiler/os/mac_arm_64/decompile reports mach-o arm64, which matches darwin/arm64\"},{\"name\":\"ghidra-java\",\"ok\":true,\"classification\":\"healthy\",\"detail\":\"21.0.12.1; 64-bit; JDK; /opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home; accepted a 64-bit full JDK 21 or newer\"},{\"name\":\"ida-registration\",\"ok\":false,\"classification\":\"missing_analysis_engine\",\"detail\":\"IDA MCP registration is not configured.\",\"remediation\":\"Set REA_IDA_MCP_CONFIG to your upstream IDA MCP registration JSON; see docs/ida-provider.md.\"},{\"name\":\"skill:identity\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"Installed REA skill identity is missing.\",\"remediation\":\"Run rea setup to update the installed REA skill.\"},{\"name\":\"registration:antigravity\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.gemini/config/mcp_config.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:claude_code\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.claude.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:claude_desktop\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/Library/Application Support/Claude/claude_desktop_config.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:codex\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.codex/config.toml\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"name\":\"registration:gemini_cli\",\"ok\":false,\"classification\":\"config_drift\",\"detail\":\"/Users/weiwei/.gemini/settings.json\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"}],\"identity\":{\"cli_package_version\":\"6.4.0\",\"expected_skill_version\":\"41\",\"sdk\":{\"server\":\"2.3.1\",\"client_test\":\"2.3.1\",\"core\":\"2.3.1\"},\"catalog\":{\"counts\":{\"cli_commands\":138,\"mcp_tools\":187,\"mcp_prompts\":6},\"digests\":{\"tools_sha256\":\"0d946b82d329a6c66410578ab8faab91deb7f65aacd918693b1d98b766d50f79\",\"prompts_sha256\":\"5296f0301566cadaf89243e774512011f11045af36d48405f76a3ff9a8947ac2\",\"combined_sha256\":\"be28dbccd007df720e1bbc1f0fd8399e996f509cd4fdd6815d0f1f82eb175984\"}},\"live_server\":{\"state\":\"unknown\",\"remediation\":\"Call binary_session in the active client to inspect the running server identity.\"},\"installations\":{\"paths\":[],\"state\":\"unknown\"},\"skill\":{\"installed_version\":null,\"installed_tool_count\":null,\"state\":\"missing\",\"remediation\":\"Run rea setup to update the installed REA skill.\"},\"registrations\":[{\"client\":\"antigravity\",\"config_path\":\"/Users/weiwei/.gemini/config/mcp_config.json\",\"command\":[],\"state\":\"missing\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"client\":\"claude_code\",\"config_path\":\"/Users/weiwei/.claude.json\",\"command\":[],\"state\":\"missing\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"client\":\"claude_desktop\",\"config_path\":\"/Users/weiwei/Library/Application Support/Claude/claude_desktop_config.json\",\"command\":[],\"state\":\"missing\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"client\":\"codex\",\"config_path\":\"/Users/weiwei/.codex/config.toml\",\"command\":[],\"state\":\"missing\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"},{\"client\":\"gemini_cli\",\"config_path\":\"/Users/weiwei/.gemini/settings.json\",\"command\":[],\"state\":\"missing\",\"remediation\":\"Run rea setup to refresh this registration, then restart the client.\"}]}}\n",
+      "stderr": ""
+    },
+    {
+      "id": "cpp2il",
+      "argv": [
+        "/Users/weiwei/.local/share/yair-tools/cpp2il/2022.1.0-pre-release.21/Cpp2IL"
+      ],
+      "tool_root": "/Users/weiwei/.local/share/yair-tools/cpp2il/2022.1.0-pre-release.21",
+      "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+      "env_overrides": {
+        "DOTNET_ROOT": "/Users/weiwei/.dotnet"
+      },
+      "missing": [],
+      "ready": true,
+      "state": "probe-passed",
+      "exit_code": 0,
+      "stdout": "===Cpp2IL by Samboy063===\nA Tool to Reverse Unity's \"il2cpp\" Build Process.\nVersion 2022.1.0-pre-release.21+58fc404ac503f4e512055cafc48c03088fc6e224\n\n[Warn] [Program] NO_COLOR set, disabling ANSI color codes as you requested.\n[Info] [Program] Running on Unix\n",
+      "stderr": "Cpp2IL 2022.1.0-pre-release.21+58fc404ac503f4e512055cafc48c03088fc6e224\n"
+    }
+  ],
+  "project_mcp_effective_configuration": [
+    {
+      "name": "book_research",
+      "enabled": true,
+      "disabled_reason": null,
+      "transport": {
+        "type": "stdio",
+        "command": "/opt/homebrew/bin/python3",
+        "args": [
+          "/Users/weiwei/code/yet-another-idle-rpg/scripts/toolsets.py",
+          "run",
+          "zlibrary-mcp"
+        ],
+        "env": null,
+        "env_vars": [],
+        "cwd": null
+      },
+      "startup_timeout_sec": 30.0,
+      "tool_timeout_sec": 180.0,
+      "auth_status": "unsupported"
+    },
+    {
+      "name": "rea",
+      "enabled": true,
+      "disabled_reason": null,
+      "transport": {
+        "type": "stdio",
+        "command": "/opt/homebrew/bin/python3",
+        "args": [
+          "/Users/weiwei/code/yet-another-idle-rpg/scripts/toolsets.py",
+          "run",
+          "rea",
+          "--",
+          "--mcp"
+        ],
+        "env": null,
+        "env_vars": [],
+        "cwd": null
+      },
+      "startup_timeout_sec": 30.0,
+      "tool_timeout_sec": 180.0,
+      "auth_status": "unsupported"
+    }
+  ],
+  "rea_enabled_tool_count": 14,
+  "all_enabled_tools_exist_in_real_discovery": true,
+  "fresh_chat_visible_inventory": "not tested; existing chat declarations unchanged",
+  "launcher_tests_passed": 8,
+  "rules_and_arch_checks": "passed",
+  "source_sha256": {
+    "scripts/toolsets.py": "39e6eb899c1f7a59f7fd719d257d5ee43293e5e6a7c5ec594b8cd2379a4babae",
+    "scripts/toolsets/registry.json": "2eef018780108045e8d0d0d2514573ca4e90e30eeee436d2da7d839d7bd603c9",
+    ".codex/config.toml": "38ce820e99b62a668a0126f277d72c525277ce777e2678ec97143fd5f0eced4f"
+  },
+  "rea_worktree_status": ""
+}

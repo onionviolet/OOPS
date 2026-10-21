@@ -35,11 +35,11 @@ export const LAYOUT_SPEC = Object.freeze({
     // any region lives in `fallback`. `contextual` homes depend on the context. R21c: the awakened
     // status window lives under You (it shows only once the system awakens).
     regions: Object.freeze({
-        player: Object.freeze({panels: ['vitals', 'shell-character', 'condition', 'status-window']}),
-        focus: Object.freeze({panels: ['focus']}),
-        inventory: Object.freeze({panels: ['belongings', 'combat-controls', 'shell-inventory-tools']}),
-        log: Object.freeze({panels: ['messages', 'shell-log-tools']}),
-        actions: Object.freeze({panels: ['records', 'skills', 'opponents']}),
+        player: Object.freeze({label: 'player', panels: ['vitals', 'shell-character', 'condition', 'status-window']}),
+        focus: Object.freeze({label: 'Around you', panels: ['focus']}),
+        inventory: Object.freeze({label: 'inventory', panels: ['belongings', 'combat-controls', 'shell-inventory-tools']}),
+        actions: Object.freeze({label: 'actions', panels: ['records', 'skills', 'opponents']}),
+        log: Object.freeze({label: 'log', panels: ['messages', 'shell-log-tools']}),
     }),
     fallback: 'actions',
     // A1: item inspection sits beside the activity area in idle/travel as well as combat,
@@ -81,7 +81,7 @@ export const LAYOUT_SPEC = Object.freeze({
     // layout signal, registered by the journey's owner) and `centerTasks` (the open center view, as
     // center_modes.js publishes it in data-center-task). Defaults are proposals: travel keeps the
     // Journal (its notes carry the journey); service recommends none, because the view needs the
-    // room at the 1366×768 floor, and a Journal the player places there shows as a strip.
+    // room, and a Journal the player places there shows as a strip.
     contexts: Object.freeze({
         idle: Object.freeze({label: 'idle', companions: Object.freeze(['records'])}),
         combat: Object.freeze({label: 'fight', when: Object.freeze({combat: true}), companions: Object.freeze(['opponents', 'skills'])}),
@@ -173,6 +173,16 @@ export const LAYOUT_SPEC = Object.freeze({
         'customization-preview': surface(UNSET),
         'customization-rules': surface(UNSET),
         'customization-sites': surface(UNSET),
+        // Round 12 (2026-10-19, proposals): reference sections that read existing state. Opened from
+        // More panels or the command palette; none adds a route, so the navigation bar keeps its size.
+        'known-things': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['knowledge'], contexts: ['idle', 'travel', 'service']}),
+        'statistics': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['work', 'combat', 'inventory'], contexts: ['idle', 'travel', 'service']}),
+        'today': surface('ST5', {home: 'Beside the actions; Journal companion space', frequency: 'frequent', status: 'proposal', reads: ['time', 'place', 'work'], contexts: ['idle', 'travel']}),
+        'around-place': surface('ST6', {home: 'Reference dock; session return and completed work notes', frequency: 'occasional', status: 'proposal', reads: ['place', 'inventory', 'knowledge', 'work'], contexts: ['idle', 'travel', 'service']}),
+        'carcass-processing': surface('ST4', {home:'Place services; native processing owner',frequency:'frequent',status:'proposal',reads:['inventory','work','place'],contexts:['idle','service']}),
+        'region-view': surface('ST2', {home: 'Beside the actions; keeper is the road itself', frequency: 'frequent', status: 'proposal', reads: ['place'], contexts: ['idle', 'travel']}),
+        'companions': surface('ST6', {home: 'Side column beside You', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
+        'loadouts': surface('ST4', {home: 'Beside Inventory', frequency: 'occasional', status: 'proposal', reads: ['inventory'], contexts: ['idle', 'service']}),
     }),
     // Center views that are not workspace panels; each opens through its own owner.
     views: Object.freeze({
@@ -209,6 +219,11 @@ export const LAYOUT_SPEC = Object.freeze({
 
 // UIM2: the route table, one entry per route in bar order, each joined to its target's surface.
 // Navigation, and later quick jump, log links and Back history, read this instead of a list.
+// Object order is the DOM/reading order. The host has no second region list.
+export function workspaceRegions(spec = LAYOUT_SPEC) {
+    return Object.entries(spec.regions).map(([id, region]) => ({id, label: region.label ?? id}));
+}
+
 export function routeTable(spec = LAYOUT_SPEC) {
     return spec.routes.map(route => Object.freeze({...route, surface: spec.surfaces[route.target] || spec.views[route.target] || null}));
 }

@@ -1638,3 +1638,202 @@ and saved with PV1–PV8 in the [Round 15 plan](gm/dispatch/ui-foundation-2026-1
 the workspace and most factory panels bundle without `main.js`; the combat
 display (580 modules) does not.
 
+
+
+## Reference detail fold, 2026-10-20: UI meaning through engine owners
+
+Proposal extension of UIE1–UIE25 and the existing domain boundaries, requested
+before implementation. The [fold and further interactions](research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md#plan-fold-and-further-interactions-2026-10-20)
+retain PFE01–PFE30, actual-image evidence and complete owner coverage. Relevant
+AR1–AR16, AD6–AD8/AD15–AD19/AD32–AD36/AD38/AD40 apply. No universal kernel,
+event bus, frame-driven simulation or rewrite is selected by these examples.
+
+**Current-source qualification:** dated UIE checkpoint statements above about
+missing `domain_registry`/architecture checks are historical. Both now exist.
+The current registry, native transaction, tools, lamplight, observer projections
+and render batching are inspected seams, not proof of every contemplated route.
+
+| Existing seam | Folded engine consideration | Later check for the selected consumer |
+|---|---|---|
+| Registry / local domain / native transaction | PFE02–PFE04/PFE17: own exact job/copy/lot state, quote and revalidate, settle once, save authoritative state and derive presentation. PFE22/PFE24 add competing material intentions and output-target overshoot. | Two consumers want the same stock; an attempt yields multiple outputs; a failed durable write and reload leave honest once-only work/custody/results. A cosmetic reservation does not reserve stock. |
+| Existing clock / domain tick | PFE06/PFE11/PFE23: distinguish a real pending choice from playback and split a selected elapsed interval at material boundaries such as light expiry or process completion. Local ordering is defined by the domain/transaction, not by UI render order. | Compare the same job over one long interval and boundary-aligned intervals. Time consumed, light-dependent work and pending decisions agree where the mechanism should make them equivalent. This is a proposed check, not a demonstrated generic clock fix. |
+| Projection / renderer / command intents | PFE01/PFE08/PFE15/PFE18–PFE21/PFE30: project permitted meaning, bind receipt and subject revision, keep cosmetic variation off gameplay RNG and preserve the gesture's intended subject. | Rebind target, recolor/theme, inspect unknown material and reorder on pointer/key activation. No hidden fact leaks, outcome changes, stale pulse or silent command retargeting. |
+| Existing render batch / Reports owners | PFE16/PFE29: coalesce routine drawing while retaining exceptional gameplay boundaries. IG1–IG5 own source-supported loot/meter/retention gaps; correct gain labels before extending that message surface. | Populated selected route, distinct item deltas and a long repeat group preserve true counts, meaningful transitions, reading position and disclosed retention. Measure native performance before a performance claim. |
+| Namespaced state / current save envelope | PFE09–PFE14/PFE25–PFE28: save real fuel, actor/job state and needed witnessed history; derive poses, patina and atmosphere. New behavior carries a named local owner, not a saved copy of the UI. | Current-state save/reload/literal Import preserves the selected consequence and identity. Restored presentation does not replay reward, sound or RNG. Follow the current explicit old-save decision. |
+
+For physical activities/home/creatures, the
+[granular plan](GRANULAR_SYSTEMS_AND_INTERACTIONS.md#reference-detail-fold-2026-10-20-physical-routines-and-ordinary-life)
+owns behavior. [Making](CRAFTING_ENGINE.md#reference-detail-fold-2026-10-20-a-commitment-from-quote-to-useful-output)
+owns process/lot semantics; [appraisal](MEANS_AND_APPRAISAL.md#reference-detail-fold-2026-10-20-color-previews-and-witnesses)
+owns knowledge; [UI palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#reference-ui-and-engine-fold-2026-10-20-color-detail-and-continuity)
+and [panel kit](PANEL_KIT.md#reference-detail-fold-2026-10-20-subject-comparison-and-return)
+own views/interactions. Technical implementation status remains with the actual
+checkpoint; this section neither reopens closed lanes nor closes pending gates.
+
+**ACT NOW (done):** folded the engine dependency/ownership map into this existing
+plan and clarified the old checkpoint wording. **ACCOUNT FOR NOW:** each selected
+small detail follows its producer → authoritative state → permitted projection →
+view/receipt path. **LATER / DELEGATE:** existing PFB/CUI/IG bundles retain build
+selection, capability and effort; none dispatched. Sol low/medium for cross-owner
+clock/identity/knowledge judgment, Luna low for a settled bounded leaf. Done:
+one native journey crosses the named seam, then relevant persistence and rebuilt
+desktop evidence; separate human usefulness/tone review. No new runtime or save
+schema was written by this fold.
+
+## Deep engine support for future design, 2026-10-20
+
+Weibao: "deep engine level stuff to make designs and improvement features easier
+in the future?" More-to-consider pass, source inspection and proposals only.
+This round extends EI1–EI22 and UIE1–UIE25 with concrete implementation pressures
+and proof cases. It does not select another runtime wave or change the retained
+[palette implementation](gm/dispatch/palette-completion-2026-10-20/CHECKPOINT.md).
+No agents dispatched, runtime edited, gameplay exercised, commit or push made.
+
+Authority: AR1–AR16, AD1/5–7/15–18/22/32–34/36/38, and the selected domain's
+rules. The first milestone remains one realm and one prestige layer. Default:
+extract a seam while delivering a useful feature. Dial: broaden it when a second
+different consumer or a measured failure needs it. Reason: design freedom comes
+from reusable behavior and cheap feedback, while a speculative framework adds
+another thing every feature must maintain.
+
+### What current source actually shows
+
+Source observations below are READ, not fresh passing evidence. Historical
+checkpoint passes keep their original input identity and acceptance limits.
+
+| Evidence | Consequence for future work |
+|---|---|
+| [Registry](../src/domain_registry.js) has a factory, ordered dependencies and save/load/tick/projection hooks. [Tools](../src/tools_domain.js) and [lamplight](../src/lamplight_domain.js) still keep module-level state/ports; tools configures lamplight. | A lifecycle registry exists, but independently constructible domain state and direct composition are still a useful next extraction. Reconfiguring the singleton is not proof of two independent simulations. |
+| [StatHaver](../src/models/stat_haver.js) records source buckets. `Person` aggregates them and passes mitigation dimensions to [combat math](../src/combat_math.js). Inspected [native battle](../src/native_battle.js) and [party battle](../src/party_battle.js) call mitigation with default dimensions; `rollCombatStrike` reads raw attacker crit chance. | New gear can gain stored stats without equivalent behavior across combat consumers. Sharing storage and helper names does not establish shared semantics. The [gear census](audits/GEAR_STAT_READERS_CENSUS_2026-10-20.md) owns the wider issue; this round confirms these selected call paths, not its entire census. |
+| [Native transaction](../src/native_craft_transaction.js) snapshots live owners and distinguishes pending/durable/rolled-back. It rejects Map/Set/Date and related internal-slot objects. [Expansion persistence](../src/expansion_persistence.js) already builds a staged envelope before storage. | Reuse the existing publication authority. Selecting narrower domain participants can reduce rollback coupling, but a replacement must preserve native identity/private-field behavior and the durable-write boundary. No measured speedup is claimed. |
+| [Simulation](../src/simulation.js) already exposes next boundaries and ordered settlement. Lamplight retains a transient light interval for reading across fuel expiry. | Time-dependent effects need interval semantics across their readers. A new generic scheduler is not justified merely because another domain receives elapsed minutes. |
+| [Capabilities](../src/capabilities.js) retains contributions; [action legibility](../src/action_legibility.js) filters disclosure; [check resolver](../src/check_resolver.js) retains replayable receipts. | Explanation and reproducibility already have useful local implementations. Connect their selected consumers before proposing a general reasoning language or game-wide replay claim. |
+| [World-pack validation](../src/world_pack_manifest.js) has namespaced IDs, revisions and diagnostics; [bundled registry](../src/world_pack_registry.js) shares the runtime pack list with lint. [Structured runtime](../src/structured_pack_runtime.js) retains selection/content identity. | Authoring improvements should extend these paths and verify real consumers. A valid definition or a generated description still does not prove an executable effect. |
+| [Headless runner](../scripts/headless/runner.mjs) rebuilds real source, provides disposable storage and a virtual clock, and instruments private main bindings. It switches browser globals between realms. [Runner tests](../tests/headless/runner.test.js) specify command journeys and persistence comparisons. | A scenario workbench can reuse this investment. It still needs a stable public facade; global switching and a test seed do not prove a freely reentrant engine or whole-game deterministic replay. These tests were read, not run in this pass. |
+
+### ACCOUNT FOR NOW: deeper contracts that earn their cost
+
+EI23–EI32 are proposals under the existing owners, not additional standing rules
+or a required foundation bundle. API design remains with
+[ER12](research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md); these are behavioral
+requirements for a selected implementation, not competing signatures.
+
+| Code | Design freedom it buys | Smallest useful change, cost and decisive proof |
+|---|---|---|
+| EI23 | **Domains can be constructed and disposed independently.** Disposable experiments, test worlds and eventual forecasts need state that cannot overwrite the played world. Extends AR2/AR4 and EI20. | Extract one touched domain into a factory holding its state, narrow ports and subscriptions. Keep the existing singleton facade during migration. Composition supplies its ports directly rather than through an unrelated domain; avoid an omnibus context. Dispose removes only that instance's callbacks. Cost: untangle import-time registration and global readers. Proof: two instances with different stock/light state can interleave commands, dispose one, and save/load the other without cross-talk. This proves the selected seam, not the entire game. |
+| EI24 | **A stat or effect means the same thing wherever its mechanism applies.** Gear, potions, titles, bodies, enemies and allies can share effects without every content author editing every battle. Extends EI3/EI19. | Reuse source buckets and pure combat math; define selected effective fighter inputs and pass them consistently. Keep local combat policy explicit where worlds differ. Include stacking order, zero values, removal and supported numeric ranges. Cost: existing callers/defaults may embody different behavior; separate structural extraction from selected behavior fixes. Proof: a synthetic source affects an appropriate player and enemy/ally through two actual combat paths, is removed correctly, and the receipt/known breakdown matches the effect. A stat declaration alone fails this proof. |
+| EI25 | **Actions bind the actual thing, lot or body.** Repair, enchantment, trade, creature care and alternate-world copies remain composable. Extends EI2/EI4/EI17. | Carry existing stable identity plus the relevant instance, owner and revision through quote/commit. Define split/merge identity only when the selected lot mechanic needs it; do not replace all item keys. Cost: adapters for native inventory identity and legacy bindings. Proof: transfer/re-equip, split a chosen stack, or select an identically named copy between quote and commit; refuse or explicitly requote the changed target without spending. An unchanged intended instance still works. |
+| EI26 | **Cross-domain actions have inspectable participants and a durable result.** A ritual, lesson or repair can spend inputs, change a target and teach evidence coherently. Extends EI7/EI15. | On the selected publication path, identify read dependencies, mutation participants, cost/reservation and result/receipt. Reuse owner snapshots where native objects require them; prefer an existing pure staged plan where available. Keep post-commit observers outside rollback and let reactions request later commands. Cost: exposing private state safely and identifying all participants. Proof: failed durable write restores all affected owners; a render failure after durable success cannot undo the action or cause a retry to pay/reward twice. This does not require event-sourced saves or an undo promise. |
+| EI27 | **Time-dependent causes serve all their readers over the right interval.** Fuel, weather, travel, crafting and sustained abilities can interact without tick-size accidents. Extends EI6/EI10/EI16. | Feed the selected readers boundary-aligned elapsed segments through the existing clock/scheduler. Declare same-time ordering and whether an effect is sampled, integrated or frozen at commitment. Registry dependency order alone does not define all temporal semantics. Cost: adapting actual native time callers and pending remainder, not adding timers. Proof: on a synthetic case where equivalence is intended, one 60-minute advance equals 20+40 minutes when a source expires at minute 20, including work, cost, knowledge and save/load/continue. Pending choices stop at the same boundary. |
+| EI28 | **Resolution can explain both truth and permitted knowledge.** New methods, unfamiliar bodies and world laws are easier to debug and present. Extends EI13/EI18 and UIE17. | Reuse selected evaluator contributions/reasons for an internal trace and a separately filtered player projection. Bind any cache to the dependencies actually read; start with coarse invalidation. Cost: tracing hidden and known premises without duplicating the resolver. Proof: changing a relevant source changes quote/result/explanation together; changing only observer knowledge changes disclosure without changing physical truth; opening the inspector changes neither RNG nor state. Full traces remain development-only and sealed. |
+| EI29 | **Content authors learn whether a feature is real before playing through an hour.** A new material, spell or station can be data when its mechanism exists and code when it needs a new handler. Extends EI11/EI19 and OE4. | Extend existing validators with the selected reference/target/effect-to-reader checks, plus a tiny executable example. Where practical, derive validation and execution support from the same registration. Distinguish catalogued, executable and native-connected coverage explicitly. Cost: defining coverage for each supported handler; do not require a large manifest for static tables. Proof: one deliberately broken row names the missing consumer before activation/spend; a valid new row reaches a native effect without another bespoke core join. |
+| EI30 | **A reusable scenario runner makes design experiments cheap.** Compare a strong build, different local law or new recipe using actual commands. Extends EI20/EI22 and UIE10. | Add a narrow public scenario facade over existing headless/native routes: fixture identity, quote/execute, advance, known inspection and save/load/export/import. Reuse one scenario across the headless and real-browser adapters. Cost: replace private-binding instrumentation as touched, and label any test-only state setup. Proof: reproduce the selected journey and one failure from a named fixture without hand-editing private bindings; compare semantic deltas, then exercise its rebuilt desktop route. Seeded pure-check replay is distinct from whole-game replay; enumerate uncovered RNG/call-order inputs before making that claim. |
+| EI31 | **Definition edits can coexist with already-created things.** Alternate worlds, generated materials and ongoing jobs can evolve without silently changing a lived result. Extends EI14/EI17 and SB2/SB4. | Preserve selected definition ID/revision, instance deltas and frozen commitments through the existing owners. Classify an author edit as presentation, future-definition behavior, current-instance adjustment or explicit rebase. Cost: retained revisions or a scoped migration/reset decision. Proof: change an authored default in a synthetic fixture; a new instance uses it while a retained observed result/paid job follows its declared snapshot policy. Missing content blocks affected execution without silently deleting its state. Old-save support follows the current explicit compatibility decision. |
+| EI32 | **Common envelopes do not flatten different mechanisms.** A light, temperature, ritual authority and legal permission need different readers and aggregation. Extends EI3/EI5/EI14 and AR12. | Declare units, scope, combination and provenance in the selected domain, while sharing identity/custody/publication/disclosure plumbing. A tag routes to supported behavior rather than granting an outcome by itself. Cost: a narrow adapter for each materially different law. Proof: two deliberately different mechanisms can solve the same synthetic obstacle through their own actual means and costs, and inspection explains only what is known. No universal power score, energy fee or anatomy requirement is introduced. |
+
+### LATER / DELEGATE: recommended order when work is selected
+
+This ranking is advice, not a queue change. Finish the currently selected
+playable slice before opening another. Do not dispatch all five as parallel
+lanes, since core/save/time ownership overlaps.
+
+| Priority | Bounded candidate | Capability, effort and done check |
+|---|---|---|
+| P1 | Shared effective combat inputs, EI24 | Sol medium for semantics/caller reconciliation; Luna low for settled adapters. Medium effort. Coordinate with the existing gear owner, trace selected native consumers, demonstrate source add/remove and preserve intentionally different local policies. Relevant combat tests plus rebuilt gameplay and changed-state persistence. |
+| P2 | Direct domain ports and one independently constructible domain, EI23 | Sol medium; medium effort. Keep existing public routes, eliminate the selected cross-domain configuration dependency, prove two-instance/disposal isolation, then prove unchanged native behavior. No project-wide factory conversion. |
+| P3 | One source-owned scenario facade, EI30 with EI28 | Sol medium for boundary selection; Luna low for a settled fixture/adapter. Small-to-medium effort using the runner already present. Same fixture and real commands expose quote/result/time/save differences without manual private-binding patches. Human design judgment remains separate. |
+| P4 | One multi-owner, time-dependent feature, EI25–EI27 | Sol medium; medium-to-large effort depending on native participants. Select a useful feature with actual custody and expiry/interruption pressure. Prove wrong-instance refusal, failed-write conservation and declared segmented-time equivalence. No broad clock rewrite. |
+| P5 | Author-to-consumer validation and revision behavior, EI29/EI31/EI32 | Sol medium to settle semantics; Luna low for deterministic definition checks. Medium effort when the next content family needs it. One bad row fails early; a valid row is playable; an existing instance and a future instance follow their declared revision policy. |
+
+The strongest first pilot is **one synthetic effect source used by two real
+combat consumers**, with a source explanation and a reload check. It exercises
+P1 and can reuse today's test tools without waiting for P2–P5. Its payoff is
+measured by the next source needing fewer core edits, not by the number of
+engine modules produced. A second good pilot is a tool/source serving an
+everyday action and exploration under one local mechanism, following M4's
+cross-domain pattern without exposing its sealed discovery details.
+
+### ACT NOW completed and verification limits
+
+Saved this round in the existing engine owner, continuing EI numbering and
+connecting existing architecture, authoring, scenario and gear owners. Kept the
+proposal/implementation boundary and the current palette's separate authority.
+No new rulebook or accepted product decision was created.
+
+Inspection baseline: HEAD `b0af7db5bd21770ca603fdf1e7b865b376f46857`, dirty shared
+checkout, 2026-10-20 America/New_York. Exact selected source identities are in
+`/tmp/oops-engine-considerations-20261020/inputs.sha256`; the ordered manifest's
+SHA-256 is `2cd7bab411219072e99ce5859e2a7bfb12e6400e5a692b99c685ceb10e4b9016`.
+That local receipt identifies this reading and is not a new passing-test receipt.
+Re-read current sources before implementation.
+
+Documentation checks: `git diff --check -- docs/ENGINE_EXPANSION.md` passed;
+`npm run check:rules` passed (one existing untracked-link warning for the gear
+considerations owner). A scoped script confirmed the entire pre-edit document
+is preserved as an exact prefix, EI23–EI32 are sequential, all 21 new local links
+resolve, style/fences are valid, and the selected source manifest is unchanged.
+No runtime suite, build, browser or persistence journey was run for this pass.
+Future runtime work uses the owning task's relevant checks, then the required
+completion gates. For a player-visible claim, target rebuilt 1920×1080 desktop
+and the current laptop/reading checks; mobile remains deferred. Current-format
+save/reload/Export/literal Import applies when persistence is affected. Technical
+evidence and Weibao's visual/play acceptance remain distinct.
+
+
+### Implementation selected: five connected chats, 2026-10-20
+
+Weibao's later instruction, "Connect accordingly, send new chats to address each, maybe one for each", selects the five bounded P1–P5 pilots. The earlier planning-only status above describes the consideration pass; this instruction authorizes implementation through [the dispatch checkpoint](gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md) and [common handoff](gm/dispatch/deep-engine-2026-10-20/COMMON.md). Those records own writer/dependency state and runtime evidence. Existing gear branch and light/time receipts are reused after live reconciliation. P1/P3 start first, P2/P5 follow their releases, and P4 follows P2/P5, with active palette ownership preserved. No new architecture rule, whole-engine rewrite, commit or push is selected.
+
+
+## P3 scenario facade execution receipt, 2026-10-20
+
+The later five-chat implementation selection delivered the bounded EI30 pilot,
+with observer-safe semantic consequences for EI28. [P3 status](gm/dispatch/deep-engine-2026-10-20/P3_STATUS.md)
+owns current release, exact source/check identity and remaining gates;
+[API and limits](gm/dispatch/deep-engine-2026-10-20/P3_EVIDENCE/API.md) describes reuse.
+The source facade injects quote/execute, known inspection, native time and explicit
+developer persistence operations. One synthetic ordinary lamp fixture runs the same
+success/stale-failure contract headlessly and in rebuilt Chrome at 1920×1080.
+Inspection drops internal notice counters and reveals no future facts. This is a
+selected authoring/testing tool, not accepted whole-engine replay or a general
+hidden-premise explanation system. No production composition or gameplay rule changed.
+P2 may reuse the named registry commands after instance extraction; no required core
+composition patch is handed off. Broader EI28 traces/caching and a second native
+effect adapter retain their earlier proposal status.
+
+Selected browser/headless behavior and current-format persistence passed. The full
+candidate suite and legacy village route retain independently reproduced existing
+integration failures, recorded in P3 status. Human play judgment remains open.
+
+
+## P5 executable authoring execution receipt, 2026-10-20
+
+The selected P5 pilot now connects existing world-pack dormant diagnostics and
+structured compiler/effect/command readers to
+`node scripts/check_content_authoring.mjs [pack.json]`. It reports source,
+definition and row/effect context, supported/dormant/executable coverage and
+synthetic command deltas. Validator/probe success explicitly does not claim
+native connection. Existing unsupported-operation validation and native-resource
+preview refusal were retained; no duplicated handler list or runtime repair was
+needed. [Fixture and usage](../tests/fixtures/deep_engine_authoring/README.md).
+
+The original synthetic workshop reaches the existing native Beginning panel,
+coin/stamina readers and paid job owner through optional pack admission with no
+main/display/save hunk. A rebuilt 1920x1080 browser proves both commands,
+current-format Save/reload/Export/literal Import, exact durable-byte preservation
+when content is changed/missing, exact-v1 restoration and future-v2 defaults.
+Observed beginnings retain exact content identity; paid commitments retain their
+frozen effects. These are existing policies, not a universal rebase mechanism.
+
+[Lane receipt](gm/dispatch/deep-engine-2026-10-20/P5_STATUS.md) owns input hashes,
+43 focused and 2373 full passing tests, build/architecture/rules evidence and
+coverage limits. P5 source paths are released; combined future integration and
+Weibao's play/visual judgment remain separate. This implementation receipt does
+not adopt other engine proposals or authorize commit/push.
+
+
+## P2 independent lamplight domain execution receipt, 2026-10-20
+
+The selected EI23 pilot is implemented through the existing native registry and a standalone lamplight factory with injected ports. Instance-local state and settled-light intervals interleave independently; scoped light/reading callbacks detach on reconfiguration/disposal. A compatible played-game facade remains. Native composition configures Tools and Lamplight directly, with no main/save/display growth and no universal context or registry rewrite. P1's required enemy item-factory registration hunk is integrated; P3's scenario contract remains unchanged.
+
+[Final P2 receipt and combined wave-A/B inputs](gm/dispatch/deep-engine-2026-10-20/P2_STATUS.md) and [API/lifecycle](gm/dispatch/deep-engine-2026-10-20/P2_EVIDENCE/API.md) own exact paths, dirty hashes, tests and source release. Final full suite: 2383/2383; build/architecture/rules and rebuilt 1920x1080 lamp/reading/combat/persistence evidence pass. Existing native fuel/notice, command transaction and interval guard bodies are preserved. Two prior broad crafting/legacy-runner failures pass on the latest palette-integrated inputs. Seeded technical scenarios do not establish natural campaign acquisition, whole-game reentrancy, a natural creature encounter or human play acceptance. P4 follows the separate P2/P5 release gates. No new product rule, save schema, commit/push or whole-engine conversion is claimed.

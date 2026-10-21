@@ -89,7 +89,7 @@ is in [CRAFTING_ENGINE round 4](CRAFTING_ENGINE.md#round-4-2026-10-15-deeper-pot
 | --- | --- | --- |
 | MR34 | **Prove determinism:** golden snapshots for three seeds, a seed sweep with invariants, and the same next value after save, reload and import. | Determinism bugs found by Weibao in play |
 | MR35 | **Prove the canon boundary when a canon pack exists:** the exact formula makes the canon product, a near miss makes degraded, free mixing makes originals, and cited rows have locators. | Canon packs that drift from the source |
-| MR36 | **Playable proof follows AGENTS.md:** rebuild, fresh origin, 1366×768, and Save, reload, Export and literal Import for persistence. Unit tests alone are source evidence, not gameplay. | Claiming engine code is a playable feature |
+| MR36 | **Playable proof follows AGENTS.md:** rebuild, fresh origin at 1920×1080, and Save, reload, Export and literal Import for persistence. Unit tests alone are source evidence, not gameplay. | Claiming engine code is a playable feature |
 
 ## Application reconciliation, 2026-10-18
 
@@ -111,5 +111,5 @@ are qualified by the [2026-10-17 decision](USER_VISION.md#old-save-compatibility
 and [content-ID decision](USER_VISION.md#content-id-retirement-and-frozen-world-idle-2026-10-18).
 A task may reset/drop old state and records that choice. New state still needs
 Save/reload/Export/Import; current references must remain internally consistent.
-MR36's historical 1366×768 target is a floor: new UI evidence also uses the
-1920×1080 primary and other current targets in [UI_RULES](UI_RULES.md).
+MR36's 1366×768 target was retired on 2026-10-19: new UI evidence uses the
+1920×1080 primary and the other current targets in [UI_RULES](UI_RULES.md).

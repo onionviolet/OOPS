@@ -54,7 +54,7 @@ import { round_item_price } from "./misc.js";
 import { group_key_prefix, get_item_value_with_market_saturation, get_total_tier_saturation, get_loot_price_multiple} from "./market_saturation.js";
 import { character } from "./data/character.js";
 import { crafting_component_manager } from "./crafting_component_filling.js";
-import { droplist, enemy_killcount, enemy_templates } from "./enemies.js";
+import { droplist, enemy_killcount, enemy_templates, registerEnemyEquipmentItemFactory } from "./enemies.js";
 import { update_bestiary_entry_tooltip } from "./display.js";
 import AvailabilityComponent from "./components/availability_component.js";
 import { availabilities, availability_havers } from "./data/component_references.js";
@@ -1166,7 +1166,7 @@ class Book extends Item {
     }
 
     addProgress(time = 1, {study = true} = {}) {
-        book_stats[this.name].accumulated_time += time * (study ? (readingRate(character.getTotalSkillLevel("Literacy"))*readingLightFactor()) : 1);
+        book_stats[this.name].accumulated_time += time * (study ? (readingRate(character.getTotalSkillLevel("Literacy"))*readingLightFactor(time)) : 1);
         if(book_stats[this.name].accumulated_time >= book_stats[this.name].required_time) {
             this.setAsFinished();
         }
@@ -4616,6 +4616,7 @@ function restoreSystemsWorkshopAvailability(save){
 }
 
 availability_havers.push(Item);
+registerEnemyEquipmentItemFactory(getItemFromKey);
 
 export {
     item_templates,

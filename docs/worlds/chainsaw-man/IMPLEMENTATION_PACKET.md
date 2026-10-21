@@ -21,8 +21,10 @@ Contract ID, human actor ID, Devil actor ID, offer text knowledge, accepted term
 3. Acceptance consumes exactly the supported price once; duplicate input cannot duplicate the receipt.
 4. A use with valid trigger applies the effect and exact per-use cost; invalid actor/trigger is rejected without mutation unless source evidence says otherwise.
 5. Save/reload/export/import preserves contract terms and remaining costs without duplicate settlement.
-6. Rebuilt browser evidence at desktop viewport demonstrates the changed behavior. A design-only or source test does not prove play.
+6. Rebuilt browser evidence at desktop viewport 1920×1080 primary and 1536×864 floor demonstrates the changed behavior. A design-only or source test does not prove play.
 
 ## Open dependencies
 
-Primary manga chapter verification of exact contract wording, a selected bounded contract/ability with clear conditions, assigned runtime writer, actual save compatibility decision, UI location, and source-specific failure policy. Until those exist, this packet is not implementable proof and all gameplay gates remain open.
+Primary manga chapter verification of exact contract wording, a selected bounded contract/ability with clear conditions, assigned runtime writer, UI location, and source-specific failure policy. Any newly added contract state needs current-format save/reload/import proof; old-save migration remains deferred under current direction. The hunter's wages/debt/rent loop (WG16; S05 × S04 × S02) is an optional later depth extension, not required to prove this one negotiation; if selected later, it needs only a bounded livelihood consequence tied to this contract's price. Until slice sources and implementation ownership are pinned, this packet is not implementable proof and all gameplay gates remain open.
+
+**Source condition:** the cited Wiki snapshot remains secondary evidence. Freeze exact local payload locators for the chosen contract, effect and per-use cost before implementation; where no checked passage supports a detail, retain inherited/unknown source status rather than authoring canon from memory. The interaction and locally proposed values stay labeled as authored proposals.

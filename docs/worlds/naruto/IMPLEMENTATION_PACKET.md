@@ -112,3 +112,10 @@ No runtime check above ran in this design pass. Document checks passed: twenty r
 Rediscover affected input drift before a later dispatch. Shared master/assembly/ability additions preserve existing v1 composition and source/ownership semantics; they do not grant arbitrary targeting/body conversion/graph-solving runtime.
 Checkpoint owner is the brief, current world-expansion specialist. No children, runtime server, tool session, unknown mutation or repair exists here. Four global slots remain master plus three sibling design chats.
 Next action: coordinator reviews the complete design bundle and delivers/reserves stage 0, then selects one world/region's first proof under the existing one-realm/one-prestige sequence.
+
+
+## Detail audit: selected control versus wider physiology, 2026-10-20
+
+WPD-R7, ACCOUNT FOR NOW: Route B distinguishes the operator's actual chakra/body/control and spent reserve from the player's ownership of an idea or paid service. WG9's food/rest/strain interaction is source-dependent depth, not permission to add a free on-entry refill or to block the ordinary carrier route until a complete chakra-body model exists. If a paid operator acts, charge that operator's supported reserve and prevent overlapping bookings.
+
+Before selected implementation: freeze the bounded method's source/target/recovery policy, or retain the ordinary/service-only variant without claiming shinobi physiology. Keep the illustrative amounts authored. Level/effort: Luna low for supplied technique/stock rows; coordinator medium for current instance and energy owners. Done check: absent source, exhausted operator or stale participant availability rejects before spend; the alternative service and ordinary fitting conserve distinct costs and settle the same delivery once through current-format round trips. Broader chakra physiology, meals, Gates and medical jutsu stay later unless consumed by this slice.

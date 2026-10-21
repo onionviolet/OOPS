@@ -36,6 +36,12 @@ method that worked into its playbook rather than leaving it in one run report.
 
 ## Source acquisition tools
 
+Start at [the shared tool registry](docs/TOOL_REGISTRY.md) or
+`python3 scripts/toolsets.py list` for current REA/Ghidra, managed/Unity,
+Discord, book, media and verification routes. Use `show` and scoped
+`doctor --probe` before a launch; dated tool-fit reports are history, not
+current installation authority. Launchers do not install, register or sign in.
+
 Before collecting books or fanfiction, read
 [source acquisition tools](docs/research/SOURCE_ACQUISITION_TOOLS.md). Discover
 the existing `/Users/weiwei/code/lncrawl-polite` fork and project bridges before

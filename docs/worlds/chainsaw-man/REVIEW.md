@@ -71,3 +71,7 @@ Rows 1 to 10 and 12 cover every SYNTHESIS §2 law. Rows 11 and 13 to 21 are the 
 7. **Payload-supported missed rules added.** Added possible Fiend reversion, Hybrid trigger/heart recovery, Devil ability blood costs and death termination, hedged fragmentation, and erasure's history/memory effects as actor-specific rules with uncertainty preserved. Files: `SYNTHESIS.md`, `SOURCE_LEDGER.md`, `ABILITY_VARIANTS.md`, `INTERACTIONS.md`.
 
 No review fixes or supported missed rules were declined. No runtime/gameplay claims were added.
+
+## 2026-10-20 packet detail pass
+
+Aligned the browser gate to 1920×1080 primary and 1536×864 floor; clarified current-format save roundtrip versus deferred old-save migration; and recorded WG16 livelihood depth as optional, with only a bounded price consequence if later selected. Exact frozen payload locators for the chosen contract/effect/use cost remain a preimplementation condition. See [L3 audit](../../audits/world_pack_details_2026-10-20/L3.md).

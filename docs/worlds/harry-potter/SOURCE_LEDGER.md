@@ -2,11 +2,26 @@
 
 Status: bounded candidate-source review, 2026-10-03. Master owner. This supports an origin/campaign proposal, not a full seven-book audit or selected sixth deep adaptation. [Brief](WORLD_BRIEF.md) owns local proposal; [origins/timelines](../ORIGINS_AND_WORLD_TIMELINES.md) owns shared start rules.
 
+## Current acquisition and evidence route, reconciled 2026-10-20
+
+The [2026-10-11 preparation](../../research/novels/harry-potter/source-preparation-2026-10-11/README.md)
+now holds seven-novel extracted text and page/FTS locators. The [deep-world census
+record](../../DEEP_WORLD_WORKFLOW_2026-10-19.md#dwf49-result-hp-searched-rows-checked-against-text-2026-10-19)
+and the later audit2/WPD corrections now leave **32 `read`, 224 `read-window`,
+and zero `searched` rows** (256 total). The last subject row was checked at
+B1:PDF-p107; its scope is a short teaching window, not a full lesson. Two
+spell-name spellings occur in extracted B4 pages; keep one stable ID with the
+variant in its note until PDF/edition authentication, rather than minting a
+second spell. Private `WPD_CORRECTIONS_2026-10-20.json` holds the exact windows
+and before/after hashes. Acquisition, a search hit and a 1,200-character window are different from a
+complete scene or full-novel read. H1–H8 below retain their original bounded
+source classes; no automatic upgrade to seven-novel verification follows.
+
 ## Proposed boundary
 
 Default source snapshot: J.K. Rowling's original seven Harry Potter novels, English Bloomsbury series, including their authored endpoint. Film, Cursed Child, Fantastic Beasts, games, later television material and supplemental writings are separate source sets. No recent release schedule, shopping choice, copied text, panels or assets is relevant to this design.
 
-The publisher synopsis was inspected; complete book/chapter text was not acquired. Official companion/author pages below are reference evidence whose range is stated separately. A claim being verified on a companion page does not mean its details were cross-checked against every original novel.
+Historical boundary of the 2026-10-03 pass: the publisher synopsis was inspected; complete book/chapter text was not acquired in that pass. Official companion/author pages below are reference evidence whose range is stated separately. A claim being verified on a companion page does not mean its details were cross-checked against every original novel.
 
 | ID / evidence | Bounded inspected fact and primary source | Permitted use / limit |
 |---|---|---|

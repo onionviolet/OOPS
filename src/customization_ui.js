@@ -1,7 +1,7 @@
 import {createSettledTextEffects} from './settled_text_effects.js';
 import {COMPONENT_THEMES} from './component_themes.js';
 import {mountDisplaySettings} from './display_settings.js';
-import {defaultCustomizationState, defaultPresentationSettings, validateCustomizationState, getCustomizationSettings, mergePresentationSettings, applyCustomizationProfile, EFFECT_MODULES} from './customization_profiles.js';
+import {defaultCustomizationState, defaultPresentationSettings, validateCustomizationState, getCustomizationSettings, mergePresentationSettings, applyCustomizationProfile, createLuminousGothicDraft, EFFECT_MODULES} from './customization_profiles.js';
 
 export function createCustomizationUI({container, effectsContainer, read, save, season = () => '', canWrite = () => true, moduleIds = [], previewContainer, readPreview = () => []}) {
     function surface(host, title, explanation) {
@@ -28,7 +28,7 @@ export function createCustomizationUI({container, effectsContainer, read, save, 
     const theme = select('Seasonal theme', ['off','automatic','manual']), manualSeason = select('Manual season', ['spring','summer','autumn','winter']);
     const componentTheme = select('Component theme',Object.keys(COMPONENT_THEMES));
     const name = input('New profile name', 'text'); name.maxLength = 40;
-    const font = select('Font', ['system','serif','mono']), size = input('Font size', 'number', 10, 28);
+    const font = select('Font', ['system','serif','mono','gothic']), size = input('Font size', 'number', 10, 28);
     const background = input('Background', 'color'), text = input('Text', 'color'), accent = input('Accent', 'color'), spacing = input('Spacing', 'number', 0, 32);
     currentFields = effectFields;
     const effects = select('Effects', ['off','reduced','full']), sound = input('Sound after gesture', 'checkbox'), presentation = select('Receipt placement', ['inline','margin']);
@@ -102,6 +102,7 @@ export function createCustomizationUI({container, effectsContainer, read, save, 
     profile.addEventListener('change', () => { try { capture(); draft.active = profile.value; render(); status('Draft profile selected. Apply to activate.'); } catch (error) { status(error.message); } });
     module.addEventListener('change', () => { try { capture(); target = module.value; render(); status(target ? `Editing ${target} override. Apply to save.` : 'Editing whole profile. Apply to save.'); } catch (error) { status(error.message); } });
     const create = button('Create profile draft', () => { try { capture(); const next = structuredClone(draft); if (Object.hasOwn(next.profiles, name.value)) throw new Error('Choose a new profile name.'); next.profiles[name.value] = structuredClone(next.profiles[next.active]); next.active = name.value; draft = validateCustomizationState(next); render(); status('New profile draft. Apply to save.'); } catch (error) { status(error.message); } }); create.dataset.write = 'true';
+    const luminousDraft = button('Luminous Gothic draft', () => { try { capture(); draft = createLuminousGothicDraft(draft); target = ''; render(); status('Luminous Gothic profile draft created. Apply to save and activate.'); } catch (error) { status(error.message); } }); luminousDraft.dataset.write = 'true';
     const apply = button('Apply and save', async () => {
         if (busy || !allowed()) return;
         try { capture(); busy = true; editable(); await save(structuredClone(draft)); if (disposed) return; status(`Saved ${draft.active}. Native season: ${season() || 'unavailable'}.`); }
@@ -110,6 +111,20 @@ export function createCustomizationUI({container, effectsContainer, read, save, 
     }); apply.dataset.write = 'true';
     const reset = button('Reset draft', () => { if (target) delete draft.profiles[draft.active].modules[target]; else draft.profiles[draft.active].settings = defaultPresentationSettings(); render(); status('Default draft restored. Apply to save.'); }); reset.dataset.write = 'true';
     button('Discard draft', () => { refresh({force: true}); status('Restored saved presentation.'); });
+    // GU6: the verified text sizes as one-step presets. Each sets the draft Font size and applies it
+    // through the same Apply and save path, so the preset is the normal customization and nothing more.
+    for (const px of [14, 17, 21]) {
+        const preset = button(`Text size ${px}`, () => {
+            // The preset saves the whole draft, so it refuses rather than commit edits made elsewhere,
+            // and it applies to the whole profile, never to one native module's override.
+            if (target) { status('Select "Whole profile" before using a text size preset.'); return; }
+            try { capture(); } catch (error) { status(error.message); return; }
+            const pending = JSON.stringify(validateCustomizationState(draft)) !== savedSignature;
+            if (pending) { status('Apply or discard your other draft changes first; the preset saves the whole draft.'); return; }
+            size.value = String(px); changed(); apply.click();
+        });
+        preset.dataset.write = 'true'; preset.dataset.textSizePreset = String(px); preset.title = `Set the font size to ${px}px and save it`;
+    }
     const importButton = button('Import to draft', () => { try { draft = validateCustomizationState(JSON.parse(json.value)); target = ''; render(); status('Imported and validated draft. Apply to save.'); } catch (error) { status(`Import rejected: ${error.message}`); } }); importButton.dataset.write = 'true';
     button('Export draft JSON', () => { try { if (allowed()) capture(); json.value = JSON.stringify(validateCustomizationState(draft), null, 2); status('Export ready in the JSON field.'); } catch (error) { status(error.message); } });
     for (const [label, original] of [['Apply and save', apply], ['Reset draft', reset], ['Discard draft', [...actions.children].find(node => node.textContent === 'Discard draft')]]) {

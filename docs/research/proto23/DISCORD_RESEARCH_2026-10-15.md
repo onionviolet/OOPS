@@ -276,3 +276,16 @@ The SMART owner says the prior successful HTML/media ZIP was discovered after
 completion; the agent did not observe the final export clicks or verify its
 installed build. Thus prior exact settings and route are unknown. Earlier
 instructions in this chat overstated certainty about matching that workflow.
+
+## Corc attachment and design continuation, October 20
+
+[Media and design collection](CORC_MEDIA_AND_DESIGN_2026-10-20.md) preserves all
+23 newly supplied local files and seven linked media resources, traverses the
+308-result Corc attachment search, saves cached media and 17 selected context
+windows, and records F14–F29 with their source dates and attribution. It also
+preserves the tooltip chronology correction and distinguishes saved derivatives,
+original file downloads, missing attachments and unreviewed content. This does
+not close the earlier full-channel/thread archive gate. A separate local
+`discord-reference-workbench` chat now owns existing-exporter research and a
+thin indexing/verification toolset; no new product direction or runtime work
+is selected.

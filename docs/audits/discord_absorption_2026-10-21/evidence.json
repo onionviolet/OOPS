@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-21 America/New_York",
+  "scope": "Saved Discord pulls versus live documentation/source; no new Discord fetch or browser gameplay",
+  "comparisons": {
+    "palette": {
+      "owner": "docs/gm/dispatch/palette-completion-2026-10-20/FINAL_INPUTS.json",
+      "compared": 736,
+      "changed": [
+        {
+          "path": "src/main.js",
+          "candidate": "860fef5c74ec69590ddb147ebb1d3ebca7ebc0e63014a7670337c6449b8f86e7",
+          "live": "6db6f4de06b712c9e151373f6c1e8ccb42a8b55844a640360b5fc2c281922275"
+        },
+        {
+          "path": "src/new_game_beginning.js",
+          "candidate": "bde14b9063dee50fedd76fd740f587623ed83eeb286b75db34731783a91fd312",
+          "live": "a61c6b4e4255607183f1099ec2e6959318bc3834ca066e817463f3fb6be05a96"
+        },
+        {
+          "path": "src/household_scene.js",
+          "candidate": "6f6681cd944231062dffb6315e60fe0e7141410c9ce5cdb743e8876b8627e909",
+          "live": "21b0afac7c4e8573be5af73efd246c23be9c6fff8ba3aa483b42e1f0a95b25b0"
+        },
+        {
+          "path": "src/game_bar.js",
+          "candidate": "21cfe684de3f59f915f0dc9144499a30342731a7e1987d7e79da1b49e7b92c4c",
+          "live": "90ad602d5df8a2c6a0cfd43245c1469b6aa25832ee01bcd56365caaf764ae175"
+        },
+        {
+          "path": "src/absorb_p23/host_joins/tranche_one_ui.js",
+          "candidate": "af553a78ac5b324580c3061e54b181af4f7710f8a75ab868654ebb430844c99d",
+          "live": "e01bfc296667f14100fe4161fbff84cd6060f3c912143f8d3d9b350912d6fba7"
+        },
+        {
+          "path": "src/absorb_p23/household/host.js",
+          "candidate": "dd9ccb74fb39d8922c3a6b32913aa9b32173b058c189d03c16cca69ec9a1040f",
+          "live": "cadeee7e06dfe1ded0632a70b1352313bcbf501b4bf3ec81a48b189b21a572be"
+        },
+        {
+          "path": "src/absorb_p23/household/model.js",
+          "candidate": "280229d560d31828b75207135e9e3393df83e84f869b6b608ef0531213a8ea74",
+          "live": "3c7d8752be957efd2ee59420e35a4aaccc71af4e4017f06acdf041d26eef9749"
+        },
+        {
+          "path": "styles/workspace.css",
+          "candidate": "080232f17190db10475260d14a4355e7fd9c5f260b3fd5407e91efcfc8a6a092",
+          "live": "d6084d59bd977d433ac9335567e081e3cec5e605ffb6ff5413226b1fee05e84a"
+        },
+        {
+          "path": "styles/oops_branding.css",
+          "candidate": "477f55941b721ea92ad99404c9ce22dc1a7c6045c8bcbd799140e548bb9ee952",
+          "live": "35834d2b882575420a7395fcfe1318e3ef8c864f445b24e74a88a4941ae46039"
+        }
+      ],
+      "missing": []
+    },
+    "latest_reference_followup": {
+      "owner": "docs/gm/dispatch/reference-gap-followup-2026-10-20/INPUTS.json",
+      "compared": 736,
+      "changed": [
+        {
+          "path": "src/main.js",
+          "candidate": "e152c9b1cc507a1ba68f0b943fcc5938b9f0b885a85d4f3c92e24bd93832705f",
+          "live": "6db6f4de06b712c9e151373f6c1e8ccb42a8b55844a640360b5fc2c281922275"
+        },
+        {
+          "path": "src/new_game_beginning.js",
+          "candidate": "bde14b9063dee50fedd76fd740f587623ed83eeb286b75db34731783a91fd312",
+          "live": "a61c6b4e4255607183f1099ec2e6959318bc3834ca066e817463f3fb6be05a96"
+        },
+        {
+          "path": "src/game_bar.js",
+          "candidate": "21cfe684de3f59f915f0dc9144499a30342731a7e1987d7e79da1b49e7b92c4c",
+          "live": "90ad602d5df8a2c6a0cfd43245c1469b6aa25832ee01bcd56365caaf764ae175"
+        },
+        {
+          "path": "styles/workspace.css",
+          "candidate": "080232f17190db10475260d14a4355e7fd9c5f260b3fd5407e91efcfc8a6a092",
+          "live": "d6084d59bd977d433ac9335567e081e3cec5e605ffb6ff5413226b1fee05e84a"
+        },
+        {
+          "path": "styles/oops_branding.css",
+          "candidate": "477f55941b721ea92ad99404c9ce22dc1a7c6045c8bcbd799140e548bb9ee952",
+          "live": "35834d2b882575420a7395fcfe1318e3ef8c864f445b24e74a88a4941ae46039"
+        }
+      ],
+      "missing": []
+    }
+  },
+  "shared_bundle_sha256": "a9c02f8fddea32ff5b06c114cab85d42859950c3b1b3143890a55689fb6e8a9d",
+  "plan_fold": {
+    "codes": 194,
+    "PFA_count": 90,
+    "PFA_missing": [],
+    "missing_owner_paths": []
+  },
+  "focused_tests": {
+    "command": "node --test tests/presentation_style.test.js tests/meter_bar_dom.test.js tests/craft_batch_goal.test.js tests/palette_feedback.test.js tests/interaction_native.test.js tests/household_firewood.test.js tests/household_play.test.js",
+    "passed": 25,
+    "failed": 0,
+    "log": "focused-tests.txt"
+  }
+}

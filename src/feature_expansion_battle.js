@@ -13,7 +13,7 @@ import {remainderCombatObjectivesAdmissionReasons,initializeRemainderCombatObjec
 import {commitSimulationCommand,previewSimulationCommand,simulationOccupiesActor} from './simulation.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {validateExpansionState} from './expansion_engine.js';
-import {rollCombatStrike,mitigateCombatDamage} from './combat_math.js';
+import {rollCombatStrike,mitigateCombatDamageFromStats} from './combat_math.js';
 import {activePractice} from './techniques.js';
 import {SKILL_IDS} from './skill_expansion_content.js';
 import {featurePowerFacts,FEATURE_HARNESS,FEATURE_HOOK_POLE,FEATURE_KIT,FEATURE_LOG,FEATURE_POWER_WORLD} from './feature_expansion_powers.js';
@@ -316,14 +316,14 @@ export function commitFeatureBattleAction(state,registry,c,context,bindings={}) 
             const strike=rollCombatStrike({attackPower:attacker.attackPower*(hadStamina&&hp(c.actorId).stamina===0?(attacker.emptyStaminaMultiplier||.5):1),attacker:attacker.stats,target:stats,shield:Math.max(victim.shield,temporaryShield),shieldSkill:victim.shieldSkill,
                 hitModifier:(focused?1.25:1)*(exposed?1.2:1)*(reference&&c.opportunity==='counter'?1.2:1),damageModifier:targets.length>1?.65:reference&&c.opportunity==='counter'?1.2:1,random});
             const previousHealth=hp(targetId).health;
-            const damage=strike.kind==='hit'?mitigateCombatDamage(strike.values,stats.defense):0;hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
+            const damage=strike.kind==='hit'?mitigateCombatDamageFromStats(strike.values,stats):0;hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
             fieldOutcomes.push({targetId,kind:strike.kind,damage:previousHealth-hp(targetId).health,guarded:!!g});
             if(focused)b.focused=b.focused.filter(id=>id!==requested);if(exposed)b.exposed[requested]--;
             const anchored=foes.includes(c.actorId)&&liveIds(b).includes(FEATURE_SHIELD)&&featureOwnedGear(plan.state,FEATURE_SHIELD,'field_frame',FEATURE_HARNESS)&&!b.wedge;
             if(g&&strike.kind!=='evaded'&&(g.mode==='redirect'||g.by===FEATURE_HELPER&&featurePowerFacts(state,context)['feature.party.drills']>=4)&&!anchored)hp(c.actorId).stamina=Math.max(0,hp(c.actorId).stamina-2);
             if(c.actorId===FEATURE_SHIELD&&(!reference||c.technique==='rush')&&strike.kind==='hit'&&requested==='player')b.escape.progress=Math.max(0,b.escape.progress-1);
             if(c.actorId===FEATURE_HOOK&&(!reference||c.technique==='hook')&&featureOwnedGear(plan.state,FEATURE_HOOK,'hook_pole',FEATURE_HOOK_POLE)&&strike.kind==='hit'){hp(targetId).stamina=Math.max(0,hp(targetId).stamina-(hookAftermath?.extraStaminaLoss??1));b.guards=b.guards.filter(x=>x.by!==targetId);if(hookAftermath){const r=remainderCombatFitHookReceipt(targetId,hookAftermath,{action:b.actions+1,sequence:state.sequence+1});if(r)fitReceipts.push(r);}}
-            const defended=!!g&&foes.includes(c.actorId)&&requested==='player'&&hp(targetId).health>1&&(strike.kind==='blocked'||strike.kind==='hit'&&damage<mitigateCombatDamage(strike.values,victim.stats.defense));
+            const defended=!!g&&foes.includes(c.actorId)&&requested==='player'&&hp(targetId).health>1&&(strike.kind==='blocked'||strike.kind==='hit'&&damage<mitigateCombatDamageFromStats(strike.values,victim.stats));
             outcomes.push({targetId,kind:strike.kind,damage,defended});
             if(reference&&defended&&!b.opportunity) {
                 b.opportunity={earnedAction:b.actions+1,attackerId:c.actorId,defenderId:targetId,playerMove:b.fighters.player.moves};

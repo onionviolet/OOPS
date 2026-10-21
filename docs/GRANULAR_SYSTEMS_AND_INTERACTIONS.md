@@ -203,3 +203,108 @@ One existing book gets an optional short excerpt and practical lead through inve
 Finished books need an explicit consult/reread mode: do not clear completion or reuse completion rewards. New recipe/skill/quest effects need supported staged unlock adapters. The selected command must validate possession, occupation and access; the ordinary Read button and native callback are not proof of transaction support. Per-copy annotations/editions remain later scope.
 
 Playable gate: consult/read, understand the lead, perform the application, then return to the changed passage/action within the existing menu. Rebuild and check generated saves during reading and after settlements, including previously finished books and duplicate copies, without lost progress, repeated bonuses or duplicate discoveries. Human review assesses usefulness, subtlety and humor. Documentation only in this pass; implementation and the playable gate remain pending.
+
+
+## Corc reference round, 2026-10-20: connected routines
+
+**Proposal extension**, not a refresh of every 2026-10-02 source absence/defect
+claim above. [Current synthesis and seam map](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md)
+(CRL1–CRL14) checked that tools, harvest freshness/completeness, chest transfers,
+furniture benefits, pacing and compact logs already have source owners. Their
+presence does not close current rebuilt gameplay or human acceptance gates.
+AD6–AD8, AD15–AD19, AD28, AD31–AD36, AD38, MR5/MR32, SR15–SR24 and UR49 apply.
+
+| Connection | Added design opportunity | Default, dial and reason/cost |
+|---|---|---|
+| CRL2–CRL4 | A gathering intention links means, output and logistics | Show the actual tool, reason for a stop and supported next method; make the output useful through an existing reader. Transport constraints enter when carrying changes a real choice. Powerful means can retire a former obstacle without forced matching resistance. |
+| CRL5, CRL11 | Expertise and home improvements can move attention to the next outing | A stockpile, practiced method or appropriate automation reduces repeated tending with an actual resource/time cost. Ordinary home life can remain enjoyable without compulsory rewards. World pause/routine policies prevent inventing absentee maintenance debt. |
+| CRL1, CRL13 | A changed reason to revisit is a stronger loop than a larger quota | Observation prompts preparation; preparation changes an authored outing; its aftermath changes the next choice. Existing body, skill and storage owners supply the necessary parts. World-specific bodies/powers can remove a constraint through their mechanism. |
+| CRL12 | An object's prose can suggest the next experiment | Keep background flavor, attributed claims, observed properties and actual methods distinct. A claim need not be true, and a flavor line is not a promise that every implied simulation already exists. |
+
+**ACT NOW (done):** linked current seams and the evidence-qualified proposals.
+**ACCOUNT FOR NOW:** useful aftermath, player attention and information are part
+of the same selected journey; source-world constraints do not become multiverse
+absolutes. **LATER / DELEGATE:** CRJ1–CRJ4 in the linked report are locally ranked
+candidates with before/after experiences, capability, effort, triggers and done
+checks. CRJ1 reuses gathering/tool work; CRJ3 tests home preparation at one authored
+place. No cliff subsystem, second world, NPC simulation, generated layout or
+whole-game foundation is a prerequisite. No implementation or acceptance here.
+
+
+## Corc reference round 2, 2026-10-20: slips, returns and playful competence
+
+**Proposals**, extending the prior round through
+[CRL15–CRL26](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-2-2026-10-20-falling-little-ui-reactions-and-fun).
+OOPS already declares climbing training, up/down travel and mountain shelter/noise
+in `src/data/locations.js`; this is not proof of fall/catch mechanics. BHR10–BHR18,
+AD16/AD19/AD28/AD38, SR15–SR24 and UR35/UR38 apply.
+
+| Connection | Default | Dial and reason/cost |
+|---|---|---|
+| CRL16–CRL18: slip to aftermath | Distinguish a stumble, losing height, catching support, landing and a collapse where the selected route needs them | Body, surface, support and actual means tune outcomes. A lower ledge or a rest can continue an outing under forgiving recovery. Cargo displacement/lasting injury need separately selected ownership/recovery rules; not every slip is a defeat. |
+| CRL20/CRL23: ordinary texture | Derive posture, wet footprints or a creature's optional reaction from existing useful state | A new persistent fact earns an owner only if worth remembering. Local art can be transient; a real name/object/custody change is durable. No large social simulation needed. |
+| CRL24/CRL26: competence and revisits | Let improvement retire old friction and let a callback reflect what really happened | A formerly frightened climber can later protect lunch while effortlessly passing the same obstacle. Do not confiscate a working power or revive a repaired nuisance for a joke. Use the existing humor cause/audience/recurrence owner. |
+
+**ACT NOW (done):** added the new fall/return connections and current source
+qualifications. **ACCOUNT FOR NOW:** a genuine rescue choice follows the paused
+choice/policy owner; accepted protective stops may inspect real consequences
+while keeping their explanation observer-safe. **LATER / DELEGATE:** CRJ5/CRJ7,
+small comparison/content studies when their selected activity/home route is next
+in scope; Sol low/medium, done when the authored sequence is intelligible and the
+callback preserves real history and competence. Human feel remains separate.
+No runtime slice, extra body simulator or new injury/loss default selected.
+
+
+## Reference detail fold, 2026-10-20: physical routines and ordinary life
+
+Proposal continuation of G1–G5 and both Corc rounds, with the full palette kept
+after Weibao's request. The [coverage/engine companion](research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md#plan-fold-and-further-interactions-2026-10-20)
+routes all 90 atomic feature comparisons here or to their narrower owners.
+AD5–AD8/AD15–AD19/AD22/AD28/AD32–AD36/AD38/AD40, MR and the relevant body,
+combat, economy, skill, presence and site rules remain authoritative.
+
+| Existing family | Folded opportunities | Mechanism, default/dial/cost and later check |
+|---|---|---|
+| G1 body/exposure/recovery | PFA024–PFA027/PFA047–PFA055; PFE05–PFE10/PFE23/PFE25 | One authored climb can distinguish footing, support, catch, impact and recovery. Weather acts through the exposed surface/body; rain helping a particular creature needs that mechanism. Stage the real body/method, including safe bypass. Fuel expiry inside an interval needs the right lit/dark durations. Cost: selected readers and relevant boundary state. Check a clean route, one changed exposure and a continuing recovery without treating every stumble as defeat. |
+| G2 knowledge and methods | PFA056–PFA064/PFA068–PFA070; PFE08/PFE14/PFE20/PFE26 | Unknown skills, books, mastery, titles, creature patterns and useful pursuit clues can answer the next move with supported means. Exact drop weights/hidden expiry are not copied from an omniscient reference display. AA9–AA15 own disclosure and witnesses. Cost: the selected observations and actual skill/recipe reader. Check one novice/expert or new-observation comparison without false foresight. |
+| G3 custody and local supply | PFA038–PFA046/PFA083–PFA086; PFE03/PFE09/PFE10/PFE22/PFE28 | Storage, material age/history, repair services, local offers and light can change an outing. Native storage stays unlimited unless a selected local mechanism introduces another constraint. Current lamp supports douse/relight; installed furniture/drying fuel is not proof of continuous hearth burn. Cost: real holders/readers and chosen history. Check exact-copy transfer, a meaningful repair/price comparison and actual resource conservation. |
+| G4 time and retained intention | PFA065–PFA067/PFA073; PFE02/PFE06/PFE11/PFE17/PFE22–PFE24 | Exchange break and encounter break remain distinct intentions. Real choices pause; animation does not create a response window. Time, stage, attempts and usable output need explicit units, settlement and stop policy. Cost: only the selected job/policy state. Check interruption, shared-stock contention and a mid-interval boundary through the actual clock/transaction owner. |
+| G5 explanation and continued life | PFA071–PFA072/PFA074–PFA082/PFA087–PFA090; PFE12–PFE15/PFE26–PFE30 | A cat, home improvement, book passage, reported news, familiar place or contextual joke can be useful or simply enjoyable. Keep named sets, command search and discovery reference conveniences that already exist. A charming local actor does not require NPC-heavy simulation; news needs an attributed report. Cost: a few real facts/actions and suitable prose. Check identity, a fitting consequence or callback, quiet return and stable controls. |
+
+**ACT NOW (done):** all reference feature families now have a current owner;
+the detailed comparison remains the evidence index. **ACCOUNT FOR NOW:** same
+applicable mechanisms can serve player, enemy, ally or creature, with world/body
+differences expressed locally. A scene is not a whole physics engine, a rumor is
+not omniscience, and a home detail need not be a tending tax. Existing one-realm/
+one-prestige milestone, NPC-heavy and generated-layout deferrals remain intact.
+**LATER / DELEGATE:** retain all PFB1–PFB5/CRJ1–CRJ7 ideas, one selected playable
+slice at a time. Their existing briefs supply capability/effort/trigger/done;
+no new wave or implementation priority is created here. Native interaction,
+persistence and human feel remain separate gates.
+
+
+## Recovered Corc round 8, 2026-10-21: investigation responds to changing means
+
+[CRL52](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-8-2026-10-21-useful-mechanics-beyond-titles), under AD6–AD8/AD38, SR1–SR24, AR3 and UR62/UR63, is now part of the user's requested useful recovered-26 implementation coverage. The source's investigation can begin with a vague cue, then rechecks darkness/sight while active and stops when sight is no longer supported. That is a historical source path, not proof of an OOPS detector or exact source formula.
+
+For a selected native place, distinguish “I can investigate,” a supported vague cue, progress toward learning something and the learned fact itself. A hint has its own public meaning; it does not need a hidden name/count in a tooltip. Check the relevant sensing means during work, not just at entry: light loss, changed support or another actual obstacle can alter available methods. A different working sense/tool/power may let the investigation continue. Progress retained or lost follows the actual examination and target, with a useful next move rather than an unexplained grey button.
+
+Use the existing presence/field/site/knowledge route that owns the selected subject. The action can be a quiet idle investigation rather than a forced click hunt. Local expressive details, such as listening instead of peering into darkness or a character lowering a spent lamp, follow real methods and settled public state. They cannot act as a secret oracle or invent a reaction window.
+
+ACT NOW (done): saved this means-over-time interaction. ACCOUNT FOR NOW: preserve actor/subject/method and observer-safe result; avoid a second general investigation subsystem. IMPLEMENTATION: inspect current coverage, then prove or add one fitting place/action with a real mid-work change, an available supported alternative and retained observation through reload where state persists. Sol medium for means/knowledge, Luna low for settled expression, small/medium. Done: no unsupported revelation, truthful stop/continue reason, existing command/cost owner and a useful discovered outcome. Source examples and sealed truths stay private until their actual discovery route.
+
+
+### Native changing search means, 2026-10-21
+
+The useful-recovered-26 continuation implements CRL52 in the existing frontier
+local loose-find search. Current place illumination and native Night vision
+choose visual search or slower nearby touch. Lamp expiry and relighting change
+work rate without erasing completed search work. The native default uses five
+work units, visual rate 1, touch rate 0.5, effective light threshold 60 or half
+native Night vision mastery. Those are reversible local proposal dials; they do
+not change other worlds' means or imply a global hidden-object detector. Existing
+location/interruption and finite-find settlement remain authoritative.
+
+A rebuilt native lamp-expiry/relight/discovery journey, pending/final persistence
+and actual 14/21px desktop controls supply the bounded evidence.
+[Continuation report and remaining scope](gm/dispatch/title-rules-implementation-2026-10-21/CONTINUATION_REPORT.md).

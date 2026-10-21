@@ -1,0 +1,384 @@
+{
+  "base": "http://127.0.0.1:57584/",
+  "checks": [
+    "Shared workbench deep-link loads launch study; layout switch preserves background/system; preview/Escape restores opener.",
+    "Comparison mirrors selection between alternatives; long-label scenario resets the shared fixture explicitly.",
+    "Both layouts inspected at three desktop sizes and 14/21px; column layout retains visible preview action and adjacent summary. No storage writes."
+  ],
+  "geometry": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "variant": "columns",
+      "play": {
+        "x": 1024.1875,
+        "y": 961.21875,
+        "w": 288,
+        "h": 40.78125,
+        "bottom": 1002
+      },
+      "choice": {
+        "x": 444.40625,
+        "y": 285.5,
+        "w": 1006.03125,
+        "h": 404.21875,
+        "bottom": 689.71875
+      },
+      "summary": {
+        "x": 1464.4375,
+        "y": 353.4375,
+        "w": 427.546875,
+        "h": 268.328125,
+        "bottom": 621.765625
+      },
+      "screenScroll": 1080,
+      "choiceScroll": 402,
+      "choiceHeight": 402,
+      "bodySize": "14px"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "variant": "stacked",
+      "play": {
+        "x": 816,
+        "y": 808.546875,
+        "w": 288,
+        "h": 40.78125,
+        "bottom": 849.328125
+      },
+      "choice": {
+        "x": 456,
+        "y": 233.953125,
+        "w": 1008,
+        "h": 404.21875,
+        "bottom": 638.171875
+      },
+      "summary": {
+        "x": 456,
+        "y": 652.171875,
+        "w": 1008,
+        "h": 142.375,
+        "bottom": 794.546875
+      },
+      "screenScroll": 1080,
+      "choiceScroll": 402,
+      "choiceHeight": 402,
+      "bodySize": "14px"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "variant": "columns",
+      "play": {
+        "x": 960.09375,
+        "y": 901.125,
+        "w": 414,
+        "h": 58.875,
+        "bottom": 960
+      },
+      "choice": {
+        "x": 456.203125,
+        "y": 131.046875,
+        "w": 983.015625,
+        "h": 660.03125,
+        "bottom": 791.078125
+      },
+      "summary": {
+        "x": 1460.21875,
+        "y": 244.28125,
+        "w": 417.765625,
+        "h": 433.546875,
+        "bottom": 677.828125
+      },
+      "screenScroll": 1080,
+      "choiceScroll": 658,
+      "choiceHeight": 658,
+      "bodySize": "21px"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "variant": "stacked",
+      "play": {
+        "x": 753,
+        "y": 1202.015625,
+        "w": 414,
+        "h": 58.875,
+        "bottom": 1260.890625
+      },
+      "choice": {
+        "x": 204,
+        "y": 348.046875,
+        "w": 1512,
+        "h": 600.984375,
+        "bottom": 949.03125
+      },
+      "summary": {
+        "x": 204,
+        "y": 970.03125,
+        "w": 1512,
+        "h": 210.984375,
+        "bottom": 1181.015625
+      },
+      "screenScroll": 1381,
+      "choiceScroll": 599,
+      "choiceHeight": 599,
+      "bodySize": "21px"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "variant": "columns",
+      "play": {
+        "x": 951.046875,
+        "y": 921.21875,
+        "w": 288,
+        "h": 40.78125,
+        "bottom": 962
+      },
+      "choice": {
+        "x": 418.109375,
+        "y": 265.5,
+        "w": 940.265625,
+        "h": 404.21875,
+        "bottom": 669.71875
+      },
+      "summary": {
+        "x": 1372.375,
+        "y": 333.4375,
+        "w": 399.609375,
+        "h": 268.328125,
+        "bottom": 601.765625
+      },
+      "screenScroll": 1040,
+      "choiceScroll": 402,
+      "choiceHeight": 402,
+      "bodySize": "14px"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "variant": "stacked",
+      "play": {
+        "x": 756,
+        "y": 808.546875,
+        "w": 288,
+        "h": 40.78125,
+        "bottom": 849.328125
+      },
+      "choice": {
+        "x": 396,
+        "y": 233.953125,
+        "w": 1008,
+        "h": 404.21875,
+        "bottom": 638.171875
+      },
+      "summary": {
+        "x": 396,
+        "y": 652.171875,
+        "w": 1008,
+        "h": 142.375,
+        "bottom": 794.546875
+      },
+      "screenScroll": 1040,
+      "choiceScroll": 402,
+      "choiceHeight": 402,
+      "bodySize": "14px"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "variant": "columns",
+      "play": {
+        "x": 886.9375,
+        "y": 861.125,
+        "w": 414,
+        "h": 58.875,
+        "bottom": 920
+      },
+      "choice": {
+        "x": 429.890625,
+        "y": 83.5,
+        "w": 917.265625,
+        "h": 715.125,
+        "bottom": 798.625
+      },
+      "summary": {
+        "x": 1368.15625,
+        "y": 207.484375,
+        "w": 389.84375,
+        "h": 467.140625,
+        "bottom": 674.625
+      },
+      "screenScroll": 1040,
+      "choiceScroll": 713,
+      "choiceHeight": 713,
+      "bodySize": "21px"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "variant": "stacked",
+      "play": {
+        "x": 693,
+        "y": 1202.015625,
+        "w": 414,
+        "h": 58.875,
+        "bottom": 1260.890625
+      },
+      "choice": {
+        "x": 144,
+        "y": 348.046875,
+        "w": 1512,
+        "h": 600.984375,
+        "bottom": 949.03125
+      },
+      "summary": {
+        "x": 144,
+        "y": 970.03125,
+        "w": 1512,
+        "h": 210.984375,
+        "bottom": 1181.015625
+      },
+      "screenScroll": 1381,
+      "choiceScroll": 599,
+      "choiceHeight": 599,
+      "bodySize": "21px"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "variant": "columns",
+      "play": {
+        "x": 790.109375,
+        "y": 745.21875,
+        "w": 288,
+        "h": 40.78125,
+        "bottom": 786
+      },
+      "choice": {
+        "x": 360.234375,
+        "y": 177.5,
+        "w": 795.625,
+        "h": 404.21875,
+        "bottom": 581.71875
+      },
+      "summary": {
+        "x": 1169.859375,
+        "y": 234.25,
+        "w": 338.125,
+        "h": 290.71875,
+        "bottom": 524.96875
+      },
+      "screenScroll": 864,
+      "choiceScroll": 402,
+      "choiceHeight": 402,
+      "bodySize": "14px"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "variant": "stacked",
+      "play": {
+        "x": 624,
+        "y": 808.546875,
+        "w": 288,
+        "h": 40.78125,
+        "bottom": 849.328125
+      },
+      "choice": {
+        "x": 264,
+        "y": 233.953125,
+        "w": 1008,
+        "h": 404.21875,
+        "bottom": 638.171875
+      },
+      "summary": {
+        "x": 264,
+        "y": 652.171875,
+        "w": 1008,
+        "h": 142.375,
+        "bottom": 794.546875
+      },
+      "screenScroll": 927,
+      "choiceScroll": 402,
+      "choiceHeight": 402,
+      "bodySize": "14px"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "variant": "columns",
+      "play": {
+        "x": 726,
+        "y": 685.125,
+        "w": 414,
+        "h": 58.875,
+        "bottom": 744
+      },
+      "choice": {
+        "x": 372.03125,
+        "y": 42,
+        "w": 772.609375,
+        "h": 622.125,
+        "bottom": 664.125
+      },
+      "summary": {
+        "x": 1165.640625,
+        "y": 102.6875,
+        "w": 328.34375,
+        "h": 500.734375,
+        "bottom": 603.421875
+      },
+      "screenScroll": 864,
+      "choiceScroll": 713,
+      "choiceHeight": 620,
+      "bodySize": "21px"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "variant": "stacked",
+      "play": {
+        "x": 561,
+        "y": 1202.015625,
+        "w": 414,
+        "h": 58.875,
+        "bottom": 1260.890625
+      },
+      "choice": {
+        "x": 42,
+        "y": 348.046875,
+        "w": 1452,
+        "h": 600.984375,
+        "bottom": 949.03125
+      },
+      "summary": {
+        "x": 42,
+        "y": 970.03125,
+        "w": 1452,
+        "h": 210.984375,
+        "bottom": 1181.015625
+      },
+      "screenScroll": 1381,
+      "choiceScroll": 599,
+      "choiceHeight": 599,
+      "bodySize": "21px"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

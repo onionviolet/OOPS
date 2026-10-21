@@ -1,4 +1,5 @@
 import {mountInventoryComposition} from './inventory_composition.js';
+import {mountStorageComparison} from './storage_comparison.js';
 import {clear_message_log,log_message,setCombatReportsStopped,readPlayerAttributeInspector} from './display.js';
 import {getDisplaySetting,setDisplaySettings,registerPanelSettings} from './display_settings.js';
 import {INVENTORY_CATEGORIES,createInventoryTabs} from './inventory_tabs.js';
@@ -9,27 +10,8 @@ import {placeTypeEffectText} from './place_types_projection.js';
 import {SECONDARY_STATS,secondaryVisible,pinKey,isRate} from './condition_facts.js';
 import {mountConditionPanel} from './condition_panel.js';
 import {mountShellControlBoxes} from './shell_control_boxes.js';
+import {descriptionCopy} from './shell_item_description.js';
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
-// Preserve native tooltip content and markup; add presentation roles to its
-// existing lines, never synthesize item facts from names or hidden templates.
-function descriptionCopy(tooltip) {
-    const copy=tooltip.cloneNode(true);copy.removeAttribute('id');copy.removeAttribute('style');
-    copy.className='shell-native-item-description';
-    for(const n of copy.querySelectorAll('[id]'))n.removeAttribute('id');
-    const lines=document.createDocumentFragment();let line=document.createElement('div');
-    const finish=()=>{if(line.hasChildNodes()){const text=line.textContent.trim();
-        line.className='shell-description-line';
-        if(/^(Slot|Type|Material type|Component tier|Basic stats|Effects|Compared to equipped|Time to read|Reading it provided|Value|Count in player inventory):?/.test(text))line.dataset.detailRole='label';
-        if(/^Value:/.test(text))line.dataset.detailRole='value';
-        // Signed changes retain their literal sign. Color means increase/decrease,
-        // not a universal assertion that every increased stat is beneficial.
-        if(/:\s*-\d/.test(text))line.dataset.detailRole='decrease';
-        else if(/:\s*\+\d/.test(text))line.dataset.detailRole='increase';
-        else {const multiplier=text.match(/:\s*x(\d+(?:\.\d+)?)/);if(multiplier&&Number(multiplier[1])!==1)line.dataset.detailRole=Number(multiplier[1])<1?'decrease':'increase';}
-        lines.append(line);}line=document.createElement('div');};
-    for(const child of [...copy.childNodes]){if(child.nodeName==='BR'){child.remove();finish();}else line.append(child);}finish();copy.append(lines);
-    return copy;
-}
 const shortStatLabels={strength_slot:'STR',agility_slot:'AGL',dexterity_slot:'DEX',intuition_slot:'INT',magic_slot:'Magic',attack_power_slot:'Attack',attack_speed_slot:'Speed',crit_rate_slot:'Crit %',crit_multiplier_slot:'Crit ×',hit_chance_slot:'AP',defense_slot:'Defense',defensive_action_chance_slot:'EP'};
 const active=()=>document.getElementById('main_content')?.dataset.presentation==='proto23-shell';
 const action=(label,run)=>{const b=node('button',label);b.type='button';b.onclick=run;return b;};
@@ -123,7 +105,8 @@ export function mountProto23Shell({read}) {
     const details=action('Attributes ›',()=>{if(expandWorkspaceModule('preparation')){document.getElementById('character_show_stats')?.click();attributeInspector.refresh();}});
     details.className='shell-attributes-open';details.title='Inspect all supported native attributes and their modifiers';
     const gear=node('details',null,'shell-gear-disclosure');gear.open=false;let gearChosen=false;const gearSummary=node('summary','Equipment');gear.append(gearSummary,equipment);gearSummary.addEventListener('click',()=>{gearChosen=true;});
-    const characterTools=node('div',null,'shell-character-tools');characterTools.append(details,gear);player.append(statline,secondary,characterTools);
+    const wornSummary=node('div',null,'shell-worn-summary');wornSummary.setAttribute('aria-label','Worn equipment');
+    const characterTools=node('div',null,'shell-character-tools');characterTools.append(details,gear);player.append(statline,secondary,wornSummary,characterTools);
     const detail=node('section',null,'shell-item-detail');detail.id='proto23_item_detail';
     const title=node('strong'),meta=node('p'),body=node('div',null,'shell-item-description'),controls=node('div',null,'shell-item-actions');
     detail.append(title,meta,body,controls);
@@ -238,6 +221,7 @@ export function mountProto23Shell({read}) {
     let listToolsNode=null;const listTools=()=>{if(!listToolsNode){const n=inventoryList.previousElementSibling;if(n?.classList.contains('ui-list-tools'))listToolsNode=n;}return listToolsNode;};
     const tabs=createInventoryTabs({list:inventoryList,search:()=>listTools()?.querySelector('input[type=search]'),stored:()=>getDisplaySetting('panel.belongings.category'),store:id=>setDisplaySettings({'panel.belongings.category':id})});
     const inventoryComposition=mountInventoryComposition({list:inventoryList,tabs:tabs.node,detail});
+    const storageComparison=mountStorageComparison({host:document.getElementById('storage_comparison'),carried:inventoryList,chest:document.getElementById('storage_inventory_div')});
     tabs.node.title='Item colors: gold equipment, green usable, blue components, violet books. Quality keeps its native percentage and color; color does not imply rarity of other items.';
     compact.append(tabs.node);
     // R22c (FC17): a fight opens Inventory on Usable (when you hold any) and leaving it returns the
@@ -303,7 +287,8 @@ export function mountProto23Shell({read}) {
         for(const[id,label]of candidates){const row=byId.get(id);let record=secondaryRecords.get(id);
             if(!record){const button=node('button',null,'shell-secondary-stat');button.type='button';button.dataset.attributePreview=id;button.append(node('span',label),node('strong'));(isRate(id)?rateGrid:secondaryGrid).append(button);record={button,value:button.lastChild};secondaryRecords.set(id,record);}
             record.button.hidden=false;
-            const text=row.formatted.replace('°C difference','°C Δ').replace(/% max (stamina|hp|mana)\/s/,'% /s').replace('stamina/s','/s').replace('mana/s','/s').replace(' damage','');
+            const text=(isRate(id)&&row.value>0?'+':'')+row.formatted.replace('°C difference','°C Δ').replace(/% max (stamina|hp|mana)\/s/,'% /s').replace('stamina/s','/s').replace('mana/s','/s').replace(' damage','');
+            if(isRate(id)){record.button.dataset.rateSign=row.value>0?'gain':row.value<0?'loss':'zero';record.button.title='Regeneration contribution around zero, in the named native unit. Other simultaneous effects can change the net result.';}
             if(record.value.textContent!==text)record.value.textContent=text;
             record.button.setAttribute('aria-label',row.label+': '+row.formatted);
         }
@@ -313,7 +298,7 @@ export function mountProto23Shell({read}) {
         if(fitBody){
             const shell=player.closest('.workspace-module'),css=getComputedStyle(player),bodyCss=getComputedStyle(fitBody),shellCss=getComputedStyle(shell);
             const inset=(cs,keys)=>keys.reduce((sum,key)=>sum+(parseFloat(cs[key])||0),0);
-            const minimum=statline.getBoundingClientRect().height+characterTools.getBoundingClientRect().height+
+            const minimum=statline.getBoundingClientRect().height+characterTools.getBoundingClientRect().height+wornSummary.getBoundingClientRect().height+
                 inset(css,['paddingTop','paddingBottom'])+inset(bodyCss,['paddingTop','paddingBottom'])+
                 inset(shellCss,['borderTopWidth','borderBottomWidth'])+(shell.querySelector('.workspace-module-header')?.getBoundingClientRect().height||0);
             const value=Math.ceil(minimum)+'px';shell.dataset.youMinimum='true';if(shell.style.minHeight!==value)shell.style.setProperty('min-height',value,'important');
@@ -335,7 +320,7 @@ export function mountProto23Shell({read}) {
         root.dataset.secondaryShown=String([...secondaryGrid.children].filter(n=>!n.hidden).length);
     }
     function render(){
-        placeSort();tabs.refresh();boxes.render();inventoryComposition.render(rowForSelection());
+        placeSort();tabs.refresh();boxes.render();inventoryComposition.render(rowForSelection());storageComparison.render();
         condition.render();syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
 
         if(contextSource){if(contextSource.isConnected&&!contextSource.hidden&&active())showContext(contextSource);else hideContext();}
@@ -370,11 +355,19 @@ export function mountProto23Shell({read}) {
             const worn=frame.equipment.filter(s=>s.name).length;gearSummary.textContent=`Gear · ${worn}`;gearSummary.setAttribute('aria-label',`Equipment · ${worn} worn`);gearSummary.title=`${worn} worn items. Open native equipment slots.`;
             player.dataset.effectAnchor='player-stats';
             const focusedSlot=document.activeElement?.dataset.shellSlot;
+            const focusInSummary=wornSummary.contains(document.activeElement);
+            wornSummary.replaceChildren();
+            for(const slot of frame.equipment.filter(slot=>slot.name)){
+                const button=action('',()=>{selected={slot:slot.id};signature='';render();updateWorkspace();});
+                button.dataset.shellSlot=slot.id;button.className='shell-worn-item';button.title=`${slot.label}: ${slot.name}`;
+                button.append(node('span',slot.label,'shell-worn-slot'),node('span',slot.name,'shell-worn-name'));wornSummary.append(button);
+            }
+            wornSummary.hidden=!worn;
             const toolsOpen=equipment.querySelector('details')?.open;equipment.replaceChildren();
             const tools=node('details'),toolLabel=node('summary','Tools');tools.open=!!toolsOpen;const toolGrid=node('div',null,'shell-equipment');tools.append(toolLabel,toolGrid);
             for(const slot of frame.equipment){const b=action(`${slot.label} · ${slot.name||'Empty'}`,()=>{selected={slot:slot.id};signature='';render();updateWorkspace();});b.dataset.shellSlot=slot.id;b.title=slot.name||`Empty ${slot.label} slot`;(['axe','pickaxe','sickle','shovel','fishing'].includes(slot.id)?toolGrid:equipment).append(b);}
             equipment.append(tools);
-            if(focusedSlot)equipment.querySelector(`[data-shell-slot="${CSS.escape(focusedSlot)}"]`)?.focus({preventScroll:true});
+            if(focusedSlot)(focusInSummary?wornSummary:equipment).querySelector(`[data-shell-slot="${CSS.escape(focusedSlot)}"]`)?.focus({preventScroll:true});
         }
         const top=document.querySelector('.workspace-module[data-module=vitals]')?.getBoundingClientRect(),end=document.querySelector('.workspace-module[data-module="combat-controls"]')?.getBoundingClientRect();
         if(root.dataset.parity!=='r3'&&top?.height&&end?.height){const height=Math.min(innerHeight*.42,Math.ceil(end.bottom-top.top));const root=document.getElementById('main_content'),value=height+'px';if(root.style.getPropertyValue('--shell-upper-height')!==value)root.style.setProperty('--shell-upper-height',value);}
@@ -386,9 +379,10 @@ export function mountProto23Shell({read}) {
         detail.dataset.itemKind=row?.dataset.item_slot||row?.querySelector('.item_category')?.textContent.replace(/[\[\]]/g,'').trim()||(selected.slot?'Equipped item':'Item');
         title.className='shell-item-title';
         title.textContent=row?.querySelector('.item_name')?.textContent|| (selected.slot?frame.equipment.find(s=>s.id===selected.slot)?.name:'Item no longer held')||'Empty slot';
-        meta.textContent=selected.slot?`Equipped · ${selected.slot}`:row?`${detail.dataset.itemKind} · Held: ${row.dataset.item_count} · ${row.querySelector('.item_value')?.textContent.trim()||'No sale value'}`:'Choose another held item to inspect.';
+        meta.textContent=selected.slot?`Equipped · ${selected.slot}`:row?`Carried · ${row.dataset.item_count}`:'This held stack is gone. Choose another item to inspect.';
+        meta.title=selected.slot?'Follows the current item in this equipment slot.':'Follows this exact carried stack.';
         body.replaceChildren();
-        if(tooltip){const copy=descriptionCopy(tooltip);copy.firstElementChild?.remove();body.append(copy);}
+        if(tooltip)body.append(descriptionCopy(tooltip));
         else body.append(node('p',selected.slot?'Choose a held item to equip in this slot.':'This item is no longer in your inventory.'));
         const moreWasOpen=!!detail.closest('#center_mode_content')&&controls.querySelector('.shell-item-more')?.open;
         controls.replaceChildren();const more=node('details',null,'shell-item-more');more.open=!!moreWasOpen;more.append(node('summary','More actions'));more.addEventListener('toggle',()=>{if(more.open&&root.dataset.parity==='r3'&&!detail.closest('#center_mode_content'))expandWorkspaceModule('shell-detail');});

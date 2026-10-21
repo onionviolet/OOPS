@@ -7,6 +7,35 @@ rules; this file holds the recipes and the incidents behind them. Moved here fro
 Claude's private memory on 2026-10-16 so both agents follow it
 ([request](../USER_VISION.md#rules-index-and-reconciliation-2026-10-16)).
 
+## Primary checkout default, 2026-10-21
+
+**AD41:** Weibao explicitly selected the primary checkout as the default for
+future work. Ordinary tasks start in `/Users/weiwei/code/yet-another-idle-rpg`,
+inspect its live branch/status and reserve their file area. Share this checkout
+when scopes do not conflict; a new chat or agent does not by itself need a new
+worktree.
+
+Use a temporary worktree when actual simultaneous edits overlap, a clean
+verification/integration candidate needs isolation, or Weibao requests one.
+First reuse an appropriate idle checkout. Record the owner, reason, base and
+retirement condition in the task record. Default new project chats to the local
+primary project directory rather than selecting a worktree environment.
+
+On completion, integrate the lane under its authorization, then check its HEAD
+is reachable from the integration branch, inspect tracked/untracked/ignored
+local files, and check processes using that checkout or its children. Preserve
+unique source work for integration; archive evidence, preview outputs and local
+artifacts with hashes and recovery instructions before removing a finished lane.
+Recheck immediately before retirement and use plain `git worktree remove` after
+archived local changes have been cleared from that retired isolated checkout.
+Keep branches and active/unresolved work; never clear the primary checkout to
+make cleanup possible. Ignored dependency installs can be regenerated; symlink
+targets must not be followed or deleted.
+
+[User direction](../USER_VISION.md#primary-checkout-default-and-finished-worktree-cleanup-2026-10-21)
+and [2026-10-21 cleanup receipt](WORKTREE_CLEANUP_2026-10-21.md). Earlier cleanup
+rounds below are historical snapshots, not the current worktree inventory.
+
 ## Editing shared docs
 
 Applies to `docs/USER_VISION.md`, `PROJECT.md`, `docs/IDEA_INDEX.md` and any

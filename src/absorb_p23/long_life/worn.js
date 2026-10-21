@@ -1,4 +1,4 @@
-import {title_by_id, titleBonuses} from '../../titles.js';
+import {title_by_id, titleBonuses, describeTitleBonus} from '../../titles.js';
 
 // An opt-in additive payoff. All held-title bonuses remain active in every mode.
 const wornPayoffs = Object.freeze({quiet_hour: {Sleeping: 1.02}, pantry_keeper: {Cooking: 1.02}});
@@ -24,10 +24,18 @@ export function wornTitleView(titles, raw) {
     const state = validateWornTitle(raw, titles);
     const held = Object.keys(title_by_id).filter(id => titles?.[id]);
     const renown = held.length;
-    const choices = held.filter(id => wornPayoffs[id]).map(id => ({id, name: title_by_id[id].name}));
+    // All valid selections remain representable, including held titles without a payoff.
+    const choices = held.map(id => ({id, name: title_by_id[id].name,
+        bonus: describeTitleBonus({xp_multipliers: wornPayoffs[id] || {}})}));
+    const payoff = wornPayoffs[state?.worn];
+    const active = !!(state?.enabled && renown >= 3 && payoff);
+    const bonus = describeTitleBonus({xp_multipliers: payoff || {}});
+    const reason = !state?.enabled ? 'Wearing is off.' : !state.worn ? 'Choose a held title.' :
+        !payoff ? 'This title has no additional worn benefit.' : renown < 3 ?
+        `Requires 3 known titles held (${renown}/3).` : 'Applies when the related activity awards skill XP.';
     return {enabled: state?.enabled || false, worn: state?.worn || null, renown, choices,
-        active: !!(state?.enabled && renown >= 3 && wornPayoffs[state.worn]),
-        text: 'Wear a domestic title for +2% related skill XP with 3 known titles held. All held bonuses stay active.'};
+        active, bonus, reason,
+        text: 'Worn benefits are additional to held bonuses. Changing selection preserves learned skills.'};
 }
 
 export function longLifeTitleBonuses(titles, raw) {

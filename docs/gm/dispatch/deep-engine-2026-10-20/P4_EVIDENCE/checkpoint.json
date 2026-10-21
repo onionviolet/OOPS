@@ -1,0 +1,40 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "stage": "dependency release recovered; implementation not started",
+  "release": true,
+  "runtimeWrites": [],
+  "reservedPaths": [],
+  "hashes": {
+    "src/tools_domain.js": "c015726b5ae81d6b1af28e5f79b38d2549dd47bc4af7d7653178e6a663adca63",
+    "src/absorb_e2/durability.js": "0ee0451536f8d43cdcf68534fb6fd14754a679247bfa42b4c6902c504cbb3da3",
+    "src/native_craft_transaction.js": "df314bdbde04ad3a5f413e9ff2d6bb5f323a6f444b430f8dc5921a3df2c898f5",
+    "src/native_tool_domains.js": "279fa40e12f4e1e02b5d7bff605546f7cb75276a6cbd830daed5f78a32966ad3",
+    "src/main.js": "ac4a9ce9993e77f01ef0530dd70316e24983b8f93455dd55c1cfb70a0db60136",
+    "src/scenario_facade.js": "6599fbd207faf43d5789256706cac3f8e7720fd564c8a205c06e85433287768a",
+    "scripts/headless/scenario.mjs": "0f5179a0512279eaf4557083d25156624cd89743301f5fd88c7d8b7e2df629f6",
+    "tests/tools_domain.test.js": "dd8391fa26c36b3eab65006514ff09171ac3c4a11fe41484e30f6f0e501da471",
+    "docs/gm/dispatch/deep-engine-2026-10-20/P2_STATUS.md": "c4ccd3efda9a103a13d42d5ee6967c3f4a44a3837036206363fc018e2952ea66",
+    "docs/gm/dispatch/deep-engine-2026-10-20/P3_STATUS.md": "1229888b6d32480c736acc29c3db08ed748fcd29e6292bb73d5ea722892f9aec",
+    "docs/gm/dispatch/deep-engine-2026-10-20/P5_STATUS.md": "8a98aefa49fbbb208176f21ef3a37949571d72f7ea6c31b4f98807c89bf42826"
+  },
+  "allowance": {
+    "usedPercent": 31,
+    "windowDurationMins": 10080,
+    "stopBoundary": 31,
+    "state": "dispatch ceiling reached"
+  },
+  "dependencies": {
+    "P2": {
+      "release": true,
+      "reportedTests": "2383/2383 PASS",
+      "integration": "P1 registration plus P3 native lamp and persistence; input-qualified only"
+    },
+    "P5": {
+      "release": true,
+      "reportedTests": "2373/2373 PASS",
+      "integration": "content authoring and native/persistence; input-qualified only"
+    }
+  },
+  "checksRunByP4": [],
+  "remaining": "EI25-EI27 repair implementation, focused regressions, fresh combined candidate completion gates, native pending/finished persistence journey, human play acceptance"
+}

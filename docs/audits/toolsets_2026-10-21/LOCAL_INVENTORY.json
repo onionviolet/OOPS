@@ -1,0 +1,88 @@
+{
+  "captured_at_utc": "2026-10-21T13:18:23.841752+00:00",
+  "game_head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "source_sha256": {
+    "/Users/weiwei/code/yet-another-idle-rpg/package.json": "1aad689a6948dedbbad52751f07ee057ca59000dade85d95e7042f3e218980b0",
+    "/Users/weiwei/code/yet-another-idle-rpg/scripts/headless/README.md": "865eec78620f92c7affb64255b3f3924675dc5493c7ff8c5ca939159e8ca4672",
+    "/Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/README.md": "c8a7b4f2f9c0066e7cd38ae1d2c97c3831af06c83afdc35ace28c580b99ab725",
+    "/Users/weiwei/code/yet-another-idle-rpg/scripts/simfuzz/README.md": "477d179b04db69095bd09d800f52fad02e3b4a21d3d1ed026d68b1dc6a17f8b0",
+    "/Users/weiwei/code/yet-another-idle-rpg/scripts/replay/README.md": "522573133b8c83a9646511e21f1eee37ee63429fd06cca83b17396d809e58df1",
+    "/Users/weiwei/code/discord-reference-workbench/README.md": "bcc8768fa5e712dab9cc67ae862083598bc7b8d275554ff12794f4dd94825553",
+    "/Users/weiwei/code/discord-reference-workbench/docs/LOCAL_COLLECTOR.md": "aaacfe63dd8ce7ad1b0fbe73cf0cfd9f30a954b7f1f8555699212c84a3d1d4f1",
+    "/Users/weiwei/code/discord-reference-workbench/data/catalog/corc-2026-10-20/catalog.json": "e0a955c16e2f3ce1058bf40b36f710c9f587da07a218859bc5c9e6ed3172cae8",
+    "/Users/weiwei/.codex/research/hogwarts-legacy/repos/rea-pinned/package.json": "603ba839f7856dc90a8f1e4f1bb1c5bdf0518e1d9ab9f8c6178fae61cd1adbbf",
+    "/Users/weiwei/.codex/research/hogwarts-legacy/repos/rea-pinned/src/ghidra/GhidraLauncher.ts": "5b90d40298a9a4a7511a6b5452c5477dac512ae4f0fb08dee9043e0d1065a913",
+    "/Users/weiwei/code/rea/package.json": "a500302319c1214a8bb6c9a8b4a4a090806e95eef884204a9d9fbb4003050a6c",
+    "/Users/weiwei/code/lncrawl-polite/README_POLITE.md": "653add2a841c203772503e6d43667eec21ebbb436a18e85effe1a56d5881b398",
+    "/Users/weiwei/code/zlibrary-research/docs/YAIRPG.md": "2494f83edeb280e8c084c5c78d4da17f8db5e0e62376974a37cc46de1927380f"
+  },
+  "path_lookup": {
+    "rea": null,
+    "dotnet": null,
+    "ilspycmd": null,
+    "ghidra": null,
+    "strings": "/usr/bin/strings",
+    "otool": "/usr/bin/otool",
+    "objdump": "/usr/bin/objdump",
+    "jadx": null,
+    "apktool": null,
+    "r2": null,
+    "rizin": null,
+    "frida": null,
+    "ffmpeg": "/Users/weiwei/.local/bin/ffmpeg",
+    "pdftotext": "/opt/homebrew/bin/pdftotext",
+    "tesseract": "/opt/homebrew/bin/tesseract",
+    "gh": "/opt/homebrew/bin/gh",
+    "wine": null
+  },
+  "probes": [
+    {
+      "id": "discord-help",
+      "cwd": "/Users/weiwei/code/discord-reference-workbench",
+      "argv": [
+        "python3",
+        "-m",
+        "discord_reference",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: python3.15 -m discord_reference [-h]\n                                       {snapshot,catalog,import-json,extract-mhtml,gallery,verify,search} ...\n\nSmall offline CLI; all network collection stays with existing tools/browser\nUI.\n\npositional arguments:\n  {snapshot,catalog,import-json,extract-mhtml,gallery,verify,search}\n    snapshot            stable scoped copy; exclude whole-page UI snapshots\n    catalog             normalize scoped evidence and hash saved bytes\n    import-json         adapt existing Discrub or DCE JSON exports, entirely\n                        offline\n    extract-mhtml       decode allowlisted attachment parts only\n    gallery             generate a safe static offline gallery beside catalog\n    verify              rehash catalog byte objects\n    search              search messages and structured topic/evidence\n                        annotations\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr": ""
+    },
+    {
+      "id": "rea-version",
+      "cwd": "/Users/weiwei/.codex/research/hogwarts-legacy/repos/rea-pinned",
+      "argv": [
+        "node",
+        "scripts/rea.mjs",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "6.4.0\n",
+      "stderr": ""
+    },
+    {
+      "id": "dotnet-version",
+      "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+      "argv": [
+        "/Users/weiwei/.dotnet/dotnet",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "10.0.402\n",
+      "stderr": ""
+    },
+    {
+      "id": "unitypy-version",
+      "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+      "argv": [
+        "/Users/weiwei/.codex/research/immortal-life/tools/venv/bin/python",
+        "-c",
+        "import UnityPy; print(UnityPy.__version__)"
+      ],
+      "exit_code": 0,
+      "stdout": "1.25.4\n",
+      "stderr": ""
+    }
+  ]
+}

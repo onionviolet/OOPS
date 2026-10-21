@@ -1,7 +1,6 @@
 "use strict";
-import {mitigateCombatDamage} from "../combat_math.js";
-import {effectiveDamageTaken} from "../gear_dimensions.js";
-import {addAffixesToStats} from "../gear_affixes.js";
+import {mitigateCombatDamageFromStats} from "../combat_math.js";
+import {applyEquipmentStats} from "../equipment_stats.js";
 
 import InventoryComponent, { inventories } from "../components/inventory_component.js";
 import { playable_races, racial_height_modifiers } from "../races.js";
@@ -280,42 +279,7 @@ class Person{
     addAllEquipmentBonus() {
         const levelable = this.getLevelableComponent();
         const equipment = this.getEquipment();
-        //reset as they will be recalculated
-        levelable.stats.flat.equipment = {};
-        levelable.stats.multiplier.equipment = {};
-        levelable.bonus_skill_levels.flat.equipment = {};
-        levelable.stats.flat.affixes = {};
-        levelable.stats.multiplier.affixes = {};
-
-        //iterate over slots
-        Object.keys(equipment).forEach(slot => {
-            if(!equipment[slot]) {
-                return;
-            }
-            
-            if(equipment[slot].getDefense) {
-                levelable.stats.flat.equipment.defense = (levelable.stats.flat.equipment.defense || 0) + equipment[slot].getDefense();
-            }
-            addAffixesToStats(levelable.stats, equipment[slot].affixes);
-            const stats = equipment[slot].getStats();
-            const bonuses = equipment[slot].getBonusSkillLevels();
-            //iterate over stats in slotted item
-            Object.keys(stats).forEach(stat => {
-                if(stats[stat].flat) {
-                    levelable.stats.flat.equipment[stat] = (levelable.stats.flat.equipment[stat] || 0) + stats[stat].flat;
-                }
-
-                if(stats[stat].multiplier) {
-                    levelable.stats.multiplier.equipment[stat] = (levelable.stats.multiplier.equipment[stat] || 1) * stats[stat].multiplier;
-                }
-            });
-
-            Object.keys(bonuses).forEach(bonus => {
-                if(bonuses[bonus]) {
-                    levelable.bonus_skill_levels.flat.equipment[bonus] = (levelable.bonus_skill_levels.flat.equipment[bonus] || 0) + bonuses[bonus];
-                }
-            });
-        });
+        applyEquipmentStats(levelable, equipment);
     }
 
     addWeaponTypeBonuses() {
@@ -481,10 +445,7 @@ class Person{
         const levelable = this.getLevelableComponent();
         let fainted;
     
-        const damage_taken = mitigateCombatDamage(damage_values,levelable.stats.full.defense+defense_modifier,{
-            floorShare: levelable.stats.full.min_damage_share,
-            taken: effectiveDamageTaken(levelable.stats.full.damage_taken),
-        });
+        const damage_taken = mitigateCombatDamageFromStats(damage_values, levelable.stats.full, defense_modifier);
         levelable.stats.full.health -= damage_taken;
     
         if(levelable.stats.full.health <= 0 && can_faint) {
@@ -614,13 +575,13 @@ class Person{
             }
 
             Object.values(levelable.stats.multiplier).forEach(piece => {
-                stat_mult *= (piece[stat] || 1);
+                stat_mult *= (piece[stat] ?? 1);
             });
 
             levelable.stats.full[stat] = (levelable.base_stats[stat] + stat_sum) * stat_mult;
 
             levelable.stats.total_flat[stat] =  levelable.base_stats[stat] + stat_sum;
-            levelable.stats.total_multiplier[stat] = stat_mult || 1;
+            levelable.stats.total_multiplier[stat] = stat_mult;
 
             if(stat === "health") {
                 levelable.stats.full.health = Math.max(0, levelable.stats.full["max_health"] - missing_health);

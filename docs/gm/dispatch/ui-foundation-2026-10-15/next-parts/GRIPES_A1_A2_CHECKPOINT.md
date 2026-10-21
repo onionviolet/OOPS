@@ -8,7 +8,7 @@ not the unrelated ability/claims A1/A2. No commit or push requested.
 ## Scope and direction
 
 Deliver one coherent desktop UI candidate and one nearby-service interaction
-slice. Targets: 1920×1080 primary, 1366×768 floor, both 14px and 21px. Mobile
+slice. Targets: 1920×1080 primary, both 14px and 21px (the 1366×768 floor was retired 2026-10-19; cases already run there stay as evidence). Mobile
 deferred. Visible outcome: useful screen composition with a compact inventory
 and its inspectable detail, plus Around you retaining nearby context while a
 subject/service is inspected and used. Full Reports column remains usable.
@@ -128,7 +128,7 @@ last reading, within the 11% ceiling; that is not attributed task consumption.
 ## Post-release plan qualification, 2026-10-18
 
 The coordinator's final entry above releases its files. The four completed
-"target/font cases" mean 1920×1080 and 1366×768 at 14px/21px, not four
+"target/font cases" mean 1920×1080 and 1366×768 at 14px/21px (the 1366×768 cases no longer gate acceptance, 2026-10-19), not four
 viewport sizes. Under current UI_RULES, the actual MacBook viewport (about
 1800×1040 CSS pixels) and 1536×864 at both text sizes are also required for
 full target-set coverage. Those extra checks are not established by this audit.

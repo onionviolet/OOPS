@@ -1,0 +1,126 @@
+{
+  "screens": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "play": {
+        "x": 859,
+        "y": 470,
+        "w": 202,
+        "h": 26
+      },
+      "beginningVisible": false,
+      "author": "by onionv",
+      "font": "\"Hiragino Kaku Gothic ProN\", \"Hiragino Sans\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Noto Sans CJK JP\", \"Yu Gothic\", system-ui, sans-serif",
+      "styles": [
+        "http://127.0.0.1:19233/styles/settled_text_effects.css",
+        "http://127.0.0.1:19233/styles/customization.css",
+        "http://127.0.0.1:19233/styles/workspace.css?version=080232f17190",
+        "http://127.0.0.1:19233/styles/workspace_discovery.css",
+        "http://127.0.0.1:19233/styles/display_settings.css",
+        "http://127.0.0.1:19233/styles/status_window.css",
+        "http://127.0.0.1:19233/style.css?version=v0.6-4b717d59ae7d",
+        "http://127.0.0.1:19233/styles/action_legibility.css?version=0eb2ba0cb8f1",
+        "http://127.0.0.1:19233/styles/crafting_detail.css",
+        "http://127.0.0.1:19233/styles/component_themes.css",
+        "http://127.0.0.1:19233/styles/start_probe.css",
+        "http://127.0.0.1:19233/styles/ui_tokens.css?version=5b2b1415f287",
+        "http://127.0.0.1:19233/styles/shell_layout.css?version=af7afc4a29e9",
+        "http://127.0.0.1:19233/styles/inventory.css?version=e859760fe686",
+        "http://127.0.0.1:19233/styles/opponents.css?version=fde468a8e2f4",
+        "http://127.0.0.1:19233/styles/combat_log.css?version=63144690dd94",
+        "http://127.0.0.1:19233/styles/oops_branding.css",
+        "http://127.0.0.1:19233/styles/shell_chrome.css?version=65ecfeff7457",
+        "http://127.0.0.1:19233/styles/inventory_composition.css",
+        "http://127.0.0.1:19233/styles/nearby_context_view.css",
+        "http://127.0.0.1:19233/styles/ui_extras.css",
+        "http://127.0.0.1:19233/styles/meter_bar.css",
+        "https://fonts.googleapis.com/icon?family=Material+Icons"
+      ]
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "play": {
+        "x": 799,
+        "y": 470,
+        "w": 202,
+        "h": 26
+      },
+      "beginningVisible": false,
+      "author": "by onionv",
+      "font": "\"Hiragino Kaku Gothic ProN\", \"Hiragino Sans\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Noto Sans CJK JP\", \"Yu Gothic\", system-ui, sans-serif",
+      "styles": [
+        "http://127.0.0.1:19233/styles/settled_text_effects.css",
+        "http://127.0.0.1:19233/styles/customization.css",
+        "http://127.0.0.1:19233/styles/workspace.css?version=080232f17190",
+        "http://127.0.0.1:19233/styles/workspace_discovery.css",
+        "http://127.0.0.1:19233/styles/display_settings.css",
+        "http://127.0.0.1:19233/styles/status_window.css",
+        "http://127.0.0.1:19233/style.css?version=v0.6-4b717d59ae7d",
+        "http://127.0.0.1:19233/styles/action_legibility.css?version=0eb2ba0cb8f1",
+        "http://127.0.0.1:19233/styles/crafting_detail.css",
+        "http://127.0.0.1:19233/styles/component_themes.css",
+        "http://127.0.0.1:19233/styles/start_probe.css",
+        "http://127.0.0.1:19233/styles/ui_tokens.css?version=5b2b1415f287",
+        "http://127.0.0.1:19233/styles/shell_layout.css?version=af7afc4a29e9",
+        "http://127.0.0.1:19233/styles/inventory.css?version=e859760fe686",
+        "http://127.0.0.1:19233/styles/opponents.css?version=fde468a8e2f4",
+        "http://127.0.0.1:19233/styles/combat_log.css?version=63144690dd94",
+        "http://127.0.0.1:19233/styles/oops_branding.css",
+        "http://127.0.0.1:19233/styles/shell_chrome.css?version=65ecfeff7457",
+        "http://127.0.0.1:19233/styles/inventory_composition.css",
+        "http://127.0.0.1:19233/styles/nearby_context_view.css",
+        "http://127.0.0.1:19233/styles/ui_extras.css",
+        "http://127.0.0.1:19233/styles/meter_bar.css",
+        "https://fonts.googleapis.com/icon?family=Material+Icons"
+      ]
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "play": {
+        "x": 667,
+        "y": 470,
+        "w": 202,
+        "h": 26
+      },
+      "beginningVisible": false,
+      "author": "by onionv",
+      "font": "\"Hiragino Kaku Gothic ProN\", \"Hiragino Sans\", \"PingFang SC\", \"Noto Sans CJK SC\", \"Noto Sans CJK JP\", \"Yu Gothic\", system-ui, sans-serif",
+      "styles": [
+        "http://127.0.0.1:19233/styles/settled_text_effects.css",
+        "http://127.0.0.1:19233/styles/customization.css",
+        "http://127.0.0.1:19233/styles/workspace.css?version=080232f17190",
+        "http://127.0.0.1:19233/styles/workspace_discovery.css",
+        "http://127.0.0.1:19233/styles/display_settings.css",
+        "http://127.0.0.1:19233/styles/status_window.css",
+        "http://127.0.0.1:19233/style.css?version=v0.6-4b717d59ae7d",
+        "http://127.0.0.1:19233/styles/action_legibility.css?version=0eb2ba0cb8f1",
+        "http://127.0.0.1:19233/styles/crafting_detail.css",
+        "http://127.0.0.1:19233/styles/component_themes.css",
+        "http://127.0.0.1:19233/styles/start_probe.css",
+        "http://127.0.0.1:19233/styles/ui_tokens.css?version=5b2b1415f287",
+        "http://127.0.0.1:19233/styles/shell_layout.css?version=af7afc4a29e9",
+        "http://127.0.0.1:19233/styles/inventory.css?version=e859760fe686",
+        "http://127.0.0.1:19233/styles/opponents.css?version=fde468a8e2f4",
+        "http://127.0.0.1:19233/styles/combat_log.css?version=63144690dd94",
+        "http://127.0.0.1:19233/styles/oops_branding.css",
+        "http://127.0.0.1:19233/styles/shell_chrome.css?version=65ecfeff7457",
+        "http://127.0.0.1:19233/styles/inventory_composition.css",
+        "http://127.0.0.1:19233/styles/nearby_context_view.css",
+        "http://127.0.0.1:19233/styles/ui_extras.css",
+        "http://127.0.0.1:19233/styles/meter_bar.css",
+        "https://fonts.googleapis.com/icon?family=Material+Icons"
+      ]
+    }
+  ],
+  "errors": [],
+  "preview": "http://127.0.0.1:19233/",
+  "checks": [
+    "Original stylesheet/loading-screen route, no visible beginning panel at three desktop sizes",
+    "Keyboard PLAY enters ordinary game; Save/reload and returning PLAY work",
+    "No optional-system grant from default PLAY"
+  ],
+  "status": "PASS"
+}

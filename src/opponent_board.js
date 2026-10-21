@@ -50,12 +50,13 @@ export function factText(fact) {
     return fact.knowledge === 'partial' ? `~${fact.value}` : String(fact.value);
 }
 export function healthText(opponent) {
+    if(opponent.ended) return 'Inspection ended · last observed';
     const h = opponent.health || {};
     if (opponent.defeated) return 'Defeated';
     return factShown({knowledge: h.knowledge, value: h.text}) ? (h.knowledge === 'partial' ? `~${h.text}` : h.text) : '??? hp';
 }
 // Bar fill only for a health value the player is allowed to see exactly.
-export const healthFill = opponent => opponent.defeated ? 0 : ['known', 'native'].includes(opponent.health?.knowledge) && opponent.health.progress != null ? opponent.health.progress : null;
+export const healthFill = opponent => opponent.ended ? null : opponent.defeated ? 0 : ['known', 'native'].includes(opponent.health?.knowledge) && opponent.health.progress != null ? opponent.health.progress : null;
 
 // Summary of what is known about one opponent, for labels and data attributes.
 export function knowledgeOf(opponent) {
@@ -87,7 +88,7 @@ export function fromCombatOpponentsProjection(projection, {groupsLeft = '', clea
     if (projection?.schema !== 1 || !projection.active) return {source: 'registry', encounter: {groupsLeft, clears}, opponents: []};
     const shown = projection.disclosure === 'native-legacy' ? 'native' : 'known';
     return {source: 'registry', encounter: {groupsLeft, clears}, opponents: projection.opponents.map(o => ({
-        id: o.slot, slot: o.index, letter: letterFor(o.index), name: o.name, knowledge: shown, defeated: !!o.defeated,
+        id: o.id || o.slot, slot: o.index, letter: letterFor(o.index), name: o.name, knowledge: shown, defeated: !!o.defeated,
         health: o.health ? {text: `${o.health.current}/${o.health.max} hp`, progress: Math.round(o.health.fraction * 1000) / 10, knowledge: shown} : {text: '', progress: null, knowledge: 'unknown'},
         cycle: null,
         facts: (o.facts || []).map(f => ({label: f.label, value: f.known ? f.value : null, knowledge: f.known ? shown : 'unknown'})),

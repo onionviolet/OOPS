@@ -4,7 +4,7 @@ import {
     CAUSAL_STORY_WORLD, CAUSAL_STORY_LOCATION, CAUSAL_STORY_PEOPLE, CAUSAL_STORY_PROOFS,
     CAUSAL_STORY_PROFILES, CAUSAL_STORY_SOURCES, CAUSAL_STORY_ITEMS, CAUSAL_STORY_LIMITS, causalStoryPersonIds,
 } from './causal_story_ids.js';
-import {rollCombatStrike, mitigateCombatDamage} from './combat_math.js';
+import {rollCombatStrike, mitigateCombatDamageFromStats} from './combat_math.js';
 
 // These functions stage only the optional causal ledger. The existing native,
 // simulation, job, clock and durable publication owners retain all actual means.
@@ -325,7 +325,7 @@ export function resolveCausalStrike({attacker,target,random}) {
     const draw=()=>{const n=random();check(finite(n) && n >= 0 && n < 1,'Invalid caller-owned causal draw.');return n;};
     const strike=rollCombatStrike({attackPower:attacker.attackPower,attacker:attacker.stats,target:target.stats,
         shield:target.shield,shieldSkill:target.shieldSkill,random:draw});
-    const damage=strike.kind === 'hit' ? mitigateCombatDamage(strike.values,target.stats.defense || 0) : 0;
+    const damage=strike.kind === 'hit' ? mitigateCombatDamageFromStats(strike.values,target.stats) : 0;
     check(finite(damage) && damage >= 0,'Native combat produced invalid damage.');
     return {...strike,damage};
 }

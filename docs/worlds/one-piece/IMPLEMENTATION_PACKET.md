@@ -6,7 +6,7 @@ Status: design packet only, 2026-10-15. This packet does not reserve runtime fil
 
 Deliver one medicine crate through two meaningfully different approaches: (a) repair and sail a skiff using owned materials and the player's time, or (b) pay an available navigator for a shorter witnessed crossing. Refusal leaves no debt but allows the delivery window to close. Actual inventory, elapsed time, cargo custody, route evidence, witness and settlement differ. No fruit, Haki, general sea simulation, death or canon-event system is needed. A crossing is one authored bounded resolution; the storm is only a deadline state. Food cargo, pirate shortcut and a separate tide-ledger objective are deferred.
 
-- **Target viewport:** desktop/laptop at 1366×768, per standing UI direction. Show the cargo, deadline, route evidence, cost and refusal option in the existing surface pattern. Mobile optimization is deferred.
+- **Target viewport:** desktop/laptop at 1920×1080, with 1536×864 as the desktop floor. Show the cargo, deadline, route evidence, cost and refusal option in the existing surface pattern. Mobile optimization is deferred.
 - **Observable result:** player can inspect the offer, choose either route or decline, observe the different settlement and knowledge, and return to a usable local harbor state.
 - **Out of scope:** extra islands, active canon cast, power acquisition, prestige, new death policy, random timeline generation, mobile-specific layout, and all post-snapshot assertions.
 
@@ -25,3 +25,11 @@ Do not simulate independent instances by repurposing current worldId; shared [ca
 ## Risks and source questions
 
 The plot is original, so canonical source uncertainty does not block its first delivery. If a later version adds Devil Fruit, Haki, Seastone or an active canon character, use the page/revision row in the source ledger and directly verify the cited primary rule for actor, condition, resource and counter. Do not build from a family summary alone. If persistence changes, select a compatibility/migration decision before implementation. A fresh-origin rebuilt browser run is mandatory for gameplay claims; save/import proof is additionally required for durable results.
+
+## Selected-slice prerequisites and later depth
+
+**Before this slice can be implemented:** confirm a live runtime owner for world-instance identity, local inventory/material custody, job/deadline clock and settlement; choose a save-compatibility approach if any committed outcome is persisted; and retain the fixed medicine-crate scope and one-crossing resolution. Done check: an implementation brief names the actual owners and records a source-independent state/settlement contract, with the rebuilt 1920×1080 browser acceptance cases above still intact.
+
+**Account for in the selected slice:** the harbor is lived-in between offers. Stock and berth availability can change through named local actions; route evidence has a source, witness and confidence; a crossing consumes the selected route's actual time/cost and creates a report only for observers with a delivery path. These are proposals extending WG10 (Log Pose dwell clock, layover provisioning/wages/repairs) only where they touch this local harbor. Done check: each chosen state change has an actor, means, clock/cost and observable record in the authored journey; no continuous sea simulation is implied.
+
+**Later depth:** multi-island Log Pose travel, general provisioning, wages, ship repair queues, pirate encounters and weather remain separate proposals. Done check for any later packet: name its own bounded route and evidence without treating this packet's crossing as a sea-system implementation.

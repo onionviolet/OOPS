@@ -1,0 +1,7 @@
+{
+  "reason": "Candidate tools omitted initially; copied before effect_dsl targeted rerun",
+  "files": {
+    "tools/import_srd521.mjs": "1c902a5b7510f256a418b036124ad2258f1e59bb868b72e8209521508ce3d49d",
+    "tools/trial_srd521.mjs": "eaccad45bedb23461f4aa597e999fdd14561ec57e592ec5eaca23056c35981ca"
+  }
+}

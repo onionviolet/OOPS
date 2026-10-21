@@ -1,0 +1,10 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "sha256": {
+    "src/reveal_chain.js": "2d77335257cb05ce252614fe0039d0eb13305bdc554efddf4c8f2008de3f8b6f",
+    "src/main.js": "6db6f4de06b712c9e151373f6c1e8ccb42a8b55844a640360b5fc2c281922275",
+    "src/models/hero.js": "505873be1b220b2f9e0a4ed520a46dee44a38808f3aa3270bbf934bee3b926cf",
+    "tests/reveal_chain.test.js": "06244bc9f034c47ffe31941e24e69f7d31a0b3392b47fb648a0df8a920b3ee3c",
+    "src/crafting_recipes.js": "5bb82a826afec12c1eb5821717b13c192a81851b996e1c6961ff52770ead32f2"
+  }
+}

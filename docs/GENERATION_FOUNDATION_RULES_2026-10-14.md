@@ -286,7 +286,7 @@ proposal. No new lanes. Links: [G1](gm/dispatch/gen-rules-2026-10-14/g1/REPORT.m
 ### Top picks (proposal, ranked across lanes)
 
 1. **Fix the shared hash and ordering basics** (G2 F1 plus SB37-SB45 items surrogate drop, falsy zero, cosmetic labels): small, removes bugs before more content keys spread. A5 owns the replay checks.
-2. **Port P3 storylets onto the kit** (G1 example, G2 F3, G3 S3): a separate, still-unselected storylet migration, with game-time addresses, integer weights and quiet outcome kept. Gate: rebuilt fresh-origin desktop route at 1366x768 with Save/reload/literal Import keeping the next pick.
+2. **Port P3 storylets onto the kit** (G1 example, G2 F3, G3 S3): a separate, still-unselected storylet migration, with game-time addresses, integer weights and quiet outcome kept. Gate: rebuilt fresh-origin desktop route at 1920x1080 with Save/reload/literal Import keeping the next pick.
 3. **Decide stream migration and scope** (C1, G2 F2, G6 CD1-CD4): one compatibility decision covering legacy roots, craft scope and life/continuity inputs.
 4. **Odds plus why lens on the status window** (G5 S1): the first generation cheat, reading the same resolver snapshot as commit. Waits on pick 2.
 5. **Table compiler on A2 tags with one Village material pool** (G3 S1): waits on A2's actual API.
@@ -331,3 +331,5 @@ in-game day/hour. The owning mechanism and clock now qualify those shortcuts.
 See [G27/G30](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18).
 A world-time credit does not itself freeze a world. Current `computeAway` has
 one positive elapsed rate; a dual-clock plan must name the missing integration.
+
+See also (2026-10-19): [World dials and interpreter considerations](WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md) on how world details turn dials and whether generation tables read them through one resolver. Proposal only.

@@ -36,7 +36,7 @@ Rebuild (`node build.js`) and use a fresh browser origin per target. Use the pop
 (`docs/gm/dispatch/calm-vivid-2026-10-14/evidence/populated-ui-fixture.json`) and extend
 `check-uil1.cjs` rather than writing a new harness.
 
-- **Targets:** 1920×1080 (primary), about 1800×1040 (Weibao's MacBook), 1536×864 and 1366×768,
+- **Targets:** 1920×1080 (primary), about 1800×1040 (Weibao's MacBook), and 1536×864 (1366×768 retired 2026-10-19),
   each at 14 px and 21 px text. Mobile is deferred.
 - **States:** idle in the Village; at the Mixing counter and in Crafting; travelling; a fight with
   1, 4 and 8 opponents; Journal and Inventory expanded; return after a time skip; a stored custom
@@ -64,7 +64,7 @@ Rebuild (`node build.js`) and use a fresh browser origin per target. Use the pop
    lost at any target (UR21, UR25, UR52)?
 6. What makes it look better without smaller text or fewer facts: grouping, alignment, rhythm,
    color roles, framing, motion that stays out of the way (UR38, UR46)?
-7. What breaks at 21 px, at 1366×768 or with a large fight?
+7. What breaks at 21 px, at 1536×864 or with a large fight?
 
 ## Output
 

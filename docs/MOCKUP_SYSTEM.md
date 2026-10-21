@@ -27,6 +27,13 @@ native game. The build copies those inputs, hashes them, and appends the local
 adapter without modifying the older experiment. Its frame is a simplified
 five-region fixture rather than a claim of exact current Shell geometry.
 
+The archived 2026-10-20 launch study pins that round’s Beginning choice renderer
+and tokens/styles over explicitly simulated background/opening state. It was
+superseded by Weibao’s request to restore the original PLAY screen.
+Open the workbench with `?study=launch`. It compares identity/choices/summary columns
+and a stacked layout, preserving choices. Its starts/personality recommendations
+remain proposals; [receipt](../prototypes/workbench/REPORT.md#launch-choice-and-personality-study-2026-10-20).
+
 Proposed direction, 2026-10-16: studies should mount the real game views over
 fixture data rather than redraw a copy. See
 [UI engine round 3, UIE17–UIE26](ENGINE_EXPANSION.md#round-3-one-renderer-for-the-game-and-its-mockups-2026-10-16).
@@ -39,7 +46,7 @@ Not accepted yet; the rules below still apply.
 | MW1 | Start with a question, a representative player task, surface/home, target viewport, fixture provenance and exclusions. Put these in the study manifest and display them under Task & limits. | A polished screen should answer an actual unsettled question. |
 | MW2 | Use the shared workbench for new interactive comparisons. Reuse pinned YAIR tokens, components and public projections where useful. State exactly which parts are real, simulated or absent. Use a focused pane study only when its question does not depend on surrounding composition, and label that limit. | Avoid unrelated skins and mocks that promise mechanics they do not have. |
 | MW3 | Compare alternatives against the same state. Layout changes preserve selected subject, query, stock, history and available scroll/focus anchors. Compare mode mirrors interactions in either pane without replaying the gameplay command. Scenario changes and Reset explicitly restore the fixture. | Avoid one alternative receiving better data, a fresh inventory or an easier task. |
-| MW4 | Keep viewport size, text size and display scale separate. Default to 1366×768; include 1920×1080 and real 14/17.5/21px text where relevant. Fit preview is labelled and useful for overview. Readability evidence uses actual-size browser rendering/captures. | A scaled thumbnail cannot establish readable large text. |
+| MW4 | Keep viewport size, text size and display scale separate. Default to 1920×1080 (1366×768 retired 2026-10-19); include other desktop sizes and real 14/17.5/21px text where relevant. Fit preview is labelled and useful for overview. Readability evidence uses actual-size browser rendering/captures. | A scaled thumbnail cannot establish readable large text. |
 | MW5 | Exercise the journey, not just the opening image: find, inspect, act, read result, return and resume. Include relevant crowded, long-name, unknown, unavailable and failure states. Use keyboard and Back/Esc, preserve the log and current work. | Empty fixtures and screenshots miss navigation and changing-state defects. |
 | MW6 | Isolate from game startup, personal saves, credentials and production storage. Use disposable in-memory fixtures and an explicit/manual clock unless time itself is under study. Never import sealed truths into a public fixture. | Review should be reversible, reproducible and safe for the director to play. |
 | MW7 | Export a review with fixture state, build revision, viewport, text and limitations. Keep evidence with the experiment. Record recommendations separately from human selection and native integration. Accepted choices go in the existing feature owner and PROJECT summary. | Passing checks or exporting a file does not establish visual acceptance. |
@@ -85,8 +92,9 @@ prototypes/workbench/
 Register an entry with a unique `id`, `title`, `question`, `task`, `surface`,
 `fixture`, `limits`, local `entry`, and `variants`/`scenarios` arrays of
 `{id,label}`. Add its build step and adapter using its actual state owner.
-`build.mjs` currently packages the recipe study only; a registry row alone does
-not package a new experiment. Do not scrape a screenshot or DOM back into a
+`build.mjs` packages the pinned recipe study and calls `build-launch.mjs` for the
+archived launch-choice renderer over public fixture backgrounds; a registry row alone
+does not package a new experiment. Do not scrape a screenshot or DOM back into a
 second gameplay model. Small original fixtures are fine when no useful native
 projection exists, provided they are labelled.
 
@@ -130,3 +138,16 @@ Current check results and screenshots are in
 [delivery report](../prototypes/workbench/REPORT.md) owns exact executed checks,
 limits and any remaining acceptance gate. Production source/build/save/runtime
 checks belong to the eventual native change, not this workbench delivery.
+
+
+## Recovered Corc round 5, 2026-10-21: comparison without changing the experiment
+
+**Candidate study details**, from [CRL35/CRL38/CRL39](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-5-2026-10-21-subtle-interactions-folded-into-the-plans). This is a proposal under existing MW/UR59–UR64, not a change to the standing mockup protocol. Target 1920×1080 at actual 14/21px text; mobile optimization stays deferred.
+
+For a selected effect-chip/relationship study, capture one public fixture/projection and use it for both candidates. Keep cosmetic state separate from action/learning state. Fixture restore, hover/focus and font/theme changes default to observational operations; the recovered source's XP-on-hover behavior is not copied accidentally. A deliberate gameplay examination has its own action and receipt.
+
+Include a target that disappears or becomes unavailable during selection and a delayed font/fallback change that alters label width. Retain the selected logical subject while updating geometry; a tooltip or highlight follows the actual anchor, and a reflow does not redirect an in-progress commitment. A label/shape explains the meaning alongside color when the chosen glyph cannot render. Give icon candidates their actual backgrounds and adjacent text; a stand-alone swatch cannot establish legibility.
+
+If native projection is unavailable, label the fixture simulated and keep the same facts across variants. Do not load source HTML or its external image to obtain a screenshot. A future fixture's packaged assets and actual fonts need their own identity; the prototype's filename/version label is not enough to reproduce it.
+
+**ACT NOW (done):** folded these cases into the existing study owner. **ACCOUNT FOR NOW:** reuse the shared registry/adapters and renderer. **LATER / DELEGATE:** CRJ9, Luna low once the samples are settled, small effort. Done: source-input hashes, same-fixture comparison, zero unintended XP/resource/profile changes, retained subject/focus through reflow and restored comparison state, plus actual-size desktop captures. No new study is built by this documentation pass.

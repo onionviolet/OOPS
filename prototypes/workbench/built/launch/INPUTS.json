@@ -1,0 +1,12 @@
+{
+  "description": "Real launch choice renderer and current tokens/CSS, fixture-only background choices and review actions. No game startup or save access.",
+  "hashes": {
+    "beginning.js": "bf564950a6e8391e51b6eb7db9cccb2fd8c62ebf16561ec6af8547da1d3c490e",
+    "ui_tokens.css": "5b2b1415f28792f91d2d037517dc53a7fde3f3ebbe05f04e0732e2ea3018f651",
+    "legacy.css": "4b717d59ae7dd51fbd949a1f6d1bd77e3939f183b442e33b1d1680a2b07a3f98",
+    "launch_screen.css": "636f25c8c0328bde5096cef2159204316a81cae80f52d1c83eca215307308953",
+    "study.css": "0643cdfca1cad33d9ec12ef9799893420fa5a5fb45f929b41605d5fea376c387",
+    "study.js": "2ed202fc0a2eab2a3d42a3b705a524d7b8f551ead40909ad99c87751a8298620",
+    "index.html": "060837215fb58358c3c1d2490bb2218ea40febfbe6a74f7a38fbb72e27e67ac0"
+  }
+}

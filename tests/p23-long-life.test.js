@@ -95,3 +95,36 @@ test('native milestone awards once, repeat training progresses, XP reconstructio
     assert.deepEqual(JSON.parse(JSON.stringify(xp('Cooking'))),saved);
     assert.equal(character.getLevelableComponent().xp_bonuses.total_multiplier.Alchemy,rate);
 });
+
+test('worn projection retains valid identity without promising a payoff, and explains each condition',()=>{
+    const titles={quiet_hour:{at:60},hunter:{at:90},reader:{at:100}};
+    const before=structuredClone(titles);
+    const state=selectWornTitle(titles,undefined,'hunter');
+    const view=wornTitleView(titles,state);
+    assert.ok(view.choices.some(c=>c.id==='hunter'));
+    assert.equal(view.worn,'hunter');assert.equal(view.active,false);
+    assert.match(view.reason,/no additional worn benefit/);
+    assert.match(wornTitleView(titles,{...state,worn:null}).reason,/Choose/);
+    assert.match(wornTitleView(titles,{...state,enabled:false}).reason,/off/);
+    const selected={...state,worn:'quiet_hour'};
+    assert.match(wornTitleView({quiet_hour:titles.quiet_hour},selected).reason,/1\/3/);
+    const active=wornTitleView(titles,selected);
+    assert.equal(active.active,true);assert.equal(active.bonus,'+2% Sleeping xp');
+    assert.match(active.reason,/activity awards skill XP/);
+    assert.deepEqual(titles,before);
+});
+
+test('native title replacement preserves trained competence and independent held effects',async()=>{
+    const {character,skills,fill_availability_methods}=await loadNative(`export {character} from './src/data/character.js'; export {skills} from './src/data/skills.js'; export {fill_availability_methods} from './src/component_management.js';`,{stubs:STANCE_LOCATION_STUBS,prefix:'title-consumer-'});
+    fill_availability_methods();
+    character.addXPToSkill({skill:skills.Sleeping,xp_to_add:20,use_bonus:false,add_to_parent:false});
+    const trained=structuredClone(character.getSkillXPObject({skill_id:'Sleeping'}));
+    const held={quiet_hour:{at:60},hunter:{at:90},reader:{at:100}};
+    for(const worn of ['quiet_hour','hunter',null,'quiet_hour']){
+        const state=selectWornTitle(held,undefined,worn);
+        for(let i=0;i<3;i++)character.setTitleBonus(longLifeTitleBonuses(held,state));
+        assert.deepEqual(structuredClone(character.getSkillXPObject({skill_id:'Sleeping'})),trained);
+        const actual=character.getLevelableComponent().xp_bonuses.multiplier.titles;
+        assert.equal(actual.Combat,1.02);assert.equal(actual.Sleeping,worn==='quiet_hour'?1.02:undefined);
+    }
+});

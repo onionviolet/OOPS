@@ -23,8 +23,7 @@ export function recipeMakeableNow({recipe, stationTier, inventory, itemTemplates
         // Native material choices require the known material's exact inventory key.
         return recipe.materials.some(material => {
             if(!isMaterialKnown(material.material_id)) return false;
-            const key = itemTemplates[material.material_id]?.getInventoryKey();
-            return key && inventory[key]?.count >= material.count && canConsume(key);
+            return Object.entries(inventory).some(([key,entry]) => entry.item.id === material.material_id && entry.count >= material.count && canConsume(key));
         });
     }
 
@@ -43,8 +42,9 @@ export function itemRecipeStatus({recipe, stationTier, findMaterial, isMaterialK
         // get_availability() stops after the first short material; later rows use the same lookup.
         const found = availability.materials[i] || findMaterial({material, needed_count: material.count});
         const known = material.material_type ? true : isMaterialKnown(material.material_id);
-        const held_back = found.count >= material.count && !found.items.every(entry => canConsume(entry.item.getInventoryKey()));
-        return {material, have: found.count, need: material.count, missing: found.count < material.count, known, held_back, items: found.items};
+        const owned = found.items.reduce((n,entry)=>n+entry.count,0), usable = found.items.reduce((n,entry)=>n+(canConsume(entry.item.getInventoryKey())?entry.count:0),0);
+        const blocked = Math.max(0,owned-usable), held_back = found.count >= material.count && blocked > 0;
+        return {material, have: found.count, owned, usable, blocked, stockKnown: true, need: material.count, missing: found.count < material.count, known, held_back, items: found.items};
     });
     const reasons = [];
     if(!recipe.isUnlocked()) reasons.push('not learned');

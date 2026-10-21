@@ -1,0 +1,14 @@
+{
+  "threadId": "01a15be8-8d0a-7e92-8e20-3bd31eeca426",
+  "hostId": "local",
+  "title": "Complete specimen choice and processing feature",
+  "model": "gpt-6-luna",
+  "reasoning": "medium",
+  "sol_role": "coupled identity/transaction/lifecycle integration or substantive review",
+  "state": "created; implementation pending receiver evidence",
+  "sender_changes": [
+    "BRIEF.md",
+    "INPUT_STATE.json",
+    "DISPATCH_RECEIPT.json"
+  ]
+}

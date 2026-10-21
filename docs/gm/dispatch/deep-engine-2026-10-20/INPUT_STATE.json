@@ -1,0 +1,36 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "branch": "codex/gameplay-foundations",
+  "scope": "Five user-requested chats; preparation and handoff, no runtime changes by coordinator",
+  "hashes": {
+    "docs/ENGINE_EXPANSION.md": "bffee0f92cdf669e50432822cd8f68d591f52b4b3d03259bac002a4fbb9d591a",
+    "PROJECT.md": "757d8ca29a62593269a466be52f575385071e5433a12ea76ccba9c2c4f9dd491",
+    "docs/USER_VISION.md": "758ada19f58990b06e44ff6f34cabe7ef9632f2e2a1ca601d0a826df52e4a237",
+    "docs/IDEA_INDEX.md": "ad510a2323d6fa5c710db4099abe8c84b4b9caef4e432620c713a97ce2c5e218",
+    "src/domain_registry.js": "2e67d4ee9d296f65567fa92545c597c8e4cb49e17d78d507cc936dd68e86b0ce",
+    "src/combat_math.js": "663cdbfdeb1efc352b3d0343fcf9b9e8f5e7dc31dc4f6e068843bf6f8c614cca",
+    "src/enemies.js": "a1dfd14cfc936dab472e8e5326e48e70dc93b8588b76ae5f7878eb7466f952b2",
+    "src/models/person.js": "82e6d60a46ce6c28765c968eb0f190e1088466e18f050af532c81dc6b041e362",
+    "src/tools_domain.js": "2b13e8f0ea57cfd5e8c0c9ee2278eb113010907e5183b7220a59d97b4c857144",
+    "src/lamplight_domain.js": "a0557f4ef641a0be3b04f22dd4d6c8bbe60083a4acabc068793dc4c8af307112",
+    "src/world_pack_manifest.js": "93324010278fe6b4bf5e19df2def7a47bd6c9722ff1f67c0b20e029766427d10",
+    "src/world_pack_loader.js": "ab570bb9fe3458eea63073e6643e5d55d5b1b811746ddc017214feb920b484d2",
+    "src/structured_pack_runtime.js": "3a8f435c70f0a69f69564a756d644926de0c2f52909e1d6f621009697bf07ed2",
+    "scripts/headless/runner.mjs": "cfdd4f89865dfca98b70442800b05cdfff3166946b27e2e8609e1d4cfee28364"
+  },
+  "usage_start_percent": 26,
+  "usage_stop_percent": 31,
+  "thread_ids": {
+    "P1": "01a15c0d-505c-72f3-98bd-0cd6a5a99dd8",
+    "P3": "01a15c0d-7032-7160-9f60-9826aa18e7b0",
+    "P2": "01a15c0d-a9b4-7510-ba9c-d83e95d99b60",
+    "P5": "01a15c0d-c9f0-7de3-bfcc-9d42cbd0bedc",
+    "P4": "01a15c0e-03c2-7833-8102-04e48ddd33d1"
+  },
+  "dispatch_check": {
+    "created": 5,
+    "initial_turns": "all in progress in compact snapshot",
+    "docs": "diff check, rules, links, IDs and exact shared-doc preservation passed",
+    "runtime": "not checked by dispatcher"
+  }
+}

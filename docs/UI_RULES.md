@@ -35,7 +35,7 @@ acceptance. A settled production change does not require a new mockup.
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| UR14 | **Discoverability check:** at the primary target 1920×1080 and the 1366×768 floor on a populated save, can a first-time player name the way back, the current work and the main actions from a screenshot alone? Put the screenshot in the report | Technical proof that a button exists, while the player could not find it |
+| UR14 | **Discoverability check:** at the primary target 1920×1080 on a populated save (1366×768 retired 2026-10-19), can a first-time player name the way back, the current work and the main actions from a screenshot alone? Put the screenshot in the report | Technical proof that a button exists, while the player could not find it |
 | UR15 | **Reproduce a reported problem in the player's terms first.** If it does not reproduce, ask what they saw before designing a fix. A report like "no way back" may mean "could not recognize the way back" | Hunting for a dead-end state when the real issue was an unclear label |
 | UR16 | **Proof and taste are separate gates.** Report rebuilt, fresh-origin technical proof; leave Weibao's visual-feel acceptance open | Calling a layout accepted because tests pass |
 | UR17 | **Saves first:** reorganizing UI never deletes gameplay, renames internal ids or breaks saved layouts, pins and collapse states without a written compatibility decision | Presentation work silently breaking long-running saves |
@@ -50,7 +50,7 @@ Weibao, 2026-10-15: "there should be paths back to specific large panels if some
 | UR22 | **Back goes to where you came from.** The center-mode controller keeps a history stack; the back bar names the real previous place ("← Inventory", "← Village"), not always home | A back control that throws you somewhere other than where you were |
 | UR23 | **Return restores your place:** scroll position, selection, open groups and active tab come back when you return to a view | Reopening a long list at the top and losing your spot |
 | UR24 | **Any large panel can expand** to fill the center as a focused view, and the back bar returns it to its normal home | Squinting at a big panel squeezed into a side column |
-| UR25 | **Scroll budget at every target, down to the 1366×768 floor:** no page scroll in ordinary play; one scroll owner per region; routine actions, current work and the way back visible without scrolling. A panel needing more than about one and a half screens of scrolling must be split, summarized, filtered or offered as an expanded view (UR24) | Long columns where the important action sits below the fold |
+| UR25 | **Scroll budget at every target (1920×1080, the MacBook size and 1536×864):** no page scroll in ordinary play; one scroll owner per region; routine actions, current work and the way back visible without scrolling. A panel needing more than about one and a half screens of scrolling must be split, summarized, filtered or offered as an expanded view (UR24) | Long columns where the important action sits below the fold |
 | UR26 | **Summary first:** collapsed groups show a one-line status (ready, due, counts) so the player knows whether to open them | Opening every dropdown to find out if anything inside matters |
 | UR27 | **Long lists keep their bearings:** sticky header, filter or search, a count, selection kept in view, no jump on refresh | Inventory and logs that lose your place every tick |
 | UR28 | **Quick jump:** one shortcut (for example Ctrl+K or /) searches known panels, actions, people and items and goes there. Lists only what the player knows (observer-safe) | Deep features reachable only by remembering where they live |
@@ -60,9 +60,9 @@ Weibao, 2026-10-15: "there should be paths back to specific large panels if some
 | UR32 | **Empty states say how to fill them**, rather than showing a blank box or hiding the panel without explanation | Empty frames that look broken |
 | UR33 | **Larger text still works:** at 125% and 150% text, routine controls and the back bar stay reachable; scrolling is allowed but the back bar stays pinned | Layouts that pass at default size and break for readers who zoom |
 
-Measure, don't guess: UR14 reports include page `scrollHeight` against the viewport and which regions overflow, on a populated save at 1920×1080 and the 1366×768 floor.
+Measure, don't guess: UR14 reports include page `scrollHeight` against the viewport and which regions overflow, on a populated save at 1920×1080.
 
-**Viewport targets, 2026-10-17 (Weibao: "yes, check my screen realestate and what is most common?").** Primary design target 1920×1080, the most common desktop size (about half of Steam players and a fifth of all desktop web traffic). Weibao's own MacBook Pro shows about 1800×1040 CSS pixels in a full-screen browser and is checked every round. Floors that must not break: 1536×864 (the second most common size, and 1920×1080 at 125% scaling) and 1366×768. Text at 14px and 21px at each. Extra space at the primary target goes to more useful panels, not larger type. Superseded wording, kept as history: UR14, UR25 and this note measured at "1366×768" only.
+**Viewport targets, 2026-10-17 (Weibao: "yes, check my screen realestate and what is most common?").** Primary design target 1920×1080, the most common desktop size (about half of Steam players and a fifth of all desktop web traffic). Weibao's own MacBook Pro shows about 1800×1040 CSS pixels in a full-screen browser and is checked every round. Floor that must not break: 1536×864 (the second most common size, and 1920×1080 at 125% scaling). 1366×768 was a floor until Weibao retired it on 2026-10-19 (see [USER_VISION](USER_VISION.md#retire-the-1366768-floor-2026-10-19)); no rule requires checking or designing for it. Text at 14px and 21px at each. Extra space at the primary target goes to more useful panels, not larger type. Superseded wording, kept as history: UR14, UR25 and this note measured at "1366×768" only.
 
 ## For coordinators and lane briefs
 
@@ -136,6 +136,55 @@ remain proposals, not an accepted grouped default.
 | UR56 | **Summaries preserve meaningful differences and a route to detail.** Enemy groups retain individual selection/identity/known state; repeated log lines retain their recorded events; pursuit summaries read completion from existing owners. Define grouping identity and lifecycle before aggregating | Same-name enemies losing distinct health, compressed logs losing outcomes, or pins becoming a second quest system |
 | UR57 | **Review the full journey in changing state.** Exercise finding, switching, inspecting, acting, returning and resuming, including full discovered routes, large text, unavailable targets and relevant failure recovery. Record click/key cost, lost context and useful visible content; screenshots and counts alone do not prove findability or acceptance | A clean opening frame hiding repeated navigation friction or broken return behavior |
 | UR58 | **A display preference has an owner and reset boundary.** Define whether it follows this browser, character or world; reconcile route IDs, pins, filters and selection on reload/import/reset. Missing targets get a safe explanation; undiscovered targets stay unnamed. Reuse existing state and migration policy | A different save inheriting another character's reminders, stale routes or leaked discoveries |
+
+## Discord-derived reference guide, 2026-10-21
+
+Weibao requested absorbing the design guide into the UI reference rules after
+the [Discord absorption check](audits/DISCORD_ABSORPTION_CHECK_2026-10-21.md).
+[Direction](USER_VISION.md#discord-design-guide-and-missing-media-recovery-2026-10-21).
+UR59–UR64 make the reusable guidance standing; source-specific mechanics and
+unresolved interpretations retain their recorded status. Apply these alongside
+UR12/UR49 and AD40 when designing or reviewing a reference-informed surface.
+Defaults, intensity and exceptions follow the selected world, player settings
+and actual mechanism, with their reason and cost stated in the task record.
+
+| Code | Rule | Mistake it prevents |
+| --- | --- | --- |
+| UR59 | **A reference keeps its date, speaker and evidence status.** Bind the relevant image/clip to its caption and useful discussion; distinguish shown behavior, developer statement, player suggestion and our inference. Keep alternate drafts and later corrections discoverable. Adapt the useful lesson through the current OOPS owner, naming deliberate differences under UR49. Missing bytes, an unused draft and a later release are different states. New recovered material may correct an interpretation; review the affected rule or example explicitly rather than silently adopting it | Treating a liked tooltip draft as the latest shipped UI, or turning a source joke, formula guess or source-world limit into an OOPS requirement |
+| UR60 | **Compose typography, color and frames by reading role.** Use shared tokens for compact labels, numeric comparisons, longer prose, task regions, selection and quiet decoration. MS Gothic is the selected internal default, including prose and controls (2026-10-21 direction); verify the rendered face and per-glyph fallback. The earlier optional compact-font candidate remains historical. Preserve the original launch direction and player/module overrides. Keep full known names accessible, labels on quiet readable backing, and commands stable at actual 14/21px desktop text. Density, glow and world styling are dials whose cost is legibility and distraction | Copying colors without composition, claiming a font loaded from its CSS name, borders crossing values, or shortening a label until its meaning is lost |
+| UR61 | **A meter says which question it answers.** Distinguish current pool/capacity, progress/completion, readiness, conditional success, signed contribution/rate, discrete stock, remembered observation and same-subject recent change. Name units, baseline and applicability; a full progress bar is not automatically a warning or eligibility proof. Derive thresholds and comparisons from the owning mechanism and public knowledge, with time/place on stale observations when useful. Keep readable text/static meaning and keyboard Details; an extra contextual resource may appear without moving commands | A 100% success tooltip on an unavailable recipe being read as readiness, a maximum increase being shown as healing, or an old observation being presented as live truth |
+| UR62 | **Local reactions follow the actual subject and settled occurrence.** Bind hit, repair, recovery, work completion, weather, household and sound cues to the owner’s public state or receipt and the subject's lifetime. On replacement, load or revisit, reconcile transient cues without replaying rewards or attaching A's pulse to B. The little actor may move while its controls stay still. Motion, sound, humor and intensity are optional dials with static/text equivalents. Distinguish settled animation from a real paused response; bodily competence, serious outcomes and supported sensing determine fitting expression | Fake rescue opportunities, effects deciding gameplay, a scene exposing hidden state, or a forced gag taking away a working method |
+| UR63 | **Keep the task's known dependencies and commitment together.** Show the actual target, selected means, input/stock policy, requested amount, progress, stop reason and next move in the task's natural home. Explain attempts versus useful outputs, substitution, interruption, continuation and what is spent/retained/returned through existing owners. Known producer/use links and comparisons name exact subjects and restore the original task on return. A tracked goal reserves stock only through an explicit existing policy; mastery may reduce handling where its mechanism supports that change | A quantity goal silently spending a prized stack, duplicated preview math, navigation discarding intent, or an inverse recipe search revealing unknown content |
+| UR64 | **Condense repeated presentation without flattening meaningful change.** Define grouping identity, occurrence count, retention/detail window and preference/reset owner. Keep changed outcomes, subjects and important transitions distinguishable; preserve the actual gameplay result and explain any bounded retained display history. New discovery, recent gain and remembered-versus-current change are different cues. Keep a stable route to available detail and a useful return summary, preserving focus, scroll/follow and known membership. Quiet recurring feedback rather than replaying a backlog of effects | A repeat counter hiding a new consequence, “new” badges pretending to track XP, unbounded detail rebuilds, or a compact log implying a complete archive it does not retain |
+
+### Reference routing and retained examples
+
+This table routes the whole design guide into standing rules and existing detail
+owners; it does not select every illustrated mechanic for implementation.
+The [fine-grained comparison](research/proto23/FEATURE_AUDIT_SIDE_BY_SIDE_2026-10-20.md)
+retains PFA001–PFA090, PFY comparisons and unresolved source cases.
+The [UI/playful report](research/proto23/UI_AND_PLAYFUL_PRESENTATION_OPPORTUNITIES_2026-10-20.md)
+and [YAIR review](research/yair-upstream/DISCORD_RESEARCH_2026-10-20.md) preserve
+independent findings and chronology. Use their later execution receipts for
+implementation status, not an older Candidate/Partial label alone.
+
+| Design-guide family | Standing application | Detail owner and retained scope |
+| --- | --- | --- |
+| CRL1, CRL7: uncertainty and useful comparisons | UR36/40/45/47/59/61; AD6–8 | [Means/appraisal](MEANS_AND_APPRAISAL.md): actual versus observed versus forecast, named baseline and stale evidence |
+| CRL2, CRL3, CRL8: methods, custody and meaningful variety | UR35/49/63; MR and AD38 | [Granular systems](GRANULAR_SYSTEMS_AND_INTERACTIONS.md), [making](MAKING_RULES.md), [gear dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md): display actual costs/results; physical piles, spoilage or universal wear are not implied |
+| CRL4, CRL5, CRL6: intent, mastery and discovery | UR22/23/35/42/52/63; MR/SLR | [Crafting](CRAFTING_ENGINE.md), [UI palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20): known uses, real work and changed handling through actual owners |
+| CRL9, CRL22: composition, typography and labels | UR6/12/34/37/39/43/46/49/60 | [Panel kit](PANEL_KIT.md), [typography/style receipt](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#tsg-implementation-receipt-2026-10-20): current shell, legible compact rhythm, full known identity |
+| CRL10, CRL19, CRL21: cadence, local reactions and recent changes | UR38/44/48/52/56/58/61/62/64 | [Presentation](PRESENTATION_AND_FOURTH_WALL.md), UI palette: receipt-bound effects, new versus changed, honest aggregation and return |
+| CRL11, CRL12, CRL13: home, flavor and connected outings | UR4/35/49/57/59/62/63 | Granular systems and presentation: real-state home/return loops; flavor/claims are distinct from an implemented property |
+| CRL14: choose a complete playable question | UR16/18/45/57/59; AD33/36 | [Original guide](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md): bounded journey through aftermath, source/build/native/taste proof kept separate |
+| CRL15–CRL18: spatial progress, slips, impact and aftermath | UR35/38/49/57/61/62; AD19/38 | Presentation and original guide: scene responds to actual state; spatial climbing remains a specific content proposal, not a completed palette feature |
+| CRL20, CRL23–CRL26: personality, little actors, competence, sound and familiarity | UR37/38/45/52/58/62/64; AD6/16/38 | Presentation and original guide: caused, optional, observer-safe expression; existing history/clock owners, tone and human judgment |
+
+For a touched reference family, the task record names the applicable UR codes,
+source locator, existing consumer, visible desktop outcome and a meaningful
+failure scenario. Reuse relevant passing evidence only for unchanged inputs
+(AD36). A rule fold, 90 routed comparisons or 53 bounded treatments does not
+certify all source media, future world mechanics or current combined gameplay.
 
 ## Craft 1 activation evidence, 2026-10-16
 

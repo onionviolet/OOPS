@@ -1,0 +1,12 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "branch": "codex/gameplay-foundations",
+  "files": {
+    "src/harvest.js": "cd929d0a2e672f8e7c1371ca7a1dad4a7b414038e6297fcefd5b20fe1c5e839f",
+    "src/harvest_ui.js": "cf5d5414ec9e0669a7ff88281391cc7c2c5795c91395a756a8871e8e9bd794d9",
+    "src/native_resources_domain.js": "5caa2219d1b5606aba656d37b8b1f824eb1dcb8b7014d3b35d6182724bd210cf",
+    "tests/harvest.test.js": "0c42df37c169c6d874686e9458b5ddc6c1f2314d04c274085fb2c213a311516c",
+    "docs/gm/dispatch/specimen-processing-2026-10-20/BRIEF.md": "cef54ca92754efcf9c2f5ba5bb0ddeac9b64c3ce87b8767b04521396a35b8f3b"
+  },
+  "state": "dispatch inputs only; no runtime edits or gameplay checks by sender"
+}

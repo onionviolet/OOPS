@@ -3,29 +3,31 @@
     <head>
         <link rel="stylesheet" href="styles/settled_text_effects.css">
         <link rel="stylesheet" href="styles/customization.css">
-        <link rel="stylesheet" href="styles/workspace.css?version=080232f17190">
+        <link rel="stylesheet" href="styles/workspace.css?version=d6084d59bd97">
         <link rel="stylesheet" href="styles/workspace_discovery.css">
         <link rel="stylesheet" href="styles/display_settings.css">
         <link rel="stylesheet" href="styles/status_window.css">
-        <link rel = "stylesheet" href = "style.css?version=v0.6-29c0cb16f1c2">
+        <link rel = "stylesheet" href = "style.css?version=v0.6-782583166527">
         <link rel="stylesheet" href="styles/action_legibility.css?version=0eb2ba0cb8f1">
         <link rel="stylesheet" href="styles/crafting_detail.css">
         <link rel="stylesheet" href="styles/component_themes.css">
         <link rel="stylesheet" href="styles/start_probe.css">
-        <link rel="stylesheet" href="styles/ui_tokens.css?version=7c43792f2c91">
+        <link rel="stylesheet" href="styles/ui_tokens.css?version=d9cbd5f8b52c">
         <link rel="stylesheet" href="styles/shell_layout.css?version=af7afc4a29e9">
         <link rel="stylesheet" href="styles/inventory.css?version=e859760fe686">
         <link rel="stylesheet" href="styles/opponents.css?version=fde468a8e2f4">
-        <link rel="stylesheet" href="styles/combat_log.css?version=bcfe1f631556">
+        <link rel="stylesheet" href="styles/combat_log.css?version=63144690dd94">
         <link rel="stylesheet" href="styles/oops_branding.css">
         <link rel="stylesheet" href="styles/shell_chrome.css?version=65ecfeff7457">
         <link rel="stylesheet" href="styles/inventory_composition.css">
         <link rel="stylesheet" href="styles/nearby_context_view.css">
+        <link rel="stylesheet" href="styles/ui_extras.css">
         <link rel="stylesheet" href="styles/meter_bar.css">
+        <link rel="stylesheet" href="styles/corc_readability.css">
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-ad95d6c1e9d2"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-78a1da383f20"></script>
 
         <!--Icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -35,10 +37,10 @@
 
         <meta charset="UTF-8">
         
-        <meta name="description" content="OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by Weibao. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.">
-        <meta name="author" content="Weibao">
+        <meta name="description" content="OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by onionv. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.">
+        <meta name="author" content="onionv">
         <meta property="og:title" content="OOPS · Optimistic Progression Simulator">
-        <meta property="og:description" content="OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by Weibao. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.">
+        <meta property="og:description" content="OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by onionv. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.">
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -46,11 +48,11 @@
             "headline": "OOPS · Optimistic Progression Simulator",
             "name": "OOPS",
             "alternateName": "Optimistic Progression Simulator",
-            "description": "OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by Weibao. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.",
+            "description": "OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by onionv. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.",
             "url": "https://github.com/onionviolet/OOPS",
             "author": {
                 "@type": "Person",
-                "name": "Weibao"
+                "name": "onionv"
             },
             "isBasedOn": {
                 "@type": "VideoGame",
@@ -74,11 +76,12 @@
                 OOPS
                 <div id = "loading_screen_game_subtitle">Optimistic Progression Simulator</div>
                 <div id = "loading_screen_author">
-                    by <span class="bold" >Weibao</span>
+                    by <span class="bold" >onionv</span> <img class="loading_signature_pet" src="resources/img/guinea-pig-transparent.png" width="85" height="48" alt="Guinea pig with hand-added glasses">
                 </div>
                 <div id = "loading_screen_inspirations">
-                    Inspired by <a href="https://github.com/miktaew/yet-another-idle-rpg" target="_blank">Yet Another Idle RPG</a> by Miktaew
-                    and <a href="https://23html.github.io/" target="_blank">Proto23</a> by 23html
+                    <span class="loading_inspirations_label">Inspired by</span>
+                    <span class="loading_reference_credit"><a href="https://github.com/miktaew/yet-another-idle-rpg" target="_blank">Yet Another Idle RPG</a><span>by <span class="loading_credit_author">Miktaew <span aria-hidden="true">🐱</span></span></span></span>
+                    <span class="loading_reference_credit"><a href="https://23html.github.io/" target="_blank">Proto23</a><span>by <span class="loading_credit_author">23html</span></span></span>
                 </div>
             </div>
             
@@ -97,6 +100,16 @@
             <div id ="loading_screen_play_button" class="none_display">
                 PLAY
             </div>
+            <aside class="loading_support loading_support_left" aria-label="Proto23 creator links">
+                <p>Explore the original <span aria-hidden="true">↙</span></p>
+                <a href="https://23html.github.io/" target="_blank" rel="noopener noreferrer">Play Proto23 · by 23html</a>
+                <a class="loading_source_link" href="https://github.com/23html/23html.github.io" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+            </aside>
+            <aside class="loading_support loading_support_right" aria-label="Miktaew creator links">
+                <p>Support the original author <span aria-hidden="true">↘</span></p>
+                <a href="https://ko-fi.com/miktaew" target="_blank" rel="noopener noreferrer">Miktaew on Ko-fi</a>
+                <a class="loading_source_link" href="https://github.com/miktaew/yet-another-idle-rpg" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+            </aside>
         </div>
 
         <div id = "hero_creation_panel">
@@ -298,6 +311,7 @@
                     </div>
 
                     <div id = "trade_div">
+                        <p id="trade_stock_notice" role="status" hidden></p>
                         <div id = "trader_sorting_buttons" class="activable_buttons flex_wrap"> 
                             <div id = "trader_sort_by_name" class = "trader_sorting_button active_selection_button" onclick='sortTraderInventory("name")' data-translation="ui sort name"></div>
                             <div id = "trader_sort_by_price" class = "trader_sorting_button" onclick='sortTraderInventory("price")' data-translation="ui sort value"></div>
@@ -347,6 +361,7 @@
                     </div>
 
                     <div id = "storage_div">
+                        <section id="storage_comparison" aria-label="Carried and chest comparison"></section>
                         <div id = "storage_sorting_buttons" class="activable_buttons flex_wrap"> 
                             <div id = "storage_sort_by_name" class = "storage_sorting_button active_selection_button" onclick='sortStorageInventory("name")' data-translation="ui sort name"></div>
                             <div id = "storage_sort_by_price" class = "storage_sorting_button" onclick='sortStorageInventory("price")' data-translation="ui sort value"></div>

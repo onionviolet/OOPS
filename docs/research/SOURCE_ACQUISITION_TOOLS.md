@@ -1,8 +1,13 @@
 # Existing source acquisition tools
 
-Current routing guidance, 2026-10-12. Applies to selected novel/fanwork research
+Current routing guidance, refreshed 2026-10-21. Applies to selected novel/fanwork research
 for this project. This is tool discovery and execution guidance, not permission
 to acquire everything in a catalogue or to implement the resulting ideas.
+
+Start at the [shared tool registry](../TOOL_REGISTRY.md) for launch commands,
+isolated environments and current readiness. It also routes Discord, REA,
+engine-specific extraction and verification tooling; the transport contract
+below remains the owner for this novel/fanwork acquisition route.
 
 ## Discover and reuse first
 
@@ -14,6 +19,8 @@ meets the request; preserve source/version, raw hashes and actual reading scope.
 
 | Tool | Actual capability / entry point |
 |---|---|
+| Local library and prepared sources | Read-only Calibre/EPUB discovery first. Registry IDs `calibre`, `saved-sources` and `epub-prepare`; extraction and reading remain separate. |
+| Z-Library research fork | `/Users/weiwei/code/zlibrary-research`, [current profile](/Users/weiwei/code/zlibrary-research/docs/YAIRPG.md). Registry IDs `zlibrary`, `zlibrary-mcp`, `epub-prepare`. Ten MCP tools cover remote edition discovery/acquisition and local intake/search/reading/library comparison. Launch is not registration or authentication. |
 | Personal fork | `/Users/weiwei/code/lncrawl-polite`; read its `AGENTS.md` and `README_POLITE.md`. |
 | Isolated polite CLI | `.venv-polite/bin/python -m lncrawl polite` from that repository. Current CLI accepts a Fanqie book ID and matching local reference font; it is not a general URL downloader. Use `--help` for current arguments. |
 | Reusable transport | `lncrawl.polite.transport.Client`; source at `/Users/weiwei/code/lncrawl-polite/lncrawl/polite/transport.py`. Existing HTML adapters can use this without importing the upstream scraper. |
@@ -83,3 +90,9 @@ link to its private owner.
 This routing was checked against current local code and offline CLI help.
 No new site access, adapter implementation or behavior change is established by
 this documentation update.
+
+2026-10-21 refresh: registry wrappers passed offline help/import/version probes
+for polite mode, book CLI, EPUB preparation, Calibre and PDF/media utilities.
+The Z-Library profile records an earlier anonymous remote search trial; endpoint,
+account and acquisition success were not reverified here. The October 12
+transport correction and its historical receipts remain unchanged.

@@ -1,0 +1,106 @@
+{
+  "phase": "process same specimen",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   },\n+   {\n+     kind: 'console',\n+     op: -1,\n+     text: 'Failed to load resource: the server responded with a status of 404 (Not Found)'\n+   }\n+ ]\n- []\n\n    at file:///Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/proto23-ui-delivery.mjs:49:9",
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ]
+}

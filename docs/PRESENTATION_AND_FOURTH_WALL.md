@@ -2255,3 +2255,104 @@ with a parry or a dodge; passive play rolls perception instead.
 all the way: no effects for anyone, ever, except one moment per
 campaign. That world's single effect becomes the most memorable thing
 in it.
+
+
+## Corc reference round 2, 2026-10-20: small physical delight
+
+**Proposal palette additions.** The [Corc synthesis, CRL15–CRL26](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-2-2026-10-20-falling-little-ui-reactions-and-fun)
+qualifies the saved source images/captions. Existing X1–X7 restraint, P1–P7,
+UR38, AD6–AD8/AD16/AD19/AD28/AD34/AD38 and the
+[humor lifecycle owner](gm/dispatch/procgen-2026-10-13/p26/HUMOR_AND_NOVELTY.md#z12-running-gag-lifecycle)
+remain in force. Ordinary movement in a little activity scene need not be a
+fourth-wall power; large interface effects retain their rare, earned role.
+
+| Reference | Proposed delight | Default, dial and reason/cost |
+|---|---|---|
+| CRL15–CRL18 | A loose pebble, held pose, fast descent, then a short landing beat | Default: local readable movement and plain outcome. Dial: serious/comic tone, body/surface/support and reduced motion. A soft aftermath can be funny without compulsory damage, gore or a reaction-time challenge. Skipping presentation does not repeat/undo the result. |
+| CRL19/CRL21 | A struck bar sheds a brief loss trail; a repaired tool gets a crisp accent | Default: subject-local, static equivalent, no movement of ordinary controls. Dial: ink, chips, light or quiet text by cause/world/preference. Bind to existing receipt/anchors; routine ticks need not remain excited. |
+| CRL20/CRL23 | A creature looks at a new object, a lamp gutters, a tired character settles | Default: derive transient texture from existing state. Dial: place/body/style/frequency. A lasting rename/change has an owner; an incidental look need not create a new relationship record. |
+| CRL24 | The capable character has a mundane priority | Default: a fitting brief aside, such as protecting lunch after mastering a once-frightening climb. Dial: audience, tone and quiet preference. Preserve competence, useful outcomes and the existing gag's ability to end; no reward or fake mechanical warning needed for every joke. |
+| CRL25/CRL26 | A pebble's distant impact, sheltered rain, then a quiet first overlook | Default: sparse text/sound observations from an actual place. Dial: hearing/obstruction/style. Sound-off retains useful information; no exact range or hidden-source identity follows automatically. Existing discovery/history supports familiarity on return. |
+
+**ACT NOW (done):** saved this local physical palette and linked existing owners.
+**ACCOUNT FOR NOW:** separate a real response window from a rendering of settled
+state; atmosphere and comic staging need no new engine contract until a selected
+consumer requires one. **LATER / DELEGATE:** CRJ5–CRJ7, not dispatched. Sol
+low/medium for staging/context, Luna low for an already settled bounded visual
+leaf; small effort when an actual activity/receipt/return interaction is selected.
+Done: one readable sequence/reaction/callback at 1920×1080, static/reduced forms,
+no repeated settlement on skip/reopen, and separate human tone/feel review. No
+runtime change or visual default accepted by saving this palette.
+
+
+## Reference detail fold, 2026-10-20: caused reactions and affectionate detail
+
+Proposal extension of CRL15–CRL26, existing restraint/humor lifecycle and
+AD6–AD8/AD16/AD19/AD28/AD38/AD40. The
+[visual/engine fold](research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md#plan-fold-and-further-interactions-2026-10-20)
+retains SBS1–SBS16, CUI1–CUI5 and PFE01/PFE12–PFE15/PFE21/PFE25–PFE30.
+The [thematic owner](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#reference-ui-and-engine-fold-2026-10-20-color-detail-and-continuity)
+owns RUC color/typography roles; ordinary small-scene motion remains distinct
+from large earned fourth-wall effects.
+
+| Connection | Further playful possibility, original proposal | Default, dial and cost |
+|---|---|---|
+| PFE01/PFE21 | A nicked axe gives one dry snap, repaired metal gets one crisp accent, the old target's dust settles before the new target appears | Derive from the actual occurrence and subject lifetime. Cosmetic variant selection is stable/presentation-local; no gameplay RNG draw or delayed reward. Material vocabulary depends on sensed/known properties. Cost: a small coherent event vocabulary. |
+| PFE25 | A handless traveler uses a different support, or flies past the old cliff with a carefully level cup of tea | Stage the actual method/body, including bypass. Pose and tone are dials, not reasons to disable a power or make every actor humanoid. Cost: a few supported method variants for the selected scene. |
+| PFE26 | Someone who actually saw the muddy landing later offers a dry towel with a perfectly straight face | Use a witnessed/heard cause and the right speaker. The player's private event does not give every NPC knowledge. Let the callback settle or evolve after its cause ends. Cost: one useful local memory, if not already present. |
+| PFE27 | A cat selects the warm patch, watches a falling pebble or relocates after a real object moves | A flourish can remain transient. If movement actually changes access, heat or custody, the actor/process owner must settle that consequence; a cute pose does not secretly destroy supplies. Cost grows only with the real consequence selected. |
+| PFE28/PFE29 | A repaired seam remains recognizable; an expert's routine becomes a short confident motion, with unusual breaks still getting a clear beat | Derive marks and shorthand from real history/capability; distinguish familiar routine from an exceptional outcome. Sound/effects/seriousness are dials. Cost: authored variants and a few meaningful boundaries, not a new biography ledger. |
+
+**ACT NOW (done):** folded local reactions, physical scenes, ordinary life,
+patina, audience and competence into this palette. **ACCOUNT FOR NOW:** quiet
+mode keeps the useful outcome; return does not replay missed effects; changing
+theme cannot change a result; commands keep their place and gesture subject.
+**LATER / DELEGATE:** CRJ5–CRJ7/PFB3–PFB5/CUI4 retain their existing triggers;
+Sol low/medium for body/voice/lifecycle, Luna low for a settled visual leaf,
+small/medium for one selected event/scene. Done: actual/native event binding,
+static/reduced presentation, no old pulse on a new subject and separate human
+tone review at the desktop targets. No animation, audio or scene implemented here.
+
+
+## Launch ornaments and useful display content, 2026-10-21
+
+Weibao asked whether the dummy hit counter was useful, requested its removal, asked where the emojis went, and requested further consideration. [LUI1–LUI4 receipt](reviews/launch_menu_2026-10-21/REPORT.md) records the bounded follow-up: removed an inherited website-visit badge and its external request/relocation paths; restored the original decorative cat that was lost when the loading credit was replaced; verified native emoji fallback without changing Gothic's compact-text role. Original launch composition and direct PLAY remain selected; a separate start menu stays deferred.
+
+Further consideration: hiding a decorative network image is weaker than removing its producer; decorative emoji can be hidden from accessibility names while meaningful shield/weather symbols retain their labels and ordinary font fallback. A separate `2345` shield-readout source defect is recorded as LUI4, not fixed or runtime-proven by this pass. No broad font/theme/gameplay cleanup is selected.
+
+
+### Creator signatures, 2026-10-21 follow-up
+
+Later correction: reference authors keep their own identity; onionv gets a distinct guinea-pig-themed signature. Miktaew's cat now sits with Miktaew's credit, 23html remains credited by name, and an original local SVG guinea pig accompanies onionv. This supersedes LUI2's first placement, without adding new loading text or changing the restored layout. [Implementation and browser receipt](reviews/launch_menu_2026-10-21/REPORT.md#creator-specific-signatures-later-2026-10-21-direction).
+
+
+Later asset choice, 2026-10-21: Weibao prefers an existing PNG and pointed to his fellowship image. The local aviator-sunglasses guinea-pig PNG now replaces the newly drawn SVG, byte-for-byte. This changes only the signature asset and its aspect-preserving display size. [Receipt](reviews/launch_menu_2026-10-21/REPORT.md#existing-guinea-pig-png-later-2026-10-21-replacement).
+
+
+Current credit refinement, 2026-10-21: the exact user-edited `goated pig.png` source replaces the mistaken generated aviator image. A non-destructive transparent-background derivative is now displayed. User-selected flair separates the diagonal Miktaew/Proto23 credits from upright, underlined onionv and his guinea pig. Corner arrows lead to Miktaew's verified Ko-fi, while both projects have quieter GitHub source links. Proto23/Corc's Ko-fi awaits a verified URL. [Final implementation and checks](reviews/launch_menu_2026-10-21/REPORT.md#edited-source-distinct-flair-corner-links-and-transparent-cutout).
+
+
+## Recovered Corc round 5, 2026-10-21: truthful change after reflow and return
+
+**Proposal extensions**, from [CRL38–CRL41](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-5-2026-10-21-subtle-interactions-folded-into-the-plans). UR60–UR64 and existing PFE/CRL expression owners retain authority. Desktop target: 1920×1080, actual 14/21px text; mobile work deferred.
+
+| Reference | Addition | Default, dial and reason/cost |
+| --- | --- | --- |
+| CRL38/CRL39 | A reaction follows logical subject identity through font, layout and theme changes | Recompute the visible anchor when geometry changes. Preserve target/command identity while the sprite or highlight moves; an unavailable old subject can end the transient cue. Dial: glyph/shape/color/text by rendered support and player's settings. Cost: existing anchor lifecycle, not a second targeting model. |
+| CRL39 | Meaning survives fallback, rather than depending on one symbol/color pair | The source's effect tool edits glyph, foreground and backing together; the real effect model separately owns behavior. A fallback face may change glyph shape/width. Retain a known label/static explanation so a cosmetic change cannot silently change the meaning of poison, recovery or another effect. Cost: a small actual-component sample set, not invented universal icons. |
+| CRL40/CRL41 | Return summaries respect when knowledge and capability changed | A quieter return summary can report public results and a new ability without pretending that earlier decisions used the new ability. A retrospective interpretation is labelled as later knowledge when useful. A rebuilt panel, applied theme or reloaded title does not itself replay an earned reward. Dial: grouping/detail and retained public history. Cost: existing receipt/time boundaries where meaningful; no indefinite receipt archive required. |
+
+`settled_text_effects.js` already consumes settled events and suppresses old hidden-tab cues; `titles.js` already derives held-title bonuses. These additions are future integration cases, not claims those protections are missing or failing. **ACT NOW (done):** saved them in the presentation owner. **ACCOUNT FOR NOW:** maintain a static useful result when sound/motion is off. **LATER / DELEGATE:** pair CRJ9's reflow samples with CRJ10's return summary when either is selected. Luna low for settled visual wiring, Sol medium for knowledge/event ordering, small/medium effort. Done: no cue on the wrong subject, no hidden-truth leak or replayed reward, readable fallback and a separate human tone/readability check.
+
+
+## Recovered Corc round 6, 2026-10-21: titles that say what they do
+
+**Proposal additions**, following [CRL42–CRL47](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-6-2026-10-21-title-benefits-and-small-opportunities), UR59–UR64 and the [existing title palette](SKILLS_AND_TALENTS.md#recovered-corc-round-6-2026-10-21-title-benefits-by-mechanism). Desktop target 1920×1080 at actual 14/21px text; mobile deferred.
+
+The source marks talent-bearing titles with a star, and newly earned titles also replace its displayed selection. OOPS can keep the pleasant discovery beat while preserving a player's chosen display/worn identity by default. Its existing worn-title mode has explicit selection; a new earned title need not silently activate that payoff. A fitting world's investiture or transformation could deliberately change the presented identity through its actual mechanism.
+
+For useful clarity, explain learned passive, optional worn payoff, conditional opportunity and a genuinely activated command separately. A title can say “you now notice…” rather than displaying another unexplained percentage. A situational benefit can have a quiet known reason when unavailable. A ceremonial nickname, humble boast or deadpan aside can celebrate a small deed without promising a nonexistent effect or belittling a serious accomplishment. NPC reactions use what that NPC witnessed, heard or appraised; the player's title panel does not broadcast it.
+
+Playful candidate: a practiced quartermaster notices one more useful detail in familiar training equipment, with a brief surprised line when a real new opportunity settles. This adapts a source conditional-drop mechanism, not a promise of guaranteed loot. Another candidate is a little “these go together” note on a real newly supported material insight. Repeated visits/hover stay quiet and do not regrant knowledge or rewards.
+
+**ACT NOW (done):** saved these distinctions and candidates. **ACCOUNT FOR NOW:** bind cues and public eligibility to real owners. **LATER / DELEGATE:** one selected title or discovery event, Luna low for settled UI, Sol medium for meaning/recognition, small effort after the mechanism exists. Done: clear trigger/effect, chosen title retained unless deliberately changed, quiet repeat, static equivalent and separate human tone check. No new title art, ability or NPC reaction shipped here.

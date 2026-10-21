@@ -43,9 +43,9 @@ Closed-browser advancement remains unsupported. No new loss is charged during un
 
 ## Delivery and acceptance
 
-Current state: substantive campaign planning plus a prior implemented-detached Short Measure draft. This does not close a playable world. Registration, native/UI consumers, funded demand, exact skill calls and the specified mature/aftermath outcomes remain required work. [IMPLEMENTATION_PACKET](IMPLEMENTATION_PACKET.md) names the selected dependencies, optional adapters and later acceptance cases. The new skill/discovery implementation exception belongs to Ability/UI/Engine, while the Frontier episode hold remains intact.
+Historical planning-stage state, superseded by the later delivery note above: substantive campaign planning plus a prior implemented-detached Short Measure draft. This does not close a playable world. Registration, native/UI consumers, funded demand, exact skill calls and the specified mature/aftermath outcomes remain required work. [IMPLEMENTATION_PACKET](IMPLEMENTATION_PACKET.md) names the selected dependencies, optional adapters and later acceptance cases. The new skill/discovery implementation exception belongs to Ability/UI/Engine, while the Frontier episode hold remains intact.
 
-Director acceptance owns fiction, costs, useful choices and game feel. Source/document checks qualify this plan only. Generated native/play/save/failure/keyboard checks remain deferred; earlier checks cannot prove later code. [REPORT](REPORT.md) and [CHECKPOINT](CHECKPOINT.md) own current results and resumption.
+Director acceptance owns fiction, costs, useful choices and game feel. Source/document checks qualify this plan only. Generated native/play/save/failure/keyboard checks remain deferred; earlier checks cannot prove later code. [REPORT](REPORT.md) and [CHECKPOINT](CHECKPOINT.md) retain the planning return; the later linked home-world release owns integration results and resumption.
 
 ## Timeline and endings
 

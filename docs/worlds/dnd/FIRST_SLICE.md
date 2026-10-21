@@ -2,6 +2,27 @@
 
 2026-10-11. Decision-ready design, no implementation. [Source anchors](SOURCE_CONTRACT.md) and [coverage IDs](COVERAGE_MAP.md) apply. All new lives, people, wages, situations and consequences below are authored branch proposals, not a reproduced published adventure.
 
+## Current qualification, reconciled 2026-10-20
+
+WPD-R11: [SRD521_START](SRD521_START.md) already qualifies a proposed ST2
+SRD 5.2.1 snapshot, including Mending acquisition/components, and
+[RULINGS_LEDGER](RULINGS_LEDGER.md) records provisional local calls. The older
+A1/starting-table audit requests below are historical for those delivered
+source/design pieces; do not redo them as missing work. Still open: selected
+setting/era evidence, source-critical exceptions for the chosen journey,
+ST1/ST3 if the three-start scope is selected, and actual native consumers and
+current-format round trips. A qualified ST2 does not implement its listed spells.
+
+ACCOUNT FOR NOW (WG23): demand for an actual bag repair may be finite, and a
+client can react to observed service. No obligation to simulate a displaced
+repair economy follows from one at-will cantrip. Before implementation, freeze
+the actual object/tear, access/hand/voice/focus timing and funded fee, keeping
+replacement distinct from repaired identity. Level/effort: coordinator medium
+for object/spell/time/publication, Luna low for supplied SRD fields. Done check:
+valid repair and incompatible-target refusal preserve custody and settle once;
+Save/reload/Export/literal Import retain unfinished casting and final results.
+Primary desktop target is 1920×1080; floor 1536×864, mobile deferred.
+
 ## Region and starting lives
 
 P: town plus one short surrounding work route. The Phandalin overview supports a mining settlement with ordinary trades, lodging and service locations (S04). It does not establish every local service price or historical role. New local contacts avoid pretending an uninspected canonical NPC biography is known.

@@ -65,3 +65,8 @@
 #main_content.workspace-active[data-parity="r3"]:not([data-opponent-letters="always"]) #message_log_div .log-letter {display:none!important;}
 #main_content.workspace-active[data-parity="r3"][data-opponent-letters="hover"] #message_log_div .message_combat:is(:hover,[data-linked]) .log-letter {display:inline-block!important;}
 #main_content.workspace-active[data-parity="r3"] #message_log_div .message_combat[data-linked] {outline:1px solid var(--log-dealt);outline-offset:-1px;}
+
+/* The time snapshot is stable while expanded; long notes wrap at larger text. */
+#main_content.workspace-active[data-parity="r3"] #message_log_div div.log-occurrences {display:block;}
+.log-occurrences p {margin:.25em 0;}
+.log-occurrences ol {display:flex;flex-wrap:wrap;gap:.2em .6em;list-style:none;margin:0;padding:0;}

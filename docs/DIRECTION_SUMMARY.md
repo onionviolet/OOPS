@@ -39,7 +39,7 @@ follow actual mechanisms rather than category permission lists. The later
 defers old-save compatibility; current-state save/reload/import remains relevant.
 [Content ID retirement](USER_VISION.md#content-id-retirement-and-frozen-world-idle-2026-10-18)
 has its own explicit decision and does not waive AR6 generally. New desktop UI
-evidence follows [UI_RULES](UI_RULES.md): 1920×1080 primary, 1366×768 floor;
+evidence follows [UI_RULES](UI_RULES.md): 1920×1080 primary (1366×768 retired 2026-10-19);
 mobile remains deferred.
 
 [Current queues](IDEA_INDEX.md#current-queue-routing-2026-10-18) distinguish UI

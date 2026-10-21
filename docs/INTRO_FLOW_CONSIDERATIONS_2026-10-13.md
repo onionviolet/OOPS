@@ -1811,3 +1811,50 @@ layer that adds three.
 - [ICX cheat cards](gm/dispatch/canon-events-2026-10-14/cxcards/CX_CHEAT_CARDS.json) and [notes](gm/dispatch/canon-events-2026-10-14/cxcards/NOTES.md): twelve cards in the panel-kit format.
 
 Shipped (2026-10-14): docs commit `2fec408b`; code on `codex/start-records` (`6b8a114b`), merged into `codex/gameplay-foundations` as `554435c9` after all gates passed on the merged result (npm 725/0, browser gates at three desktop sizes); main checkout rebuilt and npm 725/0; both branches pushed to origin. USER_VISION entries for this work remain in the working tree pending another session's de-duplication of that file.
+
+
+## Launch menu presentation, 2026-10-20
+
+Selected by Weibao: improve the screen before PLAY, use onionv as its author handle, adjust Beginning choices. [Exact direction](USER_VISION.md#launch-menu-identity-and-beginning-choices-2026-10-20). The implementation candidate uses the same `mountNewGameBeginning` / native PLAY command seam: three radio cards read from the existing option values, one authoritative select consumed by the existing start code, choice-specific explanation, PLAY below the choices. Surprise me discloses that only one system is available. Card selection is presentation state and grants nothing until PLAY. Existing-save launches do not offer new beginning choices. The old hero creation panel remains retired.
+
+This bounded implementation does not promote this palette's other options to accepted mechanics. Desktop target 1920×1080, laptop 1800×1040 and 1536×864; 14/21px text. Mobile deferred; visual acceptance open. [Files, checks and evidence](reviews/launch_menu_2026-10-20/REPORT.md).
+
+## Round 24: richer launch choices, panel placement and retained character, 2026-10-20
+
+Weibao: "Can we expand the beginning choices beyond just no system or a dormant system? What other starts could we offer? Can we move the panels olse where?" Then: "Our loading scrren looses some character that it had before, what should we do?" These select exploration of richer starts/layout and correction of the overly formal presentation. The recommendations below remain proposals, not approval of every start mechanism. Earlier launch-menu delivery is retained above as history.
+
+Surface/home: pre-PLAY threshold, `#loading_screen`. Rules: AD5/6/11/23/32/34/36, UR1/5/6/14/16/25/26/33/35, MW1–MW7; existing GHS16–GHS19/GHS26 are proposal references. Targets: 1920×1080, 1800×1040 and 1536×864, actual 14/21px. Mobile deferred. No native start/persistence change in this round. [Interactive study](../prototypes/workbench/index.html?study=launch); serve with `node prototypes/workbench/serve.mjs`, then add `?study=launch` to its fresh loopback URL. [Study receipt and limits](../prototypes/workbench/REPORT.md#launch-choice-and-personality-study-2026-10-20).
+
+### ACT NOW (done)
+
+| Code | Finding and treatment | Evidence / limit |
+| --- | --- | --- |
+| LC1 | The current menu asks only about one optional system, which understates what a beginning can mean. Built a separate six-start layout study, with System as a smaller expandable choice | Real `mountNewGameBeginning` renderer; background selections and opening preview are in-memory fixtures, not new native starts |
+| LC2 | The first cleanup flattened the original plum mood and tilted author credit. Restored both in the study; preserve playful real loading messages in a later native treatment | Uses original shared plum swatches and an angled onionv signature. The native game's existing loading-message producer was not changed |
+| LC3 | Six full descriptions plus system cards make the center too tall at 21px. Compact start cards, selected description in adjacent summary, expandable System | Measured at all three desktop targets; one center scroller when needed; preview action stays visible; selection/layout comparison and Escape return checked |
+
+### ACCOUNT FOR NOW
+
+| Code | Default, dial and reason |
+| --- | --- |
+| LC4 | A beginning is a combination of **world/place, situation/background, body/life, belongings/obligations and optional unusual means**. Named presets pin a coherent subset, while guided random composes supported parts. Keep the ordinary path quick. World access, specific body/heritage and extraordinary advantages follow the existing means/availability direction, rather than adding blanket exclusions |
+| LC5 | Recommended layout: identity/signature left; start cards and smaller System disclosure center; current opening/known consequences right; credits/version below. A stacked alternative uses the same state. Large text may scroll choices locally, while the summary and explicit Begin stay reachable. Placement is a proposal; the earlier production launch remains unchanged |
+| LC6 | A start should change the first useful journey: actual stock/access/body situation/obligation and a fitting first lead. A coin/text variant is honestly shallow until its native consumer exists. Do not infer farm skill, literacy, contacts or family simulation from a background's name |
+| LC7 | Keep background and system independent: a scholar can have no system or a dormant one. Broader unusual means can later include a method, object, patron/pact, inherited faculty or awakened system when their actual mechanisms exist. A status display alone remains informational. Preview known benefits/costs; latent truths stay sealed |
+| LC8 | Resolve an admitted start once into the existing receipt direction; PLAY/Begin is the commit point. Inspection and layout changes grant/spend nothing. Save/reload/import retain identity, inventory, obligation and knowledge without rerolling. Preserve start-specific endings/first actions and qualify real assets/world content before offering a native preset |
+
+### LATER / DELEGATE (not dispatched)
+
+| Code | Opportunity and recommended sequence | Level / effort / done check |
+| --- | --- | --- |
+| LC9 | First deepen everyday beginnings: farmhand, apprentice artisan, scholar/student, courier/traveler. Reuse a shared start receipt and existing making/learning/trade consumers. The current layered farmhand, runaway and scholar's-child content supplies only small money/text differences; packed bread supplies actual stock | Balanced implementer; M. Each selected preset reaches one distinct useful first action and its consequences survive Save/reload/Export/Import; no fake career/skill grants |
+| LC10 | Hard-circumstance starts: runaway, debtor, injured survivor, stranded traveler. Show the concrete starting constraint and an immediate viable route. A loan needs an actual creditor/terms/settlement; injury needs the actual body and care rules | Balanced implementer, strong review for transaction/body joins; M–L. Play the constraint, recovery/settlement, interruption and persistence through native consumers |
+| LC11 | Unusual world-fit origins: local-born, transported/visitor, reincarnated, nonhuman, inherited body or distinct constitution. Keep independent axes combinable when mechanisms support them. These are content/means opportunities, not a blanket new genetics implementation order | Strong implementer; L. One admitted origin has its supported body/carrier, first useful action, observer-safe explanation and saved receipt; no unsupported secret/power reveal |
+| LC12 | Heir/returning/continuing starts use the existing chronicle and carrier/estate owners. Offer when relevant records and means exist; do not assume every item, skill or debt transfers with memory | Strong implementer; L. A native ending/transition and successor journey prove exact custody, memory/carrier and reciprocal-history behavior; human play gate remains |
+
+Suggestions, separate from the selected work: first pair a working start with a learning start so the choice changes activity immediately. Preserve ordinary Village entry. Guided random can sit beside named presets once they qualify. Personality comes from the identity area, loading text, rhythm and restrained motion; the decision controls keep their clarity. Do not bake one comic voice into every world's opening.
+
+
+## Launch-screen restoration and deferred start menu, 2026-10-20
+
+Later user direction supersedes LC2/LC5's proposed launch treatment: restore the original screen and direct PLAY; a separate start menu can come later. [Exact correction](USER_VISION.md#restore-the-original-loading-screen-and-defer-the-start-menu-2026-10-20). The richer starts remain future proposals, not missing work in this slice. Existing internal MS Gothic direction remains; the old launch font and upstream loading text are retained. Rejected mockup snapshots remain historical evidence. [Restoration receipt](reviews/launch_menu_2026-10-20/REPORT.md#restored-original-play-screen-final-direction).

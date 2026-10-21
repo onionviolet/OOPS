@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "setup": "Synthetic nighttime unlocked native Cave depths, owned lamp/flask. Visible native inventory use commands. Actual Hero combat attack/evasion light multipliers read by test bridge; no natural encounter or director acceptance claim.",
+  "originalSixFileHashes": {
+    "src/main.js": "fc0f8e290b7337b17924609ab677b920fa16f82e579635d633fc2f21c4e8f60b",
+    "src/items.js": "dce3617cfc63955538d0b98e5c89370ace069f257d6aef0a8c037372f6389f08",
+    "src/models/hero.js": "359a0b906397608256db13f1fe8621c9db7cebec40299884f563e49f4675c75c",
+    "src/lamplight_domain.js": "a0557f4ef641a0be3b04f22dd4d6c8bbe60083a4acabc068793dc4c8af307112",
+    "src/tools_domain.js": "2b13e8f0ea57cfd5e8c0c9ee2278eb113010907e5183b7220a59d97b4c857144",
+    "src/reveal_chain.js": "e1460d810c8e96d23b52d56826466602e85fbe999dd880d32c441655789c4fcb"
+  },
+  "receipts": [
+    {
+      "version": "before",
+      "dark": {
+        "bonus": 0,
+        "attack": 0.5,
+        "evasion": 0.5
+      },
+      "lit": {
+        "bonus": 40,
+        "attack": 0.75,
+        "evasion": 0.75
+      },
+      "outAgain": {
+        "bonus": 0,
+        "attack": 0.5,
+        "evasion": 0.5
+      },
+      "bundleSha256": "70fd01d0fac5e7fef62318ddf915fbf5ed84d7b2327d08b8a83fa06e82f5486b"
+    },
+    {
+      "version": "after",
+      "dark": {
+        "bonus": 0,
+        "attack": 0.5,
+        "evasion": 0.5
+      },
+      "lit": {
+        "bonus": 40,
+        "attack": 0.75,
+        "evasion": 0.75
+      },
+      "outAgain": {
+        "bonus": 0,
+        "attack": 0.5,
+        "evasion": 0.5
+      },
+      "bundleSha256": "0f6f71c241dc7e17a7fa1b11cbc09271da3cda97adfd276abcc0b93b69e6ce1d"
+    }
+  ]
+}

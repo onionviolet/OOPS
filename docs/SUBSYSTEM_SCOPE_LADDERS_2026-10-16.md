@@ -201,7 +201,7 @@ status.
 | SSD79 | **Per-world defaults per dial.** A world pack sets which subsystems exist and their starting rungs; an absent subsystem is honest absence, not a lock (CX6). | ACCOUNT FOR NOW, with the world pack loader |
 | SSD80 | **Save cost lives in promotion.** Pools cost a few numbers per known spot; named things cost bytes. Store the delta, derive the rest (P9Y, P9Z82). | ACCOUNT FOR NOW |
 | SSD81 | **Cross-subsystem links are where depth feels real**: manure feeds fields, fields feed herds, fish feed the kitchen, forests feed building. Add links one at a time with a declared input and output (P9L4), not as a full ecology by default; an ecology-themed world pack can dial that up with its own budget. | LATER, per slice |
-| SSD82 | **UI:** the same activity card at every rung; deeper rungs open center views through the shared controller; checked at 1366×768 (AD34, UI rules). | ACCOUNT FOR NOW |
+| SSD82 | **UI:** the same activity card at every rung; deeper rungs open center views through the shared controller; checked at 1920×1080 (AD34, UI rules). | ACCOUNT FOR NOW |
 
 ## SSD90: impossible or unwise scopes and their achievable versions
 

@@ -1,0 +1,32 @@
+[
+  {
+    "path": "docs/UI_RULES.md",
+    "before_sha256": "f1b9f659e74973d042e2d81d08db99970052f0ff2fb834ac4b6b5f62cde77a3f",
+    "after_sha256": "de4f9cabc2499086971f5da55d94bd5072d97161a63a8323fd69cc11819f0549",
+    "original_prefix_suffix_preserved": true
+  },
+  {
+    "path": "docs/USER_VISION.md",
+    "before_sha256": "a4a695a07f2a18631d2218516458f3362658ed0ce9b44a48615d52d8d7705fdd",
+    "after_sha256": "22f350e3dfd9062c1c4143ac56303103c3478eb4e62a056b014d08b32a8b542a",
+    "reversible_hunk": true
+  },
+  {
+    "path": "PROJECT.md",
+    "before_sha256": "f0703799107dac3e23611939f0a8f9c463e255ecd83f8da8f424b49909f2cce7",
+    "after_sha256": "db677da4cab5a55179f040bda2771c2cf5607ff4d2f870e51b0dd56215418845",
+    "reversible_hunk": true
+  },
+  {
+    "path": "docs/RULES_INDEX.md",
+    "before_sha256": "b7e711f49307c9c4be5a5e0582800aba5e6d34d72e3a10f02cc1afcbd6cea9d4",
+    "after_sha256": "f8c7232e67e3d54eb5c28f1c1cda6cde9903d7e81cffd1fa5ac85fe8e07e5381",
+    "edits": "UI range/register/router and AD40 direction link only"
+  },
+  {
+    "path": ".claude/rules/player-ui.md",
+    "before_sha256": "fb40cf4089d3b77f50699bde384230340e8ccf3c4a372af7dc72603c9e67aacb",
+    "after_sha256": "9a9d28203b585e535b9a449b21453503e8e8d13ec840dc27d299ed9a309b2b13",
+    "reversible_hunk": true
+  }
+]

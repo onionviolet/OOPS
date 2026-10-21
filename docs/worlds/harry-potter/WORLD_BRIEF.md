@@ -96,3 +96,10 @@ prohibition. Separate actual damage/refusal from affinity and ignorance. No new
 eligibility acquisition, scalar wand formula or seven-novel source verification.
 One exact spell/target/tool case is the next HP qualification before implementing
 BF1, rather than a general wandlore engine or another ordinary-work proxy.
+
+
+## Current small-slice remainder, 2026-10-20
+
+WPD-R1, proposal reconciliation (AD6–AD9/AD32–AD38, MR6–MR7, WA). The earlier nursery/child/tree comparisons are the wider palette, not required extra starts for the next magical proof. The [source ledger](SOURCE_LEDGER.md#current-acquisition-and-evidence-route-reconciled-2026-10-20) now routes acquired text and current census limits. Keep an actual source-qualified magical operation as the next HP qualification; ordinary work alone cannot prove it. The [beginner potion proposal](../../research/novels/harry-potter/craft-integration-2026-10-12/BEGINNER_POTION_PROPOSAL.md) is one candidate, not a selected build. Its quantities/timing/assessment are authored, and reading instruction grants neither faculty nor stock. Free mixing and accidental known-formula matches remain valid mechanisms, not a formula whitelist.
+
+Before a selected implementation: pin one spell/target/tool or brewing operation, its borrowed-versus-consumed stock, actual teacher/station availability and per-stage settlement. Prove the held tool survives while transformed ingredients do not return as raw stock; an assessment is attributed evidence, not universal efficacy. Level/effort: bounded source extraction then coordinator-owned native/save binding. Done check: the selected operation, supported alternative/refusal, interrupted work and exact current-format round trips. WG6 term absence, delegated plant care and delayed letters stay later proposals unless this ring actually leaves home for school; no full household/post simulator is required.

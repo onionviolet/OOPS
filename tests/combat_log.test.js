@@ -50,3 +50,50 @@ test('custom palettes keep each log role readable and dealt apart from taken', (
     assert.notEqual(t['--theme-warning'], t['--theme-danger']);
     assert.notEqual(t['--theme-accent'], t['--theme-text']);
 });
+
+import {addCombatOccurrence, COMBAT_OCCURRENCE_WINDOW} from '../src/combat_log.js';
+import {createDom} from '../scripts/headless/dom.mjs';
+import {normalizeDisplaySettings, setDisplaySettings, getDisplaySetting, resetDisplaySettings, registerPanelSettings, exportDisplayPreferences, adoptDisplayPreferences} from '../src/display_settings.js';
+
+test('long repeat groups keep exact totals and bounded truthful detail without moving an open snapshot', () => {
+    const dom = createDom();dom.loadHTML('<html><body></body></html>');const {document} = dom;
+    const message = document.createElement('div'); document.body.append(message);
+    for (let i = 1; i <= 12000; i++) addCombatOccurrence(message, `08:00 · Rat ${i % 2 + 1} of 2`);
+    assert.equal(message.combatOccurrenceTotal, 12000);
+    assert.equal(message.combatOccurrences.length, COMBAT_OCCURRENCE_WINDOW);
+    const button = message.querySelector('.log-repeat');button.focus();button.click();
+    const snapshot = message.querySelector('.log-occurrences'), first = snapshot.querySelector('li');
+    assert.equal(snapshot.querySelectorAll('li').length, 100);
+    assert.match(snapshot.textContent, /11901–12000/);
+    assert.match(snapshot.textContent, /older labels are discarded/);
+    assert.match(snapshot.textContent, /Rat 2 of 2/);
+    addCombatOccurrence(message, '08:01 · Rat 1 of 2');
+    assert.equal(message.dataset.repeat, '12001');
+    assert.equal(message.combatOccurrences.length, 100);
+    assert.equal(message.querySelector('.log-repeat'), button);
+    assert.equal(document.activeElement, button);
+    assert.equal(snapshot.querySelector('li'), first);
+    assert.equal(snapshot.querySelectorAll('li').length, 100);
+    assert.match(snapshot.textContent, /11901–12000/);
+    button.click();button.click();
+    assert.match(message.querySelector('.log-occurrences').textContent, /11902–12001/);
+    assert.match(message.querySelector('.log-occurrences').textContent, /08:01 · Rat 1 of 2/);
+});
+
+test('combat repeat preference normalizes and shares browser reset/export/import', () => {
+    const priorStorage = globalThis.localStorage;
+    const values = new Map();globalThis.localStorage = {getItem:k=>values.get(k)??null,setItem:(k,v)=>values.set(k,v),removeItem:k=>values.delete(k)};
+    assert.equal(normalizeDisplaySettings({combatRepeatMode: 'unknown'}).combatRepeatMode, 'stack');
+    setDisplaySettings({combatRepeatMode:'detailed'});
+    const saved = exportDisplayPreferences();
+    resetDisplaySettings();assert.equal(getDisplaySetting('combatRepeatMode'), 'stack');
+    adoptDisplayPreferences(saved);assert.equal(getDisplaySetting('combatRepeatMode'), 'detailed');
+    resetDisplaySettings();
+    registerPanelSettings({id:'ig-import',title:'Import lifecycle',settings:[{key:'introduced',default:'new',options:[['new','New'],['seen','Seen']]}]});
+    setDisplaySettings({'panel.ig-import.introduced':'seen'});
+    assert.equal(JSON.parse(values.get('yairpg.display.v1')).combatRepeatMode, undefined, 'automatic metadata does not persist an unrelated default');
+    adoptDisplayPreferences(saved);assert.equal(getDisplaySetting('combatRepeatMode'), 'detailed');
+    setDisplaySettings({combatRepeatMode:'stack'});adoptDisplayPreferences(saved);
+    assert.equal(getDisplaySetting('combatRepeatMode'), 'stack', 'explicit local choice wins imported preference');
+    resetDisplaySettings();globalThis.localStorage = priorStorage;
+});

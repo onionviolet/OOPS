@@ -2,7 +2,7 @@ import {centerModes} from './center_modes.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {createShellResize} from './shell_resize.js';
 import {createShellComposition} from './shell_composition.js';
-import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,LAYOUT_SPEC} from './layout_spec.js';
+import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,workspaceRegions,LAYOUT_SPEC} from './layout_spec.js';
 import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl,resizeContext,normalizePlacement} from './shell_layout_edit.js';
 import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
@@ -489,7 +489,7 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
     const preview=el('div','workspace-drop-preview'); preview.hidden=true; board.append(preview);
     const vault=el('div','workspace-undiscovered'); vault.hidden=true; board.append(vault);
     const regions={};
-    for(const id of ['player','focus','inventory','actions','log']){const region=el('div','workspace-dock parity-region');region.dataset.region=id;region.setAttribute('aria-label',`${id==='focus'?'Around you':id} region`);regions[id]=region;board.append(region);}
+    for(const {id,label} of workspaceRegions()){const region=el('div','workspace-dock parity-region');region.dataset.region=id;region.setAttribute('aria-label',`${label} region`);regions[id]=region;board.append(region);}
     const media = window.matchMedia('(max-width: 1000px)'); owner = { root, toolbar, menu, menuSummary, shellTools, board, docks, regions, contextBar,context:'play',editing:false,picker, vault, config, status, media, narrow: media.matches, layout: read(media.matches), targets, preview, cleanup: [] };
     owner.composition=requestedComposition;owner.shell=false;owner.parity=paritySelected();loadPlacement();
     if(owner.parity||shellSelected()){owner.baseLayout=owner.layout;owner.baseComposition=owner.composition;owner.shell=true;owner.layout=makeShellLayout(owner.narrow);owner.composition=true;}

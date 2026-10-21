@@ -36,24 +36,24 @@ open here too.
 | Set | Codes | Status | Covers | Owner |
 |---|---|---|---|---|
 | Foundational rulebook | Rulebook 1–12 | Accepted 2026-10-10 | Multiverse-wide principles: worlds set their own rules, carriers, means, bodies, time, outliers | [RULES_FROM_SCRATCH](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) |
-| Accepted direction rules | AD1–AD39 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process | [Below](#accepted-direction-rules-ad) |
-| UI rules | UR1–UR58 | Standing 2026-10-15 | All player-facing UI | [UI_RULES](UI_RULES.md) |
+| Accepted direction rules | AD1–AD41 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process and UI design attention | [Below](#accepted-direction-rules-ad) |
+| UI rules | UR1–UR64 | Standing 2026-10-15; Discord reference-guide fold 2026-10-21 | All player-facing UI, including source-qualified reference adaptation | [UI_RULES](UI_RULES.md) |
 | Architecture rules | AR1–AR16 | Standing 2026-10-16; AR1 net-zero wording 2026-10-19 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
-| Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
+| Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons; pinned recipe and current launch fixture studies | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
 | Making rules | MR1–MR36 | Standing 2026-10-15 | Potions, cooking, smithing, runes, enchanting, formations, constructs, any making; 2026-10-18 application: intermediate work and actual mechanism compatibility | [MAKING_RULES](MAKING_RULES.md) |
 | Site and exploration rules | SR1–SR24 | Standing 2026-10-16 | Sites, ruins, natural places, maps, discovery, restoration | [SITE_AND_EXPLORATION_RULES](SITE_AND_EXPLORATION_RULES.md) |
 | Sealed secrets | none | Standing 2026-10-10 | Hiding world truths from Weibao outside play | [AGENTS](../AGENTS.md#sealed-secrets), [discovery doc](worlds/WORLD_SECRETS_AND_DISCOVERY.md#sealed-secrets-standard-rule-2026-10-10) |
 | Means and appraisal | none | Accepted principle 2026-10-10 | What each side can know and do | [MEANS_AND_APPRAISAL](MEANS_AND_APPRAISAL.md) |
 | Agent usage | AU1–AU15 | Standing 2026-10-16 | Whole-book plans, short-lived readers, bounded continuity, tree budgets and stop conditions | [Agent usage rules](AGENT_USAGE_RULES.md) |
 | Agent workflow | AGENTS sections | Standing | Design framing, scope, research lens, verification, saves, sources, deep-detail storage, multi-agent ownership | [AGENTS](../AGENTS.md), [GM prompt](GAME_MASTER_PROMPT.md), [shared worktree practice](gm/SHARED_WORKTREE_PRACTICE.md) |
-| Source research | none | Standing | Saved-source reuse, acquisition and bounded deep dives of books, games and wikis | [Acquisition tools](research/SOURCE_ACQUISITION_TOOLS.md), [deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md) |
+| Source research | none | Standing | Saved-source reuse, acquisition and bounded deep dives of books, games and wikis | [Tool registry](TOOL_REGISTRY.md), [acquisition tools](research/SOURCE_ACQUISITION_TOOLS.md), [deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md) |
 | Generation foundation rules | GR1–GR17 | Accepted 2026-10-18 (proposed 2026-10-14) | Contract for every generator; 2026-10-18 application: selector versus mechanism and owning-clock draw identity | [GENERATION_FOUNDATION_RULES](GENERATION_FOUNDATION_RULES_2026-10-14.md) |
 | Complexity guardrails | CX1–CX8 | Accepted 2026-10-16 (P9Z40) | Keeping depth while bounding implementation | [Part 9 pass](gm/dispatch/ui-foundation-2026-10-15/next-parts/part-9-complexity-and-openness.md) |
 | World absorption rules | WA1–WA21 | Accepted 2026-10-18 (proposed 2026-10-17) | Turning a read source into a world pack the shared engine plays: canon status, laws as rules, generated gaps, IDs, proof; 2026-10-18 application: source/observer/implementation coverage and bounded slice floors | [WORLD_ABSORPTION_RULES](WORLD_ABSORPTION_RULES.md) |
 | Body and health rules | BHR1–BHR30 | Accepted 2026-10-18 (proposed 2026-10-17; BHR1, BHR6, BHR14, BHR16 restate accepted AD13, AD8, AD19 and no hunger death; BHR21, BHR30 accepted through AD38) | Bodies, carriers, injury, illness, poison, healing, medicine, recovery, body wear across worlds; 2026-10-18 application: body clocks, hidden care boundaries and policy reroute | [DOMAIN_RULES](DOMAIN_RULES.md#body-and-health-rules) (old path [stub](BODY_AND_HEALTH_RULES.md)) |
 | Combat rules | CBR1–CBR30 | Accepted 2026-10-18 (CBR1, CBR7, CBR9, CBR10, CBR13, CBR18 restate accepted AD19, AD20, AD25, AD28, AD8, AD38) | Fights, encounters, enemies, weapons in use, defeat and victory outcomes, fleeing, pursuit, captives, idle combat, nonviolent conflict; 2026-10-18 application: queued outcomes, withdrawal settlement and actual faculties | [DOMAIN_RULES](DOMAIN_RULES.md#combat-rules) (old path [stub](COMBAT_RULES.md)) |
 | Economy rules | ECR1–ECR33 | Accepted 2026-10-18 (ECR1, ECR24, ECR27 restate accepted AD27, AD31, AD11) | Money, prices, merchants, trade, currencies, credit, wealth, property, carryover of wealth; 2026-10-18 application: belief-based quotes, currency shape and transfer accounting | [DOMAIN_RULES](DOMAIN_RULES.md#economy-rules) (old path [stub](ECONOMY_RULES.md)) |
-| Skill and learning rules | SLR1–SLR39 | Accepted 2026-10-18 (SLR2, SLR5, SLR17 restate standing MR21–MR23; SLR3, SLR15, SLR20, SLR24–SLR26, SLR32–SLR33, SLR38 restate accepted AD lines) | Skills, practice, teaching, texts, rust and loss, carrying skills across lives and worlds; 2026-10-18 application: actual faculty carriers/clocks and lesson settlement | [DOMAIN_RULES](DOMAIN_RULES.md#skill-and-learning-rules) (old path [stub](SKILL_AND_LEARNING_RULES.md)) |
+| Skill and learning rules | SLR1–SLR43 | Accepted 2026-10-18 (SLR2, SLR5, SLR17 restate standing MR21–MR23; SLR3, SLR15, SLR20, SLR24–SLR26, SLR32–SLR33, SLR38 restate accepted AD lines) | Skills, practice, teaching, texts, rust/loss and carryover; 2026-10-18 carrier/clock application; 2026-10-21 AD30/AD38 applications SLR40–SLR43 distinguish titles, competence, grants, activation and effect ownership | [DOMAIN_RULES](DOMAIN_RULES.md#skill-and-learning-rules) (old path [stub](SKILL_AND_LEARNING_RULES.md)) |
 | Presence and interaction rules | PIR1–PIR25 | Accepted 2026-10-18 (PIR5, PIR6, PIR12, PIR20–PIR23, PIR25 restate accepted sealed secrets, UR35, UR52, AD16, D11, AD11–AD12, AR and AD34) | Who and what is present in a place, selecting people, stations, events and ways out, verbs on them, new and heard dialogue, presence across idle time, rewinds and lives | [DOMAIN_RULES](DOMAIN_RULES.md#presence-and-interaction-rules) (old path [stub](PRESENCE_AND_INTERACTION_RULES.md)) |
 | World completion standard | none | Proposal 2026-10-11 | Sections, detail ledger and acceptance for a world | [WORLD_COMPLETION_STANDARD](WORLD_COMPLETION_STANDARD.md) |
 
@@ -72,7 +72,7 @@ line they restate.
 | Means decide what anyone knows or does; truth, knowledge and display stay separate | AD6, AD7, AD8 |
 | Recovery is forgiving; firm lines are save integrity only | AD19, AD22 |
 | One authority per fact; `main.js` is a composition root | AR1–AR16 |
-| UI: desktop first, shared tokens and controller, evidence at 1920×1080 and 1366×768 | AD34, UR1–UR58 |
+| UI: desktop first, shared tokens and controller, evidence at 1920×1080 (1366×768 retired 2026-10-19) | AD34, UR1–UR64 |
 | Time is game time; away time runs chosen routines | AD15, AD16, AD17 |
 | Build one playable slice; complexity welcome, sequenced | AD33 |
 | Verify only what changed, rebuild and exercise it in a browser before "done" | AD36 |
@@ -86,10 +86,11 @@ line they restate.
 | Any runtime code | AR1–AR16; AR14 for lane briefs, AR16 before calling it done | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md); AR3/AR7/AR8 applications cover reaction, interruption and disclosure boundaries |
 | Desktop host, Electron shell, packaging, Steam | AD39, AR3, AR4, AR6 | [Electron host round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el); `desktop/` owns the host, `src/` stays host-free |
 | A world's completion level or what it is missing | Completion standard S00-S14 and C0-C5, sealed-secrets rule | [World subtle gaps](audits/WORLD_SUBTLE_GAPS_2026-10-20.md) (WG1-WG26, proposal); [completion standard](WORLD_COMPLETION_STANDARD.md) |
-| Any player-facing UI | UR1–UR58, AD34; mockup workflow if layout is unsettled | [UI_RULES](UI_RULES.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md) |
+| Any player-facing UI | UR1–UR64 (UR59–UR64 for reference-guided design), AD34, AD40; mockup workflow if layout is unsettled (recipe/launch studies in the shared workbench) | [UI_RULES](UI_RULES.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md), [UI detail and message palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
 | Making or crafting of any kind | MR1–MR36, AD9, AD38 | [CRAFTING_ENGINE](CRAFTING_ENGINE.md); MR1/MR5/MR29 also govern interrupted stages |
 | Sites, ruins, caves, maps, exploration, restoration | SR1–SR24, AD3, AD33 | [Site palette](gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md), [ruins](gm/dispatch/procgen-2026-10-13/p11/DUNGEON_CONTENT.md) |
 | Gear stats, armor, affixes, sockets, gems | AD5, AD38, AD6–AD8, UR40, CBR; GR1–GR17 for rolls; MKR-IM2 (proposed) for sockets | [Equipment stat dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md) (ESD1–ESD15, proposal) |
+| Gear parts, materials to stats, repair, smithing, chemistry, fuel and energy, powers on the stat pipeline | MR1–MR36 (MR5, MR8, MR16, MR32), AD5, AD38, AR3, ESD1–ESD15 | [Gear depth considerations](GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md) (GDP1–GDP39, proposal) |
 | Generators, RNG, seeds | MR2–MR3, MR28, SR20, Rulebook 9; GR1–GR17 as the recommended contract | [Procedural status](PROCEDURAL_GENERATION_STATUS_2026-10-13.md); GR7/GR17 clarify mechanism selection and owning-clock identity |
 | A new world or book adaptation | Rulebook 2–3, AD1–AD5, MR11–MR15, SR1–SR3; WA1–WA21 for turning the source into a pack | [Rulebook precedent](RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12), [completion standard](WORLD_COMPLETION_STANDARD.md), source research; WA8/WA12 distinguish source, knowledge and built coverage; floors allow selected slices; run order from source to past canon: [deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (proposal) |
 | Hidden truths, secrets, identification | Sealed secrets, AD3, AD6–AD8, MR1, MR31, SR5, SR9 | [WORLD_SECRETS_AND_DISCOVERY](worlds/WORLD_SECRETS_AND_DISCOVERY.md), [MEANS_AND_APPRAISAL](MEANS_AND_APPRAISAL.md) |
@@ -98,7 +99,7 @@ line they restate.
 | Time, idle, offline, recap | Rulebook 7, AD15–AD18, MR28, SR21 | [DIRECTION_SUMMARY](DIRECTION_SUMMARY.md), [DIRECTION_SYNTHESIS](DIRECTION_SYNTHESIS.md) |
 | Bodies, health, injury, illness, medicine, healing | AD13, AD19, AD8, AD38, MR1–MR36; BHR1–BHR30 (accepted 2026-10-18) | [Part 35 palette](worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md), [body and health palette](BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md); BHR18/BHR28 application names actual body clock and chosen reroute policy |
 | Combat, enemies, weapons in use, defeat outcomes, fleeing, captives, conflict | AD8, AD19–AD21, AD25, AD28, AD38, BHR11, BHR13, BHR15; CBR1–CBR30 (accepted 2026-10-18) | [Combat palette](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md), [W2 combat grammar](worlds/world-core-kit-2026-10-14/W2_LAWS_POWER_COMBAT.md), [encounters and pursuit](ENCOUNTERS_AND_PURSUIT.md); CBR2/CBR27 application separates outcome boundaries from shown stop reasons |
-| Skills, practice, teaching, talents that change learning, skill loss or carryover | MR21–MR23, AD3, AD6, AD8, AD11, AD17, AD38; SLR1–SLR39 (accepted 2026-10-18) | [Skills and learning palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md), [SKILLS_AND_TALENTS](SKILLS_AND_TALENTS.md), [skill mechanisms](worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md); SLR20 application follows the actual faculty carrier and clock |
+| Skills, techniques, faculties, titles and their benefits, practice, teaching, skill loss or carryover | MR21–MR23, AD3, AD6, AD8, AD11, AD17, AD38; SLR1–SLR43 (accepted 2026-10-18) | [Skills and learning palette](SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md), [SKILLS_AND_TALENTS](SKILLS_AND_TALENTS.md), [skill mechanisms](worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md); SLR20 application follows the actual faculty carrier and clock |
 | Who is here, talking, trading or using a station, selecting subjects, new and heard dialogue | UR35, UR42, UR52, AD6, AD11–AD12, AD16, AD33; PIR1–PIR25 (accepted 2026-10-18) | [Around you considerations](AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md), [S1–S4 packet](gm/dispatch/around-you-2026-10-18/S1_S4_PACKET.md) |
 | Danger, defeat, difficulty, settings | AD19–AD22, SR14 | [DIRECTION_SYNTHESIS](DIRECTION_SYNTHESIS.md#od12-forgiving-recovery-direction-2026-10-15) |
 | Cheats | Rulebook 5, 11; AD26, AD28–AD30, AD11 | [CHEAT_COSMOLOGY](CHEAT_COSMOLOGY.md), [CHEAT_LIBRARY](CHEAT_LIBRARY.md) |
@@ -108,7 +109,8 @@ line they restate.
 | Economy, trade, property | AD27, AD31, AD38, MR5, SR15, SR19; ECR1–ECR33 (accepted 2026-10-18) | [Requests and markets](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md), [selling and merchant sinks round](gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md#selling-merchant-sinks-and-money-fun-consideration-round-1-2026-10-18), [economy palette](ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md); ECR7/ECR9/ECR15/ECR16 qualifications preserve extraordinary means and actual accounting |
 | NPCs, companions, social systems | AD6, AD33 (NPC-heavy work deprioritized), MR23 | [Companions audit](audits/COMPANIONS_CORE_AUDIT.md) |
 | Saves and persistence | Rulebook 9, AR6, MR3, MR30, MR33, SR22, AGENTS safety, qualified by the 2026-10-17 decision | [Old-save compatibility is currently deferred](USER_VISION.md#old-save-compatibility-deferred-2026-10-17); new state still needs Save/reload/Export/Import. Unknown retired IDs follow the [2026-10-18 decision](USER_VISION.md#content-id-retirement-and-frozen-world-idle-2026-10-18) |
-| Research passes and sources | AD35, AD37, AU1–AU15 for readers; AGENTS scope and source acquisition | [Saved-source modes and playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#saved-sources-first), [source tools](research/SOURCE_ACQUISITION_TOOLS.md) |
+| Research passes and sources | AD35, AD37, AU1–AU15 for readers; AGENTS scope and source acquisition | [Tool registry and launchers](TOOL_REGISTRY.md), [saved-source modes and playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#saved-sources-first), [source tools](research/SOURCE_ACQUISITION_TOOLS.md) |
+| Checkout selection and worktree retirement | AD41, AD32; shared-worktree ownership | [Primary checkout default](gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21) |
 | Dispatching or coordinating agents | AU1–AU15, AD32, AD37; AGENTS multi-agent | [Agent usage rules](AGENT_USAGE_RULES.md), [GM prompt](GAME_MASTER_PROMPT.md) |
 | Selecting checks, adding regressions, reporting or handing off evidence | AD36; touched domain rules | [Efficient rule verification](#efficient-rule-verification-ad36) |
 | Bot or AI playthroughs, playtest detectors, balance sweeps, agent-facing game tools | AD32, AD36, AR7, AR8, AU1–AU15, sealed secrets; PT1–PT112 as proposed vocabulary | [AI playtest harness considerations](AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md) (proposal), `scripts/playtest/`; EL16/EL40 in the [Electron host round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el) |
@@ -172,7 +174,7 @@ unless another owner is linked.
 
 | Code | Rule | Source |
 |---|---|---|
-| AD23 | **Entry is guided randomness by default;** full random and specific starts depend on means. Warn about known risks when relevant means are absent. Vanilla stays intact and optional. | OD10; Suspenseful random entry; Vanilla stays intact |
+| AD23 | **Entry is guided randomness by default;** full random and specific starts depend on means. Warn about known risks when relevant means are absent. Vanilla stays intact and optional. | OD10; Suspenseful random entry; Vanilla stays intact; [launch restoration and deferred menu, 2026-10-20](USER_VISION.md#restore-the-original-loading-screen-and-defer-the-start-menu-2026-10-20) |
 | AD24 | **Players choose their pursuits.** Guidance and optional campaigns, no compulsory global main quest. | OD24 |
 | AD25 | **Threats develop from their actual causes,** not automatic matching to the player. | Cause-driven threats |
 | AD26 | **Narration is direct by default; base-cheat powers are discovered in play.** A cheat's look follows what the cheat is, not its world. | OD13; [cheat looks](USER_VISION.md#cheat-looks-follow-the-cheats-own-type-2026-10-16) |
@@ -184,7 +186,7 @@ unless another owner is linked.
 | AD27 | **Economies are local; trade and arbitrage are intended.** Shared currencies come through means or cheats. | OD11 |
 | AD28 | **Everything can become OP; power is relative.** Beaten obstacles stay beaten. | Rulebook 11 |
 | AD29 | **The base cheat is a quiet personal faculty by default.** Systems or voices come through means or accompanying cheats. | Cheat-chat continuation (CA13) |
-| AD30 | **Titles may grant real powers** through a world's rules or a cheat. | Titles, achievements and rule-tags (standing priorities) |
+| AD30 | **Titles may grant real powers** through a world's rules or a cheat. Distinguish what the title recognizes from what it supplies; SLR40–SLR43 clarify capability and effect ownership. | Titles, achievements and rule-tags (standing priorities) |
 | AD31 | **Owned things such as furniture may give passive bonuses.** | Bonuses from furniture and more |
 
 ### Process
@@ -204,6 +206,18 @@ unless another owner is linked.
 |---|---|---|
 | AD38 | **Things work by how they work.** If a method, item or plan reasonably works by the mechanisms in play, it works, whatever its label, category or origin; nothing needs a permission list to happen. Costs, means and the world's actual mechanisms decide "reasonably". | [Things work by how they work](USER_VISION.md#things-work-by-how-they-work-2026-10-17) |
 | AD39 | **Electron plus web.** The game moves to Electron plus web, like other shipped web games: one web codebase in the browser and in an Electron desktop host. Implementation defaults are proposals in the EL round. | [Request](USER_VISION.md#electron-plus-web-2026-10-20); [EL round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el) |
+
+### Interface design attention
+
+| Code | Rule | Source |
+|---|---|---|
+| AD40 | **Carry useful reference UI families and small details into future design**, especially progress/resource bars, message-condensing options, coloring and playful interaction details. Adapt them to OOPS's accepted shell and actual mechanisms. Later same-day direction selects typography/component-style/glow, then full retained palette implementation with Luna subagents, audit and root repairs. The next instruction authorizes a finite solo completion pass, self-audit and repairs. The 2026-10-21 instruction folds the Discord design guide into standing UR59–UR64; later direction selects internal Gothic by default, visible delivery and reuse of completed work before lesser-agent gap implementation. Concrete treatments retain their visual/play acceptance gate; unresolved reference claims do not become native facts. | [Reference-guide fold](USER_VISION.md#discord-design-guide-and-missing-media-recovery-2026-10-21); [Initial request](USER_VISION.md#small-contextual-ui-details-for-future-work-2026-10-20); [full implementation request](USER_VISION.md#full-retained-ui-and-engine-palette-implementation-2026-10-20); [reusable palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
+
+### Checkout workflow
+
+| Code | Rule | Source |
+|---|---|---|
+| AD41 | **Use the primary checkout by default.** Temporary isolation needs a concrete reason and owner; reuse suitable checkouts and retire finished lanes after integration, active-use checks and artifact preservation. | [Request](USER_VISION.md#primary-checkout-default-and-finished-worktree-cleanup-2026-10-21); [procedure](gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21) |
 
 ## Efficient rule verification (AD36)
 
@@ -252,7 +266,7 @@ task record and checks. No separate checklist file or universal compliance score
 | Native crafting transactions and mixture quote admission | `npm run check:rule-behavior -- transactions` | Other command, cost, preview and product changes need their own relevant tests |
 | Foundation save compatibility helper | `npm run check:rule-behavior -- saves` | Other save slices/migrations need their own tests; persistence also needs browser save/reload/Export/Import |
 | Center-mode lifecycle | `npm run check:rule-behavior -- navigation` | Actual Back/Esc, focus and visibility need rebuilt desktop browser evidence |
-| UI tokens and panel ownership | `node --test tests/ui_contract.test.js` | Structural baseline check; visual/discoverability evidence at 1920×1080 and the 1366×768 floor stays separate |
+| UI tokens and panel ownership | `node --test tests/ui_contract.test.js` | Structural baseline check; visual/discoverability evidence at 1920×1080 stays separate |
 | Other runtime behavior | `node --test tests/<relevant>.test.js` | Find/extend the actual owner suite; no mapped group means uncovered by this runner, not exempt |
 | Architecture boundaries | AR16's architecture command when available in the active checkout | Follow the modular-seams owner; do not duplicate its checker or silently skip a required gate |
 

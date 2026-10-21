@@ -1,0 +1,21 @@
+{
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "setup": "Seeded current-format nighttime, book and market access; native inventory light/read commands. Short remaining fuel and completion fixtures are explicitly seeded, not natural acquisition.",
+  "checks": [
+    "Native inventory light/read: 1 flask spent, 2 minutes produce 2.4 work and burn 2 fuel",
+    "pending: Save/reload/Export/literal Import exact",
+    "expired: Save/reload/Export/literal Import exact",
+    "Fractional expiry: 2.5 lit + 3.5 unlit minutes = 6.5 work; current lamp is out; visible remaining estimate updates to 113.5 minutes",
+    "advanceTicks(6), six single native minutes and fastForward(6) exact save equivalence",
+    "Immediate completion reload: book/fuel/XP exact; existing Reader title backfilled by load",
+    "completion: Save/reload/Export/literal Import exact",
+    "Completion coincides with expiry, remains complete after persistence and further time"
+  ],
+  "missingOptionalResources": [],
+  "resource404s": 0,
+  "bundle_sha256": "304ce221b332f285950697b03459a8171b15bbfca18597a43b6e13c17877deb2",
+  "status": "passed"
+}

@@ -1,0 +1,9 @@
+{
+  "path": "docs/ENGINE_EXPANSION.md",
+  "beforeSha256": "f21f3b727e7480921ba1a998e79e2a4f1b4de4c88baf985fa7c7245a0243bad4",
+  "afterSha256": "9a0d01a446512e081d67162d18fd703b01f23a0c3f7f47314a2b05d805e504b5",
+  "beforeBytes": 355568,
+  "afterBytes": 356932,
+  "prefixPreserved": true,
+  "method": "append only; original bytes are an exact prefix"
+}

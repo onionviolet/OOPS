@@ -382,3 +382,40 @@ with a real consumer, then verify ordinary play and exact persistence through
 the existing acceptance gates. A world-scale title does not require simulating
 every inhabitant or implementing every other holder type first. Documentation
 only; no new runtime, browser or persistence claim.
+
+
+## C14. Titles versus the capabilities they name or grant
+
+2026-10-21 clarification requested by Weibao, applying AD30/AD38 through [SLR40–SLR43](../DOMAIN_RULES.md#titles-skills-and-effect-causes-2026-10-21). C2 already separates deed, recognition, grant and power. The recovered-code benefit palette is an illustration of those relationships, not five new entity types or an accepted title architecture.
+
+| Example | Actual cause and owner | Title's role |
+| --- | --- | --- |
+| A runner becomes more efficient through practice | Bodily/skill adaptation and its actual rate consumer | “Road Veteran” may recognize the competence; the name need not supply it |
+| A world awards a distinct stamina blessing for the same journey | A real grant adds a separate effect through existing modifier/capability ownership | The title can be the grant's source, certificate or announcement; name which when it matters |
+| A keeper invokes a ward under a mantle's authority | The mantle supplies authorization/power; the technique/action settles target, cost and result | Losing the mantle may end authority without deleting a learned procedure; possessing authority need not confer perfect technique |
+| A quartermaster notices salvage possibilities | Expertise, a title-conditioned world rule or an institution can each cause this, depending on the chosen world | The recovered source tests a title marker; that alone does not prove which natural explanation OOPS should adopt |
+| A guild gives a discount to its recognized officer | Merchant/institution belief and policy | Recognition is a real cause without being a combat skill or magical stat bonus |
+
+**Activation is another axis:** competence can improve passive execution and support deliberate methods; a title-supplied faculty can enable an active examination. Worn/attuned selection is a condition, not necessarily a button-activated power. No title needs a level bar merely because it grants a technique; no skill needs to disappear because its celebratory epithet changes.
+
+**Counterfactual check:** what changes if only the displayed name changes; if an issuer revokes authority; if learned understanding/body fluency is lost; if the enabling object is absent; or if the observer does not recognize the claim? Answer from the actual mechanism and existing SLR carrier rules. A world can intentionally bind these together. Record distinctions only where consumers, loss or continuity need them, rather than mandating a large new schema.
+
+**No duplicate effect:** a milestone and its title can expose the same efficiency change through two views while one owner supplies it. A separate magical reward can also apply if the world grants it. Multiple legitimate rewards for one deed remain allowed under C2. Existing OOPS held and optional worn-title effects retain their current behavior; this clarification neither removes them nor proves their fictional causes.
+
+ACT NOW (done): reconciled the palette with C2 and linked the standing rule applications. ACCOUNT FOR NOW: reuse existing action, skill, capability, modifier and knowledge/recognition owners. LATER: when one title mechanic is selected, demonstrate gain/use/loss/continuity through its actual consumers. Sol medium, small/medium scope; done means the counterfactuals have explained outcomes, no duplicated grant and appropriate save/reload evidence. No new runtime mechanic is implemented.
+
+
+### Native title implementation, 2026-10-21
+
+Later authorized implementation applies C2/C14 and SLR40–43 through the existing
+held bonus, optional worn projection and native skill-XP consumer. The chooser
+now retains every valid held selection, including names with no worn payoff;
+its status names wearing off, absent choice, insufficient known held titles and
+active ordinary-activity XP. Held/locked benefit wording stays separate from
+recognition and optional selection. No lore explanation is invented for the
+existing numerical grants; no skill, action or power schema is added.
+
+[Implementation report](../gm/dispatch/title-rules-implementation-2026-10-21/REPORT.md)
+owns current evidence and human acceptance; [finite coverage](../gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md)
+keeps source-only and future mechanisms explicit. Earlier no-runtime statements
+above describe their documentation passes, not this later implementation.

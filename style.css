@@ -1,4 +1,7 @@
 
+@import url("./styles/palette_reports.css");
+@import url("./styles/palette_feedback.css");
+
 :root {
 	/* Semantic log/feedback tokens (I7): gain, loss, money, blocked. Vivid overrides in styles/workspace.css. */
 	--sem-gain: var(--ui-swatch-001); --sem-loss: var(--ui-swatch-002); --sem-money: var(--ui-swatch-003); --sem-blocked: var(--ui-swatch-004);
@@ -157,14 +160,6 @@ input[type=checkbox], input[type=radio] {
 
 .italic {
 	font-style: italic;
-}
-
-#hits_counter {
-    height: 28px;
-    padding: 6px;
-    right: 80px;
-    bottom: 0px;
-	position: fixed;
 }
 
 #loading_screen {

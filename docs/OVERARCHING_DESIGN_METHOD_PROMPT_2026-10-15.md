@@ -240,7 +240,7 @@ audit. Edit shared docs from disk, hunk only. Do not commit unless asked.
 - Proposals stay proposals. Only Weibao's words or PROJECT.md accepted
   decisions are W.
 - Sealed secrets: refer by ID and route, never truth.
-- Desktop 1366x768 first; mobile deferred.
+- Desktop 1920x1080 first (1366x768 retired 2026-10-19); mobile deferred.
 - Report sources as they are, contradictions included.
 - Style: plain, direct, no em dashes; lists the reader acts on stay at five
   or fewer.

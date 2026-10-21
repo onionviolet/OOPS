@@ -1,0 +1,200 @@
+{
+  "root": "/tmp/oops-proto23-ui-candidate-20261021",
+  "checks": [
+    "Fresh game defaults to the actual loaded MS Gothic face",
+    "All six desktop/text cases: actual Gothic, native inventory kind colors, inspect/equip, persistent nearby/service return, Find",
+    "Saved divider layout Save/reload/Export/literal Import",
+    "Explicit saved system font and serif/21px module override retained",
+    "Real component preview: Gothic/21px draft, selected/focused/disabled/table states; active profile unchanged before Apply",
+    "Two-holder exact-key stock Save/reload/Export/literal Import",
+    "Immutable condition observations Save/reload/Export/literal Import",
+    "Existing processing/cancel retains exact specimen age and observation history"
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "page": [
+        1920,
+        1080
+      ],
+      "inventory": 336,
+      "font": "\"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, \"Hiragino Sans GB\", monospace",
+      "colors": [
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(169, 232, 139)",
+        "rgb(244, 210, 126)"
+      ],
+      "nearby": true,
+      "actualFonts": [
+        {
+          "familyName": "MS Gothic",
+          "postScriptName": "MS-Gothic",
+          "isCustomFont": true,
+          "glyphCount": 21
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "page": [
+        1920,
+        1080
+      ],
+      "inventory": 414.90625,
+      "font": "\"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, \"Hiragino Sans GB\", monospace",
+      "colors": [
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(169, 232, 139)",
+        "rgb(244, 210, 126)"
+      ],
+      "nearby": true,
+      "actualFonts": [
+        {
+          "familyName": "MS Gothic",
+          "postScriptName": "MS-Gothic",
+          "isCustomFont": true,
+          "glyphCount": 21
+        }
+      ]
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "page": [
+        1800,
+        1040
+      ],
+      "inventory": 336,
+      "font": "\"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, \"Hiragino Sans GB\", monospace",
+      "colors": [
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(169, 232, 139)",
+        "rgb(244, 210, 126)"
+      ],
+      "nearby": true,
+      "actualFonts": [
+        {
+          "familyName": "MS Gothic",
+          "postScriptName": "MS-Gothic",
+          "isCustomFont": true,
+          "glyphCount": 21
+        }
+      ]
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "page": [
+        1800,
+        1040
+      ],
+      "inventory": 388.515625,
+      "font": "\"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, \"Hiragino Sans GB\", monospace",
+      "colors": [
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(169, 232, 139)",
+        "rgb(244, 210, 126)"
+      ],
+      "nearby": true,
+      "actualFonts": [
+        {
+          "familyName": "MS Gothic",
+          "postScriptName": "MS-Gothic",
+          "isCustomFont": true,
+          "glyphCount": 21
+        }
+      ]
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "page": [
+        1536,
+        864
+      ],
+      "inventory": 330.4375,
+      "font": "\"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, \"Hiragino Sans GB\", monospace",
+      "colors": [
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(169, 232, 139)",
+        "rgb(244, 210, 126)"
+      ],
+      "nearby": true,
+      "actualFonts": [
+        {
+          "familyName": "MS Gothic",
+          "postScriptName": "MS-Gothic",
+          "isCustomFont": true,
+          "glyphCount": 21
+        }
+      ]
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "page": [
+        1536,
+        864
+      ],
+      "inventory": 330.4375,
+      "font": "\"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, \"Hiragino Sans GB\", monospace",
+      "colors": [
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(220, 228, 234)",
+        "rgb(169, 232, 139)",
+        "rgb(244, 210, 126)"
+      ],
+      "nearby": true,
+      "actualFonts": [
+        {
+          "familyName": "MS Gothic",
+          "postScriptName": "MS-Gothic",
+          "isCustomFont": true,
+          "glyphCount": 21
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "expectedOptionalAbsences": [
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json"
+  ]
+}
