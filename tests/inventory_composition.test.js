@@ -5,6 +5,8 @@ const row = (types, data = {}) => ({dataset:{...data},isConnected:true,classList
 test('native kinds stay distinct from native quality and favorites',()=>{
     const gear=row(['character_item_equippable','character_item_faved'],{item_quality:'112'});
     assert.equal(inventoryKind(gear),'equipment');assert.equal(gear.dataset.item_quality,'112');
+    assert.equal(inventoryKind(row(['equipment_slot_div'])),'equipment');
+    assert.equal(inventoryKind(row(['equipped_item_control'])),'equipment');
     assert.equal(inventoryKind(row(['item_book'])),'book');
     assert.equal(inventoryKind(row(['character_item_usable'])),'usable');
     assert.equal(inventoryKind(row(['character_item_component'])),'component');

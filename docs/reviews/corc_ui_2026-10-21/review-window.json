@@ -1,0 +1,14 @@
+{
+  "pid": 9080,
+  "profile": "/tmp/oops-corc-review-E3RgjW",
+  "snapshot": {
+    "id": "v0.6-6fc2a74eb36d",
+    "root": "/tmp/oops-corc-review-E3RgjW/builds/v0.6-6fc2a74eb36d",
+    "files": 82
+  },
+  "viewport": [
+    1800,
+    1040
+  ],
+  "title": "OOPS · Corc UI review · disposable test save"
+}

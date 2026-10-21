@@ -1642,3 +1642,25 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
  --custom-background: var(--theme-bg) !important; --custom-text: var(--theme-text) !important; --custom-accent: var(--theme-accent) !important;
 }
 :root[data-display-contrast="high"] #main_content.workspace-active .customization-module[data-component-theme="luminous"] [data-rarity] {color: var(--theme-text) !important;}
+
+/* Corc reference: private native bitmap faces, original outline fallback retained. */
+:root {--ui-font-gothic: "OOPS Gothic Bitmap 14", "OOPS MS Gothic", "MS Gothic", "Menlo", "AppleGothic", monospace;}
+@font-face {font-family:"OOPS Gothic Bitmap 7";src:url("../resources/fonts/private/gothic-bitmap-7.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 8";src:url("../resources/fonts/private/gothic-bitmap-8.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 9";src:url("../resources/fonts/private/gothic-bitmap-9.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 10";src:url("../resources/fonts/private/gothic-bitmap-10.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 11";src:url("../resources/fonts/private/gothic-bitmap-11.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 12";src:url("../resources/fonts/private/gothic-bitmap-12.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 13";src:url("../resources/fonts/private/gothic-bitmap-13.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 14";src:url("../resources/fonts/private/gothic-bitmap-14.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 15";src:url("../resources/fonts/private/gothic-bitmap-15.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 16";src:url("../resources/fonts/private/gothic-bitmap-16.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 17";src:url("../resources/fonts/private/gothic-bitmap-17.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 18";src:url("../resources/fonts/private/gothic-bitmap-18.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 19";src:url("../resources/fonts/private/gothic-bitmap-19.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 20";src:url("../resources/fonts/private/gothic-bitmap-20.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 21";src:url("../resources/fonts/private/gothic-bitmap-21.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+@font-face {font-family:"OOPS Gothic Bitmap 22";src:url("../resources/fonts/private/gothic-bitmap-22.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0020-007E;}
+#main_content.workspace-active .customization-module[data-typography-font="gothic"] :is(.stat_value,.character_stat_value,.inventory_item_count,.item_count,.meter-bar-value,.log-value,.log-repeat,.scene-calendar,.scene-glyph,pre) {
+ font-family:var(--custom-font);
+}

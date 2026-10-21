@@ -50,8 +50,7 @@ export function mountConditionPanel({home,rates,readRows,notice,inspect,isInspec
         if(heading)write(heading,'Condition'+(native.length?' · '+native.length+(native.length===1?' effect':' effects'):''));
         if(getDisplaySetting('panel.condition.introduced')!=='seen'&&document.documentElement.dataset.startScreen==='closed'){
             setDisplaySettings({'panel.condition.introduced':'seen'});
-            notice('Effects, body and active rates live in Condition, below You by default. Weather and cold exposure stay in the place header.','condition');
-            const route=document.querySelector('[data-route-id="condition"]');if(route)route.dataset.newHome='true';
+            const route=document.querySelector('[data-route-id="condition"]');if(route){route.dataset.newHome='true';route.title='Effects, body and active rates. Weather and cold exposure are in the place header.';}
         }
     }
     const stops=[subscribeChange({id:'condition',surface:'condition',refresh:render}),

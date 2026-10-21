@@ -150,7 +150,7 @@ export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}
         node.dataset.componentTheme = settings.componentTheme || 'neutral';
         node.dataset.customizationSeason = settings.resolvedSeason || 'off';
         const font = settings.typography.font;
-        const family = {system: 'var(--ui-font-system)', serif: 'Georgia, serif', mono: 'monospace', gothic: 'var(--ui-font-gothic)'}[font];
+        const family = {system: 'var(--ui-font-system)', serif: 'Georgia, serif', mono: 'monospace', gothic: `"OOPS Gothic Bitmap ${settings.typography.size}", var(--ui-font-gothic)`}[font];
         const vars = {'--custom-font': family, '--custom-prose-font': family, '--custom-size': `${settings.typography.size}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
         node.dataset.typographyFont = font;
         Object.assign(vars, componentThemeTokens(settings));

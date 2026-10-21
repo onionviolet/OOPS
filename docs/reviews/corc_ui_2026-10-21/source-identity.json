@@ -1,0 +1,29 @@
+{
+  "head": "a052e0794c8f47f13abe3f15b4825d223b17a743",
+  "branch": "master",
+  "sha256": {
+    "src/proto23_shell.js": "d5539b1dbcbeb64a27ae34e3ac14a2ac69803104125d5a45aa13aa87770c2986",
+    "src/shell_item_description.js": "0828a6e28a1d8da9e02b02da2c1e7e23996bbe2a24e46692134300f6ffd0d52e",
+    "src/shell_composition.js": "f208c205cedf83c11b365130f8e437b85760a0dee78e87004d5eac064e8dbead",
+    "src/customization_profiles.js": "55a3f361bccade40fb2213ea3c54bf91c410562288d76f68034ccd95791ea079",
+    "src/condition_panel.js": "98c6df5dfa8d1489825e44305719c6ea8cd494fca67a34dc30dd96f1c3b81d4a",
+    "src/inventory_composition.js": "b0ff924c1ed712857303695cac51972bb6610b50dd059ab4ee7698b39dc890f2",
+    "styles/ui_tokens.css": "d0baf47852e4c81c4126d77ca0a67b0de65e0c57bac82597aeb3c153575cdbee",
+    "styles/corc_readability.css": "d663948b41ef9aebbae30d0136361147991ba563c929d1c12dddc6ac282b9880",
+    "index.html": "c1be68871a0455581bb01dd0008412ff9be06d3439a9ad722ad71f643edc6931",
+    "scripts/derive_gothic_bitmaps.py": "c204e11baaa2c1c2989303428aa9ce81c08a50674231e720e0d47ef39a871183",
+    "scripts/playtest/corc-electron.mjs": "87d6d2055721120e40de43796daab3196ce01a1c927ab48071dd6973fbc18da5",
+    "scripts/playtest/proto23-ui-delivery.mjs": "e21ff9bb921384474dbfc782e238c09d0e45b519d31a24a62c89b4686689371d",
+    "tests/shell_item_description.test.js": "521b6863dd1402f820332dfe526b8fcc04ba25417d7c571544318b27f97ed22e",
+    "tests/presentation_style.test.js": "2159c1d9a735671bee532de443febe496e3bc8f23fce9deb9e76097bb291afae",
+    "tests/inventory_composition.test.js": "3eeacc8b83e19abcfe67bd995729123e88aab0c2bcbbcbc742d2f338ef81e92a",
+    "dist/bundle.js": "27754f381c298c88a53c8944a44a38973b07f68c8f892ad20a6cb1fb274c3ef5",
+    "dist/bundle.js.map": "b87ce763ce415349094e299072106fb255612b8838cdc992f63af9ff61e3ff3d",
+    "docs/research/proto23/UI_AND_PLAYFUL_PRESENTATION_OPPORTUNITIES_2026-10-20.md": "f0a32d36ec8afd86b6c58fa54681f20e2aaa2c4733c0103e56f1a5daca0eed4a",
+    "scripts/playtest/electron_ready.mjs": "400a77b566ed6209710a5253c0c615af38e5a764d3b8cef6ef301e1896cf090b",
+    "scripts/playtest/electron-reload.mjs": "4d2036579187251a29ec17955b812bf36c96d5593ccf3efe0efdb8560671313f"
+  },
+  "embeddedSourceMatches": 681,
+  "verification": "Full native six-case journey after readiness helper and corrected bitmap bearings; 2423 tests; build/arch/rules pass.",
+  "privateBitmapReceiptSha256": "32d143b7726b1be8dde9ce8d0aca9bb6ffcfe6ff723db604183c785864adcb6b"
+}

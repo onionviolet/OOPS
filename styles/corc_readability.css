@@ -1,0 +1,50 @@
+/* Local MS Gothic bitmap strikes retain their native pixel grid. Missing private assets fall back to the original face. */
+/* The source face has one weight. Synthetic bold obscures its one-pixel strokes. */
+:is(#main_content.workspace-active,.theme-preview) .customization-module[data-typography-font="gothic"] {
+ font-synthesis: none;
+}
+:is(#main_content.workspace-active,.theme-preview) .customization-module[data-typography-font="gothic"] :is(button,select,input,summary,strong,b,h2,h3,h4,.item_name,.stat_value,.character_stat_value,.meter-bar-value) {
+ font-weight:400 !important;
+ text-shadow:none !important;
+}
+
+#main_content.workspace-active[data-parity="r3"] #proto23_character > .shell-worn-summary {
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;
+ flex:0 0 auto;width:100%;min-width:0;max-height:4.5em;overflow:auto;
+ background:var(--p23-quiet-line);border-block:1px solid var(--p23-quiet-line);
+}
+#main_content.workspace-active[data-parity="r3"] .shell-worn-summary[hidden] {display:none;}
+#main_content.workspace-active[data-parity="r3"] #proto23_character .shell-worn-summary .shell-worn-item {
+ display:flex;align-items:baseline;gap:.35em;min-width:0;padding:.15em .3em;
+ width:100%;text-align:left;font:inherit;border:0;background:var(--p23-dark-value);color:var(--p23-text);
+}
+.shell-worn-slot {flex:0 0 auto;white-space:nowrap;color:var(--p23-muted);}
+.shell-worn-name {min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#main_content.workspace-active[data-parity="r3"] .shell-item-title {display:block;padding:.3em .45em;line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] #proto23_item_detail > p {margin:.1em .45em .3em;color:var(--p23-muted);font-size:.9em;}
+.shell-item-specifics {margin-top:.45em;border-top:1px solid var(--p23-quiet-line);}
+.shell-item-specifics > summary {cursor:pointer;padding:.2em 0;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"] {
+ flex-shrink:0;min-height:calc(var(--shell-context-size,var(--ui-type-body))*5);
+}
+#main_content.workspace-active[data-parity="r3"] #shell_condition > .condition-summary {margin:.15em .4em;}
+/* Equipped rows use the same native nodes; stack the action and price without overlap. */
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div > .equipped_item_control {
+ display:grid;grid-template-columns:minmax(0,1fr) max-content;align-items:start;gap:.4em;box-sizing:border-box;width:100%;min-width:0;
+}
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div > .equipped_item_control > .item_additional_content {
+ position:static;display:flex;flex-direction:column;align-items:flex-end;width:auto;padding:0;gap:.1em;
+}
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div > .equipped_item_control :is(.unequip_item_button,.item_value) {
+ position:static!important;inset:auto;width:auto;
+}
+#main_content.workspace-active[data-parity="r3"] .shell-description-line {padding-block:.08em;}
+/* Selected work gets a clear identity and static progress, using its native clock. */
+#main_content.workspace-active .work-status-view {
+ border:1px solid var(--theme-border,var(--ui-hairline));padding:.5em;
+ background:var(--theme-surface,var(--ui-navy));margin:.4em 0;
+}
+#main_content.workspace-active .work-status-view > p:first-child {
+ margin:0 0 .4em;color:var(--theme-accent,var(--ui-teal));font-size:1.1em;
+}
+#main_content.workspace-active .work-status-view .meter-bar-track {height:.55em;}

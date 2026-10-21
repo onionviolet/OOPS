@@ -3,6 +3,7 @@
 export const INVENTORY_KIND_LABELS = Object.freeze({equipment:'Equipment', usable:'Usable', component:'Component', book:'Book', other:'Material / other'});
 export function inventoryKind(row) {
     if (!row) return null;
+    if(row.classList.contains('equipment_slot_div')||row.classList.contains('equipped_item_control'))return 'equipment';
     for (const [kind, native] of [['equipment','equippable'],['book','book'],['usable','usable'],['component','component']]) {
         if (row.classList.contains(`character_item_${native}`) || row.querySelector(`.item_${native}`)) return kind;
     }

@@ -38,8 +38,8 @@ test('Gothic font validates, applies its role tokens and survives JSON roundtrip
     const node = {style:{values:{},setProperty(key,value){this.values[key]=value;}},classList:{add(){}},dataset:{},querySelectorAll(){return [];}};
     applyCustomizationProfile(state, {moduleNodes:{ledger:node}});
     assert.equal(node.dataset.typographyFont, 'gothic');
-    assert.equal(node.style.values['--custom-font'], 'var(--ui-font-gothic)');
-    assert.equal(node.style.values['--custom-prose-font'], 'var(--ui-font-gothic)');
+    assert.equal(node.style.values['--custom-font'], '"OOPS Gothic Bitmap 14", var(--ui-font-gothic)');
+    assert.equal(node.style.values['--custom-prose-font'], '"OOPS Gothic Bitmap 14", var(--ui-font-gothic)');
     assert.deepEqual(validateCustomizationState(JSON.parse(JSON.stringify(state))), state);
     assert.throws(() => validateCustomizationState({...state, profiles:{Default:{...state.profiles.Default,settings:{...state.profiles.Default.settings,typography:{font:'unknown',size:14}}}}}), /invalid font/);
 });

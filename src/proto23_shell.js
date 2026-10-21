@@ -11,27 +11,8 @@ import {SECONDARY_STATS,secondaryVisible,pinKey,isRate} from './condition_facts.
 import {mountConditionPanel} from './condition_panel.js';
 import {mountShellControlBoxes} from './shell_control_boxes.js';
 import {rendered} from './panel_reveal.js';
+import {descriptionCopy} from './shell_item_description.js';
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
-// Preserve native tooltip content and markup; add presentation roles to its
-// existing lines, never synthesize item facts from names or hidden templates.
-function descriptionCopy(tooltip) {
-    const copy=tooltip.cloneNode(true);copy.removeAttribute('id');copy.removeAttribute('style');
-    copy.className='shell-native-item-description';
-    for(const n of copy.querySelectorAll('[id]'))n.removeAttribute('id');
-    const lines=document.createDocumentFragment();let line=document.createElement('div');
-    const finish=()=>{if(line.hasChildNodes()){const text=line.textContent.trim();
-        line.className='shell-description-line';
-        if(/^(Slot|Type|Material type|Component tier|Basic stats|Effects|Compared to equipped|Time to read|Reading it provided|Value|Count in player inventory):?/.test(text))line.dataset.detailRole='label';
-        if(/^Value:/.test(text))line.dataset.detailRole='value';
-        // Signed changes retain their literal sign. Color means increase/decrease,
-        // not a universal assertion that every increased stat is beneficial.
-        if(/:\s*-\d/.test(text))line.dataset.detailRole='decrease';
-        else if(/:\s*\+\d/.test(text))line.dataset.detailRole='increase';
-        else {const multiplier=text.match(/:\s*x(\d+(?:\.\d+)?)/);if(multiplier&&Number(multiplier[1])!==1)line.dataset.detailRole=Number(multiplier[1])<1?'decrease':'increase';}
-        lines.append(line);}line=document.createElement('div');};
-    for(const child of [...copy.childNodes]){if(child.nodeName==='BR'){child.remove();finish();}else line.append(child);}finish();copy.append(lines);
-    return copy;
-}
 const shortStatLabels={strength_slot:'STR',agility_slot:'AGL',dexterity_slot:'DEX',intuition_slot:'INT',magic_slot:'Magic',attack_power_slot:'Attack',attack_speed_slot:'Speed',crit_rate_slot:'Crit %',crit_multiplier_slot:'Crit ×',hit_chance_slot:'AP',defense_slot:'Defense',defensive_action_chance_slot:'EP'};
 const active=()=>document.getElementById('main_content')?.dataset.presentation==='proto23-shell';
 const action=(label,run)=>{const b=node('button',label);b.type='button';b.onclick=run;return b;};
@@ -125,7 +106,8 @@ export function mountProto23Shell({read}) {
     const details=action('Attributes ›',()=>{if(expandWorkspaceModule('preparation')){document.getElementById('character_show_stats')?.click();attributeInspector.refresh();}});
     details.className='shell-attributes-open';details.title='Inspect all supported native attributes and their modifiers';
     const gear=node('details',null,'shell-gear-disclosure');gear.open=false;let gearChosen=false;const gearSummary=node('summary','Equipment');gear.append(gearSummary,equipment);gearSummary.addEventListener('click',()=>{gearChosen=true;});
-    const characterTools=node('div',null,'shell-character-tools');characterTools.append(details,gear);player.append(statline,secondary,characterTools);
+    const wornSummary=node('div',null,'shell-worn-summary');wornSummary.setAttribute('aria-label','Worn equipment');
+    const characterTools=node('div',null,'shell-character-tools');characterTools.append(details,gear);player.append(statline,secondary,wornSummary,characterTools);
     const detail=node('section',null,'shell-item-detail');detail.id='proto23_item_detail';
     const title=node('strong'),meta=node('p'),body=node('div',null,'shell-item-description'),controls=node('div',null,'shell-item-actions');
     detail.append(title,meta,body,controls);
@@ -318,14 +300,14 @@ export function mountProto23Shell({read}) {
         if(fitBody){
             const shell=player.closest('.workspace-module'),css=getComputedStyle(player),bodyCss=getComputedStyle(fitBody),shellCss=getComputedStyle(shell);
             const inset=(cs,keys)=>keys.reduce((sum,key)=>sum+(parseFloat(cs[key])||0),0);
-            const minimum=statline.getBoundingClientRect().height+characterTools.getBoundingClientRect().height+
+            const minimum=statline.getBoundingClientRect().height+characterTools.getBoundingClientRect().height+wornSummary.getBoundingClientRect().height+
                 inset(css,['paddingTop','paddingBottom'])+inset(bodyCss,['paddingTop','paddingBottom'])+
                 inset(shellCss,['borderTopWidth','borderBottomWidth'])+(shell.querySelector('.workspace-module-header')?.getBoundingClientRect().height||0);
             const value=Math.ceil(minimum)+'px';shell.dataset.youMinimum='true';if(shell.style.minHeight!==value)shell.style.setProperty('min-height',value,'important');
         }
         const region=player.closest('.parity-region'),shell=player.closest('.workspace-module');
         const siblings=region?[...region.children]:[],following=siblings.slice(siblings.indexOf(shell)+1).filter(rendered).reduce((sum,n)=>sum+(parseFloat(getComputedStyle(n).minHeight)||n.getBoundingClientRect().height),0);
-        const available=region&&fitBody?region.getBoundingClientRect().bottom-fitBody.getBoundingClientRect().top-following-statline.getBoundingClientRect().height-characterTools.getBoundingClientRect().height:Infinity;
+        const available=region&&fitBody?region.getBoundingClientRect().bottom-fitBody.getBoundingClientRect().top-following-statline.getBoundingClientRect().height-characterTools.getBoundingClientRect().height-wornSummary.getBoundingClientRect().height:Infinity;
         const first=secondaryGrid.querySelector('button:not([hidden])'),rowHeight=first?.getBoundingClientRect().height||0;
         const cols=parseInt(getComputedStyle(secondaryGrid).gridTemplateColumns.split(' ').length)||2;
         const capacity=rowHeight?Math.max(0,Math.floor((available-8)/rowHeight))*cols:Infinity;
@@ -373,13 +355,23 @@ export function mountProto23Shell({read}) {
         const frame=read();const nextPlayer=JSON.stringify(frame);
         if(nextPlayer!==playerSignature){playerSignature=nextPlayer;
             const worn=frame.equipment.filter(s=>s.name).length;gearSummary.textContent=`Gear · ${worn}`;gearSummary.setAttribute('aria-label',`Equipment · ${worn} worn`);gearSummary.title=`${worn} worn items. Open native equipment slots.`;
+            const wornIdentity=JSON.stringify(frame.equipment.filter(s=>s.name).map(s=>[s.id,s.name]));
+            if(root.dataset.shellWorn!==wornIdentity)root.dataset.shellWorn=wornIdentity;
             player.dataset.effectAnchor='player-stats';
             const focusedSlot=document.activeElement?.dataset.shellSlot;
+            const focusInSummary=wornSummary.contains(document.activeElement);
+            wornSummary.replaceChildren();
+            for(const slot of frame.equipment.filter(slot=>slot.name)){
+                const button=action('',()=>{selected={slot:slot.id};signature='';render();updateWorkspace();});
+                button.dataset.shellSlot=slot.id;button.className='shell-worn-item';button.title=`${slot.label}: ${slot.name}`;
+                button.append(node('span',slot.label,'shell-worn-slot'),node('span',slot.name,'shell-worn-name'));wornSummary.append(button);
+            }
+            wornSummary.hidden=!worn;
             const toolsOpen=equipment.querySelector('details')?.open;equipment.replaceChildren();
             const tools=node('details'),toolLabel=node('summary','Tools');tools.open=!!toolsOpen;const toolGrid=node('div',null,'shell-equipment');tools.append(toolLabel,toolGrid);
             for(const slot of frame.equipment){const b=action(`${slot.label} · ${slot.name||'Empty'}`,()=>{selected={slot:slot.id};signature='';render();updateWorkspace();});b.dataset.shellSlot=slot.id;b.title=slot.name||`Empty ${slot.label} slot`;(['axe','pickaxe','sickle','shovel','fishing'].includes(slot.id)?toolGrid:equipment).append(b);}
             equipment.append(tools);
-            if(focusedSlot)equipment.querySelector(`[data-shell-slot="${CSS.escape(focusedSlot)}"]`)?.focus({preventScroll:true});
+            if(focusedSlot)(focusInSummary?wornSummary:equipment).querySelector(`[data-shell-slot="${CSS.escape(focusedSlot)}"]`)?.focus({preventScroll:true});
         }
         const top=document.querySelector('.workspace-module[data-module=vitals]')?.getBoundingClientRect(),end=document.querySelector('.workspace-module[data-module="combat-controls"]')?.getBoundingClientRect();
         if(root.dataset.parity!=='r3'&&top?.height&&end?.height){const height=Math.min(innerHeight*.42,Math.ceil(end.bottom-top.top));const root=document.getElementById('main_content'),value=height+'px';if(root.style.getPropertyValue('--shell-upper-height')!==value)root.style.setProperty('--shell-upper-height',value);}
@@ -391,9 +383,10 @@ export function mountProto23Shell({read}) {
         detail.dataset.itemKind=row?.dataset.item_slot||row?.querySelector('.item_category')?.textContent.replace(/[\[\]]/g,'').trim()||(selected.slot?'Equipped item':'Item');
         title.className='shell-item-title';
         title.textContent=row?.querySelector('.item_name')?.textContent|| (selected.slot?frame.equipment.find(s=>s.id===selected.slot)?.name:'Item no longer held')||'Empty slot';
-        meta.textContent=selected.slot?`Following worn ${selected.slot} slot · current occupant`:row?`${detail.dataset.itemKind} · Held: ${row.dataset.item_count} · ${row.querySelector('.item_value')?.textContent.trim()||'No sale value'} · Following this held stack`:'This held stack is gone. Choose another item to inspect.';
+        meta.textContent=selected.slot?`Equipped · ${selected.slot}`:row?`Carried · ${row.dataset.item_count}`:'This held stack is gone. Choose another item to inspect.';
+        meta.title=selected.slot?'Follows the current item in this equipment slot.':'Follows this exact carried stack.';
         body.replaceChildren();
-        if(tooltip){const copy=descriptionCopy(tooltip);copy.firstElementChild?.remove();body.append(copy);}
+        if(tooltip)body.append(descriptionCopy(tooltip));
         else body.append(node('p',selected.slot?'Choose a held item to equip in this slot.':'This item is no longer in your inventory.'));
         const moreWasOpen=!!detail.closest('#center_mode_content')&&controls.querySelector('.shell-item-more')?.open;
         controls.replaceChildren();const more=node('details',null,'shell-item-more');more.open=!!moreWasOpen;more.append(node('summary','More actions'));more.addEventListener('toggle',()=>{if(more.open&&root.dataset.parity==='r3'&&!detail.closest('#center_mode_content'))expandWorkspaceModule('shell-detail');});
