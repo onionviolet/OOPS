@@ -31,8 +31,10 @@ export async function cheatGame({start = 'none'} = {}) {
     const errors = []; page.on('pageerror', error => errors.push(error.message));
     await page.goto(`http://127.0.0.1:${server.address().port}/`, {waitUntil: 'domcontentloaded'});
     await page.locator('#loading_screen_play_button:not(.none_display)').waitFor();
-    // R21b: the Optional beginning sits on the start screen and applies on PLAY.
-    if(await page.locator('#new_game_beginning [data-cheat-start]').count()) await page.locator('#new_game_beginning [data-cheat-start]').selectOption(start);
+    // Optional-start coverage uses the retained command value; the public picker is deferred.
+    if(await page.locator('#new_game_beginning [data-cheat-start]').count()) {
+        await page.locator('#new_game_beginning [data-cheat-start]').selectOption(start, {force: true});
+    }
     await page.locator('#loading_screen_play_button').click();
     await page.waitForTimeout(1200);
     if(await page.locator('#hero_creation_panel_confirmation').isVisible()) {

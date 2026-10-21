@@ -1,0 +1,186 @@
+{
+  "errors": [],
+  "sizes": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "signature": {
+        "left": 1312.265625,
+        "right": 1485,
+        "top": 320,
+        "bottom": 368
+      },
+      "left": {
+        "left": 21,
+        "right": 193.609375,
+        "top": 951.234375,
+        "bottom": 1017
+      },
+      "right": {
+        "left": 1691.640625,
+        "right": 1899,
+        "top": 951.234375,
+        "bottom": 1017
+      },
+      "play": {
+        "left": 859,
+        "right": 1061,
+        "top": 470,
+        "bottom": 496
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "signature": {
+        "left": 1312.265625,
+        "right": 1485,
+        "top": 320,
+        "bottom": 368
+      },
+      "left": {
+        "left": 31.5,
+        "right": 290.421875,
+        "top": 895.234375,
+        "bottom": 985.5
+      },
+      "right": {
+        "left": 1577.46875,
+        "right": 1888.5,
+        "top": 895.234375,
+        "bottom": 985.5
+      },
+      "play": {
+        "left": 859,
+        "right": 1061,
+        "top": 470,
+        "bottom": 496
+      }
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "signature": {
+        "left": 1252.265625,
+        "right": 1425,
+        "top": 320,
+        "bottom": 368
+      },
+      "left": {
+        "left": 21,
+        "right": 193.609375,
+        "top": 911.234375,
+        "bottom": 977
+      },
+      "right": {
+        "left": 1571.640625,
+        "right": 1779,
+        "top": 911.234375,
+        "bottom": 977
+      },
+      "play": {
+        "left": 799,
+        "right": 1001,
+        "top": 470,
+        "bottom": 496
+      }
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "signature": {
+        "left": 1252.265625,
+        "right": 1425,
+        "top": 320,
+        "bottom": 368
+      },
+      "left": {
+        "left": 31.5,
+        "right": 290.421875,
+        "top": 855.234375,
+        "bottom": 945.5
+      },
+      "right": {
+        "left": 1457.46875,
+        "right": 1768.5,
+        "top": 855.234375,
+        "bottom": 945.5
+      },
+      "play": {
+        "left": 799,
+        "right": 1001,
+        "top": 470,
+        "bottom": 496
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "signature": {
+        "left": 1120.265625,
+        "right": 1293,
+        "top": 320,
+        "bottom": 368
+      },
+      "left": {
+        "left": 21,
+        "right": 193.609375,
+        "top": 735.234375,
+        "bottom": 801
+      },
+      "right": {
+        "left": 1307.640625,
+        "right": 1515,
+        "top": 735.234375,
+        "bottom": 801
+      },
+      "play": {
+        "left": 667,
+        "right": 869,
+        "top": 470,
+        "bottom": 496
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "signature": {
+        "left": 1120.265625,
+        "right": 1293,
+        "top": 320,
+        "bottom": 368
+      },
+      "left": {
+        "left": 31.5,
+        "right": 290.421875,
+        "top": 679.234375,
+        "bottom": 769.5
+      },
+      "right": {
+        "left": 1193.46875,
+        "right": 1504.5,
+        "top": 679.234375,
+        "bottom": 769.5
+      },
+      "play": {
+        "left": 667,
+        "right": 869,
+        "top": 470,
+        "bottom": 496
+      }
+    }
+  ],
+  "image": {
+    "loaded": true,
+    "w": 1670,
+    "h": 942,
+    "src": "resources/img/guinea-pig-transparent.png"
+  },
+  "status": "PASS"
+}

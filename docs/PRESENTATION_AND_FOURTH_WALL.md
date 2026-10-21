@@ -2312,3 +2312,21 @@ Sol low/medium for body/voice/lifecycle, Luna low for a settled visual leaf,
 small/medium for one selected event/scene. Done: actual/native event binding,
 static/reduced presentation, no old pulse on a new subject and separate human
 tone review at the desktop targets. No animation, audio or scene implemented here.
+
+
+## Launch ornaments and useful display content, 2026-10-21
+
+Weibao asked whether the dummy hit counter was useful, requested its removal, asked where the emojis went, and requested further consideration. [LUI1–LUI4 receipt](reviews/launch_menu_2026-10-21/REPORT.md) records the bounded follow-up: removed an inherited website-visit badge and its external request/relocation paths; restored the original decorative cat that was lost when the loading credit was replaced; verified native emoji fallback without changing Gothic's compact-text role. Original launch composition and direct PLAY remain selected; a separate start menu stays deferred.
+
+Further consideration: hiding a decorative network image is weaker than removing its producer; decorative emoji can be hidden from accessibility names while meaningful shield/weather symbols retain their labels and ordinary font fallback. A separate `2345` shield-readout source defect is recorded as LUI4, not fixed or runtime-proven by this pass. No broad font/theme/gameplay cleanup is selected.
+
+
+### Creator signatures, 2026-10-21 follow-up
+
+Later correction: reference authors keep their own identity; onionv gets a distinct guinea-pig-themed signature. Miktaew's cat now sits with Miktaew's credit, 23html remains credited by name, and an original local SVG guinea pig accompanies onionv. This supersedes LUI2's first placement, without adding new loading text or changing the restored layout. [Implementation and browser receipt](reviews/launch_menu_2026-10-21/REPORT.md#creator-specific-signatures-later-2026-10-21-direction).
+
+
+Later asset choice, 2026-10-21: Weibao prefers an existing PNG and pointed to his fellowship image. The local aviator-sunglasses guinea-pig PNG now replaces the newly drawn SVG, byte-for-byte. This changes only the signature asset and its aspect-preserving display size. [Receipt](reviews/launch_menu_2026-10-21/REPORT.md#existing-guinea-pig-png-later-2026-10-21-replacement).
+
+
+Current credit refinement, 2026-10-21: the exact user-edited `goated pig.png` source replaces the mistaken generated aviator image. A non-destructive transparent-background derivative is now displayed. User-selected flair separates the diagonal Miktaew/Proto23 credits from upright, underlined onionv and his guinea pig. Corner arrows lead to Miktaew's verified Ko-fi, while both projects have quieter GitHub source links. Proto23/Corc's Ko-fi awaits a verified URL. [Final implementation and checks](reviews/launch_menu_2026-10-21/REPORT.md#edited-source-distinct-flair-corner-links-and-transparent-cutout).

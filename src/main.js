@@ -6201,10 +6201,6 @@ function get_date() {
 function is_on_dev() {
     return window.location.href === "https://miktaew.github.io/yet-another-idle-rpg-dev/";
 }
-function is_on_main() {
-    return window.location.href === "https://miktaew.github.io/yet-another-idle-rpg/";
-}
-
 function is_JSON(str) {
     try {
         return (JSON.parse(str) && !!str);
@@ -10221,25 +10217,11 @@ if(is_on_dev()) {
 }
 
 
-//attach proper hitcounter, plus noindex for dev page
+// Preserve the upstream development page's noindex metadata.
 if(is_on_dev()) {
     insert_HTML(
         document.head,
         `<meta name="robots" content="noindex">`
-    );
-    insert_HTML(
-        document.getElementById("bottom_panel_div"), 
-        `<img id = "hits_counter" src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fmiktaew.github.io%2Fyet-another-idle-rpg-dev%2F&label=Visitors&color=%23084298&message=&style=flat&tz=UTC">`
-    );
-} else if(is_on_main()) {
-    insert_HTML(
-        document.getElementById("bottom_panel_div"), 
-        `<img id = "hits_counter" src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fmiktaew.github.io%2Fyet-another-idle-rpg%2F&label=Visitors&color=%23084298&message=&style=flat&tz=UTC">`
-    );
-} else {
-    insert_HTML(
-        document.getElementById("bottom_panel_div"), 
-        `<img id = "hits_counter" src="https://hitscounter.dev/api/hit?label=dummy+hit+counter&color=%23084298&message=&style=flat&tz=UTC">`
     );
 }
 

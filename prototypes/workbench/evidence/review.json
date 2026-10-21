@@ -9,7 +9,7 @@
   "variants": [
     "adjacent"
   ],
-  "revision": "1ff037042349385d",
+  "revision": "b77dd1cacabce598",
   "fixture": "Synthetic stock, access and scripted success. Pinned YAIR recipe definitions, tokens and detail renderer from the retained recipe experiment. No game save access.",
   "limits": "Simplified five-region frame, two recipes, no native RNG/XP or production navigation. Visual choice and native integration remain open.",
   "acceptance": "Unreviewed proposal. Export does not record human acceptance.",

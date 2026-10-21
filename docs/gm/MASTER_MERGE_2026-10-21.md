@@ -47,3 +47,8 @@ Browser setup uses fresh disposable contexts and explicit synthetic fixtures, ne
 Conflict-resolution recovery: a scratch resolution script initially truncated candidate files; the build caught it. Reconstructed all eleven manually resolved inputs from intact parent/base blobs, checked full-file diffs/content preservation, then ran the passing gates above. The shared checkout was untouched. The final master integration is a single commit built from the verified final tree with the source branch tips as parents; scratch commits are not promoted.
 
 No push, deployment, save migration, personal-save access or worktree deletion occurred. Master is checked out in the task's isolated integration worktree; the shared checkout remains on its original branch so ongoing menu work stays intact.
+
+
+## Later start-menu inclusion, 2026-10-21
+
+Weibao subsequently requested “add the latest start menu work, and then put into master”. The earlier exclusion above is historical. The [follow-up integration receipt](start-menu-master-2026-10-21/REPORT.md) records the latest restored PLAY screen, transparent edited guinea pig, author flair/links and counter removal, plus fresh integrated gates. Separate Beginning-menu design remains deferred. No push requested.

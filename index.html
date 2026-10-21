@@ -3,11 +3,11 @@
     <head>
         <link rel="stylesheet" href="styles/settled_text_effects.css">
         <link rel="stylesheet" href="styles/customization.css">
-        <link rel="stylesheet" href="styles/workspace.css?version=080232f17190">
+        <link rel="stylesheet" href="styles/workspace.css?version=d6084d59bd97">
         <link rel="stylesheet" href="styles/workspace_discovery.css">
         <link rel="stylesheet" href="styles/display_settings.css">
         <link rel="stylesheet" href="styles/status_window.css">
-        <link rel = "stylesheet" href = "style.css?version=v0.6-4b717d59ae7d">
+        <link rel = "stylesheet" href = "style.css?version=v0.6-782583166527">
         <link rel="stylesheet" href="styles/action_legibility.css?version=0eb2ba0cb8f1">
         <link rel="stylesheet" href="styles/crafting_detail.css">
         <link rel="stylesheet" href="styles/component_themes.css">
@@ -26,7 +26,7 @@
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-dceb8b4bcd6d"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-03b90be342bd"></script>
 
         <!--Icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -36,10 +36,10 @@
 
         <meta charset="UTF-8">
         
-        <meta name="description" content="OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by Weibao. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.">
-        <meta name="author" content="Weibao">
+        <meta name="description" content="OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by onionv. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.">
+        <meta name="author" content="onionv">
         <meta property="og:title" content="OOPS · Optimistic Progression Simulator">
-        <meta property="og:description" content="OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by Weibao. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.">
+        <meta property="og:description" content="OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by onionv. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.">
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -47,11 +47,11 @@
             "headline": "OOPS · Optimistic Progression Simulator",
             "name": "OOPS",
             "alternateName": "Optimistic Progression Simulator",
-            "description": "OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by Weibao. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.",
+            "description": "OOPS (Optimistic Progression Simulator), a text-based idle life-sim RPG by onionv. A fork of Miktaew's Yet Another Idle RPG, inspired by Proto23.",
             "url": "https://github.com/onionviolet/OOPS",
             "author": {
                 "@type": "Person",
-                "name": "Weibao"
+                "name": "onionv"
             },
             "isBasedOn": {
                 "@type": "VideoGame",
@@ -75,11 +75,12 @@
                 OOPS
                 <div id = "loading_screen_game_subtitle">Optimistic Progression Simulator</div>
                 <div id = "loading_screen_author">
-                    by <span class="bold" >Weibao</span>
+                    by <span class="bold" >onionv</span> <img class="loading_signature_pet" src="resources/img/guinea-pig-transparent.png" width="85" height="48" alt="Guinea pig with hand-added glasses">
                 </div>
                 <div id = "loading_screen_inspirations">
-                    Inspired by <a href="https://github.com/miktaew/yet-another-idle-rpg" target="_blank">Yet Another Idle RPG</a> by Miktaew
-                    and <a href="https://23html.github.io/" target="_blank">Proto23</a> by 23html
+                    <span class="loading_inspirations_label">Inspired by</span>
+                    <span class="loading_reference_credit"><a href="https://github.com/miktaew/yet-another-idle-rpg" target="_blank">Yet Another Idle RPG</a><span>by <span class="loading_credit_author">Miktaew <span aria-hidden="true">🐱</span></span></span></span>
+                    <span class="loading_reference_credit"><a href="https://23html.github.io/" target="_blank">Proto23</a><span>by <span class="loading_credit_author">23html</span></span></span>
                 </div>
             </div>
             
@@ -98,6 +99,16 @@
             <div id ="loading_screen_play_button" class="none_display">
                 PLAY
             </div>
+            <aside class="loading_support loading_support_left" aria-label="Proto23 creator links">
+                <p>Explore the original <span aria-hidden="true">↙</span></p>
+                <a href="https://23html.github.io/" target="_blank" rel="noopener noreferrer">Play Proto23 · by 23html</a>
+                <a class="loading_source_link" href="https://github.com/23html/23html.github.io" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+            </aside>
+            <aside class="loading_support loading_support_right" aria-label="Miktaew creator links">
+                <p>Support the original author <span aria-hidden="true">↘</span></p>
+                <a href="https://ko-fi.com/miktaew" target="_blank" rel="noopener noreferrer">Miktaew on Ko-fi</a>
+                <a class="loading_source_link" href="https://github.com/miktaew/yet-another-idle-rpg" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+            </aside>
         </div>
 
         <div id = "hero_creation_panel">

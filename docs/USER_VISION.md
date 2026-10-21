@@ -5625,3 +5625,23 @@ After asking what Proto23/upstream YAIR had that OOPS lacked, Weibao asked:
 > Which of those are still actually missing now, and which have we already implemented? We should implement sutff we are missing accordingly
 
 This authorizes a current-source reconciliation and fitting implementation, preserving existing owners and standing scope. The [F1–F7 report](gm/dispatch/reference-gap-followup-2026-10-20/REPORT.md) corrects dated absence claims, reuses the released connected interaction/palette work, and records the native household follow-up. Reference experiments and world-specific mechanics stay distinguishable from universal rules; unbuilt content remains explicit rather than inferred complete from shared helpers. No new global rule, commit, push or publication is selected by this implementation request.
+
+
+### Launch menu identity and Beginning choices, 2026-10-20
+
+Weibao: "need to improve on the system start menu thingy", clarified as "maybe the launch menu before clicking play, we can replace weibao with onionv, and then adjust the beginning choices?" This selects launch-screen presentation work and the displayed author handle **onionv**. The first implementation keeps existing beginning effects and improves choice explanations/placement. It does not select the broader genetics or world-start proposals. The existing OOPS project name and upstream attribution remain. [Implementation and desktop verification](reviews/launch_menu_2026-10-20/REPORT.md); [intro flow owner](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#launch-menu-presentation-2026-10-20). Human visual acceptance remains separate.
+
+
+### Restore the original loading screen and defer the start menu, 2026-10-20
+
+Later direction supersedes this chat's launch redesign and round-24 layout recommendation. Weibao: "just make it a play screen, we will make the start menu a seperate page after that or come back to it in the future, We can use the olf font or whatever for the old screen, and then gothic for the internal text and more", followed by "Highkey just make it the way it was before and stuff". Restore the original loading appearance and PLAY flow, retain the selected onionv credit, and leave a separate start menu for later. No newly written playful messages. Keep existing upstream loading text and the earlier internal MS Gothic direction; the loading screen may use its original font. This does not authorize merging/committing all shared dirty work. [Restoration receipt](reviews/launch_menu_2026-10-20/REPORT.md#restored-original-play-screen-final-direction).
+
+
+### Creator-specific credit identities, 2026-10-21
+
+Weibao: "maybe we dont need to copy them, we should put their name in the fun ways they hadd it before? and then give ourself our own fun way?", clarified as "It does not need to be onion themed, rather, guinea pig themed". Keep reference creators' identities with their attribution; give onionv its own guinea-pig-themed signature. [Current implementation](reviews/launch_menu_2026-10-21/REPORT.md#creator-specific-signatures-later-2026-10-21-direction). This changes the credit treatment, not the earlier simple PLAY/deferred start-menu direction.
+
+
+### Credit flair, author links and edited guinea pig, 2026-10-21
+
+Weibao specified his own edited guinea-pig file, diagonal treatment for Miktaew and Proto23, a different individual treatment for onionv, corner arrows/text supporting the original authors, GitHub-link consideration, and removal of the guinea pig's white background. [Current receipt](reviews/launch_menu_2026-10-21/REPORT.md#edited-source-distinct-flair-corner-links-and-transparent-cutout) records the exact source, non-destructive cutout, distinct credit treatments and verified links. Proto23/Corc's donation link needs its correct URL. No donation/star/publication is authorized or performed by adding these links. The simple PLAY screen and deferred separate start menu remain.

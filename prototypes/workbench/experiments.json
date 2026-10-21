@@ -8,7 +8,75 @@
     "fixture": "Synthetic stock, access and scripted success. Pinned YAIR recipe definitions, tokens and detail renderer from the retained recipe experiment. No game save access.",
     "limits": "Simplified five-region frame, two recipes, no native RNG/XP or production navigation. Visual choice and native integration remain open.",
     "entry": "built/recipes/index.html",
-    "variants": [{"id":"compact","label":"B · Compact + full"},{"id":"adjacent","label":"A · Adjacent detail"}],
-    "scenarios": [{"id":"ready","label":"Ready"},{"id":"short","label":"Missing materials"},{"id":"station","label":"No station"},{"id":"reserved","label":"Reserved stock"},{"id":"knowledge","label":"Limited knowledge"},{"id":"crowded","label":"Crowded inventory + log"},{"id":"long","label":"Long fixture names"}]
+    "variants": [
+      {
+        "id": "compact",
+        "label": "B \u00b7 Compact + full"
+      },
+      {
+        "id": "adjacent",
+        "label": "A \u00b7 Adjacent detail"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "ready",
+        "label": "Ready"
+      },
+      {
+        "id": "short",
+        "label": "Missing materials"
+      },
+      {
+        "id": "station",
+        "label": "No station"
+      },
+      {
+        "id": "reserved",
+        "label": "Reserved stock"
+      },
+      {
+        "id": "knowledge",
+        "label": "Limited knowledge"
+      },
+      {
+        "id": "crowded",
+        "label": "Crowded inventory + log"
+      },
+      {
+        "id": "long",
+        "label": "Long fixture names"
+      }
+    ]
+  },
+  {
+    "id": "launch",
+    "title": "Archived launch proposal \u00b7 superseded",
+    "question": "Do a separate identity panel, central beginning choices and adjacent summary make a richer start readable?",
+    "task": "Choose a background and optional system; preview opening, return with Escape, then switch layouts without losing the selection.",
+    "surface": "Pre-PLAY threshold; identity left, beginning center, summary right; credits below.",
+    "fixture": "Current native mountNewGameBeginning renderer and UI tokens/CSS. Six original public background fixtures; background effects and opening preview are simulated. No game startup or saves.",
+    "limits": "Superseded by Weibao: restore the original loading screen, keep it to PLAY, defer a separate start page. This retained study is historical only; its background effects are simulated.",
+    "entry": "built/launch/index.html",
+    "variants": [
+      {
+        "id": "columns",
+        "label": "A \u00b7 Identity / choices / summary"
+      },
+      {
+        "id": "stacked",
+        "label": "B \u00b7 Stacked launch panels"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "default",
+        "label": "Six beginning examples"
+      },
+      {
+        "id": "long",
+        "label": "Long fixture labels"
+      }
+    ]
   }
 ]

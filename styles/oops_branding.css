@@ -4,3 +4,51 @@
     font-size: var(--ui-type-title);
     font-weight: normal;
 }
+.loading_signature_pet {
+    display:inline-block;
+    width:auto;
+    height:3em;
+    vertical-align:middle;
+}
+.loading_credit_author {white-space:nowrap;}
+#loading_screen_author {
+    display:flex;
+    align-items:center;
+    gap:.35em;
+    rotate:0deg;
+    animation:none;
+}
+#loading_screen_author > .bold {
+    border-bottom:2px solid var(--ui-accent);
+    padding-bottom:.15em;
+}
+#loading_screen_inspirations {
+    display:flex;
+    align-items:center;
+    gap:1.8em;
+    margin-top:1.4em;
+    padding:.6em 0;
+}
+.loading_reference_credit {
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.2em;
+    rotate:-10deg;
+    line-height:1.3;
+}
+.loading_support {
+    position:absolute;
+    bottom:4.5em;
+    display:flex;
+    flex-direction:column;
+    gap:.35em;
+    max-width:24em;
+    font-size:var(--ui-type-body);
+    line-height:1.4;
+}
+.loading_support_left {left:1.5em;align-items:flex-start;}
+.loading_support_right {right:1.5em;align-items:flex-end;text-align:right;}
+.loading_support p {margin:0;color:var(--ui-accent);}
+.loading_support a {color:inherit;}
+.loading_support .loading_source_link {font-size:var(--ui-type-small);}

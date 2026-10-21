@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:62841/",
+  "url": "http://127.0.0.1:57584/",
   "checks": [
     "Layout switch preserves spent stock, selection, query and fixture keyboard focus",
     "Ingredient/reference/recipe journey returns by Esc with query and opener focus",

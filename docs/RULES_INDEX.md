@@ -39,7 +39,7 @@ open here too.
 | Accepted direction rules | AD1–AD40 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process and UI design attention | [Below](#accepted-direction-rules-ad) |
 | UI rules | UR1–UR58 | Standing 2026-10-15 | All player-facing UI | [UI_RULES](UI_RULES.md) |
 | Architecture rules | AR1–AR16 | Standing 2026-10-16; AR1 net-zero wording 2026-10-19 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
-| Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
+| Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons; pinned recipe and current launch fixture studies | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
 | Making rules | MR1–MR36 | Standing 2026-10-15 | Potions, cooking, smithing, runes, enchanting, formations, constructs, any making; 2026-10-18 application: intermediate work and actual mechanism compatibility | [MAKING_RULES](MAKING_RULES.md) |
 | Site and exploration rules | SR1–SR24 | Standing 2026-10-16 | Sites, ruins, natural places, maps, discovery, restoration | [SITE_AND_EXPLORATION_RULES](SITE_AND_EXPLORATION_RULES.md) |
 | Sealed secrets | none | Standing 2026-10-10 | Hiding world truths from Weibao outside play | [AGENTS](../AGENTS.md#sealed-secrets), [discovery doc](worlds/WORLD_SECRETS_AND_DISCOVERY.md#sealed-secrets-standard-rule-2026-10-10) |
@@ -86,7 +86,7 @@ line they restate.
 | Any runtime code | AR1–AR16; AR14 for lane briefs, AR16 before calling it done | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md); AR3/AR7/AR8 applications cover reaction, interruption and disclosure boundaries |
 | Desktop host, Electron shell, packaging, Steam | AD39, AR3, AR4, AR6 | [Electron host round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el); `desktop/` owns the host, `src/` stays host-free |
 | A world's completion level or what it is missing | Completion standard S00-S14 and C0-C5, sealed-secrets rule | [World subtle gaps](audits/WORLD_SUBTLE_GAPS_2026-10-20.md) (WG1-WG26, proposal); [completion standard](WORLD_COMPLETION_STANDARD.md) |
-| Any player-facing UI | UR1–UR58, AD34, AD40; mockup workflow if layout is unsettled | [UI_RULES](UI_RULES.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md), [UI detail and message palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
+| Any player-facing UI | UR1–UR58, AD34, AD40; mockup workflow if layout is unsettled (recipe/launch studies in the shared workbench) | [UI_RULES](UI_RULES.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md), [UI detail and message palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
 | Making or crafting of any kind | MR1–MR36, AD9, AD38 | [CRAFTING_ENGINE](CRAFTING_ENGINE.md); MR1/MR5/MR29 also govern interrupted stages |
 | Sites, ruins, caves, maps, exploration, restoration | SR1–SR24, AD3, AD33 | [Site palette](gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md), [ruins](gm/dispatch/procgen-2026-10-13/p11/DUNGEON_CONTENT.md) |
 | Gear stats, armor, affixes, sockets, gems | AD5, AD38, AD6–AD8, UR40, CBR; GR1–GR17 for rolls; MKR-IM2 (proposed) for sockets | [Equipment stat dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md) (ESD1–ESD16, proposal) |
@@ -173,7 +173,7 @@ unless another owner is linked.
 
 | Code | Rule | Source |
 |---|---|---|
-| AD23 | **Entry is guided randomness by default;** full random and specific starts depend on means. Warn about known risks when relevant means are absent. Vanilla stays intact and optional. | OD10; Suspenseful random entry; Vanilla stays intact |
+| AD23 | **Entry is guided randomness by default;** full random and specific starts depend on means. Warn about known risks when relevant means are absent. Vanilla stays intact and optional. | OD10; Suspenseful random entry; Vanilla stays intact; [launch restoration and deferred menu, 2026-10-20](USER_VISION.md#restore-the-original-loading-screen-and-defer-the-start-menu-2026-10-20) |
 | AD24 | **Players choose their pursuits.** Guidance and optional campaigns, no compulsory global main quest. | OD24 |
 | AD25 | **Threats develop from their actual causes,** not automatic matching to the player. | Cause-driven threats |
 | AD26 | **Narration is direct by default; base-cheat powers are discovered in play.** A cheat's look follows what the cheat is, not its world. | OD13; [cheat looks](USER_VISION.md#cheat-looks-follow-the-cheats-own-type-2026-10-16) |

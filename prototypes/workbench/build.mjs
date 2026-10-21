@@ -22,6 +22,8 @@ html=html.replace('<body>','<body>\n<style>.lab,.lab-footer{display:none} .board
 writeFileSync(resolve(output,'index.html'),html);
 cpSync(resolve(output,'built/ui_tokens.css'),resolve(here,'built/ui_tokens.css'));
 for(const file of ['experiments.json','index.html','workbench.js','workbench.css','build.mjs','serve.mjs'])read(here,file);
+await import('./build-launch.mjs');
+read(here,'built/launch/INPUTS.json');
 const manifest={schema:1,description:'Pinned recipe prototype plus isolated workbench adapter; no main-game build',hashes};
 manifest.revision=createHash('sha256').update(JSON.stringify(hashes)).digest('hex').slice(0,16);
 writeFileSync(resolve(here,'built/INPUTS.json'),JSON.stringify(manifest,null,2)+'\n');

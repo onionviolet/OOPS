@@ -185,3 +185,8 @@ A preview, pool count or lock reason cannot disclose a hidden world's trait;
 rolling/previewing must not consume committed attempts (MR2, AR7/AR8).
 A start's authoring coverage is separate from its canon laws. No start is chosen
 or rerolled by this documentation edit.
+
+
+## Current launch follow-up, 2026-10-20
+
+[Round 24, LC1–LC12](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#round-24-richer-launch-choices-panel-placement-and-retained-character-2026-10-20) adds richer composable start families, an interactive launch-layout comparison, and restoration of the original launch character. Proposal/fixture status is explicit: no new native start effects are delivered by the study. The earlier round-1–16 census above retains its original coverage boundary.

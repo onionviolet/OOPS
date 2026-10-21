@@ -162,14 +162,6 @@ input[type=checkbox], input[type=radio] {
 	font-style: italic;
 }
 
-#hits_counter {
-    height: 28px;
-    padding: 6px;
-    right: 80px;
-    bottom: 0px;
-	position: fixed;
-}
-
 #loading_screen {
 	visibility: visible;
 	width: 100%;

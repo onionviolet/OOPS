@@ -68,3 +68,23 @@ interaction preference for each study remains open. A later native integration
 needs its own source ownership, rebuild, natural journey and affected
 save/import checks. Synthetic successes here establish none of those gates.
 No commit, push, install or publication performed.
+
+## Launch choice and personality study, 2026-10-20
+
+Status: archived and superseded by Weibao’s later restoration request. It does not implement new gameplay. The current game uses its original loading appearance and direct PLAY; this study is historical only. Owner: [intro round 24, LC1–LC12](../../docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#round-24-richer-launch-choices-panel-placement-and-retained-character-2026-10-20). User asked for starts beyond optional systems, movable panels and recovery of the launch screen's lost character.
+
+Added the `launch` study to the existing workbench. Use `node prototypes/workbench/build.mjs`, then `node prototypes/workbench/serve.mjs` and open its fresh URL with `?study=launch`. Current session preview: http://127.0.0.1:57584/?study=launch (exec session 82745). Two layouts use the same fixture: identity/choices/summary columns, or stacked panels. Original recipe study and its archived default geometry remain available; new launch study defaults to 1920×1080. The shared review toolbar also offers 1800×1040 and 1536×864.
+
+Real inputs: current DOM-only `mountNewGameBeginning`, native system-option values, shared tokens and launch stylesheet, copied and hashed by `build-launch.mjs` into [fixture INPUTS](built/launch/INPUTS.json). No main-game bundle, clock, save or private pack loads. Background selection, opening preview and review state are simulated and explicitly labelled. Three backgrounds have small existing layered data prototypes; artisan/traveler are proposals. No invented skills, grants or character history are applied.
+
+Recommendation: compact named starts in the central panel, details in the right summary, optional System disclosure below the starts, identity/signature left, credits/version below. Keep the original richer plum gradient and tilted author signature. Existing native loading messages still exist, but the isolated study does not simulate actual loading. At 1536×864 and 21px, central choices scroll; the summary and preview action remain visible. The stacked alternative scrolls the whole launch at large text and buries the action, so columns are the current recommendation. No human choice/acceptance is recorded.
+
+Checks:
+
+- `node prototypes/workbench/build.mjs`: PASS. Shared manifest includes the launch-fixture input hashes; earlier pinned recipe fixture remains unchanged.
+- `node prototypes/workbench/check-launch.mjs http://127.0.0.1:57584/`: PASS, three check groups with 12 layout/size/text measurements, zero page errors/storage writes. Shared-state comparison, native radio selection, variant switch, long labels, preview and Escape/focus return exercised. [Receipt](evidence/launch-2026-10-20/receipt.json).
+- `node prototypes/workbench/check.cjs http://127.0.0.1:57584/`: existing recipe/workbench regression PASS, 10 check groups. This retains its archived 1366×768 fixture checks; that is not a new game viewport requirement.
+- `node --check` on the new adapter/build/check and modified shared controller, scoped `git diff --check`, and `npm run check:rules`: PASS. The existing untracked gear-depth link warning remains.
+- Visually inspected [columns](evidence/launch-2026-10-20/columns.png) and [1536×864 at 21px](evidence/launch-2026-10-20/columns-large.png); [stacked capture](evidence/launch-2026-10-20/stacked.png) retained. Compact cards and expandable System correct the first prototype's excessive height.
+
+Remaining gate: director judgment on placement/personality, followed by separately selected native beginning implementations. Production launch behavior and its earlier verification are unchanged. No new subagents, commit, push or personal-save operation.

@@ -27,6 +27,13 @@ native game. The build copies those inputs, hashes them, and appends the local
 adapter without modifying the older experiment. Its frame is a simplified
 five-region fixture rather than a claim of exact current Shell geometry.
 
+The archived 2026-10-20 launch study pins that round’s Beginning choice renderer
+and tokens/styles over explicitly simulated background/opening state. It was
+superseded by Weibao’s request to restore the original PLAY screen.
+Open the workbench with `?study=launch`. It compares identity/choices/summary columns
+and a stacked layout, preserving choices. Its starts/personality recommendations
+remain proposals; [receipt](../prototypes/workbench/REPORT.md#launch-choice-and-personality-study-2026-10-20).
+
 Proposed direction, 2026-10-16: studies should mount the real game views over
 fixture data rather than redraw a copy. See
 [UI engine round 3, UIE17–UIE26](ENGINE_EXPANSION.md#round-3-one-renderer-for-the-game-and-its-mockups-2026-10-16).
@@ -85,8 +92,9 @@ prototypes/workbench/
 Register an entry with a unique `id`, `title`, `question`, `task`, `surface`,
 `fixture`, `limits`, local `entry`, and `variants`/`scenarios` arrays of
 `{id,label}`. Add its build step and adapter using its actual state owner.
-`build.mjs` currently packages the recipe study only; a registry row alone does
-not package a new experiment. Do not scrape a screenshot or DOM back into a
+`build.mjs` packages the pinned recipe study and calls `build-launch.mjs` for the
+archived launch-choice renderer over public fixture backgrounds; a registry row alone
+does not package a new experiment. Do not scrape a screenshot or DOM back into a
 second gameplay model. Small original fixtures are fine when no useful native
 projection exists, provided they are labelled.
 

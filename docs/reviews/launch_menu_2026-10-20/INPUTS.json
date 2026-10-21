@@ -1,0 +1,27 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "candidate": "/tmp/oops-launch-menu-20261020",
+  "sourceMapModules": 712,
+  "bundleSha256": "6390835051cd44876413cbb39f46544325fe0dd47690e7e29a77f08843d35e57",
+  "files": {
+    "src/new_game_beginning.js": {
+      "live": "bf564950a6e8391e51b6eb7db9cccb2fd8c62ebf16561ec6af8547da1d3c490e",
+      "candidate": "bf564950a6e8391e51b6eb7db9cccb2fd8c62ebf16561ec6af8547da1d3c490e"
+    },
+    "styles/launch_screen.css": {
+      "live": "636f25c8c0328bde5096cef2159204316a81cae80f52d1c83eca215307308953",
+      "candidate": "636f25c8c0328bde5096cef2159204316a81cae80f52d1c83eca215307308953"
+    },
+    "index.html": {
+      "live": "3f342a81df5c37c11e0320ee5ada57f63df3c4107bf26166ef6003b01b4c19bc",
+      "candidate": "3f342a81df5c37c11e0320ee5ada57f63df3c4107bf26166ef6003b01b4c19bc"
+    },
+    "tests/helpers/cheat_game.mjs": {
+      "live": "30d13de2b351a1d97a943e4df8124354b162a25e1222c8af1695a8e3dec08a0f",
+      "candidate": null
+    }
+  },
+  "projectSourceModules": 675,
+  "projectSourceMismatches": [],
+  "vendorEmbeddedSourceModules": 37
+}

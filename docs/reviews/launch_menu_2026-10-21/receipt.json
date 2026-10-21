@@ -1,0 +1,48 @@
+{
+  "checks": [
+    "local: no counter before/after PLAY or reload, no hit-counter requests; native Save/reload and Menu/Escape retained. URL branch emulated locally where applicable.",
+    "main: no counter before/after PLAY or reload, no hit-counter requests; native Save/reload and Menu/Escape retained. URL branch emulated locally where applicable.",
+    "dev: no counter before/after PLAY or reload, no hit-counter requests; native Save/reload and Menu/Escape retained. URL branch emulated locally where applicable.",
+    "Restored cat renders with Apple Color Emoji at three desktop targets, with onionv and original launch styling."
+  ],
+  "fonts": [
+    {
+      "familyName": "Apple Color Emoji",
+      "postScriptName": "AppleColorEmoji",
+      "isCustomFont": false,
+      "glyphCount": 1
+    }
+  ],
+  "requests": [],
+  "errors": [],
+  "geometries": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "x": 1376.44677734375,
+      "y": 310.8978271484375,
+      "right": 1486.44384765625,
+      "bottom": 355.1021728515625,
+      "text": "by onionv 🐱"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "x": 1316.44677734375,
+      "y": 310.8978271484375,
+      "right": 1426.44384765625,
+      "bottom": 355.1021728515625,
+      "text": "by onionv 🐱"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "x": 1184.44677734375,
+      "y": 310.8978271484375,
+      "right": 1294.44384765625,
+      "bottom": 355.1021728515625,
+      "text": "by onionv 🐱"
+    }
+  ],
+  "status": "PASS"
+}

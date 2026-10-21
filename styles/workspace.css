@@ -635,9 +635,8 @@ body #loading_screen_version_info,body #loading_screen_status {font-size:clamp(1
 @media (max-height:600px) {
 #main_content.workspace-active .workspace-module[data-module="location"] #location_description_div:not([data-prose-open="true"]) {-webkit-line-clamp:1;line-clamp:1;}
 }
-/* 400px bottom bar: drop the decorative visitor counter and tighten buttons so nothing overlaps. */
+/* 400px bottom bar: tighten buttons so nothing overlaps. */
 @media (max-width:600px) {
-body #hits_counter {display:none;}
 body #bottom_panel_div .sl_button {padding-left:6px;padding-right:6px;}
 }
 

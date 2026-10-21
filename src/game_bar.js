@@ -4,8 +4,8 @@ import {centerModes} from './center_modes.js';
 
 // R21 one bar (MB2). In the parity shell the top navigation row and the bottom bar become one bar
 // at the top: panel navigation on the left; save state, Save, Export and Import on the right; the
-// rarely used items (settings, version, help, Authoring, Layout, density, attribution links and the
-// hit counter) in a Menu (UR50). The existing nodes move in with placeholders and move back outside
+// rarely used items (settings, version, help, Authoring, Layout, density and attribution links)
+// in a Menu (UR50). The existing nodes move in with placeholders and move back outside
 // the parity shell (GU5), so every handler and guard stays the native one (UR55).
 // Save state mirrors the current-work panel's ownership line: one authority (AR3).
 // UIL2 (UIW1): while the current-work panel is out of view, a chip in the bar repeats its work line
@@ -14,7 +14,7 @@ import {centerModes} from './center_modes.js';
 
 const make = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 const RIGHT = ['save_button', 'save_to_file_button', 'load_from_file_button', 'saved_file_input'];
-const MENU = ['options_button', 'changelog_button', 'help_button', 'hits_counter', 'repo_link', 'ko_fi_link'];
+const MENU = ['options_button', 'changelog_button', 'help_button', 'repo_link', 'ko_fi_link'];
 
 // Which route buttons fold into the overflow list: the last ones that do not fit. `widths` are the
 // visible route buttons' widths in order, `room` the space they may use.
@@ -118,7 +118,6 @@ export function mountGameBar({nav}) {
             }
         }
         if (!on) return;
-        const hits = document.getElementById('hits_counter'); if (hits && hits.parentNode !== menuLinks) move(hits, menuLinks);
         syncState();
         const width = Math.round(bar.clientWidth), font = getComputedStyle(nav).fontSize;
         const visible = [...nav.querySelectorAll(':scope > button[data-panel-path]')].filter(b => !b.hidden).map(b => b.dataset.panelPath + b.dataset.panelTab).join();
