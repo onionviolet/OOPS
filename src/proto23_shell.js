@@ -1,4 +1,5 @@
 import {mountInventoryComposition} from './inventory_composition.js';
+import {mountStorageComparison} from './storage_comparison.js';
 import {clear_message_log,log_message,setCombatReportsStopped,readPlayerAttributeInspector} from './display.js';
 import {getDisplaySetting,setDisplaySettings,registerPanelSettings} from './display_settings.js';
 import {INVENTORY_CATEGORIES,createInventoryTabs} from './inventory_tabs.js';
@@ -240,6 +241,7 @@ export function mountProto23Shell({read}) {
     let listToolsNode=null;const listTools=()=>{if(!listToolsNode){const n=inventoryList.previousElementSibling;if(n?.classList.contains('ui-list-tools'))listToolsNode=n;}return listToolsNode;};
     const tabs=createInventoryTabs({list:inventoryList,search:()=>listTools()?.querySelector('input[type=search]'),stored:()=>getDisplaySetting('panel.belongings.category'),store:id=>setDisplaySettings({'panel.belongings.category':id})});
     const inventoryComposition=mountInventoryComposition({list:inventoryList,tabs:tabs.node,detail});
+    const storageComparison=mountStorageComparison({host:document.getElementById('storage_comparison'),carried:inventoryList,chest:document.getElementById('storage_inventory_div')});
     tabs.node.title='Item colors: gold equipment, green usable, blue components, violet books. Quality keeps its native percentage and color; color does not imply rarity of other items.';
     compact.append(tabs.node);
     // R22c (FC17): a fight opens Inventory on Usable (when you hold any) and leaving it returns the
@@ -338,7 +340,7 @@ export function mountProto23Shell({read}) {
         root.dataset.secondaryShown=String([...secondaryGrid.children].filter(n=>!n.hidden).length);
     }
     function render(){
-        placeSort();tabs.refresh();boxes.render();inventoryComposition.render(rowForSelection());
+        placeSort();tabs.refresh();boxes.render();inventoryComposition.render(rowForSelection());storageComparison.render();
         condition.render();syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
 
         if(contextSource){if(contextSource.isConnected&&!contextSource.hidden&&active())showContext(contextSource);else hideContext();}
@@ -389,7 +391,7 @@ export function mountProto23Shell({read}) {
         detail.dataset.itemKind=row?.dataset.item_slot||row?.querySelector('.item_category')?.textContent.replace(/[\[\]]/g,'').trim()||(selected.slot?'Equipped item':'Item');
         title.className='shell-item-title';
         title.textContent=row?.querySelector('.item_name')?.textContent|| (selected.slot?frame.equipment.find(s=>s.id===selected.slot)?.name:'Item no longer held')||'Empty slot';
-        meta.textContent=selected.slot?`Equipped · ${selected.slot}`:row?`${detail.dataset.itemKind} · Held: ${row.dataset.item_count} · ${row.querySelector('.item_value')?.textContent.trim()||'No sale value'}`:'Choose another held item to inspect.';
+        meta.textContent=selected.slot?`Following worn ${selected.slot} slot · current occupant`:row?`${detail.dataset.itemKind} · Held: ${row.dataset.item_count} · ${row.querySelector('.item_value')?.textContent.trim()||'No sale value'} · Following this held stack`:'This held stack is gone. Choose another item to inspect.';
         body.replaceChildren();
         if(tooltip){const copy=descriptionCopy(tooltip);copy.firstElementChild?.remove();body.append(copy);}
         else body.append(node('p',selected.slot?'Choose a held item to equip in this slot.':'This item is no longer in your inventory.'));

@@ -1,0 +1,557 @@
+{
+  "schema_version": 1,
+  "description": "Operational tool entry points; launch definitions are canonical here. docs/TOOL_REGISTRY.md owns usage and evidence limits.",
+  "tools": [
+    {
+      "id": "rea",
+      "title": "Updated upstream REA 6.7.0",
+      "kind": "launch",
+      "root": "{rea}",
+      "argv": [
+        "node",
+        "{rea}/scripts/rea.mjs"
+      ],
+      "required": [
+        "{rea}/scripts/rea.mjs",
+        "{rea}/dist/cli-runtime/cli.js",
+        "{rea}/node_modules"
+      ],
+      "probe": [
+        "doctor",
+        "--provider",
+        "ghidra",
+        "--json"
+      ],
+      "env": {
+        "GHIDRA_INSTALL_DIR": "{ghidra}",
+        "JAVA_HOME": "{java}",
+        "REA_ANALYSIS_PROVIDER": "ghidra"
+      },
+      "owner": "docs/TOOL_REGISTRY.md",
+      "effects": "Command-dependent; static analysis writes temporary projects. Setup/update/runtime capture require their own scope.",
+      "note": "Upstream revision 6d356b84344659085f2b912857b5e27fe0160c9b, built locally; no pinned-launcher patch. The old route remains rea-pinned."
+    },
+    {
+      "id": "rea-pinned",
+      "title": "Preserved patched REA 6.4.0",
+      "kind": "launch",
+      "root": "{rea_pinned}",
+      "argv": [
+        "node",
+        "{rea_pinned}/scripts/rea.mjs"
+      ],
+      "required": [
+        "{rea_pinned}/scripts/rea.mjs",
+        "{rea_pinned}/dist/cli-runtime/cli.js",
+        "{rea_pinned}/node_modules"
+      ],
+      "probe": [
+        "doctor",
+        "--provider",
+        "ghidra",
+        "--json"
+      ],
+      "env": {
+        "GHIDRA_INSTALL_DIR": "{ghidra}",
+        "JAVA_HOME": "{java}",
+        "REA_ANALYSIS_PROVIDER": "ghidra"
+      },
+      "owner": "docs/research/hogwarts-legacy/REA_TRIAL.md",
+      "effects": "Command-dependent; static analysis writes temporary projects. Setup/update/runtime capture require their own scope.",
+      "note": "Historical bounded native route; -noanalysis -max-cpu 2 patch retained. Use explicit ID when its exact analysis identity matters."
+    },
+    {
+      "id": "ghidra",
+      "title": "Direct Ghidra headless",
+      "kind": "launch",
+      "root": "{ghidra}",
+      "argv": [
+        "{ghidra}/support/analyzeHeadless"
+      ],
+      "required": [
+        "{ghidra}/support/analyzeHeadless"
+      ],
+      "probe": null,
+      "env": {
+        "JAVA_HOME": "{java}"
+      },
+      "effects": "Creates/modifies analysis projects according to supplied flags; preserve repaired projects."
+    },
+    {
+      "id": "dotnet",
+      "title": ".NET SDK",
+      "kind": "launch",
+      "root": "{dotnet}",
+      "argv": [
+        "{dotnet}/dotnet"
+      ],
+      "required": [
+        "{dotnet}/dotnet"
+      ],
+      "probe": [
+        "--version"
+      ],
+      "env": {
+        "DOTNET_ROOT": "{dotnet}"
+      }
+    },
+    {
+      "id": "ilspy",
+      "title": "ILSpy CLI",
+      "kind": "launch",
+      "root": "{dotnet}",
+      "argv": [
+        "{dotnet}/tools/ilspycmd"
+      ],
+      "required": [
+        "{dotnet}/tools/ilspycmd"
+      ],
+      "probe": [
+        "--version"
+      ],
+      "env": {
+        "DOTNET_ROOT": "{dotnet}"
+      },
+      "effects": "Reads assemblies; exports write to caller-selected destinations."
+    },
+    {
+      "id": "unitypy",
+      "title": "Python with UnityPy",
+      "kind": "launch",
+      "root": "{unity}",
+      "argv": [
+        "{unity}/bin/python"
+      ],
+      "required": [
+        "{unity}/bin/python"
+      ],
+      "probe": [
+        "-c",
+        "import UnityPy; print(UnityPy.__version__)"
+      ],
+      "env": {},
+      "effects": "Python interpreter for caller-supplied extraction scripts; no extraction performed by launcher."
+    },
+    {
+      "id": "cpp2il",
+      "title": "Verified Cpp2IL prerelease 21",
+      "note": "Complete release hash verified and private executable ad-hoc signed. The old cached file was an exact truncated prefix and is preserved. See cpp2il repair receipt.",
+      "kind": "launch",
+      "root": "{cpp2il}",
+      "argv": [
+        "{cpp2il}/Cpp2IL"
+      ],
+      "required": [
+        "{cpp2il}/Cpp2IL",
+        "{cpp2il}/INSTALL_RECEIPT.json"
+      ],
+      "probe": [
+        "--version"
+      ],
+      "env": {
+        "DOTNET_ROOT": "{dotnet}"
+      },
+      "effects": "Writes recovered metadata/code artifacts. No recovery-quality probe configured."
+    },
+    {
+      "id": "il2cpp-dumper",
+      "title": "Cached Il2CppDumper",
+      "kind": "launch",
+      "root": "{research}/immortal-life/tools/dumper",
+      "argv": [
+        "{dotnet}/dotnet",
+        "{research}/immortal-life/tools/dumper/Il2CppDumper.dll"
+      ],
+      "required": [
+        "{dotnet}/dotnet",
+        "{research}/immortal-life/tools/dumper/Il2CppDumper.dll"
+      ],
+      "probe": null,
+      "env": {
+        "DOTNET_ROOT": "{dotnet}"
+      },
+      "effects": "Writes recovery output; supply explicit input/build/output paths. No interactive probe."
+    },
+    {
+      "id": "discord",
+      "title": "Offline Discord evidence CLI",
+      "kind": "launch",
+      "root": "{code}/discord-reference-workbench",
+      "argv": [
+        "{python}",
+        "-m",
+        "discord_reference"
+      ],
+      "required": [
+        "{code}/discord-reference-workbench/discord_reference/__main__.py"
+      ],
+      "probe": [
+        "--help"
+      ],
+      "env": {
+        "PYTHONPATH": "{code}/discord-reference-workbench"
+      },
+      "prepend_env": [
+        "PYTHONPATH"
+      ],
+      "effects": "Offline import/snapshot/catalog/gallery commands write their explicit output; verify/search read."
+    },
+    {
+      "id": "discord-web",
+      "title": "Local Discord collector web host",
+      "kind": "launch",
+      "root": "{code}/discord-reference-workbench",
+      "argv": [
+        "node",
+        "{code}/discord-reference-workbench/desktop/web.mjs"
+      ],
+      "required": [
+        "{code}/discord-reference-workbench/desktop/web.mjs",
+        "{code}/discord-reference-workbench/work/discrub-src/dist/index.html"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Starts loopback service, default port 8787. Use one collector at a time and manual sign-in; set REFERENCE_SCOPE explicitly when changing source."
+    },
+    {
+      "id": "discord-desktop",
+      "title": "Local Discord collector desktop",
+      "kind": "launch",
+      "root": "{code}/discord-reference-workbench",
+      "argv": [
+        "{code}/discord-reference-workbench/desktop/node_modules/.bin/electron",
+        "{code}/discord-reference-workbench/desktop"
+      ],
+      "required": [
+        "{code}/discord-reference-workbench/desktop/node_modules/.bin/electron",
+        "{code}/discord-reference-workbench/desktop/main.mjs",
+        "{code}/discord-reference-workbench/work/discrub-src/dist/index.html"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Opens desktop collector; local state can persist, credentials do not. Manual sign-in. Human/live export gate remains separate."
+    },
+    {
+      "id": "lncrawl",
+      "title": "Isolated polite Fanqie CLI",
+      "kind": "launch",
+      "root": "{code}/lncrawl-polite",
+      "argv": [
+        "{code}/lncrawl-polite/.venv-polite/bin/python",
+        "-m",
+        "lncrawl",
+        "polite"
+      ],
+      "required": [
+        "{code}/lncrawl-polite/.venv-polite/bin/python",
+        "{code}/lncrawl-polite/lncrawl/polite"
+      ],
+      "probe": [
+        "--help"
+      ],
+      "env": {
+        "PYTHONPATH": "{code}/lncrawl-polite"
+      },
+      "prepend_env": [
+        "PYTHONPATH"
+      ],
+      "effects": "Acquisition makes network requests and private cache/receipt writes. Reuse existing transport data/refusal owner and matching font."
+    },
+    {
+      "id": "zlibrary",
+      "title": "Book search/acquisition CLI",
+      "kind": "launch",
+      "root": "{code}/zlibrary-research",
+      "argv": [
+        "{code}/zlibrary-research/.venv/bin/zlibrary-tor"
+      ],
+      "required": [
+        "{code}/zlibrary-research/.venv/bin/zlibrary-tor"
+      ],
+      "probe": [
+        "--help"
+      ],
+      "env": {},
+      "effects": "Command-dependent remote/account/acquisition behavior. Read profile before use; no credentials on command line."
+    },
+    {
+      "id": "zlibrary-mcp",
+      "title": "Z-Library research MCP stdio",
+      "kind": "launch",
+      "root": "{code}/zlibrary-research",
+      "argv": [
+        "{code}/zlibrary-research/.venv/bin/zlibrary-research-mcp"
+      ],
+      "required": [
+        "{code}/zlibrary-research/.venv/bin/zlibrary-research-mcp"
+      ],
+      "probe": null,
+      "env": {
+        "YAIRPG_PROJECT_ROOT": "{repo}"
+      },
+      "effects": "Starts stdio server; not MCP registration. Ten local/remote tools with distinct read/write effects."
+    },
+    {
+      "id": "epub-prepare",
+      "title": "Local EPUB intake",
+      "kind": "launch",
+      "root": "{code}/zlibrary-research",
+      "argv": [
+        "{code}/zlibrary-research/.venv/bin/zlibrary-prepare-epub"
+      ],
+      "required": [
+        "{code}/zlibrary-research/.venv/bin/zlibrary-prepare-epub"
+      ],
+      "probe": [
+        "--help"
+      ],
+      "env": {},
+      "effects": "Writes prepared private edition and receipt. CLI destination must be selected under ignored research."
+    },
+    {
+      "id": "calibre",
+      "title": "Calibre database CLI",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "{calibre}/Contents/MacOS/calibredb"
+      ],
+      "required": [
+        "{calibre}/Contents/MacOS/calibredb"
+      ],
+      "probe": [
+        "--version"
+      ],
+      "env": {},
+      "effects": "Command-dependent library writes. Prefer read-only discovery; source library stays unchanged unless requested."
+    },
+    {
+      "id": "pdf2md",
+      "title": "Isolated PDF to Markdown",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "{home}/.local/bin/pdf2md"
+      ],
+      "required": [
+        "{home}/.local/bin/pdf2md"
+      ],
+      "probe": [
+        "--help"
+      ],
+      "env": {},
+      "effects": "Writes Markdown beside input by default; use -o with an explicit private output folder."
+    },
+    {
+      "id": "pdftotext",
+      "title": "pdftotext",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "pdftotext"
+      ],
+      "required": [],
+      "probe": [
+        "-v"
+      ],
+      "env": {},
+      "effects": "Writes extracted text to selected destination."
+    },
+    {
+      "id": "tesseract",
+      "title": "tesseract",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "tesseract"
+      ],
+      "required": [],
+      "probe": [
+        "--version"
+      ],
+      "env": {},
+      "effects": "Writes OCR output."
+    },
+    {
+      "id": "ffmpeg",
+      "title": "ffmpeg",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "ffmpeg"
+      ],
+      "required": [],
+      "probe": [
+        "-version"
+      ],
+      "env": {},
+      "effects": "Writes converted media; preserve originals."
+    },
+    {
+      "id": "playtest",
+      "title": "Chrome gameplay playtest",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/playtest/run.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/playtest/run.mjs"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Builds temporary bundle and starts fresh origin/Chrome; private screenshots can contain sealed text."
+    },
+    {
+      "id": "headless-bench",
+      "title": "Full-game Node benchmark",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/headless/bench.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/headless/bench.mjs"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Boots game in Node; synthetic/frozen time, no layout proof."
+    },
+    {
+      "id": "replay",
+      "title": "Deterministic engine replay",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/replay/cli.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/replay/cli.mjs"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Writes selected recordings/results; engine adapter excludes native publication."
+    },
+    {
+      "id": "simfuzz",
+      "title": "Engine invariant fuzzer",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/simfuzz/run.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/simfuzz/run.mjs"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Default is substantial work and writes reports; choose bounded seeds/workers/output."
+    },
+    {
+      "id": "perf",
+      "title": "Browser/engine performance gate",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/perf/gate.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/perf/gate.mjs"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Build/Chrome workloads; reads budgets and selected revision inputs."
+    },
+    {
+      "id": "test-queue",
+      "title": "Shared-machine suite/browser queue",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/test_queue.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/test_queue.mjs"
+      ],
+      "probe": null,
+      "env": {},
+      "effects": "Creates queue bookkeeping and runs the supplied command."
+    },
+    {
+      "id": "rea-source",
+      "title": "REA upstream source and built runtime",
+      "kind": "reference",
+      "owner": "/Users/weiwei/code/rea/README.md",
+      "note": "Updated, built 6.7.0; use rea for execution and rea-pinned for the historical patched route."
+    },
+    {
+      "id": "discord-exporters",
+      "title": "Discrub and DiscordChatExporter",
+      "kind": "reference",
+      "owner": "/Users/weiwei/code/discord-reference-workbench/docs/EXISTING_TOOLS.md",
+      "note": "Import adapters available; live exporter installation/authentication must be verified."
+    },
+    {
+      "id": "saved-sources",
+      "title": "Saved reference corpora",
+      "kind": "reference",
+      "owner": "docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md",
+      "note": "Resolve exact build/edition/receipt first. Availability is per path, not entire root."
+    },
+    {
+      "id": "browser",
+      "title": "Signed-in browser and web research",
+      "kind": "reference",
+      "owner": "docs/audits/TOOLSETS_AUDIT_2026-10-21.md",
+      "note": "Discover session browser tools; use connected service tools where sufficient. No native-computer API in audited CUA session."
+    },
+    {
+      "id": "connectors",
+      "title": "Drive, mail, calendar and other connectors",
+      "kind": "reference",
+      "owner": "docs/audits/TOOLSETS_AUDIT_2026-10-21.md",
+      "note": "Discover current session capabilities; declarations do not prove authentication or send authority."
+    },
+    {
+      "id": "assets",
+      "title": "Image generation, Blender and document artifacts",
+      "kind": "reference",
+      "owner": "docs/audits/TOOLSETS_AUDIT_2026-10-21.md",
+      "note": "Use matching skills/current session tools. No live Blender verification recorded."
+    },
+    {
+      "id": "mockups",
+      "title": "Interactive UI comparison workbench",
+      "kind": "reference",
+      "owner": "docs/MOCKUP_SYSTEM.md",
+      "note": "Use current recipe and 1920x1080 target; candidate proof is separate from acceptance."
+    },
+    {
+      "id": "signal-quarry",
+      "title": "TrustMRR product scout",
+      "kind": "reference",
+      "owner": "/Users/weiwei/code/signal-quarry/README.md",
+      "note": "Explicit scope and credential required; not whole-market discovery."
+    },
+    {
+      "id": "gearscope",
+      "title": "Video angle/center measurement",
+      "kind": "reference",
+      "owner": "/Users/weiwei/code/gearscope/README.md",
+      "note": "Client-side tool; calibrate real measurement accuracy."
+    },
+    {
+      "id": "vimeo-transcript",
+      "title": "Visible Vimeo transcript extraction",
+      "kind": "reference",
+      "owner": "/Users/weiwei/code/vimeo-transcript-grabber/README.md",
+      "note": "Requires source transcript UI and full cue-boundary verification."
+    }
+  ]
+}

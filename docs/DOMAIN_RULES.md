@@ -443,6 +443,28 @@ teacher's participation. Apply [G27/G28/G30](reviews/SUBTLE_RULE_GAPS_2026-10-18
 only when that seam is selected. Proposed layer schemas and new slices stay
 proposals; this pass adds no native XP migration.
 
+### Titles, skills and effect causes, 2026-10-21
+
+Applications of existing AD30 (titles can grant real powers), AD38 (mechanisms
+decide), SLR1/SLR4/SLR8 and architecture's single authority, following
+[Weibao's request to clarify the distinction in rules](USER_VISION.md#titles-versus-skills-rule-clarification-2026-10-21).
+These describe causal roles, not fixed world vocabulary or mutually exclusive
+classes. Defaults, exceptions, costs and carriers follow the actual world.
+The [title owner C2/C14](emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c14-titles-versus-the-capabilities-they-name-or-grant)
+keeps worked examples and the proposed benefit palette.
+
+| Code | Rule | Mistake it prevents |
+| --- | --- | --- |
+| SLR40 | **Distinguish competence, method, faculty, trait and designation by their causal role.** A skill ordinarily describes competence, a technique a method, a faculty a capability, a trait a standing property, and a title a designation, recognition, office or operative status. A world may combine or name them differently; title-granted training or a faculty remains that capability under its actual mechanism. (AD30, AD38, SLR1/SLR8) | Creating another skill system because a capability arrived with a title, or forbidding a title that really changes world law |
+| SLR41 | **Activation is independent of the source's name.** Passive, selected/worn, deliberate use, reactive and conditional describe how an effect operates. Name the actual enabling means, trigger, cost and consumer where relevant, using the existing action/stat/knowledge owner. A title can grant a usable technique without becoming a second action engine. (AD38, AR3) | Treating every active benefit as a title, every skill as a button, or worn selection as an activated technique |
+| SLR42 | **Separate what a title recognizes from what it supplies or sustains.** Name the cause of a benefit when loss, selection, transfer or continuity reads it. A title acknowledging trained running does not itself sustain that training; a magical mantle, issuer or recognized office can sustain another effect. Losing the name, office or selected display changes what its real mechanism supports, rather than automatically deleting acquired competence. Deliberate powers that alter history or bodies remain possible with that cause stated. (AD30, AD38, SLR1/SLR20) | Removing learned competence by changing a displayed title, or retaining an issuer-dependent power after its actual source ends |
+| SLR43 | **One actual effect has one authority; independent causes may both pay.** A skill milestone and title announcing the same efficiency gain do not accidentally apply that gain twice. A world/cheat can grant an additional reward for the same deed when it is a separate real effect. Derive or settle each through its existing owner; keep recognition, entitlement and presentation separate. (AD30, AD38, AR3/AR6/AR7) | Double-counting one grant, replaying it on load, or suppressing legitimate multiple rewards merely because they share a deed or label |
+
+These are design/rule clarifications, not runtime migration or proof of current
+gameplay compliance. Existing OOPS held-title bonuses and optional additive
+worn-title mode retain their present semantics; changing them needs a selected
+implementation task and its real behavior/persistence checks.
+
 ## Presence and interaction rules
 
 **Accepted 2026-10-18 as standing defaults** (Weibao: "accept based on base and existing rules"; checked against Rulebook 1–12 and AD1–AD38, no conflict found). Every rule reads as the ordinary case under AD5: a world or feature may propose an exception with an in-world reason and cost. Drafted for

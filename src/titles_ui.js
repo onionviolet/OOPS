@@ -16,12 +16,14 @@ export function createTitlesPanel({read,readSettings=()=>({}),readWorn,selectWor
         if(next!==signature){
             signature=next;
             summary.textContent=`Titles · ${rows.filter(r=>r.held).length} / ${rows.length}`;
-            body.replaceChildren(...title_families.map(family=>{
+            body.replaceChildren(node('p','These titles recognize the deeds below. Held bonuses stay active without wearing; worn bonuses improve ordinary activities under the conditions shown.'),...title_families.map(family=>{
                 const group=rows.filter(r=>r.family===family),list=node('ul');
                 list.replaceChildren(...group.map(r=>{
                     const li=node('li','',r.held?'title_held':'title_locked');li.dataset.titleId=r.id;
                     li.append(node('b',r.name),node('span',` · ${r.text}`));
-                    if(r.bonus)li.append(node('span',` (${r.bonus})`,'title_bonus'));
+                    li.append(node('span',r.bonus ? ` · ${r.held?'Held benefit active':'Benefit when earned'}: ${r.bonus}` : ' · Recognition; no held bonus.','title_bonus'));
+                    const optional=worn?.choices.find(choice=>choice.id===r.id);
+                    if(optional?.bonus)li.append(node('span',` · Optional worn benefit: ${optional.bonus}`));
                     if(!r.held)li.append(node('span',` ${fmt(r.progress)} / ${fmt(r.at)}`,'title_progress'));
                     return li;
                 }));
@@ -36,10 +38,12 @@ export function createTitlesPanel({read,readSettings=()=>({}),readWorn,selectWor
                 label.append(toggle,document.createTextNode(' Wear a title'));
                 const select=node('select');select.setAttribute('aria-label','Worn title');
                 const none=node('option','No worn title');none.value='';select.append(none);
-                for(const choice of worn.choices){const option=node('option',choice.name);option.value=choice.id;select.append(option);}
+                for(const choice of worn.choices){const option=node('option',`${choice.name}${choice.bonus ? ' · '+choice.bonus : ' · no worn bonus'}`);option.value=choice.id;select.append(option);}
                 select.value=worn.worn || '';select.disabled=!worn.enabled;
                 select.addEventListener('change',()=>{selectWorn(select.value || null,worn.enabled);render();});
-                section.append(label,select,node('p',`Renown: ${worn.renown}. ${worn.text}`));body.append(section);
+                const status=node('p',`${worn.active?'Worn benefit active':'Worn benefit inactive'}${worn.bonus?': '+worn.bonus:''}. ${worn.reason}`);
+                status.setAttribute('role','status');status.dataset.wornStatus='';
+                section.append(label,select,status,node('p',`Known titles held: ${worn.renown}. ${worn.text}`));body.insertBefore(section,body.children[1] || null);
             }
         }
         const host=document.getElementById('character_bio_div');if(host && panel.parentElement!==host)host.append(panel);

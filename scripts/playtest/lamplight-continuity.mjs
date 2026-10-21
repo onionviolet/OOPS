@@ -107,9 +107,9 @@ try {
     await roundTrip('completion');
     await session.step(2); assert.equal(progress(await snap()),120);
     receipt.checks.push('Completion coincides with expiry, remains complete after persistence and further time');
-    // Optional private packs are intentionally absent from this isolated public build.
+    // Private packs may be present locally or absent in an isolated public build.
     receipt.missingOptionalResources = [...new Set(missingResources)];
-    assert.deepEqual(receipt.missingOptionalResources, ['/private_packs/manifest.json']);
+    assert.deepEqual(receipt.missingOptionalResources.filter(path=>path!=='/private_packs/manifest.json'), []);
     receipt.resource404s = session.errors.filter(e => e.kind === 'console' && /404 \(Not Found\)/.test(e.text)).length;
     assert.equal(receipt.resource404s, missingResources.length);
     assert.deepEqual(session.errors.filter(e => !(e.kind === 'console' && /404 \(Not Found\)/.test(e.text))), []);

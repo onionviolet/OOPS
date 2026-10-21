@@ -83,6 +83,18 @@ export function beginHarvest(state,species,choice,context,automatic=false,specim
     lot.splice(lot.indexOf(specimen),1);state.job={specimen,choice,total:plan.minutes,remaining:plan.minutes,automatic};state.sequence++;return plan;
 }
 export function cancelHarvest(state){if(!state.job)return;const s=state.job.specimen;state.lots[s.species].unshift(s);state.job=null;state.sequence++;}
+const freshnessBand = value => value>=.75?'fresh':value>=.25?'aging':'spent';
+const integrityBand = value => value>=75?'intact':value>=40?'damaged':'heavily damaged';
+export function observeCarcass(state,species,specimenKey,{clock,skill=0}={}){
+    const specimen=state.lots[species]?.find(s=>s.key===specimenKey);
+    if(!specimen)throw Error('That selected carcass is no longer available. Choose again.');
+    if(!natural(clock)||clock<specimen.born||!Number.isFinite(skill)||skill<0)throw Error('A current played-time observation is required.');
+    const grade=harvestGrade(specimen,{clock,skill,tool:0},'pelt');
+    const margin=skill>=50?10:skill>=20?30:60,age=clock-specimen.born;
+    const observation={at:clock,skill,ageEstimate:{min:Math.max(0,age-margin),max:age+margin},freshness:freshnessBand(grade.freshness),integrity:integrityBand(grade.integrity)};
+    specimen.observations??=[];specimen.observations.push(observation);state.sequence++;
+    return structuredClone(observation);
+}
 export function advanceHarvest(state,minutes,context,{ready=true}={}){
     const results=[];
     if(state.job&&ready){const remaining=state.job.remaining;if(remaining<=minutes){const elapsedAfterFinish=Math.max(0,minutes-remaining);const completionContext={...context,clock:Math.max(state.job.specimen.born,context.clock-elapsedAfterFinish)};results.push(finishHarvest(state,state.job.specimen,state.job.choice,completionContext));state.job=null;}else state.job.remaining-=minutes;}
@@ -104,7 +116,9 @@ export function validateSpecimen(s,clock=Number.MAX_SAFE_INTEGER){
     if(!object(s)||!supportedHarvest(s.species)||typeof s.key!=='string'||!s.key||s.key.length>500||!natural(s.born)||s.born>clock||
         !Number.isFinite(s.draw)||s.draw<0||s.draw>=1)fail();
     const expected=drawSpecimen({species:s.species,key:s.key,clock:s.born,damage:validateHarvestDamage(s.damage)},()=>s.draw);
-    for(const k of ['size','condition','variant'])if(expected[k]!==s[k])fail();return s;
+    for(const k of ['size','condition','variant'])if(expected[k]!==s[k])fail();
+    if(s.observations!=null){if(!Array.isArray(s.observations))fail();let prior=s.born;for(const o of s.observations){if(!object(o)||!natural(o.at)||o.at<s.born||o.at>clock||o.at<prior||!Number.isFinite(o.skill)||o.skill<0||!object(o.ageEstimate)||!natural(o.ageEstimate.min)||!natural(o.ageEstimate.max)||o.ageEstimate.min>o.ageEstimate.max||!['fresh','aging','spent'].includes(o.freshness)||!['intact','damaged','heavily damaged'].includes(o.integrity))fail();const margin=o.skill>=50?10:o.skill>=20?30:60,age=o.at-s.born;if(o.ageEstimate.min!==Math.max(0,age-margin)||o.ageEstimate.max!==age+margin)fail();const grade=harvestGrade(s,{clock:o.at,skill:o.skill,tool:0},'pelt');if(o.freshness!==freshnessBand(grade.freshness)||o.integrity!==integrityBand(grade.integrity))fail();prior=o.at;}}
+    return s;
 }
 export function validateHarvest(s,clock=Number.MAX_SAFE_INTEGER){
     if(s==null)return null;

@@ -277,7 +277,7 @@ class Hero extends Person {
 
         if(!skip_item_log) {
             item_log.log_items(items);
-            observeAcquisition(this.getItems());
+            observeAcquisition(this.getItems(),items);
         }
         
         update_displayed_character_inventory({ was_anything_new_added });

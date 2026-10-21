@@ -1,0 +1,172 @@
+{
+  "checks": [
+    "Golmoon leaf then Silver thistle: actual buy/sell/buy uses remembered encounter, learns without samples or result",
+    "Native craft requires full stock, consumes exactly 3 of each herb, creates one result; knowledge and XP survive Save/reload/Export/literal Import without a notice replay",
+    "Silver thistle then Golmoon leaf: actual buy/sell/buy uses remembered encounter, learns without samples or result",
+    "Native craft requires full stock, consumes exactly 3 of each herb, creates one result; knowledge and XP survive Save/reload/Export/literal Import without a notice replay"
+  ],
+  "normalization": [
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Equilibrium",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Evasion",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Fortitude",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Iron skin",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Meditation",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Perception",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Running",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Shield blocking",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Swimming",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Unarmed",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Weightlifting",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Equilibrium",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Equilibrium",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Evasion",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Fortitude",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Iron skin",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Meditation",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Perception",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Running",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Shield blocking",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Swimming",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Unarmed",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Weightlifting",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Equilibrium",
+      "a": "0"
+    }
+  ],
+  "errors": [],
+  "setup": "Disposable fixture; native shop stock, access, money, Weak healing powder knowledge and Alchemy XP seeded. Real buy/sell/reacquire and craft UI. No personal saves."
+}

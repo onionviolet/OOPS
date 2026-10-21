@@ -1,0 +1,36 @@
+import assert from 'node:assert/strict';
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {resolve,join} from 'node:path';
+import {serve} from '../perf/lib.mjs';
+import {Session} from './lib.mjs';
+import {calendarMinutes} from '../../src/world_rhythm.js';
+import {canonicalSave,diffSaves} from '../headless/runner.mjs';
+const root=resolve(process.argv[2]||'.'),out=resolve(process.argv[3]||'/tmp/recovered-study-search');await mkdir(out,{recursive:true});
+const server=await serve(root),s=new Session({url:server.url+'?test_hooks=1',seed:19,wall:Date.UTC(2026,9,21),opTimeout:10000});const key=id=>JSON.stringify({id}),checks=[],normalization=[];let p;
+const snap=()=>p.evaluate(()=>simulationTestHooks.snapshot());
+async function play(){await p.waitForFunction(()=>typeof simulationTestHooks==='object');await p.evaluate(()=>simulationTestHooks.pause());await p.locator('#loading_screen_play_button').click();await p.waitForTimeout(250);}
+async function item(id,action){await p.locator(`#inventory_content_div > [data-character_item='${key(id)}']`).click();await p.locator(`[data-shell-item-action="${action}"]`).click();}
+async function options(){await p.locator('button[data-place-tab="options"]').click();await p.locator('#local_life_panel').evaluate(el=>el.open=true);}
+async function roundtrip(){const first=await s.save();await p.reload();await play();const normalized=await s.save(),d=diffSaves(canonicalSave(normalized),canonicalSave(first));assert.ok(d.every(x=>/^\/levels\/person\/(?!main_character\/)[^/]+\/skill_xp\//.test(x.path)&&x.a==='0'&&x.b===undefined),JSON.stringify(d));normalization.push(...d);await p.reload();await play();assert.deepEqual(diffSaves(canonicalSave(await s.save()),canonicalSave(normalized)),[]);const file=await p.evaluate(()=>save_to_file()),exported=await s.save();await Promise.all([p.waitForEvent('load'),p.evaluate(x=>load_progress(x),file)]);await play();assert.deepEqual(diffSaves(canonicalSave(await s.save()),canonicalSave(exported)),[]);}
+try{
+ await s.start();const seed=JSON.parse(await readFile('tests/fixtures/perf/mid.json','utf8'));delete seed.availabilities.recipe.undefined;
+ seed['current location']='Village';Object.assign(seed['current time'],{hour:22,minute:0});seed.lamplight={schema:1,lit:true,oil:1,noticed:{}};
+ seed.inventories.person.main_character[key('Oil lamp')]={count:1};seed.inventories.person.main_character[key('Lamp oil')]={count:1};
+ Object.assign(seed.absorb_local_life,{lastClock:calendarMinutes(seed['current time']),lastLocation:'Village',looking:false,searchProgress:0});seed.absorb_local_life.searches.Village={misses:0,found:false};
+ await s.open(seed);p=s.page;await options();assert.match(await p.locator('#local_life_panel').innerText(),/Visual search/);await p.locator('[data-local-life-action="look"]').click();
+ await s.step(2);const dim=await snap();assert.equal(dim.lamplight?.oil||0,0);assert.equal(dim.absorb_local_life.searchProgress,1.5);await options();assert.match(await p.locator('#local_life_panel').innerText(),/feel nearby surfaces/);
+ await roundtrip();assert.equal((await snap()).absorb_local_life.searchProgress,1.5);await options();const beforeInspect=await s.save();await p.locator('[data-local-life-action="look"]').hover();assert.deepEqual(diffSaves(canonicalSave(await s.save()),canonicalSave(beforeInspect)),[]);
+ await item('Oil lamp','use');assert.equal((await snap()).absorb_local_life.searchProgress,1.5);await p.getByText('Close item',{exact:true}).click();await options();assert.match(await p.locator('#local_life_panel').innerText(),/Visual search/,JSON.stringify(await p.evaluate(()=>simulationTestHooks.project('lamplight'))));await s.step(1);assert.equal((await snap()).absorb_local_life.searchProgress,2.5);
+ for(const size of [14,21]){const view=await s.save();view.customization.profiles.Default.settings.typography={font:'gothic',size};await s.open(view);p=s.page;await options();assert.equal(await p.locator('#local_life_panel').evaluate(el=>getComputedStyle(el).fontSize),`${size}px`);await p.locator('[data-local-life-action="look"]').scrollIntoViewIfNeeded();assert.equal(await p.locator('[data-local-life-action="look"]').isEnabled(),true);await p.screenshot({path:join(out,`search-${size}.png`)});}
+ let result=await snap();for(let n=0;n<30&&!result.absorb_local_life.searches.Village.found;n++){await s.step(5);result=await snap();}assert.equal(result.absorb_local_life.searches.Village.found,true);const found=result.inventories.person.main_character[key('Linen cloth')].count;await s.step(5);assert.equal((await snap()).inventories.person.main_character[key('Linen cloth')].count,found);await roundtrip();checks.push('Actual lamp expiry changes ongoing native search to slower touch, retains 1.5 work across persistence, relighting restores visual work; actual finite discovery settles once');
+ // Existing finished-book home support, exercised through the actual ordinary reading XP consumer.
+ const study=structuredClone(seed);study['current location']='Shack';Object.assign(study['current time'],{hour:12,minute:0});study.availabilities.location.Shack=1;study.locations.Shack={housing_unlocked:true};delete study.lamplight;
+ for(const id of ['ABC for kids','Old combat manual'])study.inventories.person.main_character[key(id)]={count:1};study.books={'ABC for kids':{accumulated_time:120},'Old combat manual':{accumulated_time:0}};study.levels.person.main_character.skill_xp.Literacy=120;
+ const gains=[];
+ for(const copies of [1,2,0]){const fixture=structuredClone(study);if(copies)fixture.inventories.person.main_character[key('ABC for kids')].count=copies;else delete fixture.inventories.person.main_character[key('ABC for kids')];await s.open(fixture);p=s.page;
+  const before=await snap();assert.equal(before.books['ABC for kids'].accumulated_time,120);await item('Old combat manual','read');await s.step(2);const reading=await snap();gains.push(reading.levels.person.main_character.skill_xp.Literacy-before.levels.person.main_character.skill_xp.Literacy);const work=reading.books['Old combat manual'].accumulated_time;
+  await p.locator('#center_mode_back').click();assert.equal((await snap()).is_reading,null);assert.equal((await snap()).books['Old combat manual'].accumulated_time,work);await roundtrip();assert.equal((await snap()).books['Old combat manual'].accumulated_time,work);assert.equal((await snap()).books['ABC for kids'].accumulated_time,120);
+ }
+ assert.ok(gains[0]>gains[2]);assert.ok(Math.abs(gains[0]-gains[1])<1e-8);checks.push('Existing owned finished-book collection improves ordinary Literacy XP at home; duplicate copies do not multiply support, removing copy preserves learned facts, stopped work round-trips');
+ assert.deepEqual(s.errors,[]);await writeFile(join(out,'receipt.json'),JSON.stringify({checks,gains,normalization,errors:s.errors,setup:'Disposable fixtures; lamp fuel, book progress/XP, housing, stock and access seeded. Native search, relight, reading/stop and persistence controls.'},null,2));console.log(JSON.stringify({checks,gains,out}));
+}catch(error){await writeFile(join(out,'failure.txt'),error.stack);await p?.screenshot({path:join(out,'failure.png')}).catch(()=>{});throw error;}finally{await s.close();await server.close();}

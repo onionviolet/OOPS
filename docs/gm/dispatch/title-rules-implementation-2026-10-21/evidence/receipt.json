@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "Native Shack stay crosses 59 to 60, earning quiet_hour without auto-selection",
+    "Ordinary sleeping applies +2% through native per-tick XP rounding; switching off retains trained Cooking XP",
+    "Valid nonpayoff worn identity survives Save/reload/Export/literal Import with held bonus intact",
+    "Active selection persists without repeated grant; paused hover/focus/rerender do not change save",
+    "1920×1080: computed 14px and 21px title text, no document overflow"
+  ],
+  "errors": [],
+  "boosted": 2.1400000000000006,
+  "plain": 2.099999999999998,
+  "setup": "Disposable mid fixture; seeded native counter proximity, enemy history, stock history, access and skill XP. No personal saves."
+}

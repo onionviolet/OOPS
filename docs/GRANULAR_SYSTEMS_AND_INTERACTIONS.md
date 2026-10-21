@@ -281,3 +281,30 @@ one-prestige milestone, NPC-heavy and generated-layout deferrals remain intact.
 slice at a time. Their existing briefs supply capability/effort/trigger/done;
 no new wave or implementation priority is created here. Native interaction,
 persistence and human feel remain separate gates.
+
+
+## Recovered Corc round 8, 2026-10-21: investigation responds to changing means
+
+[CRL52](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-8-2026-10-21-useful-mechanics-beyond-titles), under AD6–AD8/AD38, SR1–SR24, AR3 and UR62/UR63, is now part of the user's requested useful recovered-26 implementation coverage. The source's investigation can begin with a vague cue, then rechecks darkness/sight while active and stops when sight is no longer supported. That is a historical source path, not proof of an OOPS detector or exact source formula.
+
+For a selected native place, distinguish “I can investigate,” a supported vague cue, progress toward learning something and the learned fact itself. A hint has its own public meaning; it does not need a hidden name/count in a tooltip. Check the relevant sensing means during work, not just at entry: light loss, changed support or another actual obstacle can alter available methods. A different working sense/tool/power may let the investigation continue. Progress retained or lost follows the actual examination and target, with a useful next move rather than an unexplained grey button.
+
+Use the existing presence/field/site/knowledge route that owns the selected subject. The action can be a quiet idle investigation rather than a forced click hunt. Local expressive details, such as listening instead of peering into darkness or a character lowering a spent lamp, follow real methods and settled public state. They cannot act as a secret oracle or invent a reaction window.
+
+ACT NOW (done): saved this means-over-time interaction. ACCOUNT FOR NOW: preserve actor/subject/method and observer-safe result; avoid a second general investigation subsystem. IMPLEMENTATION: inspect current coverage, then prove or add one fitting place/action with a real mid-work change, an available supported alternative and retained observation through reload where state persists. Sol medium for means/knowledge, Luna low for settled expression, small/medium. Done: no unsupported revelation, truthful stop/continue reason, existing command/cost owner and a useful discovered outcome. Source examples and sealed truths stay private until their actual discovery route.
+
+
+### Native changing search means, 2026-10-21
+
+The useful-recovered-26 continuation implements CRL52 in the existing frontier
+local loose-find search. Current place illumination and native Night vision
+choose visual search or slower nearby touch. Lamp expiry and relighting change
+work rate without erasing completed search work. The native default uses five
+work units, visual rate 1, touch rate 0.5, effective light threshold 60 or half
+native Night vision mastery. Those are reversible local proposal dials; they do
+not change other worlds' means or imply a global hidden-object detector. Existing
+location/interruption and finite-find settlement remain authoritative.
+
+A rebuilt native lamp-expiry/relight/discovery journey, pending/final persistence
+and actual 14/21px desktop controls supply the bounded evidence.
+[Continuation report and remaining scope](gm/dispatch/title-rules-implementation-2026-10-21/CONTINUATION_REPORT.md).

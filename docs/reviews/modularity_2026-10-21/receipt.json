@@ -1,0 +1,410 @@
+{
+  "result": "PASS",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "checks": [
+    "before/after exact region order, accessibility labels and geometry at 14/21px",
+    "real Journal navigation opens and Esc returns",
+    "sixth Local map region mounts from spec alone without host change",
+    "no browser errors"
+  ],
+  "snapshots": {
+    "before": [
+      {
+        "size": 14,
+        "regions": [
+          {
+            "id": "player",
+            "label": "player region",
+            "rect": {
+              "x": 17,
+              "y": 40,
+              "width": 336,
+              "height": 306,
+              "top": 40,
+              "right": 353,
+              "bottom": 346,
+              "left": 17
+            }
+          },
+          {
+            "id": "focus",
+            "label": "Around you region",
+            "rect": {
+              "x": 359,
+              "y": 40,
+              "width": 1032.609375,
+              "height": 306,
+              "top": 40,
+              "right": 1391.609375,
+              "bottom": 346,
+              "left": 359
+            }
+          },
+          {
+            "id": "inventory",
+            "label": "inventory region",
+            "rect": {
+              "x": 17,
+              "y": 352,
+              "width": 336,
+              "height": 711,
+              "top": 352,
+              "right": 353,
+              "bottom": 1063,
+              "left": 17
+            }
+          },
+          {
+            "id": "actions",
+            "label": "actions region",
+            "rect": {
+              "x": 359,
+              "y": 352,
+              "width": 1032.609375,
+              "height": 711,
+              "top": 352,
+              "right": 1391.609375,
+              "bottom": 1063,
+              "left": 359
+            }
+          },
+          {
+            "id": "log",
+            "label": "log region",
+            "rect": {
+              "x": 1397.609375,
+              "y": 40,
+              "width": 505.390625,
+              "height": 1023,
+              "top": 40,
+              "right": 1903,
+              "bottom": 1063,
+              "left": 1397.609375
+            }
+          }
+        ]
+      },
+      {
+        "size": 21,
+        "regions": [
+          {
+            "id": "player",
+            "label": "player region",
+            "rect": {
+              "x": 17,
+              "y": 40,
+              "width": 414.90625,
+              "height": 428,
+              "top": 40,
+              "right": 431.90625,
+              "bottom": 468,
+              "left": 17
+            }
+          },
+          {
+            "id": "focus",
+            "label": "Around you region",
+            "rect": {
+              "x": 437.90625,
+              "y": 40,
+              "width": 953.703125,
+              "height": 428,
+              "top": 40,
+              "right": 1391.609375,
+              "bottom": 468,
+              "left": 437.90625
+            }
+          },
+          {
+            "id": "inventory",
+            "label": "inventory region",
+            "rect": {
+              "x": 17,
+              "y": 474,
+              "width": 414.90625,
+              "height": 589,
+              "top": 474,
+              "right": 431.90625,
+              "bottom": 1063,
+              "left": 17
+            }
+          },
+          {
+            "id": "actions",
+            "label": "actions region",
+            "rect": {
+              "x": 437.90625,
+              "y": 474,
+              "width": 953.703125,
+              "height": 589,
+              "top": 474,
+              "right": 1391.609375,
+              "bottom": 1063,
+              "left": 437.90625
+            }
+          },
+          {
+            "id": "log",
+            "label": "log region",
+            "rect": {
+              "x": 1397.609375,
+              "y": 40,
+              "width": 505.390625,
+              "height": 1023,
+              "top": 40,
+              "right": 1903,
+              "bottom": 1063,
+              "left": 1397.609375
+            }
+          }
+        ]
+      }
+    ],
+    "after": [
+      {
+        "size": 14,
+        "regions": [
+          {
+            "id": "player",
+            "label": "player region",
+            "rect": {
+              "x": 17,
+              "y": 40,
+              "width": 336,
+              "height": 306,
+              "top": 40,
+              "right": 353,
+              "bottom": 346,
+              "left": 17
+            }
+          },
+          {
+            "id": "focus",
+            "label": "Around you region",
+            "rect": {
+              "x": 359,
+              "y": 40,
+              "width": 1032.609375,
+              "height": 306,
+              "top": 40,
+              "right": 1391.609375,
+              "bottom": 346,
+              "left": 359
+            }
+          },
+          {
+            "id": "inventory",
+            "label": "inventory region",
+            "rect": {
+              "x": 17,
+              "y": 352,
+              "width": 336,
+              "height": 711,
+              "top": 352,
+              "right": 353,
+              "bottom": 1063,
+              "left": 17
+            }
+          },
+          {
+            "id": "actions",
+            "label": "actions region",
+            "rect": {
+              "x": 359,
+              "y": 352,
+              "width": 1032.609375,
+              "height": 711,
+              "top": 352,
+              "right": 1391.609375,
+              "bottom": 1063,
+              "left": 359
+            }
+          },
+          {
+            "id": "log",
+            "label": "log region",
+            "rect": {
+              "x": 1397.609375,
+              "y": 40,
+              "width": 505.390625,
+              "height": 1023,
+              "top": 40,
+              "right": 1903,
+              "bottom": 1063,
+              "left": 1397.609375
+            }
+          }
+        ]
+      },
+      {
+        "size": 21,
+        "regions": [
+          {
+            "id": "player",
+            "label": "player region",
+            "rect": {
+              "x": 17,
+              "y": 40,
+              "width": 414.90625,
+              "height": 428,
+              "top": 40,
+              "right": 431.90625,
+              "bottom": 468,
+              "left": 17
+            }
+          },
+          {
+            "id": "focus",
+            "label": "Around you region",
+            "rect": {
+              "x": 437.90625,
+              "y": 40,
+              "width": 953.703125,
+              "height": 428,
+              "top": 40,
+              "right": 1391.609375,
+              "bottom": 468,
+              "left": 437.90625
+            }
+          },
+          {
+            "id": "inventory",
+            "label": "inventory region",
+            "rect": {
+              "x": 17,
+              "y": 474,
+              "width": 414.90625,
+              "height": 589,
+              "top": 474,
+              "right": 431.90625,
+              "bottom": 1063,
+              "left": 17
+            }
+          },
+          {
+            "id": "actions",
+            "label": "actions region",
+            "rect": {
+              "x": 437.90625,
+              "y": 474,
+              "width": 953.703125,
+              "height": 589,
+              "top": 474,
+              "right": 1391.609375,
+              "bottom": 1063,
+              "left": 437.90625
+            }
+          },
+          {
+            "id": "log",
+            "label": "log region",
+            "rect": {
+              "x": 1397.609375,
+              "y": 40,
+              "width": 505.390625,
+              "height": 1023,
+              "top": 40,
+              "right": 1903,
+              "bottom": 1063,
+              "left": 1397.609375
+            }
+          }
+        ]
+      }
+    ],
+    "extra": [
+      {
+        "size": 14,
+        "regions": [
+          {
+            "id": "map",
+            "label": "Local map region",
+            "rect": {
+              "x": 17,
+              "y": 1057,
+              "width": 336,
+              "height": 6,
+              "top": 1057,
+              "right": 353,
+              "bottom": 1063,
+              "left": 17
+            }
+          },
+          {
+            "id": "player",
+            "label": "player region",
+            "rect": {
+              "x": 17,
+              "y": 40,
+              "width": 336,
+              "height": 306,
+              "top": 40,
+              "right": 353,
+              "bottom": 346,
+              "left": 17
+            }
+          },
+          {
+            "id": "focus",
+            "label": "Around you region",
+            "rect": {
+              "x": 359,
+              "y": 40,
+              "width": 1032.609375,
+              "height": 306,
+              "top": 40,
+              "right": 1391.609375,
+              "bottom": 346,
+              "left": 359
+            }
+          },
+          {
+            "id": "inventory",
+            "label": "inventory region",
+            "rect": {
+              "x": 17,
+              "y": 352,
+              "width": 336,
+              "height": 699,
+              "top": 352,
+              "right": 353,
+              "bottom": 1051,
+              "left": 17
+            }
+          },
+          {
+            "id": "actions",
+            "label": "actions region",
+            "rect": {
+              "x": 359,
+              "y": 352,
+              "width": 1032.609375,
+              "height": 699,
+              "top": 352,
+              "right": 1391.609375,
+              "bottom": 1051,
+              "left": 359
+            }
+          },
+          {
+            "id": "log",
+            "label": "log region",
+            "rect": {
+              "x": 1397.609375,
+              "y": 40,
+              "width": 505.390625,
+              "height": 1011,
+              "top": 40,
+              "right": 1903,
+              "bottom": 1051,
+              "left": 1397.609375
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

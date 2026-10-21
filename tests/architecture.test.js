@@ -1,6 +1,25 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {architectureEdges,checkBaseline} from '../scripts/check_architecture.mjs';
+import {mkdtemp,writeFile,rm} from 'node:fs/promises';
+import {architectureEdges,checkBaseline,hostImportViolation} from '../scripts/check_architecture.mjs';
+test('shared runtime rejects desktop dependencies while allowing ordinary browser modules',()=>{
+ for(const spec of ['electron','electron/main','node:fs/promises','fs','fs/promises','../desktop/main.cjs'])assert.match(hostImportViolation('src/feature.js',spec),/Host dependency/);
+ assert.match(hostImportViolation('src/ui/feature.js','../../desktop/preload.cjs'),/Host dependency/);
+ for(const spec of ['./domain_registry.js','../src/ui/feature.js','inkjs','./desktop_theme.js'])assert.equal(hostImportViolation('src/feature.js',spec),null);
+});
+test('the import scan reports real host imports and ignores matching prose',async()=>{
+ const dir=await mkdtemp('tests/.architecture-host-');
+ try {
+  await writeFile(`${dir}/feature.js`, `import fs from 'node:fs';\nimport('electron');\nconst file = require('fs/promises');\n// import 'node:crypto';\nconst prose = "import 'node:path'";\n`);
+  const {importGraph}=await import('../scripts/check_architecture.mjs');
+  const errors=[];
+  await importGraph(dir,{onImport:(from,spec)=>{const error=hostImportViolation(from,spec);if(error)errors.push(error);}});
+  assert.equal(errors.length,3);
+  assert.ok(errors.some(error=>error.endsWith(' -> node:fs')));
+  assert.ok(errors.some(error=>error.endsWith(' -> electron')));
+  assert.ok(errors.some(error=>error.endsWith(' -> fs/promises')));
+ } finally {await rm(dir,{recursive:true,force:true});}
+});
 test('architecture detects cycles and main edges, including a new cycle through old vertices',()=>{
  const graph=new Map([['src/main.js',['src/a.js']],['src/a.js',['src/b.js']],['src/b.js',[]]]);
  const baseline={...architectureEdges(graph),lineCounts:{}};

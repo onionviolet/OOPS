@@ -1,0 +1,14 @@
+{
+  "sha256": {
+    "src/titles_ui.js": "25256a86dc4b3400924c82583bfee620cbaadf32809c6acc378b7b03c51da230",
+    "src/absorb_p23/long_life/worn.js": "7e3c9c88845844ed216c1e3b76945349d4f183dae0fae3af04ad311014699296",
+    "src/titles.js": "7769b6c1d2d39021c48105ed1fc8cbc7635a89bec429279e0d736715700e8058",
+    "src/main.js": "6db6f4de06b712c9e151373f6c1e8ccb42a8b55844a640360b5fc2c281922275",
+    "tests/p23-long-life.test.js": "b0b16478ed25222e7015ee745f4053093e65242fdc477504f0cb4907052b3608",
+    "scripts/playtest/title-benefits.mjs": "3b2fcf7f3c049e19a1f3962df695060904c2eb4d8a329c97502067cef6470859",
+    "dist/bundle.js": "6cb00332ea6cfe6ebb57b90342f9a7124bc9b21a1c026b6d40ca4b54f9e2d3db",
+    "dist/bundle.js.map": "5506e502758303b83a908fd4d1e0fe154ff317c55daad5ee7e44a0a24a7af153"
+  },
+  "bundle_map_matches_current_files": 675,
+  "mismatches": []
+}

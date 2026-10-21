@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="styles/crafting_detail.css">
         <link rel="stylesheet" href="styles/component_themes.css">
         <link rel="stylesheet" href="styles/start_probe.css">
-        <link rel="stylesheet" href="styles/ui_tokens.css?version=5b2b1415f287">
+        <link rel="stylesheet" href="styles/ui_tokens.css?version=d9cbd5f8b52c">
         <link rel="stylesheet" href="styles/shell_layout.css?version=af7afc4a29e9">
         <link rel="stylesheet" href="styles/inventory.css?version=e859760fe686">
         <link rel="stylesheet" href="styles/opponents.css?version=fde468a8e2f4">
@@ -26,7 +26,7 @@
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-03b90be342bd"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-c00f4911ea31"></script>
 
         <!--Icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -310,6 +310,7 @@
                     </div>
 
                     <div id = "trade_div">
+                        <p id="trade_stock_notice" role="status" hidden></p>
                         <div id = "trader_sorting_buttons" class="activable_buttons flex_wrap"> 
                             <div id = "trader_sort_by_name" class = "trader_sorting_button active_selection_button" onclick='sortTraderInventory("name")' data-translation="ui sort name"></div>
                             <div id = "trader_sort_by_price" class = "trader_sorting_button" onclick='sortTraderInventory("price")' data-translation="ui sort value"></div>
@@ -359,6 +360,7 @@
                     </div>
 
                     <div id = "storage_div">
+                        <section id="storage_comparison" aria-label="Carried and chest comparison"></section>
                         <div id = "storage_sorting_buttons" class="activable_buttons flex_wrap"> 
                             <div id = "storage_sort_by_name" class = "storage_sorting_button active_selection_button" onclick='sortStorageInventory("name")' data-translation="ui sort name"></div>
                             <div id = "storage_sort_by_price" class = "storage_sorting_button" onclick='sortStorageInventory("price")' data-translation="ui sort value"></div>

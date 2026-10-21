@@ -1,9 +1,27 @@
+import {materialInsights, acquiredMaterialIds, inventoryGains} from './material_insights.js';
 // Original implementation inspired by Proto23's experience/capability/UI chain.
 // No foreign code, assets or reward values are used. Native owners retain progress.
 export const HERB_LESSON = {material:'Golmoon leaf',count:20,recipe:'Weak healing powder'};
 export function heldLesson(inventory, learned) {
     if (learned) return false;
     return Object.values(inventory).reduce((n,row)=>n+(row.item?.id===HERB_LESSON.material?row.count:0),0)>=HERB_LESSON.count;
+}
+export function revealLessonMessages(plan) {
+    return [...(plan.revealLesson ? ['Handling twenty Golmoon leaves taught you a preparation. Review it in Learned preparations.'] : []),
+        ...(plan.materialInsights || []).map(row => row.text)];
+}
+export function createAcquisitionLesson({canWrite, read, unlock, notify, refresh}) {
+    return (inventory, items) => {
+        if(!canWrite()) return;
+        const context = read(), herb = heldLesson(inventory, context.facts['reveal.herbLesson']);
+        const lessons = materialInsights(context, acquiredMaterialIds(items), herb ? ['Weak healing powder'] : []);
+        if(!herb && !lessons.length) return;
+        if(herb) context.facts['reveal.herbLesson'] = true;
+        unlock([...(herb ? [{category:'alchemy',subcategory:'items',recipe_id:HERB_LESSON.recipe}] : []),
+            ...lessons.map(({category,subcategory,recipe_id}) => ({category,subcategory,recipe_id}))]);
+        for(const message of revealLessonMessages({revealLesson:herb,materialInsights:lessons})) notify(message);
+        refresh();
+    };
 }
 // Light at the reader's place (proposal, M4 2026-10-19): a source brighter than the ambient light
 // speeds reading up to x1.5 at full gain. With no reader set, or in daylight, the pace is unchanged.
@@ -54,7 +72,7 @@ export function openingAllows(id, staged, step) {
 }
 let acquire = ()=>{};
 export function bindAcquisitionLesson(fn) { acquire=fn; }
-export function observeAcquisition(inventory) { acquire(inventory); }
+export function observeAcquisition(inventory, items) { acquire(inventory, items); }
 let denominations=()=>true;
 export function bindDenominationKnowledge(fn) {denominations=fn;}
 export function denominationsKnown(){return denominations();}
@@ -77,7 +95,7 @@ export function createPracticePanel({read,toggleRun,investigate,craft,register,u
             button.type='button';button.dataset.practiceAction=row.id;
             button.textContent=row.id==='run'?`Run: ${view.run?'on':'off'}`:`Investigate: ${view.search.on?'on':'off'}`;
             button.disabled=!!reason;button.setAttribute('aria-pressed',String(row.id==='run'?view.run:view.search.on));
-            status.textContent=reason|| (row.id==='run'?(view.runFallback?' Low stamina: travel falls back to walking. You can turn Run off.':' Travel 20% faster; costs 2 stamina per journey.'):' Uses the existing five-minute local search.');
+            status.textContent=reason|| (row.id==='run'?(view.runFallback?' Low stamina: travel falls back to walking. You can turn Run off.':' Travel 20% faster; costs 2 stamina per journey.'):` ${view.search.text || 'Uses the existing local search.'}`);
             button.onclick=()=>{row.id==='run'?toggleRun():investigate();render();update();};line.append(button,status);body.append(line);
         }
         if(view.recipe){const note=document.createElement('p');note.textContent='Learned: Weak healing powder. Preparation uses 5 Golmoon leaves. '+(view.craftReason||'An alchemy station is available.');preparations.append(note);const button=document.createElement('button');button.type='button';button.textContent='Review learned herb preparation';button.disabled=!!view.craftReason;button.onclick=craft;preparations.append(button);}
@@ -88,7 +106,7 @@ export function createPracticePanel({read,toggleRun,investigate,craft,register,u
     register({id:'learned-preparations',title:'Learned preparations',node:preparations,home:'center',eligible:()=>read().recipe,discovered:()=>read().recipe});
     render();return {render};
 }
-export function stageRevealKnowledge(plan, previousInventory, previousMoney) {
+export function stageRevealKnowledge(plan, previousInventory, previousMoney, context) {
     const facts=plan.state.actors.player.facts, inventory=plan.gameplay?.player?.inventory;
     const count=stock=>Object.entries(stock||{}).reduce((n,[key,value])=>{
         let id;try{id=JSON.parse(key).id;}catch{return n;}
@@ -98,6 +116,16 @@ export function stageRevealKnowledge(plan, previousInventory, previousMoney) {
         facts['reveal.herbLesson']=true;
         plan.unlocks=[...(plan.unlocks||[]),{kind:'recipe',id:HERB_LESSON.recipe}];
         plan.revealLesson=true;
+    }
+    if(context && inventory) {
+        const gains = inventoryGains(previousInventory, inventory);
+        const held = new Set(Object.keys(inventory).filter(key => inventory[key] > 0).flatMap(key => {try{return [JSON.parse(key).id];}catch{return [];}}));
+        const known = id => context.known(id) || held.has(id);
+        const lessons = materialInsights({...context,known,worldId:plan.state.actors.player.worldId}, gains, (plan.unlocks || []).filter(row => row.kind === 'recipe').map(row => row.id));
+        if(lessons.length) {
+            plan.materialInsights = [...(plan.materialInsights || []),...lessons];
+            plan.unlocks = [...(plan.unlocks || []),...lessons.map(row => ({kind:'recipe',id:row.id}))];
+        }
     }
     if(Number.isFinite(plan.external?.money) && plan.external.money!==previousMoney)
         facts['reveal.wallet.'+plan.state.actors.player.worldId]=true;

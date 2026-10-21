@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: checkVisibility follows box state dynamically and leaves CSS visibility opt-in
+ok 1 - checkVisibility follows box state dynamically and leaves CSS visibility opt-in
+  ---
+  duration_ms: 5.75175
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 74.676666

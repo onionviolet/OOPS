@@ -860,3 +860,40 @@ level 3 town next to a level 30 sect tells a story by itself.
   Appraise at high level, plus one aptitude talent (Green thumb on
   Farming and Herbalism) through capabilities. Both use existing
   systems and can be played in a fresh save.
+
+
+## Recovered Corc round 6, 2026-10-21: title benefits by mechanism
+
+**Proposal expansion**, from [CRL42–CRL47](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-6-2026-10-21-title-benefits-and-small-opportunities). AD5/AD6–AD8/AD38, SLR and UR59–UR64 govern the application. These are compatible examples, not mutually exclusive title classes or a new required subsystem. The earlier social-title framing describes recognition titles; system/metaphysical titles may work through their actual grant mechanism without an external witness.
+
+| Benefit mode | Fitting default and example | What changes or persists |
+| --- | --- | --- |
+| Earned passive | A road-worn body spends less energy running; a learned faculty improves examination. | The acquired capability follows its real carrier. Changing the displayed title need not erase it. A curse, injury, source withdrawal or world transition can alter it where that mechanism actually applies. |
+| Worn / attuned / declared | A title channels power while adopted or presented; a badge opens a guild service where recognized. | Selection, actual attunement and recognition are distinct conditions. OOPS already has an optional additive worn-title XP payoff; all ordinary held-title bonuses remain active in that current route. Do not replace it with an exclusive-slot rule without a selected world mechanism. |
+| Activated | A title grants a command, examination, technique or rite the character can choose to use. | Earned access is distinct from currently performing it. Costs, cooldown, preparation, target and interruption come from the actual action. A title label is not the action itself. Passive access to a sense can support active examination. |
+| Conditional / reactive opportunity | A practiced quartermaster notices recoverable details while training; a rescuer's title supports a response when the relevant event occurs. | A condition can enable an opportunity without guaranteeing an output or requiring a new button. The real event/drop/action owner settles it. Use known means to explain the opportunity without revealing sealed outcomes. |
+| Recognition / authority | A community recognizes a deed, credentials or office; a title can unlock a teacher, invitation or different response. | Who knows, trusts or recognizes the claim matters. Displaying a title is not universal telepathy or proof that a forged claim works. A learned capability and an institution's permission can persist or be lost independently. |
+
+**CRL42:** a single title may combine these modes. A useful public benefit description names trigger, effect and present applicability, such as “learned benefit retained,” “extra benefit while worn,” or “grants an examination.” These are wording examples, not fixed UI labels. Keep held, selected, active action and recognized states distinct only where a real consumer needs the distinction.
+
+**CRL43:** a benefit earned or changed during an ongoing activity must update its actual cost/effect through the existing owner. The source's running title changes a permanent rate modifier and adjusts an already-active drain; its selected display name does not do that work. In OOPS, inspect the existing projection/settlement policy for the chosen action. A selected payoff may affect later work or a later settlement according to that policy; do not silently rerate already-settled work. Avoid stacking a permanent modifier again on each equip, load or refresh.
+
+**CRL44:** an empty grant hook need not mean an empty benefit. The recovered Quartermaster talent body is empty, but its applied marker is read by conditional drop consumers. Adapt the consequence through explicit existing capability/event consumers rather than treating an implementation marker as the meaning. Conversely, flavor saying a title helps is not proof of a real consumer.
+
+**ACT NOW (done):** folded this richer palette into the existing owner. **ACCOUNT FOR NOW:** preserve source/effect/trigger/carrier and OOPS's current held-plus-optional-worn behavior. **LATER / DELEGATE:** one selected title can demonstrate a passive benefit plus a fitting conditional or active use. Sol medium for mechanism judgment, Luna low for settled wording/wiring; small/medium effort. Done: earn, select/unselect, use while applicable, interrupt and reload/import through real owners; no duplicated gain, invented universal slot cap or lost unrelated passive. No title ability or schema is implemented by this pass.
+
+
+### Clarification to round 6: a title's benefit is not a new capability type
+
+2026-10-21, following Weibao's question: the preceding “benefit modes” are modes of effect and source/recognition relationships, not separate title systems. A running efficiency earned by practice can simply be skill/body adaptation named by a title. If a world truly grants an additional blessing through the title, that has its own real source. An activated title benefit may be an ordinary technique/action enabled by the grant. Follow [SLR40–SLR43](DOMAIN_RULES.md#titles-skills-and-effect-causes-2026-10-21) and [C14's causal examples](emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c14-titles-versus-the-capabilities-they-name-or-grant). The actual cause decides loss, stacking and carryover, not the label. The round-6 examples remain proposals, and current gameplay is unchanged.
+
+
+### Native held and worn title clarity, 2026-10-21
+
+The later authorized [implementation slice](gm/dispatch/title-rules-implementation-2026-10-21/REPORT.md)
+connects the existing title panel to factual worn applicability and its shared
+bonus descriptions. Native Sleeping supplies the deliberate ordinary activity;
+the title modifies its XP, without becoming a separate technique. Selection
+preserves learned competence and all held bonuses. No new skill, faculty or
+active title command is introduced. [Coverage](gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md)
+retains the social, conditional and material-insight examples as future work.

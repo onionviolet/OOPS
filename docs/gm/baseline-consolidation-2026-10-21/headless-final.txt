@@ -1,0 +1,49 @@
+TAP version 13
+# Subtest: DOM shim parses markup, matches selectors and runs default activation
+ok 1 - DOM shim parses markup, matches selectors and runs default activation
+  ---
+  duration_ms: 4.4065
+  type: 'test'
+  ...
+# Subtest: checkVisibility follows box state dynamically and leaves CSS visibility opt-in
+ok 2 - checkVisibility follows box state dynamically and leaves CSS visibility opt-in
+  ---
+  duration_ms: 2.423167
+  type: 'test'
+  ...
+# Subtest: fresh game boots, plays and steps with invariants
+ok 3 - fresh game boots, plays and steps with invariants
+  ---
+  duration_ms: 29016.407708
+  type: 'test'
+  ...
+# fresh: 240 game min in 24.5 s = 10 game min per wall s
+# Subtest: developed perf fixture loads and steps
+ok 4 - developed perf fixture loads and steps
+  ---
+  duration_ms: 19725.983042
+  type: 'test'
+  ...
+# mid.json: 30 game min in 7.0 s
+# Subtest: save -> load and export -> import round trips are exact
+ok 5 - save -> load and export -> import round trips are exact
+  ---
+  duration_ms: 11968.200458
+  type: 'test'
+  ...
+# Subtest: scripted village route reaches the expected durable save, deterministically
+ok 6 - scripted village route reaches the expected durable save, deterministically
+  ---
+  duration_ms: 16701.054208
+  type: 'test'
+  ...
+# route: 8693 ms
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 77601.286958

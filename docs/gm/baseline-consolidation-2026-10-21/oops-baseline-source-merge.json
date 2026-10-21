@@ -1,0 +1,26 @@
+{
+  "merged": [
+    "scripts/headless/runner.mjs",
+    "src/absorb_c2/local_life.js",
+    "src/absorb_p23/long_life/worn.js",
+    "src/crafting_recipes.js",
+    "src/enemies.js",
+    "src/harvest.js",
+    "src/items.js",
+    "src/models/hero.js",
+    "src/proto23_shell.js",
+    "src/reveal_chain.js",
+    "src/titles_ui.js",
+    "src/trade.js",
+    "tests/absorb_c2.test.js",
+    "tests/p23-long-life.test.js"
+  ],
+  "conflicts": [
+    "src/crafting_visibility.js",
+    "src/customization_profiles.js",
+    "src/display.js",
+    "src/harvest_ui.js",
+    "src/native_resources_domain.js",
+    "styles/ui_tokens.css"
+  ]
+}

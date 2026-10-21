@@ -2330,3 +2330,29 @@ Later asset choice, 2026-10-21: Weibao prefers an existing PNG and pointed to hi
 
 
 Current credit refinement, 2026-10-21: the exact user-edited `goated pig.png` source replaces the mistaken generated aviator image. A non-destructive transparent-background derivative is now displayed. User-selected flair separates the diagonal Miktaew/Proto23 credits from upright, underlined onionv and his guinea pig. Corner arrows lead to Miktaew's verified Ko-fi, while both projects have quieter GitHub source links. Proto23/Corc's Ko-fi awaits a verified URL. [Final implementation and checks](reviews/launch_menu_2026-10-21/REPORT.md#edited-source-distinct-flair-corner-links-and-transparent-cutout).
+
+
+## Recovered Corc round 5, 2026-10-21: truthful change after reflow and return
+
+**Proposal extensions**, from [CRL38–CRL41](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-5-2026-10-21-subtle-interactions-folded-into-the-plans). UR60–UR64 and existing PFE/CRL expression owners retain authority. Desktop target: 1920×1080, actual 14/21px text; mobile work deferred.
+
+| Reference | Addition | Default, dial and reason/cost |
+| --- | --- | --- |
+| CRL38/CRL39 | A reaction follows logical subject identity through font, layout and theme changes | Recompute the visible anchor when geometry changes. Preserve target/command identity while the sprite or highlight moves; an unavailable old subject can end the transient cue. Dial: glyph/shape/color/text by rendered support and player's settings. Cost: existing anchor lifecycle, not a second targeting model. |
+| CRL39 | Meaning survives fallback, rather than depending on one symbol/color pair | The source's effect tool edits glyph, foreground and backing together; the real effect model separately owns behavior. A fallback face may change glyph shape/width. Retain a known label/static explanation so a cosmetic change cannot silently change the meaning of poison, recovery or another effect. Cost: a small actual-component sample set, not invented universal icons. |
+| CRL40/CRL41 | Return summaries respect when knowledge and capability changed | A quieter return summary can report public results and a new ability without pretending that earlier decisions used the new ability. A retrospective interpretation is labelled as later knowledge when useful. A rebuilt panel, applied theme or reloaded title does not itself replay an earned reward. Dial: grouping/detail and retained public history. Cost: existing receipt/time boundaries where meaningful; no indefinite receipt archive required. |
+
+`settled_text_effects.js` already consumes settled events and suppresses old hidden-tab cues; `titles.js` already derives held-title bonuses. These additions are future integration cases, not claims those protections are missing or failing. **ACT NOW (done):** saved them in the presentation owner. **ACCOUNT FOR NOW:** maintain a static useful result when sound/motion is off. **LATER / DELEGATE:** pair CRJ9's reflow samples with CRJ10's return summary when either is selected. Luna low for settled visual wiring, Sol medium for knowledge/event ordering, small/medium effort. Done: no cue on the wrong subject, no hidden-truth leak or replayed reward, readable fallback and a separate human tone/readability check.
+
+
+## Recovered Corc round 6, 2026-10-21: titles that say what they do
+
+**Proposal additions**, following [CRL42–CRL47](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-6-2026-10-21-title-benefits-and-small-opportunities), UR59–UR64 and the [existing title palette](SKILLS_AND_TALENTS.md#recovered-corc-round-6-2026-10-21-title-benefits-by-mechanism). Desktop target 1920×1080 at actual 14/21px text; mobile deferred.
+
+The source marks talent-bearing titles with a star, and newly earned titles also replace its displayed selection. OOPS can keep the pleasant discovery beat while preserving a player's chosen display/worn identity by default. Its existing worn-title mode has explicit selection; a new earned title need not silently activate that payoff. A fitting world's investiture or transformation could deliberately change the presented identity through its actual mechanism.
+
+For useful clarity, explain learned passive, optional worn payoff, conditional opportunity and a genuinely activated command separately. A title can say “you now notice…” rather than displaying another unexplained percentage. A situational benefit can have a quiet known reason when unavailable. A ceremonial nickname, humble boast or deadpan aside can celebrate a small deed without promising a nonexistent effect or belittling a serious accomplishment. NPC reactions use what that NPC witnessed, heard or appraised; the player's title panel does not broadcast it.
+
+Playful candidate: a practiced quartermaster notices one more useful detail in familiar training equipment, with a brief surprised line when a real new opportunity settles. This adapts a source conditional-drop mechanism, not a promise of guaranteed loot. Another candidate is a little “these go together” note on a real newly supported material insight. Repeated visits/hover stay quiet and do not regrant knowledge or rewards.
+
+**ACT NOW (done):** saved these distinctions and candidates. **ACCOUNT FOR NOW:** bind cues and public eligibility to real owners. **LATER / DELEGATE:** one selected title or discovery event, Luna low for settled UI, Sol medium for meaning/recognition, small effort after the mechanism exists. Done: clear trigger/effect, chosen title retained unless deliberately changed, quiet repeat, static equivalent and separate human tone check. No new title art, ability or NPC reaction shipped here.

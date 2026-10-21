@@ -1,0 +1,404 @@
+[
+  {
+    "id": "rea",
+    "argv": [
+      "node",
+      "/Users/weiwei/code/rea/scripts/rea.mjs"
+    ],
+    "tool_root": "/Users/weiwei/code/rea",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {
+      "GHIDRA_INSTALL_DIR": "/opt/homebrew/opt/ghidra/libexec",
+      "JAVA_HOME": "/opt/homebrew/opt/openjdk@21",
+      "REA_ANALYSIS_PROVIDER": "ghidra"
+    },
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "rea-pinned",
+    "argv": [
+      "node",
+      "/Users/weiwei/.codex/research/hogwarts-legacy/repos/rea-pinned/scripts/rea.mjs"
+    ],
+    "tool_root": "/Users/weiwei/.codex/research/hogwarts-legacy/repos/rea-pinned",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {
+      "GHIDRA_INSTALL_DIR": "/opt/homebrew/opt/ghidra/libexec",
+      "JAVA_HOME": "/opt/homebrew/opt/openjdk@21",
+      "REA_ANALYSIS_PROVIDER": "ghidra"
+    },
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "ghidra",
+    "argv": [
+      "/opt/homebrew/opt/ghidra/libexec/support/analyzeHeadless"
+    ],
+    "tool_root": "/opt/homebrew/opt/ghidra/libexec",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {
+      "JAVA_HOME": "/opt/homebrew/opt/openjdk@21"
+    },
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "dotnet",
+    "argv": [
+      "/Users/weiwei/.dotnet/dotnet"
+    ],
+    "tool_root": "/Users/weiwei/.dotnet",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {
+      "DOTNET_ROOT": "/Users/weiwei/.dotnet"
+    },
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "ilspy",
+    "argv": [
+      "/Users/weiwei/.dotnet/tools/ilspycmd"
+    ],
+    "tool_root": "/Users/weiwei/.dotnet",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {
+      "DOTNET_ROOT": "/Users/weiwei/.dotnet"
+    },
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "unitypy",
+    "argv": [
+      "/Users/weiwei/.codex/research/immortal-life/tools/venv/bin/python"
+    ],
+    "tool_root": "/Users/weiwei/.codex/research/immortal-life/tools/venv",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "cpp2il",
+    "argv": [
+      "/Users/weiwei/.local/share/yair-tools/cpp2il/2022.1.0-pre-release.21/Cpp2IL"
+    ],
+    "tool_root": "/Users/weiwei/.local/share/yair-tools/cpp2il/2022.1.0-pre-release.21",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {
+      "DOTNET_ROOT": "/Users/weiwei/.dotnet"
+    },
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "il2cpp-dumper",
+    "argv": [
+      "/Users/weiwei/.dotnet/dotnet",
+      "/Users/weiwei/.codex/research/immortal-life/tools/dumper/Il2CppDumper.dll"
+    ],
+    "tool_root": "/Users/weiwei/.codex/research/immortal-life/tools/dumper",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {
+      "DOTNET_ROOT": "/Users/weiwei/.dotnet"
+    },
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "discord",
+    "argv": [
+      "/opt/homebrew/opt/python@3.15/bin/python3.15",
+      "-m",
+      "discord_reference"
+    ],
+    "tool_root": "/Users/weiwei/code/discord-reference-workbench",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {
+      "PYTHONPATH": "/Users/weiwei/code/discord-reference-workbench"
+    },
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "discord-web",
+    "argv": [
+      "node",
+      "/Users/weiwei/code/discord-reference-workbench/desktop/web.mjs"
+    ],
+    "tool_root": "/Users/weiwei/code/discord-reference-workbench",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "discord-desktop",
+    "argv": [
+      "/Users/weiwei/code/discord-reference-workbench/desktop/node_modules/.bin/electron",
+      "/Users/weiwei/code/discord-reference-workbench/desktop"
+    ],
+    "tool_root": "/Users/weiwei/code/discord-reference-workbench",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "lncrawl",
+    "argv": [
+      "/Users/weiwei/code/lncrawl-polite/.venv-polite/bin/python",
+      "-m",
+      "lncrawl",
+      "polite"
+    ],
+    "tool_root": "/Users/weiwei/code/lncrawl-polite",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {
+      "PYTHONPATH": "/Users/weiwei/code/lncrawl-polite"
+    },
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "zlibrary",
+    "argv": [
+      "/Users/weiwei/code/zlibrary-research/.venv/bin/zlibrary-tor"
+    ],
+    "tool_root": "/Users/weiwei/code/zlibrary-research",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "zlibrary-mcp",
+    "argv": [
+      "/Users/weiwei/code/zlibrary-research/.venv/bin/zlibrary-research-mcp"
+    ],
+    "tool_root": "/Users/weiwei/code/zlibrary-research",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {
+      "YAIRPG_PROJECT_ROOT": "/Users/weiwei/code/yet-another-idle-rpg"
+    },
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "epub-prepare",
+    "argv": [
+      "/Users/weiwei/code/zlibrary-research/.venv/bin/zlibrary-prepare-epub"
+    ],
+    "tool_root": "/Users/weiwei/code/zlibrary-research",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "calibre",
+    "argv": [
+      "/Applications/calibre.app/Contents/MacOS/calibredb"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "pdf2md",
+    "argv": [
+      "/Users/weiwei/.local/bin/pdf2md"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "pdftotext",
+    "argv": [
+      "pdftotext"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "tesseract",
+    "argv": [
+      "tesseract"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "ffmpeg",
+    "argv": [
+      "ffmpeg"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "playtest",
+    "argv": [
+      "node",
+      "/Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/run.mjs"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "headless-bench",
+    "argv": [
+      "node",
+      "/Users/weiwei/code/yet-another-idle-rpg/scripts/headless/bench.mjs"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "replay",
+    "argv": [
+      "node",
+      "/Users/weiwei/code/yet-another-idle-rpg/scripts/replay/cli.mjs"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "simfuzz",
+    "argv": [
+      "node",
+      "/Users/weiwei/code/yet-another-idle-rpg/scripts/simfuzz/run.mjs"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "perf",
+    "argv": [
+      "node",
+      "/Users/weiwei/code/yet-another-idle-rpg/scripts/perf/gate.mjs"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "test-queue",
+    "argv": [
+      "node",
+      "/Users/weiwei/code/yet-another-idle-rpg/scripts/test_queue.mjs"
+    ],
+    "tool_root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "cwd": "/Users/weiwei/code/yet-another-idle-rpg",
+    "env_overrides": {},
+    "missing": [],
+    "ready": true,
+    "state": "present"
+  },
+  {
+    "id": "rea-source",
+    "state": "reference",
+    "owner": "/Users/weiwei/code/rea/README.md"
+  },
+  {
+    "id": "discord-exporters",
+    "state": "reference",
+    "owner": "/Users/weiwei/code/discord-reference-workbench/docs/EXISTING_TOOLS.md"
+  },
+  {
+    "id": "saved-sources",
+    "state": "reference",
+    "owner": "docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md"
+  },
+  {
+    "id": "browser",
+    "state": "reference",
+    "owner": "docs/audits/TOOLSETS_AUDIT_2026-10-21.md"
+  },
+  {
+    "id": "connectors",
+    "state": "reference",
+    "owner": "docs/audits/TOOLSETS_AUDIT_2026-10-21.md"
+  },
+  {
+    "id": "assets",
+    "state": "reference",
+    "owner": "docs/audits/TOOLSETS_AUDIT_2026-10-21.md"
+  },
+  {
+    "id": "mockups",
+    "state": "reference",
+    "owner": "docs/MOCKUP_SYSTEM.md"
+  },
+  {
+    "id": "signal-quarry",
+    "state": "reference",
+    "owner": "/Users/weiwei/code/signal-quarry/README.md"
+  },
+  {
+    "id": "gearscope",
+    "state": "reference",
+    "owner": "/Users/weiwei/code/gearscope/README.md"
+  },
+  {
+    "id": "vimeo-transcript",
+    "state": "reference",
+    "owner": "/Users/weiwei/code/vimeo-transcript-grabber/README.md"
+  }
+]

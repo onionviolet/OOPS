@@ -7,6 +7,7 @@ import {readFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {boot, canonicalSave, diffSaves, ROOT, SAVE_KEY} from '../../scripts/headless/runner.mjs';
 import {createDom} from '../../scripts/headless/dom.mjs';
+import {createVisibility} from '../../scripts/headless/css.mjs';
 import {runHeadless} from '../../scripts/headless/village_route.mjs';
 
 const key = id => JSON.stringify({id});
@@ -23,6 +24,30 @@ test('DOM shim parses markup, matches selectors and runs default activation', ()
     document.querySelector('summary').click(); assert.equal(document.getElementById('d').open, true);
     document.getElementById('c').click(); assert.equal(document.getElementById('c').checked, true);
     button.dataset.villageAction = 'x'; assert.equal(button.getAttribute('data-village-action'), 'x');
+});
+
+
+test('checkVisibility follows box state dynamically and leaves CSS visibility opt-in', () => {
+    const css = createVisibility(['.hidden { display: none; } .invisible { visibility: hidden; } .contents { display: contents; }']);
+    const {document, loadHTML} = createDom({visibility:(el, options) => css.checkVisibility(el, options)});
+    loadHTML('<html><body><section id="ancestor"><button id="target"></button></section><section id="contents" class="contents"><button id="contents-child"></button></section><button id="invisible" class="invisible"></button></body></html>');
+    const target = document.getElementById('target');
+    const ancestor = document.getElementById('ancestor');
+    const invisible = document.getElementById('invisible');
+    const contents = document.getElementById('contents');
+    const contentsChild = document.getElementById('contents-child');
+    assert.equal(target.checkVisibility(), true);
+    assert.equal(contents.checkVisibility(), false, 'display:contents has no principal box');
+    assert.equal(contentsChild.checkVisibility(), true, 'display:contents does not suppress descendant boxes');
+    assert.equal(invisible.checkVisibility(), true, 'visibility:hidden retains a box by default');
+    assert.equal(invisible.checkVisibility({visibilityProperty:true}), false);
+    assert.equal(invisible.checkVisibility({checkVisibilityCSS:true}), false);
+    ancestor.classList.add('hidden');
+    assert.equal(target.checkVisibility(), false, 'display:none on an ancestor suppresses descendants');
+    ancestor.classList.remove('hidden');
+    assert.equal(target.checkVisibility(), true, 'state changes are reflected on the next call');
+    target.remove();
+    assert.equal(target.checkVisibility(), false, 'detached elements have no rendered box');
 });
 
 test('fresh game boots, plays and steps with invariants', async t => {

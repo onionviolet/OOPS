@@ -1,0 +1,10 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "sha256": {
+    "src/titles.js": "7769b6c1d2d39021c48105ed1fc8cbc7635a89bec429279e0d736715700e8058",
+    "src/titles_ui.js": "05dec580a27ed180d9358e9df9c88ea37d85e23cb748bb756ca95b55e49fe531",
+    "src/absorb_p23/long_life/worn.js": "b2697dae156b5d93e682b4cb898380771b3a956e3cc3e7f537c15215cdfc7eaa",
+    "src/main.js": "6db6f4de06b712c9e151373f6c1e8ccb42a8b55844a640360b5fc2c281922275",
+    "tests/p23-long-life.test.js": "0b6bfcfd36aea6d512370697aa50464da68d70301c778beb8abd4279b1125970"
+  }
+}

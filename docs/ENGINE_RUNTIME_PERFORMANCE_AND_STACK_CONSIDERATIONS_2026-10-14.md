@@ -1293,3 +1293,16 @@ checked against his machine. Progress since the last autosave (60 s) is lost
 on a crash or hang by design. The game has no native `alert` or `confirm` today;
 only `window.prompt` pauses the guard, so a future blocking dialog needs the
 same pause.
+
+
+## Recovered Corc round 5, 2026-10-21: outcome order during catch-up
+
+**Proposal application** of [CRL30/CRL40/CRL41](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-5-2026-10-21-subtle-interactions-folded-into-the-plans), under AD15–AD18, AR3/AR6/AR16 and UR62/UR64. Existing EL/runtime direction is unchanged. The recovered patch modifies battle handling as well as elapsed-time accumulation; no source execution or OOPS timing defect is established.
+
+In a selected clock comparison, distinguish three paths: elapsed time under throttled live scheduling, explicit pause/suspension, and the chosen away-time policy after a closed session. Use `simulation_clock.js` and the current stepper; `main.js`'s sliced test route is not itself a new player offline policy. Compare the same admitted elapsed duration and inputs through the policy actually selected for each path, documenting intended differences rather than assuming every path must be identical.
+
+Place a real dependency boundary inside the interval: a title/skill changes a means, a fuel reserve expires, or a target becomes unavailable. The settlement order determines which later actions can use the new capability. Keep simulation settlement from depending on how often the UI redraws. A final counter may show several earned milestones while the underlying events still occurred in order; display batching need not discard the capability transition needed by subsequent actions.
+
+Reload reconstructs current derived capability through existing owners. In the recovered source, a saved marker guards a title's one-time talent application; OOPS already derives known held-title bonuses in `titleBonuses` and grants only newly earned IDs. Preserve that design instead of adding another applied-bonus cache. Presentation's bounded receipt deduplication is not authority for rewards, stock spending or title entitlement. A return may summarize missed public events while leaving settled rewards unchanged and quieting obsolete animations.
+
+**ACT NOW (done):** folded the boundary scenarios into this plan. **ACCOUNT FOR NOW:** keep clock, transition, derived capability and presentation owners distinct. **LATER / DELEGATE:** extend CRJ10, Sol medium, medium effort. Done: a real midpoint transition, foreground/throttled/policy-return comparisons, no duplicate reward/bonus, and reload/import checks for any changed persisted state. A private inspector can compare true state with public projection; its output stays outside player-facing knowledge/discovery. No power blocker, timer change, migration or new offline policy is selected here.

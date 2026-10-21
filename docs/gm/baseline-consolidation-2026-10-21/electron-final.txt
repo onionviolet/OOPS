@@ -1,0 +1,14 @@
+{
+ "work": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-desktop-Sce6u0",
+ "url": "app://yairpg/index.html",
+ "viewport": [
+  1800,
+  1035
+ ],
+ "firstMinute": 535324804,
+ "reloadMinute": 535324807,
+ "relaunchMinute": 535324807,
+ "exported": "yet-another-idle-rpg 2026-10-21 11_31_35.txt",
+ "importMinute": 535324810,
+ "result": "PASS"
+}

@@ -49,6 +49,13 @@ export function normalizeLocalLife(raw={}) {
         helped:count(raw.helped),declined:count(raw.declined),mealClaim:stamp(raw.mealClaim),meals:count(raw.meals)};
 }
 const ready = c => c.worldId==='base.frontier' && c.alive===true && c.idle===true && natural(c.clock) && natural(c.calendarMinute);
+// Native loose-find search: a reversible local default, not a universal sensing law.
+// Existing saved searchProgress is retained work; current means decide its rate.
+export function localSearchMethod(c) {
+    const visual=!finite(c.illumination) || c.illumination>=60 || c.nightVisionRatio>=.5;
+    return visual ? {id:'visual',rate:1,text:'Visual search: five played minutes per attempt.'} :
+        {id:'touch',rate:.5,text:'Dim light: feel nearby surfaces, ten played minutes per attempt. A light or practiced night vision restores visual search.'};
+}
 const chance = (s,c) => Math.min(LOCAL_LIFE_BALANCE.chanceCap,LOCAL_LIFE_BALANCE.baseChance+
     LOCAL_LIFE_BALANCE.missStep*(s.searches[c.location]?.misses||0)+Math.min(LOCAL_LIFE_BALANCE.perceptionCap,
         LOCAL_LIFE_BALANCE.perceptionStep*(finite(c.perception)?c.perception:0)));
@@ -99,7 +106,7 @@ export function advanceLocalLife(raw,c,rng=()=>{throw new Error("Local life need
     }
     if(moved || !ready(c) || s.lookPlace!==c.location) {s.looking=false;s.searchProgress=0;}
     if(s.looking && delta>0 && places[c.location] && !s.searches[c.location].found) {
-        s.searchProgress+=delta;
+        s.searchProgress+=delta*localSearchMethod(c).rate;
         if(s.searchProgress>=LOCAL_LIFE_BALANCE.searchMinutes) {
             // One attempt per observed played-clock step: never replay a batch
             // of historical rolls after a load, clock jump or sleeping tick.
@@ -137,7 +144,7 @@ export function localLifeAction(raw,c,id) {
         if(s.searches[c.location].found) return fail('You have already found the useful loose item here.');
         s.looking=!s.looking;s.lookPlace=c.location;s.searchProgress=0;
         s.lastClock=c.clock;s.lastLocation=c.location;
-        p.messages.push(s.looking?'Looking around: one attempt per five played minutes. Stop or leave at any time.':'You stop looking around.');
+        p.messages.push(s.looking?`Looking around. ${localSearchMethod(c).text} Stop or leave at any time.`:'You stop looking around.');
     } else if(id==='watch') {
         if(c.location!=='Village')return fail('Watch shifts start in Village.');
         const window=recurringWindow(WATCH_SCHEDULE,c.calendarMinute,s.watchDay);
@@ -203,10 +210,10 @@ export function localLifeView(raw,c) {
     const market=natural(c.calendarMinute)?recurringWindow(MARKET_SCHEDULE,c.calendarMinute,s.marketClaim):{open:false,nextIn:0};
     const window=natural(c.calendarMinute)?recurringWindow(MEAL_SCHEDULE,c.calendarMinute,s.mealClaim):{open:false,nextIn:0};
     return {visible,title:'Local life',summary:!places[c.location]?'No loose finds at this stop.':found?'0 finds remain. Nothing of interest left; search stopped.':
-        `1 find remains. ${Math.round(chance(s,c)*100)}% find chance, capped at 40%. Five played minutes per attempt; each miss adds 5 percentage points. Perception helps up to 10 points.`,
+        `1 find remains. ${Math.round(chance(s,c)*100)}% find chance, capped at 40%. ${localSearchMethod(c).text} Each miss adds 5 percentage points. Perception helps up to 10 points.`,
         exposure:`Raw Potato causes twenty minutes of native food poisoning; Roasted rat meat causes forty-five. Food poisoning retains its native health loss and resistance scaling. Actual exposure adds 0.25 Poison resistance XP per played minute (${s.poisonMinutes} minutes recorded). Cooking or safe food avoids this risk.`,
-        readiness:available?'Ready. Search time passes while you remain idle here.': 'Finish combat, travel, dialogue, sleep or other work first.',
-        rows:[{id:'look',label:found?'Search complete: nothing remains':s.looking?`Stop looking (${s.searchProgress}/5 minutes; 1 find remains)`:'Look around (1 find remains)',disabled:!available||found||!places[c.location]},
+        readiness:available?`Ready. ${localSearchMethod(c).text} Completed search work stays when the method changes.`: 'Finish combat, travel, dialogue, sleep or other work first.',
+        rows:[{id:'look',label:found?'Search complete: nothing remains':s.looking?`Stop looking (${s.searchProgress}/5 search work; 1 find remains)`:'Look around (1 find remains)',disabled:!available||found||!places[c.location]},
             ...(s.parcelStep===3 && c.location==='Village'?[{id:'parcel_again',label:'Start another Village parcel relay',disabled:!available}]:[]),
             ...(s.pamphletRead && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&!c.millUnlocked?' Clear the Cave room and report to the village elder to open Eastern mill first.':''}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
             ...(c.location==='Village'?[

@@ -162,7 +162,7 @@ export class HeadlessGame {
 
     // ---- environment ----
     _install() {
-        const game = this, dom = createDom({unsupported:this.unsupportedSelectors, onConnect:frame => this._connectFrame(frame)});
+        const game = this, dom = createDom({unsupported:this.unsupportedSelectors, onConnect:frame => this._connectFrame(frame), visibility:(el, options) => game.css?.checkVisibility(el, options) ?? false});
         const g = globalThis;
         Realm.current = this;
         this.dom = dom; this.document = dom.document; this.timers = new Map(); this.timerId = 1; this.timerNow = 0; this.reloadRequested = false;

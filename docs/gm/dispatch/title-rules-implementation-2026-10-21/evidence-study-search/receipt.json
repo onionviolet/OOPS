@@ -1,0 +1,335 @@
+{
+  "checks": [
+    "Actual lamp expiry changes ongoing native search to slower touch, retains 1.5 work across persistence, relighting restores visual work; actual finite discovery settles once",
+    "Existing owned finished-book collection improves ordinary Literacy XP at home; duplicate copies do not multiply support, removing copy preserves learned facts, stopped work round-trips"
+  ],
+  "gains": [
+    2.5400000000000063,
+    2.5400000000000063,
+    2.519999999999996
+  ],
+  "normalization": [
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Equilibrium",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Evasion",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Fortitude",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Iron skin",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Meditation",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Perception",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Running",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Shield blocking",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Swimming",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Unarmed",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Weightlifting",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Equilibrium",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Equilibrium",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Evasion",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Fortitude",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Iron skin",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Meditation",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Perception",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Running",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Shield blocking",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Swimming",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Unarmed",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Weightlifting",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Equilibrium",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Equilibrium",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Evasion",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Fortitude",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Iron skin",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Meditation",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Perception",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Running",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Shield blocking",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Swimming",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Unarmed",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Weightlifting",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Equilibrium",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Equilibrium",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Evasion",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Fortitude",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Iron skin",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Meditation",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Perception",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Running",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Shield blocking",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Swimming",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Unarmed",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/book.lotm.supervisor/skill_xp/Weightlifting",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Breathing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Climbing",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Cold resistance",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Combat",
+      "a": "0"
+    },
+    {
+      "path": "/levels/person/p23.mistglass.keeper/skill_xp/Equilibrium",
+      "a": "0"
+    }
+  ],
+  "errors": [],
+  "setup": "Disposable fixtures; lamp fuel, book progress/XP, housing, stock and access seeded. Native search, relight, reading/stop and persistence controls."
+}

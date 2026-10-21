@@ -1,3 +1,5 @@
+import {registerDomain} from './domain_registry.js';
+import {recoverTradeRequests} from './shop_restock.js';
 "use strict";
 
 import { update_displayed_trader, update_displayed_trader_inventory, 
@@ -18,6 +20,7 @@ import NPCRegistry from "./data/npcs.js";
 
 let current_trader = null;
 let current_quote = null;
+let restockReview = false;
 let current_bread_subtotal=0, use_market_coupon=false;
 const to_sell = {value: 0, items: [], groups: {}};
 const to_buy = {value: 0, items: [], groups: {}};
@@ -57,6 +60,7 @@ function set_current_trader(trader_key) {
  * @param {String} trader_key 
  */
 function start_trade(trader_key) {
+    restockReview=false;setRestockNotice();
     host.interruptP23NativeWork();use_market_coupon=false;
     NPCRegistry.get(trader_key).refreshTraderInventory(host.get_context());
     current_trader = trader_key;
@@ -67,6 +71,7 @@ function start_trade(trader_key) {
 }
 
 function cancel_trade() {
+    restockReview=false;setRestockNotice();
     current_quote = null;use_market_coupon=false;current_bread_subtotal=0;
     document.getElementById("p23_market_trade_quote")?.remove();
 
@@ -94,6 +99,10 @@ function readTradeQuote() {
 }
 
 function accept_trade() {
+    if(restockReview) {
+        restockReview=false;calculate_total_values();
+        throw new Error('The shop restocked. Review the updated selection and prices, then accept again.');
+    }
     if(!current_trader || !to_buy.items.length && !to_sell.items.length) return;
     const quoted = current_quote;
     calculate_total_values();
@@ -109,6 +118,7 @@ function accept_trade() {
 }
 
 function exit_trade() {
+    restockReview=false;setRestockNotice();
     current_quote = null;
     current_trader = null;
     to_buy.items = [];
@@ -529,6 +539,30 @@ function sort_traded_items(a,b) {
         return item_b.getBaseValue() - item_a.getBaseValue();
     }
 }
+
+function setRestockNotice(text='') {
+    const notice=document.getElementById('trade_stock_notice');
+    if(notice){notice.hidden=!text;notice.textContent=text;}
+}
+// The existing native clock calls this domain. NPC/TraderComponent remains the
+// stock, calendar, seeded generation and save owner; projections do not restock.
+export function refreshOpenShop() {
+    if(!current_trader || !host.get_context) return false;
+    const npc=NPCRegistry.get(current_trader), trader=npc.getTraderComponent();
+    if(trader.played_minute_refresh || !trader.can_refresh()) return false;
+    const buy=to_buy.items.map(row=>({...row})),sell=to_sell.items.map(row=>({...row})),coupon=use_market_coupon;
+    if(!trader.refresh(host.get_context())) return false;
+    const recoveredBuy=recoverTradeRequests(buy,npc.getTraderInventory());
+    const recoveredSell=recoverTradeRequests(sell,character.getItems());
+    cancel_trade();use_market_coupon=coupon;
+    for(const row of recoveredBuy)add_to_buying_list(row);
+    for(const row of recoveredSell)add_to_selling_list(row);
+    calculate_total_values();restockReview=buy.length>0 || sell.length>0;
+    update_displayed_character_inventory({is_trade:true});update_displayed_trader_inventory();
+    setRestockNotice('The shop restocked. Available selections were kept, with quantities reduced to current stock where needed. Review the updated selection and prices before accepting.');
+    return true;
+}
+registerDomain({id:'native-shop-restock',tick:refreshOpenShop});
 
 export {to_buy, to_sell, set_current_trader, current_trader, 
         start_trade, cancel_trade, accept_trade, exit_trade, 

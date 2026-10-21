@@ -529,3 +529,16 @@ gameplay RNG, and neither silence nor a missing glyph changes the world.
 Sol low/medium, small source-to-projection trace. Done: equal knowledge has equal
 public implications across color, order, sound and wording; a supported new means
 can change the explanation. No new appraisal implementation selected.
+
+
+## Recovered Corc round 5, 2026-10-21: observation has a lifecycle
+
+**Proposal applications**, folded from [CRL35–CRL41](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-5-2026-10-21-subtle-interactions-folded-into-the-plans). AD6–AD8, AD15–AD17, AD38, UR59–UR64 and AA9–AA12 retain authority. This adds no standing rule or new implementation selection.
+
+| Reference | Addition to the existing appraisal plan | Cost and selected-slice check |
+| --- | --- | --- |
+| CRL35 | Separate passive display from an intentional examination. The source grants reading XP in a tooltip hover handler; that is a source mechanism, not a reason for OOPS rendering to grant XP. A world's examination may cost time, expose the examiner, consume a reagent or teach something through its actual action owner. Hover/focus, preview and restored layout default to reading the resulting public projection. | Use the existing action/learning owner if examination has consequences. Open/close, hover, keyboard focus, resize and comparison restore leave XP/resources unchanged; one intentional examination settles its actual costs/learning once. |
+| CRL36 | Separate material age, observation time and present expertise. A better means can improve a new reading without silently rewriting what the character knew before. A stored estimate retains the relevant subject/quantity and basis; transfer keeps valid knowledge of the same material, while mixing or processing may invalidate its old scope. | Store a historical estimate only if a consumer needs memory; otherwise derive the current public reading. Compare the same lot before/after an actual transfer, improved means and a fresh examination. A remembered estimate may remain useful with an explicit scope/staleness qualification. |
+| CRL40 | When expertise changes during a simulated interval, preserve when it became usable. A return summary can distinguish an old observation, a later discovery and what can be examined now. Historical receipts default to the public knowledge available when settled; an explicitly retrospective inference can say it was learned later. | Reuse existing timestamps/receipts when present. A midpoint unlock does not grant earlier auto-policy decisions unsupported foresight. Accepted protective stops keep AA10's exception and observer-safe public reasons. |
+
+**ACT NOW (done):** added these scoped dependencies to the appraisal owner. **ACCOUNT FOR NOW:** apply them when a selected observation/action route is built or extended. **LATER / DELEGATE:** CRJ8's existing perishable experiment can cover these cases without a second appraisal project. Sol medium, medium effort; done through a real action, age-preserving transfer, improved observation and save/reload/import where new state is persisted. No examination cost, XP reward or global estimate ledger is introduced here.

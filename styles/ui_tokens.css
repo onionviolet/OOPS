@@ -1,7 +1,8 @@
 /* Shared UI foundation. Measurements from Proto23; original CSS, no copied code/assets.
    Legacy swatches preserve Standard, semantic colors and Appearance overrides. */
 :root {
-    --ui-font: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "PingFang SC", "Noto Sans CJK SC", "Noto Sans CJK JP", "Yu Gothic", system-ui, sans-serif;
+    --ui-font-launch: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "PingFang SC", "Noto Sans CJK SC", "Noto Sans CJK JP", "Yu Gothic", system-ui, sans-serif;
+    --ui-font: var(--ui-font-gothic);
     --ui-type-small: 12px; --ui-type-body: 14px; --ui-type-title: 16px;
     --ui-radius: 0; --ui-frame: 3px solid #020309; --ui-shadow: none;
     --ui-navy: #000533; --ui-teal: #00416b; --ui-text: #bcfefe;
@@ -227,6 +228,7 @@
 }
 
 body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
+#loading_screen { --ui-font: var(--ui-font-launch); font-family: var(--ui-font-launch); }
 :root[data-color-scheme="vivid"] { --vivid-text: var(--ui-text); }
 #main_content.workspace-active { --workspace-gap: 4px; }
 #main_content.workspace-active .workspace-module {
@@ -1157,7 +1159,7 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 
 #main_content.workspace-active[data-parity="r3"] .shell-context-preview:not([data-interactive="true"]) {pointer-events:none;}
 /* Crisp reading treatment. Individual palettes and font choices remain native. */
-#main_content.workspace-active[data-parity="r3"] {--ui-font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--p23-growth:#f1a6d1;--p23-log-prose:#e5e9f2;}
+#main_content.workspace-active[data-parity="r3"] {--ui-font:var(--ui-font-gothic);--p23-growth:#f1a6d1;--p23-log-prose:#e5e9f2;}
 #main_content.workspace-active[data-parity="r3"] .workspace-module-header strong {letter-spacing:0!important;text-transform:none;font-weight:600;}
 #main_content.workspace-active[data-parity="r3"] #basic_character_info_div:not([data-custom-palette="true"]) :is(#character_health_value,#character_xp_value,#character_stamina_value,#character_mana_value) {width:max-content!important;max-width:100%;left:50%;transform:translateX(-50%);padding:0 .35em;background:var(--p23-dark-value);color:var(--p23-text)!important;text-shadow:none!important;font-weight:600;font-variant-numeric:tabular-nums;}
 #main_content.workspace-active[data-parity="r3"] #character_mana_div[data-zero-capacity="true"] {display:none!important;}
@@ -1457,6 +1459,7 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
 
 /* R22 combat log roles and Report kinds (consumed by styles/combat_log.css). */
 :root {
+ --ui-font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
  --log-ally: #8fe8ff; --log-hostile: #f0b6ff;
  --log-dealt: #ffe2a0; --log-taken: #ffa3b2; --log-defeat: #9aefb3;
  --log-quiet: #aeb8cc;
@@ -1511,7 +1514,7 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
 :root {
  --ui-font-gothic: "OOPS MS Gothic", "MS Gothic", "Menlo", "AppleGothic", "Hiragino Sans GB", monospace;
  --ui-font-numeric: "OOPS MS Gothic", "MS Gothic", "Menlo", "AppleGothic", monospace;
- --ui-font-prose: "Hiragino Sans", "AppleGothic", system-ui, sans-serif;
+ --ui-font-prose: var(--ui-font-gothic);
  --ui-luminous-radius: 0;
 }
 #main_content.workspace-active .customization-module[data-component-theme="luminous"],

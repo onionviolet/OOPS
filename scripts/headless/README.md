@@ -42,8 +42,10 @@ const saved = await game.save();                               // window.savePro
   inline `on*` attributes in global scope, `window.event`, named `window[id]`
   access, `<details>` toggling, form controls, inert canvas 2D context.
 - Visibility (`css.mjs`): the linked stylesheets' `display`/`visibility` rules
-  with CSS variables the game toggles on `<html>`, at a 1366x768 desktop. No
-  layout: geometry reads are zero.
+  with CSS variables the game toggles on `<html>`, at a 1366x768 desktop.
+  `checkVisibility()` covers box-tree suppression (`display:none`, `display:contents`,
+  disconnected nodes and existing hidden/details rules); CSS `visibility` is opt-in.
+  No layout: geometry reads are zero.
 - Classic inline scripts in `index.html` run as scripts (top-level `let` becomes
   `var` so a reboot can redeclare them). Same-origin `fetch` reads the checkout
   and 404s missing files (`private_packs/` behaves as in the browser).

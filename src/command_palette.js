@@ -21,7 +21,20 @@ const labelOf = controlLabel;
 export function collectPaletteEntries() {
     const entries = [];
     for (const [id, read] of sources) {
-        try { for (const entry of read() || []) entries.push({source: id, ...entry}); } catch { /* one source failing leaves the rest */ }
+        let projected;
+        try { projected = read() || []; } catch { continue; }
+        try {
+            for (const entry of projected) {
+                try {
+                    if (!entry || typeof entry !== 'object'
+                        || typeof entry.label !== 'string' || !entry.label.trim()
+                        || typeof entry.group !== 'string' || !entry.group.trim()
+                        || (entry.detail != null && typeof entry.detail !== 'string')
+                        || typeof entry.run !== 'function') continue;
+                    entries.push({source: id, label: entry.label, group: entry.group, ...(entry.detail ? {detail: entry.detail} : {}), run: entry.run});
+                } catch { /* a malformed optional row does not hide its source's healthy siblings */ }
+            }
+        } catch { /* a malformed optional source does not hide other sources */ }
     }
     return entries;
 }

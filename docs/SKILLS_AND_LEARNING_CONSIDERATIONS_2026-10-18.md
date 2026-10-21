@@ -506,3 +506,40 @@ clock or generic resolver. LATER: one synthetic composed case at that seam,
 strong cross-domain agent, medium effort when selected; done by relevant source
 checks and a useful rebuilt desktop journey with current-state persistence.
 No runtime change or new implementation priority in this round.
+
+
+## Recovered Corc round 6, 2026-10-21: practice changes more than a multiplier
+
+**Proposals**, linked to [title benefit modes](SKILLS_AND_TALENTS.md#recovered-corc-round-6-2026-10-21-title-benefits-by-mechanism) and [CRL43/CRL46](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-6-2026-10-21-title-benefits-and-small-opportunities); existing SLR, M4 and SLC owners remain authoritative.
+
+The recovered running action trains a skill while spending bodily resources and wearing footwear. Its title changes running's energy cost, not every consequence of practice. For OOPS, a selected practice route can express progress as changed economy, observation or method, while its actual tool/body/environment consequences remain legible. Resting or changing method may be a useful next move without turning each practice session into manual maintenance.
+
+A new faculty may enable examination or a new method; aptitude improves learning without inventing present mastery. If an optional worn title improves XP, use the existing title projection and the action's actual XP settlement policy. A resting title is not proof of arbitrary offline learning, and a title described as activated does not imply every skill needs a button.
+
+**ACT NOW (done):** saved this integration. **ACCOUNT FOR NOW:** inspect the selected route's producer, ongoing cost, XP settlement and stop/recovery together. **LATER / DELEGATE:** pair one real training activity with its title boundary; Sol medium, small/medium. Done: before/after rate and outcome are explained, stopping removes actual activity cost without erasing the earned passive, and already-settled XP is unchanged. No new universal wear or hunger rule is selected.
+
+
+## Recovered Corc round 8, 2026-10-21: books after learning and changing reading pace
+
+Weibao now requests implementation of all useful recovered-26 additions, continuing fitting slices through the existing coverage table. [CRL49–CRL50 and evidence](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-8-2026-10-21-useful-mechanics-beyond-titles) add these cases to the implementation palette. This authorization permits reasonable native choices; examples are not commands to reproduce source-world constants. Existing SLR/MR21–MR23, AD15–AD17/AD31/AD38 and UR61/UR63 remain authoritative.
+
+**CRL49, a book has a useful life after its new facts are learned.** The historical source converts an already-read book into a home furnishing with a locality-sensitive Literacy-learning modifier and remove/return hooks. Separate retained understanding, the physical copy, a place's study support and practice. A shelf may improve a real reading session through reference access or comfortable study without teaching the same fact again merely on hover or possession. Removing the copy changes the environmental support, not the memory already learned. Repeated copies contribute as the selected world's real mechanism warrants; no universal per-copy percentage is imported.
+
+For OOPS, inspect existing completed-book/furnishing/rereading readers before adding anything. A useful implementation uses a real owned copy or supported existing furnishing as one concrete study aid, reads it through the existing reading/XP owner, and gives it a readable local consequence. A purely decorative book may remain decorative. A soft book-spine accent, brief settled-book line or quiet remembered title can express the consequence without another reward.
+
+**CRL50, an estimate can change while completed work remains.** The source retains per-book reading progress on Stop and recomputes completion needs from current Literacy/rate during the session. Its moving-dot timer is separate from reading completion. OOPS already has book progress and native reading rate inputs; reuse them. Keep accumulated work, actual rate and estimated time distinct when pace changes, and apply a changed rate over its actual interval/settlement policy. Pausing or revisiting should not erase work; an estimate change alone does not grant completion or XP. Activity dots can mean “working,” while a blocked/stopped state needs its actual reason and static equivalent.
+
+ACT NOW (done): saved the source-qualified additions. ACCOUNT FOR NOW: no duplicate book state or learning calculator. IMPLEMENTATION, linked to the existing chat: complete a native learn/read/stop/resume/finish/revisit journey; if study support is a real gap, add the smallest fitting existing-owner consumer. Sol medium for progress/rate/history, Luna low for settled UI, small/medium. Done: preserved work after stop/reload, actual rate/applicability reflected, one completion settlement, no replay on return and a meaningful local study-aid effect if added. These are implementation instructions from the later user request, not a claim they have shipped.
+
+
+### Recovered additions: native implementation evidence, 2026-10-21
+
+The later [continuation](gm/dispatch/title-rules-implementation-2026-10-21/CONTINUATION_REPORT.md)
+implements practiced material insight through native recipe ownership and proves
+the existing finished-book home collection's real Literacy XP consumer. One and
+two copies provide the same local support; removing the physical copy preserves
+learned book progress and bonuses. Native read/stop, lamp/rate/ETA expiry, resumed
+work, completion and persistence use existing Book and clock owners. The
+recovered source's shelf operation did not require another duplicate book state
+or new per-copy reward. CRL49/50 now have runtime evidence for these bounded
+routes; no claim is made for every kind of book or furnishing.

@@ -1,5 +1,5 @@
 import {registerDomain} from './domain_registry.js';
-import {createHarvest,validateHarvest,validateHarvestEnvelope,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,setHarvestRoutine,pauseHarvestRoutine,resumeHarvestRoutine,cancelHarvestRoutine} from './harvest.js';
+import {createHarvest,validateHarvest,validateHarvestEnvelope,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,setHarvestRoutine,pauseHarvestRoutine,resumeHarvestRoutine,cancelHarvestRoutine,observeCarcass} from './harvest.js';
 import {validateHabitat,planHabitatAction} from './habitat_care.js';
 import {createHarvestPanel} from './harvest_ui.js';
 import {createHabitatPanel} from './habitat_care_ui.js';
@@ -30,6 +30,7 @@ function actHarvest(request){
     else if(request.type==='auto'){if(harvestOwner.routine&&['active','paused'].includes(harvestOwner.routine.status)){if(request.value)resumeHarvestRoutine(harvestOwner);else pauseHarvestRoutine(harvestOwner);}else {delete harvestOwner.routine;harvestOwner.auto=!!request.value;}}
     else if(request.type==='cancel')cancelHarvest(harvestOwner);
     else if(request.type==='begin')beginHarvest(harvestOwner,request.species,request.choice,ports.harvestContext(),false,request.specimenKey);
+    else if(request.type==='observe')observeCarcass(harvestOwner,request.species,request.specimenKey,ports.harvestContext());
     else throw Error('Unknown processing action.');});
     harvestPanel?.render();
 }

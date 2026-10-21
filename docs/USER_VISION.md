@@ -1,5 +1,48 @@
 # User vision and research coverage
 
+## Tool registry, launch wrappers and discovery reconciliation, 2026-10-21
+
+Later follow-up, Weibao:
+
+> go ahead and fix Cpp2IL too, then verify it on one of the games we already own, consider also improving access for chats here tool? so changing project.md? more to consider?
+
+He then requested updating `https://github.com/morluto/rea` too. This extends
+the earlier registry scope to repair/owned-game verification, the upstream REA
+update and useful project-chat access. The [live registry](TOOL_REGISTRY.md)
+and [follow-up receipt](audits/toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md)
+own current routes and distinct verification states. Existing analysis projects,
+old tool identities and installed game inputs remain preserved.
+
+Weibao, after the toolsets audit:
+
+> go ahead and make the tool registry and launch wrappers, and reconcile the stale docs so other agents can actually find and use all of this
+
+He also requested a more-to-consider pass for improvements to each toolset.
+This authorizes the shared operational registry, existing-tool wrappers and
+discovery-document corrections. The [registry](TOOL_REGISTRY.md) is the live
+entry point; the [implementation receipt](audits/toolsets_2026-10-21/IMPLEMENTATION.md)
+records actual checks, readiness gaps and per-tool follow-ups. Suggestions for
+new acquisition, registration, upgrades and target execution keep their own
+scope and acceptance gates; this request does not claim those completed.
+
+## Discord design guide and missing-media recovery, 2026-10-21
+
+Weibao, after the Discord absorption audit:
+
+> 26 MIssing attachments? go and send out a chat to get those, absorb the design guide into our set of UI reference rules?
+
+This authorizes one new chat to recover the exact 26 missing Corc/Proto23
+attachments, and the design-guide fold into the standing UI reference rules.
+[UR59–UR64](UI_RULES.md#discord-derived-reference-guide-2026-10-21) make the
+reusable source/typography/meter/reaction/task/summary guidance standing,
+with CRL1–CRL26 and the detailed comparison palettes routed to their existing
+owners. This accepts the reference-guidance fold, not every source mechanic,
+unresolved interpretation or candidate's visual feel. Current desktop targets,
+OOPS-specific reasons, original launch direction and player overrides remain.
+The [recovery brief](gm/dispatch/corc-missing-media-2026-10-21/BRIEF.md) owns the
+finite ID request, private evidence, disjoint writing scope and budget. Recovery
+completion is separate from design review and gameplay implementation.
+
 ## Upstream-derived interaction-system execution, 2026-10-20
 
 Weibao, after the deeper YAIR media review and its remaining-work assessment:
@@ -5645,3 +5688,60 @@ Weibao: "maybe we dont need to copy them, we should put their name in the fun wa
 ### Credit flair, author links and edited guinea pig, 2026-10-21
 
 Weibao specified his own edited guinea-pig file, diagonal treatment for Miktaew and Proto23, a different individual treatment for onionv, corner arrows/text supporting the original authors, GitHub-link consideration, and removal of the guinea pig's white background. [Current receipt](reviews/launch_menu_2026-10-21/REPORT.md#edited-source-distinct-flair-corner-links-and-transparent-cutout) records the exact source, non-destructive cutout, distinct credit treatments and verified links. Proto23/Corc's donation link needs its correct URL. No donation/star/publication is authorized or performed by adding these links. The simple PLAY screen and deferred separate start menu remain.
+
+
+### Titles versus skills: rule clarification, 2026-10-21
+
+Weibao: "wont those titles simply be skills? more to conisder? Distinctions we should establish and put into rulees?"
+
+This question prompted a clarification of existing AD30/AD38, not selection of a new title system: some proposed title benefits are skills, techniques or faculties named or granted by a title. Recognition/designation, grant source, actual capability and activation describe different roles. A title may genuinely supply authority or power through its world's mechanism. One effect is not counted twice for being labelled both skill and title; independent real rewards remain possible. [SLR40–SLR43](DOMAIN_RULES.md#titles-skills-and-effect-causes-2026-10-21) record the rule applications; [title owner C14](emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c14-titles-versus-the-capabilities-they-name-or-grant) holds examples. Specific mechanics, schemas, current title bonus behavior and implementation scope remain unchanged.
+
+
+### Implement useful recovered-26 additions, 2026-10-21
+
+Weibao: “Continue with the next fitting implementation slice from the coverage table, implement all the stuff we found and added to the oop palette”, followed by “implement all the useful stuff from the 26 missing” (coordinator relay). This authorizes fitting native implementation of the recovered additions, with reasonable reversible mechanism choices. Earlier planning-only statements describe their earlier passes; they do not defer useful fitting work indefinitely. Preserve actual live deferrals, private saves, sealed truths and existing owners. Source constants, personal media and unrelated toys are not requirements to copy literally. Complete playable slices in sequence and record exact unimplemented dependencies rather than marking them done from metadata. The cumulative implementation ceiling remains 56%, including repairs and verification, with no reset or automatic successor. [Runtime coverage and checkpoint](gm/dispatch/title-rules-implementation-2026-10-21/CHECKPOINT.md); [additional CRL49–52](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-8-2026-10-21-useful-mechanics-beyond-titles).
+
+
+### Gothic default and visible Proto23 delivery, 2026-10-21
+
+Weibao: "Then fix it accordingly, make Gothic the default internal font and make sure the inventory and other Proto23 UI improvements actually show up. Check the current app and finish the missing bits. We can also work on completing the research candidates and the partial implemtations to completion". He then directed: "Work on absorbing stuff that is done already, and then work on the parts we need? Use lesser agents to assist accordingly?"
+
+This selects MS Gothic as the internal default, including prose and controls, with existing explicit player/module font choices retained. The original PLAY/loading appearance stays under its earlier owner. Reconcile completed native work before implementing fitting gaps from the existing CUI/CRL/PFA owners; source extraction, implementation, visible delivery and human acceptance stay distinct. The [delivery record](reviews/PROTO23_UI_DELIVERY_CHECK_2026-10-21.md) owns current scope, exact input/check evidence, helper reservations and remaining work. This newly requested pass has a 55% to 60% included-usage window under AU7; the prior recovered-title run's 56% ceiling remains its historical bound. No commit, push or publication is selected.
+
+
+## Primary checkout default and finished-worktree cleanup, 2026-10-21
+
+Weibao: "Check which worktrees are still needed, clean up the finished ones safely, and make the primary checkout the default for future work."
+
+Accepted operational direction: ordinary future work defaults to
+`/Users/weiwei/code/yet-another-idle-rpg`. Separate worktrees are temporary
+exceptions for a concrete concurrent-write conflict, an isolated verification or
+integration candidate, or an explicit user request. Reuse a suitable existing
+checkout before creating another. Retire finished lanes after integration,
+active-use checks and preservation of local evidence and artifacts.
+
+This selects the working directory default; branch convergence is coordinated
+separately and must preserve current dirty files, indexes and active writers.
+[AD41 and operating procedure](gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21)
+own the workflow; [cleanup receipt](gm/WORKTREE_CLEANUP_2026-10-21.md) records
+per-checkout dispositions and recovery. No commit or push is requested here.
+
+
+## Shared master baseline and fork-only publication, 2026-10-21
+
+Weibao, after the UI/engine modularity and Electron branch-status review:
+
+> Bring all projects to the same baseline so everything will be considered, put everythign into master?
+
+When asked about the publication destination:
+
+> put it to our fork, we dont want to touch upstream
+
+He then requested coordination with the other chat doing this work. This selects
+consolidation of completed YAIR/OOPS work into master and publication to the
+personal fork, origin (`onionviolet/OOPS`), with upstream untouched. It is not
+an instruction to merge unrelated repositories. Existing active changes and
+private artifacts remain preserved; new UI work after the recorded snapshot
+retains its separate owner and release gate. [Consolidation record](gm/BASELINE_CONSOLIDATION_2026-10-21.md)
+owns exact inputs, reconciliation and verification. [AD41](RULES_INDEX.md#checkout-workflow)
+retains the primary-checkout default and justified temporary isolation.

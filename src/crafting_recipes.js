@@ -67,7 +67,7 @@ class Recipe {
         this.id = id;
 
         this.#availability = new AvailabilityComponent({is_unlocked});
-        availabilities["recipe"][this.id] = this.#availability;
+        if(id) availabilities.recipe[id] = this.#availability;
         this.recipe_type = recipe_type;
         this.result = result;
         this.scale_results = scale_results;
@@ -2122,6 +2122,8 @@ Object.keys(recipes).forEach(recipe_category => {
     Object.keys(recipes[recipe_category]).forEach(recipe_subcategory => {
         Object.keys(recipes[recipe_category][recipe_subcategory]).forEach(recipe_key => {
             recipes[recipe_category][recipe_subcategory][recipe_key].id = recipe_key;
+            // Item recipes use global final ids; component labels may repeat across crafts.
+            if(recipe_subcategory === "items") availabilities.recipe[recipe_key] = recipes[recipe_category][recipe_subcategory][recipe_key].getAvailabilityComponent();
         });
     });
 });

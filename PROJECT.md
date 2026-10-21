@@ -1,3 +1,94 @@
+## Shared master baseline, 2026-10-21
+
+Weibao requested one consolidated master baseline and explicitly authorized
+publication only to the personal fork, origin (`onionviolet/OOPS`), with upstream
+untouched. [Consolidation record](docs/gm/BASELINE_CONSOLIDATION_2026-10-21.md)
+owns the selected completed-source snapshot, later source releases, checks and
+publication state. The separate [worktree cleanup](docs/gm/WORKTREE_CLEANUP_2026-10-21.md)
+retired 26 finished checkouts with private recovery archives. New active UI work
+retains its owner and is not silently treated as released by this integration.
+
+## Primary checkout default, 2026-10-21
+
+Weibao requested safe retirement of finished worktrees and the primary checkout
+as the default for future work. Use `/Users/weiwei/code/yet-another-idle-rpg`
+for ordinary tasks; temporary isolation needs a concrete reason and an owner.
+[Direction](docs/USER_VISION.md#primary-checkout-default-and-finished-worktree-cleanup-2026-10-21),
+[AD41 procedure](docs/gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21)
+and [cleanup receipt](docs/gm/WORKTREE_CLEANUP_2026-10-21.md) own the decision,
+safety checks and retained exceptions. Branch integration has its own writer;
+this cleanup does not switch branches, commit, push or alter primary runtime files.
+
+## Titles versus skills: causal distinction, 2026-10-21
+
+Weibao questioned whether the proposed title benefits are simply skills and
+requested distinctions in rules. [SLR40–SLR43](docs/DOMAIN_RULES.md#titles-skills-and-effect-causes-2026-10-21)
+clarify existing AD30/AD38: distinguish recognition/designation, grant source,
+actual capability and activation; give one actual effect one authority while
+preserving independent rewards. [Direction/question](docs/USER_VISION.md#titles-versus-skills-rule-clarification-2026-10-21),
+[worked examples C14](docs/emergent/TITLES_ACHIEVEMENTS_AND_META_RULES_2026-10-15.md#c14-titles-versus-the-capabilities-they-name-or-grant).
+These are rule clarifications, not a new title system or runtime change.
+
+Later authorized implementation: the existing native title panel now distinguishes
+held benefits, optional worn selection and actual applicability, retaining valid
+nonpayoff selections and trained competence. The [implementation record](docs/gm/dispatch/title-rules-implementation-2026-10-21/REPORT.md)
+owns checks and remaining acceptance; [coverage](docs/gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md)
+keeps recovered examples separate from delivered gameplay. No new title power
+registry or changed held/worn bonus formula.
+
+## Useful recovered-26 implementation, 2026-10-21
+
+Weibao now authorizes fitting native implementation of all useful additions
+folded into the OOPS palette, continuing beyond the first title slice.
+[Direction](docs/USER_VISION.md#implement-useful-recovered-26-additions-2026-10-21),
+[coverage](docs/gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md) and
+[checkpoint](docs/gm/dispatch/title-rules-implementation-2026-10-21/CHECKPOINT.md)
+retain delivered evidence and remaining scope. CRL49–52 extend the book, reading,
+market and investigation cases. Work continues within the cumulative 56% ceiling;
+prior proposal-only status is not an indefinite deferral of fitting work.
+
+Current continuation delivers native remembered-material recipe insight, open-shop
+restocking with selection/review recovery, and light-dependent local search with
+retained work. Existing finished-book study support and changing reading pace
+have rebuilt native evidence. [Continuation report](docs/gm/dispatch/title-rules-implementation-2026-10-21/CONTINUATION_REPORT.md)
+distinguishes these slices from the remaining authorized perishable/history and
+other coverage gaps; the whole recovered palette is not claimed complete.
+
+## Shared tool registry and launchers, 2026-10-21
+
+Later authorized follow-up: Cpp2IL is repaired and verified on owned **100 Space
+Cats**, build 19025398, with unchanged installed inputs and declaration-only
+recovery. REA is updated/built from upstream at **6.7.0** (`6d356b843`), with a
+real Ghidra fixture check; patched 6.4.0 remains `rea-pinned`. Project-local REA
+and book-research MCP servers passed stdio discovery and effective client
+configuration checks. Fresh/refreshed trusted-project chats can load them;
+existing tool inventories may need refresh. Shell fallback for any registry
+route is `python3 scripts/toolsets.py run ID -- ARG...`.
+[Repair, update, chat access and remaining gates](docs/audits/toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md)
+separate declaration recovery from C# bodies and configured tools from a fresh
+chat's visible inventory. Discord and Cpp2IL currently use the shell route.
+
+Weibao authorized operational tool discovery, launch wrappers and stale-doc
+reconciliation after the toolsets audit. Start at the [tool registry](docs/TOOL_REGISTRY.md)
+or `python3 scripts/toolsets.py list`; it covers research/extraction, Discord,
+books/media and verification routes. [Direction](docs/USER_VISION.md#tool-registry-launch-wrappers-and-discovery-reconciliation-2026-10-21)
+and [implementation receipt](docs/audits/toolsets_2026-10-21/IMPLEMENTATION.md)
+separate offline readiness, manual/live acceptance and per-tool improvement
+proposals. No global registration or automatic installation is implied.
+
+## Discord design-guide rules and missing-media recovery, 2026-10-21
+
+Weibao requested recovery of the 26 missing Corc attachments in a new chat and
+absorption of the design guide into our UI reference rules. [Direction](docs/USER_VISION.md#discord-design-guide-and-missing-media-recovery-2026-10-21)
+and [UR59–UR64](docs/UI_RULES.md#discord-derived-reference-guide-2026-10-21)
+now route source context, typography, meter meaning, subject-bound reactions,
+visible work intent and meaningful summaries through the existing UI owners.
+CRL1–CRL26 and the fine-grained reference matrices remain available as examples;
+source-specific mechanics and human taste retain their separate status.
+[Recovery packet](docs/gm/dispatch/corc-missing-media-2026-10-21/BRIEF.md):
+chat `01a15e92-c962-7e92-aa2d-28415eb47c16` owns the exact missing-ID pass;
+creation and observed start do not establish recovered attachments.
+
 ## Launch menu update, 2026-10-20
 
 2026-10-21 follow-up: removed the inherited dummy/visitor badge, including its request producer and shell relocation, and restored the original decorative cat. The later credit correction keeps the cat with Miktaew and gives onionv a guinea-pig signature, now using a transparent cutout from his own edited guinea-pig PNG. Original-author credits are diagonal, onionv is upright with an underline, and corner support/source links are implemented; Proto23/Corc’s unverified Ko-fi remains pending. [LUI1–LUI4 receipt](docs/reviews/launch_menu_2026-10-21/REPORT.md) records full tests, rebuilt browser/emoji proof and a separately deferred shield-display suffix defect. Original PLAY screen and internal Gothic work remain as directed.
@@ -57,8 +148,12 @@ and [role map](docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#typography-
 retain existing shell/player overrides and separate candidate delivery from
 human visual acceptance. MS Gothic is now the selected reference-font family; its existing local Office
 collection is now privately loaded and browser-verified as MS-Gothic. The Luminous
-Gothic Appearance candidate, readable prose fallback and rarity/focus glow have
-rebuilt checks. [Styling receipt and 53-entry checklist](docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#tsg-implementation-receipt-2026-10-20)
+Gothic Appearance candidate, then-separate prose fallback and rarity/focus glow have
+rebuilt checks. Later 2026-10-21 direction selects Gothic as the internal default
+including prose and controls, retaining explicit player/module overrides and the
+original PLAY screen. [Current delivery and remaining work](docs/reviews/PROTO23_UI_DELIVERY_CHECK_2026-10-21.md)
+reconciles already completed native consumers before fitting gap implementation
+with lesser agents; the earlier optional-font treatment is superseded as the default. [Styling receipt and 53-entry checklist](docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#tsg-implementation-receipt-2026-10-20)
 record 27 checked / 26 open palette entries and the separate human visual gate.
 Other exact colors/intensity remain reversible candidate choices; no additional
 gameplay or mobile scope is selected.
@@ -1589,3 +1684,11 @@ retains previous authority and evidence without competing live instructions.
 ## Deep engine implementation chats, 2026-10-20
 
 Weibao requested connecting the five ranked engine proposals and creating one chat for each. The [dispatch checkpoint](docs/gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md) owns their bounded implementation selection, source reservations and dependency order: P1 shared combat effect semantics and P3 scenario facade, then P2 independent domain ports and P5 executable authoring, then P4 exact-target durable timed work. Existing gear-branch work and released light/time fixes are inputs to reconcile, not work to repeat. Current palette/source ownership still applies. AR1–AR16, AD36–AD38 and relevant domain rules govern the pilots; first milestone and deferred scope remain. No commit/push is selected by this request.
+
+
+### Superseded font summary retained from the prior baseline
+
+The later 2026-10-21 Gothic-default direction above supersedes this wording:
+
+Gothic Appearance candidate, readable prose fallback and rarity/focus glow have
+rebuilt checks. [Styling receipt and 53-entry checklist](docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#tsg-implementation-receipt-2026-10-20)

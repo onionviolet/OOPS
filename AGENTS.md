@@ -143,7 +143,30 @@ secrets by ID, route and status ("S2: Medicine route works"). Unseal only
 when he asks for that secret or world. Public franchise twists are not
 sealed; a changed or randomized truth is.
 
+## Source acquisition tools
+
+Start at [the shared tool registry](docs/TOOL_REGISTRY.md) or
+`python3 scripts/toolsets.py list` for current REA/Ghidra, managed/Unity,
+Discord, book, media and verification routes. Use `show` and scoped
+`doctor --probe` before a launch; dated tool-fit reports are history, not
+current installation authority. Launchers do not install, register or sign in.
+
+Before collecting books or fanfiction, read
+[source acquisition tools](docs/research/SOURCE_ACQUISITION_TOOLS.md). Discover
+the existing `/Users/weiwei/code/lncrawl-polite` fork and project bridges before
+writing another downloader. Reuse its polite transport; an upstream adapter or
+a script with a delay is not automatically polite mode. Keep actual source,
+capture, reading and gameplay verification separate. The shared rules here
+apply to both Codex and Claude through CLAUDE.md's AGENTS.md import.
+
 ## Multi-agent work
+
+Default future work to the primary checkout at
+`/Users/weiwei/code/yet-another-idle-rpg` (AD41). A new chat or agent does not
+itself require a worktree. Reuse an existing checkout when isolation is needed
+for overlapping writers, clean verification/integration, or a user request;
+record ownership and retire finished lanes through the
+[primary-checkout procedure](docs/gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21).
 
 For GM-role tasks, follow [the GM prompt](docs/GAME_MASTER_PROMPT.md)
 and recover after a context restart from its refresh protocol and the task's

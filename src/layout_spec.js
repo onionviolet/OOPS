@@ -35,11 +35,11 @@ export const LAYOUT_SPEC = Object.freeze({
     // any region lives in `fallback`. `contextual` homes depend on the context. R21c: the awakened
     // status window lives under You (it shows only once the system awakens).
     regions: Object.freeze({
-        player: Object.freeze({panels: ['vitals', 'shell-character', 'condition', 'status-window']}),
-        focus: Object.freeze({panels: ['focus']}),
-        inventory: Object.freeze({panels: ['belongings', 'combat-controls', 'shell-inventory-tools']}),
-        log: Object.freeze({panels: ['messages', 'shell-log-tools']}),
-        actions: Object.freeze({panels: ['records', 'skills', 'opponents']}),
+        player: Object.freeze({label: 'player', panels: ['vitals', 'shell-character', 'condition', 'status-window']}),
+        focus: Object.freeze({label: 'Around you', panels: ['focus']}),
+        inventory: Object.freeze({label: 'inventory', panels: ['belongings', 'combat-controls', 'shell-inventory-tools']}),
+        actions: Object.freeze({label: 'actions', panels: ['records', 'skills', 'opponents']}),
+        log: Object.freeze({label: 'log', panels: ['messages', 'shell-log-tools']}),
     }),
     fallback: 'actions',
     // A1: item inspection sits beside the activity area in idle/travel as well as combat,
@@ -219,6 +219,11 @@ export const LAYOUT_SPEC = Object.freeze({
 
 // UIM2: the route table, one entry per route in bar order, each joined to its target's surface.
 // Navigation, and later quick jump, log links and Back history, read this instead of a list.
+// Object order is the DOM/reading order. The host has no second region list.
+export function workspaceRegions(spec = LAYOUT_SPEC) {
+    return Object.entries(spec.regions).map(([id, region]) => ({id, label: region.label ?? id}));
+}
+
 export function routeTable(spec = LAYOUT_SPEC) {
     return spec.routes.map(route => Object.freeze({...route, surface: spec.surfaces[route.target] || spec.views[route.target] || null}));
 }

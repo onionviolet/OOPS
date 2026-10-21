@@ -11,7 +11,7 @@ const keys = (value, allowed) => { if (!record(value) || Object.keys(value).some
 export const CUSTOMIZATION_MODULES = ['ledger', 'crafting', 'local-actions', 'vitals', 'preparation', 'belongings', 'records', 'time', 'location', 'skills', 'messages', 'notebook', 'customization', 'status-window'];
 export const EFFECT_MODULES = ['ledger', 'crafting', 'skills'];
 export function defaultPresentationSettings() {
-    return {componentTheme: 'neutral', typography: {font: 'system', size: 14}, palette: {background: '#1c243b', text: '#f1f2f5', accent: '#9bb4ae'}, spacing: 8, effects: 'reduced', sound: false, presentation: 'inline', effectDefinition: {motif: 'receipt', duration: 1800, color: '#b8d8cf', background: '#162127', static: false, plain: false}};
+    return {componentTheme: 'neutral', typography: {font: 'gothic', size: 14}, palette: {background: '#1c243b', text: '#f1f2f5', accent: '#9bb4ae'}, spacing: 8, effects: 'reduced', sound: false, presentation: 'inline', effectDefinition: {motif: 'receipt', duration: 1800, color: '#b8d8cf', background: '#162127', static: false, plain: false}};
 }
 export function defaultCustomizationState() {
     return {schema: 1, active: 'Default', theme: {mode: 'off', season: 'spring'}, profiles: {Default: {settings: defaultPresentationSettings(), modules: {}}}};
@@ -150,7 +150,8 @@ export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}
         node.dataset.componentTheme = settings.componentTheme || 'neutral';
         node.dataset.customizationSeason = settings.resolvedSeason || 'off';
         const font = settings.typography.font;
-        const vars = {'--custom-font': {system: 'var(--ui-font)', serif: 'Georgia, serif', mono: 'monospace', gothic: 'var(--ui-font-gothic)'}[font], '--custom-prose-font': font === 'gothic' ? 'var(--ui-font-prose)' : {system: 'var(--ui-font)', serif: 'Georgia, serif', mono: 'monospace'}[font], '--custom-size': `${settings.typography.size}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
+        const family = {system: 'var(--ui-font-system)', serif: 'Georgia, serif', mono: 'monospace', gothic: 'var(--ui-font-gothic)'}[font];
+        const vars = {'--custom-font': family, '--custom-prose-font': family, '--custom-size': `${settings.typography.size}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
         node.dataset.typographyFont = font;
         Object.assign(vars, componentThemeTokens(settings));
         node.dataset.contrastRecovered = vars['--theme-contrast-recovered'];

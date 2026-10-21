@@ -39,9 +39,23 @@ test('Gothic font validates, applies its role tokens and survives JSON roundtrip
     applyCustomizationProfile(state, {moduleNodes:{ledger:node}});
     assert.equal(node.dataset.typographyFont, 'gothic');
     assert.equal(node.style.values['--custom-font'], 'var(--ui-font-gothic)');
-    assert.equal(node.style.values['--custom-prose-font'], 'var(--ui-font-prose)');
+    assert.equal(node.style.values['--custom-prose-font'], 'var(--ui-font-gothic)');
     assert.deepEqual(validateCustomizationState(JSON.parse(JSON.stringify(state))), state);
     assert.throws(() => validateCustomizationState({...state, profiles:{Default:{...state.profiles.Default,settings:{...state.profiles.Default.settings,typography:{font:'unknown',size:14}}}}}), /invalid font/);
+});
+
+test('internal Gothic defaults include prose while explicit saved font choices stay intact', () => {
+    const initial = defaultCustomizationState();
+    assert.equal(initial.profiles.Default.settings.typography.font, 'gothic');
+    const saved = clone(initial);
+    saved.profiles.Default.settings.typography.font = 'system';
+    saved.profiles.Default.modules.messages = {typography:{font:'serif',size:21}};
+    const nodes = Object.fromEntries(['ledger','messages'].map(id => [id, {style:{values:{},setProperty(k,v){this.values[k]=v;}},classList:{add(){}},dataset:{},querySelectorAll(){return [];}}]));
+    applyCustomizationProfile(saved, {moduleNodes:nodes});
+    assert.equal(nodes.ledger.style.values['--custom-font'], 'var(--ui-font-system)');
+    assert.equal(nodes.messages.style.values['--custom-prose-font'], 'Georgia, serif');
+    assert.equal(nodes.messages.style.values['--custom-size'], '21px');
+    assert.deepEqual(validateCustomizationState(JSON.parse(JSON.stringify(saved))), saved);
 });
 
 test('Luminous Gothic name collision gets a valid suffix and profile cap is enforced', () => {

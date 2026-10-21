@@ -138,3 +138,16 @@ Current check results and screenshots are in
 [delivery report](../prototypes/workbench/REPORT.md) owns exact executed checks,
 limits and any remaining acceptance gate. Production source/build/save/runtime
 checks belong to the eventual native change, not this workbench delivery.
+
+
+## Recovered Corc round 5, 2026-10-21: comparison without changing the experiment
+
+**Candidate study details**, from [CRL35/CRL38/CRL39](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-5-2026-10-21-subtle-interactions-folded-into-the-plans). This is a proposal under existing MW/UR59–UR64, not a change to the standing mockup protocol. Target 1920×1080 at actual 14/21px text; mobile optimization stays deferred.
+
+For a selected effect-chip/relationship study, capture one public fixture/projection and use it for both candidates. Keep cosmetic state separate from action/learning state. Fixture restore, hover/focus and font/theme changes default to observational operations; the recovered source's XP-on-hover behavior is not copied accidentally. A deliberate gameplay examination has its own action and receipt.
+
+Include a target that disappears or becomes unavailable during selection and a delayed font/fallback change that alters label width. Retain the selected logical subject while updating geometry; a tooltip or highlight follows the actual anchor, and a reflow does not redirect an in-progress commitment. A label/shape explains the meaning alongside color when the chosen glyph cannot render. Give icon candidates their actual backgrounds and adjacent text; a stand-alone swatch cannot establish legibility.
+
+If native projection is unavailable, label the fixture simulated and keep the same facts across variants. Do not load source HTML or its external image to obtain a screenshot. A future fixture's packaged assets and actual fonts need their own identity; the prototype's filename/version label is not enough to reproduce it.
+
+**ACT NOW (done):** folded these cases into the existing study owner. **ACCOUNT FOR NOW:** reuse the shared registry/adapters and renderer. **LATER / DELEGATE:** CRJ9, Luna low once the samples are settled, small effort. Done: source-input hashes, same-fixture comparison, zero unintended XP/resource/profile changes, retained subject/focus through reflow and restored comparison state, plus actual-size desktop captures. No new study is built by this documentation pass.

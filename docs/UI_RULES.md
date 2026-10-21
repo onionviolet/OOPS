@@ -137,6 +137,55 @@ remain proposals, not an accepted grouped default.
 | UR57 | **Review the full journey in changing state.** Exercise finding, switching, inspecting, acting, returning and resuming, including full discovered routes, large text, unavailable targets and relevant failure recovery. Record click/key cost, lost context and useful visible content; screenshots and counts alone do not prove findability or acceptance | A clean opening frame hiding repeated navigation friction or broken return behavior |
 | UR58 | **A display preference has an owner and reset boundary.** Define whether it follows this browser, character or world; reconcile route IDs, pins, filters and selection on reload/import/reset. Missing targets get a safe explanation; undiscovered targets stay unnamed. Reuse existing state and migration policy | A different save inheriting another character's reminders, stale routes or leaked discoveries |
 
+## Discord-derived reference guide, 2026-10-21
+
+Weibao requested absorbing the design guide into the UI reference rules after
+the [Discord absorption check](audits/DISCORD_ABSORPTION_CHECK_2026-10-21.md).
+[Direction](USER_VISION.md#discord-design-guide-and-missing-media-recovery-2026-10-21).
+UR59–UR64 make the reusable guidance standing; source-specific mechanics and
+unresolved interpretations retain their recorded status. Apply these alongside
+UR12/UR49 and AD40 when designing or reviewing a reference-informed surface.
+Defaults, intensity and exceptions follow the selected world, player settings
+and actual mechanism, with their reason and cost stated in the task record.
+
+| Code | Rule | Mistake it prevents |
+| --- | --- | --- |
+| UR59 | **A reference keeps its date, speaker and evidence status.** Bind the relevant image/clip to its caption and useful discussion; distinguish shown behavior, developer statement, player suggestion and our inference. Keep alternate drafts and later corrections discoverable. Adapt the useful lesson through the current OOPS owner, naming deliberate differences under UR49. Missing bytes, an unused draft and a later release are different states. New recovered material may correct an interpretation; review the affected rule or example explicitly rather than silently adopting it | Treating a liked tooltip draft as the latest shipped UI, or turning a source joke, formula guess or source-world limit into an OOPS requirement |
+| UR60 | **Compose typography, color and frames by reading role.** Use shared tokens for compact labels, numeric comparisons, longer prose, task regions, selection and quiet decoration. MS Gothic is the selected internal default, including prose and controls (2026-10-21 direction); verify the rendered face and per-glyph fallback. The earlier optional compact-font candidate remains historical. Preserve the original launch direction and player/module overrides. Keep full known names accessible, labels on quiet readable backing, and commands stable at actual 14/21px desktop text. Density, glow and world styling are dials whose cost is legibility and distraction | Copying colors without composition, claiming a font loaded from its CSS name, borders crossing values, or shortening a label until its meaning is lost |
+| UR61 | **A meter says which question it answers.** Distinguish current pool/capacity, progress/completion, readiness, conditional success, signed contribution/rate, discrete stock, remembered observation and same-subject recent change. Name units, baseline and applicability; a full progress bar is not automatically a warning or eligibility proof. Derive thresholds and comparisons from the owning mechanism and public knowledge, with time/place on stale observations when useful. Keep readable text/static meaning and keyboard Details; an extra contextual resource may appear without moving commands | A 100% success tooltip on an unavailable recipe being read as readiness, a maximum increase being shown as healing, or an old observation being presented as live truth |
+| UR62 | **Local reactions follow the actual subject and settled occurrence.** Bind hit, repair, recovery, work completion, weather, household and sound cues to the owner’s public state or receipt and the subject's lifetime. On replacement, load or revisit, reconcile transient cues without replaying rewards or attaching A's pulse to B. The little actor may move while its controls stay still. Motion, sound, humor and intensity are optional dials with static/text equivalents. Distinguish settled animation from a real paused response; bodily competence, serious outcomes and supported sensing determine fitting expression | Fake rescue opportunities, effects deciding gameplay, a scene exposing hidden state, or a forced gag taking away a working method |
+| UR63 | **Keep the task's known dependencies and commitment together.** Show the actual target, selected means, input/stock policy, requested amount, progress, stop reason and next move in the task's natural home. Explain attempts versus useful outputs, substitution, interruption, continuation and what is spent/retained/returned through existing owners. Known producer/use links and comparisons name exact subjects and restore the original task on return. A tracked goal reserves stock only through an explicit existing policy; mastery may reduce handling where its mechanism supports that change | A quantity goal silently spending a prized stack, duplicated preview math, navigation discarding intent, or an inverse recipe search revealing unknown content |
+| UR64 | **Condense repeated presentation without flattening meaningful change.** Define grouping identity, occurrence count, retention/detail window and preference/reset owner. Keep changed outcomes, subjects and important transitions distinguishable; preserve the actual gameplay result and explain any bounded retained display history. New discovery, recent gain and remembered-versus-current change are different cues. Keep a stable route to available detail and a useful return summary, preserving focus, scroll/follow and known membership. Quiet recurring feedback rather than replaying a backlog of effects | A repeat counter hiding a new consequence, “new” badges pretending to track XP, unbounded detail rebuilds, or a compact log implying a complete archive it does not retain |
+
+### Reference routing and retained examples
+
+This table routes the whole design guide into standing rules and existing detail
+owners; it does not select every illustrated mechanic for implementation.
+The [fine-grained comparison](research/proto23/FEATURE_AUDIT_SIDE_BY_SIDE_2026-10-20.md)
+retains PFA001–PFA090, PFY comparisons and unresolved source cases.
+The [UI/playful report](research/proto23/UI_AND_PLAYFUL_PRESENTATION_OPPORTUNITIES_2026-10-20.md)
+and [YAIR review](research/yair-upstream/DISCORD_RESEARCH_2026-10-20.md) preserve
+independent findings and chronology. Use their later execution receipts for
+implementation status, not an older Candidate/Partial label alone.
+
+| Design-guide family | Standing application | Detail owner and retained scope |
+| --- | --- | --- |
+| CRL1, CRL7: uncertainty and useful comparisons | UR36/40/45/47/59/61; AD6–8 | [Means/appraisal](MEANS_AND_APPRAISAL.md): actual versus observed versus forecast, named baseline and stale evidence |
+| CRL2, CRL3, CRL8: methods, custody and meaningful variety | UR35/49/63; MR and AD38 | [Granular systems](GRANULAR_SYSTEMS_AND_INTERACTIONS.md), [making](MAKING_RULES.md), [gear dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md): display actual costs/results; physical piles, spoilage or universal wear are not implied |
+| CRL4, CRL5, CRL6: intent, mastery and discovery | UR22/23/35/42/52/63; MR/SLR | [Crafting](CRAFTING_ENGINE.md), [UI palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20): known uses, real work and changed handling through actual owners |
+| CRL9, CRL22: composition, typography and labels | UR6/12/34/37/39/43/46/49/60 | [Panel kit](PANEL_KIT.md), [typography/style receipt](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#tsg-implementation-receipt-2026-10-20): current shell, legible compact rhythm, full known identity |
+| CRL10, CRL19, CRL21: cadence, local reactions and recent changes | UR38/44/48/52/56/58/61/62/64 | [Presentation](PRESENTATION_AND_FOURTH_WALL.md), UI palette: receipt-bound effects, new versus changed, honest aggregation and return |
+| CRL11, CRL12, CRL13: home, flavor and connected outings | UR4/35/49/57/59/62/63 | Granular systems and presentation: real-state home/return loops; flavor/claims are distinct from an implemented property |
+| CRL14: choose a complete playable question | UR16/18/45/57/59; AD33/36 | [Original guide](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md): bounded journey through aftermath, source/build/native/taste proof kept separate |
+| CRL15–CRL18: spatial progress, slips, impact and aftermath | UR35/38/49/57/61/62; AD19/38 | Presentation and original guide: scene responds to actual state; spatial climbing remains a specific content proposal, not a completed palette feature |
+| CRL20, CRL23–CRL26: personality, little actors, competence, sound and familiarity | UR37/38/45/52/58/62/64; AD6/16/38 | Presentation and original guide: caused, optional, observer-safe expression; existing history/clock owners, tone and human judgment |
+
+For a touched reference family, the task record names the applicable UR codes,
+source locator, existing consumer, visible desktop outcome and a meaningful
+failure scenario. Reuse relevant passing evidence only for unchanged inputs
+(AD36). A rule fold, 90 routed comparisons or 53 bounded treatments does not
+certify all source media, future world mechanics or current combined gameplay.
+
 ## Craft 1 activation evidence, 2026-10-16
 
 [UA2 native receipt](gm/cross-audit-reconciliation-2026-10-15/UA2_NATIVE_2026-10-16.md)

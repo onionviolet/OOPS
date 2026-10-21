@@ -121,3 +121,16 @@ The separate chat **Research YAIR developer design and media** was created
 after this collection. It owns its own YAIR research record, will verify
 Miktaew's author identity, inspect surrounding discussions and reuse the
 exporter/toolset findings. Its collection is a separate, ongoing task.
+
+## Dated recovery receipt, 2026-10-21
+
+The historical 26-ID gap above is now resolved: all 26 exact requested attachments were recovered from freshly observed original CDN links, with hashes, sizes, source contexts and decode checks. Prior manifests remain historical evidence. This set contains 12 HTML files, eight PNGs, one two-frame GIF, three MP3s, a font collection and a text save; it was not 26 missing gameplay screenshots. HTML/save files remained inert. A separately retained WebP derivative does not substitute for its recovered PNG original.
+
+[Recovery report and source-qualified corrections F30–F34](../../gm/dispatch/corc-missing-media-2026-10-21/REPORT.md), [private 26-row receipt](private/discord-media-2026-10-20/recovery-26-2026-10-21/coverage-receipt.json), [private safe gallery](private/discord-media-2026-10-20/recovery-26-2026-10-21/catalog/index.html). Recovery/local integrity are verified; gallery browser rendering, current released behavior, gameplay implementation and human acceptance are separate and were not established here.
+
+
+## Detailed recovered-file review, 2026-10-21
+
+[Round 4, CRL27–CRL34](DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-4-2026-10-21-what-the-26-recovered-files-actually-add) reviews the recovered set and selected nearby discussions in depth. Important qualification to F22: the historical game snapshots already contain a title-mediated rough food-inspection route and another estimate branch using average decay parameters. The later discussion is not proof that food appraisal was absent; the estimate branch's ordinary unlock route and current release behavior remain unverified. F30–F34's original recovery findings retain their narrower evidence status.
+
+The added palette distinguishes explanatory microprototypes, draft authoring, clock outcome checks, emerging capabilities, scoped achievement, portable typography and reproducible support evidence. ACT NOW research corrections are saved; ACCOUNT FOR NOW constraints and LATER CRJ8–CRJ11 remain proposals through existing owners. No gameplay or authority-rule change. [Private 26-file ledger](private/discord-media-2026-10-20/recovery-26-2026-10-21/deeper-review/file-review-ledger.json) states the actual inspection method and limits for every attachment.

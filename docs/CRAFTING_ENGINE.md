@@ -801,3 +801,49 @@ low/medium for settlement/custody, Luna low for a settled view; small/medium for
 one selected work/producer path. Done: the exact means, real output, costs,
 interruption and return agree in a rebuilt desktop journey, with current-state
 save/reload/import for changed persistent facts. Human usefulness remains open.
+
+
+## Recovered Corc round 5, 2026-10-21: stock identity, estimates and commitment
+
+**Proposed additions** to CRL3/CRL4 and the existing native making owners, from [CRL36–CRL38](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-5-2026-10-21-subtle-interactions-folded-into-the-plans). Applies MR1/MR4/MR5/MR30/MR31, AD6–AD8/AD38 and UR61/UR63. General spoilage remains deferred until a selected process needs it; none is implemented by this fold.
+
+| Reference | Proposed application | Observable check when selected |
+| --- | --- | --- |
+| CRL36/CRL37 | A displayed stack can contain material histories that matter differently to a chosen process. Default: keep distinctions only when the consumer reads them. Combining old and fresh stock does not by itself establish one average expiry or make the whole stack fresh; use the material mechanism's actual merge/split policy. Approximate quantities and age ranges are public claims, not additional inventory truth. | Split and transfer a real lot, merge it under the selected policy, then process part of it. Conserved quantity/history and output claims agree; no duplication, free rejuvenation or false whole-stack estimate. |
+| CRL37 | Ordinary repeat policies select from supported knowledge and the requested stock policy. Sorting by a remembered freshness estimate must not silently switch to hidden true expiry or consume a different reserved/prized variant when the preferred one runs out. A cooking/preservation process can change future deterioration with a reason and cost, without erasing unrelated exposure history. | Unavailable preferred input yields its existing stop/substitution behavior; attempts, successful crafts and actual outputs retain their distinct counters. Safety stops keep their accepted exception. |
+| CRL38 | Bind preview, selection and commitment to the same actual recipe/material subject. If stock changes between pointer-down, keyboard selection and commit, revalidate through the native spender. Preserve the player's intended subject and explain a stale/unavailable choice; choose a replacement only under an explicit existing substitution policy. | Change stock or subject while a control is held. The original action either settles on its intended subject or returns an accurate reason, without crafting a newly hovered variant. Save/load follows existing goal lifecycle; `craft_batch_goal.js` currently clears its session display intent on load and is not an automatic reservation. |
+
+`material_choice_view.js` already distinguishes selection/inspection from explicit Craft buttons, and native crafting remains the spender. **ACT NOW (done):** folded these dependencies into this owner. **ACCOUNT FOR NOW:** preserve the existing seams. **LATER / DELEGATE:** extend CRJ8, or test the stale-choice case when the related making route changes; Sol medium for material/history judgment, Luna low for settled UI wiring, small/medium effort. Done means actual transaction/projection and persistence evidence where state changes, not a duplicate preview inventory.
+
+
+## Recovered Corc round 6, 2026-10-21: materials can suggest a next experiment
+
+**Proposal application of CRL45**, from [the recovered-code round](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-6-2026-10-21-title-benefits-and-small-opportunities), under MR21–MR23, AD6–AD8/AD38 and UR59/UR63. Recovered quill and ink acquisition handlers each check the complementary item's `have` flag before granting a recipe. The paired handlers support either arrival order at the predicate level; this inspection does not establish the full lifecycle semantics of that flag or load-time discovery.
+
+For a selected OOPS process, encountering compatible materials can suggest “these might work together” through the existing discovery/recipe owner. Keep heard-of, previously handled, currently owned, carried, equipped and consumable quantities distinct where needed. A combination idea need not consume the ingredients or certify success. Learning the recipe can persist after the sample is sold; eligibility to make it still depends on the real stock, tool and method. A meaningful newly understood interaction can receive a small one-time note, while already-known combinations remain quiet.
+
+Use `recipe_connections.js` for known dependencies and the existing recipe/discovery authority for a grant; a read-only search index must not award recipes, roll quality or expose hidden names. The default is a supported observation/hypothesis, with actual experimentation or teaching when the world requires it. A title-granted insight can improve that observation through the same means owner rather than inventing a second recipe catalog.
+
+**ACT NOW (done):** folded the opportunity into this plan. **ACCOUNT FOR NOW:** preserve knowledge versus stock and actual discovery ownership. **LATER / DELEGATE:** extend an existing selected craft/discovery journey with two arrival orders, a missing ingredient, sale/reacquisition and reload. Sol medium to settle the inference/learning rule, Luna low for settled presentation; small/medium. Done: one explained discovery, persistent knowledge where intended, no duplicate grant or free consumption, and known-only producer/use links. No discovery mechanic is implemented here.
+
+
+### Native material insight delivery, 2026-10-21
+
+Later useful-recovered-26 implementation adds one frontier inference through
+existing native acquisition and recipe availability. Knowing Weak healing
+powder, meeting the native Healing powder recipe's starting Alchemy familiarity
+and encountering both of its herbs lets a relevant acquisition connect the
+preparation. Remembered encounters survive selling a sample; learning consumes
+no stock and guarantees no craft. Actual craft still reads full stock, native
+station, disposition, skill, chance and costs. The native recipe availability is
+the learned entitlement, with no second knowledge cache. Final item-recipe IDs
+now bind their own native AvailabilityComponents; missing bindings had rejected
+the real trade before publication. Repeated component labels across categories
+were not given a new global-ID migration.
+
+Both real buy/sell/buy arrival orders, insufficient/full materials, exact
+consumption/output, quiet repeats and Save/reload/Export/literal Import were
+rebuilt-verified. [Continuation report](gm/dispatch/title-rules-implementation-2026-10-21/CONTINUATION_REPORT.md)
+keeps current input identity, fixture/compatibility limits and the broader
+perishable/history remainder. This is a reversible native proposal, not a
+universal rule that touching ingredients reveals any recipe.

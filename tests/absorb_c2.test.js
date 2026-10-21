@@ -110,3 +110,20 @@ test('parcel first row and quest disclose the mill prerequisite until it is open
  assert.match(localLifeQuestView(s,{millUnlocked:false}).find(q=>q.id==='village.parcel').objective,/Cave room.*report/);
  assert.doesNotMatch(localLifeQuestView(s,{millUnlocked:true}).find(q=>q.id==='village.parcel').objective,/Before collecting/);
 });
+
+import {localSearchMethod} from '../src/absorb_c2/local_life.js';
+test('ongoing local search changes method as light/means change and retains completed work',()=>{
+ let s=advanceLocalLife(undefined,frame({location:'Shack',illumination:60})).state;
+ s=localLifeAction(s,frame({location:'Shack',illumination:60}),'look').state;
+ s=advanceLocalLife(s,frame({location:'Shack',illumination:60,clock:2})).state;assert.equal(s.searchProgress,2);
+ s=advanceLocalLife(s,frame({location:'Shack',illumination:0,clock:4})).state;assert.equal(s.searchProgress,3);
+ const before=structuredClone(s),view=localLifeView(s,frame({location:'Shack',illumination:0,clock:4}));
+ assert.match(view.readiness,/feel nearby surfaces/);assert.match(view.rows[0].label,/3\/5 search work/);assert.deepEqual(s,before);
+ s=normalizeLocalLife(JSON.parse(JSON.stringify(s)));assert.equal(s.searchProgress,3);
+ const done=advanceLocalLife(s,frame({location:'Shack',illumination:0,nightVisionRatio:.5,clock:6}),()=>0);
+ assert.equal(done.state.searches.Shack.found,true);assert.equal(done.native.items.length,1);
+ assert.equal(localSearchMethod({illumination:0,nightVisionRatio:.5}).id,'visual');
+ assert.equal(localSearchMethod({illumination:0}).id,'touch');
+ assert.equal(localSearchMethod({illumination:80}).id,'visual');
+ assert.equal(advanceLocalLife(done.state,frame({location:'Shack',illumination:0,clock:30}),()=>0).native.items.length,0);
+});
