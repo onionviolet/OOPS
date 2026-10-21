@@ -1,6 +1,6 @@
 // Present native item facts once; retain omitted technical lines on demand.
 // No item statistics or comparison math is computed by this view.
-export function descriptionCopy(tooltip) {
+export function descriptionCopy(tooltip, {omitTitle=true}={}) {
     const doc=tooltip.ownerDocument,copy=tooltip.cloneNode(true);
     copy.removeAttribute('id');copy.removeAttribute('style');copy.className='shell-native-item-description';
     for(const n of copy.querySelectorAll('[id]'))n.removeAttribute('id');
@@ -12,17 +12,21 @@ export function descriptionCopy(tooltip) {
     const seen=new Set();
     for(const [index,row] of lines.entries()){
         // Native tooltips begin with the item name; the panel owns that heading.
-        if(index===0)continue;
+        if(index===0&&omitTitle)continue;
         const text=row.textContent.trim(),key=text.replace(/\s+/g,' ');
         if(seen.has(key))continue;seen.add(key);
         if(/^Carried, exact variant:/.test(text)){extra.append(row);continue;}
+        if(/^(Treatment|Last work):/.test(text)){extra.append(row);continue;}
         if(/^Known uses \(tracking does not reserve stock\):$/.test(text)){row.textContent='Known uses';row.title='Tracking does not reserve stock.';}
         if(/^(Component tier|Basic stats):?/.test(text)){if(!/^Basic stats:?[\s]*$/.test(text))extra.append(row);continue;}
         if(/^(Slot|Type|Material type|Effects|Compared to equipped|Time to read|Reading it provided|Value|Count in player inventory):?/.test(text))row.dataset.detailRole='label';
         if(/^Value:/.test(text))row.dataset.detailRole='value';
         if(/:\s*-\d/.test(text))row.dataset.detailRole='decrease';
         else if(/:\s*\+\d/.test(text))row.dataset.detailRole='increase';
-        else {const multiplier=text.match(/:\s*x(\d+(?:\.\d+)?)/);if(multiplier&&Number(multiplier[1])!==1)row.dataset.detailRole=Number(multiplier[1])<1?'decrease':'increase';}
+        else {const multiplier=text.match(/:\s*x(\d+(?:\.\d+)?)/);if(multiplier&&Number(multiplier[1])!==1){
+            const lowerIsBetter=/^(Damage taken|Min damage[ _]share):/.test(text);
+            row.dataset.detailRole=(Number(multiplier[1])<1)!==lowerIsBetter?'decrease':'increase';
+        }}
         copy.append(row);
     }
     if(extra.children.length>1)copy.append(extra);

@@ -42,7 +42,20 @@ try{
   if(process.env.CORC_VERIFY==='1'){
    const cdp=await page.context().newCDPSession(page);await cdp.send('DOM.enable');await cdp.send('CSS.enable');
    const {root:dom}=await cdp.send('DOM.getDocument');const {nodeId}=await cdp.send('DOM.querySelector',{nodeId:dom.nodeId,selector:'#inventory_content_div .item_name'});
-   const actual=await cdp.send('CSS.getPlatformFontsForNode',{nodeId});await cdp.detach();
+   const actual=await cdp.send('CSS.getPlatformFontsForNode',{nodeId});
+   const {nodeId:smallNode}=await cdp.send('DOM.querySelector',{nodeId:dom.nodeId,selector:'.nearby-context-list small'});
+   const smallFonts=await cdp.send('CSS.getPlatformFontsForNode',{nodeId:smallNode});await cdp.detach();
+   assert(smallFonts.fonts.some(f=>f.familyName===`OOPS Gothic Bitmap ${Math.round(size*.85)}`&&f.isCustomFont),'secondary labels render the matching native strike');receipt.cases.at(-1).smallFonts=smallFonts.fonts;
+   const sheet=await page.evaluate(()=>({
+    backing:getComputedStyle(document.querySelector('#inventory_div')).backgroundColor,
+    labels:[...document.querySelectorAll('.shell-core-stats > button')].map(n=>{
+     const label=n.firstElementChild.getBoundingClientRect(),value=n.children[1].getBoundingClientRect();
+     return {name:n.dataset.statRecord,overlap:label.right>value.left+1,outside:n.scrollWidth>n.clientWidth+1};
+    }),smallSize:getComputedStyle(document.querySelector('.nearby-context-list small')).fontSize
+   }));
+   assert.equal(sheet.backing,'rgb(8, 21, 42)','inventory backing is opaque');
+   assert.equal(sheet.smallSize,`${Math.round(size*.85)}px`);
+   assert(sheet.labels.every(n=>!n.overlap&&!n.outside),'You label/value pairs stay together without collision');receipt.cases.at(-1).sheet=sheet;
    assert(actual.fonts.some(f=>f.familyName===`OOPS Gothic Bitmap ${size}`&&f.isCustomFont),'actual native bitmap face rendered');receipt.cases.at(-1).actualFonts=actual.fonts;
    assert.deepEqual(receipt.cases.at(-1).overflow,[false,false]);
    assert.equal((description.match(/Cold tolerance: \+0.5/g)||[]).length,1,'summary shows a modifier once');

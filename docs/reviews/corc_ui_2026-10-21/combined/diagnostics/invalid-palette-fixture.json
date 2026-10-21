@@ -1,0 +1,4 @@
+{
+  "error": "page.waitForFunction: Timeout 30000ms exceeded.\n    at resumeElectronGame (/Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/electron_ready.mjs:5:16)\n    at open (/Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/combined-gear-ui.mjs:23:128)\n    at async file:///Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/combined-gear-ui.mjs:53:2",
+  "errors": []
+}

@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: Luminous Gothic draft is isolated, preserves profiles and copies explicit module choices
+ok 1 - Luminous Gothic draft is isolated, preserves profiles and copies explicit module choices
+  ---
+  duration_ms: 2.699209
+  type: 'test'
+  ...
+# Subtest: Luminous Gothic supplies purple messages palette only when no explicit palette exists
+ok 2 - Luminous Gothic supplies purple messages palette only when no explicit palette exists
+  ---
+  duration_ms: 0.280542
+  type: 'test'
+  ...
+# Subtest: Gothic font validates, applies its role tokens and survives JSON roundtrip
+ok 3 - Gothic font validates, applies its role tokens and survives JSON roundtrip
+  ---
+  duration_ms: 0.719208
+  type: 'test'
+  ...
+# Subtest: internal Gothic defaults include prose while explicit saved font choices stay intact
+ok 4 - internal Gothic defaults include prose while explicit saved font choices stay intact
+  ---
+  duration_ms: 0.826375
+  type: 'test'
+  ...
+# Subtest: Luminous Gothic name collision gets a valid suffix and profile cap is enforced
+ok 5 - Luminous Gothic name collision gets a valid suffix and profile cap is enforced
+  ---
+  duration_ms: 0.335541
+  type: 'test'
+  ...
+# Subtest: compact item inspection keeps native facts and links, without repeated modifiers
+ok 6 - compact item inspection keeps native facts and links, without repeated modifiers
+  ---
+  duration_ms: 3.826459
+  type: 'test'
+  ...
+# Subtest: gear inspection distinguishes reduced incoming damage and retains work provenance
+ok 7 - gear inspection distinguishes reduced incoming damage and retains work provenance
+  ---
+  duration_ms: 1.359333
+  type: 'test'
+  ...
+# Subtest: UI changes introduce no unreviewed colors, fonts, radii, cssText or foreign-host insertion
+ok 8 - UI changes introduce no unreviewed colors, fonts, radii, cssText or foreign-host insertion
+  ---
+  duration_ms: 339.744583
+  type: 'test'
+  ...
+# Subtest: UI contract catches new literal styling and aliased/direct foreign panel insertion
+ok 9 - UI contract catches new literal styling and aliased/direct foreign panel insertion
+  ---
+  duration_ms: 0.132708
+  type: 'test'
+  ...
+# Subtest: every panel declares a surface type and every route resolves through the route table
+ok 10 - every panel declares a surface type and every route resolves through the route table
+  ---
+  duration_ms: 26.138
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 411.15475

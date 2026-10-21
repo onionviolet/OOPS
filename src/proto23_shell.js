@@ -123,9 +123,11 @@ export function mountProto23Shell({read}) {
     function hideContext(){clearTimeout(contextTimer);if(contextPreview.matches(':popover-open'))contextPreview.hidePopover();contextSource?.removeAttribute('aria-describedby');contextSource=null;contextSignature='';contextPinned=false;}
     function showContext(source,interactive=false){
         if(!active()||document.getElementById('main_content').dataset.parity!=='r3')return;
+        if(document.getElementById('main_content').dataset.shellResizing==='true'){hideContext();return;}
         if(contextPinned&&contextSource!==source&&!interactive)return;
         contextPinned=interactive||contextSource===source&&contextPinned;
-        contextPreview.dataset.interactive=String(contextPinned||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const nextSignature=attributeRow?JSON.stringify(attributeRow):source.nativeEffectView&&JSON.stringify(source.nativeEffectView)||source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.placeTypeView&&JSON.stringify(source.placeTypeView)||source.innerHTML+source.title;if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
+        const anchor=source.getBoundingClientRect();
+        contextPreview.dataset.interactive=String(contextPinned||source.dataset.contextPreview==='effects');clearTimeout(contextTimer);const attributeRow=source.dataset.attributePreview?attributeInspector.getRows().find(row=>row.id===source.dataset.attributePreview):null;const contentSignature=attributeRow?JSON.stringify(attributeRow):source.nativeEffectView&&JSON.stringify(source.nativeEffectView)||source.logDescription||source.dataset.contextPreview==='effects'&&document.getElementById('effects_tooltip')?.innerHTML||source.dataset.effectAnchor==='opponent-name'&&document.getElementById('current_focus').textContent||source.placeTypeView&&JSON.stringify(source.placeTypeView)||source.innerHTML+source.title;const nextSignature=JSON.stringify([contentSignature,anchor.x,anchor.y,anchor.width,anchor.height]);if(contextSource===source&&contextSignature===nextSignature&&contextPreview.matches(':popover-open'))return;contextSignature=nextSignature;hidePreview();contextSource?.removeAttribute('aria-describedby');contextSource=source;
         contextPreview.replaceChildren();
         if(attributeRow){contextPreview.append(attributeExplanation(attributeRow));
         }else if(source.dataset.contextPreview==='temperature'){
@@ -149,12 +151,12 @@ export function mountProto23Shell({read}) {
             contextPreview.append(node('strong','Related panel'),node('p','Open shows the current related panel. Hover an underlined subject for its recorded description.'));
         }else{
             const tooltip=source.dataset.nativeStat?document.querySelector(`#character_stats_div #${source.dataset.nativeStat}`)?.closest('.stat_slot_div')?.querySelector('.stat_tooltip'):source.querySelector('.stat_tooltip,[id$="_tooltip"]');
-            if(tooltip)contextPreview.append(descriptionCopy(tooltip));
+            if(tooltip)contextPreview.append(descriptionCopy(tooltip,{omitTitle:false}));
             else contextPreview.append(node('strong',source.matches('dl > div')?[...source.children].map(n=>n.textContent).join(': '):source.textContent.trim()),node('p',source.title||'Known native combat facts.'));
         }
         for(const n of contextPreview.querySelectorAll('[id]'))n.removeAttribute('id');
         const region=source.closest('[data-custom-palette]')||document.getElementById('location_related_div'),css=getComputedStyle(region);
-        contextPreview.style.fontSize=css.fontSize;contextPreview.style.fontFamily=css.fontFamily;
+        contextPreview.style.fontSize=css.getPropertyValue('--custom-size').trim()||css.fontSize;contextPreview.style.fontFamily=css.fontFamily;
         contextPreview.dataset.customPalette=region.dataset.customPalette||'false';
         for(const key of ['background','text','accent'])contextPreview.style.setProperty('--context-'+key,css.getPropertyValue('--custom-'+key));
         contextPreview.style.width='';contextPreview.style.maxHeight='';
@@ -164,7 +166,7 @@ export function mountProto23Shell({read}) {
         contextPreview.style.top=Math.max(8,box.bottom+h+8<innerHeight?box.bottom+6:box.top-h-6)+'px';
         source.setAttribute('aria-describedby',contextPreview.id);
     }
-    const contextSelector='[data-context-preview=temperature],[data-context-preview=effect],.shell-place-tag,[data-attribute-preview],[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,#character_health_div,#character_stamina_div,#character_xp_div';
+    const contextSelector='[data-context-preview=temperature],[data-context-preview=effect],.shell-place-tag,[data-attribute-preview],[data-native-stat],[data-effect-anchor=opponent-name],.shell-effects-summary,.combat-focus-view dl > div,.enemy-card dl > div,.combat-focus-choices button,.log-subject,.shell-stat-record,.character_bar_parent_div:has([id$="_tooltip"])';
     const contextEnter=event=>{const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget))showContext(source);};
     const contextLeave=event=>{if(contextPinned)return;const source=event.target.closest(contextSelector);if(source&&!source.contains(event.relatedTarget)){clearTimeout(contextTimer);contextTimer=setTimeout(hideContext,180);}};
     for(const type of ['mouseover','focusin'])document.addEventListener(type,contextEnter);
@@ -172,6 +174,8 @@ export function mountProto23Shell({read}) {
     contextPreview.addEventListener('mouseenter',()=>clearTimeout(contextTimer));contextPreview.addEventListener('mouseleave',()=>{if(contextPinned)return;contextTimer=setTimeout(hideContext,180);});
     const contextDismiss=event=>{if(event.key==='Escape'&&contextPreview.matches(':popover-open')){hideContext();event.preventDefault();event.stopImmediatePropagation();}};
     document.addEventListener('keydown',contextDismiss,true);
+    const resizeDismiss=event=>{if(event.target.closest('[data-shell-resize]')){hideContext();hidePreview();}};
+    document.addEventListener('pointerdown',resizeDismiss);
     document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject,.shell-place-tag,[data-context-preview=temperature],[data-context-preview=effect]');if(subject){showContext(subject,true);return;}if(!contextPreview.contains(event.target))hideContext();});
 
     const preview=node('aside',null,'shell-item-preview');preview.id='shell_item_preview';
@@ -316,7 +320,8 @@ export function mountProto23Shell({read}) {
         const fitted=new Set(ordered.slice(0,capacity).map(([id])=>id));
         for(const[id,record]of secondaryRecords)if(!isRate(id)&&!fitted.has(id)&&record.button!==document.activeElement&&contextSource!==record.button)record.button.hidden=true;
         secondary.hidden=![...secondaryGrid.children].some(n=>!n.hidden);
-        const omitted=ordered.length-fitted.size;const detailsText='Attributes ›'+(omitted>0?' · '+omitted+' more':'');if(details.textContent!==detailsText)details.textContent=detailsText;
+        const omitted=ordered.length-fitted.size;const detailsText='Attributes ›';if(details.textContent!==detailsText)details.textContent=detailsText;
+        details.title=omitted>0?`All attributes · ${omitted} additional rows available`:'All attributes';
         rateSection.hidden=![...rateGrid.children].some(n=>!n.hidden);
         // Whole rows yield with an explicit Attributes count; focused/inspected rows stay mounted.
         root.dataset.secondaryShown=String([...secondaryGrid.children].filter(n=>!n.hidden).length);
@@ -325,7 +330,7 @@ export function mountProto23Shell({read}) {
         placeSort();tabs.refresh();boxes.render();inventoryComposition.render(rowForSelection());storageComparison.render();
         condition.render();syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
 
-        if(contextSource){if(contextSource.isConnected&&!contextSource.hidden&&active())showContext(contextSource);else hideContext();}
+        if(contextSource){if(contextSource.isConnected&&contextSource.checkVisibility()&&active())showContext(contextSource);else hideContext();}
         if(!active())return;
         attributeInspector.refresh();
         const nativeStats=[...document.querySelectorAll('#character_stats_div .stat_slot_div')].filter(n=>n.querySelector('.stat_value,.stat_value_long')?.textContent.trim());
@@ -343,7 +348,7 @@ export function mountProto23Shell({read}) {
         }
         const root=document.getElementById('main_content'),context=document.getElementById('location_related_div'),style=getComputedStyle(context);
         root.dataset.shellCustomPalette=context.dataset.customPalette||'false';
-        for(const [key,value]of Object.entries({'--shell-context-size':style.fontSize,'--shell-context-font':style.fontFamily,'--shell-user-fill':style.getPropertyValue('--custom-background'),'--shell-user-text':style.getPropertyValue('--custom-text'),'--shell-user-accent':style.getPropertyValue('--custom-accent')}))if(root.style.getPropertyValue(key)!==value)root.style.setProperty(key,value);
+        for(const [key,value]of Object.entries({'--shell-context-size':style.fontSize,'--shell-context-font':style.fontFamily,'--shell-context-small-size':style.getPropertyValue('--custom-small-size'),'--shell-context-small-font':style.getPropertyValue('--custom-small-font'),'--shell-user-fill':style.getPropertyValue('--custom-background'),'--shell-user-text':style.getPropertyValue('--custom-text'),'--shell-user-accent':style.getPropertyValue('--custom-accent')}))if(root.style.getPropertyValue(key)!==value)root.style.setProperty(key,value);
         for(const select of [sort]){const active=[...select.options].find(o=>document.getElementById(o.value)?.classList.contains('active_selection_button'));if(active)select.value=active.value;}
         // A zero-capacity native resource is empty, including the currently
         // unimplemented 0/0 mana slot. Keep native numeric text untouched.
@@ -407,5 +412,5 @@ export function mountProto23Shell({read}) {
         controls.append(action('Close item',()=>{if(detail.closest('#center_mode_content'))centerModes().back();selected=null;signature='';updateWorkspace();}));if(root.dataset.parity==='r3')controls.append(more);
     }
     document.addEventListener('workspace-presentation-change',()=>{hideContext();hidePreview();render();updateWorkspace();});
-    const timer=setInterval(render,400);return{render,destroy:()=>{hidePreview();attributeInspector.destroy();condition.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',inspect);}};
+    const timer=setInterval(render,400);return{render,destroy:()=>{document.removeEventListener('pointerdown',resizeDismiss);hidePreview();attributeInspector.destroy();condition.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',inspect);}};
 }

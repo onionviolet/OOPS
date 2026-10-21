@@ -1533,6 +1533,22 @@
       "snippet": "#bca4ff",
       "count": 1,
       "note": "TSG selected Luminous Gothic preset palette data in the existing Appearance owner; not a local CSS override."
+    },
+    {
+      "key": "styles/corc_readability.css|declaration|9804588a00ae9be8",
+      "path": "styles/corc_readability.css",
+      "rule": "declaration",
+      "snippet": "font-family:var(--custom-small-font)",
+      "count": 2,
+      "note": "Shared integer-size bitmap typography role; native strike selected by the module profile, inherited by context labels."
+    },
+    {
+      "key": "styles/corc_readability.css|declaration|d2785f41e4d55e57",
+      "path": "styles/corc_readability.css",
+      "rule": "declaration",
+      "snippet": "font-family:var(--shell-context-small-font)",
+      "count": 1,
+      "note": "Shared integer-size bitmap typography role; native strike selected by the module profile, inherited by context labels."
     }
   ]
 }

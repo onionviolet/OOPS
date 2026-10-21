@@ -10,8 +10,21 @@ import {projectVillageScene} from './causal_story_scenes.js';
 import {openWorkspaceModule} from './workspace_layout.js';
 import {storyRecap} from './lore_history_view.js';
 import {subscribeChange,bridgeLegacyNode} from './ui_change_signal.js';
+import {formatCalendar} from './world_calendar.js';
 const factHelp=label=>({'Attack':'Damage per connected attack, before your damage reduction.','Defense':'Damage reduction.','Speed':'Attack rate, in attacks per second.','Hit you':'This opponent’s chance to connect against you. Shield block is separate.','Evade you':'This opponent’s chance to evade your attack.','You hit them':'Your native chance to connect against this inspected opponent, before damage reduction or block. Inspection does not select an attack target.','Attack rating':'Native attack points, a rating rather than a percentage.','Evasion rating':'Native evasion points, a rating rather than a percentage.'})[label]||'';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
+
+// The current world's public calendar/weather own the header. In particular,
+// an unavailable local date must not silently become the home's year/season.
+export function sceneClock(frame) {
+    const parts=(frame.clock||'').split(' · ');
+    if(!Object.hasOwn(frame,'calendar'))return {date:parts[1]||'',season:parts[1]?.split(',')[1]?.trim(),phase:parts[2],weather:parts[3],temperature:parts[4],description:''};
+    const local=frame.calendar,home=frame.worldId==='base.frontier';
+    return {date:local?`${home?'':local.label+' · '}${formatCalendar(local,{time:true})}`:'Local date unavailable',
+        season:local?.seasonId,phase:home?parts[2]:null,
+        weather:frame.weatherWords??(home?parts[3]:'Local weather unavailable'),temperature:home?parts[4]:null,
+        description:home?'Home calendar · day/month/year; 30-day months. Summer is months 4–6.':local?`${local.label} calendar${local.format==='numeric'?' · day/month/year':''} · ${local.description}`:'No local calendar is known here.'};
+}
 
 // Input people are already observer-filtered. Selection is ephemeral presentation.
 export function villageFocus(frame,selected) {
@@ -184,10 +197,10 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
         const parity=document.getElementById('main_content').dataset.parity==='r3';
         if(parity&&!clock.contains(placeName))clock.replaceChildren(placeName,placeTags,conditions);
         renderPlaceTags(frame.placeTypes||[]);
-        const parts=view.clockText.split(' · '),date=parts[1]||'',season=date.split(',')[1]?.trim();
+        const header=sceneClock(frame),{date,season}=header;
         setText(placeName,frame.place);
-        const conditionRows=[['season',season],['weather',parts[3]],['temperature',parts[4]]].filter(([,value])=>value);
-        const temperature=parity?readTemperature():null;
+        const conditionRows=[['season',season],['weather',header.weather],['temperature',header.temperature]].filter(([,value])=>value);
+        const temperature=parity&&(!frame.worldId||frame.worldId==='base.frontier')?readTemperature():null;
         const nativeTemperatureState=temperature?.cold?'cold_temperature':'normal_temperature';
         const conditionSignature=JSON.stringify([conditionRows,temperature]);
         if(conditions.dataset.signature!==conditionSignature){
@@ -196,7 +209,7 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
             const previous=conditions.querySelector('[data-condition=temperature]');
             const badges=conditionRows.filter(([kind])=>kind!=='temperature').map(([kind,value])=>{
                 const symbol=kind==='season'?({'Spring':'❀','Summer':'☀','Autumn':'❧','Fall':'❧','Winter':'❄'}[value]||'◈'):({'Rain':'☂','Snow':'❄'}[value]||'');
-                const badge=node('span');if(symbol){const icon=node('span',symbol);icon.setAttribute('aria-hidden','true');badge.append(icon,document.createTextNode(' '));}badge.append(document.createTextNode(value));badge.dataset.conditionValue=value.toLowerCase();badge.dataset.condition=kind;badge.title=value+(kind==='weather'?' · native weather; no additional effect inferred.':' · native calendar season');return badge;
+                const badge=node('span');if(symbol){const icon=node('span',symbol);icon.setAttribute('aria-hidden','true');badge.append(icon,document.createTextNode(' '));}badge.append(document.createTextNode(value));badge.dataset.conditionValue=value.toLowerCase();badge.dataset.condition=kind;badge.title=value+(kind==='weather'?(frame.weatherWords!=null?' · Local climate display only.':' · native weather; no additional effect inferred.'):' · native calendar season');return badge;
             });
             if(temperature){const badge=previous||node('button');badge.type='button';badge.dataset.condition='temperature';badge.dataset.contextPreview='temperature';badge.dataset.temperatureState=nativeTemperatureState;
                 setText(badge,temperature.label);setTitle(badge,temperature.description);badges.push(badge);
@@ -207,7 +220,7 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
             for(const [index,badge]of badges.entries())if(conditions.children[index]!==badge)conditions.insertBefore(badge,conditions.children[index]||null);
         }
 
-        setText(calendar,[season?date.replace(', '+season,''):date,parts[2]?((/night/i.test(parts[2])?'☾ ':'☼ ')+parts[2]):''].filter(Boolean).join(' · '));calendar.dataset.timeOfDay=/night/i.test(parts[2])?'night':'day';
+        setText(calendar,[season?date.replace(', '+season,''):date,header.phase?((/night/i.test(header.phase)?'☾ ':'☼ ')+header.phase):''].filter(Boolean).join(' · '));setTitle(calendar,header.description);calendar.dataset.timeOfDay=header.phase?(/night/i.test(header.phase)?'night':'day'):'unknown';
         // R13 dedupe: with the shell, Focus's place card is the home for who and what is here, so the
         // lower People/Things tabs would repeat it. Actions and Options stay.
         const focusOwnsNearby=parity&&document.getElementById('main_content').dataset.presentation==='proto23-shell';if(focusOwnsNearby&&['people','things'].includes(placeTab))placeTab='actions';

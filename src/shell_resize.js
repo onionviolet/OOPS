@@ -25,10 +25,21 @@ export function createShellResize({root, board, regions, read, context, commit})
         let width = font * 8;
         for (const node of region.querySelectorAll('button,select,summary,strong,label,[data-panel-row]')) {
             if (!node.checkVisibility() || node.closest('.workspace-module-controls,.shell-move-control')) continue;
-            const css = getComputedStyle(node); pen.font = css.font;
+            const css = getComputedStyle(node); pen.font = css.font || `${css.fontStyle} ${css.fontWeight} ${css.fontSize} ${css.fontFamily}`;
             const text = node.tagName === 'SELECT' ? node.selectedOptions[0]?.textContent || '' : node.textContent;
             const word = Math.max(0, ...text.trim().split(/\s+/).map(w => pen.measureText(w).width));
             width = Math.max(width, word + font * 2);
+        }
+        // You needs two readable stat columns. A single column pushes Gear and
+        // Condition below the frame even though every individual word fits.
+        const sheet = region.querySelector('#proto23_character');
+        if (sheet) {
+            let pair = 0;
+            for (const row of sheet.querySelectorAll('.shell-core-stats > button')) {
+                const css = getComputedStyle(row); pen.font = css.font || `${css.fontStyle} ${css.fontWeight} ${css.fontSize} ${css.fontFamily}`;
+                pair = Math.max(pair, pen.measureText(row.firstElementChild.textContent).width + pen.measureText(row.children[1].textContent).width + font * .75);
+            }
+            width = Math.max(width, pair * 2 + font * 1.35);
         }
         if (region === regions.log) {
             const header = region.querySelector('.workspace-module-header');
@@ -120,6 +131,9 @@ export function createShellResize({root, board, regions, read, context, commit})
         if (key==='top') next.top=clampSplit(initial.top*height+delta,height,minTop,minBottom)/height;
         else if(key==='log') next.log=clampSplit(initial.log*total-delta,total,minLog,minLeft+minCentre)/total;
         else next[key]=clampSplit(initial[key]*total+delta,total-initial.log*total,minLeft,minCentre)/total;
+        // Moving a vertical divider must not silently turn automatic row height
+        // into a saved fixed height. Extra bars still need a content-fit row.
+        if (key !== 'top' && !read().top) delete next.top;
         preview=next;measure();
     }
     function finish(cancel=false) {

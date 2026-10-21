@@ -1,0 +1,107 @@
+{
+  "profile": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-you-drag-RQJag4",
+  "checks": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "narrow": {
+        "width": 234,
+        "columns": 2,
+        "bodyVisible": true,
+        "overflow": false,
+        "font": "14px",
+        "autoHeight": true
+      },
+      "wide": {
+        "width": 634,
+        "columns": 6,
+        "bodyVisible": true,
+        "overflow": false,
+        "font": "14px",
+        "autoHeight": true
+      },
+      "hover": "one shell card; native duplicate suppressed",
+      "cancel": "restored",
+      "keyboard": "focus and Escape pass",
+      "future": "three synthetic bars retain readable body route and generic single hover",
+      "shortFrame": "Condition reachable at minimum manual height"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "narrow": {
+        "width": 356,
+        "columns": 2,
+        "bodyVisible": true,
+        "overflow": false,
+        "font": "21px",
+        "autoHeight": true
+      },
+      "wide": {
+        "width": 756,
+        "columns": 5,
+        "bodyVisible": true,
+        "overflow": false,
+        "font": "21px",
+        "autoHeight": true
+      },
+      "hover": "one shell card; native duplicate suppressed",
+      "cancel": "restored",
+      "keyboard": "focus and Escape pass",
+      "future": "three synthetic bars retain readable body route and generic single hover",
+      "shortFrame": "Condition reachable at minimum manual height"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "narrow": {
+        "width": 234,
+        "columns": 2,
+        "bodyVisible": true,
+        "overflow": false,
+        "font": "14px",
+        "autoHeight": true
+      },
+      "wide": {
+        "width": 634,
+        "columns": 6,
+        "bodyVisible": true,
+        "overflow": false,
+        "font": "14px",
+        "autoHeight": true
+      },
+      "hover": "one shell card; native duplicate suppressed",
+      "cancel": "restored",
+      "keyboard": "focus and Escape pass"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "narrow": {
+        "width": 356,
+        "columns": 2,
+        "bodyVisible": true,
+        "overflow": false,
+        "font": "21px",
+        "autoHeight": true
+      },
+      "wide": {
+        "width": 750.125,
+        "columns": 5,
+        "bodyVisible": true,
+        "overflow": false,
+        "font": "21px",
+        "autoHeight": true
+      },
+      "hover": "one shell card; native duplicate suppressed",
+      "cancel": "restored",
+      "keyboard": "focus and Escape pass"
+    }
+  ],
+  "errors": [],
+  "note": "Future bars are disposable DOM geometry fixtures, not new gameplay resources."
+}

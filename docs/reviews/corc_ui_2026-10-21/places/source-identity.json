@@ -1,0 +1,13 @@
+{
+  "base": "cb741db82",
+  "bundledSourceMatches": 683,
+  "hashes": {
+    "src/main.js": "4c42cfcbd655cf1ac7d3fecb12ed52afc057d2a01e79bb739d3c8cf16795a847",
+    "src/village_workspace.js": "5e409dac1d7b3d6fd2b8ce2916c9b0e2079b8bab6bab286a108f1e696523fbc8",
+    "src/shell_resize.js": "9373144ed6e310e839be7825657b9a8e2e0cbbb8891830bc3b1072efe6a7e791",
+    "src/proto23_shell.js": "ffd8419ef13cf0c839fc2a5f78f46008a3f29ee3e0eb6d4f581078aebd58c6cb",
+    "src/shell_item_description.js": "3067ca08cda5b340df6249f91dcdabcba1070aa10859d0bf5b3e29b59d33ceee",
+    "styles/corc_readability.css": "0ab05517f969e77086258213e5befa899b79d11c2ab3f6342573979a37fdd960",
+    "dist/bundle.js": "d9261c529d2ede8346a501bf348924c81ca814ac63ac8be3ca5f53010d9d0a0a"
+  }
+}

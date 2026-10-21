@@ -1,0 +1,25 @@
+{
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g4/fixture/TEST-FIXTURE-R15-G4-control-pending.txt",
+  "setup": "Existing disposable retained-visit fixture; removed two legacy undefined recipe availability keys. Native UI cancels pending work, walks, returns, re-enters and persists. Natural onboarding/acquisition pacing not asserted.",
+  "checks": [
+    "Native cancel, walk to arrival and return restore Home calendar, season and location",
+    "Native retained-world entry binds the local visitor date and qualified climate without Home season",
+    "Same native visitor instance and local header survive Save, reload, Export and literal Import",
+    "Native return remains usable after visitor persistence roundtrip"
+  ],
+  "entered": {
+    "date": "Cyoria visitor · 01/01/1 06:44",
+    "conditions": "Dry · 8.0°C · climate proposal",
+    "place": "Cyoria visitor arrival"
+  },
+  "home": {
+    "date": "04/04/999 17:33, Thu · ☼ Day",
+    "conditions": "☀ Summer\n☂ Rain\n22.9 °C · comfortable",
+    "place": "Village"
+  },
+  "errors": []
+}

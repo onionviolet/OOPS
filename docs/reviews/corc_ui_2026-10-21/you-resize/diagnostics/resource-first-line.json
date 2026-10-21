@@ -1,0 +1,30 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Fixture resource details/. Input:\n\n''\n\n    at file:///Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/you-resize.mjs:39:86",
+  "checks": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "narrow": {
+        "width": 234,
+        "columns": 2,
+        "bodyVisible": true,
+        "overflow": false,
+        "font": "14px",
+        "autoHeight": true
+      },
+      "wide": {
+        "width": 634,
+        "columns": 6,
+        "bodyVisible": true,
+        "overflow": false,
+        "font": "14px",
+        "autoHeight": true
+      },
+      "hover": "one shell card; native duplicate suppressed",
+      "cancel": "restored",
+      "keyboard": "focus and Escape pass"
+    }
+  ],
+  "errors": []
+}

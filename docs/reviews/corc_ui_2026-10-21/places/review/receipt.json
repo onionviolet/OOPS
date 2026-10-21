@@ -1,0 +1,18 @@
+{
+  "base": "cb741db82",
+  "profile": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-combined-gear-ui-mDYUGN",
+  "snapshot": {
+    "id": "v0.6-ff09c475781d",
+    "root": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-combined-gear-ui-mDYUGN/builds/v0.6-ff09c475781d",
+    "files": 82
+  },
+  "pid": 28464,
+  "checks": [
+    "Native craftsman reforge creates affixed armor with real stored work history",
+    "Native equip/save/reload retains exact affixes, identity and maker",
+    "Full equipment facts, favorable damage reductions and disclosed provenance remain reachable at both desktop text sizes and laptop width",
+    "Explicit player inventory palette retains its chosen backing"
+  ],
+  "errors": [],
+  "fixture": "Midgame fixture with funded craftsman/material stock. Natural acquisition pacing is not asserted."
+}

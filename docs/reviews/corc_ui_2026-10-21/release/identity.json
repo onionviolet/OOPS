@@ -1,0 +1,32 @@
+{
+  "parent": "cb741db82ea170cc857230beb84cb78bda22757b",
+  "bundledProjectSourcesMatched": 683,
+  "checks": {
+    "build": "pass",
+    "tests": "2443/2443",
+    "arch": "pass",
+    "rules": "pass, zero warnings",
+    "visitor": "4 native checks, zero console/page errors"
+  },
+  "hashes": {
+    "src/customization_profiles.js": "c6cd7e65355aba8c1ae7f65bbdb0248484cdcfc9423bb97ea123e6ff606170af",
+    "src/display.js": "270525ffb69c91f55ee4f3bbefa773ae4bc839042001e32fb9d1cd9d44474586",
+    "src/main.js": "4c42cfcbd655cf1ac7d3fecb12ed52afc057d2a01e79bb739d3c8cf16795a847",
+    "src/proto23_shell.js": "ffd8419ef13cf0c839fc2a5f78f46008a3f29ee3e0eb6d4f581078aebd58c6cb",
+    "src/shell_item_description.js": "3067ca08cda5b340df6249f91dcdabcba1070aa10859d0bf5b3e29b59d33ceee",
+    "src/shell_resize.js": "9373144ed6e310e839be7825657b9a8e2e0cbbb8891830bc3b1072efe6a7e791",
+    "src/village_workspace.js": "5e409dac1d7b3d6fd2b8ce2916c9b0e2079b8bab6bab286a108f1e696523fbc8",
+    "styles/corc_readability.css": "0ab05517f969e77086258213e5befa899b79d11c2ab3f6342573979a37fdd960",
+    "scripts/playtest/corc-electron.mjs": "5de38cb7379468f1761d1e9450a49752799ce934443612b63c840c09eabed8a3",
+    "scripts/playtest/combined-gear-ui.mjs": "040ceec9f5817e1a766bb212f511777b88ac73af24cd5f07891d3b74fff9d317",
+    "scripts/playtest/nearby-resources.mjs": "ee9cc2ecaf1c8d6b7cbeb78778308949b3b87a42e874d72c83db53da611c6069",
+    "scripts/playtest/you-resize.mjs": "fb8e09999e3ac853bb10156f30098c3aa77e92007776e8a5fe1af5dc91ed0b49",
+    "scripts/playtest/visitor-travel.mjs": "3cd61dbb500bcc2c2ee0a69451bf95167f66e3114efc9cd7364a0159e99363c5",
+    "tests/shell_item_description.test.js": "2cda60c300c6c5719c7e2f8ce97448ec4eca5ef32405981180952ef73f7fc61a",
+    "tests/village_workspace.test.js": "c654457f63601c955a5c07fa9c18cdd8acef41b3fd03174ec7afe9dedd08794f",
+    "tests/ui_contract_allowlist.json": "55239fe5e787705ba4b1a262f5ed812c82cbbe966d8a339854dd4d1d5a4a08a6",
+    "index.html": "5077b532b5bb686471449af06e2640d87bcc904805044e2c2817acf7013cb0f8",
+    "dist/bundle.js": "d9261c529d2ede8346a501bf348924c81ca814ac63ac8be3ca5f53010d9d0a0a",
+    "dist/bundle.js.map": "6e0d7133698c8bbc577304e50af4008232c7de9754c00f396fc1ff437c1d268e"
+  }
+}

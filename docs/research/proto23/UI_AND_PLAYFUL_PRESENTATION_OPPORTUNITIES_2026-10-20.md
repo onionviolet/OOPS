@@ -924,3 +924,52 @@ integration passed with the same single untracked-document warning.
 ### Round 5 execution follow-through, 2026-10-21
 
 Weibao subsequently authorized improving these gaps, verifying the current app, matching Corc’s font more closely and coordinating the concurrent master combination. He explicitly selected Electron for verification. [Implementation and native evidence](../../reviews/CORC_UI_2026-10-21.md) own the delivered changes, six-case native matrix, source identity and open human visual acceptance. Existing storage was retained and verified. This does not turn the unused tooltip draft or historical source mechanics into accepted product defaults.
+
+### Combined gear follow-up, 2026-10-21
+
+Weibao selected inventory backing, equipment details, menu spacing and You after
+the gear merge. **ACT NOW, done:** solid inventory shelves, fitting stat pairs,
+matching small bitmap strikes and native gear detail corrections. **ACCOUNT FOR
+NOW:** preserve exact affixes, local-only font files, explicit palettes and
+native commands; distinguish seeded transaction proof from natural pacing.
+**LATER:** optional artwork/atmosphere remains a proposed art task, triggered by
+an art direction and verified against readable populated inventory at14/21px.
+[Implementation, desktop Electron evidence and remaining visual acceptance](../../reviews/CORC_UI_2026-10-21.md#combined-gear--inventory--you-follow-up-2026-10-21).
+
+### Round 6: resizing, hover, new bars and nearby means, 2026-10-21
+
+User-selected outcomes: You scales when dragged left/right; consider hover,
+future bars, date/weather, locations, gathering and Apotheosis-related access.
+[Evidence and implementation](../../reviews/CORC_UI_2026-10-21.md#divider-hover-and-future-bar-follow-up-2026-10-21)
+remain in the existing UI report; UR52/53/60/61/63/64 apply.
+
+**ACT NOW, done (F12/F13/F15/F16):** measured two-column width floor, automatic
+height preserved on horizontal resize, short-frame scrolling, one readable
+resource hover with its first explanation retained, local calendar/climate
+binding, and nearby native herb/workshop routes. Three temporary bar fixtures
+exercise pressure; no game resource was fabricated.
+
+**ACCOUNT FOR NOW (F14/F17):** future bars need a known subject, unit and explicit
+pool/progress/exposure meaning from their owner, plus a stable inspection route.
+Resource discovery requests a stable composition boundary, preserving pending
+commands. Regional source availability, depletion/regrowth, tools and body means
+stay with their native/observer owners. Exact gear affixes, material provenance
+and process costs continue through native gear keys. World climate proposals
+stay qualified and unsupported dates do not inherit Home.
+
+**LATER / DELEGATE, proposed, not dispatched:**
+
+- RB1 (feature level, medium effort): when a real new resource consumer is added,
+  integrate its existing public meter semantics and keyboard Details into You;
+  verify its empty/full/unknown states, three-bar pressure and large-number
+  readout at14/21px. Reuse the native bar and meter owners before adding a registry.
+- RB2 (world/content level, medium effort): extend known-location obtaining links
+  to selected real gathering sources with current tool/skill/season and stock
+  reasons. Done check: actually travel, gather, deplete/regrow and return, without
+  revealing undiscovered deposits. Existing site and crafting owners govern;
+  an all-world map is not delivered by the Village verge route.
+- RB3 (systems/content level, large effort): choose the next chemistry/energy or
+  gear-material sourcing consumer from the existing gear-depth palette. Done
+  check: native acquisition → material/process contribution → actor use →
+  save/reload, with exact costs/history. It is a separate playable slice from
+  the completed UI/navigation correction and the already merged native gear.

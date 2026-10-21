@@ -25,7 +25,7 @@
 .shell-item-specifics {margin-top:.45em;border-top:1px solid var(--p23-quiet-line);}
 .shell-item-specifics > summary {cursor:pointer;padding:.2em 0;}
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"] {
- flex-shrink:0;min-height:calc(var(--shell-context-size,var(--ui-type-body))*5);
+ flex-shrink:0;min-height:calc(var(--shell-context-size,var(--ui-type-body))*5)!important;
 }
 #main_content.workspace-active[data-parity="r3"] #shell_condition > .condition-summary {margin:.15em .4em;}
 /* Equipped rows use the same native nodes; stack the action and price without overlap. */
@@ -48,3 +48,52 @@
  margin:0 0 .4em;color:var(--theme-accent,var(--ui-teal));font-size:1.1em;
 }
 #main_content.workspace-active .work-status-view .meter-bar-track {height:.55em;}
+
+/* Quiet, opaque shelves keep names readable across the full inventory area.
+   Explicit module palettes retain their chosen background and selection. */
+#main_content.workspace-active[data-parity="r3"] #inventory_div:not([data-custom-palette="true"]) {
+ background:var(--p23-dark-value)!important;
+}
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div > [data-inventory-kind] {
+ padding-block:.25em;border-bottom:1px solid var(--p23-quiet-line);
+}
+#main_content.workspace-active[data-parity="r3"] #inventory_div:not([data-custom-palette="true"]) #inventory_content_div > [data-inventory-kind]:nth-child(even):not([data-ui-selected]) {
+ background:color-mix(in srgb,var(--p23-dark-value) 85%,var(--p23-context))!important;
+}
+#main_content.workspace-active[data-parity="r3"] #inventory_div:not([data-custom-palette="true"]) #inventory_content_div > [data-ui-selected] {
+ background:var(--p23-context)!important;box-shadow:inset 3px 0 var(--p23-text);outline:0;
+}
+/* The sheet adapts to its own width and chosen text size, not viewport guesses.
+   Keep label/value pairs together and give a single worn item the whole line. */
+#main_content.workspace-active[data-parity="r3"] #proto23_character > .shell-core-stats {
+ grid-template-columns:repeat(auto-fit,minmax(min(100%,6.25em),1fr));gap:0 .55em;
+ padding:.15em .4em;box-sizing:border-box;
+}
+#main_content.workspace-active[data-parity="r3"] #proto23_character .shell-core-stats > .shell-stat-record {
+ grid-column:auto;padding:.18em 0;flex-wrap:nowrap;background:transparent!important;
+}
+#main_content.workspace-active[data-parity="r3"] #proto23_character .shell-core-stats > .shell-stat-record > span {white-space:nowrap;}
+#main_content.workspace-active[data-parity="r3"] #proto23_character:not([data-custom-palette="true"]) {background:var(--p23-dark-value)!important;}
+#main_content.workspace-active[data-parity="r3"] #proto23_character > .shell-worn-summary {grid-template-columns:minmax(0,1fr);}
+#main_content.workspace-active[data-parity="r3"] #proto23_character .shell-worn-summary .shell-worn-item {
+ padding:.2em .4em;background:transparent;gap:.65em;
+}
+/* Secondary labels use the matching integer-size bitmap, including context
+   views outside a customization module. No artificial letter/word tracking. */
+#main_content.workspace-active[data-parity="r3"] :is(.nearby-context-list h3,.nearby-context-list small,#village_scene .scene-calendar,#village_scene .scene-local-tabs) {
+ font-size:var(--shell-context-small-size);font-family:var(--shell-context-small-font);font-weight:400;font-synthesis:none;
+}
+#main_content.workspace-active[data-parity="r3"] .nearby-context-list strong {font-weight:400;font-synthesis:none;}
+#main_content.workspace-active[data-parity="r3"] #proto23_item_detail > p,
+#main_content.workspace-active[data-parity="r3"] .attribute-inspector-count {
+ font-size:var(--custom-small-size);font-family:var(--custom-small-font);
+}
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div [data-item-condition] {
+ grid-column:1/-1;font-size:var(--custom-small-size);font-family:var(--custom-small-font);
+}
+/* The shell owns resource inspection in this presentation, including bars added
+   later through the native bar markup. Keep the source tooltip for cloning. */
+#main_content.workspace-active[data-parity="r3"] #basic_character_info_div .character_bar_parent_div > [id$="_tooltip"] {display:none!important;}
+/* A deliberately short player frame can scroll when later resources add rows;
+   preserve the chosen text size and the routes to Gear and Condition. */
+#main_content.workspace-active[data-parity="r3"] [data-region="player"] {overflow-y:auto;overscroll-behavior:contain;}

@@ -151,7 +151,11 @@ export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}
         node.dataset.customizationSeason = settings.resolvedSeason || 'off';
         const font = settings.typography.font;
         const family = {system: 'var(--ui-font-system)', serif: 'Georgia, serif', mono: 'monospace', gothic: `"OOPS Gothic Bitmap ${settings.typography.size}", var(--ui-font-gothic)`}[font];
-        const vars = {'--custom-font': family, '--custom-prose-font': family, '--custom-size': `${settings.typography.size}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
+        // Small Gothic labels need their own native strike, rather than a
+        // fractional scaling of the body strike's pixel grid.
+        const smallSize = Math.round(settings.typography.size * .85);
+        const smallFamily = font === 'gothic' ? `"OOPS Gothic Bitmap ${smallSize}", var(--ui-font-gothic)` : family;
+        const vars = {'--custom-font': family, '--custom-prose-font': family, '--custom-size': `${settings.typography.size}px`, '--custom-small-font': smallFamily, '--custom-small-size': `${smallSize}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
         node.dataset.typographyFont = font;
         Object.assign(vars, componentThemeTokens(settings));
         node.dataset.contrastRecovered = vars['--theme-contrast-recovered'];

@@ -617,11 +617,11 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
             Object.keys(equip_stats_0).forEach(effect_key => {
                 if(equip_stats_0[effect_key].flat != null) {
                     item_tooltip += 
-                    `<br>${capitalize_first_letter(effect_key).replace("_"," ")}: +${equip_stats_0[effect_key].flat} - ${equip_stats_1[effect_key].flat}`;
+                    `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: +${equip_stats_0[effect_key].flat} - ${equip_stats_1[effect_key].flat}`;
                 }
                 if(equip_stats_0[effect_key].multiplier != null) {
                     item_tooltip += 
-                    `<br>${capitalize_first_letter(effect_key).replace("_"," ")}: x${equip_stats_0[effect_key].multiplier} - ${equip_stats_1[effect_key].multiplier}`;
+                    `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: x${equip_stats_0[effect_key].multiplier} - ${equip_stats_1[effect_key].multiplier}`;
                 }
             });
         } else {
@@ -650,11 +650,11 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
                 if(equip_stats[effect_key].flat != null) {
                     const sign = equip_stats[effect_key].flat > 0?"+":"";
                         item_tooltip +=
-                    `<br>${capitalize_first_letter(effect_key).replace("_"," ")}: ${sign}${equip_stats[effect_key].flat}`;
+                    `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: ${sign}${equip_stats[effect_key].flat}`;
                 }
                 if(equip_stats[effect_key].multiplier != null) {
                         item_tooltip +=
-                    `<br>${capitalize_first_letter(effect_key).replace("_"," ")}: x${equip_stats[effect_key].multiplier}`;
+                    `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: x${equip_stats[effect_key].multiplier}`;
                     }
                 });
         }
@@ -692,11 +692,11 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
             if(item.component_stats[effect_key].flat != null) {
                 const sign = item.component_stats[effect_key].flat > 0?"+":"";
                 item_tooltip += 
-                `<br>${capitalize_first_letter(effect_key).replace("_"," ")}: ${sign}${item.component_stats[effect_key].flat}`;
+                `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: ${sign}${item.component_stats[effect_key].flat}`;
             }
             if(item.component_stats[effect_key].multiplier != null) {
                 item_tooltip += 
-                `<br>${capitalize_first_letter(effect_key).replace("_"," ")}: x${item.component_stats[effect_key].multiplier}`;
+                `<br>${capitalize_first_letter(effect_key).replaceAll("_"," ")}: x${item.component_stats[effect_key].multiplier}`;
             }
         });
     }

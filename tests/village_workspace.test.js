@@ -19,3 +19,16 @@ test('Village overview groups each existing action under its target without chan
     const before=structuredClone(overview),view=projectVillageScene({overview});
     assert.deepEqual(view.groups.map(g=>g.actions.map(a=>a.id)),[['talk'],['mix']]);assert.deepEqual(overview,before);
 });
+
+test('scene clock follows the local public calendar and preserves qualified climate words',async()=>{
+    const {sceneClock}=await import('../src/village_workspace.js');
+    const {projectCalendar}=await import('../src/world_calendar.js');
+    const {WORLD_CALENDAR_PROFILES:p}=await import('../src/world_calendar_content.js');
+    const homeClock='Village · 01/04/999 22:59, Summer, Mon · Night · Rain · 16°C';
+    const home=sceneClock({worldId:'base.frontier',calendar:projectCalendar(p['base.frontier'],{instanceId:'home'}),weatherWords:null,clock:homeClock});
+    assert.equal(home.season,'Summer');assert.match(home.date,/01\/04\/999/);assert.equal(home.weather,'Rain');
+    const visitor=sceneClock({worldId:'book.mol.cyoria',calendar:projectCalendar(p['book.mol.cyoria'],{instanceId:'visitor'}),weatherWords:'Dry · 17.0°C · climate proposal',clock:homeClock});
+    assert.match(visitor.date,/Cyoria visitor · 01\/01\/1/);assert.equal(visitor.season,null);assert.equal(visitor.phase,null);assert.equal(visitor.weather,'Dry · 17.0°C · climate proposal');assert.doesNotMatch(visitor.date,/999|Summer/);
+    const unknown=sceneClock({worldId:'unknown',calendar:null,weatherWords:null,clock:homeClock});
+    assert.equal(unknown.date,'Local date unavailable');assert.equal(unknown.weather,'Local weather unavailable');
+});

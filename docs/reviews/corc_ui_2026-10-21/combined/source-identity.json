@@ -1,0 +1,25 @@
+{
+  "base": "cb741db82",
+  "hashes": {
+    "src/customization_profiles.js": "c6cd7e65355aba8c1ae7f65bbdb0248484cdcfc9423bb97ea123e6ff606170af",
+    "src/proto23_shell.js": "594969e4ea4c55bd47c2c2d4d77e04ab3ce8f6ac895be4a858447aef54cd1999",
+    "src/display.js": "270525ffb69c91f55ee4f3bbefa773ae4bc839042001e32fb9d1cd9d44474586",
+    "src/shell_item_description.js": "73282ab8fac390d9a5667bb6bfdda3e5be3e75d66cc2cf3228834f87d6889a8d",
+    "styles/corc_readability.css": "dea58e6e89e02874fcf0ccd207008bb4b2df3bda1eaea3e7355f993be9786b40",
+    "scripts/playtest/corc-electron.mjs": "5de38cb7379468f1761d1e9450a49752799ce934443612b63c840c09eabed8a3",
+    "scripts/playtest/combined-gear-ui.mjs": "040ceec9f5817e1a766bb212f511777b88ac73af24cd5f07891d3b74fff9d317",
+    "tests/shell_item_description.test.js": "605bb31b4f7e09a5b6d84aa1eff65e5216c227ce66bf612a342ced7aed835293",
+    "tests/ui_contract_allowlist.json": "55239fe5e787705ba4b1a262f5ed812c82cbbe966d8a339854dd4d1d5a4a08a6",
+    "dist/bundle.js": "2678e2efe90396880827e08aff2fbbc8d4c64c80ee45a39be5e74b4ff8fa39b0"
+  },
+  "bundledSourceMatches": 683,
+  "verification": {
+    "build": "pass",
+    "fullTests": "2440/2441; only unregistered role-token declarations failed the UI contract",
+    "afterContractRegistration": "10/10 focused tests pass, including the failed UI contract",
+    "arch": "pass",
+    "rules": "pass, 0 warnings",
+    "nativeMatrix": "6 cases pass, 0 page errors",
+    "combinedGear": "4 journeys pass, 0 page errors"
+  }
+}
