@@ -1,0 +1,23 @@
+{
+  "master": "3aaf50eafbc604ca5002603c949adcf617bec012",
+  "primary": "/Users/weiwei/code/yet-another-idle-rpg",
+  "safetyCommit": "b81a86de745c5c8a04f11d5278b6b62b79c3c1c0",
+  "safetyRef": "refs/heads/codex/preserved-primary-before-master-2026-10-21",
+  "activeHashesAfter": {
+    "src/proto23_shell.js": "da12b332d2de527f4c6206f7b20c6e0efdd790f9e02e3e6ff5ec1f89b32dbe24",
+    "src/shell_item_description.js": "8aa2e3d6a65bacd0acbe35296f223814761daf04aece9382d8c2d78d38f3e019",
+    "src/customization_profiles.js": "55a3f361bccade40fb2213ea3c54bf91c410562288d76f68034ccd95791ea079",
+    "src/condition_panel.js": "98c6df5dfa8d1489825e44305719c6ea8cd494fca67a34dc30dd96f1c3b81d4a",
+    "styles/ui_tokens.css": "d0baf47852e4c81c4126d77ca0a67b0de65e0c57bac82597aeb3c153575cdbee",
+    "styles/corc_readability.css": "8f2f388d15012e2e4d9f2f2f626f6ea018028a56d27cb296b7f1fe4dd3210a32",
+    "index.html": "b92f5a1e04f0e10e0d153069aded4994913d4f06f84fdfe7312ba5a9864a3148",
+    "scripts/derive_gothic_bitmaps.py": "6e09a762a8bba3b3594ba6f193e4f59482ce48fa64c325c90b2d242c4d020d63",
+    "scripts/playtest/corc-electron.mjs": "baae08f597e9245ca8a8471aa46cc6f88f6a18e12ef1e1a1fb08b12201f3ef86",
+    "tests/shell_item_description.test.js": "521b6863dd1402f820332dfe526b8fcc04ba25417d7c571544318b27f97ed22e",
+    "tests/presentation_style.test.js": "2159c1d9a735671bee532de443febe496e3bc8f23fce9deb9e76097bb291afae"
+  },
+  "alignedPathCount": 160,
+  "keptActiveOrLocalPathCount": 21,
+  "recovery": "/Users/weiwei/.codex/research/master-baseline-2026-10-21",
+  "activeUiUncommitted": true
+}
