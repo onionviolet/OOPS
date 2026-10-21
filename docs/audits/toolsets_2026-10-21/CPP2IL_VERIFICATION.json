@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-21",
+  "tool_install": {
+    "source_url": "https://github.com/SamboyCoding/Cpp2IL/releases/download/2022.1.0-pre-release.21/Cpp2IL-2022.1.0-pre-release.21-OSX-ARM64",
+    "release": "2022.1.0-pre-release.21",
+    "upstream_bytes": 15719263,
+    "upstream_sha256": "6670ddb93f28d4e7f329251d2597d2abbc6ba23e46382f7ca7b5e437ec93606a",
+    "signed_sha256": "0b97475403290f2a944d1e370562485eb38d2a0a92620a86ca2142285a1bfca8",
+    "signature_verify_exit": 0,
+    "help_exit": 0,
+    "previous_cached_sha256": "4736b634a75d1bc9aafae7b7c47096001060a6dcefb776e9b4f4c50616cefdec",
+    "previous_cached_bytes": 5832131,
+    "original_cache_preserved": true
+  },
+  "previous_cached_file_is_exact_truncated_release_prefix": true,
+  "game": {
+    "app_id": 2854290,
+    "name": "100 Space Cats",
+    "steam_build_id": "19025398",
+    "installed_manifest_state": "4",
+    "unity_version": "2021.3.17f1",
+    "metadata_version": 29
+  },
+  "run": {
+    "app_id": 2854290,
+    "steam_build_id": "19025398",
+    "inputs_before": [
+      {
+        "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/100 Space Cats/GameAssembly.dll",
+        "bytes": 15219200,
+        "sha256": "7ca51ea5193522a1a29c1db886833b740dbd983dde07b535d8a4f37ba75d0292"
+      },
+      {
+        "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/100 Space Cats/100 Space Cats_Data/il2cpp_data/Metadata/global-metadata.dat",
+        "bytes": 3584772,
+        "sha256": "6136e294d6acc42bde0d7f0bfd2e330bc1cea6b805e0a93df12d9784b4484c0a"
+      },
+      {
+        "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/100 Space Cats/100 Space Cats_Data/globalgamemanagers",
+        "bytes": 99232,
+        "sha256": "189daf579d244dc37c78156d823d372d0c60ca4bd7f404b15d150a26d227fb12"
+      }
+    ],
+    "argv": [
+      "python3",
+      "/Users/weiwei/code/yet-another-idle-rpg/scripts/toolsets.py",
+      "run",
+      "cpp2il",
+      "--",
+      "--game-path",
+      "/Users/weiwei/Library/Application Support/Steam/steamapps/common/100 Space Cats",
+      "--output-as",
+      "dll_empty",
+      "--output-to",
+      "/Users/weiwei/.codex/research/tool-validation-2026-10-21/100-space-cats/declarations"
+    ],
+    "output_format": "dll_empty",
+    "purpose": "Verify metadata/address/declaration recovery, not executable method bodies",
+    "game_launched": false,
+    "pid": 81734,
+    "process_group": 81734,
+    "exit_code": 0,
+    "inputs_after": [
+      {
+        "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/100 Space Cats/GameAssembly.dll",
+        "bytes": 15219200,
+        "sha256": "7ca51ea5193522a1a29c1db886833b740dbd983dde07b535d8a4f37ba75d0292"
+      },
+      {
+        "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/100 Space Cats/100 Space Cats_Data/il2cpp_data/Metadata/global-metadata.dat",
+        "bytes": 3584772,
+        "sha256": "6136e294d6acc42bde0d7f0bfd2e330bc1cea6b805e0a93df12d9784b4484c0a"
+      },
+      {
+        "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/100 Space Cats/100 Space Cats_Data/globalgamemanagers",
+        "bytes": 99232,
+        "sha256": "189daf579d244dc37c78156d823d372d0c60ca4bd7f404b15d150a26d227fb12"
+      }
+    ],
+    "inputs_unchanged": true,
+    "output_files": [
+      "declarations/UnityEngine.UnityAnalyticsModule.dll",
+      "declarations/__Generated.dll",
+      "declarations/System.Configuration.dll",
+      "declarations/UnityEngine.SpriteShapeModule.dll",
+      "declarations/UnityEngine.TextRenderingModule.dll",
+      "declarations/Assembly-CSharp.dll",
+      "declarations/UnityEngine.UnityWebRequestTextureModule.dll",
+      "declarations/UnityEngine.AssetBundleModule.dll",
+      "declarations/UnityEngine.AnimationModule.dll",
+      "declarations/UnityEngine.AudioModule.dll",
+      "declarations/UnityEngine.XRModule.dll",
+      "declarations/UnityEngine.VFXModule.dll",
+      "declarations/UnityEngine.InputLegacyModule.dll",
+      "declarations/UnityEngine.InputModule.dll",
+      "declarations/UnityEngine.DirectorModule.dll",
+      "declarations/Unity.TextMeshPro.dll",
+      "declarations/mscorlib.dll",
+      "declarations/UnityEngine.TextCoreTextEngineModule.dll",
+      "declarations/UnityEngine.Physics2DModule.dll",
+      "declarations/UnityEngine.dll",
+      "declarations/UnityEngine.UIElementsModule.dll",
+      "declarations/UnityEngine.UIModule.dll",
+      "declarations/UnityEngine.UI.dll",
+      "declarations/UnityEngine.UIElementsNativeModule.dll",
+      "declarations/UnityEngine.GridModule.dll",
+      "declarations/UnityEngine.TerrainModule.dll",
+      "declarations/UnityEngine.VRModule.dll",
+      "declarations/UnityEngine.JSONSerializeModule.dll",
+      "declarations/Mono.Security.dll",
+      "declarations/System.dll",
+      "declarations/com.rlabrecque.steamworks.net.dll",
+      "declarations/UnityEngine.SharedInternalsModule.dll",
+      "declarations/UnityEngine.ImageConversionModule.dll",
+      "declarations/UnityEngine.TilemapModule.dll",
+      "declarations/UnityEngine.ParticleSystemModule.dll",
+      "declarations/UnityEngine.TextCoreFontEngineModule.dll",
+      "declarations/AllIn1SpriteShaderAssembly.dll",
+      "declarations/UnityEngine.PhysicsModule.dll",
+      "declarations/UnityEngine.CoreModule.dll",
+      "declarations/UnityEngine.SubsystemsModule.dll",
+      "declarations/System.Xml.dll",
+      "declarations/UnityEngine.UnityWebRequestModule.dll",
+      "declarations/UnityEngine.AndroidJNIModule.dll",
+      "declarations/UnityEngine.AIModule.dll",
+      "declarations/UnityEngine.IMGUIModule.dll",
+      "declarations/System.Core.dll",
+      "declarations/UnityEngine.VideoModule.dll"
+    ]
+  },
+  "independent_checks": {
+    "ilspy_type_listing_exit": 0,
+    "ilspy_source_inspection_exit": 0,
+    "assembly_csharp_class_rows": 76,
+    "assembly_csharp_bytes": 21504,
+    "all_output_dlls_have_pe_signature": true,
+    "observed_empty_method_body_diagnostics": 413
+  },
+  "coverage": {
+    "mapped_method_definitions": 26984,
+    "emitted_assemblies": 47,
+    "method_bodies": "deliberately empty declarations; no recovered C# execution claim",
+    "gameplay_or_save_access": false
+  },
+  "private_evidence_root": "/Users/weiwei/.codex/research/tool-validation-2026-10-21/100-space-cats"
+}

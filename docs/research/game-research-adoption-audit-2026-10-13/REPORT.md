@@ -1,5 +1,11 @@
 # Reference-game research and YAIR adoption audit
 
+2026-10-21 operational pointer: the [tool registry](../../TOOL_REGISTRY.md)
+owns current entry points. The research cache root now exists and patched REA
+has later execution receipts. This report's October 13 missing-root/no-trial
+observations remain historical; exact individual artifacts still need locator
+checks. This pointer does not mark old native or gameplay gaps closed.
+
 October13,2026. **The useful next move is to recover selected evidence locations and verify or deepen a few existing consumers, rather than start another broad decompilation wave.** Several recommendations already have source implementations. The strongest fresh opportunities are small original joins that improve production choices, remembered social outcomes and recovery texture.
 
 This is a completed bounded audit and a set of proposals. No design decision, implementation, installation, game acquisition, trial, commit or publication was performed. Follow-up packets were specified, not run or dispatched.

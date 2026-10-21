@@ -1,5 +1,31 @@
 # User vision and research coverage
 
+## Tool registry, launch wrappers and discovery reconciliation, 2026-10-21
+
+Later follow-up, Weibao:
+
+> go ahead and fix Cpp2IL too, then verify it on one of the games we already own, consider also improving access for chats here tool? so changing project.md? more to consider?
+
+He then requested updating `https://github.com/morluto/rea` too. This extends
+the earlier registry scope to repair/owned-game verification, the upstream REA
+update and useful project-chat access. The [live registry](TOOL_REGISTRY.md)
+and [follow-up receipt](audits/toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md)
+own current routes and distinct verification states. Existing analysis projects,
+old tool identities and installed game inputs remain preserved.
+
+Weibao, after the toolsets audit:
+
+> go ahead and make the tool registry and launch wrappers, and reconcile the stale docs so other agents can actually find and use all of this
+
+He also requested a more-to-consider pass for improvements to each toolset.
+This authorizes the shared operational registry, existing-tool wrappers and
+discovery-document corrections. The [registry](TOOL_REGISTRY.md) is the live
+entry point; the [implementation receipt](audits/toolsets_2026-10-21/IMPLEMENTATION.md)
+records actual checks, readiness gaps and per-tool follow-ups. Suggestions for
+new acquisition, registration, upgrades and target execution keep their own
+scope and acceptance gates; this request does not claim those completed.
+
+
 ## Agent generation and book usage, 2026-10-16
 
 Latest correction: “How do we stop readers from carrying huge contexts through hundreds of calls? Update the rules accordingly so we can still read whole books without burning that much usage, those books should fit into one or two or 3 chats properly? more to consider?”

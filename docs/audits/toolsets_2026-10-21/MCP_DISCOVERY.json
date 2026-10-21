@@ -1,0 +1,2138 @@
+[
+  {
+    "server": "rea",
+    "server_info": {
+      "name": "rea",
+      "title": null,
+      "version": "6.4.0",
+      "websiteUrl": null,
+      "icons": null
+    },
+    "tools": [
+      {
+        "name": "annotate_native_function",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure",
+          "name",
+          "comment",
+          "inline_comment"
+        ]
+      },
+      {
+        "name": "inspect_native_load_image",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "inspect_native_data_type",
+        "required": [],
+        "properties": [
+          "type",
+          "address",
+          "document"
+        ]
+      },
+      {
+        "name": "inspect_native_instruction",
+        "required": [
+          "address"
+        ],
+        "properties": [
+          "address",
+          "document"
+        ]
+      },
+      {
+        "name": "resolve_native_call_targets",
+        "required": [
+          "address"
+        ],
+        "properties": [
+          "address",
+          "document"
+        ]
+      },
+      {
+        "name": "address_name",
+        "required": [],
+        "properties": [
+          "document",
+          "address"
+        ]
+      },
+      {
+        "name": "comment",
+        "required": [],
+        "properties": [
+          "document",
+          "address"
+        ]
+      },
+      {
+        "name": "current_address",
+        "required": [],
+        "properties": [
+          "document"
+        ]
+      },
+      {
+        "name": "current_procedure",
+        "required": [],
+        "properties": [
+          "document"
+        ]
+      },
+      {
+        "name": "current_document",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "goto_address",
+        "required": [
+          "address"
+        ],
+        "properties": [
+          "address",
+          "document"
+        ]
+      },
+      {
+        "name": "inline_comment",
+        "required": [],
+        "properties": [
+          "document",
+          "address"
+        ]
+      },
+      {
+        "name": "list_bookmarks",
+        "required": [],
+        "properties": [
+          "document"
+        ]
+      },
+      {
+        "name": "list_documents",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "list_names",
+        "required": [],
+        "properties": [
+          "document",
+          "address"
+        ]
+      },
+      {
+        "name": "list_procedures",
+        "required": [],
+        "properties": [
+          "document"
+        ]
+      },
+      {
+        "name": "list_segments",
+        "required": [],
+        "properties": [
+          "document"
+        ]
+      },
+      {
+        "name": "list_strings",
+        "required": [],
+        "properties": [
+          "document",
+          "address"
+        ]
+      },
+      {
+        "name": "next_address",
+        "required": [],
+        "properties": [
+          "document",
+          "address"
+        ]
+      },
+      {
+        "name": "prev_address",
+        "required": [],
+        "properties": [
+          "document",
+          "address"
+        ]
+      },
+      {
+        "name": "procedure_address",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure",
+          "document"
+        ]
+      },
+      {
+        "name": "procedure_assembly",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure",
+          "document"
+        ]
+      },
+      {
+        "name": "procedure_callees",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure",
+          "document"
+        ]
+      },
+      {
+        "name": "procedure_callers",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure",
+          "document"
+        ]
+      },
+      {
+        "name": "procedure_info",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure",
+          "document"
+        ]
+      },
+      {
+        "name": "read_function_instructions",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure",
+          "document"
+        ]
+      },
+      {
+        "name": "read_bytes",
+        "required": [
+          "address"
+        ],
+        "properties": [
+          "address",
+          "length",
+          "document"
+        ]
+      },
+      {
+        "name": "address_to_file_offset",
+        "required": [
+          "address"
+        ],
+        "properties": [
+          "address",
+          "document"
+        ]
+      },
+      {
+        "name": "procedure_references",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure",
+          "direction",
+          "document"
+        ]
+      },
+      {
+        "name": "procedure_pseudo_code",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure",
+          "document"
+        ]
+      },
+      {
+        "name": "resolve_containing_procedure",
+        "required": [
+          "address"
+        ],
+        "properties": [
+          "address",
+          "document"
+        ]
+      },
+      {
+        "name": "search_procedures",
+        "required": [
+          "pattern"
+        ],
+        "properties": [
+          "pattern",
+          "mode",
+          "case_sensitive",
+          "document"
+        ]
+      },
+      {
+        "name": "search_strings",
+        "required": [
+          "pattern"
+        ],
+        "properties": [
+          "pattern",
+          "mode",
+          "case_sensitive",
+          "document"
+        ]
+      },
+      {
+        "name": "set_address_name",
+        "required": [
+          "address",
+          "name"
+        ],
+        "properties": [
+          "address",
+          "name",
+          "document"
+        ]
+      },
+      {
+        "name": "set_addresses_names",
+        "required": [
+          "names"
+        ],
+        "properties": [
+          "names",
+          "document"
+        ]
+      },
+      {
+        "name": "set_bookmark",
+        "required": [
+          "address"
+        ],
+        "properties": [
+          "address",
+          "name",
+          "document"
+        ]
+      },
+      {
+        "name": "set_comment",
+        "required": [
+          "address",
+          "comment"
+        ],
+        "properties": [
+          "address",
+          "comment",
+          "document"
+        ]
+      },
+      {
+        "name": "set_inline_comment",
+        "required": [
+          "address",
+          "comment"
+        ],
+        "properties": [
+          "address",
+          "comment",
+          "document"
+        ]
+      },
+      {
+        "name": "unset_bookmark",
+        "required": [
+          "address"
+        ],
+        "properties": [
+          "address",
+          "document"
+        ]
+      },
+      {
+        "name": "xrefs",
+        "required": [],
+        "properties": [
+          "document",
+          "address"
+        ]
+      },
+      {
+        "name": "trace_native_values",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure",
+          "max_depth",
+          "max_functions",
+          "max_call_sites",
+          "max_nodes",
+          "max_edges",
+          "offset",
+          "limit"
+        ]
+      },
+      {
+        "name": "inspect_native_dispatch_metadata",
+        "required": [],
+        "properties": [
+          "max_records"
+        ]
+      },
+      {
+        "name": "get_objc_classes",
+        "required": [],
+        "properties": [
+          "pattern"
+        ]
+      },
+      {
+        "name": "get_objc_protocols",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "batch_decompile",
+        "required": [],
+        "properties": [
+          "addresses"
+        ]
+      },
+      {
+        "name": "get_call_graph",
+        "required": [
+          "address"
+        ],
+        "properties": [
+          "address",
+          "direction"
+        ]
+      },
+      {
+        "name": "analyze_swift_types",
+        "required": [],
+        "properties": [
+          "category",
+          "pattern"
+        ]
+      },
+      {
+        "name": "find_xrefs_to_name",
+        "required": [
+          "name"
+        ],
+        "properties": [
+          "name"
+        ]
+      },
+      {
+        "name": "binary_overview",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "analyze_function",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure"
+        ]
+      },
+      {
+        "name": "inspect_native_api",
+        "required": [
+          "procedure"
+        ],
+        "properties": [
+          "procedure"
+        ]
+      },
+      {
+        "name": "trace_feature",
+        "required": [
+          "query"
+        ],
+        "properties": [
+          "query",
+          "case_sensitive"
+        ]
+      },
+      {
+        "name": "trace_call_path",
+        "required": [
+          "start"
+        ],
+        "properties": [
+          "start",
+          "goal",
+          "direction"
+        ]
+      },
+      {
+        "name": "trace_native_ui_action",
+        "required": [
+          "action"
+        ],
+        "properties": [
+          "action",
+          "max_depth",
+          "max_nodes",
+          "max_edges"
+        ]
+      },
+      {
+        "name": "observe_native_ui",
+        "required": [
+          "pid",
+          "window_id"
+        ],
+        "properties": [
+          "pid",
+          "window_id",
+          "screenshot",
+          "accessibility",
+          "max_nodes"
+        ]
+      },
+      {
+        "name": "capture_native_ui_scenario",
+        "required": [
+          "pid",
+          "window_id",
+          "steps"
+        ],
+        "properties": [
+          "pid",
+          "window_id",
+          "screenshot",
+          "accessibility",
+          "max_nodes",
+          "steps"
+        ]
+      },
+      {
+        "name": "observe_native_calls",
+        "required": [
+          "breakpoints"
+        ],
+        "properties": [
+          "breakpoints",
+          "arguments",
+          "environment",
+          "working_directory",
+          "duration_ms",
+          "max_events",
+          "argument_registers",
+          "backtrace_frames"
+        ]
+      },
+      {
+        "name": "inspect_macho",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "inspect_signature",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "inspect_plist",
+        "required": [],
+        "properties": [
+          "path"
+        ]
+      },
+      {
+        "name": "list_architectures",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "demangle_swift",
+        "required": [
+          "symbols"
+        ],
+        "properties": [
+          "symbols"
+        ]
+      },
+      {
+        "name": "inspect_artifact",
+        "required": [],
+        "properties": [
+          "integrity_policy",
+          "detail"
+        ]
+      },
+      {
+        "name": "extract_artifact",
+        "required": [],
+        "properties": [
+          "integrity_policy"
+        ]
+      },
+      {
+        "name": "decode_interface_builder",
+        "required": [],
+        "properties": [
+          "max_documents",
+          "max_objects",
+          "max_connections"
+        ]
+      },
+      {
+        "name": "inspect_keyed_archive",
+        "required": [],
+        "properties": [
+          "path",
+          "root",
+          "offset",
+          "limit"
+        ]
+      },
+      {
+        "name": "inspect_asset_catalog",
+        "required": [],
+        "properties": [
+          "offset",
+          "limit"
+        ]
+      },
+      {
+        "name": "trace_dylib_resolution",
+        "required": [],
+        "properties": [
+          "roots",
+          "architecture"
+        ]
+      },
+      {
+        "name": "inspect_managed_artifact",
+        "required": [],
+        "properties": [
+          "path",
+          "detail"
+        ]
+      },
+      {
+        "name": "inspect_managed_members",
+        "required": [],
+        "properties": [
+          "path",
+          "type_names"
+        ]
+      },
+      {
+        "name": "inspect_managed_native_boundaries",
+        "required": [],
+        "properties": [
+          "path"
+        ]
+      },
+      {
+        "name": "compare_managed_members",
+        "required": [
+          "left",
+          "right"
+        ],
+        "properties": [
+          "left",
+          "right"
+        ]
+      },
+      {
+        "name": "verify_managed_native_boundaries",
+        "required": [
+          "managed_boundaries",
+          "native_observations"
+        ],
+        "properties": [
+          "managed_boundaries",
+          "native_observations"
+        ]
+      },
+      {
+        "name": "import_managed_reconstruction",
+        "required": [
+          "static_members",
+          "decompiler",
+          "methods"
+        ],
+        "properties": [
+          "static_members",
+          "decompiler",
+          "methods",
+          "notes"
+        ]
+      },
+      {
+        "name": "project_managed_application_graph",
+        "required": [],
+        "properties": [
+          "managed_artifact",
+          "managed_members",
+          "managed_native_boundaries"
+        ]
+      },
+      {
+        "name": "list_frida_devices",
+        "required": [],
+        "properties": [
+          "remote"
+        ]
+      },
+      {
+        "name": "list_frida_processes",
+        "required": [],
+        "properties": [
+          "device_id",
+          "remote"
+        ]
+      },
+      {
+        "name": "start_frida_session",
+        "required": [
+          "mode"
+        ],
+        "properties": [
+          "mode",
+          "device_id",
+          "remote",
+          "pid",
+          "program",
+          "argv"
+        ]
+      },
+      {
+        "name": "load_frida_script",
+        "required": [
+          "session_id",
+          "source_kind"
+        ],
+        "properties": [
+          "session_id",
+          "source_kind",
+          "source",
+          "path"
+        ]
+      },
+      {
+        "name": "resume_frida_session",
+        "required": [
+          "session_id"
+        ],
+        "properties": [
+          "session_id"
+        ]
+      },
+      {
+        "name": "unload_frida_script",
+        "required": [
+          "session_id",
+          "script_id"
+        ],
+        "properties": [
+          "session_id",
+          "script_id"
+        ]
+      },
+      {
+        "name": "frida_session_status",
+        "required": [
+          "session_id"
+        ],
+        "properties": [
+          "session_id"
+        ]
+      },
+      {
+        "name": "close_frida_session",
+        "required": [
+          "session_id"
+        ],
+        "properties": [
+          "session_id"
+        ]
+      },
+      {
+        "name": "instrument_with_frida",
+        "required": [
+          "mode",
+          "source_kind"
+        ],
+        "properties": [
+          "mode",
+          "device_id",
+          "remote",
+          "pid",
+          "program",
+          "argv",
+          "source_kind",
+          "source",
+          "path",
+          "duration_ms"
+        ]
+      },
+      {
+        "name": "inspect_packet_capture",
+        "required": [
+          "path",
+          "fields"
+        ],
+        "properties": [
+          "path",
+          "fields",
+          "display_filter",
+          "decode_as",
+          "packet_limit",
+          "two_pass",
+          "match_offset",
+          "match_limit"
+        ]
+      },
+      {
+        "name": "decode_signal_recording",
+        "required": [
+          "path",
+          "decoders"
+        ],
+        "properties": [
+          "path",
+          "decoders",
+          "input_format",
+          "annotations",
+          "line_offset",
+          "line_limit"
+        ]
+      },
+      {
+        "name": "inspect_android_package",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path",
+          "detail"
+        ]
+      },
+      {
+        "name": "search_android_classes",
+        "required": [
+          "path",
+          "query"
+        ],
+        "properties": [
+          "path",
+          "query"
+        ]
+      },
+      {
+        "name": "inspect_android_class",
+        "required": [
+          "path",
+          "class_name"
+        ],
+        "properties": [
+          "path",
+          "class_name"
+        ]
+      },
+      {
+        "name": "inspect_android_method",
+        "required": [
+          "path",
+          "class_name",
+          "method_name"
+        ],
+        "properties": [
+          "path",
+          "class_name",
+          "method_name",
+          "overload_index"
+        ]
+      },
+      {
+        "name": "trace_android_references",
+        "required": [
+          "path",
+          "class_name"
+        ],
+        "properties": [
+          "path",
+          "class_name",
+          "method_name"
+        ]
+      },
+      {
+        "name": "inspect_jeb_client",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "open_jeb_project",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path"
+        ]
+      },
+      {
+        "name": "list_jeb_units",
+        "required": [],
+        "properties": [
+          "filter",
+          "parent_unit_path",
+          "index",
+          "count"
+        ]
+      },
+      {
+        "name": "decompile_jeb_item",
+        "required": [
+          "item_address",
+          "item_kind"
+        ],
+        "properties": [
+          "unit_path",
+          "item_address",
+          "item_kind"
+        ]
+      },
+      {
+        "name": "inspect_binary_layout",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path",
+          "detail"
+        ]
+      },
+      {
+        "name": "inspect_analysis_view",
+        "required": [
+          "source",
+          "view"
+        ],
+        "properties": [
+          "source",
+          "view"
+        ]
+      },
+      {
+        "name": "inspect_pe_resources",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path",
+          "max_file_bytes",
+          "max_entries"
+        ]
+      },
+      {
+        "name": "inspect_go_binary",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path"
+        ]
+      },
+      {
+        "name": "inspect_wasm_artifact",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path",
+          "glue_paths",
+          "candidate_paths",
+          "detail"
+        ]
+      },
+      {
+        "name": "inspect_evm_interface",
+        "required": [
+          "path",
+          "encoding"
+        ],
+        "properties": [
+          "path",
+          "encoding",
+          "detail"
+        ]
+      },
+      {
+        "name": "inspect_sqlite_database",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path",
+          "table",
+          "columns",
+          "schema_scope",
+          "row_limit"
+        ]
+      },
+      {
+        "name": "inspect_recorded_crash",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path",
+          "include_debugger_context"
+        ]
+      },
+      {
+        "name": "inspect_firmware_regions",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path"
+        ]
+      },
+      {
+        "name": "extract_firmware",
+        "required": [
+          "path",
+          "output_directory"
+        ],
+        "properties": [
+          "path",
+          "output_directory",
+          "range",
+          "max_depth",
+          "max_output_bytes",
+          "max_output_files"
+        ]
+      },
+      {
+        "name": "trace_web_module_imports",
+        "required": [
+          "manifest_path",
+          "script_index"
+        ],
+        "properties": [
+          "manifest_path",
+          "script_index",
+          "importer_url",
+          "import_map"
+        ]
+      },
+      {
+        "name": "trace_web_source_location",
+        "required": [
+          "manifest_path",
+          "script_index",
+          "source_map",
+          "generated_position"
+        ],
+        "properties": [
+          "manifest_path",
+          "script_index",
+          "source_map",
+          "generated_position"
+        ]
+      },
+      {
+        "name": "observe_web_execution",
+        "required": [
+          "cdp_endpoint",
+          "target_id"
+        ],
+        "properties": [
+          "cdp_endpoint",
+          "allowed_origins",
+          "target_id",
+          "observation_ms"
+        ]
+      },
+      {
+        "name": "inspect_web_event_listeners",
+        "required": [
+          "cdp_endpoint",
+          "target_id",
+          "selector"
+        ],
+        "properties": [
+          "cdp_endpoint",
+          "allowed_origins",
+          "target_id",
+          "selector"
+        ]
+      },
+      {
+        "name": "inspect_web_network_capture",
+        "required": [
+          "capture_path",
+          "format"
+        ],
+        "properties": [
+          "capture_path",
+          "format",
+          "record_ordinals",
+          "sensitive_values",
+          "detail"
+        ]
+      },
+      {
+        "name": "recover_javascript_sources",
+        "required": [
+          "path",
+          "output_directory"
+        ],
+        "properties": [
+          "path",
+          "additional_paths",
+          "output_directory",
+          "extraction_mode",
+          "rewrite_level"
+        ]
+      },
+      {
+        "name": "inspect_adb_client",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "list_adb_devices",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "inspect_adb_device",
+        "required": [
+          "serial"
+        ],
+        "properties": [
+          "serial"
+        ]
+      },
+      {
+        "name": "list_adb_packages",
+        "required": [
+          "serial"
+        ],
+        "properties": [
+          "serial",
+          "scope"
+        ]
+      },
+      {
+        "name": "pull_adb_package",
+        "required": [
+          "serial",
+          "package",
+          "output_directory"
+        ],
+        "properties": [
+          "serial",
+          "package",
+          "output_directory"
+        ]
+      },
+      {
+        "name": "read_adb_logcat",
+        "required": [
+          "serial"
+        ],
+        "properties": [
+          "serial",
+          "count",
+          "buffer",
+          "pid"
+        ]
+      },
+      {
+        "name": "inspect_adb_package",
+        "required": [
+          "serial",
+          "package"
+        ],
+        "properties": [
+          "serial",
+          "package"
+        ]
+      },
+      {
+        "name": "pull_adb_file",
+        "required": [
+          "serial",
+          "device_path",
+          "output_directory"
+        ],
+        "properties": [
+          "serial",
+          "device_path",
+          "output_directory"
+        ]
+      },
+      {
+        "name": "push_adb_file",
+        "required": [
+          "serial",
+          "local_path",
+          "device_path"
+        ],
+        "properties": [
+          "serial",
+          "local_path",
+          "device_path",
+          "overwrite"
+        ]
+      },
+      {
+        "name": "capture_adb_screen",
+        "required": [
+          "serial",
+          "output_directory"
+        ],
+        "properties": [
+          "serial",
+          "output_directory"
+        ]
+      },
+      {
+        "name": "list_adb_processes",
+        "required": [
+          "serial"
+        ],
+        "properties": [
+          "serial"
+        ]
+      },
+      {
+        "name": "list_adb_directory",
+        "required": [
+          "serial",
+          "device_path"
+        ],
+        "properties": [
+          "serial",
+          "device_path"
+        ]
+      },
+      {
+        "name": "list_adb_features",
+        "required": [
+          "serial"
+        ],
+        "properties": [
+          "serial"
+        ]
+      },
+      {
+        "name": "list_adb_services",
+        "required": [
+          "serial"
+        ],
+        "properties": [
+          "serial"
+        ]
+      },
+      {
+        "name": "inspect_adb_display",
+        "required": [
+          "serial"
+        ],
+        "properties": [
+          "serial"
+        ]
+      },
+      {
+        "name": "inspect_adb_window",
+        "required": [
+          "serial"
+        ],
+        "properties": [
+          "serial"
+        ]
+      },
+      {
+        "name": "read_adb_setting",
+        "required": [
+          "serial",
+          "namespace",
+          "key"
+        ],
+        "properties": [
+          "serial",
+          "namespace",
+          "key"
+        ]
+      },
+      {
+        "name": "collect_adb_bugreport",
+        "required": [
+          "serial",
+          "output_directory"
+        ],
+        "properties": [
+          "serial",
+          "output_directory"
+        ]
+      },
+      {
+        "name": "resolve_adb_packages",
+        "required": [
+          "serial",
+          "query"
+        ],
+        "properties": [
+          "serial",
+          "query"
+        ]
+      },
+      {
+        "name": "install_adb_package",
+        "required": [
+          "serial",
+          "apk_path"
+        ],
+        "properties": [
+          "serial",
+          "apk_path",
+          "replace"
+        ]
+      },
+      {
+        "name": "uninstall_adb_package",
+        "required": [
+          "serial",
+          "package"
+        ],
+        "properties": [
+          "serial",
+          "package"
+        ]
+      },
+      {
+        "name": "start_adb_app",
+        "required": [
+          "serial",
+          "package"
+        ],
+        "properties": [
+          "serial",
+          "package"
+        ]
+      },
+      {
+        "name": "start_adb_activity",
+        "required": [
+          "serial",
+          "action"
+        ],
+        "properties": [
+          "serial",
+          "action",
+          "data_uri",
+          "component",
+          "extras"
+        ]
+      },
+      {
+        "name": "stop_adb_app",
+        "required": [
+          "serial",
+          "package"
+        ],
+        "properties": [
+          "serial",
+          "package"
+        ]
+      },
+      {
+        "name": "identify_flutter_build",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path"
+        ]
+      },
+      {
+        "name": "inspect_dart_aot",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path",
+          "abi",
+          "detail"
+        ]
+      },
+      {
+        "name": "inspect_apktool_client",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "decode_android_resources",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path",
+          "include_strings",
+          "locale"
+        ]
+      },
+      {
+        "name": "export_web_scripts",
+        "required": [
+          "capture_path",
+          "output_directory"
+        ],
+        "properties": [
+          "capture_path",
+          "output_directory"
+        ]
+      },
+      {
+        "name": "list_browser_targets",
+        "required": [
+          "cdp_endpoint"
+        ],
+        "properties": [
+          "cdp_endpoint",
+          "allowed_origins"
+        ]
+      },
+      {
+        "name": "inspect_web_page",
+        "required": [
+          "cdp_endpoint",
+          "target_id"
+        ],
+        "properties": [
+          "cdp_endpoint",
+          "allowed_origins",
+          "target_id",
+          "observation_ms",
+          "include_accessibility_text",
+          "include_console_text",
+          "include_json_body_shapes",
+          "include_websocket_shapes",
+          "include_storage_keys",
+          "include_storage_fingerprints",
+          "include_script_sources"
+        ]
+      },
+      {
+        "name": "analyze_web_bundle",
+        "required": [
+          "cdp_endpoint",
+          "target_id"
+        ],
+        "properties": [
+          "cdp_endpoint",
+          "allowed_origins",
+          "target_id",
+          "observation_ms",
+          "include_accessibility_text",
+          "include_console_text",
+          "include_json_body_shapes",
+          "include_websocket_shapes",
+          "include_storage_keys",
+          "include_storage_fingerprints",
+          "include_script_sources",
+          "fetch_source_maps"
+        ]
+      },
+      {
+        "name": "observe_web_session",
+        "required": [
+          "cdp_endpoint",
+          "target_id"
+        ],
+        "properties": [
+          "cdp_endpoint",
+          "allowed_origins",
+          "target_id",
+          "observation_ms"
+        ]
+      },
+      {
+        "name": "discover_webmcp_tools",
+        "required": [
+          "cdp_endpoint",
+          "target_id"
+        ],
+        "properties": [
+          "cdp_endpoint",
+          "allowed_origins",
+          "target_id",
+          "observation_ms"
+        ]
+      },
+      {
+        "name": "compare_web_captures",
+        "required": [],
+        "properties": [
+          "before",
+          "after",
+          "before_scenario",
+          "after_scenario",
+          "normalization"
+        ]
+      },
+      {
+        "name": "capture_web_screenshot",
+        "required": [
+          "cdp_endpoint",
+          "target_id"
+        ],
+        "properties": [
+          "cdp_endpoint",
+          "allowed_origins",
+          "target_id"
+        ]
+      },
+      {
+        "name": "compare_web_screenshots",
+        "required": [
+          "before",
+          "after"
+        ],
+        "properties": [
+          "before",
+          "after",
+          "channel_threshold"
+        ]
+      },
+      {
+        "name": "capture_browser_scenario",
+        "required": [
+          "browser",
+          "start_url",
+          "actions"
+        ],
+        "properties": [
+          "browser",
+          "start_url",
+          "environment",
+          "actions",
+          "storage",
+          "secrets",
+          "capture"
+        ]
+      },
+      {
+        "name": "list_electron_targets",
+        "required": [
+          "cdp_endpoint"
+        ],
+        "properties": [
+          "cdp_endpoint"
+        ]
+      },
+      {
+        "name": "inspect_electron_page",
+        "required": [
+          "cdp_endpoint",
+          "target_id"
+        ],
+        "properties": [
+          "cdp_endpoint",
+          "target_id",
+          "observation_ms",
+          "include_script_sources"
+        ]
+      },
+      {
+        "name": "analyze_javascript_application",
+        "required": [
+          "input_path"
+        ],
+        "properties": [
+          "input_path",
+          "format",
+          "integrity_policy",
+          "source_paths",
+          "max_semantic_nodes",
+          "max_semantic_nodes_per_file",
+          "max_heap_mb",
+          "analysis_timeout_ms",
+          "detail"
+        ]
+      },
+      {
+        "name": "reconcile_javascript_runtime",
+        "required": [
+          "static_layers",
+          "runtime_observations"
+        ],
+        "properties": [
+          "static_layers",
+          "runtime_observations"
+        ]
+      },
+      {
+        "name": "capture_electron_scenario",
+        "required": [
+          "executable_path",
+          "application_path"
+        ],
+        "properties": [
+          "executable_path",
+          "application_path",
+          "application_root",
+          "args",
+          "actions"
+        ]
+      },
+      {
+        "name": "list_javascript_runtime_targets",
+        "required": [
+          "inspector_endpoint"
+        ],
+        "properties": [
+          "inspector_endpoint"
+        ]
+      },
+      {
+        "name": "observe_javascript_runtime",
+        "required": [
+          "inspector_endpoint",
+          "target_id"
+        ],
+        "properties": [
+          "inspector_endpoint",
+          "target_id",
+          "runtime_kind",
+          "observation_ms"
+        ]
+      },
+      {
+        "name": "trace_application_feature",
+        "required": [
+          "seed",
+          "application"
+        ],
+        "properties": [
+          "native_observations",
+          "seed",
+          "direction",
+          "application"
+        ]
+      },
+      {
+        "name": "trace_javascript_semantics",
+        "required": [
+          "application",
+          "query"
+        ],
+        "properties": [
+          "application",
+          "query"
+        ]
+      },
+      {
+        "name": "compare_application_versions",
+        "required": [
+          "left",
+          "right"
+        ],
+        "properties": [
+          "left_native_observations",
+          "right_native_observations",
+          "left",
+          "right"
+        ]
+      },
+      {
+        "name": "compare_source_to_bundle",
+        "required": [
+          "reference",
+          "application"
+        ],
+        "properties": [
+          "reference",
+          "application"
+        ]
+      },
+      {
+        "name": "compare_javascript_export_shapes",
+        "required": [
+          "left_module_path",
+          "left_export_name",
+          "right_module_path",
+          "right_export_name",
+          "left",
+          "right"
+        ],
+        "properties": [
+          "left_module_path",
+          "left_export_name",
+          "right_module_path",
+          "right_export_name",
+          "left",
+          "right"
+        ]
+      },
+      {
+        "name": "build_reconstruction_obligation_ledger",
+        "required": [
+          "evidence_bundle",
+          "reviewed_obligations",
+          "manifest"
+        ],
+        "properties": [
+          "evidence_bundle",
+          "reviewed_obligations",
+          "manifest"
+        ]
+      },
+      {
+        "name": "evaluate_reconstruction_coverage",
+        "required": [
+          "coverage",
+          "boundary_id"
+        ],
+        "properties": [
+          "coverage",
+          "boundary_id"
+        ]
+      },
+      {
+        "name": "project_android_application_graph",
+        "required": [
+          "inventory_evidence"
+        ],
+        "properties": [
+          "inventory_evidence"
+        ]
+      },
+      {
+        "name": "project_apple_application_graph",
+        "required": [
+          "inventory_evidence"
+        ],
+        "properties": [
+          "inventory_evidence"
+        ]
+      },
+      {
+        "name": "project_harmony_application_graph",
+        "required": [
+          "inventory_evidence"
+        ],
+        "properties": [
+          "inventory_evidence"
+        ]
+      },
+      {
+        "name": "open_binary",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path",
+          "format",
+          "architecture",
+          "entry_point",
+          "provider_id",
+          "snapshot_path"
+        ]
+      },
+      {
+        "name": "close_binary",
+        "required": [],
+        "properties": [
+          "snapshot_path",
+          "overwrite"
+        ]
+      },
+      {
+        "name": "binary_session",
+        "required": [],
+        "properties": [
+          "expected_package_version",
+          "expected_catalog_digest",
+          "expected_server_path"
+        ]
+      },
+      {
+        "name": "export_evidence_bundle",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path",
+          "overwrite"
+        ]
+      },
+      {
+        "name": "import_evidence_bundle",
+        "required": [
+          "path"
+        ],
+        "properties": [
+          "path"
+        ]
+      },
+      {
+        "name": "get_evidence_bundle",
+        "required": [],
+        "properties": [
+          "detail",
+          "filters"
+        ]
+      },
+      {
+        "name": "capture_process_scenario",
+        "required": [
+          "executable"
+        ],
+        "properties": [
+          "executable",
+          "arguments",
+          "working_directory",
+          "environment",
+          "filesystem_observation_paths",
+          "terminal",
+          "events",
+          "timeout_ms",
+          "idle_timeout_ms",
+          "settle_ms",
+          "finalization_ms",
+          "limits",
+          "normalization"
+        ]
+      },
+      {
+        "name": "compare_process_captures",
+        "required": [
+          "left",
+          "right"
+        ],
+        "properties": [
+          "left",
+          "right",
+          "trace_spec",
+          "max_capture_age_ms"
+        ]
+      },
+      {
+        "name": "compare_artifacts",
+        "required": [
+          "left",
+          "right"
+        ],
+        "properties": [
+          "left",
+          "right"
+        ]
+      },
+      {
+        "name": "compare_functions",
+        "required": [
+          "left",
+          "right"
+        ],
+        "properties": [
+          "left",
+          "right"
+        ]
+      },
+      {
+        "name": "compare_bundles",
+        "required": [
+          "left_bundle_path",
+          "right_bundle_path"
+        ],
+        "properties": [
+          "left_bundle_path",
+          "right_bundle_path",
+          "record_pairs"
+        ]
+      },
+      {
+        "name": "find_changed_behavior",
+        "required": [
+          "comparisons"
+        ],
+        "properties": [
+          "comparisons"
+        ]
+      },
+      {
+        "name": "build_call_path",
+        "required": [
+          "functions",
+          "start",
+          "goal"
+        ],
+        "properties": [
+          "functions",
+          "start",
+          "goal"
+        ]
+      },
+      {
+        "name": "correlate_static_and_runtime",
+        "required": [
+          "static_comparisons",
+          "runtime_comparisons",
+          "mappings"
+        ],
+        "properties": [
+          "static_comparisons",
+          "runtime_comparisons",
+          "mappings"
+        ]
+      },
+      {
+        "name": "verify_reconstruction",
+        "required": [
+          "specification"
+        ],
+        "properties": [
+          "specification"
+        ]
+      },
+      {
+        "name": "list_unknowns",
+        "required": [],
+        "properties": [
+          "status",
+          "severity",
+          "domain",
+          "offset",
+          "limit"
+        ]
+      },
+      {
+        "name": "record_unknown",
+        "required": [
+          "question",
+          "severity",
+          "domain",
+          "required_authority",
+          "required_confidence",
+          "required_environment",
+          "recommended_probes",
+          "relationships"
+        ],
+        "properties": [
+          "question",
+          "severity",
+          "domain",
+          "comparison_conclusion_scope",
+          "required_authority",
+          "required_confidence",
+          "required_environment",
+          "recommended_probes",
+          "relationships",
+          "supporting_evidence_ids",
+          "contradicting_evidence_ids"
+        ]
+      },
+      {
+        "name": "update_unknown",
+        "required": [
+          "unknown_id",
+          "expected_revision",
+          "status",
+          "severity",
+          "supporting_evidence_ids",
+          "contradicting_evidence_ids",
+          "required_authority",
+          "required_confidence",
+          "required_environment",
+          "recommended_probes",
+          "relationships",
+          "resolution"
+        ],
+        "properties": [
+          "unknown_id",
+          "expected_revision",
+          "status",
+          "severity",
+          "supporting_evidence_ids",
+          "contradicting_evidence_ids",
+          "required_authority",
+          "required_confidence",
+          "required_environment",
+          "recommended_probes",
+          "relationships",
+          "resolution"
+        ]
+      },
+      {
+        "name": "verify_unknown_resolution",
+        "required": [
+          "unknown_id"
+        ],
+        "properties": [
+          "unknown_id"
+        ]
+      },
+      {
+        "name": "get_navigation_context",
+        "required": [],
+        "properties": [
+          "document"
+        ]
+      },
+      {
+        "name": "inspect_address_context",
+        "required": [
+          "address"
+        ],
+        "properties": [
+          "address",
+          "document"
+        ]
+      }
+    ]
+  },
+  {
+    "server": "zlibrary",
+    "server_info": {
+      "name": "zlibrary-research",
+      "title": null,
+      "version": "1.30.0",
+      "websiteUrl": null,
+      "icons": null
+    },
+    "tools": [
+      {
+        "name": "doctor",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "search_books",
+        "required": [
+          "query"
+        ],
+        "properties": [
+          "query",
+          "language",
+          "extension",
+          "page",
+          "count"
+        ]
+      },
+      {
+        "name": "get_download_limits",
+        "required": [],
+        "properties": []
+      },
+      {
+        "name": "get_book_metadata",
+        "required": [
+          "book_id",
+          "book_hash"
+        ],
+        "properties": [
+          "book_id",
+          "book_hash"
+        ]
+      },
+      {
+        "name": "download_book",
+        "required": [
+          "book_id",
+          "book_hash",
+          "research_id"
+        ],
+        "properties": [
+          "book_id",
+          "book_hash",
+          "research_id"
+        ]
+      },
+      {
+        "name": "prepare_local_epub",
+        "required": [
+          "source_path",
+          "research_id"
+        ],
+        "properties": [
+          "source_path",
+          "research_id"
+        ]
+      },
+      {
+        "name": "search_local_book",
+        "required": [
+          "research_id",
+          "query"
+        ],
+        "properties": [
+          "research_id",
+          "query",
+          "limit",
+          "context"
+        ]
+      },
+      {
+        "name": "read_local_chapter",
+        "required": [
+          "research_id",
+          "member"
+        ],
+        "properties": [
+          "research_id",
+          "member",
+          "offset",
+          "length"
+        ]
+      },
+      {
+        "name": "check_local_library",
+        "required": [],
+        "properties": [
+          "query",
+          "source_sha256",
+          "library_path",
+          "limit"
+        ]
+      },
+      {
+        "name": "compare_book_editions",
+        "required": [
+          "candidates"
+        ],
+        "properties": [
+          "candidates",
+          "title",
+          "author",
+          "language",
+          "volume"
+        ]
+      }
+    ]
+  }
+]

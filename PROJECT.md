@@ -1,3 +1,25 @@
+## Shared tool registry and launchers, 2026-10-21
+
+Later authorized follow-up: Cpp2IL is repaired and verified on owned **100 Space
+Cats**, build 19025398, with unchanged installed inputs and declaration-only
+recovery. REA is updated/built from upstream at **6.7.0** (`6d356b843`), with a
+real Ghidra fixture check; patched 6.4.0 remains `rea-pinned`. Project-local REA
+and book-research MCP servers passed stdio discovery and effective client
+configuration checks. Fresh/refreshed trusted-project chats can load them;
+existing tool inventories may need refresh. Shell fallback for any registry
+route is `python3 scripts/toolsets.py run ID -- ARG...`.
+[Repair, update, chat access and remaining gates](docs/audits/toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md)
+separate declaration recovery from C# bodies and configured tools from a fresh
+chat's visible inventory. Discord and Cpp2IL currently use the shell route.
+
+Weibao authorized operational tool discovery, launch wrappers and stale-doc
+reconciliation after the toolsets audit. Start at the [tool registry](docs/TOOL_REGISTRY.md)
+or `python3 scripts/toolsets.py list`; it covers research/extraction, Discord,
+books/media and verification routes. [Direction](docs/USER_VISION.md#tool-registry-launch-wrappers-and-discovery-reconciliation-2026-10-21)
+and [implementation receipt](docs/audits/toolsets_2026-10-21/IMPLEMENTATION.md)
+separate offline readiness, manual/live acceptance and per-tool improvement
+proposals. No global registration or automatic installation is implied.
+
 ## Current queue navigation, 2026-10-18
 
 [Current queue routing](docs/IDEA_INDEX.md#current-queue-routing-2026-10-18)

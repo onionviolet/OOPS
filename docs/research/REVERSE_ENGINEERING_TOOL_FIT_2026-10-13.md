@@ -2,7 +2,23 @@
 
 2026-10-13. Recommendation only, not an accepted tool dependency or execution assignment. Interprets “redecompileazation” as further decompilation/reverse engineering of reference games.
 
-## Recommendation
+## Current operational status, 2026-10-21
+
+Use the [tool registry](../TOOL_REGISTRY.md) and
+`python3 scripts/toolsets.py doctor --probe rea ilspy unitypy` for current local
+entry points. The later [Hogwarts trial](hogwarts-legacy/REA_TRIAL.md) and
+[Warsim use](warsim/pass-2026-10-14-systems/TOOLING.md) supersede this page's
+October 13 no-trial state. Later same-day authorization updated and built REA
+6.7.0 from upstream; it is now `rea`, while patched 6.4.0 remains `rea-pinned`.
+The updated route passed a real Ghidra function check on a synthetic native
+fixture. Project-local REA/book MCP registrations passed stdio discovery and
+effective client listing; existing chat tool inventories still need refresh.
+ILSpy and UnityPy run through isolated environments. Cpp2IL's truncated cached
+file was preserved and replaced as the default by a complete verified/signed
+copy, tested on owned 100 Space Cats. [Current evidence and limits](../audits/toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md)
+do not establish automatic transfer of repaired projects or executable C# recovery.
+
+## Historical recommendation, 2026-10-13
 
 **D1: Keep the existing source/export routes as the default.** A new tool is useful when it answers an unresolved mechanic question, repairs a specific recovery defect or reduces repeated navigation effort. Repeating every export because another repository exists has no demonstrated benefit.
 
