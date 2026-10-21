@@ -1,0 +1,22 @@
+{
+  "src/scenario_facade.js": {
+    "sha256": "6599fbd207faf43d5789256706cac3f8e7720fd564c8a205c06e85433287768a",
+    "candidateSha256": "6599fbd207faf43d5789256706cac3f8e7720fd564c8a205c06e85433287768a"
+  },
+  "scripts/headless/runner.mjs": {
+    "sha256": "1eea41ffcfcf556e5d27eb48857d35928dd91d598f3d30d4ab07d19a1920f94d",
+    "candidateSha256": "1eea41ffcfcf556e5d27eb48857d35928dd91d598f3d30d4ab07d19a1920f94d"
+  },
+  "scripts/headless/scenario.mjs": {
+    "sha256": "0f5179a0512279eaf4557083d25156624cd89743301f5fd88c7d8b7e2df629f6",
+    "candidateSha256": "0f5179a0512279eaf4557083d25156624cd89743301f5fd88c7d8b7e2df629f6"
+  },
+  "tests/scenario_facade.test.js": {
+    "sha256": "248b4200ce900788671f85a6a39db2ff1ce1abd1332e06191096798e3ef6d41a",
+    "candidateSha256": "248b4200ce900788671f85a6a39db2ff1ce1abd1332e06191096798e3ef6d41a"
+  },
+  "tests/fixtures/deep_engine/ordinary_lamp.mjs": {
+    "sha256": "9ebf12e73fe71b46041641b9fa290c93b22406630ffb2ed8de1adebe342cc610",
+    "candidateSha256": "9ebf12e73fe71b46041641b9fa290c93b22406630ffb2ed8de1adebe342cc610"
+  }
+}

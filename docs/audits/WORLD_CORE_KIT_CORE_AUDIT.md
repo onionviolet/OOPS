@@ -76,6 +76,8 @@ scope, changes a standing priority or turns deferred work into a gate
 | 2026-10-15 | 18 | multi-world lanes and audit folded | this commit | FK5-FK10; MWA-P02 (local rule changes one verb) is the multi-world build candidate; UI rules UR2/UR4/UR8 constrain it |
 | 2026-10-18 | 19 | none | not committed | Little stuff every world needs: KN1-KN12 gaps found by keyword pass (waste, light, leisure, folk wisdom, petty crime, units, body care, pests, sounds, death customs, literacy, complaints); KU1-KU6 authoring tools (law-to-daily-life pass, texture layers) |
 | 2026-10-18 | 20 | none | not committed | KF1–KF3: optional texture, provenance versus destination mechanisms, one useful joined case; no full-world prerequisite bundle |
+| 2026-10-19 | 21 | KL-MAP-A and KL-MAP-B (existing cards and ledgers only), returned and folded same day | not committed | Deep-level lenses KL1 to KL12 and method lessons KR21-1 to KR21-10 in the successor root, built on the dials, materials and grammar work of the same day. Per-world map leads were checked against ledgers: 13 corrections (KL21-C1 to KL21-C13); cards are thin, ledgers carry the lens content |
+
 ## Core-rule reconciliation, 2026-10-18
 
 Apply the [shared pass](TOPIC_EXPANSION_AUDIT_PLAYBOOK.md#core-rule-reconciliation-pass-2026-10-18)

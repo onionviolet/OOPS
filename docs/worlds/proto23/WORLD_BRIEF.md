@@ -1,6 +1,6 @@
 # Proto23: retained village visitor branch
 
-2026-10-07. Source-qualified small native-world branch for the current home/social/base wave. [Implementation packet](IMPLEMENTATION_PACKET.md) defines the bounded visitable result; [leaf implementation status](IMPLEMENTATION_STATUS.md) records the selected handling/stave route, implemented-unverified with shared joins pending. Root owns shared registration and publication. No full Proto23 parity is claimed. The source audit ran no game, browser or save suite.
+2026-10-07. Source-qualified small native-world branch for the current home/social/base wave. [Implementation packet](IMPLEMENTATION_PACKET.md) defines the bounded visitable result; [integrated implementation status](IMPLEMENTATION_STATUS.md) records the selected handling/stave route and shared joins as delivered, implemented-unverified. The earlier leaf-stage pending status is superseded by that 2026-10-07 receipt. Root owns any new shared registration and publication. No full Proto23 parity is claimed. The source audit ran no game, browser or save suite.
 
 ## Source and setting
 

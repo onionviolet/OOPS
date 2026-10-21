@@ -19,6 +19,7 @@ import {fileURLToPath, pathToFileURL} from 'node:url';
 import {runInThisContext} from 'node:vm';
 import {createDom} from './dom.mjs';
 import {createVisibility} from './css.mjs';
+import {LAMP_SCENARIO_BRIDGE} from './scenario.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 export const ROOT = resolve(here, '../..');
@@ -32,6 +33,8 @@ const INTERNALS = ['expansionState','character','current_location','current_game
     'questManager','inventories','availabilities','expeditionRegistry','authorityBootError','authorityOperationBusy','lifeStorageFailure','game_version'];
 const FUNCTIONS = ['create_save','load','update_timer','advanceTicks','gameplaySnapshot','campaignContext','nativeOccupationReason','feedbackClockPauseReason','is_in_trade'];
 const HARNESS_TAIL = `
+${LAMP_SCENARIO_BRIDGE}
+export {scenarioLampOperations};
 export const __headless = {
 ${INTERNALS.map(n => `    get ${n}() {try {return ${n};} catch {return undefined;}},`).join('\n')}
 ${FUNCTIONS.map(n => `    ${n}: (...args) => ${n}(...args),`).join('\n')}
@@ -52,6 +55,7 @@ export async function bundleGame({root = ROOT, force = false} = {}) {
     await hashTree(join(root, 'src'), hash, p => /\.(m?js|json|ink)$/.test(p));
     await hashTree(join(root, 'locales'), hash, () => true);
     hash.update(await readFile(fileURLToPath(import.meta.url)));
+    hash.update(await readFile(join(root, 'scripts/headless/scenario.mjs')));
     const dir = join(tmpdir(), 'yairpg-headless'), out = join(dir, `game-${hash.digest('hex').slice(0, 16)}.mjs`);
     if(!force) try {await stat(out); return out;} catch {}
     await mkdir(dir, {recursive:true});

@@ -5,7 +5,9 @@ import {mitigateCombatDamage} from '../src/combat_math.js';
 import {
     DAMAGE_TAKEN_FLOOR, CRIT_RESISTANCE_CAP, shellDimensions, paddingDimensions,
     scaleReduction, effectiveDamageTaken, effectiveCritChance, isReductionStat,
+    materialToughness, wearScale, WEAR_SCALE_RANGE,
 } from '../src/gear_dimensions.js';
+import {createDurability} from '../src/absorb_e2/durability.js';
 
 test('defaults reproduce the original mitigation; options add the chip floor and percent layers in order', () => {
     assert.equal(mitigateCombatDamage([100, 0.2], 1000), 5.2);
@@ -83,4 +85,34 @@ test('worn armor changes what the native hero actually loses: percent layer afte
     const stats = character.getStats();
     assert.ok(stats.multiplier.equipment.damage_taken < 1);
     assert.ok(stats.flat.equipment.crit_resistance > 0);
+});
+
+test('toughness: authored or derived from strength, and equal-strength materials wear at different rates', async () => {
+    assert.deepEqual(materialToughness({strength: 100}), {value: 70, source: 'derived from strength'});
+    assert.ok(materialToughness({strength: 200}).value < materialToughness({strength: 60}).value);
+    assert.deepEqual(materialToughness({strength: 100, toughness: 45}), {value: 45, source: 'authored'});
+    assert.equal(wearScale({strength: 100, toughness: 70}), 1);
+    assert.ok(wearScale({strength: 100, toughness: 45}) > 1);
+    assert.ok(wearScale({strength: 100, toughness: 200}) < 1);
+    assert.equal(wearScale({strength: 1, toughness: 1}), WEAR_SCALE_RANGE.max);
+
+    const {Weapon, item_templates} = await loadNative('export {Weapon, item_templates} from "./src/items.js";');
+    const handle = 'Simple wooden short handle';
+    const brittle = new Weapon({components: {head: 'Cheap iron long blade', handle}});
+    const tempered = new Weapon({components: {head: 'Steel long blade', handle}});
+    assert.equal(item_templates['Cheap iron long blade'].material_strength, item_templates['Steel long blade'].material_strength);
+    assert.equal(item_templates['Cheap iron long blade'].material_toughness_source, 'authored');
+    assert.equal(item_templates['Steel long blade'].material_toughness_source, 'derived from strength');
+    assert.ok(brittle.getWearScale() > tempered.getWearScale());
+    // the real wear path: same hits, the brittle instance loses more condition
+    const durability = createDurability({enabled: true});
+    const wear = item => {
+        const instance = JSON.stringify({id: 'x', 'e2_instance': 'e2.1'});
+        item.getInventoryKey = () => instance;
+        durability.load({enabled: true, condition: {[instance]: 100}});
+        durability.wearItem(item, 100);
+        return 100 - durability.condition(instance);
+    };
+    assert.ok(wear(brittle) > wear(tempered));
+    assert.equal(durability.wearItem({tags: {equippable: true}, getInventoryKey: () => JSON.stringify({id: 'x', 'e2_instance': 'e2.2'})}, 100), true);
 });

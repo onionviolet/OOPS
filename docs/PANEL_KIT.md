@@ -78,7 +78,7 @@ Use this template per panel; record each result and evidence separately. A K7 pa
 | K3 Keyboard | F6 advances, Shift+F6 returns, visible panels only, visible focus ring |
 | K4 Settings | Described sort control grouped under People you know in This browser; name choice stored in `yairpg.display.v1` and applied to marked rows; no page errors |
 | K5 Frame | `html[data-world]`, nonempty page/accent tokens, kit accent matches world accent; separately exercise Player Appearance precedence |
-| K6 Fit | Rebuilt fresh-origin browser at 1366x768, 1440x900 and 1920x1080; visible panel headers reachable, text contrast >=4.5:1, no panel or page horizontal overflow |
+| K6 Fit | Rebuilt fresh-origin browser at 1920x1080 and 1440x900 (1366x768 retired 2026-10-19); visible panel headers reachable, text contrast >=4.5:1, no panel or page horizontal overflow |
 | K7 Docs | Four required sections and API name, UI owner link, CH1-CH10 with all required card fields and allowed roles |
 | Discovery | No name anywhere before discovery; live reveal once; discovered-but-unavailable reason; reduced-motion final state |
 | Restore | Save/reload and literal-file import preserve discovery without replaying cues; browser display preferences remain browser-owned |
@@ -103,5 +103,31 @@ They aren't part of the accepted contract until selected; desktop first.
 | PK8 | **Motion budget.** Decorative motion checks hidden state and reduced motion, as the settled text effects already do. | ER11-F6; AX8 |
 
 Acceptance for any selected row follows the table above: rebuilt
-fresh-origin desktop evidence at 1366x768 and 1920x1080, plus a K-style
+fresh-origin desktop evidence at 1920x1080, plus a K-style
 check per rule.
+
+
+## Reference detail fold, 2026-10-20: subject, comparison and return
+
+Proposal extension of PK1–PK8, UR35/UR43/UR47–UR49/UR52/UR56/UR58 and AD40.
+The [UI palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#reference-ui-and-engine-fold-2026-10-20-color-detail-and-continuity)
+owns color/family treatments; the [source comparison](research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md)
+owns dated actual pixels. Existing shell/controller and command ownership stay
+authoritative. These rows extend the kit's palette, not its accepted API.
+
+| Code | Proposed interaction | Default, dial and reason/cost | Later check |
+|---|---|---|---|
+| PK9 | Declare the inspection subject and comparison baseline | Existing live inventory key, live equipment slot and recorded event are distinct subjects. Name the compared item/state and effective value/delta. Optional recorded snapshots need a clear label and provenance. Costs a short context line and missing-baseline reconciliation. | Inspect A, equip/replace/consume it, then open an old receipt. Subject and time remain clear; losing a baseline explains itself. |
+| PK10 | Compare one selected item across two actual holders | Show Carried / In this chest and named deposit/withdraw direction using native stock. Optional cross-highlight is by exact identity/quality; independent sorts can remain. Costs a compact selected strip and current quantity binding. | Move one of two same-named distinct copies, change stock before commit and return. The right item/count survives; stale requests refresh safely. |
+| PK11 | Follow a known dependency and return | Extend the existing same-page related-recipe route only for a demonstrated wider journey. Keep exact recipe/variant, filter, scroll and focus. Discovery gating owns search labels/counts. Costs a real return boundary, not a second production planner. | Follow a known missing input across the necessary category and Back without crafting, spending time or disclosing an unknown producer. |
+| PK12 | Bind gestures and transient emphasis to the intended subject | PK1/PK4 keep controls stable; PFE01/PFE30 additionally distinguish occurrence, subject lifetime and a command begun before a refresh. Revalidation handles changed reality. Costs caller-owned identity/lifecycle checks where needed. | Press on A, reorder/rebind before release, and replace A during its effect. B is neither silently commanded nor shown A's old reaction. No current end-to-end defect is claimed. |
+
+**ACT NOW (done):** folded CUI2–CUI4 and relevant PFA/SBS findings into this kit.
+**ACCOUNT FOR NOW:** inspection is read-only, real commands revalidate and
+labels distinguish unknown, missing, filtered and ended subjects. **LATER:** the
+existing CUI/PFB bundles supply capability and effort. Sol low/medium for identity/
+transaction semantics, Luna low for a settled view leaf; small/medium when the
+relevant inspection, transfer or dependency route is selected. Done requires the
+named native scenario at the desktop target with larger text and keyboard return;
+persistence follows changed actual state. No replacement inspector or new kit API
+implemented here.

@@ -1,0 +1,13 @@
+{
+  "incident": "Accidental npm build in shared checkout, generated files only",
+  "recovery": "Reconstructed original dirty files from palette baseline before.patch over b0af7db5bd; matched P1 candidate snapshot hashes exactly before restoring. Guarded against later shared writes.",
+  "restored": {
+    "index.html": "7f37dc96e11d0e624eeb6d7497f6f2969169ddc7937c22cf6a7b5eadf3fd5119",
+    "dist/bundle.js": "35b9775188f88069827dc7943a75a48e5eff06944de73a548ef26da82a5a5ef2",
+    "dist/bundle.js.map": "7682113ba5e9f6cd94face28d54e21a0a3bb57245fc70b9480170941f3f5212f"
+  },
+  "notices_unchanged": {
+    "dist/INKJS_NOTICE.txt": true,
+    "dist/INKJS_AUTHORS.txt": true
+  }
+}

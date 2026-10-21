@@ -14,6 +14,7 @@ export function canonicalDurabilityKey(key) {
     return JSON.stringify(data);
 }
 // wearPerUse: condition lost per completed work cycle by tool verb (IP2 proposal, 2026-10-17).
+// wearPerHit is the reference rate; an instance's materials scale it (toughness and hardness, gear_dimensions.js wearScale).
 export const DURABILITY_PROPOSAL = Object.freeze({maximum: MAX, wearPerHit: 0.04, fullRepairCoins: 5,
     wearPerUse: Object.freeze({mine: 1, chop: 1, dig: 0.8, cut: 0.5, fish: 0.4})});
 // The tools domain owns per-instance max condition (lost to failed hand repairs).
@@ -112,7 +113,7 @@ export function createDurability(initial) {
             if (!Number.isSafeInteger(hits) || hits < 0) throw new Error('Invalid equipment use count.');
             const key = item.getInventoryKey();
             const before = api.condition(key);
-            state.condition[key] = Math.max(0, Math.round((before - hits * DURABILITY_PROPOSAL.wearPerHit) * 10000) / 10000);
+            state.condition[key] = Math.max(0, Math.round((before - hits * DURABILITY_PROPOSAL.wearPerHit * (item.getWearScale?.() ?? 1)) * 10000) / 10000);
             return state.condition[key] !== before;
         },
         // IP2: one call per completed work cycle with the cycle's tool verb.

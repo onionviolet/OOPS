@@ -1,11 +1,11 @@
 # Proposed staged proof: JJK curtain dispatch and actor-scoped evidence
 
-**Status: `P` proposal for future review. Not implementation authorization or a gameplay result.** Scope follows the [campaign framework](../CAMPAIGN_FRAMEWORK.md) and [world completion contract](../templates/WORLD_COMPLETION_TEMPLATE.md). Source anchors: Barrier r74038 and Curtain r77658, with the revisions listed in [SOURCE_LEDGER.md](SOURCE_LEDGER.md).
+**Status: `P` proposal for future review. The JJK runtime build remains PARKED until Weibao selects it; this packet and its audit do not unpark it or authorize implementation.** This is not a gameplay result. Scope follows the [campaign framework](../CAMPAIGN_FRAMEWORK.md) and [world completion contract](../templates/WORLD_COMPLETION_TEMPLATE.md). Source anchors: Barrier r74038 and Curtain r77658, with the revisions listed in [SOURCE_LEDGER.md](SOURCE_LEDGER.md).
 
 ## Filled bounded packet
 
 - **Outcome:** one playable desktop-first assignment where a report is incomplete, a barrier has one known entry predicate, and investigation changes who knows what.
-- **Target viewport:** laptop/desktop 1366×768 baseline proposed. Visible result: a compact dispatch/evidence panel, site condition, actor status, investigation choice and explicit accept/refuse actions without page scrolling.
+- **Target viewport:** 1920×1080 primary; 1536×864 is the smallest supported desktop/laptop floor. Visible result: a compact dispatch/evidence panel, site condition, actor status, investigation choice and explicit accept/refuse actions without page scrolling. Mobile optimization is deferred.
 - **Deferred scope:** mobile optimization; canon roster expansion; special-grade enemies; Mahoraga/adaptation; vows; domain deployment; Culling Game; later Simurian/Modulo; new prestige; general world-selection UI; unrelated runtime cleanup.
 - **Continuity:** one fixed modern main-series-inspired snapshot; exact canon cutoff and primary source qualification remain before build. The concrete local witness, window and site are original proposals, not franchise canon.
 - **Entry:** one student support profile with a declared learned method and ordinary means. No automatic innate technique or rank is granted by this packet.
@@ -17,7 +17,7 @@
 - Commitment owner: acceptance/refusal, exact terms, start/deadline only after acceptance.
 - Barrier owner: site, shell state, explicit target predicate, entrant decision and observed test.
 - Actor knowledge owner: only witness, player and dispatcher observations/messages each received.
-- Consequence owner: local access, response request, injury or loss only if an actual action causes it.
+- Consequence owner: local access, response request, injury or loss only if an actual action causes it. If a later selected route includes combat, record its attributable aftermath at the chosen slice's scope; WG13 is a candidate interaction, not a general NPC simulator or a gate for this noncombat dispatch.
 
 These are conceptual owners, not verified APIs. Before coding, inspect current authoritative source files and define one commit path for each effect. Do not create parallel inventory, clock, relationship, knowledge or quest writers.
 
@@ -32,7 +32,7 @@ These are conceptual owners, not verified APIs. Before coding, inspect current a
 ## Negative cases
 
 - A building test cannot stand in for a person test where the selected barrier ignores inanimate structures.
-- A witness with no curse-perception cannot identify an unseen curse as fact.
+- A witness cannot claim direct perception of an unseen curse without a fitting faculty or other observation route; indirect evidence remains marked as inference.
 - A fictional grade does not overwrite a fixed threat’s authored strength.
 - Refusal creates no debt and no started clock.
 - A report cannot leak information its owner did not observe or receive.
@@ -44,7 +44,7 @@ These are conceptual owners, not verified APIs. Before coding, inspect current a
 1. Inspect authoritative owners and produce a narrow implementation plan, compatibility decision and focused test list before source edits.
 2. Rebuild the project, open the changed behavior in a browser from a fresh test origin, at the target laptop viewport.
 3. Exercise the report, investigate route, help route and refusal route. Verify costs, actor-specific knowledge and exact site/mission aftermath.
-4. If persistence changes, save, reload and import and compare the relevant records.
+4. If the selected implementation adds state, prove current-format Save/reload/Export/Import and compare the relevant records. Old-save migration/compatibility follows the current deferral policy; record its application and decide only an actual unresolved schema/compatibility change.
 5. Mark unexercised behavior `implemented-unverified`; add it to the acceptance backlog. Human fiction/taste acceptance is separate.
 
 No source files were inspected for runtime API ownership in this synthesis, and no implementation/build/browser/save test was run. The pack itself is research output only.

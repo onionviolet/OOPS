@@ -66,6 +66,35 @@ only fixes the constraints that keep many dimensions legible and safe.
 | ESD14 | **Tier ladders.** Rarity already exists with colors and a quality multiplier (trash to mythical). Map "number of affixes by rarity" onto it rather than adding a second rarity. |
 | ESD15 | **Reference, not import.** Apotheosis supplies structure and vocabulary; stats, names and values are native, and the Minecraft data is not copied into the game. |
 
+## Quality presentation scout, 2026-10-20 (proposal)
+
+Other games communicate several different ideas that the current percent label
+blends together:
+
+- Dwarf Fortress and RimWorld show workmanship as named grades such as
+  *well-crafted* or *excellent*. The grade is quick to scan; the item’s actual
+  material and effects remain separate details.
+- Path of Exile separates rarity (normal, magic, rare, unique) from explicit
+  named modifiers. Last Epoch uses color to signal item/affix status and still
+  lists the affixes themselves.
+- Apotheosis uses rarity to shape the number and strength of affixes. The
+  affixes carry the concrete effects; rarity is the summary signal.
+
+**ESD16 (proposal): show workmanship, rarity, and effects as separate facts.**
+Keep the underlying quality value for existing calculations and compatibility,
+but show a short grade as the headline (for example, *Fine* or *Masterwork*),
+show rarity as a separate tag when it has meaning, and list the rolled or
+mechanism-derived affixes with their values and causes. A world may define what
+counts as good for its materials, use, maker, and rules. Do not make a single
+percentage the universal verdict. The exact display ladder and world-specific
+meaning remain open; this is a presentation proposal, not an accepted decision.
+
+References: [Dwarf Fortress item quality](https://dwarffortresswiki.org/index.php?title=Item_quality),
+[RimWorld quality](https://rimworldwiki.com/wiki/Quality),
+[Path of Exile item data](https://www.pathofexile.com/item-data),
+[Last Epoch item colors](https://support.lastepoch.com/hc/en-us/articles/46363247127963-What-do-item-colors-mean),
+[Apotheosis](https://www.curseforge.com/minecraft/mc-mods/apotheosis).
+
 ## Disposition
 
 **ACT NOW (done in this round).** Record Weibao's 2026-10-20 instruction in
@@ -138,8 +167,8 @@ Checks (evidence is for the inputs named):
 - Not changed: enemies carry no new stats, so only the player's gear benefits; save
   format unchanged (stats derive from item components on load).
 
-Open for Weibao: build order for L3 (affix data and seeded rolls) and whether the party and
-village duel models should read the new dimensions too.
+Historical open question, resolved in the 2026-10-20 follow-up: Weibao directed the shared
+person/creature slice below. Party and village-duel reader models remain a separate follow-up.
 
 ## L3 slice record, 2026-10-20 (implemented; crafting commit unit-tested only)
 
@@ -184,13 +213,49 @@ Checks (evidence is for the inputs named):
   (this caught the inventory load path dropping affixes, fixed in main.js), equipping the
   affixed one shows Damage taken "Equipment x0.935" plus "Affix Padded (Steel plate armor, from
   its parts) x0.955"; saving writes the affixes on the equipped item; reload restores the same rows.
-- Not exercised: the crafting commit in a browser (unit-tested through `affixedCraftEntries`
-  only), save export and file import (same load code as the localStorage reload, not clicked),
-  item tooltip and inventory names do not list affixes yet (ESD11 gap: only Attributes shows them),
-  drops and trader stock (no affixes rolled), battle models (ignore the dimensions by design).
+- Follow-up play gate (1440x900, fresh scratch origin): used the native crafting UI to make the
+  leather interior and steel chainmail exterior, combined a legendary 212% chestplate, inspected
+  its Attributes and affix sources, saved, reloaded, exported, then imported it. The same item key,
+  four affixes and displayed attributes survived all steps. No user save was used.
+- Still open: item tooltip and inventory names do not list affixes yet (ESD11 gap: Attributes only),
+  drops and trader stock do not roll affixes, and four battle models still ignore dimensions.
 
-One remaining acceptance gate: craft a chestplate in the Village at a rare-or-better quality in
-the browser, confirm the affixes appear in Attributes, and save, reload and import.
+
+## L1 record, 2026-10-20: toughness (GDP15/GDP16)
+
+Viewport target 1920x1080 desktop; mobile deferred. Rules: AD5, AD38, AD36, AR1-AR16.
+
+- Material data: `toughness` is an optional property beside strength in
+  `src/crafting_component_filling.js` material_properties. Absent, it derives as
+  `130 - 0.6 * strength` clamped 20..120 (strength 60 gives 94, 100 gives 70, 200 gives 20), so
+  rigid strong metals default lower and soft fibrous materials higher. Dial and reason: stiffness
+  trades against shatter resistance; any material may override it with an in-world reason. First
+  override: "cheap iron" 45 (cast iron, hard but brittle) against steel and iron at the derived 70.
+- Math (`src/gear_dimensions.js`): `materialToughness` returns value and source (authored or
+  derived); `wearScale` divides wear by the mean of hardness (strength/100) and toughness/100,
+  relative to a 100-strength, 70-toughness reference (scale 1), clamped 0.5..2. Defaults, not absolutes.
+- Consumer: `wearItem` in `src/absorb_e2/durability.js` multiplies `wearPerHit` by the instance's
+  `getWearScale()` (items.js `Equippable.getWearProfile`, the mean over its filled components).
+  `wearItem` is reached in play from `durability.landedHit` (`src/models/combat.js:591`) for the
+  hero's weapon and worn shield/armor on a landed hit in non-special combat. Tool `wearUse` is
+  unchanged. Gear without material-filled components (hand-authored clothing such as Cheap leather
+  pants, native items) has no profile and wears at scale 1; that gap is open.
+- View: Attributes has a "Gear toughness" row (mean over worn component gear), with one source row
+  per part "<item>: <material> <slot> (authored | derived from strength)" and the wear-per-hit scale per item.
+- Save format: no change. Toughness derives from component templates; nothing is stored or migrated.
+- Checks: focused `node --test tests/gear_dimensions.test.js tests/absorb_e2.test.js` (the new
+  regression runs real `wearItem` on Weapon instances; the absorb_e2 native-weapon test now expects
+  the item's own scale instead of a flat 40 loss). Then `npm run build && npm test` (2281 tests),
+  `npm run check:arch` and `npm run check:rules` passed after that test update (the one failing
+  absorb_e2 expectation was fixed and re-run green on its file).
+- Browser (rebuilt bundle, scratch copy with dev console on, repo config untouched, fresh origin,
+  1920x1080, durability on): Iron sword and Cheap iron sword share a 100-strength blade and the same
+  handle. Attributes showed Gear toughness 82 (wear x1.049, iron head derived) against 69.5 (wear
+  x1.137, cheap iron head authored 45, wooden handle derived 94), each with source rows.
+- Not exercised: a real landed-hit fight comparing condition loss in the bundle (the Infested field
+  was locked and `simulate_combat` is a special combat that skips wear), so the per-hit difference is
+  proven by the regression only; save, reload and import (nothing stored); enemy and party models.
+  Backlog owner: this record.
 
 ## Sources
 
@@ -199,3 +264,41 @@ the browser, confirm the affixes appear in Attributes, and save, reload and impo
 [modpack scout R1](research/MINECRAFT_MODPACK_SCOUT_2026-10-14-report.md),
 private Arcanum notes (gitignored) at
 `docs/research/discord-arcanum/private/ARCANUM_DISCORD_NOTES_2026-10-20.md`.
+
+
+## P1 implementation receipt, 2026-10-20
+
+The later five-pilot dispatch selects the previously ignored alternate readers; the earlier historical “ignore by design” wording above does not describe this selected change. AR1–AR16, AD5/6–8/22/32/36/38, CBR11/17–19 and ESD1–6 apply. Shared effective input now carries damage_taken/min_damage_share/crit_resistance across B1 native duel, B2 party interception, B3 causal strike and B4 feature battle; local guard, stamina, yield and physical-frame policy remains local. Person/Enemy reuse the equipment source aggregator from gear branch 2ddfdbc26, including actual source removal and explicit zero multipliers. No new campaign, balance dial or save schema.
+
+[P1 status and exact release evidence](gm/dispatch/deep-engine-2026-10-20/P1_STATUS.md): 42 focused checks, isolated build/architecture/rules pass. Full suite is 2363/2364, with the same pre-existing Sinew/Boar-meat craft failure reproduced without P1 changes. Rebuilt disposable 1920×1080 native source journey: bare 33.1 health lost, equipped 15.6, removed 33.1; current-format Save/reload/Export/literal Import retains source and derived stats. Provisional P2 item-factory registration also has actual native creature-constructor/strike/removal evidence, 20.3 versus 38. Source files released=true.
+
+Group integration still needs the two-line items factory registration after palette release. Ordinary equipped Direwolf/Forest den access, ordinary acquisition/crafting, natural cadence and human play acceptance remain open. Synthetic creature proof does not close its ordinary encounter gate. No commit/push. Generated files were restored byte-for-byte after an accidental root build; the recovery hash receipt is linked from P1 status.
+
+## Shared person and creature slice, 2026-10-20
+
+Weibao directed a small playable slice with one capable crafter and one enemy using the same gear
+pipeline, with world rules defining what good gear means. Applied codes: ESD1, ESD3, ESD11, ESD14,
+ESD16 (proposal), GDP38, CBR, AR1-AR16, AD5, AD36, AD38.
+
+- `src/equipment_stats.js` is the shared equipment-to-stats aggregation used by `Person` and
+  `Enemy`. The direwolf reconstructs an armor instance from a stable item key with the same leather
+  vest, steel chainmail vest and four affixes observed on the crafted chestplate. Enemy combat now
+  reads `damage_taken` and `min_damage_share` through the common damage mitigation function.
+- New regression: `tests/equipment_stats.test.js` checks equipment defense, dimensions, affixes,
+  and skill bonuses stay in their existing sources. `npm run build && npm test`: 2298/2298 passed
+  on the clean rerun. The earlier run had one timeout in the unrelated alloy equipment fixture;
+  its focused rerun passed 5/5. `npm run check:arch`, `npm run check:rules`, and the focused
+  equipment/affix/dimension tests (15/15) passed.
+- Browser gameplay evidence from the combat lane (1440x900, rebuilt bundle, fresh origin): in
+  ordinary Combat the same steel chainmail reduced one observed hit from 33.8 damage to 11.4, with
+  `damage_taken ×0.963` and `min_damage_share ×0.9` on the wearer. This fixture verified the player
+  wearer path. The Forest den stays locked in a fresh start, so this session did not visually enter
+  a direwolf encounter or observe its armor in a live browser. The enemy gear instance and reader
+  path are implemented and covered by the shared aggregation test, but enemy browser acceptance
+  remains open.
+- Save format: no change from this shared-wearer implementation. Enemy gear is rebuilt from its
+  template key per encounter; crafted player affixes retain the existing save representation.
+
+The current quality display proposal is ESD16 above: workmanship grade, rarity, and concrete
+effects are separate signals. It is not an accepted global display decision. Each world may define
+its own standards and what a person or creature values in an item.

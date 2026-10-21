@@ -247,3 +247,126 @@ ACT NOW: update kit/audit routing and rule clarifications. ACCOUNT FOR NOW:
 apply KF1–KF3 only to the selected kit parts. LATER: strong world/runtime agent,
 medium for one selected joined case; done with source-qualified laws, actual
 consumer and rebuilt current-target persistence evidence. No lanes launched.
+
+## Round 21: deep-level lenses for every world, 2026-10-19
+
+Request (Weibao, 2026-10-19): "Consider similar level stuff for each world? Save these deep level stuff for long term
+considerations for every world." **Status: proposal.** Nothing here selects build scope. Codes **KL1 to KL12**
+(lenses) and **KR21-1 to KR21-10** (method lessons); prefixes checked unused by `git grep` 2026-10-19.
+
+Where the underlying work lives (not restated): [dials and interpreter palette](../WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md)
+(WDI1 to WDI45), [CRAFTING_ENGINE Rounds 6 and 7](../CRAFTING_ENGINE.md) (TQ, NX, PG, UV, IX), [rule grammars palette](../WORLD_RULE_GRAMMARS_AND_DERIVED_DETAIL_2026-10-19.md)
+(DG1 to DG35), lane outputs under `docs/audits/{world_dials,materials_tags,world_grammar}_2026-10-19/`, and the
+[core audit](../audits/WORLD_DIALS_AND_INTERPRETER_CORE_AUDIT.md) run log. This round maps those findings onto the kit so each world can
+be audited at the same depth later. Kit parts touched: K2 world laws, K9 items and craft, K11 knowledge, K13 signature loop, K14
+presentation, K20 language and naming.
+
+### KL. The lenses (ask each world once, when it is selected)
+
+| Code | Lens | The question for a world | Kit part | Evidence from 2026-10-19 |
+|---|---|---|---|---|
+| KL1 | Dials and profile | Which settings turn per world (heredity model, substitution policy, quality model, tier count, interaction families), and where in the world pack profile do they live? | K2 | Pack profiles already carry modules, layers and a resolver id (WDI41); no dial has a typed registry yet |
+| KL2 | Material families and axes | What mechanisms (not ingredient lists) do its materials differ by, and which existing axes already cover them? | K9 | Frontier pack has six axes; `hardness` has no reader (MQ-A) |
+| KL3 | Supply forms and places | Which of wild site, bed, shop, store, donor, route, reward, salvage exist, and who owns access? | K5, K9 | Most canon ingredients are shops and beds, not foraging (RS3) |
+| KL4 | Interaction law families | Which of neutralize, synergize, saturate, inhibit, separate, age does this world actually use, and does it have an ordinal tier? | K9, K13 | Families compile to reaction rows with no engine edit; tier needs strata (IX25) |
+| KL5 | Relation graph | Does the source state opposites, cycles or counters that can be rows with locators? | K2, K13 | D&D data is thin (13 rows); HP has a few verbs |
+| KL6 | Rule-grammar derivation | What structure (parts, components, order, claims) can be derived, and what cannot? | K3, K11 | Names and schools do not give meaning (DG31); structure does |
+| KL7 | Tags and subtle properties | Which properties are presence (tag) and which have a degree (axis); what look-alikes, conditions and residues exist? | K9, K11 | Derived tags are stored at resolve time (TQ16) |
+| KL8 | Knowledge claims | Which rules are textbook or teacher claims with a reliability, not truth? | K11 | HP: annotated methods can be wrong (DG8) |
+| KL9 | Naming and language | Does naming carry structure the grammar can use, and how do locales render it? | K20 | Treat name hints as low-confidence hints (DG31, DG24) |
+| KL10 | Display | What does the player see of each lens, and what is known versus true? | K14 | UV rows; hover-then-pin awaits Weibao's pick |
+| KL11 | Source tier and reading cost | What can be derived from existing ledgers and cards, and what needs a bounded read under AU1 to AU15? | K1 | HP gap plan fits the default budget |
+| KL12 | Golden cases | Which shown source cases must any derivation reproduce? | K18 | 12 HP and 7 SRD cases exist |
+
+### Per-world map (status as of 2026-10-19; all leads are MEMORY until a lane checks them)
+
+Cells say what is evidenced, not what is true of the source. "Lead" means a structure I recall that could feed a lens; verify from the
+world card and ledger first, then a bounded read only for named gaps. Worlds follow the 20 cards in `world-core-kit-2026-10-14/cards/`.
+
+| World | Evidenced today | Cheapest lead to check first (MEMORY) | Reading cost note |
+|---|---|---|---|
+| Frontier / Village | Live code: frontier catalogue, craft law, source table, Village mixture (two parallel property systems, TQ18) | Decide which property system carries forward (KL2, KL7) | None; code only |
+| Harry Potter | KL6, KL8, KL12 done from existing notes (potions and herbology derivable; spells thin) | Counter pairs and spell name scenes (gaps G-A to G-H) | Fits AU3 |
+| D&D | KL6, KL12 proof on 20 SRD spells; sidecar needed; pack is small | Count the full SRD list; relation rows are design, not source | Needs the supplied SRD text |
+| Mother of Learning | Native code exists (`book_world_mol_*`); no lens work | Ward and mind-magic rule structure (KL5, KL6) | Check card and ledger first |
+| Lord of the Mysteries | HP/LOTM feature doc exists | Sequence ladder as an ordinal tier (KL4); formula structure (KL6) | Check card first |
+| Circle of Inevitability | Card exists; no lens work | Unknown; check the card | Unknown |
+| Shadow Slave | Card exists; no lens work | Rank ladder as tier (KL4) | Check card first |
+| Reincarnation Paradise | Native code and calendar policies exist | Instance rule families (KL1) | Existing code first |
+| TTKS (B1 to B5) | Five cards; books read earlier | Power-bill cost structure as a dial (KL1) | Existing deep dives |
+| A Soldier's Life | One paused card | Low-magic supply and ration structure (KL3) | Paused |
+| Jujutsu Kaisen | Card exists | Grade ladder as tier; binding-vow cost as a dial (KL1, KL4) | Check card first |
+| Bleach | Card exists | Named-spell numbering and release levels (KL4, KL6) | Check card first |
+| Naruto | Card exists | Rank ladder and element relations (KL4, KL5) | Check card first |
+| Fate | Card exists | Class and rank structure (KL4, KL6) | Check card first |
+| Hunter x Hunter | Card exists | Ability-type affinity graph as a ready relation graph (KL5) | Check card first |
+| Fullmetal Alchemist | Card exists | Transmutation structure and its stated limits (KL6, KL3) | Check card first |
+| Other card-less worlds (Fallout, Skyrim, Elden Ring and others) | Deprioritized; existing work kept | None; revisit when selected | n/a |
+
+### KR21. Method lessons to keep (from this session's lanes)
+
+| Code | Lesson | Default |
+|---|---|---|
+| KR21-1 | Map owners and live code before writing | Two rounds were corrected because a root missed `world_pack*.js` and the tag store; list code seams first |
+| KR21-2 | Fold lane returns with corrections first | Say what the root got wrong, then what the lane settled |
+| KR21-3 | Structure derives; meaning from names does not | Treat name and school hints as display-only, never as effect sources |
+| KR21-4 | Separate mechanical from interpretive derivations | Mechanical = one field maps to one tag; interpretive carries INFERRED and a reader |
+| KR21-5 | Golden cases from shown scenes before any derivation | A mismatch means the grammar row is wrong, never the record |
+| KR21-6 | Sidecar, not schema change, for derived data | Keep licensed or canon records untouched; provenance travels with the source id |
+| KR21-7 | Existing ledgers before raw reading | Name exact ranges for any gap; stay inside AU3 unless Weibao opens a plan |
+| KR21-8 | One lane per named outcome | No lane without a done check; held lanes stay held |
+| KR21-9 | Hand arithmetic is labelled and scratch runs are reported as scratch | Never present either as repo evidence |
+| KR21-10 | Proposals stay proposals | No lens row selects build scope or reorders the standing UI priority |
+
+ACT NOW: this map and the lenses, saved here for rerun. ACCOUNT FOR NOW: apply a lens only to a selected world slice; KL rows are palettes, not a
+bundle every world must complete (KF1). LATER: fill the per-world map from existing cards and ledgers (lanes sent, doc only); higher cost items
+(full-book gap reads, SRD count, sidecar proof) wait for Weibao's go.
+
+### Round 21 fold: KL-MAP-A and KL-MAP-B returns, 2026-10-19
+
+Lane outputs (doc only, existing cards and ledgers, no raw reading, nothing run):
+[KL-MAP-A book worlds](../audits/world_depth_lenses_2026-10-19/KL_MAP_A_BOOK_WORLDS.md),
+[KL-MAP-B anime worlds and others](../audits/world_depth_lenses_2026-10-19/KL_MAP_B_ANIME_AND_OTHERS.md).
+
+**Corrections first: the per-world map's memory leads, checked against each world's own ledger**
+
+| World | The lead I wrote (memory) | What the ledger says |
+|---|---|---|
+| KL21-C1 Jujutsu Kaisen | Grade ladder as a tier; vow cost as a dial | **Corrected.** Grade is an institutional label that lags real strength, not a power tier; a vow's terms are written per vow, so a vow dial is per-vow data, not one cost curve |
+| KL21-C2 Bleach | Named-spell numbering and release levels | **Release stages confirmed** for the ordinary path (Shikai before Bankai, with Resurreccion a separate route). **Numbering unverified**: the ledger is silent |
+| KL21-C3 Naruto | Rank ladder and element relations | **Rank corrected**: it is institutional access and duty, not a combat tier. **Elements unverified**: the ledger lists five-element relations as unresolved |
+| KL21-C4 Fate | Class and rank structure | **Class-vessel structure confirmed.** Rank ladder unverified and version-bound (parameters, class labels and lore cards disagree across sources) |
+| KL21-C5 Hunter x Hunter | Ability-type affinity as a ready relation graph | **Confirmed with a correction**: a six-category ring with approximate efficiencies, but Specialist is a categorical gate, not a percent, and some labels disagree |
+| KL21-C6 Fullmetal Alchemist | Transmutation structure and limits | **Confirmed.** The only world here with a stated process grammar (comprehend, deconstruct, reconstruct); equivalent exchange tracks matter, composition and energy, not a coin meter |
+| KL21-C7 Mother of Learning | Ward and mind-magic structure | **Partly confirmed.** Ward structure exists; counters are single facts, not a graph; five circles are named and spell membership is mostly unknown |
+| KL21-C8 Lord of the Mysteries | Sequence ladder; formula structure | **Confirmed, plus a find I missed**: neighbor-swap groups form a ready relation graph (about eight groups plus one pathway with no standard neighbor, counted from prose) |
+| KL21-C9 Circle of Inevitability | "Unknown" | **Evidenced.** Same ladder family, boons graded 9 to 0, and the strongest claim-status ledger: every claim tagged witnessed, narrator, character claim or actor inference. The edition is unauthenticated and suspected machine translation |
+| KL21-C10 Shadow Slave | Rank ladder as tier | **Corrected.** Two ordinal axes (seven human ranks and a seven-step class by core count); rank-up is a gate event, not a threshold. Counters: silent, not none |
+| KL21-C11 Reincarnation Paradise | Instance rule families | **Partly confirmed.** The mission pipeline has explicit default-and-dial wording; the deeper structure is a tier, attribute, enhancement and currency ladder, with Tier 1 to 9 bands marked inferred |
+| KL21-C12 TTKS B1 to B5 | Power-bill cost structure as a dial | **Corrected for meaning.** The "power bill" belongs to B5 and is an observable trace, not itself a cost dial; B5's cost is electricity per charge. B1, B2, B3 and B4 have different costs (overdraw and voice, cooldown, per-challenge lives, credential expiry). The five books are different worlds |
+| KL21-C13 A Soldier's Life | Low-magic supply and ration structure | **Low-magic half corrected** (dimensional-storage magic with fuel and attention costs); **ration half unverified**. The task is paused, so the research folder, not the thin card, is the evidence |
+
+**Also corrected**
+- **KL21-C14. The cards are thin and the ledgers hold the lens content.** Both lanes found that the 20 cards are consolidations with boilerplate floors; tier ladders, relation graphs and formula structure live in each world's deep dive, ledger and ability variants.
+- **KL21-C15. A stale TTKS file.** `COVERAGE.json` is older than `CHECKPOINT.md` and still lists B1 as unread. Treat the checkpoint as authoritative.
+- **KL21-C16. Delta for Frontier, HP and D&D.** Frontier now has code-level evidence for KL1 to KL4 and KL7; HP's "counter pairs" lead is gap G-A, a re-read of two spell scenes already read; D&D stays as DG-A2 found.
+
+**Cross-world shapes the lanes found (all inferred mappings)**
+- **Institutional rank versus real strength** appears in JJK, Bleach, Naruto and FMA with the same wording. One law family, with a dial for how far rank lags reality, could serve all four.
+- **Ordinal ladder sidecar:** LotM, COI, Shadow Slave (two axes), Reincarnation Paradise, TTKS B1 and B5, and MoL circles share named steps with a gate event; the gate type must be a dial (potion digestion, Nightmare completion, promotion boundary), not an assumed threshold.
+- **Relation graph:** LotM and COI swap groups, TTKS B3 counter-stages and B1 domain counters, and HxH's ring share an edge-with-locator row; JJK conditioned barrier and domain rows are relations with conditions.
+- **Staged process:** Naruto, FMA, Bleach and JJK state ordered stages, which fits the strata approach with no engine edit; it does not fit Fate or HxH.
+- **Per-instance costs** (JJK vows, HxH vows, Fate noble phantasms) are a record shape (terms written per instance), not a formula.
+- **Claim-status letters:** COI's four statuses, RP's labels and the HP and D&D evidence labels are one pattern, usable for KL8 everywhere.
+
+**Reading cost.** Nearly every cheapest lane costs zero source words and uses ledgers that already exist. The few that need text are Naruto's five-element graph, Bleach numbering, Fate ranks, the RP F17 recheck chapters, LotM formulas above Sequence 5, and the full SRD count; each fits inside one default reading envelope (four invocations, 48,000 source words) and waits for Weibao's go. Word counts were not measured.
+
+**Open and unverified.** Both lanes read headings and targeted sections of the cards, not whole files, and did not open reader files or private wiki digests; "none" means none found. Counts like eight swap groups and 220 slots come from deep-dive prose. No code beyond headers was read for the book worlds.
+
+**Next steps (proposal, ranked, none selected; all zero reading unless marked)**
+1. LotM and COI ladder and relation sidecar (group counts sum to 22; each edge has a locator; COI deltas cite claim ids and status letters).
+2. FMA formula-structure sheet and HxH adjacency sheet (continuity column; efficiencies left as ranges; Specialist has no percent).
+3. One institutional-rank law family across JJK, Bleach, Naruto and FMA (four ledger locators; a lag dial).
+4. Shadow Slave two-axis table, TTKS cost-dial rows per book (no shared "bill"), RP F17 to F22 table (inferred bands tagged), MoL circles and exercise graph.
+5. Locator-only checks of existing notes for Bleach numbering, Fate rank and the Naruto element graph; record "not derivable from existing notes" where absent.
+Everything stays a proposal; none selects build scope (KR21-10).

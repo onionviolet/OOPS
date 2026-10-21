@@ -1,0 +1,14 @@
+{
+  "docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md": {
+    "before_sha256": "59794452ad97da23283a1c9f2b945a08e021bce12a874f48f24988ce9f337e1f",
+    "after_sha256": "d036bb7b6e0a58b2bd6f8b0c9c0a0bcfd53d2bb706056dc0ef0ba42f7ee972b7",
+    "appended_bytes": 1760,
+    "lost_bytes": 0
+  },
+  "docs/gm/dispatch/deep-engine-2026-10-20/P1.md": {
+    "before_sha256": "54ae203b022b3ed8eb973cf4260a1671c1acc7877ee5d6ccdf61adb45e204aa6",
+    "after_sha256": "519481859ee0be67e5ee43a087b7d65e96e88c598d23f71f9a3f1a91134d939f",
+    "appended_bytes": 429,
+    "lost_bytes": 0
+  }
+}

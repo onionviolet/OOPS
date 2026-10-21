@@ -89,13 +89,13 @@ function repairFixture({level = 5, ingots = 2, station = 1} = {}) {
     const tool = durability.prepareEquip(make(JSON.stringify({id: 'Iron pickaxe'})), make);
     const inventory = {'Iron ingot': ingots}, log = [], draws = [];
     const actor = {money: 0, items: {}, equipment: {pickaxe: tool}, getItems() { return this.items; }, getEquipment() { return this.equipment; }};
-    let saved = 0, roll = 0.1;
+    let saved = 0, roll = 0.1, idle = true;
     configureToolsDomain({actor: () => actor, skillLevel: () => level, stationTier: () => station, location: () => 'Village', count: id => inventory[id] || 0,
         itemOwners: () => [inventory], assertSpend: () => {}, addItem: (id, c) => { inventory[id] = (inventory[id] || 0) + c; }, removeItem: (id, c) => { inventory[id] -= c; },
-        persist: done => { saved++; done(); }, refresh: () => {}, blocked: () => '', writable: () => true, idle: () => true,
+        persist: done => { saved++; done(); }, refresh: () => {}, blocked: () => '', writable: () => true, idle: () => idle,
         random: key => { draws.push(key); return roll; }, logMessage: text => log.push(text)});
     setToolsState(null);
-    return {durability, tool, inventory, log, draws, saves: () => saved, setRoll: value => { roll = value; }};
+    return {durability, tool, inventory, log, draws, saves: () => saved, setRoll: value => { roll = value; }, setIdle: value => { idle=value; }};
 }
 
 test('IP3: a hand repair quote consumes nothing (MR4)', () => {
@@ -137,7 +137,8 @@ test('IP3: hand repair spends material, takes bench time, restores partly or cos
     assert.equal(f.inventory['Iron ingot'], 1); assert.equal(f.saves(), 1);
     assert.match(domainRegistry.project('tools', 'occupation'), /Iron pickaxe repair/);
     assert.equal(quoteHandRepair(key).eligible, false);
-    tick(q.minutes - 1); assert.equal(f.durability.condition(key), 0);
+    f.setIdle(false);assert.equal(domainRegistry.project('tools','rows').idle,false);tick(10);assert.equal(toolsState().job.minutesLeft,q.minutes);
+    f.setIdle(true);tick(q.minutes - 1); assert.equal(f.durability.condition(key), 0);
     tick(1); assert.equal(f.durability.condition(key), 70); assert.equal(toolsState().job, null);
     // Failure: condition kept, best condition lowered, and coin repair respects the lower cap.
     f.setRoll(0.99); executeHandRepair(quoteHandRepair(key)); tick(999);

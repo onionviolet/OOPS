@@ -1,0 +1,25 @@
+{
+  "release": true,
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "candidate": "/tmp/oops-p5-authoring-20261020",
+  "hashes": {
+    "scripts/check_content_authoring.mjs": "7cae8b2a57b65b688b433d97b7f53cd8b71dec9d9875ea13e69ff3dd93a626b1",
+    "tests/content_authoring.test.js": "758c9e69971c70d7a27e4cabd39b26b34fa2f6a889bac697ad617a5a54a1aff1",
+    "tests/fixtures/deep_engine_authoring/workshop.mjs": "9a4e9d275f5abdcc0b5439984465e911ca5664233002bb73489b06562182129d",
+    "tests/fixtures/deep_engine_authoring/README.md": "3d1ca4bc09b4f5d8ee5bc1c9be1f71ef5dd31c44834411d33d76564f9c6e43ac",
+    "docs/gm/dispatch/deep-engine-2026-10-20/P5_EVIDENCE/verify-native.mjs": "ad8d181a3d22d606e9d777b88590d50300c03726648b506f6aeeb724819e76cb"
+  },
+  "candidateMatches": {
+    "scripts/check_content_authoring.mjs": true,
+    "tests/content_authoring.test.js": true,
+    "tests/fixtures/deep_engine_authoring/workshop.mjs": true,
+    "docs/gm/dispatch/deep-engine-2026-10-20/P5_EVIDENCE/verify-native.mjs": true
+  },
+  "candidateSupplement": {
+    "AGENTS.md": "bce46a0bd79a1b5276efe2b40b5e2ce7836b370d44268f797221cc6a320e8367",
+    "PROJECT.md": "b50f4e8ffb701ab0328a5a62ae6623a3b4257055dbcaff7f61c48b44cd8d5f11",
+    "dist/bundle.js": "b8e1068bf4143169b0b2259382eeb61707d8e32e9ca329a84b67e70e4a74a635",
+    "dist/bundle.js.map": "fffeae66a0fcebc942813e804d903c1ff2a68a1b6c82b0b03571a73efada3892",
+    "index.html": "b26219542f0c166ed976fded74fec5ac42bd2605b0e2c54ec749cc0e609437e3"
+  }
+}

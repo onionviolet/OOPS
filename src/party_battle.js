@@ -6,7 +6,7 @@ import {commitSimulationCommand,simulationOccupiesActor} from './simulation.js';
 import {activePractice} from './techniques.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {validateExpansionState} from './expansion_engine.js';
-import {rollCombatStrike,mitigateCombatDamage} from './combat_math.js';
+import {rollCombatStrike,mitigateCombatDamageFromStats} from './combat_math.js';
 import {ROAD_RIVAL,RIVAL_PURSUIT} from './frontier_campaign.js';
 const kit=JSON.stringify({id:'Prepared survey kit'});
 function supportReasons(state) {
@@ -89,7 +89,7 @@ export function commitPartyBattleAction(state,registry,command,context) {
         const before=hp(actorId).stamina;hp(actorId).stamina=Math.max(0,before-Math.min(before,1/(attacker.stats.stamina_efficiency||1)));
         const random=()=>{b.seed=xorshift32(b.seed);return b.seed/0x100000000;};
         const strike=rollCombatStrike({attackPower:attacker.attackPower*(hp(actorId).stamina===0?(attacker.emptyStaminaMultiplier||.5):1),attacker:attacker.stats,target:target.stats,shield:target.shield,shieldSkill:target.shieldSkill,random});
-        const damage=strike.kind==='hit'?mitigateCombatDamage(strike.values,target.stats.defense||0):0;
+        const damage=strike.kind==='hit'?mitigateCombatDamageFromStats(strike.values,target.stats):0;
         hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
         b.last=`${actorId==='player'?'You':'Mara'} ${strike.kind==='hit'?`hit ${targetId===PARTY_HELPER?'Lio':targetId==='player'?'you':'Mara'} for ${Math.round(damage*10)/10}`:strike.kind==='blocked'?'met a full block':'missed'}.`;
         if(targetId===PARTY_HELPER&&(hp(PARTY_HELPER).health===1||plan.state.actors[PARTY_HELPER].resources.brace_effort===0||hp(PARTY_HELPER).stamina<2))helperLeaves(plan,hp(PARTY_HELPER).health===1?'yielded':'exhausted');

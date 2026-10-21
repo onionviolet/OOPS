@@ -8,7 +8,7 @@ export function combatFactEntries(texts) {
         return [{label:labels[key]||key,value:key==='Spd'?`${value} /s`:value}];});
 }
 export function readNativeCombatFocus(host) {
-    return [...(host?.querySelectorAll('.fighter_div')||[])].map(row=>({id:row.id,
+    return [...(host?.querySelectorAll('.fighter_div')||[])].map(row=>({id:row.dataset?.combatSubject || row.id,
         name:firstLine(row.querySelector('.fighter_name'))||'Unassessed opponent',role:'Current opponent',
         hp:firstLine(row.querySelector('.health_value'))||'Health not yet available',
         healthProgress:row.querySelector('.healthbar_current')?Math.max(0,Math.min(100,parseFloat(row.querySelector('.healthbar_current').style.width)||0)):null,

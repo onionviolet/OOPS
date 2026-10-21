@@ -27,6 +27,7 @@ export const playerAttributeDefinitions = [
     ['damage_taken','Damage taken','defense','×'],
     ['min_damage_share','Minimum share of a hit','defense','%'],
     ['crit_resistance','Critical resistance','defense','%'],
+    ['toughness','Gear toughness','defense','of 100'],
     ['health','Current health','health','hp'],
     ['max_health','Maximum health','health','hp'],
     ['health_regeneration_flat','Health recovery','health','hp/s'],
@@ -54,5 +55,6 @@ export const PERCENT_ATTRIBUTES = new Set(['crit_rate', 'block_chance', 'crit_re
 export const GEAR_DIMENSION_NOTES = {
     damage_taken: `Multiplier on each hit after flat defense, so ×0.9 means 10% less damage. Stacked reductions stop at ×${DAMAGE_TAKEN_FLOOR} by default. The shown value already includes that floor, with a Default floor row when it applies.`,
     min_damage_share: 'Share of a hit that always gets through when defense would absorb more. The base is 5%; hard outer armor parts multiply it down, so heavy plate shrugs off more of a weak hit. A damage of at least 1 still applies to small hits.',
+    toughness: 'Average toughness of the equipped gear materials, shown with each part and whether it is authored or derived from strength. Tougher and harder materials lose condition more slowly per landed hit; it is a wear rate, not extra defense. Not stored in saves.',
     crit_resistance: `Fraction of an attacker's critical chance removed. Padding under armor spreads impact. At most ${Math.round(CRIT_RESISTANCE_CAP * 100)}% is removed by default.`,
 };

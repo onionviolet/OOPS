@@ -1,0 +1,27 @@
+# Luna world-content assessment, 2026-10-20
+
+Scope: Weibao asked how Luna did beginning the small world work, then clarified LOTM/HP and earlier world content. This is an assessment, not implementation authorization or a new accepted design decision. Rules: AD6–AD8, AD32–AD36, WA source/implementation distinctions and sealed-secret handling. No runtime changes, commit or push.
+
+**Assessment:** useful world-research and proposal drafting, with consequential qualification errors in initial returns. The available sample supports bounded content work followed by source-aware review. It does not establish that Luna independently implemented playable HP/LOTM worlds, or establish a controlled model-quality comparison.
+
+## Findings
+
+| Code | Finding | Evidence and practical meaning |
+|---|---|---|
+| F1 | Recent HP/LOTM attribution needs correction. | The original LOTM engine and native-join session logs identify `claude-sonnet-5-5`, not Luna. The [deep-world workflow](../DEEP_WORLD_WORKFLOW_2026-10-19.md), round 2 and DWF49–DWF57, likewise records Sonnet census/verification readers. Earlier inherited source reading may involve other models; that does not change attribution of these particular deliveries. |
+| F2 | Luna produced useful earlier world-pack drafts and repair passes. | Local Codex rollout metadata identifies `gpt-6-luna` for initial synthesis of One Piece, Fate, FMA, JJK, Frieren, Demon Slayer, MHA, Black Clover and HxH, and for the Bleach synthesis update. These produced world briefs, source ledgers, ability variants, campaigns and implementation proposals. The [One Piece synthesis](../worlds/one-piece/SYNTHESIS.md), for example, keeps source scope, continuity, actual power conditions, custody and proposed play separate. This is authored research/design output, not runtime content. |
+| F3 | Initial drafts repeatedly dropped mechanisms or confused evidence. | All eleven sampled pack REVIEW files say **usable with fixes**. Detailed review of [One Piece](../worlds/one-piece/REVIEW.md), [FMA](../worlds/fullmetal-alchemist/REVIEW.md) and [Fate](../worlds/fate/REVIEW.md) shows consequential examples: inconsistent first-slice cargo/routes; omitted ability timing/aftermath; source-stated automail conditions called unknown; a misread energy-source conflict; a canceled game treated as a selectable source version; and inference presented as source law. These are historical reviewed errors, not newly reproduced current defects. They matter because small conditions determine costs, counters, persistence and available actions. |
+| F4 | Luna also performed the documented corrections. | Luna rollout returns for those packs record targeted fixes; the three reviewed owners now contain **Fixes applied** sections. This supports a successful draft → source review → repair workflow. It does not authenticate the underlying wiki corpus against primary works or prove implementation. No exhaustive fresh comparison of all repaired claims against raw sources was performed in this assessment. |
+| F5 | Actual playable progress is narrower than the document volume suggests. | LOTM has a localhost opt-in native prototype with acquisition, separate control learning, bounded observations, finite spirituality/strain and sleep recovery. [The initiation-plan native join receipt](../gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md#native-join-save-and-desktop-ui-2026-10-19-lip3lip4) records browser/persistence observations and open Export-click, screenshot and travel-guard gaps. The [HP world brief](../worlds/harry-potter/WORLD_BRIEF.md) remains a proposal; the recent census creates no HP runtime ring. The workflow's earlier "native binding not started" summary is stale relative to the later LOTM native-join receipt and live modules. |
+
+## Current verification and limits
+
+Inspected PROJECT, RULES_INDEX, USER_VISION, current LOTM actions/state/host/domain/UI, the initiation plan, deep-world workflow, earlier Luna rollout returns and representative pack reviews/syntheses. This was historical delivery assessment plus bounded current-source checking, not a new primary-canon audit.
+
+`node --test tests/lotm_seer_slice.test.js`: **9 passed, 0 failed** on the current shared checkout. Log: `/tmp/oops-luna-world-review-lotm-20261020.log`. This covers engine/envelope invariants, not a fresh browser or Export journey. No full suite or rebuild was needed for this report-only change. Earlier historical full-suite counts remain their original candidates' evidence.
+
+A preliminary 40-test small-feature slice also passed before Weibao clarified the scope. It concerns harvest/feedback/meters and is **excluded from the HP/LOTM assessment**. Log: `/tmp/oops-luna-world-review-focused-20261020.log`.
+
+Attribution pointers, local session history: Sonnet engine session `327c12c6-3c1f-43f9-a647-f07b7791e0c5`; native join `766936d5-3502-481d-a8fc-81ff3c01af95`. Representative Luna synthesis/repair rollout IDs: One Piece `01a13de9-127a-7ef1-aea2-21bc5012aa11` / `01a13df6-cf82-7643-91b1-51f4356f76b5`; FMA `01a13856-2223-7360-8577-ae99c22b1a10` / `01a13884-038c-7a21-a917-09b52aaff768`; Fate `01a13dbb-4522-7111-84bb-d0f999f9aa80` / `01a13dc9-0204-76c0-87ba-39d569ef9ca6`. IDs establish logged model provenance, not exclusive authorship of every line in a concurrently edited folder.
+
+No new runtime defect is claimed. No visual or human-play acceptance was performed. The shared dirty work remains untouched apart from this new report.

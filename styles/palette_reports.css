@@ -1,0 +1,16 @@
+/* Presentation filter over the existing bounded native log, never acquisition policy. */
+html[data-display-loot="off"] #message_box_div .message_loot,
+html[data-display-loot="summaries"] #message_box_div .message_loot:not([data-log-kind="total_gathered_loot"]) {
+    display: none !important;
+}
+.temperature-band { display: grid; gap: .3em; margin-block: .5em; }
+.temperature-band-regions { border-block-end: 1px solid currentColor; padding-block: .3em; font-variant-numeric: tabular-nums; }
+.temperature-band small { opacity: .85; }
+[data-rate-sign] strong { font-variant-numeric: tabular-nums; }
+[data-rate-sign="gain"] strong::before { content: "0 → "; font-weight: normal; }
+[data-rate-sign="loss"] strong::before { content: "← 0 "; font-weight: normal; }
+[data-rate-sign="zero"] strong::before { content: "0 · "; font-weight: normal; }
+/* Keep a word intact when its value needs the next line in the desktop stat cells. */
+#main_content.workspace-active[data-parity="r3"] .shell-statline > .shell-stat-record { flex-wrap: wrap; gap: 0 .2em; align-content: start; }
+#main_content.workspace-active[data-parity="r3"] .shell-statline > .shell-stat-record > span { overflow-wrap: normal; word-break: normal; white-space: nowrap; }
+#main_content.workspace-active[data-parity="r3"] .shell-statline > .shell-stat-record > strong { white-space: nowrap; }

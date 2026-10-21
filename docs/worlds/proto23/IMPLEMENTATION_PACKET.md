@@ -38,3 +38,10 @@ Use existing native money for ordinary foreign transactions only if the branch e
 Optional absent-state old expansion5–11/simulation and existing frozen jobs retain their exact meanings. New state rejects unknown IDs/corrupt active endpoint, and needs the updated fork reader. Root registers compatible readers instead of silently dropping the domain. Conserved costs/cancellation, stock/purse/claim/knowledge/job descriptors and native-domain metadata must pass syntax/import/definition/build/map/link checks. Label delivered gameplay **implemented-unverified**.
 
 Five later acceptance families: complete read/use/return/revisit loop; instruction/refusal/ordinary variant; furniture/fuel/material/NPC-money conservation; generated old/new/paused/current-job save/reload/import/failure; keyboard/director/game-feel review. No hours estimate, full-world or whole-reference parity claim follows from the number of commands.
+
+
+## Current detail remainder, 2026-10-20
+
+WPD-R4, ACCOUNT FOR NOW: [IMPLEMENTATION_STATUS](IMPLEMENTATION_STATUS.md) supersedes leaf-stage pending joins; do not rebuild the registered visitor branch from that old status. WG4's site calibration is conditional: carrying a learned note preserves the knowledge. If the Shack and village fixtures supply equivalent support, no arbitrary cross-world penalty is added; a different heat/tool/material mechanism may require a visible adjustment with actual cost. This audit supplies no new heat/chemistry simulator or source formula.
+
+Before selecting that extension, compare the actual existing station/tool consumers and identify one consequential mismatch. Level/effort: Luna low for exact fixture/owner comparison, coordinator medium if a new support seam is necessary. Done check: equal support preserves the result, changed support explains the adjustment, and the completed personal variant/material custody survives current-format round trips without duplicated rewards. Broader Proto23 parity stays later; delivered branch play/failure/keyboard/human acceptance remains with the linked integration backlog.

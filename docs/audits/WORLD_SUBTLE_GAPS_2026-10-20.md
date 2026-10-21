@@ -6,6 +6,29 @@ Sonnet subagents against the [completion standard](../WORLD_COMPLETION_STANDARD.
 (sections S00-S14, levels C0-C5). Proposals, not accepted decisions. Levels are
 what the records support; none was upgraded. Sealed truths are not written here.
 
+## Current correction round, 2026-10-20
+
+Weibao subsequently authorized auditing and fixing the pack documents, then saving
+what remains before implementation. [Round report](world_pack_details_2026-10-20/REPORT.md),
+[26-scope dispositions](world_pack_details_2026-10-20/COVERAGE.md) and
+[checkpoint](world_pack_details_2026-10-20/CHECKPOINT.md) own that bounded pass.
+The original sweep below is retained as its dated proposal record.
+
+The corrections supersede its stale runtime/evidence summaries where named:
+LOTM already has a native opt-in prototype; Proto23 shared joins and the later
+Frontier finite delivery are recorded, rather than missing. HP has acquired
+private text and a 256-row census with different evidence depths; neither is a
+complete-world read or implemented HP pack. No completion level is upgraded.
+Prior play evidence is reused only for unchanged relevant inputs; an unrelated
+build change alone is not proof that every prior observation became invalid.
+
+WG8's unreliable-reading idea is optional source-qualified expansion, not a
+mandate to add random misreadings. WG21's frozen-absence policy is not by itself
+a missing season. WG1 regrowth, WG10 sea logistics, WG15 two daily work loops
+and other broad ideas do not become prerequisites for smaller selected slices.
+Every WG idea remains a proposal; current corrections and local remainders are
+linked by the matrix instead of copying a second specification here.
+
 ## What "full implementation" means
 
 The standard already defines it. A world is fully implemented at **C4** for its
@@ -475,3 +498,26 @@ Checked against `WORLD_CORE_KIT_2026-10-14.md` (K1-K34), the successor root (KN1
 - Levels are conservative: every row stays C0 or C1 because no section review or runtime evidence exists for any of the four worlds.
 - G4-D1, G4-F1 and G4-E1 each name a dial; none is an accepted decision.
 - Unread by me: full CAMPAIGN, MODULE_CATALOGUE and ABILITY_VARIANTS bodies for the three game worlds (spot-read via grep and line windows only); cross-world sources beyond the keyword checks above.
+
+
+## Round 2: corrected owners and economical pre-implementation audit
+
+2026-10-20, WPD. ACT NOW corrections were applied in the linked pack owners: HP
+locator/evidence records, delivered-versus-pending status, desktop targets,
+bounded ingredient claims and formula-attractor framing, and first-slice versus
+later-depth boundaries. The four Luna lanes and root review retain exact read
+limits and inherited source qualifications in the [report](world_pack_details_2026-10-20/REPORT.md).
+
+ACCOUNT FOR NOW: an observation belongs to its target/lot/time and channel; a
+learned method, physical recipe, returned tool and permission are different
+things. Dormant/frozen instances do not advance another actor's work implicitly.
+Source-claim verification does not require a primary scene for explicitly
+original local prices, events or effects. These distinctions qualify selected
+implementation, without adding another universal subsystem checklist.
+
+LATER / DELEGATE: select one consequential local join and use its existing
+remainder/done check from the [matrix](world_pack_details_2026-10-20/COVERAGE.md).
+Use Luna low for supplied locator/field corrections, Luna medium for bounded
+source extraction, and the coordinator for canon conflicts or native/save/clock
+seams. No runtime, source-corpus reread, new world or priority change was selected
+by this correction round.

@@ -1,13 +1,17 @@
+import {createBodyExpression} from './body_expression.js';
 import {definePanel} from './panel_kit.js';
 import {registerPanelSettings,getDisplaySetting,setDisplaySettings} from './display_settings.js';
 import {subscribeChange,bridgeLegacyNode} from './ui_change_signal.js';
+import {readTemperature} from './condition_facts.js';
+import {createTemperatureBand} from './temperature_band.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text)n.textContent=text;return n;};
 // Display-only reader, mounted through the existing shell owner. No timer, save or commands.
 export function mountConditionPanel({home,rates,readRows,notice,inspect,isInspecting=()=>false}) {
     const panel=node('section');panel.id='shell_condition';
-    const empty=node('p','No active effects'),list=node('div'),body=node('details'),bodyTitle=node('summary','Body'),bodyText=node('p');
+    const empty=node('p','No active effects'),list=node('div'),body=node('details'),bodyTitle=node('summary'),bodyName=node('span','Body'),bodyText=node('p');
     list.className='condition-effects';list.setAttribute('aria-label','Active status effects');empty.className='condition-summary';
-    body.append(bodyTitle,bodyText);panel.append(empty,list,body,rates);
+    const temperature=createTemperatureBand(),expression=createBodyExpression();
+    bodyTitle.append(bodyName,expression.node);body.append(bodyTitle,bodyText,expression.detail,temperature.node);panel.append(empty,list,body,rates);
     const records=new Map();
     const active=()=>home.dataset.presentation==='proto23-shell'&&home.dataset.parity==='r3';
     definePanel({id:'condition',title:'Condition',role:'character',node:panel,home,after:'shell-character',defaultDock:'left',eligible:active,discovered:active});
@@ -18,8 +22,9 @@ export function mountConditionPanel({home,rates,readRows,notice,inspect,isInspec
         const profile=document.getElementById('character_bio_profile');
         const facts=[...profile?.children||[]].map(n=>[...n.childNodes].filter(c=>c.nodeType===3).map(c=>c.textContent).join('').trim()).filter(Boolean);
         const race=facts.find(text=>text.startsWith('Race:'))?.replace('Race:','').trim();
-        write(bodyTitle,'Body'+(race?' · '+race:''));
+        write(bodyName,'Body'+(race?' · '+race:''));
         write(bodyText,facts.length?facts.join(' · '):'Body details are available in Stats › Biography.');
+        temperature.update(readTemperature());
         const native=[...document.querySelectorAll('#effects_tooltip .active_effect_tooltip')],live=new Set();
         for(const source of native){
             const name=source.querySelector('.active_effect_name')?.textContent.replace(/^'|'\s*:\s*$/g,'').trim();if(!name)continue;
@@ -50,6 +55,6 @@ export function mountConditionPanel({home,rates,readRows,notice,inspect,isInspec
         }
     }
     const stops=[subscribeChange({id:'condition',surface:'condition',refresh:render}),
-        ...['effects_tooltip','character_bio_profile'].map(id=>bridgeLegacyNode(document.getElementById(id),'body'))];
-    render();return {render,destroy(){stops.forEach(stop=>stop());panel.remove();}};
+        ...['effects_tooltip','character_bio_profile','weather_div'].map(id=>bridgeLegacyNode(document.getElementById(id),'body'))];
+    render();return {render,destroy(){stops.forEach(stop=>stop());expression.destroy();panel.remove();}};
 }

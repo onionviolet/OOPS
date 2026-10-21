@@ -47,3 +47,10 @@ needs a separate instance/clock. Both fit; placement follows the selected slice
 rather than an either/or direction question. JJK's build slices remain parked
 by Weibao's recorded instruction; this audit does not select a Proving Ground
 build or make it a prerequisite for other features.
+
+
+## Detail audit, 2026-10-20
+
+WPD-R6, ACCOUNT FOR NOW: WG5's dummy observations describe the tested dummy, setup and method, not every real opponent. A genuine learned method may transfer when its mechanism works; training provenance is a limit on the claim, not an arbitrary ban on its use. The fictional training space and developer fixture remain distinct. Removing optional test-world state must first reconcile references to real transferred objects or learned records; it cannot erase an earned external result or duplicate its owner.
+
+Before a selected build: name one actual dummy response and its observer-safe receipt, plus the save/reference owner. Level/effort: bounded Luna low for fixtures; coordinator medium for cross-world retention. Done check: unchanged dummy evidence stays attributed; a changed real target is evaluated by its actual support; reload/removal preserves unique custody and legitimate learning. JJK proofs remain parked unless selected; this audit starts no training-world implementation.

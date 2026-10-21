@@ -1,0 +1,64 @@
+{
+  "source": "docs/gm/dispatch/deep-engine-2026-10-20/P5_EVIDENCE/broken-native.json",
+  "packId": "author_workshop",
+  "revision": 1,
+  "diagnostics": [
+    {
+      "severity": "error",
+      "source": "docs/gm/dispatch/deep-engine-2026-10-20/P5_EVIDENCE/broken-native.json",
+      "path": "$.simulation.commands[0]",
+      "subjectId": "author_workshop.paid",
+      "code": "consumer-dormant",
+      "message": "Unsupported native resource."
+    }
+  ],
+  "commands": [
+    {
+      "id": "author_workshop.paid",
+      "path": "$.simulation.commands[0]",
+      "status": "dormant",
+      "reason": [
+        "Unsupported native resource."
+      ],
+      "coverage": "supported",
+      "nativeConnected": false
+    },
+    {
+      "id": "author_workshop.rest",
+      "path": "$.simulation.commands[1]",
+      "status": "executable",
+      "coverage": "supported",
+      "nativeConnected": false,
+      "execution": {
+        "kind": "execute",
+        "status": "applied",
+        "before": {
+          "money": 100,
+          "stamina": 10,
+          "jobs": []
+        },
+        "after": {
+          "money": 98,
+          "stamina": 14,
+          "jobs": []
+        },
+        "delta": [
+          {
+            "path": "/money",
+            "before": 100,
+            "after": 98
+          },
+          {
+            "path": "/stamina",
+            "before": 10,
+            "after": 14
+          }
+        ]
+      },
+      "completion": null
+    }
+  ],
+  "coverage": "supported",
+  "nativeConnected": false,
+  "limits": "Executable probes use synthetic native adapter inputs, not a playable or browser verdict. References and other families retain their own validators."
+}

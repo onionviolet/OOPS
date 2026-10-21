@@ -1,0 +1,107 @@
+{
+  "schema": 2,
+  "id": "author_workshop",
+  "revision": 1,
+  "title": "Author workshop",
+  "compatibility": {
+    "legacy": "preserve-dormant",
+    "origin": "mandatory"
+  },
+  "capabilities": [
+    "native-stock",
+    "jobs"
+  ],
+  "world": {
+    "id": "author_workshop.world",
+    "label": "Author workshop"
+  },
+  "locations": [
+    {
+      "id": "author_workshop.room",
+      "label": "Synthetic workroom",
+      "description": "An original author test room.",
+      "underRoof": true
+    }
+  ],
+  "simulation": {
+    "people": [],
+    "commands": [
+      {
+        "id": "author_workshop.paid",
+        "revision": 1,
+        "label": "Complete paid work",
+        "worldId": "author_workshop.world",
+        "actorId": "player",
+        "location": "author_workshop.room",
+        "audience": [
+          "$actor"
+        ],
+        "duration": 2,
+        "cancellation": "refund",
+        "costs": [
+          {
+            "type": "resource",
+            "native": true,
+            "key": "money",
+            "amount": -1
+          }
+        ],
+        "effects": [
+          {
+            "type": "resource",
+            "native": true,
+            "key": "unsupported_meter",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "id": "author_workshop.rest",
+        "revision": 1,
+        "label": "Take a measured rest",
+        "worldId": "author_workshop.world",
+        "actorId": "player",
+        "location": "author_workshop.room",
+        "audience": [
+          "$actor"
+        ],
+        "duration": 0,
+        "cancellation": "refund",
+        "costs": [
+          {
+            "type": "resource",
+            "native": true,
+            "key": "money",
+            "amount": -2
+          }
+        ],
+        "effects": [
+          {
+            "type": "vital",
+            "key": "stamina",
+            "amount": 4
+          }
+        ]
+      }
+    ]
+  },
+  "presentation": {
+    "people": {},
+    "status": []
+  },
+  "starts": [
+    {
+      "id": "author_workshop.start",
+      "locationId": "author_workshop.room",
+      "description": "A synthetic beginning for executable author feedback.",
+      "body": {
+        "id": "author_workshop.body",
+        "form": "human",
+        "ownerId": "player",
+        "controllerId": "player",
+        "hands": 2
+      },
+      "effects": []
+    }
+  ]
+}

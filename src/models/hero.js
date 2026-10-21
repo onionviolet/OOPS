@@ -27,6 +27,13 @@ class Hero extends Person {
         if(typeof id !== 'string' || !id || typeof reader !== 'function')throw Error('Invalid native light source.');
         this.#nativeLightSources.set(id, reader);
     }
+    /** An instance owns this binding; its disposer cannot remove another source. */
+    bindNativeLightSource(reader) {
+        if(typeof reader !== 'function')throw Error('Invalid native light source.');
+        const id = Symbol('native light source');
+        this.#nativeLightSources.set(id, reader);
+        return () => this.#nativeLightSources.delete(id);
+    }
     /** Light the hero brings to this place: the one authority for combat, reading and inspection. */
     nativeLightBonus() {
         let total=this.#nativeLightBonusReader?.()||0;

@@ -27,7 +27,7 @@ export function validatePresentationSettings(input, partial = false) {
             keys(value, ['font', 'size']);
             if (!partial && (!own(value,'font') || !own(value,'size'))) fail('incomplete typography');
             result[key] = {};
-            if (own(value,'font')) result[key].font = choice(value.font, ['system','serif','mono'], 'font');
+            if (own(value,'font')) result[key].font = choice(value.font, ['system','serif','mono','gothic'], 'font');
             if (own(value,'size')) result[key].size = number(value.size, 10, 28, 'font size');
         }
         if (key === 'palette') {
@@ -91,6 +91,27 @@ export function mergePresentationSettings(base, override = {}) {
         palette: {...base.palette, ...override.palette},
         effectDefinition: {...base.effectDefinition, ...override.effectDefinition}};
 }
+export function createLuminousGothicDraft(state) {
+    const valid = validateCustomizationState(state);
+    if (Object.keys(valid.profiles).length >= 20) fail('cannot create Luminous Gothic profile: profile limit is 20');
+    const baseName = 'Luminous Gothic';
+    let name = baseName, suffix = 2;
+    while (own(valid.profiles, name)) name = `${baseName} ${suffix++}`;
+    if (!/^[\w -]{1,40}$/.test(name)) fail('cannot create a valid Luminous Gothic profile name');
+    const source = valid.profiles[valid.active];
+    const settings = structuredClone(source.settings);
+    settings.componentTheme = 'luminous';
+    settings.typography.font = 'gothic';
+    settings.palette = {background:'#07162d', text:'#d5f7ff', accent:'#7fe7e8'};
+    const modules = structuredClone(source.modules);
+    if (!modules.messages?.palette) {
+        modules.messages ||= {};
+        modules.messages.palette = {background:'#231735', text:'#eee5ff', accent:'#bca4ff'};
+    }
+    valid.profiles[name] = {settings, modules};
+    valid.active = name;
+    return validateCustomizationState(valid);
+}
 export function getCustomizationSettings(state, moduleId, {season} = {}) {
     const valid = validateCustomizationState(state), profile = valid.profiles[valid.active];
     const settings = mergePresentationSettings(profile.settings, profile.modules[moduleId]);
@@ -128,7 +149,9 @@ export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}
         qualifyNativeTabs(node);
         node.dataset.componentTheme = settings.componentTheme || 'neutral';
         node.dataset.customizationSeason = settings.resolvedSeason || 'off';
-        const vars = {'--custom-font': {system: 'var(--ui-font)', serif: 'Georgia, serif', mono: 'monospace'}[settings.typography.font], '--custom-size': `${settings.typography.size}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
+        const font = settings.typography.font;
+        const vars = {'--custom-font': {system: 'var(--ui-font)', serif: 'Georgia, serif', mono: 'monospace', gothic: 'var(--ui-font-gothic)'}[font], '--custom-prose-font': font === 'gothic' ? 'var(--ui-font-prose)' : {system: 'var(--ui-font)', serif: 'Georgia, serif', mono: 'monospace'}[font], '--custom-size': `${settings.typography.size}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
+        node.dataset.typographyFont = font;
         Object.assign(vars, componentThemeTokens(settings));
         node.dataset.contrastRecovered = vars['--theme-contrast-recovered'];
         // A player-chosen or seasonal palette stays authoritative over display schemes such as Vivid.

@@ -41,7 +41,7 @@ The Codex lane reproduces this with a populated state before fixing it.
 | OA5 | **Eager hidden DOM** | Hidden panels such as the backlog expansion panel build hundreds of nodes up front. Not urgent; the panel kit's eligibility can defer building until a panel is discovered |
 | OA6 | **Keyboard as the back route** | Esc pops the center mode; number keys for routine actions follow later. Click-only parity stays (play-beyond-menus O10) |
 | OA7 | **Saved layouts** | Existing player layouts, pins and collapse states must load under the new skeleton. Unknown or moved panels fall back to their declared home; no save schema change unless a compatibility decision is recorded |
-| OA8 | **Taste is separate from proof** | Each slice gets technical proof (rebuild, fresh origin, 1366×768, populated save, reload/import) and then Weibao's visual-feel acceptance as a separate gate |
+| OA8 | **Taste is separate from proof** | Each slice gets technical proof (rebuild, fresh origin at 1920×1080, populated save, reload/import; 1366×768 retired 2026-10-19) and then Weibao's visual-feel acceptance as a separate gate |
 
 ## Dispatch
 

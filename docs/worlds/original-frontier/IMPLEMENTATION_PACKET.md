@@ -52,3 +52,10 @@ These are checkpoints within one full scoped goal, not tutorial deliveries needi
 Reuse native rat opening/field/cave access, gathering tools and skill XP/milestones, stances, original mill grain/canal/bridge quests, Forest road/Town travel, optional permit/ledger, Shack home/workshop, Rat-step, grip/recovery, focus/drive/Load-bearing Step, Mara settlement/duel, Lio contest and actual attributed reports. Every old reward remains once under its owner. Existing mastery/access can be prerequisites, not proof of a new unperformed feat.
 
 The [ledger](COMPLETION_LEDGER.json) maps required IDs, native sources, adapters, local owners, current status and cases. [WORLD_COMPLETION](WORLD_COMPLETION.md) specifies AC01–AC12. This planning role verifies sources/links/coverage and held-module immutability only. Full campaign remains proposed/held, with no current-build gameplay/save/failure/keyboard proof. [REPORT](REPORT.md)/[CHECKPOINT](CHECKPOINT.md) carry results and exact resume.
+
+
+## Current detail and acceptance routing, 2026-10-20
+
+WPD-R5, ACT NOW: the current-delivery section above supersedes the planning-return statements about a held/unrepaired draft and missing registration. Treat old source hashes, named writer reservations and interface limits as historical input snapshots, then inspect the current owner only for the selected change. No new runtime delivery is claimed by this audit.
+
+ACCOUNT FOR NOW: WG2's long Town trip crosses native clock boundaries. Future proof should show actual elapsed travel, native rest/opening rules and the reason for any blocked service on arrival, without inventing mandatory hunger death, rent or a second clock. Preserve the declared native travel consequences. Level/effort: coordinator medium for a selected clock/consumer join. Done check: departure, boundary crossing and arrival use one clock; a closed service creates no fee/reward; later legitimate access can proceed. Existing finite campaign behavioral/persistence/failure/human gates remain in the release backlog; a full lodging/economy simulator is later depth, not a prerequisite.

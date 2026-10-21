@@ -17,8 +17,8 @@ separates section-reviewed owners from text-scanned-only history.
 
 | Code | Track | Latest recorded state and next gate | Owner |
 |---|---|---|---|
-| QR1 | Desktop UI | UIL7 adjustable panels and UIL8 Condition/stat tiers report scoped technical passes. UI A1 inventory and A2 nearby context report leaf delivery; combined integration/browser gates and human visual/play acceptance remain open. | [Integration checkpoint](gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md), [UIL7](gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL7_REPORT.md), [UIL8](gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL8_REPORT.md) |
-| QR2 | Ability conditions / dependent claims | Engine A1 and A2 are implemented with fixture checks, separate from UI A1/A2. RS26 retains the UI merge and Weibao play gate; native consumer/persistence gates remain open. | [Engine A1/A2 and RS26](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#build-order-decided-by-weibao-2026-10-17) |
+| QR1 | Desktop UI | UIL7 adjustable panels and UIL8 Condition/stat tiers report scoped technical passes. UI A1 inventory and A2 nearby context report leaf delivery; combined build/test/arch/rules and desktop browser gates passed 2026-10-19 (see checkpoint); human visual/play acceptance remains open. | [Integration checkpoint](gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md), [UIL7](gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL7_REPORT.md), [UIL8](gm/dispatch/ui-foundation-2026-10-15/next-parts/UIL8_REPORT.md) |
+| QR2 | Ability conditions / dependent claims | Engine A1 and A2 are implemented with fixture checks, separate from UI A1/A2. RS26 retains the UI merge and Weibao play gate. 2026-10-19: native consumer (Reedbank joinery pegs and two held claims) with save, reload and import exercised in a browser; human play acceptance open. | [Engine A1/A2 and RS26](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md#build-order-decided-by-weibao-2026-10-17) |
 | QR3 | Modular engine | Later M3 resume/merge/post-merge evidence supersedes its stopped summary. M4 lamplight (PF52) implemented and merged 2026-10-19 with focused, headless and 1920×1080 smoke checks; human play acceptance remains open. | [Modular checkpoint](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md) |
 | QR4 | Research / source acquisition | Later owned-game research supersedes original buy/install rows. SM5–SM7 high, SM9 next, anime deferred. | [Acquisition queue](research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md#current-routing-2026-10-18) |
 | QR5 | Older implementation packets and audits | Preserve partial delivery and acceptance states; old reservations need recovery. Domain audits/rule reconciliation remain proposals where labelled. | [Audit queue](gm/audit-implementation/QUEUE.json), [absorption queue](gm/game-absorption-2026-10-06/QUEUE.json), [plan/rule reconciliation](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md) |
@@ -27,6 +27,8 @@ separates section-reviewed owners from text-scanned-only history.
 inventories the idea families, ranks the shared seams by unlock count, names the
 binding scale limits with measured numbers, and proposes strategies and a
 sequenced slice order (P1–P8). Navigation and proposal only; no new priority.
+
+P1 measurement result: [baseline and budgets](reviews/P1_BASELINE_AND_BUDGETS_2026-10-19.md) (2026-10-19; per-minute browser cost, not actor tick, is the measured technical limit).
 
 ## Historical implementation routing, 2026-10-04
 
@@ -42,12 +44,14 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
-[Deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (2026-10-19, proposal) is the
-run order for deeply implementing one world: recover, read, census the whole canon as
-data, grammar and dials, pack, playable rings, routes past canon, prove (DWF1 to DWF8),
-with LOTM mapped by stage. It links the owners and restates none of them.
-Round 2 (2026-10-19) adds the LOTM and Harry Potter data census (spell books, potions,
-pathways, formulas), kept in private research folders, and codes DWF41 to DWF55.
+[Reference UI and engine fold, 2026-10-20](research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md#plan-fold-and-further-interactions-2026-10-20)
+routes all 90 feature comparisons, actual-image details and engine connections
+into their existing plans. The [UI palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#reference-ui-and-engine-fold-2026-10-20-color-detail-and-continuity)
+owns RUC1–RUC6 color roles; [engine expansion](ENGINE_EXPANSION.md#reference-detail-fold-2026-10-20-ui-meaning-through-engine-owners)
+links actual state/clock/transaction/projection seams. The full palette is kept,
+including PFE19–PFE30 subtle interactions and playful possibilities. These are
+planning additions under AD40, not a new dispatch, runtime implementation or
+accepted color/feature default.
 
 [Subtle rule gaps, round 4](reviews/SUBTLE_RULE_GAPS_2026-10-18.md#round-4-latest-audits-together-2026-10-18)
 connects the latest domain audits: observer-safe idle stops, exact time settlement,
@@ -127,6 +131,28 @@ player: kinds, acquisition, bond tracks, care, mounts, per-world fit, cheat shap
 and expansions. Proposals only.
 Repeatable via the [companions core audit](audits/COMPANIONS_CORE_AUDIT.md);
 the general method is the [topic expansion audit playbook](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md).
+
+[World dials and interpreter considerations](WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md)
+owns the 2026-10-19 palette on how world details, constitutions and crafting turn
+dials through the existing rule resolver, and what is still missing. Proposals only.
+Repeatable via the [world dials core audit](audits/WORLD_DIALS_AND_INTERPRETER_CORE_AUDIT.md).
+Crafting round 6 (tags, material families, harvest places, display; TQ/NX/PG/UV) lives in
+[CRAFTING_ENGINE](CRAFTING_ENGINE.md#round-6-2026-10-19-tags-subtle-properties-new-material-families-places-and-display). Proposals only.
+Round 7 (alchemy and procedural interactions from tier, difference and tags; IX) is in the same
+[CRAFTING_ENGINE](CRAFTING_ENGINE.md#round-7-2026-10-19-alchemy-and-procedural-interactions-from-tier-difference-and-tags).
+
+[World rule grammars and derived detail](WORLD_RULE_GRAMMARS_AND_DERIVED_DETAIL_2026-10-19.md)
+owns the 2026-10-19 palette on deriving per-thing meaning from a world's own rule grammar (spell naming,
+formula shape, counters, grades), with HP and D&D first. Deep-level lenses KL1 to KL12 for every world (dials, materials, interaction laws, grammar, display; round 21) are saved in the
+[world core kit successor](worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md#round-21-deep-level-lenses-for-every-world-2026-10-19) and the repeating
+[world core kit audit](audits/WORLD_CORE_KIT_CORE_AUDIT.md). Proposals only.
+
+[Deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (2026-10-19, proposal) is the
+run order for deeply implementing one world: recover, read, census the whole canon as
+data, grammar and dials, pack, playable rings, routes past canon, prove (DWF1 to DWF8),
+with LOTM mapped by stage. It links the owners and restates none of them.
+Round 2 (2026-10-19) adds the LOTM and Harry Potter data census (spell books, potions,
+pathways, formulas), kept in private research folders, and codes DWF41 to DWF55.
 
 [Procedural story and content considerations](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md)
 owns the 2026-10-14 story-generation palette (A-F): casting, hooks, readable futures,
@@ -493,7 +519,7 @@ The [bookshelf detail map](#bookshelf-detail-map-2026-10-03) routes the newly pr
 | ID | Idea family | Detail owner and present boundary |
 |---|---|---|
 | I26 | Original worlds and selected direct book/anime/game settings | [Project source rules](gm/PROJECT_LOG.md#books-and-original-worlds), [reference research](REFERENCE_RESEARCH.md) and [world contracts](ENGINE_EXPANSION.md#reference-worlds-and-base-game-connections-requested-2026-10-02); general option requested, individual roster open |
-| I27 | Niche game discoveries and stronger structural references | [Game references](NICHE_GAME_REFERENCES.md); [concrete feature families](RESEARCH_IDLE_GAMES.md#features-from-similar-games-and-beyond-2026-10-02) and [broader text-first inspiration](RESEARCH_IDLE_GAMES.md#broader-inspiration-for-a-text-first-rpg-2026-10-02) connect discovery, expeditions, character history, books and world conditions; accepted comparison direction, mechanics remain proposals |
+| I27 | Niche game discoveries and stronger structural references | [Game references](NICHE_GAME_REFERENCES.md); [concrete feature families](RESEARCH_IDLE_GAMES.md#features-from-similar-games-and-beyond-2026-10-02) and [broader text-first inspiration](RESEARCH_IDLE_GAMES.md#broader-inspiration-for-a-text-first-rpg-2026-10-02) connect discovery, expeditions, character history, books and world conditions; accepted comparison direction, mechanics remain proposals; [Brushsworn ideas BS1-BS6](NICHE_GAME_REFERENCES.md#brushsworn-2026-10-20-itch-page-only-proposals) (2026-10-20, hidden-recipe discovery, collection wall, away-play unlock) |
 | I28 | Genre tropes, subversions, archetypes and scenario variants | [Trope research](RESEARCH_GENRE_TROPES.md) and [genre sweep](RESEARCH_GENRE_SWEEP.md); preserve breadth without selecting the full catalogue. Tropes as a generation layer and overdo dials: [story palette round 12](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#round-12-2026-10-18-tropes-as-a-generation-layer-and-how-not-to-overdo-them) (BR, BS, BT, BU; proposal); chains, general vs world-specific layers and canon plotlines in [round 13](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#round-13-2026-10-18-trope-chains-general-versus-world-specific-and-canon-plotlines) (BV, BW, BX, BY, BZ); event dossiers, lead-up scaffolds and changing canon in [round 14](PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md#round-14-2026-10-18-building-around-canon-events-then-changing-them) (CA, CB, CC, CD) |
 | I29 | Foundation capabilities, engine readiness and upstream changes | [Baseline audit](BASELINE_AUDIT.md), [engine expansion](ENGINE_EXPANSION.md), [upstream direction](UPSTREAM_DIRECTION.md) and [v0.6 migration](V06_MIGRATION.md); dated audits and current runtime evidence are distinct |
 | I30 | Delivery proposals, acceptance, archived prototypes and research ownership | [Next event option](NEXT_EVENT_PROPOSAL.md), [expansion design](EXPANSION_DESIGN.md), [playtest](PLAYTEST.md), [prototype history](PROTOTYPE_HISTORY.md) and [research coordination](RESEARCH_COORDINATION.md); archived gameplay and unperformed gates remain explicitly labelled |
@@ -587,3 +613,8 @@ The shared owner retains five connected considerations and links to existing kno
 [Everyday learning and mood](gm/PROJECT_LOG.md#everyday-learning-mood-and-small-details-2026-10-03) now implements three routes to the same practical understanding, temporary actor moods with retained directed memory, known working preferences, state-derived local details, quiet Shack rest and a finite missed-meeting fallback. [Authoring rules](ENGINE_AUTHORING.md#everyday-learning-and-mood-authoring-2026-10-03) and [matched browser/save proof](PLAYTEST.md#everyday-learning-and-mood-proof-2026-10-03) own the bounded implementation. Broader habits/social catalogues and final writing/balance remain proposals.
 
 - 2026-10-11 absorption: [assignment](gm/dispatch/absorb-2026-10-11/ASSIGNMENT.md), [live integration checkpoint](gm/dispatch/absorb-2026-10-11/CHECKPOINT.md), [unexercised acceptance](gm/dispatch/absorb-2026-10-11/ACCEPTANCE_BACKLOG.md). Bonuses accepted in principle; numbers remain proposals.
+
+
+### Deep engine pilots selected, 2026-10-20
+
+Weibao requested one connected chat for each P1–P5 improvement in [the deep engine round](ENGINE_EXPANSION.md#deep-engine-support-for-future-design-2026-10-20). [Dispatch and dependency ledger](gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md) routes shared stat/effect semantics, independent domain ports, scenario tooling, durable timed work and executable authoring. This later implementation selection supersedes only those pilots' prior proposal-only execution status. Existing palette reservations and current native/human gates stay with their owners.

@@ -1,3 +1,4 @@
+import {bindSubjectGesture} from './recipe_connections.js';
 // Crafting screen detail region (2026-10-13, Proto23-inspired list + detail).
 // Presentation only: display.js builds the model from itemRecipeStatus() (the same
 // availability the row, the filter and the native craft read) and owns every command.
@@ -31,7 +32,7 @@ function fact(label, value, attr) {
 export function renderCraftingDetail(root, model, handlers) {
     const focused = root.contains(document.activeElement) ? document.activeElement : null;
     // Re-renders keep focus on the equivalent control (button, requirement row or reason).
-    const kind = focused && ['data-craft-commit', 'data-craft-amount', 'data-craft-req', 'data-craft-blocked-reason', 'data-craft-related', 'data-craft-back'].find(a => focused.hasAttribute(a));
+    const kind = focused && ['data-craft-commit', 'data-craft-amount', 'data-craft-req', 'data-craft-blocked-reason', 'data-craft-related', 'data-craft-back','data-craft-continue','data-craft-cancel-goal'].find(a => focused.hasAttribute(a));
     const focusIndex = kind ? [...root.querySelectorAll(`[${kind}]`)].indexOf(focused) : -1;
     root.replaceChildren();
     root.dataset.state = model ? (model.available ? 'ready' : 'blocked') : 'empty';
@@ -54,17 +55,20 @@ export function renderCraftingDetail(root, model, handlers) {
     body.append(title);
 
     const uses = el('div', 'craft_detail_section');
-    uses.append(el('div', 'craft_detail_label', 'Uses · have / need'));
+    uses.append(el('div', 'craft_detail_label', model.requirements.every(req=>req.stockKnown) ? 'Input stock · owned / unblocked / blocked' : 'Input stock · carried / needed'));
     for(const req of model.requirements) {
         const row = el('div', 'craft_req');
         row.setAttribute('data-craft-req', '');
-        row.setAttribute('aria-label', `${req.label}: have ${req.have}, need ${req.need}`);
+        const owned=req.owned??req.have,usable=req.stockKnown?req.usable:undefined,blocked=req.stockKnown?req.blocked:undefined;
+        row.setAttribute('aria-label', req.stockKnown ? `${req.label}: owned ${owned}, unblocked ${usable}, blocked ${blocked}, need ${req.need} per attempt${req.held_back?', selected material group blocked':''}` : `${req.label}: ${owned} carried, need ${req.need}`);
         row.tabIndex = -1;
         if(req.missing) row.setAttribute('data-missing', '');
         if(req.unknown) row.setAttribute('data-unknown', '');
-        row.append(el('span', 'craft_req_name', req.label), el('span', 'craft_req_count', `${req.have}/${req.need}`));
+        row.append(el('span', 'craft_req_name', req.label), el('span', 'craft_req_count', req.stockKnown ? `${usable} unblocked · ${blocked} blocked · ${req.need} per attempt (owned ${owned})` : `${owned} carried · ${req.need} selected`));
         if(req.missing) row.append(el('span', 'craft_req_short', `missing ${req.need - req.have}`));
-        else if(req.held_back) row.append(el('span', 'craft_req_short', 'reserved'));
+        else if(req.held_back) row.append(el('span', 'craft_req_short', 'selected material group blocked; release its commitments or finish the current activity'));
+        if(!req.unknown && Number.isFinite(req.stock) && req.stock !== req.have) row.append(el('small', '', `${req.stock} carried in all material groups`));
+        if(!req.unknown && req.variants?.length) row.title = `Consumption order: ${req.variants.map(v=>`${v.name}${Number.isFinite(v.quality)?` ${v.quality}%`:''} ×${v.count}`).join(', ')}`;
         uses.append(row);
     }
     body.append(uses);
@@ -97,10 +101,11 @@ export function renderCraftingDetail(root, model, handlers) {
     const quiet = el('div', 'craft_detail_quiet');
     quiet.append(fact('Station', model.station, 'data-craft-station'), fact('XP', model.xp, 'data-craft-xp'));
     body.append(quiet);
+    if(model.policy) body.append(el('p', 'craft_detail_policy', model.policy));
     if(model.related?.length) {
         const related = el('div', 'craft_detail_section craft_detail_related');
         related.setAttribute('data-craft-related-list', '');
-        related.append(el('div', 'craft_detail_label', 'Related on this station'));
+        related.append(el('div', 'craft_detail_label', 'Known producers and uses'));
         for(const r of model.related) {
             const link = el('button', 'craft_related');
             link.type = 'button';
@@ -108,7 +113,7 @@ export function renderCraftingDetail(root, model, handlers) {
             if(!r.available) link.dataset.unavailable = '';
             link.append(el('span', 'craft_related_name', r.title), el('span', 'craft_related_via', r.via));
             link.setAttribute('aria-label', `Show recipe ${r.title}, ${r.via}${r.available ? '' : ', not craftable now'}`);
-            link.addEventListener('click', () => handlers.onRelated?.(r.recipe_id));
+            link.addEventListener('click', () => handlers.onRelated?.(r.target || r.recipe_id));
             related.append(link);
         }
         body.append(related);
@@ -137,6 +142,8 @@ export function renderCraftingDetail(root, model, handlers) {
         actions.append(reason);
     }
     const buttons = el('div', 'craft_detail_buttons');
+    const preview=el('p','craft_batch_proposal','Focus or hover a batch choice to preview its maximum input use. The preview reserves nothing.');
+    actions.append(preview);
     const commit = el('button', 'craft_commit', 'Craft 1');
     commit.type = 'button';
     commit.setAttribute('data-craft-commit', '');
@@ -147,15 +154,25 @@ export function renderCraftingDetail(root, model, handlers) {
         b.dataset.craftAmount = String(amount);
         b.setAttribute('aria-label', `Craft ${label === 'All' ? 'all you can' : label}`);
         buttons.append(b);
+        const showProposal=()=>{preview.textContent=craftBatchProposal({requirements:model.requirements,available:model.attempts??0,requested:amount});};
+        b.addEventListener('mouseenter',showProposal);b.addEventListener('focus',showProposal);
     }
+    const showOne=()=>{preview.textContent=craftBatchProposal({requirements:model.requirements,available:model.attempts??0,requested:1});};
+    commit.addEventListener('mouseenter',showOne);commit.addEventListener('focus',showOne);
     for(const b of buttons.children) {
         if(!model.available) b.setAttribute('aria-disabled', 'true');
-        b.addEventListener('click', () => {
+        bindSubjectGesture(b, ()=>model.subject || model.title, () => {
             if(!model.available) { handlers.onBlocked(root); return; }
             handlers.onCommit(b.dataset.craftAmount ? Number(b.dataset.craftAmount) : 1);
         });
     }
     actions.append(buttons);
+    if(model.goal){
+        const g=model.goal,remaining=g.target-g.attempted,goal=el('section','craft_goal');goal.dataset.craftGoal='';
+        goal.append(el('p','',`Session goal: ${g.attempted} of ${g.target} attempts · ${g.successful} successes · ${g.made} useful outputs. ${remaining?`${remaining} attempts remain; continue explicitly after reviewing current stock and station.`:'Goal finished.'} This intent survives navigation and clears on loading a save. It reserves nothing.`));
+        if(remaining){const resume=el('button','',`Recheck and continue ${remaining} attempts`);resume.type='button';resume.dataset.craftContinue='';resume.disabled=!model.available;resume.title=model.blocked_reason||'Native material, station and skill limits are checked again on each click.';resume.onclick=()=>handlers.onContinue?.();goal.append(resume);}
+        const cancel=el('button','',remaining?'Cancel remaining goal':'Clear goal');cancel.type='button';cancel.dataset.craftCancelGoal='';cancel.onclick=()=>handlers.onCancelGoal?.();goal.append(cancel);actions.append(goal);
+    }
     const receipt = el('p', 'craft_receipt', model.receipt || '');
     receipt.setAttribute('data-craft-receipt', '');
     receipt.setAttribute('aria-live', 'polite');
@@ -176,13 +193,26 @@ export function focusFirstBlocker(root) {
  * Receipt from measured inventory and XP deltas, so it states what actually happened.
  * @param {Object} r {made, result_name, used: [{name, count}], xp}
  */
-export function craftReceiptText({made, result_name, used, xp, skill_id, skill_level}) {
+export function craftReceiptText({made, result_name, used, xp, skill_id, skill_level, attempted, successful}) {
     const usedText = used.map(u => `${u.count} ${u.name}`).join(', ');
     const xpText = xp > 0 ? ` (+${Math.round(xp * 10) / 10} XP)` : '';
     if(made > 0) {
         const cue = craftCue(skill_id, skill_level, {made});
-        return `Made ${made} ${result_name}${usedText ? ` from ${usedText}` : ''}${xpText}${cue ? `. ${cue}` : ''}`;
+        const tally=Number.isFinite(attempted)&&Number.isFinite(successful)?` ${successful} of ${attempted} native attempts succeeded.`:'';
+        return `Made ${made} ${result_name}${usedText ? ` from ${usedText}` : ''}${xpText}${tally}${cue ? ` ${cue}` : ''}`;
     }
-    if(usedText) return `Failed: ${usedText} used, nothing made${xpText}`;
+    if(usedText) {
+        const tally=Number.isFinite(attempted)&&Number.isFinite(successful)?` ${successful} of ${attempted} native attempts succeeded.`:'';
+        return `Failed: ${usedText} used, nothing made${xpText}${tally}`;
+    }
     return 'Nothing was crafted. Your materials are unchanged.';
+}
+
+export function craftBatchProposal({requirements, available, requested}) {
+    const request=Number.isFinite(requested)?Math.max(0,Math.floor(requested)):Infinity;
+    const limit=Math.max(0,Math.floor(Math.min(Number.isFinite(available)?available:0,request)));
+    if(!limit)return 'No attempts are available. This preview reserves nothing.';
+    const requestLabel=Number.isFinite(request)?String(request):'all available';
+    const uses=requirements.map(req=>`${Math.max(0,Math.floor(req.need*limit))} ${req.label}`).join(', ');
+    return `Proposed up to ${limit} attempt${limit===1?'':'s'} (request: ${requestLabel}): ${uses}. Native skill limits can stop earlier; this preview reserves nothing.`;
 }

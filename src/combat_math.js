@@ -1,4 +1,4 @@
-import {BASE_MIN_DAMAGE_SHARE} from "./gear_dimensions.js";
+import {BASE_MIN_DAMAGE_SHARE, effectiveDamageTaken, effectiveCritChance} from "./gear_dimensions.js";
 
 export function get_hit_chance(attack_points, evasion_points) {
     let result = attack_points/(attack_points+evasion_points);
@@ -35,6 +35,15 @@ export function mitigateCombatDamage(values, defense = 0, {floorShare = BASE_MIN
         : Math.ceil(10*Math.max(val-defense,val*floorShare,1)*taken)/10).reduce((sum,val) => sum+val,0);
 }
 
+// Actual actor snapshots share these defensive layers. Callers keep local guard,
+// shield and world policy in the supplied stats/defense modifier.
+export function mitigateCombatDamageFromStats(values, stats, defenseModifier = 0) {
+    return mitigateCombatDamage(values, (stats.defense ?? 0) + defenseModifier, {
+        floorShare: stats.min_damage_share,
+        taken: effectiveDamageTaken(stats.damage_taken),
+    });
+}
+
 // Every caller passes a draw from a saved stream; an unseeded call fails loudly
 // instead of silently breaking replay.
 const unseeded = () => {throw new Error("Combat rolls need a saved random stream.");};
@@ -61,7 +70,7 @@ export function rollCombatStrike({attackPower, attacker, target, shield, shieldS
     } else if(get_hit_chance(attacker.attack_points*hitModifier,target.agility*evasionModifier*Math.sqrt(target.intuition ?? 1)) < random()) {
         return {kind:"evaded",values:[],critted:false,partiallyBlocked:false};
     }
-    const critted = attacker.crit_rate > random();
+    const critted = effectiveCritChance(attacker.crit_rate, target.crit_resistance) > random();
     if(critted) values = values.map(v => v*attacker.crit_multiplier);
     return {kind:"hit",values,critted,partiallyBlocked};
 }

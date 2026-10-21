@@ -6,6 +6,8 @@ Design proposal only. No runtime file, shared registry, save format, test, build
 
 **Proposal:** deliver one locally authored observation-to-study loop inspired by the Blue-Moon Weed case: a character receives a finite commission, searches with a local guide or independently, observes an actual specimen, records that observation, then formulates or practices one authored utility effect and decides how to use the result. The source establishes a particular observation prerequisite, not a universal spell rule ("Turk Region", rev. 14484).
 
+**Visible target:** desktop/laptop browser at 1920x1080 primary and 1536x864 floor. Mobile optimization is deferred. Show the commission, viable search routes, observation record, study gate, costs and result without exposing facts the character has not learned.
+
 ## Proposed contract
 
 ```text
@@ -40,6 +42,12 @@ REMAINDER: Human plays the slice and accepts fiction, pacing and costs.
 - Missing guide, weather closure, depleted supply, interrupted search and stale completion do not award a specimen or duplicate a reward.
 - Repeated claim, reload and import preserve one actual result and the same knowledge provenance.
 - A route outside the snapshot-supported source has an explicit gap label; no later-series content is supplied from memory.
+
+## First-slice prerequisites and later depth
+
+Before implementation, source-pin the particular plant/habitat observation prerequisite against the frozen payload. Keep the locally authored utility effect, unknown ecology and spell costs labelled as proposals; an invented effect does not need a nonexistent primary-scene match. Inspect live owners for commission/time/supplies, observation evidence, study knowledge, execution capability, reward settlement and save publication; do not create duplicate state owners. If the slice adds state, test the current format through save, reload, export and import. Resolve old-save compatibility only if the chosen state requires schema or compatibility changes.
+
+Done check: the two search routes produce distinct, sourced observations; no observation-gated study occurs early; one authored study result and its provenance persist through round-trip without duplicate reward. WG19's memorial/descendant drift is a constraint only for a later slice that actually spans generations or uses remembered deeds. Broad historical timelines, monster/demon/priest systems, memorial networks and other WG extensions remain later proposals unless required by the chosen loop.
 
 ## Current gaps
 

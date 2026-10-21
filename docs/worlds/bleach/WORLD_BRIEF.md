@@ -22,7 +22,7 @@ Attribution belongs to the source creators/rightsholders; preserve YAIRPG upstre
 ## Entry and connected local life
 
 Fantasy: Live and develop where seeing, reaching and solving a spiritual problem demand different sources, while ordinary people still need shelter and records.
-Signature rule: Perception, physical targeting, passage and soul-bound development are separate. Buying a qualified report grants information; ordinary gear cannot manufacture another person's release.
+Signature rule: Perception, physical targeting, passage and soul-bound development are separate. Buying a qualified report grants information; ordinary gear by itself does not grant another person's release. A compatible method or exceptional mechanism can work if its actual means support it, with its own cost and source record.
 Starting situation: Emi's blocked street and Jun's damaged address ledger delay a shelter parcel. Fund ordinary repair/detour with witnesses, or pay Nao's qualified supported survey for a shorter lawful transfer. Both need actual parcel custody and a willing recipient.
 Ordinary paid loop: Repair/parcels work buys materials, shelter and qualified services. A report records its actual observer/provenance, not new spiritual perception for the buyer. Personal source careers need separately authored eligible body/identity profiles.
 Connected pursuits: Immediate repair/report work funds a dry record store and contact; middle source/tool research clarifies personal versus engineered functions; long cross-domain relief and public/private office arcs create durable local life.

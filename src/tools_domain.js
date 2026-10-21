@@ -1,9 +1,9 @@
 import {registerDomain} from './domain_registry.js';
 import {equipmentDurability as durability, setConditionCap, DURABILITY_PROPOSAL} from './absorb_e2/durability.js';
 import {instrumentProfile, improvisedRates, verbNumbers, VERB_LABEL, repairRequirements, REPAIR_BANDS} from './tool_profiles.js';
-import {createToolsPanel} from './tools_panel.js';
+import {createToolsPanel,toolsPanelDiscovered} from './tools_panel.js';
 import {beginNativeCraftTransaction} from './native_craft_transaction.js';
-import {configureLamplight} from './lamplight_domain.js';
+import {lamplightPresentation,LAMP,OIL,FLASK_MINUTES} from './lamplight_domain.js';
 // Tools domain (IP1-IP3, 2026-10-17). Owns per-instance tool facts that durability does not:
 // max condition and repair history, plus one repair job. Condition itself stays in durability and
 // stays one scalar (the tool's body; layered repair is a later phase).
@@ -12,8 +12,9 @@ const MAX = DURABILITY_PROPOSAL.maximum;
 let state = null, ports, panel;
 const fresh = () => ({schema: 1, instances: {}, job: null});
 const INSTANCE = /"e2_instance":"e2\.[1-9]\d*"/;
-// The lamp is a carried tool with its own domain; it shares these native ports (main.js may not grow).
-export function configureToolsDomain(operations) { ports = operations; configureLamplight(operations); }
+// Composition supplies each domain's ports directly; Tools owns its panel refresh.
+export function configureToolsDomain(operations) { ports = operations; }
+export function refreshToolsPanel() { panel?.render(); }
 export function toolsState() { return state; }
 export function setToolsState(value) { state = value ?? fresh(); }
 const facts = key => state.instances[key] ?? {max: MAX, repairs: 0, failures: 0};
@@ -174,7 +175,9 @@ function tooltip({item, gained, workingPeriod, levels, rates}) {
 function project(view = 'rows', args) {
     if (view === 'occupation') return occupation();
     if (view === 'tooltip') return tooltip(args);
-    return {enabled: durability.enabled, rows: toolRows(), job: state?.job ?? null, blocked: ports.blocked(), location: ports.location()};
+    const lamp=lamplightPresentation();
+    return {enabled: durability.enabled, rows: toolRows(), job: state?.job ?? null, blocked: ports.blocked(), location: ports.location(), idle: ports.idle(),
+        lamp:{...lamp,name:LAMP,oilName:OIL,baseline:FLASK_MINUTES,packFlasks:ports.count(OIL),rate:lamp.shining?{value:-1,unit:'lamp min per played min'}:null}};
 }
 
 registerDomain({id: 'tools', deps: [], initialState: () => null,
@@ -182,9 +185,9 @@ registerDomain({id: 'tools', deps: [], initialState: () => null,
     validate: slice => validateTools(slice),
     // Old saves have no slice: start fresh. No migration (old save compatibility deferred, 2026-10-17).
     migrate: slice => slice == null ? fresh() : structuredClone(slice),
-    load: setToolsState, tick,
+    load: value=>{setToolsState(value);panel?.reset();}, tick,
     commands: {gate, workCycle, quote: quoteRepair, execute: executeRepair, cancel: cancelRepair},
     projection: project,
     refresh: () => panel?.render(),
-    panels: [() => { panel = createToolsPanel({read: () => project('rows'), quote: quoteRepair, execute: executeRepair, cancel: cancelRepair, discovered: () => toolRows().length > 0}); }],
+    panels: [() => { panel = createToolsPanel({read: () => project('rows'), quote: quoteRepair, execute: executeRepair, cancel: cancelRepair, discovered: () => toolsPanelDiscovered(toolRows(),lamplightPresentation())}); }],
 });

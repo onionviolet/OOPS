@@ -103,3 +103,10 @@ world pause includes linked production/deadlines under AD16; banked credit is no
 free frozen-world participation from other actors. Old-save migration is currently
 deferred, but new selected state still needs Save/reload/Export/Import. Reuse the
 parent delivery's proof only for its exact matching inputs; no play gate closed here.
+
+
+## Detail audit and remaining proof, 2026-10-20
+
+WPD-R2, ACCOUNT FOR NOW: the retained visitor branch's frozen absence policy is a declared clock choice, not a missing season by itself. WG21's service/pass expiry matters during advancing local play or under a separately chosen absence policy. Do not run NPC production or expire a pass in a frozen world while charging the player elsewhere. A source-specific loop reset is a separate operation; it cannot be substituted for this visitor pause or inferred from the title.
+
+Before extending implementation, inspect the existing local offer/job/clock owners rather than rebuild the delivered branch. Select one service whose opening, paid reservation and completed lesson can be observed on the same local clock; distinguish an expired opportunity from already learned knowledge. Level/effort: coordinator medium for clock/save joins, bounded Luna extraction for a supplied source case. Done check: pause/return versus actual local elapsed time have the declared distinct results, with no duplicated fee, stock or learning on current-format round trips. Wider school terms, seasons and full source-loop play remain later proposals.

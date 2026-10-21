@@ -9,11 +9,29 @@ export function heldLesson(inventory, learned) {
 // speeds reading up to x1.5 at full gain. With no reader set, or in daylight, the pace is unchanged.
 let readingLight = null;
 export function setReadingLightReader(reader) { readingLight = typeof reader === 'function' ? reader : null; }
-export function readingLightFactor() {
-    const light = readingLight?.();
-    if (!light) return 1;
+// Scoped hosts may coexist. Removing one never clears another host's reader;
+// the most recently bound remaining reader supplies this consumer's place.
+const readingLightBindings = [];
+export function bindReadingLightReader(reader) {
+    if (typeof reader !== 'function') throw Error('Invalid reading light reader.');
+    const binding = {reader};
+    readingLightBindings.push(binding);
+    return () => {
+        const at = readingLightBindings.indexOf(binding);
+        if (at >= 0) readingLightBindings.splice(at, 1);
+    };
+}
+function lightFactor(light) {
     const ambient = Math.max(0, Math.min(100, light.ambient)), lit = Math.max(ambient, Math.min(100, ambient + Math.max(0, light.bonus || 0)));
     return 1 + 0.5 * (lit - ambient) / 100;
+}
+// Estimates read current light; completed study reads the interval just settled by the native
+// clock. This keeps the last fueled fraction without making an expired lamp shine now.
+export function readingLightFactor(minutes = 0) {
+    const light = (readingLightBindings.at(-1)?.reader ?? readingLight)?.(minutes);
+    if (!light) return 1;
+    if (minutes > 0 && light.intervals) return light.intervals.reduce((sum, part) => sum + part.minutes * lightFactor(part), 0) / minutes;
+    return lightFactor(light);
 }
 export function readingRate(level) { return 1 + Math.min(10,Math.max(0,Number.isFinite(level)?level:0))*.05; }
 export function practiceMethods(progress) {

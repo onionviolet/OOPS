@@ -1485,6 +1485,54 @@
       "snippet": "const empty=node('p','No attributes match these filters.','attribute-empty');empty.hidden=true;layout.append(list,reading);section.append(tools,count,empty,layout);home?.append(section);",
       "count": 1,
       "note": "R10 reviewed own child: #character_attribute_inspector attaches once inside existing #character_stats_div; mount owns updates and destroy, native siblings retained; no new panel/controller."
+    },
+    {
+      "key": "src/customization_profiles.js|color|1943a0067a56090f",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#7fe7e8",
+      "count": 1,
+      "note": "TSG selected Luminous Gothic preset palette data in the existing Appearance owner; not a local CSS override."
+    },
+    {
+      "key": "src/customization_profiles.js|color|6c1aa1832c38c9ed",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#07162d",
+      "count": 1,
+      "note": "TSG selected Luminous Gothic preset palette data in the existing Appearance owner; not a local CSS override."
+    },
+    {
+      "key": "src/customization_profiles.js|color|83c3d2a9738e357d",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#231735",
+      "count": 1,
+      "note": "TSG selected Luminous Gothic preset palette data in the existing Appearance owner; not a local CSS override."
+    },
+    {
+      "key": "src/customization_profiles.js|color|857deb9d31e90a80",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#d5f7ff",
+      "count": 1,
+      "note": "TSG selected Luminous Gothic preset palette data in the existing Appearance owner; not a local CSS override."
+    },
+    {
+      "key": "src/customization_profiles.js|color|c3abfabcba34d64c",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#eee5ff",
+      "count": 1,
+      "note": "TSG selected Luminous Gothic preset palette data in the existing Appearance owner; not a local CSS override."
+    },
+    {
+      "key": "src/customization_profiles.js|color|ea7acf5a24b85108",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#bca4ff",
+      "count": 1,
+      "note": "TSG selected Luminous Gothic preset palette data in the existing Appearance owner; not a local CSS override."
     }
   ]
 }

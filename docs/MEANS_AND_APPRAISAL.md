@@ -483,3 +483,49 @@ fighting anyone.
   realm (a guard post that can call for help only if a runner gets
   away). It tests finding, communicating and the chain with very little
   content.
+
+
+## Corc reference round, 2026-10-20: actionable uncertainty
+
+**Proposals**, from [CRL1, CRL6–CRL7 and CRL12](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md).
+Extends AA1–AA8; AD6–AD8, AD38, MR1/MR31, SR5–SR9 and UR40/UR47–UR48 apply.
+The reference debates do not establish a universal exact-number or vague-number
+policy. Our means decide the available information.
+
+| Code | Addition | Default, dial and reason/cost |
+|---|---|---|
+| AA9 | Keep stale observation distinct from missing access | Retain a useful last report's place/time while a current view is unavailable. Instruments, senses, sources and cheats tune freshness and scope. Entering a tunnel need not erase remembered rain or reveal present surface weather. |
+| AA10 | Separate chosen routine policy from protective safety stops | Ordinary player-configured policies default to supported cues, estimates or means; exposing exact hidden expiry can grant unsupported foresight. Accepted CBR27/BHR18 safety stops may inspect real consequences without revealing their hidden cause and need no invented sensing prerequisite. A protective pause does not certify a diagnosis or exact forecast. Qualified 2026-10-20, round 2. |
+| AA11 | Numbers name their baseline and kind of claim | Separate an internal coefficient, a context-specific prediction and an observed result. Default to useful known comparisons; exact values, ranges or experiential language follow the means and task. An intermediate +50% is not necessarily +50% damage. Current tool-rate comparisons supply an existing seam. |
+| AA12 | Search and lore can support a hypothesis without certifying it | Inverse lookup exposes known uses and supported trials. Unknown recipes stay out of labels, counts and sorting. Names, claims and evocative prose do not create effects; practice/appraisal can refine a hypothesis through existing observations. |
+
+**ACT NOW (done):** saved these distinct information states and source bindings.
+**ACCOUNT FOR NOW:** carry observation provenance without copying hidden truth
+into previews, automatic stops or historical tooltips. **LATER / DELEGATE:**
+review one selected action's preview, stop and receipt together when CRJ2 or CRJ4
+is chosen. Sol medium, small design trace before implementation; done when equal
+observations produce equal public explanations despite differing hidden state,
+and a better actual means legitimately changes the available explanation. No
+new appraisal/automation implementation or discovery reward is selected here.
+
+
+## Reference detail fold, 2026-10-20: color, previews and witnesses
+
+Proposal continuation of AA9–AA12, AD6–AD8/AD38, MR31 and UR40/UR47/UR48.
+[PFE08/PFE19–PFE21/PFE26](research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md#plan-fold-and-further-interactions-2026-10-20)
+connect the actual UI comparison to these existing knowledge boundaries.
+
+| Code | Useful further interaction | Default, dial and reason/cost |
+|---|---|---|
+| AA13 | Appearance can become an information channel | Category hue, particle type, row order, sound and warning emphasis derive from permitted facts or explicitly cosmetic styling. An unknown object's hidden rarity/element should not select an identifying style by accident. Actual senses/appraisal can legitimately change access. Cost: follow the same projection through secondary channels. |
+| AA14 | A preview explains the present question; a receipt explains its recorded occurrence | Known range, conditional success chance, available materials and measured result are different claims. Label current comparison baseline and observation context. Recorded equipment is not silently replaced with today's slot occupant. Cost: enough identity/provenance for the selected consumer, not a general history database. |
+| AA15 | A callback belongs to an informed audience | The narrator can use the player's supported experience; an NPC or creature needs its own perception, report or memory before reacting to it. A report may be mistaken according to the world. Cost: a bounded local witnessed/heard fact where the selected scene needs one. |
+
+**ACT NOW (done):** folded appearance, comparison and humorous-audience channels.
+**ACCOUNT FOR NOW:** keep AA10's protective-safety exception intact; do not impose
+an invented sensing gate on a protective pause. Cosmetic variation does not draw
+gameplay RNG, and neither silence nor a missing glyph changes the world.
+**LATER:** AA13–AA15 apply when a relevant appraisal/preview/scene is selected;
+Sol low/medium, small source-to-projection trace. Done: equal knowledge has equal
+public implications across color, order, sound and wording; a supported new means
+can change the explanation. No new appraisal implementation selected.

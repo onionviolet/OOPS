@@ -51,7 +51,7 @@ explanations, harvest gates, regrowth, pity and idle bounds.
    - a harvest action at one Village location, keyed by the game clock;
    - one UI home under [UI rules](UI_RULES.md).
 
-   The gate after that is a rebuilt fresh-origin browser check at 1366×768 with Save, reload, Export and literal Import.
+   The gate after that is a rebuilt fresh-origin browser check at 1920×1080 with Save, reload, Export and literal Import.
 2. **Old-save compatibility.** Saves with no owner stay untouched. This needs proof once the owner is wired in.
 3. **Not yet modeled:** exposure ledger and stacking (AB2), spoilage (P14), separation and purification (P5), skill-driven extraction, salvage, and NPC makers on live stock (AB4).
 
@@ -407,3 +407,397 @@ stock, and verify useful use after resumption. Personal/world clock choice must
 be explicit; a frozen world does not run an ordinary external supplier or teacher.
 This scenario is selected only when a stage/idle seam changes, not a prerequisite
 for all remaining crafting modes.
+
+See also (2026-10-19): [World dials and interpreter considerations](WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md) on registering WR1 to WR10 as dials and the resolver in `src/rule_modules.js`. Proposal only.
+
+## Round 6 (2026-10-19): tags, subtle properties, new material families, places and display
+
+Request (Weibao, 2026-10-19): "More tags and subtle stuff that is needed and more? New
+crafting materials? Places to go to harvest them? How to show in UI and other aspects?
+Send out considerations accordingly." **Status: proposal.** Nothing here is accepted or
+built. Codes **TQ1 to TQ15** (tags and subtle properties), **NX1 to NX14** (material
+families), **PG1 to PG14** (places and supply forms), **UV1 to UV14** (display); prefixes
+checked unused by `git grep` 2026-10-19. Every row says which earlier code it extends or
+that it is new, because this round is for new angles only.
+
+Read before writing (headers and exports, not full files): `src/tag_store.js`,
+`src/craft_materials.js`, `src/craft_sources.js`, `src/craft_content_frontier.js`,
+`src/harvest.js`, `src/mixture_rules.js`, `src/world_completion_materials_*.js`,
+[E4 tags](emergent/E4_TAGS_AND_RULES.md), [E4B materials](emergent/E4B_MATERIALS_AND_NOITA.md),
+[gathering uses](GATHERING_AND_RESOURCE_USES.md), [site rules](SITE_AND_EXPLORATION_RULES.md) SR1 to SR24,
+[UI rules](UI_RULES.md) UR1 to UR49.
+
+### What the code already does (SHOWN)
+
+- **Tags are presence-only** with `id`, `kind`, `parents`, `revision`, `visible` (`open` or
+  `hidden`). Kinds in the frontier pack: origin, phase, use, property, derived, station, tool,
+  season, place. One hidden derived tag, `moonlit`. Amounts live in **axes** (fraction or scalar,
+  with a `hidden` flag), not tags.
+- **Sources** have kind (gather, mine), place tags (`at`), capacity, `regenPerDay`, variants,
+  quality range, tool/skill/hour/season gates, pity, an odds forecast and bounded idle gathering
+  (`MAX_IDLE_HARVESTS` 500). The engine names no ingredient; content packs supply data.
+- **Animal harvest** is a separate pure slice: a specimen draw (size, condition, variant), graded
+  parts (pelt, tail, fang), 24-lot cap.
+- **A material crop bed, plot and steward** already exist for the frontier world in
+  `world_completion_materials_*` (ids for plot, bed, steward). Reuse them (AR3) instead of a new bed owner.
+
+### TQ. Tags and subtle properties
+
+| Code | Consideration | Default | Dial and reason | Extends |
+|---|---|---|---|---|
+| TQ1 | A property with a degree is an axis; a property that is present or absent is a tag; a derived tag is computed from axis thresholds | Keep that split; write the threshold as data with a reason | Threshold per world, so "toxic" can mean different amounts under different laws; the receipt shows which threshold fired | AD38, GR7; new threshold dial |
+| TQ2 | More tag kinds, as data, only when a reader exists | Candidates: `habitat` (where it grows), `condition` (fresh, wilted), `handling` (needs care), `hazard`, `provenance` (home world), `appearance` (observed look), `form` (ground, dried, steeped) | One kind per reader; a kind with no reader waits (GR12) | New; the `place` kind today serves both habitat and location |
+| TQ3 | Conditions that change over time derive from an age axis and a clock, not a stored tag | `condition` is computed on read from age and cause | Clock choice (world, body or personal) is explicit; a frozen world does not age ordinary stock | SC6, GR17, SP9; new rule |
+| TQ4 | Processing changes axes and tags through a law and writes history | Process state (`form`) records the step that caused it | Per-world process vocabulary (WR2) | PR section; new tag kind |
+| TQ5 | Provenance tag keeps a material's home-world rules | Material carries origin world; imports judged by home law unless a crossing says otherwise | Per crossing | SB16, WR10 |
+| TQ6 | Hidden is not the same as unknown, and neither is identified | Three states: not perceivable, perceivable but not noticed, noticed with a stage (seen, tested, understood) | Stage routes per world | SC2, `visible:'hidden'`; new stages |
+| TQ7 | A parent tag makes children match, which gives functional substitution for free, and also makes a broad parent over-match | A substitute profile combines axes and tags, never a parent alone | Profile breadth per world; learner must understand the profile first | E4B substitution answers; new risk row |
+| TQ8 | Tag hygiene | One meaning per tag, no synonyms, a revision on any change of meaning, a reader per tag | Coverage list generated from content (WDI33, L1 C1) | WDI33; new for tags |
+| TQ9 | Tool and station tags are capabilities, not labels | A tool tag names what the tool does; wear changes the fact, not the tag | Per world apparatus (WR6) | WR6; new |
+| TQ10 | Absence: "no toxin" (measured zero) differs from "toxin not measured" | Axis value exists only when measured; unmeasured is unknown | Instruments per world | Knowledge channel; new |
+| TQ11 | Residue and contamination ride on containers | Container carries a residue record that a next use reads | Cleaning cost per world | SX1; new transfer rule |
+| TQ12 | Appearance tags are separate from property tags so look-alikes can exist | A poisonous look-alike shares appearance tags and not property facts | Per world, per season | SC2, G57; new |
+| TQ13 | Environmental modifiers change an axis only where a world law reads them | Weather, moon or site field changes the batch record, not the family's truth | Per world | SP8, SR16; new |
+| TQ14 | Rarity belongs to a source, not to a material tag | A "rare" tag on a material would leak to display | Scheduled rarity per source (SB9) | SB9, SC; new |
+| TQ15 | Tag ids and kinds never reach the player | Labels come from the observer projection | None | SC1, MR31 |
+
+### NX. New material families (mechanism, not ingredient lists)
+
+The engine header says it never names an ingredient, so this section proposes **axes, use
+tags and family shapes**. Any named example is ORIGINAL and belongs to a stated world (RS2).
+Canon worlds gain no invented ingredient that contradicts source scarcity (RS4).
+
+| Code | Consideration | Default | Dial and reason | Extends |
+|---|---|---|---|---|
+| NX1 | More axes by mechanism | Candidates: stability (decay rate), solubility, volatility, density, flexibility, fibre strength, conductivity, nutrition, and a world-energy affinity axis | A world adopts a subset in its catalogue; an axis nobody reads waits (GR12) | Existing axes (restore, vigor, toxin, ash, hardness, glow); new axes |
+| NX2 | Role tags (`use` kind) | Binder, solvent, catalyst, reagent, fibre, pigment, fuel, flux, preservative, abrasive, container | Per world, as tags with a reader | `solvent` exists; new roles |
+| NX3 | Animal-derived families generalize the specimen draw | Parts keep size, condition and variant of their specimen; family shapes share the catalogue | Which parts a species yields per world | `harvest.js`; RS3 living donor |
+| NX4 | Processed intermediates are materials | Ground, dried, steeped, rendered, smelted, each with composition history | Process set per world | PR, XD; new |
+| NX5 | Residues and salvage have real readers | Ash, slag, spent grounds feed another recipe or a sink | Per world | SR12, SR15 |
+| NX6 | Gathering context sits on the lot | A lot records where, when and under what field it was taken | Which fields a world records | SR16; new lot fields |
+| NX7 | Perishable and unstable materials | Decay is an axis on a clock; preservation is a process | Clock per world | SP9, TQ3 |
+| NX8 | Hazard by mechanism | Hazard axes and handling requirements, not a "poison" label | Per world | AD38; SC4 (never round a hazard away) |
+| NX9 | Imports | Inert or home-rule by crossing | Per edge | WR10 |
+| NX10 | Source-world materials | Only from a read source with a tier label; no invented canon | Held; needs the deep-dive route and the AU budget | RS1, RS4, P9 |
+| NX11 | Identity layers | Family, variant, lot, batch; each answers a different question | Variant depth per world | `localVariants`; new naming for the layers |
+| NX12 | Stack fragmentation by quality | Group comparable lots in display, keep exact selection | Grouping rule per surface | SC11 |
+| NX13 | Non-herbal worlds use the same catalogue shape | Spirit, mana or ley affinity as an axis; mineral, fibre, food as families | Whether the energy axis exists is a world dial (WDI) | XD |
+| NX14 | Food is a material family | Nutrition axis, spoilage clock, preparation as process | Per world | XD, SX5 |
+
+### PG. Places and supply forms
+
+RS3 already lists eight supply forms (wild site, cultivated bed, shop, institutional store,
+living donor, trade route, reward, salvage). This section covers how the engine and world
+serve each one.
+
+| Code | Consideration | Default | Dial and reason | Extends |
+|---|---|---|---|---|
+| PG1 | One node ledger for finite natural sources; another owner for shops | Gather, mine, fish, fell, tap, dig, scavenge use `craft_sources` nodes; shop stock uses the economy ledger | One authority per fact (AR3) | RS3; new mapping |
+| PG2 | Source kinds as data | Add kinds as data rows (fish, fell, tap, dig, scavenge, tend, hunt) before any code | Per world | `kind:'gather'|'mine'` today |
+| PG3 | Habitat tags at region level; spots as node instances | Canon anchors stay authored; generated fill is nodes on existing places | Fill density per world | RS1, SR1 |
+| PG4 | Discovery routes | Map, rumor, teacher, tracks, survey; inspecting consumes no stock or draws | Route per world | RS11, SR13 |
+| PG5 | Renewal needs a cause and a clock | Regrowth, season, rain, fire-clear; return and reload are not causes | Cause set per world | SR20, SC5; extends `regenPerDay` |
+| PG6 | Wrong-method damage | Harvest method changes regrowth (SX7) | Per source | SX7; new field |
+| PG7 | Access and ownership | Commons, custom, private, institution, permit; social cost with the take | Per world and place | RS8, SR19 |
+| PG8 | Danger and distance | Declared before commitment; travel through activity time | Per place | SR14 |
+| PG9 | Every yield has a reader, and every needed profile has a known source route | Coverage lint both ways | Draft content may have gaps marked `draft` | SR12, GR12 |
+| PG10 | Cultivated beds reuse the existing bed, plot and steward owner | No second bed owner | Per world | AR3, `world_completion_materials` |
+| PG11 | Per-world shapes | Village commons, school stores, markets, dungeon salvage, spirit fields; fan worlds need a source tier | Per world | RS4, P9 |
+| PG12 | Idle gathering waits for the next open window and says why | Skip-ahead with a stated reason | Cap per world | SC5; `MAX_IDLE_HARVESTS` |
+| PG13 | NPC gatherers | Default: node truth changes only through accepted actions, no invented society | Opt-in per world | SR21 |
+| PG14 | Outing as a connected loop | Gather, carry, process, use, as one trip | Per world | Gathering uses, connected outing |
+
+### UV. Display
+
+**Target viewport:** 1920×1080 primary, MacBook about 1800×1040, floors 1536×864 and
+1366×768. **Visible outcome:** a player sees what a material is as far as they know it, where
+it can be found, and what a place offers, without raw ids. **Deferred scope:** mobile layout,
+the director dial editor and a full map redesign. These rows are doc-only proposals and make
+no behavior claim; native evidence needs a rebuilt browser check at the target viewport.
+
+| Code | Consideration | Default | Dial and reason | Extends |
+|---|---|---|---|---|
+| UV1 | Surface and home | One "Gather" entry in the place's Local actions that opens a task region listing sources there; unaccepted layouts go to the Projects drawer | Entry count stays near seven (UR3) | UR1 to UR4 |
+| UV2 | Material card | Observed descriptor, known axes with their stage, known tags as labels, source place, lot, condition, handling; unknown shows as unknown, never blank | Detail depth by task frequency (UR42) | SC1, SC2 |
+| UV3 | Tags | Chips grouped by kind; hover for a short meaning, pin for detail; hidden tags absent | Per surface | UR43, UR47 |
+| UV4 | Odds forecast | The same resolver snapshot the commit uses, with top reasons; a preview consumes nothing | Detail by knowledge | SR13, SB1, GR9 |
+| UV5 | Place source list | Name, stock band (exact only when known), next open window, declared tool gate, danger, access cost; undiscovered sources absent | Band width per world | RS11 |
+| UV6 | Sort, group, search | By family, use, place, quality; group comparable stacks; exact selection kept | Defaults per surface | SC11 |
+| UV7 | Log rows | Compact rows; the outcome names what was learned and what is still unknown | Verbosity per player | UR44, SP2 |
+| UV8 | Compare two materials | Side by side on known axes; substitution match shown only for profiles the player understands | Per world | E4B "only substitute what you understand" |
+| UV9 | Map layer | Discovered sources with a last-seen stock note that can go stale | Staleness per world | SR20; knowledge staleness |
+| UV10 | "Where to find" from a recipe slot | Lists sources the player already knows could fit; a lens cheat can widen it | Per world | WDI15 cheats as layer entries |
+| UV11 | Text equivalent for every colour or sound cue | Always | None | SP11 |
+| UV12 | Late-game density | Search, filter, virtual lists; repeated names disambiguated by place | Per surface | SC9 |
+| UV13 | Depleted or closed state | Node stays listed with its cause and clock | Per world | UR13, SR20 |
+| UV14 | Evidence | `ui-preview.html` fixtures at both viewports, then a rebuilt native check | None | UR45, AGENTS UI gate |
+
+### Disposition
+
+**ACT NOW (done in this section):** owner map; prefix check; corrections: the "tags are presence-only"
+fact and the existing axis channel settle where "burns a little" belongs (axis or fact, not a tag).
+
+**ACCOUNT FOR NOW (constraints, no feature work):** no tag without a reader (TQ8); no raw ids in
+display (TQ15, SC1); no ingredient named in engine code (NX header); one node ledger and one bed
+owner (PG1, PG10); every UI row declares a surface type (UV1).
+
+**LATER / DELEGATE:**
+
+| Item | Level | Effort | Done check |
+|---|---|---|---|
+| Tag and kind inventory against live definitions, with proposed additions and readers (TQ2, TQ8) | Balanced | Doc, one session | Lists every live kind and tag with its reader or "none found"; each addition names a reader |
+| Display and surface placement for materials, sources and tags (UV1 to UV14) | Balanced | Doc, one session | Names a surface type and home per view; viewports and deferred scope stated; no behavior claim |
+| Per-world material and place shapes from source (NX10, PG11) | Strong | Held | Needs the deep-dive route, AU budget and Weibao's go |
+| Source-kind data rows and a coverage lint (PG2, PG9) | Balanced | Small code slice | Held; needs a go and a registered seam |
+
+Lanes, route and run log: [world dials core audit](audits/WORLD_DIALS_AND_INTERPRETER_CORE_AUDIT.md#round-2-materials-tags-places-and-display).
+
+### Fold: MQ-A and MQ-B returns, 2026-10-19
+
+Lane outputs (doc only, reading only, nothing run): [MQ-A tag inventory](audits/materials_tags_2026-10-19/MQ_A_TAG_INVENTORY.md),
+[MQ-B display placement](audits/materials_tags_2026-10-19/MQ_B_DISPLAY_PLACEMENT.md). The root spot-checked the
+`fictional-mass` unit, the `['steep','boil']` check, the `tagLaws` law field and the UR58 count.
+
+**Corrections first (the root was wrong or overstated)**
+
+- **TQ16. Derived tags are stored at resolve time, not computed on read.** TQ1 and TQ3 read as if derived
+  tags recompute. Live code builds them from `tagLaws` rows `{tag, axis, min}` when a batch resolves,
+  stores them on the product outside its identity, and `projectProduct` only filters them by knowledge
+  (`craft_resolver.js:168-177`, `craft_state.js:74`). So per-world thresholds already work through law
+  revisions and match freeze-on-reveal (GR3). TQ3's computed-on-read applies to **condition** (age-driven),
+  which is a different mechanism from derived tags. Missing today: a `reason` on the row and a fired-threshold
+  line in the trace.
+- **TQ17. `origin` already means two things.** The tag kind `origin` means botanical or mineral category,
+  and every material has an `origin` object for generation provenance (`craft_materials.js:136-139`).
+  TQ2's `provenance` kind collides with this. Rename or document first.
+- **TQ18. Two parallel property systems run.** Village mixture keeps its own fractions and tags
+  (`mixture_state.js`, `mixture_rules.js`), while the frontier catalogue has its own axes and tags. That is
+  two owners for "what an ingredient is" (AR3 pressure). This is a decision for Weibao's first-slice order, not
+  an agent default; both stay until one slice picks.
+- **TQ19. Readers are thin.** Tags with no reader found: `wet`, `village`, `village.fluid`, `village.salt`.
+  The axis `hardness` has no reader. Most proposed kinds and axes (NX1) wait under GR12; only `form` has a
+  plausible first reader (a recipe slot selecting a processed intermediate).
+- **TQ20. Stale header.** `craft_content_frontier.js` says "Not wired into live gameplay yet", but
+  `crafting_frontier_runtime.js` imports it. Update the comment in a later code slice.
+- **UV15. UI rule count.** Round 6 cited UR1 to UR49; the rulebook runs to UR58. UR52 (known-empty versus
+  unknown), UR56 (grouping), UR57 (click and key cost) and UR58 (display preference owner) apply to UV rows.
+- **UV16. Existing harvest panel is the carcass panel.** `harvest_ui.js` is the animal slice with inline
+  styling and a 500 ms poll, so plant and mineral gathering gets a new `definePanel` module with an ST2 row, not an
+  extension of it. The raw forecast carries yield ids and exact stock, so a projection sits between it and any view.
+
+**Settled by the lanes**
+
+- **L1 Q1 answered.** `input.mass` unit is `fictional-mass`, one ingredient pack is 1000, and the dose
+  normalizes against a 2000-unit reference vial (`mixture_state.js:25,70`).
+- **L1 Q2 corrected.** The `procedure.process` list is owned today by the Village mixture, `['steep','boil']`
+  (`mixture_state.js:56`), not the making domain as L1 proposed; the frontier law has its own `steep, boil, grind`.
+  The next L1 revision should register it with that owner and flag the second enumeration.
+- **Display defaults (MQ-B).** One "Gather here" entry opening a place-service region through `centerModes()`;
+  material card as a pinned inspection; tag chips inside the card; log rows in the existing Reports column;
+  UV9 reduced to a "last seen" text line (the map layer waits for the deferred map redesign); UV10 as a link in the
+  recipe requirement row. Twelve preview fixtures proposed; nine conflicts listed (X1 to X9).
+- **Hover-then-pin is still an agent recommendation** awaiting Weibao's pick (UI_RULES UR43 note); UV3 and UV8 carry
+  that status.
+
+**Open and unverified**
+
+- Neither lane ran code, tests or a browser; no screenshot exists at any viewport.
+- MQ-A did not trace item boolean tag maps (a third tag-like system), `src/data/*`, or how the trace is built.
+- MQ-B did not read `product_appearance_state.js`, real Local-actions counts on a populated save, or `display.js`.
+- MQ-A and MQ-B open questions: canonical long-term op list; which kind to rename to free `origin`; who builds the
+  observer projection for sources and materials; one-source place as entry or direct start (default: entry for two
+  or more sources, direct start for one).
+
+**Next steps (proposal, ranked, none selected)**
+
+| Rank | Step | Level | Effort | Done check |
+|---|---|---|---|---|
+| 1 | Reader coverage report over both live tag registries and the axis table | Balanced | Small script and snapshot | Lists exactly the unread tags and `hardness`; `check:rules` unchanged |
+| 2 | `reason` on `tagLaws` rows plus a fired-threshold trace line | Balanced | Small, `craft_resolver.js` and tests | Product ids unchanged; seed sweep and save/reload/import pass |
+| 3 | Record the single owner of the `procedure.process` list and the second enumeration | Strong | Doc decision | One enum referenced by the L1 registry |
+| 4 | Source list plus "Gather here" entry for the one frontier source (UV1, UV5, UV13) | Balanced | Small code slice, needs Weibao's go | Rebuilt game at 1920x1080 and 1366x768; no ids in rendered text; Local-actions count recorded |
+| 5 | Material card with knowledge stages (UV2, UV3, UV11) | Balanced | Small, after 4 | Same lot shown unknown, partial and known at both viewports |
+
+Everything stays a proposal until Weibao says go. The TQ18 decision (which property system carries forward) comes
+before steps 4 and 5 if they touch Village mixing.
+
+## Round 7 (2026-10-19): alchemy and procedural interactions from tier, difference and tags
+
+Request (Weibao, 2026-10-19): "What about alchemy, other stuff and more? Procedural stuff so that there
+are basically unlimited interactions based on tier, differences, tags, other stuff, and more?"
+**Status: proposal.** Codes **IX1 to IX24** (prefix checked unused by `git grep` 2026-10-19). Each row says
+what it extends or that it is new. Owners read, not restated: [PD, XD, XI](CRAFTING_ENGINE.md) above,
+[procedural materials and alchemy audit](PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md) (P1 to P15, R1 to R9),
+[E4B reactions and profile substitution](emergent/E4B_MATERIALS_AND_NOITA.md), [E4 tags and rules](emergent/E4_TAGS_AND_RULES.md),
+`src/craft_resolver.js`, `src/craft_content_frontier.js`.
+
+### What the live engine already gives (SHOWN)
+
+- **Composition space is already unbounded in practice.** A batch is inputs (up to 999 each) plus up to 12 process
+  steps; product identity embeds the full composition, so distinct products outnumber any authored list
+  (`craft_resolver.js:12-13,94-99`; SC1, SC7).
+- **Interactions are authored law shapes, not per-pair entries.** A law is data: ops (station, levels, axis
+  conversions, availability), reactions (reactants and products as axis amounts, `limit` permille, optional
+  catalyst tag query, station, `after` op, `priority`), output laws (dose, total, scalar) and tag laws. Mass is
+  conserved or the batch fails (`craft_resolver.js:23-26,129-168`).
+- **Reaction order is deterministic and meaningful.** Reactions sort by `priority` then id, and each consumes shared
+  reactants in turn (`:64,128-135`), so two reactions on one axis give an order-dependent result by design.
+- **P1 sets the honest bound.** Generated combinations remove the need for one coded item per combination; they
+  cannot invent implemented mechanics from arbitrary words (audit P1). "Unlimited" therefore means an
+  unbounded space of instances over a finite set of authored law families.
+- **No tier concept exists in the resolver.** Quality bands exist on sources and GT5 names grade and impurity
+  for pills; nothing orders kinds of things by rank.
+
+### IX-A. Making the space combinatorial without authoring pairs
+
+| Code | Consideration | Default | Dial and reason | Extends |
+|---|---|---|---|---|
+| IX1 | Honest bound: unlimited instances, finite mechanics | Say so in the design: law families are authored, instances are generated | Which families a world ships | Audit P1 |
+| IX2 | Interaction law families as parameterised data shapes | Beyond convert and react: neutralize (opposed axes cancel), synergize (matched axes amplify), saturate (cap), inhibit, separate (recover a fraction), dissolve, volatilize, age (clock), precipitate; each takes axes and numbers, never ingredient names | Family set per world; a family nobody reads waits (GR12) | Ops and reactions today; P5 |
+| IX3 | A relation graph between axes, once per world | Axes declare relations (opposes, feeds, amplifies, dampens, cycles with) as data; a family reads the graph, so adding one axis adds a few rows and yields many interactions | Graph shape per world: five-element cycle, school opposites, polarity pairs, none | New; the unlimited engine is relation rows times law families |
+| IX4 | Differences as first-class facts | A law may read a difference between two lots or axes: tier gap, purity gap, phase mismatch, polarity, mass ratio, distance to a formula | Which differences a world reads | OV2 attractor distance; new |
+| IX5 | Tier as an ordinal | A world declares whether tiers exist and how many; tier is a rank of a kind of thing, set by data or derived by threshold from an axis; stored on the lot like derived tags | Tier count per world (none, three, nine, and so on); canon tiers pinned | TQ16 stored-derived pattern; new |
+| IX6 | Tier-gap laws | Adjacent tiers combine; a larger gap lets the higher tier dominate, dilutes, or leaves the lower inert; output tier is capped by the lowest or highest input per law; uplift needs a catalyst of tier t | Rule per world and family | New; reads IX4 |
+| IX7 | Vocabulary: tier, grade, purity, quality | Four words, four meanings: **tier** ranks the kind, **grade** ranks quality within a tier, **purity** is an impurity fraction axis, **quality** is a source yield band | Names per world, meanings fixed in data | GT5, `quality` on sources; new hygiene row |
+| IX8 | Tag-pair rules with patterns | A rule matches tag patterns on both sides with parents and specificity, so one rule covers a family of pairs | Rule layer per world | E4B reactions table; E4 rule schema is a draft |
+| IX9 | Two rule systems already exist | The craft law (axes and reactions) and the rule-module resolver (tags, predicates, parameters). Decide which carries tag-pair interactions before building either | Weibao's slice order, not an agent default | TQ18 sibling; WDI2 |
+| IX10 | Outcomes land in readers | Outcome classes: shift axis amounts (conserved), add or remove a tag, change phase, start a stability clock, leave a residue or byproduct, emit a hazard event, shift tier | Class set per world | PD7, PD8, SR12; R4 conservation |
+| IX11 | Effects stay in registered families | Unlimited mixes map onto finite effect families with magnitude, duration, route and side-effect profile; new behavior needs a new authored family | Families per world | R5, PD2, ER17 |
+
+### IX-B. Alchemy specifics
+
+| Code | Consideration | Default | Dial and reason | Extends |
+|---|---|---|---|---|
+| IX12 | Order, rest and vessel | Order of addition, settling, residue and sealed versus open heat matter only when a law reads them | Per world | P6, SX1, PD6 |
+| IX13 | Catalysts can foul | A catalyst is not consumed but may lose effect or contaminate | Per world | Catalyst role in `craft_resolver.js` |
+| IX14 | Reversibility under conservation | Separation and distillation recover fractions without making mass | Per world | P5 |
+| IX15 | Batch scaling is nonlinear where heat or stirring matters | Safe batch size from apparatus and mastery | Per world | PD11 |
+| IX16 | Body ledger first | Potions that stack need dose history and effect families before wiring; otherwise unlimited potions become stackable buffs | None; a prerequisite | PD1, PD2, ER17 |
+| IX17 | Mode per world | Original worlds run free mixing (GT1); canon formulas keep GT2 with a stated failure; pills use GT5 grade and impurity; D&D uses GT4 abstract | Per world | GT1 to GT8, OV1 |
+| IX18 | Canon stays canon | Free mixing cannot contradict canon scarcity or canon effects; a canon identity is reached only through its formula | Per world | RS4, P9 |
+
+### IX-C. Scale, balance, learning, display
+
+| Code | Consideration | Default | Dial and reason | Extends |
+|---|---|---|---|---|
+| IX19 | Reaction count growth | A relation graph can imply many reactions; index by axis, build lazily, declare a budget per law | Budget per world | GR11; `craft_resolver.js` loop is steps times reactions |
+| IX20 | Generated reactions need generated priorities | Where reactions share reactants, an explicit priority rule is part of the family | Per family | `priority` field today |
+| IX21 | Balance by shape, not caps | Value comes from useful dose, effort, delivery, stability and side effect; mostly mediocre outcomes with rare strong ones; test for one dominant brew | Distribution band per world | Audit balance note, SB8; Weibao is the only player, so flatness is the risk, not abuse |
+| IX22 | Learn rules, not pairs | Learning one relation ("these oppose") teaches a family of interactions; experiments reveal only what the test distinguishes | Teaching routes per world | P8, SP2, E4B understand-before-substitute |
+| IX23 | Save and identity growth | Unlimited products grow identity strings and inventory keys; use lots, canonical identity, stable short handles and grouped display | Handle scheme per slice | SC7, SC11, R2 |
+| IX24 | Display by family | Show interactions as known relations on the material card and an experiment notebook, not a pair list | Per surface | UV2, UV8; MQ-B UV rows |
+
+### Disposition
+
+**ACT NOW (done here):** owner map and corrections above, including that reaction order is deterministic by
+`priority` then id and that no tier concept exists.
+
+**ACCOUNT FOR NOW (constraints, no feature work):** one craft resolver and one product registry (ER15, ER16); body
+ledger before stacking potions (IX16); no ingredient named in engine code; mass conservation stays a hard check;
+choose the tag-pair carrier before building (IX9); tier, grade, purity and quality keep separate meanings (IX7).
+
+**LATER / DELEGATE:**
+
+| Item | Level | Effort | Done check |
+|---|---|---|---|
+| Interaction-model feasibility: can relation graph, law families and tier express as data on `defineCraftLaw`, with a worked toy | Strong | Doc, one session (sent) | File names the smallest engine edits, a six-axis three-tier toy with traces, property-test list, scale numbers |
+| Random-mix dominance search (find one best brew, mass leaks, order traps) | Balanced | Script plus doc | Seed sweep result with distribution and any degenerate recipe; no engine change |
+| Tier vocabulary per world from existing docs (cultivation grades, HP, D&D) | Balanced | Doc | Held; reading budget and Weibao's go |
+| Relation-graph and law-family data rows plus tests | Strong | Small code slice | Held; needs a go, IX9 decision and a registered seam |
+
+### Fold: IX-A return, 2026-10-19
+
+Lane output (doc only; the lane ran a scratch copy of the real `resolveBatch` outside the repo, one machine, one run):
+[IX-A interaction model](audits/materials_tags_2026-10-19/IX_A_INTERACTION_MODEL.md).
+
+**Corrections first (the root was wrong or overstated)**
+
+- **IX25. Tier as a stored derived tag or a scalar axis does not work for rules.** IX5 suggested tier stored like derived tags. Scalars are mass-weighted means over the whole batch and no reaction can read a scalar, so a tier-3 lot plus a tier-1 lot reads as tier 2. A stored product tag is product-level and cannot gate a reaction inside the batch. What works is **strata**: one fraction axis per tier, which is data and needs no engine edit.
+- **IX26. Tag pairs between consumed lots cannot ride the craft law today.** Only catalyst-lot and station tags are read. IX8 and IX9 need a tag-to-axis mapping (a family tag contributes to a stratum) or a small new `present` query.
+- **IX27. The rule-module resolver is the wrong carrier for amount-moving interactions.** It deliberately admits no reaction executor and one parameter target. Default: amount-moving interactions ride the craft law; the rule resolver keeps gates, records and witnessed consequences. This settles IX9's default, still subject to Weibao's slice order.
+- **IX28. Reaction cascades exist within one pass.** A later reaction sees earlier products, so feed rows behave as a priority-ordered cascade (hand trace B6 was wrong until a scratch run caught it). Property tests must cover chains.
+- **IX29. Unlimited does not cover everything.** Order of addition, concentration and dilution effects, and per-lot facts are not expressible today (reactions use absolute amounts; lots are summed before any law runs).
+
+**Settled by the lane**
+
+- **A relation graph plus law families compiles to ordinary reaction rows.** A pure `compileRelations` step runs before `defineCraftLaw` and needs no engine edit. Generated rows need generated priorities (family sets the high digits).
+- **Tier-gap rule as data:** coefficient of the lower side by gap `[1, 2, none]`, so gap 0 cancels 1:1, gap 1 lets the higher tier cancel two lower units, gap 2 emits no reaction. Integer ratios conserve mass by construction.
+- **Scale:** measured 0.5 ms per 12-step resolve at 400 reactions and 2.5 ms at 3900 (scratch, never-firing reactions). Proposed per-law budget 512 reactions and 160 axes, enforced by the compile step.
+- **Identity:** `law.ref` is `id@revision` only, so a changed relation row without a revision bump fails old-product validation instead of drifting; a content hash in the ref is the smallest hardening.
+- **Dominance search design (held lane):** 2000 seeded batches over three world seeds, scored by the law's output rows; pass band is a world dial; failure signals are feed cascades that multiply a high-value axis, inhibit rows that zero an axis for free, and one op order that always wins.
+
+**Open and unverified:** whether `craft_state`, the product registry and display read composition keys by fixed name (strata could break them); recipe matching with strata axes; AR1 baselines and `check:arch` were not run; the bench is one machine, one run.
+
+**Next steps (proposal, ranked, none selected):** (1) E0, a pure `compileRelations` module plus a toy pack and the property tests, no engine edit; (2) E1, content hash in the law ref; (3) E2, `tier` on material with engine stratification, only if strata axes prove clumsy; (4) E3, reaction bucketing and a budget; (5) E5, a consumed-lot `present` query or `minConcentration`. Held until Weibao's go.
+
+See also (2026-10-19): [World rule grammars and derived detail](WORLD_RULE_GRAMMARS_AND_DERIVED_DETAIL_2026-10-19.md) on deriving grammar rows that seed the relation graph and tier tables (DG28). Proposal only.
+
+
+## Corc reference round, 2026-10-20: commitments and material history
+
+**Proposal additions**, following [CRL2–CRL5 and CRL13](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md).
+The source evidence, tradeoffs and candidate journeys live there. Applies MR1,
+MR4–MR5, MR10, MR16–MR23, MR27–MR32, AD6–AD8, AD15–AD17 and AD38.
+No new rulebook, runtime work or build order is selected.
+
+| Reference | Useful addition to the existing making palette | Default, dial and reason/cost |
+|---|---|---|
+| CRL2 | Evaluate a method by what it preserves, not just whether it breaks the target | A clean cut can preserve a part where force makes useful scraps. Material/world law, skill and actual means tune the outcome; scraps need an actual reader such as fuel or another existing process. Reuse harvest completeness and the gear-depth owner before adding another material model. |
+| CRL3 | A transfer changes custody, not the material's age | Preserve the relevant birth/exposure facts in a selected perishable route. A process can change deterioration through its actual mechanism. Cohorts need separate identity only if the chosen consumer reads their difference; no general spoilage engine or finite global bag is required. |
+| CRL4 | A repeat request retains which costs the player intended to incur | Start from existing selected batches, material-change stops and tool-break handling. Quantity, input substitutions, tool choice and reserve policies can be explicit when useful. A changed scope stops or requotes; a completed stage stays settled. No duplicate scheduler. |
+| CRL5 | Mastery can remove handling from a demonstrated routine | Practice can improve control or support bounded repeat work, with world-specific apparatus and stop conditions. New circumstances may still matter. This extends MR21–MR23 rather than making every craft a mandatory staged ritual. |
+
+**ACT NOW (done):** bound these proposals to today's source/corpus inspection;
+retain the current native selected-batch, tool and harvest seams. **ACCOUNT FOR
+NOW:** a tool's hardness/precision fields need real consumers before they count
+as useful mechanics; age, reservations and stopped work follow owning clocks.
+**LATER / DELEGATE:** CRJ1 first when tools/gathering is next touched, CRJ2 when
+freshness/custody is selected. Sol low/medium, small-to-medium for CRJ1 and medium
+for CRJ2; done checks and rebuilt 1920×1080/persistence gates are in the linked
+journey table. No lane dispatched; current old-save deferral stays in force.
+
+
+## Reference detail fold, 2026-10-20: a commitment from quote to useful output
+
+Proposal extension of CRL2–CRL5, MR1/MR4/MR5/MR8/MR10/MR21–MR23/MR28–MR31,
+AR3/AR6–AR8 and AD38. The [fold map](research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md#plan-fold-and-further-interactions-2026-10-20)
+routes PFA019–PFA023, PFA028–PFA037, service/condition comparisons and
+PFE02–PFE04/PFE14 here. Existing SC/IX and native transaction owners retain detail.
+
+Carry these connected questions into the next selected making route:
+
+- Quote the actual tool, lots, station, goal and currently spendable stock; show
+  native have/need, chance, teaching/XP and a useful known result nearby. Related
+  recipes already cover up to six known same-page links. Wider producer search
+  is a proposal, with PK11/AA12 access and return semantics.
+- Distinguish attempts, usable outputs and stages. If one committed attempt
+  produces more than an output target, retain its actual outputs; describe the
+  stopping policy rather than deleting extras or changing RNG to make a tidy bar
+  (PFE24). Immediate batches and staged fragile processes can settle differently.
+- When a routine changes means or two policies want the same fuel/material,
+  revalidate/reserve through real owners. Refueling must not consume wood another
+  job has actually reserved; a displayed outline alone creates no reservation
+  (PFE22). A later reservation feature needs a real consumer and ownership.
+- Preserve lot/copy age, damage history and relevant repair facts through
+  transfer. Cosmetic patina can derive from those facts without making a new
+  inventory identity on every frame; a real material/process change still follows
+  the making law and chosen split/merge behavior (PFE28).
+- Compare repair alternatives by actual condition restored, time, material,
+  uncertainty and ceiling; service ranks and reference reinforcement percentages
+  are examples, not universal caps. Mastery may remove handling with actual means.
+
+The lamp already has manual douse/relight and retained oil. Installed hearth
+benefits and selected drying fuel costs do not establish a continuous fireplace
+burn. The [granular owner](GRANULAR_SYSTEMS_AND_INTERACTIONS.md#reference-detail-fold-2026-10-20-physical-routines-and-ordinary-life)
+holds that proposed behavior and its clock/observation interactions.
+
+**ACT NOW (done):** folded the work, history, service and discovery comparisons
+into this owner. **ACCOUNT FOR NOW:** the current craft resolver aggregates input
+lots before reactions (IX29); do not promise per-lot consumed-property laws from
+the proposed history display alone. Hardness/precision need real readers; no new
+scheduler, broad spoilage model or reinforcement mechanism is implied.
+**LATER / DELEGATE:** retained PFB1/PFB2 and CRJ1/CRJ2, none dispatched. Sol
+low/medium for settlement/custody, Luna low for a settled view; small/medium for
+one selected work/producer path. Done: the exact means, real output, costs,
+interruption and return agree in a rebuilt desktop journey, with current-state
+save/reload/import for changed persistent facts. Human usefulness remains open.

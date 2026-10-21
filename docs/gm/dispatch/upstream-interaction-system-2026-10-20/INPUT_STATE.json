@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-20",
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "branch": "codex/gameplay-foundations",
+  "shared_dirty_checkout": true,
+  "hash_note": "Final preflight file identities after the sender direction/docs additions and IG owner completion; re-read before receiver writes.",
+  "files": {
+    "AGENTS.md": "bce46a0bd79a1b5276efe2b40b5e2ce7836b370d44268f797221cc6a320e8367",
+    "PROJECT.md": "47fc5d361c2e8ddc42cc907134864f7663b11af2037f2326801fa8aea3d7e5bf",
+    "docs/USER_VISION.md": "e4e9d08522a963d81476adc782c11cc3dbb898d4b1e6d4eab838c3bf9a83141f",
+    "docs/RULES_INDEX.md": "d0dcdd58a52cc9b31fe8b85ee68f9664b1955c845ab69761ba4ee4f01328c43b",
+    "docs/research/yair-upstream/DISCORD_RESEARCH_2026-10-20.md": "0637701f37b3a0083ea1258249cdba541a2992668d3d46e26522724f771dae2b",
+    "docs/research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md": "a841a382462e5db572ce71572b9b8d51e9cfe04fba35cfe758cf5df62fdcc827",
+    "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md": "5b21054595344e50036b6bdfa637d01874faf5e78c1e7f26543d6b45034302fb",
+    "docs/PANEL_KIT.md": "1161500a407fa355c10e7d5e24ab0ed86d57aecbc60fb8dc695eee961059915c",
+    "docs/ENGINE_EXPANSION.md": "37e7f10ae7ea07b1cc0d8fe0f8da4fb691fd4ba0bb6a55af1758c21ecb30a71a",
+    "docs/CRAFTING_ENGINE.md": "61cdeb89e434323f7d5527bf595aab1c832c844a292f85a53b62be2aac3a44d9",
+    "docs/MEANS_AND_APPRAISAL.md": "4a9f097f96a46fc5e8797d6338c44db89d4f8dca349dc68b35a54d091aa98d5f",
+    "src/display.js": "168c71a34b7f573fce6a3018b525434116f9424c5d6fbbe086106180bcd50281",
+    "src/main.js": "1123eae927428be949f7443423685512c83d16050826e57e8fd64c964ad68723",
+    "src/crafting_recipes.js": "10936127ccbb5861c15a3fcd081d0157cd3d91d245fbdf30d58d67f3c0edc878",
+    "src/items.js": "1bf48def21dd2841a1faccd5105bc8655975d2d241a9878465b1e0d0537336b6",
+    "src/data/skills.js": "c42ea72d7d712d2623d1dd683796ba705405f51bf559ce603f327f767c3e7f7c",
+    "src/ui/combat_display.js": "a1b4ed221a3a38cf128188284f37cb2fbf325e756f426adb250d5fb914e47609",
+    "src/combat_log.js": "d458ecabd4975cf9ae47affe6b9790788f42dcf1bc6df8937553b105fe926e27",
+    "src/meter_bar.js": "c8e51e69d3162acd1f80facd983dda288c0e437330f0f3c36952839b9060dd5f",
+    "src/display_settings.js": "e99cebe156cbf27e3e34e63b9e16124b74b1b759db8218830d8b4fd12be0e017",
+    "docs/research/proto23/UI_AND_PLAYFUL_PRESENTATION_OPPORTUNITIES_2026-10-20.md": "e554b0b4af8612efb12401c6eff484defced20e286641b0b2df4966f5ab4e1a2"
+  },
+  "relevant_status": " M AGENTS.md\n M PROJECT.md\n M docs/CRAFTING_ENGINE.md\n M docs/ENGINE_EXPANSION.md\n M docs/MEANS_AND_APPRAISAL.md\n M docs/PANEL_KIT.md\n M docs/RULES_INDEX.md\n M docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md\n M docs/USER_VISION.md\n M src/combat_log.js\n M src/display.js\n M src/display_settings.js\n M src/main.js\n M src/meter_bar.js\n?? docs/research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md\n?? docs/research/yair-upstream/DISCORD_RESEARCH_2026-10-20.md\n",
+  "known_active_dependency": {
+    "threadId": "01a15bc5-de54-7e50-b46c-7419cc27b266",
+    "title": "Implement UI bar and message gaps",
+    "status_at_inventory": "active",
+    "scope": "IG1-IG5; shared display/main/combat log/meter/display settings and related tests; browser validation underway",
+    "status_at_final_preflight": "completed/idle",
+    "writer_reservations": "all released in owner receipt",
+    "receipt": "docs/research/proto23/UI_AND_PLAYFUL_PRESENTATION_OPPORTUNITIES_2026-10-20.md#ig-execution-receipt-implemented-candidate-2026-10-20"
+  }
+}

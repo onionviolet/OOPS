@@ -472,3 +472,5 @@ synthetic hidden-lineage case to ensure traits, sorting and ready counts reveal
 only what means permit. This does not require population heredity or S4 before S1.
 Level: strong cross-domain implementation, medium when selected. Done: rebuilt
 current-target UI and current-state save/reload/import, without a second stat store.
+
+See also (2026-10-19): [World dials and interpreter considerations](WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md) on constitution facts feeding world dials (WDI17 to WDI22). Proposal only.

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {domainRegistry} from '../src/domain_registry.js';
-import {configureLamplight, setLamplightState, lamplightState, quoteLamp, executeLamp, validateLamplight, LAMP, OIL, FLASK_MINUTES, LAMP_LIGHT} from '../src/lamplight_domain.js';
+import {configureLamplight, setLamplightState, lamplightState, lamplightPresentation, quoteLamp, executeLamp, validateLamplight, LAMP, OIL, FLASK_MINUTES, LAMP_LIGHT} from '../src/lamplight_domain.js';
 import {readingLightFactor} from '../src/reveal_chain.js';
 import {setCurrentLocation} from '../src/runtime_state.js';
 import {current_game_time} from '../src/game_time.js';
@@ -17,7 +17,7 @@ function setup({lamp = 1, oil = 2, gear = 0} = {}) {
     const actor = {setNativeLightSource: (id, reader) => sources.set(id, reader), nativeLightBonus: () => env.gear + [...sources.values()].reduce((n, r) => n + r(), 0)};
     configureLamplight({actor: () => actor, count: id => inv.counts[id] || 0, itemOwners: () => [inv], assertSpend: id => { if (!inv.counts[id]) throw Error('Not held.'); },
         removeItem: (id, n) => { inv.counts[id] -= n; }, persist: mark => { if (env.failWrite) throw Error('Disk full.'); env.writes++; mark(); },
-        writable: () => true, location: () => globalThis.__lampPlace, refresh() {}, logMessage: m => log.push(m),
+        writable: () => !env.paused, location: () => globalThis.__lampPlace, refresh() {}, logMessage: m => log.push(m),
         locationRevealed: id => revealed.has(id), revealLocation: id => revealed.add(id)});
     setLamplightState(domainRegistry.list().find(d => d.id === 'lamplight').migrate(undefined));
     return {inv, actor, log, revealed, env};
@@ -44,6 +44,14 @@ test('lighting spends one flask inside one durable write; putting out keeps the 
     assert.equal(lamplightState().oil, FLASK_MINUTES - 30); assert.equal(s.actor.nativeLightBonus(), 0);
     assert.equal(use().spend, 0, 'relighting burns the oil already in the lamp');
     assert.equal(s.inv.counts[OIL], 1);
+});
+
+test('lamp presentation is a read-only view of loaded fuel, carried stock, and active burn',()=>{
+    const s=setup({lamp:1,oil:2});place(VILLAGE);const before=JSON.stringify([lamplightState(),s.inv]);
+    assert.equal(lamplightPresentation().held,true);assert.equal(lamplightPresentation().oil,0);
+    assert.equal(JSON.stringify([lamplightState(),s.inv]),before);
+    use();const reading=lamplightPresentation();assert.equal(reading.shining,true);assert.equal(reading.oil,FLASK_MINUTES);
+    assert.equal(s.inv.counts[OIL],1);
 });
 
 test('refusals: no lamp, dry lamp with no oil, stale quote; a failed write conserves the flask', () => {
@@ -119,4 +127,64 @@ test('slice round trip through the registry; malformed slices refuse', () => {
     for (const bad of [{schema: 2, lit: false, oil: 0, noticed: {}}, {schema: 1, lit: true, oil: 0, noticed: {}}, {schema: 1, lit: false, oil: FLASK_MINUTES + 1, noticed: {}},
         {schema: 1, lit: false, oil: 0, noticed: {Village: 3}}, {schema: 1, lit: false, oil: 0, noticed: {'Cave depths': 99}}, {schema: 1, lit: 'yes', oil: 0, noticed: {}}])
         assert.throws(() => validateLamplight(bad), /lamplight|lamp/);
+});
+
+// Registry ticks settle fuel before the native reading consumer runs.
+test('elapsed reading gets the final and fractional fueled interval; projections stay current', () => {
+    setup(); place(VILLAGE); at(VILLAGE, 22);
+    setLamplightState({schema: 1, lit: true, oil: 0.5, noticed: {}});
+    tick(1);
+    assert.equal(readingLightFactor(), 1, 'current light is already out');
+    assert.equal(readingLightFactor(1), 1.1, 'half a minute really had lamplight');
+    assert.equal(lamplightState().oil, 0);
+    current_game_time.goUp(1);
+    assert.equal(readingLightFactor(1), 1, 'elapsed light is not a future buff');
+    setLamplightState({schema: 1, lit: true, oil: 1, noticed: {}});
+    tick(1);
+    assert.equal(readingLightFactor(1), 1.2);
+    setLamplightState({schema: 1, lit: false, oil: 0, noticed: {}});
+    assert.equal(readingLightFactor(1), 1, 'restoring a state drops the transient interval');
+});
+
+test('elapsed light respects daylight, alternate light, custody loss and paused ticks', () => {
+    const s = setup({gear: 60}); place(VILLAGE); at(VILLAGE, 22);
+    setLamplightState({schema: 1, lit: true, oil: 0.5, noticed: {}});
+    tick(1);
+    assert.equal(readingLightFactor(1), 1.3, 'another source already reaches full light');
+    at(VILLAGE, 12); use(); tick(FLASK_MINUTES);
+    assert.equal(readingLightFactor(FLASK_MINUTES), 1, 'daylight supplies the light already');
+    at(VILLAGE, 22); s.env.gear = 0;
+    setLamplightState({schema: 1, lit: true, oil: 4, noticed: {}});
+    s.env.paused = true; tick(1);
+    assert.equal(lamplightState().oil, 4);
+    s.env.paused = false; s.inv.counts[LAMP] = 0; tick(1);
+    assert.equal(readingLightFactor(1), 1);
+    assert.equal(lamplightState().oil, 4, 'custody loss preserves the unburned oil');
+});
+
+test('inspection keeps counting post-expiry minutes from a sufficient independent light', () => {
+    setup({gear: 60}); place(DEPTHS); at(DEPTHS, 12);
+    setLamplightState({schema: 1, lit: true, oil: 5, noticed: {}});
+    tick(25);
+    const whole = structuredClone(lamplightState());
+    setup({gear: 60}); place(DEPTHS); at(DEPTHS, 12);
+    setLamplightState({schema: 1, lit: true, oil: 5, noticed: {}});
+    tick(5); tick(20);
+    assert.deepEqual(lamplightState(), whole, 'boundary-aligned and whole domain advances agree');
+    assert.equal(Object.values(whole.noticed)[0], 20);
+});
+
+test('projection and quote are read-only; stale expiry command cannot spend twice', () => {
+    const s = setup(); place(VILLAGE); at(VILLAGE, 22); use();
+    setLamplightState({...lamplightState(), oil: 1});
+    const quote = quoteLamp();
+    const before = JSON.stringify([lamplightState(), s.inv, s.env.writes]);
+    for (let i = 0; i < 3; i++) { domainRegistry.project('lamplight'); quoteLamp(); readingLightFactor(); }
+    assert.equal(JSON.stringify([lamplightState(), s.inv, s.env.writes]), before);
+    tick(1);
+    assert.throws(() => executeLamp(quote), /changed/);
+    assert.equal(s.inv.counts[OIL], 1);
+    assert.equal(s.log.filter(m => /gutters out/.test(m)).length, 1);
+    tick(2);
+    assert.equal(s.log.filter(m => /gutters out/.test(m)).length, 1);
 });

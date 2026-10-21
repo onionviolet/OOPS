@@ -8,7 +8,7 @@ import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
 import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats} from "./alloy_equipment.js";
-import {isReductionStat, scaleReduction} from "./gear_dimensions.js";
+import {isReductionStat, scaleReduction, wearScale} from "./gear_dimensions.js";
 import {normalizeAffixes} from "./gear_affixes.js";
 import {preserveWorldCompletionNativeItem} from './world_completion_native.js';
 "use strict";
@@ -54,7 +54,7 @@ import { round_item_price } from "./misc.js";
 import { group_key_prefix, get_item_value_with_market_saturation, get_total_tier_saturation, get_loot_price_multiple} from "./market_saturation.js";
 import { character } from "./data/character.js";
 import { crafting_component_manager } from "./crafting_component_filling.js";
-import { droplist, enemy_killcount, enemy_templates } from "./enemies.js";
+import { droplist, enemy_killcount, enemy_templates, registerEnemyEquipmentItemFactory } from "./enemies.js";
 import { update_bestiary_entry_tooltip } from "./display.js";
 import AvailabilityComponent from "./components/availability_component.js";
 import { availabilities, availability_havers } from "./data/component_references.js";
@@ -517,6 +517,24 @@ class Equippable extends Item {
         this.quality = Math.round(Number(item_data.quality)) || 100;
 
         this.tags["equippable"] = true;
+    }
+
+    //Toughness and hardness of the materials this instance is made from (GDP15 L1), derived from its
+    //components, so no save data. Items without material-filled components have none (wear scale 1).
+    getWearProfile() {
+        if(!this.components) return null;
+        const parts = Object.entries(this.components)
+            .map(([slot, key]) => ({slot, template: item_templates[key]}))
+            .filter(({template}) => Number.isFinite(template?.material_strength));
+        if(!parts.length) return null;
+        const mean = pick => parts.reduce((sum, {template}) => sum + pick(template), 0) / parts.length;
+        const strength = mean(t => t.material_strength), toughness = mean(t => t.material_toughness);
+        return {strength, toughness, scale: wearScale({strength, toughness}),
+            parts: parts.map(({slot, template}) => ({slot, material: template.material_label, toughness: template.material_toughness, source: template.material_toughness_source}))};
+    }
+
+    getWearScale() {
+        return this.getWearProfile()?.scale ?? 1;
     }
 
     getItemTier() {
@@ -1166,7 +1184,7 @@ class Book extends Item {
     }
 
     addProgress(time = 1, {study = true} = {}) {
-        book_stats[this.name].accumulated_time += time * (study ? (readingRate(character.getTotalSkillLevel("Literacy"))*readingLightFactor()) : 1);
+        book_stats[this.name].accumulated_time += time * (study ? (readingRate(character.getTotalSkillLevel("Literacy"))*readingLightFactor(time)) : 1);
         if(book_stats[this.name].accumulated_time >= book_stats[this.name].required_time) {
             this.setAsFinished();
         }
@@ -4616,6 +4634,7 @@ function restoreSystemsWorkshopAvailability(save){
 }
 
 availability_havers.push(Item);
+registerEnemyEquipmentItemFactory(getItemFromKey);
 
 export {
     item_templates,

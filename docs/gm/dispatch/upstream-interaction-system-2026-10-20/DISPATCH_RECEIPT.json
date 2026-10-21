@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-20",
+  "threadId": "01a15bd7-90cd-7c93-9b53-65bc5796206a",
+  "hostId": "local",
+  "title_requested": "Complete connected OOPS interaction system",
+  "initial_model": "gpt-6-luna",
+  "initial_reasoning": "medium",
+  "important_work_route": "gpt-6.1-sol medium via bounded internal worker; dispatch instruction, not yet proof of worker execution",
+  "brief": "docs/gm/dispatch/upstream-interaction-system-2026-10-20/BRIEF.md",
+  "scope": "IS1-IS5 complete connected implementation, not only a crafting journey",
+  "dependency": "IG1-IG5 owner completed/idle and writer reservations released at final preflight",
+  "status": "thread creation confirmed; execution checked separately"
+}

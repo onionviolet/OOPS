@@ -1,5 +1,5 @@
 // Startup/load measurement (PF4). node scripts/perf/startup.mjs [--dir <served dir>] [--runs 5] [--fixtures fresh,crowded] [--out file]
-// Serves the dir (default: this working tree, run `node build.js` first), fresh origin per run, 1366x768.
+// Serves the dir (default: this working tree, run `node build.js` first), fresh origin per run, 1920x1080.
 // cold = first load of the origin with empty HTTP cache; warm = reload of the same origin (cache-control: max-age
 // so the bundle is cacheable). Metrics: bundle transfer, V8 compile+evaluate (CDP trace), PLAY visible, PLAY-ready.
 import fs from 'node:fs';
@@ -20,7 +20,7 @@ await new Promise(r => server.listen(0, '127.0.0.1', r));
 const url = `http://127.0.0.1:${server.address().port}/`;
 const browser = await launchChrome();
 async function once(fixture, warm) {
-  const context = await browser.newContext({viewport: {width: 1366, height: 768}});
+  const context = await browser.newContext({viewport: {width: 1920, height: 1080}});
   const text = readFixture(fixture);
   await context.addInitScript(d => { if (!sessionStorage.getItem('s')) { sessionStorage.setItem('s', '1'); if (d) localStorage.setItem('save data', d); } }, fixture === 'fresh' ? null : text);
   const page = await context.newPage();

@@ -263,6 +263,8 @@ P1 ran 2026-10-19 (three runs, 1366×768 and 1920×1080): [baseline report](revi
 Node tick is 0.13 to 5.2 ms per game minute, not 30–130, so section 3's tick claim is
 unconfirmed (different scope).
 
+P1 result (2026-10-19, measurement report, revises section 3.2 item 4): [P1 baseline and budgets](reviews/P1_BASELINE_AND_BUDGETS_2026-10-19.md).
+
 Recommended first three: **P1, P2, P3.** They cost almost no agent budget,
 unlock ranks 1, 3 and 9, and produce the first honest numbers. P7 is the first
 slice that spends the large agent budget, which is why it comes after the format

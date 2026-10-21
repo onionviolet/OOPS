@@ -1,3 +1,5 @@
+import {retainCombatInspection} from './combat_subject.js';
+import {bindSubjectGesture} from './recipe_connections.js';
 import {createNearbyContextView} from './nearby_context_view.js';
 import {readTemperature} from './condition_facts.js';
 import {boardLayout} from './layout_spec.js';
@@ -22,8 +24,8 @@ export function villageFocus(frame,selected) {
     const thing=frame.things.find(t=>t.id===selected);
     return thing?{kind:'thing',name:thing.name,role:thing.description}:null;
 }
-export function createVillageWorkspace({read,act}) {
-    let selected=null,selectedEnemy=null,sceneSignature='',actionSignature='',focusSignature='',lastPlace='';
+export function createVillageWorkspace({read,act,placeDetail}) {
+    let selected=null,selectedEnemy=null,lastInspectedEnemy=null,sceneSignature='',actionSignature='',focusSignature='',lastPlace='';
     const scene=node('section');scene.id='village_scene';
     const clock=node('p'),people=node('div'),things=node('div'),groups=node('div');
     people.className='scene-chips';things.className='scene-chips';
@@ -37,7 +39,7 @@ export function createVillageWorkspace({read,act}) {
     // its own yet; a legacy bridge publishes 'place' when that list mutates.
     let optionsText='Options',stopOptions=()=>{},stopBridge=()=>{};
     const refreshOptions=()=>{optionsText=optionsLabel();const b=placeTabs.querySelector('[data-place-tab="options"]');if(b)setText(b,optionsText);};
-    const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}placeFooter.append(placeTabs);scene.append(clock,placeFooter,people,things,groups);
+    const placeTabs=node('nav');placeTabs.className='scene-local-tabs';placeTabs.setAttribute('aria-label','Location sections');let placeTab='actions';for(const [id,label]of [['actions','Actions'],['people','People'],['things','Things'],['options','Options']]){const b=node('button',label);b.type='button';b.dataset.placeTab=id;b.onclick=()=>{placeTab=id;render();};placeTabs.append(b);}placeFooter.append(placeTabs);scene.append(clock,placeFooter,...(placeDetail?[placeDetail]:[]),people,things,groups);
     const focus=node('section');focus.id='current_focus';focus.setAttribute('aria-live','polite');
     // R20 opponent board: one row per opponent, laid out by count (layout_spec opponentBoard), and
     // the inspected opponent's facts once below the rows instead of repeated on every card. Reads the
@@ -47,6 +49,8 @@ export function createVillageWorkspace({read,act}) {
     const rosterToolbar=node('div'),rosterCaption=node('span'),enemyCards=node('div'),enemyCardNodes=new Map(),groupLabels=new Map();
     rosterToolbar.className='enemy-roster-toolbar';enemyCards.className='enemy-cards';enemyCards.setAttribute('role','group');enemyCards.setAttribute('aria-label','Opponents');enemyCards.dataset.fitClip='';
     const detail=node('section'),detailFacts=node('dl'),detailEmpty=node('p'),detailNodes=new Map();detail.className='opponent-detail';detailFacts.dataset.effectAnchor='opponent-stats';detailFacts.setAttribute('aria-live','off');detail.append(detailFacts,detailEmpty);
+    const endedBack=node('button','Back to Around you');endedBack.type='button';endedBack.dataset.endedInspectionBack='';endedBack.hidden=true;
+    endedBack.onclick=()=>{selectedEnemy=null;lastInspectedEnemy=null;render();};detail.append(endedBack);
     const rosterMode=node('button','Compare');rosterMode.type='button';rosterMode.className='combat-roster-mode';let compare=false;
     rosterMode.onclick=()=>{compare=!compare;render();};
     rosterToolbar.append(rosterCaption,rosterMode);enemyView.append(rosterToolbar,enemyCards,detail);
@@ -103,9 +107,9 @@ export function createVillageWorkspace({read,act}) {
         for(const[index,opp]of order.entries()){
             if(opp.nodeType){if(enemyCards.children[index]!==opp)enemyCards.insertBefore(opp,enemyCards.children[index]||null);continue;}
             let card=enemyCardNodes.get(opp.id);
-            if(!card){card=node('article');card.className='enemy-card';card.dataset.enemyCard=opp.id;
+            if(!card){card=node('article');card.className='enemy-card';card.dataset.enemyCard=opp.id;card.dataset.combatSubject=opp.id;
                 const name=node('button'),hp=node('p'),cycle=node('progress'),facts=node('dl');
-                name.type='button';name.dataset.inspectEnemy=opp.id;name.className='enemy-card-name';name.onclick=()=>{selectedEnemy=opp.id;render();};
+                name.type='button';name.dataset.inspectEnemy=opp.id;name.className='enemy-card-name';bindSubjectGesture(name,()=>name.dataset.inspectEnemy,()=>{selectedEnemy=opp.id;render();});
                 hp.className='enemy-card-health';hp.append(node('span'));cycle.max=100;cycle.className='enemy-card-cycle';facts.className='enemy-card-facts';facts.nodes=new Map();
                 card.append(name,hp,cycle,facts);enemyCardNodes.set(opp.id,card);}
             if(enemyCards.children[index]!==card)enemyCards.insertBefore(card,enemyCards.children[index]||null);
@@ -119,14 +123,16 @@ export function createVillageWorkspace({read,act}) {
         }
         // The inspected opponent's facts, once. List form (with your own value) for up to four
         // opponents, a compact grid beyond that (layout_spec opponentBoard).
-        detail.hidden=comparing;setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowledgeOf(target));setTitle(detail,`${count>1?target.letter+' · ':''}${target.name}. ${KNOWLEDGE_LABEL[knowledgeOf(target)]}`);
-        const facts=target.facts||[];renderFacts(detailFacts,detailNodes,facts,layout.facts==='list');
+        detail.hidden=comparing;
+setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowledgeOf(target));setTitle(detail,`${count>1?target.letter+' · ':''}${target.name}. ${KNOWLEDGE_LABEL[knowledgeOf(target)]}`);
+        const facts=target.ended?[]:target.facts||[];renderFacts(detailFacts,detailNodes,facts,layout.facts==='list');
         if(inList){const t=opponents.find(o=>o.id===target.id)||target,fill=healthFill(t);
             const tk=named.get(t.name)||[t];setText(targetName,t.name);setAttr(targetName,'data-letter',count>1?t.letter||'':'');setAttr(targetName,'aria-label',tk.length>1?`${t.name}, ${tk.indexOf(t)+1} of ${tk.length}`:t.name);setAttr(targetName,'data-kind-hue',hueOf(t.name));setAttr(targetLine,'data-defeated',!!t.defeated);
             setText(targetHealth,healthText(t));targetLine.style.setProperty('--roster-health',`${fill??0}%`);setAttr(targetHealth,'data-health-known',fill!=null);
             targetCycle.hidden=!!t.defeated||t.cycle==null;targetCycle.value=t.cycle||0;setAttr(targetCycle,'aria-label',`${t.name} attack cycle`);
             setTitle(targetLine,`Inspecting ${tk.length>1?`${t.name}, ${tk.indexOf(t)+1} of ${tk.length}`:t.name}. Select another opponent in the list to inspect it; inspection does not change attack targeting.`);}
-        detailEmpty.hidden=!!facts.length;setText(detailEmpty,'No combat facts observed yet.');
+        endedBack.hidden=!target.ended;setText(endedBack,count?'Inspect current opponents':'Back to Around you');
+        detailEmpty.hidden=!!facts.length;setText(detailEmpty,target.ended?`${target.name}: inspection ended. Select a current opponent to inspect. Departure remains in the encounter actions.`:'No combat facts observed yet.');
         const caption=encounterCaption(board);setText(rosterCaption,caption);setTitle(rosterCaption,caption);
         if(inList){const down=opponents.filter(o=>o.defeated).length,{groupsLeft,clears}=board.encounter||{};
             const rows=[['Opponents',String(count)],['Defeated',`${down} of ${count}`],...[...named.entries()].map(([n,g])=>[n,`${g.filter(o=>!o.defeated).length} of ${g.length} left`]),groupsLeft?['Groups left',groupsLeft]:null,clears?['Clears',String(clears).replace(/^Clears:\s*/,'')]:null].filter(Boolean);
@@ -145,11 +151,10 @@ export function createVillageWorkspace({read,act}) {
     // R22c (FC12): hovering or focusing a combat line marks its opponent's row in the current wave,
     // and a row marks its lines. Older waves' lines link to nothing. Presentation only.
     const linkOff=()=>{for(const n of document.querySelectorAll('[data-linked]'))n.removeAttribute('data-linked');};
-    const latest=log=>Math.max(0,...[...log.querySelectorAll('[data-encounter]')].map(n=>Number(n.dataset.encounter)||0));
     const linkFrom=event=>{const log=document.getElementById('message_log_div');if(!log)return;linkOff();
-        const line=event.target.closest?.('#message_log_div [data-combat-slot]'),card=event.target.closest?.('#opponent_list .enemy-card[data-slot], #current_focus .enemy-card[data-slot]');
-        if(line&&line.dataset.combatSlot!=='many'&&Number(line.dataset.encounter)===latest(log)){const c=enemyCards.querySelector(`.enemy-card[data-slot="${CSS.escape(line.dataset.combatSlot)}"]`);if(c){c.dataset.linked='true';line.dataset.linked='true';}}
-        else if(card){const n=latest(log);for(const l of log.querySelectorAll(`[data-combat-slot="${CSS.escape(card.dataset.slot)}"][data-encounter="${n}"]`))l.dataset.linked='true';card.dataset.linked='true';}};
+        const line=event.target.closest?.('#message_log_div [data-combat-subject]'),card=event.target.closest?.('#opponent_list .enemy-card[data-combat-subject], #current_focus .enemy-card[data-combat-subject]');
+        if(line){const c=enemyCards.querySelector(`.enemy-card[data-combat-subject="${CSS.escape(line.dataset.combatSubject)}"]`);if(c){c.dataset.linked='true';line.dataset.linked='true';}}
+        else if(card){for(const l of log.querySelectorAll(`[data-combat-subject="${CSS.escape(card.dataset.combatSubject)}"]`))l.dataset.linked='true';card.dataset.linked='true';}};
     document.addEventListener('mouseover',linkFrom);document.addEventListener('focusin',linkFrom);
     definePanel({id:'village-scene',title:'Village scene',role:'actions',node:scene,home,defaultDock:'center',after:'location',
         discovered:()=>true,eligible:()=>read().inVillage||document.getElementById('main_content').dataset.parity==='r3'});
@@ -172,7 +177,7 @@ export function createVillageWorkspace({read,act}) {
         placeTags.hidden=!types.length;if(focused)placeTags.querySelector(`[data-place-type="${CSS.escape(focused)}"]`)?.focus();
     }
     function render(){
-        const frame=read();if(frame.place!==lastPlace){selected=null;lastPlace=frame.place;placeTab='actions';}
+        const frame=read();if(frame.place!==lastPlace){selected=null;selectedEnemy=null;lastInspectedEnemy=null;lastPlace=frame.place;placeTab='actions';}
         const view=projectVillageScene({overview:{title:frame.place,clockText:frame.clock,people:frame.people,things:frame.things,actions:frame.actions}});
         // This adapter reads the existing public native clock projection. It does
         // not compute weather/season or alter their world rules.
@@ -229,7 +234,8 @@ export function createVillageWorkspace({read,act}) {
         // encounter counters the cards already read (NX42). No new truth reads.
         const rows=frame.enemies||(frame.enemy?[frame.enemy]:[]);
         const board=frame.opponents||(rows.length?projectNativeOpponents(rows,{groupsLeft:document.getElementById('enemies_left_div')?.textContent.trim()||'',clears:document.getElementById('clear_count_div')?.textContent.replace(/\s+/g,' ').trim()||''}):{opponents:[]});
-        const picked=board.opponents.find(o=>o.id===selectedEnemy)||board.opponents[0]||null,row=picked&&rows.find(r=>r.id===picked.id);
+        const picked=retainCombatInspection(board.opponents,selectedEnemy,lastInspectedEnemy),row=picked&&rows.find(r=>r.id===picked.id);
+        if(picked){lastInspectedEnemy=picked;selectedEnemy=picked.id;}
         // Classic keeps its native text (GU5); projection-only frames derive it from the shape.
         const enemy=picked&&{...picked,hp:row?.hp??healthText(picked),stats:row?.stats??(picked.facts||[]).filter(factShown).map(f=>`${f.label}: ${factText(f)}`).join(' · ')};
         const target=villageFocus({...frame,enemy},selected),next=JSON.stringify(target||{place:frame.place,people:frame.people,things:frame.things});
@@ -239,7 +245,7 @@ export function createVillageWorkspace({read,act}) {
         const shell=document.getElementById('main_content').dataset.presentation==='proto23-shell';
         if(shell&&!target){focus.dataset.focusEmpty='false';focus.closest('.workspace-module')?.setAttribute('data-focus-empty','false');}
         const nativeEncounter=target?.kind==='enemy'&&shell;if(nativeEncounter)renderEnemy(target,board);const groupHeading=nativeEncounter,enemyCount=board.opponents.length;
-        if(heading){setText(heading,groupHeading?(enemyCount>1&&listShown()?'Inspecting':enemyCount>1?`Opponents · ${enemyCount}`:'Opponent'):shell?(target?.name||'Around you'): 'Focus');setTitle(heading,groupHeading?`${enemyCount} opponent${enemyCount===1?'':'s'}. Select a name to inspect; inspection does not change attack targeting.`:target?.name||'Inspect a known person, place or opponent');heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');}
+        if(heading){setText(heading,groupHeading?(target?.ended?'Inspection ended':enemyCount>1&&listShown()?'Inspecting':enemyCount>1?`Opponents · ${enemyCount}`:'Opponent'):shell?(target?.name||'Around you'): 'Focus');setTitle(heading,groupHeading?`${enemyCount} opponent${enemyCount===1?'':'s'}. Select a name to inspect; inspection does not change attack targeting.`:target?.name||'Inspect a known person, place or opponent');heading.removeAttribute('data-effect-anchor');heading.removeAttribute('tabindex');}
         focus.dataset.subjectHeading=String(shell&&!!target);
         if(nativeEncounter){delete focus.dataset.nearbySummary;focusSignature=next;return;}
         {const root=document.getElementById('main_content');if(root.dataset.enemyCards==='true')root.dataset.enemyCards='false';if(root.dataset.opponentBoard)delete root.dataset.opponentBoard;}

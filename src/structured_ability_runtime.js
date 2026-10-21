@@ -79,12 +79,13 @@ function compileConditions(definition, row, command, powers, owned) {
             const initial = k.initial ?? k.max;
             assert(Object.keys(k).every(key => ['max', 'initial', 'recharge'].includes(key)) && Number.isSafeInteger(initial) && initial >= 0 && initial <= k.max, 'Invalid starting charge.');
             validatePredicate(r.requires);
+            assert(r.label == null || typeof r.label === 'string' && r.label.length > 0, 'Invalid recharge label.');
             chargesKey = `${c.id}.charges`;
             // A starting balance makes "empty" a known fact rather than an absent one.
             out.seeds.push({type: 'resource', actor: command.actorId, key: chargesKey, amount: initial});
             command.costs.push({type: 'resource', scope: 'actor', key: chargesKey, amount: -1});
             const room = r.when === 'empty' ? {not: {fact: `resource.${chargesKey}`, op: 'gte', value: 1}} : {not: {fact: `resource.${chargesKey}`, op: 'gte', value: k.max - amount + 1}};
-            out.commands.push({id: `${c.id}.recharge`, revision: 1, label: 'Recharge', worldId: command.worldId, ...(command.location ? {location: command.location} : {}),
+            out.commands.push({id: `${c.id}.recharge`, revision: 1, label: r.label ?? 'Recharge', worldId: command.worldId, ...(command.location ? {location: command.location} : {}),
                 group: 'ability_condition', actorId: command.actorId, costs: [], requires: combine([room, r.requires]),
                 effects: [{type: 'resource', key: chargesKey, amount}]});
         }

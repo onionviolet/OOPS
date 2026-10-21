@@ -170,3 +170,19 @@ Reconciled PROGRESSION_AND_ASSEMBLY SHA256: `a6ba3088d1330823318a648f531903a219e
 Reconciled CAMPAIGN_FRAMEWORK SHA256: `a1918358694147bbc90ac85e05bed59302ae9b60146f7850b6d9485a7dce532d`; re-read current framework review, preserving source/invention, ownership and unrun runtime gates.
 Master's initial integration passed; these follow-up addenda still need its review. Build/browser/save/human fiction/balance gates remain unrun. Future reading needs causal coverage, paid information and isolated clock/RNG/native inputs; biological/source/method evolution needs actual function/revision/body/fit reconciliation and caused advancement receipts.
 Resume: read this checkpoint/role/live PROJECT and inspect changed inputs/real operations before writes. Coordinator integrates the addenda/open-ended direction, then freezes one actual interaction with a named integrator; this packet authorizes no runtime implementation or leaf dispatch.
+
+
+## Evidence-gap detail, 2026-10-20
+
+WPD-R13, ACCOUNT FOR NOW: WG22's continuity seam is observable evidence only
+when an affected observer has a channel to notice it. A memory edit/time effect
+need not guarantee a visible tell, and a tell need not identify its cause.
+Before implementing a selected effect, declare its actual target, duration,
+resource owner, interruption/expiry and local-time/absence policy rather than
+add a universal conceptual-power detector. Level/effort: coordinator medium for
+causal/save ordering; Luna low for supplied fixtures. Done check: author truth,
+observer evidence and inferred cause stay distinct; the effect and its actual
+remaining cost survive current-format pending/final round trips. Broader
+conceptual families, general counter-search and offline policies remain later
+proposals unless the selected operation needs them. This family is not a
+separate campaign world and this audit dispatches no runtime proof.

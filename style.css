@@ -1,4 +1,7 @@
 
+@import url("./styles/palette_reports.css");
+@import url("./styles/palette_feedback.css");
+
 :root {
 	/* Semantic log/feedback tokens (I7): gain, loss, money, blocked. Vivid overrides in styles/workspace.css. */
 	--sem-gain: var(--ui-swatch-001); --sem-loss: var(--ui-swatch-002); --sem-money: var(--ui-swatch-003); --sem-blocked: var(--ui-swatch-004);

@@ -11,13 +11,8 @@
 // lines never resolve to the new opponent in the same slot.
 import {letterFor,kindHue} from './opponent_board.js';
 
-const serials = new WeakMap();
-let nextSerial = 1;
-export function encounterSerial(combat) {
-    if (!combat || typeof combat !== 'object') return 0;
-    if (!serials.has(combat)) serials.set(combat, nextSerial++);
-    return serials.get(combat);
-}
+import {encounterSerial,combatSubject} from './combat_subject.js';
+export {encounterSerial};
 
 function participant(fighter, sideFighters, slot, isAttackerSide) {
     const you = !!fighter?.tags?.main_character;
@@ -33,6 +28,7 @@ export function combatLogEvent(combat, {fighter, fighterIndex, isAttacker, targe
     const actorSide = isAttacker ? combat.attackers : combat.defenders, targetSide = isAttacker ? combat.defenders : combat.attackers;
     const actor = participant(fighter, actorSide, fighterIndex, isAttacker);
     const struck = participant(target, targetSide, targetSide.indexOf(target), !isAttacker);
+    actor.subject = combatSubject(combat,fighter);struck.subject = combatSubject(combat,target);
     const direction = actor.side === 'ally' && struck.side === 'hostile' ? 'dealt' : actor.side === 'hostile' && struck.side === 'ally' ? 'taken' : 'other';
     return {encounter: encounterSerial(combat), outcome, actor, target: struck, direction,
         amount: amount == null ? null : Math.ceil(10 * amount) / 10, hits, critical: !!critical, partial: !!partial};
@@ -55,6 +51,7 @@ export function occurrenceLabel(event) {
     return p && p.kindCount > 1 ? `${p.name} ${p.ordinal} of ${p.kindCount}` : '';
 }
 // The hostile slot a line is about, for hover links between Reports and the board.
+export const hostileSubject = event => [event.actor,event.target].find(p=>p?.side==='hostile')?.subject || null;
 export const hostileSlot = event => [event.actor, event.target].find(x => x && x.side === 'hostile' && x.slot >= 0)?.slot ?? null;
 // Wording without DOM, for tests and accessible names.
 export function combatLogText(event) {
@@ -109,32 +106,45 @@ export function renderCombatLine(compact, event) {
     return true;
 }
 
-// ×N: one line stands for adjacent equivalent occurrences. Each occurrence keeps its in-game
-// time; the button lists them, so the events stay reachable (UX18).
+// The count is exact; only the latest detail window is retained. An opened list is a
+// fixed snapshot so incoming hits cannot move the reader's place or focused control.
+export const COMBAT_OCCURRENCE_WINDOW = 100;
 export function addCombatOccurrence(message, time) {
+    const doc = message.ownerDocument || document;
     const list = message.combatOccurrences || (message.combatOccurrences = []);
     list.push(time);
-    const n = list.length;
+    if (list.length > COMBAT_OCCURRENCE_WINDOW) list.shift();
+    const n = (message.combatOccurrenceTotal || 0) + 1;
+    message.combatOccurrenceTotal = n;
     message.dataset.repeat = String(n);
     if (n < 2) return n;
     let button = message.querySelector(':scope > .log-repeat');
     if (!button) {
-        button = document.createElement('button');
+        button = doc.createElement('button');
         button.type = 'button';button.className = 'log-repeat';button.setAttribute('aria-expanded', 'false');
         button.addEventListener('click', () => {
             const open = button.getAttribute('aria-expanded') !== 'true';
             button.setAttribute('aria-expanded', String(open));
-            let times = message.querySelector(':scope > .log-occurrences');
-            if (!open) {times?.remove();return;}
-            if (!times) {times = document.createElement('ol');times.className = 'log-occurrences';button.after(times);}
-            times.replaceChildren(...message.combatOccurrences.map(at => {const li = document.createElement('li');li.textContent = at || 'time not recorded';return li;}));
+            const existing = message.querySelector(':scope > .log-occurrences');
+            existing?.remove();
+            if (!open) return;
+            const times = doc.createElement('div');times.className = 'log-occurrences';
+            const entries = doc.createElement('ol');
+            const end = message.combatOccurrenceTotal, first = end - message.combatOccurrences.length + 1;
+            entries.setAttribute('start', String(first));
+            const caption = doc.createElement('p');
+            caption.textContent = `Snapshot: occurrences ${first}–${end} of ${end}. Latest ${COMBAT_OCCURRENCE_WINDOW} time labels retained per group; older labels are discarded. Close and reopen for the latest. Times are game HH:MM, not full dates.`;
+            times.append(caption);
+            for (const at of message.combatOccurrences) {
+                const li = doc.createElement('li');li.textContent = at || 'time not recorded';entries.append(li);
+            }
+            times.append(entries);
+            button.after(times);
         });
         const anchor = message.querySelector(':scope > .notice-panel-link, :scope > .message_border');
         message.insertBefore(button, anchor);
     }
     button.textContent = `×${n}`;
-    button.setAttribute('aria-label', `Repeated ${n} times. Show when`);
-    const times = message.querySelector(':scope > .log-occurrences');
-    if (times) times.replaceChildren(...list.map(at => {const li = document.createElement('li');li.textContent = at || 'time not recorded';return li;}));
+    button.setAttribute('aria-label', `Repeated ${n} times. Toggle recent time snapshot; latest ${COMBAT_OCCURRENCE_WINDOW} retained`);
     return n;
 }

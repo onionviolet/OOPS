@@ -2255,3 +2255,60 @@ with a parry or a dodge; passive play rolls perception instead.
 all the way: no effects for anyone, ever, except one moment per
 campaign. That world's single effect becomes the most memorable thing
 in it.
+
+
+## Corc reference round 2, 2026-10-20: small physical delight
+
+**Proposal palette additions.** The [Corc synthesis, CRL15–CRL26](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-2-2026-10-20-falling-little-ui-reactions-and-fun)
+qualifies the saved source images/captions. Existing X1–X7 restraint, P1–P7,
+UR38, AD6–AD8/AD16/AD19/AD28/AD34/AD38 and the
+[humor lifecycle owner](gm/dispatch/procgen-2026-10-13/p26/HUMOR_AND_NOVELTY.md#z12-running-gag-lifecycle)
+remain in force. Ordinary movement in a little activity scene need not be a
+fourth-wall power; large interface effects retain their rare, earned role.
+
+| Reference | Proposed delight | Default, dial and reason/cost |
+|---|---|---|
+| CRL15–CRL18 | A loose pebble, held pose, fast descent, then a short landing beat | Default: local readable movement and plain outcome. Dial: serious/comic tone, body/surface/support and reduced motion. A soft aftermath can be funny without compulsory damage, gore or a reaction-time challenge. Skipping presentation does not repeat/undo the result. |
+| CRL19/CRL21 | A struck bar sheds a brief loss trail; a repaired tool gets a crisp accent | Default: subject-local, static equivalent, no movement of ordinary controls. Dial: ink, chips, light or quiet text by cause/world/preference. Bind to existing receipt/anchors; routine ticks need not remain excited. |
+| CRL20/CRL23 | A creature looks at a new object, a lamp gutters, a tired character settles | Default: derive transient texture from existing state. Dial: place/body/style/frequency. A lasting rename/change has an owner; an incidental look need not create a new relationship record. |
+| CRL24 | The capable character has a mundane priority | Default: a fitting brief aside, such as protecting lunch after mastering a once-frightening climb. Dial: audience, tone and quiet preference. Preserve competence, useful outcomes and the existing gag's ability to end; no reward or fake mechanical warning needed for every joke. |
+| CRL25/CRL26 | A pebble's distant impact, sheltered rain, then a quiet first overlook | Default: sparse text/sound observations from an actual place. Dial: hearing/obstruction/style. Sound-off retains useful information; no exact range or hidden-source identity follows automatically. Existing discovery/history supports familiarity on return. |
+
+**ACT NOW (done):** saved this local physical palette and linked existing owners.
+**ACCOUNT FOR NOW:** separate a real response window from a rendering of settled
+state; atmosphere and comic staging need no new engine contract until a selected
+consumer requires one. **LATER / DELEGATE:** CRJ5–CRJ7, not dispatched. Sol
+low/medium for staging/context, Luna low for an already settled bounded visual
+leaf; small effort when an actual activity/receipt/return interaction is selected.
+Done: one readable sequence/reaction/callback at 1920×1080, static/reduced forms,
+no repeated settlement on skip/reopen, and separate human tone/feel review. No
+runtime change or visual default accepted by saving this palette.
+
+
+## Reference detail fold, 2026-10-20: caused reactions and affectionate detail
+
+Proposal extension of CRL15–CRL26, existing restraint/humor lifecycle and
+AD6–AD8/AD16/AD19/AD28/AD38/AD40. The
+[visual/engine fold](research/proto23/ENGINE_AND_UI_DETAIL_CONNECTIONS_2026-10-20.md#plan-fold-and-further-interactions-2026-10-20)
+retains SBS1–SBS16, CUI1–CUI5 and PFE01/PFE12–PFE15/PFE21/PFE25–PFE30.
+The [thematic owner](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#reference-ui-and-engine-fold-2026-10-20-color-detail-and-continuity)
+owns RUC color/typography roles; ordinary small-scene motion remains distinct
+from large earned fourth-wall effects.
+
+| Connection | Further playful possibility, original proposal | Default, dial and cost |
+|---|---|---|
+| PFE01/PFE21 | A nicked axe gives one dry snap, repaired metal gets one crisp accent, the old target's dust settles before the new target appears | Derive from the actual occurrence and subject lifetime. Cosmetic variant selection is stable/presentation-local; no gameplay RNG draw or delayed reward. Material vocabulary depends on sensed/known properties. Cost: a small coherent event vocabulary. |
+| PFE25 | A handless traveler uses a different support, or flies past the old cliff with a carefully level cup of tea | Stage the actual method/body, including bypass. Pose and tone are dials, not reasons to disable a power or make every actor humanoid. Cost: a few supported method variants for the selected scene. |
+| PFE26 | Someone who actually saw the muddy landing later offers a dry towel with a perfectly straight face | Use a witnessed/heard cause and the right speaker. The player's private event does not give every NPC knowledge. Let the callback settle or evolve after its cause ends. Cost: one useful local memory, if not already present. |
+| PFE27 | A cat selects the warm patch, watches a falling pebble or relocates after a real object moves | A flourish can remain transient. If movement actually changes access, heat or custody, the actor/process owner must settle that consequence; a cute pose does not secretly destroy supplies. Cost grows only with the real consequence selected. |
+| PFE28/PFE29 | A repaired seam remains recognizable; an expert's routine becomes a short confident motion, with unusual breaks still getting a clear beat | Derive marks and shorthand from real history/capability; distinguish familiar routine from an exceptional outcome. Sound/effects/seriousness are dials. Cost: authored variants and a few meaningful boundaries, not a new biography ledger. |
+
+**ACT NOW (done):** folded local reactions, physical scenes, ordinary life,
+patina, audience and competence into this palette. **ACCOUNT FOR NOW:** quiet
+mode keeps the useful outcome; return does not replay missed effects; changing
+theme cannot change a result; commands keep their place and gesture subject.
+**LATER / DELEGATE:** CRJ5–CRJ7/PFB3–PFB5/CUI4 retain their existing triggers;
+Sol low/medium for body/voice/lifecycle, Luna low for a settled visual leaf,
+small/medium for one selected event/scene. Done: actual/native event binding,
+static/reduced presentation, no old pulse on a new subject and separate human
+tone review at the desktop targets. No animation, audio or scene implemented here.

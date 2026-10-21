@@ -1,5 +1,6 @@
 // Original cosmetic directions. No world, actor or command authority.
 export const COMPONENT_THEMES = {
+    luminous: {label: 'Luminous Gothic', radius: 'var(--ui-radius)', heading: 'var(--ui-font-gothic)'},
     neutral: {label: 'Neutral', background: '#202a32', text: '#f1f4f5', accent: '#a9c8bd', radius: 'var(--ui-radius)', heading: 'var(--ui-font)'},
     arcane: {label: 'Arcane', background: '#292637', text: '#f4f0e7', accent: '#e1c783', radius: 'var(--ui-radius)', heading: 'var(--ui-font)'},
     workshop: {label: 'Workshop', background: '#302b25', text: '#f4eee2', accent: '#ddbb88', radius: 'var(--ui-radius)', heading: 'var(--ui-font)'}

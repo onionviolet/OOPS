@@ -13,8 +13,8 @@ Player-facing UI also follows [UI rules](docs/UI_RULES.md) (2026-10-15): declare
 a surface type and home, use shared tokens and components, own your node, open
 center views through the shared controller with a bottom back bar and Esc, keep
 the log column intact, give features in-world logic, and check discoverability
-on a populated save at the 1920×1080 primary target and the 1366×768 floor
-(viewport targets in UI_RULES, 2026-10-17). Choose the appropriate panel/navigation scope;
+on a populated save at the 1920×1080 primary target
+(viewport targets in UI_RULES, 2026-10-17; the 1366×768 floor was retired 2026-10-19). Choose the appropriate panel/navigation scope;
 not every view opens in the lower center. Follow UR41–UR49 for disclosure,
 hover/pinned inspection, clean logs/hierarchy and faithful reference evidence.
 Lane briefs that touch UI link that file.

@@ -57,3 +57,7 @@ The proposal/runtime distinction holds across the pack: no file claims accepted 
 5. **Supported missed rules added for later design triage.** Recovery methods retain distinct fatal-wound and tissue-reassembly outcomes; Ki coverage distinguishes Zetten and Tengentsu; spirit coverage includes departure, host succession, refusal to return, lineage transfer and grimoire access. These do not expand the first playable slice. Files: `SYNTHESIS.md`, `ABILITY_VARIANTS.md`, `MODULE_CATALOGUE.md`, `INTERACTIONS.md`.
 
 No review fix or supported addition was declined. Payloads were reopened from the cited manifest `read_file` entries; claims remain bounded to the dated secondary wiki snapshot. No runtime, gameplay, build or source-authentication claim is made.
+
+## 2026-10-20 packet detail pass
+
+Updated the implementation packet's target viewport to the current desktop requirement (1920×1080 primary, 1536×864 floor), separated new-state roundtrip from deferred old-save migration, and added WG17's bounded pre-spell mana signal/social response as a selected-slice proposal. Broader mana institutions and threat ecology remain later depth. Exact frozen payload locators for selected spell/ceremony/mana details remain a preimplementation question; no truth was filled from memory. See [L3 audit](../../audits/world_pack_details_2026-10-20/L3.md).

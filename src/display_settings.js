@@ -17,12 +17,18 @@ export const DISPLAY_SETTINGS = [
         description: 'Also shows the float for charges you did not click, such as upkeep or rent.'},
     {key: 'newDot', label: 'New-item dot', options: [['on', 'On'], ['off', 'Off']], fallback: 'on',
         description: 'Marks newly acquired inventory rows until you hover or focus them.'},
+    {key: 'combatRepeatMode', label: 'Combat reports', options: [['stack', 'Stack repeats'], ['detailed', 'Detailed']], fallback: 'stack',
+        description: 'Applies to new reports. Existing groups stay grouped. Stacked totals are exact; only the latest 100 game HH:MM labels per group are kept, with original opponent labels. Filters hide retained lines; Stop skips new reports. Pruned or stopped reports cannot be recovered.'},
+    {key: 'lootReports', label: 'Loot reports', options: [['all', 'All retained loot'], ['summaries', 'Gathering totals only'], ['off', 'Hide loot']], fallback: 'all',
+        description: 'Filters retained Loot lines without changing items or acquisition records. Gathering totals appear when gathering ends. This does not create a combat digest or recover pruned reports.'},
     {key: 'logFollow', label: 'Log follow', options: [['hold', 'Hold when scrolled up'], ['always', 'Always jump to newest']], fallback: 'hold',
         description: 'Whether new log lines move the log while you are reading older lines.'},
     {key: 'vitalsValue', label: 'Vitals value text', options: [['inside', 'Inside bar'], ['beside', 'Beside bar']], fallback: 'inside',
         description: 'Where the numbers for health, stamina, mana and experience sit.'},
     {key: 'vitalsLevel', label: 'Vitals level', options: [['show', 'Show'], ['hide', 'Hide']], fallback: 'show',
         description: 'Shows your level next to your name in the vitals panel.'},
+    {key: 'contrast', label: 'Contrast', options: [['normal', 'Normal'], ['high', 'High']], fallback: 'normal',
+        description: 'High contrast: black panels, white text and bright accents on every panel, over any color scheme or palette. Presentation only.'},
 ];
 export const DISPLAY_COLORS = [
     {key: 'semGain', variable: '--sem-gain', label: 'Gain color', description: 'Color for gains and ready states; empty follows the color scheme.'},
@@ -68,6 +74,8 @@ export function applyDisplaySettings() {
     if (typeof document === 'undefined') return;
     const root = document.documentElement;
     root.dataset.displayReveal = current.reveal; root.dataset.displayVitalsValue = current.vitalsValue; root.dataset.displayVitalsLevel = current.vitalsLevel;
+    root.dataset.displayContrast = current.contrast;
+    root.dataset.displayLoot = current.lootReports;
     for (const c of DISPLAY_COLORS) { if (current[c.key]) root.style.setProperty(c.variable, current[c.key]); else root.style.removeProperty(c.variable); }
 }
 function commit(next, {store = true} = {}) {
@@ -76,7 +84,17 @@ function commit(next, {store = true} = {}) {
     applyDisplaySettings();
     for (const fn of listeners) { try { fn(getDisplaySettings()); } catch { /* one listener cannot block the rest */ } }
 }
-export function setDisplaySettings(patch) { commit({...current, ...patch}); }
+export function setDisplaySettings(patch) {
+    // Persist touched keys, not every normalized default. Automatic panel metadata
+    // must not claim unrelated browser choices before an imported save adopts them.
+    let stored = {};
+    try { const raw = JSON.parse(localStorage.getItem(DISPLAY_KEY) || '{}'); if(raw && typeof raw === 'object' && !Array.isArray(raw)) stored = raw; } catch { /* session only */ }
+    const next = normalizeDisplaySettings({...current, ...patch});
+    const keys = new Set([...Object.keys(stored), ...Object.keys(patch)]);
+    const sparse = Object.fromEntries([...keys].filter(key => Object.hasOwn(next, key)).map(key => [key, next[key]]));
+    try { localStorage.setItem(DISPLAY_KEY, JSON.stringify(sparse)); } catch { /* session only */ }
+    commit(next, {store: false});
+}
 // Import replaces every display setting; missing keys fall back to defaults.
 export function replaceDisplaySettings(all) { commit(all); }
 export function resetDisplaySettings() { try { localStorage.removeItem(DISPLAY_KEY); } catch { /* ignore */ } commit(DISPLAY_DEFAULTS, {store: false}); }

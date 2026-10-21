@@ -23,8 +23,7 @@ export function recipeMakeableNow({recipe, stationTier, inventory, itemTemplates
         // Native material choices require the known material's exact inventory key.
         return recipe.materials.some(material => {
             if(!isMaterialKnown(material.material_id)) return false;
-            const key = itemTemplates[material.material_id]?.getInventoryKey();
-            return key && inventory[key]?.count >= material.count && canConsume(key);
+            return Object.entries(inventory).some(([key,entry]) => entry.item.id === material.material_id && entry.count >= material.count && canConsume(key));
         });
     }
 
@@ -43,14 +42,17 @@ export function itemRecipeStatus({recipe, stationTier, findMaterial, isMaterialK
         // get_availability() stops after the first short material; later rows use the same lookup.
         const found = availability.materials[i] || findMaterial({material, needed_count: material.count});
         const known = material.material_type ? true : isMaterialKnown(material.material_id);
-        const held_back = found.count >= material.count && !found.items.every(entry => canConsume(entry.item.getInventoryKey()));
-        return {material, have: found.count, need: material.count, missing: found.count < material.count, known, held_back, items: found.items};
+        const need = found.need ?? material.count;
+        const owned = found.items.reduce((n,entry)=>n+entry.count,0), usable = found.items.reduce((n,entry)=>n+(canConsume(entry.item.getInventoryKey())?entry.count:0),0);
+        const blocked = Math.max(0,owned-usable), held_back = found.count >= need && blocked > 0;
+        return {material, have: found.count, owned, usable, blocked, stockKnown: true, need, missing: found.count < need, known, held_back, items: found.items, heat: found.heat};
     });
     const reasons = [];
     if(!recipe.isUnlocked()) reasons.push('not learned');
     if(!(stationTier > 0)) reasons.push('no station here');
     const missing = requirements.filter(r => r.missing);
-    if(missing.length) reasons.push(`missing ${missing.length} material${missing.length > 1 ? 's' : ''}`);
+    for(const r of missing) if(r.heat && !r.heat.ok) reasons.push(r.heat.reason);
+    if(missing.some(r => !(r.heat && !r.heat.ok))) reasons.push(`missing ${missing.length} material${missing.length > 1 ? 's' : ''}`);
     if(requirements.some(r => r.held_back)) reasons.push('a material is reserved or you are busy');
     const available = !reasons.length && availability.available_ammount > 0;
     return {available, amount: available ? availability.available_ammount : 0, requirements, reasons, availability};

@@ -8,7 +8,7 @@ Task: locate a curse or person inside an authored site while keeping the observe
 
 | Route | Lower | Developed | Mature | Actual limit |
 |---|---|---|---|---|
-| P Witness trace | Interview one person and mark what they saw | Compare timestamps, route and conflicting testimony | Fund several independent leads and expose a false report | A witness cannot see what they cannot perceive. |
+| P Witness trace | Interview one person and mark what they saw | Compare timestamps, route and conflicting testimony | Fund several independent leads and expose a false report | Direct identification needs a fitting faculty; indirect traces can support an inference, with its basis and uncertainty retained. |
 | P Energy perception | Sense one supported presence/residual | Distinguish a known signal from environmental noise | Conceal/reveal a signature under a defined counter-test | Energy amount is not identity or intent; physical-only actors can confound the signal. `W` Heavenly Restriction r79234: a fully zero-energy body can perceive curses through heightened physical senses while evading cursed-energy detection. Keep this exceptional sensory route separate from energy sensing and physical barrier interaction. |
 | P Barrier survey | Observe one boundary and test a permitted object/actor | Infer target predicate through safe controlled probes | Map layered boundary, entry state and exits | A barrier rule may ignore buildings and track energy-bearing people; case and revision apply. |
 | P Innate tracking method | Execute one actual source method in its valid scope | Improve control and evidence retention | Outperform ordinary survey inside its authored mechanism | No global tracking is granted by a technique label. |

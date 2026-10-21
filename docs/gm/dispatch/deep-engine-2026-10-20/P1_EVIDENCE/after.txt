@@ -1,0 +1,20 @@
+{
+  "bare": {
+    "kind": "hit",
+    "values": [
+      200
+    ],
+    "critted": true,
+    "partiallyBlocked": false,
+    "damage": 200
+  },
+  "equipped": {
+    "kind": "hit",
+    "values": [
+      100
+    ],
+    "critted": false,
+    "partiallyBlocked": false,
+    "damage": 50
+  }
+}

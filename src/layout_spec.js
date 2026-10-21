@@ -81,7 +81,7 @@ export const LAYOUT_SPEC = Object.freeze({
     // layout signal, registered by the journey's owner) and `centerTasks` (the open center view, as
     // center_modes.js publishes it in data-center-task). Defaults are proposals: travel keeps the
     // Journal (its notes carry the journey); service recommends none, because the view needs the
-    // room at the 1366×768 floor, and a Journal the player places there shows as a strip.
+    // room, and a Journal the player places there shows as a strip.
     contexts: Object.freeze({
         idle: Object.freeze({label: 'idle', companions: Object.freeze(['records'])}),
         combat: Object.freeze({label: 'fight', when: Object.freeze({combat: true}), companions: Object.freeze(['opponents', 'skills'])}),
@@ -173,6 +173,16 @@ export const LAYOUT_SPEC = Object.freeze({
         'customization-preview': surface(UNSET),
         'customization-rules': surface(UNSET),
         'customization-sites': surface(UNSET),
+        // Round 12 (2026-10-19, proposals): reference sections that read existing state. Opened from
+        // More panels or the command palette; none adds a route, so the navigation bar keeps its size.
+        'known-things': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['knowledge'], contexts: ['idle', 'travel', 'service']}),
+        'statistics': surface('ST6', {home: 'Reference dock; Journal companion space', frequency: 'occasional', status: 'proposal', reads: ['work', 'combat', 'inventory'], contexts: ['idle', 'travel', 'service']}),
+        'today': surface('ST5', {home: 'Beside the actions; Journal companion space', frequency: 'frequent', status: 'proposal', reads: ['time', 'place', 'work'], contexts: ['idle', 'travel']}),
+        'around-place': surface('ST6', {home: 'Reference dock; session return and completed work notes', frequency: 'occasional', status: 'proposal', reads: ['place', 'inventory', 'knowledge', 'work'], contexts: ['idle', 'travel', 'service']}),
+        'carcass-processing': surface('ST4', {home:'Place services; native processing owner',frequency:'frequent',status:'proposal',reads:['inventory','work','place'],contexts:['idle','service']}),
+        'region-view': surface('ST2', {home: 'Beside the actions; keeper is the road itself', frequency: 'frequent', status: 'proposal', reads: ['place'], contexts: ['idle', 'travel']}),
+        'companions': surface('ST6', {home: 'Side column beside You', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
+        'loadouts': surface('ST4', {home: 'Beside Inventory', frequency: 'occasional', status: 'proposal', reads: ['inventory'], contexts: ['idle', 'service']}),
     }),
     // Center views that are not workspace panels; each opens through its own owner.
     views: Object.freeze({

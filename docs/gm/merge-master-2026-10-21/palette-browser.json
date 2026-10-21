@@ -1,0 +1,103 @@
+{
+  "checks": [
+    "Paused finite target and current work exact Save/reload/Export/literal Import",
+    "Known native Butchering level increase produces its authored steady-hands response",
+    "Completed finite target and actual cross-cycle output tally exact Save/reload/Export/literal Import",
+    "Unequal native work allocation and discrete finite target use actual native completions; exact target stops with a carcass left",
+    "Native dialogue tool acquisition, gathering learning, market purchase and craft succeed in the shared village route; access and ore are fixture patches",
+    "Actual native rest restores missing health with no capacity-growth inference",
+    "Native two-holder chest deposit and withdraw conserve the exact key; paused-load household controls are immediately enabled",
+    "Actual departure/return renders a stale health observation with previous-visit provenance",
+    "Native combat inspection binds an occurrence; departure removes its live opponent controls",
+    "Actual 14px and 21px desktop interactions retain document width at 1920 and 1536"
+  ],
+  "setup": "Disposable fixtures only; finite body/skill/access inputs are explicitly seeded. Native UI actions and shared village route; natural whole-campaign progression and human acceptance not claimed.",
+  "missing": [
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json"
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ]
+}

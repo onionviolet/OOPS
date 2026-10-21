@@ -58,3 +58,20 @@ Proposed shared design test: an ordinary skill reveals or enables a technique; t
 [Broader text-first RPG inspiration](RESEARCH_IDLE_GAMES.md#broader-inspiration-for-a-text-first-rpg-2026-10-02) extends A Dark Room/Level 13 comparisons with Candy Box 2, Sunless Sea, Fallen London, Roadwarden, Wildermyth, Cultist Simulator, Book of Hours and Outer Wilds. Primary evidence and five connected design lenses stay in that research owner; inclusion is a proposal for useful mechanics, not a confirmed favorite list or implemented feature.
 
 [Features from similar games and beyond](RESEARCH_IDLE_GAMES.md#features-from-similar-games-and-beyond-2026-10-02) adds a primary-source comparison of thirteen game lineages and five original feature families. New closer/structural references are Lootun, Level 13 and Progress Knight; new adjacent references are Kenshi, Caves of Qud, Noita and Amazing Cultivation Simulator. Their detailed evidence, examples, costs and engine dependencies stay in that existing research owner. The proposed priorities are a technique/equipment counter, a bestiary clue, one targeted craft, a funded peer response and a saved preparation plan. These refine the accepted research direction; no new game is designated a favorite, no mechanic is selected for implementation and no gameplay was added.
+
+## Brushsworn, 2026-10-20 (itch page only, proposals)
+
+[Brushsworn](https://stonebell.itch.io/brushsworn) (stonebell, free HTML5 early test build; survivors-like roguelite with idle elements). Evidence is the itch description read 2026-10-20; the game was not played, so mechanics below are as described by its developer. Its combat loop (bullet-heaven) and calligraphy theme do not fit the life-sim core; the structural ideas do. Each is a palette item, not a selected feature.
+
+| Code | Idea | Source detail | Fit for us (default, dial, reason) |
+|---|---|---|---|
+| BS1 | Recipe discovery by combining parts | Collected radicals merge into characters; 15 characters, 7 with hidden recipes; a "look up what a character does" view is planned by the developer | Strongest fit. Parts (materials, tags, techniques) combine by their mechanisms (AD38), with no permission list. Default: unknown results show as silhouettes in the known-things view and fill in on first success. Dial per world: how many recipes are hidden and whether a reference lookup exists. Reason: discovery versus reference is the tension the developer is also working through |
+| BS2 | Collection wall with permanent payout | Stele Wall records every character written; completing a slab grants a permanent bonus | Codex-to-progression link. Default: first sight or first craft fills a slot; a complete set gives a small passive. Dial: set size, bonus size, whether sets are per world or shared. Cheap to add on any discovery loop |
+| BS3 | Auto mode unlocked after a few runs | Plays, dodges and picks upgrades itself, and keeps exploring while away; the player returns and spends the gains | Matches the idle contract. Default: unlock after N completed runs or lives, yield reported on return. Dials: N, away-yield rate, risk while away. Ties to observer-safe idle stops (G26-G32) |
+| BS4 | Per-run keepsake | Each run exports as one calligraphy piece showing its special characters | Weibao is the only player, so sharing is moot; a rendered chronicle card per life or run that shows its signature moments is the useful part. Later, low priority |
+| BS5 | Build state drives the soundtrack | Each technique adds an instrument to a live folk ensemble | Audible progress. Later polish only; no audio system is implied |
+| BS6 | Distinct look from code-drawn art | Strokes, washes and glyphs are procedural; music is synthesized | Evidence that a world-specific skin needs no asset pipeline. Desktop-first UI only (standing UI priority) |
+
+Not taken: the survivors-style combat loop, the Chinese calligraphy theme as a core default (it could suit one world), and any claim the design is proven (early test build).
+
+Suggested order if pursued: BS1 and BS2 together (one discovery mechanism plus its collection reward), then BS3 as a per-world dial. No gameplay changed.

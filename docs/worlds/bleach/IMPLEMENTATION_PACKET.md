@@ -1,9 +1,11 @@
 # Proposed staged proof: Bleach street record and qualified-report proof
 
-Status: design packet r1, 2026-10-03. Prepared with [implementer template](../../GAME_IMPLEMENTER_TEMPLATE.md); no worker or runtime writes dispatched.
+Status: design packet r2, 2026-10-20. This audit updates desktop viewport and save-policy language; it grants no worker or runtime write authorization. Prepared with [implementer template](../../GAME_IMPLEMENTER_TEMPLATE.md).
 [CAMPAIGN](CAMPAIGN.md) owns fiction, [brief](WORLD_BRIEF.md) owns entry/checkpoint, [modules](MODULE_CATALOGUE.md) owns local stages and [ledger](SOURCE_LEDGER.md) owns canon.
 
 ## Filled bounded packet
+
+- **Target viewport:** 1920×1080 primary; 1536×864 is the smallest supported desktop/laptop floor. The visible proof is the two-route shelter manifest with route costs, report provenance, parcel custody and accept/refuse actions readable together. Mobile optimization is deferred.
 
 ```text
 OUTCOME: Deliver one shelter manifest through ordinary repair/detour or a paid qualified spiritual survey, retaining different costs and observer knowledge, then enter/return/reload the isolated instance.
@@ -34,8 +36,8 @@ RETURN: Actual paths, input hashes, exact tests/steps/results, source limits,
 
 | Stage | Bounded delivery and gate |
 |---|---|
-| 0. Shared native/save contract | Master integrator binds independent destination/home state, scoped IDs, manifest revision, local item/currency publication, valid return and absent-instance clock. Old saves retain their current world/progress without enrollment or rewards. |
-| 1. Opening proof | The exact two-route loop below plus one refusal/default fixture and full enter/return/reload/import on rebuilt source. |
+| 0. Shared native/save contract | Master integrator binds independent destination/home state, scoped IDs, manifest revision, local item/currency publication, valid return and absent-instance clock. Old-save migration/compatibility follows the current deferral policy; do not assume legacy enrollment, reward or preservation behavior. Record whether the selected fields change the current schema and apply the existing old-save deferral; no additional migration decision is needed when that policy already resolves the task. |
+| 1. Opening proof | The exact two-route loop below plus one refusal/default fixture and current-format Save/reload/Export/Import roundtrip on rebuilt source for every added state. |
 | 2. Local relief and eligible careers | Connect actual shelter, study contact and workshop; civilian and genuinely eligible source fixtures follow distinct prerequisites. |
 | 3. Personal source versus tools | Implement one sourced blade/control or instrument family, binding soul/body, source/relationship, targeting, actual inputs and condition separately. No manufactured Bankai. |
 | 4. Cross-domain branch and threat | Only after selected body/cargo passage adapter: independent era/public-private office consequences, fixed threats and explicit terminal/revival/retention policy. |
@@ -72,6 +74,8 @@ Author truth remains actual local state/controller definitions; each observer's 
 **Useful local export:** Paid ordinary instrument-housing or archive preservation work at Frontier using real materials/knowledge/native item bindings. The report retains provenance; personal source releases and jurisdiction do not become generic portable recipes.
 
 **Missing local/runtime capabilities:** Native instance/clock/item/currency isolation; exact body/source eligibility and supported observation projection; spiritual perception/contact separate from physical targeting; later soul/body travel and material custody, source-bound release development, qualified reserve, instruments and general spiritual combat.
+
+Ambient output/bystander signatures are a conditional interaction lead, not a first-proof requirement: include one only if a selected spiritual action has a supported observable output or residue in this local scene. No general bystander-awareness simulator is implied.
 
 
 Entry/return preserves actual body, wounds, methods, sources/reserves and named cargo. The first fixture keeps companions home until consent/body/cargo support is implemented.

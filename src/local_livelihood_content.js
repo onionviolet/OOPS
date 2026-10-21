@@ -1,4 +1,6 @@
 // Original, opt-in district. Uses existing structured origins and native jobs.
+import {compileStructuredAbilities} from './structured_ability_runtime.js';
+import {compileClaims, claimEffects} from './claim_runtime.js';
 import {eq} from './basics.js';
 export const LIVELIHOOD_PACK_ID = 'reedbank';
 const P = LIVELIHOOD_PACK_ID;
@@ -46,6 +48,19 @@ export function createLocalLivelihoodContent() {
             note(`${type}_used`,type==='basket'?'My basket is back on the bread round.':'The braced crate holds my bread loads square.',customer)],
         description:'Deliver the actual repaired item. Sella’s own eight-coin repair fund pays each delivery once. Restoring this life never repays it.',
     });
+    // A1/A2 native consumers (QR2). Proposal: Mara's joinery is a held method; its
+    // brace pegs are finite and refit only once empty, at the bench, and use leaves
+    // sore fingers. Two remembered claims name what they depend on.
+    const claimDefinition={id:P,world:{id:'reedbank.district'},claims:[
+        {id:`${P}.crate_pay`,about:'Sella’s crate pays four coins to me when I deliver it.',means:'report',precision:'exact',dependsOn:[eq('actor.reedbank.joint',false)]},
+        {id:`${P}.offer_open_ended`,about:'Sella will keep paying two coins a fitting for as long as I bring them.',means:'report',precision:'gist',dependsOn:[],
+            hypothesis:{refutedBy:`world.${P}.offer_is_finite`,test:{label:'Ask Sella how many more fittings her fund covers',requires:eq('actor.reedbank.offer')},
+                refuted:'Sella’s standing fund is finite; it covers a few more fittings and she will say when it is spent.',supported:'Sella says the fund has no fixed end.'}}]};
+    const claims=compileClaims(claimDefinition);
+    const sources=[{id:`${P}.joinery`,revision:1,kind:'technique',label:'Braced joinery',grants:[]}];
+    const abilities=[{id:`${P}.joinery_fitting`,commandId:`${P}.routine`,sourceId:`${P}.joinery`,function:'craft',acquisition:'learned',executionKind:'ordinary-technique',control:eq('actor.reedbank.access'),counters:[],carriers:[],
+        conditions:[{id:`${P}.brace_pegs`,charges:{max:2,recharge:{when:'empty',label:'Refit the brace pegs with Mara',requires:bench()}},
+            price:[flag('pegs_sore'),note('pegs_sore','The brace pegs leave your fingertips sore. Refitting a fresh set with Mara does not undo that.')]}]}];
     const crateRequires=all(bench(),method());
     const commands=[
         command('access','Buy kit and bench access · 2 coins',{
@@ -65,12 +80,12 @@ export function createLocalLivelihoodContent() {
             targetId:customer,coLocated:true,requires:all(bench(),eq('knowledge.reedbank.basket_terms.understood'),eq('actor.reedbank.basket_delivered',false)),costs:[give('basket_worn',customer,'player')],
         }),
         finishDelivery('basket'),
-        job('learn','Learn braced joinery from Mara · 2 coins · 2 min',2,all(bench(),eq('actor.reedbank.basket_delivered'),readyMara()),[money(-2)],[coins(mara,2),note('bracing','Mara taught you to seat and fasten a diagonal brace. You can now repair rigid crates, using your own kit and the holding jig.')],{
+        job('learn','Learn braced joinery from Mara · 2 coins · 2 min',2,all(bench(),eq('actor.reedbank.basket_delivered'),readyMara()),[money(-2)],[coins(mara,2),note('bracing','Mara taught you to seat and fasten a diagonal brace. You can now repair rigid crates, using your own kit and the holding jig.'),{type:'source',sourceId:`${P}.joinery`,operation:'grant',origin:'trained',awakened:true,active:true}],{
             once:true,targetId:mara,coLocated:true,participants:['$target'],description:'Practice the arrangement at the jig with Mara. A simple basket repair cannot stabilize a loaded rigid crate. Cancellation refunds the two coins and grants no method.',
         }),
         command('take_crate','Accept Sella’s crate repair · 4 coins on delivery',{
             once:true,targetId:customer,coLocated:true,participants:['$target'],requires:all(bench(),eq('actor.reedbank.basket_delivered')),
-            costs:[give('crate_worn',customer,'player')],effects:[note('crate_terms','Sella entrusted you with her loose crate. Braced joinery is required. Repair it personally for four coins, or agree to share one delivery coin with Mara for her own brace work.')],
+            costs:[give('crate_worn',customer,'player')],effects:[note('crate_terms','Sella entrusted you with her loose crate. Braced joinery is required. Repair it personally for four coins, or agree to share one delivery coin with Mara for her own brace work.'),...claimEffects(claims,`${P}.crate_pay`)],
         }),
         job('repair_crate','Brace the crate yourself · 1 offcut · 3 min',3,crateRequires,[item('crate_worn',-1),item('wood',-1)],repaired('crate')),
         job('joint_crate','Agree to repair with Mara · 1 coin of delivery pay · 2 min',2,all(crateRequires,readyMara(),gte('target.resource.attention',1,'Mara has no spare work period left.')),
@@ -83,7 +98,7 @@ export function createLocalLivelihoodContent() {
         job('return','Return to the repair stall · 1 min',1,support(),[],[{type:'relocate',location:shop}],{location:lane}),
         command('remember','Talk to Sella about your earlier repairs',{
             once:true,targetId:customer,coLocated:true,requires:all(support(),eq('actor.reedbank.left'),eq('actor.reedbank.basket_delivered'),eq('actor.reedbank.crate_delivered')),
-            effects:[flag('offer'),note('later','Sella’s repaired basket and braced crate are still on her bread round. Because you delivered both, she offers you the next three small fittings at two coins each. This standing offer comes from those deliveries, not a fresh introduction.'),{type:'relationship',target:customer,axis:'trust',amount:1}],
+            effects:[flag('offer'),...claimEffects(claims,`${P}.offer_open_ended`),note('later','Sella’s repaired basket and braced crate are still on her bread round. Because you delivered both, she offers you the next three small fittings at two coins each. This standing offer comes from those deliveries, not a fresh introduction.'),{type:'relationship',target:customer,axis:'trust',amount:1}],
         }),
         job('routine','Make and deliver a bread-basket fitting · 1 offcut · 2 coins · 2 min',2,all(bench(),method(),eq('actor.reedbank.offer')),
             [item('wood',-1),{type:'resource',actor:customer,key:'repeat_fund',amount:-2}],
@@ -92,12 +107,16 @@ export function createLocalLivelihoodContent() {
             targetId:mara,coLocated:true,requires:bench(),costs:[money(-1),give('wood',mara,'player')],effects:[coins(mara,1)],description:'Buy only actual remaining stock. Mara’s joint repair also uses this offcut, so buying it first can leave her unable to contribute.',
         }),
     ];
+    // Starting charges and hidden truths are explicit initialization, not onEnroll.
+    initial.push(...compileStructuredAbilities({id:P,world:claimDefinition.world,sources,abilities,simulation:{commands,powers:[]}}).seeds,
+        {type:'fact',scope:'world',key:`${P}.offer_is_finite`,value:1});
     return {schema:2,id:P,revision:1,title:'A livelihood in Reedbank',description:'Optional original local life: repair Sella’s bread carriers at Mara’s stall. Begin selects one of two adult human starts, with one or two usable hands; both can use the holding jig. Your native name, gender, belongings and earlier progress remain in this save. No combat or Frontier campaign is required. This finite district has local walks and continuing repair work; it currently has no route back to Village. Closing the browser pauses its played clock.',compatibility:{legacy:'preserve-dormant',origin:'mandatory'},admission:{forms:['human'],lifeStages:['adult']},capabilities:['native-stock','jobs'],
         world:{id:'reedbank.district',label:'Reedbank district'},
         locations:[{id:shop,label:'Reedbank repair stall',description:'Mara’s covered bench and holding jig face Sella’s bread stand.',underRoof:true},{id:lane,label:'Reedbank lane',description:'A quiet lane beside the bread round. Return when you want to work or speak with Sella.',underRoof:true}],
         items:[{id:'reedbank.coat',label:'Reedbank work coat',description:'Your ordinary work coat, usable with either hand arrangement.',value:1,equipment:{slot:'torso',baseDefense:2,weight:1,layer:1,coverage:{chest:1,back:1},forms:['human']}},
             ...[['kit','Repair kit','A needle, small knife and fastening tools.'],['wood','Repair offcut','One actual offcut for a brace or fitting.'],['basket_worn','Sella’s split basket','A bread basket entrusted for repair.'],['basket_fixed','Sella’s repaired basket','Your repair returns it to Sella’s bread round.'],['crate_worn','Sella’s loose crate','A loaded crate needs braced joinery.'],['crate_fixed','Sella’s braced crate','A rigid crate repaired using a diagonal brace.'],['fitting','Bread-basket fitting','A useful fitting delivered on the standing repair agreement.']].map(([name,label,description])=>({id:`${P}.${name}`,label,description,value:1}))],
         starts:[2,1].map(hands=>({id:`${P}.${hands===2?'paired':'single'}_start`,locationId:shop,description:`You begin an adult local life with ${hands===2?'two usable hands':'one usable hand'}. The holding jig supports your repair work. Buy access or walk along the lane; work is optional.`,body:{id:'reedbank.player.body',ownerId:'player',controllerId:'player',form:'human',lifeStage:'adult',hands,mobile:true},effects:structuredClone(initial)})),
+        sources,abilities,claims:claimDefinition.claims,
         simulation:{people:[{id:mara,label:'Mara',resources:{coins:0,attention:1}},{id:customer,label:'Sella',resources:{coins:8,repeat_fund:6}}].map(p=>({...p,revision:1,worldId:'reedbank.district',location:shop,inventory:'simulation',provision:false,body:{form:'human',lifeStage:'adult',hands:2,mobile:true},vitals:{health:10,max_health:10,stamina:10,max_stamina:10}})),commands},
         presentation:{people:{[mara]:{introductionKnowledgeKey:'reedbank.mara.met'},[customer]:{introductionKnowledgeKey:'reedbank.sella.met'}},status:['opening','access','basket_terms','basket_receipt','bracing','crate_terms','joint_work','crate_receipt','lane','later','routine'].map(name=>({id:`${P}.${name}_status`,label:({bracing:'Your method',later:'A later opportunity',joint_work:'Mara’s contribution'})[name]||name.replaceAll('_',' '),knowledgeKey:`${P}.${name}`}))},
     };

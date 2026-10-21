@@ -1,0 +1,10 @@
+{
+  "head": "b0af7db5bd21770ca603fdf1e7b865b376f46857",
+  "stage": "bounded preparation only; not implementation inputs",
+  "hashes": {
+    "src/tools_domain.js": "2b13e8f0ea57cfd5e8c0c9ee2278eb113010907e5183b7220a59d97b4c857144",
+    "src/absorb_e2/durability.js": "0ee0451536f8d43cdcf68534fb6fd14754a679247bfa42b4c6902c504cbb3da3",
+    "src/native_craft_transaction.js": "df314bdbde04ad3a5f413e9ff2d6bb5f323a6f444b430f8dc5921a3df2c898f5",
+    "tests/tools_domain.test.js": "dd8391fa26c36b3eab65006514ff09171ac3c4a11fe41484e30f6f0e501da471"
+  }
+}

@@ -61,3 +61,10 @@ footprint vs canon, starts SRP1-SRP32, AUs ARP1-ARP10, first slice and gates),
 (chronological catalog, mission engine shape, overlaps, N18 mission bodies) and
 [hub life, economy and people](HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md).
 The delivered footprint above stays as recorded.
+
+
+## Detail audit and source-routing correction, 2026-10-20
+
+WPD-R3, ACCOUNT FOR NOW: keep the original Exchange/nested footprint, retained first-Goa branch and newer canon-priority plan distinct. Their existing deliveries do not require relaunching source reading; none closes a whole-world play gate. WG3's information trade is a proposal: a report has an observer, observation time, represented instance, verification basis and a buyer's actual means. An old report need not become false merely because wall time passed; freshness follows what that instance actually did under its absence policy.
+
+Before a selected information-sale extension: bind one attributed report and one funded buyer to existing knowledge, custody, money and settlement owners. A purchased account is not certified truth or automatic access. Level/effort: Luna low for exact record mapping, coordinator medium for publication/clock joins. Done check: the same report sold under declared terms has no duplicate payment on reload, and any changed valuation cites an actual change/evidence. General news markets and independently simulating absent worlds remain later depth. Existing campaign acceptance stays with its linked backlog.

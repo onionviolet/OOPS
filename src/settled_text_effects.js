@@ -1,6 +1,19 @@
 import {validatePresentationSettings} from './customization_profiles.js';
 import {getDisplaySetting, effectsCap} from './display_settings.js';
 
+export function createReceiptGate(limit = 128) {
+    const seen = new Set();
+    return receipt => {
+        if (!receipt || typeof receipt.text !== 'string') return false;
+        const key = receipt.eventId != null
+            ? `${receipt.actorId || ''}:${receipt.subjectId || ''}:${receipt.eventId}:${receipt.type}`
+            : `${receipt.actorId || ''}:${receipt.sequence}:${receipt.type}:${receipt.text}`;
+        if (seen.has(key)) return false;
+        seen.add(key); if (seen.size > limit) seen.delete(seen.values().next().value);
+        return !globalThis.document?.hidden;
+    };
+}
+
 // Presentation only: callers pass receipts after the authoritative save settles.
 // No simulation, reward, save, or gameplay timer belongs in this module.
 export function createSettledTextEffects({container, readSettings = () => ({})}) {
@@ -9,7 +22,7 @@ export function createSettledTextEffects({container, readSettings = () => ({})})
     overlay.hidden = true;
     overlay.setAttribute('aria-hidden', 'true');
     container.append(overlay);
-    const seen = new Set();
+    const receiptIsVisible = createReceiptGate();
     const motion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
     let animation = null, context = null, oscillator = null;
     let drawings = [], pulse = null, anchor = null, frame = null;
@@ -56,10 +69,9 @@ export function createSettledTextEffects({container, readSettings = () => ({})})
         } catch { /* An unavailable audio device never affects gameplay. */ }
     }
     function present(receipt, target = {}) {
-        if (!receipt || typeof receipt.text !== 'string' || document.hidden) return false;
-        const key = `${receipt.actorId || ''}:${receipt.sequence}:${receipt.type}:${receipt.text}`;
-        if (seen.has(key)) return false;
-        seen.add(key); if (seen.size > 128) seen.delete(seen.values().next().value);
+        // Consume a settled receipt even while the tab is hidden. Returning to
+        // the tab must not replay old sounds or visual cues.
+        if (!receiptIsVisible(receipt)) return false;
         cancel();
         const options = settings();
         if (options.effects === 'off') return false;

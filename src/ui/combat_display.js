@@ -1,3 +1,4 @@
+import {combatSubject} from '../combat_subject.js';
 import {deferSimulationRender} from '../simulation_render.js';
 "use strict";
 
@@ -226,6 +227,11 @@ function update_fighter_stats({fighter_index, is_attacker}) {
     const fighter_div = (is_attacker ? get_current_combat().attackers_ui_slot : get_current_combat().defenders_ui_slot).children[fighter_index];
     const r = fighterReadout(get_current_combat(), {fighter_index, is_attacker}, readoutDeps);
 
+    const subject = combatSubject(get_current_combat(), (is_attacker ? get_current_combat().attackers : get_current_combat().defenders)[fighter_index]);
+    if(fighter_div.dataset.combatSubject && fighter_div.dataset.combatSubject !== subject) {
+        (is_attacker ? attacker_animations : defender_animations)[fighter_index]?.cancel();
+    }
+    fighter_div.dataset.combatSubject = subject;
     fighter_div.children[0].style.display = null;
 
     if(fighter_div.querySelector(".fighter_name")) {
@@ -373,7 +379,8 @@ function update_displayed_health_of_fighter({fighter_index, is_attacker}) {
 }
 
 function update_attack_bar({fighter_index, is_attacker, progress}) {
-    if(deferSimulationRender(`update_attack_bar:${is_attacker}:${fighter_index}`, () => {if(get_current_combat() && !get_current_combat().is_ended && (is_attacker ? get_current_combat().attackers : get_current_combat().defenders)[fighter_index] && (is_attacker ? get_current_combat().attackers_ui_slot : get_current_combat().defenders_ui_slot).children[fighter_index]) update_attack_bar(...arguments);})) return;
+    const combat=get_current_combat(),fighter=(is_attacker?combat?.attackers:combat?.defenders)?.[fighter_index],subject=combatSubject(combat,fighter);
+    if(deferSimulationRender(`update_attack_bar:${subject}`, () => {if(get_current_combat()===combat && !combat.is_ended && (is_attacker?combat.attackers:combat.defenders)[fighter_index]===fighter && (is_attacker?combat.attackers_ui_slot:combat.defenders_ui_slot).children[fighter_index]) update_attack_bar(...arguments);})) return;
     (is_attacker ? get_current_combat().attackers_ui_slot : get_current_combat().defenders_ui_slot)
         .children.item(fighter_index).querySelector("[data-attack_bar]").style.width = `${Math.min(progress*100,100)}%`;
 }

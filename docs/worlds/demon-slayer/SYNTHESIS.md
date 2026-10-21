@@ -85,7 +85,7 @@ M3 was not run, so no fan-premise taxonomy is asserted. These are proposed start
 
 **[PROPOSAL]** Build one Final Selection night at Fujikasane for one eligible entrant start. The player can inspect carried supplies and a local report, then choose to assist an injured entrant, mark the location for later help, avoid the area, or engage a fixed demon. Show changed time, supply, injury, trust and evidence as applicable. Outcome may be incomplete or severe; no guaranteed win or selection pass.
 
-**[PROPOSAL]** This is the smallest slice that makes the world’s core loop visible: preparation, human limits, demon-specific threat, equipment/support, observation and lasting choice. First target is desktop/laptop at 1366×768; mobile optimization is deferred. The [implementation packet](IMPLEMENTATION_PACKET.md) defines rebuild, fresh-origin browser and persistence gates. No such gate has yet been run.
+**[PROPOSAL]** This is the smallest slice that makes the world’s core loop visible: preparation, human limits, demon-specific threat, equipment/support, observation and lasting choice. First target is desktop/laptop at 1920×1080, with 1536×864 as the desktop floor; mobile optimization is deferred. The [implementation packet](IMPLEMENTATION_PACKET.md) defines rebuild, fresh-origin browser and persistence gates. No such gate has yet been run.
 
 ## 9. Gaps that would change the design
 

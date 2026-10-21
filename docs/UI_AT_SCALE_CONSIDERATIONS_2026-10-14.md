@@ -1568,6 +1568,247 @@ already partly true.
 ER11's measurements cover its frozen candidate only. Every runtime claim
 here still needs a rebuilt desktop check on current source.
 
+## Round 11: general UI improvements, more sections and adjacent ideas (2026-10-19)
+
+Weibao: "Ui general improvements, more sections, other stuff and more?"
+(`/more-to-consider`, with the advisor consulted first). Proposals only. Nothing
+here is accepted, no runtime code changed, no new UR codes are registered, and
+the round continues existing codes (next free: SX1, GU1, OT1). Evidence label:
+every item below is inference from the docs and the 2026-10-18 A1/A2 report. No
+claim about the current dirty `dist/` is made; each runtime claim needs a rebuilt
+check at the target viewport. Target: 1920×1080 first, 1366×768 floor, 14px and
+21px text. Mobile stays deferred.
+
+Frame: these refine R14 and the A1/A2 candidate (Weibao's play acceptance still
+pending). They are not a competing layout. "More sections" means more independent
+panels that use laptop width. Local actions stays at the UR3 budget of about
+seven routine entries, so a new section never adds a Local actions entry.
+
+### AJ. More sections (SX)
+
+Default: a section appears only when its system exists and the player has met
+it (reveal by use, per ZN3 and SC1). Dial: how many are docked at once, set by
+width. Reason: at 1366×768 the floor holds roughly the A1/A2 set plus one more.
+
+| Code | Section | UR1 surface type and home | Degrades at 1366×768 | Why now |
+| --- | --- | --- | --- | --- |
+| SX1 | **Known things** (people met, places seen, creatures, recipes, books), one searchable reference with a tab per kind | Reference; right-side reference dock | Becomes a tab inside the existing reference drawer | Knowledge already accrues across worlds; a "bestiary/codex" has no hits in this palette, only scattered journal and search rows |
+| SX2 | **Loadouts** (named gear, tool and routine sets, swap in one action, preview the stat diff) | Quick confirm; beside Inventory | A button on the equipment header opening a popover | Equipment slots exist; swapping by hand is repeated work, and loadout/hotbar has zero rows here |
+| SX3 | **Statistics and records** (time per activity, totals by source and sink, bests, per-world) | Reference; Journal companion space | Collapsed to one line of headline numbers | Idle play invites checking rates; feeds the TP and DP rows without new simulation |
+| SX4 | **Today strip** (clock, next open/close times nearby, active obligations in time order) | Obligations; thin top or bottom band | Same band, fewer chips | Several rounds ask for clocks (TT06, TT07); one strip beats per-panel clocks |
+| SX5 | **Where I am in the world** (small region view of the places connected to here, with travel costs) | Place service; Journal companion or map slot | Hidden behind the existing travel control | Pairs with A2's grouped nearby list; stays a drawer, not a second map UI |
+| SX6 | **Companion roster** (who is with you, what each is doing, one-line state) | Ambient; side column | Chips only | Needed once more than a few residents act on their own |
+
+Home rule: SX1, SX3 and SX5 read existing state and add none. SX2 and SX4 add
+small saved preferences (names, order), which need a save decision (saved, not
+derived) and a migration note before they are built.
+
+### AK. General improvements (GU)
+
+| Code | Improvement | Default, dial, reason |
+| --- | --- | --- |
+| GU1 | **One command palette** (Ctrl/Cmd+K): jump to any panel, place, item or recipe by name | Default: navigate only, mutate nothing. Dial: includes actions the player has already unlocked. Reason: the quickest cure for "where did that go" at scale (OI1 already names it) |
+| GU2 | **Keyboard map shown in place** (a `?` overlay listing the active shortcuts by panel) | Default: read-only list. Reason: shortcuts nobody can find do not exist (AX rows) |
+| GU3 | **Compare on hover** for gear and recipes (current vs candidate, deltas colored by kind-neutral up/down plus a sign, never color alone) | Default: on for equipment; dial: per-item kinds. Reason: A1's compact rows hide stats, so the comparison must live in the preview |
+| GU4 | **Panel memory per viewport class** (remember docked/collapsed/size for 1366 and 1920 separately) | Default: separate stores. Reason: UIL7 sizes saved at 1920 must not break the 1366 floor; needs a version field |
+| GU5 | **Reset this panel's layout** next to every resize or move handle | Default: per-panel reset plus one global reset. Reason: recoverability for the moving menu boxes (FR rows) |
+| GU6 | **Text-size and spacing presets** (14, 17, 21 px with matching row heights) | Default: three presets, not a free slider. Reason: A1/A2 already verify 14 and 21; a preset keeps the matrix finite |
+| GU7 | **Empty and first-time states with one next step each** | Default: one short line plus one available action. Reason: more sections make empty panels likelier (MC7) |
+| GU8 | **"What changed since you looked"** badge on each panel header, cleared when the panel is read | Default: count only, no pop-ups. Reason: quiet/loud states (QL) without toasts |
+| GU9 | **Item and row context menu** (right-click or key) mirroring the visible buttons, no hidden-only commands | Default: duplicates only. Reason: parity with UR35 single-activation guard, and keyboard access |
+| GU10 | **Theme and contrast presets** (the Proto23 skin plus a high-contrast variant on the same tokens) | Default: tokens only, no per-panel colors. Reason: the token set exists; a second value set tests that nothing hardcodes color |
+
+### AL. Other things the round turned up (OT)
+
+- **OT1, three viewports the matrix skips.** The A1/A2 matrix covers four
+  cases; the UI_RULES target set also names the MacBook viewport and 1536×864.
+  Any new section needs those two before a "fits" claim.
+- **OT2, section overflow policy.** With SX1-SX6 added, the overflow order at
+  narrow width should be one fixed list (summary chips first, then tabs, then
+  drawer), not per-section choices. Owner: ZN3.
+- **OT3, one panel contract test per new section.** Reuse the UI contract test
+  (token use, keyed updates, escape boundary, failed-panel state from ER11 F8,
+  F9). A section that fails any of them does not dock.
+- **OT4, fixture states.** Each section needs three seeded states for review:
+  empty, typical, crowded (hundreds of rows). The mockup workbench holds them;
+  the native build is only for settled layouts.
+- **OT5, feedback intake.** Weibao's gripes arrive in chat. A short "gripes
+  ledger" row per item (quote, panel, status) would stop repeat complaints
+  from being re-derived. It extends the existing gripes doc; no new doc.
+- **OT6, accessibility floor for the new sections.** Focus order matches the
+  visual order, Esc closes drawers and returns focus (as A2 does), and no state
+  is color-only.
+- **OT7, sound and motion.** Zero panels need either. If added later, honor
+  reduced motion first (ER11 F6) and keep audio off by default.
+
+### Already covered, so not repeated here
+
+Drawers and popovers (PL), zoning (ZN1-ZN3), cheats placement (CS), pinning,
+undo and failure recovery (FR), notes (AN), crafting surfaces (CF) and the
+panel kit's escape and isolation rules (ER11). SX/GU rows above only add the
+entries those rows do not name.
+
+### Round 11 dispositions
+
+Updated 2026-10-20: implemented, with four corrections, in [Round 12](#round-12-round-11-implemented-with-corrections-2026-10-20).
+
+No item is ACT NOW; nothing in the current round is required for correctness.
+
+**ACCOUNT FOR NOW** (constraints for whatever UI work runs next):
+
+- Any new section declares a UR1 surface type, a home and its 1366×768
+  degradation, and cites SX/GU codes in the task record.
+- Treat OT1 as part of the done check for the A1/A2 acceptance and any new dock.
+- New saved layout or preference state (SX2, SX4, GU4, GU6) gets a save
+  decision and a migration note before implementation.
+
+**LATER / DELEGATE** (proposals; a label here does not authorize spawning agents
+or Codex runs):
+
+| Item | Level and effort | Done check |
+| --- | --- | --- |
+| GU1 command palette, navigation only | Balanced, medium | Native desktop check at 1920 and 1366: every panel reachable by name, Esc restores focus, no mutation |
+| SX1 Known things reference (tabs over existing state) | Balanced, medium | Reads existing state only; empty, typical and crowded fixtures; contract test passes |
+| GU3 compare on hover for equipment | Balanced, small | Deltas match the real stat pipeline (no duplicated text), shown at both text sizes |
+| GU4 + GU5 per-viewport panel memory with reset | Strong review for the save migration, medium | Save, reload and import keep 1920 sizes; the 1366 store starts clean; reset restores defaults |
+| SX2 Loadouts | Balanced, medium | Swap and preview use the real equip path; saved names survive reload and import |
+| SX3, SX4, SX5, SX6, GU6-GU10 | Cheap to balanced, small each | Per-row done check is the panel contract test plus a rebuilt target-viewport screenshot |
+
+**Top picks if Weibao wants to continue:** GU1, SX1, GU3, GU4 with GU5, then
+SX4. They reuse existing state, add no new simulation, and each fits the
+laptop-first direction.
+
+Open: Weibao's play acceptance of A1/A2; which of the six sections he wants
+to see first as a mockup; and the save decision for the four preference rows.
+
+## Round 12: Round 11 implemented, with corrections (2026-10-20)
+
+Weibao: "deeper considerations and more, implement each, and make sure no
+placeholders? we dont need to consider 1366x768, remove any rules that force
+that". Evidence: rebuilt bundle on a fresh test origin at 1920×1080, driven in
+the in-app browser (no commit made; nothing pushed); `npm test` 2285 pass (2272 before, 13 new in
+`tests/ui_extras.test.js`), `check:arch` zero growth, `check:rules` and
+`check:rule-behavior` pass. Human play acceptance is still open. Mobile stays
+deferred. No new UR codes are registered; the new surfaces are `proposal`.
+
+### What Round 11 got wrong
+
+Round 11 was written from the docs, before reading the code. Four claims were
+false or overstated, found by the mapping pass, and one item lost its reason:
+
+- **SX1:** a Bestiary, Books, Data and Notebook already exist as Journal tabs, so
+  "no codex" was wrong. What did not exist is one search across creatures,
+  books, items and places.
+- **GU2:** a `?` shortcut sheet already existed; what was missing was a registry
+  so modules list their own keys next to the code that handles them.
+- **GU3:** compare against the worn item already exists in the item hover preview
+  and inspector (`create_equipment_comparison`, display.js), plus the
+  `equipment-comparison` panel. Nothing was built.
+- **GU7:** the Inventory, Skills, Bestiary and Books lists already had empty
+  states, and the "blank on a fresh save" lists were mostly hidden containers.
+  Only the trader and storage lists were truly blank.
+- **GU4** was not wrong; it lost its only reason when Weibao retired the 1366
+  floor. It is not built, for that reason.
+
+### Map: exists, partial, absent, and what was done
+
+| Code | Before | Done (2026-10-20) | Where |
+| --- | --- | --- | --- |
+| GU1 palette | absent | Ctrl/Cmd+K and a Find button in the bar. Sources: visible routes, known panels, held items, enabled actions in Here, known things, loadouts. Navigates; Here entries click the real control | `src/command_palette.js` |
+| GU2 keyboard map | partial (`?` sheet) | Registry; the sheet now groups registered shortcuts by scope | `src/shortcut_registry.js` |
+| GU3 compare | exists | nothing built | display.js |
+| GU4 per-viewport memory | retired | not built | |
+| GU5 reset | partial (per context) | Double-click or Home on a divider resets that divider only | `src/shell_resize.js` |
+| GU6 text presets | absent | Text size 14, 17 and 21 buttons in Settings, through the existing Apply and save path | `src/customization_ui.js` |
+| GU7 empty states | partial | Trader and storage lists get a next step; every new section has its own | `src/empty_states.js` |
+| GU8 change badges | absent | Count of new rows on the Quests, Bestiary and Books routes and on Known things and Companions in More panels; clears when shown or opened | `src/change_badges.js` |
+| GU9 row menu | absent | Right-click, Menu key or Shift+F10 on inventory, skill, bestiary, anthology and Here rows. Entries click the real control (the favourite star by its icon, as the list handler expects) | `src/row_context_menu.js` |
+| GU10 contrast | absent | Display setting Contrast: High, as token overrides in ui_tokens.css over any scheme or palette | `styles/ui_tokens.css`, `src/display_settings.js` |
+| SX1 Known things | partial | Creatures, Books, Items, Places with search; People link to the People panel | `src/known_things.js` |
+| SX2 Loadouts | absent | Named gear sets, equip through the native equip path, optional take-off of other slots, items-only attack and defense preview. Save slice `loadouts` | `src/loadouts.js` |
+| SX3 Statistics | absent | Lifetime counters the titles already read, top skills, most-gathered materials | `src/statistics_panel.js` |
+| SX4 Today | absent | Clock and date, timed activities here with open or closed and time to opening, count of running commitments | `src/today_strip.js` |
+| SX5 Where I am | absent | Connected places with travel time and combat-zone mark; Go clicks the real travel control | `src/region_view.js` |
+| SX6 Companions | absent | Lio once met, and met residents and visitors with place and action | `src/companion_roster.js` |
+
+Shared: `src/ui_ports.js` (the readers main.js passes), `src/reference_kit.js`
+(tabs, keyed lists, fact tables, render-only-when-visible), `src/dom_text.js`,
+`src/ui_extras.js` (one mount), `styles/ui_extras.css`.
+
+### Decisions the code carries (defaults, dials, reasons)
+
+- **Wiring.** main.js gained no line: the ports object extends the existing
+  `mountWorkspaceNavigation({...})` call (AR1, AR4). Each section is a domain
+  with a panel, registered before the registry initializes. Importing the data
+  tables from the sections created new import cycles (AR5), so they arrive
+  through the `records` port instead.
+- **Reach.** The six sections are in More panels and the palette, not new routes,
+  so the navigation bar keeps its size (UR3). Dial: a route can be added later.
+- **Sealed secrets.** Palette, Known things and Companions read only what the
+  player has met. Today shows a running commitment as a count and a time, never
+  its label, because the label names an outcome drawn at the start.
+- **Save.** `loadouts` is a new slice in the existing envelope: `{schema: 1,
+  sets: [{name, slots}]}`, at most 12 sets, names up to 32 characters. A save
+  without it starts empty (no migration needed); a damaged slice fails
+  validation. Verified: save, reload and the slice in the stored envelope.
+  Verified by a literal Import through the real file input: with the set
+  deleted and saved (slice absent), importing a file that held it brought it
+  back; importing a file with a damaged slice was refused ("Import rejected.
+  Current save kept. Invalid loadouts: shape") and the game kept running.
+  Export was not separately driven (it writes the same envelope). Sets are
+  written by the next save.
+- **Equip path.** Loadouts call the game's own `character_equip_item`, so combat
+  and work gates, living gear and durability instances apply. An item you no
+  longer hold shows as missing and is named in the result; the same item under
+  another durability instance is matched as that item.
+- **Reveal.** A section is known only when it has something to show
+  (`discovered` and `eligible` are the same condition), so Companions stays out
+  of More panels until someone has been met; once known it stays known.
+- **Text presets.** They save the whole draft, so a preset refuses when other
+  draft edits are pending or a native module is selected, and says why.
+- **Badges.** The first readings after Play (2.5 s) are the baseline, so a
+  loaded save does not flag everything.
+- **Contrast.** Presentation only, stored in `yairpg.display.v1`, never in the
+  save. It overrides player palettes by design; turning it off restores them.
+- **Row menu.** It adds no command of its own and does not suppress anything: a
+  menu click is one more activation of the same control, so UR35's note stands
+  (one activation per delivered click, no global suppression).
+
+### Verified at 1920×1080 on a fresh origin
+
+Palette opens, ranks and closes; Here entries run the real action; the row menu
+favorites and uses bread (count 5 to 4, one activation); Loadouts: save a set,
+take the pants off, equip the set back (inventory and slot agree), Save,
+reload, set present, literal Import of a valid file and of a damaged one; contrast turns every panel black on white; text-size
+presets set 21 then 14 and persist; a new Books row raises "Books, 1 new" and
+opening it clears it; divider reset drops only the divider acted on. The six
+sections open from More panels with real data and no console errors.
+
+### Open, with reasons
+
+- **Not exercised:** a real Ctrl+K keypress (the pane's key synthesis did not
+  deliver the chord; a dispatched `keydown` with `ctrlKey` and `metaKey` was
+  used), hover-revealed inventory controls with a real pointer, and the Region
+  panel's Go on a Village with travel unlocked (the fresh Village offered no
+  road, so its empty state was seen and the projection is unit tested).
+- **Overflow:** if the bar folds a route into More, its badge count does not
+  follow it into the overflow list. At 1920 the bar does not fold.
+- **Per-activity time and per-world tallies** are not recorded by the game; the
+  Statistics panel says so. Adding them needs a counter and a save decision.
+- **Badges** are per page load (not saved), so a reload re-baselines them.
+- **Loadouts** are keyed by item key; if an item's key changes (for example
+  quality), the set shows it as missing instead of guessing.
+- **Round 11 SX2/SX4 save question** is answered above (new slice, no preference
+  state added). GU6 and GU10 use existing stores.
+
+### Next, if Weibao wants more
+
+1. Play acceptance of the six sections and the palette, which decides whether any
+   becomes a route (UR2/UR3 keep that his call).
+2. Per-activity time and per-world counters, with their save decision.
+3. A loadout-aware Local-actions chip ("Gear: Everyday") only if play shows the
+   panel is used.
+
 ## Round 13: item details placement (2026-10-20)
 
 Weibao, 2026-10-20: "sbould item details be on the left instead of hte right?

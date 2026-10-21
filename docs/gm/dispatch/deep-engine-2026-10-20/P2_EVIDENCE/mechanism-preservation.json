@@ -1,0 +1,5 @@
+{
+  "nativeFuelAndNotice": true,
+  "executeAndTransaction": true,
+  "readingIntervalGuard": true
+}

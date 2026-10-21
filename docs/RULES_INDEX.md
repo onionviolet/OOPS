@@ -36,7 +36,7 @@ open here too.
 | Set | Codes | Status | Covers | Owner |
 |---|---|---|---|---|
 | Foundational rulebook | Rulebook 1–12 | Accepted 2026-10-10 | Multiverse-wide principles: worlds set their own rules, carriers, means, bodies, time, outliers | [RULES_FROM_SCRATCH](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) |
-| Accepted direction rules | AD1–AD39 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process | [Below](#accepted-direction-rules-ad) |
+| Accepted direction rules | AD1–AD40 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process and UI design attention | [Below](#accepted-direction-rules-ad) |
 | UI rules | UR1–UR58 | Standing 2026-10-15 | All player-facing UI | [UI_RULES](UI_RULES.md) |
 | Architecture rules | AR1–AR16 | Standing 2026-10-16; AR1 net-zero wording 2026-10-19 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
 | Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
@@ -72,7 +72,7 @@ line they restate.
 | Means decide what anyone knows or does; truth, knowledge and display stay separate | AD6, AD7, AD8 |
 | Recovery is forgiving; firm lines are save integrity only | AD19, AD22 |
 | One authority per fact; `main.js` is a composition root | AR1–AR16 |
-| UI: desktop first, shared tokens and controller, evidence at 1920×1080 and 1366×768 | AD34, UR1–UR58 |
+| UI: desktop first, shared tokens and controller, evidence at 1920×1080 (1366×768 retired 2026-10-19) | AD34, UR1–UR58 |
 | Time is game time; away time runs chosen routines | AD15, AD16, AD17 |
 | Build one playable slice; complexity welcome, sequenced | AD33 |
 | Verify only what changed, rebuild and exercise it in a browser before "done" | AD36 |
@@ -86,10 +86,11 @@ line they restate.
 | Any runtime code | AR1–AR16; AR14 for lane briefs, AR16 before calling it done | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md); AR3/AR7/AR8 applications cover reaction, interruption and disclosure boundaries |
 | Desktop host, Electron shell, packaging, Steam | AD39, AR3, AR4, AR6 | [Electron host round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el); `desktop/` owns the host, `src/` stays host-free |
 | A world's completion level or what it is missing | Completion standard S00-S14 and C0-C5, sealed-secrets rule | [World subtle gaps](audits/WORLD_SUBTLE_GAPS_2026-10-20.md) (WG1-WG26, proposal); [completion standard](WORLD_COMPLETION_STANDARD.md) |
-| Any player-facing UI | UR1–UR58, AD34; mockup workflow if layout is unsettled | [UI_RULES](UI_RULES.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md) |
+| Any player-facing UI | UR1–UR58, AD34, AD40; mockup workflow if layout is unsettled | [UI_RULES](UI_RULES.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md), [UI detail and message palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
 | Making or crafting of any kind | MR1–MR36, AD9, AD38 | [CRAFTING_ENGINE](CRAFTING_ENGINE.md); MR1/MR5/MR29 also govern interrupted stages |
 | Sites, ruins, caves, maps, exploration, restoration | SR1–SR24, AD3, AD33 | [Site palette](gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md), [ruins](gm/dispatch/procgen-2026-10-13/p11/DUNGEON_CONTENT.md) |
-| Gear stats, armor, affixes, sockets, gems | AD5, AD38, AD6–AD8, UR40, CBR; GR1–GR17 for rolls; MKR-IM2 (proposed) for sockets | [Equipment stat dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md) (ESD1–ESD15, proposal) |
+| Gear stats, armor, affixes, sockets, gems | AD5, AD38, AD6–AD8, UR40, CBR; GR1–GR17 for rolls; MKR-IM2 (proposed) for sockets | [Equipment stat dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md) (ESD1–ESD16, proposal) |
+| Gear parts, materials to stats, repair, smithing, chemistry, fuel and energy, powers on the stat pipeline | MR1–MR36 (MR5, MR8, MR16, MR32), AD5, AD38, AR3, ESD1–ESD16 | [Gear depth considerations](GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md) (GDP1–GDP39, proposal) |
 | Generators, RNG, seeds | MR2–MR3, MR28, SR20, Rulebook 9; GR1–GR17 as the recommended contract | [Procedural status](PROCEDURAL_GENERATION_STATUS_2026-10-13.md); GR7/GR17 clarify mechanism selection and owning-clock identity |
 | A new world or book adaptation | Rulebook 2–3, AD1–AD5, MR11–MR15, SR1–SR3; WA1–WA21 for turning the source into a pack | [Rulebook precedent](RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12), [completion standard](WORLD_COMPLETION_STANDARD.md), source research; WA8/WA12 distinguish source, knowledge and built coverage; floors allow selected slices; run order from source to past canon: [deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (proposal) |
 | Hidden truths, secrets, identification | Sealed secrets, AD3, AD6–AD8, MR1, MR31, SR5, SR9 | [WORLD_SECRETS_AND_DISCOVERY](worlds/WORLD_SECRETS_AND_DISCOVERY.md), [MEANS_AND_APPRAISAL](MEANS_AND_APPRAISAL.md) |
@@ -205,6 +206,12 @@ unless another owner is linked.
 | AD38 | **Things work by how they work.** If a method, item or plan reasonably works by the mechanisms in play, it works, whatever its label, category or origin; nothing needs a permission list to happen. Costs, means and the world's actual mechanisms decide "reasonably". | [Things work by how they work](USER_VISION.md#things-work-by-how-they-work-2026-10-17) |
 | AD39 | **Electron plus web.** The game moves to Electron plus web, like other shipped web games: one web codebase in the browser and in an Electron desktop host. Implementation defaults are proposals in the EL round. | [Request](USER_VISION.md#electron-plus-web-2026-10-20); [EL round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el) |
 
+### Interface design attention
+
+| Code | Rule | Source |
+|---|---|---|
+| AD40 | **Carry useful reference UI families and small details into future design**, especially progress/resource bars, message-condensing options, coloring and playful interaction details. Adapt them to OOPS's accepted shell and actual mechanisms. Later same-day direction selects typography/component-style/glow, then full retained palette implementation with Luna subagents, audit and root repairs. The next instruction authorizes a finite solo completion pass, self-audit and repairs. Concrete treatments retain their visual/play acceptance gate; unresolved reference claims do not become native facts. | [Initial request](USER_VISION.md#small-contextual-ui-details-for-future-work-2026-10-20); [full implementation request](USER_VISION.md#full-retained-ui-and-engine-palette-implementation-2026-10-20); [reusable palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
+
 ## Efficient rule verification (AD36)
 
 Standing workflow from Weibao's 2026-10-16 request, implemented in the existing
@@ -252,7 +259,7 @@ task record and checks. No separate checklist file or universal compliance score
 | Native crafting transactions and mixture quote admission | `npm run check:rule-behavior -- transactions` | Other command, cost, preview and product changes need their own relevant tests |
 | Foundation save compatibility helper | `npm run check:rule-behavior -- saves` | Other save slices/migrations need their own tests; persistence also needs browser save/reload/Export/Import |
 | Center-mode lifecycle | `npm run check:rule-behavior -- navigation` | Actual Back/Esc, focus and visibility need rebuilt desktop browser evidence |
-| UI tokens and panel ownership | `node --test tests/ui_contract.test.js` | Structural baseline check; visual/discoverability evidence at 1920×1080 and the 1366×768 floor stays separate |
+| UI tokens and panel ownership | `node --test tests/ui_contract.test.js` | Structural baseline check; visual/discoverability evidence at 1920×1080 stays separate |
 | Other runtime behavior | `node --test tests/<relevant>.test.js` | Find/extend the actual owner suite; no mapped group means uncovered by this runner, not exempt |
 | Architecture boundaries | AR16's architecture command when available in the active checkout | Follow the modular-seams owner; do not duplicate its checker or silently skip a required gate |
 

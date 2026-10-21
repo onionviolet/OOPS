@@ -1,0 +1,521 @@
+{
+  "checks": [
+    "Headless real-owner lamp command, time, stale rejection, Save/reload/Export/literal Import",
+    "Browser repeated quote/inspection changes no save bytes/state and draws neither Math.random nor crypto RNG",
+    "Same scenario contract: browser/headless known projections and semantic deltas match",
+    "Browser Save/reload/Export/literal Import: complete canonical current-format envelope exact",
+    "Native inventory select/use twice reaches the same owner: out/relight retains 238 fuel"
+  ],
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "presentationChanged": false,
+  "bridge": "Source-owned test bridge appended inside the real main bundle. No production main edit. Same domain registry and real native owner commands; whole-game reentrancy/replay is not claimed.",
+  "officialBundleSha256": "ab6370be7b26b0cf6e0ba3e0dd8547393d3e3207bb1be453133c7206ff782c0c",
+  "instrumentedBundleSha256": "4c278528d81d5ac166e8e1b6c0597be3ed9830348c25ce15b724a4ef4808acf7",
+  "headless": {
+    "identity": {
+      "fixture": {
+        "id": "deep-engine.ordinary-lamp",
+        "version": 1,
+        "seed": 11,
+        "wallStart": 1792512000000,
+        "setup": "Developer current-format setup: owned lamp and one oil flask in the Village at 22:00. No natural acquisition claim.",
+        "saveSha256": "ab3f009fa41280e798c0d45bd2f8b2ca3c46483aaf5a64073784100b7f03edc0"
+      },
+      "sourceSha256": "f78cd2431525dc80200ff4bccf2841777fe408bf738b70e3e77c48577aa19996",
+      "inputFiles": 755,
+      "replay": {
+        "covered": [
+          "fixture bytes",
+          "seeded Math.random/crypto per boot",
+          "frozen wall time",
+          "explicit command order",
+          "paused native tick requests"
+        ],
+        "uncovered": [
+          "whole-game RNG draw ledger",
+          "ambient optional/private pack responses",
+          "browser versus Node timer ordering",
+          "cross-reload RNG continuation",
+          "concurrent games in one Node realm"
+        ],
+        "claim": "Selected fixture journey only; not whole-game deterministic or reentrant replay."
+      }
+    },
+    "before": {
+      "minute": 2760,
+      "lamp": {
+        "held": true,
+        "lit": false,
+        "shining": false,
+        "oil": 0,
+        "light": {
+          "ambient": 40,
+          "bonus": 0,
+          "light": 40
+        }
+      }
+    },
+    "preview": {
+      "minute": 2760,
+      "lamp": {
+        "held": true,
+        "lit": false,
+        "shining": false,
+        "oil": 0,
+        "light": {
+          "ambient": 40,
+          "bonus": 0,
+          "light": 40
+        }
+      }
+    },
+    "quote": {
+      "command": {
+        "type": "lamp.toggle"
+      },
+      "value": {
+        "eligible": true,
+        "reason": "",
+        "action": "light",
+        "spend": 1,
+        "oil": 0
+      }
+    },
+    "lit": {
+      "kind": "execute",
+      "status": "applied",
+      "result": {
+        "eligible": true,
+        "reason": "",
+        "action": "light",
+        "spend": 1,
+        "oil": 0
+      },
+      "before": {
+        "minute": 2760,
+        "lamp": {
+          "held": true,
+          "lit": false,
+          "shining": false,
+          "oil": 0,
+          "light": {
+            "ambient": 40,
+            "bonus": 0,
+            "light": 40
+          }
+        }
+      },
+      "after": {
+        "minute": 2760,
+        "lamp": {
+          "held": true,
+          "lit": true,
+          "shining": true,
+          "oil": 240,
+          "light": {
+            "ambient": 40,
+            "bonus": 40,
+            "light": 80
+          }
+        }
+      },
+      "delta": [
+        {
+          "path": "/lamp/lit",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/lamp/shining",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/lamp/oil",
+          "before": 0,
+          "after": 240
+        },
+        {
+          "path": "/lamp/light/bonus",
+          "before": 0,
+          "after": 40
+        },
+        {
+          "path": "/lamp/light/light",
+          "before": 40,
+          "after": 80
+        }
+      ]
+    },
+    "elapsed": {
+      "kind": "advance",
+      "status": "applied",
+      "result": {
+        "minutes": 2,
+        "ms": 957.077874999999
+      },
+      "before": {
+        "minute": 2760,
+        "lamp": {
+          "held": true,
+          "lit": true,
+          "shining": true,
+          "oil": 240,
+          "light": {
+            "ambient": 40,
+            "bonus": 40,
+            "light": 80
+          }
+        }
+      },
+      "after": {
+        "minute": 2762,
+        "lamp": {
+          "held": true,
+          "lit": true,
+          "shining": true,
+          "oil": 238,
+          "light": {
+            "ambient": 40,
+            "bonus": 40,
+            "light": 80
+          }
+        }
+      },
+      "delta": [
+        {
+          "path": "/minute",
+          "before": 2760,
+          "after": 2762
+        },
+        {
+          "path": "/lamp/oil",
+          "before": 240,
+          "after": 238
+        }
+      ]
+    },
+    "stale": {
+      "kind": "execute",
+      "status": "rejected",
+      "error": {
+        "name": "Error",
+        "message": "The lamp changed since you chose. Try again."
+      },
+      "before": {
+        "minute": 2762,
+        "lamp": {
+          "held": true,
+          "lit": true,
+          "shining": true,
+          "oil": 238,
+          "light": {
+            "ambient": 40,
+            "bonus": 40,
+            "light": 80
+          }
+        }
+      },
+      "after": {
+        "minute": 2762,
+        "lamp": {
+          "held": true,
+          "lit": true,
+          "shining": true,
+          "oil": 238,
+          "light": {
+            "ambient": 40,
+            "bonus": 40,
+            "light": 80
+          }
+        }
+      },
+      "delta": []
+    },
+    "reloaded": {
+      "minute": 2762,
+      "lamp": {
+        "held": true,
+        "lit": true,
+        "shining": true,
+        "oil": 238,
+        "light": {
+          "ambient": 40,
+          "bonus": 40,
+          "light": 80
+        }
+      }
+    },
+    "imported": {
+      "minute": 2762,
+      "lamp": {
+        "held": true,
+        "lit": true,
+        "shining": true,
+        "oil": 238,
+        "light": {
+          "ambient": 40,
+          "bonus": 40,
+          "light": 80
+        }
+      }
+    },
+    "saveSha256": "13392d34a1393d60631df3eaa38f844b0e47603fcdc71aee2144eb7489e9f7f7",
+    "exportSha256": "977497ed9eee79c37e967ba6fc03d1a2b31abfc571b1ef9fac218da6178f3cc9"
+  },
+  "browser": {
+    "identity": {
+      "fixture": {
+        "id": "deep-engine.ordinary-lamp",
+        "version": 1,
+        "seed": 11,
+        "wallStart": 1792512000000,
+        "setup": "Developer current-format setup: owned lamp and one oil flask in the Village at 22:00. No natural acquisition claim.",
+        "saveSha256": "ab3f009fa41280e798c0d45bd2f8b2ca3c46483aaf5a64073784100b7f03edc0"
+      },
+      "sourceSha256": "f78cd2431525dc80200ff4bccf2841777fe408bf738b70e3e77c48577aa19996",
+      "inputFiles": 755,
+      "replay": {
+        "covered": [
+          "fixture bytes",
+          "seeded Math.random/crypto per boot",
+          "frozen wall time",
+          "explicit command order",
+          "paused native tick requests"
+        ],
+        "uncovered": [
+          "whole-game RNG draw ledger",
+          "ambient optional/private pack responses",
+          "browser versus Node timer ordering",
+          "cross-reload RNG continuation",
+          "concurrent games in one Node realm"
+        ],
+        "claim": "Selected fixture journey only; not whole-game deterministic or reentrant replay."
+      }
+    },
+    "before": {
+      "minute": 2760,
+      "lamp": {
+        "held": true,
+        "lit": false,
+        "shining": false,
+        "oil": 0,
+        "light": {
+          "ambient": 40,
+          "bonus": 0,
+          "light": 40
+        }
+      }
+    },
+    "preview": {
+      "minute": 2760,
+      "lamp": {
+        "held": true,
+        "lit": false,
+        "shining": false,
+        "oil": 0,
+        "light": {
+          "ambient": 40,
+          "bonus": 0,
+          "light": 40
+        }
+      }
+    },
+    "quote": {
+      "command": {
+        "type": "lamp.toggle"
+      },
+      "value": {
+        "eligible": true,
+        "reason": "",
+        "action": "light",
+        "spend": 1,
+        "oil": 0
+      }
+    },
+    "lit": {
+      "kind": "execute",
+      "status": "applied",
+      "result": {
+        "eligible": true,
+        "reason": "",
+        "action": "light",
+        "spend": 1,
+        "oil": 0
+      },
+      "before": {
+        "minute": 2760,
+        "lamp": {
+          "held": true,
+          "lit": false,
+          "shining": false,
+          "oil": 0,
+          "light": {
+            "ambient": 40,
+            "bonus": 0,
+            "light": 40
+          }
+        }
+      },
+      "after": {
+        "minute": 2760,
+        "lamp": {
+          "held": true,
+          "lit": true,
+          "shining": true,
+          "oil": 240,
+          "light": {
+            "ambient": 40,
+            "bonus": 40,
+            "light": 80
+          }
+        }
+      },
+      "delta": [
+        {
+          "path": "/lamp/lit",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/lamp/shining",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/lamp/oil",
+          "before": 0,
+          "after": 240
+        },
+        {
+          "path": "/lamp/light/bonus",
+          "before": 0,
+          "after": 40
+        },
+        {
+          "path": "/lamp/light/light",
+          "before": 40,
+          "after": 80
+        }
+      ]
+    },
+    "elapsed": {
+      "kind": "advance",
+      "status": "applied",
+      "before": {
+        "minute": 2760,
+        "lamp": {
+          "held": true,
+          "lit": true,
+          "shining": true,
+          "oil": 240,
+          "light": {
+            "ambient": 40,
+            "bonus": 40,
+            "light": 80
+          }
+        }
+      },
+      "after": {
+        "minute": 2762,
+        "lamp": {
+          "held": true,
+          "lit": true,
+          "shining": true,
+          "oil": 238,
+          "light": {
+            "ambient": 40,
+            "bonus": 40,
+            "light": 80
+          }
+        }
+      },
+      "delta": [
+        {
+          "path": "/minute",
+          "before": 2760,
+          "after": 2762
+        },
+        {
+          "path": "/lamp/oil",
+          "before": 240,
+          "after": 238
+        }
+      ]
+    },
+    "stale": {
+      "kind": "execute",
+      "status": "rejected",
+      "error": {
+        "name": "Error",
+        "message": "page.evaluate: Error: The lamp changed since you chose. Try again.\n    at hxe (http://127.0.0.1:62414/dist/bundle.js?version=v0.6-ab6370be7b26:108:244044)\n    at Object.execute (http://127.0.0.1:62414/dist/bundle.js?version=v0.6-ab6370be7b26:1062:39125)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:36)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      },
+      "before": {
+        "minute": 2762,
+        "lamp": {
+          "held": true,
+          "lit": true,
+          "shining": true,
+          "oil": 238,
+          "light": {
+            "ambient": 40,
+            "bonus": 40,
+            "light": 80
+          }
+        }
+      },
+      "after": {
+        "minute": 2762,
+        "lamp": {
+          "held": true,
+          "lit": true,
+          "shining": true,
+          "oil": 238,
+          "light": {
+            "ambient": 40,
+            "bonus": 40,
+            "light": 80
+          }
+        }
+      },
+      "delta": []
+    },
+    "reloaded": {
+      "minute": 2762,
+      "lamp": {
+        "held": true,
+        "lit": true,
+        "shining": true,
+        "oil": 238,
+        "light": {
+          "ambient": 40,
+          "bonus": 40,
+          "light": 80
+        }
+      }
+    },
+    "imported": {
+      "minute": 2762,
+      "lamp": {
+        "held": true,
+        "lit": true,
+        "shining": true,
+        "oil": 238,
+        "light": {
+          "ambient": 40,
+          "bonus": 40,
+          "light": 80
+        }
+      }
+    },
+    "saveSha256": "b50a99d3f52753454234a53d8af400f97d32bace48edbbfe8e81f48f8c66983e",
+    "exportSha256": "b47427ec42e47e7f4c505deaa8ce865cc45f9bcfae9e60923a9a1252c37d0270"
+  },
+  "missingResources": [
+    "/private_packs/manifest.json"
+  ],
+  "pageErrors": []
+}

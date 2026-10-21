@@ -2,7 +2,8 @@ import {replacedHarvestDrop,supportedHarvest} from './harvest.js';
 import {registerFortEnemies} from "./fork_fort_content.js";
 import {STREAMS,gameRandom,gameKeyedRandom} from "./seeded_streams.js";
 "use strict";
-import {mitigateCombatDamage} from "./combat_math.js";
+import {mitigateCombatDamageFromStats} from "./combat_math.js";
+import {applyEquipmentStats} from "./equipment_stats.js";
 
 import LevelableComponent from "./components/levelable_component.js";
 import { config } from "./config.js";
@@ -13,6 +14,8 @@ import {add_active_effect} from "./main.js";
 
 let enemy_templates = {};
 let enemy_killcount = {};
+let enemyEquipmentItemFactory = null;
+export const registerEnemyEquipmentItemFactory = factory => { enemyEquipmentItemFactory = factory; };
 //enemy templates; locations create new enemies based on them
 
 const enemy_sizes = {
@@ -40,9 +43,23 @@ Object.keys(droprate_modifier_skills_for_tags).forEach(tag => {
 //used for updating display of bestiary when item is first obtained; autofilled
 const droplist = {};
 
+// The Forest den direwolf wears the same armor shape a capable person can
+// craft. Its instance is rebuilt per encounter, including condition tracking.
+const DIREWOLF_CHESTPLATE_KEY = JSON.stringify({
+    components: {internal: "Leather vest", external: "Steel chainmail vest"},
+    quality: 212,
+    affixes: [
+        {id: "armor.cushioned", v: 0.033, s: "roll"},
+        {id: "armor.hardened", v: 0.072, s: "mechanism"},
+        {id: "armor.reinforced", v: 5.478, s: "roll"},
+        {id: "armor.vital", v: 0.062, s: "roll"},
+    ],
+});
+
 class Enemy {
 
     #levelable;
+    #equipment;
 
     constructor({
         name, 
@@ -55,6 +72,7 @@ class Enemy {
         size = "small",
         add_to_bestiary = true,
         tags = [],
+        equipment_keys = {},
         on_hit = (attacker) => { },
         on_damaged = (target) => { },
         on_death = (attacker) => { },
@@ -72,6 +90,8 @@ class Enemy {
         this.tags = {};
 
         this.#levelable = new LevelableComponent(stats);
+        this.equipment_keys = equipment_keys;
+        this.#equipment = {};
 
         if(tags.length) {
             for(let i = 0; i < tags.length; i++) {
@@ -101,6 +121,19 @@ class Enemy {
 
     init() {
         const levelable = this.getLevelableComponent();
+        if (Object.keys(this.equipment_keys).length && !enemyEquipmentItemFactory) {
+            throw new Error("Enemy equipment item factory has not been registered");
+        }
+        this.#equipment = Object.fromEntries(Object.entries(this.equipment_keys).map(([slot, key]) => [slot, enemyEquipmentItemFactory(key)]));
+        applyEquipmentStats(levelable, this.#equipment);
+
+        // Enemies have no skill, race or location stat sources. Apply the same
+        // equipment sources as Person, then materialize their resulting stats.
+        Object.keys(levelable.stats.full).forEach(stat => {
+            const flat = Object.values(levelable.stats.flat).reduce((sum, source) => sum + (source[stat] || 0), 0);
+            const multiplier = Object.values(levelable.stats.multiplier).reduce((product, source) => product * (source[stat] ?? 1), 1);
+            levelable.stats.full[stat] = (levelable.base_stats[stat] + flat) * multiplier;
+        });
         levelable.stats.full.attack_power = this.stats.attack;
         levelable.stats.full.attack_points = levelable.stats.full.dexterity * Math.sqrt(levelable.stats.full.intuition);
         levelable.stats.full.evasion_points = levelable.stats.full.agility * Math.sqrt(levelable.stats.full.intuition);
@@ -123,11 +156,11 @@ class Enemy {
     }
 
     isWearingArmor() {
-        return false;
+        return Object.values(this.getEquipment()).some(item => item?.getDefense?.() > 0);
     }
 
     getEquipment() {
-        return {};
+        return this.#equipment;
     }
 
     /**
@@ -150,7 +183,7 @@ class Enemy {
         const levelable = this.getLevelableComponent();
         let fainted;
     
-        const damage_taken = mitigateCombatDamage(damage_values,levelable.stats.full.defense+defense_modifier);
+        const damage_taken = mitigateCombatDamageFromStats(damage_values, levelable.stats.full, defense_modifier);
         levelable.stats.full.health -= damage_taken;
     
         if(levelable.stats.full.health <= 0 && can_faint) {
@@ -355,7 +388,7 @@ const enemy_abilites = {
 
     enemy_templates["Direwolf"] = new Enemy({
         name: "Direwolf",
-        description: "A powerful wild wolf variant of unmatched ferocity",
+        description: "A powerful wild wolf wearing a steel chainmail chest harness. Its quality keeps the blows off, though the weight still costs it speed.",
         xp_value: 20,
         rank: 7,
         tags: ["living", "beast"],
@@ -367,6 +400,7 @@ const enemy_abilites = {
             {item_name: "Weak monster bone", chance: 0.02}
         ],
         size: enemy_sizes.MEDIUM,
+        equipment_keys: {torso: DIREWOLF_CHESTPLATE_KEY},
     });
 
     enemy_templates["Direwolf hunter"] = new Enemy({

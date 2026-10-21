@@ -1,3 +1,4 @@
+import {recordLearning} from './recent_learning.js';
 import {validateGameplaySnapshot} from "./gameplay_transactions.js";
 
 export function readGameplayActor(actor, skills, context) {
@@ -52,7 +53,9 @@ export function prepareGameplayPublication(snapshot, {actors, skills, getItemFro
                 for(const key of Object.keys(stage.items)) delete stage.items[key];
                 Object.assign(stage.items, stage.nextItems);
                 for(const [id, value] of Object.entries(stage.progress)) {
+                    const awarded = value.next.total_xp - (stage.levelable.skill_progress[id]?.total_xp || 0);
                     stage.levelable.skill_progress[id] = value.next;
+                    recordLearning(stage.levelable, id, awarded);
                     if(value.gains) stage.actor.addSkillMilestoneBonus(value.gains);
                 }
                 if(stage.actor.reputation) stage.actor.reputation = stage.reputation;

@@ -1,3 +1,4 @@
+import {combatSubject} from './combat_subject.js';
 import {registerDomain} from './domain_registry.js';
 // Observer-safe opponent projection (PP5). Publishes only what the native combat view already shows,
 // from the same readout, as inherited native disclosure (NX22): not AD8 learned knowledge. No save slice,
@@ -20,7 +21,7 @@ export function projectOpponents(combat, readout) {
     if(!combat || combat.is_ended || !combat.attackers?.[0]?.tags?.main_character) return {schema: 1, active: false, disclosure: DISCLOSURE, count: 0, alive: 0, opponents: []};
     const opponents = combat.defenders.map((_, index) => {
         const r = readout(combat, {fighter_index: index, is_attacker: false});
-        return {slot: `opponent-${index + 1}`, index, name: r.name, defeated: r.defeated,
+        return {id:combatSubject(combat,combat.defenders[index]), slot: `opponent-${index + 1}`, index, name: r.name, defeated: r.defeated,
             health: {current: r.health.current, max: r.health.max, fraction: Math.min(1, r.health.bar / 100)}, facts: opponentFacts(r)};
     });
     return {schema: 1, active: true, disclosure: DISCLOSURE, count: opponents.length, alive: opponents.filter(o => !o.defeated).length, opponents};

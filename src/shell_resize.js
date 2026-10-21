@@ -1,4 +1,5 @@
 import {LAYOUT_SPEC} from './layout_spec.js';
+import {registerShortcut} from './shortcut_registry.js';
 
 // UIL7: presentation-only gutter controller. The workspace remains the only placement writer.
 // Fractions follow the browser's existing per-context R21 placement; geometry is measured only
@@ -7,6 +8,7 @@ export function clampSplit(value, total, before, after) {
     return Math.max(before, Math.min(total - after, value));
 }
 export function createShellResize({root, board, regions, read, context, commit}) {
+    registerShortcut({id:'divider-resize',keys:'Arrow keys to resize, Home to reset, Esc cancels a drag',label:'Panel divider',scope:'On a divider'});
     let drag = null, preview = null, lastContext = null;
     const handles = {};
     const definitions = {
@@ -133,11 +135,16 @@ export function createShellResize({root, board, regions, read, context, commit})
     for(const [key,[label,orientation]] of Object.entries(definitions)) {
         const h=document.createElement('div');h.className='shell-resize-handle';h.dataset.shellResize=key;h.tabIndex=0;
         h.setAttribute('role','separator');h.setAttribute('aria-label',`Resize ${label}`);h.setAttribute('aria-orientation',orientation);
-        h.setAttribute('aria-valuemin','0');h.setAttribute('aria-valuemax','100');h.title=`Resize ${label}. Arrow keys adjust; Escape cancels a drag.`;
+        h.setAttribute('aria-valuemin','0');h.setAttribute('aria-valuemax','100');h.title=`Resize ${label}. Arrow keys adjust; Escape cancels a drag; double-click or Home resets this divider.`;
         h.addEventListener('pointerdown',e=>{if(e.button!==0)return;e.preventDefault();h.focus({preventScroll:true});drag={key,id:e.pointerId,x:e.clientX,y:e.clientY,initial:sizesNow(),context:context()};root.dataset.shellResizing='true';h.setPointerCapture(e.pointerId);});
         h.addEventListener('pointermove',e=>{if(drag?.key===key&&drag.id===e.pointerId)adjust(key,orientation==='horizontal'?e.clientY-drag.y:e.clientX-drag.x,drag.initial);});
         h.addEventListener('pointerup',()=>finish());h.addEventListener('pointercancel',()=>finish(true));h.addEventListener('lostpointercapture',()=>finish(true));
         h.addEventListener('keydown',e=>{const keys=orientation==='horizontal'?['ArrowUp','ArrowDown']:['ArrowLeft','ArrowRight'];if(!keys.includes(e.key))return;e.preventDefault();e.stopPropagation();adjust(key,(keys.indexOf(e.key)?1:-1)*(e.shiftKey?40:10),sizesNow());const next=preview;preview=null;commit(next);});
+        // GU5: reset this divider alone. The other dividers keep their sizes; the stored size for this
+        // one is dropped, so the context's default shows for it again.
+        const resetThis=()=>{const next={...read()};if(!(key in next))return;delete next[key];commit(next);};
+        h.addEventListener('dblclick',e=>{e.preventDefault();resetThis();});
+        h.addEventListener('keydown',e=>{if(e.key!=='Home')return;e.preventDefault();e.stopPropagation();resetThis();});
         handles[key]=h;board.append(h);
     }
     return {measure,prepare(){if(lastContext!==context()||!Object.keys(preview||read()).length)clear();},destroy(){document.removeEventListener('keydown',escape,true);for(const h of Object.values(handles))h.remove();clear();}};

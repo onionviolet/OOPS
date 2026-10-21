@@ -57,3 +57,7 @@
 7. **M2, Final Selection conditions:** Clarified candidates' own-resource rule and source-recorded peer rescue, while labeling the specific injured entrant, aid supplies and outcome as authored instance facts. Files touched: `CAMPAIGN.md`.
 
 Declined fixes: none. Payload checks agreed with the review on every listed correction; primary manga verification remains open as stated above.
+
+## 2026-10-20 packet detail pass
+
+Updated the packet to the current desktop viewport and made day/night phase a bounded WG15 slice prerequisite, tied to two work opportunities and the fixed encounter. Added-state current-format roundtrip remains required; old-save migration remains deferred. The chosen night/threat/rescue instance still needs exact local source locators, while the particular entrant and outcome remain authored proposals. See [L3 audit](../../audits/world_pack_details_2026-10-20/L3.md).

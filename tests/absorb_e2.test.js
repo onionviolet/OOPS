@@ -98,26 +98,27 @@ test('actual native inventory, Hero equip/unequip, key decoder and equipment pub
         addAllEquipmentBonus(){},updateStatsAndDisplay(){},manageChangedSkillBonuses(){},_equipItem(){}};
     native.Hero.prototype.equipItemFromInventory.call(actor,nativeKey);
     const wornKey=equipment.weapon.getInventoryKey();
+    const wearScale=equipment.weapon.getWearScale(),worn=Math.round((100-40*wearScale)*10000)/10000; // material toughness/hardness scales wear (GDP15 L1)
     d.wearItem(equipment.weapon,1000);
     assert.equal(inventory.getItems()[nativeKey].count,1);
     assert.equal(inventory.getItems()[nativeKey].item.getInventoryKey(),nativeKey);
     native.Hero.prototype.unequipItem.call(actor,'weapon',true);
-    assert.equal(d.condition(inventory.getItems()[wornKey].item),60);
+    assert.equal(d.condition(inventory.getItems()[wornKey].item),worn);
     native.Hero.prototype.equipItemFromInventory.call(actor,nativeKey);
     assert.notEqual(equipment.weapon.getInventoryKey(),wornKey);
     native.Hero.prototype.unequipItem.call(actor,'weapon',true);
     native.Hero.prototype.equipItemFromInventory.call(actor,wornKey);
-    assert.equal(d.condition(equipment.weapon),60);
+    assert.equal(d.condition(equipment.weapon),worn);
     const slots=native.readNativeEquipment({player:actor});
     const publication=native.prepareNativeEquipment(slots,{actors:{player:actor},getItem:decode});
     const envelope={character:{}};publication.write(envelope);publication.publish();
     assert.equal(equipment.weapon.getInventoryKey(),wornKey);
-    assert.equal(d.condition(equipment.weapon),60);
+    assert.equal(d.condition(equipment.weapon),worn);
     const save=JSON.parse(JSON.stringify({state:d.serialize(),equipment:envelope.character.equipment,inventory:inventory.getItems()}));
     const loaded=createDurability(save.state),decodeLoaded=k=>loaded.bindFromKey(k,native.getItemFromKey(k));
     for(const [k,entry] of Object.entries(save.inventory))assert.equal(loaded.condition(decodeLoaded(k)),d.condition(k));
     loaded.restoreEquipment(actor,save.equipment,decodeLoaded);
-    assert.equal(equipment.weapon.getInventoryKey(),wornKey);assert.equal(loaded.condition(equipment.weapon),60);
+    assert.equal(equipment.weapon.getInventoryKey(),wornKey);assert.equal(loaded.condition(equipment.weapon),worn);
 });
 test('staged repair and toggle reject storage/custody failures without live writes or ID forks',()=>{
     const d=createDurability(),f=fixture(d),{actor,getItemFromKey}=f;

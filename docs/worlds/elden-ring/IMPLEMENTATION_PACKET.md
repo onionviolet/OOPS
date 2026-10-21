@@ -107,3 +107,10 @@ Current inspected input fingerprints, 2026-10-03; rediscover affected drift befo
 - `src/native_gameplay_adapter.js` SHA256 `41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad`.
 
 Checkpoint: the brief owns the live specialist checkpoint. The inherited opening proof remains a proposed fixture, now stage 1 of the expanded campaign. Local document/link/coverage/evidence-vocabulary checks passed; every runtime/unit/build/browser/save/migration and human gate remains unrun. Verified design evidence: twenty reserved paths, 307 local links/ten anchors resolved, campaign coverage checked, no authored em dashes or trailing whitespace. Runtime acceptance remains unrun.
+
+
+## Detail audit: rune custody and optional growth, 2026-10-20
+
+WPD-R8, ACCOUNT FOR NOW: WG24's purse/growth dual use becomes consequential only if the represented outsider has an actual supported growth route. The ferry proof currently spends a local rune purse; entry does not grant that growth capability, Grace, revival or the protagonist's history. Do not equate a resource label with earned conversion rights or impose an unsourced outsider prohibition.
+
+Before selected implementation: bind the paid transfer to a real purse and the physical route to its actual materials/reserve, with declared cancellation and seal return. Level/effort: Luna low for exact source/record lookup, coordinator medium for inventory/claim publication. Done check: both routes retain distinct costs under one claim; pending/final current-format round trips cannot refund spent work or duplicate borrowed seals. Runes-as-growth, death-drop and revival policies remain later source-qualified operations; no death-loss feature is required to deliver this nonlethal ferry proof.
