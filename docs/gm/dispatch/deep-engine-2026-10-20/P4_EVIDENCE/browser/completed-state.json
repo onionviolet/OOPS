@@ -1,0 +1,25 @@
+{
+  "tools": {
+    "schema": 1,
+    "instances": {
+      "{\"id\":\"Old pickaxe\",\"quality\":100,\"e2_instance\":\"e2.1\"}": {
+        "max": 100,
+        "repairs": 1,
+        "failures": 0
+      }
+    },
+    "job": null
+  },
+  "durability": {
+    "schema": 1,
+    "enabled": true,
+    "nextId": 2,
+    "condition": {
+      "{\"id\":\"Old pickaxe\",\"quality\":100,\"e2_instance\":\"e2.1\"}": 99.4
+    },
+    "uses": {
+      "{\"id\":\"Old pickaxe\",\"quality\":100,\"e2_instance\":\"e2.1\"}": 1
+    }
+  },
+  "ingots": 2
+}

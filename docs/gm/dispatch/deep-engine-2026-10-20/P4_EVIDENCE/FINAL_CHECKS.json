@@ -1,0 +1,39 @@
+{
+  "verificationBase": "3ce24d9cb583fa1e574afdf864881bcd752470c5",
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw",
+  "scope": "Frozen master + P4; concurrent home/field source and shared generated output excluded.",
+  "sourceSha256": {
+    "src/tools_domain.js": "6eda40734c44cdce23ea933d3ae17acd5056d2c30031ac00bbe6ec80e4e9b957",
+    "src/native_tool_domains.js": "61ac4f131485deedaa55c902633082a6b391dfd0189e92c4eaf179061a2f995c",
+    "src/tools_panel.js": "9de30a30149e0a5a9e3af6c4bc19b11e6fa69b998e7cf8b01b9a34e12f2a45ef",
+    "tests/tools_commit_contract.test.js": "7c3474f7b00e584921f4be562c7f7183be628a0f0993205f9da29ee935915c26",
+    "scripts/playtest/repair-journey.mjs": "81472b1020015fdbc36ceed38ea705e8c20ba76f21acd391269138d6a99f6817"
+  },
+  "candidateBundleSha256": "a3d30307661ca7a383953d09ea9d571cb49842dffc271cdc029ed2e31d848a1a",
+  "candidateMapSha256": "b5934805d483cea0cef9b8f79be704fc7973480ad6fbf55d83900892d0a6b508",
+  "embeddedProjectSources": 690,
+  "dependencySourceEntries": 37,
+  "projectSourceMapMatches": true,
+  "primaryP4SourcesMatchCandidate": true,
+  "checks": {
+    "build": "PASS",
+    "npm test": "2451/2451; zero fail/skip/cancel/TODO",
+    "focused": "15/15",
+    "check:arch": "PASS; no new imports/cycles",
+    "check:rules": "PASS; zero warnings",
+    "browser": "12 groups; zero console/page errors",
+    "ruleBehavior": "No rule changed; not repeated"
+  },
+  "browserReceiptSha256": "2e5cce79047c031d4b33f9dd2f8bbfd88de53fbb492c99af8e9927097cf76533",
+  "fullLogsPrivate": "/Users/weiwei/.codex/research/p4-repair-2026-10-21",
+  "primaryGeneratedPromoted": false,
+  "commit": null,
+  "push": false,
+  "finalSharedUsage": {
+    "startUsedPercent": 69,
+    "finalUsedPercent": 70,
+    "ceilingUsedPercent": 74,
+    "taskAttributed": false
+  },
+  "docsChecks": "DOC_CHECKS.json"
+}

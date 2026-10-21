@@ -1,0 +1,45 @@
+{
+  "tools": {
+    "schema": 1,
+    "instances": {},
+    "job": {
+      "kind": "hand",
+      "key": "{\"id\":\"Old pickaxe\",\"quality\":100,\"e2_instance\":\"e2.1\"}",
+      "name": "Old pickaxe",
+      "minutesLeft": 19,
+      "total": 21,
+      "location": "Village",
+      "spent": [
+        {
+          "id": "Low quality iron ingot",
+          "count": 1
+        }
+      ],
+      "restore": 0.4,
+      "chance": 0.55,
+      "failureLoss": 3,
+      "floor": 40,
+      "skill": "Forging",
+      "target": {
+        "condition": 99,
+        "max": 100,
+        "repairs": 0,
+        "failures": 0,
+        "uses": 1
+      },
+      "lastClock": 518011857
+    }
+  },
+  "durability": {
+    "schema": 1,
+    "enabled": true,
+    "nextId": 2,
+    "condition": {
+      "{\"id\":\"Old pickaxe\",\"quality\":100,\"e2_instance\":\"e2.1\"}": 99
+    },
+    "uses": {
+      "{\"id\":\"Old pickaxe\",\"quality\":100,\"e2_instance\":\"e2.1\"}": 1
+    }
+  },
+  "ingots": 2
+}

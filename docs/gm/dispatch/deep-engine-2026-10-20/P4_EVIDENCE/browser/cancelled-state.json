@@ -1,0 +1,14 @@
+{
+  "durability": {
+    "schema": 1,
+    "enabled": true,
+    "nextId": 2,
+    "condition": {
+      "{\"id\":\"Old pickaxe\",\"quality\":100,\"e2_instance\":\"e2.1\"}": 99
+    },
+    "uses": {
+      "{\"id\":\"Old pickaxe\",\"quality\":100,\"e2_instance\":\"e2.1\"}": 1
+    }
+  },
+  "ingots": 3
+}

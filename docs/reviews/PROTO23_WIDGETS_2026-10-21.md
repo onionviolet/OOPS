@@ -1,5 +1,10 @@
 # Proto23 optional widgets and component preview, 2026-10-21
 
+Current status, reconciled2026-10-21: the [combined baseline browser gate](../gm/BASELINE_CONSOLIDATION_2026-10-21.md#final-completion-evidence)
+records actual Find, component preview isolation and explicit overrides across
+six desktop/text cases. The source-lane handoff below is historical; its root
+browser gate is closed. Human visual acceptance remains separate.
+
 Scope: CRL31 optional-widget failure containment and the actual preview coverage
 behind CRL29/39. Target remains 1920×1080 with 14px and 21px text; mobile is
 deferred. This records source coverage and a browser handoff, not human acceptance.

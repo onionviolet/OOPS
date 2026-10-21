@@ -1,0 +1,9 @@
+{
+  "head": "3ce24d9cb583fa1e574afdf864881bcd752470c5",
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw",
+  "primaryGenerated": {
+    "index.html": "5077b532b5bb686471449af06e2640d87bcc904805044e2c2817acf7013cb0f8",
+    "dist/bundle.js": "d9261c529d2ede8346a501bf348924c81ca814ac63ac8be3ca5f53010d9d0a0a",
+    "dist/bundle.js.map": "6e0d7133698c8bbc577304e50af4008232c7de9754c00f396fc1ff437c1d268e"
+  }
+}

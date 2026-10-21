@@ -1,5 +1,14 @@
 # Proto23 UI delivery check, 2026-10-21
 
+Current status, reconciled2026-10-21: the diagnostic and initial authorization
+below precede the delivered Gothic defaults, inventory/details, perishable
+observations, widget/preview work and later combined gear/UI release.
+Use [latest UI receipt](CORC_UI_2026-10-21.md#final-visitor-journey-and-fork-release-2026-10-21),
+[combined baseline](../gm/BASELINE_CONSOLIDATION_2026-10-21.md#final-completion-evidence)
+and [current coverage](../gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md).
+The earlier F1 finding that Gothic is not the default is historical and superseded.
+Human visual acceptance and natural pacing remain open.
+
 ## Authorized implementation continuation
 
 Weibao subsequently requested Gothic as the internal default, current-app checks,

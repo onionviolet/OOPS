@@ -1,5 +1,17 @@
 # Deep engine: five connected chats
 
+## Current delivery, 2026-10-21
+
+The table below is the original dispatch snapshot, not current lane status.
+P1/P2/P3/P5 subsequently released their selected implementations; use their
+[P1](P1_STATUS.md), [P2](P2_STATUS.md), [P3](P3_STATUS.md) and [P5](P5_STATUS.md)
+receipts with the later [consolidated master baseline](../../BASELINE_CONSOLIDATION_2026-10-21.md).
+P4 was stopped before implementation at the old dispatch ceiling, then renewed
+by Weibao's explicit2026-10-21 instruction to finish and verify it in game.
+[P4 current status](P4_STATUS.md) and [completion report](P4_REPORT.md) own this
+continuation, exact inputs and native/persistence proof. Historical allowance and
+creation/startup statements below do not override those later receipts.
+
 ## User selection
 
 2026-10-20: "Connect accordingly, send new chats to address each, maybe one for each". Authorizes the bounded implementation pilots in [COMMON](COMMON.md), following [the saved engine round](../../../ENGINE_EXPANSION.md#deep-engine-support-for-future-design-2026-10-20). Does not authorize commit/push or a broad rewrite.

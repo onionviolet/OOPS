@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "setup": {
+    "fixture": "mid.json with funds/materials/access; tool bought and worn through native commands",
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "checks": [
+    "Actual merchant purchase, native equip, cave mining wear and native return supply the exact damaged repair subject",
+    "Read-only native quote, one input reservation and two actual played minutes durably retain pending work",
+    "pending: native Save/reload/Export/literal Import retains job, exact tool, condition, history, stock and repair draws",
+    "Existing native travel guard refuses departure during repair without changing job or spending",
+    "paused: native Save/reload/Export/literal Import retains job, exact tool, condition, history, stock and repair draws",
+    "Disposable restored-away fixture pauses actual clock work, survives persistence, and retains the native return-state job; ordinary travel remains guarded",
+    "cancelled: native Save/reload/Export/literal Import retains job, exact tool, condition, history, stock and repair draws",
+    "completed: native Save/reload/Export/literal Import retains job, exact tool, condition, history, stock and repair draws",
+    "Completion durably settles exactly one native outcome/draw; later time and persistence do not repeat it",
+    "One whole interval and two boundary-aligned requests through the native clock settle the same exact repair state",
+    "Native Tools at1920×1080 retains readable completion/condition controls at actual21px",
+    "At actual21px, a changed restored target visibly pauses, consumes no work/draw and allows one native cancellation refund"
+  ],
+  "inputMethod": "Native pointer purchase/equip/quote; keyboard Enter on Start/Cancel preserves the existing accessible control route where a saved divider crosses the button center.",
+  "repairResult": {
+    "max": 100,
+    "repairs": 1,
+    "failures": 0
+  },
+  "bundleSha256": "a3d30307661ca7a383953d09ea9d571cb49842dffc271cdc029ed2e31d848a1a",
+  "errors": []
+}

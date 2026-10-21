@@ -2,6 +2,38 @@
 
 release=true
 
+## Current continuation, 2026-10-21
+
+Weibao: "Finish P4, verify it in game, and reconcile the stale coverage records with what's actually done."
+This renews the stopped implementation as a bounded solo task. Start meter69%,
+default AU7 ceiling74%, including final checks. No agents, paid fallback,
+commit/push or personal saves. Historical31% dispatch limit stays below as history.
+Primary master input3ce24d9cb; relevant source paths are clean at entry.
+Own tools_domain, native_tool_domains composition, tools_panel status, new repair
+contract tests/journey and P4 records; reconcile selected stale coverage owners.
+Build in an isolated copy to preserve shared generated output. Runtime seam:
+existing registry tools commands/tick -> native transaction/persist ports.
+Rules AR1–16, AD6–8/15–18/32–38/41, MR1/4/5/21–23/28–31/33, UR61/63.
+Target1920×1080 at14/21px; show exact repair, pause reason and retained work;
+mobile deferred. Regressions chosen before editing: stale condition/history,
+location and custody; identical-name copies; start/cancel/completion write failure,
+RNG rollback, observer failure after durability, pending/finished roundtrip,
+paused/segmented time and retry of already consumed clock interval.
+No active matching writer/build/test found in bounded process inspection.
+Status: P4 source, focused/full-suite, rebuilt native and persistence gates pass.
+Final suite2,451/2,451; focused15/15; native12 groups at1920×1080 and14/21px,
+zero page/console errors. Exact scope and proof limits: [P4 report](P4_REPORT.md)
+and [final identity](P4_EVIDENCE/FINAL_CHECKS.json). All own paths released.
+No P4 commit/push or shared generated-output write. Concurrent home/field changes
+remain untouched and outside the frozen master+P4 verification snapshot.
+Human visual/play judgment remains open. Current release=true.
+Final shared meter70%, below74% ceiling; shared movement is not task-attributed.
+Final docs: zero dropped nonblank lines in PROJECT/IDEA_INDEX/USER_VISION;
+all scoped local links resolve. Primary rules pass with one concurrent-home
+untracked-checkpoint warning, while the frozen candidate rules have zero warnings.
+
+## Historical dispatch preparation and stop
+
 State: STOPPED AT DISPATCH ALLOWANCE CEILING before implementation. P2/P5 completed and released; shared included-use meter then read 31%, the dispatch stop boundary. No runtime/test paths were reserved or edited by P4. All P4 ownership released. Preparation below is historical; latest dependency/input checkpoint follows.
 
 ## Scope and authority

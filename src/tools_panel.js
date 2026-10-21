@@ -11,9 +11,9 @@ export function lampFuelMeterSpec(lamp) {
         ...(lamp.rate?{rate:lamp.rate}:{})};
 }
 export const toolsPanelDiscovered = (rows,lamp) => rows.length>0||!!lamp?.held;
-export function repairWorkPresentation(job,{location,idle}) {
+export function repairWorkPresentation(job,{location,idle,repairBlocked}) {
     if(!job)return null;
-    const pausedReason=location!==job.location?`away from the ${job.location} bench`:!idle?'busy with another activity':'';
+    const pausedReason=location!==job.location?`away from the ${job.location} bench`:!idle?'busy with another activity':repairBlocked||'';
     return {pausedReason,line:pausedReason
         ? `Repair paused (${pausedReason}): ${Math.ceil(job.minutesLeft)} of ${job.total} minutes remain.`
         : `Repairing ${job.name}: ${Math.ceil(job.minutesLeft)} of ${job.total} minutes left at the ${job.location} bench. Time passes while you stay here and do nothing else.`};

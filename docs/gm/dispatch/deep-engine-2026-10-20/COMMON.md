@@ -1,5 +1,13 @@
 # Deep engine implementation: common handoff
 
+Current continuation,2026-10-21: Weibao explicitly renewed the stopped P4 scope
+with "Finish P4, verify it in game, and reconcile the stale coverage records
+with what's actually done." [Current P4 status](P4_STATUS.md) and
+[report](P4_REPORT.md) supersede the original dispatch's stopped implementation
+state and31% allowance boundary for this new bounded solo run. No extra agent,
+commit/push, personal-save access or unrelated runtime scope is selected.
+The original dispatch contract below remains historical provenance.
+
 ## Authority and outcome
 
 Weibao, 2026-10-20, after the five ranked engine proposals: "Connect accordingly, send new chats to address each, maybe one for each". This selects five bounded implementation tasks corresponding to P1–P5, with the connected source owners and proof cases below. The earlier ENGINE_EXPANSION planning-only paragraphs retain their historical status; this later instruction selects these pilots, not every future engine proposal. Implementation and checks are authorized. Commit/push/publish, unrelated cleanup, personal saves and a whole-engine rewrite are outside this dispatch. Earlier gear-chat push permission is specific to that chat's work and is not standing permission here.

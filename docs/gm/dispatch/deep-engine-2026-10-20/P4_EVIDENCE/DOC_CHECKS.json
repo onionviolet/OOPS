@@ -1,0 +1,19 @@
+{
+  "PROJECT.md": {
+    "droppedNonblankLines": 0
+  },
+  "docs/IDEA_INDEX.md": {
+    "droppedNonblankLines": 0
+  },
+  "docs/USER_VISION.md": {
+    "droppedNonblankLines": 0
+  },
+  "localLinks": {
+    "broken": []
+  },
+  "primaryRules": {
+    "result": "PASS",
+    "warnings": 1,
+    "detail": "Concurrent home-system CHECKPOINT.md exists but is not yet tracked; outside P4."
+  }
+}

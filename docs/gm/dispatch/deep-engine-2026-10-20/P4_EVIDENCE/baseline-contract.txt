@@ -1,0 +1,215 @@
+TAP version 13
+# Subtest: P4 stale condition/history/location/custody refuses before spending; exact copies never retarget
+not ok 1 - P4 stale condition/history/location/custody refuses before spending; exact copies never retarget
+  ---
+  duration_ms: 3.216333
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:28:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:31:16)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: P4 failed start and cancel writes roll back reservations; cancellation refunds once
+ok 2 - P4 failed start and cancel writes roll back reservations; cancellation refunds once
+  ---
+  duration_ms: 0.905917
+  type: 'test'
+  ...
+# Subtest: P4 failed completion restores condition, history, job and draw; retry uses the already committed clock once
+not ok 3 - P4 failed completion restores condition, history, job and draw; retry uses the already committed clock once
+  ---
+  duration_ms: 0.442542
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:45:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:48:32)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: P4 post-durable observer/display failures never undo or repeat accepted cost/refund/result
+not ok 4 - P4 post-durable observer/display failures never undo or repeat accepted cost/refund/result
+  ---
+  duration_ms: 0.731083
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:55:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:61:32)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: P4 progress, paused intervals and pending/finished JSON roundtrip preserve frozen quote and segmented time
+not ok 5 - P4 progress, paused intervals and pending/finished JSON roundtrip preserve frozen quote and segmented time
+  ---
+  duration_ms: 1.443375
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:66:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    ... Skipped lines
+    
+      {
+        durability: {
+          condition: {
+            '{"id":"Iron pickaxe","e2_instance":"e2.1"}': 10
+          },
+    ...
+            location: 'Village',
+    +       minutesLeft: 56,
+    -       minutesLeft: 53,
+            name: 'Iron pickaxe',
+            restore: 63,
+            skill: 'Forging',
+            spent: [
+              {
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    tools:
+      schema: 1
+      instances:
+      job:
+        kind: 'hand'
+        key: '{"id":"Iron pickaxe","e2_instance":"e2.1"}'
+        name: 'Iron pickaxe'
+        minutesLeft: 53
+        total: 56
+        location: 'Village'
+        spent:
+          0:
+            id: 'Iron ingot'
+            count: 1
+        restore: 63
+        chance: 0.75
+        failureLoss: 3
+        floor: 40
+        skill: 'Forging'
+    durability:
+      schema: 1
+      enabled: true
+      nextId: 2
+      condition:
+        {"id":"Iron pickaxe","e2_instance":"e2.1"}: 10
+    stock:
+      Iron ingot: 2
+    rng:
+      log:
+  actual:
+    tools:
+      schema: 1
+      instances:
+      job:
+        kind: 'hand'
+        key: '{"id":"Iron pickaxe","e2_instance":"e2.1"}'
+        name: 'Iron pickaxe'
+        minutesLeft: 56
+        total: 56
+        location: 'Village'
+        spent:
+          0:
+            id: 'Iron ingot'
+            count: 1
+        restore: 63
+        chance: 0.75
+        failureLoss: 3
+        floor: 40
+        skill: 'Forging'
+    durability:
+      schema: 1
+      enabled: true
+      nextId: 2
+      condition:
+        {"id":"Iron pickaxe","e2_instance":"e2.1"}: 10
+    stock:
+      Iron ingot: 2
+    rng:
+      log:
+  operator: 'deepStrictEqual'
+  stack: |-
+    run (file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:73:16)
+    TestContext.<anonymous> (file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:79:22)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: P4 changed accepted target/custody pauses without applying old result; cancellation remains available
+not ok 6 - P4 changed accepted target/custody pauses without applying old result; cancellation remains available
+  ---
+  duration_ms: 0.191167
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:82:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of null (reading 'minutesLeft')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:85:38)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: P4 schema-1 pending jobs without new optional bindings remain loadable, malformed bindings refuse
+not ok 7 - P4 schema-1 pending jobs without new optional bindings remain loadable, malformed bindings refuse
+  ---
+  duration_ms: 0.248042
+  type: 'test'
+  location: '/private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:91:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/tests/tools_commit_contract.test.js:95:16)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 1
+# fail 6
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 73.859875

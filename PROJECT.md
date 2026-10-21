@@ -1,3 +1,19 @@
+## Durable native repair P4 completion, 2026-10-21
+
+Weibao requested finishing P4, verifying it in game and reconciling stale coverage.
+The selected native hand-repair consumer now binds exact tool condition/history,
+location and custody, and durably settles reserved inputs, elapsed work, refunds,
+condition/history and keyed draws through the existing transaction/save owners.
+[P4 report](docs/gm/dispatch/deep-engine-2026-10-20/P4_REPORT.md) records
+2,451 passing tests, build/architecture/rules and 12 rebuilt native scenario groups
+with pending/paused/cancelled/completed Save/reload/Export/literal Import at
+1920×1080 and14/21px. Existing repair bands and native travel guard remain.
+[Current recovered coverage](docs/gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md)
+now reflects later perishable/lineage/widget/preview/UI deliveries, with the older
+table retained as history. Human visual/play judgment and natural pacing remain
+open. Source is in primary; the verified master+P4 build is isolated from active
+home/field work. No P4 commit or push.
+
 ## Native gear completion, 2026-10-21
 
 The coordinated native gear slice now delivers typed gem settings and material
@@ -59,6 +75,15 @@ folded into the OOPS palette, continuing beyond the first title slice.
 retain delivered evidence and remaining scope. CRL49–52 extend the book, reading,
 market and investigation cases. Work continues within the cumulative 56% ceiling;
 prior proposal-only status is not an indefinite deferral of fitting work.
+
+Current coverage correction, 2026-10-21: the later combined baseline and gear
+release also deliver bounded specimen observations with immutable history,
+selected processed-material lineage through chest split/return and partial
+native use, optional-widget containment and real component-preview isolation.
+[Current coverage](docs/gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md)
+routes their evidence and retains conditional salvage/spatial situations, general
+product deterioration and broader chemistry/energy/powers as unfinished.
+The continuation paragraph below records the earlier run's boundary.
 
 Current continuation delivers native remembered-material recipe insight, open-shop
 restocking with selection/review recovery, and light-dependent local search with
@@ -168,6 +193,9 @@ original PLAY screen. [Current delivery and remaining work](docs/reviews/PROTO23
 reconciles already completed native consumers before fitting gap implementation
 with lesser agents; the earlier optional-font treatment is superseded as the default. [Styling receipt and 53-entry checklist](docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#tsg-implementation-receipt-2026-10-20)
 record 27 checked / 26 open palette entries and the separate human visual gate.
+That count is the earlier TSG snapshot, superseded for selected rows by the
+[current coverage](docs/gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md)
+and [latest UI release](docs/reviews/CORC_UI_2026-10-21.md#final-visitor-journey-and-fork-release-2026-10-21).
 Other exact colors/intensity remain reversible candidate choices; no additional
 gameplay or mobile scope is selected.
 

@@ -1,5 +1,11 @@
 # Title implementation checkpoint, 2026-10-21
 
+Current coverage reconciliation,2026-10-21: later releases closed the selected
+CRL27/36 observation, CRL37 processed-material lineage, CRL31 widget containment
+and CRL29/39 preview gates. Use [current coverage](COVERAGE.md) and its linked
+combined baseline/gear/UI receipts. This document retains the earlier run and
+its then-open boundaries as dated history; its56% ceiling is not a current status.
+
 Owner: this implementation chat. No children, commits, pushes or personal saves.
 Usage start: 51%, ceiling 56%, checks reserved. Initial live meter 51%.
 Input identity: INPUTS.json. Shared checkout has extensive pre-existing edits;

@@ -1,5 +1,12 @@
 # Perishable lot condition and observation, 2026-10-21
 
+Current status, reconciled2026-10-21: the root browser/persistence gate below is
+closed by the [combined baseline](../gm/BASELINE_CONSOLIDATION_2026-10-21.md#final-completion-evidence).
+The later [gear L1 release](../gm/dispatch/gear-depth-2026-10-21/INTEGRATION_REPORT.md)
+also supplies selected processed-material lineage through chest split/return and
+partial native processing. General product deterioration remains outside that
+scope. The source-lane report below is preserved as its original dated receipt.
+
 ## Scope and authority
 
 This is a bounded native implementation of CRL27, CRL36 and part of CRL37,

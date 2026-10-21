@@ -1,5 +1,13 @@
 # Game idea index
 
+Current execution update,2026-10-21: [P4 native repair completion](gm/dispatch/deep-engine-2026-10-20/P4_REPORT.md)
+closes the selected durable timed-work pilot with rebuilt native/persistence
+proof. [Recovered-26 current coverage](gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md)
+reconciles later perishable observations, processed-material lineage, widget
+containment, preview isolation and UI delivery. These links supersede earlier
+open labels at their named scope; unfinished chemistry/energy/powers, conditional
+salvage, spatial situations, natural pacing and human acceptance stay distinct.
+
 Saved 2026-10-02. Start here to find the project's ideas without making a second specification. [PROJECT.md](../PROJECT.md) owns agreed direction and current delivery; [User vision](USER_VISION.md) owns request provenance and coverage; each linked dossier owns its detail. [Playtest](PLAYTEST.md) owns verification evidence. This index does not promote proposals into accepted mechanics.
 
 [Rules index](RULES_INDEX.md) lists every standing rule set, the authority order and which rule codes apply to a task. Idea owners below stay proposals unless a rule or accepted decision says otherwise.

@@ -1837,3 +1837,20 @@ not adopt other engine proposals or authorize commit/push.
 The selected EI23 pilot is implemented through the existing native registry and a standalone lamplight factory with injected ports. Instance-local state and settled-light intervals interleave independently; scoped light/reading callbacks detach on reconfiguration/disposal. A compatible played-game facade remains. Native composition configures Tools and Lamplight directly, with no main/save/display growth and no universal context or registry rewrite. P1's required enemy item-factory registration hunk is integrated; P3's scenario contract remains unchanged.
 
 [Final P2 receipt and combined wave-A/B inputs](gm/dispatch/deep-engine-2026-10-20/P2_STATUS.md) and [API/lifecycle](gm/dispatch/deep-engine-2026-10-20/P2_EVIDENCE/API.md) own exact paths, dirty hashes, tests and source release. Final full suite: 2383/2383; build/architecture/rules and rebuilt 1920x1080 lamp/reading/combat/persistence evidence pass. Existing native fuel/notice, command transaction and interval guard bodies are preserved. Two prior broad crafting/legacy-runner failures pass on the latest palette-integrated inputs. Seeded technical scenarios do not establish natural campaign acquisition, whole-game reentrancy, a natural creature encounter or human play acceptance. P4 follows the separate P2/P5 release gates. No new product rule, save schema, commit/push or whole-engine conversion is claimed.
+
+
+## P4 exact-target durable repair delivery, 2026-10-21
+
+Weibao explicitly renewed the stopped P4 pilot and requested native proof and
+stale-coverage reconciliation. The existing repair command/job now binds exact
+instance condition/history, custody and location, and uses the existing native
+transaction/persist path for input reservation, elapsed work, cancel/refund and
+completion including durability and keyed draw rollback. A saved native-clock
+cursor preserves rejected work intervals without a second clock. Accepted
+repair bands and the native travel guard remain. [P4 report](gm/dispatch/deep-engine-2026-10-20/P4_REPORT.md)
+owns final2,451-test and12-group rebuilt native/persistence evidence, optional
+schema-1 bindings, source identity and concurrent-home/field boundary. Human
+visual/play judgment and natural pacing remain separate. No new rule, universal
+reservation system, commit or push. [Current recovered coverage](gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md)
+now follows later actual baseline/gear/UI deliveries rather than the first
+continuation's superseded open labels.

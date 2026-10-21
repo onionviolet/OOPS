@@ -1,5 +1,11 @@
 # Useful recovered additions: implementation continuation, 2026-10-21
 
+Current coverage reconciliation,2026-10-21: later releases closed the selected
+CRL27/36 observation, CRL37 processed-material lineage, CRL31 widget containment
+and CRL29/39 preview gates. Use [current coverage](COVERAGE.md) and its linked
+combined baseline/gear/UI receipts. This document retains the earlier run and
+its then-open boundaries as dated history; its56% ceiling is not a current status.
+
 Delivered three more native slices and verified existing book-study/reading
 behavior. The broader recovered palette is **not complete**. [Coverage](COVERAGE.md)
 and the [exact 26-file reconciliation](RECOVERED_26.md) distinguish delivery,

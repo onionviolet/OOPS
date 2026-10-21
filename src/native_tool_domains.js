@@ -11,7 +11,7 @@ import {bindReadingLightReader} from './reveal_chain.js';
 // Native composition for the two carried-tool owners. Neither domain configures
 // the other. The independent lamp factory receives only its supported operations.
 export function configureNativeToolDomains(operations) {
-    configureToolsDomain(operations);
+    configureToolsDomain({...operations, clock: () => calendarMinutes(current_game_time)});
     configureGearWorkshop({...operations, favorites: favourite_items, clock: () => calendarMinutes(current_game_time)});
     const {actor, count, itemOwners, assertSpend, removeItem, persist, writable,
         location, refresh, logMessage, locationRevealed, revealLocation} = operations;
