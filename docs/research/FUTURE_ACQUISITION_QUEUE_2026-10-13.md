@@ -1,5 +1,13 @@
 # Future download and decompile queue
 
+Current tool entry points and readiness are owned by the
+[tool registry](../TOOL_REGISTRY.md), refreshed 2026-10-21. Dated install/tool
+inventories below remain history: .NET/ILSpy and Ghidra are now usable through
+explicit wrappers; Cpp2IL's launch gate is now repaired and an owned-game
+declaration recovery passed. REA 6.7.0 is the default with a preserved 6.4.0
+route. Do not infer current
+ownership, installation or tool readiness from an older queue row.
+
 Created 2026-10-13; routing refreshed 2026-10-18. Type: QUEUE, proposal only.
 Being listed does not authorize purchase, download or install. The standing task
 below already authorizes read-only local source/decompile passes for owned queued
