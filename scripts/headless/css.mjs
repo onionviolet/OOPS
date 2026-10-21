@@ -96,24 +96,37 @@ export function createVisibility(sheets) {
         if(value.includes('var(')) value = resolveVar(value, el.ownerDocument, el);
         return entry[prop] = value.trim();
     }
+    function boxHiddenReason(el, checkOwnContents = false) {
+        for(let n = el, child = null; n && n.nodeType === 1; child = n, n = n.parentNode) {
+            if(n.hidden && !computed(n, 'display')) return 'hidden attribute';
+            if(['template','script','style','head'].includes(n.localName) || (n.localName === 'dialog' && !n.open)) return `not rendered ${n.localName}`;
+            const display = computed(n, 'display');
+            if(display === 'none') return `display:none on ${describe(n)}`;
+            if(checkOwnContents && n === el && display === 'contents') return 'display:contents has no principal box';
+            if(n.localName === 'details' && !n.open && child && child.localName !== 'summary') return `closed details ${describe(n)}`;
+        }
+        return el.isConnected ? null : 'detached';
+    }
+    function cssVisibilityHiddenReason(el) {
+        if(computed(el, 'visibility') === 'hidden' || computed(el, 'visibility') === 'collapse') return 'visibility hidden';
+        // visibility inherits: the nearest explicit value decides.
+        for(let n = el.parentNode; n && n.nodeType === 1; n = n.parentNode) {
+            const v = computed(n, 'visibility');
+            if(v === 'visible') break;
+            if(v === 'hidden' || v === 'collapse') return `visibility hidden on ${describe(n)}`;
+        }
+        return null;
+    }
     return {
         reset() {cache = new WeakMap();},
-        /** Reason the element is not visible, or null. */
-        hiddenReason(el) {
-            for(let n = el, child = null; n && n.nodeType === 1; child = n, n = n.parentNode) {
-                if(n.hidden && !computed(n, 'display')) return 'hidden attribute';
-                if(['template','script','style','head'].includes(n.localName) || (n.localName === 'dialog' && !n.open)) return `not rendered ${n.localName}`;
-                if(computed(n, 'display') === 'none') return `display:none on ${describe(n)}`;
-                if(n.localName === 'details' && !n.open && child && child.localName !== 'summary') return `closed details ${describe(n)}`;
-            }
-            if(computed(el, 'visibility') === 'hidden' || computed(el, 'visibility') === 'collapse') return 'visibility hidden';
-            // visibility inherits: the nearest explicit value decides.
-            for(let n = el.parentNode; n && n.nodeType === 1; n = n.parentNode) {
-                const v = computed(n, 'visibility');
-                if(v === 'visible') break;
-                if(v === 'hidden' || v === 'collapse') return `visibility hidden on ${describe(n)}`;
-            }
-            return el.isConnected ? null : 'detached';
+        /** Reason the element is not visible to a user or clickable, or null. */
+        hiddenReason(el) {return boxHiddenReason(el) ?? cssVisibilityHiddenReason(el);},
+        /** Narrow CSSOM checkVisibility subset: box-tree visibility plus opt-in CSS visibility. */
+        checkVisibility(el, options = {}) {
+            cache = new WeakMap();
+            if(boxHiddenReason(el, true)) return false;
+            if((options.visibilityProperty || options.checkVisibilityCSS) && cssVisibilityHiddenReason(el)) return false;
+            return true;
         },
         rules:rules.length,
     };

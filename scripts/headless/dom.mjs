@@ -258,6 +258,15 @@ export function createDom(options = {}) {
         get nextElementSibling() {const p = this.parentNode; if(!p) return null; const l = p.childNodes; for(let i = l.indexOf(this) + 1; i < l.length; i++) if(l[i].nodeType === 1) return l[i]; return null;}
         get previousElementSibling() {const p = this.parentNode; if(!p) return null; const l = p.childNodes; for(let i = l.indexOf(this) - 1; i >= 0; i--) if(l[i].nodeType === 1) return l[i]; return null;}
         matches(sel) {return parseSelector(sel).some(chain => matchChain(this, chain, null));}
+        /** Uses the runner's live stylesheet visibility owner when supplied. */
+        checkVisibility(checkOptions = {}) {
+            if(options.visibility) return options.visibility(this, checkOptions);
+            for(let n = this; n && n.nodeType === 1; n = n.parentNode) {
+                if(n.hidden || n.style?.display === 'none') return false;
+                if((checkOptions.visibilityProperty || checkOptions.checkVisibilityCSS) && ['hidden','collapse'].includes(n.style?.visibility)) return false;
+            }
+            return this.isConnected;
+        }
         webkitMatchesSelector(sel) {return this.matches(sel);}
         closest(sel) {const chains = parseSelector(sel); for(let n = this; n && n.nodeType === 1; n = n.parentNode) if(chains.some(c => matchChain(n, c, null))) return n; return null;}
         cloneNode(deep) {
