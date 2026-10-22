@@ -405,6 +405,71 @@ Shallow batch: only 3 of 8 decoded games were readable from source or data.
 
 Play queue for possible future play, with what each session should confirm: [PLAY_QUEUE](itch-io-2026-10-22/PLAY_QUEUE.md).
 
+### Genre audits and broad scout (second wave)
+
+Six more sonnet sessions, same brief. Several earlier batches also got deeper
+second to fifth passes after the first commit: I1 (alchemy, bloodlines,
+galaxy invasion), SECT (My Cultivation Sect's grudges, rivalry, adventures and
+succession), CULT_REST, LIFE_A, POTION (Hidden Grimoire's full recipe tree),
+PROCGEN (Condition Unknown's witness knowledge) and SCOUT (Heirdeep, Physician
+Simulator, Tiny Lives, Mos Maiorum). Each batch file has its own pass log.
+
+- **[BATCH_BROAD](itch-io-2026-10-22/BATCH_BROAD.md), 41 screened, 8 decoded.**
+  - EMERGENT - The Heir has a developer-measured list of flat-gauge traps.
+    Passive play was easy, reputation acted as a timer, health stayed flat
+    until 65, isolation had no consequence, and natural death existed in only
+    one mode. Use it as a checklist for YAIR body, reputation and household
+    systems.
+  - EMERGENT also has age-driven chronic conditions with three responses
+    (treat, manage, ignore), and a health ceiling that falls after a set age.
+  - Collapse comes in two kinds, neglect versus burnout, decided by smoothed
+    stress history.
+  - Idle Fantasy Shop shows sale and hire acceptance as a visible sum of
+    parts.
+  - Medieval Merchant Simulator treats family differently from staff: a
+    spouse gets a long grace period before leaving.
+- **[BATCH_MAGIC](itch-io-2026-10-22/BATCH_MAGIC.md), about 30 screened, 3
+  decoded.**
+  - Runemaster shows only the runes that can legally come next. A single
+    rune acts on the world: Earth opens walls (AD38).
+  - Tasks of the Spell Looper recharges a spent rune only when its opposite
+    is used.
+  - Etsa Djavul is a magic conlang learnable by contrast.
+- **[BATCH_CRAFTING](itch-io-2026-10-22/BATCH_CRAFTING.md), 30 screened, 7
+  decoded.**
+  - Hacksmith treats shape as a conserved, scored quantity (MR5).
+  - Quality marks each change one named later stat.
+  - Failed crafts become social debts and return as grudges.
+  - Age of Iteration's trail wear is built by traffic and decays.
+  - Stage costs list alternatives, so substitution is data.
+- **[BATCH_EXPLORE](itch-io-2026-10-22/BATCH_EXPLORE.md), about 60 screened,
+  8 read** (several from pages only).
+  - PokeQuest: scouting has a stated, accurate price, and rumors are consumed
+    when used (SR6/SR8/SR13).
+  - Path Past The Mountain: instruments instead of a map (SR7/SR9).
+  - Coop Catacombs: traces left by other agents change a revisited site
+    (SR5/SR20).
+  - Cartographomancer: errors in your map copies have consequences for
+    whoever uses them.
+- **[BATCH_COMPANIONS](itch-io-2026-10-22/BATCH_COMPANIONS.md), about 30
+  screened, 7 decoded.**
+  - DRGN: each creature's temperament decides which bonding rite works, and
+    scenes become a capped memory list. Companions leave on a gene-driven
+    clock unless bound.
+  - Grim Brood: recursive kinship penalties, and you only know the
+    phenotype until tested.
+  - BEASTBLOOM: breeding intent works as a nudge.
+  - Grim Brood villagers: wishes are predicates, and a villager leaves after
+    two bad nights.
+- **[BATCH_ECONOMY](itch-io-2026-10-22/BATCH_ECONOMY.md), about 150 listed,
+  4 decoded.**
+  - Silver Way: faction tiers with rivals and a deed table.
+  - The Debt Ledger: failed obligations ratchet a standing rate.
+  - Fivefold Crown: scheduled consequences with rising weight, and neighbor
+    pairs that track owed favors.
+  - Knowledge is paid for as payroll or a purchase, and goes stale.
+  - Bills, insurance and forwards are priced from distance and route danger.
+
 ## More to consider, round 2 (2026-10-22, after the decode wave)
 
 Cross-batch patterns. Codes continue from IM13.
@@ -465,3 +530,36 @@ coordinator spot-checked one claim (My Cultivation Sect's twin and
 inheritance code) and applied one correction (Lowmoor). Other batch claims
 are each session's report and were not independently re-checked. Nothing
 executed, no native downloads, nothing committed.
+
+## More to consider, round 3 (2026-10-22, after the genre audits)
+
+### ACCOUNT FOR NOW
+
+- **IM27: "show why" is the most repeated good idea.** It appears as Idle
+  Fantasy Shop's acceptance breakdown, EMERGENT's "Why" boxes and 12-week
+  before/after reports, Hidden Grimoire's five refusal reasons, Patriarch's
+  promotion checklist and Runemaster's legal-next filter. Any new YAIR
+  decision surface should state its reasons in parts. Candidate for a UI rule
+  check under the UR rules, not a new rule yet.
+- **IM28: knowledge has a price and a shelf life across genres.** PokeQuest
+  sells accurate scouting. Silver Way and The Debt Ledger sell price
+  histories that go stale. Grim Brood shows only phenotype until tested.
+  Etsa Djavul's language is learned by contrast. These are all AD6/AD8
+  (means decide, learned numbers) with costs attached.
+- **IM29: obligations are one ledger in several genres.** Crafting grudges
+  from failed commissions, The Debt Ledger's ratcheting rate, Fivefold
+  Crown's owed favors and Kinfolks' land claims all fit AD14 (bindings and
+  duties carry by their own rules). A single obligations record read by
+  several systems beats per-system debt counters.
+- **IM30: EMERGENT's flat-gauge list is a ready test checklist.** Check YAIR
+  body, reputation and household systems for passive play being easy,
+  reputation that behaves as a timer, flat health until late age, isolation
+  without consequence, and natural death in only one mode.
+
+### LATER / DELEGATE
+
+| Code | Item | Level / effort | Done check |
+| --- | --- | --- | --- |
+| IM31 | Run the IM30 flat-gauge checklist against current YAIR systems with a headless long-life run (`headless-bench` / `simfuzz` toolsets). | sonnet, medium | Each of the five traps marked present or absent, with the run's evidence. |
+| IM32 | Obligations ledger proposal (IM29): one record that crafting, household, inheritance and economy write to and read from. | sonnet, medium | A doc maps three existing debt-like states onto one record shape with a migration note. |
+| IM33 | Companion bond rite by temperament with capped scene memory, modeled on DRGN, for `src/companion_roster.js`. | sonnet, small | A fixture shows a preferred rite giving the larger gain and appending a memory line, with the cap enforced. |

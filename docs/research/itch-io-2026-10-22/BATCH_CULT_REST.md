@@ -11,23 +11,23 @@ a design doc lacks it. Items already in the screen report's I1-I12 are not repea
 | --- | --- | --- |
 | Tụ Linh Quyết (tu-linh) | itch html, one inline script, string-array obfuscated | Decoded. Rich. |
 | Ninefold | itch html, React, plain minified | Decoded. Rich on offline fairness and onboarding. |
-| Idle Xanxia | itch html, Vite bundle, plain minified | Decoded in part. Rich on rebirth prep and Dao tiers. |
-| Ascension Tower | itch html, 1.4 MB inline script, plain | Decoded in part. Colony trust/gift/warehouse. |
+| Idle Xanxia | itch html, Vite bundle, plain minified | Decoded (second pass). Rich on impurity cap, rebirth keep-list and sect commissions. |
+| Ascension Tower | itch html, 1.4 MB inline script, plain | Decoded (second pass). Colony trust, rumours, trade routes, warehouse. |
 | Cultivation Genesis | itch html, 9 plain script files | Decoded. Small but clean. |
 | A Mortal's Path of Cultivation | itch html, inline plain | Decoded in part. Best life-sim fit. |
-| Quest of Qinghe | Godot 4.5 web PCK, scripts compiled | Extracted and decoded (13 script files, 0 errors). Read lightly. |
-| Olumsuzluk Yolu (Turkish) | itch html, inline plain, tailwind | Skimmed: meridians, sutras, dongfu, nemesis list, pill toxin. |
-| Path of Immortal | itch html, inline plain, 172 KB | Skimmed: lifebound artifact, disciples, reincarnation, heavenly mandate. |
+| Quest of Qinghe | Godot 4.5 web PCK, scripts compiled | Extracted and decoded (13 script files, 0 errors), read in a second pass. |
+| Olumsuzluk Yolu (Turkish) | itch html, inline plain, tailwind | Decoded (second pass). |
+| Path of Immortal | itch html, inline plain, 172 KB | Decoded (second pass). Thin. |
 | Alchemy Sovereign | itch html, inline plain | Read in full. Thin (sell or eat pills, cauldron speed ladder). |
 | Sect Management Alpha | game.js plain | Read the head. Thin (jobs, building levels, disciples). |
-| Idle Qi Cultivation | itch page is a landing page for idleqi.com | Skipped, external host, thin listing (1.0 stars). |
-| Cultivators Chronicles | Android APK plus mobile-only web bundle, 8 MB plain | Skimmed content tables only. Mobile-first, and the page says no desktop version. |
-| Cultivation Core Incremental | Vite bundle 735 KB | Page read only: tribulation, talent points on reincarnation, companions. Not decoded. |
-| Xianxia Idle | `js/main.js` 6193 lines | Page and header comments only. Not decoded. |
-| Dao of the Endless Sky | external site daoendlesssky.com | Skipped, external host. |
-| Nivrael | playable only on nivrael.com | Skipped, external host. |
-| Chronicles of Cultivation | `client/index.html` of an online multiplayer game | Skipped, server driven PvP/MMO. |
-| SectMind | online PvP, Android/Windows | Skipped, server driven. |
+| Idle Qi Cultivation | iframes idleqi.com (React + Supabase) | Client read; rules are in database tables, not readable. |
+| Cultivators Chronicles | Android APK plus mobile-only web bundle, 8 MB plain | Decoded (second pass). Mobile-first, so UI findings are deferred per the standing UI priority. |
+| Cultivation Core Incremental | Vite bundle 735 KB | Decoded (second pass). |
+| Xianxia Idle | `js/main.js` 6193 lines | Decoded (second pass). |
+| Dao of the Endless Sky | external site daoendlesssky.com | Unreachable (connection refused from curl and WebFetch). Page claims only. |
+| Nivrael | nivrael.com is a landing page; the game is a Telegram mini-app | Read the site bundle. System claims are stated-not-found. |
+| Chronicles of Cultivation | `client/` of an online game (PlayFab) | Client read: inventory UI only; rules are server-side. |
+| SectMind | iframe to sectmind.com/game-panel | Shell only; rules are server-side. |
 | Text Cultivation | Windows/Android only | Skipped, native only. |
 | The Left Hand refers to the moon | p5.js survival/tavern art game (energy, hunger, inebriety, luck, "dosh") | Not cultivation. One line, no decode. |
 
@@ -105,8 +105,7 @@ a design doc lacks it. Items already in the screen report's I1-I12 are not repea
     per-rank bonuses; trade and caravan routes; storage containers per resource.
   - Prestige currency (jade tokens), evolved and ascendant class tiers, realm techniques with one selectable per realm, qi buffs bought with a timer.
 - **YAIR mapping**: household staff and companions live in `src/home_staff.js` and companion files; no keyword hit for trust tiers or gift gating in
-  `src`. Proposal: gift tier as the relationship gate (a minimum gift size per bond tier) so cheap gifts cannot grind a deep bond, plus rumours
-  unlocked by aggregate standing rather than per person.
+  `src`. Proposal: rumours unlocked by aggregate standing rather than per person. A minimum gift size per bond tier would stop cheap-gift grinding, but this game only hides the buttons; YAIR would have to enforce it in its own rules.
 
 ## Cultivation Genesis (alpha, English/French)
 
@@ -138,9 +137,9 @@ a design doc lacks it. Items already in the screen report's I1-I12 are not repea
   (many are a mini-program SDK addon, removed from the copy). Extracted with a small parser (the shared `extract_pck.py` expects an embedded pack with trailer),
   decoded with `decode_gdc.py` (13 files, 0 errors). Core files: `IdleScene.gd` 5,214 lines, `GameData.gd` 1,967, `StorySystem.gd` 632.
 - **Systems (source, read lightly)**: story gating by flags `v1_2`/`v1_3` that change how an NPC speaks (`npc_stage`); quests tied to kill counts or
-  area clears with a "report back to the NPC" toast when done; a spiritual-root test popup; five sects tied to the five elements, a skill sold only at a sect
+  area clears with a "report back to the NPC" toast when done; a spiritual-root "test" that is cosmetic (the root is a uniform random pick of five elements); five sects tied to the five elements, a skill sold only at a sect
   and a realm (price 900, realm 4); sect required to open some map areas. Ads and platform SDK present (not read).
-- **YAIR mapping**: NPC dialogue that depends on which chapters you have seen is a cheap lore-state idea; quest and companion systems are elsewhere in `src/quests.js`.
+- **YAIR mapping**: NPC dialogue that switches stage with a once-per-realm story flag is a cheap lore-state idea (there is no numeric respect system; an earlier line implying one was wrong); quest and companion systems are elsewhere in `src/quests.js`.
 
 ## Skims worth a line
 
@@ -153,18 +152,32 @@ a design doc lacks it. Items already in the screen report's I1-I12 are not repea
 - **Alchemy Sovereign**: customers are realm-limited; a hard-coded cheat code and the stated feedback that its only choice is eat versus sell.
 - **Sect Management Alpha**: 10 realms, jobs (idle, mine, garden, cultivate), disciples cap 3 + 2 per sect level. Thin.
 
+## Second pass (full reads of the games first skimmed or skipped)
+
+Detail with locators is in `private/cult-rest/NOTES_A_*`, `NOTES_B_*`, `NOTES_C_*`, `NOTES_D_external_hosts.md`.
+Mapping greps below are keyword and file-name greps; owner files were not opened unless noted.
+
+- **Ninefold live build** (github.io host, newer than the itch iframe): rebirth is optional ("staying loses nothing"). The only numeric carry-over is an Echo added to qi per second, with a hard roof: the first mark of a life leaves the most, and each doubling of marks or of lives adds one small step. Also carried: a title per life (list capped), best records, the gear codex at the best rank any life reached, a share of workshop experience per craft, who you are and chest filters. Reset: realm, gear, materials, tower, beds, secret realm, workshop pouch and tools. Gear chest has capacity, named loadouts, set pieces protected from melting. Maps to the carry-over rules around `src/heir_inheritance.js` and `src/home_inheritance.js`; a roofed, doubling-step carry is not in `src` by grep.
+- **Cultivators Chronicles**: rebirth keeps NPC affinity of 75+ and province reputation of 100+ as values (a threshold rule), body-refinement levels up to a bought budget, and lifespan base rising 75 per rebirth. Aging while away ends in a "pending death" flag instead of killing the character. Six real-time World Ages rotate with random durations and qi or path multipliers. Seven Dao elements unlock nine pair combos when both reach rank 1. Province elders send gift letters at affinity milestones. A clock-cheat defense exists; not relevant to YAIR (AD22). Mobile-first, so presentation ideas are deferred under the standing UI priority.
+- **Cultivation Core Incremental**: before each breakthrough you pick a quality (1x, 2.5x, 5x cost) that also sets the strength of the passive you pick after a click-to-dodge tribulation (2%, 5%, 10%). Reincarnation from realm 6 keeps pets, techniques, equipment and talents, grants one talent point, and realm costs rise 10x per rebirth. No "Spirit Sanctuary" or "ancient arts" strings exist beyond the pet panel and techniques tree; the page's claims were overstated.
+- **Xianxia Idle**: 11 realms, lifespans from 50 years to infinite, time speed affects aging only. Death pays half the karma of a voluntary rebirth. Offline gain is capped at 16 hours and offline aging still kills. The developer's header describes a fix for about 500 instant rebirths when lifespan hit zero (guard flag, single-pass check, one offline death check, per-life latch).
+- **Idle Xanxia**: impurity is a hard cap on permanent pills (base 100 plus a persistent bonus; a pill that would exceed it is refused), not a penalty. Purge and cap-raise are sect commissions paid in merit, real-time, rank-gated, with a 25% discount for Junior Elder. The rebirth code has an explicit keep-list (daos, aspects, elixir stats, shop, sect rank and contribution); level, gold and floor reset; current impurity is not on the keep-list (inferred reset). Each rebirth picks Soul (+1 aspect slot, to 8) or Body (+1 stat point per level, to 10); the prepared pill sets the next life's starting level. Offline: 8 hours at -50%, sampled encounters, a receipt. Mission board refreshes on 2h, 6h and 24h cadences. No daily-reset or streak code found. Impurity cap and commission ladder are not in `src` by grep (`src/items.js` has an impurity field only).
+- **Quest of Qinghe**: the spiritual-root test is cosmetic (uniform random of five elements); sect follows from root by a fixed table; membership gates per-sect maps and one skill. Story flags fire once per realm and change the elder NPC's dialogue stage; there is no numeric respect system. Equipment stats derive from slot, realm and grade (not stored). The rebirth-like "layer loop" is a diminishing multiplier that leaves realm, gear, root and sect alone. The blackhole scene is a gravity-puzzle minigame. Offline pays rate x time x 0.1 up to 8 hours (12 from realm 8). Save is one plain JSON file.
+- **Olumsuzluk Yolu**: one 360-day clock; story chapters unlock at cumulative-day thresholds. The four seasons are display only (their bonuses are never read). Pill toxin does not rise with time: soft qi penalty above 40 and 70, breakthrough blocked at 85; the "qi deviation" warning has no random event behind it. Tribulation is three waves each answered with a different defence (tank, shield, flying sword, pill). Wronging an auction winner creates a persistent nemesis with a bounty. A companion list is a per-character affinity gate that unlocks a monthly joint-cultivation action and a one-time permanent bonus for one chosen partner (mechanism only; nothing explicit read).
+- **Path of Immortal**: point-buy creation with a difficulty budget; lifebound artifact evolves through four tiers each needing a material; reincarnation carries a small power, stone and dao share; fate points buy a retry on a failed breakthrough; sect facility effects, disciple talent tags and faction standing are not found in code; the three endings are text screens. Thin.
+- **Ascension Tower**: three class tiers (base, evolved, ascendant at level 30) stored as data; breakthrough has four risk presets with stat-adjusted fail chance. Colony trust is the sum of three NPCs' trust. Rumours need summed trust plus a floor before they open a production; trade routes need one named NPC's trust. Warehouse auto-sells opted-in goods at 25% of market every 120 s. An occupation-resistance score (-200 to 200) locks story paths at floor 75. Two bugs: the tier `minGift` field only hides cheap gift buttons in the UI (no rule enforces it), and one place uses the id `sanya` where the roster id is `saya`.
+- **Idle Qi, Nivrael, Chronicles of Cultivation, SectMind**: rules are server-side or in a Telegram app. Nivrael's landing page claims nine NPC houses acting on their own schedule with a Chronicle of what happened while away, a Foundation Purity percentage with a permanent 5x at 100%, and 108 Dao fragments; none is verifiable (stated-not-found). Idle Qi has companions with bond XP and last-fed time and a 60-second opening session. Dao of the Endless Sky could not be reached.
+
 ## Top findings (proposals)
 
-1. **Retention as a purchasable dial** (Tụ Linh Quyết, Cultivators Chronicles): what a new life keeps (beasts, gear, techniques, starting realm, automation) is itself the rebirth shop; automation is a reward, not a toggle. Maps to the cross-world carry-over rules; check against `src/heir_inheritance.js` and `src/home_inheritance.js`.
-2. **Written no-loss contract and bed ripening** (Ninefold): a first-screen promise that absence only helps, plus work beds whose value settles at collection and wait forever. Maps to offline and field work (`src/field_works_*.js`).
-3. **Gift size as a relationship gate and aggregate rumour unlock** (Ascension Tower): minimum gift per bond tier; rumours gated by summed standing. No hit in `src`.
-4. **Impurity with timed purge commissions gated by sect rank** (Idle Xanxia): extends the existing pill-toxin and impurity fields in `src/items.js`.
-5. **Layered anti-repeat narrator and build-sensitive consequence line** (A Mortal's Path): small, text-only, fits the chronicle; plus keyed chronicle entries (Cultivation Genesis).
+1. **Roofed carry-over with diminishing steps** (Ninefold live build) plus **retention as a purchasable dial** (Tụ Linh Quyết, Idle Xanxia's Soul or Body pick, Cultivators Chronicles' threshold rule: affinity 75+ and reputation 100+ survive). Check against `src/heir_inheritance.js` and `src/home_inheritance.js`.
+2. **Absence contract and settle-at-collection beds** (Ninefold), with Cultivators Chronicles' "pending death" instead of dying while away and Xianxia Idle's single offline death check. Check against `src/simulation_clock.js` and the field-work files.
+3. **Hard cap on permanent pill use with timed, rank-gated purge commissions** (Idle Xanxia), versus Olumsuzluk's toxin bands that block breakthrough at 85. Extends `src/items.js` impurity.
+4. **Aggregate-standing rumours and per-NPC trade routes** (Ascension Tower); its own gift-tier minimum is only a UI filter.
+5. **Layered anti-repeat narrator and build-sensitive consequence line** (A Mortal's Path), plus keyed chronicle entries (Cultivation Genesis).
+
+Cross-cutting: several of these games advertise or display content their code never reads (Olumsuzluk seasons, Qinghe root test, Core Incremental sanctuary, Ascension `minGift`). Worth checking that every YAIR table has a consumer (AD36).
 
 ## Verification
 
-Read: pages of 21 titles (page text, platform, build ids); full builds for Tụ Linh Quyết, Ninefold, Idle Xanxia (grep plus targeted ranges, not whole),
-Alchemy Sovereign, Cultivation Genesis (systems and part of `game.js`), A Mortal's Path (function map plus five functions), Ascension Tower (data tables), Qinghe (pack listing plus
-`StorySystem.gd` and part of `GameData.gd`). Not read: the bulk of Idle Xanxia, Cultivators Chronicles, Ascension Tower and Qinghe code; Xianxia Idle, Core Incremental; the
-external-host games. No game code was executed. The Tụ Linh Quyết decode ran a Python string decoder and evaluated its rotation arithmetic in Python, not in a JS engine.
-About 80 tool calls; the itch site returned 429 on some early requests and the fetch loop waited as the brief allows. Nothing committed.
+Read in full or by traced function: Tụ Linh Quyết, Ninefold (itch and live builds), Cultivation Genesis, A Mortal's Path, Alchemy Sovereign, Sect Management Alpha head. Read by three sonnet readers with locators (two spot-checked by me; the `minGift` claim was corrected after my check): Cultivators Chronicles, Core Incremental, Xianxia Idle, Idle Xanxia, Quest of Qinghe, Olumsuzluk, Path of Immortal, Ascension Tower. Idle Xanxia floor and boss table line numbers in the notes are approximate. Not read: Idle Xanxia combat formulas beyond level-gap scaling, Qinghe `BattleEngine.gd`, Ascension Tower technique table and story text, Cultivators Chronicles familiar care. Unreachable: Dao of the Endless Sky (connection refused by curl and WebFetch), Nivrael's Telegram game. Skipped as native-only: Text Cultivation. Not cultivation: The Left Hand refers to the moon. No game code was executed; the Tụ Linh Quyết string decode used a Python re-implementation of the decoder. Nothing committed.

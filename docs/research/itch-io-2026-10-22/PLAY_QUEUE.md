@@ -15,6 +15,77 @@ before treating a later play as the same build.
 Agents playing these use a background or headless browser. Native-only
 builds (Windows, Android) need Weibao to download and run them himself.
 
+## Shortlist v2 (2026-10-22, after the genre audits)
+
+Ranked by what a play session would settle for YAIR. All run in a browser.
+
+1. **My Cultivation Sect**: a family and social sim with grudges, rivalry,
+   inheritance from both parents and succession.
+2. **Kinfolks**: inheritance law, divided land and heirlooms.
+3. **EMERGENT - The Heir** (albeus-games): chronic conditions, a health
+   ceiling that falls with age, neglect versus burnout. Confirm the "To
+   decide" tray with expiring defaults feels like help, not punishment.
+4. **DRGN**: bonding rites by temperament, scene memory, companions who
+   leave unless bound. Confirm the rite feels like a relationship rather than
+   a stat button.
+5. **Nine Peaks**: awakening from where servants sleep, deaths charged by
+   cause.
+
+Next five: Progress Knight of Shirania (remembered scenes), HUNGERHOLD
+(death-cause lessons), Silver Way (faction tiers and rivals, 30 minutes),
+Hacksmith (shape as a scored quantity), Condition Unknown (witness
+knowledge).
+
+Quick samplers, 15 minutes or less each, one mechanism apiece:
+
+- Runemaster: legal-next runes
+- Etsa Djavul: magic conlang
+- Tasks of the Spell Looper: opposition recharge
+- PokeQuest: priced scouting
+- The Path Past The Mountain: instruments instead of a map
+- Cartographomancer: map errors
+- Monster Ranch: pairing dice
+- Grim Brood: hide reading
+- Idle Fantasy Shop: acceptance breakdown
+- Fivefold Crown: delayed events
+
+The batch files give each game's play check.
+
+## Shortlist v1 (superseded by v2 above, kept for history)
+
+Ranked by what a play session would settle for YAIR. All run in a browser.
+
+1. **My Cultivation Sect.** Its deeper decode found a real family and social
+   sim: two-parent inheritance, grudges, rivalries, adult traits, adventures
+   with delayed returns, and death followed by succession. It is the closest
+   match to YAIR's lives and household. Play to see whether these produce
+   stories you notice, or just stay in the numbers.
+2. **Kinfolks.** Inheritance law, divided land and heirlooms with a history.
+   It has the highest page rating of the set and was updated on 2026-10-21.
+   Play through one death and one land division.
+3. **Nine Peaks.** Servants who awaken based on where they sleep, deaths
+   charged by cause, and a qi field you shape. Play until the first awakening
+   and the first neglect death.
+4. **Progress Knight of Shirania.** Choices that only appear for scenes you
+   lived in an earlier life, and a named keeper of your role thread. Play two
+   lives.
+5. **HUNGERHOLD.** Each way of dying gives the next life a specific edge, plus
+   a succession crisis. Play two deaths by different causes.
+
+Next five, when there is time:
+
+6. **Condition Unknown** (Cook and Smith Nicholls, short PROCJAM game).
+   Events travel as noise and per-witness knowledge, and the ending compares
+   your diagnosis with the recorded causes.
+7. **Hidden Grimoire.** Failure is an ingredient, and each reagent's
+   description hints at its pairings.
+8. **Qingxuan.** Story windows lapse while you are away. One route takes
+   about 1 to 1.5 hours.
+9. **Incremortal.** Death is the clock, and instincts persist across lives.
+   About 2 hours of content.
+10. **Path of the Idle Cultivator.** Long. Skim one tribulation and one law
+    choice rather than playing it through.
+
 ## Tier A: play first
 
 | Game | Where | Runs as | What play should confirm | Notes |

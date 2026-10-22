@@ -81,8 +81,7 @@ Labels: `source` = found in code; `stated-not-found` = claimed but absent;
     last realm threshold and have at least five meaningful history entries.
   - Campaign ending, then a new sect; regional bosses show a fixed-opponent
     simulation before commit. Events key off per-region run counts.
-  - "Enemies grow stronger after each defeat": `stated-not-found` (only region-run
-    counters seen, not the formula).
+  - "Enemies grow stronger after each defeat": see the second pass (`source`).
 - **Representations**: per-disciple chronicle stories, roster scroll-state restore,
   sect-grounds walkers drawn from present disciples.
 - **Improvements**: code comments record two rebalance passes (v1.1.51: Core rank
@@ -231,34 +230,302 @@ Labels: `source` = found in code; `stated-not-found` = claimed but absent;
   offline progress. Standard tower idle.
 - **YAIR mapping**: none recommended; gear depth is already covered.
 
+## Second pass: the parts left unread in the first pass
+
+Added after Weibao asked for the skipped parts to be read. Same labels.
+
+### My Cultivation Sect: individual lives, the part that matters most
+
+- **Adventure table**, `source` (Config `adventures`, `runAdventures`,
+  `applyAdventure`): every adult, non-grounded disciple rolls an adventure every
+  150 game-seconds (a "lucky" trait doubles rolls). Twenty weighted outcomes,
+  most common are stones, exp, resources; rare ones are the interesting part:
+  romance with an outer-sect cultivator, meeting an outer friend, abduction,
+  a mysterious pendant (30% death by possession, otherwise a level), a mysterious egg
+  that hatches into a sect beast after 3 to 10 years and gives a sect-wide stat bonus,
+  an abandoned baby adopted as a new disciple, inner demons (halve exp, or a stacking
+  breakthrough penalty), a late senior's cave, a market bargain that can lose 50 stones,
+  a "favor" that is repaid years later.
+- **Delayed returns**, `source` (`checkMissingReturn`, `checkFavorRepay`):
+  an abducted disciple goes missing 0.2 to 5 years; 25% never return, the rest
+  come back with gear, a fragment or a cultivation jump. A rescued rogue cultivator
+  returns 1 to 3 years later with a gift, named in the log after the disciple who
+  helped them.
+- **Death and succession**, `source` (`killDisciple`, `checkReincarnation`):
+  on death the dead disciple's gear passes to the spouse or a random adult child;
+  the spouse is widowed with a remarriage cooldown. A ledger keeps the last 10
+  dead; 20% are scheduled to reincarnate 18 game-years later with the same name,
+  gender, quality, root tier, root elements and born trait ("bearing the same
+  look"), or "found another home" if the mountain is full.
+- **Grudges**, `source` (`checkGrudge`): a child born while a parent was
+  spurned carries a grudge flag; at adulthood there is a 30% chance they turn
+  demonic and seek revenge on the sect.
+- **Rivalry**, `source` (`checkRivalry`): two disciples who both like the same
+  person can fight for them; the loser sulks for a stretch (reduced cultivation).
+- **Traits**: 18 adult traits (e.g. a flirty trait with 10x affair chance, a
+  solitude trait that blocks romance for a flat stat bonus, a jinxed trait that
+  halves qi deviation), 6 innate born traits that are hidden until revealed by a
+  fragment or event (e.g. one embezzles sect stones yearly).
+- **Roots**: 7 elements, 5 tiers from mixed (0.7x) to peerless (1.6x); a "root wash"
+  item re-rolls with 50% success.
+- **Hunts**, `source` (Config `huntTiers`): team of 3, 30-day cooldown, 5 demon
+  tiers; each has a required strength and a separate power value.
+- **Sect-level rebirth**, `source` (`rebirth`): the only carry is the count of
+  ascended disciples (`legacy`), worth 2% cultivation each.
+- **YAIR mapping**: this is the closest match to YAIR's lives and household
+  systems (`src/npc_lives.js`, `src/home_staff.js`, `src/heir_inheritance.js`,
+  `src/lore_history_state.js`). Ideas, all proposals: delayed-return events with a
+  named cause (abduction, favor), a death ledger with a chance of return, gear
+  passing to a named heir by relationship, a pendant-style gamble with a stated
+  death rate. Check against AD38 and the lives/recovery rules before use.
+
+### Patriarch: Murim Idle
+
+- **Enemy growth, `source`** (~12855): required power = base power x growth
+  (default 1.32) ^ wins against that enemy, and rewards fall after a per-enemy
+  count of "full reward" wins (default 3). The page claim is true.
+- **Regions** (~11788): five regions with danger, reward and unlock gates
+  combining sect rank, a win count on a named enemy, cult level and a boss kill.
+  Regional bosses use a deterministic fixed-opponent simulation.
+- **After-fight diagnosis, `source`** (~12940-12976): after a fight the game
+  classifies the cause (lost disciple availability, no war charge, low armor
+  penetration, poor endurance, or low damage) and prints rounds-to-kill versus
+  rounds-to-fall as advice. It also previews the result before committing.
+- **World events, `source`** (~11860): eight events, comment states they are
+  not random: each fires once after a specific world milestone, with a 2 minute
+  cooldown, 3 choices that each cost and gain stated amounts, change faction
+  relations, and may require power, sect rank or a building level. A comment says
+  the numbers in the choice data are the single source for both preview and result.
+- Five factions with relation scores and envoy costs; artifacts owned by
+  patriarch or disciple, earned by combat or expedition counts.
+- **YAIR mapping**: the diagnosis pattern fits the combat rules (CBR family) and
+  the UR family (state the reason); milestone events with data-driven preview
+  fit the sites/exploration rules. Grep found no after-fight cause classifier in `src`.
+
+### Xianxia Sect Simulator
+
+- World is a stub: `world.gd` only prints, the world template holds an empty tile
+  list; resources are binary and were not decoded. Talent roll is heavily skewed
+  (about 92% in 1 to 3, 0.1% in 8 to 10), physiques are rare overrides rolled
+  against a rarity number, affinity defaults to fire 65%, water 20%, earth 10%,
+  wood 4%, metal 1%. Nothing more of value.
+
+### Office Immortal
+
+- **Offline is the same simulation**, `source` (~840-850, ~1190-1205): the combat
+  tick is a pure event-driven function over a cloned state with a seeded rng
+  stored in the state; offline progress just runs that function for up to
+  8 hours (plus 1 hour per "Flexible Hours" rank, max 8) and returns a summary
+  of floors, levels, kills, drops kept, sold and salvaged, boosts that ended. No
+  separate offline formula.
+- Prestige: Insight from highest floor (floor squared over 50, from floor 10);
+  four passives bought with doubling costs and rank caps (xp +10%, treasure
+  find +5%, offline cap, +2 stat points).
+- Realm names are job titles (Intern, Associate, Team Lead, Manager, ... Chairman).
+- Three paths differ in primary stat, crit and damage multipliers, lifesteal and a
+  burst rule (Talisman: every 5th hit x5).
+- **YAIR mapping**: matches the branch/offline clock direction; the single
+  shared tick for online and offline avoids drift. Already close to what YAIR does.
+
+### Ascending the Dao
+
+- **Ascension trial**, `source` (~908-1000): after True Immortal 25 the trial asks
+  three questions two game years apart, each answered Steady, Measured or Bold,
+  with stated hold chances and points. Points (0 to 9) set a rank 1 to 4 for one of
+  three endings (righteous, heretical, both). Results are seeded from the save's
+  root seed, life number and stage, so reloading does not re-roll. A later trial can
+  raise a rank but never lower it; bonuses have a soft cap. Offline answers default
+  to Steady.
+- **Spiritual root**, `source` (~369-452): derived from the same seed and life
+  number, so a given life's root is fixed; revealed at Qi Refining by a test.
+  Element count sets speed grade, quality sets position inside it; elements boost
+  matching skills.
+- **Ruin search**, `source` (~2722-2830): four ruins; entry fee is days of your
+  best abode's expense; income falls to 20% while away; the chance of finding a
+  relic and of danger both rise with days spent (quadratic accumulation), a
+  warning appears before danger, and a realm bonus helps up to 1.5x.
+- **Life summary**, `source` (~2840): each life ends with gains, and records are
+  compared with previous bests ("first life: everything is the mark to beat").
+- **YAIR mapping**: seed plus life number is a clean anti-save-scum rule for
+  one-time rolls (AD22 says anti-cheat hardening beyond save integrity is not a
+  priority, so this is optional). The ruin search with a rising hazard and a fee
+  fits sites/exploration (SR family).
+
+### Drifting Cloud Chronicles
+
+- **War math, `source`**: win chance = 0.5 + 0.4 x log2(vanguard power / enemy
+  defense) + up to 10% from quartermasters, clamped 3 to 95%. Enemy defense
+  multiplies 1.6x per territory already taken. Loss kills about 15% of the
+  committed disciples, reduced by the share of bulwark; a lost campaign may reduce
+  training.
+- Buildings (training hall, meditation hall, garden, library, treasury) gated by
+  realm; each gives a per-level percentage, max level 10, cost x1.7 per level.
+
+## Third pass: remaining unread parts
+
+### My Cultivation Sect: sect-level events, offline, crafting
+
+- **Offline settlement**, `source` (`settleOffline`): capped at 720 minutes; it
+  adds grain and wood, subtracts disciple upkeep by realm, and adds cultivation
+  exp but clamps each disciple's exp to one point below the next level. So offline
+  never breaks through, ages, marries or triggers life events; those need the
+  player present.
+- **Inter-sect layer**, `source` (`checkSectEvents`, `raidSect`): one open sect
+  event at a time (buy grain, buy gear, joint hunt, marriage, challenge) from a
+  rival sect. Relation of 50 or more yields yearly gifts; -50 or less invites raids
+  that either get repelled (stones gained) or plunder grain. A player-led crusade
+  needs hostile relations and has a cooldown; it sends the top three disciples and
+  the win chance is their tier sum over three rolled enemy tiers. Success costs 20
+  relation, failure costs 10 and pays compensation. Rewards scale with the total
+  of all disciples' tiers.
+- **Demon revenge**, `source`: expelled or fallen ex-disciples are kept in a list
+  and each year may return; the sect's strongest member fights at tier over tier
+  plus theirs, killing them 30% of the time.
+- **Egg hatching**, `source`: 6 beast types by weight; the dragon adds a sect-wide
+  breakthrough bonus, others give the carrier a stat bonus.
+- **Gongfa and scrolls**: fragments buy sect-wide cultivation levels (+8% each,
+  cost 4 + 4n); root wash costs 2 fragments (50% up, a smaller chance down by
+  tier, else unchanged with elements re-rolled); a life elixir adds 15 to 30 years
+  for 6 fragments plus grain; a dead disciple can be revived from the ledger
+  (`revive`).
+- **Gear** is generic: 5 slots, 4 qualities, tiers, an optional bonus line, craft
+  one or ten, batch sell or salvage, auto-equip best by value. Nothing distinctive.
+- **YAIR mapping**: offline excluding life events is a deliberate choice worth
+  comparing with the branch/offline clock rules in `docs/RULES_INDEX.md` before
+  use. The one-open-at-a-time inter-sect event with relation-driven gifts and raids
+  fits the sites/exploration and companions rules.
+
+### Patriarch: expeditions, tournaments, alchemy
+
+- **Expedition**, `source` (~16602): pick region, party and duration; refused if
+  party power is below the required value; reward and artifact bonuses are fixed
+  at departure and stored on the run. Completion records an `expedition:<region>`
+  milestone on each member. Offline play runs the same stepped simulation and
+  finishes an expedition mid-gap if its timer ends.
+- **Tournaments**, `source` (~11810, ~12198): three tiers; required power = base x
+  growth (1.25 to 1.30) ^ wins; the outcome is three deterministic thresholds
+  (62%, 82%, 100% of required), so a loss is partial and never random; repeat
+  rewards drop to about 35% of the first; cooldowns 10, 30 and 60 minutes; each is
+  hosted by a faction.
+- **Faction conflicts**: required power scales by 1.30^wins and rises with how
+  hostile the relation is.
+- **Alchemy**: four recipes (disciple-targeted: spirit, bone, insight; sect-wide:
+  war charge), gated by sect rank and library level. The war charge appears as a
+  named reason in the combat diagnosis.
+- **YAIR mapping**: deterministic threshold outcomes with a stated preview fit the
+  preview-before-commit direction; no new owner.
+
+### Office Immortal: floors and shop
+
+- A floor is 9 basic enemies, one elite and one boss, scaled by 1.2^floor with a
+  separate xp curve; tribulation bosses use realm-named audits ("Annual
+  Appraisal", "Hostile Takeover", "Heavenly Audit"). A rotating shop offers chests
+  and timed boosts (xp, treasure, stones). Combat is a timeline of next-event times
+  (attack, qi, wind-up, pending effects) processed in order, which is why offline
+  can reuse it.
+
+### Ascending the Dao: relics and pills
+
+- **Relic structure**, `source` (~2367): five rarities decide stat rows (1, 2, 2,
+  3, 4) and scale; reroll cost grows 1.35x per reroll; bag slots 3 to 10 and equip
+  slots 1 to 4 are bought with stones or unlocked by mastering a path.
+- **Uniques that bend a rule**, `source` (~3275): Tribulation Magnet (tribulations
+  come sooner and defy rewards are multiplied), Sect Seal (larger per-rank perk),
+  Unbroken Vow (a righteous rebirth keeps more levels), Borrowed Time (once per
+  life, survive old age), Twin Dao (righteous techniques work on the heretical
+  path), plus Karmic Wheel, Patience, Hoarder, Virtue Returns, Rebirth Spark. Each
+  is an exception with a stated condition, not a flat stat.
+- **Pills**: timed multipliers, some kept through rebirth, five alchemy tiers gated
+  by realm and cost, with path-aware effects (data near the top of `game.js`).
+- **YAIR mapping**: relics that change a stated rule, each with its own text,
+  match the "default, dial and reason" framing in AGENTS.md. A candidate for the
+  gear depth or body progression lanes; not accepted.
+
+### Xianxia Sect Simulator: resource values
+
+Decoded with a small `.res` reader written in the session scratchpad (the existing
+tools do not read `.res`). Realms: Mortal, Qi Refining, Foundation, Core Formation,
+Nascent Soul, Soul Formation, and Void Amalgamation; breakthrough chance falls
+80, 70, 60, 50 to 30 at the top. Stone production per disciple jumps 4, 16, 1024,
+4096, 16384, far steeper than the stone allocation caps (outer 1/10, inner 10/100,
+elder 50/500, leader 100/1000), a likely source of the page's cost-scaling
+complaints. Positions have fixed slot counts (100, 50, 5, 1). Physiques roll against
+a rarity number (Heaven's Chosen 1 in 50,000 at 5x talent; Four Elements and Abyss
+1 in 10,000; "Cat Ears" is a joke at 500x talent, 1 in a billion). Regions carry
+qi density and a village count that drives recruitment.
+
+## Fourth pass: trials, offices, affixes, guide text, pills
+
+- **Patriarch trials and elder offices**, `source` (~11944, ~12120): two trial
+  levels per disciple, each needing rank, cult level, disciple power, sect rank
+  and a Qi plus stone cost; trial level 1 unlocks a specialization, and trial
+  levels unlock elder offices (training, mission, quartermaster, grand). An elder in
+  office does half normal work and 75% of normal combat power as the duty cost.
+  Office quality = 3.5% + talent, cult level and trial bonuses, +3% if the
+  specialization matches, capped at 22%. Only one disciple per office, 10-minute
+  change cooldown. Disciple pills (qi, power) stack to 5 doses at +4% each.
+- **Faction relation changes region math**, `source` (~12170): a friendly
+  controlling faction lowers the region's required power 8% and raises rewards 12%;
+  a hostile one raises required power 18% and reputation reward 20%. Relations are
+  clamped to -100..100, with envoys buying +10 up to 60.
+- **Office Immortal affixes**, `source` (~99): 9 affix stats (crit chance and
+  damage, attack speed, lifesteal, max hp, defence, qi regen, stone find, treasure
+  find) with a low/high range scaled by item level and a roll per affix; three
+  immortal uniques (damage, max hp, attack speed); three "arrays" (binding,
+  illusion, killing) that attach to gear, with strength by grade. Each affix keeps a
+  stored roll so rerolling one affix cannot repeat another.
+- **My Cultivation Sect guide text** states the design intent: disciples
+  "cultivate, train, stir trouble, and grow on their own" while the player "points
+  the way"; no grain means disciples flee; failed breakthrough wounds the Dao Heart
+  and a scroll ward insures key attempts; adventures are meant to be read as a
+  story in an Adventure Log where a golden name opens a person's detail.
+  `source` for upkeep: realm-based grain upkeep list in Config (`upkeepLinggu`).
+- **Ascending the Dao pills**, `source` (data near top of `game.js`): seven pills,
+  three kept through rebirth (technique xp x2, job xp and pay x2, all xp x1.5)
+  and five alchemy pills that double xp for the pair of realm jobs they match and add
+  0.8x path-category xp, with durations of 1 to 2 years that stack up to a maximum.
+  Alchemy is revealed by Qi Refining.
+- **Godot wasm**: engine binary only (Godot 4.6.1); game logic is in the decoded
+  scripts, so nothing further to read there.
+
 ## Top findings
 
-1. **My Cultivation Sect has real two-parent inheritance** (quality, root tier,
-   merged root elements, awakening chance, hidden born trait, surname stem), with
-   pregnancy, twins, a population cap and adopt-out. It is the strongest lead for
-   heir and household design; YAIR's heir line carries goods and standing but no
-   parentage traits (grep of `src/heir_inheritance.js`).
-2. **Ascending the Dao's tribulation is a clean pay-or-gamble gate**: explicit
-   odds line, 20% level loss on failure, permanent per-task bonus on success, and
-   auto-modes that cap exposure at a chosen level.
-3. **Patriarch ties disciple promotion to a visible six-line checklist** that
-   includes the player's own realm and sect reputation, and gates a postgame title
-   on a capped, once-keyed milestone history.
-4. **开宗立派 dropped forced events for a capped, expiring, optional queue**, with
-   every choice ending in totals only; its fix matches YAIR's existing direction.
-5. **Drifting Cloud's rebirth dialog lists what is kept and reset**, but no rival
-   remembers the school, and the "territory bonuses persist" text likely
-   contradicts the code.
+1. **My Cultivation Sect's individual-life layer** is the richest lead: two-parent
+   inheritance of quality, root tier, merged root elements and a hidden born trait;
+   plus delayed-return events (abduction, favors repaid years later), death ledger
+   with 20% reincarnation, gear passing to spouse or adult child, grudges and
+   rivalries. YAIR's heir code carries goods and standing but no parentage traits or
+   delayed named-cause events (grep of `src/heir_inheritance.js` and `src/npc_lives.js`).
+2. **Ascending the Dao's tribulation and ascension trial**: explicit odds line,
+   20% level loss, permanent per-task bonus, auto-modes that cap exposure, and a
+   seeded three-question trial that cannot be re-rolled by reloading.
+3. **Patriarch's after-fight diagnosis and milestone events**: a lost fight is
+   classified by cause with rounds-to-kill versus rounds-to-fall, and world events
+   fire once on a milestone with preview numbers taken from the same data as the result.
+4. **Patriarch's promotion checklist and history-gated legend title**: six visible
+   requirements including the player's realm and sect reputation; a capped, once-keyed
+   per-person milestone history gates a postgame title.
+5. **开宗立派 and Office Immortal as confirmations**: events are a capped, expiring,
+   optional queue with totals-only results, and offline progress should be the same
+   tick as online (both match current YAIR direction).
 
 ## Verification
 
-Read: the seven itch pages (header and iframe URLs), `game.js` (requirements table,
-tribulation, forge, rebirth), Patriarch's inline script (disciple, promotion,
-specialization, postgame, artifact fit), the Cocos main bundle (Config, breeding,
-breakthrough, panels by grep), 开宗立派's inline script, Drifting Cloud's three
-modules, the Godot scripts (sect, monk, game), and Office Immortal's grade, death
-and prestige lines. Not read: Patriarch combat and expeditions; My Cultivation
-Sect's hunt, home and trait tables; the Godot world and wasm; Office Immortal
-combat; Ascending the Dao's adventure, ascension and relic detail; all art. Nothing
-was executed. About 65 tool calls, one 429 on two itch pages (waited 90 s once), no
-downloads beyond the HTML5 files and one `.pck`. Nothing committed.
+Read in the first pass: the seven itch pages (headers, iframe URLs), `game.js`
+(requirements, tribulation, forge, rebirth), Patriarch's disciple, promotion,
+specialization, postgame and artifact code, the Cocos bundle (Config, breeding,
+breakthrough), 开宗立派's whole script, Drifting Cloud's three modules, the Godot
+scripts, Office Immortal's grades and prestige.
+Read in the second pass: My Cultivation Sect's trait, root, adventure, death,
+reincarnation, grudge and rivalry code; Patriarch's regions, events, enemy growth and
+combat diagnosis; Ascending the Dao's ascension, root seed, ruin search and life
+summary; Office Immortal's offline and prestige; Drifting Cloud's war and buildings;
+the Godot world stub.
+Third pass added: My Cultivation Sect's offline, inter-sect, crafting and scroll
+code; Patriarch's expeditions, tournaments and alchemy; Office Immortal's floors and
+shop; Ascending the Dao's relics; the Godot `.res` values.
+Fourth pass added Patriarch trials, offices and faction modifiers, Office Immortal
+affixes, My Cultivation Sect guide text and Ascending the Dao pills. Not read: art
+and audio, the Godot engine wasm, and individual translation strings. Nothing was
+executed. About 130 tool calls in total, one 429 on two itch pages (waited 90 s once), no downloads
+beyond the HTML5 files and one `.pck`. Nothing committed.

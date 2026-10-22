@@ -139,3 +139,91 @@ Weibao approved a deeper audit. New reads: Lifeidle's eleven missed system scrip
 8. Beggar's Archive prestige: currency paid for distinct things seen across lives (a codex-to-currency conversion).
 
 **Round 2 verification**: read Lifeidle `adultSystems`, `midlifeSystems`, `elderSystems` and `ascensionSystems` by function list and key regions, plus `game.js` life-end code; Lowmoor hero push, retire and works ladders; Beggar global-metadata strings (unfiltered noise, one pass); Incremortal task and skill counts; YAIR greps with `rg`. Not read: Lifeidle event pools and trait balance, Lowmoor combat and sea content, Beggar C# method bodies. About 25 more tool calls.
+
+## Audit round 3 (remaining parts read)
+
+Approved scope: read the parts left open in round 2. Tools: the project's Il2CppDumper on Beggar's wasm and metadata (`dump.cs`, 9.2 MB, in `private/beggar/dump/`), UnityPy text assets, Lowmoor's English text catalog (`lowmoor-boot.js` is a 22 MB offline language file; English patch notes saved to `private/lowmoor/patchnotes_en.txt`), Lifeidle event and trait files.
+
+**Beggar's Life engine grammar** (`source`, from type and enum names plus the JSON keys)
+- 16 unit kinds: resource, task, house, class, skill, furniture, tab, dialog, location, encounter, situation, dot, hint, tag, achievements, cutscene.
+- 13 modifier kinds: max change, rate change, space consumption, lock, resource-change changer, speed, success rate, activate, power, and rate, duration and cooldown multipliers. Lock and activate are modifiers, which is how "taking this closes that" is ordinary data.
+- 8 resource-change phases on a task: buy, cost, result, run (per tick), effect, result once, result on failure, max. Tasks carry a success rate and a failure result (7 uses in data).
+- Exploration is a location with a length, per-tick run cost, a result, a one-time result, and a list of encounters. Encounters nudge several feelings by random ranges (written like "minus 1 to 3"). One location, "Surface emotions", is an inner place: you explore your own boredom, sadness, frustration, joy and anxiety as encounters. Introspection as a place is a representation idea.
+- Stressors are marked resources (fear, boredom, irritation); the model holds the current stressor list during exploration; `Flee` exists.
+- The action runner can interrupt a task and swap, auto-start a rest action, and checks whether continuing an action is meaningful before repeating it.
+- Housing is a space budget: furniture consumes space, houses supply it, a house change checks fit.
+- Prestige is a separate saved world. `WorldType` has default character, prestige world and two spare worlds, each with its own persistence record (main, archive, misc, skill, task, exploration, ui flags). The archive counts distinct ids ever seen per unit kind (tasks, powerups, classes, resources, skills, houses, furniture, locations, total), saved separately from the main run. This confirms round 2's reading.
+- Every task has a buy status (free, needs buy, bought) and an unlock-notification state (locked, unlocked and unseen, unlocked and seen), so "new thing" markers are in the model, not the view.
+- The shipped build is a demo (prestige world has locked paths priced at 999). Full content is on Steam, so claims about later content stay `stated-not-found`.
+
+**Lifeidle events and traits** (`source`)
+- 152 event definitions across four stages (41 general, 43 teen, 40 adult, 28 elder). Two kinds: forced events fire when a stat crosses a threshold (burnout at stress 78, debt notice when money is below zero, health crisis at health 28) and weighted random events with requirements. Events grant traits (burnout, health-conscious). No player choices are coded in these files.
+- 122 traits: 68 positive, 22 negative, 11 mixed; by stage: newborn 11, toddler 7, child 9, teen 31, adult 21, midlife 13, elder 18, meta 12. Negative traits can be removed for a stated cost; conditions are evaluated at the end of the stage.
+
+**Lowmoor changelog, read as developer-explained improvements** (`source`, English patch notes)
+- A retirement-loop exploit was closed: Vale prestige now pays only after Chapter I, and the prologue's 20 points moved there, because "rapid retirement" combined with the Old maps upgrade farmed prestige.
+- Active saves receive retroactive differences when a reward formula changes (completed chapters, recorded work, completed expeditions), while retired chronicles keep their existing records. So finished lives are frozen history and living saves are adjusted.
+- The Sea map keeps surveyed nodes for later heroes ("inherited surveys") but pays no skill-point bonus again: knowledge persists, reward does not repeat.
+- Training for reserve pets and hirelings runs online and offline, survives retirement, and does not add active slots; serving hirelings pause reserve training.
+- Rests were retuned: camps can be prevented, and empty camp supplies send you to town only below 50% HP, with tooltips explaining the thresholds.
+- Sea action speed scales at 100%, 50% and 25% with soft minimum thresholds, replacing hard minimum durations. Combat results now show at the end of each round, with durations and rewards unchanged.
+- Gold labels were clarified: completion gold is total earnings, and gold earned while away is shown before spending.
+- Layout presets (panel order, heights, collapsed panels, information bars) can be saved, renamed, imported and exported; a UI size slider and a language choice sit in Options.
+
+**Round 3 mapping additions**
+- A shared "known ids ever seen" archive per kind, with its own save, fits YAIR's chronicle and lore history; I did not grep `src/lore_history_state.js` in depth, so whether such a count exists is unverified.
+- Closing prestige exploits by moving a reward to a later milestone (Lowmoor) is a pattern for AD22's firm lines (save integrity and real-world guardrails), not for balance.
+- Retroactive adjustment of living saves while retired records stay frozen matches the project's persistence rule that changes need a migration or an explicit compatibility decision.
+
+**Round 3 verification**: Il2CppDumper ran cleanly (metadata v31); read enum and class definitions for the Arcania model, archive data and persistence, and 16 unit kinds; sampled locations and encounters from the JSON; counted event and trait files in Lifeidle; extracted 70-plus English patch note lines for Lowmoor. Not read: Beggar C# method bodies (the dump has names and field offsets only), Lowmoor combat formulas and sea node text, Lifeidle event prose beyond samples. About 12 more tool calls.
+
+## Audit round 4 (each game's remaining parts, read per game)
+
+**Existence Simulator** (`source`, repo files)
+- Content is 16 unlock upgrades and 45 timed research upgrades in seven panels (express yourself, do something, spend your money, try your best, create something, blog, podcast). Research takes seconds of real time; reveal triggers fade in the next panel with help text.
+- The player's own embedded idle clicker lowers anxiety per second the more they play it (a game inside the game relieving the stress that speeds the clock).
+- Worldwide players are capped at 100 million until in-world laws are passed (six legislation upgrades), so the cap lifts through action in the world, not a counter. Immortality is a state flag at the end. Cannabis raises then slowly restores anxiety per frame (a temporary modifier with a come-down).
+
+**God of Ashes** (`source`)
+- Twelve resources appear as phases open (essence first, aurite last); 17 miracles with cooldowns and prices (the cooldown of one, Divine Vision, resets only when you have grown); seven domains that state rule changes outright (for example followers never die; war guards never die to threats) at prices in worship, essence and a local resource. Events carry weights, a phase, optional once-only flags, and costed choices.
+- Named followers are exempt from threat losses; unnamed ones are the loss pool. Maren's arc is flags by phase plus one departure event. No offline code or timestamps.
+- YAIR mapping: domains as costly, stated rule changes match the "default, dial and reason" framing (a world's absolute becomes an option with a cost). Named-versus-unnamed loss pools match how YAIR treats named household members; not grepped.
+
+**ONE CLICK, ONE YEAR** (`source`, `engine.js` remainder)
+- Money carries across generations; heirlooms are bought with it. The goal is 1,000,000. The fifth life's daughter-line can end the family: the sixth life refuses a child unless you pay 50,000 to persuade her, and the ending differs by whether you watched or clicked her through it by hand.
+- A "rewind" option appears at 30 memories and 200,000 money: money resets, the loop count rises. Skips mark a life as empty if all of its offered skips were bought.
+- Telemetry hooks (`stat`) record per-life events (this build sends stats via a hook; destination not read).
+
+**Incremortal** (`source`)
+- Act 1 (kitchen worker) is a chain of narrative tasks tied by flags: gather straw, wood and cloth, build a bed frame and mattress, mimic apprentices, steal one of two books (each costs 80 HP), decipher it, enchant the broom or mop, sneak past a guard, then a master's offer ends the act. Act 2 adds lectures, a midterm, greenhouse, cooking, resonance lab, workshop, training grounds and a tower; ~80 authored story beats.
+- Materials for buildings are spent progressively (build-spent tracking per task) and cleared when a plan changes.
+- Each skill has two levels (skill and instinct), shown together as a total level for gates.
+
+**Lowmoor** (`source`)
+- Three modules (the Maw, Vale, Sea). The Sea opens when cumulative hero time across all heroes passes 200 hours or Vale is finished, so unlocks read the whole guild's history, not one run.
+- Twelve D&D-style classes; foes come from a stat table (armor class, HP, attack, dice) scaled by an expected-level table for levels 1 to 45; fights are scripted ahead of time and replayed round by round, online and offline alike (patch note: results appear at the end of each round).
+- Sea: 26 nodes in chapters with two work kinds (physical, survey); surveyed nodes persist as an atlas.
+
+**Town Tycoon** (`source`)
+- Each station has a short minigame (tap-fill bar, weighing sweep, timing) and a "perfect" bonus; daily rewards, diamonds and ad doubling are engagement hooks. Houses give +6% income, comfort rooms add stamina only. A rink build runs 3 minutes times the next level, offline included. Out of scope for YAIR beyond the offline split already noted.
+
+**Lifeidle** (`source`, event files)
+- See round 3 for events and traits. The elder stage runs one year by default and is extended by permanent upgrades, which is the same lever as Incremortal's decay and Town Tycoon's offline cap: lifespan or away time as a purchased capacity.
+
+**Beggar's Life** (`stated-not-found`)
+- C# method bodies cannot be read statically here: the dumper gives names and field layouts, `script.json` gives addresses only. The behavior is recoverable from the JSON data instead, which is what rounds 1 to 3 used. A wasm disassembler would be needed for more, and that is out of the brief's allowed tools.
+
+**Round 4 verification**: Existence upgrade data and game loop (lines 913-960), God of Ashes data blocks (resources, buildings, miracles, domains, events), ONE CLICK `engine.js` lines 422-452, Incremortal task names by act (about 80), Lowmoor module and class constants plus combat setup lines 925-931, Town Tycoon minigame functions. About 14 more tool calls. Not read: Lowmoor prose of the sea nodes, Lifeidle event prose, Town Tycoon fishing and ski systems, God of Ashes event prose.
+
+## Audit round 5 (tool pass on Beggar's code, and YAIR checks closed)
+
+**Beggar's Life code, tried with the project's Cpp2IL (prerelease 21)** (`stated-not-found`)
+- Cpp2IL ran cleanly on the wasm with the metadata and the framework file (Unity 6000.0.65f1). The C# output has signatures and attributes but empty bodies ("call analysis not supported" for WebAssembly). The ISIL output gives raw WebAssembly instructions per method (the action runner alone is 137 KB), and the callee numbers do not match the dumper's address table, so the calls cannot be named. The wasm-mapping output format crashed. Ghidra is installed but has no wasm loader checked in this session. Conclusion: engine internals (how lock and require expressions are evaluated, how offline time is handled) stay unread; the type names, enum values and JSON data from rounds 1 to 3 are the reliable evidence. Outputs are in `private/beggar/cpp2il_out` and `cpp2il_isil`.
+
+**YAIR claims checked against `src` (previously marked not grepped)**
+- Routine unlock by completion count: `src/home_staff.js` handles finite, funded staff orders (cook, repair, dry, gather) that the player requests at the manor; there is no standing routine and no unlock from repeated completions. So Incremortal's "completion count unlocks a standing routine" is not present. Whether to want it is a design call under AD16.
+- "Ids ever seen" archive: `src/lore_history_state.js` keeps a bounded list of story-outcome receipts (limit 96) and pins; it does not count distinct things discovered across lives. A codex count would be new.
+- Per-generation record: `src/heir_inheritance.js` writes only estate and debt ledger lines; no interpretive note on how the life was lived.
+- These three are gaps in the sense of absent mechanisms. None is a recommendation to build; they are proposals for Weibao (AD32).
+
+**Round 5 verification**: Cpp2IL run three times (diffable C#, ISIL, wasm mappings), one dumper table lookup, three YAIR source reads. About 10 more tool calls.
