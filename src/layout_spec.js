@@ -319,11 +319,16 @@ export function companionsFor({combat, context = null, available}, spec = LAYOUT
     return spec.contexts[context || contextOf({combat}, spec)].companions.filter(id => available.includes(id));
 }
 
-export function topRowHeight({player, focus, combat, board, fontSize, frame = LAYOUT_SPEC.topRow.framePx, elastic = 0, viewport = 0}, spec = LAYOUT_SPEC) {
+export function topRowHeight({player, focus, combat, board, fontSize, frame = LAYOUT_SPEC.topRow.framePx, elastic = 0, viewport = 0, below = null}, spec = LAYOUT_SPEC) {
     const t = spec.topRow, e = t.elastic;
     const elasticCap = Math.min(board * e.boardShare, Math.max(e.minPx, fontSize * e.lines, viewport * e.viewportShare));
-    const need = Math.max(player, Math.min(player + elastic, elasticCap), combat ? focus : 0) + frame;
+    let need = Math.max(player, Math.min(player + elastic, elasticCap), combat ? focus : 0) + frame;
     const low = fontSize * t.minLines, high = Math.min(board * t.maxBoardShare, board - fontSize * t.bottomLines);
+    // UIA12 (UR25, UR69): outside a fight, idle place prose and yielding stat rows may use space
+    // the bottom row's measured content leaves free, instead of scrolling beside empty rows. Each
+    // side keeps frame allowances for borders and the padding under its last line; the bottom row
+    // also keeps one spare line. Measured only at stable moments like the rest of the fit (UR52).
+    if (below !== null && !combat) need = Math.max(need, Math.min(Math.max(player + elastic + frame, focus + 2 * frame), board - below - 2 * frame - fontSize));
     return Math.round(Math.max(low, Math.min(high, need)));
 }
 

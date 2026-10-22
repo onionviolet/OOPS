@@ -58,9 +58,9 @@
 #main_content.workspace-active[data-parity="r3"][data-parity-item="true"]:not(:has(#location_related_div.center-mode-open)) [data-region="actions"] > .workspace-module[data-module="shell-detail"] {grid-column:2;grid-row:2/5;min-height:0;border-left:1px solid var(--p23-line);}
 /* CZ9: companion panels use the shell's tab and row look at the shell text size. Native nodes,
    click handlers and saved choices (Hide completed, skill sort) are unchanged. */
-#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_div,#skills_and_stances_div) {font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.3;padding:0 .2em;background:transparent!important;border:0;box-shadow:none;}
-#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) {display:flex;flex-wrap:wrap;gap:0 .2em;margin:0;border-bottom:1px solid var(--p23-quiet-line);}
-#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > :is(div,button) {width:auto;float:none;flex:0 0 auto;font:inherit;font-size:.9em;min-height:0;margin:0;padding:.05em .3em;color:var(--p23-text);background:transparent!important;border:0!important;border-bottom:2px solid transparent!important;box-shadow:none;outline:0;cursor:pointer;}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_div,#skills_and_stances_div) {font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.3;padding:0 round(.2em, 1px);background:transparent!important;border:0;box-shadow:none;}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) {display:flex;flex-wrap:wrap;gap:0 round(.2em, 1px);margin:0;border-bottom:1px solid var(--p23-quiet-line);}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > :is(div,button) {width:auto;float:none;flex:0 0 auto;font:inherit;font-size:.9em;min-height:0;margin:0;padding:round(.05em, 1px) round(.3em, 1px);color:var(--p23-text);background:transparent!important;border:0!important;border-bottom:2px solid transparent!important;box-shadow:none;outline:0;cursor:pointer;}
 #main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > :is(div,button):focus-visible {outline:2px solid var(--workspace-focus);outline-offset:-2px;}
 #main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_control_div,#skill_and_stance_control_div,#skill_sorting_buttons) > .active_selection_button {border-bottom-color:var(--p23-quantity)!important;}
 #main_content.workspace-active[data-parity="r3"] .parity-region #journal_control_div > [hidden] {display:none;}
@@ -68,14 +68,14 @@
 /* UR42: the top nav already names every Journal tab. Beside the actions the companion shows the
    quest list without its tab strip; another tab chosen elsewhere brings the strip back. */
 #main_content.workspace-active[data-parity="r3"] .parity-region #journal_control_div:has(> #journal_show_quests.active_selection_button) {display:none;}
-#main_content.workspace-active[data-parity="r3"] .parity-region :is(#quest_hiding_div,#skill_hiding_div) {font-size:.85em;color:var(--p23-muted);padding:.1em 0;}
+#main_content.workspace-active[data-parity="r3"] .parity-region :is(#quest_hiding_div,#skill_hiding_div) {font-size:.85em;color:var(--p23-muted);padding:round(.1em, 1px) 0;}
 #main_content.workspace-active[data-parity="r3"] .parity-region :is(#journal_content_div,#skills_and_stances_content_div) {font-size:inherit;}
 }
 /* UIL7 gutters overlay the existing gaps; no extra tracks or moving targets on ticks. */
 .workspace-board > .shell-resize-handle {display:none;}
 @media (min-width:1001px) {
 #main_content[data-parity="r3"] .workspace-board {position:relative;}
-#main_content[data-parity="r3"] .shell-resize-handle:not([hidden]) {display:block;position:absolute;z-index:30;touch-action:none;cursor:col-resize;background:transparent;}
+#main_content[data-parity="r3"] .shell-resize-handle:not([hidden]) {display:block;position:absolute;z-index:var(--ui-layer-region);touch-action:none;cursor:col-resize;background:transparent;}
 #main_content[data-parity="r3"] .shell-resize-handle[aria-orientation="horizontal"] {cursor:row-resize;}
 #main_content[data-parity="r3"] .shell-resize-handle::after {content:"";position:absolute;inset:0 -3px;}
 #main_content[data-parity="r3"] .shell-resize-handle[aria-orientation="horizontal"]::after {inset:-3px 0;}
@@ -84,7 +84,7 @@
 #main_content[data-parity="r3"] .shell-resize-handle:focus-visible {outline:2px solid var(--workspace-focus);outline-offset:1px;}
 }
 /* UM5 (proposal): Crafting's recipe-kind and Makeable choices share one control-box row. */
-#main_content.workspace-active[data-parity="r3"] .shell-strip-row {display:flex;justify-content:flex-start;padding:round(.15em, 1px) round(.3em, 1px);flex-shrink:0;}
+#main_content.workspace-active[data-parity="r3"] .shell-strip-row {display:flex;justify-content:flex-start;padding:var(--ui-space-1) var(--ui-space-2);flex-shrink:0;}
 #main_content.workspace-active[data-parity="r3"] .shell-strip-row[hidden],
 #main_content.workspace-active[data-parity="r3"] .workspace-module-header > .control-box[hidden] {display:none;}
 #main_content.workspace-active[data-parity="r3"] .control-box-body :is(#skill_sorting_buttons,#crafting_subpage_buttons) {display:flex;flex-direction:column;align-items:stretch;}

@@ -1549,6 +1549,4615 @@
       "snippet": "font-family:var(--shell-context-small-font)",
       "count": 1,
       "note": "Shared integer-size bitmap typography role; native strike selected by the module profile, inherited by context labels."
+    },
+    {
+      "key": "src/chain_inspector_ui.js|spacing|00a9a83ddabfa710",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "spacing",
+      "snippet": "padding:6px 0",
+      "count": 2
+    },
+    {
+      "key": "src/chain_inspector_ui.js|spacing|5c2df38eed074a5c",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "spacing",
+      "snippet": "margin:6px 0",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|spacing|7c805d051227c6df",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "spacing",
+      "snippet": "padding:8px",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|spacing|d5a33b90d30ba4ff",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "spacing",
+      "snippet": "gap:12px",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|type|5e461f0709b6d4f0",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "type",
+      "snippet": "font-size:13px",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|type|c246365f985e710c",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "type",
+      "snippet": "font-weight:bold",
+      "count": 1
+    },
+    {
+      "key": "src/chain_inspector_ui.js|type|e838da691dd4d4ad",
+      "path": "src/chain_inspector_ui.js",
+      "rule": "type",
+      "snippet": "line-height:1.4",
+      "count": 1
+    },
+    {
+      "key": "src/habitat_care_ui.js|spacing|3f0497fe70892de4",
+      "path": "src/habitat_care_ui.js",
+      "rule": "spacing",
+      "snippet": "gap:6px",
+      "count": 1
+    },
+    {
+      "key": "src/harvest_ui.js|spacing|00a9a83ddabfa710",
+      "path": "src/harvest_ui.js",
+      "rule": "spacing",
+      "snippet": "padding:6px 0",
+      "count": 1
+    },
+    {
+      "key": "src/harvest_ui.js|spacing|5c2df38eed074a5c",
+      "path": "src/harvest_ui.js",
+      "rule": "spacing",
+      "snippet": "margin:6px 0",
+      "count": 1
+    },
+    {
+      "key": "src/harvest_ui.js|spacing|7c805d051227c6df",
+      "path": "src/harvest_ui.js",
+      "rule": "spacing",
+      "snippet": "padding:8px",
+      "count": 1
+    },
+    {
+      "key": "src/harvest_ui.js|spacing|8cf0cd750b0ca0a9",
+      "path": "src/harvest_ui.js",
+      "rule": "spacing",
+      "snippet": "margin='6px 0'",
+      "count": 1
+    },
+    {
+      "key": "src/harvest_ui.js|type|5e461f0709b6d4f0",
+      "path": "src/harvest_ui.js",
+      "rule": "type",
+      "snippet": "font-size:13px",
+      "count": 1
+    },
+    {
+      "key": "src/main.js|spacing|1d849a695a87e259",
+      "path": "src/main.js",
+      "rule": "spacing",
+      "snippet": "padding:'24px'",
+      "count": 2
+    },
+    {
+      "key": "src/pocket_realm_ui.js|spacing|735cd1f81ae2e042",
+      "path": "src/pocket_realm_ui.js",
+      "rule": "spacing",
+      "snippet": "margin:8px 0",
+      "count": 1
+    },
+    {
+      "key": "style.css|control-height|0acaa526c1b15162",
+      "path": "style.css",
+      "rule": "control-height",
+      "snippet": "height: 400px",
+      "count": 1
+    },
+    {
+      "key": "style.css|control-height|7a212bff391f6d60",
+      "path": "style.css",
+      "rule": "control-height",
+      "snippet": "height: 20px",
+      "count": 2
+    },
+    {
+      "key": "style.css|control-height|b51e39b293fb727e",
+      "path": "style.css",
+      "rule": "control-height",
+      "snippet": "height: 60px",
+      "count": 1
+    },
+    {
+      "key": "style.css|layer|47445336542b85b7",
+      "path": "style.css",
+      "rule": "layer",
+      "snippet": "z-index: 3",
+      "count": 1
+    },
+    {
+      "key": "style.css|layer|4c69448bca123419",
+      "path": "style.css",
+      "rule": "layer",
+      "snippet": "z-index: 10",
+      "count": 3
+    },
+    {
+      "key": "style.css|layer|691235adc723b5d3",
+      "path": "style.css",
+      "rule": "layer",
+      "snippet": "z-index: 20",
+      "count": 1
+    },
+    {
+      "key": "style.css|layer|beca9d787c409cbb",
+      "path": "style.css",
+      "rule": "layer",
+      "snippet": "z-index: -2",
+      "count": 1
+    },
+    {
+      "key": "style.css|layer|fb8580ceb489c9fd",
+      "path": "style.css",
+      "rule": "layer",
+      "snippet": "z-index: 2",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|060333da21307f66",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|0a212c638df9c8ec",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-right: 5px",
+      "count": 7
+    },
+    {
+      "key": "style.css|spacing|0b7295ed7c6c2c07",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|0c79d6c1d720d584",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-left: round(1.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|0e7af61f4f72e4d4",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-left: 10px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|114ad131672f91e0",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.2rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|13599f40cd3e0db7",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(0.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|1619888add9d44e0",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|1e8ab27e0c581c1e",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-left: 50px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|2848ba90960c47a1",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|28895720a14667f7",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-top: -3px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|29baf135ae5be436",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: 5px",
+      "count": 2
+    },
+    {
+      "key": "style.css|spacing|2d7ff3edb658ae2a",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom: 10px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|2dc75e633233a553",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.55rem, 1px) round(.65rem, 1px) round(.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|2ebdbbdb608de725",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.5rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|2f08b4a445e79282",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: 3px 0px 3px 0px",
+      "count": 3
+    },
+    {
+      "key": "style.css|spacing|34930782f7abdde6",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-left: round(1.1rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|35e1bd031352360e",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.8rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|39660d031271132e",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-bottom: 3px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|3eb9b38d9b7c903b",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-right: 20px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|40fed5b6b3e9e347",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.25rem, 1px) round(.55rem, 1px) round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|444541bbe6afdffd",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-right: 15px",
+      "count": 3
+    },
+    {
+      "key": "style.css|spacing|4735f398f02b46e1",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.2rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|4bf8b9a4edc8a95e",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.4rem, 1px) round(.2rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|4c95f4d13320d358",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: -0.5px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|51a363f8b91dd157",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-bottom: 5px",
+      "count": 2
+    },
+    {
+      "key": "style.css|spacing|569205da5001bb74",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(0.6rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|59aff2dc6e4a4622",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.45rem, 1px) round(.6rem, 1px)",
+      "count": 3,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|5c946d1ee749ea2d",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|5ee946481326fc12",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-left: 20px",
+      "count": 3
+    },
+    {
+      "key": "style.css|spacing|5f44be36f2560cd0",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-left: round(1.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|6019ce437c0b0ea5",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.65rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|60b6e4942b9c2a58",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "gap: round(0.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|62d2ff9d4fbad25f",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-left: 10px",
+      "count": 3
+    },
+    {
+      "key": "style.css|spacing|63fcd84b70cd6316",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-left: round(1.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|643b65d638d3bf08",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.2rem, 1px) 0 round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|682b62096479c4b7",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom: 48px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|68eea8b77cfb9137",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|69b18afa0bec3ef3",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.4rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|6a5c0e36061c53d0",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-left: 2.4px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|6afa8d4dbea288bd",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: 10px 10px",
+      "count": 3
+    },
+    {
+      "key": "style.css|spacing|758c2828130fa3eb",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.45rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|75b1c46687160a7f",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.6rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|769a63c8be0da431",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-left: 30px",
+      "count": 2
+    },
+    {
+      "key": "style.css|spacing|79cbf79464ce0d90",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-bottom: 20px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|7c10768d1af5b14d",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.55rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|7cee8286eba9cc42",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.2rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|7df66a624e6de842",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.35rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|8238b5663e4c26cb",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-left: 5px",
+      "count": 9
+    },
+    {
+      "key": "style.css|spacing|83c23d57dc41e8ac",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.5rem, 1px) round(0.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|8ad1227ceade07e6",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-top: 30px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|8ccc650f0c827b03",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-top: 50px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|9145e323bcf294ca",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-right:20px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|921400e85b12e7a8",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|93119fa1d1d5e2d5",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom: 5px",
+      "count": 4
+    },
+    {
+      "key": "style.css|spacing|93688d4ac46d894a",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-top: 20px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|958aa128806e320d",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|996ac1c317ee1a0e",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(1rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|9a56f946b8771600",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-left: 3px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|9a63e149cbe4f718",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.4rem, 1px) round(.65rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|9b039e32c36f7a0b",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-left: round(1.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|9ce2b88545a9f0d8",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.45rem, 1px) round(.55rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|9dffce3dc80e7e33",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: -1px var(--ui-space-hairline)",
+      "count": 1,
+      "reason": "partly migrated; off-scale literal remains (UR65 migration 2026-10-22)"
+    },
+    {
+      "key": "style.css|spacing|9e8c15961f26c9d3",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.2rem, 1px) round(.65rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|a69013a539620575",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-left: round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|ab7ef1bf6f45593c",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-top: 5px",
+      "count": 4
+    },
+    {
+      "key": "style.css|spacing|b232eade1486367e",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|b3231eefcb2eec74",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-top: 5px",
+      "count": 4
+    },
+    {
+      "key": "style.css|spacing|b5d5e13a9bc49024",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-right: 2.4px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|c90bfd20fdc83a36",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.4rem, 1px) round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|c9d79b42c81defd2",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(0.6em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|cd12c803de087d91",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|d07b74ff781e25c7",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.4rem, 1px) round(.65rem, 1px) round(.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|d27efcf45cc307d4",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: 3px",
+      "count": 11
+    },
+    {
+      "key": "style.css|spacing|d2a63ae27bd21b26",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: var(--ui-space-1) 5px var(--ui-space-1) 5px",
+      "count": 1,
+      "reason": "partly migrated; off-scale literal remains (UR65 migration 2026-10-22)"
+    },
+    {
+      "key": "style.css|spacing|d91b96fc843ec608",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: 10px",
+      "count": 2
+    },
+    {
+      "key": "style.css|spacing|dc1bbc839c166927",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(0.4rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|dc52c045147e20f5",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: 5px",
+      "count": 20
+    },
+    {
+      "key": "style.css|spacing|ddefad84c1e3a5f1",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.65rem, 1px) 0 round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|e06c04790961dd94",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-bottom: 10px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|e15b2d3cde8a8b5f",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-left: 40px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|e6720e077f81f1f1",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: 3px 0px 0px 0px",
+      "count": 3
+    },
+    {
+      "key": "style.css|spacing|e7f102fb346085b8",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: 3px var(--ui-space-3) 3px var(--ui-space-3)",
+      "count": 1,
+      "reason": "partly migrated; off-scale literal remains (UR65 migration 2026-10-22)"
+    },
+    {
+      "key": "style.css|spacing|e866c2518ee0f805",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: 10px",
+      "count": 3
+    },
+    {
+      "key": "style.css|spacing|ea5a7195f410b4db",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom:3px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|ebbb17701c67be92",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: 3px 0px var(--ui-space-1) 0px",
+      "count": 1,
+      "reason": "partly migrated; off-scale literal remains (UR65 migration 2026-10-22)"
+    },
+    {
+      "key": "style.css|spacing|ef905e2226b7b775",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "padding: round(1.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|spacing|f02899d0a9d1703d",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-bottom: -1px",
+      "count": 1
+    },
+    {
+      "key": "style.css|spacing|f2835880c5da9649",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin-top: 10px",
+      "count": 3
+    },
+    {
+      "key": "style.css|spacing|f57177bbffc2eacd",
+      "path": "style.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.2rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "style.css|type|11907b2290d61f4d",
+      "path": "style.css",
+      "rule": "type",
+      "snippet": "font-weight: lighter",
+      "count": 1
+    },
+    {
+      "key": "style.css|type|99fc262dcc6e7066",
+      "path": "style.css",
+      "rule": "type",
+      "snippet": "line-height: 1.4",
+      "count": 4
+    },
+    {
+      "key": "style.css|type|bb1375d1db7f3b63",
+      "path": "style.css",
+      "rule": "type",
+      "snippet": "font-weight: bold",
+      "count": 31
+    },
+    {
+      "key": "style.css|type|d2817955e00ce038",
+      "path": "style.css",
+      "rule": "type",
+      "snippet": "line-height: 1.45",
+      "count": 2
+    },
+    {
+      "key": "style.css|type|e9e321d8308f82a1",
+      "path": "style.css",
+      "rule": "type",
+      "snippet": "font-weight:1000",
+      "count": 1
+    },
+    {
+      "key": "styles/action_legibility.css|control-height|190cb4612414a99a",
+      "path": "styles/action_legibility.css",
+      "rule": "control-height",
+      "snippet": "min-height: 2.4rem",
+      "count": 1
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|017eb5f46999e520",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "gap: round(0.75rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|071c114fb02c8c81",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "padding-inline-start: round(1.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|199ab721ce191845",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "margin-block-start: round(0.75rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|233beb71aa4e802a",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "gap: round(0.45rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|5e6d66ce6921b4a1",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.75rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|9047562c9eeaa7e8",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "margin-block-start: round(0.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|9f4b8b9d23ddadad",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "margin: round(0.2rem, 1px) 0 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|b00f0429cb628d59",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(0.25rem, 1px) round(0.55rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|d296b1b50773f167",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.55rem, 1px) round(0.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|e34f5e65f0de3db1",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "margin-block-start: round(0.55rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|f083bf472a9115e7",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.35rem, 1px) round(0.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|spacing|f7d83023cf4e43d9",
+      "path": "styles/action_legibility.css",
+      "rule": "spacing",
+      "snippet": "gap: round(0.65rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/action_legibility.css|type|61b2a4f266d7ebf6",
+      "path": "styles/action_legibility.css",
+      "rule": "type",
+      "snippet": "font-weight: 700",
+      "count": 1
+    },
+    {
+      "key": "styles/combat_log.css|spacing|1a663703d8608f6b",
+      "path": "styles/combat_log.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.25em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/combat_log.css|spacing|6ba08c617159521b",
+      "path": "styles/combat_log.css",
+      "rule": "spacing",
+      "snippet": "padding-left:round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/combat_log.css|spacing|7a9e9c580d2bb7a2",
+      "path": "styles/combat_log.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/combat_log.css|spacing|a331e0dc55be3c85",
+      "path": "styles/combat_log.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/combat_log.css|spacing|c469f80977a2ee93",
+      "path": "styles/combat_log.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.2em, 1px) round(.6em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/combat_log.css|spacing|d880cc12d35ded57",
+      "path": "styles/combat_log.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.15em, 1px) 0 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/combat_log.css|spacing|ea77d25acb8e294b",
+      "path": "styles/combat_log.css",
+      "rule": "spacing",
+      "snippet": "margin-left:round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/combat_log.css|type|115b004f174fe8f9",
+      "path": "styles/combat_log.css",
+      "rule": "type",
+      "snippet": "font-weight:500",
+      "count": 1
+    },
+    {
+      "key": "styles/combat_log.css|type|6e8bcfac8d631854",
+      "path": "styles/combat_log.css",
+      "rule": "type",
+      "snippet": "font-weight:600",
+      "count": 1
+    },
+    {
+      "key": "styles/combat_log.css|type|be13156b7af9a5d7",
+      "path": "styles/combat_log.css",
+      "rule": "type",
+      "snippet": "line-height:1.3",
+      "count": 1
+    },
+    {
+      "key": "styles/combat_log.css|type|c1109e0d129e4ad3",
+      "path": "styles/combat_log.css",
+      "rule": "type",
+      "snippet": "font-size:.85em",
+      "count": 4
+    },
+    {
+      "key": "styles/combat_log.css|type|c6fa01b3f1453c21",
+      "path": "styles/combat_log.css",
+      "rule": "type",
+      "snippet": "font-weight:700",
+      "count": 4
+    },
+    {
+      "key": "styles/combat_log.css|type|f2a59f6af5c6584e",
+      "path": "styles/combat_log.css",
+      "rule": "type",
+      "snippet": "line-height:1.15",
+      "count": 1
+    },
+    {
+      "key": "styles/component_themes.css|control-height|1d962b5812a91538",
+      "path": "styles/component_themes.css",
+      "rule": "control-height",
+      "snippet": "min-height: 2em",
+      "count": 1
+    },
+    {
+      "key": "styles/component_themes.css|spacing|0586db0d6eaa5ac1",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|28a647eecbbdd76e",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|2f1b0ef04a6f2136",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|3140490ec79c3595",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.25em, 1px) round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|540d5df2ffaa85e0",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|5c0b769d476e964c",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.3em, 1px) round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|865c10574d0fcdca",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|c1f7f5386cd90629",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.15em, 1px) round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|c2491630a1eb8ced",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "padding-inline-start: round(.5em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|c39e379d5cb524e3",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|cd7ef797690cb933",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|d12657f55b12897f",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.35em, 1px) round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|spacing|f0f63d2f5b7904d0",
+      "path": "styles/component_themes.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.1em, 1px) round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/component_themes.css|type|29b663753f3e5e96",
+      "path": "styles/component_themes.css",
+      "rule": "type",
+      "snippet": "line-height: 1.3",
+      "count": 1
+    },
+    {
+      "key": "styles/component_themes.css|type|61b2a4f266d7ebf6",
+      "path": "styles/component_themes.css",
+      "rule": "type",
+      "snippet": "font-weight: 700",
+      "count": 1
+    },
+    {
+      "key": "styles/component_themes.css|type|99fc262dcc6e7066",
+      "path": "styles/component_themes.css",
+      "rule": "type",
+      "snippet": "line-height: 1.4",
+      "count": 1
+    },
+    {
+      "key": "styles/component_themes.css|type|e838da691dd4d4ad",
+      "path": "styles/component_themes.css",
+      "rule": "type",
+      "snippet": "line-height:1.4",
+      "count": 1
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|122e08f01e868af6",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.2em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|212b543c9cbde665",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.1em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|3c46af919352d602",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.65em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|3e81b920877732a7",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.15em, 1px) round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|41fa923e560a01f0",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "margin:0 0 round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|4ba1781ddad27aa7",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "padding-block:round(.08em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|53da900af6005a18",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.4em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|5b8533740fd12fb7",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.18em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|698b705a8184ebb6",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.3em, 1px) round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|6ee94e3547079253",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.15em, 1px) round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|764688ffc61c7afd",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|7deb89a4709feb3f",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "padding-block:round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|93637b3ff967e34c",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.1em, 1px) round(.45em, 1px) round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|add12eedbfd4d37e",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.15em, 1px) round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|c1496672b6fac91d",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|c25a6902d7abb44d",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "margin-top:round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|c9567005649c0243",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.2em, 1px) round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|f288a19287ba674b",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|spacing|fdb37bb8c2f282ab",
+      "path": "styles/corc_readability.css",
+      "rule": "spacing",
+      "snippet": "gap:0 round(.55em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/corc_readability.css|type|72600c4bf8733f38",
+      "path": "styles/corc_readability.css",
+      "rule": "type",
+      "snippet": "font-size:1.1em",
+      "count": 1
+    },
+    {
+      "key": "styles/corc_readability.css|type|8bde36d0d6164d2b",
+      "path": "styles/corc_readability.css",
+      "rule": "type",
+      "snippet": "font-weight:400",
+      "count": 2
+    },
+    {
+      "key": "styles/corc_readability.css|type|ab4e75a8e357205d",
+      "path": "styles/corc_readability.css",
+      "rule": "type",
+      "snippet": "font-size:.9em",
+      "count": 1
+    },
+    {
+      "key": "styles/corc_readability.css|type|be13156b7af9a5d7",
+      "path": "styles/corc_readability.css",
+      "rule": "type",
+      "snippet": "line-height:1.3",
+      "count": 1
+    },
+    {
+      "key": "styles/corc_readability.css|type|d8a1bd8964543696",
+      "path": "styles/corc_readability.css",
+      "rule": "type",
+      "snippet": "font-weight:400 !important",
+      "count": 1
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|015fa39f92740867",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.3rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|060333da21307f66",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|0aae1d43352a75fe",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding-top: round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|0aeae2f766515872",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap: 0 round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|131f89dea052f71c",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap: 0 round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|1631c77ca40a13dc",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|231f7f65da4516d6",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|2848ba90960c47a1",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|29502aa82d9e30c9",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding-top: round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|3ce0f02750b93636",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin-right: round(1rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|4119e0a179c7cca2",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.2rem, 1px) var(--ui-space-2)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|4ec6dba23d44f6f8",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap: 0 round(.9rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|4fdfc0d69daa0f61",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(.25rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|52466a99db0cb133",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin-right: round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|5c946d1ee749ea2d",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|60eb6d8e6862026e",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.4rem, 1px) round(.55rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|7240f7c9596676b9",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin-bottom: round(.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|771054c6bf41338c",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin-bottom: round(.2rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|78ef265eeaf58951",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap: 0 round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|818116e525759634",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.1em, 1px) round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|8392ca066cdda084",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.2rem, 1px) round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|84e3f5a3eb7cb9ca",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.12rem, 1px) 0",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|8ce1f9cf5c107454",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding-left: round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|9c5855a2048bcda2",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 0 round(.3rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|a13ec9ceb791c3e9",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding: 0 round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|b232eade1486367e",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.3rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|b67f1e07b808fb53",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.5rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|c0dd6369ee8b3462",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 round(.3em, 1px) 0 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|c6158f1e23d80bb9",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.25rem, 1px) round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|cd7ef797690cb933",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|e518dd3e192d2edc",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding-inline:round(.55em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|ef4bd7c264092a16",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.75rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|f57735fc025c628f",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin-top:round(.75rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|f8af1532a1177bcd",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.3rem, 1px) 0 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|spacing|fb61e0f42a8c5857",
+      "path": "styles/crafting_detail.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.2rem, 1px) round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/crafting_detail.css|type|401255298d4cc4b3",
+      "path": "styles/crafting_detail.css",
+      "rule": "type",
+      "snippet": "font-size: .92em",
+      "count": 2
+    },
+    {
+      "key": "styles/crafting_detail.css|type|42b63dc4b1915d8b",
+      "path": "styles/crafting_detail.css",
+      "rule": "type",
+      "snippet": "font-size: 1em",
+      "count": 1
+    },
+    {
+      "key": "styles/crafting_detail.css|type|61b2a4f266d7ebf6",
+      "path": "styles/crafting_detail.css",
+      "rule": "type",
+      "snippet": "font-weight: 700",
+      "count": 4
+    },
+    {
+      "key": "styles/crafting_detail.css|type|68f438bc70ebd824",
+      "path": "styles/crafting_detail.css",
+      "rule": "type",
+      "snippet": "font-size: 1.12em",
+      "count": 1
+    },
+    {
+      "key": "styles/crafting_detail.css|type|78bc37c63880baab",
+      "path": "styles/crafting_detail.css",
+      "rule": "type",
+      "snippet": "line-height: 1.35",
+      "count": 1
+    },
+    {
+      "key": "styles/customization.css|control-height|f66207bfddeab8fe",
+      "path": "styles/customization.css",
+      "rule": "control-height",
+      "snippet": "min-height: 2.2em",
+      "count": 1
+    },
+    {
+      "key": "styles/customization.css|spacing|07fc1cbe7eddbff1",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.4rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|0bccf0aac97afdb0",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|1ded7029b0148a89",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.2rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|20abe2db03e8934d",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "padding-inline-end: round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|2f1b0ef04a6f2136",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|446908a4b43d8b09",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.35rem, 1px) round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|4812398a75b2286b",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|4a4764037be29ebb",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "padding-block-start: round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|53977077b16ea222",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 0 round(.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|6773ab9c12219142",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 0 round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|6dcc285650d2d2f0",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.65rem, 1px) 0 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|86226a1944b12746",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|874c3fdbc4b42848",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|9ce2b88545a9f0d8",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.45rem, 1px) round(.55rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|bcb3d52798714760",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "padding-inline-start: round(1.2rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|e5c0fb5c0aee3f8c",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 0 round(.55rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|ecd0f91122a28b2d",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.65rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|ef012e0a2898ec29",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 0 round(.8rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|f8af1532a1177bcd",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.3rem, 1px) 0 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|spacing|fd27690eece3639f",
+      "path": "styles/customization.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.6rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/customization.css|type|018e18ec8e7c21d3",
+      "path": "styles/customization.css",
+      "rule": "type",
+      "snippet": "font-weight: 600",
+      "count": 2
+    },
+    {
+      "key": "styles/customization.css|type|99fc262dcc6e7066",
+      "path": "styles/customization.css",
+      "rule": "type",
+      "snippet": "line-height: 1.4",
+      "count": 1
+    },
+    {
+      "key": "styles/customization.css|type|bb1375d1db7f3b63",
+      "path": "styles/customization.css",
+      "rule": "type",
+      "snippet": "font-weight: bold",
+      "count": 1
+    },
+    {
+      "key": "styles/display_settings.css|spacing|0460c8f01c9f4208",
+      "path": "styles/display_settings.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 0 round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/display_settings.css|spacing|060333da21307f66",
+      "path": "styles/display_settings.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/display_settings.css|spacing|07fc1cbe7eddbff1",
+      "path": "styles/display_settings.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/display_settings.css|spacing|1c4a1231a3926901",
+      "path": "styles/display_settings.css",
+      "rule": "spacing",
+      "snippet": "padding: 0 round(.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/display_settings.css|spacing|e5c0fb5c0aee3f8c",
+      "path": "styles/display_settings.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 0 round(.55rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/display_settings.css|spacing|f7895ca6855c022b",
+      "path": "styles/display_settings.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.2rem, 1px) round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/display_settings.css|type|018e18ec8e7c21d3",
+      "path": "styles/display_settings.css",
+      "rule": "type",
+      "snippet": "font-weight: 600",
+      "count": 1
+    },
+    {
+      "key": "styles/display_settings.css|type|61b2a4f266d7ebf6",
+      "path": "styles/display_settings.css",
+      "rule": "type",
+      "snippet": "font-weight: 700",
+      "count": 1
+    },
+    {
+      "key": "styles/display_settings.css|type|78bc37c63880baab",
+      "path": "styles/display_settings.css",
+      "rule": "type",
+      "snippet": "line-height: 1.35",
+      "count": 1
+    },
+    {
+      "key": "styles/display_settings.css|type|99fc262dcc6e7066",
+      "path": "styles/display_settings.css",
+      "rule": "type",
+      "snippet": "line-height: 1.4",
+      "count": 1
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|04e02fab4efe48ac",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|05bf848d025a7f61",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.15em, 1px) round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|1a663703d8608f6b",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.25em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|1dec95060c518d05",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "margin-top:round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|270dd5370a866c97",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "padding-left:round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|3aa7a3ef92a8fd76",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.35em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|628937c9dab78777",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "margin:0 0 round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|764688ffc61c7afd",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|7e4e15af0abc5efc",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "padding-top:round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|9869a86064600986",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "gap:0 round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|98ecab87bd9a2c8a",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.3em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|c1496672b6fac91d",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|c18be567fb091f2f",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|c3c330d0ebc7aa74",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|d7890e19bf9ba6b3",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.25em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory_composition.css|spacing|f288a19287ba674b",
+      "path": "styles/inventory_composition.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory.css|spacing|46c02b202bae6e2f",
+      "path": "styles/inventory.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.3em, 1px)!important",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory.css|spacing|48feb544e3d0126e",
+      "path": "styles/inventory.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.12em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory.css|spacing|7a9e9c580d2bb7a2",
+      "path": "styles/inventory.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory.css|spacing|989fe628e84fa686",
+      "path": "styles/inventory.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.3em, 1px) round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory.css|spacing|9d844e21548977a6",
+      "path": "styles/inventory.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory.css|spacing|c3a2ccb64e56d75c",
+      "path": "styles/inventory.css",
+      "rule": "spacing",
+      "snippet": "margin-left:round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory.css|spacing|c3c330d0ebc7aa74",
+      "path": "styles/inventory.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/inventory.css|type|500089db1e37346b",
+      "path": "styles/inventory.css",
+      "rule": "type",
+      "snippet": "line-height:1.2",
+      "count": 1
+    },
+    {
+      "key": "styles/inventory.css|type|5c1b3ff4b6329078",
+      "path": "styles/inventory.css",
+      "rule": "type",
+      "snippet": "line-height:1.25",
+      "count": 3
+    },
+    {
+      "key": "styles/inventory.css|type|81ece5608be08832",
+      "path": "styles/inventory.css",
+      "rule": "type",
+      "snippet": "font-size:.72em",
+      "count": 1
+    },
+    {
+      "key": "styles/inventory.css|type|c6fa01b3f1453c21",
+      "path": "styles/inventory.css",
+      "rule": "type",
+      "snippet": "font-weight:700",
+      "count": 1
+    },
+    {
+      "key": "styles/meter_bar.css|spacing|04e02fab4efe48ac",
+      "path": "styles/meter_bar.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/meter_bar.css|spacing|1f93265543089be8",
+      "path": "styles/meter_bar.css",
+      "rule": "spacing",
+      "snippet": "padding-left: round(.35em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/meter_bar.css|spacing|328f5e34809ed624",
+      "path": "styles/meter_bar.css",
+      "rule": "spacing",
+      "snippet": "margin-block:round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/meter_bar.css|spacing|78fe343b61a5528e",
+      "path": "styles/meter_bar.css",
+      "rule": "spacing",
+      "snippet": "margin-top: 3px",
+      "count": 1
+    },
+    {
+      "key": "styles/meter_bar.css|spacing|a6d1defbadf64bba",
+      "path": "styles/meter_bar.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/meter_bar.css|spacing|bc0db450860517cb",
+      "path": "styles/meter_bar.css",
+      "rule": "spacing",
+      "snippet": "margin-left: round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|1ab949dd7c440517",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "margin:0 0 round(.35em, 1px)!important",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|1dec95060c518d05",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "margin-top:round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|212b543c9cbde665",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.1em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|245b151c5e0ecf0e",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "padding-left:round(.75em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|30ed6bf0c8906fc2",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.65em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|50a6979883106d89",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.5em, 1px) 0 0!important",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|5a927e228bc73849",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.25em, 1px) round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|8a5b98ed10eb67c4",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.35em, 1px) 0!important",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|8c7f22cd1f6178a4",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.3em, 1px) 0",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|9239a43df035b092",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "margin:0 0 round(.6em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|ac406bfa47effa74",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.4em, 1px) 0 round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|b618b2aab075eb7b",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.75em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|be5e529e86a046bc",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom:round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|f288a19287ba674b",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|spacing|fe08a53847d74848",
+      "path": "styles/nearby_context_view.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.35em, 1px) round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/nearby_context_view.css|type|115b004f174fe8f9",
+      "path": "styles/nearby_context_view.css",
+      "rule": "type",
+      "snippet": "font-weight:500",
+      "count": 1
+    },
+    {
+      "key": "styles/nearby_context_view.css|type|1ef4cd5b706d915c",
+      "path": "styles/nearby_context_view.css",
+      "rule": "type",
+      "snippet": "line-height:1.35",
+      "count": 1
+    },
+    {
+      "key": "styles/nearby_context_view.css|type|51f94d6e7298b4ec",
+      "path": "styles/nearby_context_view.css",
+      "rule": "type",
+      "snippet": "font-size:.88em",
+      "count": 1
+    },
+    {
+      "key": "styles/nearby_context_view.css|type|6e8bcfac8d631854",
+      "path": "styles/nearby_context_view.css",
+      "rule": "type",
+      "snippet": "font-weight:600",
+      "count": 2
+    },
+    {
+      "key": "styles/nearby_context_view.css|type|ab4e75a8e357205d",
+      "path": "styles/nearby_context_view.css",
+      "rule": "type",
+      "snippet": "font-size:.9em",
+      "count": 1
+    },
+    {
+      "key": "styles/nearby_context_view.css|type|be13156b7af9a5d7",
+      "path": "styles/nearby_context_view.css",
+      "rule": "type",
+      "snippet": "line-height:1.3",
+      "count": 2
+    },
+    {
+      "key": "styles/nearby_context_view.css|type|c1109e0d129e4ad3",
+      "path": "styles/nearby_context_view.css",
+      "rule": "type",
+      "snippet": "font-size:.85em",
+      "count": 1
+    },
+    {
+      "key": "styles/nearby_context_view.css|type|e838da691dd4d4ad",
+      "path": "styles/nearby_context_view.css",
+      "rule": "type",
+      "snippet": "line-height:1.4",
+      "count": 2
+    },
+    {
+      "key": "styles/oops_branding.css|spacing|39c85163eaef41f0",
+      "path": "styles/oops_branding.css",
+      "rule": "spacing",
+      "snippet": "gap:round(1.8em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/oops_branding.css|spacing|617e525ce7f11837",
+      "path": "styles/oops_branding.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.6em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/oops_branding.css|spacing|c3c330d0ebc7aa74",
+      "path": "styles/oops_branding.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/oops_branding.css|spacing|d5cec7dfdfe39a10",
+      "path": "styles/oops_branding.css",
+      "rule": "spacing",
+      "snippet": "margin-top:round(1.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/oops_branding.css|spacing|e5f6fe11b1b8e8c5",
+      "path": "styles/oops_branding.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom:round(.15em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/oops_branding.css|spacing|f288a19287ba674b",
+      "path": "styles/oops_branding.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.35em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/oops_branding.css|type|be13156b7af9a5d7",
+      "path": "styles/oops_branding.css",
+      "rule": "type",
+      "snippet": "line-height:1.3",
+      "count": 1
+    },
+    {
+      "key": "styles/oops_branding.css|type|e838da691dd4d4ad",
+      "path": "styles/oops_branding.css",
+      "rule": "type",
+      "snippet": "line-height:1.4",
+      "count": 1
+    },
+    {
+      "key": "styles/opponents.css|spacing|03c79e39c9c58e48",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "column-gap:round(.8em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|0e0402292528e8cb",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1em, 1px) round(.2em, 1px) round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|1988e0d983772278",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "gap:0 round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|1b790d2fe551d87e",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "gap:0 round(.9em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|212b543c9cbde665",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.1em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|2800a8916128ca72",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|2d966dc6f1d689a9",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.1em, 1px) 0 round(.15em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|582769e3da876ebb",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "padding:0 0 0 round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|693539ce8574e312",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.1em, 1px) 0 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|6ba08c617159521b",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "padding-left:round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|9869a86064600986",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "gap:0 round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|9a2b6a8a369ec330",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1em, 1px) 0",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|9f824ecb288749dd",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.15em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|a5973de6d763f827",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.2em, 1px) 0 0",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|b244bdc89351bb92",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "column-gap:round(.6em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|bec3d8b596ff59d2",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "padding:0 0 round(.18em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|cc6363a489854742",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "column-gap:round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|e2ecc13dddc7276b",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "row-gap:round(.15em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|e58075c8b6694766",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "gap:0 round(.6em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|f2b2ddbad58f08b9",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "gap:0 round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|spacing|fdbda3778eca0d4c",
+      "path": "styles/opponents.css",
+      "rule": "spacing",
+      "snippet": "padding-left:round(.6em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/opponents.css|type|500089db1e37346b",
+      "path": "styles/opponents.css",
+      "rule": "type",
+      "snippet": "line-height:1.2",
+      "count": 2
+    },
+    {
+      "key": "styles/opponents.css|type|6e8bcfac8d631854",
+      "path": "styles/opponents.css",
+      "rule": "type",
+      "snippet": "font-weight:600",
+      "count": 3
+    },
+    {
+      "key": "styles/opponents.css|type|8bde36d0d6164d2b",
+      "path": "styles/opponents.css",
+      "rule": "type",
+      "snippet": "font-weight:400",
+      "count": 1
+    },
+    {
+      "key": "styles/opponents.css|type|9a497ce64e6aeb9f",
+      "path": "styles/opponents.css",
+      "rule": "type",
+      "snippet": "font-size:.8em",
+      "count": 1
+    },
+    {
+      "key": "styles/opponents.css|type|be13156b7af9a5d7",
+      "path": "styles/opponents.css",
+      "rule": "type",
+      "snippet": "line-height:1.3",
+      "count": 3
+    },
+    {
+      "key": "styles/opponents.css|type|c1109e0d129e4ad3",
+      "path": "styles/opponents.css",
+      "rule": "type",
+      "snippet": "font-size:.85em",
+      "count": 1
+    },
+    {
+      "key": "styles/opponents.css|type|c45d63aac949bcba",
+      "path": "styles/opponents.css",
+      "rule": "type",
+      "snippet": "font-size:1.05em",
+      "count": 1
+    },
+    {
+      "key": "styles/opponents.css|type|c6fa01b3f1453c21",
+      "path": "styles/opponents.css",
+      "rule": "type",
+      "snippet": "font-weight:700",
+      "count": 1
+    },
+    {
+      "key": "styles/palette_feedback.css|spacing|15e5e637f89523b2",
+      "path": "styles/palette_feedback.css",
+      "rule": "spacing",
+      "snippet": "padding-block: round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_feedback.css|spacing|261b411baf0d95fe",
+      "path": "styles/palette_feedback.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_feedback.css|spacing|50f00a82107e00b4",
+      "path": "styles/palette_feedback.css",
+      "rule": "spacing",
+      "snippet": "margin-inline-start:round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_feedback.css|spacing|8fe032ce8c916455",
+      "path": "styles/palette_feedback.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.6em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_feedback.css|spacing|95adc58d0919ed37",
+      "path": "styles/palette_feedback.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.6em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_feedback.css|spacing|cded1eaea59f8dc6",
+      "path": "styles/palette_feedback.css",
+      "rule": "spacing",
+      "snippet": "margin-inline:round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_feedback.css|spacing|e608a02b7709ea92",
+      "path": "styles/palette_feedback.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.15em, 1px) round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_feedback.css|spacing|ecc69df76b953675",
+      "path": "styles/palette_feedback.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.5em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_feedback.css|type|1dac370ff8f63e75",
+      "path": "styles/palette_feedback.css",
+      "rule": "type",
+      "snippet": "line-height:1.5",
+      "count": 1
+    },
+    {
+      "key": "styles/palette_feedback.css|type|53836fe2c57df21d",
+      "path": "styles/palette_feedback.css",
+      "rule": "type",
+      "snippet": "font-size: .9em",
+      "count": 1
+    },
+    {
+      "key": "styles/palette_reports.css|spacing|0ba786185ac970cc",
+      "path": "styles/palette_reports.css",
+      "rule": "spacing",
+      "snippet": "padding-block: round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_reports.css|spacing|496e8fcc8f603534",
+      "path": "styles/palette_reports.css",
+      "rule": "spacing",
+      "snippet": "gap: 0 round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_reports.css|spacing|c39e379d5cb524e3",
+      "path": "styles/palette_reports.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/palette_reports.css|spacing|cd7ef797690cb933",
+      "path": "styles/palette_reports.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|layer|328e068642342ff2",
+      "path": "styles/settled_text_effects.css",
+      "rule": "layer",
+      "snippet": "z-index:4",
+      "count": 1
+    },
+    {
+      "key": "styles/settled_text_effects.css|layer|fb8580ceb489c9fd",
+      "path": "styles/settled_text_effects.css",
+      "rule": "layer",
+      "snippet": "z-index: 2",
+      "count": 1
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|05024958bde4663b",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|0ff137c75824586a",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.55rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|131f5ef667886b3c",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|25ae5751dee99b2d",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|2896df058bcddf8c",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.45rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|4812398a75b2286b",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|6d83e785d825f2cc",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.15rem, 1px) round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|86226a1944b12746",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|874c3fdbc4b42848",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|9d844e21548977a6",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|a0a15026a109b1ac",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|a937d11945282cbf",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.55rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|b232eade1486367e",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|c9d0103d22a44936",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "padding-inline-start: round(1.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|d948d732514943c0",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "padding: 0 round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|dd3cc4e3908141bd",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.25rem, 1px) round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|e38b1d4e2903182a",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|f66d1e2b4fa31eca",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|f9237f999aa2addb",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.3rem, 1px) round(.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|spacing|fbda51d348b5360e",
+      "path": "styles/settled_text_effects.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.7rem, 1px) round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/settled_text_effects.css|type|500089db1e37346b",
+      "path": "styles/settled_text_effects.css",
+      "rule": "type",
+      "snippet": "line-height:1.2",
+      "count": 1
+    },
+    {
+      "key": "styles/settled_text_effects.css|type|bb1375d1db7f3b63",
+      "path": "styles/settled_text_effects.css",
+      "rule": "type",
+      "snippet": "font-weight: bold",
+      "count": 3
+    },
+    {
+      "key": "styles/settled_text_effects.css|type|be13156b7af9a5d7",
+      "path": "styles/settled_text_effects.css",
+      "rule": "type",
+      "snippet": "line-height:1.3",
+      "count": 1
+    },
+    {
+      "key": "styles/shell_chrome.css|layer|15a9938ae007ca3a",
+      "path": "styles/shell_chrome.css",
+      "rule": "layer",
+      "snippet": "z-index:101",
+      "count": 1
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|03ba7d52b591c89a",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.15em, 1px) round(.4em, 1px)!important",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|04675ee191faacc1",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "gap:3px",
+      "count": 4
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|04b897daf9dd5063",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.3em, 1px) round(.6em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|04e02fab4efe48ac",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.25em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|0a61ccf396a84abc",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding-top:round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|0ff103dd9ab38de3",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.6em, 1px) round(.9em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|122e08f01e868af6",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.2em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|15a3983abce2fca3",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "margin-top:round(.6em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|1e1fbe994895ef74",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.2em, 1px) round(.3em, 1px) round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|1f98c2799ce747f1",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding-top:round(.3em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|212b543c9cbde665",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.1em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|21af5f3fc775180f",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1em, 1px) round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|2630cdf8846f5809",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.3em, 1px) round(.45em, 1px) round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|2800a8916128ca72",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|2a356610b0797970",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.15em, 1px) round(.6em, 1px)",
+      "count": 3,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|30aba7d959849d89",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.2em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|36dfd2f74247d019",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1em, 1px) round(.5em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|3e63d7607cac652b",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "margin-left:round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|4bc0417dd98436e7",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.15em, 1px) round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|628937c9dab78777",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "margin:0 0 round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|79d2d3cf82bdb9e6",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.15em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|7a9e9c580d2bb7a2",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|8db2d000f3ae55a6",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom:round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|96ed3b599016f44c",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1em, 1px) round(.55em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|98ecab87bd9a2c8a",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.3em, 1px)",
+      "count": 3,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|9a2b6a8a369ec330",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|9d844e21548977a6",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|a021ad4008c89e77",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "margin-bottom:round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|a331e0dc55be3c85",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.35em, 1px)",
+      "count": 3,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|b1ab420ba81ff6e6",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "margin:0 0 round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|b4aecb078ab55c2f",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1em, 1px) round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|c1496672b6fac91d",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.4em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|c3c330d0ebc7aa74",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.2em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|c79b28b6b5dfd6d4",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.1em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|ccc9b49f9cac8cd5",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.4em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|cfbb1d3e920f6dc6",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.15em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|e2f3bc9c9390644f",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "column-gap:round(.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|f1df72d274939d65",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.5em, 1px)",
+      "count": 5,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|f2b2ddbad58f08b9",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "gap:0 round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|f3bde817837383ee",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1em, 1px) round(.12em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|f4f60d0e36c02c6a",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.2em, 1px) round(.45em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|f7d95b00be4835b7",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.5em, 1px) 0 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|f973ff8cc97464a3",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "padding-left:round(.3em, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|spacing|ffd71f130df69cd1",
+      "path": "styles/shell_chrome.css",
+      "rule": "spacing",
+      "snippet": "margin-top:round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_chrome.css|type|1ef4cd5b706d915c",
+      "path": "styles/shell_chrome.css",
+      "rule": "type",
+      "snippet": "line-height:1.35",
+      "count": 1
+    },
+    {
+      "key": "styles/shell_chrome.css|type|500089db1e37346b",
+      "path": "styles/shell_chrome.css",
+      "rule": "type",
+      "snippet": "line-height:1.2",
+      "count": 1
+    },
+    {
+      "key": "styles/shell_chrome.css|type|5c1b3ff4b6329078",
+      "path": "styles/shell_chrome.css",
+      "rule": "type",
+      "snippet": "line-height:1.25",
+      "count": 8
+    },
+    {
+      "key": "styles/shell_chrome.css|type|6e8bcfac8d631854",
+      "path": "styles/shell_chrome.css",
+      "rule": "type",
+      "snippet": "font-weight:600",
+      "count": 3
+    },
+    {
+      "key": "styles/shell_chrome.css|type|72600c4bf8733f38",
+      "path": "styles/shell_chrome.css",
+      "rule": "type",
+      "snippet": "font-size:1.1em",
+      "count": 1
+    },
+    {
+      "key": "styles/shell_chrome.css|type|8bde36d0d6164d2b",
+      "path": "styles/shell_chrome.css",
+      "rule": "type",
+      "snippet": "font-weight:400",
+      "count": 1
+    },
+    {
+      "key": "styles/shell_chrome.css|type|9a497ce64e6aeb9f",
+      "path": "styles/shell_chrome.css",
+      "rule": "type",
+      "snippet": "font-size:.8em",
+      "count": 1
+    },
+    {
+      "key": "styles/shell_chrome.css|type|ab4e75a8e357205d",
+      "path": "styles/shell_chrome.css",
+      "rule": "type",
+      "snippet": "font-size:.9em",
+      "count": 1
+    },
+    {
+      "key": "styles/shell_chrome.css|type|be13156b7af9a5d7",
+      "path": "styles/shell_chrome.css",
+      "rule": "type",
+      "snippet": "line-height:1.3",
+      "count": 5
+    },
+    {
+      "key": "styles/shell_chrome.css|type|c1109e0d129e4ad3",
+      "path": "styles/shell_chrome.css",
+      "rule": "type",
+      "snippet": "font-size:.85em",
+      "count": 6
+    },
+    {
+      "key": "styles/shell_layout.css|spacing|7a9e9c580d2bb7a2",
+      "path": "styles/shell_layout.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_layout.css|spacing|80ec9bea6687a765",
+      "path": "styles/shell_layout.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.05em, 1px) round(.3em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_layout.css|spacing|8f6424ade1b56a86",
+      "path": "styles/shell_layout.css",
+      "rule": "spacing",
+      "snippet": "gap:0 round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_layout.css|spacing|9a2b6a8a369ec330",
+      "path": "styles/shell_layout.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/shell_layout.css|type|ab4e75a8e357205d",
+      "path": "styles/shell_layout.css",
+      "rule": "type",
+      "snippet": "font-size:.9em",
+      "count": 1
+    },
+    {
+      "key": "styles/shell_layout.css|type|be13156b7af9a5d7",
+      "path": "styles/shell_layout.css",
+      "rule": "type",
+      "snippet": "line-height:1.3",
+      "count": 1
+    },
+    {
+      "key": "styles/shell_layout.css|type|c1109e0d129e4ad3",
+      "path": "styles/shell_layout.css",
+      "rule": "type",
+      "snippet": "font-size:.85em",
+      "count": 1
+    },
+    {
+      "key": "styles/start_probe.css|spacing|29674c7974861dde",
+      "path": "styles/start_probe.css",
+      "rule": "spacing",
+      "snippet": "gap: 10px",
+      "count": 1
+    },
+    {
+      "key": "styles/start_probe.css|spacing|5ee946481326fc12",
+      "path": "styles/start_probe.css",
+      "rule": "spacing",
+      "snippet": "padding-left: 20px",
+      "count": 1
+    },
+    {
+      "key": "styles/start_probe.css|spacing|c39650bf92a221e0",
+      "path": "styles/start_probe.css",
+      "rule": "spacing",
+      "snippet": "gap: 18px",
+      "count": 1
+    },
+    {
+      "key": "styles/start_probe.css|spacing|e866c2518ee0f805",
+      "path": "styles/start_probe.css",
+      "rule": "spacing",
+      "snippet": "padding: 10px",
+      "count": 1
+    },
+    {
+      "key": "styles/start_probe.css|type|78bc37c63880baab",
+      "path": "styles/start_probe.css",
+      "rule": "type",
+      "snippet": "line-height: 1.35",
+      "count": 1
+    },
+    {
+      "key": "styles/start_probe.css|type|99fc262dcc6e7066",
+      "path": "styles/start_probe.css",
+      "rule": "type",
+      "snippet": "line-height: 1.4",
+      "count": 1
+    },
+    {
+      "key": "styles/status_window.css|spacing|3eee2cc013bb1c58",
+      "path": "styles/status_window.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.45em, 1px) round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/status_window.css|spacing|6509e2eaa23fb41f",
+      "path": "styles/status_window.css",
+      "rule": "spacing",
+      "snippet": "padding-block: round(.1em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/status_window.css|spacing|6b779ab51a044432",
+      "path": "styles/status_window.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/status_window.css|spacing|7f140a3dfa0ca22d",
+      "path": "styles/status_window.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.3em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/status_window.css|spacing|87630589816d5baa",
+      "path": "styles/status_window.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.4em, 1px) round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/status_window.css|spacing|95adc58d0919ed37",
+      "path": "styles/status_window.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.6em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/status_window.css|spacing|9938e5288ba0f495",
+      "path": "styles/status_window.css",
+      "rule": "spacing",
+      "snippet": "padding-block: round(.25em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/status_window.css|spacing|bc0db450860517cb",
+      "path": "styles/status_window.css",
+      "rule": "spacing",
+      "snippet": "margin-left: round(.5em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/status_window.css|spacing|dac5ee1a799bbc10",
+      "path": "styles/status_window.css",
+      "rule": "spacing",
+      "snippet": "gap: round(1em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/status_window.css|spacing|ecc69df76b953675",
+      "path": "styles/status_window.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.5em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/status_window.css|type|99fc262dcc6e7066",
+      "path": "styles/status_window.css",
+      "rule": "type",
+      "snippet": "line-height: 1.4",
+      "count": 1
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|01ad8f93638ec874",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.35rem, 1px) round(0.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|0378d5efca8a84be",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "margin: round(0.3rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|0e85d037e752dc6c",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "gap: round(0.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|29d2dccc90b82908",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.15rem, 1px) round(0.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|2a8c30c27382e446",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.25rem, 1px) round(0.1rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|2c090290e23c9feb",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "padding: 0 round(0.35em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|519f594a6a720180",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "gap: round(0.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|5e6d66ce6921b4a1",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.75rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|6799fba039757600",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "margin: round(0.5rem, 1px) 0 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|7798a1a588ac9e54",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.15rem, 1px) round(0.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|8c5d9e5127609f36",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "padding: round(0.3rem, 1px) round(0.5rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|9c53d152374a117c",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "margin: round(0.6rem, 1px) 0 round(0.2rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|bc61e675466efe70",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(0.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|d0a25d78e460e0c1",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "gap: round(1rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|spacing|febae5ccd0407252",
+      "path": "styles/ui_extras.css",
+      "rule": "spacing",
+      "snippet": "margin-left: round(0.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_extras.css|type|bb1375d1db7f3b63",
+      "path": "styles/ui_extras.css",
+      "rule": "type",
+      "snippet": "font-weight: bold",
+      "count": 1
+    },
+    {
+      "key": "styles/ui_preview.css|spacing|0c28d73b93e70d1a",
+      "path": "styles/ui_preview.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.6em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_preview.css|spacing|b1ab420ba81ff6e6",
+      "path": "styles/ui_preview.css",
+      "rule": "spacing",
+      "snippet": "margin:0 0 round(.2em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_preview.css|spacing|c9567005649c0243",
+      "path": "styles/ui_preview.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.2em, 1px) round(.4em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_preview.css|spacing|cfbb1d3e920f6dc6",
+      "path": "styles/ui_preview.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.15em, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_preview.css|spacing|eb968f464376614a",
+      "path": "styles/ui_preview.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.25em, 1px) round(1em, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/ui_preview.css|type|6e8bcfac8d631854",
+      "path": "styles/ui_preview.css",
+      "rule": "type",
+      "snippet": "font-weight:600",
+      "count": 1
+    },
+    {
+      "key": "styles/ui_preview.css|type|ab4e75a8e357205d",
+      "path": "styles/ui_preview.css",
+      "rule": "type",
+      "snippet": "font-size:.9em",
+      "count": 1
+    },
+    {
+      "key": "styles/ui_preview.css|type|be13156b7af9a5d7",
+      "path": "styles/ui_preview.css",
+      "rule": "type",
+      "snippet": "line-height:1.3",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|control-height|1ef1d2ac3e68c603",
+      "path": "styles/workspace.css",
+      "rule": "control-height",
+      "snippet": "height:28px",
+      "count": 2
+    },
+    {
+      "key": "styles/workspace.css|control-height|2bd678ed42d76ed7",
+      "path": "styles/workspace.css",
+      "rule": "control-height",
+      "snippet": "min-height: 30px",
+      "count": 3
+    },
+    {
+      "key": "styles/workspace.css|control-height|a9b6f895ce736663",
+      "path": "styles/workspace.css",
+      "rule": "control-height",
+      "snippet": "min-height: 24px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|control-height|aa65792afc635eb0",
+      "path": "styles/workspace.css",
+      "rule": "control-height",
+      "snippet": "min-height:28px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|layer|08ef6a70650ff1c0",
+      "path": "styles/workspace.css",
+      "rule": "layer",
+      "snippet": "z-index: 100005",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|layer|0e7a098e4b09945c",
+      "path": "styles/workspace.css",
+      "rule": "layer",
+      "snippet": "z-index: 110",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|layer|17dbfb89eefbe092",
+      "path": "styles/workspace.css",
+      "rule": "layer",
+      "snippet": "z-index:210",
+      "count": 2
+    },
+    {
+      "key": "styles/workspace.css|layer|2e4a8e11d76cfc40",
+      "path": "styles/workspace.css",
+      "rule": "layer",
+      "snippet": "z-index: 9",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|layer|382abd9dd23dcaa4",
+      "path": "styles/workspace.css",
+      "rule": "layer",
+      "snippet": "z-index:100020",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|layer|691235adc723b5d3",
+      "path": "styles/workspace.css",
+      "rule": "layer",
+      "snippet": "z-index: 20",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|layer|6ff5156c21b418e4",
+      "path": "styles/workspace.css",
+      "rule": "layer",
+      "snippet": "z-index: 6",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|layer|7af8564ab232a2a1",
+      "path": "styles/workspace.css",
+      "rule": "layer",
+      "snippet": "z-index: 100010",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|layer|fb8580ceb489c9fd",
+      "path": "styles/workspace.css",
+      "rule": "layer",
+      "snippet": "z-index: 2",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|00ee51e2594823db",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.35rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|015fa39f92740867",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.3rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|060333da21307f66",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|07fc1cbe7eddbff1",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.4rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|086be662c4689ed7",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|0bccf0aac97afdb0",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.7rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|0c87d58facc64b4a",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.15rem, 1px) round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|0f61878160aaa60a",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.25rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|11beffdfbe8c4c38",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.1rem, 1px) 0",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|12818a2a3c99c71a",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin-bottom: round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|1b3a2ce989857e46",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.35rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|231f7f65da4516d6",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.5rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|238a025636054610",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom:48px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|27c4492a0732df20",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.4rem, 1px) round(.8rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|2896df058bcddf8c",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin-block: round(.45rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|2a183e7854fce324",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.6rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|31c8761f1c0aab09",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.35rem, 1px) round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|33239cbe5c033a14",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.45rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|379a19f2bb48ac1c",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap:clamp(8px,2.5vh,20px)",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|37a2059fb27ccd1e",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|38d7d03181461c1b",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin-top: round(.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|3baf7f36cb89e270",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 auto round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|4735f398f02b46e1",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.2rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|4c88fc03b81c07a1",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.4rem, 1px)",
+      "count": 3,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|4d3b9d9f45015281",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: 0 round(.55rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|4e679f5eff3e42b1",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:clamp(12px,4vh,40px) 12px 64px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|569c727606170cee",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: 5px 0",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|5c946d1ee749ea2d",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.3rem, 1px)",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|5d3dd8f2673106a4",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.3rem, 1px) 0 0 auto",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|5e68486afafa03c6",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.35rem, 1px) round(.45rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|634db2e3994bf77d",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.2rem, 1px) round(.3rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|645d57d25c4871b6",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.25rem, 1px) round(.65rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|66f736cc980935a6",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.3rem, 1px) round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|6773ab9c12219142",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin: 0 0 round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|682ef19b9a1ff6ab",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: 0 0 52px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|69b18afa0bec3ef3",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.4rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|6a0b9d77bf399321",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|73fe715c4ac3941c",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap:0 round(.8rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|77242232c01f4a4a",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.1rem, 1px) round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|7df66a624e6de842",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.35rem, 1px) 0",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|86226a1944b12746",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|8e03a0055ee11b5c",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin:round(.3rem, 1px) 0",
+      "count": 2,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|8f88d8dd413d2aaa",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.15rem, 1px) round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|927f52bc2050ce76",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1rem, 1px) round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|97e052d15986ea14",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: var(--ui-space-2) 14px",
+      "count": 1,
+      "reason": "partly migrated; off-scale literal remains (UR65 migration 2026-10-22)"
+    },
+    {
+      "key": "styles/workspace.css|spacing|9869053dbdf592ca",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.35rem, 1px) round(.8rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|98d00b5b6914f69d",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: 0 round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|992559a6a5b9c9fe",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.5rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|9c60d0a3ea9fcb96",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin-left:round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|a8e6de5b15cd1a87",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.3rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|ab7ef1bf6f45593c",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin-top: 5px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|acc151aaf762b8b2",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.1rem, 1px) 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|b0edc44dccd9a7f9",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin-left: 5px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|b232eade1486367e",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.3rem, 1px)",
+      "count": 4,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|b314c415c1dff358",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.7rem, 1px) round(1.1rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|b8ddd9dd4141b205",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(.4rem, 1px) !important",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|be40c1b58484f0d3",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|be9d3a022b50f125",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:0 round(1rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|c0c4ef1387bd1111",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.25rem, 1px) round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|c21ddda23f2847e0",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom: round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|c57dfc01f65e07ee",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap: round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|c6700459c203022d",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.2rem, 1px) round(.45rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|d00b143da3abb7d2",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin-bottom:round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|d083bc01b516c404",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: 0 0 65px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|d4d180c8bf2364d0",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.15rem, 1px) round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|d4f5a0527c1c080d",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.12rem, 1px) round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|dd74f71a933f3da9",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin: round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|df4191abd8d7356d",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.25rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|e38b1d4e2903182a",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.4rem, 1px)",
+      "count": 4,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|eaf4f7fc87236589",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom: 92px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|ef999a402e7a8a09",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.15rem, 1px) round(.5rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|f2de1b550920d116",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "margin:0 round(.5rem, 1px) 0 0",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|f3adac452dc44127",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding:round(.2rem, 1px) round(.4rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|f51d402b69c82392",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.45rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|f66d1e2b4fa31eca",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "gap:round(.35rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|f6f312b83ecf84e0",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding-bottom: 90px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|spacing|fd27690eece3639f",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: round(.6rem, 1px)",
+      "count": 1,
+      "reason": "em spacing rounded to whole px (UR65 migration 2026-10-22); move onto the scale in a visual pass"
+    },
+    {
+      "key": "styles/workspace.css|spacing|ffbbb54a7fb07a74",
+      "path": "styles/workspace.css",
+      "rule": "spacing",
+      "snippet": "padding: 5px 10px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|018e18ec8e7c21d3",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "font-weight: 600",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|11969620bf71acf2",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "font-size:clamp(32px,8vh,60px)",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|182a6f9bf93e5cc3",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "font-size:clamp(24px,6vh,50px)",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|3d848012c13754c4",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "line-height: 1.25",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|4e368f625e0f13ab",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "line-height: 16px",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|539fc9650df72156",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "font-size:clamp(16px,3.5vh,25px)",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|61b2a4f266d7ebf6",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "font-weight: 700",
+      "count": 3
+    },
+    {
+      "key": "styles/workspace.css|type|6b930d94ea1d54fd",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "font-size:clamp(14px,2.6vh,20px)",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|6f4aae624dea06c1",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "font-size:clamp(34px,min(9vw,11vh),96px)",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|99fc262dcc6e7066",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "line-height: 1.4",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|b3ef955664391f33",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "font-size:clamp(18px,4vw,35px)",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|bb1375d1db7f3b63",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "font-weight: bold",
+      "count": 1
+    },
+    {
+      "key": "styles/workspace.css|type|dce06231fb6de882",
+      "path": "styles/workspace.css",
+      "rule": "type",
+      "snippet": "line-height:1.1",
+      "count": 1
     }
   ]
 }

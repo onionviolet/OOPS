@@ -52,3 +52,18 @@ test('R21 control box and bar helpers', async () => {
     assert.equal(foldCategory(340, 21), true); assert.equal(foldCategory(500, 21), false); assert.equal(foldCategory(340, 14), false);
     assert.equal(overflowFrom([50, 50, 50], 120), 2); assert.equal(overflowFrom([50, 50], 200), 2);
 });
+
+test('UIA12: idle place prose borrows only the space the bottom row does not need', () => {
+    // 1030px board at 14px, frame 15. Bottom content 314 leaves room: prose 389 fits whole.
+    assert.equal(topRowHeight({player: 280, elastic: 8, focus: 389, combat: false, board: 1030, fontSize: 14, frame: 15, below: 314}), 419);
+    // A full bottom row keeps its content; the top row falls back to You's own need.
+    assert.equal(topRowHeight({player: 280, elastic: 8, focus: 900, combat: false, board: 1030, fontSize: 14, frame: 15, below: 900}), 295);
+    // Between those, the top row stops where the bottom row's content plus allowances begins.
+    assert.equal(topRowHeight({player: 455, elastic: 8, focus: 630, combat: false, board: 1030, fontSize: 21, frame: 19, below: 393}), 578);
+    // Without a bottom measurement the idle row still ignores long place prose.
+    assert.equal(topRowHeight({player: 300, focus: 900, combat: false, board: 688, fontSize: 14}), 306);
+});
+
+test('UIA12: a fight keeps its own top-row rule even when the bottom row has room', () => {
+    assert.equal(topRowHeight({player: 300, focus: 380, combat: true, board: 688, fontSize: 14, below: 100}), topRowHeight({player: 300, focus: 380, combat: true, board: 688, fontSize: 14}));
+});

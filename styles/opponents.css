@@ -2,10 +2,10 @@
    name, health, attack cycle. The inspected opponent's facts show once, below the rows. Tokens only
    (UR6); text stays at the shell's context size (UR46). Loaded after shell_layout.css. */
 
-#main_content.workspace-active[data-parity="r3"] .combat-focus-view:has(> .enemy-cards[data-layout]) {gap:.15em;}
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view:has(> .enemy-cards[data-layout]) {gap:round(.15em, 1px);}
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] {
     --board-row:1.75em;
-    display:grid;grid-template-columns:repeat(var(--board-columns,1),minmax(0,1fr));grid-auto-rows:var(--board-row);gap:0 .9em;align-content:start;
+    display:grid;grid-template-columns:repeat(var(--board-columns,1),minmax(0,1fr));grid-auto-rows:var(--board-row);gap:0 round(.9em, 1px);align-content:start;
     max-height:calc(var(--board-visible-rows,8) * var(--board-row));overflow-y:auto;overscroll-behavior:contain;flex:0 0 auto;
 }
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-columns="2"] {--board-columns:2;}
@@ -14,17 +14,17 @@
 
 /* A row: name | health on one line, the attack cycle as a hairline under it. */
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card {
-    display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name health" "cycle cycle" "facts facts";align-items:center;column-gap:.5em;
-    grid-column:auto;min-width:0;padding:0 0 0 .35em;
+    display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name health" "cycle cycle" "facts facts";align-items:center;column-gap:round(.5em, 1px);
+    grid-column:auto;min-width:0;padding:0 0 0 round(.35em, 1px);
     background:transparent;border:0;border-left:2px solid transparent;border-bottom:1px solid var(--p23-quiet-line);
 }
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-card[data-inspected="true"] {border-left-color:var(--p23-value);background:var(--p23-hover-fill);}
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-name {grid-area:name;min-height:0;padding:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3;}
-#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-health {grid-area:health;margin:0;padding:0 0 .18em;min-width:5.5em;text-align:right;line-height:1.3;white-space:nowrap;background-color:transparent;background-image:var(--p23-health-fill);background-size:var(--roster-health) .16em;background-position:left bottom;background-repeat:no-repeat;box-shadow:inset 0 -.16em 0 var(--p23-track);}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-health {grid-area:health;margin:0;padding:0 0 round(.18em, 1px);min-width:5.5em;text-align:right;line-height:1.3;white-space:nowrap;background-color:transparent;background-image:var(--p23-health-fill);background-size:var(--roster-health) .16em;background-position:left bottom;background-repeat:no-repeat;box-shadow:inset 0 -.16em 0 var(--p23-track);}
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-health > span {background:transparent;padding:0;color:var(--p23-text);font-variant-numeric:tabular-nums;}
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-cycle {grid-area:cycle;height:.16em;margin:0;align-self:start;}
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-cycle[hidden] {display:block!important;visibility:hidden;}
-#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-facts {grid-area:facts;display:grid;grid-template-columns:repeat(auto-fill,minmax(7.5em,1fr));gap:0 .6em;margin:.1em 0 .15em;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-facts {grid-area:facts;display:grid;grid-template-columns:repeat(auto-fill,minmax(7.5em,1fr));gap:0 round(.6em, 1px);margin:round(.1em, 1px) 0 round(.15em, 1px);}
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] .enemy-card-facts[hidden] {display:none;}
 
 /* Defeated: stays in its slot with its letter, said in words and struck through, not by color alone. */
@@ -36,13 +36,13 @@
 
 /* The inspected opponent's facts: a list with your own value for up to four opponents, a compact
    grid beyond that. */
-#main_content.workspace-active[data-parity="r3"] .opponent-detail {flex:0 0 auto;margin:.2em 0 0;}
+#main_content.workspace-active[data-parity="r3"] .opponent-detail {flex:0 0 auto;margin:round(.2em, 1px) 0 0;}
 #main_content.workspace-active[data-parity="r3"] .opponent-detail[hidden] {display:none;}
-#main_content.workspace-active[data-parity="r3"] .opponent-detail > dl {display:grid;margin:0;gap:0 .9em;}
+#main_content.workspace-active[data-parity="r3"] .opponent-detail > dl {display:grid;margin:0;gap:0 round(.9em, 1px);}
 #main_content.workspace-active[data-parity="r3"] .opponent-detail[data-facts="list"] > dl {grid-template-columns:repeat(auto-fill,minmax(9.5em,1fr));}
 #main_content.workspace-active[data-parity="r3"] .opponent-detail[data-facts="grid"] > dl {grid-template-columns:repeat(auto-fill,minmax(7.5em,1fr));}
 #main_content.workspace-active[data-parity="r3"] :is(.opponent-detail, .enemy-card-facts) dl > div,
-#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) > div {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:0 .4em;padding:.1em 0;border-bottom:1px solid var(--p23-quiet-line);line-height:1.2;min-width:0;}
+#main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) > div {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:0 round(.4em, 1px);padding:round(.1em, 1px) 0;border-bottom:1px solid var(--p23-quiet-line);line-height:1.2;min-width:0;}
 #main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) dt {font:inherit;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 #main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) dd {margin:0;font:inherit;font-weight:600;font-variant-numeric:tabular-nums;color:var(--p23-value);white-space:nowrap;}
 #main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) small {grid-column:1/-1;font-size:.85em;color:var(--p23-actor);}
@@ -50,7 +50,7 @@
 #main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) small:empty {display:none;}
 /* Not yet learned: ??? in a quiet tone, with the word in the title (factText, KNOWLEDGE_LABEL). */
 #main_content.workspace-active[data-parity="r3"] :is(.opponent-detail > dl, .enemy-card-facts) > div[data-knowledge="unknown"] dd {color:var(--p23-muted);font-weight:400;}
-#main_content.workspace-active[data-parity="r3"] .opponent-detail > p {margin:.2em 0 0;color:var(--p23-muted);}
+#main_content.workspace-active[data-parity="r3"] .opponent-detail > p {margin:round(.2em, 1px) 0 0;color:var(--p23-muted);}
 #main_content.workspace-active[data-parity="r3"] .opponent-detail > p[hidden] {display:none;}
 
 #main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] .enemy-cards[data-layout] > .enemy-card {background:transparent;border-color:var(--shell-user-accent);}
@@ -59,7 +59,7 @@
 
 /* Grouped (five or more, repeated names, UX17): the name once, then one cell per opponent with its
    own letter, health and selection. */
-#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-grouped="true"] {column-gap:.6em;}
+#main_content.workspace-active[data-parity="r3"] .enemy-cards[data-grouped="true"] {column-gap:round(.6em, 1px);}
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-columns="4"] {--board-columns:4;}
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-layout] > .enemy-group-label {grid-column:1/-1;align-self:end;margin:0;text-align:left;color:var(--p23-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3;}
 #main_content.workspace-active[data-parity="r3"] .enemy-cards[data-grouped="true"] .enemy-card-name {font-weight:700;}
@@ -83,17 +83,17 @@
 
 /* R22b (SU1, SU2): the list in its own panel beside the actions. It fills the panel; the rows take
    the height left under the caption and scroll inside it when a wave is larger than the slot. */
-#main_content.workspace-active[data-parity="r3"] .combat-opponents-view {display:flex;flex-direction:column;flex:1 1 auto;min-height:0;height:100%;gap:.15em;padding:0 .3em;font-size:var(--shell-context-size,var(--ui-type-body));}
+#main_content.workspace-active[data-parity="r3"] .combat-opponents-view {display:flex;flex-direction:column;flex:1 1 auto;min-height:0;height:100%;gap:round(.15em, 1px);padding:0 round(.3em, 1px);font-size:var(--shell-context-size,var(--ui-type-body));}
 #main_content.workspace-active[data-parity="r3"] .combat-opponents-view > .enemy-cards[data-layout] {flex:0 1 auto;min-height:0;}
-#main_content.workspace-active[data-parity="r3"] .combat-opponents-view > .enemy-cards[data-layout] > .enemy-card {padding-left:.45em;}
+#main_content.workspace-active[data-parity="r3"] .combat-opponents-view > .enemy-cards[data-layout] > .enemy-card {padding-left:round(.45em, 1px);}
 
 /* SU3: Around you in a fight names the inspected opponent with its health and cycle, level with
    You's bars, and keeps its facts under it. */
-#main_content.workspace-active[data-parity="r3"] .opponent-target {display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name health" "cycle cycle";align-items:center;column-gap:.6em;padding:.1em .2em .2em;border-bottom:1px solid var(--p23-quiet-line);}
+#main_content.workspace-active[data-parity="r3"] .opponent-target {display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name health" "cycle cycle";align-items:center;column-gap:round(.6em, 1px);padding:round(.1em, 1px) round(.2em, 1px) round(.2em, 1px);border-bottom:1px solid var(--p23-quiet-line);}
 #main_content.workspace-active[data-parity="r3"] .opponent-target[hidden] {display:none;}
 #main_content.workspace-active[data-parity="r3"] .opponent-target > strong {grid-area:name;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-#main_content.workspace-active[data-parity="r3"] .opponent-target-health {grid-area:health;min-width:7em;text-align:right;font-variant-numeric:tabular-nums;padding:0 0 .18em;background-image:var(--p23-health-fill);background-size:var(--roster-health,0%) .22em;background-repeat:no-repeat;background-position:left bottom;}
-#main_content.workspace-active[data-parity="r3"] .opponent-target-cycle {grid-area:cycle;width:100%;height:.2em;margin:.1em 0 0;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target-health {grid-area:health;min-width:7em;text-align:right;font-variant-numeric:tabular-nums;padding:0 0 round(.18em, 1px);background-image:var(--p23-health-fill);background-size:var(--roster-health,0%) .22em;background-repeat:no-repeat;background-position:left bottom;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target-cycle {grid-area:cycle;width:100%;height:.2em;margin:round(.1em, 1px) 0 0;}
 #main_content.workspace-active[data-parity="r3"] .opponent-target-cycle[hidden] {display:block!important;visibility:hidden;}
 #main_content.workspace-active[data-parity="r3"] .opponent-target[data-defeated="true"] > strong {text-decoration:line-through;color:var(--p23-muted);}
 /* With the list elsewhere the facts always show as a list with your own value beside them. */
@@ -119,26 +119,26 @@
 
 /* R22c (FC2, FC14): in a fight with the list beside the actions, Around you is two halves: the
    Target card (left, spanning the facts) and Encounter (right). */
-#main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] {display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);grid-template-areas:"target encounter" "facts encounter";align-content:start;column-gap:.8em;}
+#main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] {display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);grid-template-areas:"target encounter" "facts encounter";align-content:start;column-gap:round(.8em, 1px);}
 #main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] > .opponent-target {grid-area:target;}
 #main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] > .opponent-detail {grid-area:facts;}
 #main_content.workspace-active[data-parity="r3"] .combat-focus-view[data-list-elsewhere="true"] > .encounter-summary {grid-area:encounter;}
 /* The Target's health reads like You's: a full-width bar with the value in a dark label. */
-#main_content.workspace-active[data-parity="r3"] .opponent-target {grid-template-columns:minmax(0,1fr);grid-template-areas:"name" "health" "cycle";row-gap:.15em;}
+#main_content.workspace-active[data-parity="r3"] .opponent-target {grid-template-columns:minmax(0,1fr);grid-template-areas:"name" "health" "cycle";row-gap:round(.15em, 1px);}
 #main_content.workspace-active[data-parity="r3"] .opponent-target > strong {text-align:center;font-size:1.05em;}
 #main_content.workspace-active[data-parity="r3"] .opponent-target-health {display:flex;justify-content:center;align-items:center;min-width:0;height:1.35em;padding:0;text-align:center;border:1px solid var(--p23-quiet-line);background-color:var(--p23-detail-fill);background-image:var(--p23-health-fill);background-size:var(--roster-health,0%) 100%;background-position:left center;}
 #main_content.workspace-active[data-parity="r3"] .opponent-target-health::before {content:none;}
 #main_content.workspace-active[data-parity="r3"] .opponent-target-health {color:var(--p23-text);text-shadow:0 0 2px var(--p23-blue),0 0 3px var(--p23-blue);font-weight:600;}
-#main_content.workspace-active[data-parity="r3"] .encounter-summary {display:flex;flex-direction:column;gap:.1em;border-left:1px solid var(--p23-quiet-line);padding-left:.6em;min-width:0;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary {display:flex;flex-direction:column;gap:round(.1em, 1px);border-left:1px solid var(--p23-quiet-line);padding-left:round(.6em, 1px);min-width:0;}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary[hidden] {display:none;}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary > strong {text-align:center;}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary > dl {margin:0;display:grid;gap:0;text-align:left;}
-#main_content.workspace-active[data-parity="r3"] .encounter-summary > dl > div {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 .5em;padding:.1em 0;border-bottom:1px solid var(--p23-quiet-line);}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary > dl > div {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 round(.5em, 1px);padding:round(.1em, 1px) 0;border-bottom:1px solid var(--p23-quiet-line);}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary dt {font:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary dd {margin:0;font-variant-numeric:tabular-nums;color:var(--p23-value);font-weight:600;white-space:nowrap;}
 /* Long known clear milestones must not make the numeric column wider than
    the encounter panel. Preserve every public value at actual larger text. */
-#main_content.workspace-active[data-parity="r3"] .encounter-summary > dl > div {display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 .35em;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary > dl > div {display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 round(.35em, 1px);}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary dt {min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;overflow:visible;text-overflow:clip;}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary dd {min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:right;margin-left:auto;}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary > dl > div[data-kind-hue]:not([data-kind-hue=""]) dt {color:var(--kind-hue);}

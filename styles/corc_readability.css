@@ -9,43 +9,43 @@
 }
 
 #main_content.workspace-active[data-parity="r3"] #proto23_character > .shell-worn-summary {
- display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ui-space-hairline);
  flex:0 0 auto;width:100%;min-width:0;max-height:4.5em;overflow:auto;
  background:var(--p23-quiet-line);border-block:1px solid var(--p23-quiet-line);
 }
 #main_content.workspace-active[data-parity="r3"] .shell-worn-summary[hidden] {display:none;}
 #main_content.workspace-active[data-parity="r3"] #proto23_character .shell-worn-summary .shell-worn-item {
- display:flex;align-items:baseline;gap:.35em;min-width:0;padding:.15em .3em;
+ display:flex;align-items:baseline;gap:round(.35em, 1px);min-width:0;padding:round(.15em, 1px) round(.3em, 1px);
  width:100%;text-align:left;font:inherit;border:0;background:var(--p23-dark-value);color:var(--p23-text);
 }
 .shell-worn-slot {flex:0 0 auto;white-space:nowrap;color:var(--p23-muted);}
 .shell-worn-name {min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-#main_content.workspace-active[data-parity="r3"] .shell-item-title {display:block;padding:.3em .45em;line-height:1.3;}
-#main_content.workspace-active[data-parity="r3"] #proto23_item_detail > p {margin:.1em .45em .3em;color:var(--p23-muted);font-size:.9em;}
-.shell-item-specifics {margin-top:.45em;border-top:1px solid var(--p23-quiet-line);}
-.shell-item-specifics > summary {cursor:pointer;padding:.2em 0;}
+#main_content.workspace-active[data-parity="r3"] .shell-item-title {display:block;padding:round(.3em, 1px) round(.45em, 1px);line-height:1.3;}
+#main_content.workspace-active[data-parity="r3"] #proto23_item_detail > p {margin:round(.1em, 1px) round(.45em, 1px) round(.3em, 1px);color:var(--p23-muted);font-size:.9em;}
+.shell-item-specifics {margin-top:round(.45em, 1px);border-top:1px solid var(--p23-quiet-line);}
+.shell-item-specifics > summary {cursor:pointer;padding:round(.2em, 1px) 0;}
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="condition"] {
  flex-shrink:0;min-height:calc(var(--shell-context-size,var(--ui-type-body))*5)!important;
 }
-#main_content.workspace-active[data-parity="r3"] #shell_condition > .condition-summary {margin:.15em .4em;}
+#main_content.workspace-active[data-parity="r3"] #shell_condition > .condition-summary {margin:round(.15em, 1px) round(.4em, 1px);}
 /* Equipped rows use the same native nodes; stack the action and price without overlap. */
 #main_content.workspace-active[data-parity="r3"] #inventory_content_div > .equipped_item_control {
- display:grid;grid-template-columns:minmax(0,1fr) max-content;align-items:start;gap:.4em;box-sizing:border-box;width:100%;min-width:0;
+ display:grid;grid-template-columns:minmax(0,1fr) max-content;align-items:start;gap:round(.4em, 1px);box-sizing:border-box;width:100%;min-width:0;
 }
 #main_content.workspace-active[data-parity="r3"] #inventory_content_div > .equipped_item_control > .item_additional_content {
- position:static;display:flex;flex-direction:column;align-items:flex-end;width:auto;padding:0;gap:.1em;
+ position:static;display:flex;flex-direction:column;align-items:flex-end;width:auto;padding:0;gap:round(.1em, 1px);
 }
 #main_content.workspace-active[data-parity="r3"] #inventory_content_div > .equipped_item_control :is(.unequip_item_button,.item_value) {
  position:static!important;inset:auto;width:auto;
 }
-#main_content.workspace-active[data-parity="r3"] .shell-description-line {padding-block:.08em;}
+#main_content.workspace-active[data-parity="r3"] .shell-description-line {padding-block:round(.08em, 1px);}
 /* Selected work gets a clear identity and static progress, using its native clock. */
 #main_content.workspace-active .work-status-view {
- border:1px solid var(--theme-border,var(--ui-hairline));padding:.5em;
- background:var(--theme-surface,var(--ui-navy));margin:.4em 0;
+ border:1px solid var(--theme-border,var(--ui-hairline));padding:round(.5em, 1px);
+ background:var(--theme-surface,var(--ui-navy));margin:round(.4em, 1px) 0;
 }
 #main_content.workspace-active .work-status-view > p:first-child {
- margin:0 0 .4em;color:var(--theme-accent,var(--ui-teal));font-size:1.1em;
+ margin:0 0 round(.4em, 1px);color:var(--theme-accent,var(--ui-teal));font-size:1.1em;
 }
 #main_content.workspace-active .work-status-view .meter-bar-track {height:.55em;}
 
@@ -55,7 +55,7 @@
  background:var(--p23-dark-value)!important;
 }
 #main_content.workspace-active[data-parity="r3"] #inventory_content_div > [data-inventory-kind] {
- padding-block:.25em;border-bottom:1px solid var(--p23-quiet-line);
+ padding-block:round(.25em, 1px);border-bottom:1px solid var(--p23-quiet-line);
 }
 #main_content.workspace-active[data-parity="r3"] #inventory_div:not([data-custom-palette="true"]) #inventory_content_div > [data-inventory-kind]:nth-child(even):not([data-ui-selected]) {
  background:color-mix(in srgb,var(--p23-dark-value) 85%,var(--p23-context))!important;
@@ -66,17 +66,17 @@
 /* The sheet adapts to its own width and chosen text size, not viewport guesses.
    Keep label/value pairs together and give a single worn item the whole line. */
 #main_content.workspace-active[data-parity="r3"] #proto23_character > .shell-core-stats {
- grid-template-columns:repeat(auto-fit,minmax(min(100%,6.25em),1fr));gap:0 .55em;
- padding:.15em .4em;box-sizing:border-box;
+ grid-template-columns:repeat(auto-fit,minmax(min(100%,6.25em),1fr));gap:0 round(.55em, 1px);
+ padding:round(.15em, 1px) round(.4em, 1px);box-sizing:border-box;
 }
 #main_content.workspace-active[data-parity="r3"] #proto23_character .shell-core-stats > .shell-stat-record {
- grid-column:auto;padding:.18em 0;flex-wrap:nowrap;background:transparent!important;
+ grid-column:auto;padding:round(.18em, 1px) 0;flex-wrap:nowrap;background:transparent!important;
 }
 #main_content.workspace-active[data-parity="r3"] #proto23_character .shell-core-stats > .shell-stat-record > span {white-space:nowrap;}
 #main_content.workspace-active[data-parity="r3"] #proto23_character:not([data-custom-palette="true"]) {background:var(--p23-dark-value)!important;}
 #main_content.workspace-active[data-parity="r3"] #proto23_character > .shell-worn-summary {grid-template-columns:minmax(0,1fr);}
 #main_content.workspace-active[data-parity="r3"] #proto23_character .shell-worn-summary .shell-worn-item {
- padding:.2em .4em;background:transparent;gap:.65em;
+ padding:round(.2em, 1px) round(.4em, 1px);background:transparent;gap:round(.65em, 1px);
 }
 /* Secondary labels use the matching integer-size bitmap, including context
    views outside a customization module. No artificial letter/word tracking. */

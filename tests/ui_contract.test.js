@@ -3,17 +3,26 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {uiViolations,scanUiText} from './helpers/ui_contract.mjs';
-test('UI changes introduce no unreviewed colors, fonts, radii, cssText or foreign-host insertion',()=>{
+test('UI changes introduce no unreviewed colors, fonts, radii, spacing (UR65), control heights (UR66), layers (UR67), type roles (UR68), cssText or foreign-host insertion',()=>{
     const root=fileURLToPath(new URL('../',import.meta.url));
     const ledger=JSON.parse(readFileSync(new URL('./ui_contract_allowlist.json',import.meta.url),'utf8'));
     const allowed=new Map(ledger.entries.map(v=>[v.key,v.count]));
     const newHits=uiViolations(root).filter(v=>v.count>(allowed.get(v.key)||0));
-    assert.deepEqual(newHits,[], 'Use UI tokens and a declared panel home. Shrink existing exceptions instead of granting a file-wide exemption.');
+    assert.deepEqual(newHits,[], 'Use UI tokens in styles/ui_tokens.css (UR65 --ui-space-*, UR66 --ui-control-*, UR67 --ui-layer-*, UR68 --ui-line-*/--ui-weight-*/--ui-type-*) and a declared panel home. Shrink existing exceptions in tests/ui_contract_allowlist.json instead of granting a file-wide exemption; a kept exception may carry a reason field.');
 });
 test('UI contract catches new literal styling and aliased/direct foreign panel insertion',()=>{
     for(const text of ['x.style.cssText="padding:4px";', '.x {border-radius:4px;font-family:Arial;color:#abcdef;background:rgb(0,0,0)}', "const host=document.getElementById('message_box_div');\nhost.prepend(panel);", "document.getElementById('another-panel').append(panel);"])
         assert(scanUiText(text).length>0,text);
     assert.deepEqual(scanUiText('.x { color:var(--ui-text); }'),[]);
+    // UR65: literal spacing is caught; tokens, zero, auto and percentages are not.
+    for(const text of ['.x {padding:4px 6px}', '.x {margin-top:.4em}', '.x {gap:calc(var(--ui-space-2) + 3px)}', "el.style.paddingTop='4px';", "Object.assign(el.style,{margin:'.5em 0'});"])
+        assert.deepEqual(scanUiText(text).map(v=>v.rule),['spacing'],text);
+    assert.deepEqual(scanUiText('.x {padding:0 var(--ui-space-3);margin:0 auto;gap:2%;padding-left:var(--ui-space-panel, 8px)}'),[]);
+    assert.deepEqual(scanUiText("el.style.padding='var(--ui-space-2)';el.style.margin='0';"),[]);
+    // UR66-UR68: control heights, layers and type roles.
+    for(const [text,rule] of [['button.x {min-height:23px}','control-height'],['.x {z-index:30}','layer'],["el.style.zIndex='5';",'layer'],['.x {line-height:1.35}','type'],['.x {font-weight:600}','type'],['.x {font-size:.85em}','type']])
+        assert.deepEqual(scanUiText(text).map(v=>v.rule),[rule],text);
+    assert.deepEqual(scanUiText('button.x {min-height:var(--ui-control-sm);height:auto} .y {z-index:var(--ui-layer-popover);line-height:var(--ui-line-body);font-weight:var(--ui-weight-strong);font-size:inherit} .panel {min-height:420px}'),[]);
 });
 // UIL1 (UIM1, UIM2): every panel declares a surface type and every navigation route resolves
 // through the layout spec's route table.

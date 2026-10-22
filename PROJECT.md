@@ -1014,6 +1014,16 @@ build/browser/save acceptance is claimed.
 
 ## Accepted decisions
 
+- **UI small-detail tokens and region lending (2026-10-22, Weibao):** "creating base rules for every
+  little thing to make development easier? ... Yes do spacing", then "all of them" for the audit's
+  L1–L5 and "consider any design choices we should learn from the Discord stuff". Small details go
+  into tokens and the UI contract test, not more prose: UR65 spacing, UR66 control heights, UR67
+  layers, UR68 type roles; UR69 lets idle regions borrow free space at stable moments. UR41–UR64
+  are compacted (long form archived) and a [one-screen card](docs/ui/UI_RULES_CARD.md) summarizes
+  the rules. Owner: [small-detail tokens](docs/UI_RULES.md#small-detail-tokens-2026-10-22);
+  evidence and remaining proposals in the [UI design core audit](docs/audits/UI_DESIGN_CORE_AUDIT.md).
+  Visual-feel acceptance stays open.
+  [Record](docs/USER_VISION.md#ui-small-detail-tokens-and-design-audit-2026-10-22).
 - **Electron plus web (2026-10-20, Weibao):** "We should transition to electron + web like the
   others". One web codebase runs in the browser and in an Electron desktop host. Supersedes DS1
   and the Tauri lean. Implementation defaults (host-free `src/`, browser as test target, one

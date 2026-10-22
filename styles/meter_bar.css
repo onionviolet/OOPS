@@ -1,15 +1,15 @@
 /* World meters (src/meter_bar.js). Color is paired with the label text and a state outline, never alone. */
-.meter-bar { position: relative; min-height: 20px; margin: 2px 0; }
+.meter-bar { position: relative; min-height: 20px; margin: var(--ui-space-1) 0; }
 .meter-bar-track { display:block; height: 4px; margin-top: 3px; background: var(--ui-meter-track-bg); overflow:hidden; }
 .meter-bar-fill { display:block; height: 100%; background: var(--meter-fill, var(--ui-meter-pool)); transition: width .2s; }
 .meter-bar[data-kind="accumulator"] { --meter-fill: var(--ui-meter-accumulator); }
 .meter-bar[data-kind="track"] { --meter-fill: var(--ui-meter-track); }
 .meter-bar-label, .meter-bar-value { color: var(--ui-text); font-size: var(--ui-type-body, inherit); }
-.meter-bar-value { margin-left: .5em; font-variant-numeric: tabular-nums; }
+.meter-bar-value { margin-left: round(.5em, 1px); font-variant-numeric: tabular-nums; }
 .meter-bar-annotations { display:block; font-size:var(--ui-type-small, .85em); color:var(--ui-text); }
-.meter-bar[data-state="high"], .meter-bar[data-state="low"], .meter-bar[data-state="empty"], .meter-bar[data-state="full"] { border-left: 2px dashed var(--ui-meter-warn); padding-left: .35em; }
-.meter-bar[data-state="complete"] { border-left: 2px solid var(--ui-meter-track); padding-left: .35em; }
-.meter-bar-details { margin-top: 2px; font-size: var(--ui-type-small, .85em); }
+.meter-bar[data-state="high"], .meter-bar[data-state="low"], .meter-bar[data-state="empty"], .meter-bar[data-state="full"] { border-left: 2px dashed var(--ui-meter-warn); padding-left: round(.35em, 1px); }
+.meter-bar[data-state="complete"] { border-left: 2px solid var(--ui-meter-track); padding-left: round(.35em, 1px); }
+.meter-bar-details { margin-top: var(--ui-space-1); font-size: var(--ui-type-small, .85em); }
 .meter-bar-details summary { width: fit-content; cursor: pointer; }
 .meter-bar-note { display:block; max-width: 34em; white-space: normal; overflow-wrap:anywhere; }
 @media (prefers-reduced-motion: reduce) { .meter-bar-fill { transition: none; } }
@@ -22,8 +22,8 @@
 .meter-bar[data-discrete='true'] .meter-bar-track { height:10px; }
 .meter-bar[data-stale='true'] .meter-bar-track { border:1px dashed currentColor; opacity:.65; }
 .meter-bar[data-stale='true'] .meter-bar-fill { background:repeating-linear-gradient(135deg,transparent 0 3px,currentColor 3px 4px); transition:none; }
-.work-stage-track { display:flex; gap:.25em; flex-wrap:wrap; margin-block:.3em; }
-.work-stage-track span { min-width:5em; padding:.2em; border:1px dashed currentColor; font-size:var(--ui-type-small,.85em); }
+.work-stage-track { display:flex; gap:round(.25em, 1px); flex-wrap:wrap; margin-block:round(.3em, 1px); }
+.work-stage-track span { min-width:5em; padding:round(.2em, 1px); border:1px dashed currentColor; font-size:var(--ui-type-small,.85em); }
 .work-stage-track [data-state='complete'] { border-style:solid; }
 .work-stage-track [data-state='current'] { border-width:2px; }
 @media (forced-colors:active) { .meter-bar-delta { color:CanvasText; } }

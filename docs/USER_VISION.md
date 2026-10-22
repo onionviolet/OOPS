@@ -5841,4 +5841,21 @@ Weibao: “Implement cross-site freight, exposed drying, and residence-aware wor
 
 This selects the fitting local MF23–MF25 follow-ons. The [MF owner](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#minecraft-fit-round-mf-2026-10-21) and existing [checkpoint](gm/dispatch/minecraft-fit-2026-10-21/CHECKPOINT.md) record MF26 onward: actual Shack–Village freight, exposed weather processing, shared home-owned room/rota support and useful custody/recovery details. Existing native road, weather/calendar, residence, simulation and persistence owners remain authoritative.
 
+## UI small-detail tokens and design audit, 2026-10-22
 
+Weibao: “ui optimization rules? creating base rules for every little thing to make development easier?” Follow-up: “Audit and improve rules in general? More ot consider? Yes do spacing but consider more as well, and ohter general design gaps that makes things harder or elss intuitive? or not making use of space, or not looking the best they can look?”
+
+This authorizes the spacing scale and its contract check
+([UR65](UI_RULES.md#small-detail-tokens-2026-10-22)) and a UI rules and design
+audit. Small details go into tokens and checks rather than more prose rules.
+The [UI design core audit](audits/UI_DESIGN_CORE_AUDIT.md) records measured
+gaps and ranks further token families, content-aware region splits and rule
+compaction as proposals. No migration of existing literals, layout change,
+commit or push is selected by this request.
+
+Follow-ups, same day: “all of them” (audit items L1–L5) and “consider any design
+choices we should learn from the Discord stuff as well”. This authorizes the
+control-height, layer and type-role tokens with checks (UR66–UR68), migration of
+exact-match literals, content-aware region lending (UR69), the rules card and the
+UR41–UR64 compaction with the long form archived, plus a Discord-lesson pass
+recorded in the audit. Visual-feel acceptance, commit and push remain open.

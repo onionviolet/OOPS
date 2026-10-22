@@ -166,7 +166,7 @@ input[type=checkbox], input[type=radio] {
 	visibility: visible;
 	width: 100%;
 	height: 100%;
-	z-index: 100;
+	z-index: var(--ui-layer-screen);
 	position: fixed;
 	top: 0px;
 	left: 0px;
@@ -205,7 +205,7 @@ input[type=checkbox], input[type=radio] {
 		font-weight: normal;
 		text-align: left;
 		opacity: 0.85;
-		margin-top: 0.6em;
+		margin-top: round(0.6em, 1px);
 	}
 
 	#loading_screen_inspirations a {
@@ -352,7 +352,7 @@ input[type=checkbox], input[type=radio] {
         top: 20px;
         left: 32px;
         position: absolute;
-        z-index: 1;
+        z-index: var(--ui-layer-raised);
         text-wrap: wrap;
     }
     
@@ -360,7 +360,7 @@ input[type=checkbox], input[type=radio] {
         top: 20px;
         left: 32px;
         position: absolute;
-        z-index: 1;
+        z-index: var(--ui-layer-raised);
         text-wrap: wrap;
     }
         .gender_selection_button:hover .gender_choice_tooltip {
@@ -384,7 +384,7 @@ input[type=checkbox], input[type=radio] {
         text-align: center;
         border: 1px solid gray;
         margin: 5px;
-        padding: 1px;
+        padding: var(--ui-space-hairline);
     }
 
     #hero_creation_panel_race_selection {
@@ -483,7 +483,7 @@ input[type=checkbox], input[type=radio] {
 	left: 0px;
 	width: 100%;
 	height: 100%;
-	z-index: -1;
+	z-index: var(--ui-layer-backdrop);
     background-color: var(--background_color);
     opacity: var(--background_opacity);
 }
@@ -495,7 +495,7 @@ input[type=checkbox], input[type=radio] {
 	left: 0px;
 	width: 100%;
 	height: 100%;
-	z-index: 1;
+	z-index: var(--ui-layer-raised);
 }
 
 .box_div {
@@ -566,7 +566,7 @@ input[type=checkbox], input[type=radio] {
 	height: auto;
 	display: inline-block;
 	word-wrap: break-word;
-	padding: 2px;
+	padding: var(--ui-space-1);
 	padding-right:20px;
 	font-size: var(--ui-type-small);
 }
@@ -670,7 +670,7 @@ input[type=checkbox], input[type=radio] {
 	padding: 5px;
  }
  .action_travel {
-	padding-top: 8px;
+	padding-top: var(--ui-space-4);
  }
  .end_dialogue_button {
 	border-bottom: 1px solid white;
@@ -679,7 +679,7 @@ input[type=checkbox], input[type=radio] {
  .location_choice {
 	font-size: var(--ui-type-title);
 	padding-left: 5px;
-	margin-top: 2px;
+	margin-top: var(--ui-space-1);
  }
  .location_choice_icon_box {
 	float: left;
@@ -695,7 +695,7 @@ input[type=checkbox], input[type=radio] {
 	border: 2px solid white;
 	cursor: pointer;
 	padding: 5px;
-	margin-bottom: 1px;
+	margin-bottom: var(--ui-space-hairline);
  }
 
  .location_choice_dropdown :nth-child(2):not(span){
@@ -847,7 +847,7 @@ input[type=checkbox], input[type=radio] {
 		text-align: center;
 		background-color: var(--ui-swatch-006);
 		font-size: var(--ui-type-body);
-		padding: 2px;
+		padding: var(--ui-space-1);
 		font-weight: bold;
 	}
 	.backstep_dialogue_button {
@@ -869,8 +869,8 @@ input[type=checkbox], input[type=radio] {
 	border-bottom: 1px dotted white;
 	font-size: var(--ui-type-small);
 	background-color: var(--ui-swatch-034);
-	padding-bottom: 1px;
-	padding-top: 1px;
+	padding-bottom: var(--ui-space-hairline);
+	padding-top: var(--ui-space-hairline);
 }
 
 .equipped_item_control:hover {
@@ -916,7 +916,7 @@ input[type=checkbox], input[type=radio] {
 	border-radius: var(--ui-radius);
 	padding: 5px;
 	position: fixed;
-	z-index: 1000;
+	z-index: var(--ui-layer-popover);
 	pointer-events: none;
 	font-size: var(--ui-type-body);
 	border: 1px solid white;
@@ -951,7 +951,7 @@ input[type=checkbox], input[type=radio] {
 	border-radius: var(--ui-radius);
 	padding: 5px;
 	position: fixed;
-	z-index: 1000;
+	z-index: var(--ui-layer-popover);
 	width: 200px;
 	pointer-events: none;
 }
@@ -1055,7 +1055,7 @@ input[type=checkbox], input[type=radio] {
 	border-radius: var(--ui-radius);
 	padding: 5px;
 	position: fixed;
-	z-index: 1000;
+	z-index: var(--ui-layer-popover);
 	max-width: 300px;
 	width: max-content;
 	min-width: 100px;
@@ -1126,7 +1126,7 @@ input[type=checkbox], input[type=radio] {
 	text-align: center;
 	outline: 1px solid white;
 	cursor: pointer;
-	margin: 1px;
+	margin: var(--ui-space-hairline);
 	font-size: var(--ui-type-title);
 }
 
@@ -1221,7 +1221,7 @@ input[type=checkbox], input[type=radio] {
 	font-size: var(--ui-type-small);
 	width: 54px;
 	border-left: 1px solid white;
-	padding-left: 4px;
+	padding-left: var(--ui-space-2);
 	float: right;
 }
 
@@ -1233,7 +1233,7 @@ input[type=checkbox], input[type=radio] {
 	min-width: 60.7px; /* ouch */
 	text-align: center;
 	outline: 1px solid white;
-	margin: 1px;
+	margin: var(--ui-space-hairline);
 	cursor: pointer;
 }
 
@@ -1288,11 +1288,11 @@ input[type=checkbox], input[type=radio] {
 
 .character_control_button {
 	float:left;
-	padding: 6px;
+	padding: var(--ui-space-3);
 	min-width: 86px;
 	font-size: var(--ui-type-body);
 	text-align: center;
-	margin: 1px;
+	margin: var(--ui-space-hairline);
 	outline: 1px solid white;
 	cursor: pointer;
 }
@@ -1301,7 +1301,7 @@ input[type=checkbox], input[type=radio] {
 	border: 2px solid gray;
 	border-radius: var(--ui-radius);
 	padding: 3px;
-	margin-top: 1px;
+	margin-top: var(--ui-space-hairline);
 	height: fit-content;
 	width: 210px;
 }
@@ -1333,14 +1333,14 @@ input[type=checkbox], input[type=radio] {
 	width: 100%;
 	height: 28px;
 	margin-bottom: -1px;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	padding-top: var(--ui-space-hairline);
+	padding-bottom: var(--ui-space-hairline);
 	border: 1px solid white;
 	padding-top: auto;
 }
 .equipment_slot_div_long {
 	height: 15px;
-	padding-bottom: 2px;
+	padding-bottom: var(--ui-space-1);
 }
 
 .equipment_slot_empty {
@@ -1362,8 +1362,8 @@ input[type=checkbox], input[type=radio] {
 .stat_slot_div, .loot_slot_div {
 	width: 100%;
 	height: 20px;
-	padding-top: 2px;
-	margin-left: 1px;
+	padding-top: var(--ui-space-1);
+	margin-left: var(--ui-space-hairline);
 	outline: 1px solid white;
 }
 
@@ -1385,17 +1385,17 @@ input[type=checkbox], input[type=radio] {
 	.stat_name {
 		display: inline-block;
 		width: 100px;
-		padding-left: 4px;
+		padding-left: var(--ui-space-2);
 	}
     .stat_name_short {
         display: inline-block;
 		width: 60px;
-		padding-left: 4px;
+		padding-left: var(--ui-space-2);
     }
 	.loot_name {
 		display: inline-block;
 		width: 200px;
-		padding-left: 4px;
+		padding-left: var(--ui-space-2);
 	}
 
 	.loot_name, .loot_chance_current {
@@ -1404,12 +1404,12 @@ input[type=checkbox], input[type=radio] {
 
 	.loot_chance_base {
 		text-align: right;
-		padding-left:2px;
-		padding-right:2px;
+		padding-left:var(--ui-space-1);
+		padding-right:var(--ui-space-1);
 	}
 	.loot_chance_current{
-		padding-left:2px;
-		padding-right:2px;
+		padding-left:var(--ui-space-1);
+		padding-right:var(--ui-space-1);
 	}
 	
 
@@ -1463,12 +1463,12 @@ input[type=checkbox], input[type=radio] {
 
 .crafting_filter {
     display: block;
-    margin: 8px 4px;
+    margin: var(--ui-space-4) var(--ui-space-2);
     cursor: pointer;
 }
 
 #crafting_filter_empty {
-    margin: 8px 4px;
+    margin: var(--ui-space-4) var(--ui-space-2);
     color: silver;
 }
 
@@ -1520,7 +1520,7 @@ input[type=checkbox], input[type=radio] {
 	width: 376px;
 	border-bottom: 2px dashed white;
 	font-size: var(--ui-type-title);
-	padding: 2px;
+	padding: var(--ui-space-1);
 }
 
 .recipe_unavailable {
@@ -1663,7 +1663,7 @@ input[type=checkbox], input[type=radio] {
 .craft_ammount_buttons {
 	display: inline-block;
 	width: 76px;
-	padding-bottom: 2px;
+	padding-bottom: var(--ui-space-1);
 	font-size: var(--ui-type-title);
 }
 
@@ -1671,7 +1671,7 @@ input[type=checkbox], input[type=radio] {
 	display: inline-block;
 	width: fit-content;
 	text-align: center;
-	padding: 3px 6px 3px 6px;
+	padding: 3px var(--ui-space-3) 3px var(--ui-space-3);
 	outline: 1px solid white;
 	outline-offset: -1px;
 	margin: -0.5px;
@@ -1743,7 +1743,7 @@ i {
 	width: 98px;
 	text-align: center;
 	outline: 1px solid white;
-	margin: 2px 1px;
+	margin: var(--ui-space-1) var(--ui-space-hairline);
 	cursor: pointer;
 }
 
@@ -1762,7 +1762,7 @@ i {
 	text-align: center;
 	outline: 1px solid white;
 	cursor: pointer;
-	margin: 1px;
+	margin: var(--ui-space-hairline);
 	font-size: var(--ui-type-title);
 }
 
@@ -1862,7 +1862,7 @@ i {
 	text-align: center;
 	outline: 1px solid white;
 	cursor: pointer;
-	margin: 1px;
+	margin: var(--ui-space-hairline);
 	font-size: var(--ui-type-title);
 }
 
@@ -1883,7 +1883,7 @@ i {
 	flex-grow: 1;
 	text-align: center;
 	outline: 1px solid white;
-	margin: -1px 1px;
+	margin: -1px var(--ui-space-hairline);
 	cursor: pointer;
 	font-size: var(--ui-type-title);
 }
@@ -1955,7 +1955,7 @@ i {
 #basic_character_info_div {
     width: 400px;
     height: 130px;
-    z-index: 1;
+    z-index: var(--ui-layer-raised);
 }
 
 #bottom_panel_div {
@@ -1963,7 +1963,7 @@ i {
 	position: fixed;
 	width: 100vw;
 	height: 40px;
-	z-index: 200;
+	z-index: var(--ui-layer-floating);
 	background-image: linear-gradient(to right, var(--ui-swatch-005), var(--ui-swatch-006));
 	border-top: 2px solid gray;
 	bottom: 0px;
@@ -2026,8 +2026,8 @@ i {
 #character_level_div {
 	text-align: center;
 	border: 1px solid white;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	padding-top: var(--ui-space-hairline);
+	padding-bottom: var(--ui-space-hairline);
 	width: 350px;
 	font-weight: bold;
 }
@@ -2106,16 +2106,16 @@ i {
 .character_bio_entry { 
 	margin: 10px;
     border: 2px solid gray;
-    padding: 4px;
+    padding: var(--ui-space-2);
 }
-#character_bio_profile { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; padding: .3rem; }
+#character_bio_profile { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: round(.3rem, 1px); padding: round(.3rem, 1px); }
 #character_bio_profile .character_bio_entry { margin: 0; border-width: 1px; font-size: var(--ui-type-small); }
 .bio_history { margin: 10px; font-size: var(--ui-type-body); line-height: 1.4; }
 .bio_history > p { color: var(--ui-swatch-064); }
-.bio_history details { border-top: 1px solid var(--ui-swatch-065); padding: .45rem 0; }
+.bio_history details { border-top: 1px solid var(--ui-swatch-065); padding: round(.45rem, 1px) 0; }
 .bio_history summary { cursor: pointer; font-weight: bold; }
-.bio_history ul { padding-left: 1.25rem; }
-.bio_history li { margin: .4rem 0; }
+.bio_history ul { padding-left: round(1.25rem, 1px); }
+.bio_history li { margin: round(.4rem, 1px) 0; }
 .bio_history button { color: var(--ui-swatch-066); background: transparent; border: 0; padding: 0; font: inherit; text-decoration: underline; cursor: pointer; }
 .bio_history button:focus-visible { outline: 2px solid var(--ui-swatch-067); }
 .bio_cause { display: block; color: var(--ui-swatch-068); font-size: var(--ui-type-body); }
@@ -2177,9 +2177,9 @@ i {
 }
 	#effects_div {
 		font-size: var(--ui-type-title);
-		padding-top: 2px;
-		padding-bottom: 2px;
-		padding-left: 4px;
+		padding-top: var(--ui-space-1);
+		padding-bottom: var(--ui-space-1);
+		padding-left: var(--ui-space-2);
 
 		background-color: var(--ui-swatch-005);
 	}	
@@ -2192,7 +2192,7 @@ i {
 	position: absolute;
 	display: none;
 	left: 220px;
-	z-index: 1000;
+	z-index: var(--ui-layer-popover);
 	background-color: var(--tooltip_background_color);
 	color: white;
 	border-radius: var(--ui-radius);
@@ -2201,7 +2201,7 @@ i {
 	border: 1px solid white;
 	flex-wrap: wrap;
 	flex-direction: column;
-	gap: 4px;
+	gap: var(--ui-space-2);
 	align-content: flex-start;
 }
 
@@ -2255,7 +2255,7 @@ i {
     height: 600px;
     width: 1000px;
     position: absolute;
-    z-index: 100;
+    z-index: var(--ui-layer-screen);
     background-image: var(--background_gradient);
     border: 5px solid white;
     outline: 5px solid gray;
@@ -2317,7 +2317,7 @@ i {
 				}
 				.enemy_name {
 					text-align: right;
-					margin-top: 1px;
+					margin-top: var(--ui-space-hairline);
 					width: 100%px;
 				}
 				.enemy_stats {
@@ -2381,8 +2381,8 @@ i {
 	}
 		#character_stance_div {
 			padding: 3px;
-			margin-top: 2px;
-			margin-bottom: 2px;
+			margin-top: var(--ui-space-1);
+			margin-bottom: var(--ui-space-1);
 			width: 244px;
 			border: 1px solid gray;
 			text-align: center;
@@ -2412,7 +2412,7 @@ i {
 
 #enemy_count_div, #clear_count_div { 
 	width: auto;
-	padding-top: 2px;
+	padding-top: var(--ui-space-1);
 	bottom: 0px;
 	position: absolute;
 	font-size: var(--ui-type-title);
@@ -2483,7 +2483,7 @@ i {
 	}
 		.quest_div {
 			border: 1px solid white;
-			margin-left: 1px;
+			margin-left: var(--ui-space-hairline);
 			margin-bottom: 3px;
 		}
 		.quest_div :not(.quest_name_div) {
@@ -2501,14 +2501,14 @@ i {
 			}
 		.quest_name_div {
 			font-weight: bold;
-			padding-left: 2px;
+			padding-left: var(--ui-space-1);
 		}
 		.quest_name_div:hover {
 			background-color: var(--active_button_color);
 		}
 		.quest_description_div {
 			font-size: var(--ui-type-body);
-			padding-left: 2px;
+			padding-left: var(--ui-space-1);
 			border-bottom: 1px solid gray;
 			padding-bottom: 5px;
 		}
@@ -2522,10 +2522,10 @@ i {
 			color: silver;
 		}
 		.task_condition_div {
-			padding-left: 16px;
+			padding-left: var(--ui-space-6);
 		}
 		.task_type_div, .task_target_div {
-			padding-left: 12px;
+			padding-left: var(--ui-space-5);
 		}
 
 	#journal_control_div {
@@ -2535,7 +2535,7 @@ i {
 			text-align: center;
 			outline: 1px solid white;
 			cursor: pointer;
-			margin: 1px;
+			margin: var(--ui-space-hairline);
 			font-size: var(--ui-type-title);
 			flex-grow: 1;
 			padding-left: 20px;
@@ -2550,7 +2550,7 @@ i {
         button.journal_control_button:focus-visible { outline: 2px solid var(--ui-swatch-067); outline-offset: -2px; }
         #journal_show_notebook[hidden] { display: none; }
         #notebook_box_div { width: 100%; height: 263px; overflow-y: auto; }
-        #notebook_empty { margin: .7rem; color: var(--ui-swatch-068); font-size: var(--ui-type-body); }
+        #notebook_empty { margin: round(.7rem, 1px); color: var(--ui-swatch-068); font-size: var(--ui-type-body); }
 			#story_box_div {
 				width:100%;
 				height: 255px;
@@ -2578,7 +2578,7 @@ i {
 					width: 100%;
 					display: flex;
 					box-shadow: var(--ui-shadow);
-					margin-bottom: 1px;
+					margin-bottom: var(--ui-space-hairline);
 				}
 				.bestiary_entry_div:hover, .anthology_entry_div:hover {
 					background-color: var(--active_button_color);
@@ -2601,7 +2601,7 @@ i {
 						border-radius: var(--ui-radius);
 						padding: 5px;
 						position: fixed;
-						z-index: 1000;
+						z-index: var(--ui-layer-popover);
 						width: 360px;
 						top: var(--bestiary_entry_tooltip_top);
 						left: var(--bestiary_entry_tooltip_left);
@@ -2670,7 +2670,7 @@ i {
 
 .stance_tooltip {
 	display: none;
-	z-index: 1000;
+	z-index: var(--ui-layer-popover);
 	width: 300px;
 	font-size: var(--ui-type-title);
 	position: fixed;
@@ -2738,7 +2738,7 @@ i {
 		display: inline-block;
 	}
 	#location_name_div {
-		padding: 4px;
+		padding: var(--ui-space-2);
 		width: var(--location_name_div_width);
 		height: fit-content;
 		float: left;
@@ -2765,7 +2765,7 @@ i {
 		left: 292px;
 		width: 100px;
 		height: 23px;
-		padding: 2px;
+		padding: var(--ui-space-1);
 		position: absolute;
 		text-align: right;
 		font-size: var(--ui-type-small);
@@ -2782,7 +2782,7 @@ i {
 				border-radius: var(--ui-radius);
 				padding: 5px;
 				position: fixed;
-				z-index: 1000;
+				z-index: var(--ui-layer-popover);
 				width: 200px;
 				top: var(--location_type_tooltip_top);
 				left: var(--location_type_tooltip_left);
@@ -2802,13 +2802,13 @@ i {
 }
 	#time_and_weather_div {
 		border-bottom: 1px solid white;
-		padding: 3px 0px 2px 0px;
+		padding: 3px 0px var(--ui-space-1) 0px;
 	}
 		#time_div {
 			text-align: left;
 			width: 305px;
 			display: inline-block;
-			padding: 2px;
+			padding: var(--ui-space-1);
 		}
 			.icon {
 				position: relative;
@@ -2817,7 +2817,7 @@ i {
 		#weather_div {
 			width: 80px;
 			display: inline-block;
-			padding: 2px;
+			padding: var(--ui-space-1);
 			text-align: right;
 		}
 		#weather_div .icon {
@@ -2829,7 +2829,7 @@ i {
 		#temperature_tooltip {
 			display: none;
 			position: fixed;
-			z-index: 1000;
+			z-index: var(--ui-layer-popover);
 			font-style: italic;
 			background-color: var(--tooltip_background_color);
 			border-radius: var(--ui-radius);
@@ -2858,7 +2858,7 @@ i {
 	margin-left: 30px;
 	padding: 5px;
 	position: absolute;
-	z-index: 1000;
+	z-index: var(--ui-layer-popover);
 	max-width: 500px;
 	font-size: var(--ui-type-title);
 	width: fit-content;
@@ -2908,12 +2908,12 @@ i {
 		.message_control_button {
 			float: left;
 			padding: 3px;
-			padding-left: 4px;
-			padding-right: 4px;
+			padding-left: var(--ui-space-2);
+			padding-right: var(--ui-space-2);
 			min-width: 40px;
 			text-align: center;
 			outline: 1px solid white;
-			margin: 1px;
+			margin: var(--ui-space-hairline);
 			cursor: pointer;
 		}
 		.message_control_button:hover:not(.active_selection_button) {
@@ -2936,24 +2936,24 @@ i {
 		display: var(--message_events_display);
 		position: sticky;
 		top: 0;
-		z-index: 1;
+		z-index: var(--ui-layer-raised);
 		box-sizing: border-box;
 		width: 100%;
 		max-height: 260px;
 		overflow-y: auto;
-		padding: 8px;
+		padding: var(--ui-space-4);
 		background-image: var(--background_gradient);
 		border-bottom: 1px solid var(--ui-swatch-075);
 		font-size: var(--ui-type-body);
 	}
 	#world_event_feed[hidden] { display: none; }
 	#world_event_feed summary { cursor: pointer; }
-	#world_event_feed section { padding: 8px 0; border-bottom: 1px solid var(--ui-swatch-076); }
-	#world_event_feed p { margin: 4px 0; }
+	#world_event_feed section { padding: var(--ui-space-4) 0; border-bottom: 1px solid var(--ui-swatch-076); }
+	#world_event_feed p { margin: var(--ui-space-2) 0; }
 	#world_event_feed button { font: inherit; cursor: pointer; }
 	#world_event_feed button:disabled { cursor: default; }
-	#world_event_feed ol { margin: 6px 0; padding-left: 20px; }
-	#world_event_feed li { margin-bottom: 6px; }
+	#world_event_feed ol { margin: var(--ui-space-3) 0; padding-left: 20px; }
+	#world_event_feed li { margin-bottom: var(--ui-space-3); }
 	.message_background {
 		display: var(--message_background_display);
 	}
@@ -2964,7 +2964,7 @@ i {
 #money_div {
 	color: white;
 	border-bottom: 1px solid white;
-	padding: 2px 5px 2px 5px;
+	padding: var(--ui-space-1) 5px var(--ui-space-1) 5px;
 }
 
 
@@ -2989,18 +2989,18 @@ i {
 #trade_price_div {
 	color: white;
 	outline: 1px solid white;
-	padding: 2px 1px 2px 1px;
+	padding: var(--ui-space-1) var(--ui-space-hairline) var(--ui-space-1) var(--ui-space-hairline);
 	width: 261px;
 	float: left;
-	margin: 1px;
+	margin: var(--ui-space-hairline);
 }
 
 #trader_cost_mult {
 	width: 131px;
 	color: white;
 	outline: 1px solid white;
-	padding: 2px 1px 2px 1px;
-	margin: 1px;
+	padding: var(--ui-space-1) var(--ui-space-hairline) var(--ui-space-1) var(--ui-space-hairline);
+	margin: var(--ui-space-hairline);
 	float:left;
 	color: orange;
 	font-weight: bold;
@@ -3067,69 +3067,69 @@ i {
 	color: red;
 }
 
-.expedition_panel { margin: 0.7rem; padding: 0.7rem; border: 1px solid var(--ui-swatch-079); border-radius: var(--ui-radius); text-align: left; }
-.adventure_notebook { margin: .5rem 0; text-align: left; border-top: 1px solid var(--ui-swatch-065); }
-.notebook_heading { padding: .55rem .65rem .3rem; font-size: var(--ui-type-body); font-weight: bold; color: var(--ui-swatch-064); }
-.notebook_tabs { display: flex; gap: .2rem; padding: .25rem .55rem .5rem; border-bottom: 1px solid var(--ui-swatch-080); }
-.notebook_tabs button { flex: 1; min-width: 0; padding: .4rem .2rem; border: 1px solid transparent; border-radius: var(--ui-radius); background: transparent; color: var(--ui-swatch-068); font: inherit; font-size: var(--ui-type-body); cursor: pointer; }
+.expedition_panel { margin: round(0.7rem, 1px); padding: round(0.7rem, 1px); border: 1px solid var(--ui-swatch-079); border-radius: var(--ui-radius); text-align: left; }
+.adventure_notebook { margin: round(.5rem, 1px) 0; text-align: left; border-top: 1px solid var(--ui-swatch-065); }
+.notebook_heading { padding: round(.55rem, 1px) round(.65rem, 1px) round(.3rem, 1px); font-size: var(--ui-type-body); font-weight: bold; color: var(--ui-swatch-064); }
+.notebook_tabs { display: flex; gap: round(.2rem, 1px); padding: round(.25rem, 1px) round(.55rem, 1px) round(.5rem, 1px); border-bottom: 1px solid var(--ui-swatch-080); }
+.notebook_tabs button { flex: 1; min-width: 0; padding: round(.4rem, 1px) round(.2rem, 1px); border: 1px solid transparent; border-radius: var(--ui-radius); background: transparent; color: var(--ui-swatch-068); font: inherit; font-size: var(--ui-type-body); cursor: pointer; }
 .notebook_tabs button[aria-selected="true"] { background: var(--ui-swatch-081); border-color: var(--ui-swatch-082); color: white; }
 .notebook_tabs button:disabled { opacity: .35; cursor: default; }
 .notebook_tabs button:focus-visible { outline: 2px solid var(--ui-swatch-067); outline-offset: 2px; }
-.notebook_status { margin: .4rem .65rem; padding: .45rem .55rem; border-left: 3px solid var(--ui-swatch-083); background: var(--ui-swatch-084); font-size: var(--ui-type-body); line-height: 1.4; }
+.notebook_status { margin: round(.4rem, 1px) round(.65rem, 1px); padding: round(.45rem, 1px) round(.55rem, 1px); border-left: 3px solid var(--ui-swatch-083); background: var(--ui-swatch-084); font-size: var(--ui-type-body); line-height: 1.4; }
 .notebook_view[hidden], .adventure_notebook[hidden] { display: none; }
 .notebook_tabs button[hidden] { display: none; }
-.known_people_panel h3 { margin: .65rem 0 .25rem; font-size: var(--ui-type-title); }
+.known_people_panel h3 { margin: round(.65rem, 1px) 0 round(.25rem, 1px); font-size: var(--ui-type-title); }
 .known_people_panel > div > details { border-top: 1px solid var(--ui-swatch-080); }
-.known_people_panel ul { padding-left: 1.3rem; font-size: var(--ui-type-body); line-height: 1.45; }
-.known_people_panel li + li { margin-top: .35rem; }
+.known_people_panel ul { padding-left: round(1.3rem, 1px); font-size: var(--ui-type-body); line-height: 1.45; }
+.known_people_panel li + li { margin-top: round(.35rem, 1px); }
 .known_people_panel[hidden] { display: none; }
-.expansion_quest_name { display: block; width: 100%; border: 0; border-radius: var(--ui-radius); margin: 0; padding: 2px; background: transparent; color: inherit; text-align: left; font: inherit; font-weight: bold; cursor: pointer; }
+.expansion_quest_name { display: block; width: 100%; border: 0; border-radius: var(--ui-radius); margin: 0; padding: var(--ui-space-1); background: transparent; color: inherit; text-align: left; font: inherit; font-weight: bold; cursor: pointer; }
 .expansion_quest_name:focus-visible { outline: 2px solid var(--ui-swatch-067); outline-offset: -2px; }
 #expansion_quest_list[hidden] { display: none; }
-.adventure_notebook .expedition_panel { margin: 0; padding: .2rem .65rem; border: 0; border-bottom: 1px solid var(--ui-swatch-080); border-radius: var(--ui-radius); }
-.adventure_notebook .expedition_panel summary { padding: .65rem 0; font-size: var(--ui-type-title); }
+.adventure_notebook .expedition_panel { margin: 0; padding: round(.2rem, 1px) round(.65rem, 1px); border: 0; border-bottom: 1px solid var(--ui-swatch-080); border-radius: var(--ui-radius); }
+.adventure_notebook .expedition_panel summary { padding: round(.65rem, 1px) 0; font-size: var(--ui-type-title); }
 .adventure_notebook .expedition_panel p { font-size: var(--ui-type-body); }
-.adventure_notebook .expedition_card { padding: .55rem 0; }
+.adventure_notebook .expedition_card { padding: round(.55rem, 1px) 0; }
 .adventure_notebook .expedition_card button { display: block; width: 100%; text-align: left; border-radius: var(--ui-radius); box-sizing: border-box; white-space: normal; }
 .adventure_notebook .expedition_card p { color: var(--ui-swatch-085); }
-.adventure_notebook .notebook_preparation summary { font-size: var(--ui-type-small); color: var(--ui-swatch-068); padding: .35rem 0; }
-.adventure_notebook #simulation_panel button { padding: .45rem .6rem; margin: .2rem 0; font: inherit; max-width: 100%; white-space: normal; }
+.adventure_notebook .notebook_preparation summary { font-size: var(--ui-type-small); color: var(--ui-swatch-068); padding: round(.35rem, 1px) 0; }
+.adventure_notebook #simulation_panel button { padding: round(.45rem, 1px) round(.6rem, 1px); margin: round(.2rem, 1px) 0; font: inherit; max-width: 100%; white-space: normal; }
 .adventure_notebook .expedition_card .expedition_requirements { color: var(--ui-swatch-086); }
 .adventure_notebook #field_panel [data-field-event] button,
-.adventure_notebook #field_panel > div > section button { display:block; width:100%; text-align:left; padding:.4rem .5rem; margin:.2rem 0; box-sizing:border-box; white-space:normal; }
-.adventure_notebook .expedition_history { margin: .4rem .65rem .7rem; line-height: 1.45; font-size: var(--ui-type-body); }
-.expedition_panel summary { cursor: pointer; font-weight: bold; padding: 0.3rem; }
-.expedition_panel p { margin: 0.4rem 0; line-height: 1.4; }
-.expedition_card { padding: 0.6rem 0; border-top: 1px solid var(--ui-swatch-087); }
-.expedition_card button { padding: 0.5rem 0.7rem; cursor: pointer; font: inherit; }
+.adventure_notebook #field_panel > div > section button { display:block; width:100%; text-align:left; padding:round(.4rem, 1px) round(.5rem, 1px); margin:round(.2rem, 1px) 0; box-sizing:border-box; white-space:normal; }
+.adventure_notebook .expedition_history { margin: round(.4rem, 1px) round(.65rem, 1px) round(.7rem, 1px); line-height: 1.45; font-size: var(--ui-type-body); }
+.expedition_panel summary { cursor: pointer; font-weight: bold; padding: round(0.3rem, 1px); }
+.expedition_panel p { margin: round(0.4rem, 1px) 0; line-height: 1.4; }
+.expedition_card { padding: round(0.6rem, 1px) 0; border-top: 1px solid var(--ui-swatch-087); }
+.expedition_card button { padding: round(0.5rem, 1px) round(0.7rem, 1px); cursor: pointer; font: inherit; }
 .expedition_card button:disabled { opacity: 0.55; cursor: default; }
 .expedition_card button:focus-visible { outline: 2px solid var(--ui-swatch-088); outline-offset: 3px; }
 .expedition_requirements { color: var(--ui-swatch-086); }
 .expedition_preview, .expedition_state { font-size: var(--ui-type-body); }
 .expedition_notice { min-height: 1.4em; }
-.village_panel > div > button { padding: .45rem .6rem; margin: .2rem; font: inherit; cursor: pointer; }
+.village_panel > div > button { padding: round(.45rem, 1px) round(.6rem, 1px); margin: round(.2rem, 1px); font: inherit; cursor: pointer; }
 .village_panel > div > button:disabled { opacity: .55; cursor: default; }
 .village_panel > div > button:focus-visible { outline: 2px solid var(--ui-swatch-088); outline-offset: 3px; }
-.expedition_history { padding-left: 1.5rem; }
+.expedition_history { padding-left: round(1.5rem, 1px); }
 
-.technique_cue { font-weight: bold; padding: 0.5rem; background: var(--ui-swatch-089); border-left: 3px solid var(--ui-swatch-088); }
-.technique_responses { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.6rem 0; }
+.technique_cue { font-weight: bold; padding: round(0.5rem, 1px); background: var(--ui-swatch-089); border-left: 3px solid var(--ui-swatch-088); }
+.technique_responses { display: flex; flex-wrap: wrap; gap: round(0.5rem, 1px); margin: round(0.6rem, 1px) 0; }
 
-.chronicle_panel button { padding: .45rem .6rem; margin: .2rem; font: inherit; cursor: pointer; max-width: 100%; white-space: normal; }
+.chronicle_panel button { padding: round(.45rem, 1px) round(.6rem, 1px); margin: round(.2rem, 1px); font: inherit; cursor: pointer; max-width: 100%; white-space: normal; }
 .chronicle_panel button:disabled { opacity: .5; cursor: default; }
 .chronicle_panel button:focus-visible { outline: 2px solid var(--ui-swatch-088); outline-offset: 2px; }
-.chronicle_panel ol { padding-left: 1.4rem; }
-#chronicle_life_end { position: fixed; top: 18%; left: 50%; transform: translateX(-50%); width: min(720px, calc(100vw - 4rem)); max-height: 70vh; z-index: 10000; background: var(--ui-swatch-090); color: var(--ui-swatch-091); border: 2px solid var(--ui-swatch-088); border-radius: var(--ui-radius); padding: 1.5rem; overflow: auto; box-shadow: var(--ui-shadow); text-align: left; box-sizing: border-box; }
+.chronicle_panel ol { padding-left: round(1.4rem, 1px); }
+#chronicle_life_end { position: fixed; top: 18%; left: 50%; transform: translateX(-50%); width: min(720px, calc(100vw - 4rem)); max-height: 70vh; z-index: var(--ui-layer-modal); background: var(--ui-swatch-090); color: var(--ui-swatch-091); border: 2px solid var(--ui-swatch-088); border-radius: var(--ui-radius); padding: round(1.5rem, 1px); overflow: auto; box-shadow: var(--ui-shadow); text-align: left; box-sizing: border-box; }
 #chronicle_life_end[hidden] { display: none; }
-#chronicle_life_end button { padding: .8rem; margin: .4rem; font: inherit; }
-@media (max-width: 640px) { #chronicle_life_end { top: 8%; padding: 1rem; } }
+#chronicle_life_end button { padding: round(.8rem, 1px); margin: round(.4rem, 1px); font: inherit; }
+@media (max-width: 640px) { #chronicle_life_end { top: 8%; padding: round(1rem, 1px); } }
 
 #original_frontier_panel[hidden], #original_frontier_panel [hidden] { display: none !important; }
 
-#titles_panel { margin-top: .5rem; }
+#titles_panel { margin-top: round(.5rem, 1px); }
 #titles_panel summary { cursor: pointer; font-weight: bold; }
-#titles_panel ul { margin: .2rem 0 .4rem; padding-left: 1.1rem; }
-#titles_panel .title_family { margin-top: .4rem; font-style: italic; }
+#titles_panel ul { margin: round(.2rem, 1px) 0 round(.4rem, 1px); padding-left: round(1.1rem, 1px); }
+#titles_panel .title_family { margin-top: round(.4rem, 1px); font-style: italic; }
 #titles_panel .title_locked { opacity: .55; }
 #titles_panel .title_bonus { color: var(--ui-swatch-093); }
 
@@ -3140,7 +3140,7 @@ i {
 .inventory_item_control:focus-visible, .equipped_item_control:focus-visible {
     outline: 2px solid var(--sem-money, var(--ui-swatch-094)); outline-offset: -2px;
 }
-[data-vendor-status] { font-size: var(--ui-type-body); margin-left: .4em; }
+[data-vendor-status] { font-size: var(--ui-type-body); margin-left: round(.4em, 1px); }
 [data-vendor-state="unaffordable"] .item_value,
 [data-vendor-state="unaffordable"] [data-vendor-status] { color: var(--sem-blocked, var(--ui-swatch-095)); }
 [data-vendor-state="sold-out"], [data-vendor-state="in-basket"] { color: var(--ui-swatch-096); }
@@ -3148,7 +3148,7 @@ i {
 [data-vendor-state="sold-out"] [data-rarity] { color: var(--ui-swatch-096) !important; }
 [data-vendor-state="sold-out"] .trade_ammount_buttons,
 [data-vendor-state="in-basket"] .trade_ammount_buttons { visibility: hidden; }
-[data-item-condition] { display: block; font-size: var(--ui-type-body); color: var(--sem-money, var(--ui-swatch-094)); padding: 2px 4px; }
+[data-item-condition] { display: block; font-size: var(--ui-type-body); color: var(--sem-money, var(--ui-swatch-094)); padding: var(--ui-space-1) var(--ui-space-2); }
 .message_common[data-damage-type="physical"] { border-left: 2px solid var(--ui-swatch-097); padding-left: 5px; }
 #message_box_div .message_common[data-damage-target="hero"] { color: var(--sem-loss, var(--ui-swatch-095)); }
 #message_box_div .message_common[data-damage-target="enemy"] { color: var(--sem-gain, var(--ui-swatch-098)); }

@@ -37,7 +37,7 @@ open here too.
 |---|---|---|---|---|
 | Foundational rulebook | Rulebook 1–12 | Accepted 2026-10-10 | Multiverse-wide principles: worlds set their own rules, carriers, means, bodies, time, outliers | [RULES_FROM_SCRATCH](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) |
 | Accepted direction rules | AD1–AD41 | Restates accepted decisions | Aspects without a rulebook: knowledge, lives, time, recovery, entry, goals, economy, cheats, process and UI design attention | [Below](#accepted-direction-rules-ad) |
-| UI rules | UR1–UR64 | Standing 2026-10-15; Discord reference-guide fold 2026-10-21 | All player-facing UI, including source-qualified reference adaptation | [UI_RULES](UI_RULES.md) |
+| UI rules | UR1–UR69 | Standing 2026-10-15; Discord reference-guide fold 2026-10-21; small-detail tokens UR65–UR68 and region lending UR69 2026-10-22 | All player-facing UI, including source-qualified reference adaptation | [UI_RULES](UI_RULES.md) |
 | Architecture rules | AR1–AR16 | Standing 2026-10-16; AR1 net-zero wording 2026-10-19 | All runtime code: composition root, domain registry, save slices, seams; 2026-10-18 application: transactions, interrupted stages, observer-safe boundaries and clock ownership | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md) |
 | Mockup workflow | none | Standing 2026-10-16 | Unsettled layouts and interaction comparisons; pinned recipe and current launch fixture studies | [MOCKUP_SYSTEM](MOCKUP_SYSTEM.md) |
 | Making rules | MR1–MR36 | Standing 2026-10-15 | Potions, cooking, smithing, runes, enchanting, formations, constructs, any making; 2026-10-18 application: intermediate work and actual mechanism compatibility | [MAKING_RULES](MAKING_RULES.md) |
@@ -72,7 +72,7 @@ line they restate.
 | Means decide what anyone knows or does; truth, knowledge and display stay separate | AD6, AD7, AD8 |
 | Recovery is forgiving; firm lines are save integrity only | AD19, AD22 |
 | One authority per fact; `main.js` is a composition root | AR1–AR16 |
-| UI: desktop first, shared tokens and controller, evidence at 1920×1080 (1366×768 retired 2026-10-19) | AD34, UR1–UR64 |
+| UI: desktop first, shared tokens and controller, evidence at 1920×1080 (1366×768 retired 2026-10-19) | AD34, UR1–UR69 |
 | Time is game time; away time runs chosen routines | AD15, AD16, AD17 |
 | Build one playable slice; complexity welcome, sequenced | AD33 |
 | Verify only what changed, rebuild and exercise it in a browser before "done" | AD36 |
@@ -86,7 +86,7 @@ line they restate.
 | Any runtime code | AR1–AR16; AR14 for lane briefs, AR16 before calling it done | [ARCHITECTURE_RULES](ARCHITECTURE_RULES.md); AR3/AR7/AR8 applications cover reaction, interruption and disclosure boundaries |
 | Desktop host, Electron shell, packaging, Steam | AD39, AR3, AR4, AR6 | [Electron host round](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el); `desktop/` owns the host, `src/` stays host-free |
 | A world's completion level or what it is missing | Completion standard S00-S14 and C0-C5, sealed-secrets rule | [World subtle gaps](audits/WORLD_SUBTLE_GAPS_2026-10-20.md) (WG1-WG26, proposal); [completion standard](WORLD_COMPLETION_STANDARD.md) |
-| Any player-facing UI | UR1–UR64 (UR59–UR64 for reference-guided design), AD34, AD40; mockup workflow if layout is unsettled (recipe/launch studies in the shared workbench) | [UI_RULES](UI_RULES.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md), [UI detail and message palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
+| Any player-facing UI | UR1–UR69 (UR59–UR64 for reference-guided design), AD34, AD40; mockup workflow if layout is unsettled (recipe/launch studies in the shared workbench) | [UI_RULES](UI_RULES.md), [UI design audit](audits/UI_DESIGN_CORE_AUDIT.md), [surface types](UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md), [UI detail and message palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
 | Making or crafting of any kind | MR1–MR36, AD9, AD38 | [CRAFTING_ENGINE](CRAFTING_ENGINE.md); MR1/MR5/MR29 also govern interrupted stages |
 | Minecraft-derived techniques, workshop production, garden energy, helper supply, site freight, exposed drying and worker residences | AD6–8/15–17/33/36/38, AR1–16, MR1–36, SR1/15/19/22, UR1–64 | [All-seven direction](USER_VISION.md#minecraft-mechanisms-in-existing-systems-2026-10-21), [MF adaptation owner](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#minecraft-fit-round-mf-2026-10-21); AD33's broad NPC deferral permits this explicitly selected bounded helper/supply application |
 | Sites, ruins, caves, maps, exploration, restoration | SR1–SR24, AD3, AD33 | [Site palette](gm/dispatch/procgen-2026-10-13/p11/LIBRARIES_TEMPLES_MINES_CAVES_AND_MAPS_2026-10-16.md), [ruins](gm/dispatch/procgen-2026-10-13/p11/DUNGEON_CONTENT.md) |

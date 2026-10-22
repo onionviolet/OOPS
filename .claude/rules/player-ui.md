@@ -10,7 +10,7 @@ paths:
 ---
 
 Player-facing UI also follows [UI rules](docs/UI_RULES.md) (2026-10-15): declare
-a surface type and home, use shared tokens and components, own your node, open
+a surface type and home, use shared tokens (spacing from the UR65 scale) and components, own your node, open
 center views through the shared controller with a bottom back bar and Esc, keep
 the log column intact, give features in-world logic, and check discoverability
 on a populated save at the 1920×1080 primary target

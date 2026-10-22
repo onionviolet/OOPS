@@ -17,7 +17,7 @@ const LEAF = /^(BUTTON|SELECT|INPUT|TEXTAREA|IMG|SVG|CANVAS|PROGRESS|SUMMARY)$/;
 // Bottom of the lowest visible text or control inside a region, as if every inner scroll
 // container were at its top. Containers stretched to fill their frame are ignored, so the result
 // is the content's own height.
-export function contentExtent(region) {
+export function contentExtent(region, skip = null) {
     const top = region.getBoundingClientRect().top;
     let bottom = top;
     // R20: a part that scrolls inside a declared size ([data-fit-clip], the opponent board's visible
@@ -33,7 +33,7 @@ export function contentExtent(region) {
         const rect = node.getBoundingClientRect();
         if (!rect.height || !rect.width) continue;
         const leaf = LEAF.test(node.tagName) || !node.firstElementChild || [...node.childNodes].some(c => c.nodeType === 3 && c.textContent.trim());
-        if (!leaf || node.closest('[popover]') || getComputedStyle(node).visibility === 'hidden') continue;
+        if (!leaf || node.closest('[popover]') || (skip && node.closest(skip)) || getComputedStyle(node).visibility === 'hidden') continue;
         // A closed disclosure still reports geometry for its hidden content; only its summary shows.
         // Disclosure content (Gear, readouts) scrolls inside its panel and does not size the row;
         // only the summary counts. A closed disclosure also reports geometry for hidden content.
@@ -47,6 +47,15 @@ export function contentExtent(region) {
         bottom = Math.max(bottom, end);
     }
     return Math.ceil(bottom - top);
+}
+
+// Parts pinned to a region's bottom edge by a stretching sibling (the action-region nav bar, the
+// Around you closing hint) sit wherever the region ends. They count by their own height, not
+// their position; otherwise each measure reads the last size back as content and ratchets.
+const PINNED = '[data-module="pane-navigation"], .nearby-context-view > p:last-child';
+export function intrinsicExtent(region) {
+    const pinned = [...region.querySelectorAll(PINNED)].filter(n => n.getClientRects().length);
+    return contentExtent(region, PINNED) + pinned.reduce((sum, n) => sum + n.getBoundingClientRect().height, 0);
 }
 
 // A panel that yields rows to the space it gets (You's secondary stats) declares the height it
@@ -67,18 +76,18 @@ export { topRowHeight, companionsFor } from './layout_spec.js';
 // The top-row inputs from the two top regions by their fit modes: `player` is the largest
 // content-fit extent (less its elastic rows), `focus` the largest combat-fit extent.
 export function topTerms(regions, combat) {
-    let player = 0, elastic = 0, focus = 0, found = false;
+    let player = 0, elastic = 0, focus = 0, idleFocus = 0, found = false;
     for (const region of [regions.player, regions.focus]) {
         if (!region) continue;
         const ids = [...region.querySelectorAll(':scope > .workspace-module[data-module]')].filter(n => !n.hidden).map(n => n.dataset.module);
         const fit = regionFit(ids);
         if (fit === 'content') { found = true; const parts = elasticParts(region); player = Math.max(player, contentExtent(region) - parts.shown); elastic = Math.max(elastic, parts.want); }
-        else if (fit === 'combat' && combat) focus = Math.max(focus, contentExtent(region));
+        else if (fit === 'combat') { if (combat) focus = Math.max(focus, contentExtent(region)); else idleFocus = Math.max(idleFocus, intrinsicExtent(region)); }
     }
     // No content box on top (You moved down): the row takes its elastic default instead of its
     // minimum, so the boxes moved up keep a useful height.
     if (!found) elastic = Infinity;
-    return {player, elastic, focus};
+    return {player, elastic, focus, idleFocus};
 }
 
 export function createShellComposition({root, board, regions, resize}) {
@@ -104,7 +113,9 @@ export function createShellComposition({root, board, regions, resize}) {
         if (root.dataset.shellCompanions !== companions) root.dataset.shellCompanions = companions;
         // The frame allowance covers region borders plus the padding and borders below the last
         // text line (opponent card lists, stat rows), which the extent does not see.
-        const value = `${topRowHeight({player: top.player, elastic: top.elastic, focus: top.focus, combat, board: height, fontSize, viewport: window.innerHeight, frame: frameFor(fontSize)})}px`;
+        // The bottom row's own content (actions, inventory) bounds what the top row may borrow.
+        const below = Math.max(0, ...[regions.actions, regions.inventory].filter(r => r?.isConnected).map(intrinsicExtent));
+        const value = `${topRowHeight({player: top.player, elastic: top.elastic, focus: combat ? top.focus : top.idleFocus, combat, board: height, fontSize, viewport: window.innerHeight, frame: frameFor(fontSize), below})}px`;
         if (root.style.getPropertyValue('--shell-top-row') !== value) root.style.setProperty('--shell-top-row', value);
         resize?.measure();
         if (root.dataset.shellFit !== 'true') root.dataset.shellFit = 'true';

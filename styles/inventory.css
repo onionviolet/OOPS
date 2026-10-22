@@ -5,21 +5,21 @@
 #main_content.workspace-active[data-parity="r3"] .parity-inventory-controls {display:block;container-type:inline-size;}
 /* Equal cells: a tab's position depends only on the column width, never on its count (UR52). */
 #main_content.workspace-active[data-parity="r3"] .inventory-tabs {display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) auto;}
-#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button {display:inline-flex;align-items:baseline;justify-content:center;gap:.2em;min-width:0;overflow:hidden;font:inherit;line-height:1.25;padding:0 .12em;min-height:0;color:var(--p23-muted);background:transparent;border:0;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button {display:inline-flex;align-items:baseline;justify-content:center;gap:round(.2em, 1px);min-width:0;overflow:hidden;font:inherit;line-height:1.25;padding:0 round(.12em, 1px);min-height:0;color:var(--p23-muted);background:transparent;border:0;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;}
 #main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[aria-pressed="true"] {color:var(--p23-text);border-bottom-color:var(--p23-quantity);}
 #main_content.workspace-active[data-parity="r3"] .inventory-tabs > button:hover {color:var(--p23-text);background:var(--p23-hover-fill);}
 #main_content.workspace-active[data-parity="r3"] .inventory-tabs > button:focus-visible {outline:2px solid var(--workspace-focus);outline-offset:-2px;}
 #main_content.workspace-active[data-parity="r3"] .inventory-tab-label {display:none;}
 #main_content.workspace-active[data-parity="r3"] .inventory-tab-count {font-variant-numeric:tabular-nums;color:var(--p23-quantity);}
 #main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[aria-pressed="true"] .inventory-tab-count {color:var(--p23-value);}
-#main_content.workspace-active[data-parity="r3"] .inventory-tabs-clear {color:var(--p23-text)!important;padding:0 .3em!important;}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs-clear {color:var(--p23-text)!important;padding:0 round(.3em, 1px)!important;}
 #main_content.workspace-active[data-parity="r3"] .inventory-tabs-clear[data-active="false"] {visibility:hidden;}
 /* Sort and direction share the list's search row. */
 #main_content.workspace-active[data-parity="r3"] #inventory_div > .ui-list-tools {display:flex;align-items:center;}
 #main_content.workspace-active[data-parity="r3"] #inventory_div > .ui-list-tools > input {flex:1 1 auto;min-width:4em;}
-#main_content.workspace-active[data-parity="r3"] .inventory-sort {display:flex;flex:0 0 auto;gap:2px;align-items:stretch;}
+#main_content.workspace-active[data-parity="r3"] .inventory-sort {display:flex;flex:0 0 auto;gap:var(--ui-space-1);align-items:stretch;}
 #main_content.workspace-active[data-parity="r3"] .inventory-sort > select {font:inherit;line-height:1.25;max-width:5.5em;color:var(--p23-text);background:var(--p23-context);border:1px solid var(--p23-line);}
-#main_content.workspace-active[data-parity="r3"] .inventory-sort > .inventory-sort-direction {font:inherit;line-height:1.25;min-width:1.6em;padding:0 .2em;min-height:0;}
+#main_content.workspace-active[data-parity="r3"] .inventory-sort > .inventory-sort-direction {font:inherit;line-height:1.25;min-width:1.6em;padding:0 round(.2em, 1px);min-height:0;}
 }
 /* Narrow column (1366×768 at large text): three equal columns, two fixed rows. */
 @container (max-width: 20em) {
@@ -31,7 +31,7 @@
 #main_content.workspace-active[data-parity="r3"] .inventory-tab-short {display:none;}
 }
 /* The list's empty-state line (shared list tools) reads as a quiet note under the tabs. */
-#main_content.workspace-active[data-parity="r3"] #inventory_div > .ui-list-empty {margin:.3em .2em;color:var(--p23-muted);}
+#main_content.workspace-active[data-parity="r3"] #inventory_div > .ui-list-empty {margin:round(.3em, 1px) round(.2em, 1px);color:var(--p23-muted);}
 /* The native category filter switches row display through CSS variables, which the shell's row
    layout overrides; until R18 every category showed all rows in the shell. Apply the same native
    membership here, keyed on the tab the strip set (src/inventory_tabs.js). */
@@ -55,5 +55,5 @@
 #main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) [data-main-box="inventory"] {background:var(--p23-inventory-fill);}
 #main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) [data-region="actions"] > .workspace-module[data-module="shell-detail"] {background:var(--p23-detail-slot-fill);}
 /* FC6: the session's new-item marker reads "new" in the parity shell (word, not only a dot). */
-#main_content.workspace-active[data-parity="r3"] #inventory_content_div [data-item-new] .item_name::after {content:"new";width:auto;height:auto;margin-left:.4em;padding:0 .25em;font-size:.72em;font-weight:700;line-height:1.2;vertical-align:.15em;color:var(--p23-new);background:none;box-shadow:none;border:1px solid currentColor;}
+#main_content.workspace-active[data-parity="r3"] #inventory_content_div [data-item-new] .item_name::after {content:"new";width:auto;height:auto;margin-left:round(.4em, 1px);padding:0 round(.25em, 1px);font-size:.72em;font-weight:700;line-height:1.2;vertical-align:.15em;color:var(--p23-new);background:none;box-shadow:none;border:1px solid currentColor;}
 }

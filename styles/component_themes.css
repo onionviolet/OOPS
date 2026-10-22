@@ -44,10 +44,10 @@
     width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums;
 }
 :is(#main_content.workspace-active, .theme-preview) .customization-module :is(th, td) {
-    padding: .3em .45em; border-bottom: 1px solid var(--theme-border); text-align: left;
+    padding: round(.3em, 1px) round(.45em, 1px); border-bottom: 1px solid var(--theme-border); text-align: left;
 }
-:is(#main_content.workspace-active, .theme-preview) .customization-module :is(.theme-warning, [data-theme-state=warning]) {color: var(--theme-warning) !important; border-inline-start: 3px solid var(--theme-warning); padding-inline-start: .5em;}
-:is(#main_content.workspace-active, .theme-preview) .customization-module :is(.theme-danger, [data-theme-state=error], [role=alert]) {color: var(--theme-danger) !important; border-inline-start: 3px solid var(--theme-danger); padding-inline-start: .5em;}
+:is(#main_content.workspace-active, .theme-preview) .customization-module :is(.theme-warning, [data-theme-state=warning]) {color: var(--theme-warning) !important; border-inline-start: 3px solid var(--theme-warning); padding-inline-start: round(.5em, 1px);}
+:is(#main_content.workspace-active, .theme-preview) .customization-module :is(.theme-danger, [data-theme-state=error], [role=alert]) {color: var(--theme-danger) !important; border-inline-start: 3px solid var(--theme-danger); padding-inline-start: round(.5em, 1px);}
 :is(#main_content.workspace-active, .theme-preview) .customization-module :is(.bio_history > p, .work-ledger-receipt, .al-detail, .al-summary) {color: inherit;}
 /* Native tab bars grow when text grows. They stay in the owning panel's flow. */
 #main_content.workspace-active .customization-module :is(#character_control_div, #inventory_control_div) {
@@ -60,26 +60,26 @@
 #main_content.workspace-active #inventory_combat_switch_selection.customization-module { display: flex; flex-wrap: wrap; }
 #main_content.workspace-active #inventory_combat_switch_selection.customization-module > :is(button, div) {flex: 1 1 auto; width: auto; float: none; font-size: inherit;}
 #main_content.workspace-active .customization-module :is(#character_stats_div, #character_bio_div, #character_equipment_div, #character_tools_div) {width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box;}
-.theme-preview {border: 1px solid currentColor; padding: .5rem; margin-block: .5rem; min-width: 0;}
-.theme-preview-tabs, .theme-action-row {display: flex; flex-wrap: wrap; gap: .35em; margin-block: .4em;}
+.theme-preview {border: 1px solid currentColor; padding: round(.5rem, 1px); margin-block: round(.5rem, 1px); min-width: 0;}
+.theme-preview-tabs, .theme-action-row {display: flex; flex-wrap: wrap; gap: round(.35em, 1px); margin-block: round(.4em, 1px);}
 .theme-preview .customization-module {padding: var(--custom-spacing);}
-.theme-preview button {padding: .35em .5em;}
-.theme-preview label {display: flex; flex-wrap: wrap; gap: .3em;}
-.theme-preview :is(p, h4) {margin-block: .5em;}
+.theme-preview button {padding: round(.35em, 1px) round(.5em, 1px);}
+.theme-preview label {display: flex; flex-wrap: wrap; gap: round(.3em, 1px);}
+.theme-preview :is(p, h4) {margin-block: round(.5em, 1px);}
 
-#main_content.workspace-active .customization-module .activable_buttons > div {width: auto; flex: 1 1 auto; float: none; padding: .25em .4em;}
+#main_content.workspace-active .customization-module .activable_buttons > div {width: auto; flex: 1 1 auto; float: none; padding: round(.25em, 1px) round(.4em, 1px);}
 
-.theme-preview dl {display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: .25em; font-variant-numeric: tabular-nums;}
+.theme-preview dl {display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: round(.25em, 1px); font-variant-numeric: tabular-nums;}
 .theme-preview dd {margin: 0;}
 
 #main_content.workspace-active .customization-module :is(.recipe_div, .crafting_recipe_list) {width: 100%; max-width: 100%; box-sizing: border-box; font-size: inherit;}
 /* Native numeric pairs retain both label and number as typography grows. */
 #main_content.workspace-active .customization-module .grid_container:has(> .stat_slot_div) {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10em), 1fr)); gap: 1px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10em), 1fr)); gap: var(--ui-space-hairline);
 }
 #main_content.workspace-active .customization-module .stat_slot_div {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: .1em .35em;
-    height: auto; min-height: 1.6em; box-sizing: border-box; padding: .15em .3em;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: round(.1em, 1px) round(.35em, 1px);
+    height: auto; min-height: 1.6em; box-sizing: border-box; padding: round(.15em, 1px) round(.3em, 1px);
     outline-color: var(--theme-border); font-variant-numeric: tabular-nums;
 }
 #main_content.workspace-active .customization-module :is(.stat_name, .stat_name_short) {

@@ -2,7 +2,7 @@
     --al-border: color-mix(in srgb, currentColor 22%, transparent);
     --al-muted: color-mix(in srgb, currentColor 72%, transparent);
     display: grid;
-    gap: 0.75rem;
+    gap: round(0.75rem, 1px);
     min-width: 0;
 }
 
@@ -12,20 +12,20 @@
 
 .action-legibility__notice {
     margin: 0;
-    padding: 0.55rem 0.7rem;
+    padding: round(0.55rem, 1px) round(0.7rem, 1px);
     border-inline-start: 0.2rem solid currentColor;
 }
 
 .action-legibility__group {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-    gap: 0.65rem;
+    gap: round(0.65rem, 1px);
     min-width: 0;
 }
 
 .action-legibility__card {
     min-width: 0;
-    padding: 0.75rem;
+    padding: round(0.75rem, 1px);
     border: 1px solid var(--al-border);
     border-radius: var(--ui-radius);
     overflow-wrap: anywhere;
@@ -34,7 +34,7 @@
 .action-legibility__card h3,
 .action-legibility__card h4,
 .action-legibility__card p {
-    margin-block: 0.25rem 0.55rem;
+    margin-block: round(0.25rem, 1px) round(0.55rem, 1px);
 }
 
 .action-legibility__status,
@@ -48,12 +48,12 @@
 }
 
 .action-legibility__section {
-    margin-block-start: 0.55rem;
+    margin-block-start: round(0.55rem, 1px);
 }
 
 .action-legibility__items {
-    margin: 0.2rem 0 0;
-    padding-inline-start: 1.3rem;
+    margin: round(0.2rem, 1px) 0 0;
+    padding-inline-start: round(1.3rem, 1px);
 }
 
 .action-legibility__controls,
@@ -62,11 +62,11 @@
     display: flex;
     flex-wrap: wrap;
     align-items: start;
-    gap: 0.45rem;
+    gap: round(0.45rem, 1px);
 }
 
 .action-legibility__controls {
-    margin-block-start: 0.7rem;
+    margin-block-start: round(0.7rem, 1px);
 }
 
 .action-legibility__alternative-row {
@@ -77,7 +77,7 @@
 .action-legibility__button {
     max-width: 100%;
     min-height: 2.4rem;
-    padding: 0.35rem 0.7rem;
+    padding: round(0.35rem, 1px) round(0.7rem, 1px);
     color: inherit;
     font: inherit;
     border: 1px solid var(--al-border);
@@ -106,7 +106,7 @@
 }
 
 .action-legibility-panel > .action-legibility {
-    margin-block-start: 0.75rem;
+    margin-block-start: round(0.75rem, 1px);
 }
 
 @media (max-width: 32rem) {
