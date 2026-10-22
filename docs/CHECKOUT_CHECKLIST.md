@@ -1,5 +1,36 @@
 # Checkout checklist
 
+## Latest release play checks, 2026-10-22
+
+The [current PROJECT routing](../PROJECT.md#current-delivery-routing-checked-2026-10-22)
+and [release report](gm/dispatch/inventory-overhaul-2026-10-21/REPORT.md) supersede
+older build/publication labels below. `HEAD` now refers to primary `master`;
+the earlier `codex/gameplay-foundations` definition records the October 20 build.
+Selected gear, P4, home, MF and inventory source is published through `e59df9a28`.
+Latest recorded normal Electron adoption is `v0.6-72af84cf8e66`; personal Chrome
+save transfer is still a separate, unverified user action. No save transfer is
+required merely to inspect the already installed release.
+
+These five checks are navigation, not a changed priority or acceptance decision:
+
+- [ ] CK46 **Current inventory and UI**: Inventory → kind/quality filters → expand → inspect; local chest → review/cancel a batch. Judge compact/expanded readability and action placement. I2–I5 now have rebuilt browser/persistence/Electron proof; this supersedes the earlier missing-overhaul and CK19 baseline labels. [Release](gm/dispatch/inventory-overhaul-2026-10-21/REPORT.md) · partly bot-checkable.
+- [ ] CK47 **Native gear**: More panels → Gear workshop, then inspect/equip an available native variant. Judge costs, useful comparisons and process history. Workshop/acquisition/lineage and later structured worn comparisons have technical proof; CK6's missing-tooltip/browser labels describe the earlier L3 slice. [Gear](gm/dispatch/gear-depth-2026-10-21/INTEGRATION_REPORT.md), [comparison](gm/dispatch/inventory-overhaul-2026-10-21/REPORT.md) · partly.
+- [ ] CK48 **Durable repair**: Village forge → quote/start hand repair → leave/return or cancel → save/reload. Judge pause reasons and pacing; use actual available tools/materials. P4 has 12 native scenario groups and exact pending/paused/cancelled/completed persistence proof, superseding CK3's older technical gaps for this selected consumer. [P4](gm/dispatch/deep-engine-2026-10-20/P4_REPORT.md) · partly.
+- [ ] CK49 **Home and household**: open the Home panel for the current residence; use available building, staff or household actions. Optional beginning changes are a separate deliberate action. Construction/weather, staffed starts, duties/tutors/provisions and qualified inheritance have bounded technical proof. Judge household feel and numbers. [Home](gm/dispatch/home-system-2026-10-21/CHECKPOINT.md), [household](gm/dispatch/home-system-2026-10-21/household-life/REPORT.md) · partly.
+- [ ] CK50 **Field workshop and local logistics**: Shack field workshop → an available technique/job; inspect freight, drying/cover or worker rooms when their native requirements are met. Selected MF1–MF34 work is in the combined release; judge natural opening pace and logistics usefulness. [MF report](gm/dispatch/minecraft-fit-2026-10-21/REPORT.md) · partly.
+
+CK32's harness commit `e5459c565` is an ancestor of published master; its old
+"unpushed" label is historical. Its proposed next steps remain proposals.
+CK33's host commits are also published and later normal-window adoption/restart
+has recorded proof. CK36's broad missing-visitor-journey label is superseded by
+the [final native visitor journey](reviews/CORC_UI_2026-10-21.md#final-visitor-journey-and-fork-release-2026-10-21)
+at that route's scope. CK44's selected combat-reader and enemy-gear questions
+have later [P1](gm/dispatch/deep-engine-2026-10-20/P1_STATUS.md) and
+[gear integration](gm/dispatch/gear-depth-2026-10-21/INTEGRATION_REPORT.md)
+evidence; no new design approval is needed to rediscover that completed scope.
+The older list below is the October 20 sweep, with the scoped supersessions above.
+Unrelated old technical gaps have not been rechecked or silently closed.
+
 Things for Weibao to play, look at or answer: delivered work that still waits on
 his check. Swept from the records on 2026-10-20.
 
@@ -102,13 +133,64 @@ Only items whose record says your answer is pending.
 - [ ] CK43 **RS26 shounen slice**: you said to build it "once the current UI lane merges and I've played it"; it is "queued, not started" · [shounen manga considerations](research/reincarnated-in-a-shounen-manga/YAIR_CONSIDERATIONS_2026-10-16.md) · no
 - [ ] CK44 **Who reads the new gear stats**: equipment doc asks "whether the party and village duel models should read the new dimensions too". Gear-depth doc asks the "build order among L1, L3 (heat grade …) and L7, and whether enemies read the new dimensions (GDP38)". Gear-depth L1 and heat-grade L3 are already built on unmerged branches (`claude/trusting-hamilton-9e04c1`, `claude/interesting-ritchie-0389d6`), so they are not in your build · [equipment stat dimensions](EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md), [gear depth](GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md) · no
 
-## Older backlog
+## Every wave's open gates, newest first (2026-10-22)
 
-These older deliveries still lack your play or director acceptance. Their scope
-and gates live in [PLAYTEST.md](PLAYTEST.md); start from these sections:
+One row per wave. Each wave's own backlog or checkpoint keeps the exact gates;
+this table only routes to it. Swept 2026-10-22 from every
+`ACCEPTANCE_BACKLOG.md`, `BACKLOG.md` and recent `CHECKPOINT.md` under `docs/gm/`.
+Older scope detail also lives in [PLAYTEST.md](PLAYTEST.md).
 
-- Absorption A/B, 2026-10-11 (A through E and Phase 4: Motherwood, housing, amulets, bread, Fort, hunger and weather, gear copies, affinity capes).
-- Optional book world 1 first-slice proof, 2026-10-09 ("Proposal awaiting director fiction/balance acceptance").
-- Village choices verification, 2026-10-09 (no director fiction or balance acceptance yet).
-- Four-game home-world absorption, 2026-10-07.
-- Reference gameplay wave, 2026-10-06, and the 2026-10-05 feature, skills and frontier waves (implemented-unverified).
+**Gate kinds.** *You*: technical proof is recorded; your play or taste is the
+gate. *Unrun*: implemented-unverified; the agent behavior/save suites were
+deferred under the old implementation-first policy, so an agent pass should
+come before your play. *Chain*: a multi-round technical chain is still
+incomplete. *Design*: proposal only, no runtime. *Active*: a chat owns it now.
+
+New since the sweep above:
+
+- [ ] CK51 **Mistglass cultivation methods and log spacing** (working tree, staged app `v0.6-9b8c50adfbc2`, not adopted): use the app's Save and reload update control first. Village → Options → Iona's work ledger → Follow local people and work; then Projects → Mistglass conservatory → Enter → Learn, pick a method, let played time run, buy a Cloudseed dose · judge method stages, purification odds and the log row spacing/tooltip · rebuilt native and persistence proof pass; "Human pacing and taste acceptance" open; no commit · [checkpoint](gm/dispatch/cultivation-spacing-2026-10-22/CHECKPOINT.md) · partly
+
+| Date | Wave | Gate | Open gate in the record's terms | Owner |
+| --- | --- | --- | --- | --- |
+| 10-22 | W1–W4 distinct-world loops | Active | Runtime ownership split pending; also owns engine-bindings E1–E6 browser proof | [checkpoint](gm/dispatch/distinct-world-w1-w4-2026-10-22/CHECKPOINT.md), [engine bindings](gm/dispatch/engine-bindings-2026-10-22/CHECKPOINT.md) |
+| 10-22 | Cultivation and log spacing | You | CK51 | [checkpoint](gm/dispatch/cultivation-spacing-2026-10-22/CHECKPOINT.md) |
+| 10-21 | Inventory overhaul, gear, home, Minecraft-fit | You | CK46, CK47, CK49, CK50 | [inventory](gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md), [gear](gm/dispatch/gear-depth-2026-10-21/CHECKPOINT.md), [home](gm/dispatch/home-system-2026-10-21/CHECKPOINT.md), [MF](gm/dispatch/minecraft-fit-2026-10-21/CHECKPOINT.md) |
+| 10-21 | Title rules and recovered mechanics | You | "Human taste remains open" | [checkpoint](gm/dispatch/title-rules-implementation-2026-10-21/CHECKPOINT.md), [coverage](gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md) |
+| 10-20 | Deep engine P1–P5 | You | CK48 for P4; other pilots per checkpoint | [checkpoint](gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md) |
+| 10-20 | Upstream interaction system IS1–IS5 | You | Natural acquisition, XP summary, trade/storage order and combat departure not exercised; human acceptance open | [checkpoint](gm/dispatch/upstream-interaction-system-2026-10-20/CHECKPOINT.md) |
+| 10-20 | Palette completion and reference gap follow-up | You | Human acceptance of the released palette rows | [palette](gm/dispatch/palette-completion-2026-10-20/CHECKPOINT.md), [gap follow-up](gm/dispatch/reference-gap-followup-2026-10-20/CHECKPOINT.md) |
+| 10-20 | Reference engine boundaries (lamp study) | You | G1 play judgment; setup was seeded | [checkpoint](gm/dispatch/reference-engine-boundaries-2026-10-20/CHECKPOINT.md) |
+| 10-20 | Specimen processing | Unrun | Native acquisition → choice → processing → recipe journey and UI save/import still open | [checkpoint](gm/dispatch/specimen-processing-2026-10-20/CHECKPOINT.md) |
+| 10-19 | World pack P2 (Cyoria) | Unrun | CK36, CK41 | [checkpoint](gm/dispatch/world-pack-p2-2026-10-19/CHECKPOINT.md) |
+| 10-18 | Combat, economy, around-you | You | CK7, CK8, CK40 | [combat](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md), [economy](ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md), [around you](gm/dispatch/around-you-2026-10-18/S1_S4_PACKET.md) |
+| 10-17 | Tools IP1–IP3 | You | CK3 | [tools](gm/dispatch/tools-2026-10-17/IP1-3_TASK_RECORD.md) |
+| 10-16 | Modular seams M3/M4, world pack loader | You | CK1, CK10, CK41 | [seams](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md), [loader](gm/dispatch/world-pack-loader-2026-10-16/CHECKPOINT.md) |
+| 10-15 | UI foundation R18–R22c, UIL7/UIL8 | You | CK12–CK20 | [checkpoint](gm/dispatch/ui-foundation-2026-10-15/CHECKPOINT.md) |
+| 10-15 | Quiet continuation, LOTM initiation | You | CK4, CK9 | [quiet](gm/dispatch/quiet-continuation-2026-10-15/CHECKPOINT.md), [LOTM](gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md) |
+| 10-14 | Traveler asks TA1 | You | Fiction, balance, layout; long-absence and gather/craft/hunt variants unverified | [TA1](gm/dispatch/traveler-asks-2026-10-14/ta1/BACKLOG.md) |
+| 10-14 | Traveler asks TA2/TA3, harvest HV2 | Design | Waits on TA1/HV1 play feedback | [TA2](gm/dispatch/traveler-asks-2026-10-14/ta2/BACKLOG.md), [TA3](gm/dispatch/traveler-asks-2026-10-14/ta3/BACKLOG.md), [HV2](gm/dispatch/harvest-modules-2026-10-14/hv2/BACKLOG.md) |
+| 10-14 | Harvest HV1, chain build T2/T3, research slice 1 | You | Feel acceptance; elite/overflow/steep variants implemented-unverified | [HV1](gm/dispatch/harvest-modules-2026-10-14/hv1/BACKLOG.md), [T2](gm/dispatch/chain-build-2026-10-14/t2/BACKLOG.md), [T3](gm/dispatch/chain-build-2026-10-14/t3/BACKLOG.md), [research](gm/dispatch/research-tech-2026-10-14/slice1/BACKLOG.md) |
+| 10-14 | Calmer Vivid | You | CK21 | [checkpoint](gm/dispatch/calm-vivid-2026-10-14/CHECKPOINT.md) |
+| 10-13 | Procgen P1–P34, GX1–GX5 (31 packets) | Design | "PROPOSAL ONLY"; runtime gates not run | [integration](gm/dispatch/procgen-2026-10-13/integration/BACKLOG.md) |
+| 10-13 | Foundation adoption R1–R14 (FA01–FA23) | Chain | Technical chain incomplete; final integrated recovery and gap review open | [R14 index](gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/BACKLOG.md) |
+| 10-13 | Proto23 VFX | You | Visual design not human-approved | [backlog](gm/dispatch/proto23-vfx-2026-10-13/ACCEPTANCE_BACKLOG.md) |
+| 10-12 | Dependable local livelihood | You | H1 fiction/pacing/fun; V1 alternatives unverified | [backlog](gm/dispatch/dependable-local-livelihood-2026-10-12/ACCEPTANCE_BACKLOG.md) |
+| 10-11 | Absorption A–E | You | A2 director acceptance; B1/C1/C2 branches unverified | [backlog](gm/dispatch/absorb-2026-10-11/ACCEPTANCE_BACKLOG.md) |
+| 10-11 | Starts/talents, systems-cheats, UI modularity | You | Director fiction/pacing review; UI G2 visual defaults | [starts](gm/dispatch/starts-talents-continuity-2026-10-11/ACCEPTANCE_BACKLOG.md), [cheats](gm/dispatch/systems-cheats-expansion-2026-10-11/continuation/ACCEPTANCE_BACKLOG.md), [UI](gm/dispatch/ui-modularity-2026-10-11/ACCEPTANCE_BACKLOG.md) |
+| 10-11 | Minigames | Unrun | "All cases below are unrun" | [backlog](gm/dispatch/minigames-2026-10-11/ACCEPTANCE_BACKLOG.md) |
+| 10-11 | Wider gameplay | Design | Retained proposals C1–C2 | [backlog](gm/dispatch/wider-gameplay-2026-10-11/ACCEPTANCE_BACKLOG.md) |
+| 10-09 | Village career, study, mentor, choices | You | Director review of fiction, wages and pacing | [career](gm/dispatch/village-career-2026-10-09/ACCEPTANCE_BACKLOG.md), [study](gm/dispatch/village-study-2026-10-09/ACCEPTANCE_BACKLOG.md), [mentor](gm/dispatch/village-mentor-2026-10-09/ACCEPTANCE_BACKLOG.md), [choices](gm/dispatch/village-choices-2026-10-09/ACCEPTANCE_BACKLOG.md) |
+| 10-09 | Book world 1 (soldier's life) | You | A1 director acceptance; A2 branches unverified | [backlog](gm/dispatch/soldiers-life-world-2026-10-09/ACCEPTANCE_BACKLOG.md) |
+| 10-07 | Life-sim foundation and experience, non-Factorio absorption | You | Director values; heir callback and cross-world travel open | [foundation](gm/life-sim-foundation-2026-10-07/ACCEPTANCE_BACKLOG.md), [experience](gm/life-sim-experience-2026-10-07/ACCEPTANCE_BACKLOG.md), [non-Factorio](gm/non-factorio-absorption-2026-10-07/ACCEPTANCE_BACKLOG.md) |
+| 10-07 | Village story | Unrun | A1–A4 incl. shared attention-routing repair | [backlog](gm/story-life-2026-10-07/ACCEPTANCE_BACKLOG.md) |
+| 10-07 | Home/social base (base, social, visits, Proto23-native) | Unrun | All families deferred and unrun | [combined](gm/home-social-base-2026-10-07/ACCEPTANCE_BACKLOG.md) |
+| 10-07 | Audit implementation (kit reserve, clamping frame, remainder, home, combat objectives, missed Hank) | Unrun | Kit reserve later superseded by Foundation R4 | [root](gm/audit-implementation/ACCEPTANCE_BACKLOG.md), [remainder](gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md) |
+| 10-07 | Audit absorption (incl. duty) | Unrun | All rows deferred | [root](gm/audit-absorption-2026-10-07/ACCEPTANCE_BACKLOG.md), [duty](gm/audit-absorption-2026-10-07/duty/ACCEPTANCE_BACKLOG.md) |
+| ≤10-07 | Artifact collection, reference gameplay, NetHack fieldcraft, book-world player agency | Unrun | Behavior checks deferred and unrun | [artifacts](gm/artifact-collection/ACCEPTANCE_BACKLOG.md), [reference](gm/reference-gameplay/ACCEPTANCE_BACKLOG.md), [NetHack](gm/nethack/ACCEPTANCE_BACKLOG.md), [agency](gm/book-world-player-agency/ACCEPTANCE_BACKLOG.md) |
+| 10-06 | World completion, status care, care worlds, game absorption | Unrun | All groups deferred and unrun | [world](gm/world-completion-2026-10-06/ACCEPTANCE_BACKLOG.md), [status](gm/status-care-2026-10-06/ACCEPTANCE_BACKLOG.md), [care](gm/care-worlds-2026-10-06/ACCEPTANCE_BACKLOG.md), [games](gm/game-absorption-2026-10-06/ACCEPTANCE_BACKLOG.md) |
+| 10-06 | Book-world completion (Goa, Cyoria, Paradise) | Unrun | "None has run or passed" | [backlog](gm/book-world-completion-2026-10-06/ACCEPTANCE_BACKLOG.md), [Paradise](gm/book-world-completion-2026-10-06/PARADISE_ACCEPTANCE_BACKLOG.md) |
+| 10-05 | Feature wave (nested campaign), skills, frontier | Unrun | Implemented-unverified | [nested](gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md), [PLAYTEST](PLAYTEST.md) |
+
+Takeaway: 11 *Unrun* rows (about 25 wave folders), mostly from before the
+fresh-origin browser rule. They are cheapest to retire with a bot pass (the PT45 harness, CK32) before they
+cost you play time; *You* rows are where your sessions matter.
