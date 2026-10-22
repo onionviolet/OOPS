@@ -25,3 +25,11 @@ export function completeFieldProject(p) {
     p=fieldCommand(p,"field.project_start","Village",{targetId:"oldCraftsman"});p=fieldAdvance(p,7);p=fieldCommand(p,"field.inspect");
     return fieldAdvance(fieldCommand(p,"field.workshop.assembly","Shack"),3);
 }
+// Named scenario (GN5): a carried poison condition to bind. DEV SEEDED: the venom is injected into a save, not earned in play.
+// Pairs with the frontier binder journey (harvest salt, brew, drink); content frontier.brew@2, no user save touched.
+export const BINDER_FIXTURE=Object.freeze({label:"DEV SEEDED binder scenario",content:"frontier.brew@2",poison:"Mild necrotizing venom",minutes:50});
+export async function seedBinderPoison(save,{minutes=BINDER_FIXTURE.minutes}={}) {
+    const {effect_templates}=await import("../src/active_effects.js");
+    const template=effect_templates[BINDER_FIXTURE.poison];
+    return {...structuredClone(save),active_effects:{...save.active_effects,[template.id]:JSON.parse(JSON.stringify({...template,duration:minutes}))}};
+}

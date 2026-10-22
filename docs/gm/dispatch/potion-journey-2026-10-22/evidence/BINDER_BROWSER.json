@@ -1,0 +1,7 @@
+{
+  "viewport": "1920x1080",
+  "setup": "DEV SEEDED venom (50 min) on a fresh generated life; harvest, brew, drink, Save, reload, Export, literal Import all native",
+  "binds": 28,
+  "venomAfter": 7,
+  "errors": []
+}
