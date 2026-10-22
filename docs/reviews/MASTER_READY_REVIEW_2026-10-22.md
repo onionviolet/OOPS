@@ -97,3 +97,9 @@ The active source-acquisition document and every originally untracked file left
 out of the commit remain byte-identical to the review snapshot. The only
 remaining tracked change is that active document. Local-only artifacts remain
 available; their presence is intentional and is not an incomplete push.
+
+Later app delivery, 2026-10-22: the user's requested app update is completed in
+[the adoption owner](../gm/dispatch/master-ready-review-2026-10-22/APP_ADOPTION.md),
+including a narrow natural-clock quote fix, 2,591 passing tests and actual
+normal-profile adoption/restart. The previous app-adoption deferral above is
+historical for the initial publication run.

@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "sourceCommit": "629254f307bfd6489ff1275649918d474ba74096",
+  "build": "v0.6-1c223618b5b5",
+  "background": false,
+  "url": "app://yairpg/index.html",
+  "startScreen": "open",
+  "viewport": {
+    "width": 1800,
+    "height": 1038
+  },
+  "savePresent": true,
+  "runtimeFiles": 82,
+  "allSnapshotFilesMatch": true,
+  "bundleSha256": "755bdf98cb8816ca7bed4177e9147f903d2f1d11bd2a003ab5e67a10131c3594",
+  "nativeUpdate": "Native Save and reload followed by graceful full app restart",
+  "profile": "normal player profile, unchanged origin",
+  "privacy": "No private save inspection, fixture import, character creation or gameplay commands in this profile",
+  "normalDialogsAndExports": true,
+  "pid": 66475,
+  "at": "2026-10-22T22:58:07.221Z"
+}

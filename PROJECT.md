@@ -1,5 +1,15 @@
 ## Current delivery routing, checked 2026-10-22
 
+Normal-app master update, 2026-10-22: the normal player app now adopts
+`v0.6-1c223618b5b5`, with all 82 runtime files matching the verified master
+runtime. A natural-clock Electron check found and corrected preparation quotes
+expiring on unrelated idle ticks. The fix passes 2,591 tests; native workshop,
+institution and cultivation actions/persistence and the retained system-font
+override are verified. Real Save and reload plus a full normal-mode restart
+retain the exact build. [Adoption owner and remaining boundaries](docs/gm/dispatch/master-ready-review-2026-10-22/APP_ADOPTION.md).
+LOTM new entry remains localhost test-only; human pacing/taste remains open.
+This supersedes earlier current-app and pending-adoption labels below.
+
 Ready-work consolidation, 2026-10-22: Weibao authorized reviewing and publishing
 completed uncommitted work while preserving active edits. The
 [review](docs/reviews/MASTER_READY_REVIEW_2026-10-22.md) reconciles the stale

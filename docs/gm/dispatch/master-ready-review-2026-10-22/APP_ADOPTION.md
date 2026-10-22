@@ -63,3 +63,29 @@ Private app screenshots, failed diagnostics, inspector handles and test exports
 remain under `/Users/weiwei/.codex/research/master-app-adoption-2026-10-22/`.
 Public proof excludes personal-profile content and history-bearing screenshots.
 The original visible preview and other active agents are preserved.
+
+## Final normal-app result
+
+[Actual player-app receipt](APP_ADOPTED.json): **PASS**. Source fix
+`629254f307bfd6489ff1275649918d474ba74096` produces frozen build
+`v0.6-1c223618b5b5`, bundle
+`755bdf98cb8816ca7bed4177e9147f903d2f1d11bd2a003ab5e67a10131c3594`.
+All 82 snapshot files match the primary checkout. The player app adopted it
+through the real **Save and reload** control; a graceful full restart retained
+the same current pointer and served bundle. The final window runs in normal
+player mode (`background: false`) with ordinary prompts/exports, remains at
+PLAY, and reports the existing save present. No character creation, test import,
+private save inspection or gameplay command was performed in that profile.
+
+The new original routes appear through **More panels → Gear workshop**, **Homes**,
+and **Projects → Mistglass conservatory**, subject to their existing native
+lesson, entry and earned-state conditions. Disposable native Electron proof
+shows the actual new controls, both kit routes, fitting/lining effects, office
+fund settlement and compatible path-work expenditure, with three complete
+Save/reload/Export/literal-Import cases. The typography follow-up respects the
+explicit system14 saved override and reports zero missing resources. LOTM new
+entry remains localhost test-only; this app update does not claim to expose it.
+
+The current app gate is closed. Human pacing/taste and each feature owner's
+deferred gameplay remain open. The earlier no-adoption/publication wording in
+linked dated records describes their original execution boundaries.

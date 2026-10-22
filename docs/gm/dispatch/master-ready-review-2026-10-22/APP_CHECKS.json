@@ -58,7 +58,13 @@
       "correction": "Initial Gothic-14 assertion was wrong for the retained explicit system-font save override; rendered system font and saved preference agree."
     }
   },
-  "normalApp": "pending final native reload/restart after guarded integration",
+  "normalApp": {
+    "result": "PASS",
+    "receipt": "APP_ADOPTED.json",
+    "build": "v0.6-1c223618b5b5",
+    "nativeReloadAndFullRestart": "PASS",
+    "normalPlayerMode": true
+  },
   "remaining": [
     "Human pacing/taste acceptance",
     "LOTM new entry remains localhost probe-only",
