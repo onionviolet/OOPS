@@ -8,17 +8,17 @@
         <link rel="stylesheet" href="styles/display_settings.css">
         <link rel="stylesheet" href="styles/status_window.css">
         <link rel = "stylesheet" href = "style.css?version=v0.6-782583166527">
-        <link rel="stylesheet" href="styles/action_legibility.css?version=0eb2ba0cb8f1">
+        <link rel="stylesheet" href="styles/action_legibility.css?version=efa6474a0197">
         <link rel="stylesheet" href="styles/crafting_detail.css">
         <link rel="stylesheet" href="styles/component_themes.css">
         <link rel="stylesheet" href="styles/start_probe.css">
-        <link rel="stylesheet" href="styles/ui_tokens.css?version=d0baf47852e4">
+        <link rel="stylesheet" href="styles/ui_tokens.css?version=0935ded27084">
         <link rel="stylesheet" href="styles/shell_layout.css?version=af7afc4a29e9">
         <link rel="stylesheet" href="styles/inventory.css?version=e859760fe686">
-        <link rel="stylesheet" href="styles/opponents.css?version=fde468a8e2f4">
+        <link rel="stylesheet" href="styles/opponents.css?version=ee0586d33d7e">
         <link rel="stylesheet" href="styles/combat_log.css?version=63144690dd94">
         <link rel="stylesheet" href="styles/oops_branding.css">
-        <link rel="stylesheet" href="styles/shell_chrome.css?version=65ecfeff7457">
+        <link rel="stylesheet" href="styles/shell_chrome.css?version=19eff796e8f6">
         <link rel="stylesheet" href="styles/inventory_composition.css">
         <link rel="stylesheet" href="styles/nearby_context_view.css">
         <link rel="stylesheet" href="styles/ui_extras.css">
@@ -27,7 +27,7 @@
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-a3d30307661c"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-e35668b18622"></script>
 
         <!--Icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -80,8 +80,8 @@
                 </div>
                 <div id = "loading_screen_inspirations">
                     <span class="loading_inspirations_label">Inspired by</span>
-                    <span class="loading_reference_credit"><a href="https://github.com/miktaew/yet-another-idle-rpg" target="_blank">Yet Another Idle RPG</a><span>by <span class="loading_credit_author">Miktaew <span aria-hidden="true">🐱</span></span></span></span>
-                    <span class="loading_reference_credit"><a href="https://23html.github.io/" target="_blank">Proto23</a><span>by <span class="loading_credit_author">23html</span></span></span>
+                    <span class="loading_reference_credit"><a href="https://github.com/miktaew/yet-another-idle-rpg" target="_blank" rel="noopener noreferrer">Yet Another Idle RPG</a><span>by <span class="loading_credit_author">Miktaew <span aria-hidden="true" title="Miktaew’s original cat signature">🐱</span></span></span></span>
+                    <span class="loading_reference_credit"><a href="https://23html.github.io/" target="_blank" rel="noopener noreferrer">Proto23</a><span>by <span class="loading_credit_author">23html</span></span></span>
                 </div>
             </div>
             
@@ -743,8 +743,13 @@
             <div id = "changelog_button" class = "game_info"><a href="changelog.html" target="_blank"></a></div>
             <div id = "help_button" class = "game_info"><a href="help.html" target="_blank"><i class="material-icons">help_outline</i></a></div>
 
-            <div id = "repo_link" class = "repo_link" title="Check out the repository!"><a href="https://github.com/onionviolet/OOPS" target="_blank"><img src="resources\img\github-mark-white.png" style="height:32px" alt="GitHub icon"></a></div>
-            <div id = "ko_fi_link" class = "financial_link" title="Support me on Ko-fi!"><a href="https://ko-fi.com/miktaew" target="_blank"><img src="resources/img/ko-fi_icon.png" style="height:40px" alt="Ko-fi icon"></a></div>
+            <div id = "repo_link" class = "repo_link" title="OOPS source · onionv"><a href="https://github.com/onionviolet/OOPS" target="_blank" rel="noopener noreferrer" aria-label="OOPS source on GitHub · onionv"><img src="resources/img/github-mark-white.png" alt=""><span class="creator_link_label">OOPS source · onionv</span></a></div>
+            <div id = "ko_fi_link" class = "financial_link" title="Support Miktaew, the original YAIR author"><a href="https://ko-fi.com/miktaew" target="_blank" rel="noopener noreferrer" aria-label="Support Miktaew on Ko-fi · original YAIR author"><img src="resources/img/ko-fi_icon.png" alt=""><span class="creator_link_label">Support Miktaew on Ko-fi <span aria-hidden="true">🐱</span></span></a></div>
+            <nav id="reference_creator_links" aria-label="Original games and creators">
+                <a href="https://miktaew.github.io/yet-another-idle-rpg/" target="_blank" rel="noopener noreferrer">Play YAIR · Miktaew <span aria-hidden="true">🐱</span></a>
+                <a href="https://23html.github.io/" target="_blank" rel="noopener noreferrer">Play Proto23 · 23html</a>
+                <a href="https://github.com/23html/23html.github.io" target="_blank" rel="noopener noreferrer">Proto23 source</a>
+            </nav>
         </div>
 
         <div id="options_panel" data-nosnippet>

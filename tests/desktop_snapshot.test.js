@@ -52,3 +52,22 @@ test('pointers never name a folder outside builds, and pruning keeps current', (
     fs.writeFileSync(path.join(buildsDir(userData), 'latest.json'), '{torn');
     assert.equal(readPointer(userData, 'latest.json'), null);
 });
+
+test('frozen desktop build includes linked local assets and keeps independent bytes',()=>{
+ const work=fs.mkdtempSync(path.join(os.tmpdir(),'oops-snapshot-test-'));
+ try{
+  const root=path.join(work,'source'),linked=path.join(work,'local-fonts');
+  fs.mkdirSync(path.join(root,'dist'),{recursive:true});fs.mkdirSync(path.join(root,'resources'),{recursive:true});fs.mkdirSync(linked);
+  fs.writeFileSync(path.join(root,'index.html'),'<title>OOPS</title>');fs.writeFileSync(path.join(root,'dist/bundle.js'),'// frozen');
+  fs.writeFileSync(path.join(linked,'font.woff2'),'original-font');fs.symlinkSync(linked,path.join(root,'resources/fonts'),'dir');
+  fs.symlinkSync(path.join(linked,'font.woff2'),path.join(root,'resources/individual.woff2'));
+  const build=makeSnapshot(root,path.join(work,'profile'));
+  fs.writeFileSync(path.join(linked,'font.woff2'),'later-font');
+  for(const rel of ['resources/fonts/font.woff2','resources/individual.woff2']){
+   assert.equal(fs.readFileSync(path.join(build.root,rel),'utf8'),'original-font');
+   assert.equal(fs.lstatSync(path.join(build.root,rel)).isSymbolicLink(),false);
+  }
+  fs.symlinkSync(path.join(root,'resources'),path.join(linked,'cycle'),'dir');
+  assert.throws(()=>makeSnapshot(root,path.join(work,'profile')),/directory link cycle/);
+ }finally{fs.rmSync(work,{recursive:true,force:true});}
+});

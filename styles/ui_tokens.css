@@ -1573,7 +1573,7 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
 #main_content.workspace-active .customization-module[data-component-theme="luminous"] :focus-visible {
  outline: 2px solid var(--theme-focus) !important; outline-offset: 2px; box-shadow: var(--ui-luminous-glow);
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(button:disabled,[aria-disabled="true"],.action_unavailable,.activity_unavailable,.recipe_unavailable) {
+#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(button:disabled,[aria-disabled="true"],.action_unavailable,.activity_unavailable) {
  text-shadow: none; box-shadow: none; border-style: dashed; opacity: 1;
 }
 #main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(#proto23_item_detail,.customization-panel,.recipe_tooltip,.skill_tooltip,.item_tooltip) {

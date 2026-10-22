@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: batch preview quotes maximum native input use without reserving it or promising outputs
+ok 1 - batch preview quotes maximum native input use without reserving it or promising outputs
+  ---
+  duration_ms: 3.223291
+  type: 'test'
+  ...
+# Subtest: receipt reports measured attempt and success totals for immediate batches
+ok 2 - receipt reports measured attempt and success totals for immediate batches
+  ---
+  duration_ms: 1.092791
+  type: 'test'
+  ...
+# Subtest: household picture follows current supported public hearth and animal facts
+ok 3 - household picture follows current supported public hearth and animal facts
+  ---
+  duration_ms: 1.288792
+  type: 'test'
+  ...
+# Subtest: UI changes introduce no unreviewed colors, fonts, radii, cssText or foreign-host insertion
+ok 4 - UI changes introduce no unreviewed colors, fonts, radii, cssText or foreign-host insertion
+  ---
+  duration_ms: 4458.002667
+  type: 'test'
+  ...
+# Subtest: UI contract catches new literal styling and aliased/direct foreign panel insertion
+ok 5 - UI contract catches new literal styling and aliased/direct foreign panel insertion
+  ---
+  duration_ms: 0.783208
+  type: 'test'
+  ...
+# Subtest: every panel declares a surface type and every route resolves through the route table
+ok 6 - every panel declares a surface type and every route resolves through the route table
+  ---
+  duration_ms: 1813.999042
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6616.085958

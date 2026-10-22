@@ -1,0 +1,11 @@
+--- tested-candidate/src/main.js
++++ live-primary/src/main.js
+@@ -9889,7 +9889,7 @@
+         read: () => {const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,
+             context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};}, command: actSimulation});
+     fieldPanel = createFieldPanel({registry:expeditionRegistry,read:()=>{const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,
+-        context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation});
++        context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation,localActions:document.getElementById('location_actions_div'),openWorkshop:()=>{adventureNotebook?.open('here');expandWorkspaceModule('notebook');}});
+     promisePanel=createPromisePanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken,inDialogue:!!current_dialogue,inCombat:!!current_combat}),command:actSimulation});
+     chroniclePanel = createChroniclePanel({read: () => ({structuredLife:structuredLifeView(expansionState,optionalPackState.structured),state: expansionState, context: chronicleContext(),
+         canWrite: ownsSave && !importProbeToken && !foundationSaveBlocked,

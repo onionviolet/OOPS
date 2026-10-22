@@ -1,3 +1,4 @@
+import {INVENTORY_KINDS,inventoryRowKind,matchesInventoryFilter} from './inventory_filters.js';
 // Shared display grammar only. Reasons come from the action's existing owner.
 let reasonSequence=0;
 export function decorateActionComponents(root) {
@@ -35,19 +36,28 @@ export function decorateInventoryList({id='inventory_content_div',label='invento
     const search=document.createElement('input');search.type='search';search.placeholder=`Find ${label}`;search.setAttribute('aria-label',`Find ${label}`);
     const count=document.createElement('output'),empty=document.createElement('p');empty.className='ui-list-empty';
     tools.append(search,count);list.before(tools);list.after(empty);
+    let kind=null,quality=null;
+    if(id==='inventory_content_div'){
+        const select=(label,choices)=>{const box=document.createElement('label');box.textContent=label+' ';const n=document.createElement('select');n.setAttribute('aria-label',label);for(const [value,text]of choices){const o=document.createElement('option');o.value=value;o.textContent=text;n.append(o);}box.append(n);tools.append(box);n.addEventListener('change',()=>{refresh();list.scrollTop=0;search.dispatchEvent(new Event('input',{bubbles:true}));});return n;};
+        kind=select('Item kind',INVENTORY_KINDS);quality=select('Quality',[['all','Any quality'],['50','50% or higher'],['100','100% or higher'],['125','125% or higher'],['150','150% or higher'],['none','No quality rating']]);
+        list.inventoryFilter={clear(){kind.value='all';quality.value='all';},active:()=>kind.value!=='all'||quality.value!=='all',summary:()=>[kind.value!=='all'?kind.selectedOptions[0].textContent:'',quality.value!=='all'?quality.selectedOptions[0].textContent:''].filter(Boolean).join(' · ')};
+    }
     let selected=null;
     const name=row=>row.querySelector(nameSelector)?.textContent||row.firstElementChild?.textContent||row.textContent;
     const key=row=>row.dataset.character_item||row.id||name(row);
     function refresh(){
         const rows=[...list.querySelectorAll(rowSelector)];let visible=0;
         for(const row of rows){
-            row.classList.toggle('ui-list-filtered',!name(row).toLowerCase().includes(search.value.toLowerCase()));
+            const q=row.dataset.item_quality;
+            const facts={name:name(row),kind:inventoryRowKind([...row.classList]),quality:q!=null&&q!==''&&Number.isFinite(Number(q))?Number(q):null};
+            row.classList.toggle('ui-list-filtered',!matchesInventoryFilter(facts,{query:search.value,kind:kind?.value||'all',quality:quality?.value||'all'}));
             if(getComputedStyle(row).display!=='none')visible++;
             row.toggleAttribute('data-ui-selected',!!selected&&key(row)===selected);
         }
-        const text=`${visible} / ${rows.length}`;if(count.textContent!==text)count.textContent=text;
+        const units=rows.filter(row=>getComputedStyle(row).display!=='none').reduce((n,row)=>n+(Number(row.dataset.item_count)||1),0);
+        const text=`${visible} / ${rows.length} stacks · ${units} items`;count.title='Matching stacks and units after category, name, kind and quality filters.';if(count.textContent!==text)count.textContent=text;
         // A panel may describe its own empty state (R18 inventory tabs: nothing held, empty category, no match).
-        empty.hidden=visible>0;const hint=list.emptyHint?.()||(rows.length?'No matches. Clear search or change the category.':emptyText);if(empty.textContent!==hint)empty.textContent=hint;
+        empty.hidden=visible>0;const hint=(list.inventoryFilter?.active()?'No items match these view choices. Clear filters to see all.':list.emptyHint?.())||(rows.length?'No matches. Clear search or change the category.':emptyText);if(empty.textContent!==hint)empty.textContent=hint;
     }
     search.addEventListener('input',()=>{refresh();list.scrollTop=0;});
     list.addEventListener('focusin',event=>{const row=[...list.querySelectorAll(rowSelector)].find(n=>n.contains(event.target));if(row){selected=key(row);refresh();row.scrollIntoView({block:'nearest'});}});

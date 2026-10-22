@@ -576,3 +576,110 @@ required where the existing learned finite repeat already suffices.
 Later selected-case done check: interrupt one useful dry → kit → use chain,
 resume through the real owners and verify stock/current-state persistence. Level:
 strong runtime agent; medium only when that chain is authorized. See G27/G28.
+
+
+## Minecraft fit round MF, 2026-10-21
+
+Later execution authority: [Weibao's all-seven request](USER_VISION.md#minecraft-mechanisms-in-existing-systems-2026-10-21). These are original Frontier adaptations of source mechanisms, not copied mod content or universal world laws. AR1–16, MR1–36, AD6–8/15–17/33/36/38 and UR1–64 apply. The [checkpoint](gm/dispatch/minecraft-fit-2026-10-21/CHECKPOINT.md) owns source reservations and checks; its final report owns demonstrated delivery. Earlier proposal-only research remains historical source evidence, not proof of runtime integration.
+
+### ACT NOW: selected implementation and small details
+
+MF1–MF7 and their small-detail rows are technically delivered in primary source
+and a rebuilt native preview. [Delivery report](gm/dispatch/minecraft-fit-2026-10-21/REPORT.md)
+and its CHECKS.json record 2,470 passing tests, native work/persistence and
+desktop evidence. These selected local adaptations are done; natural pacing
+and director visual/play acceptance remain separate. The larger MF11–MF13
+applications below are not silently part of this delivery.
+
+| Code | Source evidence | Fitting connected application | Smaller consequential details |
+|---|---|---|---|
+| MF1 | [Ars source pass F1–F7](research/ars-nouveau/REPORT.md), pinned fd8c952 | Ordered reusable clay operations; one resolver for a recorded sequence, actual stage outputs, direct use and finite repeats | MF1a learned verbs remain reusable; MF1b heat strength changes cost and output; MF1c modifier/sequence quote consumes nothing; MF1d each queued application reserves its own stock and stops on shortage |
+| MF2 | [Create TA3, TA12, TA14](research/minecraft/audits/TA_TECH_AUTOMATION.md) | Two-load local drive shared by player and helper; charcoal-fed saw and fitting press; real receiving trays | MF2a free load names the bottleneck; MF2b idle/disconnected drive burns no fuel; MF2c filled receiver blocks another batch; MF2d each collection keeps its same tray; MF2e replacement trays can be made from actual wood; MF2f revoking transmission support refunds unperformed preparation once |
+| MF3 | [Occultism SR8–10, SR21](research/minecraft/audits/SR_SPELLS_RITUALS.md) | A bound, separately supplied wisp owns its log, fuel and receiver; assigned finite batches use local drive and reservoir | MF3a binding and refinement spend actual energy/payment; MF3b rank changes duration, not unearned material yield; MF3c idle helper spends no energy; MF3d pause retains orders; MF3e held inputs can be recalled; MF3f output waits in worker custody until collection |
+| MF4 | [Spectrum MR4/N01](research/minecraft/audits/MR_MAGIC_RESEARCH.md) | Retained material parcel, an experiment route before identification, a characterization and a faster demonstrated shortcut | MF4a unknown properties act before discovery; MF4b observation reserves and returns the same sample; MF4c ordinary inventory keeps the neutral label; MF4d recorded characterization changes the workshop description; MF4e optional paid test notes explain a method without revealing the answer or granting discovery |
+| MF5 | [Botania MR17–18 and generating-flower code pass](research/minecraft/audits/MR_MAGIC_RESEARCH.md) | Ceramic vessel/drainage support supplied ember and mixed-herb beds; energy feeds techniques and the wisp | MF5a different inputs and rhythms; MF5b mixed feeding needs both actual herbs; MF5c twelve-unit finite reservoir; MF5d incoming room reserved before input is fed; MF5e full receiver consumes nothing; MF5f spent energy frees room at settlement, protecting overlapping work/refunds |
+| MF6 | [TFC E1–E9 and interruption digest](research/minecraft/tfc-chains-2026-10-14/CHAINS_DIGEST.md) | Clay -> wet -> dry -> fired vessel, useful cracked ceramic, and real ore/mineral charge -> native Iron ingot | MF6a hot wet clay cracks; MF6b gentle warming leaves clay unfired; MF6c completed stages persist across later cancellation; MF6d unfired dry clay can be rewetted; MF6e fired fragments remain ceramic and serve drainage; MF6f firing spends actual charcoal; MF6g iron output feeds ordinary native stock or the drive/press |
+| MF7 | [MineColonies WC12, WC51–54](research/minecraft/audits/WC_WORLDS_COLONIES.md) | Prepaid field fitter requests exact staves/fitting/tray, produces ordinary native survey kits and retains output | MF7a separate outstanding and earned wages; MF7b outstanding input request; MF7c whole delivery rejected if already supplied/reserved/full; MF7d pause retains funding; MF7e unearned wages can be returned; MF7f renew only after existing orders settle; MF7g no extra wage, stock or kit is granted by inspection or reload |
+
+### ACCOUNT FOR NOW
+
+MF8: one shared simulation clock, transaction path and save envelope. Helpers are actual simulation inventory owners, not a passive production multiplier. All current-state records and pending reservations must round-trip. New optional state remains absent until funded setup. Reservoir conservation includes incoming space, outgoing energy and pending jobs, not merely the two visible balances. Drive load includes held job reservations. Receiver items represent custody and capacity together.
+
+MF9: knowledge and true material action remain separate. No sealed truth belongs in reports or generic inventory labels. A supplied characterization has a real experimental route. Learned shortcuts do not alter ore yield, material identity or paid inputs. Existing native survey kits, Iron ingots and spare parts remain their own items; no duplicate currency/inventory is introduced.
+
+MF10: stage-specific interruptions, rather than a universal undo. This local sheltered bench commits each dry/fire stage at completion and refunds unperformed preparation; cancelling a later step retains the actual earlier product. This does not establish that an outdoor kiln, rain-exposed drying rack or every world uses the same policy. Original balance and natural pacing require play judgment. Desktop target is 1920x1080; existing Here/field details own the surface and mobile remains deferred.
+
+### LATER / DELEGATE: useful larger applications outside this selected local adaptation
+
+| Code | Application | Level / effort | Done check |
+|---|---|---|---|
+| MF11 | Create transport schedules and in-flight delivery promises across actual sites | Sol medium / large | A delayed shipment cannot trigger duplicate ordering; custody and clock survive save/import |
+| MF12 | Ars delivery forms and world-specific effects beyond local clay; maintained living environments and helper care | Sol medium / large | Two genuinely different targets use supported operations with actual costs and observer-safe results |
+| MF13 | MineColonies settlement housing/research/worker networks and TFC outdoor drying/seasonal processing | Sol medium / large | Existing home/season/site owners supply real conditions; no parallel housing, calendar or broad NPC simulation is created |
+
+These larger applications remain candidates, not prerequisites for the selected seven fitting local mechanisms and not a claim that whole Minecraft mods were replicated. No delegation is launched by this table.
+
+
+### MF continuation: main-game detail and dependency pass, 2026-10-21
+
+Later [director instruction](USER_VISION.md#minecraft-main-game-integration-continuation-2026-10-21) authorizes extending the earlier delivery. The previous MF11–MF13 table remains a dated proposal inventory; the fitting local parts below are now selected and implemented. This does not claim a complete copy of seven mods. Same AR/MR/UR/AD codes, pinned source evidence and original Frontier law framing apply.
+
+#### ACT NOW (done, technical gates)
+
+| Code | Source connection and implementation | Done check |
+|---|---|---|
+| MF14 | Ars delivery target/modifier grammar and TFC retained work: select actual clay, wet vessels or dry vessels, with one/three-piece applications; older sequence IDs retain their meaning. Shack has an ordinary local action opening the existing workshop through shared navigation. | Correct target stock, energy, output and pending input survive cancellation/import; native action and Back work at desktop target |
+| MF15 | TFC enclosed preparation and Create useful inputs: covered two-log charge retains its fired retort and yields two ordinary native charcoal. | Real wood spent once; retort retained once; charcoal usable by drive, garden and ordinary native consumers |
+| MF16 | Botania supplied environments and generating rhythms: prepare three garden-care feedings from two actual herbs; each tended ember feeding spends care and charcoal for six energy. | Full reservoir consumes no fuel/care; finite care, room and pending reservations balance |
+| MF17 | Spectrum knowledge from demonstrated action: repeat a combined ore treatment after actual characterization and a successful separate firing. | Hidden before both demonstrations; same actual inputs/yield, less repeated setup, observer-safe generic stock |
+| MF18 | Occultism assignment fallback and MineColonies finite contracts: withdraw paused remaining wisp orders without deleting goods; spent contracts cannot resume phantom batches. | Held supplies recoverable; pending work must settle before withdrawal; funding not reissued |
+| MF19 | Create scheduled logistics, Occultism separate custody and MineColonies request resolvers: paid handcart depot owns stock, schedules two-minute deliveries and output pickups, prioritizes pickups, reserves recipient/cargo and pays completed trips. | Promised deliveries block duplicate supply; paused in-flight cargo/wages refund once; actual products return to native inventory; save/reload/export/literal import |
+
+#### ACCOUNT FOR NOW
+
+MF20: a funded route can finish before its next pickup. That is visible in the status; held worker output remains manually collectible or available to a renewed route. Depot stock remains recoverable after closure. Waiting for requests, power, energy or missing stock earns no wage. Courier reservation of the recipient prevents a direct delivery from satisfying the same request while cargo is promised. Pause at any stage retains already completed products and wages. Pausing a maker retains its outstanding supply request; pause the handcart route to stop transport as well. A partly recalled bundle must be recalled fully before a new exact delivery, so held quantities cannot silently be overwritten.
+
+MF21: batch size and queue count multiply. A three-piece application reserves three actual workpieces and its full energy. Each of three queued applications independently checks current stock; the twelve-unit reservoir can stop a later application. Garden care is prepared mulch for these sheltered beds, not a second biological/calendar simulation or an undisclosed decay timer. Original values are playable defaults with material/time reasons, adjustable after play.
+
+MF22: main-game integration uses the existing Frontier workshop and native item/effect/clock/persistence seams. No per-mod save bank, copied Minecraft assets or parallel home owner is added. A populated earlier-workshop fixture proves the changed journey, not the natural opening progression. Main-source identity and generated primary delivery are recorded separately in the dispatch.
+
+#### LATER: triggers for different settings, not unfinished local promises
+
+| Code | Additional fitting application | Trigger and reason | Level / effort / done check |
+|---|---|---|---|
+| MF23 | Cross-site freight and exposed drying | A playable second production site or exposed rack needs actual travel distance/weather history. Current handcart is honestly a local station route and drying is sheltered. | Sol medium / large; delayed cross-site custody and weather interruption through existing site/calendar owners |
+| MF24 | Colony residences and different workshop bodies | Current home owner is actively implementing actual rights/furnishings. Consume its released workplace/occupancy ports when a specific resident needs them. Do not invent a competing housing ledger. | Sol medium / medium; real local access/means change actual work and retained custody |
+| MF25 | Other targets and living gardens by world | A concrete non-ceramic target and living environment with material laws needs an actual mechanism; select that law rather than extending the local clay resolver by arbitrary labels. | Sol medium / medium; two supported material processes, actual care and observer-safe tests |
+
+MF14–MF19 delivery evidence: [integration report](gm/dispatch/minecraft-fit-2026-10-21/REPORT.md), 2,486 passing tests, 19 rebuilt native groups, eight exact persistence round trips, primary generated artifacts and actual installed-font 14/21px checks. Natural opening pacing and human play judgment remain distinct.
+
+
+### MF26 continuation: real sites, exposed work and worker residences, 2026-10-21
+
+Later [director authorization](USER_VISION.md#freight-exposed-drying-and-residence-aware-workers-2026-10-21) selects the fitting MF23–MF25 follow-ons. Same pinned source evidence and AR/MR/UR/AD codes apply, plus SR1/15/19/22 for the actual endpoints. The existing dispatch owns evidence; source and primary generated delivery are complete. [Final release evidence](gm/dispatch/minecraft-fit-2026-10-21/ROUTES_RELEASE.json) records the exact checks; natural opening pacing and human judgment remain separate. Earlier reports remain historical checks of their own inputs.
+
+#### ACT NOW (done, technical gates)
+
+| Code | Implemented mechanism and source connection | Done check |
+|---|---|---|
+| MF26 | Create schedules and MineColonies delivery promises: actual Shack/Village depots, existing ten-minute road, one funded parcel, empty return, reserved cargo and receiving space | Both directions, waiting/full destination, pause/refund, no destination-to-player teleport, persisted legs |
+| MF27 | TFC exposed preparation: actual three-piece wet batch, six consecutive dry minutes, rain reset even when paused, paid cover and local collection | Native rain boundary, long/split advances, wet addition resets progress, cover protection, retained stages |
+| MF28 | MineColonies residence support: home-owned guestroom occupancy shared with the existing paying lodger, actual hired human, explicit day/night rota | No double occupancy; live access and the home owner's structural rest predicate; accepted work finishes across shift end; lost support refunds unperformed work |
+| MF29 | Occultism/MineColonies custody fallbacks: individual missing-component deliveries after a partial recall | Whole duplicate delivery blocked, missing part accepted exactly once, actual output and wages |
+| MF30 | Spectrum object/knowledge distinction across logistics: neutral retained samples and prepared charges travel as actual stock | Shipping does not identify a parcel, change a hidden truth or grant observation |
+| MF31 | Ars and Botania existing consumers: retained wet/dry/fired work, charcoal and both actual herbs can be freight cargo | Transport changes custody and place; it grants neither a technique nor free garden energy |
+| MF32 | Native context/lifecycle detail: historical weather uses day_count, shifts use the service calendar, and the workshop action restores after native location refresh | Different calendar epochs do not disagree about rain; no clock tick or game mutation is required merely to reopen controls after import |
+
+#### ACCOUNT FOR NOW
+
+MF33: source receiving places remain reserved until delivery settles, so a paused parcel can return without overflowing a newly refilled box. Destination places are reserved for incoming cargo as well. Waiting, returning empty or inspecting a manifest earns no extra wage. The same human finishes an accepted batch across a rota boundary; a new batch waits for their next shift. A wisp still needs its actual binding, supplies and energy rather than a human bedroom. Native home extensions now consume the same pure rain calendar; residence structure and rest remain with the home owner.
+
+MF34: the calendar has two distinct owners of meaning, not two new timers. Native weather uses elapsed day_count; recurring service dates use year/month/day. Their stamped read frames project the one played expansion clock through long or split advances. Missing weather history pauses exposed processing. Resetting a drying batch commits exposure, not a global undo of earlier firing. Current values describe these authored Frontier sites, room contracts and material laws, with travel, capacity, supplies and shelter as their reasons.
+
+#### LATER / DELEGATE
+
+| Code | Useful different setting | Trigger, effort and done check |
+|---|---|---|
+| MF35 | Multi-stop manifests, alternate roads and vehicles | A second real route or vehicle appears; Sol medium / medium. Preserve cargo through route changes, capacity and actual travel times, with one dispatcher owner |
+| MF36 | Different habitats and worker tools | An actual nonhuman worker or job asks for a different bed/tool; Sol medium / medium. Use the existing body, equipment and residence owners rather than species labels or a second staff inventory |
+| MF37 | Humidity/temperature-specific drying or biological garden change | A selected material or world depends on those existing weather channels; Sol medium / medium. Both historical conditions and interruptions have an observable native route; no arbitrary modifier or parallel calendar |

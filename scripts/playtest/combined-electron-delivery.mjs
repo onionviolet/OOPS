@@ -1,0 +1,60 @@
+// Exact released-build adoption on a spare profile; never reads a player's save.
+import {createRequire} from 'node:module';
+import {readFile,writeFile,mkdir,mkdtemp} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+import {resumeElectronGame} from './electron_ready.mjs';
+const require=createRequire(import.meta.url),{loadPlaywright}=require('../ui_helpers.cjs');
+const {makeSnapshot,readPointer}=require('../../desktop/snapshot.cjs');
+const {_electron}=loadPlaywright(),root=resolve('.');
+const release=JSON.parse(await readFile(process.argv[2]||'docs/gm/dispatch/minecraft-fit-2026-10-21/ROUTES_RELEASE.json','utf8'));
+const out=resolve(process.argv[3]||'docs/reviews/proto23_desktop_2026-10-21/integration');await mkdir(out,{recursive:true});
+const profile=await mkdtemp(join(tmpdir(),'oops-combined-adoption-'));
+const old=makeSnapshot(process.argv[4]||'/private/tmp/oops-proto23-desktop-20261021-final',profile);
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const receipt={candidate:release.candidate,profile,old,checks:[],pageErrors:[],consoleErrors:[]};
+const launch=()=>_electron.launch({executablePath:require('electron'),args:[root],cwd:root,env:{...process.env,YAIRPG_ROOT:'',YAIRPG_USER_DATA:profile,YAIRPG_HIDDEN:'1',YAIRPG_FROZEN:'1',YAIRPG_SERVE_LOG:'1',YAIRPG_BUILD_POLL_MS:'300'}});
+let app=await launch(),page=await app.firstWindow();
+const track=()=>{page.on('pageerror',e=>receipt.pageErrors.push(e.message));page.on('console',m=>{if(m.type()==='error')receipt.consoleErrors.push(m.text());});};track();
+try{
+ await resumeElectronGame(page);
+ const confirm=page.locator('#hero_creation_panel_confirmation');if(await confirm.isVisible())await confirm.click();
+ await page.locator('#location_actions_div .location_choice_dropdown').first().waitFor({state:'visible'});
+ await page.locator('#save_button').click();
+ const before=await page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));
+ assert(before.global_flags.is_hero_created);
+ assert.equal((await app.evaluate(()=>globalThis.yairpgServing())).id,old.id);
+ const fresh=makeSnapshot(release.candidate,profile);receipt.fresh=fresh;
+ await page.locator('#yairpg_host_build_notice').waitFor({state:'visible',timeout:15000});
+ assert.equal((await app.evaluate(()=>globalThis.yairpgServing())).id,old.id);
+ await page.screenshot({path:join(out,'update-notice.png')});
+ await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded'}),page.locator('#yairpg_host_build_reload').click()]);
+ await resumeElectronGame(page);
+ const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));
+ assert(after.global_flags.is_hero_created);assert.equal(after['character name'],before['character name']);
+ assert.equal(readPointer(profile,'current.json'),fresh.id);
+ assert.equal((await app.evaluate(()=>globalThis.yairpgServing())).root,fresh.root);
+ assert.equal(hash(await page.evaluate(()=>fetch('dist/bundle.js',{cache:'no-store'}).then(r=>r.text()))),release.bundle_sha256);
+ assert.equal(await page.locator('#reference_creator_links a').count(),3);
+ if(release.requireInventoryOverhaul){assert.equal(await page.locator('select[aria-label="Item kind"] option').count(),8);assert.equal(await page.locator('.storage-batch').count(),1);receipt.checks.push('New inventory kind/quality controls and batch chest UI constructed in the exact adopted Electron bundle');}
+ assert.equal(await page.locator('#ko_fi_link a').getAttribute('href'),'https://ko-fi.com/miktaew');
+ assert.match(await page.locator('#ko_fi_link a').getAttribute('aria-label'),/Miktaew/);
+ const log=await app.evaluate(()=>globalThis.yairpgServeLog);assert.deepEqual(log.misses.filter(url=>!url.endsWith('/private_packs/manifest.json')),[]);receipt.optionalManifestAbsent=log.misses.includes('app://yairpg/private_packs/manifest.json');
+ receipt.checks.push('Native Save and reload adopted exact combined snapshot; existing spare-profile save survived; all resources served; creator links retained');
+ await app.close();app=await launch();page=await app.firstWindow();track();await resumeElectronGame(page);
+ assert.equal((await app.evaluate(()=>globalThis.yairpgServing())).id,fresh.id);
+ assert.equal(hash(await page.evaluate(()=>fetch('dist/bundle.js',{cache:'no-store'}).then(r=>r.text()))),release.bundle_sha256);
+ assert(await page.evaluate(()=>JSON.parse(localStorage.getItem('save data')).global_flags.is_hero_created));
+ await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setContentSize(1920,1080));
+ await page.screenshot({path:join(out,'combined-restarted.png')});
+ const cdp=await page.context().newCDPSession(page);await cdp.send('DOM.enable');await cdp.send('CSS.enable');
+ const {root:dom}=await cdp.send('DOM.getDocument');const {nodeId}=await cdp.send('DOM.querySelector',{nodeId:dom.nodeId,selector:'#inventory_content_div .item_name'});
+ receipt.actualFonts=(await cdp.send('CSS.getPlatformFontsForNode',{nodeId})).fonts;await cdp.detach();
+ assert(receipt.actualFonts.some(f=>f.familyName==='OOPS Gothic Bitmap 14'&&f.isCustomFont));
+ assert.deepEqual(receipt.pageErrors,[]);assert(receipt.consoleErrors.length===0||(receipt.consoleErrors.every(e=>e==='Failed to load resource: the server responded with a status of 404 (Not Found)')&&receipt.optionalManifestAbsent));
+ receipt.checks.push('Electron restart retained adopted build and spare-profile progress; actual Gothic Bitmap 14 rendered from frozen local font');receipt.result='PASS';
+}catch(e){receipt.failure=e.stack;await page.screenshot({path:join(out,'adoption-failure.png')}).catch(()=>{});throw e;}
+finally{await writeFile(join(out,'adoption-receipt.json'),JSON.stringify(receipt,null,2));await app.close();}
+console.log(JSON.stringify({result:receipt.result,profile,checks:receipt.checks}));

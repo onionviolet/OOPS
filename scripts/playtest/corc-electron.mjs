@@ -83,7 +83,7 @@ try{
  const home=structuredClone(seed);home['current location']='Shack';home.availabilities.location.Shack=1;home.locations.Shack={...home.locations.Shack,housing_unlocked:true};home.customization.profiles.Default.settings.typography.size=21;
  await page.setViewportSize({width:1920,height:1080});await open(home);
  await page.locator('#open_storage_div').click();await page.waitForTimeout(500);
- const bread=JSON.stringify({id:'Stale bread'});await page.locator('#storage_comparison select').selectOption(bread);
+ const bread=JSON.stringify({id:'Stale bread'});await page.getByRole('combobox',{name:'Compare carried and chest item',exact:true}).selectOption(bread);
  await page.locator('[data-storage-compare="deposit"]').click();await page.waitForTimeout(500);
  assert.match(await page.locator('[data-storage-comparison]').innerText(),/Carried: 4 · In this chest: 1/);
  await page.screenshot({path:join(out,'storage-21.png')});await page.locator('[data-storage-compare="withdraw"]').click();

@@ -51,7 +51,7 @@ export function householdPresentation(snapshot) {
                 text: `Moss · ${animal.ageMinutes >= HOUSEHOLD.growMinutes ? 'grown' : 'young'} brindled cat · ${animal.mood} · bond ${animal.bond}/100 · ${animal.adopted ? 'at home with you' : 'getting to know you'} · ${animal.gifts} gifts received.`});
             add('pet', 'Sit with Moss', c.clock >= animal.lastInteraction + 5 && h.smoke === 0,
                 h.smoke > 0 ? 'Moss is sheltering outside. Ventilate first.' : 'Allow five played minutes between visits.');
-            add('play', 'Play with Moss · reuse 1 carried Linen cloth', c.clock >= animal.lastInteraction + 5 && h.smoke === 0 && householdPlayCloth(c),
+            add('play', c.playToy?'Play with Moss · use the installed yarn ball':'Play with Moss · reuse 1 carried Linen cloth', c.clock >= animal.lastInteraction + 5 && h.smoke === 0 && householdPlayCloth(c),
                 h.smoke > 0 ? 'Moss is sheltering outside. Ventilate first.' : c.clock < animal.lastInteraction + 5 ?
                     'Allow five played minutes between visits.' : 'Carry your own usable Linen cloth. Play returns it and shares the sitting cooldown.');
         }

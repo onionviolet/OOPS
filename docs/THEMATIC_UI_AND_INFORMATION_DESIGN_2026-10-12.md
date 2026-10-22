@@ -1068,3 +1068,31 @@ Weibao subsequently requested full implementation with Luna subagents, audit, an
 The [implementation report](gm/dispatch/palette-completion-2026-10-20/REPORT.md) and [row reconciliation](gm/dispatch/palette-completion-2026-10-20/COVERAGE.md) own the current evidence. Weibao then authorized another five included-usage points and requested solo completion, audit and repairs. All 53 named bounded treatments now have implementations; the remaining 26 checklist bindings above were checked individually. The [solo audit](gm/dispatch/palette-completion-2026-10-20/SOLO_AUDIT.md) records native batch/routine intent, discrete/stale/delta readings, caused body/capability expression, ownership refresh and visual repairs. FF3's separately released finite paid firewood implementation is integrated and verified through its native owner. Full examples in every possible world, an encounter archive, NPC-heavy simulation and mobile optimization are not new palette gates.
 
 The earlier AU7 24%→29% stop remains historical. The resumed pass began at 30% with a 35% ceiling, without new subagents or paid fallback. Rebuilt browser/persistence evidence and the required completion checks are in REPORT; human visual/play acceptance remains open.
+
+## Matched desktop detail round, 2026-10-21
+
+Weibao selected a matched Proto23/OOPS comparison, fitting UI repairs, and small
+creator/donation/cat details, with base-game source as reference.
+[Execution and comparison](reviews/PROTO23_DESKTOP_COMPARISON_2026-10-21.md)
+own input identity, screenshots and technical checks. This round applies
+AD40, UR49/UR59–64 and the current desktop targets; it adds no rulebook.
+
+| Code | Detail, implication and disposition |
+| --- | --- |
+| PDC1 | **ACT NOW, implemented:** name the donation recipient and distinguish OOPS's repository from the original games. The inherited “Support me” went to Miktaew. Menu now names him, retains his cat and exposes both original games. Launch retains onionv's own edited guinea pig. All artwork stays local; external links are explicit user actions. No guessed Corc donation recipient. |
+| PDC2 | **ACT NOW, implemented:** a popup's rendered width can differ from its requested width because of min-width and typography. Place the actual box, and let a wrapped toolbar take its real height. Keyboard/focus access and viewport containment are the observable gate. |
+| PDC3 | **ACT NOW, implemented:** a recipe short of materials is still an inspectable subject. Remove disabled-control dashed framing from these rows; keep native readiness, blocker detail and the actual Craft guard. Category peers use one horizontal strip at larger text instead of spending another row on one tab. |
+| PDC4 | **ACT NOW, implemented:** a small static Moss face belongs beside the actual known mood/posture/history. Rendering and opening history do not pet, bond, consume stock or advance time. Existing native interaction remains the action route. Reduced motion has the same static meaning; custom world pets are not inferred from this local household. |
+| PDC5 | **ACT NOW, implemented:** keep encounter values and the purse readable at laptop21px. Long known milestone text wraps inside its column instead of widening the encounter grid; inventory header peers wrap instead of clipping money. The numbers still come from their native owners. |
+
+**ACCOUNT FOR NOW:** compare equivalent tasks rather than inventing equal game
+state. Proto23's fixed coordinate layout and smaller fact set do not justify
+shrinking OOPS text, hiding additional systems or replacing its navigation.
+Both source/font identity and actual rendered geometry matter. Private local
+Gothic assets remain a delivery dependency; the ordinary fallback remains.
+
+**LATER, optional:** richer cat motion/sound needs a selected visual treatment
+and an actual settled native pet/play occurrence through existing cue owners.
+Done check: no replay after load/reopen, no cue on mere inspection, plain text and
+reduced-motion/silent equivalents. This is a possible presentation follow-up,
+not an unfinished gameplay system or a prerequisite for this comparison.

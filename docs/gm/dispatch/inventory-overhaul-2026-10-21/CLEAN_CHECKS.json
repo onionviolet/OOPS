@@ -1,0 +1,30 @@
+{
+  "build": {
+    "pass": true,
+    "outputSha256": "e33372bc93bba5665c5cbbeab967de71be468e3d39b01b10e4ed00521b9ca780"
+  },
+  "arch": {
+    "pass": true,
+    "outputSha256": "3faee10e593663800209e1644fb8833b4451182cc863ad38178a9fba43f54c0e"
+  },
+  "rules": {
+    "pass": true,
+    "outputSha256": "529189e8fe78200aaae18205ec3013be9e5446d890611b4b37aafdca4e4ead79"
+  },
+  "behavior": {
+    "pass": true,
+    "outputSha256": "bceed59245ea235f687c7c327527d42d71c28425787c87e40a610e7a517af2fa"
+  },
+  "tests": {
+    "pass": true,
+    "outputSha256": "c4d793b9485f7c3d823537b451a90e8fc5d98a3b6057f515e81b971ec5981b88"
+  },
+  "export": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-inventory-public-export-90a_1p7u",
+  "testedTree": "596dacf593bd0a846ccbdd1f01dfc9d415fba036",
+  "fullTests": 2516,
+  "failures": 0,
+  "rebuildMatchesInstalledBundle": true,
+  "treePrivateAssetsAbsent": true,
+  "rulesExportWarnings": 108,
+  "rulesWarningReason": "Export has no Git index; linked owners are present, flagged as untracked."
+}

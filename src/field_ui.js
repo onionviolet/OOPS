@@ -1,11 +1,12 @@
 import {alloyEquipmentFacts} from "./alloy_equipment.js";
 import {previewSimulationCommand, previewSimulationResponse, simulationOccupiesActor} from "./simulation.js";
 import {fieldWorkshopView} from "./field_workshop.js";
+import {createFieldWorksPanel} from './field_works_ui.js';
 import {energyView} from "./energy_resources.js";
 import {leverBlockers,leverTaskRecord} from './lever_lesson.js';
 const node = (tag,text="",className="") => {const n=document.createElement(tag);n.textContent=text;n.className=className;return n;};
-export function createFieldPanel({registry,read,command}) {
-    const panel=node("details","","expedition_panel");panel.id="field_panel";panel.append(node("summary","Field association & workshop"));
+export function createFieldPanel({registry,read,command,openWorkshop,localActions}) {
+    const panel=node("details","","expedition_panel");panel.id="field_panel";panel.append(node("summary","Field association & practical workshop"));
     const body=node("div"),intro=node("p"),status=node("p","","expedition_notice"),report=node("p"),energies=node("p"),events=node("div"),encounter=node("section");
     status.setAttribute("role","status");body.append(intro,status,report,energies,encounter,events);panel.append(body);
     const groups=new Map(),controls=new Map();let notice="",eventSignature="",sessionSignature="";
@@ -15,7 +16,7 @@ export function createFieldPanel({registry,read,command}) {
         const group=node("details","","notebook_preparation");group.append(node("summary",label));group.open=id==="association";body.append(group);groups.set(id,group);
     }
     const begin=button("Ask about a shared field workshop","field.begin",{type:"field_begin"});groups.get("association").append(begin);
-    for(const d of registry.simulation.commands.values()) if(d.group === "field" && d.actorId === "player" && d.id !== "field.begin") {
+    for(const d of registry.simulation.commands.values()) if(d.group === "field" && d.actorId === "player" && d.id !== "field.begin" && !d.id.startsWith('field.works.')) {
         const card=node("div","","expedition_card"),b=button(d.label,d.id,{type:"command",id:d.id,targetId:d.targetId}),reason=node("p","","expedition_requirements");
         card.append(b);if(d.description)card.append(node("p",d.description));card.append(reason);groups.get(d.uiSection || "workshop").append(card);controls.set(d.id,{card,b,reason});
     }
@@ -23,8 +24,18 @@ export function createFieldPanel({registry,read,command}) {
     const repeat=button("Make up to 3 focus kits · stop when inputs or energy run short","routine",{type:"program",id:"field.pack_focus",count:3});groups.get("workshop").append(repeat);
     const leverRepeat=button("Queue 3 lever jobs · stop if support or logs run short","lever_routine",{type:"program",id:"field.lp1.lever_work",count:3});groups.get("lever").append(leverRepeat);
     const leverRecord=node("p");leverRecord.dataset.leverRecord="";groups.get("lever").insertBefore(leverRecord,groups.get("lever").children[1]);
+    const works=createFieldWorksPanel({registry,read,command});body.append(works.element);
+    const workshopDoor=node('button','Open practical workshop','location_choices');workshopDoor.type='button';workshopDoor.dataset.fieldWorkshopDoor='';
+    workshopDoor.addEventListener('click',()=>{openWorkshop?.();panel.open=true;works.element.open=true;works.element.querySelector('summary')?.focus();});
+    const syncDoor=()=>{const {state,context,inDialogue}=read(),f=state.actors.player.facts;
+        workshopDoor.hidden=!openWorkshop||inDialogue||!(context.facts.location==='Shack'||context.facts.location==='Village'&&f['field.works.freight'])||!f['field.facility'];
+        if(!workshopDoor.isConnected)localActions?.append(workshopDoor);};
+    const doorObserver=localActions?new MutationObserver(()=>{if(!workshopDoor.isConnected)syncDoor();}):null;
+    doorObserver?.observe(localActions,{childList:true});
     const pause=button("Pause after the current field job","pause",{type:"pause"}),resume=button("Resume the remaining field jobs","resume",{type:"resume"});groups.get("workshop").append(pause,resume);
     function render() {
+        works.render();
+        syncDoor();
         const snapshot=read(),{state,context,enabled,error}=snapshot,s=state.simulation,f=state.actors.player.facts,view=fieldWorkshopView(state);
         const job=s?.jobs.find(j=>j.actorId === "player" && registry.simulation.commands.get(j.commandId)?.group === "field");
         const session=s?.sessions.player?.definitionId === "field.assessment" ? s.sessions.player : null;
@@ -52,7 +63,7 @@ export function createFieldPanel({registry,read,command}) {
         report.hidden=!view.introduced || !state.actors.player.completed["field.project_start"];
         report.textContent=`Agreed contributions: ${view.project.phases.map(p=>`${p.id}: ${p.knownComplete ? p.own ? "finished by you" : "reported complete" : "not yet reported complete"}`).join("; ")}. Road: ${view.road}${view.observedAt == null ? "." : ` (last report ${state.clock-view.observedAt} game minutes ago).`}`;
         status.textContent=error || (job ? `${job.label} · ${job.due-state.clock} min remaining` : notice);status.hidden=!status.textContent;
-        cancel.hidden=!job || job.cancellation === "none";cancel.disabled=!!error;
+        cancel.hidden=!job || job.cancellation === "none" || job.commandId.startsWith('field.works.');cancel.disabled=!!error;
         cancel.textContent=job?.cancellation === "forfeit" ? "Cancel your field work · spent inputs are forfeited" : "Cancel your field work · return reserved inputs";
         leverRepeat.hidden=!s?.knowledge.player?.['field.lp1.method'];
         leverRepeat.disabled=!enabled || !!error || !s || !previewSimulationCommand(state,registry,'field.lp1.lever_work',context).eligible;
@@ -61,7 +72,7 @@ export function createFieldPanel({registry,read,command}) {
         leverRecord.textContent=lesson.text;
         const teacherReturn=controls.get('field.lp1.return');
         if(teacherReturn && (lesson.legacy || lesson.learned)) teacherReturn.card.hidden=true;
-        const program=s?.programs.player,isFieldProgram=program?.commandId.startsWith("field.");
+        const program=s?.programs.player,isFieldProgram=program?.commandId.startsWith("field.")&&!program.commandId.startsWith('field.works.');
         repeat.hidden=!view.facility || !ownEnergies.some(e=>e.id === "field.focus");repeat.disabled=!enabled || !!error || !s || !previewSimulationCommand(state,registry,"field.pack_focus",context).eligible;
         if(program?.commandId==='field.lp1.lever_work') {
             status.textContent+=(status.textContent?' · ':'')+`Lever queue: ${program.remaining} jobs left; ${program.status}. ${program.reason||''}`;
@@ -85,5 +96,5 @@ export function createFieldPanel({registry,read,command}) {
         if(ss !== sessionSignature){sessionSignature=ss;encounter.replaceChildren();if(session){const turn=session.turns[session.turn];encounter.append(node("p",turn.cue));for(const r of turn.responses){const b=button(r.label,`response.${r.id}`,{type:"response",responseId:r.id}),p=previewSimulationResponse(state,registry,{kind:"encounter",responseId:r.id},context);b.disabled=!!error || !p.eligible;b.title=p.reasons.join(" ");encounter.append(b);}encounter.append(button("Withdraw · retain spent inputs","withdraw",{type:"withdraw"}));}}
         for(const [id,g] of groups)g.hidden=![...g.children].some(n=>n.tagName !== "SUMMARY" && !n.hidden);
     }
-    render();return {render};
+    render();return {render,destroy(){doorObserver?.disconnect();workshopDoor.remove();}};
 }

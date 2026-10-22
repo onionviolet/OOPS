@@ -42,6 +42,7 @@ const race_tags = {
 }
 
 const racial_height_modifiers = {
+    fox: 0, bird: 0,
     human: 0,
     nekomimi: -5,
     nezumimi: -10,
@@ -56,6 +57,8 @@ const racial_height_modifiers = {
 };
 
 const playable_races = {
+    fox: new Race({name:"home fox name",description:"home fox desc",tags:[race_tags.EXOTIC]}),
+    bird: new Race({name:"home bird name",description:"home bird desc",tags:[race_tags.EXOTIC]}),
     "human": new Race({
         name: "human name",
         description: "human desc",

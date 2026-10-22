@@ -1,0 +1,70 @@
+{
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-minecraft-fit-ijzwk04g",
+  "build": {
+    "command": "npm run build",
+    "passed": true
+  },
+  "tests": {
+    "command": "npm test",
+    "passed": true,
+    "tests": 2470,
+    "failed": 0
+  },
+  "architecture": {
+    "command": "npm run check:arch",
+    "passed": true,
+    "composition_root_growth": {
+      "main": -35,
+      "display": -54,
+      "save_files": 0
+    },
+    "new_cycles": 0
+  },
+  "rules": {
+    "command": "npm run check:rules",
+    "passed": true,
+    "warning": "Existing separate home-system checkpoint is present but untracked in the snapshot."
+  },
+  "rule_behavior": {
+    "command": "npm run check:rule-behavior",
+    "passed": true,
+    "tests": 36
+  },
+  "ui_contract": {
+    "command": "node --test tests/ui_contract.test.js",
+    "passed": true,
+    "tests": 3
+  },
+  "native_journey": {
+    "command": "node scripts/playtest/minecraft-fit.mjs . /tmp/minecraft-fit-browser",
+    "passed": true,
+    "groups": 14,
+    "literal_persistence_states": 5,
+    "evidence": "evidence/native-receipt.json",
+    "final_domain_inputs_unchanged": true
+  },
+  "final_visual": {
+    "command": "node scripts/playtest/minecraft-fit-visual.mjs . /tmp/minecraft-fit-browser/last-roundtrip.json /tmp/minecraft-fit-visual",
+    "passed": true,
+    "viewport": [
+      1920,
+      1080
+    ],
+    "actual_text_sizes": [
+      14,
+      21
+    ],
+    "evidence": "evidence/visual-receipt.json"
+  },
+  "preview_smoke": {
+    "passed": true,
+    "native_setup_reachable": true,
+    "existing_preview_save_protected": true
+  },
+  "own_primary_input_parity": true,
+  "personal_saves_accessed": false,
+  "commit": false,
+  "push": false,
+  "human_acceptance": "open",
+  "natural_pacing": "open"
+}

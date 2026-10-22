@@ -100,7 +100,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
         const show = (id, disabled = false) => {const b = want.get(id); b.hidden = false; b.disabled ||= disabled;};
         const h = c?.life.experience?.inheritance, from = c?.life.experience?.inheritedFrom;
         const n = (k, word) => `${k} ${word}${k === 1 ? "" : "s"}`;
-        setText(inheritance, h ? `Generation ${c.life.experience.generation}. ${h.recipient === "apprentice" ? "Apprentice" : "Next of kin"} of ${from.name}. Received ${n(h.money, "coin")}, ${n(h.belongings, "belonging")}, ${n(h.chest, "stored good")}${h.home ? ", the Shack" : ""}; ${n(h.papers.length, "written paper")}; ${n(h.obligations.length, "open obligation")}.`
+        setText(inheritance, h ? `Generation ${c.life.experience.generation}. ${h.recipient === "apprentice" ? "Apprentice" : "Next of kin"} of ${from.name}. Received ${n(h.money, "coin")}, ${n(h.belongings, "belonging")}, ${n(h.chest, "stored good")}${h.home ? ", the Shack" : ""}${h.residences?", "+n(h.residences,"residence"):""}; ${n(h.papers.length, "written paper")}; ${n(h.obligations.length, "open obligation")}.`
             : from ? `Generation ${c.life.experience.generation}. Heir of ${from.name}, begun under the earlier one-lesson rule.` : "");
         if(!c) {show("begin-open", !enabled); show("begin-mortal", !enabled);}
         else if(c.life.endedAt === null) {

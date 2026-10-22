@@ -1,3 +1,4 @@
+import {descriptionCopy} from './shell_item_description.js';
 // UIL9 / BX8: presentation over native inventory rows. The shell keeps selection,
 // filters, commands and detail routing; this module decorates those same nodes.
 export const INVENTORY_KIND_LABELS = Object.freeze({equipment:'Equipment', usable:'Usable', component:'Component', book:'Book', other:'Material / other'});
@@ -22,6 +23,30 @@ export function mountInventoryComposition({list, tabs, detail}) {
     const caption = detail.ownerDocument.createElement('span');
     caption.className = 'inventory-kind-caption';caption.hidden = true;
     detail.prepend(caption);
+    const inspector=detail.ownerDocument.createElement('section');inspector.className='inventory-workbench-inspection';inspector.setAttribute('aria-label','Selected inventory item');inspector.hidden=true;list.after(inspector);
+    let inspectionSignature='',wasExpanded=false,expandedKey=null;
+    function expanded(selectedRow){
+        const open=!!list.closest('#center_mode_content');inspector.hidden=!open;
+        list.parentNode.classList.toggle('inventory-workbench',open);
+        if(!open){wasExpanded=false;return;}
+        const key=selectedRow?.dataset.character_item||'';
+        if((!wasExpanded||expandedKey!==key)&&selectedRow?.isConnected&&getComputedStyle(selectedRow).display!=='none')requestAnimationFrame(()=>selectedRow.scrollIntoView({block:'nearest',inline:'nearest'}));
+        wasExpanded=true;expandedKey=key;
+        const next=JSON.stringify([key,detail.innerHTML,selectedRow?.innerHTML]);
+        if(next===inspectionSignature)return;inspectionSignature=next;
+        const scroll=inspector.scrollTop;inspector.replaceChildren();
+        const heading=detail.ownerDocument.createElement('h3');heading.textContent=selectedRow?.querySelector('.item_name')?.textContent||'Select an item';inspector.append(heading);
+        if(!key){const hint=detail.ownerDocument.createElement('p');hint.textContent='Choose a carried stack to compare and act. The compact inventory keeps its place when you return.';inspector.append(hint);return;}
+        const commands=detail.ownerDocument.createElement('div');commands.className='inventory-workbench-commands';
+        for(const source of detail.querySelectorAll('.shell-item-actions > button')){
+            const b=detail.ownerDocument.createElement('button');b.type='button';b.textContent=source.textContent;b.disabled=source.disabled;b.title=source.title;
+            b.addEventListener('click',()=>source.click());commands.append(b);
+        }
+        inspector.append(commands);
+        const tooltip=selectedRow.querySelector('.item_tooltip');if(tooltip)inspector.append(descriptionCopy(tooltip));
+        const comparison=detail.querySelector('.worn-comparison');if(comparison)inspector.append(comparison.cloneNode(true));
+        inspector.scrollTop=scroll;
+    }
     function render(selectedRow = null) {
         if (caption.parentNode !== detail) detail.prepend(caption);
         // No list rebuild, observer, timer or gameplay mutation. Native refresh calls us.
@@ -32,6 +57,7 @@ export function mountInventoryComposition({list, tabs, detail}) {
         caption.hidden = !kind;
         const label = kind ? INVENTORY_KIND_LABELS[kind] : '';
         if (caption.textContent !== label) caption.textContent = label;
+        expanded(selectedRow);
     }
     return {render};
 }

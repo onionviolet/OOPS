@@ -70,7 +70,7 @@ export function createInventoryTabs({list, search, stored, store}) {
     // Clear keeps its place even when there is nothing to clear, so the strip never reflows (UR52).
     const clear = document.createElement('button');
     clear.type = 'button'; clear.className = 'inventory-tabs-clear'; clear.textContent = '×';
-    clear.addEventListener('click', () => { const field = search(); if (field) { field.value = ''; field.dispatchEvent(new Event('input', {bubbles: true})); } select('all', {persist: true}); });
+    clear.addEventListener('click', () => { list.inventoryFilter?.clear(); const field = search(); if (field) { field.value = ''; field.dispatchEvent(new Event('input', {bubbles: true})); } select('all', {persist: true}); });
     strip.append(clear);
 
     let current = categoryOf(stored()).id, signature = '';
@@ -89,7 +89,7 @@ export function createInventoryTabs({list, search, stored, store}) {
         const field = search();
         if (field && !field.dataset.inventoryTabs) { field.dataset.inventoryTabs = 'true'; field.addEventListener('input', () => refresh()); }
         const counts = categoryCounts(rows()), query = field?.value.trim() || '';
-        const next = JSON.stringify([counts, current, query]);
+        const next = JSON.stringify([counts, current, query, !!list.inventoryFilter?.active()]);
         if (!force && next === signature) return;
         signature = next;
         for (const c of INVENTORY_CATEGORIES) {
@@ -100,7 +100,7 @@ export function createInventoryTabs({list, search, stored, store}) {
             const title = `${c.label}: ${plural(stacks, 'stack', 'stacks')}, ${plural(units, 'item', 'items')}. Counts ignore the search.`;
             if (b.title !== title) { b.title = title; b.setAttribute('aria-label', title); }
         }
-        const active = current !== 'all' || !!query;
+        const active = current !== 'all' || !!query || !!list.inventoryFilter?.active();
         clear.disabled = !active; clear.dataset.active = String(active);
         clear.title = active ? 'Clear filter: show all items and clear the search' : 'Nothing to clear';
         clear.setAttribute('aria-label', clear.title);

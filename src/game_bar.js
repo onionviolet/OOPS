@@ -14,7 +14,7 @@ import {centerModes} from './center_modes.js';
 
 const make = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
 const RIGHT = ['save_button', 'save_to_file_button', 'load_from_file_button', 'saved_file_input'];
-const MENU = ['options_button', 'changelog_button', 'help_button', 'repo_link', 'ko_fi_link'];
+const MENU = ['options_button', 'changelog_button', 'help_button', 'repo_link', 'ko_fi_link', 'reference_creator_links'];
 
 // Which route buttons fold into the overflow list: the last ones that do not fit. `widths` are the
 // visible route buttons' widths in order, `room` the space they may use.

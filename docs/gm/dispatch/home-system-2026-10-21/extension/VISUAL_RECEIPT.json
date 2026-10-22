@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "1920×1080 at 14px: actual rank, household funds, staff presence/orders and wages; no page-width overflow",
+    "1920×1080 at 21px: actual rank, household funds, staff presence/orders and wages; no page-width overflow"
+  ],
+  "setup": "Native public noble beginning and actual pending staff order; only typography changes are imported from its own saved native state.",
+  "status": "passed",
+  "bundle_sha256": "15bc21fc7fbdb3224db1fc14a59bc45b202167602483964434409b47d7946a70"
+}

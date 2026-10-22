@@ -1,4 +1,6 @@
+import {registerDomicileItems} from './home_content.js';
 import {registerGearMaterials} from './gear_native_content.js';
+import {registerFieldWorksItems} from './field_works_content.js';
 import {readMaterialLineage} from './material_lineage.js';
 import {lineagePresentation} from './processed_materials.js';
 import {validateWork, workedWearProfile, workContributions, mergeWorkStats} from './gear_work.js';
@@ -4650,6 +4652,7 @@ crafting_component_manager.fill_components();
 add_gear();
 registerAccessoryItems({item_templates, Amulet});
 registerGearMaterials({templates:item_templates,ItemComponent});
+registerFieldWorksItems({item_templates,OtherItem});
 registerFortItems({item_templates, book_stats, Book, BookData, Material});
 setup_ids();
 // Air workshop proposal: optional templates must not enrich absent-edition saves.
@@ -4667,6 +4670,7 @@ function restoreSystemsWorkshopAvailability(save){
         availabilities.item[name] ||= item_templates[name]._getBasicAvailabilityComponent();
 }
 
+registerDomicileItems(item_templates, OtherItem);
 availability_havers.push(Item);
 registerEnemyEquipmentItemFactory(getItemFromKey);
 

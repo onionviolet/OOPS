@@ -1,0 +1,33 @@
+{
+  "candidate": "/tmp/oops-home-life-20261021",
+  "profile": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-combined-adoption-vsqRhR",
+  "old": {
+    "id": "v0.6-4814a7dba61d",
+    "root": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-combined-adoption-vsqRhR/builds/v0.6-4814a7dba61d",
+    "files": 82
+  },
+  "checks": [
+    "Native Save and reload adopted exact combined snapshot; existing spare-profile save survived; all resources served; creator links retained",
+    "Electron restart retained adopted build and spare-profile progress; actual Gothic Bitmap 14 rendered from frozen local font"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "fresh": {
+    "id": "v0.6-94918f7433e7",
+    "root": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-combined-adoption-vsqRhR/builds/v0.6-94918f7433e7",
+    "files": 72
+  },
+  "optionalManifestAbsent": true,
+  "actualFonts": [
+    {
+      "familyName": "OOPS Gothic Bitmap 14",
+      "postScriptName": "OOPSGothicBitmap14",
+      "isCustomFont": true,
+      "glyphCount": 11
+    }
+  ],
+  "result": "PASS"
+}

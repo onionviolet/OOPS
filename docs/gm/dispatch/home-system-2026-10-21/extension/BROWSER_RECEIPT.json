@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "Failed durable construction reservation publishes no project, material expenditure or premature housing; reload recovers the prior save",
+    "pending-build: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "Actual construction reserves materials, grants no premature housing, pauses/travels/resumes and completes with paid shared native labor; actual shelter supports sleep",
+    "pitched-portable: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "packed-portable: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "moved-portable: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "One carried portable structure packs, travels through native routes and pitches at a new camp; native housing follows the actual camp and kit custody",
+    "ducal-staff-pending: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "ducal-staff-complete: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "ducal: native estate access, finite allowance/treasury, actual supplied staff jobs during absence, wages and meal transfer; provided fixtures remain household property",
+    "royal-staff-pending: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "royal-staff-complete: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "royal: native estate access, finite allowance/treasury, actual supplied staff jobs during absence, wages and meal transfer; provided fixtures remain household property",
+    "rain-repaired-nest: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "Native rain calendar wets gathered grass and bedding, wears an exposed structure at the retained boundary, and actual drying/repair consumes material and played work"
+  ],
+  "setup": "Fresh native builder/ducal/royal starts. Actual gathering, native jobs, cancellation, staff budgets/custody and persistence. The final weather case changes only the saved calendar and near-wear condition boundary to exercise native rain deterministically.",
+  "status": "passed",
+  "bundle_sha256": "15bc21fc7fbdb3224db1fc14a59bc45b202167602483964434409b47d7946a70"
+}

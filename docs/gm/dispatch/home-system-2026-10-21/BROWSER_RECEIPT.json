@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "Ordinary Village route purchases a cottage for 80 real coins; insufficient furniture funds disable the quote and no start grants replay",
+    "Homeowner restoration, guest-room fit-out, paid native supplies, furnishings and kitchen/practice capability consume real money/materials/played time; Reed pays from his finite purse",
+    "homeowner: actual Save/reload/Export/literal Import preserves homes, custody, body and money",
+    "lodger: actual Save/reload/Export/literal Import preserves homes, custody, body and money",
+    "lodger: native admission, body-appropriate sleep and local storage; title/expiry permissions enforced",
+    "shared: actual Save/reload/Export/literal Import preserves homes, custody, body and money",
+    "shared: native admission, body-appropriate sleep and local storage; title/expiry permissions enforced",
+    "fox: actual Save/reload/Export/literal Import preserves homes, custody, body and money",
+    "fox: native admission, body-appropriate sleep and local storage; title/expiry permissions enforced",
+    "bird: actual Save/reload/Export/literal Import preserves homes, custody, body and money",
+    "bird: native admission, body-appropriate sleep and local storage; title/expiry permissions enforced",
+    "legacy-shack: actual Save/reload/Export/literal Import preserves homes, custody, body and money",
+    "Legacy Shack unlock fixture registers real access and purchases title without creating, copying or replacing its native household/chest",
+    "relocated-moss: actual Save/reload/Export/literal Import preserves homes, custody, body and money",
+    "Existing native Moss moves to a new residence through 30 paid travel minutes, with one companion and retained source household/fire state",
+    "Stale native pointer quote rejects without extending a term or charging coins"
+  ],
+  "setup": "Fresh disposable origins and rebuilt candidate. Starts, supplier purchases, residence acquisition, paid improvements, native travel, household actions, sleep and persistence use native controls. Only the final legacy-Shack check seeds its historical unlock prerequisite.",
+  "status": "passed",
+  "bundle_sha256": "2673edd9a58ef1f13633011f41374bcd5af68fc89c869ed42d2f65d9489d39d2"
+}

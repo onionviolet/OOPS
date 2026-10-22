@@ -1,0 +1,23 @@
+{
+  "src/home_furniture_panel.js": "6f10c8028f7835f3dca7d77b6654ad01184dbbc4a7a1a2c91be96c41bd22db6f",
+  "src/home_content.js": "73b44362504ade15b8861581457d11a3a6e2964b4375993a2123a17598e1fec5",
+  "src/home_furnishing_content.js": "336c46c88eadd0d027a9725458f84001306ed19490a10c10e1db6e8144e44690",
+  "src/home_model.js": "764715297518e0c0ac10af10aa130c84ed36c4469fa27b95ef28825e31748a80",
+  "src/home_furnishing_host.js": "e82613df4b5f1af55b17d4715551626f54abaaca8b6cae2d290879ff9d9b8128",
+  "src/home_panel.js": "6b63ba5d83e0d8f29482a1539d4311a3ab98ca87441734639df7632a14baff34",
+  "src/home_furnishing_facts.js": "9917870db4870b7c45ea24391b7cdbdb487eab05dc414e605f06436ff71dec21",
+  "src/home_domain.js": "7bbd512499f90b772fb410f44733e8b0da120cbe1e222a6d864b0d3a418b4894",
+  "src/main.js": "ff84580a5ce995d17b27344b00d4b5ed98f88041360f2ee56632f8a1114056ca",
+  "src/items.js": "12ad4dd8b83dae4450b6f195d3f965b9f4d213a695c8b0001b9c207ef02ed49d",
+  "src/races.js": "3e6d8879272e7c521ee6f9d5d497511d991cf8c12fe36bbbc7500cfaad667dbc",
+  "src/layout_spec.js": "9bdafe6a912b84705a4c0499d4a03edcd76bb57e7562ecda46a942ef627ec993",
+  "src/absorb_b/furniture.js": "538880736a273df276e38ff950dc3b9253925f76973580cf7701147294eeea97",
+  "src/absorb_p23/household/model.js": "e89f5da585934120b4f57f06f5a58bfd6e4c839b236f972dc536bc75a6980597",
+  "src/absorb_p23/household/host.js": "83107ef11222992f27e44a2c143f809ca0f64fec8c6f1b93bd6b05ab69f193a8",
+  "tests/home_system.test.js": "5202865999997673bb749edafa62ee06f5d90c917f690d571462dbabacd0d995",
+  "tests/home_domain.test.js": "fb0e4f19d587a445d5aa5bcd2721cab84334f81162dda93d7b3a21e568632d47",
+  "scripts/playtest/home-system.mjs": "e5eabbc710a067ec2a113bb347bcde94b5c779fa3dc7fcae3e735fc1c99de8db",
+  "docs/RULES_INDEX.md": "d9c2db74621849786bd14fac1fb74ce19a0909c7e12ceb7eea0f0f14d176d4ca",
+  "docs/USER_VISION.md": "cfb7e6ba0d65d7398779284f9b53084cfd16bd204cd25912ae7c8a665a3e3a08",
+  "PROJECT.md": "42911c46f4bf0827a333a6ae33ddb32d714d2cd692a9301871525b3d887d0c66"
+}

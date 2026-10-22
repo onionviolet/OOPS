@@ -1,0 +1,235 @@
+
+> check:rule-behavior
+> node scripts/check_rule_behavior.mjs
+
+Rule behavior checks: partial implementation evidence, not whole-rule compliance.
+knowledge [AD6, AD7, AR8]: people/world projections: withheld facts, observations, pure reads
+transactions [AR3, AR7, MR4, MR5]: native crafting rollback/durable results; mixture quote revalidation and publication
+saves [AR6, MR33]: foundation save compatibility and opaque retired-content retention
+navigation [UR9]: center-mode controller history and return lifecycle (no browser/keyboard proof)
+TAP version 13
+# Subtest: center navigation restores mixing after nested native modes and Back stops native work once
+ok 1 - center navigation restores mixing after nested native modes and Back stops native work once
+  ---
+  duration_ms: 0.578375
+  type: 'test'
+  ...
+# Subtest: UR9: a rejected stop keeps the current view and return destination, then allows one successful retry
+ok 2 - UR9: a rejected stop keeps the current view and return destination, then allows one successful retry
+  ---
+  duration_ms: 1.071
+  type: 'test'
+  ...
+# Subtest: native redraw can replace a popped dialogue branch without losing its Back route
+ok 3 - native redraw can replace a popped dialogue branch without losing its Back route
+  ---
+  duration_ms: 0.132458
+  type: 'test'
+  ...
+# Subtest: revisiting a borrowed panel keeps its original history entry mounted until final return
+ok 4 - revisiting a borrowed panel keeps its original history entry mounted until final return
+  ---
+  duration_ms: 0.541833
+  type: 'test'
+  ...
+# Subtest: native completion beneath inspection preserves the reference and removes the obsolete return destination
+ok 5 - native completion beneath inspection preserves the reference and removes the obsolete return destination
+  ---
+  duration_ms: 0.099375
+  type: 'test'
+  ...
+# Subtest: AR7/MR4: pure mixture quotes reject changed stock, sequence, money or method before mutation
+ok 6 - AR7/MR4: pure mixture quotes reject changed stock, sequence, money or method before mutation
+  ---
+  duration_ms: 25.241042
+  type: 'test'
+  ...
+# Subtest: PC2-T27 failed durable new mix publishes no owners, stock, money, law, receipt or appearances
+ok 7 - PC2-T27 failed durable new mix publishes no owners, stock, money, law, receipt or appearances
+  ---
+  duration_ms: 4.547042
+  type: 'test'
+  ...
+# Subtest: paid mix publishes law/product/receipt with exact appearance product, and native use reads saved payload
+ok 8 - paid mix publishes law/product/receipt with exact appearance product, and native use reads saved payload
+  ---
+  duration_ms: 9.878375
+  type: 'test'
+  ...
+# Subtest: PC2-T30 synthetic restore vector applies resolver payload and retains all mass/trace
+ok 9 - PC2-T30 synthetic restore vector applies resolver payload and retains all mass/trace
+  ---
+  duration_ms: 2.37375
+  type: 'test'
+  ...
+# Subtest: PC2-T21/T22 full law freezes before use, reveal is idempotent and cannot replace truth
+ok 10 - PC2-T21/T22 full law freezes before use, reveal is idempotent and cannot replace truth
+  ---
+  duration_ms: 2.942916
+  type: 'test'
+  ...
+# Subtest: repeat re-admits current laws, stale learned products refuse before debit
+ok 11 - repeat re-admits current laws, stale learned products refuse before debit
+  ---
+  duration_ms: 13.579958
+  type: 'test'
+  ...
+# Subtest: held new batch completes under its old law then stops next reservation on revision change
+ok 12 - held new batch completes under its old law then stops next reservation on revision change
+  ---
+  duration_ms: 11.256042
+  type: 'test'
+  ...
+# Subtest: revision-2 learned method, reservation and cancellation restore exact held inputs
+ok 13 - revision-2 learned method, reservation and cancellation restore exact held inputs
+  ---
+  duration_ms: 8.257958
+  type: 'test'
+  ...
+# Subtest: PC2-T31 revision-1 product, method, pending job and exposure retain old interpreter
+ok 14 - PC2-T31 revision-1 product, method, pending job and exposure retain old interpreter
+  ---
+  duration_ms: 6.218
+  type: 'test'
+  ...
+# Subtest: PC2-T35 ordinary player text omits generated law value, raw trace confined to developer slot
+ok 15 - PC2-T35 ordinary player text omits generated law value, raw trace confined to developer slot
+  ---
+  duration_ms: 3.8905
+  type: 'test'
+  ...
+# Subtest: rejected write restores output, debit, XP milestones, unlocks, quests, records and identities
+ok 16 - rejected write restores output, debit, XP milestones, unlocks, quests, records and identities
+  ---
+  duration_ms: 1.590667
+  type: 'test'
+  ...
+# Subtest: AR3/MR5: rejected craft restores an active quest replaced in the registry, including private task state
+ok 17 - AR3/MR5: rejected craft restores an active quest replaced in the registry, including private task state
+  ---
+  duration_ms: 0.213791
+  type: 'test'
+  ...
+# Subtest: success is retained when post-durable presentation throws
+ok 18 - success is retained when post-durable presentation throws
+  ---
+  duration_ms: 0.163166
+  type: 'test'
+  ...
+# Subtest: later recursive batch rejection preserves prior durable batch and allows retry
+ok 19 - later recursive batch rejection preserves prior durable batch and allows retry
+  ---
+  duration_ms: 1.252708
+  type: 'test'
+  ...
+# Subtest: array aliases, deleted descriptors and cycles survive rejection without replaying model setters
+ok 20 - array aliases, deleted descriptors and cycles survive rejection without replaying model setters
+  ---
+  duration_ms: 0.210667
+  type: 'test'
+  ...
+# Subtest: unsupported internal-slot owners fail before native mutation; redraw failure follows completed rollback
+ok 21 - unsupported internal-slot owners fail before native mutation; redraw failure follows completed rollback
+  ---
+  duration_ms: 0.1375
+  type: 'test'
+  ...
+# Subtest: actual private inventory and availability components restore without inventory/reward replay
+ok 22 - actual private inventory and availability components restore without inventory/reward replay
+  ---
+  duration_ms: 2.065875
+  type: 'test'
+  ...
+# Subtest: registration and enrollment do not reveal unseen people or their private state
+ok 23 - registration and enrollment do not reveal unseen people or their private state
+  ---
+  duration_ms: 4.567458
+  type: 'test'
+  ...
+# Subtest: a greeting reveals only the person, while inspection and promises add their actual evidence
+ok 24 - a greeting reveals only the person, while inspection and promises add their actual evidence
+  ---
+  duration_ms: 0.657125
+  type: 'test'
+  ...
+# Subtest: player observations and completed exchanges reveal craftsman details without private axes
+ok 25 - player observations and completed exchanges reveal craftsman details without private axes
+  ---
+  duration_ms: 0.683416
+  type: 'test'
+  ...
+# Subtest: town entry does not reveal the clerk before their briefing
+ok 26 - town entry does not reveal the clerk before their briefing
+  ---
+  duration_ms: 0.219333
+  type: 'test'
+  ...
+# Subtest: a hired participant's private return or death does not update the player's record
+ok 27 - a hired participant's private return or death does not update the player's record
+  ---
+  duration_ms: 1.408417
+  type: 'test'
+  ...
+# Subtest: reading records is pure and existing native meeting markers survive expansion reload
+ok 28 - reading records is pure and existing native meeting markers survive expansion reload
+  ---
+  duration_ms: 13.227958
+  type: 'test'
+  ...
+# Subtest: base saves gain no dormant payload and their state is unchanged
+ok 29 - base saves gain no dormant payload and their state is unchanged
+  ---
+  duration_ms: 0.688292
+  type: 'test'
+  ...
+# Subtest: prototype location, items, recipes and activity are preserved outside active content
+ok 30 - prototype location, items, recipes and activity are preserved outside active content
+  ---
+  duration_ms: 2.249208
+  type: 'test'
+  ...
+# Subtest: unsupported cultivation payloads stay opaque, but unknown retirement schemas block migration
+ok 31 - unsupported cultivation payloads stay opaque, but unknown retirement schemas block migration
+  ---
+  duration_ms: 0.305584
+  type: 'test'
+  ...
+# Subtest: old saves and an optional town permit do not disclose authored world or branch identity
+ok 32 - old saves and an optional town permit do not disclose authored world or branch identity
+  ---
+  duration_ms: 11.892542
+  type: 'test'
+  ...
+# Subtest: world-name and branch discoveries are independent and survive saved reloads
+ok 33 - world-name and branch discoveries are independent and survive saved reloads
+  ---
+  duration_ms: 0.933959
+  type: 'test'
+  ...
+# Subtest: AD6/AR8: world identity uses the requested observer, without borrowing another actor's discoveries
+ok 34 - AD6/AR8: world identity uses the requested observer, without borrowing another actor's discoveries
+  ---
+  duration_ms: 0.285
+  type: 'test'
+  ...
+# Subtest: unknown authored identities remain unknown even when a knowledge flag is present
+ok 35 - unknown authored identities remain unknown even when a knowledge flag is present
+  ---
+  duration_ms: 0.15225
+  type: 'test'
+  ...
+# Subtest: one world's learned identity does not reveal a different world's identity
+ok 36 - one world's learned identity does not reveal a different world's identity
+  ---
+  duration_ms: 0.261125
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 36
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 377.905833

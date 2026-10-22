@@ -30,6 +30,7 @@ import {retainLorePracticeWindows,nextLorePracticeBoundary,lorePracticeTimersSup
 import {validateBookCareState} from './book_care_facts.js';
 import {reconcileBookCareRuntime} from './book_care_runtime.js';
 import {validateFieldCareState} from './field_care_facts.js';
+import {validateFieldWorksState} from './field_works_facts.js';
 import {validateStatusCareState} from './status_care_facts.js';
 import {advanceAuditRemainder,retainAuditRemainderWindows,auditRemainderSimulationContexts,auditRemainderNonceWindow,enterAuditRemainderMinute} from './audit_remainder_runtime.js';
 import {validateCausalStories} from './causal_story_core.js';
@@ -197,6 +198,7 @@ function fullyValidateExpansionState(state, registry) {
     validateCrushSocial(state,registry);
     validateStatusCareState(state,registry);
     validateFieldCareState(state,registry);
+    validateFieldWorksState(state);
     validateBookCareState(state,registry);
     validateLorePractice(state,registry);
     validateWorldCompletionState(state,registry);

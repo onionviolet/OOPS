@@ -1,0 +1,17 @@
+{
+  "PROJECT.md": {
+    "beforeSha256": "b249693e5fe4bd39f3e0ad6913fbaa26b24608e4aff41fcc9dc28edc2a39f8b5",
+    "afterSha256": "4e79e71e302dd54b8ecb14e8548eadf2c15bbe2316336522d820b86c86bd2c25",
+    "unintendedDroppedLines": 0
+  },
+  "docs/USER_VISION.md": {
+    "beforeSha256": "f8e2a76fc192c8fd5fd2f689ceb389fbbdb09bb761cf1c6dc2a3ac5131ae6042",
+    "afterSha256": "e37be25bae8f6e151f7ab01454d2969ad098db3b905bcf5f1f2a1ba6f895c4cf",
+    "unintendedDroppedLines": 0
+  },
+  "docs/RULES_INDEX.md": {
+    "beforeSha256": "057845a34e75710fc5a5e1e232475a0782f37e5cb51b1a7665a1f3f76e83a505",
+    "afterSha256": "fb27eb75b3aa4c76a992b2dd7763dc95a6d588f8cfe87ebfe8c70e0384ceb420",
+    "unintendedDroppedLines": 0
+  }
+}

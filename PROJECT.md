@@ -1,3 +1,99 @@
+## Inventory overhaul and combined Electron publication, 2026-10-21
+
+Weibao selected implementation of the inventory overhaul and remaining fitting
+UI gaps, combined Electron integration, merge and push. The current slice adds
+known native kind/quality filters and honest counts, an existing expanded
+Inventory with a stable list/inspection companion, context-qualified structured
+worn comparison and reviewed atomic local-chest batches. Compact proportions,
+full Reports, native commands, current home/Minecraft work and local assets are
+preserved. [Live execution/evidence](docs/gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md)
+owns exact checks, publication and installed/active bundle status. The [delivery report](docs/gm/dispatch/inventory-overhaul-2026-10-21/REPORT.md) records2516 passing tests, six mixed-stock browser cases, native equipment comparison and atomic chest persistence, and six Electron rendering cases. Desktop targets
+remain1920×1080,1800×1040,1536×864 at14/21px. The exact release is installed and adopted in normal Electron as frozen
+`v0.6-72af84cf8e66`, bundle `e35668b18622`; the real native update
+control completed, and local optional assets remain unchanged. Clean-export build
+and2516 tests pass. Scoped publication is recorded in the execution owner.
+Human visual/play acceptance remains separate; earlier inventory assessment is
+starting evidence rather than current completion evidence.
+
+## Matched Proto23 desktop comparison, 2026-10-21
+
+Weibao authorized comparing the latest combined OOPS app with Proto23 and base
+YAIR source, then fixing UI gaps and useful small details, including support links
+and the cat. [Direction](docs/USER_VISION.md#matched-proto23-desktop-comparison-and-fitting-ui-fixes-2026-10-21)
+and [execution owner](docs/reviews/PROTO23_DESKTOP_COMPARISON_2026-10-21.md)
+retain matched task/viewport evidence, fitting changes and deliberate OOPS
+differences under AD40/UR49/UR59–64. Desktop1920×1080,1800×1040,1536×864 at14/21px;
+mobile remains deferred. Delivered fixes cover named creator/support links,
+Menu placement, quieter crafting/category controls, static known Moss expression,
+and larger-text encounter/purse readability. The frozen combined candidate passes
+2486 tests, six browser cases, six native Electron cases and the required rule/
+architecture checks. [Interactive comparison](http://127.0.0.1:57451/review/comparison.html)
+and a separate inactive Electron review are available. Later active home/freight
+edits are outside that frozen proof. Human visual acceptance remains separate;
+no commit or push performed.
+
+**Main Electron follow-up:** the earlier preview-only boundary is superseded.
+Coordinated home and Minecraft releases are installed in the normal Electron
+profile as frozen `v0.6-4814a7dba61d`, exact combined bundle `0d46cb10fefd`.
+Native Save and reload adoption, progress retention and real Electron restart pass
+on a spare profile; the visible normal app serves that same build. Fixed snapshot
+packaging of linked local fonts and verified actual Gothic glyph rendering.
+Released-game2505 tests plus the new focused snapshot regression pass; architecture,
+rules and36 rule-behavior checks pass. Six crowded inventory cases now exercise31
+stacks at all desktop/text targets. This is not a completed inventory overhaul:
+[assessment and remaining slices](docs/reviews/INVENTORY_OVERHAUL_ASSESSMENT_2026-10-21.md).
+[Normal-app delivery evidence](docs/reviews/PROTO23_DESKTOP_COMPARISON_2026-10-21.md#combined-release-delivered-to-normal-electron).
+Later household/family work remains isolated and outside this captured release.
+Human visual/play acceptance remains open; no commit or push.
+
+**Later household release adopted:** the released household-life slice now also
+runs in the existing normal Electron window as frozen `v0.6-68ef2e933977`, bundle
+`44b1a7f3202f`. The real Save and reload control adopted it; no update gate remains.
+Spare-profile adoption/restart/progress and actual Gothic rendering pass with no
+page/console errors. All82 snapshot files match the delivery input, including
+unchanged local optional assets retained from the previous installed build.
+The source release's2511 tests and14 browser groups remain its gameplay evidence;
+[separate normal-app receipt](docs/reviews/proto23_desktop_2026-10-21/household-integration/main-receipt.json)
+and [follow-up](docs/reviews/PROTO23_DESKTOP_COMPARISON_2026-10-21.md#later-household-release-adoption-2026-10-21)
+record installation/adoption. Previous frozen comparisons retain their own input
+boundary. Inventory-overhaul proposals and human feel acceptance remain open.
+
+## Minecraft mechanisms in native systems, 2026-10-21
+
+Weibao selected fitting implementation from Ars Nouveau, Create, Occultism,
+Spectrum, Botania, TerraFirmaCraft and MineColonies, with useful small details.
+[Direction](docs/USER_VISION.md#minecraft-mechanisms-in-existing-systems-2026-10-21),
+[MF owner](docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#minecraft-fit-round-mf-2026-10-21)
+and [checkpoint](docs/gm/dispatch/minecraft-fit-2026-10-21/CHECKPOINT.md) own
+scope, source mappings, selected helper/supply work and verification. The native
+field workshop is the connection point for ordered techniques, powered work,
+supplied helpers, observation, a finite garden reservoir, material stages and
+funded requests. [Delivery report](docs/gm/dispatch/minecraft-fit-2026-10-21/REPORT.md)
+records the 2,470-test gate, rebuilt native journey, five Save/reload/Export/literal
+Import states and actual 14/21px desktop checks. The selected local adaptations
+are delivered in primary source and an isolated playable preview; natural pacing
+and human visual/play acceptance remain open. No commit or push by this task.
+
+The later "Fully integrate" continuation delivered MF14–MF19 in the primary
+source and rebuilt main-game bundle: native Shack workshop access, retained
+material batches, covered charcoal preparation, supplied garden care,
+demonstrated smelting, recoverable orders and funded handcart deliveries/pickups.
+The same [report](docs/gm/dispatch/minecraft-fit-2026-10-21/REPORT.md) records
+2,486 passing tests, 19 native groups, eight exact persistence round trips and
+primary-font 14/21px desktop checks. Prior generated bytes are preserved;
+no commit/push occurred. Natural opening pacing and human play judgment remain
+open. The earlier 2,470-test preview evidence above is historical.
+
+The cross-site/residence continuation MF26–MF34 is technically delivered in
+primary source and the rebuilt game: paid Shack–Village freight and return legs,
+weather-exposed batch drying/cover, shared home-owned worker rooms and rotas,
+partial-request recovery and observer-safe cargo. [Final release](docs/gm/dispatch/minecraft-fit-2026-10-21/ROUTES_RELEASE.json)
+and the same report record2,505 full tests,14 native groups/seven exact
+persistence states and primary14/21px checks. Runtime/generated writes are
+released to the user-authorized UI/Electron coordinator for the normal frozen
+snapshot update/adoption gate. Natural opening pacing and human judgment remain
+separate; no commit/push.
+
 ## Durable native repair P4 completion, 2026-10-21
 
 Weibao requested finishing P4, verifying it in game and reconciling stale coverage.
@@ -13,6 +109,21 @@ now reflects later perishable/lineage/widget/preview/UI deliveries, with the old
 table retained as history. Human visual/play judgment and natural pacing remain
 open. Source is in primary; the verified master+P4 build is isolated from active
 home/field work. No P4 commit or push.
+
+## Home and domicile implementation, 2026-10-21
+
+The later request selects staff rest/agency, tutors, family obligations, pantry replenishment and fitting inheritance, plus canon/historical/book-source consideration. [H5.8](docs/gm/dispatch/procgen-2026-10-13/p20/HOME.md#h58-household-life-and-qualified-succession-2026-10-21), [household-life execution](docs/gm/dispatch/home-system-2026-10-21/household-life/CHECKPOINT.md) and [source pass](docs/research/HOUSEHOLD_STAFF_AND_SUCCESSION_SOURCES_2026-10-21.md) own the selected bounded work. [Household-life report](docs/gm/dispatch/home-system-2026-10-21/household-life/REPORT.md) records primary source publication,2511 passing tests, required gates and14 rebuilt browser groups with six persistence states. The normal Electron window has now adopted the exact household bundle as v0.6-68ef2e933977 through its native Save/reload control, with optional local files preserved; no pending update/reload gate remains. Human household feel/pacing remains open. Original household balance remains proposed, and canon/historical institutions require qualified sources.
+
+The later request selects weather and repairs, interrupted/shared construction, portable homes and staffed noble-family beginnings. [H5.7](docs/gm/dispatch/procgen-2026-10-13/p20/HOME.md#h57-weather-resumable-work-and-staffed-family-estates-2026-10-21) and the [extension checkpoint](docs/gm/dispatch/home-system-2026-10-21/CHECKPOINT.md#building-weather-and-staffed-home-extension-2026-10-21) own this work. The [extension report](docs/gm/dispatch/home-system-2026-10-21/extension/REPORT.md) records implemented source, 2,490 passing tests, required architecture/rule gates and40 rebuilt browser check groups, including pending work, carried shelter, weather/repair and actual staffed-family starts. Technical proof uses a frozen candidate; human pacing/feel acceptance remains open. Earlier delivery evidence below remains tied to its original input boundary.
+
+Weibao authorizes implementing the home system, missing domicile features and
+support for owned, rented, shared and nonhuman homes, including homeowner
+management, plus wild nest/burrow and human shelter construction without unnecessary purchases. The [H5.6 building round](docs/gm/dispatch/procgen-2026-10-13/p20/HOME.md#h56-building-a-home-need-not-mean-buying-one-2026-10-21) records broader considerations. This selects the connected [H5.5 home scope](docs/gm/dispatch/procgen-2026-10-13/p20/HOME.md#h55-domicile-coverage-and-homes-for-different-starts-2026-10-21)
+beyond its earlier proposal-only status. The [implementation checkpoint](docs/gm/dispatch/home-system-2026-10-21/CHECKPOINT.md)
+owns rights/custody, furnishing consumers, local home state, start admission and
+verification. Optional home beginnings use a separate in-game page; the direct
+original PLAY flow stays intact. The earlier household delivery below retains
+its original evidence boundary. The [delivery report](docs/gm/dispatch/home-system-2026-10-21/REPORT.md) records implemented source, 2,480 passing tests and rebuilt desktop/persistence checks, including wild nest/burrow/lean-to construction and handmade lining without coins. Technical verification uses an isolated candidate; human play/balance acceptance remains open. No commit or push requested.
 
 ## Native gear completion, 2026-10-21
 
@@ -564,6 +675,8 @@ requests it.** Use screen width and height for useful independent panels and
 visible routine actions at comfortable text size. The accepted direction and
 reason live in [User vision](docs/USER_VISION.md#standing-ui-priority-2026-10-13);
 the UI design owner supplies [task-specific gates](docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#standing-ui-scope-and-acceptance-gates-2026-10-13).
+
+
 
 **Canon-first world order (2026-10-13):** Harry Potter, D&D and the book worlds
 (A Soldier's Life, TTKS, Mother of Learning, then LOTM/Circle of Inevitability,

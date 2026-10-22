@@ -44,11 +44,17 @@ function listFiles(root) {
         if (fs.existsSync(path.join(root, rel))) files.push(rel);
         else if (REQUIRED.includes(rel)) throw new Error(`Snapshot source is missing ${rel}; run npm run build first.`);
     }
-    const walk = rel => {
+    const walk = (rel, ancestors = new Set()) => {
+        // Local font/content directories may be linked into an isolated build.
+        // Freeze their bytes too, rather than silently dropping linked assets.
+        const real = fs.realpathSync(path.join(root, rel));
+        if (ancestors.has(real)) throw new Error(`Snapshot directory link cycle: ${rel}`);
+        const next = new Set(ancestors).add(real);
         for (const entry of fs.readdirSync(path.join(root, rel), { withFileTypes: true })) {
             const child = path.posix.join(rel, entry.name);
-            if (entry.isDirectory()) walk(child);
-            else if (entry.isFile() && entry.name !== '.DS_Store') files.push(child);
+            const type = entry.isSymbolicLink() ? fs.statSync(path.join(root, child)) : entry;
+            if (type.isDirectory()) walk(child, next);
+            else if (type.isFile() && entry.name !== '.DS_Store') files.push(child);
         }
     };
     for (const dir of SNAPSHOT_DIRS) if (fs.existsSync(path.join(root, dir))) walk(dir);

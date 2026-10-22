@@ -1,0 +1,9 @@
+{
+  "setup": "Native homeowner beginning; synthetic dishes/incense/raw-meat inventory and global Cooking/Meditation discovery prerequisites. Native install, cooking and meditation thereafter.",
+  "checks": [
+    "The actual home kitchen cooks through the native recipe/cost/XP consumer with installed tableware",
+    "Installed incense opens actual native home meditation, which advances native Meditation XP"
+  ],
+  "status": "passed",
+  "bundle_sha256": "2673edd9a58ef1f13633011f41374bcd5af68fc89c869ed42d2f65d9489d39d2"
+}

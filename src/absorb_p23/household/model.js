@@ -15,6 +15,7 @@ const fuelKey = key => {
 };
 // Same exact-key custody projection as hearth stock. A toy is reused, not spent.
 export function householdPlayCloth(c) {
+    if(c.playToy === true) return true;
     return Object.entries(c.ownedInventory || {}).some(([key, amount]) => {
         try {return natural(amount) && amount > 0 && JSON.parse(key)?.id === 'Linen cloth';} catch {return false;}
     });
@@ -30,7 +31,7 @@ export function householdAnimalView(state, c) {
         state.hearth?.fuelMinutes > 0 ? 'Moss curls up beside the warm hearth.' : 'Moss settles near your usual resting place.';
     return {name: HOUSEHOLD.name, mood: a.mood, bond: a.bond, metAt: a.metAt,
         knownMinutes: a.ageMinutes, playVisits: a.playVisits || 0,
-        preference: a.playVisits > 0 ? 'Likes chasing a trailing cloth.' : null, posture};
+        preference: a.playVisits > 0 ? a.playObject==='yarn'?'Likes chasing the yarn ball.':'Likes chasing a trailing cloth.' : null, posture};
 }
 export function stockFirewoodAction(key = HOUSEHOLD.fuelKey) {
     check(fuelKey(key), 'use an exact Rough wood log inventory key');
@@ -53,7 +54,7 @@ export function validateHousehold(s, {clock = Number.MAX_SAFE_INTEGER, sequence 
         natural(s.lastSequence) && s.lastSequence <= sequence, 'unsupported schema or clock');
     const a = s.animal;
     check(a === null || (shape(a, ['id', 'metAt', 'bond', 'interactions', 'lastInteraction', 'ageMinutes', 'mood', 'adopted', 'lastGiftAt', 'gifts',
-        ...(a && Object.hasOwn(a, 'playVisits') ? ['playVisits'] : [])]) &&
+        ...(a && Object.hasOwn(a, 'playVisits') ? ['playVisits'] : []),...(a && Object.hasOwn(a, 'playObject') ? ['playObject'] : [])]) &&
         a.id === HOUSEHOLD.animalId && natural(a.metAt) && a.metAt <= s.lastClock &&
         bounded(a.bond, 100) && natural(a.interactions) && a.interactions >= 1 && natural(a.lastInteraction) &&
         a.lastInteraction >= a.metAt && a.lastInteraction <= s.lastClock && natural(a.ageMinutes) &&
@@ -61,6 +62,7 @@ export function validateHousehold(s, {clock = Number.MAX_SAFE_INTEGER, sequence 
         typeof a.adopted === 'boolean' && a.adopted === (a.bond >= 30) &&
         natural(a.lastGiftAt) && a.lastGiftAt >= a.metAt && a.lastGiftAt <= s.lastClock && natural(a.gifts) &&
         a.gifts <= Math.floor((s.lastClock - a.metAt) / HOUSEHOLD.giftMinutes) &&
+        (!Object.hasOwn(a,'playObject') || ['yarn','cloth'].includes(a.playObject)&&a.playVisits>0) &&
         (!Object.hasOwn(a, 'playVisits') || natural(a.playVisits) && a.playVisits < a.interactions)), 'invalid animal');
     const h = s.hearth;
     check(shape(h, ['fuelMinutes', 'ventilated', 'smokeOptIn', 'smoke', 'dryProgress', ...(h && Object.hasOwn(h, 'firewood') ? ['firewood'] : [])]) &&
@@ -152,8 +154,8 @@ export function planHousehold(state, event, c) {
             a.interactions++; a.bond = Math.min(100, a.bond + 10); a.lastInteraction = c.clock;
             a.adopted = a.bond >= 30; a.mood = a.adopted ? 'content' : 'curious';
             if(type === 'play') {
-                a.playVisits = (a.playVisits || 0) + 1;
-                notices.push(`Moss crouches, follows the trailing cloth, then pounces. You learn what kind of play Moss likes. Your cloth stays in your pack. Bond ${a.bond}/100.`);
+                a.playVisits = (a.playVisits || 0) + 1; a.playObject=c.playToy?'yarn':'cloth';
+                notices.push(c.playToy?`Moss bats the yarn ball, then pounces. The ball remains installed. Bond ${a.bond}/100.`:`Moss crouches, follows the trailing cloth, then pounces. You learn what kind of play Moss likes. Your cloth stays in your pack. Bond ${a.bond}/100.`);
             } else notices.push(`Moss leans into your hand. Bond ${a.bond}/100${a.adopted ? '; this is home now' : ''}.`);
             if(type === 'pet' && a.adopted && c.knownGift === true && c.clock >= a.lastGiftAt + HOUSEHOLD.giftMinutes) {
                 a.lastGiftAt = c.clock; a.gifts++;

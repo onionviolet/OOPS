@@ -93,7 +93,7 @@ function mountAttributeInspector(){
 }
 // Presentation only: authoritative values come from the supplied native reader;
 // item commands delegate to the original row control, with its native guards.
-export function mountProto23Shell({read}) {
+export function mountProto23Shell({read,transferStorage,compareWorn}) {
     const player=node('section',null,'shell-character');player.id='proto23_character';
     const statline=node('div',null,'shell-statline shell-core-stats'),equipment=node('div',null,'shell-equipment');
     const secondary=node('section',null,'shell-secondary-stats'),secondaryHeading=node('div',null,'shell-secondary-heading'),secondaryGrid=node('div',null,'shell-secondary-grid');secondary.hidden=true;secondary.setAttribute('aria-label','Secondary attributes');secondary.append(secondaryHeading,secondaryGrid);
@@ -227,7 +227,7 @@ export function mountProto23Shell({read}) {
     let listToolsNode=null;const listTools=()=>{if(!listToolsNode){const n=inventoryList.previousElementSibling;if(n?.classList.contains('ui-list-tools'))listToolsNode=n;}return listToolsNode;};
     const tabs=createInventoryTabs({list:inventoryList,search:()=>listTools()?.querySelector('input[type=search]'),stored:()=>getDisplaySetting('panel.belongings.category'),store:id=>setDisplaySettings({'panel.belongings.category':id})});
     const inventoryComposition=mountInventoryComposition({list:inventoryList,tabs:tabs.node,detail});
-    const storageComparison=mountStorageComparison({host:document.getElementById('storage_comparison'),carried:inventoryList,chest:document.getElementById('storage_inventory_div')});
+    const storageComparison=mountStorageComparison({host:document.getElementById('storage_comparison'),carried:inventoryList,chest:document.getElementById('storage_inventory_div'),transfer:transferStorage});
     tabs.node.title='Item colors: gold equipment, green usable, blue components, violet books. Quality keeps its native percentage and color; color does not imply rarity of other items.';
     compact.append(tabs.node);
     // R22c (FC17): a fight opens Inventory on Usable (when you hold any) and leaving it returns the
@@ -383,7 +383,8 @@ export function mountProto23Shell({read}) {
         fitSecondary();
         if(!selected)return;
         const row=rowForSelection();
-        const next=JSON.stringify([selected,row?.innerHTML,frame.reason,root.dataset.parity,root.dataset.parityExpanded]);if(next===signature)return;signature=next;
+        const comparison=selected.key?compareWorn?.(selected.key):null;
+        const next=JSON.stringify([selected,row?.innerHTML,frame.reason,root.dataset.parity,root.dataset.parityExpanded,comparison]);if(next===signature)return;signature=next;
         const tooltip=row?.querySelector('.item_tooltip');
         detail.dataset.itemKind=row?.dataset.item_slot||row?.querySelector('.item_category')?.textContent.replace(/[\[\]]/g,'').trim()||(selected.slot?'Equipped item':'Item');
         title.className='shell-item-title';
@@ -393,6 +394,12 @@ export function mountProto23Shell({read}) {
         body.replaceChildren();
         if(tooltip)body.append(descriptionCopy(tooltip));
         else body.append(node('p',selected.slot?'Choose a held item to equip in this slot.':'This item is no longer in your inventory.'));
+        if(comparison){
+            const section=node('section',null,'worn-comparison');section.append(node('strong',`If worn · compared with ${comparison.baselineName}`),node('p',comparison.note));
+            const format=n=>String(Math.round(n*1000)/1000);
+            for(const r of comparison.rows)section.append(node('p',`${r.label}: ${format(r.current)} → ${format(r.worn)} (Δ ${r.delta>0?'+':''}${format(r.delta)})`));
+            body.append(section);
+        }
         const moreWasOpen=!!detail.closest('#center_mode_content')&&controls.querySelector('.shell-item-more')?.open;
         controls.replaceChildren();const more=node('details',null,'shell-item-more');more.open=!!moreWasOpen;more.append(node('summary','More actions'));more.addEventListener('toggle',()=>{if(more.open&&root.dataset.parity==='r3'&&!detail.closest('#center_mode_content'))expandWorkspaceModule('shell-detail');});
         if(selected.slot&&tooltip){const takeoff=action('Take off',()=>{const source=rowForSelection();if(source&&!source.classList.contains('equipment_slot_empty'))source.click();signature='';render();});takeoff.disabled=!!frame.reason;takeoff.title=frame.reason;controls.append(takeoff);}
@@ -410,6 +417,7 @@ export function mountProto23Shell({read}) {
         (root.dataset.parity==='r3'?more:controls).append(action('Compare equipment ›',()=>expandWorkspaceModule('equipment-comparison')));
         if(root.dataset.parity==='r3'&&!detail.closest('#center_mode_content'))controls.append(action('Full item ›',()=>expandWorkspaceModule('shell-detail')));
         controls.append(action('Close item',()=>{if(detail.closest('#center_mode_content'))centerModes().back();selected=null;signature='';updateWorkspace();}));if(root.dataset.parity==='r3')controls.append(more);
+        inventoryComposition.render(rowForSelection());
     }
     document.addEventListener('workspace-presentation-change',()=>{hideContext();hidePreview();render();updateWorkspace();});
     const timer=setInterval(render,400);return{render,destroy:()=>{document.removeEventListener('pointerdown',resizeDismiss);hidePreview();attributeInspector.destroy();condition.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',inspect);}};

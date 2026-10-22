@@ -1,0 +1,7 @@
+
+> check:rules
+> node scripts/check_rules_index.mjs
+
+Rules index check: 21 register rows, 41 AD codes, 110 relative links
+  warn  linked file exists but is not tracked by git: docs/gm/dispatch/home-system-2026-10-21/CHECKPOINT.md
+PASS (1 warnings)

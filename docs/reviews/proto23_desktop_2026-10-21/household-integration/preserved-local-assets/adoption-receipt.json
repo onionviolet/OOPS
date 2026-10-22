@@ -1,0 +1,30 @@
+{
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-home-life-electron-uyzeck6_",
+  "profile": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-combined-adoption-U91HQn",
+  "old": {
+    "id": "v0.6-4814a7dba61d",
+    "root": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-combined-adoption-U91HQn/builds/v0.6-4814a7dba61d",
+    "files": 82
+  },
+  "checks": [
+    "Native Save and reload adopted exact combined snapshot; existing spare-profile save survived; all resources served; creator links retained",
+    "Electron restart retained adopted build and spare-profile progress; actual Gothic Bitmap 14 rendered from frozen local font"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "fresh": {
+    "id": "v0.6-68ef2e933977",
+    "root": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-combined-adoption-U91HQn/builds/v0.6-68ef2e933977",
+    "files": 82
+  },
+  "optionalManifestAbsent": false,
+  "actualFonts": [
+    {
+      "familyName": "OOPS Gothic Bitmap 14",
+      "postScriptName": "OOPSGothicBitmap14",
+      "isCustomFont": true,
+      "glyphCount": 11
+    }
+  ],
+  "result": "PASS"
+}

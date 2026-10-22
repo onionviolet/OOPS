@@ -80,3 +80,13 @@ test("failed persistence changes neither live inventory nor committed bytes; suc
     const saved = JSON.parse(committed); assert.equal(saved.inventories.storage.player[wood].count, 8);
     assert.equal(saved.inventories.person.main_character[wood].count, 2);
 });
+
+test('reviewed batch moves exact variants once and rejects the entire stale/protected selection',()=>{
+ const f=fixture(),before=structuredClone(f),items=[{item_key:wood,count:3,expectedCount:7},{item_key:quality,count:2,expectedCount:2}];
+ const batch=extra=>stageNativeStorageTransfer({...f,request:{sequence:f.state.sequence,direction:'deposit',items},...extra});
+ const p=batch();assert.equal(p.gameplay.player.inventory[wood],4);assert.equal(p.gameplay.player.inventory[quality],undefined);assert.equal(p.ownership.chest[quality],2);assert.equal(p.state.sequence,f.state.sequence+1);assert.deepEqual(f,before);
+ for(const entries of [[],[items[0],items[0]],[items[0],{...items[1],expectedCount:1}],[items[0],{...items[1],count:3}]])assert.throws(()=>batch({request:{sequence:f.state.sequence,direction:'deposit',items:entries}}));
+ assert.throws(()=>batch({favorites:{[quality]:true}}),/Favorite/);assert.deepEqual(f,before);
+ const bytes=JSON.stringify({expansion:f.state,character:{money:20},levels:{person:{main_character:{skill_xp:{}}}},inventories:{person:{main_character:{}},storage:{player:{}}}});
+ assert.throws(()=>persistExpansionPlan(p,{createSave:()=>bytes,key:'batch',bindings:{player:{category:'person',id:'main_character'}},ownershipBindings:{chest:{category:'storage',id:'player'}},storage:{setItem(){throw Error('disk full')}}}),/disk full/);assert.deepEqual(f,before);
+});

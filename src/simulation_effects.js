@@ -1,5 +1,6 @@
 import {generatedPeoplePresenceFacts} from './story_aftermath.js';
 import {leverFacts} from './lever_lesson.js';
+import {fieldWorksFacts} from './field_works_facts.js';
 import {partnerFacts} from './party_partner_facts.js';
 import {systemsWorkshopFacts} from './systems_workshop_runtime.js';
 import {applyFoundationInteractionEffect,resolveFoundationDelivery,recordFoundationDelivery} from './foundation_interaction_policy.js';
@@ -129,6 +130,7 @@ function buildSimulationFacts(state, context, registry, predicates = null) {
     const referenceFacts = referenceGameplayFacts(state, context, registry);
     const facts = {...context.facts,...managementFacts(state,context),...gameAbsorptionAssayFacts(state,context,registry),...worldCompletionFacts(state,context),...statusCareFacts(state,context),...fieldCareFacts(state,context),...bookCareFacts(state,context),...lorePracticeFacts(state,context),...causalStoryFacts(state,context),...auditRemainderFacts(state),...relayFacts(state,context),...referenceDeskFacts(state,context),...nestedFacts(state,context,context.nestedNative),...nestedChainFacts(state,context),...nestedLifeFacts(state,context),...paradiseFacts(state,context),...paradiseCampaignFacts(state,context),...featureObjectFacts(state,context,registry), ...referenceFacts, ...auditRemainderCombinedFacts(state,{...context,facts:{...context.facts,...referenceFacts,...auditRemainderFacts(state)}},registry), ...auditedWorkshopFacts(state,{...context,facts:{...context.facts,...referenceFacts}},registry), ...nethackFieldcraftFacts(state,context,registry), ...societyFacts(state,context), ...repositoryAbsorptionFacts(state,context), ...featurePowerFacts(state,context), ...featureBattleFacts(state,context), ...tidemarkContext(state,context).facts, ...originalFrontierFacts(state,context,registry), ...realmFacts(state,actor), ...molFacts(state,context), clock: state.clock, "actor.life": s.people[actor]?.life, "native.alive": actor==='player'?context.nativeAlive===true:s.people[actor]?.life==='alive', "native.ready":context.nativeReady!==false, "actor.world": a.worldId, "actor.location": context.facts?.location || s.people[actor]?.location};
     Object.assign(facts,leverFacts(state,context),generatedPeoplePresenceFacts(state,context));
+    Object.assign(facts,fieldWorksFacts(state,context));
     Object.assign(facts,partnerFacts(state),systemsWorkshopFacts(state),foundationInteractionProbeFacts(state,context));
     Object.assign(facts,containerFacts(state,context,registry));
     Object.assign(facts, alloyEquipmentFacts(state, context));

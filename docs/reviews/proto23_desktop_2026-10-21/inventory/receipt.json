@@ -1,0 +1,103 @@
+{
+  "snapshot": {
+    "id": "v0.6-4814a7dba61d",
+    "root": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-inventory-review-lJSkV9/builds/v0.6-4814a7dba61d",
+    "files": 82
+  },
+  "profile": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-inventory-review-lJSkV9",
+  "setup": "Declared test stock: 29 exact native pants quality variants, 5 bread, 2 ordinary materials. No natural acquisition claim.",
+  "cases": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "bodySize": "14px",
+      "rows": 31,
+      "list": {
+        "width": 324,
+        "height": 635,
+        "scrollHeight": 740
+      },
+      "visibleFullRows": 24,
+      "overflow": false,
+      "detail": "Equipment\nCheap leather pants\n\nCarried · 1\n\nQuality: 150% [rare]\nSlot: legs\nDefense: 0\nAgility: x1.08\nCold tolerance: +0.65\nCrit resistance: +0.043\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 23C [originally 23C]\nItem specifics\nEquip\nFull item ›\nClose item\nMore actions"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "bodySize": "14px",
+      "rows": 31,
+      "list": {
+        "width": 402.9140625,
+        "height": 478.703125,
+        "scrollHeight": 1856
+      },
+      "visibleFullRows": 7,
+      "overflow": false,
+      "detail": "Equipment\nCheap leather pants\n\nCarried · 1\n\nQuality: 150% [rare]\nSlot: legs\nDefense: 0\nAgility: x1.08\nCold tolerance: +0.65\nCrit resistance: +0.043\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 23C [originally 23C]\nItem specifics\nEquip\nFull item ›\nClose item\nMore actions"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "bodySize": "14px",
+      "rows": 31,
+      "list": {
+        "width": 324,
+        "height": 595,
+        "scrollHeight": 740
+      },
+      "visibleFullRows": 23,
+      "overflow": false,
+      "detail": "Equipment\nCheap leather pants\n\nCarried · 1\n\nQuality: 150% [rare]\nSlot: legs\nDefense: 0\nAgility: x1.08\nCold tolerance: +0.65\nCrit resistance: +0.043\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 23C [originally 23C]\nItem specifics\nEquip\nFull item ›\nClose item\nMore actions"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "bodySize": "14px",
+      "rows": 31,
+      "list": {
+        "width": 376.515625,
+        "height": 438.703125,
+        "scrollHeight": 1856
+      },
+      "visibleFullRows": 6,
+      "overflow": false,
+      "detail": "Equipment\nCheap leather pants\n\nCarried · 1\n\nQuality: 150% [rare]\nSlot: legs\nDefense: 0\nAgility: x1.08\nCold tolerance: +0.65\nCrit resistance: +0.043\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 23C [originally 23C]\nItem specifics\nEquip\nFull item ›\nClose item\nMore actions"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "bodySize": "14px",
+      "rows": 31,
+      "list": {
+        "width": 318.4375,
+        "height": 443,
+        "scrollHeight": 740
+      },
+      "visibleFullRows": 17,
+      "overflow": false,
+      "detail": "Equipment\nCheap leather pants\n\nCarried · 1\n\nQuality: 150% [rare]\nSlot: legs\nDefense: 0\nAgility: x1.08\nCold tolerance: +0.65\nCrit resistance: +0.043\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 23C [originally 23C]\nItem specifics\nEquip\nFull item ›\nClose item\nMore actions"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "bodySize": "14px",
+      "rows": 31,
+      "list": {
+        "width": 318.4375,
+        "height": 332.703125,
+        "scrollHeight": 1856
+      },
+      "visibleFullRows": 5,
+      "overflow": false,
+      "detail": "Equipment\nCheap leather pants\n\nCarried · 1\n\nQuality: 150% [rare]\nSlot: legs\nDefense: 0\nAgility: x1.08\nCold tolerance: +0.65\nCrit resistance: +0.043\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 23C [originally 23C]\nItem specifics\nEquip\nFull item ›\nClose item\nMore actions"
+    }
+  ],
+  "errors": [],
+  "result": "PASS"
+}

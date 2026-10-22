@@ -1,0 +1,13 @@
+# Inventory overhaul and combined publication, 2026-10-21
+
+Human instruction: "Go ahead with the inventory overhaul and the remaining UI gaps that fit OOPS, using the base game and Proto23 as references. Fully integrate it into the latest combined Electron app and push and merge".
+
+Owner: Check Discord research UI parity. Start HEAD e1a68873d; primary master is dirty/shared. Home and MF owners explicitly released runtime/test/docs paths for scoped publication; their handoffs and exact source manifests own dependency scope. Preserve other edits and private assets. No additional agents dispatched.
+
+Rules: AD6–8/34/36/40/41, AR1–16, UR1–64, especially27/43/45/49/52. [Runtime](../../../ARCHITECTURE_RULES.md), [UI](../../../UI_RULES.md), [.claude UI](../../../../.claude/rules/player-ui.md). Surface: existing routine Inventory, its existing expanded reference/workbench and place-service chest. Seam: native DOM row decoration; existing shell injected operations; actual structured equipment projection; existing staged storage transaction/persistence owner. No new stock/save/clock owner.
+
+Visible outcome: useful type/quality filters with honest counts; exact native variant rows and stable expanded companion; context-qualified structured gear comparison; reviewed atomic local-chest batch transfer with stale/custody/favorite handling. Preserve compact proportions, full Reports, exact item keys and ordinary native controls. Targets1920×1080,1800×1040,1536×864 at14/21px; mobile remains deferred. Party/cargo-wide stock redesign and universal power scores are outside this slice.
+
+Reference: previously pinned Proto23 inventory renderer/isort, base YAIR native create_inventory_item_control/count/quality/action rows; current matched screenshots and inventory assessment. Adapt category/search density and persistent reading to OOPS rather than copying reference mechanics.
+
+Verification selected before implementation: inventory/category/UI contracts, native storage transaction stale/borrowed/failed durable write, structured equipment wrong-body/fit/condition plus new comparison; full build/tests/arch/rules/rule-behavior on an isolated combined candidate. Fresh-origin native browser + spare Electron Save/reload/Export/literal Import,30+ mixed exact keys, expanded keyboard/filter/selection, review/cancel/stale batch then success, structured comparison/equip; six desktop/text cases. Finally verify the exact frozen build in the real normal Electron window. Publish from a clean export of the scoped combined commit, preserving optional local assets only in local installation. Guarded master integration and push origin/master are explicitly authorized.

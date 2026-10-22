@@ -20,8 +20,8 @@ test('filter and tick decoration preserves native row identity, scroll and inspe
     const food=row(['character_item_usable'],{character_item:'bread',item_count:'3'});
     const tabs=[{dataset:{category:'equipment'}},{dataset:{category:'usable'}},{dataset:{category:'favorites'}}];
     const root={dataset:{}};let rows=[gear,food],caption;
-    const list={dataset:{inventoryCategory:'all'},scrollTop:48,closest:()=>root,querySelectorAll:()=>rows};
-    const detail={dataset:{},ownerDocument:{createElement:()=>({hidden:false,textContent:''})},prepend:n=>{caption=n;}};
+    const list={dataset:{inventoryCategory:'all'},scrollTop:48,closest:selector=>selector==='#main_content'?root:null,parentNode:{classList:{toggle(){}}},after(){},querySelectorAll:()=>rows};
+    const detail={dataset:{},ownerDocument:{createElement:()=>({hidden:false,textContent:'',setAttribute(){}})},prepend:n=>{caption=n;}};
     const view=mountInventoryComposition({list,tabs:{querySelectorAll:()=>tabs},detail});
     view.render(gear);assert.equal(detail.dataset.inventoryKind,'equipment');assert.equal(caption.textContent,'Equipment');
     list.dataset.inventoryCategory='usable';gear.hidden=true;food.dataset.item_count='2';

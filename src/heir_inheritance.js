@@ -1,3 +1,4 @@
+import {deriveHomeEstate,applyHomeEstate,validateHomeEstate} from './home_inheritance.js';
 // Heir succession from what a life actually left behind (accepted direction,
 // docs/RULES_FROM_SCRATCH.md#the-heir, 2026-10-10). Pure: reads a saved
 // envelope, never storage. Names, numbers and fiction here are reversible
@@ -41,7 +42,8 @@ export function deriveHeirLeftovers(previous, {equippedKeys = []} = {}) {
     const belongings = {};
     merge(belongings, carried); merge(belongings, Object.entries(worn));
     const chest = rows(previous.inventories?.storage?.player);
-    const purse = Number.isSafeInteger(previous.character?.money) && previous.character.money > 0 ? previous.character.money : 0;
+    const residences=deriveHomeEstate(previous);
+    const purse = (Number.isSafeInteger(previous.character?.money) && previous.character.money > 0 ? previous.character.money : 0)+(residences?.money||0);
     // The estate settles a recorded Village kit debt before anything passes.
     // A shortfall is written off (proposal; the career ledger has no heir row).
     const owed = Number.isSafeInteger(previous.village_career?.debt) && previous.village_career.debt > 0 ? previous.village_career.debt : 0;
@@ -61,7 +63,8 @@ export function deriveHeirLeftovers(previous, {equippedKeys = []} = {}) {
         money, belongings: Object.entries(belongings).map(([k, v]) => [k, v.count]).slice(0, MAX_ROWS), chest: chest.slice(0, MAX_ROWS),
         home, reputation, papers: [...new Set(written)], apprentice: [...new Set(taught)],
         obligations, debts, archiveLine: !!ties.successor};
-    leftovers.empty = !money && !leftovers.belongings.length && !leftovers.chest.length && !home && !leftovers.papers.length && !leftovers.apprentice.length;
+    if(residences)leftovers.residences=residences;
+    leftovers.empty = !residences?.money && !residences?.goods.length && !Object.keys(residences?.homes.properties||{}).length && !residences?.homes.portable && !money && !leftovers.belongings.length && !leftovers.chest.length && !home && !leftovers.papers.length && !leftovers.apprentice.length;
     return leftovers;
 }
 
@@ -73,6 +76,7 @@ export function validateHeirLeftovers(l) {
     check(Array.isArray(l.obligations) && l.obligations.every(id => Object.hasOwn(HEIR_OBLIGATIONS, id)), 'Invalid inherited obligations.');
     check(object(l.reputation) && Object.values(l.reputation).every(Number.isSafeInteger), 'Invalid inherited standing.');
     check(Array.isArray(l.debts) && l.debts.every(d => d?.id === 'kitDebt' && [d.owed, d.paid, d.shortfall].every(n => Number.isSafeInteger(n) && n >= 0) && d.paid + d.shortfall === d.owed), 'Invalid estate debts.');
+    if(l.residences)validateHomeEstate(l.residences);
     return l;
 }
 
@@ -90,6 +94,7 @@ export function applyHeirLeftovers(next, leftovers) {
     }
     const rep = next.character.reputation ||= {};
     for(const [region, v] of Object.entries(leftovers.reputation)) if(Object.hasOwn(rep, region)) rep[region] += v;
+    applyHomeEstate(next,leftovers.residences);
     return next;
 }
 
@@ -110,6 +115,8 @@ export function heirLeftoverLines(l, labels = {}) {
     for(const d of l.debts) lines.push(`Debt settled first: the estate paid ${d.paid} of ${d.owed} coins owed to the Village guard for a kept kit${d.shortfall ? `; the remaining ${d.shortfall} was written off` : ''}.`);
     if(l.archiveLine) lines.push('The elder\'s archive stays with your line.');
     for(const id of l.obligations) lines.push(`Obligation: ${HEIR_OBLIGATIONS[id]}.`);
+    if(l.residences?.money)lines.push(`Unfinished home work returned ${l.residences.money} coins to the estate before debt settlement.`);
+    if(l.residences)for(const h of Object.values(l.residences.homes.properties))lines.push(`Residence: ${h.name}, with its retained condition and personally owned fittings. Household rank, employment and guest agreements require a new relationship.`);
     if(l.empty) lines.push('This life left almost nothing behind. The heir starts with only their own things.');
     return lines;
 }

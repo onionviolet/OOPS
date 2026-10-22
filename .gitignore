@@ -69,3 +69,6 @@ disposable-profile/
 *.pid
 # Machine-local preview server config (absolute paths, per-session ports)
 /.claude/launch.json
+
+# Inventory publication: local backups and disposable save bytes stay private.
+/docs/gm/dispatch/inventory-overhaul-2026-10-21/private/

@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-home-life-electron-uyzeck6_",
+  "oldBuild": "v0.6-94918f7433e7",
+  "snapshot": {
+    "id": "v0.6-68ef2e933977",
+    "root": "/Users/weiwei/Library/Application Support/oops-progression-simulator/builds/v0.6-68ef2e933977",
+    "files": 82
+  },
+  "bundleSha256": "44b1a7f3202f1d32613f1b2015dd00e628f32d46e109241ca0b0f441cb1b80b7",
+  "url": "app://yairpg/index.html",
+  "nativeAdoption": "Real Save and reload control; no save read, import or fixture injection; normal PLAY left to user",
+  "allSnapshotFilesMatch": true,
+  "spareAdoptionRestartReceipt": "preserved-local-assets/adoption-receipt.json",
+  "electronPid": 41724,
+  "profile": "/Users/weiwei/Library/Application Support/oops-progression-simulator",
+  "at": "2026-10-22T02:40:49.623Z"
+}

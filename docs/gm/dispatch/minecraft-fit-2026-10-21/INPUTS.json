@@ -1,0 +1,11 @@
+{
+  "head": "3ce24d9cb583fa1e574afdf864881bcd752470c5",
+  "status": " M docs/gm/WORKTREE_CLEANUP_2026-10-21.md\n M docs/gm/dispatch/deep-engine-2026-10-20/P4_STATUS.md\n M docs/gm/dispatch/procgen-2026-10-13/p20/HOME.md\n M src/native_tool_domains.js\n M src/tools_domain.js\n M src/tools_panel.js\n?? docs/gm/dispatch/home-system-2026-10-21/\n?? docs/reviews/corc_ui_2026-10-21/arch-summary.txt\n?? docs/reviews/corc_ui_2026-10-21/baseline/\n?? docs/reviews/corc_ui_2026-10-21/build-summary.txt\n?? docs/reviews/corc_ui_2026-10-21/candidate/\n?? docs/reviews/corc_ui_2026-10-21/diagnostics/\n?? docs/reviews/corc_ui_2026-10-21/reload-recovered-profile/failure-0.png\n?? docs/reviews/corc_ui_2026-10-21/reload-recovered-profile/failure.json\n?? docs/reviews/corc_ui_2026-10-21/reload-spacing/\n?? docs/reviews/corc_ui_2026-10-21/rules-summary.txt\n?? docs/reviews/corc_ui_2026-10-21/tests-summary.txt\n?? docs/reviews/corc_ui_2026-10-21/visitor-travel/failure.json\n?? docs/reviews/corc_ui_2026-10-21/visitor-travel/failure.png\n?? docs/reviews/corc_ui_2026-10-21/visitor-travel/initial.png\n?? tests/tools_commit_contract.test.js\n",
+  "owned_existing": {
+    "src/field_ui.js": "601113b4fc2d31e32c101047c1f67126661029cc8b2f25eca651de3f531dd9bf",
+    "src/simulation_content.js": "3a54398fb90a30c714e7e792cf03b0c667d7a1249c3ab493cf68e3d8dea897d7",
+    "src/simulation_effects.js": "76da8f57c0ca202ae7323c132e660f40f95cbc9bf8588044fabd8aff96ff7ce5",
+    "src/expansion_engine.js": "c4cc877c9569aaf34d717ea97798ba0fdfc1392159a56aa501dd8cd60efe25f5",
+    "src/items.js": "b4a60669fdfe629282026aff8ee8318236eb5680b34e3f81bb3719a9e9606a1f"
+  }
+}

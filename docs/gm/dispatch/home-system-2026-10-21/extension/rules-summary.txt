@@ -1,0 +1,15 @@
+  warn  linked file exists but is not tracked by git: docs/USER_VISION.md
+  warn  linked file exists but is not tracked by git: docs/USER_VISION.md
+  warn  linked file exists but is not tracked by git: docs/USER_VISION.md
+  warn  linked file exists but is not tracked by git: docs/USER_VISION.md
+  warn  linked file exists but is not tracked by git: docs/USER_VISION.md
+  warn  linked file exists but is not tracked by git: docs/USER_VISION.md
+  warn  linked file exists but is not tracked by git: docs/USER_VISION.md
+  warn  linked file exists but is not tracked by git: docs/USER_VISION.md
+  warn  linked file exists but is not tracked by git: docs/USER_VISION.md
+  warn  linked file exists but is not tracked by git: docs/USER_VISION.md
+  warn  linked file exists but is not tracked by git: docs/DESIGN_DEFAULTS_AUDIT.md
+  warn  linked file exists but is not tracked by git: docs/reviews/QUEUE_PLAN_SUPERSEDED_2026-10-18.md
+  warn  linked file exists but is not tracked by git: docs/reviews/DEDUP_AUDIT_2026-10-18/L5_REPORT.md
+  warn  linked file exists but is not tracked by git: docs/reviews/RULE_IMPLEMENTATION_CHECKS_2026-10-16.md
+PASS (107 warnings)

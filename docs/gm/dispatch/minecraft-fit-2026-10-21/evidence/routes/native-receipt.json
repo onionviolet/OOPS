@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checks": [
+    "Retained batch with pending drying work: exact Save/reload/Export/literal Import",
+    "Rain rewets a paused exposed batch: exact Save/reload/Export/literal Import",
+    "Native rain calendar resets a paused exposed batch; paid physical cover protects all three retained vessels and collection returns actual dry stock",
+    "A prepaid night parcel waits for its commuting day worker; no free wage or invented departure",
+    "Actual owned worker room and promised road cargo: exact Save/reload/Export/literal Import",
+    "Actual home acquisition, restoration and guest room support a night rota; Reed cannot double-occupy it; ten-minute freight arrives in remote custody rather than carried inventory",
+    "Paused reverse parcel with cargo in transit: exact Save/reload/Export/literal Import",
+    "Village-only collection, a real reverse leg, pause/refund to the source depot and exact return of one unearned coin",
+    "Empty return before the next loaded road leg: exact Save/reload/Export/literal Import",
+    "Carrier returns over the same ten-minute road, then starts its loaded leg without teleporting or spending a second wage",
+    "Shared home owner hands the room from carrier to fitter: exact Save/reload/Export/literal Import",
+    "Finished freight, exposed processing and housed workers: exact Save/reload/Export/literal Import",
+    "Exact missing-component top-up avoids a duplicate full delivery; the real room handoff enables a supplied fitter while the player is elsewhere; actual native kits are collected at Shack",
+    "1920x1080 at actual installed-font 14/21px: rack, freight, housing and manifest controls; no document horizontal overflow"
+  ],
+  "errors": [],
+  "setup": "Previously earned native workshop end-state; initial calendar seeded near rain boundary. New racks, covers, depots, parcels, cottage/rooms and worker handoffs use native controls; travel uses the native change_location command; game minutes are developer-stepped. No natural-pacing claim."
+}

@@ -1,0 +1,5 @@
+{
+  "candidate": "/tmp/oops-inventory-release-20261021",
+  "bundle_sha256": "e35668b1862220d8737de390ce4a9fc11c03fc2a441be72363bb06dd552c36d4",
+  "requireInventoryOverhaul": true
+}

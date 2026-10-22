@@ -1,0 +1,8 @@
+{
+  "checks": [
+    "1920x1080/14px: actual resource, worker, depot, receipt and target/batch/composition-control fonts; focus/inspection purity; no horizontal overflow; Back returns to Shack",
+    "1920x1080/21px: actual resource, worker, depot, receipt and target/batch/composition-control fonts; focus/inspection purity; no horizontal overflow; Back returns to Shack"
+  ],
+  "errors": [],
+  "fixture": "Exact generated native end-state from the functional journey; no personal save."
+}

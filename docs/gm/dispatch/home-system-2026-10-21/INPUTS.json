@@ -1,0 +1,13 @@
+{
+  "head": "3ce24d9cb583fa1e574afdf864881bcd752470c5",
+  "sha256": {
+    "src/main.js": "4c42cfcbd655cf1ac7d3fecb12ed52afc057d2a01e79bb739d3c8cf16795a847",
+    "src/items.js": "b4a60669fdfe629282026aff8ee8318236eb5680b34e3f81bb3719a9e9606a1f",
+    "src/absorb_b/furniture.js": "d49d7e3da7f22fe303adacc981a4d8b85307be557cd326ea09702d62d32f07ad",
+    "src/absorb_p23/household/model.js": "3c7d8752be957efd2ee59420e35a4aaccc71af4e4017f06acdf041d26eef9749",
+    "PROJECT.md": "c947b51935e5b6b449f6d491f892e188228275e46babd5f01ace27ca440a018d",
+    "docs/USER_VISION.md": "e026b28b9b2838858fb8ec486ac29389e56810eee087df318154e1bef19a8215",
+    "docs/RULES_INDEX.md": "b090f8efd455cd813e82ecbbf12cdd28168e51f35126cb9d074682ede2726a89",
+    "docs/gm/dispatch/procgen-2026-10-13/p20/HOME.md": "2f7d4894190fbe469838b5e57b8b5de02475be1d3adef741fceba27745cc1b5d"
+  }
+}

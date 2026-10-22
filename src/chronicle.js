@@ -23,6 +23,7 @@ export function validateChronicle(c, clock) {
         for(const grave of [x.grave,x.inheritedFrom].filter(v=>v!=null))check(object(grave)&&typeof grave.name==='string'&&grave.name.length<=80&&integer(grave.age)&&typeof grave.epitaph==='string'&&grave.epitaph.length<=512&&(grave.lesson===null||ids.includes(grave.lesson)), "Invalid remembered grave.");
         check(x.grave==null||c.life.endedAt!==null, "A living life cannot have its own grave.");
         if(x.inheritance!=null) {
+            if(x.inheritance.residences!=null)check(integer(x.inheritance.residences)&&x.inheritance.residences<=16,'Invalid inherited residence count.');
             const h=x.inheritance, list=v=>Array.isArray(v)&&v.length<=3&&new Set(v).size===v.length&&v.every(id=>ids.includes(id));
             check(object(h)&&['kin','apprentice'].includes(h.recipient)&&list(h.papers)&&list(h.apprentice)&&['money','belongings','chest'].every(k=>integer(h[k]))&&
                 typeof h.home==='boolean'&&typeof h.archiveLine==='boolean'&&(h.debtsPaid==null||integer(h.debtsPaid))&&Array.isArray(h.obligations)&&h.obligations.every(o=>['grievance','archiveDuty'].includes(o)), "Invalid inheritance record.");
@@ -290,8 +291,8 @@ export function createHeirChronicle(previous, clock, calendar, name, leftovers) 
     c.knowledge={};
     if(l.recipient==='apprentice')for(const id of l.apprentice)c.knowledge[id]=true;
     c.life.experience={reflected:[],taught:[],bequest:null,generation:(previous.life.experience?.generation||1)+1,inheritedFrom:grave,
-        inheritance:{recipient:l.recipient,papers:[...l.papers],apprentice:[...l.apprentice],money:l.money,
-            belongings:l.belongings.reduce((n,r)=>n+r[1],0),chest:l.chest.reduce((n,r)=>n+r[1],0),home:l.home,obligations:[...l.obligations],archiveLine:l.archiveLine,debtsPaid:l.debts.reduce((n,d)=>n+d.paid,0)}};
+        inheritance:{recipient:l.recipient,papers:[...l.papers],apprentice:[...l.apprentice],money:l.money,residences:Object.values(l.residences?.homes.properties||{}).filter(h=>h.id!=='shack'||!l.home).length+(l.residences?.homes.portable?1:0),
+            belongings:l.belongings.reduce((n,r)=>n+r[1],0)+(l.residences?.goods||[]).reduce((n,r)=>n+r[1],0),chest:l.chest.reduce((n,r)=>n+r[1],0),home:l.home,obligations:[...l.obligations],archiveLine:l.archiveLine,debtsPaid:l.debts.reduce((n,d)=>n+d.paid,0)}};
     const ties={rememberedPredecessor:grave.name};
     if(l.obligations.includes('grievance'))ties.grievance=true;
     if(l.obligations.includes('archiveDuty'))ties.archiveDuty=true;
@@ -304,6 +305,10 @@ export function createHeirChronicle(previous, clock, calendar, name, leftovers) 
     if(l.belongings.length)got.push('their belongings');
     if(l.chest.length)got.push('the goods in their chest');
     if(l.home)got.push('the Shack');
+    for(const h of Object.values(l.residences?.homes.properties||{}))got.push(h.name);
+    if(l.residences?.homes.portable)got.push('the packed travel shelter');
+    if(l.residences?.goods.length)got.push('personal goods recovered from other residences');
+    if(l.residences?.money)got.push(`${l.residences.money} refunded home-work coins`);
     const debt=l.debts.reduce((n,d)=>n+d.owed,0);
     if(debt)note(c,`Before anything passes to me, the estate settles ${debt} coins of debt to the Village guard.`,clock,true);
     note(c,got.length?`From the estate I receive ${got.join(', ')}.`:'The estate is nearly empty. I start with what I carry myself.',clock,true);

@@ -1,5 +1,46 @@
 # User vision and research coverage
 
+## Inventory overhaul and combined publication, 2026-10-21
+
+Weibao:
+
+> Go ahead with the inventory overhaul and the remaining UI gaps that fit OOPS, using the base game and Proto23 as references. Fully integrate it into the latest combined Electron app and push and merge
+
+This selects the previously assessed inventory work and fitting presentation
+repairs for implementation, combined Electron delivery and scoped merge/push.
+The existing native stock, worn projection, custody and persistence owners remain
+authoritative. Desktop comes first; human visual/play acceptance stays separate.
+[Execution and evidence](gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md)
+records the bounded implementation and exact publication/app identities.
+
+## Matched Proto23 desktop comparison and fitting UI fixes, 2026-10-21
+
+Weibao:
+
+> Do the matched desktop comparison with Proto23 and fix the remaining UI gaps that fit OOPS, using the latest combined app, areas of improvements and little details and more? like the donate thing and the cat and more? We can refer to base game source code
+
+This authorizes the matched comparison and fitting presentation repairs, including
+creator/support details and existing cat presentation. Use current combined OOPS
+source, Proto23 and base YAIR source evidence, desktop targets and real native
+actions; retain deliberate OOPS differences under UR49. It does not select mobile,
+new world mechanisms or publication. [Comparison and execution owner](reviews/PROTO23_DESKTOP_COMPARISON_2026-10-21.md)
+records input identity, repairs, explicit differences and verification boundaries.
+
+Later follow-up, Weibao:
+
+> Fully integrate these UI fixes into the main Electron app too. Coordinate with the other chats so it includes the latest combined work without losing anything, then verify it actually shows up.
+>
+> what about aspects like inventory overhaul and more?
+
+This authorizes local main Electron integration and coordination with the active
+chats, including visible verification of the latest released combined work. The
+[delivery follow-up](reviews/PROTO23_DESKTOP_COMPARISON_2026-10-21.md#combined-release-delivered-to-normal-electron)
+records normal-profile installation, exact snapshot adoption/restart and preserved
+personal-save boundary. The [inventory assessment](reviews/INVENTORY_OVERHAUL_ASSESSMENT_2026-10-21.md)
+records existing capabilities, a crowded-stock check and remaining proposed work;
+UI polish does not establish a completed inventory overhaul or human parity
+acceptance. Commit, push and public deployment are not part of this direction.
+
 ## Tool registry, launch wrappers and discovery reconciliation, 2026-10-21
 
 Later follow-up, Weibao:
@@ -5766,3 +5807,38 @@ After the shared gear packet reached its recorded 64% used-meter stop point,
 Weibao explicitly answered “Approve up to 67% used” for final browser repairs,
 combined verification and master merge. This is one aggregate finite extension,
 not a per-chat budget reset or permission for paid fallback/new agents.
+
+## Home system and different residence starts, 2026-10-21
+
+Weibao: “Implement the home system accordingly, including the missing domicile features and support for different starts, with owned, rented, shared and nonhuman homes as appropriate., homeowner stuff and more?”
+
+This authorizes implementing the connected home scope discussed in [H5.5](gm/dispatch/procgen-2026-10-13/p20/HOME.md#h55-domicile-coverage-and-homes-for-different-starts-2026-10-21), including residence rights, useful furnishings, homeowner improvements and real distinct starting residences. Existing homes and saves are preserved. New prices, original places and fixture balance remain playable proposals. The [checkpoint](gm/dispatch/home-system-2026-10-21/CHECKPOINT.md) owns implementation/evidence. This does not require a redesign of the original PLAY screen; optional choices live on a separate in-game page. Free-form building geometry, broad NPC simulation and mobile optimization retain their separate scope.
+
+
+Later in the same request Weibao asks for birds building nests in the wild without unnecessary purchases, then “consider building and more, more in general?” This includes actual natural construction routes and useful general building considerations. [H5.6](gm/dispatch/procgen-2026-10-13/p20/HOME.md#h56-building-a-home-need-not-mean-buying-one-2026-10-21) separates selected nest/burrow/lean-to construction from broader proposed building, habitat, land and household extensions.
+
+Weibao then selects the broader building features explicitly: weather, repairs, interrupted construction, shared labor and portable homes, plus staff working at homes and noble family starts such as a prince or duke’s child. [H5.7](gm/dispatch/procgen-2026-10-13/p20/HOME.md#h57-weather-resumable-work-and-staffed-family-estates-2026-10-21) owns the selected building/staff applications and new household considerations. This authorizes bounded staffed-home work despite the broad NPC deferral; general court politics, succession simulation and settlement management remain separate.
+
+Weibao then requests staff rest/agency, tutors, family obligations, pantry replenishment and inheritance where fitting, plus consideration of canon, historical research and usable books. This selects the bounded household-life and qualified succession applications in [H5.8](gm/dispatch/procgen-2026-10-13/p20/HOME.md#h58-household-life-and-qualified-succession-2026-10-21). The [household-life checkpoint](gm/dispatch/home-system-2026-10-21/household-life/CHECKPOINT.md) owns execution. Use actual world/era sources for their institutions; original Arlmere remains original. Broader dynasty/court simulation and new canon packs retain their own scope. The earlier general succession deferral above no longer excludes this selected home/heir application.
+
+## Minecraft mechanisms in existing systems, 2026-10-21
+
+Weibao: “Implement all of them where they fit, using the source research and our existing systems. More to consider? more small stuff from each thing”. “Them” refers to the preceding Ars Nouveau, Create, Occultism, Spectrum, Botania, TerraFirmaCraft and MineColonies recommendations. This selects fitting native adaptations and useful small details from all seven, using the existing research and system owners. It authorizes the bounded helper and supply applications despite the general AD33 NPC-heavy deferral; it does not require a whole settlement simulator. Original local mechanisms and numbers remain playable proposals.
+
+[Implementation checkpoint](gm/dispatch/minecraft-fit-2026-10-21/CHECKPOINT.md) owns reservations, exact selected coverage and verification. [The modular-chain owner, MF round](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#minecraft-fit-round-mf-2026-10-21) records the cross-system connections and small details. Existing material, making, knowledge, clock and custody rules still apply.
+
+
+### Minecraft main-game integration continuation, 2026-10-21
+
+Weibao: "Fully integrate these into the main game, and implement any remaining useful mechanics and small details from all seven mods. More to consider?"
+
+This continues the all-seven implementation beyond the previous preview stopping point. The fitting Frontier applications include useful retained-material techniques, supplied garden care, native stock production and a bounded funded delivery network. Existing [MF owner](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#minecraft-fit-round-mf-2026-10-21) and [checkpoint](gm/dispatch/minecraft-fit-2026-10-21/CHECKPOINT.md) own the implementation and evidence. The instruction does not itself authorize a push or change the desktop-first priority.
+
+
+### Freight, exposed drying and residence-aware workers, 2026-10-21
+
+Weibao: “Implement cross-site freight, exposed drying, and residence-aware workers where they fit, using our existing systems. More to consider? Any useful small details still missing from the seven mods?”
+
+This selects the fitting local MF23–MF25 follow-ons. The [MF owner](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#minecraft-fit-round-mf-2026-10-21) and existing [checkpoint](gm/dispatch/minecraft-fit-2026-10-21/CHECKPOINT.md) record MF26 onward: actual Shack–Village freight, exposed weather processing, shared home-owned room/rota support and useful custody/recovery details. Existing native road, weather/calendar, residence, simulation and persistence owners remain authoritative.
+
+

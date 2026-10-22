@@ -1,0 +1,122 @@
+{
+  "root": "/tmp/oops-inventory-release-20261021",
+  "setup": "Fresh origin; declared mixed native test stock and an original public structured-equipment test pack; no personal saves or natural-acquisition claim.",
+  "cases": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "geometry": {
+        "list": {
+          "x": 668.65625,
+          "width": 369.734375,
+          "height": 788.40625
+        },
+        "inspection": {
+          "x": 1043.28125,
+          "width": 336.140625,
+          "height": 793.296875
+        },
+        "overlap": false
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "geometry": {
+        "list": {
+          "x": 668.65625,
+          "width": 368.453125,
+          "height": 742.90625
+        },
+        "inspection": {
+          "x": 1044.453125,
+          "width": 334.96875,
+          "height": 750.25
+        },
+        "overlap": false
+      }
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "geometry": {
+        "list": {
+          "x": 628.65625,
+          "width": 344.671875,
+          "height": 748.40625
+        },
+        "inspection": {
+          "x": 978.21875,
+          "width": 313.359375,
+          "height": 753.296875
+        },
+        "overlap": false
+      }
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "geometry": {
+        "list": {
+          "x": 628.65625,
+          "width": 343.390625,
+          "height": 702.90625
+        },
+        "inspection": {
+          "x": 979.390625,
+          "width": 312.1875,
+          "height": 710.25
+        },
+        "overlap": false
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "geometry": {
+        "list": {
+          "x": 564.84375,
+          "width": 253.484375,
+          "height": 572.40625
+        },
+        "inspection": {
+          "x": 823.21875,
+          "width": 230.46875,
+          "height": 577.296875
+        },
+        "overlap": false
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "geometry": {
+        "list": {
+          "x": 564.84375,
+          "width": 252.203125,
+          "height": 526.90625
+        },
+        "inspection": {
+          "x": 824.390625,
+          "width": 229.296875,
+          "height": 534.25
+        },
+        "overlap": false
+      }
+    }
+  ],
+  "checks": [
+    "Atomic reviewed batch: actual Save/reload/Export/literal-file Import retains native stock/equipment",
+    "Batch review/cancel is pure; a real intervening command rejects stale review without partial transfer; renewed exact batch succeeds",
+    "Native structured equip comparison: actual Save/reload/Export/literal-file Import retains native stock/equipment",
+    "Original public test pack: actual structured comparison predicts4→8 equipment defense, then native Equip changes the worn consumer"
+  ],
+  "result": "PASS",
+  "errors": []
+}

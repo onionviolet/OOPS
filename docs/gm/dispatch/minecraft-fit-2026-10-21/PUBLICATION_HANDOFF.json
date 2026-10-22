@@ -1,0 +1,55 @@
+{
+  "status": "ownership handed off; primary source unchanged by this chat after release",
+  "recipient": "Check Discord research UI parity",
+  "recipient_thread": "01a1613d-9fee-7e22-8c91-a8cc8b036e3f",
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-mf-routes-jktv3tv1",
+  "release_manifest": "ROUTES_INPUTS.json",
+  "exact_owned_paths": {
+    "src/field_works_content.js": "5502d24b8cb5e4cb779eecd5aca07c3db11bf87defbf152f11a1a72bf51e0e7a",
+    "src/field_works_facts.js": "5b1dabf1151b080df69a3c9d13a30add367bdba729446371b837dc49166cfa23",
+    "src/field_works_projection.js": "221bae61c23c7670b1aecbb85af75d126685812f709020238f9a9316b17213eb",
+    "src/field_works_ui.js": "2b38d5a0df37a5f55f4eea3e08ec59a3e5931836cfeba5a95f61c561e60f91bf",
+    "src/field_works_extension_content.js": "febf15ce7deeb25e56db992c31a14da378df424fb49c2d28918e7318d4350981",
+    "src/field_works_extension_facts.js": "82533b15d02ae38ba859bc52cf299cfd9f9392bdb8ca6f8c0527e42933bf50ff",
+    "src/field_works_extension_ui.js": "3a318d2f02e8bf3d8ecb0ffd7f132ae00703603f743a5b1c088e88c738850368",
+    "src/home_workers.js": "389290e84a402a66f8e4742a79bc5937d359f90d02f2489ba2f24a7111985ef6",
+    "src/weather_calendar.js": "63372df713eae1371f595ab98444c003418a909d79a7bea384b8f1942a391503",
+    "tests/field_works.test.js": "369664100ba6f1ef1f1547b16afe80eb8a3a509b549cd53ce845f47304567a7b",
+    "tests/field_works_extension.test.js": "03b98e94458a9a7ba06c521568c768155572338382da31dfd721dbbd0aa21137",
+    "scripts/playtest/minecraft-fit.mjs": "6b9b8218ae454d937c0aacc8f99889c3efcf20e41a7bd9e88638dabae3f9c7eb",
+    "scripts/playtest/minecraft-fit-visual.mjs": "4b9d8f53fe7502e4e43d162b090544306ce9a71d31cce2169423c8d5521e3a11",
+    "scripts/playtest/minecraft-routes.mjs": "313e04fb80ac164bbcf2f578e6367088e874265fe0c9a4022733ff59e24ce121",
+    "scripts/playtest/minecraft-routes-smoke.mjs": "60d65b1504af4fde48a6ee4404a9b660c20d33dcb7b137f9559478fe211017d1"
+  },
+  "owned_match_release": true,
+  "shared_join_paths": [
+    "src/field_ui.js",
+    "src/main.js",
+    "src/simulation_content.js",
+    "src/simulation_effects.js",
+    "src/expansion_engine.js",
+    "src/items.js",
+    "src/home_model.js",
+    "src/home_panel.js",
+    "src/home_building_model.js",
+    "src/weather.js",
+    "styles/action_legibility.css"
+  ],
+  "post_release_difference": {
+    "src/home_model.js": "Current planHome writable cancellation exception additionally includes cancel_household. This is later home-owner work, not an MF edit. Preserve it and reconcile with that owner; do not restore the whole file from the MF candidate."
+  },
+  "docs_scope": [
+    "docs/gm/dispatch/minecraft-fit-2026-10-21/ public records and evidence",
+    "MF sections in docs/MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md",
+    "Minecraft direction sections in docs/USER_VISION.md and PROJECT.md",
+    "Minecraft router row in docs/RULES_INDEX.md"
+  ],
+  "exclusions": [
+    "gitignored private/ generated test saves and diagnostics",
+    "private font/content assets",
+    "unrelated or later home/UI/source work outside this released scope"
+  ],
+  "generated_owner": "recipient; no more runtime/generated writes by this chat",
+  "verification": "ROUTES_CHECKS.json and normal Electron integration/main-receipt.json",
+  "commit_or_push_by_this_chat": false
+}

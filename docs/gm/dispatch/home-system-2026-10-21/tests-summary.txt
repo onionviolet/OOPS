@@ -1,0 +1,15 @@
+# Subtest: instances never share people, edges or exceptions (P9P2f)
+ok 2480 - instances never share people, edges or exceptions (P9P2f)
+  ---
+  duration_ms: 8.279041
+  type: 'test'
+  ...
+1..2480
+# tests 2480
+# suites 0
+# pass 2480
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 76107.451584

@@ -41,6 +41,7 @@ import {moodConditions, socialCommands} from "./everyday_life.js";
 import {helperDefinitions} from "./helper_content.js";
 import {bodyConditions, bodyCommands} from "./body_progression.js";
 import {fieldDefinitions} from "./field_workshop.js";
+import {fieldWorksDefinitions} from './field_works_content.js';
 import {pursuitDefinitions,pursuitSources} from "./pursuit_content.js";
 import {encounterDefinitions,encounterSources} from "./encounter_content.js";
 const wood = JSON.stringify({id: "Rough wood log"});
@@ -112,7 +113,7 @@ export const simulationDefinitions = {
 };
 
 // Directly selected opt-in families. Registration itself provisions nothing.
-for(const family of [homeFurnishingDefinitions,crushSocialDefinitions,factorioRetortDefinitions,proto23Definitions])for(const [key,rows] of Object.entries(family)){simulationDefinitions[key] ||= [];simulationDefinitions[key].push(...rows);}
+for(const family of [homeFurnishingDefinitions,crushSocialDefinitions,factorioRetortDefinitions,proto23Definitions,fieldWorksDefinitions])for(const [key,rows] of Object.entries(family)){simulationDefinitions[key] ||= [];simulationDefinitions[key].push(...rows);}
 for(const [key,rows] of Object.entries(featureExpansionDefinitions)) {simulationDefinitions[key] ||= [];simulationDefinitions[key].push(...rows);}
 
 for(const family of [worldCompletionDefinitions,lorePracticeDefinitions,bookCareDefinitions,backlogSimulationDefinitions,repositoryAbsorptionDefinitions,inkSceneDefinitions,inkRelayDefinitions,inkNestedDefinitions,relayDefinitions,referenceDeskDefinitions,nestedDefinitions,nestedChainDefinitions,nestedLifeDefinitions])for(const [key,rows] of Object.entries(family)){simulationDefinitions[key] ||= [];simulationDefinitions[key].push(...rows);}

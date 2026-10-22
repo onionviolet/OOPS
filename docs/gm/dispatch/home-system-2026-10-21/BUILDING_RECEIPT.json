@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "wildbird: Save/reload/Export/literal Import preserves physical construction and goods",
+    "Constructed bird home inspected at 1920×1080, 14/21px; typography-only fixture after the native journey",
+    "wildbird: native gather/build without coins, usable shelter, optional handmade lining, leave/return, careful dismantling and exact salvage",
+    "wildfox: Save/reload/Export/literal Import preserves physical construction and goods",
+    "wildfox: native gather/build without coins, usable shelter, optional handmade lining, leave/return, careful dismantling and exact salvage",
+    "builder: Save/reload/Export/literal Import preserves physical construction and goods",
+    "builder: native gather/build without coins, usable shelter, optional handmade lining, leave/return, careful dismantling and exact salvage"
+  ],
+  "setup": "Fresh native origins, public optional beginnings and actual controls. No inventory, residence, material, money or body seed. Construction, gathering, lining, travel, sleep, salvage and literal persistence.",
+  "status": "passed",
+  "bundle_sha256": "2673edd9a58ef1f13633011f41374bcd5af68fc89c869ed42d2f65d9489d39d2"
+}

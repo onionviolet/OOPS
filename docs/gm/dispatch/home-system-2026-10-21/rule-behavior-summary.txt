@@ -1,0 +1,15 @@
+# Subtest: one world's learned identity does not reveal a different world's identity
+ok 36 - one world's learned identity does not reveal a different world's identity
+  ---
+  duration_ms: 0.217875
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 36
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2337.554459

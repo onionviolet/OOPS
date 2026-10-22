@@ -1,0 +1,26 @@
+[
+  {
+    "path": "docs/gm/dispatch/home-system-2026-10-21/CHECKPOINT.md",
+    "before_sha256": "3bd8e8c6281626b9c2b45f81f0800142925addedd082f75591ec2c47d8d05898",
+    "after_sha256": "bf65197801079ec5228be3ebfaf85d8d7bc1861121f29eb201b3003f58166217",
+    "old_hunk": "# Home system implementation, 2026-10-21\n",
+    "new_hunk": "# Home system implementation, 2026-10-21\n\nCurrent delivery: the later building/staff extension is technically verified. See [extension report](extension/REPORT.md), [final inputs](extension/FINAL_INPUTS.json) and [new preview](http://127.0.0.1:56037/). The earlier delivery and preview identities below are historical evidence for their original wave.\n",
+    "untouched_prefix_and_suffix_preserved": true
+  },
+  {
+    "path": "docs/gm/dispatch/home-system-2026-10-21/CHECKPOINT.md",
+    "before_sha256": "bf65197801079ec5228be3ebfaf85d8d7bc1861121f29eb201b3003f58166217",
+    "after_sha256": "40a6ec5106041eba36a25cb3db46261ef281fee125eea728451d64f9bf273e8a",
+    "old_hunk": "Status: implementing extension; earlier delivery remains complete at its recorded boundary.",
+    "new_hunk": "Status: extension implemented and technically verified in `/tmp/oops-home-extension-20261021`. Build PASS; full tests 2,490/2,490 PASS; architecture and rules PASS; rule behavior 36/36 PASS; 40 rebuilt browser check groups at final bundle `15bc21fc7fbdb3224db1fc14a59bc45b202167602483964434409b47d7946a70`. Current-primary focused home tests30/30 PASS after the preserved concurrent equivalent rest-predicate extraction. Save/reload/Export/literal Import covers pending construction, packed/pitched/moved shelter, both pending/completed staff profiles and repaired rain exposure. [Report](extension/REPORT.md) records fixtures and scope. Human pacing/feel/visual acceptance remains open. Source uncommitted; no push. New preview `http://127.0.0.1:56037/`, PID23314, exec session67848; retain for review. No remaining required technical work in the selected slice.",
+    "untouched_prefix_and_suffix_preserved": true
+  },
+  {
+    "path": "PROJECT.md",
+    "before_sha256": "036b4c6854b56f110074a64bdfd4986cf21afe171c6fa61cf81681f09617e47c",
+    "after_sha256": "9e0ef5cd52a486b69089f0b5c6c3b8f7ffd6f2d02c5213a337245960db354faf",
+    "old_hunk": "own this work, currently under technical verification. Earlier delivery evidence below remains tied to its original input boundary.",
+    "new_hunk": "own this work. The [extension report](docs/gm/dispatch/home-system-2026-10-21/extension/REPORT.md) records implemented source, 2,490 passing tests, required architecture/rule gates and40 rebuilt browser check groups, including pending work, carried shelter, weather/repair and actual staffed-family starts. Technical proof uses a frozen candidate; human pacing/feel acceptance remains open. Earlier delivery evidence below remains tied to its original input boundary.",
+    "untouched_prefix_and_suffix_preserved": true
+  }
+]

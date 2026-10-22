@@ -1,0 +1,7 @@
+{
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-inventory-electron-f23yk96j",
+  "bundle_sha256": "e35668b1862220d8737de390ce4a9fc11c03fc2a441be72363bb06dd552c36d4",
+  "requireInventoryOverhaul": true,
+  "released_source_candidate": "/tmp/oops-inventory-release-20261021",
+  "preservedLocalAssetsFrom": "v0.6-68ef2e933977"
+}

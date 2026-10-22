@@ -1,0 +1,8 @@
+{
+  "checks": [
+    "Primary native index at 1920x1080/14px: workshop action available after load without a clock tick; installed-font freight/housing controls; actual room release available away from home; view/focus purity and no horizontal overflow",
+    "Primary native index at 1920x1080/21px: workshop action available after load without a clock tick; installed-font freight/housing controls; actual room release available away from home; view/focus purity and no horizontal overflow"
+  ],
+  "errors": [],
+  "setup": "Fresh browser contexts load the generated native journey end-state; typography-only variants. No personal save."
+}

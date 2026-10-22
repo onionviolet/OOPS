@@ -1,0 +1,67 @@
+{
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-minecraft-fit-ijzwk04g",
+  "base": "3ce24d9cb583fa1e574afdf864881bcd752470c5",
+  "primary_head_at_record": "3ce24d9cb583fa1e574afdf864881bcd752470c5",
+  "preview": {
+    "url": "http://127.0.0.1:51387/workshop-preview.html",
+    "pid": 59996,
+    "tool_session": 41223
+  },
+  "own_paths": {
+    "src/field_works_content.js": {
+      "candidate_sha256": "59a7b8e22ac37fe2a12bdb397df865e7a8989f58a9cd1191a5c2f9d1bf75f104",
+      "primary_sha256": "59a7b8e22ac37fe2a12bdb397df865e7a8989f58a9cd1191a5c2f9d1bf75f104"
+    },
+    "src/field_works_facts.js": {
+      "candidate_sha256": "6a696e15d05874178e39dc4dc899eea45b2932f85721d20a051b90a039a2a1ba",
+      "primary_sha256": "6a696e15d05874178e39dc4dc899eea45b2932f85721d20a051b90a039a2a1ba"
+    },
+    "src/field_works_projection.js": {
+      "candidate_sha256": "871978b7d6dcd2718d2270c622620245c5df65c12a415201248d04266d8b6794",
+      "primary_sha256": "871978b7d6dcd2718d2270c622620245c5df65c12a415201248d04266d8b6794"
+    },
+    "src/field_works_ui.js": {
+      "candidate_sha256": "0a4e886fd4c6037688e472cfc3b2ae649940da95a0fbd4b30a82c637fe9a17fc",
+      "primary_sha256": "0a4e886fd4c6037688e472cfc3b2ae649940da95a0fbd4b30a82c637fe9a17fc"
+    },
+    "src/field_ui.js": {
+      "candidate_sha256": "b3db48742b60f42396e011481a402b8c5c7ff519a2806128dbcf1ea2aa339ddf",
+      "primary_sha256": "b3db48742b60f42396e011481a402b8c5c7ff519a2806128dbcf1ea2aa339ddf"
+    },
+    "src/simulation_content.js": {
+      "candidate_sha256": "18004b8c119cfa037117122370151605473866978f82f3fdd4652e1f34c3cc19",
+      "primary_sha256": "18004b8c119cfa037117122370151605473866978f82f3fdd4652e1f34c3cc19"
+    },
+    "src/simulation_effects.js": {
+      "candidate_sha256": "bbbb1ebd7850d244991c52a8ab125455a21f01bba1d26648dcaf2cc8fd0b8fa8",
+      "primary_sha256": "bbbb1ebd7850d244991c52a8ab125455a21f01bba1d26648dcaf2cc8fd0b8fa8"
+    },
+    "src/expansion_engine.js": {
+      "candidate_sha256": "0f3de2dea80b3be44bfca5d54b9e3e2ae5fbeb84705b2d48247017ef93aca008",
+      "primary_sha256": "0f3de2dea80b3be44bfca5d54b9e3e2ae5fbeb84705b2d48247017ef93aca008"
+    },
+    "src/items.js": {
+      "candidate_sha256": "12ad4dd8b83dae4450b6f195d3f965b9f4d213a695c8b0001b9c207ef02ed49d",
+      "primary_sha256": "12ad4dd8b83dae4450b6f195d3f965b9f4d213a695c8b0001b9c207ef02ed49d"
+    },
+    "styles/action_legibility.css": {
+      "candidate_sha256": "452cfddea773dfbf5ea12c12e7d683030fb09ec3a53eba99122a7eae364cd5ff",
+      "primary_sha256": "452cfddea773dfbf5ea12c12e7d683030fb09ec3a53eba99122a7eae364cd5ff"
+    },
+    "tests/field_works.test.js": {
+      "candidate_sha256": "470230397d75c0e6a7e288791c7491dc3184cd03312c02c1415f04bf68c2bdcb",
+      "primary_sha256": "470230397d75c0e6a7e288791c7491dc3184cd03312c02c1415f04bf68c2bdcb"
+    },
+    "scripts/playtest/minecraft-fit.mjs": {
+      "candidate_sha256": "082534a870097b1857ef9cb053e45a481c8fb70525148e4538f302c88d151370",
+      "primary_sha256": "082534a870097b1857ef9cb053e45a481c8fb70525148e4538f302c88d151370"
+    },
+    "scripts/playtest/minecraft-fit-visual.mjs": {
+      "candidate_sha256": "af17a81a5266662eec67649fae384f59b9f992073191b93599d23cc7bcf4cd33",
+      "primary_sha256": "af17a81a5266662eec67649fae384f59b9f992073191b93599d23cc7bcf4cd33"
+    }
+  },
+  "bundle_sha256": "9ad4cf79022aa7f53fe814dac4d0ef1215ed691b7690d720025a65e070933727",
+  "map_sha256": "55874ed0fa3b29a6e324ea5d86ffb173e8ea501dfa0507d44c5302651083ef80",
+  "note": "Frozen combined source; own primary runtime/style/test paths match the candidate. Primary generated outputs were not overwritten. Later unrelated primary changes are outside this frozen proof."
+}

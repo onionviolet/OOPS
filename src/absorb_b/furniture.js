@@ -1,3 +1,4 @@
+import {homeBenefits} from '../home_model.js';
 // Original balance proposals inspired by Proto23's local furnishing bonuses.
 // Read existing ownership only. Never serialize this projection or install it
 // into accumulated stat/XP bonuses: rebuilding it is intentionally idempotent.
@@ -23,7 +24,7 @@ function heldCount(state, inventory, key) {
  * must reflect BOTH location access and housing availability at this location.
  */
 export function furnitureProjection({state = {}, locationId, housingAccessible = false,
-    nativeInventory = {}, chestInventory = {}, bookStats = {}, context = {}} = {}) {
+    nativeInventory = {}, chestInventory = {}, bookStats = {}, context = {}, residences = null, residenceContext = null} = {}) {
     const world = state.actors?.player?.worldId;
     const frontier = world === 'base.frontier';
     const cottage = world === P.world && locationId === L.cottage;
@@ -64,7 +65,7 @@ export function furnitureProjection({state = {}, locationId, housingAccessible =
         ['bed', 'Proto23 plain bed', {rest: 1.08}, 'Improves ordinary rest recovery here. The selected four-minute bed job keeps its disclosed recovery.'],
         ['hearth', 'Proto23 cottage hearth', {xp: {Regeneration: 1.03}}, 'Your sheltered hearth station supports recovery; existing drying still spends actual fuel.'],
         ['bookstand', 'Proto23 bookstand', {xp: {Literacy: 1.03}}, 'Supports native reading here; remembered lessons are not new books.'],
-    ]) if(rights && facts[`proto23.${fixture}Installed`] === true && completed(state, `proto23.install_${fixture}`) &&
+    ]) if(!(fixture==='bed'&&residences?.properties.proto?.fixtures.bed)&&rights && facts[`proto23.${fixture}Installed`] === true && completed(state, `proto23.install_${fixture}`) &&
         state.simulation?.claims?.[`proto23.fixture.${fixture}`]?.owner === 'player' &&
         state.simulation.claims[`proto23.fixture.${fixture}`].status === 'settled')
         add(`proto23.${fixture}`, name, cottage, bonuses, L.cottage, detail);
@@ -75,6 +76,7 @@ export function furnitureProjection({state = {}, locationId, housingAccessible =
     if(nativeHome) add('native.storage', 'Home chest', true, {storageAccess: true}, locationId,
         'Existing shared chest access; native storage remains unlimited.');
 
+    if(residenceContext) rows.push(...homeBenefits(residences,residenceContext).rows);
     const total = {xp: {}, rest: 1, storageAccess: false};
     for(const row of rows.filter(row => row.active)) {
         for(const [skill, multiplier] of Object.entries(row.bonuses.xp || {})) total.xp[skill] = (total.xp[skill] || 1) * multiplier;
@@ -122,7 +124,7 @@ export function furnitureItemBonusText(itemId) {
 export function furnitureComfort(projection) {
     const weights = {'native.bedding': 1, 'shack.drying_rack': 1, 'shack.drafting_bench': 1,
         'proto23.bed': 2, 'proto23.hearth': 2, 'proto23.bookstand': 1};
-    const fixtures = [...new Set(projection.rows.filter(row => row.active && weights[row.id]).map(row => row.id))];
-    const score = fixtures.reduce((n, id) => n + weights[id], 0);
+    const fixtures = [...new Set(projection.rows.filter(row => row.active && (row.comfortWeight||weights[row.id])).map(row => row.id))];
+    const score = fixtures.reduce((n, id) => n + (projection.rows.find(row=>row.id===id).comfortWeight||weights[id]), 0);
     return {score, fixtures, label: score >= 4 ? 'Lived-in' : score >= 2 ? 'Settled' : score ? 'Simple shelter' : 'Unfurnished'};
 }

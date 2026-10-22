@@ -1,6 +1,7 @@
 "use strict";
 import { current_game_time, Game_Time, night_time } from "./game_time.js";
 
+import {rainCycle as rain_cycle,isRainingOnDay,weatherClockMinute} from './weather_calendar.js';
 import {current_location} from "./runtime_state.js";
 
 const base_temperature = 20; //in celsius
@@ -34,22 +35,6 @@ const daycount_temperature_modifier = {
     10: -1,
 };
 
-// 0: no rain; other: rain plus temperature modifier
-const rain_cycle = {
-    0: 0,
-    1: 0,
-    2: 0,
-    3: 0,
-    4: -1,
-    5: -2,
-    6: -2,
-    7: -2,
-    8: 0,
-    9: 0,
-    10: 0,
-    11: -1,
-    12: 0,
-};
 
 /**
  * 
@@ -193,7 +178,7 @@ function get_current_temperature_smoothed() {
  * based on a simple 13-long cycle
  */
 function is_raining() {
-    return rain_cycle[current_game_time.day_count%13] < 0;
+    return isRainingOnDay(current_game_time.day_count);
 }
 
 function get_current_light_level() {
@@ -253,5 +238,5 @@ function get_current_light_level_for_roofed_location() {
 }
 
 export {
-    get_current_temperature_smoothed, is_raining, get_current_light_level, get_current_light_level_for_roofed_location,
+    get_current_temperature_smoothed, is_raining, weatherClockMinute, get_current_light_level, get_current_light_level_for_roofed_location,
 };

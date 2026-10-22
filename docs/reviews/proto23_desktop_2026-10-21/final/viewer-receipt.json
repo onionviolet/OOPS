@@ -1,0 +1,186 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "width": "1920",
+      "size": "14",
+      "task": "idle"
+    },
+    {
+      "width": "1920",
+      "size": "14",
+      "task": "inventory"
+    },
+    {
+      "width": "1920",
+      "size": "14",
+      "task": "crafting"
+    },
+    {
+      "width": "1920",
+      "size": "14",
+      "task": "combat"
+    },
+    {
+      "width": "1920",
+      "size": "14",
+      "task": "reports"
+    },
+    {
+      "width": "1920",
+      "size": "14",
+      "task": "menu"
+    },
+    {
+      "width": "1920",
+      "size": "21",
+      "task": "idle"
+    },
+    {
+      "width": "1920",
+      "size": "21",
+      "task": "inventory"
+    },
+    {
+      "width": "1920",
+      "size": "21",
+      "task": "crafting"
+    },
+    {
+      "width": "1920",
+      "size": "21",
+      "task": "combat"
+    },
+    {
+      "width": "1920",
+      "size": "21",
+      "task": "reports"
+    },
+    {
+      "width": "1920",
+      "size": "21",
+      "task": "menu"
+    },
+    {
+      "width": "1800",
+      "size": "14",
+      "task": "idle"
+    },
+    {
+      "width": "1800",
+      "size": "14",
+      "task": "inventory"
+    },
+    {
+      "width": "1800",
+      "size": "14",
+      "task": "crafting"
+    },
+    {
+      "width": "1800",
+      "size": "14",
+      "task": "combat"
+    },
+    {
+      "width": "1800",
+      "size": "14",
+      "task": "reports"
+    },
+    {
+      "width": "1800",
+      "size": "14",
+      "task": "menu"
+    },
+    {
+      "width": "1800",
+      "size": "21",
+      "task": "idle"
+    },
+    {
+      "width": "1800",
+      "size": "21",
+      "task": "inventory"
+    },
+    {
+      "width": "1800",
+      "size": "21",
+      "task": "crafting"
+    },
+    {
+      "width": "1800",
+      "size": "21",
+      "task": "combat"
+    },
+    {
+      "width": "1800",
+      "size": "21",
+      "task": "reports"
+    },
+    {
+      "width": "1800",
+      "size": "21",
+      "task": "menu"
+    },
+    {
+      "width": "1536",
+      "size": "14",
+      "task": "idle"
+    },
+    {
+      "width": "1536",
+      "size": "14",
+      "task": "inventory"
+    },
+    {
+      "width": "1536",
+      "size": "14",
+      "task": "crafting"
+    },
+    {
+      "width": "1536",
+      "size": "14",
+      "task": "combat"
+    },
+    {
+      "width": "1536",
+      "size": "14",
+      "task": "reports"
+    },
+    {
+      "width": "1536",
+      "size": "14",
+      "task": "menu"
+    },
+    {
+      "width": "1536",
+      "size": "21",
+      "task": "idle"
+    },
+    {
+      "width": "1536",
+      "size": "21",
+      "task": "inventory"
+    },
+    {
+      "width": "1536",
+      "size": "21",
+      "task": "crafting"
+    },
+    {
+      "width": "1536",
+      "size": "21",
+      "task": "combat"
+    },
+    {
+      "width": "1536",
+      "size": "21",
+      "task": "reports"
+    },
+    {
+      "width": "1536",
+      "size": "21",
+      "task": "menu"
+    }
+  ],
+  "errors": []
+}

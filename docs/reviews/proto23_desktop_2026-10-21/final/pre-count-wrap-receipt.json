@@ -1,0 +1,628 @@
+{
+  "root": "/tmp/oops-proto23-desktop-20261021-final",
+  "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/panel-design-2026-10-15/private",
+  "setup": "Mid-game native OOPS fixture with declared crafting/food prerequisites; native travel/combat/craft/equipment, fresh homeowner and native meet. Proto23 existing DEV SEEDED lab then original menu/actions. No natural-acquisition or identical-mechanic claim.",
+  "reference": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "errors": [],
+      "originalSourceUnchanged": true,
+      "displayOnlyOverrides": "Lab scale removed; requested native MS Gothic supplied; actual 14/21px body. Fixed source coordinates retained.",
+      "combat": "m e s s a g e　　　l o g\nNew Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nNew item obtained: A Stick\nNew item obtained: Water x5\nNew item obtained: Wheat x5\nItem Acquired: Water x10\nNew blueprint unlocked: \"Flour\"\nNew blueprint unlocked: \"Dough\"\nNew blueprint unlocked: \"Bread\"\nSkill 'Walking' Leveled Up: 2\nNew Skill Unlocked! \"Crafting\"\nNew Skill Unlocked! \"Perception\"\nYou -> 4\nStraw dummy missed\nfreeze messagelog　\n　stop combatlog　\nCLR"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "errors": [],
+      "originalSourceUnchanged": true,
+      "displayOnlyOverrides": "Lab scale removed; requested native MS Gothic supplied; actual 14/21px body. Fixed source coordinates retained.",
+      "combat": "m e s s a g e　　　l o g\nNew Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nNew item obtained: A Stick\nNew item obtained: Water x5\nNew item obtained: Wheat x5\nItem Acquired: Water x10\nNew blueprint unlocked: \"Flour\"\nNew blueprint unlocked: \"Dough\"\nNew blueprint unlocked: \"Bread\"\nSkill 'Walking' Leveled Up: 2\nNew Skill Unlocked! \"Crafting\"\nNew Skill Unlocked! \"Perception\"\nYou -> 4\nTraining dummy -> 2 (legs)\nYou -> 4\nTraining dummy -> 2 (L hand)\nfreeze messagelog　\n　stop combatlog　\nCLR"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "errors": [],
+      "originalSourceUnchanged": true,
+      "displayOnlyOverrides": "Lab scale removed; requested native MS Gothic supplied; actual 14/21px body. Fixed source coordinates retained.",
+      "combat": "m e s s a g e　　　l o g\nNew Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nNew item obtained: A Stick\nNew item obtained: Water x5\nNew item obtained: Wheat x5\nItem Acquired: Water x10\nNew blueprint unlocked: \"Flour\"\nNew blueprint unlocked: \"Dough\"\nNew blueprint unlocked: \"Bread\"\nSkill 'Walking' Leveled Up: 2\nNew Skill Unlocked! \"Crafting\"\nNew Skill Unlocked! \"Perception\"\nYou -> 4\nStraw dummy missed\nfreeze messagelog　\n　stop combatlog　\nCLR"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "errors": [],
+      "originalSourceUnchanged": true,
+      "displayOnlyOverrides": "Lab scale removed; requested native MS Gothic supplied; actual 14/21px body. Fixed source coordinates retained.",
+      "combat": "m e s s a g e　　　l o g\nNew Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nNew item obtained: A Stick\nNew item obtained: Water x5\nNew item obtained: Wheat x5\nItem Acquired: Water x10\nNew blueprint unlocked: \"Flour\"\nNew blueprint unlocked: \"Dough\"\nNew blueprint unlocked: \"Bread\"\nSkill 'Walking' Leveled Up: 2\nNew Skill Unlocked! \"Crafting\"\nNew Skill Unlocked! \"Perception\"\nYou -> 4\nStraw dummy -> 2 (legs)\nfreeze messagelog　\n　stop combatlog　\nCLR"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "errors": [],
+      "originalSourceUnchanged": true,
+      "displayOnlyOverrides": "Lab scale removed; requested native MS Gothic supplied; actual 14/21px body. Fixed source coordinates retained.",
+      "combat": "m e s s a g e　　　l o g\nNew Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nNew item obtained: A Stick\nNew item obtained: Water x5\nNew item obtained: Wheat x5\nItem Acquired: Water x10\nNew blueprint unlocked: \"Flour\"\nNew blueprint unlocked: \"Dough\"\nNew blueprint unlocked: \"Bread\"\nSkill 'Walking' Leveled Up: 2\nNew Skill Unlocked! \"Crafting\"\nNew Skill Unlocked! \"Perception\"\nYou -> 4\nStraw dummy -> 2 (R hand)\nYou -> 3\nfreeze messagelog　\n　stop combatlog　\nCLR"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "errors": [],
+      "originalSourceUnchanged": true,
+      "displayOnlyOverrides": "Lab scale removed; requested native MS Gothic supplied; actual 14/21px body. Fixed source coordinates retained.",
+      "combat": "m e s s a g e　　　l o g\nNew Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nNew item obtained: A Stick\nNew item obtained: Water x5\nNew item obtained: Wheat x5\nItem Acquired: Water x10\nNew blueprint unlocked: \"Flour\"\nNew blueprint unlocked: \"Dough\"\nNew blueprint unlocked: \"Bread\"\nSkill 'Walking' Leveled Up: 2\nNew Skill Unlocked! \"Crafting\"\nNew Skill Unlocked! \"Perception\"\nYou -> 4\nStraw dummy -> 2 (body)\nYou -> 4\nfreeze messagelog　\n　stop combatlog　\nCLR"
+    }
+  ],
+  "oops": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "geometry": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "page": [
+          1920,
+          1080
+        ],
+        "regions": [
+          {
+            "id": "player",
+            "width": 336,
+            "height": 299
+          },
+          {
+            "id": "focus",
+            "width": 1032.609375,
+            "height": 299
+          },
+          {
+            "id": "inventory",
+            "width": 336,
+            "height": 719
+          },
+          {
+            "id": "actions",
+            "width": 1032.609375,
+            "height": 719
+          },
+          {
+            "id": "log",
+            "width": 505.390625,
+            "height": 1024
+          }
+        ]
+      },
+      "menu": {
+        "box": {
+          "top": 27,
+          "bottom": 381.25,
+          "left": 1408,
+          "right": 1912,
+          "width": 504,
+          "height": 354.25
+        },
+        "toolbar": {
+          "top": 68.484375,
+          "bottom": 160.859375,
+          "left": 1416.296875,
+          "right": 1903.703125,
+          "width": 487.40625,
+          "height": 92.375
+        },
+        "links": {
+          "top": 165.046875,
+          "bottom": 372.953125,
+          "left": 1416.296875,
+          "right": 1903.703125,
+          "width": 487.40625,
+          "height": 207.90625
+        },
+        "font": "14px"
+      },
+      "categories": {
+        "height": 28,
+        "tops": [
+          184,
+          184,
+          184,
+          184,
+          184,
+          184,
+          184
+        ],
+        "scrollWidth": 707,
+        "width": 707
+      },
+      "equipped": true,
+      "nativeCraftDelta": 1,
+      "combatReports": "[ Home · 01/04/999, Summer, Mon ]\nSaved the game manually\nLoadouts is now available in navigation.Related panel ›\nSaved the game manually\nCraft settled: Roasted rat meat ×1 from 1 attempt.Crafting ›\nCreated Roasted rat meat x1Crafting ›\nSaved the game manually\n[ Entering Infested field ]\nTime & weather is now available in navigation.Related panel ›\nCurrent location is now available in navigation.Related panel ›\nCombat is now available in navigation.Related panel ›\nOpponents is now available in navigation.Related panel ›\nStance & combatants is now available in navigation.Related panel ›\nWorld events is now available in navigation.Related panel ›\nYou hit Wolf rat for 1\nWolf rat misses you\nYou hit Wolf rat for 1\nWolf rat hits you for 5.9\nYou hit Wolf rat for 1\nStatistics is now available in navigation.Related panel ›\nSaved the game manually"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "geometry": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "page": [
+          1920,
+          1080
+        ],
+        "regions": [
+          {
+            "id": "player",
+            "width": 414.90625,
+            "height": 473
+          },
+          {
+            "id": "focus",
+            "width": 953.703125,
+            "height": 473
+          },
+          {
+            "id": "inventory",
+            "width": 414.90625,
+            "height": 545
+          },
+          {
+            "id": "actions",
+            "width": 953.703125,
+            "height": 545
+          },
+          {
+            "id": "log",
+            "width": 505.390625,
+            "height": 1024
+          }
+        ]
+      },
+      "menu": {
+        "box": {
+          "top": 27,
+          "bottom": 458.515625,
+          "left": 1156,
+          "right": 1912,
+          "width": 756,
+          "height": 431.515625
+        },
+        "toolbar": {
+          "top": 73.734375,
+          "bottom": 170.328125,
+          "left": 1167.4375,
+          "right": 1900.5625,
+          "width": 733.125,
+          "height": 96.59375
+        },
+        "links": {
+          "top": 176.625,
+          "bottom": 447.078125,
+          "left": 1167.4375,
+          "right": 1900.5625,
+          "width": 733.125,
+          "height": 270.453125
+        },
+        "font": "21px"
+      },
+      "categories": {
+        "height": 42,
+        "tops": [
+          202,
+          202,
+          202,
+          202,
+          202,
+          202,
+          202
+        ],
+        "scrollWidth": 825,
+        "width": 707
+      },
+      "equipped": true,
+      "nativeCraftDelta": 1,
+      "combatReports": "[ Home · 01/04/999, Summer, Mon ]\nSaved the game manually\nLoadouts is now available in navigation.Related panel ›\nSaved the game manually\nCraft settled: Roasted rat meat ×1 from 1 attempt.Crafting ›\nCreated Roasted rat meat x1Crafting ›\nSaved the game manually\n[ Entering Infested field ]\nTime & weather is now available in navigation.Related panel ›\nCurrent location is now available in navigation.Related panel ›\nCombat is now available in navigation.Related panel ›\nOpponents is now available in navigation.Related panel ›\nStance & combatants is now available in navigation.Related panel ›\nWorld events is now available in navigation.Related panel ›\nYou hit Wolf rat for 1\nWolf rat misses you\nYou hit Wolf rat for 1\nWolf rat hits you for 5.9\nYou hit Wolf rat for 1\nStatistics is now available in navigation.Related panel ›\nSaved the game manually"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "geometry": {
+        "viewport": [
+          1800,
+          1040
+        ],
+        "page": [
+          1800,
+          1040
+        ],
+        "regions": [
+          {
+            "id": "player",
+            "width": 336,
+            "height": 299
+          },
+          {
+            "id": "focus",
+            "width": 944.765625,
+            "height": 299
+          },
+          {
+            "id": "inventory",
+            "width": 336,
+            "height": 679
+          },
+          {
+            "id": "actions",
+            "width": 944.765625,
+            "height": 679
+          },
+          {
+            "id": "log",
+            "width": 473.234375,
+            "height": 984
+          }
+        ]
+      },
+      "menu": {
+        "box": {
+          "top": 27,
+          "bottom": 381.25,
+          "left": 1288,
+          "right": 1792,
+          "width": 504,
+          "height": 354.25
+        },
+        "toolbar": {
+          "top": 68.484375,
+          "bottom": 160.859375,
+          "left": 1296.296875,
+          "right": 1783.703125,
+          "width": 487.40625,
+          "height": 92.375
+        },
+        "links": {
+          "top": 165.046875,
+          "bottom": 372.953125,
+          "left": 1296.296875,
+          "right": 1783.703125,
+          "width": 487.40625,
+          "height": 207.90625
+        },
+        "font": "14px"
+      },
+      "categories": {
+        "height": 28,
+        "tops": [
+          184,
+          184,
+          184,
+          184,
+          184,
+          184,
+          184
+        ],
+        "scrollWidth": 659,
+        "width": 659
+      },
+      "equipped": true,
+      "nativeCraftDelta": 1,
+      "combatReports": "[ Home · 01/04/999, Summer, Mon ]\nSaved the game manually\nLoadouts is now available in navigation.Related panel ›\nSaved the game manually\nCraft settled: Roasted rat meat ×1 from 1 attempt.Crafting ›\nCreated Roasted rat meat x1Crafting ›\nSaved the game manually\n[ Entering Infested field ]\nTime & weather is now available in navigation.Related panel ›\nCurrent location is now available in navigation.Related panel ›\nCombat is now available in navigation.Related panel ›\nOpponents is now available in navigation.Related panel ›\nStance & combatants is now available in navigation.Related panel ›\nWorld events is now available in navigation.Related panel ›\nYou hit Wolf rat for 1\nWolf rat misses you\nYou hit Wolf rat for 1\nWolf rat hits you for 5.9\nYou hit Wolf rat for 1\nStatistics is now available in navigation.Related panel ›\nSaved the game manually"
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "geometry": {
+        "viewport": [
+          1800,
+          1040
+        ],
+        "page": [
+          1800,
+          1040
+        ],
+        "regions": [
+          {
+            "id": "player",
+            "width": 388.515625,
+            "height": 473
+          },
+          {
+            "id": "focus",
+            "width": 892.25,
+            "height": 473
+          },
+          {
+            "id": "inventory",
+            "width": 388.515625,
+            "height": 505
+          },
+          {
+            "id": "actions",
+            "width": 892.25,
+            "height": 505
+          },
+          {
+            "id": "log",
+            "width": 473.234375,
+            "height": 984
+          }
+        ]
+      },
+      "menu": {
+        "box": {
+          "top": 27,
+          "bottom": 458.515625,
+          "left": 1036,
+          "right": 1792,
+          "width": 756,
+          "height": 431.515625
+        },
+        "toolbar": {
+          "top": 73.734375,
+          "bottom": 170.328125,
+          "left": 1047.4375,
+          "right": 1780.5625,
+          "width": 733.125,
+          "height": 96.59375
+        },
+        "links": {
+          "top": 176.625,
+          "bottom": 447.078125,
+          "left": 1047.4375,
+          "right": 1780.5625,
+          "width": 733.125,
+          "height": 270.453125
+        },
+        "font": "21px"
+      },
+      "categories": {
+        "height": 42,
+        "tops": [
+          202,
+          202,
+          202,
+          202,
+          202,
+          202,
+          202
+        ],
+        "scrollWidth": 825,
+        "width": 659
+      },
+      "equipped": true,
+      "nativeCraftDelta": 1,
+      "combatReports": "[ Home · 01/04/999, Summer, Mon ]\nSaved the game manually\nLoadouts is now available in navigation.Related panel ›\nSaved the game manually\nCraft settled: Roasted rat meat ×1 from 1 attempt.Crafting ›\nCreated Roasted rat meat x1Crafting ›\nSaved the game manually\n[ Entering Infested field ]\nTime & weather is now available in navigation.Related panel ›\nCurrent location is now available in navigation.Related panel ›\nCombat is now available in navigation.Related panel ›\nOpponents is now available in navigation.Related panel ›\nStance & combatants is now available in navigation.Related panel ›\nWorld events is now available in navigation.Related panel ›\nYou hit Wolf rat for 1\nWolf rat misses you\nYou hit Wolf rat for 1\nWolf rat hits you for 5.9\nYou hit Wolf rat for 1\nStatistics is now available in navigation.Related panel ›\nSaved the game manually"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "geometry": {
+        "viewport": [
+          1536,
+          864
+        ],
+        "page": [
+          1536,
+          864
+        ],
+        "regions": [
+          {
+            "id": "player",
+            "width": 531.046875,
+            "height": 277
+          },
+          {
+            "id": "focus",
+            "width": 515.078125,
+            "height": 277
+          },
+          {
+            "id": "inventory",
+            "width": 330.4375,
+            "height": 527
+          },
+          {
+            "id": "actions",
+            "width": 715.6875,
+            "height": 527
+          },
+          {
+            "id": "log",
+            "width": 447.875,
+            "height": 808
+          }
+        ]
+      },
+      "menu": {
+        "box": {
+          "top": 27,
+          "bottom": 381.25,
+          "left": 1024,
+          "right": 1528,
+          "width": 504,
+          "height": 354.25
+        },
+        "toolbar": {
+          "top": 68.484375,
+          "bottom": 160.859375,
+          "left": 1032.296875,
+          "right": 1519.703125,
+          "width": 487.40625,
+          "height": 92.375
+        },
+        "links": {
+          "top": 165.046875,
+          "bottom": 372.953125,
+          "left": 1032.296875,
+          "right": 1519.703125,
+          "width": 487.40625,
+          "height": 207.90625
+        },
+        "font": "14px"
+      },
+      "categories": {
+        "height": 28,
+        "tops": [
+          184,
+          184,
+          184,
+          184,
+          184,
+          184,
+          184
+        ],
+        "scrollWidth": 535,
+        "width": 485
+      },
+      "equipped": true,
+      "nativeCraftDelta": 1,
+      "combatReports": "[ Home · 01/04/999, Summer, Mon ]\nSaved the game manually\nLoadouts is now available in navigation.Related panel ›\nSaved the game manually\nCraft settled: Roasted rat meat ×1 from 1 attempt.Crafting ›\nCreated Roasted rat meat x1Crafting ›\nSaved the game manually\n[ Entering Infested field ]\nTime & weather is now available in navigation.Related panel ›\nCurrent location is now available in navigation.Related panel ›\nCombat is now available in navigation.Related panel ›\nOpponents is now available in navigation.Related panel ›\nStance & combatants is now available in navigation.Related panel ›\nWorld events is now available in navigation.Related panel ›\nYou hit Wolf rat for 1\nWolf rat misses you\nYou hit Wolf rat for 1\nWolf rat hits you for 5.9\nYou hit Wolf rat for 1\nStatistics is now available in navigation.Related panel ›\nSaved the game manually"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "geometry": {
+        "viewport": [
+          1536,
+          864
+        ],
+        "page": [
+          1536,
+          864
+        ],
+        "regions": [
+          {
+            "id": "player",
+            "width": 531.046875,
+            "height": 405
+          },
+          {
+            "id": "focus",
+            "width": 515.078125,
+            "height": 405
+          },
+          {
+            "id": "inventory",
+            "width": 330.4375,
+            "height": 399
+          },
+          {
+            "id": "actions",
+            "width": 715.6875,
+            "height": 399
+          },
+          {
+            "id": "log",
+            "width": 447.875,
+            "height": 808
+          }
+        ]
+      },
+      "menu": {
+        "box": {
+          "top": 27,
+          "bottom": 458.515625,
+          "left": 772,
+          "right": 1528,
+          "width": 756,
+          "height": 431.515625
+        },
+        "toolbar": {
+          "top": 73.734375,
+          "bottom": 170.328125,
+          "left": 783.4375,
+          "right": 1516.5625,
+          "width": 733.125,
+          "height": 96.59375
+        },
+        "links": {
+          "top": 176.625,
+          "bottom": 447.078125,
+          "left": 783.4375,
+          "right": 1516.5625,
+          "width": 733.125,
+          "height": 270.453125
+        },
+        "font": "21px"
+      },
+      "categories": {
+        "height": 42,
+        "tops": [
+          202,
+          202,
+          202,
+          202,
+          202,
+          202,
+          202
+        ],
+        "scrollWidth": 825,
+        "width": 485
+      },
+      "equipped": true,
+      "nativeCraftDelta": 1,
+      "combatReports": "[ Home · 01/04/999, Summer, Mon ]\nSaved the game manually\nLoadouts is now available in navigation.Related panel ›\nSaved the game manually\nCraft settled: Roasted rat meat ×1 from 1 attempt.Crafting ›\nCreated Roasted rat meat x1Crafting ›\nSaved the game manually\n[ Entering Infested field ]\nTime & weather is now available in navigation.Related panel ›\nCurrent location is now available in navigation.Related panel ›\nCombat is now available in navigation.Related panel ›\nOpponents is now available in navigation.Related panel ›\nStance & combatants is now available in navigation.Related panel ›\nWorld events is now available in navigation.Related panel ›\nYou hit Wolf rat for 1\nWolf rat misses you\nYou hit Wolf rat for 1\nWolf rat hits you for 5.9\nYou hit Wolf rat for 1\nStatistics is now available in navigation.Related panel ›\nSaved the game manually"
+    }
+  ],
+  "checks": [
+    "Original PLAY threshold, onionv guinea pig, Miktaew cat and named original-author support retained",
+    "Known Moss expression/history uses actual native household; inspection leaves residence unchanged; native Save/reload retains Moss"
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "referenceSourceSha256": "a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5",
+  "bundleSha256": "97c723356413069582c313a1d0724b808f400990593ea0769901e814e7fff203",
+  "status": "passed"
+}

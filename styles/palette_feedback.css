@@ -6,6 +6,7 @@
 .household-scene figcaption { grid-column: 1 / -1; font-size: .9em; opacity: .85; }
 .household-scene-fixtures { grid-column: 1 / -1; }
 .household-scene-flame { display: inline-block; }
+.household-cat-face {display:block;white-space:nowrap;color:var(--p23-text);line-height:1.5;}
 @keyframes household-fire { from { transform: scaleY(.94) rotate(-3deg); } to { transform: scaleY(1.05) rotate(3deg); } }
 @media (prefers-reduced-motion: no-preference) {
  html[data-effects="full"] .household-scene [data-lit="true"] .household-scene-flame { animation: household-fire 1.4s ease-in-out infinite alternate; }

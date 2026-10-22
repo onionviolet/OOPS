@@ -1,0 +1,54 @@
+{
+  "source_head": "e1a68873d0ca97a15ed45120d3fb4b63d4e5732d",
+  "primary_head": "e1a68873d0ca97a15ed45120d3fb4b63d4e5732d",
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-mf-integrated-sy8pc4f8",
+  "gates": {
+    "build": "pass",
+    "npm test": {
+      "pass": 2486,
+      "fail": 0
+    },
+    "focused field works": {
+      "pass": 15,
+      "fail": 0,
+      "included_in_full_suite": true
+    },
+    "check:arch": "pass; net zero root change; no new cycles",
+    "check:rules": "pass; one unrelated untracked home checkpoint warning",
+    "check:rule-behavior": {
+      "pass": 36,
+      "fail": 0
+    },
+    "ui_contract": {
+      "pass": 3,
+      "fail": 0
+    }
+  },
+  "native": {
+    "groups": 19,
+    "exact_save_reload_export_literal_import_states": 8,
+    "page_errors": 0,
+    "earlier_access_stock_and_workshop": "explicit developer-seeded genuine fresh native save; all new works executed through actual native controls",
+    "game_time": "developer-stepped native clock"
+  },
+  "primary": {
+    "generated_delivery": "exact passing candidate outputs installed with prior bytes preserved privately",
+    "post_delivery_source_parity": "all captured authored inputs match; index.html is the recorded generated output",
+    "sourcemap_matching_available_inputs": 699,
+    "package_originals_not_distributed": 37,
+    "visual": "1920x1080, actual 14/21px with primary installed private fonts; focus/read purity, no document horizontal overflow, shared Back; zero console/page errors",
+    "smoke": "fresh isolated browser context on primary native index; one played minute after load, actual local workshop action; courier earned wage remains 2; installed Gothic 12/14 faces loaded; no resource errors"
+  },
+  "remaining": [
+    "natural opening progression and pacing",
+    "human visual/play judgment",
+    "MF23-MF25 conditional future settings"
+  ],
+  "commit": "none",
+  "push": "none",
+  "presentation_followup": {
+    "defect": "Inherited shell transparency allowed text through the sticky workshop title after scrolling.",
+    "fix": "Scoped shared-fill override on the borrowed workshop heading.",
+    "checks": "Build, all three UI contracts and primary 14/21px native visual checks rerun; regression asserts a covering header fill. Gameplay JavaScript unchanged, so its passing full-suite and 19-group native evidence is reused under AD36."
+  }
+}

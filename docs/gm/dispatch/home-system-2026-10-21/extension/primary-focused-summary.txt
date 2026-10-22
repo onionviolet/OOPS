@@ -1,0 +1,15 @@
+# Subtest: wild work checks site, means and owned usable material rather than charging for nature
+ok 30 - wild work checks site, means and owned usable material rather than charging for nature
+  ---
+  duration_ms: 8.014458
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2540.282209

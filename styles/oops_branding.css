@@ -52,3 +52,8 @@
 .loading_support p {margin:0;color:var(--ui-accent);}
 .loading_support a {color:inherit;}
 .loading_support .loading_source_link {font-size:var(--ui-type-small);}
+
+/* The original compact footer keeps icons; Menu names every destination. */
+.creator_link_label, #reference_creator_links {display:none;}
+#repo_link img {height:32px;}
+#ko_fi_link img {height:40px;}

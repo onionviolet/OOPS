@@ -33,6 +33,8 @@
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="shell-inventory-tools"]:has(.parity-inventory-controls[data-category-folded="true"]) {display:none!important;}
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="belongings"] > .workspace-module-header {display:flex;align-items:center;}
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="belongings"] > .workspace-module-header > strong {flex:0 0 auto;text-align:left;padding-left:.3em;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="belongings"] > .workspace-module-header {flex-wrap:wrap;column-gap:.35em;}
+#main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="belongings"] > .workspace-module-header > .workspace-panel-status {flex:1 0 auto;max-width:none;}
 #main_content.workspace-active[data-parity="r3"] .shell-control-row .control-box-button {max-width:14em;}
 #main_content.workspace-active[data-parity="r3"] .shell-control-clear {font:inherit;line-height:1.25;padding:0 .35em;min-height:0;color:var(--p23-text);background:transparent;border:0;cursor:pointer;}
 #main_content.workspace-active[data-parity="r3"] .shell-control-clear[data-active="false"] {visibility:hidden;}
@@ -100,6 +102,17 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 :root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links > * {position:static!important;display:inline-flex!important;align-items:center;margin:0!important;}
 :root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links img {height:24px!important;}
 :root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links a {color:var(--p23-text);}
+/* A wrapped toolbar needs its real height, rather than its old single-row box.
+   Links name the game/recipient; an icon alone cannot distinguish fork and author. */
+:root[data-one-bar="true"] #control_box_game-bar-menu {min-width:min(28em,calc(100vw - 16px));font-size:var(--shell-context-size,var(--ui-type-body))!important;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .workspace-toolbar {height:auto!important;min-height:0;align-content:start;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .control-box-body > * {flex-shrink:0;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links {align-items:stretch;}
+:root[data-one-bar="true"] #control_box_game-bar-menu :is(#repo_link,#ko_fi_link,#reference_creator_links) {flex:1 1 100%;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links a {display:flex;align-items:center;gap:.5em;padding:.2em 0;max-width:100%;overflow-wrap:anywhere;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .creator_link_label {display:inline;}
+:root[data-one-bar="true"] #control_box_game-bar-menu #reference_creator_links {display:flex!important;flex-direction:column;align-items:stretch!important;border-top:1px solid var(--p23-line);padding-top:.3em;}
+:root[data-one-bar="true"] #control_box_game-bar-menu .game-bar-menu-links a:focus-visible {outline:2px solid var(--workspace-focus);outline-offset:2px;}
 @media (min-width:1001px) {
 :root[data-one-bar="true"] #main_content.workspace-active[data-parity="r3"][data-workspace-mode="dock"] {height:calc(100dvh - 22px);padding-top:var(--game-bar-height,30px);}
 }

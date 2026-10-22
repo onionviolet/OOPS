@@ -663,6 +663,10 @@ const misc_texts = {
 }
 
 const racial = {
+    "home fox name": "Fox",
+    "home fox desc": "A fox with paws and a body suited to a sheltered burrow.",
+    "home bird name": "Bird",
+    "home bird desc": "A bird with wings, a beak and feet suited to a canopy nest.",
     "human name": "Human",
     "human desc": "The most basic and common race, unique by it's lack of unique characteristics. Average in almost every aspect, yet powerful as a whole.",
 

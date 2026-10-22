@@ -46,8 +46,11 @@ export function createControlBox({id, title, placement = 'below', keepOpen = nul
     const isOpen = () => panel.matches(':popover-open');
     function position() {
         const b = button.getBoundingClientRect(), region = button.closest('.parity-region')?.getBoundingClientRect() || b;
-        const width = Math.min(Math.max(region.width - 8, 220), innerWidth - 16);
-        panel.style.width = `${width}px`; panel.style.fontSize = getComputedStyle(button).fontSize;
+        const requestedWidth = Math.min(Math.max(region.width - 8, 220), innerWidth - 16);
+        panel.style.width = `${requestedWidth}px`; panel.style.fontSize = getComputedStyle(button).fontSize;
+        // Minimum widths and the current text role can widen the rendered panel.
+        // Place that real box inside the viewport, including a wider Menu.
+        const width = panel.getBoundingClientRect().width || requestedWidth;
         let left, top;
         if (placement === 'beside') { left = Math.max(8, region.left - width - 4); top = Math.max(8, b.top); }
         else { left = Math.min(Math.max(8, region.left + 4), innerWidth - width - 8); top = b.bottom + 2; }

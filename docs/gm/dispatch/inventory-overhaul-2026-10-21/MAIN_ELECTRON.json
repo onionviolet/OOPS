@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-inventory-electron-f23yk96j",
+  "oldBuild": "v0.6-68ef2e933977",
+  "snapshot": {
+    "id": "v0.6-72af84cf8e66",
+    "root": "/Users/weiwei/Library/Application Support/oops-progression-simulator/builds/v0.6-72af84cf8e66",
+    "files": 82
+  },
+  "bundleSha256": "e35668b1862220d8737de390ce4a9fc11c03fc2a441be72363bb06dd552c36d4",
+  "url": "app://yairpg/index.html",
+  "nativeAdoption": "Real Save and reload control; no save read, import or fixture injection; normal PLAY left to user",
+  "allSnapshotFilesMatch": true,
+  "spareAdoptionRestartReceipt": "electron-preserved/adoption-receipt.json",
+  "electronPid": 41724,
+  "profile": "/Users/weiwei/Library/Application Support/oops-progression-simulator",
+  "at": "2026-10-22T03:15:48.501Z"
+}

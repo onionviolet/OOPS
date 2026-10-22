@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "leave: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "Native staff leave refuses a service; completed work consumes effort; idle played time restores energy without rendering grants",
+    "pending-tutor: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "completed-lesson: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "Shared tutor appointment reserves actual people and fee, grants native Literacy and pays tutor only after played completion",
+    "Specific family request can be declined, agreed, interrupted and kept without a fabricated deadline, housing loss or duplicated reward",
+    "Failed durable pantry reservation leaves actual funds, goods and accepted jobs unpublished",
+    "pending-pantry: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "delivered-pantry: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "Finite Village goods are reserved, delivered to actual cook stock and paid from household funds; provisioner returns over native played time without regenerating stock",
+    "1920x1080 Gothic 14px: household actions rendered with no page horizontal overflow",
+    "1920x1080 Gothic 21px: household actions rendered with no page horizontal overflow",
+    "actual-heir-residence: actual Save/reload/Export/literal Import retains structure/custody and accepted native jobs",
+    "Actual mortal ending and Begin an heir transition convey owned cottage, fittings and private stock to a fresh life, without a repeated home-start grant or inherited staff"
+  ],
+  "setup": "Fresh native ducal/royal/homeowner starts. Actual staff leave/rest, tutoring, family request, finite pantry delivery/return and persistence. Ended-life heir proof seeds only a near-lifespan chronicle on an actually acquired home.",
+  "status": "passed",
+  "bundle_sha256": "44b1a7f3202f1d32613f1b2015dd00e628f32d46e109241ca0b0f441cb1b80b7"
+}

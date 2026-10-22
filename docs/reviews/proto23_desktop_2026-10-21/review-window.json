@@ -1,0 +1,16 @@
+{
+  "root": "/tmp/oops-proto23-desktop-20261021-final",
+  "profile": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-desktop-comparison-review-2BwFp5",
+  "pid": 29692,
+  "runnerPid": 29687,
+  "viewport": [
+    1800,
+    1040
+  ],
+  "text": 21,
+  "source": "Declared disposable mid-game prerequisites; no player save",
+  "mode": "Inactive native review; audio muted; no foreground focus",
+  "preview": "http://127.0.0.1:57451/",
+  "comparison": "http://127.0.0.1:57451/review/comparison.html",
+  "serverPid": 29587
+}

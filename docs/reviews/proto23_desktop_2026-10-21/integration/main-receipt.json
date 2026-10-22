@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "before": {
+    "profileExisted": false,
+    "buildsExisted": false
+  },
+  "profile": "/Users/weiwei/Library/Application Support/oops-progression-simulator",
+  "snapshot": {
+    "id": "v0.6-4814a7dba61d",
+    "root": "/Users/weiwei/Library/Application Support/oops-progression-simulator/builds/v0.6-4814a7dba61d",
+    "files": 82
+  },
+  "host": {
+    "profile": "/Users/weiwei/Library/Application Support/oops-progression-simulator",
+    "serving": {
+      "id": "v0.6-4814a7dba61d",
+      "root": "/Users/weiwei/Library/Application Support/oops-progression-simulator/builds/v0.6-4814a7dba61d",
+      "announced": null
+    },
+    "visible": true
+  },
+  "bundleSha256": "0d46cb10fefdafe05dbbfda3e61bf7e09f98c491002f6b81168c7a1b1d7234fd",
+  "references": "\n                Play YAIR · Miktaew 🐱\n                Play Proto23 · 23html\n                Proto23 source\n            ",
+  "url": "app://yairpg/index.html",
+  "runnerPid": 41722,
+  "electronPid": 41724,
+  "personalSave": "No reads, fixture injection, import or PLAY performed in normal profile",
+  "screenshot": "main-electron.png"
+}

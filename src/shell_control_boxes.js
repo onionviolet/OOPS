@@ -13,9 +13,10 @@ export const FOLD_BELOW_EM = 22;
 export const foldCategory = (widthPx, fontPx) => widthPx > 0 && widthPx / (fontPx || 14) < FOLD_BELOW_EM;
 
 // Inventory box label (CB4): the folded category, any search and the sort always.
-export function inventoryLabel({folded, category, categoryCount, search, shown, sort, ascending}) {
+export function inventoryLabel({folded, category, categoryCount, search, shown, sort, ascending, choiceSummary}) {
     const parts = [];
     if (folded) parts.push(`${categoryOf(category).short} ${categoryCount}`);
+    if(choiceSummary)parts.push(choiceSummary);
     if (search) parts.push(`"${search}" ${shown}`);
     parts.push(`${sort} ${ascending ? '↑' : '↓'}`);
     return parts.join(' · ');
@@ -100,9 +101,9 @@ export function mountShellControlBoxes({compact, tabs, sortHome, sort, reverse, 
         const category = tabs.current(), count = tabs.node.querySelector(`[data-category="${category}"] .inventory-tab-count`)?.textContent || '';
         const shown = (listTools()?.querySelector('output')?.textContent || '').split('/')[0].trim();
         const sortName = sort.options[sort.selectedIndex]?.textContent || 'Name', ascending = reverse.textContent !== '↓';
-        const label = inventoryLabel({folded, category, categoryCount: count, search: query, shown, sort: sortName, ascending});
+        const label = inventoryLabel({folded, category, categoryCount: count, search: query, shown, sort: sortName, ascending, choiceSummary:inventoryList.inventoryFilter?.summary()});
         inventory.setLabel(label, `${label}. Opens search, sort and direction${folded ? ' and the categories' : ''}.`);
-        const filtered = category !== 'all' || !!query;
+        const filtered = category !== 'all' || !!query || !!inventoryList.inventoryFilter?.active();
         clear.hidden = !folded; clear.disabled = !filtered; clear.dataset.active = String(filtered);
         const clearTitle = filtered ? 'Clear filter: show all items and clear the search' : 'Nothing to clear';
         if (clear.title !== clearTitle) { clear.title = clearTitle; clear.setAttribute('aria-label', clearTitle); }

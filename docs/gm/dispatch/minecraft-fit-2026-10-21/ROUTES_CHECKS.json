@@ -1,0 +1,99 @@
+{
+  "status": "released; no further runtime/generated writes by this chat",
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-mf-routes-jktv3tv1",
+  "source_head": "e1a68873d0ca97a15ed45120d3fb4b63d4e5732d",
+  "primary_head": "e1a68873d0ca97a15ed45120d3fb4b63d4e5732d",
+  "inputs": "ROUTES_INPUTS.json",
+  "primary_delivery": "ROUTES_PRIMARY_DELIVERY.json",
+  "gates": {
+    "full_suite": {
+      "command": "node --test --test-concurrency=4 tests/*.test.js",
+      "pass": 2505,
+      "fail": 0
+    },
+    "build": "pass",
+    "architecture": "pass; main10275, no new imports/cycles",
+    "rules": "pass; one unrelated untracked home checkpoint warning",
+    "rule_behavior": {
+      "pass": 36,
+      "fail": 0
+    },
+    "latest_room_recovery_and_UI_consumers": {
+      "pass": 29,
+      "fail": 0
+    },
+    "other_latest_home_weather_UI_consumers": {
+      "pass": 23,
+      "fail": 0
+    }
+  },
+  "native": {
+    "journey_groups": 14,
+    "exact_save_reload_export_literal_import_states": 7,
+    "page_console_errors": 0,
+    "primary_smoke_sizes": [
+      14,
+      21
+    ],
+    "viewport": [
+      1920,
+      1080
+    ],
+    "fixture": "Previously earned generated native workshop end-state; initial weather-boundary calendar seeded; all new material, warehouse, freight and home actions earned through native controls; native change_location command for travel, developer-stepped game minutes."
+  },
+  "ui_owned_inputs": {
+    "src/game_bar.js": {
+      "expected": "e9182e925983ba60982105ced69ac4257c0829aefb9a3a617a60861f2aa66d0a",
+      "candidate": "e9182e925983ba60982105ced69ac4257c0829aefb9a3a617a60861f2aa66d0a",
+      "primary": "e9182e925983ba60982105ced69ac4257c0829aefb9a3a617a60861f2aa66d0a"
+    },
+    "src/ui/control_box.js": {
+      "expected": "763c7967e1c1e7bb08726b3f02e75e020372dc7fa03de0bc99f937780a03732e",
+      "candidate": "763c7967e1c1e7bb08726b3f02e75e020372dc7fa03de0bc99f937780a03732e",
+      "primary": "763c7967e1c1e7bb08726b3f02e75e020372dc7fa03de0bc99f937780a03732e"
+    },
+    "src/household_scene.js": {
+      "expected": "e49b300ca65fcec00c08b96e7a4450a548f80fac3826fd186c7d30267d0d7031",
+      "candidate": "e49b300ca65fcec00c08b96e7a4450a548f80fac3826fd186c7d30267d0d7031",
+      "primary": "e49b300ca65fcec00c08b96e7a4450a548f80fac3826fd186c7d30267d0d7031"
+    },
+    "styles/shell_chrome.css": {
+      "expected": "19eff796e8f66db18afdbb2975e6ae1662cef1769b75be607acf8d111cb0fc71",
+      "candidate": "19eff796e8f66db18afdbb2975e6ae1662cef1769b75be607acf8d111cb0fc71",
+      "primary": "19eff796e8f66db18afdbb2975e6ae1662cef1769b75be607acf8d111cb0fc71"
+    },
+    "styles/opponents.css": {
+      "expected": "ee0586d33d7e548aeaf9ff7bfcd5158f86b1cf530ca421ae4f9229e5a14191e0",
+      "candidate": "ee0586d33d7e548aeaf9ff7bfcd5158f86b1cf530ca421ae4f9229e5a14191e0",
+      "primary": "ee0586d33d7e548aeaf9ff7bfcd5158f86b1cf530ca421ae4f9229e5a14191e0"
+    },
+    "styles/crafting_detail.css": {
+      "expected": "6c408eed61a923c343ac8b75e2beadf3f9c6ccfea0e4de865b8bde9d3d6e8ba4",
+      "candidate": "6c408eed61a923c343ac8b75e2beadf3f9c6ccfea0e4de865b8bde9d3d6e8ba4",
+      "primary": "6c408eed61a923c343ac8b75e2beadf3f9c6ccfea0e4de865b8bde9d3d6e8ba4"
+    },
+    "styles/ui_tokens.css": {
+      "expected": "0935ded27084334c3fd38eee3e29522cb982dc71061bd01b677f955093c0133a",
+      "candidate": "0935ded27084334c3fd38eee3e29522cb982dc71061bd01b677f955093c0133a",
+      "primary": "0935ded27084334c3fd38eee3e29522cb982dc71061bd01b677f955093c0133a"
+    },
+    "styles/palette_feedback.css": {
+      "expected": "2091a92062bb7f7751f4f2d204537a9b9cff0f82431783333124257e959161d9",
+      "candidate": "2091a92062bb7f7751f4f2d204537a9b9cff0f82431783333124257e959161d9",
+      "primary": "2091a92062bb7f7751f4f2d204537a9b9cff0f82431783333124257e959161d9"
+    },
+    "styles/oops_branding.css": {
+      "expected": "b7ed7c32fc7a73b68f74301b601c9c8701569c75e92dbf524a9fc167aabcb193",
+      "candidate": "b7ed7c32fc7a73b68f74301b601c9c8701569c75e92dbf524a9fc167aabcb193",
+      "primary": "b7ed7c32fc7a73b68f74301b601c9c8701569c75e92dbf524a9fc167aabcb193"
+    }
+  },
+  "authored_index_matches_UI_release": true,
+  "all_nine_UI_files_exact": true,
+  "bundle_sha256": "0d46cb10fefdafe05dbbfda3e61bf7e09f98c491002f6b81168c7a1b1d7234fd",
+  "primary_smoke": "pass on actual primary native index, zero resource/page/console errors, installed Gothic fonts, view/focus purity; workshop action after load without advancing the clock",
+  "remaining_authoritative_technical_gate": "Normal Electron frozen snapshot publication/update/adoption verification is owned by Check Discord research UI parity; browser gameplay and persistence gates here are complete.",
+  "human_acceptance": "Natural opening pacing and director play/visual judgment remain separate.",
+  "commit": false,
+  "push": false
+}

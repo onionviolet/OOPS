@@ -1,3 +1,5 @@
+import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';
+import {createFurniturePanel} from './home_furniture_panel.js';
 import {allocatedRecipeInputs,recipeMaterialOutput} from './processed_materials.js';
 import {configureCraftingDomain} from './crafting_domain.js';
 import {configureNativeToolDomains} from './native_tool_domains.js';
@@ -335,7 +337,7 @@ import { restoreActiveEffect, ActiveEffect, effect_templates } from "./active_ef
 import { open_storage, close_storage, move_item_to_storage, remove_item_from_storage, player_storage, is_storage_open, bind_storage_transfer } from "./data/storage.js";
 import { Verify_Game_Objects } from "./verifier.js";
 import { quests, questManager, active_quests, Quest, QuestTask } from "./quests.js";
-import { get_current_temperature_smoothed, is_raining } from "./weather.js";
+import { get_current_temperature_smoothed, is_raining, weatherClockMinute } from "./weather.js";
 import { Pathfinder, speed_modifiers_from_skills } from "./pathfinding.js";
 import { translationManager } from "./translation.js";
 import { characterCreator } from "./character_creation.js";
@@ -376,7 +378,8 @@ import {requireStructuredContent,requireStructuredSelection} from './structured_
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
 import {initialStructuredBeginning} from './structured_beginning_choice.js';
-import {nativeStructuredEquipmentTemplate,projectStructuredEquipment} from './structured_equipment_runtime.js';
+import {nativeStructuredEquipmentTemplate} from './structured_equipment_runtime.js';
+import {readWornEquipment} from './worn_equipment_comparison.js';
 import {createContentPackPanel} from './content_pack_ui.js';
 import {SafeLocation as OptionalPackLocation} from './models/location.js';
 import {createStartProbe} from './start_probe_ui.js';
@@ -1153,19 +1156,17 @@ function refreshStatusCareStats(force=false) {
         publishedStatusCareSignature=signature;update_displayed_effects();
     }
 }
-function structuredEquipmentView() {
+function structuredEquipmentView(compareKey) {
     const definition=structuredPacks.get(optionalPackState?.structured?.packId);
-    if(!definition)return {effects:{},facts:{},rainMultiplier:1};
-    const temperature=current_location?get_current_temperature_smoothed():15;
-    const sheltered=current_location?.is_under_roof===true;
-    return projectStructuredEquipment({definitions:definition.items,equipment:readNativeEquipment({player:character}).player,
-        state:expansionState,wearByKey:Object.fromEntries(Object.values(character.getEquipment()).filter(Boolean).map(item=>[item.getInventoryKey(),durability.factor(item,.15)])),body:{...expansionState.simulation?.people.player?.body,...currentNativeBody()},
-        facts:Object.fromEntries(Object.entries(expansionState.actors.player.facts).map(([key,value])=>['actor.'+key,value])),
-        weather:{raining:!sheltered&&getPacingEffects(homePacingContext()).raining,hot:!sheltered&&temperature>25,cold:!sheltered&&temperature<5,rainPenalty:.1,coldPenalty:.1}});
+    if(!definition)return compareKey?null:{effects:{},facts:{},rainMultiplier:1};
+    return readWornEquipment({definitions:definition.items,equipment:readNativeEquipment({player:character}).player,state:expansionState,
+        wearByKey:Object.fromEntries(Object.values(character.getEquipment()).filter(Boolean).map(item=>[item.getInventoryKey(),durability.factor(item,.15)]).concat(compareKey?[[compareKey,durability.factor(compareKey,.15)]]:[])),
+        body:{...expansionState.simulation?.people.player?.body,...currentNativeBody()},actorFacts:expansionState.actors.player.facts,
+        temperature:current_location?get_current_temperature_smoothed():15,sheltered:current_location?.is_under_roof===true,raining:getPacingEffects(homePacingContext()).raining},compareKey,getItemFromKey);
 }
 function currentNativeBody(){
     const body=expansionState.simulation?.people.player?.body;
-    return {id:body?.id||'native.player.body',form:body?.form||character.getRace(),ownerId:body?.ownerId||'player',controllerId:body?.controllerId||'player',hands:body?.hands??2,mobile:body?.mobile??true};
+    return {...body,id:body?.id||'native.player.body',form:body?.form||character.getRace(),ownerId:body?.ownerId||'player',controllerId:body?.controllerId||'player',hands:body?.hands??2,mobile:body?.mobile??true};
 }
 const causalNative=createCausalStoryNativeBindings({NPC,NPCRegistry,Quest,QuestTask,quests,activeQuests:active_quests,availabilities,locations,getItemFromKey,
     getNativeBody:currentNativeBody,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeFighters:()=>({player:readNativeFighter(character)})});
@@ -1317,13 +1318,13 @@ function p00HouseholdContext(clock=expansionState.clock,state=expansionState,loc
         controlled:body.ownerId==='player'&&body.controllerId==='player'&&body.form==='human',
         animalKnown:household?.animal?.id===HOUSEHOLD.animalId,
         hearthOwned:protoHome?projection.rows.some(r=>r.id==='proto23.hearth'):state.actors.player.facts['household.shackHearthInstalled']===true,
-        ownedInventory,wet:!!active_effects.Wet,knownGift:(item_log.items['Rat tail']?.number||0)>0,furnitureInput:input,
+        ownedInventory,playToy:!!residenceState()?.properties[world===PROTO23_IDS.world?'proto':'shack']?.fixtures.toy,wet:!!active_effects.Wet,knownGift:(item_log.items['Rat tail']?.number||0)>0,furnitureInput:input,
         assertDisposition:key=>assertNativeItemDisposition(state,key)};
 }
 function p00HouseholdFrame(){
     const c=p00HouseholdContext(),view=householdPresentation({household,context:c,furnitureInput:c.furnitureInput});
     const actions=view.sections.flatMap(s=>s.actions.map(a=>({...a,id:a.command.id}))),records=view.sections.flatMap(s=>s.records.map(r=>r.text));
-    if(c.homeOwned&&c.atHome&&c.controlled&&!household?.animal)actions.unshift({id:'meet',label:'Meet the brindled cat at this home'});
+    if(c.homeOwned&&c.atHome&&c.controlled&&!household?.animal&&!Object.values(residenceState()?.properties||{}).some(h=>h.household?.animal))actions.unshift({id:'meet',label:'Meet the brindled cat at this home'});
     if(c.homeId==='base.frontier:Shack'&&c.atHome&&c.homeOwned&&!c.hearthOwned)actions.push({id:'install_hearth',label:'Install a home hearth · 3 Rough wood logs + 5 coins',enabled:(c.ownedInventory[HOUSEHOLD.fuelKey]||0)>=3&&character.money>=5});
     return {subjectKey:c.homeId,visible:c.atHome&&c.homeOwned&&c.controlled&&!current_dialogue&&!current_combat,scene:view.scene,records,actions,
         disabled:!ownsSave||foundationSaveBlocked||!!importProbeToken||!!nativeOccupationReason()||!!current_game_action||!!current_activity||is_sleeping||is_reading||is_in_trade()};
@@ -1362,6 +1363,7 @@ function stageP00Time(plan){
         const result=stageHouseholdJoin(plan,raw,c,'leave');result.notices=[...prior,...result.notices];
     }
     p00HouseholdEffects(plan,plan.p00Household);
+    stageResidenceClock(plan);
 }
 function actP00Household(type){
     const frame=p00HouseholdFrame();if(frame.disabled||!frame.visible)throw Error('Use this owned home when your living body is free.');
@@ -1373,7 +1375,7 @@ function actP00Household(type){
         applyGameplayEffect(plan.gameplay,{type:'item',key:HOUSEHOLD.fuelKey,amount:3},'player',true);
         plan.external.money-=5;state.actors.player.facts['household.shackHearthInstalled']=true;
     }else {
-        if(type==='meet'){c.animalKnown=true;state.actors.player.facts['household.mossKnown']=true;}
+        if(type==='meet'){if(Object.values(residenceState()?.properties||{}).some(h=>h.household?.animal))throw Error('Moss is already at another home.');c.animalKnown=true;state.actors.player.facts['household.mossKnown']=true;}
         stageHouseholdJoin(plan,household,c,type);
     }
     persistExpansion(plan);householdPanel?.render();
@@ -1643,21 +1645,10 @@ function readFurnitureInput() {
     return {state: expansionState, locationId: current_location?.id,
         housingAccessible: !!current_location?.housing?.isUnlocked(),
         nativeInventory: readInventoryOwner(character.getItems()),
-        chestInventory: readInventoryOwner(player_storage.getItems()), bookStats: book_stats,
+        chestInventory: readInventoryOwner(player_storage.getItems()), bookStats: book_stats, residences:residenceState(),residenceContext:{world:expansionState.actors.player.worldId,location:current_location?.id,clock:expansionState.clock,body:currentNativeBody(),nativeRights:{shack:locations.Shack.isUnlocked()&&locations.Shack.housing.isUnlocked(),proto:expansionState.actors.player.facts['proto23.cottageRight']===true&&expansionState.simulation?.claims?.['proto23.cottage_right']?.owner==='player'&&expansionState.simulation.claims['proto23.cottage_right'].status==='settled'}},
         context: expeditionContext()};
 }
 function readFurnitureBonuses() {return furnitureProjection(readFurnitureInput());}
-function createFurniturePanel() {
-    const panel=document.createElement('details');panel.id='furniture_panel';panel.className='expedition_panel';
-    const summary=document.createElement('summary');summary.textContent='Furniture and home comforts';
-    const body=document.createElement('div');panel.append(summary,body);
-    document.getElementById('location_actions_div').append(panel);
-    let signature='';
-    const render=()=>{const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);const view=furniturePresentation(readFurnitureInput());panel.hidden=!view.visible||!!current_dialogue||!!current_combat;
-        const next=JSON.stringify(view.sections.map(section=>section.records.map(r=>r.text)));if(next===signature)return;signature=next;
-        body.replaceChildren();for(const section of view.sections)for(const record of section.records){const p=document.createElement('p');p.textContent=record.text;body.append(p);}};
-    render();return {render};
-}
 
 
 function validateNativeGameplayReferences(definitions) {
@@ -1690,7 +1681,7 @@ function buildSimulationNativeContexts(readFrame) {
     Object.assign(contexts.player.facts,structuredEquipmentView().facts);
     Object.assign(contexts.player.facts,techniqueFacts(expansionState.actors.player,expeditionRegistry,contexts.player));
     const gameplay=gameplaySnapshot(),vitals=Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,c.vitals]));
-    for(const [id,c] of Object.entries(contexts))Object.assign(c,{managementPlayerLocation:current_location?.id,managementPlayerAlive:character.is_alive===true,actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,nativeReady:!active_effects.Recovering,inventoryOwners:structuredInventoryOwners(),structuredNative:optionalPackState.structured?{...optionalPackState.structured,bound:true}:null,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,...(id==="player"?{"skill.Crafting":character.getTotalSkillLevel("Crafting")}:{}),"weather.raining":getPacingEffects(homePacingContext()).raining,...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext(readFrame).facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
+    for(const [id,c] of Object.entries(contexts))Object.assign(c,{managementPlayerLocation:current_location?.id,managementPlayerAlive:character.is_alive===true,actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),nativeHomes:residenceState(),nativeWeatherClock:{minute:weatherClockMinute(current_game_time),clock:expansionState.clock},gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,nativeReady:!active_effects.Recovering,inventoryOwners:structuredInventoryOwners(),structuredNative:optionalPackState.structured?{...optionalPackState.structured,bound:true}:null,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,...(id==="player"?{"skill.Crafting":character.getTotalSkillLevel("Crafting")}:{}),"weather.raining":getPacingEffects(homePacingContext()).raining,...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext(readFrame).facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
     contexts.player.generatedPeopleFrame={people:generatedPeopleSnapshot(calendarMinutes(current_game_time)),clock:expansionState.clock};
     const joined=nestedChainSimulationContexts(expansionState,nestedSimulationContexts(expansionState,contexts));
     for(const [id,c] of Object.entries(joined))joined[id]=nestedLifeContext(expansionState,c);
@@ -1719,7 +1710,7 @@ function expeditionContext(readFrame) {
 function buildExpeditionContext() {
     const gameplay = gameplaySnapshot();
     const evidence=frontierNativeEvidence();
-    return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),equipment:readNativeEquipment({player:character}),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
+    return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeHomes:residenceState(),nativeWeatherClock:{minute:weatherClockMinute(current_game_time),clock:expansionState.clock},nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),equipment:readNativeEquipment({player:character}),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
         facts: {...evidence.facts,...chronicleFacts(expansionState.chronicle), location: current_location?.id, strength: character.getFullStats().strength, agility: character.getFullStats().agility,
             ...everydayFacts(expansionState, {hour: current_game_time.hour}),
             ...bodyFacts(expansionState),
@@ -2048,7 +2039,7 @@ function commitNativeStorage(request) {
         if(!is_storage_open() || !current_location?.housing?.isUnlocked()) throw new Error("Open an accessible chest first.");
         const plan = stageNativeStorageTransfer({state: expansionState, gameplay: gameplaySnapshot(), money: character.money,
             owners: {player: readInventoryOwner(character.getItems()), chest: readInventoryOwner(player_storage.getItems())},
-            equipment: readNativeEquipment({player: character}), request});
+            equipment: readNativeEquipment({player: character}), favorites: favourite_items, request});
         persistExpansion(plan, {chest: {category: "storage", id: "player"}}, {chest: player_storage.getItems()});
         return true;
     } catch(error) {
@@ -3258,7 +3249,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         throw `No such location as "${location_id}"`;
     }
 
-    if((p23Exposure!==undefined||household!==undefined||p23LivingGear!==undefined||p23CombatOptions!==undefined||p23Salvage!==undefined||expansionState.p23Reading!==undefined||p23Field!==undefined||p23Repeat!==undefined||p23Market!==undefined||p23Leisure!==undefined)&&!realm_move&&!restoringNativeSave&&!skip_travel_time&&previous_location&&location.id!==previous_location.id){
+    if((Object.keys(residenceState()?.properties||{}).length>0||p23Exposure!==undefined||household!==undefined||p23LivingGear!==undefined||p23CombatOptions!==undefined||p23Salvage!==undefined||expansionState.p23Reading!==undefined||p23Field!==undefined||p23Repeat!==undefined||p23Market!==undefined||p23Leisure!==undefined)&&!realm_move&&!restoringNativeSave&&!skip_travel_time&&previous_location&&location.id!==previous_location.id){
         if(!pathfinder){pathfinder=new Pathfinder();pathfinder.fill_connections(locations);}
         travel_times[previous_location.id] ||= pathfinder.find_shortest_paths(previous_location.id);
         const running=revealFacts()['reveal.run']===true&&character.getTotalSkillLevel('Running')>=1&&!practiceRunReason();
@@ -3925,6 +3916,7 @@ function do_resting() {
 }
 
 function do_sleeping() {
+    if(!residenceSleepAllowed()){end_sleeping();log_message('Your lodging term has ended. Renew or use another resting place; your belongings remain yours.','notification');return;}
     if(full_stats.health < full_stats.max_health) {
         const sleeping_heal_ammount = p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_health * 0.04, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level)));
         
@@ -3943,6 +3935,7 @@ function do_sleeping() {
 }
 
 function start_sleeping() {
+    if(!residenceSleepAllowed())return;
     if(expeditionOccupiesPlayer()) return;
     interruptP23NativeWork();
     start_sleeping_display();
@@ -9658,6 +9651,12 @@ configureNativeToolDomains({actor:()=>character,world:()=>expansionState.actors.
     refresh:()=>{character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();durabilityPanel?.render();localLifePanel?.render();practicePanel?.render();},
     blocked:harvestBlockReason,writable:harvestWritable,idle:()=>!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),
     random:key=>gameKeyedRandom(STREAMS.craft,key),logMessage:log_message,locationRevealed:id=>locations[id].isUnlocked(),revealLocation:id=>unlock_location({location:locations[id]})});
+configureHomes({registry:expeditionRegistry,root:()=>expansionState,locations,refreshPlace:()=>{if(current_location?.tags.safe_zone)update_displayed_normal_location(current_location);},pathing:()=>{if(current_location)update_pathing();},bedAccess:(id,available)=>{if(available)unlocked_beds[id]=true;else delete unlocked_beds[id];},SafeLocation:OptionalPackLocation,itemFactory:getItemFromKey,assertSpend:key=>assertNativeItemDisposition(expansionState,key),
+    read:()=>({world:expansionState.actors.player.worldId,location:current_location?.id,clock:expansionState.clock,sequence:expansionState.sequence,body:currentNativeBody(),money:character.money,workers:expansionState.simulation?.people||{},
+        inventory:readInventoryOwner(character.getItems()),alive:character.is_alive===true,ready:harvestWritable()&&harvestReady()&&!current_dialogue&&!current_combat&&!is_sleeping&&!is_reading&&!is_in_trade(),
+        calendar:calendarSnapshot(),calendarClock:expansionState.clock,writable:harvestWritable(),nativeRights:{shack:locations.Shack.isUnlocked()&&locations.Shack.housing.isUnlocked(),proto:expansionState.actors.player.facts['proto23.cottageRight']===true&&expansionState.simulation?.claims?.['proto23.cottage_right']?.owner==='player'&&expansionState.simulation.claims['proto23.cottage_right'].status==='settled'},fresh:!optionalPackState.structured&&!household&&!expansionState.chronicle,legacyHousehold:household,wet:!!active_effects.Wet,knownGift:(item_log.items['Rat tail']?.number||0)>0,craftingKnown:global_flags.is_crafting_unlocked,meditationKnown:skills.Meditation.isUnlocked()}),
+    plan:minutes=>{const plan={state:structuredClone(expansionState),external:{money:character.money},gameplay:gameplaySnapshot()};return minutes?advanceChroniclePlan(plan,minutes,true):plan;},
+    effects:p00HouseholdEffects,commit:plan=>persistExpansion(plan),setForm:form=>{character.getBioComponent().race=form;},log:text=>log_message(text,'notification')});
 configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAutomaticReady,
     harvestTransaction,grantHarvest,logMessage:log_message,random:key=>gameKeyedRandom(STREAMS.loot,key),
     habitatContext,commitHabitatPlan,clock:()=>calendarMinutes(current_game_time),
@@ -9889,7 +9888,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         read: () => {const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,
             context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};}, command: actSimulation});
     fieldPanel = createFieldPanel({registry:expeditionRegistry,read:()=>{const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,
-        context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation});
+        context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation,localActions:document.getElementById('location_actions_div'),openWorkshop:()=>{adventureNotebook?.open('here');expandWorkspaceModule('notebook');}});
     promisePanel=createPromisePanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken,inDialogue:!!current_dialogue,inCombat:!!current_combat}),command:actSimulation});
     chroniclePanel = createChroniclePanel({read: () => ({structuredLife:structuredLifeView(expansionState,optionalPackState.structured),state: expansionState, context: chronicleContext(),
         canWrite: ownsSave && !importProbeToken && !foundationSaveBlocked,
@@ -9980,7 +9979,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         if(amulet){try{assertNativeItemDisposition(expansionState,amulet.getInventoryKey());}catch{return {};}}
         return equipment;
     });
-    furniturePanel=createFurniturePanel();
+    furniturePanel=createFurniturePanel({host:()=>document.getElementById('location_actions_div'),read:readFurnitureInput,busy:()=>!!current_dialogue||!!current_combat});
     if(localLife.lastClock==null)localLife.lastClock=calendarMinutes(current_game_time);
     localLifePanel=createLocalLifePanel({container:document.getElementById('location_actions_div'),
         read:()=>({state:localLife,context:localLifeContext()}),
@@ -10092,7 +10091,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         if(base?.type!=='JOB')return label;
         return enough_time_for_earnings(activity)?`${label} · next full-round pay in ${format_working_time(activity.gathering_time_needed-activity.gathering_time%activity.gathering_time_needed)}`:`${label} · no time for another full paid round`;
     };
-    mountProto23Shell({read:()=>{
+    mountProto23Shell({transferStorage:commitNativeStorage,compareWorn:key=>structuredEquipmentView(key),read:()=>{
         const stats=character.getFullStats();
         return {stats:[['STR',stats.strength],['AGL',stats.agility],['DEX',stats.dexterity],['INT',stats.intuition],['Attack',character.getAttackPower()],['Defense',stats.defense]].map(([label,value])=>[label,Number.isFinite(value)?Number(value.toFixed(1)):'???']),
             equipment:[...document.querySelectorAll('#character_equipment_div .equipment_slot_div')].map(slot=>{const id=slot.id.replace(/_slot$/,'');const item=character.getEquipment()[id==='fishing'?'fishing_pole':id];return {id,label:id.replaceAll('_',' '),name:item?item.getName():null};}),
@@ -10103,7 +10102,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         const travelers=inVillage?generatedPeopleView(generatedPeopleSnapshot(calendarMinutes(current_game_time))).filter(p=>p.status!=='on_road'):[];
         const authored=inVillage?current_location.npcs.filter(id=>{const p=NPCRegistry.get(id);return p.canBeDisplayed(get_context())&&p.getDialogueComponent().canBeDisplayed(get_context());}).map(id=>({id,name:NPCRegistry.get(id).getName({is_mofu_mofu_enabled:global_flags.is_mofu_mofu_enabled}),role:NPCRegistry.get(id).tags.trader?'Merchant':'Village neighbor',met:id==='villageElder'?metVillageElder():true,traits:[],relationship:null})):[];
         const dealing=current_trader?{id:current_trader,name:NPCRegistry.get(current_trader).getName({is_mofu_mofu_enabled:global_flags.is_mofu_mofu_enabled}),role:'Merchant',met:true,traits:[],relationship:null}:null;
-        const people=[...authored,...travelers,...(dealing&&!authored.some(p=>p.id===dealing.id)?[dealing]:[])],things=inVillage?[{id:'mixing',name:'Village mixing counter',description:'Mix and observe your own ingredients.'},...(document.querySelector('.choice_craft')?[{id:'crafting',name:'Crafting stations',description:'Use the available native crafting stations.'}]:[]),{id:'herbal-experiments',name:'Village common herb verge',description:'Gather common herbs and inspect your carried materials and preparations.'},...(domainRegistry.project('gear_workshop')?.discovered?[{id:'gear-workshop',name:'Gear workshop',description:'Inspect and work on carried gear: fittings, treatment, repair, reforge and salvage.'}]:[]),{id:'projects',name:'Projects',description:'Read optional proposals before opting in.'}]:[];
+        const people=[...authored,...travelers,...(dealing&&!authored.some(p=>p.id===dealing.id)?[dealing]:[])],things=inVillage?[{id:'homes',name:'Homes',description:'Residence rights, furnishings, storage and optional home beginnings.'},{id:'mixing',name:'Village mixing counter',description:'Mix and observe your own ingredients.'},...(document.querySelector('.choice_craft')?[{id:'crafting',name:'Crafting stations',description:'Use the available native crafting stations.'}]:[]),{id:'herbal-experiments',name:'Village common herb verge',description:'Gather common herbs and inspect your carried materials and preparations.'},...(domainRegistry.project('gear_workshop')?.discovered?[{id:'gear-workshop',name:'Gear workshop',description:'Inspect and work on carried gear: fittings, treatment, repair, reforge and salvage.'}]:[]),{id:'projects',name:'Projects',description:'Read optional proposals before opting in.'}]:[];
         const busy=!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()||nativeOccupationReason());
         const actions=[...people.map(p=>({id:`talk:${p.id}`,target:p.id,label:p.met?`Talk with ${p.name}`:'Meet traveler',disabled:busy,reason:busy?'Finish your current work or conversation first.':''})),...things.map(t=>({id:t.id,target:t.id,label:t.id==='projects'?'Open Projects':`Open ${t.name}`,disabled:t.id!=='projects'&&busy,reason:busy?'Finish your current work or conversation first.':''}))];
         const weatherNode=document.getElementById('weather_div'),weatherLabel=weatherNode?.querySelector('.material-icons')?.textContent.trim()==='ac_unit'?'Snow':is_raining()?'Rain':'Dry',temperatureText=weatherNode?.querySelector('span:not(.material-icons):not(.temperature_tooltip)')?.textContent||'';
@@ -10111,7 +10110,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         return {inVillage,worldId:expansionState.actors.player.worldId,calendar:readLocalCalendar(),weatherWords:readLocalWeatherWords(),place:current_location?.name||current_location?.id||'',placeTypes:projectPlaceTypes(current_location?.types,{stageOf:(type,stage)=>location_types[type]?.stages?.[stage],penalty:get_location_type_penalty,statName:stat=>stat_names[stat]??stat}),clock:`${current_location?.name||current_location?.id} · ${current_game_time.toString()} · ${current_game_time.getTimeOfDaySimple()} · ${weatherLabel} · ${temperatureText}`,people,things,actions,dialogue:current_dialogue||current_trader,enemy,enemies,history:expansionState,services:inVillage?[{id:'waypost-clerk',name:'Waypost supply clerk',role:'Supply clerk',met:true,traits:[],relationship:null}]:[]};
     },act:id=>{
         if(id==='mixing'){document.getElementById('village_mixing_open')?.click();return;} if(id==='crafting'){window.openCraftingWindow();return;}
-        if(['herbal-experiments','gear-workshop'].includes(id)){expandWorkspaceModule(id);return;}
+        if(['homes','herbal-experiments','gear-workshop'].includes(id)){expandWorkspaceModule(id);return;}
         if(id==='projects'){openWorkspaceModule('projects');openProjects();return;}
         const person=id.slice(5);
         if(person.startsWith('traveler_')){openWorkspaceModule('village-travelers');const panel=document.getElementById('generated_people_panel');panel.open=true;const row=panel.querySelector(`[data-generated-person="${person}"]`);if(row){row.open=true;row.scrollIntoView({block:'nearest'});row.querySelector('button')?.focus();}return;}

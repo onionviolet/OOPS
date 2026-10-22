@@ -1,0 +1,56 @@
+--- tested-candidate/src/main.js
++++ live-primary/src/main.js
+@@ -337,7 +337,7 @@
+ import { open_storage, close_storage, move_item_to_storage, remove_item_from_storage, player_storage, is_storage_open, bind_storage_transfer } from "./data/storage.js";
+ import { Verify_Game_Objects } from "./verifier.js";
+ import { quests, questManager, active_quests, Quest, QuestTask } from "./quests.js";
+-import { get_current_temperature_smoothed, is_raining } from "./weather.js";
++import { get_current_temperature_smoothed, is_raining, weatherClockMinute } from "./weather.js";
+ import { Pathfinder, speed_modifiers_from_skills } from "./pathfinding.js";
+ import { translationManager } from "./translation.js";
+ import { characterCreator } from "./character_creation.js";
+@@ -1682,7 +1682,7 @@
+     Object.assign(contexts.player.facts,structuredEquipmentView().facts);
+     Object.assign(contexts.player.facts,techniqueFacts(expansionState.actors.player,expeditionRegistry,contexts.player));
+     const gameplay=gameplaySnapshot(),vitals=Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,c.vitals]));
+-    for(const [id,c] of Object.entries(contexts))Object.assign(c,{managementPlayerLocation:current_location?.id,managementPlayerAlive:character.is_alive===true,actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),nativeHomes:residenceState(),gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,nativeReady:!active_effects.Recovering,inventoryOwners:structuredInventoryOwners(),structuredNative:optionalPackState.structured?{...optionalPackState.structured,bound:true}:null,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,...(id==="player"?{"skill.Crafting":character.getTotalSkillLevel("Crafting")}:{}),"weather.raining":getPacingEffects(homePacingContext()).raining,...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext(readFrame).facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
++    for(const [id,c] of Object.entries(contexts))Object.assign(c,{managementPlayerLocation:current_location?.id,managementPlayerAlive:character.is_alive===true,actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),nativeHomes:residenceState(),nativeWeatherClock:{minute:weatherClockMinute(current_game_time),clock:expansionState.clock},gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,nativeReady:!active_effects.Recovering,inventoryOwners:structuredInventoryOwners(),structuredNative:optionalPackState.structured?{...optionalPackState.structured,bound:true}:null,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,...(id==="player"?{"skill.Crafting":character.getTotalSkillLevel("Crafting")}:{}),"weather.raining":getPacingEffects(homePacingContext()).raining,...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext(readFrame).facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
+     contexts.player.generatedPeopleFrame={people:generatedPeopleSnapshot(calendarMinutes(current_game_time)),clock:expansionState.clock};
+     const joined=nestedChainSimulationContexts(expansionState,nestedSimulationContexts(expansionState,contexts));
+     for(const [id,c] of Object.entries(joined))joined[id]=nestedLifeContext(expansionState,c);
+@@ -1711,7 +1711,7 @@
+ function buildExpeditionContext() {
+     const gameplay = gameplaySnapshot();
+     const evidence=frontierNativeEvidence();
+-    return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeHomes:residenceState(),nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),equipment:readNativeEquipment({player:character}),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
++    return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeHomes:residenceState(),nativeWeatherClock:{minute:weatherClockMinute(current_game_time),clock:expansionState.clock},nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),equipment:readNativeEquipment({player:character}),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
+         facts: {...evidence.facts,...chronicleFacts(expansionState.chronicle), location: current_location?.id, strength: character.getFullStats().strength, agility: character.getFullStats().agility,
+             ...everydayFacts(expansionState, {hour: current_game_time.hour}),
+             ...bodyFacts(expansionState),
+--- tested-candidate/src/home_model.js
++++ live-primary/src/home_model.js
+@@ -1,4 +1,4 @@
+-import {newHomeCondition,conditionOf,validateHomeBuilding,settleHomeBuilding,planHomeBuilding} from './home_building_model.js';
++import {newHomeCondition,conditionOf,homeSupportsRest,validateHomeBuilding,settleHomeBuilding,planHomeBuilding} from './home_building_model.js';
+ import {admitManorStaff,planHomeStaff} from './home_staff.js';
+ import {validateWorkerRooms,planWorkerRoom} from './home_workers.js';
+ import {DOMICILE_FURNITURE as F, HOME_PLACES as P, HOME_STARTS as S, HOME_IMPROVEMENTS as I, HOME_WORLD, HOME_SUPPLIES, HOME_SITE, HOME_MATERIALS as M, HOME_BUILDINGS as B, homeKey} from './home_content.js';
+@@ -34,7 +34,7 @@
+     for(const r of s.ledger)check(record(r)&&natural(r.at)&&r.at<=clock&&typeof r.text==='string'&&r.text.length<=240,'invalid home history');
+ }
+ export const homeAt=(s,c)=>Object.values(s?.properties||{}).find(h=>(P[h.id].world||HOME_WORLD)===c.world&&P[h.id].location===c.location)||null;
+-export const homeRestable=(h,c)=>homeUsable(h,c)&&conditionOf(h).integrity>20;
++export const homeRestable=(h,c)=>homeUsable(h,c)&&homeSupportsRest(h);
+ export const homeUsable=(h,c)=>!!h&&h.access&&(!P[h.id].legacy||c.nativeRights?.[h.id]===true)&&P[h.id].forms.includes(c.body.form)&&(h.id!=='nest'||c.body.flying===true)&&(!P[h.id].period||h.paidUntil>c.clock);
+ export function homeCapacity(h){return P[h.id].capacity+Object.values(h.fixtures).reduce((n,r)=>n+(fixture(r.key)?.effects.storage||0),0)+h.improvements.reduce((n,k)=>n+(I[k].capacity||0),0);}
+ export function homeDescription(h){return P[h.id].description.replace('a damaged side room',h.improvements.includes('restore')?'a restored side room':'a damaged side room');}
+--- tested-candidate/src/home_building_model.js
++++ live-primary/src/home_building_model.js
+@@ -4,6 +4,7 @@
+ const natural=n=>Number.isSafeInteger(n)&&n>=0;
+ export const newHomeCondition=clock=>({integrity:100,wetness:0,rainMinutes:0,lastClock:clock});
+ export const conditionOf=h=>h?.condition||{integrity:100,wetness:0,rainMinutes:0};
++export const homeSupportsRest=h=>conditionOf(h).integrity>20;
+ export const projectProgress=(project,c)=>c.resources?.[progressKey(project.home,project.kind)]||0;
+ export const projectLocation=project=>project.kind==='build'?HOME_SITE:P[project.home].location;
+ export function validateHomeBuilding(s,c) {

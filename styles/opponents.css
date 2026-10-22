@@ -136,6 +136,11 @@
 #main_content.workspace-active[data-parity="r3"] .encounter-summary > dl > div {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 .5em;padding:.1em 0;border-bottom:1px solid var(--p23-quiet-line);}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary dt {font:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary dd {margin:0;font-variant-numeric:tabular-nums;color:var(--p23-value);font-weight:600;white-space:nowrap;}
+/* Long known clear milestones must not make the numeric column wider than
+   the encounter panel. Preserve every public value at actual larger text. */
+#main_content.workspace-active[data-parity="r3"] .encounter-summary > dl > div {display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 .35em;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary dt {min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;overflow:visible;text-overflow:clip;}
+#main_content.workspace-active[data-parity="r3"] .encounter-summary dd {min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:right;margin-left:auto;}
 #main_content.workspace-active[data-parity="r3"] .encounter-summary > dl > div[data-kind-hue]:not([data-kind-hue=""]) dt {color:var(--kind-hue);}
 /* The list's caption moved to Encounter; Compare stays with the list. */
 #main_content.workspace-active[data-parity="r3"] #opponent_list > .enemy-roster-toolbar > span {visibility:hidden;height:0!important;}

@@ -118,6 +118,13 @@
 #crafting_window .recipe_readiness {margin-left: auto; white-space: nowrap; color: var(--theme-surface-muted, var(--ui-swatch-102));}
 #crafting_window .recipe_readiness[data-ready="true"] {color: var(--sem-gain, var(--ui-swatch-001));}
 
+/* Peers stay on one scrolling strip at larger text. The selected native tab
+   and focus remain available without spending a second row on one category. */
+#main_content.workspace-active #crafting_mainpage_buttons {display:flex;flex-wrap:nowrap;overflow-x:auto;outline:none;flex-shrink:0;}
+#main_content.workspace-active #crafting_mainpage_buttons > .crafting_mainpage_button {float:none;flex:0 0 auto;white-space:nowrap;padding-inline:.55em;}
+#main_content.workspace-active #crafting_window .recipe_div[role="option"] {border:0;border-bottom:1px solid var(--ui-hairline);}
+#main_content.workspace-active #crafting_window .recipe_div[role="option"]:focus-visible {outline:2px solid var(--theme-focus,var(--workspace-focus));outline-offset:-2px;}
+
 /* Original herbal trial: its own expanded center view, using shared tokens. */
 #crafting_engine_home {color:var(--ui-text);padding:.75rem;max-width:100%;box-sizing:border-box;}
 #crafting_engine_home .crafting-trial-material {display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:.5rem 0;}

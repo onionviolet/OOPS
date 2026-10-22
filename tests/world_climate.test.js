@@ -1,3 +1,4 @@
+import {rainCycle,isRainingOnDay} from '../src/weather_calendar.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -11,7 +12,7 @@ import {BASE_CLIMATE_PROFILE as base, PROPOSED_CLIMATE_PROFILES as proposals,
 const legacySource = readFileSync(new URL('../src/weather.js', import.meta.url), 'utf8')
     .replace(/^import .*;\n/gm, '').replace(/export\s*\{[^}]*\};\s*$/, '');
 function legacy(time, place) {
-    const ctx = vm.createContext({current_game_time: time, current_location: place, Game_Time, night_time});
+    const ctx = vm.createContext({current_game_time: time, current_location: place, Game_Time, night_time, rain_cycle:rainCycle, isRainingOnDay});
     vm.runInContext(`${legacySource}\nglobalThis.result = {temperature:get_temperature_at(current_game_time), raining:is_raining(), lightLevel:get_current_light_level()};`, ctx);
     return ctx.result;
 }

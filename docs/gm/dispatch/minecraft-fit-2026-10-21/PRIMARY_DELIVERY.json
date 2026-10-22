@@ -1,0 +1,69 @@
+{
+  "candidate": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-mf-integrated-sy8pc4f8",
+  "source_head": "e1a68873d0ca97a15ed45120d3fb4b63d4e5732d",
+  "source_input_count": 1257,
+  "source_parity": "all captured inputs match primary",
+  "sourcemap_matched": 699,
+  "absent_package_originals": [
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Path.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Debug.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Value.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/PushPop.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Error.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/TypeAssertion.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/NullException.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Object.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/StringBuilder.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/InkList.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/StoryException.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/TryGetResult.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/SearchResult.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Container.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Glue.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/ControlCommand.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Pointer.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Divert.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/ChoicePoint.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/VariableReference.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/VariableAssignment.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Void.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/NativeFunctionCall.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Tag.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Choice.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/ListDefinition.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/ListDefinitionsOrigin.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/JsonSerialisation.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/CallStack.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/VariablesState.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/PRNG.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/StatePatch.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/SimpleJson.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Flow.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/StoryState.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/StopWatch.ts",
+    "../../../../../../../../Users/weiwei/code/yet-another-idle-rpg/node_modules/inkjs/src/engine/Story.ts"
+  ],
+  "backup": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/minecraft-fit-2026-10-21/private/primary-generated-before-1792617606",
+  "outputs": {
+    "index.html": {
+      "before": "dfc4a28013ba03de8167f1b299733f1ff2cf4a258cc7f81bc7f99b3cf6032089",
+      "after": "5a54823c39df3fe9374841dce04320f588a33018fb251b63b290687677501721"
+    },
+    "dist/bundle.js": {
+      "before": "7af023eb3a76e8bf2daf0d6f8a1b0dc2b98b87a7bad10ab51e7cd1b497f4b2e4",
+      "after": "7af023eb3a76e8bf2daf0d6f8a1b0dc2b98b87a7bad10ab51e7cd1b497f4b2e4"
+    },
+    "dist/bundle.js.map": {
+      "before": "c47e58b396f40886ff85760739703e4478b7d737a1423fff311ccc61d2793937",
+      "after": "c47e58b396f40886ff85760739703e4478b7d737a1423fff311ccc61d2793937"
+    },
+    "dist/INKJS_NOTICE.txt": {
+      "before": "040e957a77e3e19432e265cb549d5c3b4ca6f3551e24d22b81785ffd1bc2b67b",
+      "after": "040e957a77e3e19432e265cb549d5c3b4ca6f3551e24d22b81785ffd1bc2b67b"
+    },
+    "dist/INKJS_AUTHORS.txt": {
+      "before": "40cb9e4353e8b18a04079a1fd6f824540633aeae19b8a9d3da5e0d8b2983e014",
+      "after": "40cb9e4353e8b18a04079a1fd6f824540633aeae19b8a9d3da5e0d8b2983e014"
+    }
+  }
+}

@@ -124,3 +124,17 @@
         width: 100%;
     }
 }
+
+/* Practical works lives inside the notebook, whose legacy paragraphs use a
+   fixed body token. Follow the actual applied module size for these controls. */
+.adventure_notebook [data-field-works] :is(p, summary, button, label, select) {
+    font-size: var(--custom-size, var(--ui-type-body));
+}
+.adventure_notebook [data-field-works] :is(button, select) {
+    max-width: 100%;
+}
+/* The shell makes ordinary headers transparent; this borrowed sticky header
+   needs its shared surface fill to cover scrolled workshop text. */
+#main_content .expanded-panel-view:has([data-field-works]) > .expanded-panel-heading {
+    background: var(--ui-fill) !important;
+}

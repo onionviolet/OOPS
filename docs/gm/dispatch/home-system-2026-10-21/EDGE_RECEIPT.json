@@ -1,0 +1,11 @@
+{
+  "setup": "Synthetic legacy Shack access/hearth and logs only. Native meeting, new rental acquisition, companion retrieval, travel, stale quotes and failed durable writes thereafter.",
+  "checks": [
+    "Actual native Moss relocates once through 30 played travel minutes; original household state remains, with its animal removed",
+    "Literal Export/Import retains one relocated companion and the source household",
+    "Pointer-down quote is rejected after native clock/sequence changes, without charge or extended lodging",
+    "Actual failed durable write publishes no term, coin or residence change; reload recovers the prior saved state"
+  ],
+  "status": "passed",
+  "bundle_sha256": "2673edd9a58ef1f13633011f41374bcd5af68fc89c869ed42d2f65d9489d39d2"
+}
