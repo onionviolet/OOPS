@@ -298,7 +298,9 @@ child-count code exist as described.
 
 - **Qingxuan: lapsing storylets.** The story clock runs offline. An event
   whose window closes applies an authored miss effect, reported on return.
-  Not present in `src/storylet_deck.js`.
+  Correction (YAIR_GAP_CHECK): YAIR already has this. Storylets carry
+  `onExpire` effects (`src/storylet_content.js`), applied when events expire
+  at `src/simulation.js:557`. The return report is the part to compare.
 - **Great Expanse: offline contract.** One in-world month per real hour, on
   the same simulation path as online play. Choices never fire while away, and
   you cannot die while away.
@@ -352,8 +354,9 @@ Batch mapping caveat: several batches mapped to YAIR by name grep only. A
 - **Ascension Tower: gift-size gates and rumors.** Each bond tier needs a
   minimum gift, and rumors unlock from summed standing.
 - **Idle Xanxia: impurity purges.** Timed purge commissions are gated by sect
-  rank. This extends the pill toxin and impurity fields already in
-  `src/items.js`.
+  rank. Correction (YAIR_GAP_CHECK): `src/items.js` has no pill toxin or
+  impurity fields. The related toxin axis lives in the unwired craft reaction
+  engine (`src/craft_resolver.js`).
 - **A Mortal's Path and Cultivation Genesis: chronicle text.** A narrator that
   avoids repeating itself, and a consequence line that depends on the build.
 
@@ -495,7 +498,9 @@ Cross-batch patterns. Codes continue from IM13.
   forecasts read that record.
 - **IM17: lapsing events conflict with AD16 unless scoped.** AD16 stops
   away time at important choices. Qingxuan lets story windows close while
-  you are away and applies a miss effect. Lapses fit only for events that are
+  you are away and applies a miss effect. YAIR already expires open events
+  that are non-blocking or not undiscovered player decisions
+  (`src/simulation.js:557`), so this scoping largely exists. Lapses fit only for events that are
   not important choices, or as a per-world dial with the reason stated.
 - **IM18: per-person simulation has a demonstrated cost.** I1 built and then
   deleted servants, missions, teaching and tournaments in favor of an army
@@ -563,3 +568,36 @@ executed, no native downloads, nothing committed.
 | IM31 | Run the IM30 flat-gauge checklist against current YAIR systems with a headless long-life run (`headless-bench` / `simfuzz` toolsets). | sonnet, medium | Each of the five traps marked present or absent, with the run's evidence. |
 | IM32 | Obligations ledger proposal (IM29): one record that crafting, household, inheritance and economy write to and read from. | sonnet, medium | A doc maps three existing debt-like states onto one record shape with a migration note. |
 | IM33 | Companion bond rite by temperament with capped scene memory, modeled on DRGN, for `src/companion_roster.js`. | sonnet, small | A fixture shows a preferred rite giving the larger gain and appending a memory line, with the cap enforced. |
+
+## YAIR-side gap check (2026-10-22)
+
+The batches' claims about YAIR's own code were mostly name greps. A sonnet
+verifier checked 74 distinct claims against `src/` and `tests/`:
+[YAIR_GAP_CHECK](itch-io-2026-10-22/YAIR_GAP_CHECK.md). Results: 33
+confirmed gaps, 25 partial, 11 already exist, 5 unclear.
+
+Claims the batches got wrong, now corrected where this report repeated them:
+
+- Lapsing storylets exist (`onExpire`, `src/simulation.js:557`).
+- Titles already gate on counters (`src/titles.js`).
+- A craft reaction engine with a toxin axis and dose routes exists but is
+  unwired (`src/craft_resolver.js`, `src/craft_content_frontier.js`).
+- `src/items.js` has no pill toxin or impurity fields.
+- Scheduled consequences exist.
+- Numeric relationship axes, including respect, exist.
+- A deed-based epitaph (`src/life_experience.js`) and a defeat-cause record
+  (`src/defeat_domain.js`) exist.
+- AD18 already accepts banked time.
+
+The coordinator re-checked the first and seventh against source.
+
+The five most consequential confirmed gaps:
+
+1. No chronic conditions or isolation effects.
+2. The heir is a single successor with no inheritance law or parentage
+   traits (IM3).
+3. No standing routines or unlocks from completion counts.
+4. No credit, insurance, market memory or faction tiers.
+5. No cross-life discovery codex.
+
+AD33 defers spatial homes and deprioritizes the NPC-heavy gaps.

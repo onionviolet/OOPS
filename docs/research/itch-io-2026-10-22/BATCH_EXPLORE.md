@@ -64,3 +64,63 @@ Build: html-classic 19477857, one 4.6 MB file (images inline), about 1,540 lines
 
 ## Verification
 Read: source for Mountain No Reason (mtn.js, data.js heads; seeding, area selection, completion) and PokeQuest (index.html: stops, region, pace, weather, dawn, ride, arrival, search, fork). Page text only (via fetch summaries) for the other six. Not read: engine builds of Unity/Godot titles; Emerald Woods game code; text-based and dungeon-crawler tag pages (403). About 30 tool calls. Raw files, hashes and notes in `private/explore/`. Nothing committed; no game code run.
+
+## Gap pass (same day): engine builds opened
+
+Tools: a Godot 3 pack reader and a Unity web-data splitter written for this pass (the shared extractor handles only Godot 4 packs appended to an exe, and the shared decoder asserts Godot 4.4 bytecode version 101), UnityPy 1.25.4, esbuild as a pretty-printer, metadata string scans. Method bodies of IL2CPP and Godot bytecode were not recovered; names and string tables were. Everything below is `source (names only)` unless marked.
+
+### Coop Catacombs (Godot 3.6 pack, 440 files, 59 compiled scripts)
+- Shared world is a seed plus server tables: scripts name separate fetch calls for items, bones, ghosts, messages and deaths, and a seed string shown to the player ("Dungeon seed", "Dungeon FULL seed"). Loading steps are listed in order: bones, ghosts, graveyard, items, messages. Generation warns on rooms not connected, missing stairs and items on wrong tiles (a validity pass).
+- Death screen writes two things: leftover backpack items ("Leave nothing" when empty) and a ghost, with the choice of leaving a "vengeful" soul or a "hallow" one. Wall messages are a constrained vocabulary: template words (danger, shortcut, dead end, need help, treasure, "be wary of", "didn't expect") plus a long noun list (rivers, caverns, rumors, travelers and similar), so notes are structured claims and not free text, and the game refuses them on doors.
+- Calendar events change play: full moon, new moon, midnight, Friday the 13th, Halloween, birthdays and weekdays each flag an effect (text says undead grow stronger at midnight, thunder strikes harder on one weekday).
+- Offline dungeon exists as a no-write mode (message writing is refused outside coop mode).
+- YAIR mapping: SR5 (messages are typed claims), SR20 (the change cause is recorded events plus calendar). Locator: `private/explore/coop/pack/globals.gdc`, `scenes/Dungeon.gdc`, `scenes/DeathPopup.gdc`, `scenes/TimeEvents.gdc`.
+
+### Cartographomancer (Godot 4.3 pack, 90 scripts, bytecode version 100)
+- The shared decoder fails on version 100 (identifier encoding differs), so only string fragments were read. Confirmed by names: between one and four navigators per trial, a map submit action, a playback canvas with an attempts counter, a navigator that updates from the map and has a sit-down state, a goal trigger, a dragon-roar level event, and a local star save. Compass and step counter are separate scripts. Distance is a start-distance value, no hidden error model was visible.
+- Corrects my earlier "does the error come from the player's measurement" question: the grading is playback of the submitted map with up to four walkers. Whether noise is added to the walker is unconfirmed (a noise-jiggle script exists, purpose unknown).
+
+### The Path Past The Mountain (Unity 2022.3.5, IL2CPP, 12 game scripts visible to UnityPy)
+- Credits name the inspiration: Far Beyond The Mountain, a Famicase-contest game. Game MonoBehaviours are visible only for terrain bits (a terrain mesher, a seed receptor, a signal script); the logic is compiled.
+- Names in the metadata: a compass needle rotation routine that uses a north angle and a damped spring (the needle lags), a compass adjuster and toggle, step detection with a validity check and calibration steps, moon position and coordinate calculation, a cube-terrain that raises or lowers cubes by player position. So the pedometer counts detected steps with a validity filter, the needle is physically smoothed, and the moon is computed. Method bodies not read.
+- Corrects the page claim: the page says nothing about error; the calibration steps suggest step length is calibrated by the player. Unverified.
+
+### Stoneheart Archive (Unity, IL2CPP, 13.7 MB metadata)
+- Event names show the loop: route preview, route confirmed, route blocked, route arrived, a rolling survey while the castle moves, emergency shoring, a protected-while-moving state, settlements with a landing approach, sit, rest and reward assignment, threat tiers that advance globally, and a wave adaptive scale.
+- **Information as a reward:** settlement rewards include a book spent and a "POI reveal" assigned as a reward, and an NPC can offer a POI reveal that the player accepts; points of interest also reveal at run end. Rewards track shortage and skipped states.
+- A meta-progression layer with a "preservation protocol" and "reflexive reconstruction" entries and a rejected-purchase event.
+- Settlements and biomes are map-baked (a biome bake format version and shape settings per biome). Maps to SR6, SR8: reveal granted by an action, bounded by the offered reward.
+
+### Astroecologist (Unity 2018, IL2CPP, product version 0.1)
+- Metadata shows a turn clock (turns per day, day length, time-of-day calculation, day-night materials) and animal states wander, flee (`StartFleeing`), sleep, with line-of-sight and in-sight checks, tranquilizer and push reaction on tiles, containment open/close state and ship, station and island map builders. Confirms the page: routines derive from the turn count, and sight drives flee.
+
+### Emerald Woods (PixiJS bundle, 34k lines after esbuild)
+- The code is present. A map panel labeled as one sector renders a fixed pre-baked texture of water, forest, mountain and station tiles (water tinted, no fog logic found in `renderMap`), so the in-game map is a station-provided overview, not discovered knowledge. Tile definitions carry a drop transform (dropping a named item onto a tile changes it, for example clay into a hole), with load-time checks that the target tile and item exist. World has weather, temperature, shelter coverage ("Covered"), a swimming oxygen bar, floors above and below ground, caves tied to mountain sectors, and a lighting update per tile.
+- Lore text about the former company was not found in the bundle (one occurrence of the name, as the map label), so the documents are fetched at runtime or live in data files not read.
+- YAIR mapping: SR8 (a fixed overview map handed to you, not earned), SR16 (shelter and temperature as site support, not item traits), SR15 (the drop transform names item and target and validates both).
+
+### PokeQuest rumors (read in full this pass)
+Three authored rumors only: shortcut, orchard, hot spring. A traveler event gives one at 35% when unheard ones remain. Each rumor text gives a physical recognition cue ("split oak"), but search does not test it; only the odds bump applies. So rumors are leads without location (SR6) and the cue text is decorative.
+
+## Gap ledger
+
+| Gap | Status | Evidence or locator |
+|---|---|---|
+| Path Past The Mountain method bodies | unreadable: IL2CPP, no dumper run, names and credits only | `private/explore/pathpast/data/Il2CppData/Metadata/global-metadata.dat`, `names.txt` |
+| Path Past: pedometer error model | needs play | calibration step names only |
+| Coop Catacombs script logic | closed for structure and strings; Godot 3.6 bytecode bodies unread | `coop/pack/` (globals, Dungeon, DeathPopup, TimeEvents) |
+| Coop server rules (which items persist, ghost behavior) | server-side: PHP and MySQL | endpoint names only |
+| Cartographomancer logic | unreadable: Godot 4.3 bytecode v100, shared decoder asserts v101; fragments read | `cartographomancer/strs/` |
+| Cartographomancer noise on walkers | needs play | noise-jiggle script exists, use unknown |
+| Stoneheart Archive logic and reveal rules | unreadable: IL2CPP; event and method names read | `stoneheart/data/Il2CppData/Metadata/global-metadata.dat` |
+| Stoneheart "restored" settlement change on revisit | needs play | no clear persistence name found |
+| Astroecologist method bodies | unreadable: IL2CPP; state names read | `astro/data/Il2CppData/Metadata/global-metadata.dat` |
+| Emerald Woods lore documents and per-run explanation changes | needs play: text not in bundle | `emerald/pretty.js` (one name hit) |
+| Emerald Woods rest of 34k-line bundle (crafting, farming) | low value for this genre | map, tiles, weather, oxygen read |
+| Mountain No Reason `mtnpath.js`, `encodepath2.js` | low value: stored path constant and stroke encoder | file sizes 6,212 and 3,299 B |
+| PokeQuest battle, raid and gym code | low value: off-genre | functions listed, not read |
+| Text-based and dungeon-crawler tag pages | server-side: 403 on two requests, not retried | fetch results |
+| Titles screened by listing line only (Dank Tomb, EverythingRL, Mito, Cartographer Journey, others) | low value: no mechanism beyond the listing, or Rust/PICO-8/wasm builds | screened list above |
+| Far Beyond The Mountain (the Famicase original) | needs play: not located in this pass | credits asset in Path Past |
+
+Gap pass verification: about 28 further tool calls; builds fetched from the HTML5 CDN only, gzip and Unity web data split by script, no game code executed; per-build hashes not recorded for the large Unity files (sizes: Path Past data 12.5 MB, wasm 38.8 MB; Stoneheart data 101 MB; Astroecologist data 11.1 MB; Cartographomancer pck 111 MB; Coop pck 18.8 MB).

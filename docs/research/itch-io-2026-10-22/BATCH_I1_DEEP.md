@@ -398,4 +398,35 @@ Code read: tribulation constants and turn function, law definitions and formulas
 conversion, real-time conversion, army migration and army math (identifier roles inferred), Debug list,
 beast DNA/breeding/mutations, node fusion, galaxy world data model, cave room pools, Fate backend hosts and rpc names,
 body ladder names, bloodline part builder (partly). Fourth pass (limit lifted) added alchemy math, city NPC roles and layouts, origin records, Soul Power formula, sect constants, Soul Shop keys, realm ladder and the remaining guides. Third pass added bloodline numbers, galaxy invasion constants, sword trial code, spear trial strings, Weapon Realm guide and the 0.3.5 to 0.4.3 changelog. Not read: city walking and collision code, Weapon God stat tables, spear trial code, Wang Dao and Tower formulas, mantra code, older changelog entries before 0.3.5, and the full list of bloodline node types.
-About 105 tool calls. Nothing executed, nothing downloaded.
+About 115 tool calls. Nothing executed, nothing downloaded.
+
+### Closing reads (mantras, tower)
+
+Mantras (source): seven elements (fire, water, wood, metal, earth, pure, divine); roll values 10 per elemental
+roll, 5 for pure, 100 for divine; per-realm roll bases 3, 9, 15, 24, 36, 54, 75; max tier 9 with tier growth 1.1
+(sum of a geometric series); comprehension cost = 5 x 10^tier x 3^rarity x 40^realm band; mortal mantras bias toward
+pure at 0.5; celestial mantras use huge band multipliers (1e5 per band). Tower (source): 10 floors per tower, 10 floors per
+block, a 500-turn draw limit that lets you withdraw safely, reward percent per tier 6; bets, cooldowns and realm gates differ per tower.
+
+## Gap ledger
+
+| Gap | Status | Evidence or locator |
+| --- | --- | --- |
+| Bloodline node tables and rarity odds | closed (rarity odds and power formula; node-type pool only partly listed) | game.pretty.js 53756-53914, 53880s |
+| Galaxy front allocation | closed (constants, unit state machine, capture rule) | 94075, 94530-94990 |
+| Cave generator | closed (room pools and objectives); hazard physics low value | 70229, 71142 |
+| City interior | closed (roles, dialogue, layouts); walking and collision low value: movement detail, not design | 71148, 71960-71973 |
+| Spear trial code | low value: strings give the rule (one-HP armored sentinels, armor doubles); sword trial code read | 103528-103545, en.tsv origin.each_sentinel_* |
+| Weapon God stat tables | needs play: stats are derived at runtime from god power and survivors; guide gives the rule | guides.txt weaponrealm |
+| Wang Dao formula | low value: guide states tier reads karma with diminishing returns; only a tier-name map | guides.txt kingdom |
+| Tower bets and cooldowns | closed for structure (10 floors, 500-turn draw, tier reward 6 percent); per-tower numbers low value | 111394 |
+| Mantra system | closed | 26426-26473 |
+| Fate server logic and prices | server-side: only client rpc names are readable | 121053, rpc list in DEEP_NOTES |
+| Daily missions, challenges, duel balance | server-side | guides.txt dailymissions, challenges, battle |
+| Online duel card effects | server-side (decided on the server) | guides.txt battle |
+| Real-time arena combat feel | needs play | changelog 0.5.1.24 |
+| Offline accrual | closed negative (no wall-clock catch-up found in the time function) | 22395-22450 |
+| Changelog before 0.3.5 | unreadable: not shipped in the bundle (oldest entry 0.3.5.33) | 126460 |
+| Steam mod loader sandbox | unreadable: Steam desktop only, not in web bundle | changelog 0.5.0.7 |
+| Spirit, talisman and meridian numbers | low value: guide gives structure; per-tier numbers are tuning | guides.txt spirits, talismans, meridians |
+| Nine Weapon Gods and Archon fight scripts | needs play (scripted encounters) | Debug playMultiverse* commands, 129245 |

@@ -48,9 +48,17 @@ Plain readable JS, 90 KB main plus 22 KB data. The served build says version
   choice (body, spirit, fortune) offered at each major breakthrough and recorded
   in the breakthrough log with before/after qi rate and power, an ascension
   dialog, a Journal tab.
-- **stated-not-found**: "Living Jianghu" and "Sects Become Real". No hit for
-  jianghu or sect in either file. They are in later builds than the one served,
-  or the devlogs describe plans.
+- **stated-not-found in the served build**: "Living Jianghu" and "Sects Become
+  Real". Gap pass: the latest devlog (reforging from v0.2.1) says the developer
+  withdrew those systems from the public game after player feedback, so the
+  build is intentionally 0.2.1. The v0.3.0 to v0.4.6 devlog describes them:
+  a Jianghu tab (Road travel with encounters, People with persistent NPCs that
+  hold names, traits, power, relationships and sect membership, Sect founding
+  with recruits, treasury, buildings and missions, rotating Market, Rankings
+  against named rivals), plus a Renown resource. Developer-stated only; no code.
+- **Improvements (developer-stated)**: the removal rationale. Too many competing
+  systems made progression hard to read and delayed repeated actions. The public
+  game was cut back to one focused loop.
 - **Representations**: breakthrough log entry that stores the choice and the
   measured effect. Preview text "On success" lists exact deltas.
 - **YAIR mapping**: preview-by-same-function matches the existing UR rules'
@@ -83,11 +91,28 @@ function) but story text and many keys are plain. The IndexedDB key says
 
 ## Peak Cultivator (wuxiadev)
 
-Phaser 3 bundle, `game.js` 1.4 MB, javascript-obfuscator style (hex-named string
-array with a rotation routine). Reading it needs executing the rotation, which the
-brief forbids. Unreadable statically. Only keyword counts were taken (orb, wave,
-sect, breakthrough, impure appear as plain words). Page claims (impure orbs
-penalize, breakthrough gated on a defense wave) stay unverified. Thin; stop.
+Phaser 3 bundle, `game.js` 1.4 MB, string-array obfuscated. Gap pass: I
+reimplemented the string-array decoder in a separate script (base64 table,
+rotation by the file's own checksum expression; no game code run), replaced
+every lookup, and pretty-printed the result (16k lines, `private/peak-cultivator/pretty.js`).
+- **Systems (source)**
+  - Qi absorption minigame: pure and impure orbs. The impurity ratio per run is a
+    random value between a min and max, minus an "impurity reduction" stat from
+    gear/upgrades (percent). Before the first major realm all orbs are plain
+    pure or impure; afterward some orbs become elemental, matched to the core
+    element, with a chance boost stat. Concentration tier speeds orbs and
+    their spawn rate. Verified claim: impure orbs penalize.
+  - Breakthrough is its own scene (a tribulation arcade) that ends with a tier
+    1 to 9. The leftover (9 minus tier) times 0.2 accumulates permanently into a
+    multiplier. A major realm resets stage and minor realm. Verified in code.
+  - Breakthrough access needs the defense wave cleared (monsters alive must be
+    zero) at the entry check. Verified claim: wave-gated.
+  - Defense map: timed waves, base HP, game over at zero; adventure, tower,
+    herbs and mines maps; elder NPCs of type defense; area unlocks in local
+    storage; a debug command table remains in the bundle.
+- **YAIR mapping**: a performance-graded breakthrough whose shortfall is stored
+  as permanent bonus is a small variation on skill-trial breakthroughs (First
+  Dawn REPORT F2); no new AD.
 
 ## Great Expanse: Road to Immortality (vegros101)
 
@@ -218,7 +243,44 @@ Reincarnation System, Immortal Ascension, Ascendant Dao and Qingxuan via esbuild
 pretty-print; Great Expanse by stripping base64 fonts; First Dawn selected
 modules. Not read: Peak Cultivator logic (obfuscated), Ascendant Dao puppetry,
 formation and map code, Great Expanse's full event library, Heavenly Path later
-builds, First Dawn's 100+ other modules. Qingxuan's offline cap value and 12 h
-claim were not decoded (index-obfuscated constant). About 40 tool calls; two
+builds, First Dawn's 100+ other modules. (Gap pass closed the rest; see the ledger.) About 40 tool calls; two
 itch page requests hit 429 and were retried after waiting. YAIR greps were name
 greps over `src` and only mean "no obvious existing owner".
+
+## Gap pass additions (2026-10-22)
+
+- **Qingxuan offline cap**: the string-array lookups were decodable (plain array
+  with rotation, not encoded). The offline window constant is 12 hours of real
+  time (43,200,000 ms), so the page's 12 h claim holds. The offline cultivation
+  gain uses a stepped efficiency by hours away; the story-year clock runs at
+  0.3 of real time online and offline.
+- **Ascendant Dao puppetry**: puppets are items placed into workshop worker
+  slots. A worker holds one puppet and one action; progress ticks by the
+  puppet's speed times a workshop building bonus. Crafting actions need a
+  puppet flagged able to craft, otherwise it only gathers. One separate puppet
+  can be set as a combat companion. Workshop tier caps the worker count.
+  Actions wait on missing inputs and report "Waiting for <item>".
+- **Ascendant Dao formations and map**: formations exist as a craft skill in the
+  skill list beside alchemy, forging, talismans, cuisine, beast taming and
+  puppetry. The map is a region graph (neighbours, terrain text, danger, realm
+  requirement, travel days). No 3D or WebGL code found, so the "3D map" claim is
+  stated-not-found.
+
+## Gap ledger
+
+| Gap | Status | Evidence or locator |
+|---|---|---|
+| Peak Cultivator logic unreadable | closed: own string-array decoder, rotation from file checksum, no game code run | `private/peak-cultivator/deob.js`, `pretty.js` lines 980-1010 (breakthrough), 3847 and 7568-7585 (impurity, orbs), 11633 (wave gate) |
+| Qingxuan offline cap and 12 h claim | closed: 12 h | `private/qingxuan/deob.js` line 328 (`432e5` ms) |
+| Qingxuan story clock constants beyond cap | low value: rate 0.3 read; per-event windows are data tables | `private/qingxuan/pretty.js` 1229-1246 |
+| Heavenly Path "Living Jianghu" / "Sects Become Real" | server-side or withdrawn: not in served 0.2.1 build; devlogs only | `private/heavenly-path/devlog_1591305.html`, `devlog_1576735.html` |
+| Ascendant Dao puppetry | closed | `private/ascendant-dao/pretty.js` 13274-13350 |
+| Ascendant Dao formations | low value: only a skill id in code read; recipes not traced | `pretty.js` 9106 |
+| Ascendant Dao 3D map | closed as not found: region graph, no 3D code | `pretty.js` 9240 |
+| Ascendant Dao sect raids, secret realms, whole 52k lines | low value: cave raids traced; remainder is standard idle content | `pretty.js` 10536-10593 |
+| Great Expanse full event library | low value: large authored text tables; mechanism (offline, karma, deed field) already traced | `private/great-expanse/stripped.html` |
+| Great Expanse AI-assisted claim | needs play or developer statement: not decidable from code | n/a |
+| First Dawn remaining ~100 modules | low value: delta (investigations, journal, atlas) is what was asked; older systems are in REPORT.md | `private/first-dawn/` |
+| First Dawn journal cross-life persistence | closed by source: stored in cross-life meta, copied on save | `first-dawn/game.js` 5610, 44270 |
+| Reincarnation System sect doctrine, pill resistance, challenge lives | low value: standard prestige-idle modifiers | `private/reincarnation-system/pretty.js` 3966, 4624-4640 |
+| Immortal Ascension beast taming details | low value: beast slots and equip rules read, no breeding or growth system exists in this build | `private/immortal-ascension/pretty.js` 584-595, 840 |

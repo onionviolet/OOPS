@@ -25,8 +25,11 @@ files in StreamingAssets were not read.
   reduction over a soft cap, plus a skill system with required skills.
 - **Loop gate.** The loop-ended menu offers wake up or view the death state; a game-over menu offers
   loading the last action or last checkpoint. The developer claim that the loop starts only after
-  surviving the first run is `stated-not-found` (no way to read the gating without bodies), but the
-  loop-count and loop-started requirement types match it.
+  surviving the first run is now `source` (shipped UI text): the game says looping is not a roguelike
+  mechanic and you must get further in the first life to unlock it. Shipped UI also shows a Loop
+  Experience bar (x/100), a Loop Level with a multiplier (level 4 = x1.20), persistent actions that keep
+  progress between loops, a menu of missed persistent actions (shown at 97% completion), base versus
+  skilled action time, and a reset-consumption-priorities-on-loop setting.
 - **What crosses a loop (names-only).** Persistent actions and "known persistent" effects, loop flags,
   familiarity and skills, completion counts per action (this, last, all loops).
 - **Representations (names-only).** Queue panel with per-action hover panels, "new actions" counter
@@ -156,7 +159,8 @@ Build: itch iframe 19653438 plus the developer's `llms-full.txt` (facts: web gam
   times. Villager deaths per tick from starvation and freezing; a **madness** track with six tiers whose
   per-tier death chances differ; blood-moon sacrifice that grows per occurrence; attack waves with a
   casualty cap and building damage chance. Confirms villager jobs, waves, trading; companion
-  storylines are `stated-not-found` (3 string hits only).
+  storylines are `source`: bought tools (for example a crow harness) unlock a storyline and add a
+  "fellowship member"; wounded fellowship and wave casualties use dial values.
 - **Cruel mode as a data table (source).** One file holds every difficulty dial as a normal/cruel pair:
   success chance penalty, madness gain, stranger arrival odds, death odds per villager, wave casualty
   scale, repair factors. This is the shape of AD5/AD22 "default, dial, reason", already as code.
@@ -223,3 +227,21 @@ A Dark Cave entry bundle plus 6 chunks and the dev facts file. Not read: Terrafo
 CSVs, Unity method bodies for the three dumper-unsupported builds, A Dark Cave per-language event text,
 Ascension Tower server logic, Cyberpunk Life hacking and gang code, Trader Life market engine. About 78
 tool calls; two HTTP 429s on itch pages (one 90 s wait). No game code executed, no native downloads.
+
+## Gap ledger
+
+| Gap | Status | Evidence or locator |
+|---|---|---|
+| Terraformental loop gate, persistence | closed (UI text) | `private/terraformental` shipped strings via data.unity3d scan: "not a roguelike mechanic", Loop Level x1.20, persistent actions |
+| Terraformental StreamingAssets CSVs | unreadable: localisation CSV names not in metadata; no file list served | `ReadLocalisationFromCsv` only |
+| Terraformental method bodies (familiarity soft cap math) | unreadable: Il2CppDumper auto mode failed on v31 wasm | dumper log |
+| Surviving Magic Demon Time vs hunger and fatigue | unreadable: Unity 6000.6 metadata v108, no dumper or Cpp2IL support; UI text only says accelerated action speed | `meta/identifiers.txt` 42055 |
+| Slime Reborn rebirth | closed: no rebirth, prestige or death strings in metadata or definitions | `slime-reborn/meta/literals.txt` grep |
+| Slime Reborn method bodies | unreadable: metadata v39 unsupported | dumper error |
+| A Dark Cave companion storylines | closed (tool-unlocked fellowship members) | `a-dark-cave/c/game-BsrG6XJI.js` |
+| A Dark Cave per-language event text | low value: ten translations of the same events; English chunk present | `c/events-*.js` |
+| Ascension Tower server rules | server-side | railway host serves client only |
+| Cyberpunk Life hacking and gang code | low value: hacking minigame, not life-sim | `cyberpunk-life/pretty.js` 12470 |
+| Trader Life market engine, rival count of 14 | low value: market sim; count not worth a trace | `trader-life/code_en.js` 3058 |
+| ReCycler and Simultree method bodies | low value: thin games, field maps suffice | `dump/dump.cs` |
+| Balance and feel of any game | needs play | n/a |
