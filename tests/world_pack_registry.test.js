@@ -40,8 +40,8 @@ test('Cyoria installs from the pack: exports match the pre-conversion hash and t
 
 test('the world_packs domain projects pack identity and adds no save slice', () => {
     const projection = domainRegistry.project('world_packs');
-    assert.deepEqual(projection.map(p => p.id), ['book.mol']);
-    assert.equal(projection[0].fingerprint, worldPackRegistry.packs.get('book.mol').fingerprint);
+    assert.deepEqual(projection.map(p => p.id), ['book.hp', 'book.mol']);
+    for (const p of projection) assert.equal(p.fingerprint, worldPackRegistry.packs.get(p.id).fingerprint);
     assert.equal(domainRegistry.list().find(d => d.id === 'world_packs').save, undefined);
 });
 
