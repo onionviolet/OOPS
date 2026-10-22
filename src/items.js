@@ -66,6 +66,7 @@ import AvailabilityComponent from "./components/availability_component.js";
 import { availabilities, availability_havers } from "./data/component_references.js";
 import { Rewards } from "./rewards.js";
 import {ROUTE_NOTES, SURVEY_TOKEN} from "./village_content.js";
+import {RAT_STEP_MANUAL, RAT_STEP_MANUAL_READING} from "./technique_content.js";
 
 availabilities["item"] = {};
 
@@ -1495,6 +1496,9 @@ book_stats[WATCHCRAFT_BOOK] = new BookData({required_time:WATCHCRAFT_READING,lit
 item_templates[WATCHCRAFT_BOOK] = new Book({name:WATCHCRAFT_BOOK,value:0,
     description:'Tessa’s short patrol notes: divide the lane into sectors, notice changes, and check each dark doorway with the loaned lantern and baton. Six minutes of reading gives knowledge. Rehearse calm observation for five minutes while meditating in Village, then complete a new patrol with the loaned kit for a 10-coin report bonus. Reading alone gives no patrol bonus.'});
 book_stats[ROUTE_NOTES] = new BookData({required_time: 4, literacy_xp_rate: 1});
+book_stats[RAT_STEP_MANUAL] = new BookData({required_time: RAT_STEP_MANUAL_READING, literacy_xp_rate: 1});
+item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
+    description: "Bark-paper pages of footwork diagrams left in the old hunters' blind. Each sketch names a wolf rat cue and the step that answers it. Reading gives ordinary Literacy XP; working the diagrams against your own observation can teach Rat-step without the guide's fee. Your understanding stays if the copy leaves your hands."});
 (()=>{
     item_templates[ROUTE_NOTES] = new Book({name: ROUTE_NOTES, value: 0,
         description: "A surveyor's practical notes, kept dry beneath the old Village waypost. Four minutes of reading explains a safe dry-bank route beside the crossing. 'Follow the drainage cuts, never the muddy footprints.'"});

@@ -1,5 +1,5 @@
 import {evaluateAction} from "./expansion_engine.js";
-import {activePractice, techniqueFacts, PRACTICE_RESPONSES} from "./techniques.js";
+import {activePractice, techniqueFacts, PRACTICE_RESPONSES, UNDERSTANDING_ORIGINS, understandingOrigin} from "./techniques.js";
 import {RAT_STEP} from "./technique_content.js";
 import {projectDiscoveryFeature,projectTechniqueDiscovery,projectAcceptedWork} from './skill_discovery.js';
 
@@ -78,7 +78,7 @@ export function createTechniquePanel({registry, read, command, answer, cancel}) 
         introduction.textContent = record?.observed ? "Observe the pattern, understand it, practice, then make it your own. Rat-step opens a footwork approach under Routes & supplies."
             : "Watch movement at the field edge. Further notes appear after an observation.";
         progress.hidden = !record?.observed;
-        progress.textContent = record?.observed ? ["Observed", record?.understood ? "Understood" : "Not understood",
+        progress.textContent = record?.observed ? ["Observed", record?.understood ? `Understood via ${UNDERSTANDING_ORIGINS[understandingOrigin(record)]}` : "Not understood",
             record?.owned ? "Owned" : "Not owned", `Proficiency ${record?.proficiency || 0}/12 (execute at 6)`,
             facts[`technique.${RAT_STEP}.executable`] ? "Can execute" : "Execution needs ownership, 6 proficiency and Agility 8",
             `Used ${record?.executions || 0} times`].join(" · ") : "";

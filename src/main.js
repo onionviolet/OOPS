@@ -442,7 +442,7 @@ import {applyGameplayEffect} from "./gameplay_transactions.js";
 import {commandChronicle, chronicleFacts, automaticResponse} from "./chronicle.js";
 import {createChroniclePanel} from "./chronicle_ui.js";
 import {techniqueFacts} from "./techniques.js";
-import {RAT_STEP} from "./technique_content.js";
+import {RAT_STEP, RAT_STEP_MANUAL, RAT_STEP_MANUAL_KEY} from "./technique_content.js";
 import {calendarMinutes} from "./world_rhythm.js";
 import {ROUTE_NOTES, NOTES_KEY} from "./village_content.js";
 import {createVillagePanel} from "./village_ui.js";
@@ -1726,6 +1726,7 @@ function buildExpeditionContext() {
             "village.shackUnlocked": !!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,
             "village.notesRead": item_templates[ROUTE_NOTES].isFinished(),
             "village.notesHeld": !!gameplay.player.inventory[NOTES_KEY],
+            "ratStep.manualHeld": !!gameplay.player.inventory[RAT_STEP_MANUAL_KEY], "ratStep.manualRead": item_templates[RAT_STEP_MANUAL].isFinished(),
             climbing: skills.Climbing ? character.getTotalSkillLevel("Climbing") : 0,
             kits: gameplay.player.inventory[SURVEY_KIT_KEY] || 0, rope: gameplay.player.inventory[SURVEY_ROPE_KEY] || 0}}));
 }

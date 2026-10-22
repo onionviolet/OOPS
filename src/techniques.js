@@ -4,6 +4,9 @@ import {check, natural as integer} from './basics.js';
 const object = v => v && typeof v === "object" && !Array.isArray(v);
 const id = v => typeof v === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !["__proto__", "constructor", "prototype"].includes(v);
 export const PRACTICE_RESPONSES = Object.freeze({hold: "Hold your ground", sidestep: "Step aside", advance: "Advance"});
+// How understanding arrived (SLR4). Saves before 2026-10-22 have no origin; read them as teacher.
+export const UNDERSTANDING_ORIGINS = Object.freeze({teacher: "a guide's analysis", manual: "your own drill notes"});
+export const understandingOrigin = record => record?.understood ? record.understood.origin || "teacher" : null;
 const freshRecord = () => ({observed: null, understood: null, owned: null, proficiency: 0, executions: 0, practice: null, lastPractice: null});
 
 export function validateTechniqueDefinitions(registry) {
@@ -34,6 +37,7 @@ export function validateTechniqueEffect(effect, registry) {
     if(registry) check(definition, "Unknown technique.");
     if(effect.operation === "observe") check(typeof effect.enemyId === "string" &&
         ["field-observation", "native-victory"].includes(effect.route) && (!definition || definition.enemyId === effect.enemyId), "Invalid observation provenance.");
+    if(effect.origin != null) check(effect.operation === "understand" && Object.hasOwn(UNDERSTANDING_ORIGINS, effect.origin), "Invalid understanding origin.");
     if(effect.operation === "practice") check(integer(effect.amount) && effect.amount > 0, "Invalid practice award.");
     if(effect.operation === "beginPractice") check(id(effect.patternId) && (!definition || Object.hasOwn(definition.patterns, effect.patternId)), "Unknown practice pattern.");
 }
@@ -52,6 +56,7 @@ export function validateTechniqueRecords(records, clock, registry) {
             if(key === "observed") check(typeof evidence.enemyId === "string" &&
                 ["field-observation", "native-victory"].includes(evidence.route) &&
                 (!registry || registry.techniques.get(techniqueId).enemyId === evidence.enemyId), "Invalid enemy evidence.");
+            if(key === "understood" && evidence.origin != null) check(Object.hasOwn(UNDERSTANDING_ORIGINS, evidence.origin), "Invalid understanding origin.");
         }
         check(!record.understood || record.observed, "Understanding needs observation evidence.");
         check(!record.owned || record.understood, "Owned technique needs understanding.");
@@ -103,7 +108,7 @@ export function applyTechniqueEffect(actor, effect, {registry, clock, worldId, r
     if(effect.operation === "observe") {
         record.observed ||= {...evidence(), enemyId: effect.enemyId, route: effect.route};
     } else if(effect.operation === "understand") {
-        check(record.observed, "Observe the technique before studying it."); record.understood ||= evidence();
+        check(record.observed, "Observe the technique before studying it."); record.understood ||= {...evidence(), ...(effect.origin ? {origin: effect.origin} : {})};
     } else if(effect.operation === "own") {
         check(record.understood && record.proficiency >= 2, "Understand and practice before internalizing the technique."); record.owned ||= evidence();
     } else if(effect.operation === "practice") {

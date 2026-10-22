@@ -4,6 +4,11 @@ const lunge = cue("lunge", "The rat commits its weight to a forward lunge.", "si
 const recover = cue("recover", "The rat plants its forepaws to regain balance.", "advance");
 export const RAT_STEP = "frontier.rat_step";
 export const RAT_ENEMY = "Starving wolf rat";
+// K3 manual route (proposal, 2026-10-22). The physical copy is a native Book: native
+// reading pays Literacy XP and finishes it; the study action below only consumes that.
+export const RAT_STEP_MANUAL = "Hunter's Rat-step drill notes";
+export const RAT_STEP_MANUAL_KEY = JSON.stringify({id: RAT_STEP_MANUAL});
+export const RAT_STEP_MANUAL_READING = 8;
 export const techniqueDefinitions = [{id: RAT_STEP, revision: 1, label: "Rat-step", worldId: "base.frontier",
     enemyId: RAT_ENEMY, readyAt: 6, maxProficiency: 12, minAgility: 8,
     provenance: "Original observation exercise using Miktaew's Starving wolf rat; no direct book adaptation",
@@ -13,6 +18,9 @@ const progress = (key, op, value, reason) => ({fact: `technique.${RAT_STEP}.${ke
 const observed = progress("observed", "eq", true, "Observe a wolf rat or defeat one in ordinary combat first.");
 const understood = progress("understood", "eq", true, "Study your observation notes first.");
 const unmastered = progress("proficiency", "lte", 11, "Rat-step practice is complete at 12 proficiency.");
+const manualHeld = {fact: "ratStep.manualHeld", op: "eq", value: true, reason: "Keep the drill notes in your own inventory while you study them."};
+const manualRead = {fact: "ratStep.manualRead", op: "eq", value: true, reason: `Read the ${RAT_STEP_MANUAL} through first (${RAT_STEP_MANUAL_READING} minutes of ordinary reading).`};
+const notUnderstood = progress("understood", "eq", false, "You already understand Rat-step.");
 const effect = (operation, extra = {}) => ({type: "technique", techniqueId: RAT_STEP, operation, revision: 1, ...extra});
 const action = values => ({worldId: "base.frontier", revision: 1, group: "technique", completionScope: "actor", costs: [], ...values});
 export const techniqueActions = [
@@ -26,6 +34,17 @@ export const techniqueActions = [
         visibleWhen: {all: [observed, progress("understood", "eq", false)]}, requires: {all: [village, observed]},
         cancellation: "forfeit", costs: [{scope: "external", key: "money", amount: 2, label: "wooden coins"}],
         outcomes: [{id: "understood", label: "Rat-step understood; practice available", chance: 1, effects: [effect("understand")]}]}),
+    action({id: "frontier.rat_step.find_notes", label: "Search the old hunters' blind at the field edge", duration: 2, repeatable: false,
+        description: "Now that you know where the rats run, check the collapsed blind beside their path. A hunter left drill notes there: footwork diagrams with a short explanation of each cue. The copy is yours to keep, shelve or sell.",
+        visibleWhen: {all: [observed, notUnderstood, {fact: "ratStep.manualHeld", op: "eq", value: false}]},
+        requires: {all: [village, observed]},
+        outcomes: [{id: "found", label: "Drill notes recovered from the blind", chance: 1, effects: [
+            {type: "item", key: RAT_STEP_MANUAL_KEY, amount: 1, label: "drill notes"}]}]}),
+    action({id: "frontier.rat_step.manual_study", label: "Work out Rat-step from the drill notes", duration: 6, repeatable: false,
+        description: "Self-study instead of the guide: no fee, but slower. Match each diagram to the feint, lunge and recovery you watched. You need your observation, the notes in hand and a finished reading. Understanding opens the same practice as the guide's lesson; it grants no ownership or proficiency. The notes are not used up.",
+        visibleWhen: {all: [observed, notUnderstood, manualHeld]},
+        requires: {all: [village, observed, notUnderstood, manualHeld, manualRead]}, cancellation: "forfeit",
+        outcomes: [{id: "understood", label: "Rat-step worked out from the notes; practice available", chance: 1, effects: [effect("understand", {origin: "manual"})]}]}),
     action({id: "frontier.rat_step.internalize", label: "Internalize Rat-step", duration: 2, repeatable: false,
         description: "At 2 proficiency, make the understood movement your own permanent learned technique. Execution still requires 6 proficiency and Agility 8.",
         visibleWhen: {all: [understood, progress("owned", "eq", false)]}, requires: {all: [village, understood,

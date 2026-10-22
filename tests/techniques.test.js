@@ -2,8 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {createExpansionState, createContentRegistry, commitAction, advanceSimulation, loadExpansionState, evaluateAction, validateExpansionState} from "../src/expansion_engine.js";
 import {expeditionRegistry, initializeExpedition} from "../src/expedition_content.js";
-import {RAT_STEP, RAT_ENEMY} from "../src/technique_content.js";
-import {answerTechniquePractice, cancelTechniquePractice, observeNativeTechnique, activePractice} from "../src/techniques.js";
+import {RAT_STEP, RAT_ENEMY, RAT_STEP_MANUAL_KEY} from "../src/technique_content.js";
+import {answerTechniquePractice, cancelTechniquePractice, observeNativeTechnique, activePractice, understandingOrigin} from "../src/techniques.js";
 import {applyGameplayEffect} from "../src/gameplay_transactions.js";
 import {persistExpansionPlan} from "../src/expansion_persistence.js";
 const fresh = seed => initializeExpedition(createExpansionState(seed));
@@ -154,4 +154,33 @@ test("mastery changes the usable route's outcome and practice stops at its saved
     const done=complete(p.state,"frontier.rat_step.route",context(p.gameplay,p.external.money));
     assert.equal(done.state.worlds['base.frontier'].facts['guide.condition'],'ready');
     assert.equal(done.state.actors.player.techniques[RAT_STEP].executions,1);
+});
+
+test("K3 manual route teaches the same understanding as the guide, without fee or ownership, and keeps its origin", () => {
+    const manual = (p, held, read) => context(p.gameplay, p.external.money, {"ratStep.manualHeld": held, "ratStep.manualRead": read});
+    const unseen = fresh(3);
+    assert.equal(evaluateAction(unseen, expeditionRegistry, "frontier.rat_step.manual_study", manual({gameplay: gameplay(), external: {money: 100}}, true, true)).eligible, false);
+    const observed = complete(fresh(3), "frontier.rat_step.observe");
+    const found = complete(observed.state, "frontier.rat_step.find_notes", manual(observed, false, false));
+    assert.equal(found.gameplay.player.inventory[RAT_STEP_MANUAL_KEY], 1);
+    const unread = evaluateAction(found.state, expeditionRegistry, "frontier.rat_step.manual_study", manual(found, true, false));
+    assert.equal(unread.eligible, false); assert.ok(unread.reasons.some(r => r.startsWith("Read the")));
+    assert.equal(evaluateAction(found.state, expeditionRegistry, "frontier.rat_step.manual_study", manual(found, false, true)).eligible, false);
+    const ready = evaluateAction(found.state, expeditionRegistry, "frontier.rat_step.manual_study", manual(found, true, true));
+    assert.equal(ready.eligible, true); assert.equal(ready.costs.length, 0);
+    assert.ok(ready.duration > evaluateAction(found.state, expeditionRegistry, "frontier.rat_step.study", context(found.gameplay, found.external.money)).duration);
+    const studied = complete(found.state, "frontier.rat_step.manual_study", manual(found, true, true));
+    const record = studied.state.actors.player.techniques[RAT_STEP];
+    assert.equal(understandingOrigin(record), "manual"); assert.equal(record.owned, null); assert.equal(record.proficiency, 0);
+    assert.equal(studied.external.money, 100); assert.equal(studied.gameplay.player.inventory[RAT_STEP_MANUAL_KEY], 1);
+    // Losing the copy changes no memory; practice opens exactly as after the guide's lesson.
+    assert.equal(evaluateAction(studied.state, expeditionRegistry, "frontier.rat_step.idle", manual(studied, false, true)).eligible, true);
+    assert.equal(evaluateAction(studied.state, expeditionRegistry, "frontier.rat_step.study", context(studied.gameplay, 100)).eligible, false);
+    const reloaded = loadExpansionState(JSON.parse(JSON.stringify(studied.state)), expeditionRegistry);
+    assert.equal(understandingOrigin(reloaded.actors.player.techniques[RAT_STEP]), "manual");
+    const bad = structuredClone(studied.state); bad.actors.player.techniques[RAT_STEP].understood.origin = "osmosis";
+    assert.throws(() => validateExpansionState(bad, expeditionRegistry), /understanding origin/);
+    const guide = understood(), legacy = guide.state.actors.player.techniques[RAT_STEP];
+    assert.equal(legacy.understood.origin, undefined); assert.equal(understandingOrigin(legacy), "teacher");
+    assert.equal(understandingOrigin(loadExpansionState(JSON.parse(JSON.stringify(guide.state)), expeditionRegistry).actors.player.techniques[RAT_STEP]), "teacher");
 });
