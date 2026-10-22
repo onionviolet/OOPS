@@ -11,7 +11,7 @@ owns exact checks, publication and installed/active bundle status. The [delivery
 remain1920×1080,1800×1040,1536×864 at14/21px. The exact release is installed and adopted in normal Electron as frozen
 `v0.6-72af84cf8e66`, bundle `e35668b18622`; the real native update
 control completed, and local optional assets remain unchanged. Clean-export build
-and2516 tests pass. Scoped publication is recorded in the execution owner.
+and2516 tests pass. Source payload `7df5a7df7bed` is merged into master and verified on origin/master; the execution owner records exact publication and app identities.
 Human visual/play acceptance remains separate; earlier inventory assessment is
 starting evidence rather than current completion evidence.
 

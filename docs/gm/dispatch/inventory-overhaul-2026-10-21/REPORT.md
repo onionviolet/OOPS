@@ -70,7 +70,9 @@ tests plus architecture/rules/36 behavior checks. Its108 rule warnings describe
 links in an export without a Git index. [Normal Electron](MAIN_ELECTRON.json)
 has adopted frozen `v0.6-72af84cf8e66`, exact bundle `e35668b1862220d8737de390ce4a9fc11c03fc2a441be72363bb06dd552c36d4`, through the real Save and reload control; no reload gate remains. All82
 served files match the delivery input, including unchanged optional local assets.
-The source publication and guarded master/push identity are recorded separately
-in PUBLICATION.json. Technical
+The [source payload](https://github.com/onionviolet/OOPS/commit/7df5a7df7bed374dc1b825fd14a507f514a19db6)
+was guarded fast-forwarded into master and verified on origin/master.
+[Publication receipt](PUBLICATION.json) records the separate source and delivery
+identities; the final documentation receipt changes no runtime input. Technical
 checks establish these concrete behaviors, not whole-game parity or human taste
 acceptance. Human visual/play judgment and natural pacing remain open.

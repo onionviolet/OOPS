@@ -1,0 +1,18 @@
+{
+  "sourceCommit": "7df5a7df7bed374dc1b825fd14a507f514a19db6",
+  "parent": "e1a68873d0ca97a15ed45120d3fb4b63d4e5732d",
+  "tree": "3cd16a20d2e84c2ee613c0020e8ce412431028b8",
+  "branch": "refs/heads/codex/inventory-overhaul-20261021",
+  "integrationBranch": "master",
+  "merge": "guarded fast-forward; lane commit parent equals prior master",
+  "changedPaths": 384,
+  "cleanTests": 2516,
+  "installedBundle": "e35668b1862220d8737de390ce4a9fc11c03fc2a441be72363bb06dd552c36d4",
+  "excludedEditsPreserved": true,
+  "push": "verified on origin/master",
+  "verifiedRemoteSourceCommit": "7df5a7df7bed374dc1b825fd14a507f514a19db6",
+  "verifiedAt": "2026-10-22T03:20:26.964497+00:00",
+  "normalElectronBuild": "v0.6-72af84cf8e66",
+  "technicalGate": "complete; human visual/play judgment remains separate",
+  "recordNote": "This receipt records the verified source payload; its own documentation commit is later and changes no runtime inputs."
+}
