@@ -6,7 +6,7 @@ let native;
 const getNative = async () => native ||= await loadNative(`
 export {item_templates,getItemFromKey} from './src/items.js';
 export {equipmentDurability as durability} from './src/absorb_e2/durability.js';
-export {configureGearWorkshop,quoteWorkshop,executeWorkshop,validateWorkshopEnvelope} from './src/gear_workshop_domain.js';
+export {configureGearWorkshop,quoteWorkshop,executeWorkshop,validateWorkshopEnvelope,projectWorkshop} from './src/gear_workshop_domain.js';
 export {setToolsState,toolsState} from './src/tools_domain.js';
 export {applyEquipmentStats} from './src/equipment_stats.js';
 export {Enemy} from './src/enemies.js';
@@ -126,4 +126,21 @@ test('armor reforge resolves stored affixes only at commit and rolls back its na
  const q=n.quoteWorkshop({action:'reforge',key:armor,material:partKey('Cheap iron short blade')});assert.equal(q.eligible,true,q.reason);assert.equal(receipts.length,0);
  f.setFail(true);assert.throws(()=>n.executeWorkshop(q),/save failed/);assert.equal(receipts.length,0);assert.ok(items[armor]);
  f.setFail(false);const result=n.executeWorkshop(q);assert.ok(receipts.length>0);const copy=n.getItemFromKey(result.resultKey);assert.deepEqual(copy.affixes,JSON.parse(result.resultKey).affixes);assert.match(copy.getName(),/\[/);
+});
+
+test('cold-brittle metal armor: a warm lining resolves the need and lasting wear differs in the saved condition',async()=>{
+ const f=await fixture(),{n,actor,items,ports,run}=f;let temperature=20;ports.temperature=()=>temperature;n.configureGearWorkshop(ports);
+ const lining='Wool shirt';
+ const armorData=JSON.parse(n.item_templates['Steel chainmail armor'].getInventoryKey());armorData.quality=150;let armor=JSON.stringify(armorData);
+ actor.addToInventory([{item_key:armor,count:1},{item_key:partKey(lining),count:2}]);armor=run('finish',armor);
+ const wearAfter=(k,hits)=>{const item=items[k].item;n.durability.setCondition(k,100);for(let i=0;i<hits;i++)n.durability.wearItem(item,1);return 100-n.durability.condition(k);};
+ const bare=wearAfter(armor,10);temperature=0;const cold=wearAfter(armor,10);
+ assert.ok(Math.abs(cold/bare-2)<.01,'unlined metal armor wears 2x in cold air');
+ const q=n.quoteWorkshop({action:'attach',key:armor,role:'lining',material:partKey(lining)});assert.equal(q.eligible,true,q.reason);
+ const k=n.executeWorkshop(q).resultKey;
+ assert.equal(n.durability.serialize().condition[armor],undefined,'condition follows the rekeyed instance');
+ const lined=wearAfter(k,10);assert.ok(lined<cold&&lined>=bare,'lining resolves most of the cold wear');
+ temperature=20;assert.ok(Math.abs(wearAfter(k,10)-bare)<.01,'warm air has no cold need');
+ const stored=n.durability.serialize();n.durability.load(JSON.parse(JSON.stringify(stored)));assert.equal(n.durability.condition(k),stored.condition[k]);
+ const row=n.projectWorkshop().rows.find(r=>r.key===k);assert.equal(row.need.insulation>.9,true);assert.equal(n.projectWorkshop().rows.find(r=>r.key===armor),undefined);
 });

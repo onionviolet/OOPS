@@ -3,11 +3,16 @@ import {registerDomain} from './domain_registry.js';
 import {beginNativeCraftTransaction} from './native_craft_transaction.js';
 import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {toolsState, setToolsState, maxCondition, rekeyToolFacts} from './tools_domain.js';
-import {quoteGearWork, validateWork, materialProperties, GEAR_WORK_LAWS} from './gear_work.js';
+import {quoteGearWork, validateWork, materialProperties, GEAR_WORK_LAWS, coldSoakNeed} from './gear_work.js';
 import {createGearWorkshopPanel} from './gear_workshop_panel.js';
 
 let ports, panel;
-export function configureGearWorkshop(operations) { ports = operations; }
+const needOf = item => {
+    const profile = item?.getWearProfile?.(), law = GEAR_WORK_LAWS[ports?.world?.()];
+    return coldSoakNeed({armor: !!item?.components?.internal, metal: !!profile?.parts?.some(p => p.family === 'metal'), work: item?.gearwork,
+        temperature: ports?.temperature?.(), law});
+};
+export function configureGearWorkshop(operations) { ports = operations; durability.setWearHazard(item => needOf(item).factor); }
 const keyHasWork = key => {try {return JSON.parse(key).gearwork != null;} catch {return false;}};
 const actor = () => ports.actor();
 function maker(selected='player') {
@@ -81,7 +86,7 @@ export function projectWorkshop() {
         rows: Object.entries(inventory).filter(([,r]) => r.item.tags.equippable && r.item.components && !r.item.tags.structuredEquipment)
             .map(([key,r]) => ({key, name: r.item.getName(), count: r.count, quality: r.item.quality,
                 components: r.item.components, condition: durability.condition(key), max: maxCondition(key), uses: durability.uses(key),
-                work: r.item.gearwork || null, properties: r.item.getWearProfile?.(), contributions: r.item.getWorkContributions?.() || []})),
+                work: r.item.gearwork || null, need: needOf(r.item), properties: r.item.getWearProfile?.(), contributions: r.item.getWorkContributions?.() || []})),
         materials: Object.entries(inventory).filter(([,r]) => r.item.tags.component && materialProperties(ports.templates[r.item.id]) || ['Lamp oil','Iron ingot'].includes(r.item.id))
             .map(([key,r]) => ({key, name: r.item.getName(), count: r.count})),
         makers: [{id:'player',name:'You',skill:m.skill},...(ports.craftsmanHere?.()?[{id:'oldCraftsman',name:'Old craftsman',skill:ports.craftsman().getTotalSkillLevel('Forging')}]:[])],
