@@ -62,7 +62,7 @@ export function auditedKitReservePresentation(state, registry, context) {
     const projected = nextQuote?.eligible && available < P.upper ? available + P.batchOutput : null;
     const overshoot = projected == null ? 0 : Math.max(0,projected-P.upper);
     const work = view ? [`${view.label}: ${view.status}${view.holding ? ' (holding)' : ''}.`,
-        `${view.acceptedBatches}/${P.maxAcceptedBatches} accepted batches used; ${view.remainingBatches} remain.`,view.reason,
+        `${view.acceptedBatches}/${P.maxAcceptedBatches} accepted batches used; ${view.remainingBatches} remain.`,view.reason,view.lastResult.text,
         view.accepted ? `${view.accepted.label}: ${view.accepted.remaining} played minutes remain; cancellation ${view.accepted.cancellation}.` : ''].filter(Boolean).join(' ') : '';
     const records = [
         {id:'audited_kit_reserve.stock',text:`${available} available owned Prepared survey kits carried now. Chest stock, other people’s stock, equipment, custody goods and earlier outputs do not count.`},

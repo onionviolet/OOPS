@@ -128,7 +128,7 @@ export function createSocietyPanel({registry, read, command}) {
         itinerary.hidden = !current;
         if(current) {
             itineraryText.textContent = `${current.label} · ${current.status} · ${Math.min(current.index+1,current.total)}/${current.total}`;
-            itineraryReason.textContent = current.reason || 'Each next step rechecks actual people, permission, stock and location.';
+            itineraryReason.textContent = `${current.reason || 'Each next step rechecks actual people, permission, stock and location.'} ${current.lastResult.text}`;
             const signature = JSON.stringify(current.steps);
             if(steps.dataset.signature !== signature) {steps.replaceChildren(...current.steps.map(step => node('li',`${step.label} · ${step.status}`))); steps.dataset.signature = signature;}
             pause.hidden = !current.canPause; resume.hidden = !current.canResume; cancelPlan.hidden = !current.canCancel;

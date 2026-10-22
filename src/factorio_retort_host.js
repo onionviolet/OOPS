@@ -200,6 +200,6 @@ export function factorioRetortPresentation(state, registry, context) {
     ] : [];
     return {visible: true, sections: [{id: I.group, label: 'Your two-receiver retort',
         description: 'Prepare three-minute batches with two actual empty trays. Collect resin and clear residue separately before another batch. Fuel stays unburned during preparation; cancellation returns the reserved inputs and trays.',
-        work: [work.work, cursor ? `${cursor.label}: ${cursor.status}. ${cursor.reason || ''}` : ''].filter(Boolean).join(' '),
+        work: [work.work, cursor ? `${cursor.label}: ${cursor.status}. ${cursor.reason || ''} ${cursor.lastResult.text}` : ''].filter(Boolean).join(' '),
         actions: [...actions, ...work.actions], records}]};
 }

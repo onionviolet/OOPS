@@ -1,0 +1,125 @@
+{
+ "root": "/Users/weiwei/code/yet-another-idle-rpg",
+ "setup": "Fresh origin per case; declared test stock of 3 River bellleaf and 3 Spring water; no personal saves or natural-acquisition claim.",
+ "cases": [
+  {
+   "width": 1920,
+   "height": 1080,
+   "size": 14,
+   "boxes": [
+    {
+     "x": 668.65625,
+     "y": 738.734375,
+     "width": 353.375,
+     "height": 117.9375
+    },
+    {
+     "x": 1026.03125,
+     "y": 738.734375,
+     "width": 353.390625,
+     "height": 117.9375
+    }
+   ]
+  },
+  {
+   "width": 1920,
+   "height": 1080,
+   "size": 21,
+   "boxes": [
+    {
+     "x": 671.65625,
+     "y": 889.75,
+     "width": 349.375,
+     "height": 152.125
+    },
+    {
+     "x": 1027.03125,
+     "y": 889.75,
+     "width": 349.390625,
+     "height": 152.125
+    }
+   ]
+  },
+  {
+   "width": 1800,
+   "height": 1040,
+   "size": 14,
+   "boxes": [
+    {
+     "x": 628.65625,
+     "y": 757.625,
+     "width": 329.453125,
+     "height": 134.125
+    },
+    {
+     "x": 962.109375,
+     "y": 757.625,
+     "width": 329.46875,
+     "height": 134.125
+    }
+   ]
+  },
+  {
+   "width": 1800,
+   "height": 1040,
+   "size": 21,
+   "boxes": [
+    {
+     "x": 631.65625,
+     "y": 908.640625,
+     "width": 325.453125,
+     "height": 152.125
+    },
+    {
+     "x": 963.109375,
+     "y": 908.640625,
+     "width": 325.46875,
+     "height": 152.125
+    }
+   ]
+  },
+  {
+   "width": 1536,
+   "height": 864,
+   "size": 14,
+   "boxes": [
+    {
+     "x": 564.84375,
+     "y": 847.375,
+     "width": 242.421875,
+     "height": 166.5
+    },
+    {
+     "x": 811.265625,
+     "y": 847.375,
+     "width": 242.421875,
+     "height": 166.5
+    }
+   ]
+  },
+  {
+   "width": 1536,
+   "height": 864,
+   "size": 21,
+   "boxes": [
+    {
+     "x": 567.84375,
+     "y": 998.390625,
+     "width": 238.421875,
+     "height": 184.5
+    },
+    {
+     "x": 812.265625,
+     "y": 998.390625,
+     "width": 238.421875,
+     "height": 184.5
+    }
+   ]
+  }
+ ],
+ "checks": [
+  "Save, reload, export and import keep the completion receipt; the stale boil quote refused without spending at all six desktop cases.",
+  "A timed batch completion shows its own consumed inputs beside the running queue (next batch held in the vessel) and persists as kind batch / next reserved."
+ ],
+ "errors": []
+}

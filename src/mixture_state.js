@@ -47,6 +47,11 @@ export function validateMixtureState(s) {
         if(typeof s.acquisitions!=='object'||Array.isArray(s.acquisitions))fail('Invalid mixture acquisition ledger.');
         for(const [id,r]of Object.entries(s.acquisitions))if(id!==`mixture.acquisition:${r.sequence}`||!Number.isSafeInteger(r.sequence)||r.sequence<1||r.sequence>s.sequence||!s.products[r.product]||r.revision!==s.products[r.product].revision||!Number.isSafeInteger(r.at)||r.at<0)fail('Unresolved mixture acquisition.');
     }
+    // Optional completion receipt (K1, 2026-10-22). Missing is inert; consumed inputs
+    // are the completed product's own retained inputs, so this adds no second authority.
+    if(s.lastCompletion!=null){const r=s.lastCompletion,p=s.products?.[r?.product];
+        if(!p||!['mix','batch'].includes(r.kind)||!Number.isSafeInteger(r.sequence)||r.sequence<1||r.sequence>s.sequence||!Number.isSafeInteger(r.at)||r.at<0||JSON.stringify(r.consumed)!==JSON.stringify(p.inputs)||
+            !['single','next reserved','queue finished','repeat stopped'].includes(r.outcome)||(r.kind==='mix')!==(r.outcome==='single')||(r.stopReason!=null&&(r.outcome!=='repeat stopped'||typeof r.stopReason!=='string')))fail('Invalid mixture completion receipt.');}
     if(s.job){const j=s.job,p=s.products[j.product];if(!p||!s.methods[j.product]||!Number.isSafeInteger(j.due)||j.due<0||!Number.isSafeInteger(j.remaining)||j.remaining<1||j.remaining>999||JSON.stringify(j.held)!==JSON.stringify(p.inputs))fail('Invalid mixture reservation.');}
     if(s.ruleLaws!=null)validateVillageRuleOwner(s.ruleLaws,s.products,s.sequence);
     else if(Object.values(s.products).some(p=>p.revision===2))fail('Missing responsive rule owner.');

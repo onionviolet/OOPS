@@ -1,0 +1,46 @@
+{
+ "root": "/Users/weiwei/code/yet-another-idle-rpg",
+ "setup": "Fresh origin per case; perf fixture plus a node-driven audited kit reserve with one completed batch; generated save only.",
+ "cases": [
+  {
+   "width": 1920,
+   "height": 1080,
+   "size": 14,
+   "text": "Eda’s finite survey-kit reserve: running (holding). 1/3 accepted batches used; 2 remain. Reserve holding: 5 available owned kits. Restart at 2 or fewer; holding spends no materials, stamina or work time. Last step result: Bind two sound staves with set resin · two survey kits + 3 min completed. 0 game min ago."
+  },
+  {
+   "width": 1920,
+   "height": 1080,
+   "size": 21,
+   "text": "Eda’s finite survey-kit reserve: running (holding). 1/3 accepted batches used; 2 remain. Reserve holding: 5 available owned kits. Restart at 2 or fewer; holding spends no materials, stamina or work time. Last step result: Bind two sound staves with set resin · two survey kits + 3 min completed. 0 game min ago."
+  },
+  {
+   "width": 1800,
+   "height": 1040,
+   "size": 14,
+   "text": "Eda’s finite survey-kit reserve: running (holding). 1/3 accepted batches used; 2 remain. Reserve holding: 5 available owned kits. Restart at 2 or fewer; holding spends no materials, stamina or work time. Last step result: Bind two sound staves with set resin · two survey kits + 3 min completed. 0 game min ago."
+  },
+  {
+   "width": 1800,
+   "height": 1040,
+   "size": 21,
+   "text": "Eda’s finite survey-kit reserve: running (holding). 1/3 accepted batches used; 2 remain. Reserve holding: 5 available owned kits. Restart at 2 or fewer; holding spends no materials, stamina or work time. Last step result: Bind two sound staves with set resin · two survey kits + 3 min completed. 0 game min ago."
+  },
+  {
+   "width": 1536,
+   "height": 864,
+   "size": 14,
+   "text": "Eda’s finite survey-kit reserve: running (holding). 1/3 accepted batches used; 2 remain. Reserve holding: 5 available owned kits. Restart at 2 or fewer; holding spends no materials, stamina or work time. Last step result: Bind two sound staves with set resin · two survey kits + 3 min completed. 0 game min ago."
+  },
+  {
+   "width": 1536,
+   "height": 864,
+   "size": 21,
+   "text": "Eda’s finite survey-kit reserve: running (holding). 1/3 accepted batches used; 2 remain. Reserve holding: 5 available owned kits. Restart at 2 or fewer; holding spends no materials, stamina or work time. Last step result: Bind two sound staves with set resin · two survey kits + 3 min completed. 0 game min ago."
+  }
+ ],
+ "checks": [
+  "The audited kit reserve itinerary shows its latest completed step beside its batch count at all six desktop cases."
+ ],
+ "errors": []
+}

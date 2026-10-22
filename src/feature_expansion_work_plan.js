@@ -328,6 +328,17 @@ export function controlWorkPlan(state, registry, command, context, expectedSeque
     return out;
 }
 
+// Re-fit K1 (2026-10-22): the latest settled step beside current work, read from
+// the common simulation log (capped at 100). No cursor field; nothing mirrors the job.
+function lastSettledStep(state, registry, c, actorId) {
+    const labels = [...new Set(c.steps.filter(s => s.kind === 'command').map(s => registry.simulation.commands.get(s.commandId)?.label).filter(Boolean))];
+    const entry = (state.simulation.log || []).findLast(e => e.at >= c.startedAt && (!e.audience || e.audience.includes(actorId)) &&
+        labels.some(l => e.text === `${l} completed.` || e.text.startsWith(`${l} stopped:`) || e.text.startsWith(`${l} cancelled;`)));
+    if(!entry) return {text:'Last step result: none recorded since this itinerary began.', at:null, result:null};
+    const result = entry.text.endsWith(' completed.') ? 'completed' : entry.text.includes(' stopped:') ? 'stopped' : 'cancelled';
+    return {text:`Last step result: ${entry.text} ${Math.max(0,state.clock-entry.at)} game min ago.`, at:entry.at, result};
+}
+
 export function workPlanView(state, registry, planRegistry, context) {
     const c = root(state)?.cursors[context.actorId || 'player'];
     if(!c) return null;
@@ -352,5 +363,5 @@ export function workPlanView(state, registry, planRegistry, context) {
             duration:quote?.duration || 0,costs:quote?.eligible && !holding && (!c.stockPolicy || c.stockAcceptedBatches < c.stockPolicy.maxAcceptedBatches) ? quote.costs : [],targetId:next.targetId || null} : null,
         accepted:job ? {id:job.id,label:job.label,remaining:Math.max(0,job.due-state.clock),cancellation:job.cancellation} : null,
         canResume:c.status === 'paused',canPause:c.status === 'running',canCancel:!['complete','cancelled'].includes(c.status),
-        canForget:!job,definitionRetained:!planRegistry || planRegistry.has(c.definitionId)};
+        canForget:!job,definitionRetained:!planRegistry || planRegistry.has(c.definitionId),lastResult:lastSettledStep(state,registry,c,context.actorId || 'player')};
 }

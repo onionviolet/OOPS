@@ -1,11 +1,15 @@
 // Presentation only. Read retained truth without resolving, reserving or drawing.
 import {INGREDIENTS,mixturePresentation} from './mixture_state.js';
 import {projectKnownActionRequirements} from './action_legibility.js';
-const stock=(frame,id)=>frame.inventory?.[JSON.stringify({id})]?.count??0;
+import {blockedIngredients} from './mixture_native.js';
+// Free stock excludes keys the native disposition owner holds elsewhere (K2).
+const stock=(frame,id)=>blockedIngredients(frame.expansion)[id]?0:frame.inventory?.[JSON.stringify({id})]?.count??0;
 const amounts=inputs=>Object.entries(inputs??{}).map(([id,n])=>`${n} ${id}`).join(', ');
 export function mixtureFailureText(message) {
     const shortage=INGREDIENTS.find(i=>message===`Shortage: ${i.id}.`);
     if(shortage)return `Not enough ${shortage.id}. Review current stock.`;
+    const held=INGREDIENTS.find(i=>message===`Held elsewhere: ${i.id}.`);
+    if(held)return `${held.id} is borrowed or committed elsewhere. Return or release it first.`;
     return ({
         'Mix quote changed. Review the current quote.':'Quote changed. Review the current quote before mixing.',
         'One mixing vessel is already occupied.':'The mixing vessel is busy. Cancel or finish its batch first.',
@@ -47,7 +51,13 @@ export function projectMixtureFeedback({frame,owner,quote,queue,requirements}) {
     const receipt=Object.values(owner?.acquisitions??{}).reduce((last,r)=>!last||r.sequence>last.sequence?r:last,null);
     const retained=receipt&&owner.products?.[receipt.product];
     const lastResult={product:null,consumed:null,at:null,text:'Latest finished mix: unavailable. Consumed inputs and completion time: unavailable.'};
-    if(retained&&receipt.sequence===owner.sequence){lastResult.product=retained.id;lastResult.at=receipt.at;lastResult.text=`Latest finished mix: ${mixturePresentation(owner,retained).name} at game minute ${receipt.at}. Consumed inputs: unavailable.`;}
+    const done=owner?.lastCompletion,made=done&&owner.products?.[done.product];
+    if(made){
+        const after={single:'Single vial; no queue involved.','next reserved':'Next queued batch reserved from current stock.','queue finished':'Queue finished.',
+            'repeat stopped':`Queue stopped: ${done.stopReason?mixtureFailureText(done.stopReason):'review the current reason.'}`}[done.outcome];
+        Object.assign(lastResult,{product:made.id,consumed:structuredClone(done.consumed),at:done.at,kind:done.kind,outcome:done.outcome,
+            text:`Latest finished mix: ${mixturePresentation(owner,made).name}${Number.isSafeInteger(frame.clock)?`, ${Math.max(0,frame.clock-done.at)} game min ago`:''}. Consumed: ${amounts(done.consumed)}. Made: 1 vial. ${after}`});
+    }else if(retained&&receipt.sequence===owner.sequence){lastResult.product=retained.id;lastResult.at=receipt.at;lastResult.text=`Latest finished mix: ${mixturePresentation(owner,retained).name} at game minute ${receipt.at}. Consumed inputs: unavailable.`;}
     return {holds,blocker:{mix:mixBlocker||null,queue:queueBlocker||null,requirements:knownRequirements,
         text:`Mix: ${mixBlocker||'Ready.'} Queue: ${queueBlocker||'Ready.'}`},work,lastResult};
 }

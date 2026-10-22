@@ -217,7 +217,7 @@ export function createCrushSocialPanel({registry, read, command}) {
         }
         for(const [id, row] of rows) if(!v.plans.some(p => p.id === id)) {remove(row.root); rows.delete(id);}
         cursor.hidden = !current;
-        if(current) {cursorText.textContent = `${current.label} · ${current.status} · ${current.index}/${current.total}. ${current.reason || 'Each next step rechecks its current owner, contact and means.'}`;
+        if(current) {cursorText.textContent = `${current.label} · ${current.status} · ${current.index}/${current.total}. ${current.reason || 'Each next step rechecks its current owner, contact and means.'} ${current.lastResult.text}`;
             const signature = JSON.stringify(current.steps);
             if(cursorSteps.dataset.signature !== signature) {cursorSteps.replaceChildren(...current.steps.map(s => node('li', `${s.label} · ${s.status}`))); cursorSteps.dataset.signature = signature;}
             manual.textContent = v.manualReport; manual.hidden = !v.manualReport;

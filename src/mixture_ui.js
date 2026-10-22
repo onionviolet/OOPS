@@ -2,6 +2,7 @@ let currentPanel;
 export function openMixtureCounter(){return currentPanel?.open()??false;}
 import {centerModes} from './center_modes.js';
 import {projectMixtureFeedback,mixtureFailureText} from './mixture_feedback.js';
+import {projectMixtureDestinations,MIXTURE_DESTINATIONS} from './mixture_destinations.js';
 import {quoteMixtureAction} from './mixture_native.js';
 import {RESPONSIVE_METHOD} from './mixture_rules.js';
 import {INGREDIENTS,getMixtureOwner,createMixtureState,mixturePresentation,mixtureKey} from './mixture_state.js';
@@ -26,6 +27,17 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
 
     const feedback=document.createElement('div');feedback.id='mixture_feedback';
     const feedbackNodes={};for(const [id,label]of [['holds','Holds and cost'],['blocker','Current blocker'],['work','Work'],['lastResult','Last result']]){const card=document.createElement('div');card.className='mixture-feedback-row';const heading=document.createElement('strong');heading.textContent=label;const body=document.createElement('div');body.id='mixture_feedback_'+id;card.append(heading,body);feedback.append(card);feedbackNodes[id]=body;}panel.append(feedback);
+    // K2: the same owned stock quoted into both real products, each with its own admission token.
+    // The two cards are further cells of the existing two-column feedback grid, so they sit side by side.
+    const compareStock=document.createElement('p');compareStock.id='mixture_destinations_stock';feedbackNodes.holds.parentElement.append(compareStock);
+    const destinationCards=Object.fromEntries(MIXTURE_DESTINATIONS.map(process=>{const card=document.createElement('div');card.className='mixture-feedback-row';card.dataset.mixtureDestination=process;card.hidden=true;feedback.append(card);return [process,card];}));
+    function renderDestinations(){const frame=read(),s=getMixtureOwner()??createMixtureState(frame.seed),{method,inputs}=selection();let data;try{data=projectMixtureDestinations({frame,owner:s,request:{method,inputs}});}catch(error){compareStock.textContent=mixtureFailureText(error.message);for(const c of Object.values(destinationCards))c.hidden=true;delete feedback.dataset.destinations;return;}
+        const signature=JSON.stringify([data,frame.ready]);if(signature===feedback.dataset.destinations)return;feedback.dataset.destinations=signature;compareStock.textContent=data.text;
+        for(const d of data.destinations){const card=destinationCards[d.process];card.hidden=false;
+            const head=document.createElement('strong');head.textContent=`${d.process==='steep'?'Steep':'Boil'} → ${d.name}`;const body=document.createElement('div');
+            body.textContent=d.uses?`Uses ${d.uses.map(u=>`${u.need} ${u.id} (${u.free} free → ${u.after<0?`short ${u.short}`:`${u.after} left`})`).join('; ')}. Free stock makes ${d.vials} vial${d.vials===1?'':'s'}. ${d.description}`:d.error;
+            const go=document.createElement('button');go.type='button';go.textContent=`Mix one vial: ${d.process}`;go.disabled=!frame.ready||!d.token||!!d.error;go.title=d.error||'Commits only if this quote is still current.';
+            go.onclick=()=>run({type:'mix',method,inputs,process:d.process,quote:d.token});card.replaceChildren(head,body,go);}}
     const prediction=document.createElement('p');prediction.id='mixture_prediction';panel.append(prediction,notice);
     const output=document.createElement('div');output.id='mixture_products';panel.append(output);
     let currentQuote;
@@ -37,7 +49,7 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
         const data=projectMixtureFeedback({frame,owner:s,quote:lastFailure?{...q,error:lastFailure}:q,queue});
         for(const [id,node]of Object.entries(feedbackNodes))node.textContent=data[id].text;
     }
-    function preview(){let q;try{const frame=read(),s=getMixtureOwner()??createMixtureState(frame.seed);q=quoteMixtureAction({...frame,owner:s,request:selection()});currentQuote=q.token;prediction.textContent=mixturePresentation(s,q.product).description;}catch(error){q={error:error.message};currentQuote=null;prediction.textContent=mixtureFailureText(error.message);}updateFeedback(q);}
+    function preview(){let q;try{const frame=read(),s=getMixtureOwner()??createMixtureState(frame.seed);q=quoteMixtureAction({...frame,owner:s,request:selection()});currentQuote=q.token;prediction.textContent=mixturePresentation(s,q.product).description;}catch(error){q={error:error.message};currentQuote=null;prediction.textContent=mixtureFailureText(error.message);}updateFeedback(q);renderDestinations();}
     let outputSignature=null;
     function render(){const frame=read();launch.hidden=!frame.visible;mix.disabled=!frame.ready;for(const i of INGREDIENTS)stockLabels[i.id].textContent=` (${frame.inventory[JSON.stringify({id:i.id})]?.count??0} owned) `;preview();
         const s=getMixtureOwner();const signature=JSON.stringify([s?.sequence,Object.entries(frame.inventory).map(([k,v])=>[k,v.count]),frame.ready]);

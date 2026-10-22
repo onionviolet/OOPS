@@ -9,7 +9,7 @@ import {commitReferenceGameplayCommand as workshop} from '../src/reference_gamep
 import {REFERENCE_GAMEPLAY_IDS as R,REFERENCE_GAMEPLAY_KEYS as K} from '../src/reference_gameplay_content.js';
 import {startAuditedKitReserve,controlAuditedKitReserve} from '../src/audited_kit_reserve_host.js';
 import {availableOwnedNativeCount} from '../src/audited_kit_reserve_facts.js';
-import {workPlanNextBoundary,startWorkPlan} from '../src/feature_expansion_work_plan.js';
+import {workPlanNextBoundary,startWorkPlan,workPlanView} from '../src/feature_expansion_work_plan.js';
 import {setSimulationProgram,cancelSimulationJob,enrollSimulation,commitSimulationCommand} from '../src/simulation.js';
 import {beginRepositoryAbsorption,commitRepositoryAbsorption,repositoryAbsorptionPresentation,commitRepositoryProjection} from '../src/repository_absorption_host.js';
 import {REPOSITORY_ABSORPTION_ITEMS as Q} from '../src/repository_absorption_content.js';
@@ -43,6 +43,12 @@ test('SOURCE reserve 4 and held 3 reserve nothing and add no polling; released 2
  assert.equal(cursor(p).stockHold,false);assert.equal(cursor(p).stockAcceptedBatches,1);assert.equal(p.state.simulation.jobs.filter(j=>j.actorId==='player').length,1);
  assert.equal(stock(p,K.resin),stock(before,K.resin)-1);assert.equal(stock(p,K.sound),stock(before,K.sound)-2);assert.equal(p.native.staminaToFull,100-before.vitals.player.stamina+1);
  assert.equal(cursor(p).accepted.due-cursor(p).accepted.startedAt,3);p=advance(reload(p),3);assert.equal(stock(p,K.kit),4);assert.equal(cursor(p).stockHold,true);
+});
+test('K1 re-fit: the cursor view shows the latest settled step beside current work, from the common log',()=>{
+ const last=p=>workPlanView(p.state,registry,registry.workPlans,ctx(p)).lastResult;
+ let p=reserve(opened(3));assert.equal(last(p).result,null);assert.match(last(p).text,/none recorded/);
+ p=advance(p,3);const done=last(reload(p));assert.equal(done.result,'completed');assert.match(done.text,/completed\. 0 game min ago\./);
+ const cancelled=control(reserve(opened(3)),'cancel',{cancelCurrent:true});assert.equal(last(cancelled).result,'cancelled');
 });
 test('SOURCE previously released 3 completes full two-kit output at 5',()=>{let p=reserve(opened(3));assert.equal(cursor(p).stockHold,false);p=advance(p,3);assert.equal(stock(p,K.kit),5);assert.equal(cursor(p).stockHold,true);assert.equal(cursor(p).stockAcceptedBatches,1);});
 test('SOURCE accepted support failure refunds, uses slot, pauses without silent restart; explicit resume consumes remainder',()=>{

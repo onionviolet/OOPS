@@ -62,7 +62,7 @@ export function featureWavePresentation(snapshot,registry) {
         const cursor=society.plan;
         if(cursor)for(const [action,available] of [['pause',cursor.canPause],['resume',cursor.canResume],['cancel',cursor.canCancel],['forget',cursor.canForget&&['complete','cancelled'].includes(cursor.status)]])if(available)actions.push(button(`plan-${action}`,action==='forget'?'Remove ended itinerary':`${action[0].toUpperCase()+action.slice(1)} itinerary`,{type:'society',action:{type:'plan_control',action,cursorId:cursor.id}}));
         const records=[...featureRecordedKnowledge(state,['feature_society.']),...(cursor?.steps||[]).map((step,index)=>({id:`itinerary:${step.id}`,text:`${index+1}. ${step.label}: ${step.status}.`}))];
-        sections.push({id:'society',label:'Household work & apprenticeship',description:cursor?`${cursor.label}: ${cursor.status}. ${cursor.reason||''}`:'Each accepted job reserves its own funding and willing participants.',...work,actions:[...actions,...work.actions],records});
+        sections.push({id:'society',label:'Household work & apprenticeship',description:cursor?`${cursor.label}: ${cursor.status}. ${cursor.reason||''} ${cursor.lastResult.text}`:'Each accepted job reserves its own funding and willing participants.',...work,actions:[...actions,...work.actions],records});
     }
     const destination=tidemarkPresentation(state,registry,context);
     if(destination.visible||context.facts['village.elderMet']&&context.facts.location==='Village') {
@@ -87,7 +87,7 @@ export function featureWavePresentation(snapshot,registry) {
         }
         if(cursor?.definitionId===REFERENCE_GAMEPLAY_IDS.plan)for(const [action,show] of [['pause',cursor.canPause],['resume',cursor.canResume],['cancel',cursor.canCancel],['forget',cursor.canForget&&['complete','cancelled'].includes(cursor.status)]])if(show)actions.push(button(`reference-plan-${action}`,action==='forget'?'Remove ended cooling plan':`${action[0].toUpperCase()+action.slice(1)} cooling plan`,{type:'reference_plan_control',action,cursorId:cursor.id}));
         sections.push({id:'reference.cooling',label:cooling.label,description:cooling.mastery==null?'Ordinary cooling and separate paid instruction use Eda’s finite stock.':`Measured cooling mastery ${cooling.mastery}/3. ${cooling.practiceGoalReached?'The hook-control function is available.':'Practice produces mastery; ordinary work produces real materials.'}`,
-            work:[work.work,cursor?.definitionId===REFERENCE_GAMEPLAY_IDS.plan?`${cursor.label}: ${cursor.status}. ${cursor.reason||''}`:''].filter(Boolean).join(' '),actions:[...actions,...work.actions],records:cooling.records.map(r=>({id:r.id,text:`${r.basis?.attributedTo===REFERENCE_GAMEPLAY_IDS.teacher?'Eda’s account':'Your observation'}: ${r.text} · minute ${r.at}`}))});
+            work:[work.work,cursor?.definitionId===REFERENCE_GAMEPLAY_IDS.plan?`${cursor.label}: ${cursor.status}. ${cursor.reason||''} ${cursor.lastResult.text}`:''].filter(Boolean).join(' '),actions:[...actions,...work.actions],records:cooling.records.map(r=>({id:r.id,text:`${r.basis?.attributedTo===REFERENCE_GAMEPLAY_IDS.teacher?'Eda’s account':'Your observation'}: ${r.text} · minute ${r.at}`}))});
     }
     sections.push(...homeFurnishingPresentation(state,registry,context).sections);
     sections.push(...factorioRetortPresentation(state,registry,context).sections);
