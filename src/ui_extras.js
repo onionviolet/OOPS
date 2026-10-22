@@ -9,6 +9,7 @@ import './region_view.js';
 import './companion_roster.js';
 import './loadouts.js';
 import './palette_feedback_domain.js';
+import './hp_brewing_domain.js';
 
 // One mount point for the shell-wide helpers that read the DOM the shell already shows: the command
 // palette (GU1) and the row menu (GU9), and it pulls in the reference sections (SX1 to SX6), each a

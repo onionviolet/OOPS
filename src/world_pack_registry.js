@@ -3,10 +3,11 @@
 // pack cannot be installed without being linted. Installs definitions only: no
 // state, save slice, tick or UI (AR3). Imports no world module (AR2, no cycles).
 import molPack from './world_packs/book_mol_pack.js';
+import hpPack from './world_packs/book_hp_pack.js';
 import {loadWorldPacks} from './world_pack_loader.js';
 import {registerDomain} from './domain_registry.js';
 
-export const BUNDLED_WORLD_PACKS=Object.freeze([molPack]);
+export const BUNDLED_WORLD_PACKS=Object.freeze([molPack,hpPack]);
 export function loadBundledWorldPacks(raw=BUNDLED_WORLD_PACKS){return loadWorldPacks(raw);}
 const registry=loadBundledWorldPacks();
 export const worldPackRegistry=registry;

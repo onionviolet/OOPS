@@ -45,3 +45,8 @@ button[data-new-count]::after {
 .reference-panel th, .reference-panel td { text-align: left; padding: 0.15rem 0.3rem; border-bottom: 1px solid var(--ui-hairline); }
 .reference-panel td.num, .reference-panel th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .panel-empty-hint { opacity: 0.85; font-style: italic; margin: 0.3rem 0; }
+/* Polyjuice bench (book.hp slice): spacing only, colors and fonts come from the shell tokens. */
+#hp_brewing .hp-section{margin:.75rem 0;}
+#hp_brewing .hp-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:.35rem 0;}
+#hp_brewing select,#hp_brewing button{margin:.15rem .25rem .15rem 0;}
+#hp_brewing .hp-note,#hp_brewing .hp-ledger,#hp_brewing .hp-notice{margin:.3rem 0;}

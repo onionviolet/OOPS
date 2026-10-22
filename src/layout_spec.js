@@ -169,6 +169,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'tools': surface(UNSET),
         'homes': surface('ST2', {home: 'Known residences and Village home supplier', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'place', 'time', 'body', 'rights'], representations: routed}),
         'gear-workshop': surface('ST2', {home: 'Native forging station; carried equipment', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'equipment', 'place', 'time'], representations: routed}),
+        'hp-polyjuice': surface('ST2', {home: 'Harry Potter pack slice bench (prototype)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
         'lotm': surface('ST2', {home: 'Tingen supervised workroom'}),
         'customization': surface('ST7', {representations: routed}),
         'customization-effects': surface('ST7'),
