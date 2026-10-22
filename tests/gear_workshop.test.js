@@ -6,7 +6,7 @@ let native;
 const getNative = async () => native ||= await loadNative(`
 export {item_templates,getItemFromKey} from './src/items.js';
 export {equipmentDurability as durability} from './src/absorb_e2/durability.js';
-export {configureGearWorkshop,quoteWorkshop,executeWorkshop,validateWorkshopEnvelope,projectWorkshop} from './src/gear_workshop_domain.js';
+export {configureGearWorkshop,quoteWorkshop,executeWorkshop,validateWorkshopEnvelope,projectWorkshop,quoteHide,executeHide} from './src/gear_workshop_domain.js';
 export {setToolsState,toolsState} from './src/tools_domain.js';
 export {applyEquipmentStats} from './src/equipment_stats.js';
 export {Enemy} from './src/enemies.js';
@@ -143,4 +143,17 @@ test('cold-brittle metal armor: a warm lining resolves the need and lasting wear
  temperature=20;assert.ok(Math.abs(wearAfter(k,10)-bare)<.01,'warm air has no cold need');
  const stored=n.durability.serialize();n.durability.load(JSON.parse(JSON.stringify(stored)));assert.equal(n.durability.condition(k),stored.condition[k]);
  const row=n.projectWorkshop().rows.find(r=>r.key===k);assert.equal(row.need.insulation>.9,true);assert.equal(n.projectWorkshop().rows.find(r=>r.key===armor),undefined);
+});
+
+test('native hide preparation accepts idle elapsed time, stamps current chronology and rejects lost stock without spending',async()=>{
+ const f=await fixture(),{n,actor,items}=f;
+ actor.addToInventory([{item_key:key('Rat pelt'),count:6},{item_key:key('Rough wood log'),count:2}]);
+ const reviewed=n.quoteHide('smoked');assert.equal(reviewed.eligible,true,reviewed.reason);
+ f.setClock(60);const committed=n.executeHide(reviewed);
+ assert.equal(JSON.parse(committed.receive[0].key).lineage.history[0].at,60);
+ assert.equal(items[key('Rat pelt')].count,3);
+ const stale=n.quoteHide('smoked');delete items[key('Rat pelt')];
+ const before=JSON.stringify(items);
+ assert.throws(()=>n.executeHide(stale),/untreated rat pelts/);
+ assert.equal(JSON.stringify(items),before,'rejected quote spends nothing');
 });

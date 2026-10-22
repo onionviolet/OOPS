@@ -9,7 +9,7 @@ import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {toolsState, setToolsState, maxCondition, rekeyToolFacts} from './tools_domain.js';
 import {quoteGearWork, validateWork, materialProperties, GEAR_WORK_LAWS, coldSoakNeed} from './gear_work.js';
 import {createGearWorkshopPanel} from './gear_workshop_panel.js';
-import {HIDE_TREATMENTS, quoteHideTreatment} from './material_treatment.js';
+import {HIDE_TREATMENTS, quoteHideTreatment, samePreparationQuote} from './material_treatment.js';
 
 let ports, panel;
 const needOf = item => {
@@ -96,7 +96,7 @@ export function quoteHide(treatmentId) {
 export function executeHide(quoted) {
     const q = quoteHide(quoted.treatmentId);
     if(!q.eligible) throw Error(q.reason);
-    if(JSON.stringify(q) !== JSON.stringify(quoted)) throw Error('The hide preparation quote changed. Review it again.');
+    if(!samePreparationQuote(quoted, q)) throw Error('The hide preparation quote changed. Review it again.');
     for(const row of q.spend) ports.assertSpend(row.key);
     ports.itemFactory(q.receive[0].key);
     const txn = beginNativeCraftTransaction({owners: ports.itemOwners(), bindings: []});
@@ -115,7 +115,7 @@ export function quoteRepairer(action){
  return quoteMender({action,state,inventory:Object.fromEntries(Object.entries(actor().getItems()).map(([k,r])=>[k,r.count])),world:m.world,location:m.location,craftsmanHere:ports.craftsmanHere?.(),blocked:m.blocked,materialClock:ports.clock(),capability,toolCondition:durability.condition});
 }
 export function executeRepairer(quoted){
- const q=quoteRepairer(quoted.action);if(!q.eligible)throw Error(q.reason);if(JSON.stringify(q)!==JSON.stringify(quoted))throw Error('The repairer quote changed. Review it again.');
+ const q=quoteRepairer(quoted.action);if(!q.eligible)throw Error(q.reason);if(!samePreparationQuote(quoted,q))throw Error('The repairer quote changed. Review it again.');
  for(const r of q.spend)ports.assertSpend(r.key);
  const plan=ports.plan(q.minutes);
  for(const r of q.spend)applyGameplayEffect(plan.gameplay,{type:'item',key:r.key,amount:r.count},'player',true);

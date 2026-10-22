@@ -48,3 +48,20 @@ export function treatedRecipeQuality(base, resultId, allocations) {
     const shift = treatmentQualityShift(resultId, allocations);
     return base == null || !shift ? base : Math.max(5, Math.min(1000, base + shift));
 }
+
+// Review actual preparation terms, not the idle sequence or the timestamp of
+// a product that has not been made yet. Exact parents, output properties and
+// effects still participate; execution uses the freshly quoted production time.
+export function samePreparationQuote(reviewed, current) {
+    const terms = quote => {
+        const value = structuredClone(quote);
+        delete value.sequence;
+        for (const row of value.receive || []) {
+            const item = JSON.parse(row.key);
+            if (item.lineage?.history?.length === 1) delete item.lineage.history[0].at;
+            row.key = JSON.stringify(item);
+        }
+        return JSON.stringify(value);
+    };
+    return terms(reviewed) === terms(current);
+}

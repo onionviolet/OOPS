@@ -1,0 +1,67 @@
+{
+  "status": "PASS selected acceptance checks",
+  "base": "c74f0943379eec676b59e245612b3c686fb0d361",
+  "snapshot": "v0.6-1c223618b5b5",
+  "runtimeFiles": 82,
+  "bundleSha256": "755bdf98cb8816ca7bed4177e9147f903d2f1d11bd2a003ab5e67a10131c3594",
+  "tests": {
+    "focused": {
+      "pass": 11,
+      "fail": 0
+    },
+    "full": {
+      "pass": 2591,
+      "fail": 0,
+      "skip": 0
+    }
+  },
+  "build": "PASS",
+  "architecture": "PASS, main growth 0",
+  "rules": "PASS, 0 warnings",
+  "ruleBehavior": {
+    "pass": 36,
+    "fail": 0
+  },
+  "electron": {
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "clock": "native, no pause/advance hooks",
+    "profile": "disposable only",
+    "checks": [
+      "Both portable kit grades created from exact prepared lots through authored controls",
+      "Practiced fitting earned, both precise lining routes executed",
+      "Fitting/stock retained through native Save, reload, actual Export and literal-file Import",
+      "Earned institution controls rendered; native office close returned finite funds and cleared holder; persistence verified",
+      "Cultivation prepared charge spent through native Flow-cut, expected material produced; persistence verified"
+    ],
+    "runnerBoundary": "The exact-82-file runner completed all gameplay/persistence assertions, then failed its last font assertion because it assumed Gothic14 despite the imported save explicitly choosing system14. A separate focused native font/resource probe corrects this assumption; the full runner is not reported as an all-green command.",
+    "nativeExportFiles": 3,
+    "fontFollowup": {
+      "result": "PASS",
+      "build": "v0.6-1c223618b5b5",
+      "runtimeFiles": 82,
+      "settings": {
+        "font": "system",
+        "size": 14
+      },
+      "actualFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular_wdth_opsz110000_GRAD_wght",
+          "isCustomFont": false,
+          "glyphCount": 49
+        }
+      ],
+      "resourceMisses": [],
+      "correction": "Initial Gothic-14 assertion was wrong for the retained explicit system-font save override; rendered system font and saved preference agree."
+    }
+  },
+  "normalApp": "pending final native reload/restart after guarded integration",
+  "remaining": [
+    "Human pacing/taste acceptance",
+    "LOTM new entry remains localhost probe-only",
+    "Deferred feature-owner scope"
+  ]
+}

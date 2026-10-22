@@ -1,0 +1,15 @@
+{
+  "base": "c74f0943379eec676b59e245612b3c686fb0d361",
+  "changedInputs": {
+    "dist/bundle.js": "755bdf98cb8816ca7bed4177e9147f903d2f1d11bd2a003ab5e67a10131c3594",
+    "dist/bundle.js.map": "8c13784087de5cecbf068cf4e91139714ee0c12eb1db45ce43c30c6849e8a0b9",
+    "index.html": "f725bf81519330124a5a378a7d50fbfac34328aea9fe744eb5c98ec1046b93f7",
+    "src/gear_workshop_domain.js": "6c35603abeb7a817f891d7b5805a354863125413f3ce17539cc5d324e82151a5",
+    "src/material_treatment.js": "f4d8d8f9897026887cafe3383babf09a257a11fdbd70140e2d072e5e3b6f45d3",
+    "tests/distinct_world_materials.test.js": "9705f3393d96182db55d80f9928377e98af12c74e1e2964ed34cc99976722733",
+    "tests/gear_workshop.test.js": "ed84291154d4d3fece7fc4f79c5810713fcd012481719132e61992e37bf1891a"
+  },
+  "frozen": "v0.6-1c223618b5b5",
+  "bundleSha256": "755bdf98cb8816ca7bed4177e9147f903d2f1d11bd2a003ab5e67a10131c3594",
+  "runtimeFiles": 82
+}

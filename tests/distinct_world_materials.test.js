@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {quoteMender,MENDER_SOURCE} from '../src/material_apprentice.js';
-import {quoteHideTreatment,treatmentOf} from '../src/material_treatment.js';
+import {quoteHideTreatment,treatmentOf,samePreparationQuote} from '../src/material_treatment.js';
 import {createExpansionState} from '../src/expansion_engine.js';
 import {initializeExpedition,expeditionRegistry as registry} from '../src/expedition_content.js';
 import {createSimulationState} from '../src/simulation_contracts.js';
@@ -28,4 +28,23 @@ test('W1 exact treatments feed real native tool carriers and advancement; altern
   assert.equal(treatmentOf(prepared),treatment);assert.equal(quoteMender({...input,inventory:{[prepared]:1,[tool]:1},action:'fine',capability,toolCondition:()=>0}).eligible,false);
   const saved=JSON.parse(JSON.stringify(state));assert.deepEqual(saved.actors.player.sources,state.actors.player.sources);
  }
+});
+
+test('idle clock and unrelated sequence changes preserve reviewed preparation terms, while changed lots and grants require review',()=>{
+ const prepared=quoteHideTreatment({treatmentId:'smoked',inventory:{[pelt]:6,[log]:2},skillLevel:5,clock:1000,world:'base.frontier'}).receive[0].key;
+ const state=initializeExpedition(createExpansionState(73));
+ state.actors.player.facts['mender.methodsKnown']=true;state.actors.player.facts['mender.repairShift']=true;
+ const input={state,inventory:{[prepared]:3,[log]:1},world:'base.frontier',location:'Village',craftsmanHere:true,blocked:'',materialClock:1005};
+ const tool=quoteMender({...input,action:'tool:smoked'}),advance=quoteMender({...input,action:'advance:smoked'});
+ state.sequence++;
+ const fresh=quoteMender({...input,action:'tool:smoked',materialClock:1010});
+ assert.equal(samePreparationQuote(tool,fresh),true);
+ assert.equal(JSON.parse(fresh.receive[0].key).lineage.history[0].at,1010);
+ assert.equal(samePreparationQuote(advance,quoteMender({...input,action:'advance:smoked'})),true);
+ const changed=structuredClone(fresh);changed.spend[0].key=pelt;
+ assert.equal(samePreparationQuote(tool,changed),false,'another exact parent is a different offer');
+ changed.spend=structuredClone(fresh.spend);changed.receive[0].count=2;
+ assert.equal(samePreparationQuote(tool,changed),false,'a changed output count is a different offer');
+ state.actors.player.sources[MENDER_SOURCE]={};
+ assert.equal(samePreparationQuote(advance,quoteMender({...input,action:'advance:smoked'})),false,'already-earned fitting is revalidated');
 });
