@@ -24,6 +24,7 @@ export function setConditionCap(lookup) { capOf = typeof lookup === 'function' ?
 const cap = key => Math.max(0, Math.min(MAX, Number(capOf(key)) || 0));
 
 export function createDurability(initial) {
+    let hazard = null; // optional (item) => wear multiplier; product domains own the law
     let state;
     const bound = new WeakSet();
     const api = {
@@ -125,13 +126,14 @@ export function createDurability(initial) {
                 if (!own(state.condition, key)) state.condition[key] = MAX;
             }
         },
+        setWearHazard(read) { hazard = typeof read === 'function' ? read : null; },
         wearItem(item, hits = 1) {
             if (!item?.tags?.equippable || !identity(item.getInventoryKey())) return false;
             if (!Number.isSafeInteger(hits) || hits < 0) throw new Error('Invalid equipment use count.');
             const key = item.getInventoryKey();
             if (!state.enabled) {if(item.gearwork && hits > 0) (state.uses ||= {})[key] = (state.uses[key] || 0) + hits; return false;}
             const before = api.condition(key);
-            state.condition[key] = Math.max(0, Math.round((before - hits * DURABILITY_PROPOSAL.wearPerHit * (item.getWearScale?.() ?? 1)) * 10000) / 10000);
+            state.condition[key] = Math.max(0, Math.round((before - hits * DURABILITY_PROPOSAL.wearPerHit * (item.getWearScale?.() ?? 1) * (hazard?.(item) ?? 1)) * 10000) / 10000);
             if(state.condition[key] < before) (state.uses ||= {})[key] = (state.uses[key] || 0) + hits;
             return state.condition[key] !== before;
         },

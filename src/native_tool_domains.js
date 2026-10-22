@@ -4,7 +4,7 @@ import {configureGearWorkshop} from './gear_workshop_domain.js';
 import {calendarMinutes} from './world_rhythm.js';
 import {configureToolsDomain, refreshToolsPanel} from './tools_domain.js';
 import {configureLamplight} from './lamplight_domain.js';
-import {get_current_light_level} from './weather.js';
+import {get_current_light_level, get_current_temperature_smoothed} from './weather.js';
 import {current_game_time} from './game_time.js';
 import {bindReadingLightReader} from './reveal_chain.js';
 
@@ -12,7 +12,7 @@ import {bindReadingLightReader} from './reveal_chain.js';
 // the other. The independent lamp factory receives only its supported operations.
 export function configureNativeToolDomains(operations) {
     configureToolsDomain({...operations, clock: () => calendarMinutes(current_game_time)});
-    configureGearWorkshop({...operations, favorites: favourite_items, clock: () => calendarMinutes(current_game_time)});
+    configureGearWorkshop({...operations, favorites: favourite_items, temperature: get_current_temperature_smoothed, clock: () => calendarMinutes(current_game_time)});
     const {actor, count, itemOwners, assertSpend, removeItem, persist, writable,
         location, refresh, logMessage, locationRevealed, revealLocation} = operations;
     configureLamplight({actor, count, itemOwners, assertSpend, removeItem, persist,

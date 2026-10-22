@@ -29,6 +29,7 @@ export function createGearWorkshopPanel({read, quote, execute}) {
         if(item) {
             inspect.append(el('p', `Condition ${item.condition.toFixed(2)}/${item.max} · meaningful uses ${item.uses} · treatment ${item.work?.treatment.stage || 'untreated'}`));
             for(const [s,id] of Object.entries(item.components)) inspect.append(el('p', `${s}: ${id}`));
+            if(item.need?.below != null) inspect.append(el('p', item.need.active ? `Cold need: air ${item.need.temperature}° chills this metal armor; hits wear it ×${item.need.factor}${item.need.insulation ? ` (lining insulates ${Math.round(item.need.insulation * 100)}%)` : ', a warm lining would insulate it'}.` : `Cold need: below ${item.need.below}° unlined metal armor wears faster; ${item.need.insulation ? 'a lining insulates it' : 'it needs a warm lining'}.`));
             if(item.properties) inspect.append(el('p', `Material hardness ${item.properties.strength.toFixed(1)} · toughness ${item.properties.toughness.toFixed(1)} · wear ×${item.properties.scale.toFixed(3)}`));
             for(const row of item.contributions) inspect.append(el('p', `${row.label}: ${labels[row.stat] || row.stat} ${row.multiplier != null ? '×' + row.multiplier : (row.flat >= 0 ? '+' : '') + row.flat}`));
             const history = item.work?.history || [];

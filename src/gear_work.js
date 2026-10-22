@@ -12,6 +12,7 @@ const fail = message => { throw Error(message); };
 // handling rather than forbidding an otherwise supported construction (AD38).
 export const GEAR_WORK_LAWS = Object.freeze({
     'base.frontier': Object.freeze({revision: 1, heatGrade: 2, heatLoad: 4, hotMinutes: 5,
+        coldSoak: Object.freeze({below: 8, extraWear: 1, insulationPerWarmth: .7}),
         repairUnit: 20, fieldEfficiency: 0.5, salvageShare: 0.5, honingUses: 5,
         roles: Object.freeze({grip: 'Handling through a held part', lining: 'Padding spreads a blow', coating: 'A shell spreads impact', setting: 'A fitted component carries its native modifiers'})}),
 });
@@ -82,6 +83,18 @@ export function workContributions(work, {condition = 100, tier = 1, weapon = fal
     if (work.treatment.hardness !== 1) add(weapon ? 'Heat-treated edge' : 'Heat-treated shell', weapon ? 'attack_power' : 'min_damage_share', 'multiplier', weapon ? 1 + (work.treatment.hardness - 1) * .2 : 1 / work.treatment.hardness);
     if (!weapon && work.treatment.toughness !== 1) add('Heat-treated toughness', 'crit_resistance', 'flat', (work.treatment.toughness - 1) * .02);
     return rows;
+}
+// Authored armor need (default, dial, reason): metal worn against the body
+// conducts cold, so in air at or below `below` unlined metal armor wears
+// (1 + extraWear)x faster per landed hit. A lining of warm material insulates
+// by grade x warmth x insulationPerWarmth, capped at full. Read-only fact; the
+// consequence lands as ordinary durability condition (no second ledger).
+export function coldSoakNeed({armor, metal, work, temperature, law}) {
+    const rule = law?.coldSoak;
+    if (!rule || !armor || !metal || !Number.isFinite(temperature)) return {active: false, factor: 1, insulation: 0};
+    const lining = work?.roles?.lining, insulation = lining ? Math.min(1, lining.grade * lining.properties.warmth / 100 * rule.insulationPerWarmth) : 0;
+    const active = temperature <= rule.below;
+    return {active, insulation: round(insulation), factor: active ? round(1 + rule.extraWear * (1 - insulation)) : 1, below: rule.below, temperature: round(temperature)};
 }
 export function mergeWorkStats(stats, contributions) {
     const out = structuredClone(stats);
