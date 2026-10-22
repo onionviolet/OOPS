@@ -601,3 +601,9 @@ The five most consequential confirmed gaps:
 5. No cross-life discovery codex.
 
 AD33 defers spatial homes and deprioritizes the NPC-heavy gaps.
+
+## Open gaps
+
+Everything still open from this wave (tool blockers, unread code, play-only
+questions, unreachable builds, YAIR-side gaps) is consolidated in
+[OPEN_GAPS](itch-io-2026-10-22/OPEN_GAPS.md) with stable codes OG1+.

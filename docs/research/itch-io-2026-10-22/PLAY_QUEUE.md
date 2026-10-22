@@ -164,3 +164,5 @@ Details are in [BATCH_PROCGEN](BATCH_PROCGEN.md).
 The earlier chat's native-only cultivation games remain with
 [that report](../PROTOLIKE_AND_CULTIVATION_DISCOVERY_2026-10-22.md):
 Cultivation Sect Chronicle and Cultivation Stories.
+
+Play-only questions from the gap ledgers are listed in [OPEN_GAPS](OPEN_GAPS.md) section OG-C.
