@@ -81,3 +81,19 @@ snapshot staging, installed-app adoption and human pacing/taste acceptance.
 This task does not update the player's running app or touch personal saves.
 The existing app's Save and reload/restart adoption gate and human acceptance
 remain open. Feature-specific unfinished scope stays with its linked owner.
+
+## Publication result
+
+`b6e9332dcb5095dcc853e8b86c5e6a14b37a9f7c` was committed and pushed to the
+personal fork's `origin/master`, then verified by `git ls-remote`. The guarded
+primary update reconciled 215 reviewed paths, including restoration of the
+stale pre-merge working/index entries. The published feature commit changes
+180 paths. [Publication receipt](../gm/dispatch/master-ready-review-2026-10-22/PUBLICATION.json)
+records the exact old/new refs and preservation checks. This result supersedes
+the planned Git-delivery step above. A later documentation-only commit records
+this receipt; runtime input identity and all passing checks stay unchanged.
+
+The active source-acquisition document and every originally untracked file left
+out of the commit remain byte-identical to the review snapshot. The only
+remaining tracked change is that active document. Local-only artifacts remain
+available; their presence is intentional and is not an incomplete push.
