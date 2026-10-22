@@ -212,3 +212,69 @@ badges and recap reveal only known facts (AR8). Withdrawal retains real changed
 site state and spent supplies; renewal names its cause and clock (SR14/SR20/SR21,
 G26–G28). One useful find → preparation/use → persistent aftermath is the proof,
 not a count of generated sites. No new site implementation is selected.
+
+## More-to-consider round, engine modularity and procedural gaps, 2026-10-22
+
+Read-only pass over `check:arch`, the AR rules, this palette and the generation
+code. No runtime change, build or test run. Proposals, not accepted decisions.
+
+**Evidence.** `gen_kit.js`, `seeded_streams.js` and `hash_rng.js` exist, with
+tests, and `gen_kit` is imported by about 15 `src` modules (craft, check, mixture,
+world_pack). Its header still says "Proposal". `tests/determinism_replay.test.js`,
+`replay_harness.test.js`, `scripts/field_fixtures.mjs` and `scripts/simfuzz` exist.
+Nothing in `src` or `scripts` generates sites, fauna, markets or weather variety
+beyond the crafting families. Cycles: 226 grandfathered edges.
+
+**ACCOUNT FOR NOW**
+- Header drift: `gen_kit.js` says "Proposal" but has many consumers. Treat it as
+  the live generation seam (AR2/AR11) and update the header when next touched.
+- Distribution checks: the generators have determinism tests but no
+  many-seed tail/degenerate check. Add one per generator with its first real
+  reader (GN11, games lens).
+- Content versioning: saves that store only a seed break when a generator
+  changes. Address generated output by world/life/table revision (already the
+  gen_kit rule) and record the migration or compatibility decision (AR6).
+
+**LATER / DELEGATE**
+- GN1 small inspector and GN3 bounded headless balance run, attached to the
+  selected P1 journey only (level: sonnet, effort: medium, done check: one
+  scenario saved as a named fixture).
+- PG2 regional fauna as the second proof of the generation seam (AR11): needs a
+  reader (combat or harvest) before any generator.
+- PG15 expedition node graphs over authored routes, after SR4 site work.
+
+## Crafting-journey lanes S1/S2/S3, gaps saved 2026-10-22
+
+Weibao asked for the crafting journey as a potion, an armor and a Harry Potter potion
+and then to save the gaps. Three lanes built them in separate worktrees; nothing is
+merged, committed or pushed. These are lane reports, not combined-build evidence.
+Gaps below are proposals, not authorized work. Lane records (in their branches):
+S1 `claude/s1-potion-journey-bdb6a0` `docs/gm/dispatch/potion-journey-2026-10-22/TASK.md`;
+S2 `claude/s2-armor-journey-29349a` `docs/gm/dispatch/armor-cold-journey-2026-10-22/TASK.md`;
+S3 `claude/s3-hp-potion-b624c8` `docs/gm/dispatch/hp-polyjuice-2026-10-22/MORE_TO_CONSIDER_ROUND1.md`
+(C1-C4 constraints, L1-L8 later rows; not copied here).
+
+**ACCOUNT FOR NOW**
+- G1 (all): lane evidence is per-worktree. A merged build needs the full gates plus a
+  combined browser journey; recheck `check:arch` after merge.
+- G2 (S1): `frontier.brew` moved to revision 2, so old products fail law-ref validation.
+  Allowed by the 2026-10-17 reset/drop decision; the AR6 record lives in S1's TASK.md and
+  should be restated in PROJECT.md when the lane merges.
+- G3 (S1, S3): two craft carriers. S3 keeps its own purse and lots outside Inventory and
+  money. Move them onto `craft_product_registry` after S1 merges (S3 C3, MR29), not a
+  second inventory.
+- G4 (S3): the Polyjuice transformation has no reader (MR32) and the recipe panel shows
+  all slots with no knowledge route (AD6, MR10). Until fixed, call it a craft proof with a
+  recipe-known start condition.
+
+**LATER / DELEGATE**
+- G5 (S1): a `Toxin binding` ward against new poison needs a hook in the native
+  effect-apply path. Today it only shortens existing poison. Sonnet, small to medium;
+  done check: a ward blocks a fresh poison and survives Save/reload/Import.
+- G6 (S1): the browser run used a DEV SEEDED venom. Add a venom met in play.
+- G7 (S2): 1366 width untested; hazard uses smoothed temperature while the display adds the
+  pacing offset (small mismatch); the need's discovery and balance are unaccepted proposals;
+  Export used `window.save_to_file`, not the button.
+- G8 (S3): staged additions, glass-reaction cue, donor-presence consent, clothes misfit,
+  diversion route, dev-only truth inspector (L1-L8 in the S3 round).
+- G9 (all): human play acceptance for all three journeys is open.
