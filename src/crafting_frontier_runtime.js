@@ -6,10 +6,10 @@ import {createCraftState,freezeMaterials,setSourceNode,recordProduct,observe,pro
 import {resolveBatch,BATCH_FAMILY} from './craft_resolver.js';
 import {classifyProductKey,keyForProduct,resolveProductKey} from './craft_product_registry.js';
 export {catalogue,law};
-export const MATERIAL_CARRIER='Gathered herb',PRODUCT_CARRIER=law.carrier,EFFECT_ID='Crafted herbal preparation';
+export const MATERIAL_CARRIER='Gathered herb',PRODUCT_CARRIER=law.carrier,EFFECT_ID='Crafted herbal preparation',BIND_ID='Toxin binding',BIND_DURATION=60;
 export const villageSources=defineSourceTable(catalogue,{id:'village.trial-sources',revision:1,sources:[
  {id:'village-herbs',name:'Village common herb verge',kind:'gather',at:'village',capacity:12,regenPerDay:12,
-  variants:{reedherb:2},quality:[40,60],yields:[{family:'reedherb',qty:[1,2]}]}
+  variants:{reedherb:2,riversalt:1},quality:[40,60],yields:[{family:'reedherb',weight:3,qty:[1,2]},{family:'riversalt',weight:1,qty:[1,2]}]}
 ]});
 export const materialKey=(material,quality)=>JSON.stringify({id:MATERIAL_CARRIER,materialRef:material.id,quality});
 const fail=m=>{throw Error(m);};
@@ -31,6 +31,7 @@ export function validateOwner(owner) {
  if(owner.scope?.world!=='base.frontier'||!natural(owner.scope?.life))fail('Unsupported crafting scope.');
  return validateCraftState(owner,{catalogues:{[catalogue.ref]:catalogue},laws:{[law.ref]:law},sourceTables:{[villageSources.ref]:villageSources}});
 }
+const bindOf=product=>product?.law===law.ref?(product.outputs.oral?.bind??0):0;
 export function craftedExposure(product,at) {
  if(!product||product.law!==law.ref||!natural(at))fail('Invalid herbal preparation.');
  const oral=product.outputs.oral??{},duration=12;
@@ -39,11 +40,22 @@ export function craftedExposure(product,at) {
   tags:{effect:true},group_tags:{},affected_by_travel:true,base_xp_value:1,potency:0,
   craftExposure:{revision:1,product:product.id,appliedAt:at,expiresAt:at+duration,policy:'replace'}};
 }
+// A salty preparation binds toxin: the saved mark records the dose; shortenPoison() is what changes conditions.
+export function bindingExposure(product,at) {
+ const strength=bindOf(product);if(!strength||!natural(at))fail('Invalid binding preparation.');
+ return {id:BIND_ID,name:BIND_ID,description:`Bound toxin: poison conditions ran ${strength} minutes shorter. This mark changes no other stat.`,duration:BIND_DURATION,
+  effects:{stats:{},bonus_skill_levels:{}},tags:{effect:true},group_tags:{},affected_by_travel:true,base_xp_value:1,potency:0,
+  craftExposure:{revision:1,product:product.id,appliedAt:at,expiresAt:at+BIND_DURATION,policy:'replace',binds:strength}};
+}
+// Pure: each poison-tagged condition with its remaining minutes after binding; null means the condition ends.
+export function shortenPoison(effects,strength) {
+ return Object.entries(effects).filter(([,e])=>e?.tags?.poison&&e.duration>0).map(([id,e])=>({id,duration:e.duration>strength?e.duration-strength:null}));
+}
 export function validateCraftedExposure(saved,product,id=EFFECT_ID) {
- const x=saved?.craftExposure;if(!x||id!==EFFECT_ID||!natural(x.appliedAt)||x.revision!==1||x.policy!=='replace'||x.product!==product?.id)fail('Dangling crafted exposure.');
- const expected=craftedExposure(product,x.appliedAt);
+ const x=saved?.craftExposure;if(!x||(id!==EFFECT_ID&&id!==BIND_ID)||!natural(x.appliedAt)||x.revision!==1||x.policy!=='replace'||x.product!==product?.id)fail('Dangling crafted exposure.');
+ const expected=id===BIND_ID?bindingExposure(product,x.appliedAt):craftedExposure(product,x.appliedAt);
  if(JSON.stringify(x)!==JSON.stringify(expected.craftExposure)||!Number.isFinite(saved.duration)||saved.duration<=0||saved.duration>expected.duration||
-    JSON.stringify(saved.effects)!==JSON.stringify(expected.effects)||saved.name!==expected.name||saved.id!==expected.id||
+    JSON.stringify(saved.effects)!==JSON.stringify(expected.effects)||saved.name!==expected.name||saved.id!==expected.id||saved.description!==expected.description||
     saved.affected_by_travel!==true||saved.base_xp_value!==1||saved.potency!==0||JSON.stringify(saved.group_tags)!=='{}'||JSON.stringify(saved.tags)!=='{"effect":true}')fail('Invalid crafted exposure.');
  return saved;
 }
@@ -95,7 +107,7 @@ export function stageCrafting(owner,inventory,quoted,context) {
  if(!fresh.eligible)fail(fresh.reason);if(fresh.token!==quoted.token)fail('This quote changed. Review the current materials and place again.');
  const request=fresh.request,at=context.clock;
  let next=owner?structuredClone(owner):createCraftState({world:'base.frontier',life:0});
- const items=[];let effect=null;
+ const items=[];let effect=null,binding=null;
  if(request.type==='harvest'){
   const source=request.source??'village-herbs',key=nodeKey(context.world,context.location,source);
   const result=harvest(villageSources,{root:context.root,world:context.world,location:context.location,source,at,actor:{skill:0},node:next.sources.nodes[key]});
@@ -107,9 +119,13 @@ export function stageCrafting(owner,inventory,quoted,context) {
   next=recordProduct(next,result.product);for(const i of lots)items.push({key:i.key,amount:-i.qty});
   items.push({key:keyForProduct(BATCH_FAMILY,result.product),amount:1});
  }else {
-  const p=productFromNativeKey(request.key,next);effect=craftedExposure(p,at);items.push({key:request.key,amount:-1});
+  const p=productFromNativeKey(request.key,next),oral=p.outputs.oral??{},binds=bindOf(p)>0;
+  // A purely binding preparation carries no tonic dose, so it leaves the tonic effect alone.
+  if(!binds||['health','stamina','poison'].some(k=>oral[k]>0))effect=craftedExposure(p,at);
+  if(binds)binding={effect:bindingExposure(p,at),strength:bindOf(p)};
+  items.push({key:request.key,amount:-1});
   next=observe(next,'player',p.id,Object.keys(p.outputs.oral??{}).map(e=>`effect:oral.${e}`),at);
  }
  next.sequence++;validateOwner(next);
- return {state:next,items,effect};
+ return {state:next,items,effect,binding};
 }

@@ -3,7 +3,7 @@ import {beginNativeCraftTransaction} from './native_craft_transaction.js';
 import {active_effects} from './runtime_state.js';
 import {ActiveEffect} from './active_effects.js';
 import {calendarMinutes} from './world_rhythm.js';
-import {craftingOwner,setCraftingOwner,validateOwner,validateCraftingEnvelope,isCraftedKey,quoteCrafting,stageCrafting,projectCrafting,EFFECT_ID,MATERIAL_CARRIER} from './crafting_frontier_runtime.js';
+import {craftingOwner,setCraftingOwner,validateOwner,validateCraftingEnvelope,isCraftedKey,quoteCrafting,stageCrafting,projectCrafting,EFFECT_ID,MATERIAL_CARRIER,BIND_ID,shortenPoison} from './crafting_frontier_runtime.js';
 import {createCraftingHome} from './crafting_home.js';
 let native,panel;
 // Each operation has one native owner. This domain never receives the game object.
@@ -20,6 +20,10 @@ export function commitCraftingQuote(quoted){
   // Publish tentatively inside the existing native rollback boundary. create_save resolves item references against this owner.
   setCraftingOwner(plan.state);
   for(const item of plan.items)if(item.amount<0)native.removeItem(item.key,-item.amount);else native.addItem(item.key,item.amount);
+  if(plan.binding){
+   for(const {id,duration} of shortenPoison(active_effects,plan.binding.strength))if(duration===null)delete active_effects[id];else active_effects[id].duration=duration;
+   const mark=new ActiveEffect(plan.binding.effect);mark.craftExposure=structuredClone(plan.binding.effect.craftExposure);active_effects[BIND_ID]=mark;
+  }
   if(plan.effect){const effect=new ActiveEffect(plan.effect);effect.craftExposure=structuredClone(plan.effect.craftExposure);active_effects[EFFECT_ID]=effect;}
   native.persist(()=>transaction.markDurable());
  }catch(error){if(transaction.status==='pending')transaction.rollback();throw error;}

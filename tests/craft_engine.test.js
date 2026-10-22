@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {frontierCatalogue as cat, frontierBrewLaw as law, frontierSources as sources, tonicGrammar} from '../src/craft_content_frontier.js';
+import {frontierCatalogue as cat, frontierBrewLaw as law, frontierSources as sources, tonicGrammar, binderGrammar} from '../src/craft_content_frontier.js';
 import {defineCatalogue, generateMaterial, materialPool, pickMaterial, validateMaterial} from '../src/craft_materials.js';
 import {defineCraftLaw, resolveBatch, validateBatchProduct} from '../src/craft_resolver.js';
 import {defineRecipe, generateRecipe, matchRecipe} from '../src/craft_recipes.js';
@@ -104,8 +104,8 @@ test('retained products validate only under their own law revision', () => {
     const {product} = resolveBatch(law, {inputs: [{material: herb, qty: 1}, {material: water, qty: 1}], process: [{op: 'steep', level: 1}]});
     const materials = {...cat.materials, [herb.id]: herb};
     assert.equal(validateBatchProduct(law, roundTrip(product), materials).id, product.id);
-    const law2 = defineCraftLaw({id: 'frontier.brew', revision: 2, catalogue: cat, carrier: 'Herbal vial', outputs: []});
-    assert.throws(() => validateBatchProduct(law2, product, materials), /needs law frontier.brew@1/);
+    const law2 = defineCraftLaw({id: 'frontier.brew', revision: 3, catalogue: cat, carrier: 'Herbal vial', outputs: []});
+    assert.throws(() => validateBatchProduct(law2, product, materials), /needs law frontier.brew@2/);
     assert.throws(() => validateBatchProduct(law, {...product, outputs: {oral: {health: 999}}}, materials), /disagrees/);
 });
 
@@ -266,4 +266,27 @@ test('a blocked rare find never spends the pity guarantee', () => {
     const open = harvest(table, {root: 99, ...where, source: 'reed-patch', at: 2, node: blocked.node, actor: {season: 'spring'}});
     assert.equal(open.result.items.at(-1).rare, true);
     assert.equal(open.node.misses, 0);
+});
+
+test('binder grammar (second case on the same law): many seeds, no degenerate or runaway binder', () => {
+    const vals = [], ids = new Set();
+    let fallbacks = 0;
+    for(let root = 0; root < 500; root++) {
+        const extra = [0, 1, 2].map(index => generateMaterial(cat, 'riversalt', {root, scope: 'base.frontier/village', index}).value);
+        const g = generateRecipe(law, binderGrammar, {root, scope: 'base.frontier', index: 0, extra});
+        if(g.receipt.fallbackUsed) fallbacks++;
+        ids.add(g.value.id);
+        const byId = Object.fromEntries([...extra.map(m => [m.id, m]), ...Object.entries(cat.materials)]);
+        const inputs = g.witness.inputs.map(w => ({...w, material: byId[w.material]}));
+        assert.equal(matchRecipe(cat, g.value, inputs, {process: g.witness.process}).ok, true);
+        const {product} = resolveBatch(law, {inputs, process: g.witness.process, stations: ['mortar']});
+        vals.push(product.outputs.oral?.bind ?? 0);
+    }
+    vals.sort((a, b) => a - b);
+    assert.equal(fallbacks, 0, 'salt in reach never needs the authored fallback');
+    assert.equal(ids.size, 500, 'ids do not collide across seeds');
+    assert.ok(vals[0] >= 1, `every witness binds something (min ${vals[0]})`);
+    assert.ok(vals[499] <= 45, `dose stays under the ash ceiling 300*150/1000 (max ${vals[499]})`);
+    assert.ok(vals[475] <= vals[250] * 3, `tail is not runaway (p95 ${vals[475]}, median ${vals[250]})`);
+    assert.equal(generateRecipe(law, binderGrammar, {root: 1, scope: 'base.frontier', index: 0, extra: []}).receipt.fallbackUsed, true, 'no salt: named authored fallback');
 });

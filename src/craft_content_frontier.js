@@ -45,7 +45,7 @@ export const frontierCatalogue = defineCatalogue({
 });
 
 export const frontierBrewLaw = defineCraftLaw({
-    id: 'frontier.brew', revision: 1, catalogue: frontierCatalogue, carrier: 'Herbal vial',
+    id: 'frontier.brew', revision: 2, catalogue: frontierCatalogue, carrier: 'Herbal vial',
     ops: [
         {id: 'steep', label: 'Steep', levels: [1, 3], availability: {restore: 700, vigor: 1000, toxin: 500}},
         {id: 'boil', label: 'Boil', station: 'hearth', levels: [1, 3], availability: {restore: 1000, vigor: 600, toxin: 1500},
@@ -62,6 +62,8 @@ export const frontierBrewLaw = defineCraftLaw({
         {id: 'stamina', route: 'oral', effect: 'stamina', axis: 'vigor', per: 150},
         {id: 'sicken', route: 'oral', effect: 'poison', axis: 'toxin', per: 300},
         {id: 'coat', route: 'coat', effect: 'poison', axis: 'toxin', per: 600},
+        // Bound toxin is spent ash: a salty preparation shortens poison conditions when drunk (revision 2).
+        {id: 'bind', route: 'oral', effect: 'bind', axis: 'ash', per: 150},
         {id: 'shine', route: 'carry', effect: 'light', axis: 'glow', mode: 'scalar', per: 1000},
     ],
     tagLaws: [{tag: 'restorative', axis: 'restore', min: 30}, {tag: 'toxic', axis: 'toxin', min: 15},
@@ -95,9 +97,26 @@ export const tonicGrammar = Object.freeze({
     process: {choices: [{op: 'steep', levels: [1, 3]}, {op: 'boil', levels: [1, 2]}], steps: [1, 2]},
     station: 'hearth',
     fallback: {
-        spec: {id: 'frontier.tonic.fallback', revision: 1, name: 'Plain tonic', law: 'frontier.brew@1',
+        spec: {id: 'frontier.tonic.fallback', revision: 1, name: 'Plain tonic', law: 'frontier.brew@2',
             slots: [{id: 'water', role: 'solvent', select: {material: 'Spring water'}, qty: [1, 1]},
                 {id: 'chalk', role: 'catalyst', select: {material: 'Lime chalk'}, qty: [1, 1]}],
+            process: [{op: 'steep', levels: [1, 1]}]},
+        witness: {inputs: [], process: [{op: 'steep', level: 1}]},
+    },
+});
+
+// Second grammar on the same law (AR11): a salt-based binder rather than an herbal tonic.
+export const binderGrammar = Object.freeze({
+    id: 'frontier.binder', revision: 1, name: 'Frontier binder', route: 'oral',
+    slots: [
+        {id: 'salt', role: 'base', pool: 'salt', select: 'tags', qty: [1, 3]},
+        {id: 'water', role: 'solvent', pool: 'solvent', select: 'material', qty: [1, 2]},
+    ],
+    process: {choices: [{op: 'steep', levels: [1, 3]}, {op: 'grind', levels: [1, 2]}], steps: [1, 2]},
+    station: 'mortar',
+    fallback: {
+        spec: {id: 'frontier.binder.fallback', revision: 1, name: 'Plain binder', law: 'frontier.brew@2',
+            slots: [{id: 'chalk', role: 'base', select: {material: 'Lime chalk'}, qty: [1, 1]}],
             process: [{op: 'steep', levels: [1, 1]}]},
         witness: {inputs: [], process: [{op: 'steep', level: 1}]},
     },
