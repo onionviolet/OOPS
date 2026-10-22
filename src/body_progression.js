@@ -2,7 +2,7 @@ import {eqRawReason as eq} from './basics.js';
 import {enrollSimulation, commitSimulationCommand} from "./simulation.js";
 
 export const SORE_HANDS = "body.sore_hands", SCRAPED_HANDS = "body.scraped_hands";
-export const NATURAL_BALANCE = "body.natural_balance", CONDITIONED_GRIP = "body.conditioned_grip", PALM_MARK = "body.palm_mark";
+export const NATURAL_BALANCE = "body.natural_balance", CONDITIONED_GRIP = "body.conditioned_grip", PALM_MARK = "body.palm_mark", COLD_HARDENED = "body.cold_hardened";
 const yes = eq("actor.body.enrolled",true,"Begin a body record first.");
 const village = eq("location","Village","Return to Village.");
 const fact = (key,value=true) => ({type:"fact",scope:"actor",key,value});
@@ -16,6 +16,7 @@ export const bodySources = [
     {id:NATURAL_BALANCE,revision:1,label:"Natural balance",kind:"trait",origin:"inherited",bioDetail:"An innate aptitude; its ancestry remains uncertain.",grants:[{capability:"frontier.preparation",amount:1}]},
     {id:CONDITIONED_GRIP,revision:1,label:"Conditioned grip",kind:"trait",origin:"trained",bioDetail:"Palms toughened through repeated practice.",grants:[{capability:"frontier.carry",amount:1},{capability:"body.hand_control",amount:1}]},
     {id:PALM_MARK,revision:1,label:"Palm mark",kind:"trait",origin:"acquired",bioDetail:"A visible mark from rough timber work.",grants:[]},
+    {id:COLD_HARDENED,revision:1,label:"Weathered skin",kind:"trait",origin:"trained",bioDetail:"Skin and breathing settled by repeated cold soaks. It belongs to this body; the lesson stays with you.",grants:[]},
 ];
 export const bodyCapabilities=[{id:"body.hand_control",label:"Hand control",stacking:"max",providers:[]}];
 export const bodyConditions = [
@@ -56,6 +57,14 @@ export const bodyCommands = [
         visibleWhen:{all:[yes,eq("body.handsTender",true)]},requires:{all:[yes,{any:[village,eq("location","Shack")]}]},
         description:"Three game minutes, no fee. Clears hand soreness and the temporary scrape; learned grip and any lasting mark remain. Waiting also brings recovery.",
         effects:[condition(SORE_HANDS,"remove"),condition(SCRAPED_HANDS,"remove")]}),
+    command({id:"body.cold_soak",label:"Stand in the cold wind · 6 min · 2 stamina",location:"Village",duration:6,cancellation:"forfeit",
+        visibleWhen:yes,requires:yes,
+        description:"Six game minutes outside and two stamina. Completion counts one cold soak and teaches a little Cold resistance; three soaks can settle a weathered skin. Cancellation forfeits the stamina.",
+        costs:[{type:"vital",key:"stamina",amount:-2}],effects:[{type:"xp",skill:"Cold resistance",amount:2},{type:"resource",key:"cold_practice",amount:1}]}),
+    command({id:"body.harden_cold",label:"Keep the weathered skin",once:true,location:"Village",
+        visibleWhen:{all:[yes,{fact:"resource.cold_practice",op:"gte",value:3}]},requires:yes,
+        description:"Three completed cold soaks settle a weathered skin on this body: storm gusts chill you less and cost half the stamina. A different body would not carry it, though you keep knowing how it was earned.",
+        effects:[grant(COLD_HARDENED,"trained"),body("skin.weathered"),fact("body.coldLearned"),{type:"knowledge",key:"body.cold",stage:"understood",value:"Repeated cold soaks settled your skin and breathing against gusts. The lesson is yours; the hardening belongs to this body."}]}),
     showHands("body.show_soreness","Let him see your tender hands",eq("body.handsTender",true),"tender_hands","He sees you flexing your tender hands: 'Give them a quiet spell before more work.'"),
     showHands("body.show_calluses","Show your practiced grip",eq("body.callused",true),"callused_hands","He examines the worked palms: 'That grip has been practiced. Keep the care that taught it.'"),
     showHands("body.show_mark","Let him see the palm mark",eq("body.marked",true),"palm_mark","He notices the mark left by rough timber: 'The edge caught you. Smooth it before the next kit.'"),
@@ -82,4 +91,12 @@ export function bodyScene(state) {
     if(bodyFacts(state)["body.callused"]) parts.push("A firmer surface has formed where your palms meet the grip.");
     if(bodyFacts(state)["body.marked"]) parts.push("A line from the rough timber remains on one palm.");
     return parts.join(" ");
+}
+// A trained faculty acts only on the body that earned it. Knowledge records
+// stay with the person, so a body change removes the effect but not the lesson.
+// An enrolled record without a body entry is the native body (save convention).
+export function bodyFacultyActive(state, sourceId, currentBody) {
+    const source = state.actors?.player?.sources?.[sourceId], faculty = state.simulation?.faculties?.player?.[sourceId], saved = state.simulation?.people?.player && ({id: "native.player.body", form: "human", ...state.simulation.people.player.body});
+    return (sourceId!==COLD_HARDENED||saved?.["skin.weathered"]===true) && !!source && (source.expiresAt == null || source.expiresAt > state.clock) && faculty?.awakened === true && faculty.active === true && faculty.suppressed !== true &&
+        !!saved && !!currentBody && saved.id === currentBody.id && saved.form === currentBody.form && currentBody.ownerId === "player" && currentBody.controllerId === "player";
 }

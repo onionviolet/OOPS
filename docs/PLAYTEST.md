@@ -1,3 +1,22 @@
+## Latest combined release evidence routing, 2026-10-22
+
+The [inventory release report](gm/dispatch/inventory-overhaul-2026-10-21/REPORT.md)
+owns the latest combined inventory/UI/gear/P4/home/MF release: recorded clean-export
+2,516 passing tests, build/architecture/rules/36 behavior checks, six desktop/text
+browser cases, exact persistence journeys and six Electron rendering cases.
+[Publication](gm/dispatch/inventory-overhaul-2026-10-21/PUBLICATION.json) records
+source `7df5a7df7` and [normal-app adoption](gm/dispatch/inventory-overhaul-2026-10-21/MAIN_ELECTRON.json)
+records `v0.6-72af84cf8e66`, bundle `e35668b18622`. Older frozen app identities
+are historical. Gear, P4, home and MF owners retain their feature-specific proof.
+
+The [2026-10-22 docs audit](reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md)
+rechecked source hashes, bundle and published Git ancestry; it did not rerun
+gameplay or inspect the current player window. These recorded technical passes
+do not mark human visual/play acceptance or natural pacing accepted.
+[Latest play checks](CHECKOUT_CHECKLIST.md#latest-release-play-checks-2026-10-22)
+route the remaining human checks. Earlier entries below retain their original
+scope and deferred evidence; this update does not close unrelated backlog.
+
 Checkout list of delivered work awaiting your play or answer, 2026-10-20: [CHECKOUT_CHECKLIST.md](CHECKOUT_CHECKLIST.md). It points here; this file stays the acceptance record.
 
 ## Feature-wave native delivery, 2026-10-05

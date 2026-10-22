@@ -158,3 +158,70 @@ test('authored subunit policy fits native integer energy validation and charge',
     assert.equal(energyCharge(mistglassEnergyPolicy, {output: P.trialCost}), 2000);
     assert.equal(adaptationView(enrolled(), ctx(), 0).ratePerMinute, 0.125);
 });
+
+// Variants retain the same energy/body owner, not a second progression pool.
+import {prepareCultivationMethod} from '../src/absorb_p23/world_adaptation/index.js';
+test('cultivation practice crosses stages identically in large and small advances',()=>{
+    for(const id of ['breath','settling']){
+        const start=prepareCultivationMethod(enrolled(),ctx(),id).state;
+        const large=prepareAdvance(start,ctx(49),0);let small=start,reserve=0;
+        for(let t=1;t<=49;t++){const p=prepareAdvance(small,ctx(t),reserve);small=p.state;reserve+=p.effects.find(e=>e.kind==='resource-credit')?.amount||0;}
+        assert.equal(large.state.exposure,reserve);assert.deepEqual(large.state.techniques,small.techniques);
+        assert.equal(adaptationView(small,ctx(49),reserve).technique.stage,'Integrated');
+        assert.equal(small.techniques.minutes[id],48);
+        const restored=clone(small);validateAdaptation(restored);assert.deepEqual(restored,small);
+    }
+});
+test('refinement odds are frozen, practice pauses during trial and legacy trials keep 75 percent',()=>{
+    let s=prepareCultivationMethod(enrolled(),ctx(),'settling').state;
+    s=prepareAdvance(s,ctx(48),0).state;
+    assert.equal(previewTrial(s,ctx(48),10000,true).successPercent,95);
+    const pending=prepareTrial(s,ctx(48),{reserve:10000,doseKey:'dose',doseAvailable:true,roll:9400}).state;
+    assert.equal(pending.pending.threshold,9500);
+    assert.throws(()=>prepareCultivationMethod(pending,ctx(48),'breath'),/pending/);
+    const finished=prepareAdvance(clone(pending),ctx(60),8000);
+    assert.equal(finished.state.last.outcome,'success');assert.deepEqual(finished.state.techniques,pending.techniques);
+    assert.equal(prepareAdvance(trial(7500),ctx(28),0).state.last.outcome,'failure');
+});
+test('practice pauses outside eligible mist, rawness and body; malformed optional state rejects',()=>{
+    const s=prepareCultivationMethod(enrolled(),ctx(),'breath').state;
+    for(const extra of [{worldId:'base.frontier'},{bodyId:'other'},{conditionIds:[]},{conditionIds:[P.exposureConditionId,P.blockedConditionId]}]){
+        const p=prepareAdvance(s,ctx(10,extra),0);assert.deepEqual(p.state.techniques,s.techniques);assert.equal(p.effects.length,0);
+    }
+    for(const mutate of [s=>s.techniques.schema=9,s=>s.techniques.minutes.breath=49,s=>s.techniques.selected='unknown']){
+        const bad=clone(s);mutate(bad);assert.throws(()=>validateAdaptation(bad),/cultivation/);
+    }
+    assert.throws(()=>prepareCultivationMethod(s,ctx(0,{worldId:'elsewhere'}),'settling'));
+    assert.equal(enrolled().techniques,undefined,'old family state needs no migration or invented practice');
+});
+
+// E1: practiced method lowers condensate spent on the same sluice output.
+import {previewSluice,prepareSluice,sluiceWork} from '../src/absorb_p23/world_adaptation/index.js';
+test('sluice work costs less with practice at equal output and pays once per jam',()=>{
+    const at=(id,t)=>prepareAdvance(prepareCultivationMethod(enrolled(),ctx(),id).state,ctx(t),0).state;
+    const costs=['mist','settling'].map(id=>[0,16,48].map(t=>previewSluice(at(id,t),ctx(t),10000)));
+    assert.deepEqual(costs[0].map(p=>p.cost),[2000,2000,2000]);
+    assert.deepEqual(costs[1].map(p=>p.cost),[2000,1500,1000]);
+    assert.ok(costs.flat().every(p=>p.output===sluiceWork.output&&p.eligible));
+    const s=at('settling',48),before=clone(s),p=prepareSluice(s,ctx(48),1200);
+    assert.deepEqual(p.effects,[{kind:'resource-debit',resourceId:P.resourceId,amount:1000},{kind:'native-wage',amount:2}]);
+    assert.equal(p.expectedReserve,1200);assert.deepEqual(s,before);
+    assert.deepEqual(p.state.sluice,{schema:1,cleared:1,lastAt:48,lastCost:1000});
+    assert.match(previewSluice(p.state,ctx(48),10000).reasons.join(' '),/runs clear.*60/);
+    const later=prepareAdvance(p.state,ctx(108),200).state;
+    assert.equal(previewSluice(later,ctx(108),10000).eligible,true);
+    assert.equal(prepareSluice(later,ctx(108),10000).state.sluice.cleared,2);
+});
+test('sluice refuses known-but-unaffordable, wrong context and pending trials; optional record validates',()=>{
+    const s=charged();
+    const poor=previewSluice(s,ctx(16),1999);assert.equal(poor.eligible,false);assert.match(poor.reasons.join(' '),/Needs 2 condensate; you hold 1.999/);
+    assert.throws(()=>prepareSluice(s,ctx(16),1999),/Needs 2/);
+    assert.equal(previewSluice(s,ctx(16,{conditionIds:[]}),10000).eligible,false);
+    assert.match(previewSluice(trial(),ctx(16),10000).reasons.join(' '),/pending/);
+    assert.equal(previewSluice(s,ctx(17),10000).eligible,false,'stale clock must be advanced first');
+    const done=prepareSluice(s,ctx(16),2000).state;
+    for(const mutate of [d=>d.sluice.cleared=0,d=>d.sluice.lastAt=99,d=>d.sluice.lastCost=2001,d=>d.sluice.extra=1]){
+        const bad=clone(done);mutate(bad);assert.throws(()=>validateAdaptation(bad),/sluice|fields/);
+    }
+    assert.equal(enrolled().sluice,undefined);
+});

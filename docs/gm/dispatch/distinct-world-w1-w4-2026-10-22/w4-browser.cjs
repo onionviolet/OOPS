@@ -1,0 +1,20 @@
+const gate=require('../cultivation-spacing-2026-10-22/browser-helper.cjs');
+gate('w4-paths',async h=>{
+ const {p,boot,enroll,save,load,act,played,roundtrip,assert,gates}=h;
+ await p.setViewportSize({width:1920,height:1080});let s=await boot();s.inventories.person.main_character['{"id":"Rat pelt"}']={count:6};await load(s,'ordinary-hide-stock');await enroll();
+ await act('data-mistglass-action','enter');await act('data-mistglass-action','learn');await act('data-mistglass-action','method:breath');await played(14);
+ await act('data-mistglass-action','method:path:prepare');s=await save();assert.equal(s.expansion.worldAdaptation.pathWork.prepared.control,1);
+ await roundtrip('w4-prepared-path-reserve',s=>({family:s.expansion.worldAdaptation,energy:s.expansion.simulation.energies.player}));
+ await act('data-mistglass-action','exit');s=await save();const energy=s.expansion.simulation.energies.player,prepared=s.expansion.worldAdaptation.pathWork.prepared;
+ await played(5);s=await save();assert.deepEqual(s.expansion.simulation.energies.player,energy);assert.deepEqual(s.expansion.worldAdaptation.pathWork.prepared,prepared);
+ await roundtrip('w4-inert-foreign-reserve',s=>({family:s.expansion.worldAdaptation,energy:s.expansion.simulation.energies.player,world:s.expansion.actors.player.worldId}));
+ await act('data-mistglass-action','enter');await act('data-mistglass-action','method:path:cut');s=await save();assert.equal(s.expansion.worldAdaptation.pathWork.last.quality,65);
+ await played(14);await act('data-mistglass-action','method:path:prepare');await act('data-mistglass-action','method:path:cut');s=await save();assert.equal(s.expansion.worldAdaptation.pathWork.last.quality,85);
+ await act('data-mistglass-action','method:settling');await act('data-mistglass-action','trade');
+ const dose=p.locator('#trader_inventory_div .item_name').getByText('Cloudseed dose',{exact:false}).locator('xpath=ancestor::*[contains(@class,"inventory_item_control")]').first();await dose.click();await p.locator('#accept_trade_button').click();await p.evaluate(()=>{window.exitTrade();advanceTicks(1);});
+ await act('data-mistglass-action','method:path:prepare');assert.equal(await p.locator('[data-mistglass-action="method:path:cut"]').isEnabled(),false);await act('data-mistglass-action','method:path:set');
+ s=await save();assert.equal(s.expansion.worldAdaptation.pathWork.last.productId,'Piece of wolf rat leather');assert.equal(s.expansion.worldAdaptation.pathWork.last.quality,70);
+ assert.equal(s.expansion.worldAdaptation.pathWork.completed,3);
+ await roundtrip('w4-compatible-expenditure-products',s=>({family:s.expansion.worldAdaptation,energy:s.expansion.simulation.energies.player,stock:s.inventories.person.main_character}));
+ gates.push('Two actual intake/preparation laws; native paid-dose conversion; compatible technique; frozen control and practiced material quality; body/instance reserve remains inert outside');
+},{deterministic:true}).catch(e=>{console.error(e);process.exitCode=1;});

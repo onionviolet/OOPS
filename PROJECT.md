@@ -1,3 +1,71 @@
+## Current delivery routing, checked 2026-10-22
+
+Ready-work consolidation, 2026-10-22: Weibao authorized reviewing and publishing
+completed uncommitted work while preserving active edits. The
+[review](docs/reviews/MASTER_READY_REVIEW_2026-10-22.md) reconciles the stale
+primary checkout with already-published crafting journeys, records 2,589 passing
+combined tests and rebuilt native/browser evidence, and lists local-only work.
+Its publication receipt distinguishes fork Git delivery from app adoption and
+human acceptance; earlier no-publication statements below retain their task-time
+scope.
+
+C7/C9/C10 incorporation, 2026-10-22: Weibao selected fitting learned-method,
+body-hazard and helper-commission ideas through existing systems, including
+useful small details and a saved mechanical-world-difference round.
+[Implementation and native proof](docs/research/additional-cultivation-2026-10-22/IMPLEMENTATION.md)
+reuse the released engine bindings and coordinate with W1–W4. The CWD1–CWD12
+considerations remain proposals; current source, browser proof and final combined
+verification have separate recorded boundaries. No commit or publication selected.
+
+W1–W4 implementation, 2026-10-22: Weibao requested “send chat to implement all
+Ws,” authorizing the four signature loops from the protolike research report.
+[Delivery and exact evidence](docs/gm/dispatch/distinct-world-w1-w4-2026-10-22/REPORT.md)
+record implemented native preparation/advancement, institutional life, historical
+entry and path practice/expenditure. The final frozen candidate passes 2,547
+tests, build/architecture/rules, 36 rule-behavior checks, all four rebuilt native
+journeys with ten persistence states, and the six-case desktop/text matrix on
+three surfaces. Ownership was explicitly released and coordinated; later shared
+LOTM edits are preserved outside this frozen proof. The research-only limitation
+is historical for these selected four loops. Normal-app adoption, publication
+and human pacing/taste acceptance are not claimed.
+
+Cultivation/log follow-up, 2026-10-22: Weibao requested correcting log spacing
+and implementing cultivation technique types from the recovered Discord material.
+The bounded first slice extends the existing opt-in Mistglass world with practiced
+circulation and refinement, alongside original ambient absorption. Names and
+numbers remain proposals. [Execution and evidence](docs/gm/dispatch/cultivation-spacing-2026-10-22/CHECKPOINT.md)
+own the current verification state. This does not reactivate retired Jade Hollow.
+
+Ascension paths, 2026-10-22: Weibao asked to fill the canon gaps and build the
+first ascension ladders. A shared descriptor engine and LOTM Seer digestion with
+an assessed Sequence 8 promotion are built in the opt-in Tingen branch; LOTM
+files and `dist/` changed in the shared checkout, uncommitted. Values and acts
+are proposals. [Record](docs/gm/dispatch/ascension-paths-2026-10-22/CHECKPOINT.md);
+[ASC1–ASC46](docs/RESEARCH_CULTIVATION_PATHS.md#round-2026-10-22b-gaps-filled-first-ladders-built-value-of-progress-and-rituals).
+
+Start at [RULES_INDEX](docs/RULES_INDEX.md), then use the current owners below.
+The [shared-doc reconciliation](docs/reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md)
+records inspected commits, recent chat results, source fingerprints and limits.
+This is navigation and status reconciliation, not a new feature dispatch.
+
+| Track | Current state | Authoritative execution / remaining boundary |
+| --- | --- | --- |
+| Shared baseline and desktop UI | Primary checkout is on `master`; source through `7df5a7df7` and documentation receipt `e59df9a28` are published to the personal fork. Later releases supersede earlier local-only and pending-adoption labels below. | [Latest combined release](docs/gm/dispatch/inventory-overhaul-2026-10-21/REPORT.md); [AD41 procedure](docs/gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21). Published inputs matched at audit start; later active cultivation/UI edits have their own checkpoint. Human visual/play acceptance remains open. |
+| Inventory, matched UI and Electron | I2–I5 delivered; latest recorded normal-app adoption is `v0.6-72af84cf8e66`, bundle `e35668b18622`. Recorded clean-export suite: 2,516 passes plus browser, persistence and Electron checks. | [Inventory checkpoint](docs/gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md). Party/cargo stock redesign, whole-game reference parity and human taste acceptance are not claimed. |
+| Gear and local-world UI | Native gear workshop/acquisition/lineage and the final visitor calendar/travel journey are published and included in the combined baseline. | [Gear report](docs/gm/dispatch/gear-depth-2026-10-21/INTEGRATION_REPORT.md); [final UI/visitor release](docs/reviews/CORC_UI_2026-10-21.md#final-visitor-journey-and-fork-release-2026-10-21). Broader chemistry/energy/powers remain unfinished. |
+| P4 durable native repair | Implemented, rebuilt native/persistence verified, committed and pushed as `e1a68873d`; retained in the later combined release. | [P4 status](docs/gm/dispatch/deep-engine-2026-10-20/P4_STATUS.md). Earlier preparation-only and no-push statements are historical. |
+| Other deep-engine pilots and retained palette | P1/P2/P3/P5 selected releases and the bounded 53-row palette are included through the consolidated baseline and later releases. | [Deep-engine current routing](docs/gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md#current-delivery-2026-10-21); [palette coverage](docs/gm/dispatch/palette-completion-2026-10-20/COVERAGE.md). These are finite pilots/bindings, not independent construction of every domain or arbitrary world-rule execution. |
+| Homes and household life | Home, construction/weather/staffed starts and household-life releases are included in the published combined app. | [Home checkpoint](docs/gm/dispatch/home-system-2026-10-21/CHECKPOINT.md); [household-life report](docs/gm/dispatch/home-system-2026-10-21/household-life/REPORT.md). Human household feel/pacing remains open. |
+| Minecraft-fit mechanisms | Selected seven-family adaptations and MF26–MF34 freight/drying/worker-home continuation are included in the published combined app. | [MF checkpoint](docs/gm/dispatch/minecraft-fit-2026-10-21/CHECKPOINT.md). These are bounded native mechanisms, not complete imports of the reference mods. |
+| Recovered reference mechanics | Later title, recipe, restock, search, perishable observation, lineage and widget/preview deliveries supersede the early open labels at their named scopes. | [Current coverage](docs/gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md). Conditional salvage/spatial situations, general deterioration and broader mechanism coverage remain unfinished. |
+| Corc media and research tooling | Exact missing-media request reports 26/26 recovered, unresolved 0; the old creation/startup-only summary below is historical. Tool registry/launchers and headless visibility fixes are published. | [Recovery report](docs/gm/dispatch/corc-missing-media-2026-10-21/REPORT.md); [tool registry](docs/TOOL_REGISTRY.md). Acquisition, reading, gameplay absorption and per-chat tool availability remain separate states. |
+| Different book-world lives and specialties | BF28–BF94 design work is saved, including 41 life/profile cards, 14 shared-engine gap rows and specialty composition. These are proposals and bounded diagnostic evidence, not new playable worlds or a runtime dispatch. | [Round 4 owner](docs/worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-4-shared-engine-gaps-and-specialties-across-lives-2026-10-21); [implementation workflow](docs/DEEP_WORLD_WORKFLOW_2026-10-19.md). Existing source qualification, world pauses and scope deferrals remain. |
+| Active cultivation/UI and reference scouting, 2026-10-22 | New chats started during this audit. Mistglass method/log-description work has active runtime reservations and pending verification; a separate reference-scout chat is researching related projects. | [Cultivation checkpoint](docs/gm/dispatch/cultivation-spacing-2026-10-22/CHECKPOINT.md); chat `01a16205-8f8a-7e00-bcb9-ed5474b28f4a` owns scouting until its report is saved. These are outside the published release's proof; recover current owners before editing. |
+
+The dated sections below preserve successive release inputs. Their older test
+counts, app identities, no-commit statements and pending gates describe those
+specific runs; use the table and linked later release for current status.
+
 ## UI modularity round, 2026-10-22
 
 Weibao asked for the five open UI modularity items. [Round record](docs/gm/dispatch/ui-modular-2026-10-22/CHECKPOINT.md).
@@ -687,7 +755,13 @@ visible routine actions at comfortable text size. The accepted direction and
 reason live in [User vision](docs/USER_VISION.md#standing-ui-priority-2026-10-13);
 the UI design owner supplies [task-specific gates](docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#standing-ui-scope-and-acceptance-gates-2026-10-13).
 
-
+**Different book-world lives (2026-10-21):** planning covers materially different
+lives within each setting, including students and smugglers, rather than profession
+names alone. [User direction](docs/USER_VISION.md#different-lives-and-implementable-book-world-features-2026-10-21)
+is distinct from the proposed mechanics. [BF28–BF70](docs/worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-3-different-lives-in-each-book-world-2026-10-21)
+extend the existing gap register with life interactions, 41 setting/profile cards,
+operation/state/consumer worksheets and proof cases. This is design coverage, not
+41 playable worlds or a new implementation dispatch; current owners and pauses remain.
 
 **Canon-first world order (2026-10-13):** Harry Potter, D&D and the book worlds
 (A Soldier's Life, TTKS, Mother of Learning, then LOTM/Circle of Inevitability,

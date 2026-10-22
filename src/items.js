@@ -1270,7 +1270,8 @@ function getItemFromKey(key) {
     const item = durability.bindFromKey(key,nativeGetItemFromKey(key));
     const lineage = readMaterialLineage(key);
     if(lineage) {
-        if(!item || item.tags.equippable || !GRADED_IDS.includes(item.id)) throw Error('Unsupported processed material carrier.');
+        const tool=item?.id==='Portable leatherworking kit'&&item.tags.tool&&lineage.family==='workshop-tool';
+        if(!item || !tool&&(item.tags.equippable || !GRADED_IDS.includes(item.id))) throw Error('Unsupported processed material carrier.');
         item.materialLineage = lineage; item.inventory_key = key;
         const name = item.getName(), view = lineagePresentation(key, lineage.history.at(-1).at);
         item.getName = () => `${name} · batch ${view.at}`;

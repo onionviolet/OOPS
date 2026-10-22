@@ -16,7 +16,8 @@ export const LOTM_ITEM_SPECIFICATIONS=[
  ['Tingen prepared Seer dose','One supervised prepared dose from a pinned, authored lot. Holding it grants nothing; taking it is a separate irreversible step.'],
  ['Tingen ordinary comparator sample','An ordinary material used to compare against supported samples.'],
  ['Tingen supported sample lot A','A supported sample lot. Observation shows presence at the material, not identity or safety.'],
- ['Tingen supported sample lot B','A second, distinct supported sample lot for the same method.']
+ ['Tingen supported sample lot B','A second, distinct supported sample lot for the same method.'],
+ ['Tingen prepared Clown dose','A Sequence 8 dose the workroom releases only after an assessed digestion. Holding it grants nothing; drinking it is a separate irreversible step.']
 ].map(([id,description])=>({id,name:id,description,value:1,tags:{expedition:true,book_world_lotm:true}}));
 export function registerLotmItems({itemTemplates,OtherItem}){for(const spec of LOTM_ITEM_SPECIFICATIONS){if(itemTemplates[spec.id])throw Error(`Duplicate Lord of the Mysteries item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}
 // Pure enrollment of the original probationer branch (plan S2 prototype start).

@@ -44,3 +44,26 @@ test('lineage rejects future processes and altered source observations through t
  const {out}=source('known',1,10),k=out.outputs[0].item_key,record=JSON.parse(k);record.lineage.history[0].inputs[0].facts.evidence.specimen.observations[0].ageEstimate.max=4;
  const bad=JSON.stringify(record);assert.throws(()=>validateMaterialLineageEnvelope({inventories:{person:{player:{[bad]:{count:1}}}}}),/harvest/);
 });
+
+// E3: one process-derived lot fact, two later recipe readers, a skill-gated route.
+import {quoteHideTreatment,treatedRecipeQuality,treatmentOf,HIDE_BATCH} from '../src/material_treatment.js';
+test('hide treatments split one pelt stock into different routes that two recipes read differently',async()=>{
+ const native=await n(),pelt=source('hide',0,60).out.outputs.find(r=>r.part==='pelt');assert.ok(pelt,'harvest yields a pelt');
+ const inv={[pelt.item_key]:6,'{"id":"Rough wood log"}':1,'{"id":"Lamp oil"}':1},at={inventory:inv,clock:70,world:'base.frontier'};
+ assert.match(quoteHideTreatment({...at,treatmentId:'oiled',skillLevel:4}).reason,/Crafting to level 5/);
+ const smoked=quoteHideTreatment({...at,treatmentId:'smoked',skillLevel:0}),oiled=quoteHideTreatment({...at,treatmentId:'oiled',skillLevel:5});
+ assert.ok(smoked.eligible&&oiled.eligible);assert.notEqual(smoked.receive[0].key,oiled.receive[0].key);
+ assert.equal(treatmentOf(smoked.receive[0].key),'smoked');assert.equal(treatmentOf(pelt.item_key),null);
+ assert.deepEqual(smoked.spend,[{key:pelt.item_key,count:HIDE_BATCH},{key:'{"id":"Rough wood log"}',count:1}]);
+ const bag=new native.Inventory();bag.addToInventory([{item_key:smoked.receive[0].key,count:3}]);
+ assert.equal(bag.getItems()[smoked.receive[0].key].item.getInventoryKey(),smoked.receive[0].key,'native item round-trips the treated key');
+ validateMaterialLineageEnvelope({inventories:{person:{player:{[smoked.receive[0].key]:{count:3},[oiled.receive[0].key]:{count:3}}}}});
+ const rows=k=>[{item_key:k,count:6}];
+ assert.equal(treatedRecipeQuality(80,'Processed rat pelt',rows(smoked.receive[0].key)),90);
+ assert.equal(treatedRecipeQuality(80,'Piece of wolf rat leather',rows(smoked.receive[0].key)),75);
+ assert.equal(treatedRecipeQuality(80,'Piece of wolf rat leather',rows(oiled.receive[0].key)),90);
+ assert.equal(treatedRecipeQuality(80,'Processed rat pelt',rows(oiled.receive[0].key)),70);
+ assert.equal(treatedRecipeQuality(80,'Piece of wolf rat leather',[{item_key:smoked.receive[0].key,count:3},{item_key:pelt.item_key,count:3}]),80,'mixed batches weigh untreated pelts');
+ assert.equal(treatedRecipeQuality(null,'Processed rat pelt',rows(smoked.receive[0].key)),null);
+ assert.equal(quoteHideTreatment({...at,inventory:{[smoked.receive[0].key]:6,'{"id":"Rough wood log"}':1},treatmentId:'smoked',skillLevel:0}).eligible,false,'treated pelts are not re-treated');
+});

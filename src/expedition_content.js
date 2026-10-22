@@ -1,3 +1,4 @@
+import {menderSources,menderCapabilities} from './material_apprentice.js';
 import {trancheFourDefinitions} from './absorb_p23/host_joins/tranche_four.js';
 import {foundationInteractionSources} from './foundation_interaction_content.js';
 import {crushSocialWorkPlans} from './crush_social_content.js';
@@ -29,6 +30,7 @@ const fact = (scope, key, value) => ({type: "fact", scope, key, value});
 const resource = (scope, key, amount) => ({type: "resource", scope, key, amount});
 export const SURVEY_KIT_KEY = JSON.stringify({id: "Prepared survey kit"});
 export const SURVEY_ROPE_KEY = JSON.stringify({id: "Survey rope"});
+const FEN_HERBS_KEY = JSON.stringify({id: "Cooking herbs"});
 const item = (key, amount, label) => ({type: "item", key, amount, label});
 const xp = amount => ({type: "xp", skill: "Climbing", amount});
 const capable = (name, amount = 1, reason) => ({fact: `capability.${name}`, op: "gte", value: amount, reason});
@@ -53,7 +55,7 @@ export const expeditionRegistry = createContentRegistry({
     techniques: techniqueDefinitions,
     capabilities: [...backlogCapabilities,
         ...villageCapabilities,
-        ...bodyCapabilities,
+        ...bodyCapabilities,...menderCapabilities,
         {id: "frontier.carry", label: "Carry route markers", stacking: "max", providers: [
             {id: "strength.basic", kind: "skill", label: "Strength 10", amount: 1,
                 when: {fact: "strength", op: "gte", value: 10}},
@@ -70,7 +72,7 @@ export const expeditionRegistry = createContentRegistry({
             {id: "skill.climbing_preparation", kind: "skill", label: "Climbing 5", amount: 1,
                 when: {fact: "climbing", op: "gte", value: 5}}]},
     ],
-    sources: [...foundationInteractionSources,...worldCompletionSources,...villageSources, ...simulationSources, ...systemsWorkshopSources, ...townSources, ...bodySources, ...fieldSources, {id: "frontier.field_eye", label: "Field eye", kind: "trait", revision: 1,
+    sources: [...menderSources,...foundationInteractionSources,...worldCompletionSources,...villageSources, ...simulationSources, ...systemsWorkshopSources, ...townSources, ...bodySources, ...fieldSources, {id: "frontier.field_eye", label: "Field eye", kind: "trait", revision: 1,
         description: "An earned knack for reading routes. Adds one route preparation source.",
         grants: [{capability: "frontier.preparation", amount: 1}]}],
     rollTables: [{id: "frontier.observation", label: "Inspection discovery", revision: 1,
@@ -141,6 +143,24 @@ export const expeditionRegistry = createContentRegistry({
                 transfers: [{from: "strained", to: "safe", amount: 0.2}]},
             {when: capable("frontier.preparation"), label: "Route preparation: 10% moves from strain to safe",
                 transfers: [{from: "strained", to: "safe", amount: 0.1}]}]},
+        // E6: one environmental requirement, two supported approaches. Soft fen
+        // ground needs someone who knows it or a way to probe it; neither is a power score.
+        {id: "frontier.fen_guided", worldId: "base.frontier", revision: 1, label: "Gather fen herbs with the guide",
+            description: "The guide knows the firm ground across the cold fen. Costs a 4-coin fee and 10 minutes; brings back 3 cooking herbs and leaves the guide needing rest.", completionScope: "actor",
+            duration: 10, repeatable: true, visibleWhen: {fact: "actor.surveyed", op: "eq", value: true},
+            requires: {all: [village, {fact: "world.guide.condition", op: "eq", value: "ready", reason: "The guide must be rested and ready to lead you across the fen."}]},
+            costs: [{scope: "external", key: "money", amount: 4, label: "guide fee"}],
+            effects: [fact("world", "guide.condition", "tired"), xp(4)],
+            outcomes: [{id: "gathered", label: "Guided crossing: herbs gathered on firm ground", chance: 1, effects: [item(FEN_HERBS_KEY, 3, "cooking herbs")]}]},
+        {id: "frontier.fen_probed", worldId: "base.frontier", revision: 1, label: "Probe across the fen alone",
+            description: "Sound the soft ground with a rope line or practiced climbing footwork. No fee; 16 minutes. Usually 3 herbs, but a soaking slip leaves only 1.", completionScope: "actor",
+            duration: 16, repeatable: true, visibleWhen: {fact: "actor.surveyed", op: "eq", value: true},
+            requires: {all: [village, capable("frontier.anchors", 1, "Carry a Survey rope or reach Climbing 5 to probe the fen without a guide.")]},
+            costs: [], effects: [xp(8)],
+            outcomes: [{id: "gathered", label: "Probed crossing: herbs gathered", chance: 0.7, effects: [item(FEN_HERBS_KEY, 3, "cooking herbs")]},
+            {id: "soaked", label: "A slip into the fen: one herb saved", chance: 0.3, effects: [item(FEN_HERBS_KEY, 1, "cooking herbs")]}],
+            modifiers: [{when: capable("frontier.preparation"), label: "Route preparation: 10% moves from soaked to gathered",
+                transfers: [{from: "soaked", to: "gathered", amount: 0.1}]}]},
         {id: "frontier.depart", worldId: "base.frontier", revision: 3, label: "Join the guide's next departure",
             description: "Earn 1 Village reputation. A repaired crossing pays 18 wooden coins; otherwise a ready guide pays 12, or a tired guide pays 6 and takes longer.", completionScope: "actor",
             duration: 6, repeatable: false, opportunityId: "frontier.departure",

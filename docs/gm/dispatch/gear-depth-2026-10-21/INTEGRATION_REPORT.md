@@ -1,5 +1,12 @@
 # Native gear completion and integration, 2026-10-21
 
+Current publication, checked 2026-10-22: gear commit `cb741db82` and UI/visitor
+follow-up `3ce24d9cb` are ancestors of published master. The later
+[combined release](../inventory-overhaul-2026-10-21/REPORT.md) owns current release
+and recorded normal Electron adoption. This report's no-push boundary records
+the gear task's original authorization, superseded by the later authorized
+publication; broader chemistry/energy/powers and human acceptance remain open.
+
 Status: the requested connected native gear gates pass on the combined candidate,
 integrated in this change on top of UI master 83bbba0ff. Human taste and natural
 pacing acceptance remain separate.

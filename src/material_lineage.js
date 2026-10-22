@@ -27,7 +27,8 @@ function parseKey(itemKey) {
 }
 
 function validateFacts(facts) {
-    if (!object(facts) || Object.keys(facts).some(k => !['born', 'origin_world', 'quality', 'completeness', 'evidence'].includes(k))) fail('Invalid material facts.');
+    if (!object(facts) || Object.keys(facts).some(k => !['born', 'origin_world', 'quality', 'completeness', 'evidence', 'treatment'].includes(k))) fail('Invalid material facts.');
+    if (facts.treatment != null && !/^[a-z][a-z0-9-]{0,39}$/.test(facts.treatment)) fail('Invalid material treatment.');
     if (facts.born != null && !nonnegative(facts.born)) fail('Invalid material age.');
     if (facts.origin_world != null) boundedText(facts.origin_world, 'origin world', 120);
     if (facts.quality != null && (!Number.isFinite(facts.quality) || facts.quality < 0 || facts.quality > 1000)) fail('Invalid material quality.');
@@ -134,7 +135,7 @@ export function planMaterialMerge(fragments) {
 // need a separate explicit, world-authored yield mechanism at their call site.
 export function planProcessedMaterial({stock, inputs, output, process, sourceFacts = {}, yieldRatio = {numerator: 1, denominator: 1}}) {
     const selected = exactAllocations(stock, inputs);
-    if (!object(output) || Object.keys(output).some(k => !['id', 'family', 'count', 'quality', 'completeness'].includes(k))) fail('Invalid processed material output.');
+    if (!object(output) || Object.keys(output).some(k => !['id', 'family', 'count', 'quality', 'completeness', 'treatment'].includes(k))) fail('Invalid processed material output.');
     const id = boundedText(output.id, 'material id', 180);
     const family = boundedText(output.family, 'material family', 120);
     if (!positive(yieldRatio.numerator) || !positive(yieldRatio.denominator) || !positive(output.count) || BigInt(output.count) * BigInt(yieldRatio.denominator) > BigInt(selected.reduce((sum, row) => sum + row.count, 0)) * BigInt(yieldRatio.numerator)) fail('Processed yield exceeds consumed material.');
@@ -165,6 +166,8 @@ export function planProcessedMaterial({stock, inputs, output, process, sourceFac
     if (worlds.length === 1) facts.origin_world = worlds[0];
     if (output.quality != null) facts.quality = output.quality;
     if (output.completeness != null) facts.completeness = output.completeness;
+    // A treatment is the explicit result of this process, never inherited by default.
+    if (output.treatment != null) facts.treatment = output.treatment;
     // Preserve full native source observations (for example harvest specimen
     // and timestamped inspection records) in the exact parent event. The item
     // projection must still honor observer knowledge separately.

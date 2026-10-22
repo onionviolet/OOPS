@@ -23,6 +23,23 @@ landed after 2026-10-17:
 
 This file is only the run order. Each row names its owner; the owner keeps the detail.
 
+**Different lives, 2026-10-21:** [BF28–BF70](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-3-different-lives-in-each-book-world-2026-10-21)
+apply DWF5–DWF8 to student, smuggler and other world-specific lives. BF28 owns
+the proposed operation/source/state/consumer worksheet; BF29 owns mixed-life
+interactions; BF30–BF70 deepen 41 setting/profile entries. Use the selected world's
+source owner and existing runtime seam. These worksheets are not new admitted
+pack fields or a generic interpreter, and this link authorizes no runtime wave.
+
+**Shared engine and niche specialties, 2026-10-21:** the
+[next BF71–BF94 round](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-4-shared-engine-gaps-and-specialties-across-lives-2026-10-21)
+maps existing runtime owners to remaining shared joins, composes specialties
+without a profession-per-system design, and adds a local rule/counterexample for
+each of the 41 setting/profile entries. BF87 gives the bounded authoring loop;
+BF90–BF94 give proposed implementation opportunities and proof gates. Choose
+the selected feature's actual missing seam instead of requiring every shared
+extension before a useful life can play. Existing source, runtime and delivery
+owners retain authority.
+
 ## The stages
 
 | Code | Stage | Owner | Input | Output | Done gate | Stop rule |

@@ -67,3 +67,35 @@ Final checks: `git worktree list --porcelain` confirms 7 retained registrations 
 Codex project registration was also checked: `yet-another-idle-rpg` already resolves to `/Users/weiwei/code/yet-another-idle-rpg`. AD41 changes agent checkout selection, so no app project relocation is needed. Workflow edits remain uncommitted in the primary checkout for the active integration coordinator to reconcile.
 
 Ownership released: this cleanup is complete and its seven documentation paths are available for the active integration coordinator to capture hunk-wise. Preserve newer master-only decisions and fixes; this task grants no authority to replace them from older primary snapshots. Machine-readable cleanup status: `/tmp/oops-worktree-cleanup-status.json`.
+
+
+## Follow-up: orphaned processes retired, 2026-10-21
+
+Weibao asked whether the four retained process-occupied checkouts were actually
+needed and authorized their cleanup if finished. The earlier seven-checkout
+count above is historical. All four lane HEADs are integrated into current
+master. Fresh process inspection found 41 orphaned Python HTTP preview servers
+from October 13–14 and an October 20 heat-browser process with its tail/esbuild
+helpers, 44 processes total. They had no established TCP clients. Command,
+start-time and PID identity were checked before SIGTERM to each exact PID; all
+44 exited. No broad process-name kill was used.
+
+The four checkout HEADs, changed/untracked/ignored content and process use were
+rechecked after stopping. Their local files and binary patches were archived
+and hash-verified before plain worktree removal. Archive checksums were
+verified again afterward. The follow-up recovery folder is
+`/Users/weiwei/.codex/research/worktree-cleanup-2026-10-21/followup`, including
+`RESULTS.json`, manifests and the process/connection receipts.
+
+| Retired checkout | Archive directory |
+|---|---|
+| `/Users/weiwei/code/yair-absorb-all-20261014/integration` | `00-integration` |
+| `/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/agent-ad82f23d94f196fae` | `01-agent-ad82f23d94f196fae` |
+| `/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/interesting-ritchie-0389d6` | `02-interesting-ritchie-0389d6` |
+| `/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/wave-f-checks-4616ad` | `03-wave-f-checks-4616ad` |
+
+Current result: **30 old worktrees removed across both rounds; 3 registrations
+remain**, including the primary master checkout, active gear-depth lane and
+the baseline integration/verification checkout. Primary branch alignment was
+performed by the other authorized coordinator, not this cleanup. This follow-up
+changed no runtime source, primary index or branch, and made no commit/push.

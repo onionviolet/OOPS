@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "lane": "w2-institution",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "484d112cf8d3c14ff10615c0d7931f2ea2a87ff323a808a95261c7e413e19fc9",
+  "gates": [
+    "w2-funded-qualified-office: native Save/reload/Export/literal-file Import",
+    "w2-successor-pending-review: native Save/reload/Export/literal-file Import",
+    "w2-successor-settled-delivery: native Save/reload/Export/literal-file Import",
+    "Worker/student earns office; qualified steward, finite reserved funding, unavailable pause, living succession and actual successor review precede delivery"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

@@ -189,3 +189,22 @@ test("durable envelope write is atomic on failure, includes costs, and preserves
     assert.deepEqual(saved.quests, original.quests); assert.deepEqual(saved.retired_content, original.retired_content);
     assert.throws(() => persistExpansionPlan(plan, {createSave: () => undefined, storage: {}, key: "test"}), /No valid save/);
 });
+
+// E6: one environmental requirement, two supported approaches with different cost and risk.
+test("the cold fen opens through a ready guide or a probing technique, and refuses with both reasons otherwise", () => {
+    const state = inspect();state.actors.player.facts.surveyed = true;
+    const at = (facts = {}, guide) => {const s = structuredClone(state);if(guide)s.worlds["base.frontier"].facts["guide.condition"] = guide;return s;};
+    const none = ["frontier.fen_guided", "frontier.fen_probed"].map(id => evaluateAction(at({}, "tired"), registry, id, context()));
+    assert.ok(none.every(p => !p.eligible));
+    assert.match(none.map(p => p.reasons.join(" ")).join(" "), /guide must be rested[\s\S]*Survey rope or reach Climbing 5/);
+    const guided = evaluateAction(at({}, "ready"), registry, "frontier.fen_guided", context());
+    assert.equal(guided.eligible, true);assert.equal(guided.outcomes[0].chance, 1);assert.equal(guided.duration ?? 10, 10);
+    const probed = evaluateAction(at(), registry, "frontier.fen_probed", context(102, {climbing: 5}));
+    assert.equal(probed.eligible, true);assert.ok(probed.outcomes[1].chance > 0 && probed.outcomes[1].chance <= 0.3, "probing alone keeps a real soaking risk");
+    const begun = commitAction(at({}, "ready"), registry, "frontier.fen_guided", context());
+    assert.equal(begun.external.money, 98, "guide fee is paid at commitment");
+    const done = advanceSimulation(begun.state, registry, 10, begun.external, begun.gameplay);
+    assert.equal(done.state.worlds["base.frontier"].facts["guide.condition"], "tired");
+    assert.equal(done.gameplay.player.inventory[JSON.stringify({id: "Cooking herbs"})], 3);
+    assert.equal(evaluateAction(done.state, registry, "frontier.fen_guided", context()).eligible, false, "the guide's effort is real");
+});

@@ -4,6 +4,17 @@ Weibao, 2026-10-19: "other aspects and more? Also subtle stuff for each world li
 that we can derive from spellbook rules to see what each little thing is about." **Status: proposal.**
 Codes **DG1 to DG30** (prefix checked unused by `git grep` 2026-10-19). Rounds are appended, never rewritten.
 
+**Specialties across lives, 2026-10-21:** the
+[BF71–BF94 engine and specialty round](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-4-shared-engine-gaps-and-specialties-across-lives-2026-10-21)
+extends the application of this grammar work. BF85–BF87 own the proposed
+composition of work, method, subject, tool, circumstances, purpose, learned means,
+rights and local law. This file retains source-grammar authority: DG31's
+correction still applies, so names/categories do not create effects. Derive
+source-qualified structure, use actual resolvers and consumers, and label original
+niche combinations rather than treating them as newly proved canon. The BF
+round records missing shared joins and world examples; no universal interpreter,
+new saved skill taxonomy or runtime wave follows from this link.
+
 ## Why a new file
 
 The closest owners are the [cross-world audit precedent](RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12)

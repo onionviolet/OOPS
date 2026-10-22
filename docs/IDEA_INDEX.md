@@ -1,5 +1,29 @@
 # Game idea index
 
+## Current feature routing, checked 2026-10-22
+
+[PROJECT current delivery](../PROJECT.md#current-delivery-routing-checked-2026-10-22)
+and the [shared-doc reconciliation](reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md)
+supersede older execution labels below. The published combined release includes
+inventory I2–I5, matched UI, gear, P4, homes/household life and MF26–MF34.
+[Latest release](gm/dispatch/inventory-overhaul-2026-10-21/REPORT.md) owns exact
+publication, browser/persistence and recorded Electron adoption evidence.
+[PLAYTEST](PLAYTEST.md#latest-combined-release-evidence-routing-2026-10-22)
+and [checkout checklist](CHECKOUT_CHECKLIST.md#latest-release-play-checks-2026-10-22)
+route the still-open human acceptance checks.
+
+For different book-world lives and niche specialties, use
+[BF28–BF94](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-4-shared-engine-gaps-and-specialties-across-lives-2026-10-21):
+41 profile cards, 14 shared-engine gaps and composable specialty proposals.
+No new world implementation or broad engine rewrite is selected by that design
+work. Earlier QR routing retains its dated evidence and remains useful for
+tracks not superseded here.
+
+New work started during the audit: [cultivation/log corrections](gm/dispatch/cultivation-spacing-2026-10-22/CHECKPOINT.md)
+are active with verification pending. Reference scouting is active in chat
+`01a16205-8f8a-7e00-bcb9-ed5474b28f4a`; its findings are not accepted mechanics.
+Neither is covered by the prior published combined release's evidence.
+
 Current execution update,2026-10-21: [P4 native repair completion](gm/dispatch/deep-engine-2026-10-20/P4_REPORT.md)
 closes the selected durable timed-work pilot with rebuilt native/persistence
 proof. [Recovered-26 current coverage](gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md)

@@ -1,7 +1,7 @@
 import {renderHouseholdLife} from './home_household_panel.js';
 import {HOME_PLACES as P,HOME_SITE,HOME_CAMPS,PACKED_TENT,homeKey as k} from './home_content.js';
 import {conditionOf,projectProgress,projectLocation} from './home_building_model.js';
-import {BUILDER,STEWARD,COOK,KEEPER} from './home_work_content.js';
+import {BUILDER,STEWARD,COOK,KEEPER,staffQuote} from './home_work_content.js';
 import {HOME_STAFF} from './home_staff.js';
 export function renderHomeWork({view,body,detail,h,el,section,action}) {
     const c=view.context,s=view.state,here=view.here;
@@ -39,6 +39,8 @@ export function renderHomeWork({view,body,detail,h,el,section,action}) {
         action(staff,'staff:cook','Ask Iven to prepare two meals · 2 household coins, 2 meat chunks + 1 log · 10 min',{type:'staff_order',service:'cook'});
         action(staff,'staff:repair','Ask Toma to patch the roof · 3 household coins, 1 log + 2 grass · 15 min',{type:'staff_order',service:'repair'});
         action(staff,'staff:dry','Ask Toma to dry the room · 2 household coins + 1 log · 10 min',{type:'staff_order',service:'dry'});
+        {const q=staffQuote('home.staff.gather'),yields=q.yields.map(y=>`${y.count} ${JSON.parse(y.key).id}`).join(' + ');
+        action(staff,'staff:gather',`Ask Toma to gather on the estate grounds · ${q.funds} household coins, ${q.energy} of his energy · ${q.minutes} min → ${yields} into his stock`,{type:'staff_order',service:'gather'});}
         staff.append(el('p',`Kitchen: ${c.staffStock[COOK]?.[k('Rat meat chunks')]||0} meat chunks, ${c.staffStock[COOK]?.[k('Rough wood log')]||0} logs, ${c.staffStock[COOK]?.[k('Roasted rat meat')]||0} prepared meals. Caretaker: ${c.staffStock[KEEPER]?.[k('Rough wood log')]||0} logs, ${c.staffStock[KEEPER]?.[k('Home dry grass')]||0} grass.`));
         renderHouseholdLife({staff,view,el,action});
         action(staff,'collect_meal','Accept one prepared household meal',{type:'collect_meal'});

@@ -1,4 +1,5 @@
 import {HOUSEHOLD_ACTORS,settleHouseholdRest} from './home_household.js';
+import {officeDecision} from './home_office.js';
 import {isRainingOnDay} from './weather_calendar.js';
 import {registerHomeWork,applyHomeSimulationEffects,stageHomeJob,previewHomeJob} from './home_work.js';
 import {conditionOf} from './home_building_model.js';
@@ -120,6 +121,8 @@ export function stageResidenceClock(plan) {
     const c=context({clock:plan.state.clock,sequence:plan.state.sequence,body,location:plan.homeAway?'local.residence_retrieval':plan.nativeLocation||ports.read().location,world:plan.state.actors.player.worldId,root:plan.state,calendar:plan.calendar||ports.read().calendar,calendarClock:plan.state.clock});
     const effects=[];
     const next=settleHomes(raw,c,(h,rows)=>{if(homeAt(raw,c)?.id===h.id)effects.push(...rows);},rows=>applyHomeSimulationEffects(plan,rows,ports.registry,c));
+    // The pantry office acts on the same root clock; no separate timer or queue.
+    if(next.properties.manor&&plan.state.simulation){const office=officeDecision(context({...c,root:plan.state}));if(office.status==='order'){plan.state.sequence++;stageHomeJob(plan,office.job,ports.registry,c);}}
     // One root revision owns all household clocks. Local model planning uses
     // sequence+1; ensure the enclosing expansion revision admits that stamp.
     const needed=Math.max(plan.state.sequence,...Object.values(next.properties).map(h=>h.household?.lastSequence||0));

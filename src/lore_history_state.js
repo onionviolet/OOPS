@@ -23,8 +23,10 @@ export function validateLoreHistory(state) {
     const ids=new Set(),ops=new Set();let last=0;
     for(const r of h.receipts) {
         check(object(r)&&ref(r.id)&&nat(r.ordinal)&&r.ordinal>last&&r.ordinal<h.nextId&&!ids.has(r.id)&&ref(r.operation)&&!ops.has(r.operation));
-        check(r.worldId==='base.frontier'&&ref(r.actor)&&ref(r.issuer)&&[r.targetPerson,r.targetObject].every(v=>v===null||ref(v))&&r.targetPlace==='Village');
-        check(['storylet.response','storylet.ambient','storylet.expired','request.deliver','request.decline','aftermath.response'].includes(r.action)&&ref(r.result)&&nat(r.at)&&r.at<=state.clock);
+        const origin=r.action==='world.initialize';
+        check((origin?r.worldId==='p23.mistglass'&&r.targetPlace==='p23.mistglass.conservatory':r.worldId==='base.frontier'&&r.targetPlace==='Village')&&ref(r.actor)&&ref(r.issuer)&&[r.targetPerson,r.targetObject].every(v=>v===null||ref(v)));
+        if(origin)check(r.producer==='mistglass.origin'&&r.operation==='mistglass.origin:mistglass.main'&&['keeper-built','mill-race'].includes(r.result)&&r.audience.length===0);
+        check(['storylet.response','storylet.ambient','storylet.expired','request.deliver','request.decline','aftermath.response','world.initialize'].includes(r.action)&&ref(r.result)&&nat(r.at)&&r.at<=state.clock);
         check(ref(r.producer)&&r.revision===1&&Array.isArray(r.causeRefs)&&r.causeRefs.length>0&&r.causeRefs.length<=8&&r.causeRefs.every(ref)&&Array.isArray(r.historyCauses)&&r.historyCauses.length<=8&&r.historyCauses.every(id=>ids.has(id)));
         check(Array.isArray(r.audience)&&r.audience.length<=4&&r.audience.every(ref)&&object(r.known)&&Object.values(r.known).every(v=>typeof v==='string'&&v.length<=240));
         check(Array.isArray(r.applied)&&r.applied.length<=64&&r.applied.every(d=>object(d)&&ref(d.owner)&&ref(d.key)&&['item','coin','skill'].includes(d.kind)&&Number.isFinite(d.delta)&&d.delta!==0));

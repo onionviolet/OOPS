@@ -1,5 +1,13 @@
 # Home system implementation, 2026-10-21
 
+Current publication, checked 2026-10-22: released home, building/staffed-start
+extension and household-life source was handed off and included in published
+`7df5a7df7`, followed by documentation receipt `e59df9a28`. The
+[combined release](../inventory-overhaul-2026-10-21/REPORT.md) owns latest recorded
+normal Electron adoption `v0.6-72af84cf8e66`. Earlier isolated-preview/no-push
+boundaries describe their original runs. Their exact evidence stays with each
+report; human household feel and natural pacing remain open.
+
 Current later slice: [household life report](household-life/REPORT.md) records
 staff rest/agency, tutoring, family duty, finite pantry delivery/return and owned
 residence succession,2511 passing tests and14 rebuilt browser groups. Its exact

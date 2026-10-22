@@ -6,6 +6,7 @@ import {enrollSimulation,previewSimulationCommand,commitSimulationCommand,cancel
 import {lotmCommands,lotmContext} from './book_world_lotm_actions.js';
 import {enrollLotmBranch,LOTM_NATIVE_STOCK} from './book_world_lotm_content.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES} from './book_world_lotm_ids.js';
+import {lotmPathView} from './book_world_lotm_path.js';
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
 const SLEEP='book.lotm.sleep',MOVES={'lotm.move.workroom':L.workroom,'lotm.move.lodging':L.lodging};
 export const LOTM_MOVE_LABELS={'lotm.move.workroom':'Walk to the supervised workroom','lotm.move.lodging':'Walk to your probationer lodging'};
@@ -75,9 +76,9 @@ export function createLotmHost(ports){
    if(p.visible)actions.push({id:def.id,label:def.label,eligible:p.eligible&&!ports.sleeping(),reasons:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,duration:def.duration||0,cancellation:def.cancellation||'none'});}
   const moves=Object.entries(MOVES).filter(([,to])=>to!==at).map(([id])=>({id,label:LOTM_MOVE_LABELS[id],eligible:!s.simulation.jobs.length&&!ports.sleeping(),reasons:s.simulation.jobs.length||ports.sleeping()?['Finish or stop your current work first.']:[]}));
   const jobs=s.simulation.jobs.filter(j=>lotmCommands.some(d=>d.id===j.commandId)).map(j=>({id:j.id,label:registry.simulation.commands.get(j.commandId).label,due:j.due,left:Math.max(0,j.due-s.clock),cancellable:j.cancellation==='forfeit'}));
-  const holds=Object.fromEntries(['dose',...LOTM_SAMPLES].map(n=>[n,f[`lotm.holds.${n}`]||0]));
+  const holds=Object.fromEntries(['dose','clownDose',...LOTM_SAMPLES].map(n=>[n,f[`lotm.holds.${n}`]||0]));
   const records=Object.entries(know).filter(([k])=>k.startsWith('book.lotm.')).map(([k,r])=>({id:k,text:r.value,stage:r.stage,at:r.at})).sort((a,b)=>(b.at??0)-(a.at??0));
-  return {enrolled:true,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),holds,actions,moves,jobs,records};
+  return {enrolled:true,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path:lotmPathView(s,f),holds,actions,moves,jobs,records};
  }
  return {enroll,act,cancel,move,wake,tick,view,startable};
 }

@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:19489/?test_hooks=1",
+  "viewport": "1920x1080",
+  "generatedSavesOnly": true,
+  "checks": [
+    "Workshop names the cold need for unlined metal armor in cold air",
+    "Lining attach consumed the wool shirt and produced a worked armor key",
+    "Lined armor has a stable identity and work history",
+    "Panel now reports insulation",
+    "Both fights landed hits on worn armor",
+    "Per-hit wear is lower for the lined armor",
+    "Reload keeps condition and equipped lined key",
+    "Literal Import keeps lining, history, worn condition and the unlined copy"
+  ],
+  "bareDrop": 0.4000000000000057,
+  "bareHits": 5,
+  "linedDrop": 0.12239999999999895,
+  "linedHits": 3,
+  "errors": [
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+}

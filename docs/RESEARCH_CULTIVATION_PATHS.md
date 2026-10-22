@@ -310,3 +310,338 @@ Not exhaustive: no whole-series realm encyclopedia, original-Chinese comparison,
 Self-review: citations sit beside the relevant claims; chapter outcomes are not extended beyond what was read; teacher claims are attributed; proposed costs, recovery, slot limits and cross-world compatibility are identified as invention. Inspected the public pages without paid access or outbound messages. Failed static Jin Yong page was replaced by the official book page. No wiki, mirror, adaptation or reader comment supplies a canonical mechanic in this dossier. Search results mentioning those sources were discovery only. No private book passages or saves were copied.
 
 **Next playable gate for parent integration:** one ordinary manual/mentor expedition with two acquisition routes, one meaningful application and an optional later initiation; preserve existing cultivation progress; rebuild and browser-check both builds and reload before calling it implemented. Creative acceptance of cultivation's campaign placement, faction tone and alternative career viability remains Weibao's decision.
+
+## Round 2026-10-22: digitized paths of ascension
+
+Weibao asked to consider digitizing paths of ascension for cultivation worlds
+from what each book canon needs, with more to consider, using the specific
+Discord UI images. This round is a consideration palette. Everything below is a
+proposal; no ladder, schema or UI is selected or implemented. It extends the
+first Mistglass method slice ([task record](gm/dispatch/cultivation-spacing-2026-10-22/CHECKPOINT.md))
+without reviving retired Jade Hollow. Applies AD5, AD6, AD7, AD8, AD16, AD33,
+AD34 and AD38; UI items follow [UI rules](UI_RULES.md), runtime items the
+`absorb_p23/world_adaptation` seam under [architecture rules](ARCHITECTURE_RULES.md).
+Target viewport for any later UI: desktop 1920×1080, then 1800×1040 and
+1536×864, at 14/21px. Mobile deferred.
+
+### Discord UI references
+
+All seven are Corc's posts in the Proto23 channel. The images are saved under
+the gitignored `docs/research/proto23/private/discord-media-2026-10-20/captured-media/`
+by attachment ID; cite them by message ID and do not copy them into a public path.
+They are dated design snapshots, not one verified current loop (PFA061).
+
+| Ref | Message (date) | What the image shows | Lesson for YAIRPG |
+|---|---|---|---|
+| DR1 | 902703178783522928 (2021-10-26) | "Cultivation" tooltip for the no-method state: absorbing nearby Ki without a method, a Ki multiplier, per-element rates per second, infinite duration | Absorbing without a method is a real, weaker state. Mistglass Open-mist already matches it. |
+| DR2 | 902703368290598932 (2021-10-26) | "Cultivate" tooltip: practice gives insight, gain varies by location, selected method named, then a Stages list with a bar between Half Opening and Opening stage | The stage ladder belongs to the **method**, and the bar sits between the two stages it connects. |
+| DR3 | 907044786802946069 (2021-11-07) | Actions row "Cultivate" with the method as an expandable subrow | Method is a child of the action, not a separate tab. |
+| DR4 | 907042945872588820 (2021-11-07) | "QI coverage: 1.1" in the place strip beside season and weather | Place suitability lives with place facts. |
+| DR5 | 1202411899338096700 (2024-01-31) | "QI STORED" panel: accumulated internal energy expressed as days; hover lists derived HP/STR/AGL/INT percentages | Stored energy is one number with derived effects on hover. |
+| DR6 | 1549836622168592484 (2026-09-16) | Cultivation tooltip: global multiplier, a named Support Tech, Qi and Elemental Qi split, State of Mind, current stage, Qi bar out of 5000, Difficulty | Method and support technique are distinct slots; a mind state and difficulty sit next to the rate. |
+| DR7 | 1549842644279238716 (2026-09-16) | QI STORED at 7 days with QI Capacity 5000; larger derived stat bonuses | Capacity equals the stage bar's denominator in DR6: one record, two views. |
+
+### What the canons need
+
+Built from saved summaries only (subagent extraction, 2026-10-22). Confidence:
+H means a ladder summary or table was read, M partial or wiki-derived.
+
+| Canon | Ladder shape | What crosses a boundary | What a stage changes beyond numbers | Failure and recovery | Conf. |
+|---|---|---|---|---|---|
+| Reverend Insanity | Master ranks 1–9, four sub-stages each; Gu carry their own rank; paths shape Gu, not the master | Essence quantity and quality, aptitude grade, the right Gu; tribulation for immortal | New Gu operations, extra apertures as separate fuel pools, lasting body changes | Crippled aperture, Gu death injures master | H shape |
+| Lord of the Mysteries | 22 pathways × Sequence 9→0; neighbor swaps near Sequence 4 | Ingest a potion, then digest it by acting its principles; rituals from Sequence 5 | New powers, mythical form from Sequence 4; world conserves characteristics per pathway | Loss of control with five causes; early signs reversible, full loss not | H |
+| Cradle | Three realms plus distinctions above (Sage, Herald, Monarch); Paths are madra aspects | A power quota **and** a typed structural check per edge (core compression, Iron order, Remnant, revelation) | Senses, soulspace, near-stopped aging, authority | Weak foundation makes later edges shaky; elixirs cannot cross into Lord | M (wiki) |
+| Renegade Immortal | About 19 rows in four steps; non-linear protagonist route | Domain, resources, gate breaking, trials | Lifespan cap changes, domain and law operations | Destroyed attempt, vulnerable during fusion | H |
+| Beyond the Timescape | Qi Condensation with separate body track, apertures, flames, palaces, baptisms | Aperture count, flame count, tribulation, one gate per Dao | Flame count sets the palace **ceiling**; ceiling and completed count differ | Fuel exhaustion cripples apertures | H |
+| ISSTH | Ten tiers; Ancestor is a state, not a tier | Celestial needs three gates: resources, fusing techniques, a named entity's approval | Lamps and special meridians | Unsampled | M |
+| Fated Villain | About 13 bands with four sub-stages | Route-specific gates (a Dao imprint); fortune ledger separate from rank | Lower worlds cap visiting strength | Karma backlash | M |
+| Virtuous Demon | Rank 1 with 12 stages (bottlenecks at 6, 9, 12), then 4 sublevels per rank | Bottlenecks; Paths from experience plus understanding | Oath ladder and letter grades run beside rank | Visible regression of a stage | H |
+| Dao of the Bizarre Immortal | Seven body points, not a rank ladder; office, sect, bureau and rite ladders kept separate | Per-point operation | Each point grants a distinct operation | Last point unreliable | H |
+| Path of the Idle Cultivator (game) | Main path plus parallel paths contributing an "effective realm" | Per-path predicates | Feature unlocks by effective realm | Rebirth resets named fields, keeps others | H |
+| Proto23 (DR1–DR7) | Per-method stage track | Stage quota on a shared Qi pool | Derived stat percentages from stored energy | Unshown | Images |
+
+Named evidence gaps, not to be filled by guessing: A Will Eternal ladder contents;
+Primordial Saint Sect upper stages; Fanren simulator chapters 45–184; Cradle has
+no full-book pass; Fated Villain per-rank gates (`REALMS_AND_FATE.md` unread);
+Reverend Insanity per-rank thresholds (`rank_ladder.csv` unread); Path of the
+Idle Cultivator late resets; LOTM digestion, promotion and loss of control are
+outside the current Seer slice. Fated Villain sealed material is referenced by
+ID only in its owner.
+
+### Findings
+
+**ACT NOW (done in this round)**
+
+- **ASC1: the ladder hangs on the world and the method, not on the player.**
+  DR2 and DR6 attach stages to the selected method. That lets each world digitize
+  its own canon ladder without a universal one. Saved here as the organizing rule
+  for later work.
+- **ASC2: one descriptor vocabulary covers every canon above.** Proposal shape:
+  a *path* declares its world, shape (ladder, tree, web, wheel, stack or field,
+  from [E8C](emergent/E8C_POWER_PATHS_AND_ANIME.md)) and tracks. A *stage*
+  declares its position, a quota on a named pool, a list of typed crossings,
+  its grants, an optional ceiling source, a peak flag and its failure signs,
+  outcome and recovery. Crossing types needed by the table: quota, structural
+  check (order of operations, compression), insight, trial or tribulation,
+  ingest-then-digest, consumption, recognition by a person or institution,
+  and body point. Grants are capabilities, lifespan, senses and rule changes,
+  not only multipliers. Saved; not implemented.
+- **ASC3: canon mappings that would break a naive ladder.** Reverend Insanity
+  needs two ranked subjects (master and Gu). LOTM needs an atomic irreversible
+  ingest followed by a duration of acting tasks, plus a world-level conservation
+  rule. Beyond the Timescape needs a ceiling distinct from progress. Cradle
+  needs a structural check alongside the quota, and one permanent order choice.
+  Renegade Immortal and ISSTH need states and parallel lines that are explicitly
+  not rungs. Bizarre Immortal needs a field of points. Each fits ASC2 as data.
+
+**ACCOUNT FOR NOW (constraints on any ladder work, Mistglass included)**
+
+- **ASC4: one record, two views (AD7).** DR6/DR7 show capacity and the stage bar
+  as the same 5000. A Mistglass ladder would read the existing condensate and
+  practice minutes, not a second pool or XP currency.
+- **ASC5: breakthrough is an unlock, not a prestige reset.** Trial, breakthrough
+  and legacy stay separate events, as this doc's lifecycle table already proposes.
+- **ASC6: own stage exact, others' stage by means (AD6/AD8).** Reading another
+  person's realm needs a canon means (spiritual sense, Copper sight, spirit vision)
+  and starts as an impression. Unknown next stages show `???` until known
+  (PFA056); sect common knowledge can reveal a public ladder while a pathway's
+  high Sequences stay hidden.
+- **ASC7: saves.** Any ladder state is an optional child schema absent by default,
+  like Mistglass F3. Retired Jade Hollow `realm`, `seal` and `trial` fields stay
+  dormant and untouched.
+- **ASC8: away time (AD16).** Accumulation can continue as a chosen routine;
+  ingestion, breakthrough attempts and tribulations stop and wait for the player
+  because they are irreversible choices.
+- **ASC9: grants are evaluated where the body is.** World ceilings (Fated Villain's
+  lower-world Dao, DR4's place coverage) and travel compatibility read the stage's
+  grants in the destination, following the C9 body-faculty reader precedent in
+  [the C7/C9/C10 record](research/additional-cultivation-2026-10-22/IMPLEMENTATION.md).
+- **ASC10: no cross-world effective realm.** Path of the Idle Cultivator's
+  effective-realm conversion is useful inside one world; across worlds it becomes
+  the universal multiplier trap listed above.
+
+**UI proposals from the images (desktop first)**
+
+- **ASC11: method tooltip shows a ladder slice.** Previous stage, current bar,
+  next stage (DR2), plus difficulty and the current consequence (rate, purification,
+  work cost). Mistglass already exposes Learning, Practiced and Integrated, so it
+  is the first consumer.
+- **ASC12: place suitability in the place header** beside weather and exposure
+  (DR4), keeping the single-home rule from UIL8.
+- **ASC13: stored energy row with capacity**, and a hover listing derived effects
+  (DR5/DR7). A "days of practice" reading is a label on the same number, offered
+  only where the world measures practice that way.
+- **ASC14: show typed energy and mind state only where they change a decision.**
+  The Qi and Elemental Qi split (DR6) belongs to worlds with typed energy. State
+  of mind earns a row only if it moves deviation odds or rate.
+- **ASC15: method and support technique are separate slots (DR6).** A support
+  technique modifies the main method's track; it fits the existing slot-limit
+  pattern in this doc's ward example.
+- **ASC16: an inspector view.** A debug panel that shows the descriptor and each
+  crossing's evaluation for the current body, read-only, so ladder data can be
+  checked without playing to the stage.
+
+**LATER / DELEGATE**
+
+| Code | Work | Level and effort | Done check |
+|---|---|---|---|
+| ASC17 | Pure path-descriptor evaluator in the `world_adaptation` seam, with Mistglass's three methods expressed as descriptors | Sonnet or Codex Luna-medium; M | Existing P12 pure/host tests pass unchanged; new tests cover stage boundaries, chunk equivalence and absent state. Coordinate with the P12 and W1–W4 owners before editing. |
+| ASC18 | Fill the named evidence gaps that block a ladder: RI `rank_ladder.csv`, Fated Villain `REALMS_AND_FATE.md`, A Will Eternal ladder | Haiku/Sonnet reader; S | Rows above rise to H confidence with file citations; no sealed truth in public text. |
+| ASC19 | First canon ladder: LOTM Seer digestion and Sequence 8 promotion on the existing slice | Sonnet design, Codex implementation; L | Native journey: ingest, acting tasks, digestion, promotion with reversible early loss-of-control signs; save, reload and import pass at the desktop targets. |
+| ASC20 | Method tooltip ladder and place-suitability header (ASC11–ASC13) after ASC17 | Sonnet; M | Rebuilt browser proof at 1920/1800/1536 at 14/21px, no clipped text. |
+| ASC21 | Reverend Insanity rank-one aperture slice with Gu rank separate from master rank | Sonnet design; L | Two ranked subjects saved distinctly; a Gu death injures the master; travel out of the world disables Gu operations visibly. |
+
+Suggestions, not reasons to stop: compare DR6's "Difficulty" against this doc's
+foundation-repair gap; a sect's public ladder board could be an in-world UI
+surface for ASC6.
+
+## Round 2026-10-22b: gaps filled, first ladders built, value of progress and rituals
+
+Weibao asked to "fill gap and build them here accordingly", then mid-task asked
+how to digitize the value of progress, how the LOTM MMO does it, and about
+rituals. Execution and evidence live in
+[the task record](gm/dispatch/ascension-paths-2026-10-22/CHECKPOINT.md).
+
+### ASC18 gap fill (saved summaries only)
+
+- **Reverend Insanity:** `engine_inputs/rank_ladder.csv` is a claims ledger
+  (about 1,626 rows, rank blank in about 1,557), mostly Gu grades rather than
+  master realms. Five rows describe master cultivation (lines 131, 238, 347, 398,
+  623), for example a middle-to-upper rank-three step through a fuelled session
+  and a rank-four peak after about a month with help. No essence colour,
+  lifespan, failure or per-rank crossing columns exist. Gap stays open: a per-rank
+  table needs a targeted reading pass, not inference from the ledger.
+- **Fated Villain:** `readers-2026-10-10/REALMS_AND_FATE.md` lines 13–26 list about
+  27 bands from Mortal Body to the Dao Realm. Crossing gates are recorded only
+  for Emperor (a Heavenly Dao imprint in lower worlds, or breaking Quasi-Emperor
+  and passing a Nirvana path in upper ones) and for the Dao bottleneck (it loosens
+  with world fortune). World ceilings: escorts cannot use full power in the lower
+  realm, and secret realms cap entrants (lines 40–54). No sealed IDs in that file.
+- **A Will Eternal:** `er-gen-haul-2026-10-09/a-will-eternal/DOSSIER.md` lines 29–45.
+  Crossings are recorded for Foundation (route-dependent: pill or field resource,
+  with different futures), Core (seas converge; nine strikes on one route), Nascent
+  Soul (fifteen- to twentyfold flame), Demigod, Celestial (three gates, failure
+  fatal) and Sovereign (an approval, with counterexamples). Ancestor is a state,
+  not a tier. Qi Condensation and Eternal have no recorded crossing.
+
+The canon table above stands; these rows raise Fated Villain and A Will Eternal
+to H for the recorded gates and keep Reverend Insanity at H for shape only.
+
+### Build status
+
+- **ASC17, engine ready, not integrated in Mistglass UI.** `src/ascension_paths.js`
+  validates descriptors and projects an observer-safe view (`???` past `known`,
+  owner ceilings, typed crossings with irreversibility, failure signs).
+  `src/ascension_paths_mistglass.js` expresses Threaded-breath and Still-pool as
+  descriptors read over the P12 table; a test proves stage agreement at every
+  practice minute. The Projects tooltip is P12/W1–W4-owned, so no UI change there.
+- **ASC19, integrated, partial.** LOTM Seer digestion by acting and the Sequence 8 Clown
+  promotion, per [LTS11–LTS14](worlds/LOTM_SEER_SLICE_LAWS_2026-10-19.md). The
+  workroom panel shows the Seer pathway ladder, the felt digestion state and each
+  crossing. This is the second case that proves the seam (AR11). Against round 1's
+  done check: reversible early loss-of-control signs moved to ASC35 (2026-10-22),
+  and only 1920×1080 at default text was browser-checked; 1800×1040, 1536×864
+  and 21px remain open.
+
+### Digitizing the value of progress
+
+**ACCOUNT FOR NOW**
+
+- **ASC22: progress is four numbers, not one.** Position (which stage), quota
+  (amount toward the next), quality (foundation, purity, completeness) and
+  readiness (which gates are met). DR6 already separates the stage, the bar and
+  a difficulty. Keep them separate in state and UI; a single "power level" hides
+  the decisions.
+- **ASC23: the value of a stage is what it changes.** Show grants (senses,
+  lifespan, operations, rules that now apply) before multipliers. DR5/DR7's
+  derived stat percentages are one legitimate kind, not the default.
+- **ASC24: legibility of your own progress is a world dial.** Exact (Proto23's
+  Qi bar), felt (LOTM digestion, LTS12) or assessed by someone fallible (a church
+  assessor, a sect testing stone). The dial is per world, with the reason in
+  canon.
+- **ASC25: quality sets ceilings.** Cradle's structural checks, Beyond the
+  Timescape's flame-to-palace ceiling and A Will Eternal's route-dependent
+  Foundation make slow, careful progress worth more later. The engine's
+  `ceiling` option is the hook; quality itself stays with the world's owner.
+- **ASC26: time-equivalent value.** DR5/DR7 show stored energy as days, and many
+  canons speak of "years of cultivation". Offer it as a label on the same number
+  where the world counts that way; never as a second store.
+
+**What the official LOTM games do** (subagent web research, 2026-10-22; sources
+in the task record). The 《诡秘之主》 MMORPG by Kuaishou's Sparknexa launched in
+China on 2026-08-21; Zulong's 《诡秘之主：愚者》 was in pre-registration. Verified
+from the store page and press: 22 pathways with Sequences 9 to 0; promotion
+needs potion ingredients plus acting, not level grinding; forcing a potion
+without acting makes loss of control very likely; a SAN value falls under
+unnamable exposure and long pressure, and zero is irreversible. Guide-reported
+only: promotion as four components (materials, acting, sanity, ritual), with
+rituals from Sequence 5 and an 80% acting threshold. Press reports dailies,
+energy and seasonal resets, and the store lists passes and currency packs.
+
+- **ASC27: promotion is a checklist of independent gates.** The MMO's four
+  components map to ASC2 crossings: consume, digest, a sanity/strain condition
+  and a ritual. Each can fail on its own, and the UI lists each.
+- **ASC28: forcing is allowed and priced, where the world allows it.** Under
+  AD38, a held potion can be drunk undigested if the world's mechanism allows;
+  the price is loss-of-control risk with reversible early signs. The Tingen slice
+  does not reach this (its dose arrives only after assessment); a found or bought
+  dose route would expose it under H3–H7.
+- **ASC29: keep sanity inside the existing pool.** LTS5 keeps one spirituality
+  record with strain. Add a separate mind value only where it changes a decision
+  the strain record cannot express.
+- **ASC30: do not copy MMO friction.** Daily tasks, energy timers, seasonal
+  resets and paid gates add nothing for one player (AD22). Scarcity comes from
+  the world: ingredient rarity, a supplier's limited attention, risk.
+
+### Rituals
+
+**ACCOUNT FOR NOW**
+
+- **ASC31: a ritual is a prepared, sited crossing with named components.**
+  Components seen across canons: a place, a time or celestial condition,
+  materials, a helper or witness, an acting or mental condition, and an invoked
+  target. In ASC2 terms a ritual is a group of crossings of type `ritual` that
+  must all hold at one moment, plus a risk if the invoked target is wrong (LOTM
+  H3). Cultivation analogues: tribulation preparation arrays, Cradle's Remnant
+  adoption, A Will Eternal's Celestial approvals.
+- **ASC32: rituals start where the canon starts them.** LOTM uses them from
+  Sequence 5; low Sequences need materials and acting only. A low-tier ritual
+  would be invented scope.
+- **ASC33: a failed ritual leaves a trace.** Spent materials stay spent, the
+  attempt is recorded, and a wrong invocation creates attention rather than a
+  generic failure. This follows the existing "trial, breakthrough and legacy are
+  separate events" rule.
+
+**LATER / DELEGATE**
+
+| Code | Work | Level and effort | Done check |
+|---|---|---|---|
+| ASC34 | Add `ritual` as a crossing type with grouped, simultaneous components to `ascension_paths.js` | Sonnet; S | Pure tests: a ritual group passes only when all components hold together; unchanged LOTM and Mistglass views. |
+| ASC35 | Exposed forcing route: a found or bought Clown dose drunk undigested, with reversible early signs and a qualified loss-of-control outcome | Sonnet design with source pass; L | H3–H7 qualified in the LOTM plan first; native journey shows warning, signs, recovery by sleep, and the terminal outcome only after the stated cause. |
+| ASC36 | Clown abilities in use: one Tingen performance or scuffle that reads the Clown source | Sonnet; M | A native action changes outcome only with `book.lotm.clown` active; save, reload and import pass. |
+| ASC20 | Mistglass method tooltip ladder (unchanged from round 1) | Sonnet; M | Coordinate with the P12 and W1–W4 owners; rebuilt browser proof at desktop targets. |
+
+## Round 2026-10-22c: required future work and further MMO lessons
+
+Weibao asked "Future stuff required and more? more to consider? What did we
+learn from the MMO and more?" New angles only; earlier codes keep their meaning.
+
+**ACT NOW (done in this round)**
+
+- **ASC37: Mistglass UI ladder is now unblocked.** PROJECT.md records that the
+  W1–W4 chat finished and released its ownership, so ASC20 no longer waits on a
+  reservation. It still needs its own task and browser proof.
+
+**ACCOUNT FOR NOW**
+
+- **ASC38: characteristics are conserved matter.** LOTM conserves Beyonder
+  characteristics per pathway, and the MMO's high-Sequence recipes ask for them
+  (guide-reported). A promotion consumes authored stock; it never mints a
+  characteristic. When they appear, they ride the existing material-lineage
+  owner, so a dropped characteristic carries who it came from.
+- **ASC39: cross-path edges need a `links` field later.** Neighbor swaps near
+  Sequence 4, Reverend Insanity path shifts and Cradle Path changes are edges
+  between descriptors, not stages inside one. The current engine orders stages
+  in one path; add links between paths only with a real consumer.
+- **ASC40: acting quality versus acting count.** The MMO guide's 80% threshold
+  and canon persona bleed (0603) suggest two readings of the same acts: how well
+  they fit the role, and how far the role is eating the self. A world that needs
+  drift adds it as a second counter fed by the same completed acts, never by time.
+- **ASC41: a path can belong to an item or companion.** Reverend Insanity ranks
+  Gu separately from their master; pets, artifacts and swords in other canons
+  advance too. `pathView` already takes any subject's facts; the owner of that
+  subject supplies them.
+- **ASC42: away time can run acting routines (AD16).** Readings are a chosen,
+  repeatable routine, so away play may run them until spirituality or strain
+  stops it. Assessment and every ingestion wait for the player.
+- **ASC43: progress has social visibility.** Sects display rank; LOTM Beyonders
+  hide what they are behind an ordinary job (LW6). The ladder panel is private
+  knowledge. What others know of your Sequence or realm needs a means (ASC6) and
+  a reason to spread.
+- **ASC44: promotion supply comes from the world, not a store.** The MMO's late
+  materials come from relics, elites, auctions and player-run clubs
+  (guide-reported). For one player that maps to authored clubs, black markets and
+  institutions with real restocking stock and attention, using the existing
+  restock owner.
+- **ASC45: what a ladder keeps through the one prestige layer.** Path of the Idle
+  Cultivator resets realm and stage but keeps soul power, peaks and completed
+  quests. The first-milestone prestige layer needs an explicit per-world list of
+  what each ladder keeps; breakthrough itself is not prestige (ASC5).
+
+**What the MMO taught, in one place**
+
+1. Promotion is several independent gates, not experience (ASC27).
+2. Acting is lived behavior with a visible threshold that gives a wait-or-gamble
+   choice (ASC24, ASC40).
+3. Forcing is allowed and priced, which matches AD38 (ASC28).
+4. A sanity pool ties ability use to long-term risk (ASC29).
+5. Rituals scale with tier and are absent low down (ASC31–ASC33).
+6. Avoid dailies, energy timers, seasonal resets and paid gates (ASC30).
+7. Late supply comes from social and dangerous sources (ASC44).
+8. Nobody answers pathway switching; that is ours to design (ASC39).
+
+**LATER / DELEGATE**
+
+| Code | Work | Level and effort | Done check |
+|---|---|---|---|
+| ASC46 | Test scenario fixture that builds a digested or promoted Tingen save from honest commands, for faster UI proof at every desktop target | Sonnet; S | A script produces disposable saves through real commands only; the six-case desktop/text matrix runs from them. |

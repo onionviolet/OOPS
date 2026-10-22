@@ -4,13 +4,13 @@ const el = (tag, text) => {const n = document.createElement(tag); if(text != nul
 const labels = {attack_points:'Attack precision',cold_tolerance:'Cold tolerance',crit_resistance:'Critical resistance',damage_taken:'Damage taken',min_damage_share:'Minimum share of a hit',stamina_efficiency:'Stamina efficiency',attack_speed:'Attack speed',attack_power:'Attack power'};
 const select = label => {const n = el('select'); n.setAttribute('aria-label', label); return n;};
 const choice = (value, label) => {const n = el('option', label); n.value = value; return n;};
-export function createGearWorkshopPanel({read, quote, execute}) {
+export function createGearWorkshopPanel({read, quote, execute, prepareHide,repairer}) {
     const panel = el('section'); panel.id = 'gear_workshop'; panel.className = 'expedition_panel';
     const maker = select('Maker'), items = select('Carried gear'), action = select('Gear process'), material = select('Process material'), role = select('Material role'), slot = select('Structural component');
-    const inspect = el('div'), details = el('div'), notice = el('p'), run = el('button', 'Apply quoted process');
+    const inspect = el('div'), details = el('div'), notice = el('p'), run = el('button', 'Apply quoted process'), hides = el('div');
     run.type = 'button'; run.dataset.gearCommit = ''; notice.setAttribute('role', 'status');
     panel.append(el('h2', 'Gear workshop'), el('p', 'Work on carried gear. Materials, process and maker control decide the result. Unequip an item before changing it.'),
-        maker, items, inspect, action, material, role, slot, details, run, notice);
+        maker, items, inspect, action, material, role, slot, details, run, notice, hides);
     for(const [id, label] of Object.entries(GEAR_ACTIONS)) action.append(choice(id, label));
     let signature = '', q;
     const request = () => ({maker: maker.value||'player',action: action.value, key: items.value, material: material.value, role: role.value, slot: slot.value});
@@ -40,6 +40,12 @@ export function createGearWorkshopPanel({read, quote, execute}) {
         role.hidden = !['attach','detach'].includes(a); slot.hidden = a !== 'swap';
         q = quote(request()); run.disabled = !q.eligible;
         details.replaceChildren(el('p', q.eligible ? q.summary : q.reason));
+        hides.replaceChildren(el('h3', 'Local repairer'),el('p',view.repairerStatus||''));
+        for(const r of view.repairer||[]){const b=el('button',r.label);b.type='button';b.dataset.menderAction=r.id;b.disabled=!r.quote.eligible;b.title=r.quote.reason||'';b.onclick=()=>{try{notice.textContent=repairer(r.quote).summary;}catch(e){notice.textContent=e.message;}signature='';render();};hides.append(b);}
+        hides.append(el('h3','Prepare hides'));
+        for(const h of view.hides || []) {const b = el('button', h.label); b.type = 'button'; b.dataset.hideTreatment = h.id; b.disabled = !h.quote.eligible; b.title = h.quote.reason || '';
+            b.onclick = () => {try {notice.textContent = prepareHide(h.quote).summary;} catch(error) {notice.textContent = error.message;} signature = ''; render();};
+            hides.append(el('p', `${h.note}${h.quote.eligible ? '' : ' ' + h.quote.reason}`), b);}
         if(q.eligible) for(const row of q.spend.slice(1)) details.append(el('p', `Consumes ${view.materials.find(m => m.key === row.key)?.name || JSON.parse(row.key).id} ×${row.count}`));
     }
     for(const input of [maker, items, action, material, role, slot]) input.onchange = () => {signature = ''; render();};

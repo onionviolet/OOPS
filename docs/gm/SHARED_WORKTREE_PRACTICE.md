@@ -1,5 +1,14 @@
 # Shared worktree practice
 
+Current checkout note, checked 2026-10-22: ordinary work uses primary `master`
+under AD41. The `codex/gameplay-foundations` branch named in the introduction
+below is the original shared-branch context, not today's branch selection.
+Read [PROJECT's current delivery](../../PROJECT.md#current-delivery-routing-checked-2026-10-22)
+and the relevant live checkpoint before resuming; inspect live Git status and
+ownership rather than restoring an older task snapshot. The
+[shared-doc audit](../reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md) records
+the reconciled recent releases and remaining acceptance boundaries.
+
 How Claude and Codex sessions work safely in one checkout and one branch
 (`codex/gameplay-foundations`) while other sessions edit, commit and run lanes
 at the same time. [AGENTS.md](../../AGENTS.md#multi-agent-work) holds the short

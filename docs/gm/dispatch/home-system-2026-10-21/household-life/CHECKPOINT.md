@@ -1,5 +1,12 @@
 # Household life extension
 
+Current publication, checked 2026-10-22: household life is included in published
+`7df5a7df7` and the later [combined release](../../inventory-overhaul-2026-10-21/REPORT.md).
+Latest recorded normal Electron adoption is `v0.6-72af84cf8e66`; the
+`v0.6-68ef2e933977` receipt below remains the earlier household-specific adoption
+proof. Original active-writer/excluded-bundle descriptions are historical;
+human household feel/pacing remains open.
+
 2026-10-21. Current request: staff rest and agency, tutors, family obligations,
 pantry replenishment and inheritance where they fit; broaden considerations and
 check canon/historical/book sources. H5.8 is the palette owner. Applies AD1/6/8,

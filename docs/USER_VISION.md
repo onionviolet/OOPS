@@ -1,5 +1,36 @@
 # User vision and research coverage
 
+## Ascension paths built, value of progress and rituals, 2026-10-22
+
+Weibao asked to "fill gap and build htem here accordingly? Feel free to use
+subagents and work together", then: "how do we digitalize the value of progress
+and more? how does the LOTM MMO do it? mroe to consider? Rituals?" This selects
+building the first ascension ladders and a further consideration round. The LOTM
+Seer digestion and Sequence 8 promotion and a shared path engine are built;
+values and acts are proposals. Record: [task](gm/dispatch/ascension-paths-2026-10-22/CHECKPOINT.md),
+[ASC18–ASC36](RESEARCH_CULTIVATION_PATHS.md#round-2026-10-22b-gaps-filled-first-ladders-built-value-of-progress-and-rituals).
+
+## Digitized paths of ascension, 2026-10-22
+
+Weibao asked to "consider digitalizing paths of ascention for cultivation worlds
+based on what the book cannon needs and more", with more to consider, using "the
+specific ui images from the discord". This requests a consideration round, not
+implementation. Saved as ASC1–ASC21 with seven dated Discord UI references in
+[the cultivation palette](RESEARCH_CULTIVATION_PATHS.md#round-2026-10-22-digitized-paths-of-ascension).
+All items are proposals; no ladder is selected.
+
+## Cultivation techniques and log spacing, 2026-10-22
+
+Weibao showed log rows with excess vertical space and a nearly empty skill
+tooltip, asking "weird spacing on some stuff?" He also asked, "from the discord
+absorbtion, we know there is the cultivation and types of cultivation techniques,
+can we work on implementing those?" This selects implementation using the saved
+reference distinctions. The first bounded original Mistglass extension and its
+verification live in [the task record](gm/dispatch/cultivation-spacing-2026-10-22/CHECKPOINT.md).
+Names, methods and values are proposals for play. The attached community remarks
+about first-food health and dojo funding remain attributed reference discussion;
+they do not establish current Proto23 mechanics or select those additions.
+
 ## Inventory overhaul and combined publication, 2026-10-21
 
 Weibao:
@@ -5840,6 +5871,89 @@ This continues the all-seven implementation beyond the previous preview stopping
 Weibao: “Implement cross-site freight, exposed drying, and residence-aware workers where they fit, using our existing systems. More to consider? Any useful small details still missing from the seven mods?”
 
 This selects the fitting local MF23–MF25 follow-ons. The [MF owner](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#minecraft-fit-round-mf-2026-10-21) and existing [checkpoint](gm/dispatch/minecraft-fit-2026-10-21/CHECKPOINT.md) record MF26 onward: actual Shack–Village freight, exposed weather processing, shared home-owned room/rota support and useful custody/recovery details. Existing native road, weather/calendar, residence, simulation and persistence owners remain authoritative.
+
+
+## Different lives and implementable book-world features, 2026-10-21
+
+Weibao: "More to consider for each book world? Deepen the specific missing features, subtle interactions and possibilities, and save accordingly. MOre book worlds? How to implement each/create rules to implement each? Different types of lifes in each world? the life of a student is alot idfferent from a smuggler after all"
+
+Direction recorded: deepen specific book-world features and the materially
+different lives available within each setting, including the student/smuggler
+contrast, with further world candidates and a concrete route to implementation.
+The named careers, local laws, defaults and examples remain proposals rather
+than newly accepted canon. Existing acquisition, runtime ownership, source
+qualification and playable-slice requirements still apply; this design request
+does not dispatch every world or resume paused work.
+
+[Gap-register round 3](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-3-different-lives-in-each-book-world-2026-10-21)
+extends the existing BF codes: BF28 authors operations with source conditions,
+actual state/effect owners and later consumers; BF29 covers overlapping lives
+and their consequences; BF30–BF70 deepen 41 setting/profile entries, with the
+five TTKS books and four Er Gen settings kept distinct. Wider candidate premises
+are checked narrowly against official pages. Detailed rules and life profiles
+are specified design work, not admitted pack-schema fields or delivered gameplay.
+
+
+## Shared engine gaps and niche specialties across lives, 2026-10-21
+
+Weibao: "More to consider? What shared engine features are still missing to make these different lives actually playable? Deepen the world-specific rules and subtle interactions, and save accordingly."
+
+Further steering: "there are more different speciatlies each with their own nicheness accross everything, how to possibly implement all possibilities in a reasonable way?"
+
+Source: Review book world gaps, chat `01a16141-c70e-7000-a984-4ea9b6417f60`.
+The [BF71–BF94 continuation](worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-4-shared-engine-gaps-and-specialties-across-lives-2026-10-21)
+records 14 shared-engine gap rows, specialty composition and follow-up
+interactions for the 41 profiles. Existing mechanics and missing shared uses
+are distinguished. These are design proposals and bounded diagnostic evidence;
+the request does not select an all-world implementation wave, universal rule
+language, new priority or resumption of paused work. Existing world/source owners
+and the one-playable-slice requirement still govern implementation.
+
+## Reconcile shared docs with recent feature work, 2026-10-22
+
+Weibao: "Can you check that the shared docs are up to date with all the recent feature work so future chats are actually on the same page?"
+
+This selects a documentation/evidence reconciliation across recent feature
+work, following the existing AD32/AD36/AD41 workflow. The
+[reconciliation record](reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md) owns the
+bounded coverage and checks; [PROJECT current delivery](../PROJECT.md#current-delivery-routing-checked-2026-10-22)
+routes live status and owners. Preserve dated evidence and unrelated edits,
+distinguish implemented/verified/published/adopted/human-accepted states, and
+avoid converting proposals into requirements. No new gameplay, commit or push
+is selected by this request.
+
+
+## W1–W4 signature-loop implementation, 2026-10-22
+
+Weibao: “send chat to implement all Ws.” Source: Codex reference-scout chat
+`01a16205-8f8a-7e00-bcb9-ed5474b28f4a`, dispatch to
+`01a16509-8686-7850-b336-d1a8269acd77`.
+
+This authorizes implementing W1–W4 in the [protolike report](research/protolike-deep-2026-10-22/REPORT.md):
+material preparation and meaningful advancement, institutional life and qualified
+succession, historical entry with present consequences, and practiced paths with
+actual reserve expenditure. The original research-only limitation remains a
+record of that research run, not a restriction on this later instruction.
+The [execution owner](gm/dispatch/distinct-world-w1-w4-2026-10-22/CHECKPOINT.md)
+records scope, shared-file ownership and native acceptance. Reuse existing owners,
+preserve ordinary-life and mechanism-based alternatives, keep secrets sealed,
+and retain the first milestone and broader mechanically distinct-world direction.
+No commit, push or publication is authorized by this request.
+
+## Fitting C7/C9/C10 incorporation and mechanical world differences, 2026-10-22
+
+Weibao: “Implement the fitting ideas from C7, C9 and C10 using our existing systems, including useful small details. More to consider for making the worlds mechanically different? Save accordingly.”
+
+This authorizes the fitting learned-method expenditure, current-body hazard
+consumer and named-helper commission applications from the
+[additional cultivation research](research/additional-cultivation-2026-10-22/REPORT.md).
+The [implementation owner](research/additional-cultivation-2026-10-22/IMPLEMENTATION.md)
+records coordination with the released engine bindings and W1–W4, actual changes,
+source identities and native evidence. The new CWD1–CWD12 round keeps later world
+laws, carriers and institutional extensions separate from current delivery.
+Names and numbers remain original playable proposals. Existing milestone,
+ordinary-life choices and broader many-world direction remain. No new account,
+closed-browser timing policy, commit, push or publication is selected here.
 
 ## UI small-detail tokens and design audit, 2026-10-22
 

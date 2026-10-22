@@ -1,5 +1,13 @@
 # P4 execution status
 
+Current publication, checked 2026-10-22: P4 source, generated build and coverage
+were committed and pushed as `e1a68873d`, now an ancestor of published master.
+The later [combined release](../inventory-overhaul-2026-10-21/REPORT.md) retains
+that source and owns latest recorded Electron adoption. Earlier no-commit/no-push
+and prepared-only passages below are dated history. P4's own 2,451-test/12-scenario
+proof remains tied to [its final inputs](P4_EVIDENCE/FINAL_CHECKS.json);
+human visual/play judgment remains open.
+
 release=true
 
 ## Current continuation, 2026-10-21

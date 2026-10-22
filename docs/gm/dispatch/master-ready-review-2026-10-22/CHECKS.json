@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "base": "12720adc26bbe44268a5a31f5919fe3d89699ad1",
+  "bundleSha256": "5b644b2392c1386817da5b4bda711dcddbd4a605d587548c4f565d5c357f865c",
+  "checks": {
+    "build": "PASS",
+    "tests": {
+      "pass": 2589,
+      "fail": 0,
+      "skip": 0
+    },
+    "architecture": "PASS",
+    "rules": "PASS, 0 warnings after staging",
+    "ruleBehavior": {
+      "pass": 36,
+      "fail": 0
+    },
+    "sharedDocZeroLoss": {
+      "PROJECT.md": 0,
+      "docs/USER_VISION.md": 0,
+      "docs/IDEA_INDEX.md": 0
+    },
+    "nativeJourneys": [
+      "W1",
+      "W2",
+      "W3",
+      "W4",
+      "LOTM",
+      "toxin binder",
+      "cold armor"
+    ],
+    "desktopCases": 18,
+    "polyjuice": {
+      "gameplay": "PASS: eight native journey gates, no page errors",
+      "diagnostics": "21 missing-asset console messages in first isolated run; private fonts and empty private-pack fixture subsequently provided locally",
+      "full21DayStew": "not rerun; existing test coverage retained"
+    },
+    "desktopFonts": "Corrected 18-case matrix PASS with original private font directory linked locally; inspected 1536/21px screens"
+  },
+  "receipts": {
+    "armor/receipt.json": {
+      "sha256": "c9658fc2d373072ffc797e9037baa757ef2c17d90b0bc24330a2f17eb5818837"
+    },
+    "lotm/lotm.json": {
+      "sha256": "f7d39193df150b069628e2352a31736d13161b2e2355ffa4b89ff00d91c2f8bf"
+    },
+    "polyjuice/receipt.json": {
+      "sha256": "a880cb955c48e8729e3159422dbcad7afe5025ff61b173af6d6406a5e00d23a0"
+    },
+    "w-desktop-r16dmZ/geometry.json": {
+      "sha256": "0cd1f50ab6eb0feae236ecef4ff49cf33e51395cab02d6e8c9fd39968b79db30"
+    },
+    "w-desktop-r16dmZ/w-desktop.json": {
+      "sha256": "385bb4686e8822f0d407f9342ab8cc3a9df199e6b48e82c8fe5034ba8ca4d3fd"
+    },
+    "w1-materials-Qks1P4/w1-materials.json": {
+      "sha256": "ef77db9d49c5e9258b3411e855871044f02a4ffe5f370ba1a0973501b1de15f0"
+    },
+    "w2-institution-OGQIob/w2-institution.json": {
+      "sha256": "ce403f788c88928aa5c65b15040551a919c93fbdabde238a4171fd3120c7bc1d"
+    },
+    "w3-two-origins-pJekOk/w3-two-origins.json": {
+      "sha256": "41a22e5ee13532a50048e963581a8225ee0644d6acae6e6f6e26cd451a5abbc8"
+    },
+    "w4-paths-rdOI0m/w4-paths.json": {
+      "sha256": "68c09bca08fc8b490fc8e4147e23aca552bfdda193d6d97c4e466a83afd0313d"
+    }
+  },
+  "remaining": [
+    "Normal app adoption",
+    "Human pacing and taste acceptance",
+    "Feature owner deferred scope"
+  ],
+  "excludedActive": [
+    "docs/research/SOURCE_ACQUISITION_TOOLS.md"
+  ],
+  "disclosure": "W3/W4 history-bearing screenshots and all exported saves remain private; public receipts contain route/status only."
+}

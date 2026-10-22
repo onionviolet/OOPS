@@ -1,0 +1,131 @@
+{
+  "pays": "reputation",
+  "steps": [
+    {
+      "name": "after-learn",
+      "reserve": 0,
+      "reserveKey": "p23.mistglass.condensate",
+      "coins": 5000,
+      "reputation": {
+        "Village": 0,
+        "Slums": 0,
+        "Town": 0
+      },
+      "clock": 4,
+      "historyId": "mill-race",
+      "label": "Clear the jammed outflow sluice · 2 condensate, +1 Village standing",
+      "history": "The keeper says the outflow was dug into the Village mill race after a flood. The conservatory owes the Village its clearing, so the work is a duty that earns standing there, not coins.",
+      "pays": "reputation",
+      "paragraph": "Outflow sluice: jammed. Clearing it drives 2 condensate of pressure; Open-mist absorption (Learning) spends 2. Clearing it discharges the conservatory’s duty to the Village and earns standing there.",
+      "disabled": true,
+      "title": "Needs 2 condensate; you hold 0."
+    },
+    {
+      "name": "integrated-before-clear",
+      "reserve": 4525,
+      "reserveKey": "p23.mistglass.condensate",
+      "coins": 5000,
+      "reputation": {
+        "Village": 0,
+        "Slums": 0,
+        "Town": 0
+      },
+      "clock": 53,
+      "historyId": "mill-race",
+      "technique": "settling",
+      "label": "Clear the jammed outflow sluice · 1 condensate, +1 Village standing",
+      "disabled": false,
+      "stage": "Still-pool refinement: Integrated"
+    },
+    {
+      "name": "after-clear",
+      "reserve": 3525,
+      "reserveKey": "p23.mistglass.condensate",
+      "coins": 5000,
+      "reputation": {
+        "Village": 1,
+        "Slums": 0,
+        "Town": 0
+      },
+      "clock": 53,
+      "historyId": "mill-race",
+      "sluice": {
+        "schema": 1,
+        "cleared": 1,
+        "lastAt": 53,
+        "lastCost": 1000
+      },
+      "technique": "settling",
+      "label": "Clear the jammed outflow sluice · 1 condensate, +1 Village standing",
+      "disabled": true,
+      "title": "The sluice runs clear; it silts up again in 60 played minutes."
+    },
+    {
+      "name": "deltas",
+      "reserveDropMilli": 1000,
+      "coinDelta": 0,
+      "reputationDelta": 1,
+      "note": "reserve may include one advance tick of accrual"
+    },
+    {
+      "name": "reloaded",
+      "reserve": 3525,
+      "reserveKey": "p23.mistglass.condensate",
+      "coins": 5000,
+      "reputation": {
+        "Village": 1,
+        "Slums": 0,
+        "Town": 0
+      },
+      "clock": 53,
+      "historyId": "mill-race",
+      "sluice": {
+        "schema": 1,
+        "cleared": 1,
+        "lastAt": 53,
+        "lastCost": 1000
+      },
+      "technique": "settling"
+    },
+    {
+      "name": "literal-import",
+      "reserve": 3650,
+      "reserveKey": "p23.mistglass.condensate",
+      "coins": 5000,
+      "reputation": {
+        "Village": 1,
+        "Slums": 0,
+        "Town": 0
+      },
+      "clock": 54,
+      "historyId": "mill-race",
+      "sluice": {
+        "schema": 1,
+        "cleared": 1,
+        "lastAt": 53,
+        "lastCost": 1000
+      },
+      "technique": "settling"
+    },
+    {
+      "name": "after-import",
+      "reserve": 3775,
+      "reserveKey": "p23.mistglass.condensate",
+      "coins": 5000,
+      "reputation": {
+        "Village": 1,
+        "Slums": 0,
+        "Town": 0
+      },
+      "clock": 55,
+      "historyId": "mill-race",
+      "sluice": {
+        "schema": 1,
+        "cleared": 1,
+        "lastAt": 53,
+        "lastCost": 1000
+      },
+      "technique": "settling"
+    }
+  ]
+}

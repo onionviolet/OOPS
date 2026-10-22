@@ -1,5 +1,13 @@
 # Minecraft mechanisms in the native field workshop, 2026-10-21
 
+Current publication, checked 2026-10-22: the released MF scope, including
+MF26–MF34, was handed off via [PUBLICATION_HANDOFF.json](PUBLICATION_HANDOFF.json)
+and included in published `7df5a7df7`. The
+[combined release](../inventory-overhaul-2026-10-21/REPORT.md) owns latest recorded
+normal Electron adoption `v0.6-72af84cf8e66`. Pending coordinator/adoption and
+no-commit/no-push passages below describe the earlier MF task boundary, not
+remaining publication work. Natural pacing and human judgment remain open.
+
 Owner: this Codex chat, primary checkout. No delegated agents, commits, pushes,
 personal saves or Minecraft assets/code. INPUTS.json records the starting HEAD
 and unrelated dirty files. No same-day Minecraft implementation owner found.

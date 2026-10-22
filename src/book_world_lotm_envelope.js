@@ -21,6 +21,8 @@ export function validateLotmEnvelope(save){
  const f=state.actors?.player?.facts||{},ingested=f['book.lotm.ingested']===true;
  const dose=count(save,'main_character',K.dose)+count(save,I.supervisor,K.dose)+reserved(state,K.dose);
  assert(dose===(ingested?0:1),'The prepared dose must be held exactly once until it is taken.');
+ const clown=count(save,'main_character',K.clownDose)+count(save,I.supervisor,K.clownDose)+reserved(state,K.clownDose);
+ assert(clown===(f['book.lotm.assessed']===true&&f['book.lotm.promoted']!==true?1:0),'The released Clown dose must be held exactly once until it is drunk.');
  for(const name of LOTM_SAMPLES)assert(count(save,'main_character',K[name])+count(save,I.supervisor,K[name])+reserved(state,K[name])===1,'Each sample must have exactly one holder.');
  return true;
 }

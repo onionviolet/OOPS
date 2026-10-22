@@ -3,7 +3,7 @@
 import {normalizePacing} from '../../absorb_e1/pacing.js';
 export const EXPOSURE_SCHEMA = 1;
 export const PROFILE = Object.freeze({id:'storm-gust', gustMinutes:6, restMinutes:12,
-    staminaPerMinute:0.2, coldXpPerMinute:0.02, temperatureOffset:-3});
+    staminaPerMinute:0.2, coldXpPerMinute:0.02, temperatureOffset:-3, hardenedOffset:-1, hardenedStamina:0.5});
 export const FAMINE = Object.freeze({skillId:'Famine', threshold:20, xpPerMinute:0.01});
 const finite = (n, min, max) => typeof n==='number' && Number.isFinite(n) && n>=min && n<=max;
 function fail() {throw new Error('Invalid exposure state');}
@@ -58,6 +58,13 @@ function advanceRhythm(state, minutes) {
 // The host supplies one contiguous native played interval with constant context.
 // Split at food, world, body, shelter, option and resource changes. Stage atomically
 // with pacing + native skill XP + resource updates; publish only after save succeeds.
+// Same known per-gust terms for native settlement and its status projection.
+export function gustTerms(context={}) {
+    const level=finite(context.coldResistanceLevel,0,10000)?context.coldResistanceLevel:0;
+    const hardened=context.coldHardened===true;
+    return {staminaPerMinute:PROFILE.staminaPerMinute/(1+0.05*level)*(hardened?PROFILE.hardenedStamina:1),
+        temperatureOffset:hardened?PROFILE.hardenedOffset:PROFILE.temperatureOffset};
+}
 export function stageExposure(raw, event, context={}) {
     const state=validateExposure(raw)??createExposure();
     if(!event || !finite(event.start,0,Number.MAX_SAFE_INTEGER) || !finite(event.end,event.start,Number.MAX_SAFE_INTEGER))
@@ -81,8 +88,7 @@ export function stageExposure(raw, event, context={}) {
         const gust=advanceRhythm(state,minutes);
         if(context.outdoors===true && context.sheltered===false) {
             output.gustMinutes=gust;
-            const level=finite(context.coldResistanceLevel,0,10000)?context.coldResistanceLevel:0;
-            output.staminaCost=gust*PROFILE.staminaPerMinute/(1+0.05*level);
+            output.staminaCost=gust*gustTerms(context).staminaPerMinute;
             const earned=quantize(state.coldRemainder,gust*PROFILE.coldXpPerMinute);
             state.coldRemainder=earned.remainder;
             if(earned.xp>0) output.skillXp['Cold resistance']=earned.xp;
@@ -96,7 +102,7 @@ export function exposureEffects(raw, context={}) {
     const active=context.played===true && state.hazardousEnabled && pacing.weatherEnabled && context.homeWorld===true && context.exposureEligible===true;
     const exposed=active && context.outdoors===true && context.sheltered===false && state.phase==='gust';
     return {active,exposed,phase:state.phase,remaining:state.remaining,
-        temperatureOffset:exposed?PROFILE.temperatureOffset:0};
+        temperatureOffset:exposed?gustTerms(context).temperatureOffset:0};
 }
 // Real skill function, projected by P00 over E1's existing optional loss only.
 // Level 40 removes at most five percentage points, never adds a second meal bonus.

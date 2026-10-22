@@ -1,13 +1,15 @@
 import {admitHousehold,staffReadiness,planHouseholdLife} from './home_household.js';
+import {planHomeOffice} from './home_office.js';
 import {HOME_PLACES as P,HOME_STARTS as S,HOME_SITE,homeKey as k} from './home_content.js';
 import {BUILDER,STEWARD,COOK,KEEPER} from './home_work_content.js';
 const check=(v,m)=>{if(!v)throw Error('Home: '+m);};
 const resource=(actor,key,amount)=>({type:'resource',actor,key,amount});
 export const HOME_STAFF=[{id:STEWARD,name:'Rowan',role:'Family steward'},{id:COOK,name:'Iven',role:'Household cook'},{id:KEEPER,name:'Toma',role:'Estate caretaker'}];
 export function admitManorStaff(profile,out) {
-    const p=S[profile];if(!p?.rank)return;
+    const worker=profile==='worker',p=worker?{rank:'Provision worker',estateFunds:32,allowance:0}:S[profile];if(!p?.rank)return;
     for(const actor of [STEWARD,COOK,KEEPER])out.simEffects.push({type:'spawn',personId:actor,definitionId:actor},{type:'fact',scope:'actor',actor,key:'home.employed',value:true});
     admitHousehold(out);
+    if(worker)out.simEffects.push({type:'fact',scope:'actor',actor:'player',key:'home.institutionWorker',value:true});
     out.simEffects.push({type:'fact',scope:'actor',actor:'player',key:'home.rank',value:p.rank},resource(STEWARD,'home.estateFunds',p.estateFunds),resource(STEWARD,'home.allowanceRemaining',p.allowance),
         {type:'item',actor:COOK,key:k('Rat meat chunks'),amount:4},{type:'item',actor:COOK,key:k('Rough wood log'),amount:3},
         {type:'item',actor:KEEPER,key:k('Rough wood log'),amount:4},{type:'item',actor:KEEPER,key:k('Home dry grass'),amount:8});
@@ -15,7 +17,7 @@ export function admitManorStaff(profile,out) {
 export function planHomeStaff(s,r,c,out) {
     const home=s.properties.manor,atManor=home?.access&&c.location===P.manor.location&&c.body.form==='human';
     const available=id=>c.people?.[id]?.life==='alive'&&c.people[id].location===(id===BUILDER?c.location:P.manor.location);
-    if(planHouseholdLife(s,r,c,out))return true;
+    if(planHouseholdLife(s,r,c,out)||planHomeOffice(s,r,c,out))return true;
     switch(r.type) {
     case 'hire_builder': {
         check(c.body.form==='human'&&(c.body.hands||0)>0,'agree the shared work with a supported speaking body');
@@ -28,8 +30,8 @@ export function planHomeStaff(s,r,c,out) {
     case 'dismiss_builder': check(available(BUILDER)&&!c.jobs?.some(j=>(j.participants||[j.actorId]).includes(BUILDER)),'meet the idle builder before ending the visit');out.simEffects.push({type:'relocate',actor:BUILDER,location:'Village'});out.minutes=c.location==='Village'?0:5;out.message='Ada returns to Village with her earned wages. Unfinished project materials and completed work remain at their site.';return true;
     case 'allowance': {check(atManor&&available(STEWARD),'meet your family steward at the manor');const n=c.staffResources?.[STEWARD]?.['home.allowanceRemaining']||0;check(n>0&&(c.staffResources?.[STEWARD]?.['home.estateFunds']||0)>=n,'the agreed allowance is exhausted or the household cannot fund it');out.simEffects.push(resource(STEWARD,'home.estateFunds',-n),resource(STEWARD,'home.allowanceRemaining',-n));out.money+=n;out.message=`Rowan transfers your agreed ${n}-coin allowance from the retained household funds. Staff pay and the remaining treasury still belong to the household.`;return true;}
     case 'staff_order': {
-        check(atManor,'request household services at your actual family home');const actor=r.service==='cook'?COOK:KEEPER;check(available(actor),'the willing staff member is not present');
-        check(['cook','repair','dry'].includes(r.service),'choose a supported household service');
+        check(atManor,'request household services at your actual family home');check(r.service!=='gather'||!c.jobs?.some(j=>j.commandId==='home.staff.gather'),'Toma is already out gathering');const actor=r.service==='cook'?COOK:KEEPER;check(available(actor),'the willing staff member is not present');
+        check(['cook','repair','dry','gather'].includes(r.service),'choose a supported household service');
         check(staffReadiness(c,actor)==='willing to consider a funded request',staffReadiness(c,actor));
         if(r.service==='repair')check((home.condition?.integrity??100)<100&&!s.projects?.manor,'the roof needs damage and no competing building project');
         if(r.service==='dry')check((home.condition?.wetness||0)>0,'the room is already dry');

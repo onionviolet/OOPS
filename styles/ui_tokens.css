@@ -1692,3 +1692,11 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 #main_content.workspace-active .customization-module[data-typography-font="gothic"] :is(.stat_value,.character_stat_value,.inventory_item_count,.item_count,.meter-bar-value,.log-value,.log-repeat,.scene-calendar,.scene-glyph,pre) {
  font-family:var(--custom-font);
 }
+
+/* Log source links must not create an invisible trailing line at large text. */
+#main_content.workspace-active[data-parity="r3"] #message_box_div .message_common {position:relative;padding-right:round(1.6em, 1px);}
+#main_content.workspace-active[data-parity="r3"] #message_box_div .notice-panel-link {position:absolute;right:.3em;top:.2em;width:calc(var(--custom-size,var(--ui-type-body)) * 1.1)!important;height:auto!important;min-width:0!important;padding:0!important;font-size:0!important;background:var(--p23-message-fill)!important;}
+
+#main_content.workspace-active[data-parity="r3"] #message_box_div .notice-panel-link::after {content:"›";font-size:var(--custom-size,var(--ui-type-body));line-height:1.3;}
+/* Expanded headings scroll over content and need an opaque surface. */
+#main_content.workspace-active[data-parity="r3"] .expanded-panel-view > .expanded-panel-heading {background:var(--p23-message-fill)!important;}

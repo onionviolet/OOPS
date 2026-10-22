@@ -133,11 +133,11 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
         if(attributeRow){contextPreview.append(attributeExplanation(attributeRow));
         }else if(source.dataset.contextPreview==='temperature'){
             contextPreview.append(node('strong','Temperature'),node('p',source.title));
-            const native=document.getElementById('temperature_tooltip');if(native)contextPreview.append(descriptionCopy(native));
-        }else if(source.logDescription){const saved=node('div');saved.innerHTML=source.logDescription;contextPreview.append(descriptionCopy(saved),node('small','Description recorded with this event.'));
+            const native=document.getElementById('temperature_tooltip');if(native)contextPreview.append(descriptionCopy(native,{omitTitle:false}));
+        }else if(source.logDescription){const saved=node('div');saved.innerHTML=source.logDescription;contextPreview.append(descriptionCopy(saved,{omitTitle:false}),node('small','Description recorded with this event.'));
         }else if(source.dataset.contextPreview==='effect'){
             const view=source.nativeEffectView;if(!view)return;
-            const copy=node('div');copy.innerHTML=view.html;contextPreview.append(descriptionCopy(copy));
+            const copy=node('div');copy.innerHTML=view.html;contextPreview.append(descriptionCopy(copy,{omitTitle:false}));
             if(view.ended)contextPreview.append(node('p','This effect has ended.'));
         }else if(source.dataset.contextPreview==='effects'){
             const native=document.getElementById('effects_tooltip');if(!native)return;

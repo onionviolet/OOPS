@@ -75,7 +75,7 @@ function createProperty(id,clock,starting=false) {
     return h;
 }
 export function planHome(raw,request,c) {
-    validateHomes(raw,c);check(c.alive&&(c.ready||['cancel_work','cancel_staff','cancel_household'].includes(request.type)&&c.writable!==false),'use your living, free body and writable save');
+    validateHomes(raw,c);check(c.alive&&(c.ready||['cancel_work','cancel_staff','cancel_household','office_cancel'].includes(request.type)&&c.writable!==false),'use your living, free body and writable save');
     check(c.body.ownerId==='player'&&c.body.controllerId==='player','control your own body');
     check(c.world===HOME_WORLD||Object.entries(c.nativeRights||{}).some(([id,right])=>right&&(P[id].world||HOME_WORLD)===c.world),'visit a world with supported residence rights');
     const simEffects=[];const s=settleHomes(raw,c,null,rows=>simEffects.push(...rows))||emptyHomes(),items=[],out={simEffects,state:s,items,money:c.money,minutes:0,message:'',body:null,householdEffects:[]};
@@ -88,6 +88,12 @@ export function planHome(raw,request,c) {
     const means=form=>{check(c.body.mobile!==false,'reach and work at this site with a mobile body');check(c.body.form===form,'this construction method needs a fitting body');if(form==='human')check(c.body.hands>=1,'use a hand to gather and lash');if(form==='bird')check(c.body.flying===true&&c.body.beak===true&&c.body.feet>=1,'nest weaving here needs flight, a beak and grasping feet');if(form==='fox')check(c.body.paws>=2,'dig and gather using usable paws');};
     const site=()=>check(c.location===HOME_SITE&&c.world===HOME_WORLD,'visit the wild willow stand and its suitable unclaimed sites');
     if(!planHomeBuilding(s,request,c,out,{spend,receive,owner,local,means,site,h})&&!planHomeStaff(s,request,c,out))switch(request.type) {
+    case 'institution_join': {
+        check(c.world===HOME_WORLD&&c.location==='Village'&&c.body.form==='human'&&c.body.ownerId==='player'&&c.body.controllerId==='player','Meet the household recruiter in Village in your living controlled human body.');
+        check(!s.properties.manor&&!c.people?.['home.manor.steward'],'This household already has a retained agreement; visit it instead of creating new funds.');
+        const home=createProperty('manor',c.clock);s.properties.manor=home;s.primary='manor';s.beginning=false;admitManorStaff('worker',out);
+        out.location=P.manor.location;out.message='You enter the Arlmere household as a provision worker and student, with a room by agreement. The household retains its estate, finite 32-coin treasury, pantry and staff. Study its primer and keep the ledger appointment to earn provision-office authority; no personal mastery or noble inheritance is granted.';break;
+    }
     case 'start': {
         const p=S[request.profile];check(p&&c.fresh&&(!raw||s.beginning===true)&&!s.start&&Object.keys(s.properties).length===0&&!c.legacyAnimal,'choose one beginning before progressing or acquiring a home');
         const home=p.home?createProperty(p.home,c.clock,true):null;s.beginning=false;if(home){s.properties[p.home]=home;s.primary=p.home;}s.start={profile:request.profile,at:c.clock};

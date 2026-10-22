@@ -1,5 +1,11 @@
 # P4 native repair completion, 2026-10-21
 
+Current publication, checked 2026-10-22: published commit `e1a68873d` contains
+this P4 release and is included in the later
+[combined release](../inventory-overhaul-2026-10-21/REPORT.md). The no-commit/no-push
+wording below describes the implementation run before the separately authorized
+publication. No fresh P4 gameplay run or human acceptance is implied.
+
 Current state: selected P4 implementation and rebuilt native gates pass. This is the renewed P4 task, not a new
 repair system or general transaction/clock rewrite. Exact user instruction and
 ownership are in [P4 status](P4_STATUS.md). Rules AR1–16, AD6–8/15–18/32–38/41,

@@ -60,3 +60,48 @@ test('unearned shared labor pay rejoins the estate before debt settlement and is
  const previous={homes:r.s,expansion:{...structuredClone(r.p.state),clock:end,chronicle:ch},character:{money:0,reputation:{}},village_career:{debt:3}};
  const l=deriveHeirLeftovers(previous);assert.equal(l.residences.money,2);assert.equal(l.money,0);assert.deepEqual(l.debts,[{id:'kitDebt',owed:3,paid:2,shortfall:1}]);const next={character:{money:10,reputation:{}},inventories:{}};applyHeirLeftovers(next,l);assert.equal(next.character.money,10);assert.equal(next.homes.properties.shelter,undefined);assert.equal(next.inventories.person.main_character[k('Home fallen poles')].count,4);
 });
+
+import {staffQuote} from '../src/home_work_content.js';
+test('E2: a gathering errand reserves Toma by person ID, settles exactly its quoted terms once and survives reload',()=>{
+ const r=rig();r.run({type:'start',profile:'ducal'});const q=staffQuote('home.staff.gather');
+ assert.deepEqual({minutes:q.minutes,funds:q.funds,energy:q.energy},{minutes:30,funds:2,energy:20});
+ const before={funds:r.p.state.actors[STEWARD].resources['home.estateFunds'],stock:{...r.p.state.simulation.owners[KEEPER]}};
+ r.run({type:'staff_order',service:'gather'});
+ const job=r.p.state.simulation.jobs.find(j=>j.commandId==='home.staff.gather');assert.equal(job.actorId,KEEPER);assert.equal(job.due-r.p.state.clock,q.minutes);
+ r.s.properties.manor.condition={...r.s.properties.manor.condition,wetness:50};assert.throws(()=>r.run({type:'staff_order',service:'dry'}),/working|current activity|unavailable/);
+ assert.throws(()=>r.run({type:'staff_order',service:'gather'}),/gathering|working/);
+ r.reload();r.go('Village');r.advance(q.minutes);r.go(P.manor.location);
+ assert.equal(r.p.state.simulation.jobs.some(j=>j.commandId==='home.staff.gather'),false);
+ for(const y of q.yields)assert.equal(r.p.state.simulation.owners[KEEPER][y.key],(before.stock[y.key]||0)+y.count);
+ assert.equal(r.p.state.actors[STEWARD].resources['home.estateFunds'],before.funds-q.funds);
+ r.advance(30);for(const y of q.yields)assert.equal(r.p.state.simulation.owners[KEEPER][y.key],(before.stock[y.key]||0)+y.count,'settles once');
+ r.run({type:'staff_order',service:'gather'});r.run({type:'cancel_staff',job:r.p.state.simulation.jobs.find(j=>j.commandId==='home.staff.gather').id});
+ assert.equal(r.p.state.actors[STEWARD].resources['home.estateFunds'],before.funds-q.funds,'cancellation refunds the reserved wage');
+});
+
+// E5b: office fund and policy pass to a successor; personal wages and energy do not.
+import {officeDecision,OFFICE_TERMS} from '../src/home_office.js';
+import {homeJobContext} from '../src/home_work.js';
+test('E5b: the pantry office orders under its disclosed policy, pauses with a reason and passes its fund to a successor',()=>{
+ const r=rig();r.run({type:'start',profile:'ducal'});
+ const ctx=()=>{const s=r.p.state,sim=s.simulation,ids=[STEWARD,COOK,KEEPER,TUTOR,SUPPLIER];return {people:sim.people,jobs:sim.jobs,staffResources:Object.fromEntries(ids.map(id=>[id,s.actors[id]?.resources||{}])),staffStock:Object.fromEntries(ids.map(id=>[id,sim.owners[id]||{}])),staffFacts:Object.fromEntries(ids.map(id=>[id,s.actors[id]?.facts||{}]))};};
+ assert.equal(officeDecision(ctx()).status,'none');
+ const treasury=r.p.state.actors[STEWARD].resources['home.estateFunds'];
+ r.run({type:'office_establish'});assert.equal(r.p.state.actors[STEWARD].resources['home.officeFunds'],OFFICE_TERMS.establish);
+ assert.equal(r.p.state.actors[STEWARD].resources['home.estateFunds'],treasury-OFFICE_TERMS.establish);assert.throws(()=>r.run({type:'office_establish'}),/already exists/);
+ assert.equal(officeDecision(ctx()).status,'idle');
+ r.p.state.simulation.owners[COOK][k('Rat meat chunks')]=1;const d=officeDecision(ctx());assert.equal(d.status,'order');assert.equal(d.job.actor,STEWARD);
+ const order=(job)=>{const p=r.p;p.state.sequence++;stageHomeJob(p,job,registry,{location:P.manor.location,body:p.state.simulation.people.player.body});};
+ order(d.job);assert.equal(officeDecision(ctx()).status,'waiting');assert.equal(r.p.state.actors[STEWARD].resources['home.officeFunds'],OFFICE_TERMS.establish-OFFICE_TERMS.orderCost);
+ r.reload();r.advance(20);assert.equal(r.p.state.simulation.owners[COOK][k('Rat meat chunks')],1+OFFICE_TERMS.meat,'delivery settles once from the office fund');
+ r.run({type:'pantry_return'});r.advance(10);delete r.p.state.simulation.owners[COOK][k('Rat meat chunks')];
+ const rowanWages=r.p.state.actors[STEWARD].resources['home.wages']||0,tomaEnergy=r.p.state.actors[KEEPER].resources['home.energy'];
+ assert.throws(()=>r.run({type:'office_succeed'}),/available/);
+ r.run({type:'staff_leave',actor:STEWARD});const paused=officeDecision(ctx());assert.equal(paused.status,'paused');assert.match(paused.reason,/Rowan is on agreed leave/);
+ r.run({type:'office_succeed'});
+ assert.equal(r.p.state.actors[KEEPER].resources['home.officeFunds'],OFFICE_TERMS.establish-OFFICE_TERMS.orderCost);assert.equal(r.p.state.actors[STEWARD].resources['home.officeFunds'],0);
+ assert.equal(r.p.state.actors[STEWARD].resources['home.wages']||0,rowanWages,'personal wages stay with Rowan');assert.equal(r.p.state.actors[KEEPER].resources['home.energy'],tomaEnergy);
+ const next=officeDecision(ctx());assert.equal(next.status,'order');assert.equal(next.job.actor,KEEPER);order(next.job);
+ r.advance(20);assert.equal(r.p.state.simulation.owners[COOK][k('Rat meat chunks')],OFFICE_TERMS.meat);assert.equal(r.p.state.actors[KEEPER].resources['home.officeFunds'],0);
+ delete r.p.state.simulation.owners[COOK][k('Rat meat chunks')];assert.match(officeDecision(ctx()).reason,/fund holds 0/);
+});

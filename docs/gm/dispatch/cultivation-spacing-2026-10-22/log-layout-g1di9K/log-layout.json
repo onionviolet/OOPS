@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "lane": "log-layout",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "a696c8399c7bfd3dc8fffce02835281a9271e3204ff221ff4f527a9eeee1f3b9",
+  "gates": [
+    "Screenshot-shaped log fixtures at all six desktop/text targets: compact row geometry and actual delegated hover retains full subject description"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Disposable old-baseline save; screenshot-shaped DOM log fixtures exercise live CSS and native delegated hover. Geometry excludes invisible source-link wrapping. This is presentation evidence, not new skill acquisition.",
+  "matrix": {
+    "viewports": [
+      [
+        1920,
+        1080
+      ],
+      [
+        1800,
+        1040
+      ],
+      [
+        1536,
+        864
+      ]
+    ],
+    "textSizes": [
+      14,
+      21
+    ]
+  }
+}

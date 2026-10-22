@@ -1,0 +1,1970 @@
+[
+  {
+    "surface": "repairer",
+    "width": 1920,
+    "height": 1080,
+    "size": 14,
+    "font": "14px",
+    "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Apply quoted process",
+        "left": 685.65625,
+        "right": 841.65625
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+        "left": 685.65625,
+        "right": 1198.65625
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+        "left": 685.65625,
+        "right": 1191.65625
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+        "left": 685.65625,
+        "right": 1135.65625
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+        "left": 685.65625,
+        "right": 1128.65625
+      },
+      {
+        "text": "Smoke three rat pelts over a slow fire",
+        "left": 685.65625,
+        "right": 967.65625
+      },
+      {
+        "text": "Dress three rat pelts with lamp oil",
+        "left": 685.65625,
+        "right": 946.65625
+      }
+    ],
+    "viewport": 1920
+  },
+  {
+    "surface": "repairer",
+    "width": 1920,
+    "height": 1080,
+    "size": 21,
+    "font": "21px",
+    "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Apply quoted process",
+        "left": 689.65625,
+        "right": 925.65625
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+        "left": 689.65625,
+        "right": 1360.4375
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+        "left": 689.65625,
+        "right": 1360.4375
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+        "left": 689.65625,
+        "right": 1360.4375
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+        "left": 689.65625,
+        "right": 1360.4375
+      },
+      {
+        "text": "Smoke three rat pelts over a slow fire",
+        "left": 689.65625,
+        "right": 1123.65625
+      },
+      {
+        "text": "Dress three rat pelts with lamp oil",
+        "left": 689.65625,
+        "right": 1090.65625
+      }
+    ],
+    "viewport": 1920
+  },
+  {
+    "surface": "repairer",
+    "width": 1800,
+    "height": 1040,
+    "size": 14,
+    "font": "14px",
+    "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Apply quoted process",
+        "left": 645.65625,
+        "right": 801.65625
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+        "left": 645.65625,
+        "right": 1158.65625
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+        "left": 645.65625,
+        "right": 1151.65625
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+        "left": 645.65625,
+        "right": 1095.65625
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+        "left": 645.65625,
+        "right": 1088.65625
+      },
+      {
+        "text": "Smoke three rat pelts over a slow fire",
+        "left": 645.65625,
+        "right": 927.65625
+      },
+      {
+        "text": "Dress three rat pelts with lamp oil",
+        "left": 645.65625,
+        "right": 906.65625
+      }
+    ],
+    "viewport": 1800
+  },
+  {
+    "surface": "repairer",
+    "width": 1800,
+    "height": 1040,
+    "size": 21,
+    "font": "21px",
+    "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Apply quoted process",
+        "left": 649.65625,
+        "right": 885.65625
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+        "left": 649.65625,
+        "right": 1272.59375
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+        "left": 649.65625,
+        "right": 1272.59375
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+        "left": 649.65625,
+        "right": 1272.59375
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+        "left": 649.65625,
+        "right": 1272.59375
+      },
+      {
+        "text": "Smoke three rat pelts over a slow fire",
+        "left": 649.65625,
+        "right": 1083.65625
+      },
+      {
+        "text": "Dress three rat pelts with lamp oil",
+        "left": 649.65625,
+        "right": 1050.65625
+      }
+    ],
+    "viewport": 1800
+  },
+  {
+    "surface": "repairer",
+    "width": 1536,
+    "height": 864,
+    "size": 14,
+    "font": "14px",
+    "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Apply quoted process",
+        "left": 581.84375,
+        "right": 737.84375
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+        "left": 581.84375,
+        "right": 1036.6875
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+        "left": 581.84375,
+        "right": 1036.6875
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+        "left": 581.84375,
+        "right": 1031.84375
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+        "left": 581.84375,
+        "right": 1024.84375
+      },
+      {
+        "text": "Smoke three rat pelts over a slow fire",
+        "left": 581.84375,
+        "right": 863.84375
+      },
+      {
+        "text": "Dress three rat pelts with lamp oil",
+        "left": 581.84375,
+        "right": 842.84375
+      }
+    ],
+    "viewport": 1536
+  },
+  {
+    "surface": "repairer",
+    "width": 1536,
+    "height": 864,
+    "size": 21,
+    "font": "21px",
+    "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Apply quoted process",
+        "left": 584.625,
+        "right": 820.625
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Smoke three rat pelts over a slow fire",
+        "left": 584.625,
+        "right": 1018.625
+      },
+      {
+        "text": "Dress three rat pelts with lamp oil",
+        "left": 584.625,
+        "right": 985.625
+      }
+    ],
+    "viewport": 1536
+  },
+  {
+    "surface": "institution",
+    "width": 1920,
+    "height": 1080,
+    "size": 14,
+    "font": "14px",
+    "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Make this your main residence",
+        "left": 685.65625,
+        "right": 904.65625
+      },
+      {
+        "text": "Pack Plain bed",
+        "left": 685.65625,
+        "right": 799.65625
+      },
+      {
+        "text": "Pack Ragwork blanket",
+        "left": 685.65625,
+        "right": 841.65625
+      },
+      {
+        "text": "Pack Wooden tableware",
+        "left": 685.65625,
+        "right": 848.65625
+      },
+      {
+        "text": "Pack Fitted hearth",
+        "left": 685.65625,
+        "right": 827.65625
+      },
+      {
+        "text": "Pack Bookcase",
+        "left": 685.65625,
+        "right": 792.65625
+      },
+      {
+        "text": "Store one selected item",
+        "left": 685.65625,
+        "right": 862.65625
+      },
+      {
+        "text": "Stock 1 Rough wood log",
+        "left": 685.65625,
+        "right": 855.65625
+      },
+      {
+        "text": "Light hearth · 1 Rough wood log",
+        "left": 685.65625,
+        "right": 918.65625
+      },
+      {
+        "text": "Bring Moss from your previous local home",
+        "left": 685.65625,
+        "right": 981.65625
+      },
+      {
+        "text": "Reserve repair materials and begin repairs",
+        "left": 685.65625,
+        "right": 995.65625
+      },
+      {
+        "text": "Fit extra weather protection · 1 pole/twig + 2 grass, or earthwork for a burrow",
+        "left": 685.65625,
+        "right": 1254.65625
+      },
+      {
+        "text": "Ask Rowan for the agreed allowance",
+        "left": 685.65625,
+        "right": 939.65625
+      },
+      {
+        "text": "Ask Iven to prepare two meals · 2 household coins, 2 meat chunks + 1 log · 10 min",
+        "left": 685.65625,
+        "right": 1268.65625
+      },
+      {
+        "text": "Ask Toma to patch the roof · 3 household coins, 1 log + 2 grass · 15 min",
+        "left": 685.65625,
+        "right": 1205.65625
+      },
+      {
+        "text": "Ask Toma to dry the room · 2 household coins + 1 log · 10 min",
+        "left": 685.65625,
+        "right": 1128.65625
+      },
+      {
+        "text": "Ask Toma to gather on the estate grounds · 2 household coins, 20 of his energy · 30 min → 2 Rough wood log + 3 Home dry grass into his stock",
+        "left": 685.65625,
+        "right": 1362.421875
+      },
+      {
+        "text": "Agree leave with Rowan",
+        "left": 685.65625,
+        "right": 855.65625
+      },
+      {
+        "text": "Discuss resuming duties with Rowan",
+        "left": 685.65625,
+        "right": 939.65625
+      },
+      {
+        "text": "Agree leave with Iven",
+        "left": 685.65625,
+        "right": 848.65625
+      },
+      {
+        "text": "Discuss resuming duties with Iven",
+        "left": 685.65625,
+        "right": 932.65625
+      },
+      {
+        "text": "Agree leave with Toma",
+        "left": 685.65625,
+        "right": 848.65625
+      },
+      {
+        "text": "Discuss resuming duties with Toma",
+        "left": 685.65625,
+        "right": 932.65625
+      },
+      {
+        "text": "Agree leave with Sera",
+        "left": 685.65625,
+        "right": 848.65625
+      },
+      {
+        "text": "Discuss resuming duties with Sera",
+        "left": 685.65625,
+        "right": 932.65625
+      },
+      {
+        "text": "Study reading with Sera · 20 min, 4 household coins",
+        "left": 685.65625,
+        "right": 1058.65625
+      },
+      {
+        "text": "Agree to help with the provision ledger",
+        "left": 685.65625,
+        "right": 974.65625
+      },
+      {
+        "text": "Decline this request for now",
+        "left": 685.65625,
+        "right": 897.65625
+      },
+      {
+        "text": "Keep the agreed ledger appointment · 15 min",
+        "left": 685.65625,
+        "right": 1002.65625
+      },
+      {
+        "text": "Arrange Mara’s return to Village · 10 min",
+        "left": 685.65625,
+        "right": 995.65625
+      },
+      {
+        "text": "Order 4 meat chunks + 2 logs · 8 household coins, 20 min delivery",
+        "left": 685.65625,
+        "right": 1156.65625
+      },
+      {
+        "text": "Hand the office to an available successor",
+        "left": 685.65625,
+        "right": 988.65625
+      },
+      {
+        "text": "Close the pantry office and return its fund",
+        "left": 685.65625,
+        "right": 1002.65625
+      },
+      {
+        "text": "Accept one prepared household meal",
+        "left": 685.65625,
+        "right": 939.65625
+      },
+      {
+        "text": "Offer one owned Rat meat chunks",
+        "left": 685.65625,
+        "right": 918.65625
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 685.65625,
+        "right": 911.65625
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 685.65625,
+        "right": 911.65625
+      },
+      {
+        "text": "Offer one owned Home dry grass",
+        "left": 685.65625,
+        "right": 911.65625
+      },
+      {
+        "text": "Weave dry lining · 3 dry grass bundles · 8 min",
+        "left": 685.65625,
+        "right": 1023.65625
+      }
+    ],
+    "viewport": 1920
+  },
+  {
+    "surface": "institution",
+    "width": 1920,
+    "height": 1080,
+    "size": 21,
+    "font": "21px",
+    "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Make this your main residence",
+        "left": 689.65625,
+        "right": 1024.65625
+      },
+      {
+        "text": "Pack Plain bed",
+        "left": 689.65625,
+        "right": 859.65625
+      },
+      {
+        "text": "Pack Ragwork blanket",
+        "left": 689.65625,
+        "right": 925.65625
+      },
+      {
+        "text": "Pack Wooden tableware",
+        "left": 689.65625,
+        "right": 936.65625
+      },
+      {
+        "text": "Pack Fitted hearth",
+        "left": 689.65625,
+        "right": 903.65625
+      },
+      {
+        "text": "Pack Bookcase",
+        "left": 689.65625,
+        "right": 848.65625
+      },
+      {
+        "text": "Store one selected item",
+        "left": 689.65625,
+        "right": 958.65625
+      },
+      {
+        "text": "Stock 1 Rough wood log",
+        "left": 689.65625,
+        "right": 947.65625
+      },
+      {
+        "text": "Light hearth · 1 Rough wood log",
+        "left": 689.65625,
+        "right": 1046.15625
+      },
+      {
+        "text": "Bring Moss from your previous local home",
+        "left": 689.65625,
+        "right": 1145.65625
+      },
+      {
+        "text": "Reserve repair materials and begin repairs",
+        "left": 689.65625,
+        "right": 1167.65625
+      },
+      {
+        "text": "Fit extra weather protection · 1 pole/twig + 2 grass, or earthwork for a burrow",
+        "left": 689.65625,
+        "right": 1360.4375
+      },
+      {
+        "text": "Ask Rowan for the agreed allowance",
+        "left": 689.65625,
+        "right": 1079.65625
+      },
+      {
+        "text": "Ask Iven to prepare two meals · 2 household coins, 2 meat chunks + 1 log · 10 min",
+        "left": 689.65625,
+        "right": 1360.4375
+      },
+      {
+        "text": "Ask Toma to patch the roof · 3 household coins, 1 log + 2 grass · 15 min",
+        "left": 689.65625,
+        "right": 1360.4375
+      },
+      {
+        "text": "Ask Toma to dry the room · 2 household coins + 1 log · 10 min",
+        "left": 689.65625,
+        "right": 1360.4375
+      },
+      {
+        "text": "Ask Toma to gather on the estate grounds · 2 household coins, 20 of his energy · 30 min → 2 Rough wood log + 3 Home dry grass into his stock",
+        "left": 689.65625,
+        "right": 1360.4375
+      },
+      {
+        "text": "Agree leave with Rowan",
+        "left": 689.65625,
+        "right": 947.65625
+      },
+      {
+        "text": "Discuss resuming duties with Rowan",
+        "left": 689.65625,
+        "right": 1079.65625
+      },
+      {
+        "text": "Agree leave with Iven",
+        "left": 689.65625,
+        "right": 936.65625
+      },
+      {
+        "text": "Discuss resuming duties with Iven",
+        "left": 689.65625,
+        "right": 1068.65625
+      },
+      {
+        "text": "Agree leave with Toma",
+        "left": 689.65625,
+        "right": 936.65625
+      },
+      {
+        "text": "Discuss resuming duties with Toma",
+        "left": 689.65625,
+        "right": 1068.65625
+      },
+      {
+        "text": "Agree leave with Sera",
+        "left": 689.65625,
+        "right": 936.65625
+      },
+      {
+        "text": "Discuss resuming duties with Sera",
+        "left": 689.65625,
+        "right": 1068.65625
+      },
+      {
+        "text": "Study reading with Sera · 20 min, 4 household coins",
+        "left": 689.65625,
+        "right": 1266.15625
+      },
+      {
+        "text": "Agree to help with the provision ledger",
+        "left": 689.65625,
+        "right": 1134.65625
+      },
+      {
+        "text": "Decline this request for now",
+        "left": 689.65625,
+        "right": 1013.65625
+      },
+      {
+        "text": "Keep the agreed ledger appointment · 15 min",
+        "left": 689.65625,
+        "right": 1178.15625
+      },
+      {
+        "text": "Arrange Mara’s return to Village · 10 min",
+        "left": 689.65625,
+        "right": 1166.15625
+      },
+      {
+        "text": "Order 4 meat chunks + 2 logs · 8 household coins, 20 min delivery",
+        "left": 689.65625,
+        "right": 1360.4375
+      },
+      {
+        "text": "Hand the office to an available successor",
+        "left": 689.65625,
+        "right": 1156.65625
+      },
+      {
+        "text": "Close the pantry office and return its fund",
+        "left": 689.65625,
+        "right": 1178.65625
+      },
+      {
+        "text": "Accept one prepared household meal",
+        "left": 689.65625,
+        "right": 1079.65625
+      },
+      {
+        "text": "Offer one owned Rat meat chunks",
+        "left": 689.65625,
+        "right": 1046.65625
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 689.65625,
+        "right": 1035.65625
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 689.65625,
+        "right": 1035.65625
+      },
+      {
+        "text": "Offer one owned Home dry grass",
+        "left": 689.65625,
+        "right": 1035.65625
+      },
+      {
+        "text": "Weave dry lining · 3 dry grass bundles · 8 min",
+        "left": 689.65625,
+        "right": 1210.65625
+      }
+    ],
+    "viewport": 1920
+  },
+  {
+    "surface": "institution",
+    "width": 1800,
+    "height": 1040,
+    "size": 14,
+    "font": "14px",
+    "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Make this your main residence",
+        "left": 645.65625,
+        "right": 864.65625
+      },
+      {
+        "text": "Pack Plain bed",
+        "left": 645.65625,
+        "right": 759.65625
+      },
+      {
+        "text": "Pack Ragwork blanket",
+        "left": 645.65625,
+        "right": 801.65625
+      },
+      {
+        "text": "Pack Wooden tableware",
+        "left": 645.65625,
+        "right": 808.65625
+      },
+      {
+        "text": "Pack Fitted hearth",
+        "left": 645.65625,
+        "right": 787.65625
+      },
+      {
+        "text": "Pack Bookcase",
+        "left": 645.65625,
+        "right": 752.65625
+      },
+      {
+        "text": "Store one selected item",
+        "left": 645.65625,
+        "right": 822.65625
+      },
+      {
+        "text": "Stock 1 Rough wood log",
+        "left": 645.65625,
+        "right": 815.65625
+      },
+      {
+        "text": "Light hearth · 1 Rough wood log",
+        "left": 645.65625,
+        "right": 878.65625
+      },
+      {
+        "text": "Bring Moss from your previous local home",
+        "left": 645.65625,
+        "right": 941.65625
+      },
+      {
+        "text": "Reserve repair materials and begin repairs",
+        "left": 645.65625,
+        "right": 955.65625
+      },
+      {
+        "text": "Fit extra weather protection · 1 pole/twig + 2 grass, or earthwork for a burrow",
+        "left": 645.65625,
+        "right": 1214.65625
+      },
+      {
+        "text": "Ask Rowan for the agreed allowance",
+        "left": 645.65625,
+        "right": 899.65625
+      },
+      {
+        "text": "Ask Iven to prepare two meals · 2 household coins, 2 meat chunks + 1 log · 10 min",
+        "left": 645.65625,
+        "right": 1228.65625
+      },
+      {
+        "text": "Ask Toma to patch the roof · 3 household coins, 1 log + 2 grass · 15 min",
+        "left": 645.65625,
+        "right": 1165.65625
+      },
+      {
+        "text": "Ask Toma to dry the room · 2 household coins + 1 log · 10 min",
+        "left": 645.65625,
+        "right": 1088.65625
+      },
+      {
+        "text": "Ask Toma to gather on the estate grounds · 2 household coins, 20 of his energy · 30 min → 2 Rough wood log + 3 Home dry grass into his stock",
+        "left": 645.65625,
+        "right": 1274.578125
+      },
+      {
+        "text": "Agree leave with Rowan",
+        "left": 645.65625,
+        "right": 815.65625
+      },
+      {
+        "text": "Discuss resuming duties with Rowan",
+        "left": 645.65625,
+        "right": 899.65625
+      },
+      {
+        "text": "Agree leave with Iven",
+        "left": 645.65625,
+        "right": 808.65625
+      },
+      {
+        "text": "Discuss resuming duties with Iven",
+        "left": 645.65625,
+        "right": 892.65625
+      },
+      {
+        "text": "Agree leave with Toma",
+        "left": 645.65625,
+        "right": 808.65625
+      },
+      {
+        "text": "Discuss resuming duties with Toma",
+        "left": 645.65625,
+        "right": 892.65625
+      },
+      {
+        "text": "Agree leave with Sera",
+        "left": 645.65625,
+        "right": 808.65625
+      },
+      {
+        "text": "Discuss resuming duties with Sera",
+        "left": 645.65625,
+        "right": 892.65625
+      },
+      {
+        "text": "Study reading with Sera · 20 min, 4 household coins",
+        "left": 645.65625,
+        "right": 1018.65625
+      },
+      {
+        "text": "Agree to help with the provision ledger",
+        "left": 645.65625,
+        "right": 934.65625
+      },
+      {
+        "text": "Decline this request for now",
+        "left": 645.65625,
+        "right": 857.65625
+      },
+      {
+        "text": "Keep the agreed ledger appointment · 15 min",
+        "left": 645.65625,
+        "right": 962.65625
+      },
+      {
+        "text": "Arrange Mara’s return to Village · 10 min",
+        "left": 645.65625,
+        "right": 955.65625
+      },
+      {
+        "text": "Order 4 meat chunks + 2 logs · 8 household coins, 20 min delivery",
+        "left": 645.65625,
+        "right": 1116.65625
+      },
+      {
+        "text": "Hand the office to an available successor",
+        "left": 645.65625,
+        "right": 948.65625
+      },
+      {
+        "text": "Close the pantry office and return its fund",
+        "left": 645.65625,
+        "right": 962.65625
+      },
+      {
+        "text": "Accept one prepared household meal",
+        "left": 645.65625,
+        "right": 899.65625
+      },
+      {
+        "text": "Offer one owned Rat meat chunks",
+        "left": 645.65625,
+        "right": 878.65625
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 645.65625,
+        "right": 871.65625
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 645.65625,
+        "right": 871.65625
+      },
+      {
+        "text": "Offer one owned Home dry grass",
+        "left": 645.65625,
+        "right": 871.65625
+      },
+      {
+        "text": "Weave dry lining · 3 dry grass bundles · 8 min",
+        "left": 645.65625,
+        "right": 983.65625
+      }
+    ],
+    "viewport": 1800
+  },
+  {
+    "surface": "institution",
+    "width": 1800,
+    "height": 1040,
+    "size": 21,
+    "font": "21px",
+    "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Make this your main residence",
+        "left": 649.65625,
+        "right": 984.65625
+      },
+      {
+        "text": "Pack Plain bed",
+        "left": 649.65625,
+        "right": 819.65625
+      },
+      {
+        "text": "Pack Ragwork blanket",
+        "left": 649.65625,
+        "right": 885.65625
+      },
+      {
+        "text": "Pack Wooden tableware",
+        "left": 649.65625,
+        "right": 896.65625
+      },
+      {
+        "text": "Pack Fitted hearth",
+        "left": 649.65625,
+        "right": 863.65625
+      },
+      {
+        "text": "Pack Bookcase",
+        "left": 649.65625,
+        "right": 808.65625
+      },
+      {
+        "text": "Store one selected item",
+        "left": 649.65625,
+        "right": 918.65625
+      },
+      {
+        "text": "Stock 1 Rough wood log",
+        "left": 649.65625,
+        "right": 907.65625
+      },
+      {
+        "text": "Light hearth · 1 Rough wood log",
+        "left": 649.65625,
+        "right": 1006.15625
+      },
+      {
+        "text": "Bring Moss from your previous local home",
+        "left": 649.65625,
+        "right": 1105.65625
+      },
+      {
+        "text": "Reserve repair materials and begin repairs",
+        "left": 649.65625,
+        "right": 1127.65625
+      },
+      {
+        "text": "Fit extra weather protection · 1 pole/twig + 2 grass, or earthwork for a burrow",
+        "left": 649.65625,
+        "right": 1272.59375
+      },
+      {
+        "text": "Ask Rowan for the agreed allowance",
+        "left": 649.65625,
+        "right": 1039.65625
+      },
+      {
+        "text": "Ask Iven to prepare two meals · 2 household coins, 2 meat chunks + 1 log · 10 min",
+        "left": 649.65625,
+        "right": 1272.59375
+      },
+      {
+        "text": "Ask Toma to patch the roof · 3 household coins, 1 log + 2 grass · 15 min",
+        "left": 649.65625,
+        "right": 1272.59375
+      },
+      {
+        "text": "Ask Toma to dry the room · 2 household coins + 1 log · 10 min",
+        "left": 649.65625,
+        "right": 1272.59375
+      },
+      {
+        "text": "Ask Toma to gather on the estate grounds · 2 household coins, 20 of his energy · 30 min → 2 Rough wood log + 3 Home dry grass into his stock",
+        "left": 649.65625,
+        "right": 1272.59375
+      },
+      {
+        "text": "Agree leave with Rowan",
+        "left": 649.65625,
+        "right": 907.65625
+      },
+      {
+        "text": "Discuss resuming duties with Rowan",
+        "left": 649.65625,
+        "right": 1039.65625
+      },
+      {
+        "text": "Agree leave with Iven",
+        "left": 649.65625,
+        "right": 896.65625
+      },
+      {
+        "text": "Discuss resuming duties with Iven",
+        "left": 649.65625,
+        "right": 1028.65625
+      },
+      {
+        "text": "Agree leave with Toma",
+        "left": 649.65625,
+        "right": 896.65625
+      },
+      {
+        "text": "Discuss resuming duties with Toma",
+        "left": 649.65625,
+        "right": 1028.65625
+      },
+      {
+        "text": "Agree leave with Sera",
+        "left": 649.65625,
+        "right": 896.65625
+      },
+      {
+        "text": "Discuss resuming duties with Sera",
+        "left": 649.65625,
+        "right": 1028.65625
+      },
+      {
+        "text": "Study reading with Sera · 20 min, 4 household coins",
+        "left": 649.65625,
+        "right": 1226.15625
+      },
+      {
+        "text": "Agree to help with the provision ledger",
+        "left": 649.65625,
+        "right": 1094.65625
+      },
+      {
+        "text": "Decline this request for now",
+        "left": 649.65625,
+        "right": 973.65625
+      },
+      {
+        "text": "Keep the agreed ledger appointment · 15 min",
+        "left": 649.65625,
+        "right": 1138.15625
+      },
+      {
+        "text": "Arrange Mara’s return to Village · 10 min",
+        "left": 649.65625,
+        "right": 1126.15625
+      },
+      {
+        "text": "Order 4 meat chunks + 2 logs · 8 household coins, 20 min delivery",
+        "left": 649.65625,
+        "right": 1272.59375
+      },
+      {
+        "text": "Hand the office to an available successor",
+        "left": 649.65625,
+        "right": 1116.65625
+      },
+      {
+        "text": "Close the pantry office and return its fund",
+        "left": 649.65625,
+        "right": 1138.65625
+      },
+      {
+        "text": "Accept one prepared household meal",
+        "left": 649.65625,
+        "right": 1039.65625
+      },
+      {
+        "text": "Offer one owned Rat meat chunks",
+        "left": 649.65625,
+        "right": 1006.65625
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 649.65625,
+        "right": 995.65625
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 649.65625,
+        "right": 995.65625
+      },
+      {
+        "text": "Offer one owned Home dry grass",
+        "left": 649.65625,
+        "right": 995.65625
+      },
+      {
+        "text": "Weave dry lining · 3 dry grass bundles · 8 min",
+        "left": 649.65625,
+        "right": 1170.65625
+      }
+    ],
+    "viewport": 1800
+  },
+  {
+    "surface": "institution",
+    "width": 1536,
+    "height": 864,
+    "size": 14,
+    "font": "14px",
+    "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Make this your main residence",
+        "left": 581.84375,
+        "right": 800.84375
+      },
+      {
+        "text": "Pack Plain bed",
+        "left": 581.84375,
+        "right": 695.84375
+      },
+      {
+        "text": "Pack Ragwork blanket",
+        "left": 581.84375,
+        "right": 737.84375
+      },
+      {
+        "text": "Pack Wooden tableware",
+        "left": 581.84375,
+        "right": 744.84375
+      },
+      {
+        "text": "Pack Fitted hearth",
+        "left": 581.84375,
+        "right": 723.84375
+      },
+      {
+        "text": "Pack Bookcase",
+        "left": 581.84375,
+        "right": 688.84375
+      },
+      {
+        "text": "Store one selected item",
+        "left": 581.84375,
+        "right": 758.84375
+      },
+      {
+        "text": "Stock 1 Rough wood log",
+        "left": 581.84375,
+        "right": 751.84375
+      },
+      {
+        "text": "Light hearth · 1 Rough wood log",
+        "left": 581.84375,
+        "right": 814.84375
+      },
+      {
+        "text": "Bring Moss from your previous local home",
+        "left": 581.84375,
+        "right": 877.84375
+      },
+      {
+        "text": "Reserve repair materials and begin repairs",
+        "left": 581.84375,
+        "right": 891.84375
+      },
+      {
+        "text": "Fit extra weather protection · 1 pole/twig + 2 grass, or earthwork for a burrow",
+        "left": 581.84375,
+        "right": 1036.6875
+      },
+      {
+        "text": "Ask Rowan for the agreed allowance",
+        "left": 581.84375,
+        "right": 835.84375
+      },
+      {
+        "text": "Ask Iven to prepare two meals · 2 household coins, 2 meat chunks + 1 log · 10 min",
+        "left": 581.84375,
+        "right": 1036.6875
+      },
+      {
+        "text": "Ask Toma to patch the roof · 3 household coins, 1 log + 2 grass · 15 min",
+        "left": 581.84375,
+        "right": 1036.6875
+      },
+      {
+        "text": "Ask Toma to dry the room · 2 household coins + 1 log · 10 min",
+        "left": 581.84375,
+        "right": 1024.84375
+      },
+      {
+        "text": "Ask Toma to gather on the estate grounds · 2 household coins, 20 of his energy · 30 min → 2 Rough wood log + 3 Home dry grass into his stock",
+        "left": 581.84375,
+        "right": 1036.6875
+      },
+      {
+        "text": "Agree leave with Rowan",
+        "left": 581.84375,
+        "right": 751.84375
+      },
+      {
+        "text": "Discuss resuming duties with Rowan",
+        "left": 581.84375,
+        "right": 835.84375
+      },
+      {
+        "text": "Agree leave with Iven",
+        "left": 581.84375,
+        "right": 744.84375
+      },
+      {
+        "text": "Discuss resuming duties with Iven",
+        "left": 581.84375,
+        "right": 828.84375
+      },
+      {
+        "text": "Agree leave with Toma",
+        "left": 581.84375,
+        "right": 744.84375
+      },
+      {
+        "text": "Discuss resuming duties with Toma",
+        "left": 581.84375,
+        "right": 828.84375
+      },
+      {
+        "text": "Agree leave with Sera",
+        "left": 581.84375,
+        "right": 744.84375
+      },
+      {
+        "text": "Discuss resuming duties with Sera",
+        "left": 581.84375,
+        "right": 828.84375
+      },
+      {
+        "text": "Study reading with Sera · 20 min, 4 household coins",
+        "left": 581.84375,
+        "right": 954.84375
+      },
+      {
+        "text": "Agree to help with the provision ledger",
+        "left": 581.84375,
+        "right": 870.84375
+      },
+      {
+        "text": "Decline this request for now",
+        "left": 581.84375,
+        "right": 793.84375
+      },
+      {
+        "text": "Keep the agreed ledger appointment · 15 min",
+        "left": 581.84375,
+        "right": 898.84375
+      },
+      {
+        "text": "Arrange Mara’s return to Village · 10 min",
+        "left": 581.84375,
+        "right": 891.84375
+      },
+      {
+        "text": "Order 4 meat chunks + 2 logs · 8 household coins, 20 min delivery",
+        "left": 581.84375,
+        "right": 1036.6875
+      },
+      {
+        "text": "Hand the office to an available successor",
+        "left": 581.84375,
+        "right": 884.84375
+      },
+      {
+        "text": "Close the pantry office and return its fund",
+        "left": 581.84375,
+        "right": 898.84375
+      },
+      {
+        "text": "Accept one prepared household meal",
+        "left": 581.84375,
+        "right": 835.84375
+      },
+      {
+        "text": "Offer one owned Rat meat chunks",
+        "left": 581.84375,
+        "right": 814.84375
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 581.84375,
+        "right": 807.84375
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 581.84375,
+        "right": 807.84375
+      },
+      {
+        "text": "Offer one owned Home dry grass",
+        "left": 581.84375,
+        "right": 807.84375
+      },
+      {
+        "text": "Weave dry lining · 3 dry grass bundles · 8 min",
+        "left": 581.84375,
+        "right": 919.84375
+      }
+    ],
+    "viewport": 1536
+  },
+  {
+    "surface": "institution",
+    "width": 1536,
+    "height": 864,
+    "size": 21,
+    "font": "21px",
+    "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Make this your main residence",
+        "left": 584.625,
+        "right": 919.625
+      },
+      {
+        "text": "Pack Plain bed",
+        "left": 584.625,
+        "right": 754.625
+      },
+      {
+        "text": "Pack Ragwork blanket",
+        "left": 584.625,
+        "right": 820.625
+      },
+      {
+        "text": "Pack Wooden tableware",
+        "left": 584.625,
+        "right": 831.625
+      },
+      {
+        "text": "Pack Fitted hearth",
+        "left": 584.625,
+        "right": 798.625
+      },
+      {
+        "text": "Pack Bookcase",
+        "left": 584.625,
+        "right": 743.625
+      },
+      {
+        "text": "Store one selected item",
+        "left": 584.625,
+        "right": 853.625
+      },
+      {
+        "text": "Stock 1 Rough wood log",
+        "left": 584.625,
+        "right": 842.625
+      },
+      {
+        "text": "Light hearth · 1 Rough wood log",
+        "left": 584.625,
+        "right": 941.125
+      },
+      {
+        "text": "Bring Moss from your previous local home",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Reserve repair materials and begin repairs",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Fit extra weather protection · 1 pole/twig + 2 grass, or earthwork for a burrow",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Ask Rowan for the agreed allowance",
+        "left": 584.625,
+        "right": 974.625
+      },
+      {
+        "text": "Ask Iven to prepare two meals · 2 household coins, 2 meat chunks + 1 log · 10 min",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Ask Toma to patch the roof · 3 household coins, 1 log + 2 grass · 15 min",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Ask Toma to dry the room · 2 household coins + 1 log · 10 min",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Ask Toma to gather on the estate grounds · 2 household coins, 20 of his energy · 30 min → 2 Rough wood log + 3 Home dry grass into his stock",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Agree leave with Rowan",
+        "left": 584.625,
+        "right": 842.625
+      },
+      {
+        "text": "Discuss resuming duties with Rowan",
+        "left": 584.625,
+        "right": 974.625
+      },
+      {
+        "text": "Agree leave with Iven",
+        "left": 584.625,
+        "right": 831.625
+      },
+      {
+        "text": "Discuss resuming duties with Iven",
+        "left": 584.625,
+        "right": 963.625
+      },
+      {
+        "text": "Agree leave with Toma",
+        "left": 584.625,
+        "right": 831.625
+      },
+      {
+        "text": "Discuss resuming duties with Toma",
+        "left": 584.625,
+        "right": 963.625
+      },
+      {
+        "text": "Agree leave with Sera",
+        "left": 584.625,
+        "right": 831.625
+      },
+      {
+        "text": "Discuss resuming duties with Sera",
+        "left": 584.625,
+        "right": 963.625
+      },
+      {
+        "text": "Study reading with Sera · 20 min, 4 household coins",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Agree to help with the provision ledger",
+        "left": 584.625,
+        "right": 1029.625
+      },
+      {
+        "text": "Decline this request for now",
+        "left": 584.625,
+        "right": 908.625
+      },
+      {
+        "text": "Keep the agreed ledger appointment · 15 min",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Arrange Mara’s return to Village · 10 min",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Order 4 meat chunks + 2 logs · 8 household coins, 20 min delivery",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Hand the office to an available successor",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Close the pantry office and return its fund",
+        "left": 584.625,
+        "right": 1035.265625
+      },
+      {
+        "text": "Accept one prepared household meal",
+        "left": 584.625,
+        "right": 974.625
+      },
+      {
+        "text": "Offer one owned Rat meat chunks",
+        "left": 584.625,
+        "right": 941.625
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 584.625,
+        "right": 930.625
+      },
+      {
+        "text": "Offer one owned Rough wood log",
+        "left": 584.625,
+        "right": 930.625
+      },
+      {
+        "text": "Offer one owned Home dry grass",
+        "left": 584.625,
+        "right": 930.625
+      },
+      {
+        "text": "Weave dry lining · 3 dry grass bundles · 8 min",
+        "left": 584.625,
+        "right": 1035.265625
+      }
+    ],
+    "viewport": 1536
+  },
+  {
+    "surface": "history-paths",
+    "width": 1920,
+    "height": 1080,
+    "size": 14,
+    "font": "14px",
+    "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Prepare this path’s reserve · 1 condensate; refinement also uses a dose",
+        "left": 668.65625,
+        "right": 1188.65625
+      },
+      {
+        "text": "Flow-cut one owned pelt",
+        "left": 668.65625,
+        "right": 845.65625
+      },
+      {
+        "text": "Set-grain one owned pelt",
+        "left": 668.65625,
+        "right": 852.65625
+      },
+      {
+        "text": "Abandon the committed preparation",
+        "left": 668.65625,
+        "right": 915.65625
+      },
+      {
+        "text": "Inspect the surviving outflow masonry",
+        "left": 668.65625,
+        "right": 943.65625
+      },
+      {
+        "text": "Restore the old outflow brace · 1 rough log",
+        "left": 943.65625,
+        "right": 1260.65625
+      },
+      {
+        "text": "Return to Village",
+        "left": 668.65625,
+        "right": 803.65625
+      },
+      {
+        "text": "Trade with conservatory keeper",
+        "left": 803.65625,
+        "right": 1029.65625
+      },
+      {
+        "text": "Clear the jammed outflow sluice · 2 condensate, +1 Village standing",
+        "left": 668.65625,
+        "right": 1153.65625
+      },
+      {
+        "text": "Purify one paid Cloudseed dose",
+        "left": 668.65625,
+        "right": 894.65625
+      },
+      {
+        "text": "Open-mist absorption",
+        "left": 668.65625,
+        "right": 824.65625
+      },
+      {
+        "text": "Threaded-breath circulation",
+        "left": 824.65625,
+        "right": 1029.65625
+      },
+      {
+        "text": "Still-pool refinement",
+        "left": 1029.65625,
+        "right": 1192.65625
+      }
+    ],
+    "viewport": 1920
+  },
+  {
+    "surface": "history-paths",
+    "width": 1920,
+    "height": 1080,
+    "size": 21,
+    "font": "21px",
+    "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Prepare this path’s reserve · 1 condensate; refinement also uses a dose",
+        "left": 672.65625,
+        "right": 1377.4375
+      },
+      {
+        "text": "Flow-cut one owned pelt",
+        "left": 672.65625,
+        "right": 941.65625
+      },
+      {
+        "text": "Set-grain one owned pelt",
+        "left": 672.65625,
+        "right": 952.65625
+      },
+      {
+        "text": "Abandon the committed preparation",
+        "left": 672.65625,
+        "right": 1051.65625
+      },
+      {
+        "text": "Inspect the surviving outflow masonry",
+        "left": 672.65625,
+        "right": 1095.65625
+      },
+      {
+        "text": "Restore the old outflow brace · 1 rough log",
+        "left": 672.65625,
+        "right": 1161.15625
+      },
+      {
+        "text": "Return to Village",
+        "left": 672.65625,
+        "right": 875.65625
+      },
+      {
+        "text": "Trade with conservatory keeper",
+        "left": 875.65625,
+        "right": 1221.65625
+      },
+      {
+        "text": "Clear the jammed outflow sluice · 2 condensate, +1 Village standing",
+        "left": 672.65625,
+        "right": 1377.4375
+      },
+      {
+        "text": "Purify one paid Cloudseed dose",
+        "left": 672.65625,
+        "right": 1018.65625
+      },
+      {
+        "text": "Open-mist absorption",
+        "left": 672.65625,
+        "right": 908.65625
+      },
+      {
+        "text": "Threaded-breath circulation",
+        "left": 908.65625,
+        "right": 1221.65625
+      },
+      {
+        "text": "Still-pool refinement",
+        "left": 672.65625,
+        "right": 919.65625
+      }
+    ],
+    "viewport": 1920
+  },
+  {
+    "surface": "history-paths",
+    "width": 1800,
+    "height": 1040,
+    "size": 14,
+    "font": "14px",
+    "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Prepare this path’s reserve · 1 condensate; refinement also uses a dose",
+        "left": 628.65625,
+        "right": 1148.65625
+      },
+      {
+        "text": "Flow-cut one owned pelt",
+        "left": 628.65625,
+        "right": 805.65625
+      },
+      {
+        "text": "Set-grain one owned pelt",
+        "left": 628.65625,
+        "right": 812.65625
+      },
+      {
+        "text": "Abandon the committed preparation",
+        "left": 628.65625,
+        "right": 875.65625
+      },
+      {
+        "text": "Inspect the surviving outflow masonry",
+        "left": 628.65625,
+        "right": 903.65625
+      },
+      {
+        "text": "Restore the old outflow brace · 1 rough log",
+        "left": 903.65625,
+        "right": 1220.65625
+      },
+      {
+        "text": "Return to Village",
+        "left": 628.65625,
+        "right": 763.65625
+      },
+      {
+        "text": "Trade with conservatory keeper",
+        "left": 763.65625,
+        "right": 989.65625
+      },
+      {
+        "text": "Clear the jammed outflow sluice · 2 condensate, +1 Village standing",
+        "left": 628.65625,
+        "right": 1113.65625
+      },
+      {
+        "text": "Purify one paid Cloudseed dose",
+        "left": 628.65625,
+        "right": 854.65625
+      },
+      {
+        "text": "Open-mist absorption",
+        "left": 628.65625,
+        "right": 784.65625
+      },
+      {
+        "text": "Threaded-breath circulation",
+        "left": 784.65625,
+        "right": 989.65625
+      },
+      {
+        "text": "Still-pool refinement",
+        "left": 989.65625,
+        "right": 1152.65625
+      }
+    ],
+    "viewport": 1800
+  },
+  {
+    "surface": "history-paths",
+    "width": 1800,
+    "height": 1040,
+    "size": 21,
+    "font": "21px",
+    "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Prepare this path’s reserve · 1 condensate; refinement also uses a dose",
+        "left": 632.65625,
+        "right": 1289.59375
+      },
+      {
+        "text": "Flow-cut one owned pelt",
+        "left": 632.65625,
+        "right": 901.65625
+      },
+      {
+        "text": "Set-grain one owned pelt",
+        "left": 632.65625,
+        "right": 912.65625
+      },
+      {
+        "text": "Abandon the committed preparation",
+        "left": 632.65625,
+        "right": 1011.65625
+      },
+      {
+        "text": "Inspect the surviving outflow masonry",
+        "left": 632.65625,
+        "right": 1055.65625
+      },
+      {
+        "text": "Restore the old outflow brace · 1 rough log",
+        "left": 632.65625,
+        "right": 1121.15625
+      },
+      {
+        "text": "Return to Village",
+        "left": 632.65625,
+        "right": 835.65625
+      },
+      {
+        "text": "Trade with conservatory keeper",
+        "left": 835.65625,
+        "right": 1181.65625
+      },
+      {
+        "text": "Clear the jammed outflow sluice · 2 condensate, +1 Village standing",
+        "left": 632.65625,
+        "right": 1289.59375
+      },
+      {
+        "text": "Purify one paid Cloudseed dose",
+        "left": 632.65625,
+        "right": 978.65625
+      },
+      {
+        "text": "Open-mist absorption",
+        "left": 632.65625,
+        "right": 868.65625
+      },
+      {
+        "text": "Threaded-breath circulation",
+        "left": 868.65625,
+        "right": 1181.65625
+      },
+      {
+        "text": "Still-pool refinement",
+        "left": 632.65625,
+        "right": 879.65625
+      }
+    ],
+    "viewport": 1800
+  },
+  {
+    "surface": "history-paths",
+    "width": 1536,
+    "height": 864,
+    "size": 14,
+    "font": "14px",
+    "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Prepare this path’s reserve · 1 condensate; refinement also uses a dose",
+        "left": 564.84375,
+        "right": 1053.6875
+      },
+      {
+        "text": "Flow-cut one owned pelt",
+        "left": 564.84375,
+        "right": 741.84375
+      },
+      {
+        "text": "Set-grain one owned pelt",
+        "left": 564.84375,
+        "right": 748.84375
+      },
+      {
+        "text": "Abandon the committed preparation",
+        "left": 564.84375,
+        "right": 811.84375
+      },
+      {
+        "text": "Inspect the surviving outflow masonry",
+        "left": 564.84375,
+        "right": 839.84375
+      },
+      {
+        "text": "Restore the old outflow brace · 1 rough log",
+        "left": 564.84375,
+        "right": 881.84375
+      },
+      {
+        "text": "Return to Village",
+        "left": 564.84375,
+        "right": 699.84375
+      },
+      {
+        "text": "Trade with conservatory keeper",
+        "left": 699.84375,
+        "right": 925.84375
+      },
+      {
+        "text": "Clear the jammed outflow sluice · 2 condensate, +1 Village standing",
+        "left": 564.84375,
+        "right": 1049.84375
+      },
+      {
+        "text": "Purify one paid Cloudseed dose",
+        "left": 564.84375,
+        "right": 790.84375
+      },
+      {
+        "text": "Open-mist absorption",
+        "left": 564.84375,
+        "right": 720.84375
+      },
+      {
+        "text": "Threaded-breath circulation",
+        "left": 720.84375,
+        "right": 925.84375
+      },
+      {
+        "text": "Still-pool refinement",
+        "left": 564.84375,
+        "right": 727.84375
+      }
+    ],
+    "viewport": 1536
+  },
+  {
+    "surface": "history-paths",
+    "width": 1536,
+    "height": 864,
+    "size": 21,
+    "font": "21px",
+    "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+    "buttons": [
+      {
+        "text": "Prepare this path’s reserve · 1 condensate; refinement also uses a dose",
+        "left": 567.625,
+        "right": 1052.265625
+      },
+      {
+        "text": "Flow-cut one owned pelt",
+        "left": 567.625,
+        "right": 836.625
+      },
+      {
+        "text": "Set-grain one owned pelt",
+        "left": 567.625,
+        "right": 847.625
+      },
+      {
+        "text": "Abandon the committed preparation",
+        "left": 567.625,
+        "right": 946.625
+      },
+      {
+        "text": "Inspect the surviving outflow masonry",
+        "left": 567.625,
+        "right": 990.625
+      },
+      {
+        "text": "Restore the old outflow brace · 1 rough log",
+        "left": 567.625,
+        "right": 1052.265625
+      },
+      {
+        "text": "Return to Village",
+        "left": 567.625,
+        "right": 770.625
+      },
+      {
+        "text": "Trade with conservatory keeper",
+        "left": 567.625,
+        "right": 913.625
+      },
+      {
+        "text": "Clear the jammed outflow sluice · 2 condensate, +1 Village standing",
+        "left": 567.625,
+        "right": 1052.265625
+      },
+      {
+        "text": "Purify one paid Cloudseed dose",
+        "left": 567.625,
+        "right": 913.625
+      },
+      {
+        "text": "Open-mist absorption",
+        "left": 567.625,
+        "right": 803.625
+      },
+      {
+        "text": "Threaded-breath circulation",
+        "left": 567.625,
+        "right": 880.625
+      },
+      {
+        "text": "Still-pool refinement",
+        "left": 567.625,
+        "right": 814.625
+      }
+    ],
+    "viewport": 1536
+  }
+]

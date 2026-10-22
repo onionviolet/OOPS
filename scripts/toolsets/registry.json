@@ -276,7 +276,7 @@
     },
     {
       "id": "zlibrary-mcp",
-      "title": "Z-Library research MCP stdio",
+      "title": "Source Library unified MCP (legacy launcher)",
       "kind": "launch",
       "root": "{code}/zlibrary-research",
       "argv": [
@@ -289,7 +289,7 @@
       "env": {
         "YAIRPG_PROJECT_ROOT": "{repo}"
       },
-      "effects": "Starts stdio server; not MCP registration. Ten local/remote tools with distinct read/write effects."
+      "effects": "Starts the 25-tool Source Library stdio server; not MCP registration. Seven unified catalogue/provider tools plus eighteen compatibility research tools. Use platform_download for shared deduplication."
     },
     {
       "id": "epub-prepare",
@@ -552,6 +552,57 @@
       "kind": "reference",
       "owner": "/Users/weiwei/code/vimeo-transcript-grabber/README.md",
       "note": "Requires source transcript UI and full cue-boundary verification."
+    },
+    {
+      "id": "source-library",
+      "title": "Unified Source Library app API and JSON CLI",
+      "kind": "launch",
+      "root": "{code}/zlibrary-research",
+      "argv": [
+        "{code}/zlibrary-research/.venv/bin/source-library"
+      ],
+      "required": [
+        "{code}/zlibrary-research/.venv/bin/source-library"
+      ],
+      "probe": [
+        "status"
+      ],
+      "env": {},
+      "effects": "Command-dependent local indexing, source search and explicit selected transfers. Data/credentials stay in private source-platform root. CLI status probes configured local services."
+    },
+    {
+      "id": "source-library-services",
+      "title": "Source Library local service controller",
+      "kind": "launch",
+      "root": "{code}/zlibrary-research",
+      "argv": [
+        "{code}/zlibrary-research/.venv/bin/source-library-services"
+      ],
+      "required": [
+        "{code}/zlibrary-research/.venv/bin/source-library-services"
+      ],
+      "probe": [
+        "--help"
+      ],
+      "env": {},
+      "effects": "Explicit start/stop of task-owned Suwayomi, Komga, CLU and local app services; start can claim an unclaimed local Komga install."
+    },
+    {
+      "id": "source-library-bootstrap",
+      "title": "Rebuild pinned source platform runtimes and native app",
+      "kind": "launch",
+      "root": "{code}/zlibrary-research",
+      "argv": [
+        "{code}/zlibrary-research/.venv/bin/source-library-bootstrap"
+      ],
+      "required": [
+        "{code}/zlibrary-research/.venv/bin/source-library-bootstrap"
+      ],
+      "probe": [
+        "--help"
+      ],
+      "env": {},
+      "effects": "Explicit installation/rebuild: hash-verified pinned service downloads, separate CLU checkout/venv and optional native macOS shell. Does not update arbitrary upstream releases."
     }
   ]
 }

@@ -118,3 +118,25 @@ test("failed body enrollment publication retains exact old bytes with no partial
 test("unsupported trait origins fail definition validation rather than being guessed",()=>{
     assert.throws(()=>createContentRegistry({worlds:[{id:"base.frontier",label:"Base"}],sources:[{id:"gift",label:"Gift",revision:1,kind:"trait",origin:"guessed",grants:[]}]}),/source origin/);
 });
+
+// E4: a trained faculty acts through the current body; the lesson stays with the person.
+import {COLD_HARDENED,bodyFacultyActive} from "../src/body_progression.js";
+import {exposureEffects,stageExposure,createExposure} from "../src/absorb_p23/exposure/exposure.js";
+test("weathered skin changes a storm gust only on the body that earned it; knowledge survives a body change",()=>{
+    let p=begin();p.gameplay.player.skills["Cold resistance"]={xp:0,enabled:true,parent:null};
+    for(let i=0;i<3;i++){p=command(p,"body.cold_soak");p=reload(p);p=finish(p);}
+    assert.equal(p.state.actors.player.resources.cold_practice,3);assert.equal(p.gameplay.player.skills["Cold resistance"].xp,6);
+    p=command(p,"body.harden_cold");p=reload(p);
+    const own={id:p.state.simulation.people.player.body?.id||"native.player.body",form:"human",ownerId:"player",controllerId:"player"};
+    assert.ok(own.id,"enrolled body record exists");assert.equal(bodyFacultyActive(p.state,COLD_HARDENED,own),true);
+    assert.equal(p.state.simulation.knowledge.player["body.cold"].stage,"understood");assert.throws(()=>command(p,"body.harden_cold"));
+    const gust={...createExposure(),hazardousEnabled:true,phase:"gust",remaining:6};
+    const ctx=c=>({played:true,homeWorld:true,exposureEligible:true,outdoors:true,sheltered:false,pacing:{weatherEnabled:true,hungerEnabled:false},coldHardened:c});
+    assert.equal(exposureEffects(gust,ctx(false)).temperatureOffset,-3);assert.equal(exposureEffects(gust,ctx(true)).temperatureOffset,-1);
+    assert.equal(stageExposure(gust,{start:0,end:6},ctx(true)).staminaCost*2,stageExposure(gust,{start:0,end:6},ctx(false)).staminaCost);
+    const other={...own,id:"native.borrowed.body"};
+    assert.equal(bodyFacultyActive(p.state,COLD_HARDENED,other),false,"another body lacks the faculty");
+    assert.equal(p.state.simulation.knowledge.player["body.cold"].stage,"understood","the lesson is unchanged");
+    assert.equal(bodyFacultyActive(p.state,COLD_HARDENED,own),true,"returning to the earning body restores it");
+    assert.equal(bodyFacultyActive(begin().state,COLD_HARDENED,own),false,"untrained bodies are unaffected");
+});

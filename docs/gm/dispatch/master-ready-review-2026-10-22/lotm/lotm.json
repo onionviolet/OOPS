@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "5b644b2392c1386817da5b4bda711dcddbd4a605d587548c4f565d5c357f865c",
+  "gates": [
+    "Native entry, teaching, six acts, recovery, assessment and promotion",
+    "Held dose persists through reload",
+    "Native Export and literal Import retain promotion"
+  ],
+  "pageErrors": []
+}

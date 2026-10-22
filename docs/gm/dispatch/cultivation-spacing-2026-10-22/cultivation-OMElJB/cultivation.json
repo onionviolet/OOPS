@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "lane": "cultivation",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "a696c8399c7bfd3dc8fffce02835281a9271e3204ff221ff4f527a9eeee1f3b9",
+  "gates": [
+    "Native circulation selection and played practice reaches first stage",
+    "circulation-practice: native Save/reload/Export/literal-file Import",
+    "refinement-pending: native Save/reload/Export/literal-file Import",
+    "Integrated refinement sets frozen 95 percent trial odds and settles once",
+    "refinement-settled: native Save/reload/Export/literal-file Import"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

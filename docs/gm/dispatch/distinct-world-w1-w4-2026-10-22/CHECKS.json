@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "scope": "W1-W4 selected native journeys on frozen verification candidate",
+  "bundleSha256": "484d112cf8d3c14ff10615c0d7931f2ea2a87ff323a808a95261c7e413e19fc9",
+  "sourceAndTestInputCount": 1283,
+  "frozenInputDrift": [],
+  "fullSuite": {
+    "command": "npm test through shared suite queue",
+    "tests": 2547,
+    "pass": 2547,
+    "fail": 0,
+    "skip": 0
+  },
+  "ruleBehavior": {
+    "tests": 36,
+    "pass": 36
+  },
+  "build": "PASS",
+  "architecture": "PASS",
+  "rules": "PASS; untracked-file warnings in isolated non-git copy",
+  "native": {
+    "W1": {
+      "receipt": "evidence/w1-materials-e72r18/w1-materials.json",
+      "bundle": "484d112cf8d3c14ff10615c0d7931f2ea2a87ff323a808a95261c7e413e19fc9",
+      "status": "PASS",
+      "gates": [
+        "w1-prepared-exact-lots: native Save/reload/Export/literal-file Import",
+        "w1-earned-fitting-and-products: native Save/reload/Export/literal-file Import",
+        "Native lesson, local repair shift, two treatments, two usable kit grades, preparation-consuming advancement and changed precise work"
+      ]
+    },
+    "W2": {
+      "receipt": "evidence/w2-institution-r1I5OU/w2-institution.json",
+      "bundle": "484d112cf8d3c14ff10615c0d7931f2ea2a87ff323a808a95261c7e413e19fc9",
+      "status": "PASS",
+      "gates": [
+        "w2-funded-qualified-office: native Save/reload/Export/literal-file Import",
+        "w2-successor-pending-review: native Save/reload/Export/literal-file Import",
+        "w2-successor-settled-delivery: native Save/reload/Export/literal-file Import",
+        "Worker/student earns office; qualified steward, finite reserved funding, unavailable pause, living succession and actual successor review precede delivery"
+      ]
+    },
+    "W3": {
+      "receipt": "evidence/w3-two-origins-4Qowgw/w3-two-origins.json",
+      "bundle": "484d112cf8d3c14ff10615c0d7931f2ea2a87ff323a808a95261c7e413e19fc9",
+      "status": "PASS",
+      "gates": [
+        "w3-origin-1: native Save/reload/Export/literal-file Import",
+        "w3-origin-2: native Save/reload/Export/literal-file Import",
+        "Two seeded original histories have different actual owners and obligations; native discovery, restoration, persistence and revisits retain each exact cause"
+      ]
+    },
+    "W4": {
+      "receipt": "evidence/w4-paths-5NGa2H/w4-paths.json",
+      "bundle": "484d112cf8d3c14ff10615c0d7931f2ea2a87ff323a808a95261c7e413e19fc9",
+      "status": "PASS",
+      "gates": [
+        "w4-prepared-path-reserve: native Save/reload/Export/literal-file Import",
+        "w4-inert-foreign-reserve: native Save/reload/Export/literal-file Import",
+        "w4-compatible-expenditure-products: native Save/reload/Export/literal-file Import",
+        "Two actual intake/preparation laws; native paid-dose conversion; compatible technique; frozen control and practiced material quality; body/instance reserve remains inert outside"
+      ]
+    }
+  },
+  "desktop": {
+    "status": "PASS",
+    "receipt": "evidence/w-desktop-EXJyXy/w-desktop.json",
+    "geometry": "evidence/w-desktop-EXJyXy/geometry.json",
+    "surfaces": 3,
+    "casesPerSurface": 6,
+    "manualReview": "1536x864 at21px all three final surfaces; earlier larger target matrix retained"
+  },
+  "normalAppAdopted": false,
+  "committed": false,
+  "pushed": false,
+  "preview": "http://127.0.0.1:19418/"
+}

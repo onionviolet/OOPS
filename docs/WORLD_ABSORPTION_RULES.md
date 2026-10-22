@@ -250,3 +250,30 @@ controllers, encounters and situations.
 - **WA10 save pin not done.** The `world_packs` domain writes no save slice, so saves
   are byte-identical in shape. Pinning pack revision in saves is the next slice.
 
+
+## More to consider, round 3: world optimization and implementation (2026-10-22)
+
+Weibao, 2026-10-22: "World optimization and implementation rules? more to
+consider?" Proposals, not accepted rules; none changes code or WA1-WA21. Read from
+source and docs, no new measurements. Dispositions: A = ACCOUNT FOR NOW (a
+constraint on the next world pack), L = LATER / DELEGATE.
+
+| Code | Consideration | Why it matters here | Disp. |
+|---|---|---|---|
+| WO1 | **Cost scales with active worlds, not installed worlds.** Every per-tick, per-render and per-save cost a world adds gets a "dormant" answer: a world the save has not entered costs one registry row. The loader already has `dormant` (`world_pack_loader.js`); the engine paths around it (scheduler scans, panel polls, save validation, ER1-F1..F10) do not yet promise the same | Hotspot audit ranks whole-envelope save per joined tick and 250 ms panel polls first; each new world multiplies them | A |
+| WO2 | **A world declares its tick footprint** next to WA16: expected entities, daily draws, boundaries per game day, panel refresh sources. Lint compares declaration to a counted fixture, the way record ceilings are compared now | WA16 bounds records and generators, not recurring simulation work | A |
+| WO3 | **Optimize by measuring the world's own signature loop** at late-game counts (GR11, WDI31), one sample before and one after, on a rebuilt bundle. No speculative caching; cache keys are world revision + fact hash (WDI31) | A cache without a revision key is a stale-truth bug | A |
+| WO4 | **Lazy load per world is a bundle concern, not a rules one.** Dynamic `import()` per world (PF4, ER2-C) only after a pack is plain data (WA21) and the cyclic SCCs it touches are broken. Chunks must be versioned with the save's pack `id@revision` (WA10) or players load mismatched code | 6.4 MB bundle; ER2 found 55- and 36-module import cycles that block clean splits | L |
+| WO5 | **Data before code.** Prefer a pack record or a fact the engine already reads over a new hand-coded module (WA1, WA17). Hand-coded worlds (LOTM, Cyoria) are converted only as structural moves, same journey before and after | Each hand-coded world adds files to `main.js`-adjacent seams (AR1, AR13) | A |
+| WO6 | **Implementation order inside a world:** floor (K2 laws, K3 power, K6 cast, K8 daily life, K13 signature loop) then rings (DWF6). Optimization of a ring waits until its journey passes at C2 | Optimizing before the loop plays tunes the wrong code | A |
+| WO7 | **Separate three costs in every report:** content size (records, bytes), recurring sim cost (per tick), and UI cost (render and poll). A single "perf" number hides which one grew | The 250 ms poll and the save transaction are different fixes | A |
+| WO8 | **Generated content has an eviction story.** Catch-up generation (WA7) writes records the save must keep; say which are re-derivable from seed + revision (store only the seed) and which are frozen (store the row). Re-derivable rows must regenerate identically after a generator change, or be frozen at first sight | Save size and "generator change reshuffles my world" are the same decision | A |
+| WO9 | **Offline and idle catch-up per world has a declared cap** (boundaries drained per slice, as the 512-boundary chronicle budget does), with a visible "caught up through day N" readout rather than a silent truncation | Synchronous drain blocks the UI; silent truncation breaks AD16/AD17 | A |
+| WO10 | **Pack diff and rollback before the second revision.** WAC26 (pack diff) and WAC25 (supersededBy) land before any released pack ships revision 2, so frozen save rows are known at bump time | Revision bumps without a diff tool guess which saves are affected | L |
+| WO11 | **Optimization never changes what a world allows** (AD38, AD22). A performance limit is a technical retain-and-continue (AR3), never an in-world prohibition; unfinished work is kept and resumed | Prevents "too many NPCs, so the village can't grow" becoming a fictional rule | A |
+| WO12 | **Author-time cost report:** `lint_world_pack` (WAC29) prints record count, generator budgets, declared tick footprint and dormant status per WA code | Cheap, makes WO1-WO2 checkable before a browser run | L |
+| WO13 | **Debug view, inspection only:** per-world counters (records, entities, last tick cost, dormant reason) read from the projection (AR8), no mutation, no sealed truth (WA11). Pairs with `authorReport` | Lets Weibao see which world is expensive without devtools | L |
+
+Evidence gate when any WO is built: rebuilt bundle, 1920x1080 for any panel,
+fresh origin, save, reload, Export and literal Import; late-game fixture for
+WO1-WO3 and WO9. Until then these are specified-not-run.

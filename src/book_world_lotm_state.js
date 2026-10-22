@@ -1,7 +1,7 @@
 // Optional `state.lotm` owner for the early-Tingen probationer branch. Absent means
 // inert: no Tingen presence, job, means or knowledge may exist without it. The
 // only activation path is enrollLotmBranch (book_world_lotm_content.js).
-import {LOTM_IDS as I,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT} from './book_world_lotm_ids.js';
+import {LOTM_IDS as I,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT,LOTM_DIGEST_ACTS} from './book_world_lotm_ids.js';
 import {lotmCommands} from './book_world_lotm_actions.js';
 import {jsonData} from './simulation_contracts.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
@@ -36,6 +36,13 @@ export function validateLotmState(state){
  assert(!has('ingested')||!!src,'Recorded ingestion needs its source.');
  assert(!power?.owned||has('methodLearned')&&!!src,'A learned method needs the source and a completed lesson.');
  assert(!has('methodLearned')||power?.owned===true,'A completed lesson needs its method.');
+ // Digestion and promotion (LTS11-LTS14) live in player facts and one resource, so state.lotm keeps schema 1.
+ const acting=a.player.resources?.['book.lotm.acting'],clown=a.player.sources?.[I.clown];
+ assert(acting===undefined||natural(acting)&&acting<=LOTM_DIGEST_ACTS&&has('methodLearned'),'Acting in role needs the learned method and stays within the digestion count.');
+ assert(!has('refusedHigh')||has('methodLearned'),'A refused reading needs the learned method.');
+ assert(!has('assessed')||acting===LOTM_DIGEST_ACTS,'An assessment needs a digested potion.');
+ assert(!has('promoted')||has('assessed')&&!!src,'A promotion needs the assessment and the Seer source.');
+ assert(!!clown===has('promoted'),'The Clown source exists exactly when the promotion is recorded.');
  const e=s.energies?.player?.[I.energy];
  assert(!!e===!!src,'The spirituality pool exists exactly when the source does.');
  return true;

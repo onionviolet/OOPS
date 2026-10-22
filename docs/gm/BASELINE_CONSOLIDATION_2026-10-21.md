@@ -1,5 +1,14 @@
 # Shared master baseline consolidation, 2026-10-21
 
+Current navigation, checked 2026-10-22: this record owns the original
+`3aaf50eaf` consolidation/alignment evidence. Later published gear/UI, P4 and
+inventory/home/MF releases descend from it; use
+[PROJECT current delivery](../../PROJECT.md#current-delivery-routing-checked-2026-10-22)
+and the [latest combined release](dispatch/inventory-overhaul-2026-10-21/REPORT.md)
+for current source, publication and recorded Electron adoption. The original
+active-UI exclusions and frozen adoption boundary below describe this baseline's
+inputs, not an exclusion from the later combined release.
+
 User requested all YAIR/OOPS work considered on one master baseline, explicitly authorized publication to the personal fork and requested coordination with the other consolidation chat. Origin is `https://github.com/onionviolet/OOPS.git`. Upstream is not a write destination. This is repository consolidation, not a merger of unrelated personal projects.
 
 Rules: AR1–AR16, AD32/34/36/39/41, applicable UR/MR and existing domain rules. Existing first-milestone, mobile deferral, private-source and sealed-secret boundaries remain. Integration does not turn saved proposals into accepted product decisions or claim human visual/play acceptance.

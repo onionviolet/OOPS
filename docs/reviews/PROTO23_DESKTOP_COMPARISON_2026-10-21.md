@@ -1,5 +1,14 @@
 # Matched Proto23 desktop comparison and fitting OOPS repairs
 
+Current delivery, checked 2026-10-22: the later
+[inventory overhaul release](../gm/dispatch/inventory-overhaul-2026-10-21/REPORT.md)
+includes this matched-UI work and released home/MF/household scope, with source
+published through `e59df9a28` and latest recorded normal Electron adoption
+`v0.6-72af84cf8e66`. Its I2–I5 delivery supersedes this report's earlier
+missing-overhaul, preview-only, pending-adoption and no-push boundaries. The
+successive frozen comparisons below retain their own inputs and evidence;
+whole-game reference parity and human visual/play acceptance are not claimed.
+
 ## Task contract
 
 Weibao: “Do the matched desktop comparison with Proto23 and fix the remaining UI gaps that fit OOPS, using the latest combined app, areas of improvements and little details and more? like the donate thing and the cat and more? We can refer to base game source code”.

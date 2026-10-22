@@ -1,7 +1,8 @@
 // Original native adapters for the selected rat-material chain. Actual owners
 // provide settled output, consumed keys and played clock; this has no state.
 import {planProcessedMaterial, readMaterialLineage} from './material_lineage.js';
-const FAMILIES = {'Rat pelt':'animal-hide','Rat tail':'animal-tail','Rat fang':'animal-bone',
+export {treatedRecipeQuality} from './material_treatment.js';
+const FAMILIES = {'Portable leatherworking kit':'workshop-tool','Rat pelt':'animal-hide','Rat tail':'animal-tail','Rat fang':'animal-bone',
     'Piece of wolf rat leather':'animal-hide','Processed rat pelt':'animal-hide','Rat meat chunks':'animal-food'};
 export const isLineageMaterial = id => Object.hasOwn(FAMILIES, id);
 export function harvestedMaterialOutput(specimen, output, context) {

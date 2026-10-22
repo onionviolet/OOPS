@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "lane": "w-desktop",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "5b644b2392c1386817da5b4bda711dcddbd4a605d587548c4f565d5c357f865c",
+  "gates": [
+    "Three native surfaces across all six desktop/text cases: actual loaded font sizes, horizontally bounded buttons, scroll-reachable work and pinned Back"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

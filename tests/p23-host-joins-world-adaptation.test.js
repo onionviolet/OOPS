@@ -8,8 +8,8 @@ import {registerMistglassNative,mistglassContext,stageMistglassTravel,stageMistg
 registerMistglassNative(expeditionRegistry);
 const key=JSON.stringify({id:P.doseItemId});
 const native={body:{id:'native.player.body',form:'human',ownerId:'player',controllerId:'player'},alive:true,location:P.locationId,optIn:true};
-function plan(){const state=initializeExpedition(createExpansionState(72));state.simulation=createSimulationState(72);state.simulation.people.player={life:'alive',inventory:'native',location:'Village'};return {state,gameplay:{player:{inventory:{[key]:4},skills:{Meditation:{xp:0,enabled:true}},reputation:{}}},external:{money:20}};}
-function enrolled(){const p=plan();p.state.sequence++;stageMistglassTravel(p,'enter');stageMistglassTeaching(p,mistglassContext(p.state,native),expeditionRegistry);return p;}
+function plan(seed=72){const state=initializeExpedition(createExpansionState(seed));state.simulation=createSimulationState(72);state.simulation.people.player={life:'alive',inventory:'native',location:'Village'};return {state,gameplay:{player:{inventory:{[key]:4},skills:{Meditation:{xp:0,enabled:true}},reputation:{Village:0}}},external:{money:20}};}
+function enrolled(seed=72){const p=plan(seed);p.state.sequence++;stageMistglassTravel(p,'enter');stageMistglassTeaching(p,mistglassContext(p.state,native),expeditionRegistry);return p;}
 function advance(p,t){const c=mistglassContext(p.state,native);p.state.clock=t;stageMistglassAdvance(p,c,expeditionRegistry);return p;}
 function envelope(p){return {expansion:p.state,'current location':p.nativeLocation};}
 test('old absence stays absent; real retained world enrollment owns native energy',()=>{
@@ -46,4 +46,45 @@ test('native passage closes retained visit; same-clock new context interrupts wi
     const p=advance(enrolled(),16);stageMistglassTrial(p,mistglassContext(p.state,native),expeditionRegistry,{doseKey:key});stageMistglassTravel(p,'exit');
     stageMistglassAdvance(p,mistglassContext(p.state,{...native,location:'Village'}),expeditionRegistry);
     assert.equal(p.state.worldAdaptation.last.reason,'interrupted');assert.equal(p.gameplay.player.inventory[key],3);assert.equal(p.state.mistglassRealm.activeVisitId,null);validateMistglassEnvelope(envelope(p));
+});
+
+import {stageMistglassSluice,knownMistglassView} from '../src/absorb_p23/host_joins/world_adaptation.js';
+test('sluice work debits native condensate, pays native coins once and rejects a stale quote',()=>{
+    let p;for(let seed=1;seed<40;seed++){p=enrolled(seed);if(p.state.mistglassRealm.history.id==='keeper-built')break;}advance(p,16);const c=mistglassContext(p.state,native);
+    assert.equal(knownMistglassView(p.state,c,key).sluice.cost,2000);
+    const stale={...p,state:structuredClone(p.state),external:{...p.external}};stale.state.worldAdaptation.revision++;
+    stageMistglassSluice(p,c,expeditionRegistry);
+    assert.equal(mistglassReserve(p.state),0);assert.equal(p.external.money,22);assert.equal(p.state.worldAdaptation.sluice.cleared,1);
+    validateMistglassEnvelope(envelope(p));
+    const saved=structuredClone(p);assert.throws(()=>stageMistglassSluice(p,c,expeditionRegistry),/runs clear/);assert.deepEqual(p,saved);
+    const changed=enrolled();changed.state.mistglassRealm.history.id='keeper-built';advance(changed,16);changed.state.simulation.energies.player[P.resourceId].reserve=1000;
+    assert.throws(()=>stageMistglassSluice(changed,mistglassContext(changed.state,native),expeditionRegistry),/Needs 2/);
+    const noPurse=enrolled();noPurse.state.mistglassRealm.history.id='keeper-built';advance(noPurse,16);delete noPurse.external;
+    assert.throws(()=>stageMistglassSluice(noPurse,mistglassContext(noPurse.state,native),expeditionRegistry),/coin owner/);
+});
+
+// E5a: a fixed instance past decides who holds the sluice; it is drawn once and saved.
+import {mistglassHistoryAccount} from '../src/absorb_p23/host_joins/world_adaptation.js';
+test('instance history is drawn once from the save seed, survives reload and changes who the sluice work answers to',()=>{
+    const histories=new Map();
+    for(let seed=1;seed<40&&histories.size<2;seed++){
+        const p=(()=>{const state=initializeExpedition(createExpansionState(seed));state.simulation=createSimulationState(seed);state.simulation.people.player={life:'alive',inventory:'native',location:'Village'};return {state,gameplay:{player:{inventory:{[key]:4},skills:{Meditation:{xp:0,enabled:true}},reputation:{Village:0}}},external:{money:20}};})();
+        p.state.sequence++;stageMistglassTravel(p,'enter');const h=p.state.mistglassRealm.history;
+        if(!histories.has(h.id))histories.set(h.id,p);
+    }
+    assert.deepEqual([...histories.keys()].sort(),['keeper-built','mill-race'],'two different histories occur across seeds');
+    for(const [id,p] of histories){
+        assert.equal(mistglassHistoryAccount(p.state),null,'unknown until heard');
+        stageMistglassTeaching(p,mistglassContext(p.state,native),expeditionRegistry);advance(p,16);
+        const saved=JSON.parse(JSON.stringify(p.state));validateMistglassEnvelope({expansion:saved,'current location':P.locationId});
+        assert.deepEqual(saved.mistglassRealm.history,p.state.mistglassRealm.history,'reload reads, never redraws');
+        assert.match(mistglassHistoryAccount(p.state),id==='mill-race'?/mill race/:/grandmother/);
+        stageMistglassSluice(p,mistglassContext(p.state,native),expeditionRegistry);
+        if(id==='mill-race'){assert.equal(p.external.money,20);assert.equal(p.gameplay.player.reputation.Village,1);}
+        else{assert.equal(p.external.money,22);assert.equal(p.gameplay.player.reputation.Village,0);}
+        stageMistglassTravel(p,'exit');advance(p,30);p.state.sequence++;stageMistglassTravel(p,'enter');assert.equal(p.state.mistglassRealm.history.id,id,'re-entry keeps the past');
+    }
+    const legacy=enrolled();delete legacy.state.mistglassRealm.history;validateMistglassEnvelope(envelope(legacy));
+    advance(legacy,16);stageMistglassSluice(legacy,mistglassContext(legacy.state,native),expeditionRegistry);assert.equal(legacy.external.money,22,'old realms keep the original keeper wage');
+    const bad=enrolled();bad.state.mistglassRealm.history.id='invented';assert.throws(()=>validateMistglassEnvelope(envelope(bad)),/history/);
 });

@@ -1,3 +1,7 @@
+import {MENDER_ACTIONS,quoteMender} from './material_apprentice.js';
+import {queryCapabilities} from './capabilities.js';
+import {applySimulationEffects} from './simulation_effects.js';
+import {applyGameplayEffect} from './gameplay_transactions.js';
 import {createAffixes} from './gear_affixes.js';
 import {registerDomain} from './domain_registry.js';
 import {beginNativeCraftTransaction} from './native_craft_transaction.js';
@@ -5,6 +9,7 @@ import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {toolsState, setToolsState, maxCondition, rekeyToolFacts} from './tools_domain.js';
 import {quoteGearWork, validateWork, materialProperties, GEAR_WORK_LAWS, coldSoakNeed} from './gear_work.js';
 import {createGearWorkshopPanel} from './gear_workshop_panel.js';
+import {HIDE_TREATMENTS, quoteHideTreatment} from './material_treatment.js';
 
 let ports, panel;
 const needOf = item => {
@@ -80,6 +85,45 @@ export function executeWorkshop(quoted) {
     ports.logMessage(q.summary);
     return {...q, resultKey};
 }
+// Hide preparation shares the workshop's maker checks and native transaction.
+export function quoteHide(treatmentId) {
+    const m = maker();
+    if(m.blocked) return {eligible: false, treatmentId, reason: m.blocked};
+    if(!(m.station > 0)) return {eligible: false, treatmentId, reason: 'Prepare hides at a native work station.'};
+    const counts = Object.fromEntries(Object.entries(actor().getItems()).map(([key, r]) => [key, r.count]));
+    return quoteHideTreatment({treatmentId, inventory: counts, skillLevel: ports.skillLevel('Crafting') || 0, clock: ports.clock(), world: m.world});
+}
+export function executeHide(quoted) {
+    const q = quoteHide(quoted.treatmentId);
+    if(!q.eligible) throw Error(q.reason);
+    if(JSON.stringify(q) !== JSON.stringify(quoted)) throw Error('The hide preparation quote changed. Review it again.');
+    for(const row of q.spend) ports.assertSpend(row.key);
+    ports.itemFactory(q.receive[0].key);
+    const txn = beginNativeCraftTransaction({owners: ports.itemOwners(), bindings: []});
+    try {
+        for(const row of q.spend) actor().removeFromInventory([{item_key: row.key, item_count: row.count}]);
+        for(const row of q.receive) actor().addToInventory([{item_key: row.key, count: row.count}]);
+        ports.persist(() => txn.markDurable());
+    } catch(error) {if(txn.status === 'pending') txn.rollback(); throw error;}
+    finally {ports.refresh(); panel?.render();}
+    ports.logMessage(q.summary);
+    return q;
+}
+export function quoteRepairer(action){
+ const m=maker(),state=ports.root?.();if(!state?.simulation?.people.player)return {eligible:false,action,reason:'Follow local people and work before recording repair practice.'};
+ const capability=queryCapabilities(state,ports.registry,{actorId:'player'},{} )['frontier.fitted_repair']?.value||0;
+ return quoteMender({action,state,inventory:Object.fromEntries(Object.entries(actor().getItems()).map(([k,r])=>[k,r.count])),world:m.world,location:m.location,craftsmanHere:ports.craftsmanHere?.(),blocked:m.blocked,materialClock:ports.clock(),capability,toolCondition:durability.condition});
+}
+export function executeRepairer(quoted){
+ const q=quoteRepairer(quoted.action);if(!q.eligible)throw Error(q.reason);if(JSON.stringify(q)!==JSON.stringify(quoted))throw Error('The repairer quote changed. Review it again.');
+ for(const r of q.spend)ports.assertSpend(r.key);
+ const plan=ports.plan(q.minutes);
+ for(const r of q.spend)applyGameplayEffect(plan.gameplay,{type:'item',key:r.key,amount:r.count},'player',true);
+ for(const r of q.receive){ports.itemFactory(r.key);applyGameplayEffect(plan.gameplay,{type:'item',key:r.key,amount:r.count},'player');}
+ plan.acquisitions||=[];plan.unlocks||=[];
+ applySimulationEffects(plan,q.effects,{actorId:'player',worldId:plan.state.actors.player.worldId,external:plan.external,gameplay:plan.gameplay,facts:{location:ports.location()}},ports.registry,`mender:${plan.state.sequence}`);
+ ports.commit(plan);panel?.render();ports.logMessage(q.summary);return q;
+}
 export function projectWorkshop() {
     const m = maker(), inventory = actor().getItems();
     return {maker: m, discovered: m.world === 'base.frontier' && m.station > 0,
@@ -90,7 +134,10 @@ export function projectWorkshop() {
         materials: Object.entries(inventory).filter(([,r]) => r.item.tags.component && materialProperties(ports.templates[r.item.id]) || ['Lamp oil','Iron ingot'].includes(r.item.id))
             .map(([key,r]) => ({key, name: r.item.getName(), count: r.count})),
         makers: [{id:'player',name:'You',skill:m.skill},...(ports.craftsmanHere?.()?[{id:'oldCraftsman',name:'Old craftsman',skill:ports.craftsman().getTotalSkillLevel('Forging')}]:[])],
-        roles: Object.keys(GEAR_WORK_LAWS[m.world]?.roles || {})};
+        roles: Object.keys(GEAR_WORK_LAWS[m.world]?.roles || {}),
+        repairerStatus:ports.root?.().actors.player.sources['frontier.mender.fitted']?'Practiced fitting is retained: either usable kit can support precise lining work.':ports.root?.().actors.player.facts['mender.methodsKnown']?'Preparation lesson recorded. Complete local repair work and demonstrate a fitted preparation.':'The craftsman can teach local preparation and fitting through actual repair work.',
+        repairer:Object.entries(MENDER_ACTIONS).filter(([id])=>id==='lesson'?!ports.root?.().actors.player.facts['mender.methodsKnown']:id==='shift'?!ports.root?.().actors.player.facts['mender.repairShift']:id==='advance'?!ports.root?.().actors.player.sources['frontier.mender.fitted']:true).flatMap(([id,label])=>['tool','advance','fine'].includes(id)?['smoked','oiled'].map(route=>({id:id+':'+route,label:label+' · '+route+' lot',quote:quoteRepairer(id+':'+route)})):[{id,label,quote:quoteRepairer(id)}]),
+        hides: Object.entries(HIDE_TREATMENTS).map(([id, t]) => ({id, label: t.label, note: t.note, quote: quoteHide(id)}))};
 }
 export function validateWorkshopEnvelope(envelope) {
     // Native inventories, equipment and NPC inventories all keep the same key.
@@ -115,6 +162,6 @@ export function validateWorkshopEnvelope(envelope) {
 }
 registerDomain({id: 'gear_workshop', initialState: () => null,
     ownsItemKey: keyHasWork, validate: (_, envelope) => validateWorkshopEnvelope(envelope),
-    commands: {quote: quoteWorkshop, execute: executeWorkshop}, projection: projectWorkshop,
-    refresh: () => panel?.render(), panels: [() => {panel = createGearWorkshopPanel({read: projectWorkshop, quote: quoteWorkshop, execute: executeWorkshop});}],
+    commands: {quote: quoteWorkshop, execute: executeWorkshop, quoteHide, executeHide}, projection: projectWorkshop,
+    refresh: () => panel?.render(), panels: [() => {panel = createGearWorkshopPanel({read: projectWorkshop, quote: quoteWorkshop, execute: executeWorkshop, prepareHide: executeHide,repairer:executeRepairer});}],
 });

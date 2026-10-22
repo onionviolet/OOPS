@@ -90,6 +90,7 @@ export function createHomePanel({read,quote,execute}) {
         if(view.fresh)action(startBody,'ordinary','Keep your ordinary beginning',{type:'ordinary'});
         if(view.fresh)for(const [id,p]of Object.entries(S)){startBody.append(el('p',p.text));action(startBody,'start:'+id,'Begin as '+p.label,{type:'start',profile:id});}
         market.hidden=c.world!=='base.frontier'||c.location!=='Village';
+        if(!view.state.properties.manor)action(marketBody,'institution_join','Join the household as a provision worker and student',{type:'institution_join'});
         for(const [id,p]of Object.entries(P))if(!['family','manor'].includes(id)&&!p.legacy&&!B[id])action(marketBody,'acquire:'+id,`${p.tenure==='rented'?'Rent':p.price?'Buy':'Settle'} ${p.name} · ${p.price} coins${p.period?' / day':''}`,{type:'acquire',home:id});
         const shop=shopNode||(shopNode=select('Furnishing to buy'));if(!shop.options.length)for(const [id,f]of Object.entries({...F,...HOME_SUPPLIES}))shop.append(option(id,`${f.name} · ${f.price} coins`));if(shopSelection)shop.value=shopSelection;if(shop.parentElement!==marketBody)marketBody.append(shop);const updateShop=()=>{shopSelection=shop.value;action(marketBody,'buy','Buy selected furnishing',{type:'buy',item:shop.value});};shop.onchange=updateShop;updateShop();
         for(const row of view.state.ledger.slice().reverse())historyBody.append(el('p',`Minute ${row.at}: ${row.text}`));

@@ -30,6 +30,8 @@ homeWorkDefinitions.commands.push(
         costs:[item(COOK,'Rat meat chunks',-2),item(COOK,'Rough wood log',-1),res(STEWARD,'home.estateFunds',-2)],effects:[item(COOK,'Roasted rat meat',2),res(COOK,'home.wages',2)]}),
     def('home.staff.repair','Toma patches the estate roof',{actorId:KEEPER,location:P.manor.location,duration:15,requires:eq('actor.home.employed',true),completionRequires:eq('actor.home.employed',true),
         costs:[item(KEEPER,'Rough wood log',-1),item(KEEPER,'Home dry grass',-2),res(STEWARD,'home.estateFunds',-3)],effects:[res('player','home.repair.manor',25),res(KEEPER,'home.wages',3)]}),
+    def('home.staff.gather','Toma gathers deadfall and dry grass on the estate grounds',{actorId:KEEPER,location:P.manor.location,duration:30,requires:eq('actor.home.employed',true),completionRequires:eq('actor.home.employed',true),
+        costs:[res(STEWARD,'home.estateFunds',-2)],effects:[item(KEEPER,'Rough wood log',2),item(KEEPER,'Home dry grass',3),res(KEEPER,'home.wages',2)]}),
     def('home.staff.dry','Toma dries the room and bedding',{actorId:KEEPER,location:P.manor.location,duration:10,requires:eq('actor.home.employed',true),completionRequires:eq('actor.home.employed',true),
         costs:[item(KEEPER,'Rough wood log',-1),res(STEWARD,'home.estateFunds',-2)],effects:[res('player','home.dry.manor',40),res(KEEPER,'home.wages',2)]}),
 );
@@ -51,3 +53,24 @@ homeWorkDefinitions.commands.push(
   costs:[res(STEWARD,'home.estateFunds',-8),res(STEWARD,'home.energy',-20),item(SUPPLIER,'Rat meat chunks',-4),item(SUPPLIER,'Rough wood log',-2)],
   effects:[{type:'relocate',actor:SUPPLIER,location:P.manor.location},res(SUPPLIER,'home.wages',8),item(COOK,'Rat meat chunks',4),item(COOK,'Rough wood log',2)]}),
 );
+// One projection of a command's own frozen terms, so a request label cannot
+// promise anything other than what dispatch reserves and completion settles.
+export function staffQuote(id){
+ const d=homeWorkDefinitions.commands.find(c=>c.id===id);if(!d)throw Error('Home: unknown staff service');
+ const sum=(list,type,key)=>list.filter(e=>e.type===type&&e.key===key).reduce((n,e)=>n+e.amount,0);
+ return {minutes:d.duration,funds:-sum(d.costs,'resource','home.estateFunds'),energy:-sum(d.costs,'resource','home.energy'),
+  yields:d.effects.filter(e=>e.type==='item'&&e.amount>0).map(e=>({key:e.key,count:e.amount,holder:e.actor})),
+  uses:d.costs.filter(e=>e.type==='item').map(e=>({key:e.key,count:-e.amount}))};
+}
+// E5b: the pantry office's standing order. One variant per person who can hold
+// the office; each spends the holder's office funds, never their own wages.
+export const OFFICE_HOLDERS=[STEWARD,KEEPER];
+{const pantry=homeWorkDefinitions.commands.find(d=>d.id==='home.household.pantry');
+ for(const holder of OFFICE_HOLDERS){const swap=e=>({...e,...(e.actor===STEWARD?{actor:holder}:{}),...(e.key==='home.estateFunds'?{key:'home.officeFunds'}:{})});
+  homeWorkDefinitions.commands.push({...structuredClone(pantry),id:`home.office.restock.${holder}`,label:'Standing order: Mara delivers Village provisions',actorId:holder,participants:[holder,SUPPLIER],
+   requires:{all:[consent(holder),eq('actor.home.officeHolder',true),eq('target.location','Village')]},costs:pantry.costs.map(swap),effects:pantry.effects.map(swap)});}}
+
+// W2 qualified delegation is earned by a real shared appointment, not a title.
+homeWorkDefinitions.commands.push(def('home.office.instruction','Study the provision office with Rowan',{actorId:KEEPER,location:P.manor.location,duration:10,targetId:STEWARD,participants:[KEEPER,STEWARD],participantsCoLocated:true,
+ requires:{all:[consent(KEEPER),eq('target.life','alive')]},completionRequires:{all:[eq('actor.home.employed',true),eq('target.life','alive')]},completionCoLocated:true,
+ costs:[res(KEEPER,'home.energy',-20),res(STEWARD,'home.energy',-20)],effects:[{type:'fact',actor:KEEPER,scope:'actor',key:'home.officeQualified',value:true}]}));

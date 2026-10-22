@@ -1,6 +1,6 @@
 import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';
 import {createFurniturePanel} from './home_furniture_panel.js';
-import {allocatedRecipeInputs,recipeMaterialOutput} from './processed_materials.js';
+import {allocatedRecipeInputs,recipeMaterialOutput,treatedRecipeQuality} from './processed_materials.js';
 import {configureCraftingDomain} from './crafting_domain.js';
 import {configureNativeToolDomains} from './native_tool_domains.js';
 import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding,harmCollapse,heroStanding} from './defeat_domain.js';import {setPurse,addPurse,addSavedPurse,commitPlanMoney,moneyLedgerBinding} from './economy_domain.js';
@@ -18,7 +18,7 @@ import {get_location_type_penalty} from './models/location.js';
 import {projectsHome,openProjects} from './projects_drawer.js';
 import {generatedPeopleView} from './generated_people.js';
 import {mistglassProfile as MISTGLASS,mistglassContent} from './absorb_p23/world_adaptation/index.js';
-import {MISTGLASS_LOCATION,MISTGLASS_KEEPER,registerMistglassNative,mistglassContext,stageMistglassTravel,stageMistglassTeaching,stageMistglassTrial,stageMistglassAdvance,stageMistglassRestock,mistglassNextBoundary,knownMistglassView} from './absorb_p23/host_joins/world_adaptation.js';
+import {MISTGLASS_LOCATION,MISTGLASS_KEEPER,registerMistglassNative,mistglassContext,stageMistglassTravel,stageMistglassTeaching,stageMistglassTrial,stageMistglassAdvance,stageMistglassRestock,mistglassNextBoundary,knownMistglassView,stageMistglassMethod,stageMistglassSluice} from './absorb_p23/host_joins/world_adaptation.js';
 import {createMistglassPanel} from './absorb_p23/host_joins/world_adaptation_ui.js';
 import {PROFILE,enrollGrowth,validateGrowthState,growthView,consumeTonic,setBackground,advanceBackground,settleAward,quoteTonicAcquisition} from './absorb_p23/growth_profile/profile.js';
 import {GROWTH_COUNTER_ID,GROWTH_COUNTER_TEMPLATE,GROWTH_TONIC_KEY,growthLearned,growthFlatSource,noHealGrowthVitals,GROWTH_EARNED_THRESHOLD,validateGrowthEarned,readNativeSkillXP,observeGrowthEarned,freezeEarnedGrowth} from './absorb_p23/host_joins/growth_profile.js';
@@ -454,7 +454,7 @@ import {worldIdentityView} from "./world_knowledge.js";
 import {createStatusWindow} from './status_window.js';
 import {createAdventureNotebook} from "./adventure_notebook.js";
 import {createCharacterBio} from "./character_bio_ui.js";
-import {bodyFacts, beginBodyRecord} from "./body_progression.js";
+import {bodyFacts, beginBodyRecord, bodyFacultyActive, COLD_HARDENED} from "./body_progression.js";
 import {createBodyPanel} from "./body_ui.js";
 import {createSimulationPanel} from "./simulation_ui.js";
 import {createSystemsWorkshopPanel} from './systems_workshop_ui.js';
@@ -649,7 +649,7 @@ inventoryTemplates.Basic.unshift(new TradeItemGroup({items:[new TradeItem({item_
 let p23Salvage,readingSalvagePanel;
 let p23Growth,p23GrowthEarned,growthPanel,p23GrowthCounter;
 let mistglassKeeper,mistglassPanel;
-function nativeMistglassContext(state=expansionState,location=current_location?.id){return mistglassContext(state,{body:currentNativeBody(),alive:character.is_alive&&!active_effects.Recovering,location,effectsEnabled:document.documentElement.dataset.effects!=='off'});}
+function nativeMistglassContext(state=expansionState,location=current_location?.id){return mistglassContext(state,{body:currentNativeBody(),alive:character.is_alive&&!active_effects.Recovering,location,inventory:readInventoryOwner(character.getItems()),materialClock:calendarMinutes(current_game_time),effectsEnabled:document.documentElement.dataset.effects!=='off'});}
 function mistglassCanAct(){return workLedgerCanWrite()&&character.is_alive&&!active_effects.Recovering&&!current_combat&&!current_activity&&!current_dialogue&&!current_game_action&&!is_sleeping&&!is_reading&&!is_in_trade()&&nativeActionReasons(expansionState).length===0;}
 function refreshMistglassStock(){
     if(!workLedgerCanWrite()||expansionState.actors.player.worldId!==MISTGLASS.worldId||current_location.id!==MISTGLASS_LOCATION)throw Error('Visit the actual conservatory keeper in the writable game.');
@@ -666,7 +666,7 @@ function actMistglass(id){
         if(first)stageMistglassRestock(plan,{forceInitial:true});
     }else if(id==='exit')stageMistglassTravel(plan,'exit');
     else if(id==='learn')stageMistglassTeaching(plan,nativeMistglassContext(plan.state),expeditionRegistry,{quoteXP:p00NativeSkillXP});
-    else if(id==='trial'){
+    else if(id.startsWith('method:'))stageMistglassMethod(plan,nativeMistglassContext(plan.state),expeditionRegistry,id.slice(7));else if(id==='sluice')stageMistglassSluice(plan,nativeMistglassContext(plan.state),expeditionRegistry);else if(id==='trial'){
         if(!skills.Meditation.canGainXP(get_context()))throw Error('Learn native Meditation before purification.');
         const key=Object.entries(character.getItems()).find(([,r])=>r.item.id===MISTGLASS.doseItemId&&r.count>0)?.[0];
         if(!key)throw Error('Buy a Cloudseed dose from the keeper.');assertNativeItemDisposition(expansionState,key);
@@ -679,9 +679,9 @@ function mistglassFrame(){
     const raw=expansionState.simulation?.conditions?.player?.[MISTGLASS.blockedConditionId],actions=[];
     if(inside){actions.push({id:'exit',label:'Return to Village'},{id:'trade',label:'Trade with conservatory keeper'});
         if(!known.enrolled)actions.push({id:'learn',label:'Learn the conservatory method (explicit opt-in)'});
-        else actions.push({id:'trial',label:'Purify one paid Cloudseed dose',enabled:known.preview.eligible&&skills.Meditation.canGainXP(get_context()),reason:!skills.Meditation.canGainXP(get_context())?'Learn native Meditation first.':known.preview.reasons.join(' ')});
+        else actions.push({id:'sluice',label:`Clear the jammed outflow sluice · ${known.sluice.cost/1000} condensate, ${known.sluice.pays==='reputation'?'+1 Village standing':`+${known.sluice.wageCoins} coins`}`,enabled:known.sluice.eligible,reason:known.sluice.reasons.join(' ')},{id:'trial',label:'Purify one paid Cloudseed dose',enabled:known.preview.eligible&&skills.Meditation.canGainXP(get_context()),reason:!skills.Meditation.canGainXP(get_context())?'Learn native Meditation first.':known.preview.reasons.join(' ')});
     }else if(expansionState.actors.player.worldId==='base.frontier'&&current_location?.id==='Village')actions.push({id:'enter',label:'Enter Mistglass conservatory',enabled:!!expansionState.simulation?.people.player,reason:'Choose Follow local people and work first.'});
-    return {visible:inside||actions.length>0,inside,view:known.view,preview:known.preview,rawRemaining:Math.max(0,(raw?.expiresAt||0)-expansionState.clock),disabled:!mistglassCanAct(),actions};
+    return {visible:inside||actions.length>0,inside,view:known.view,preview:known.preview,sluice:known.sluice,history:known.history,rawRemaining:Math.max(0,(raw?.expiresAt||0)-expansionState.clock),disabled:!mistglassCanAct(),actions};
 }
 
 function growthIdentity(state=expansionState) {
@@ -1294,7 +1294,7 @@ function p00ExposureContext(){
     const s=character.getFullStats();
     return {...homePacingContext(),played:character.is_alive===true&&!restoringNativeSave,needsFood:human,
         exposureEligible:human&&character.is_alive===true,sheltered:current_location?.is_under_roof!==false,
-        pacing:getPacingState(),coldResistanceLevel:character.getTotalSkillLevel('Cold resistance'),
+        pacing:getPacingState(),coldResistanceLevel:character.getTotalSkillLevel('Cold resistance'),coldHardened:bodyFacultyActive(expansionState,COLD_HARDENED,body),
         maxStamina:s.max_stamina,staminaToFull:s.max_stamina-s.stamina};
 }
 function getPacingEffects(context){
@@ -5465,7 +5465,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 const final_count = scale_results ? fuzzy_final_result_count : final_result_count;
 
                 if(final_count) {
-                    character.addToInventory([{item_key: recipeMaterialOutput({resultId:result_id,count:final_count,quality:harvestQuality,allocations:lineageInputs,recipeId:selected_recipe.id,clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId}) || (harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey()), count: final_count}]);
+                    character.addToInventory([{item_key: recipeMaterialOutput({resultId:result_id,count:final_count,quality:treatedRecipeQuality(harvestQuality,result_id,lineageInputs),allocations:lineageInputs,recipeId:selected_recipe.id,clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId}) || (harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey()), count: final_count}]);
                     observeFortAcquisition(result_id,final_count,"craft",selected_recipe.id,selected_recipe.name);
                     let msg = `Created ${item_templates[result_id].getName()}`;
                     if(attempted_crafting_ammount > 1 || scale_results) {
@@ -9487,7 +9487,7 @@ configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_character_inventory();update_displayed_effects();update_displayed_crafting_recipes();}});
-configureNativeToolDomains({actor:()=>character,world:()=>expansionState.actors.player.worldId,templates:item_templates,itemFactory:getItemFromKey,craftsman:()=>NPCRegistry.get('oldCraftsman'),craftsmanHere:()=>current_location?.npcs?.includes('oldCraftsman')&&NPCRegistry.get('oldCraftsman').getDialogueAvailability().getStatus().is_unlocked&&(!expansionState.simulation?.people.oldCraftsman||expansionState.simulation.people.oldCraftsman.life==='alive'&&expansionState.simulation.people.oldCraftsman.location===current_location.id),skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
+configureNativeToolDomains({root:()=>expansionState,plan:minutes=>{const p=p23Plan();return minutes?advanceChroniclePlan(p,minutes,true):p;},commit:persistExpansion,registry:expeditionRegistry,actor:()=>character,world:()=>expansionState.actors.player.worldId,templates:item_templates,itemFactory:getItemFromKey,craftsman:()=>NPCRegistry.get('oldCraftsman'),craftsmanHere:()=>current_location?.npcs?.includes('oldCraftsman')&&NPCRegistry.get('oldCraftsman').getDialogueAvailability().getStatus().is_unlocked&&(!expansionState.simulation?.people.oldCraftsman||expansionState.simulation.people.oldCraftsman.life==='alive'&&expansionState.simulation.people.oldCraftsman.location===current_location.id),skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
     itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables,expansionState.streams,NPCRegistry.get('oldCraftsman').getItems()],assertSpend:id=>assertNativeItemDisposition(expansionState,id.startsWith('{')?id:item_templates[id].getInventoryKey()),
     addItem:(id,count)=>character.addToInventory([{item_id:id,count}]),removeItem:(id,count)=>character.removeFromInventory([{item_key:item_templates[id].getInventoryKey(),item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The tool repair could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},

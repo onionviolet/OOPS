@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "lane": "sluice",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "d0b5685a761b33976eb9270c3bbd8f03e66d77ffabc06429801a69bad1e0462c",
+  "gates": [
+    "1: sluice button + Outflow sluice paragraph + history account present",
+    "2: disabled with Needs 2 condensate",
+    "3: clear paid reputation, button disabled with silt reason; reserve drop 1000",
+    "sluice: native Save/reload/Export/literal-file Import",
+    "4: history id, sluice record, reserve/coins/reputation identical through save/reload/export/import"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}
