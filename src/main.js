@@ -351,6 +351,7 @@ import { height_values } from "./models/person.js";
 import { playable_races } from "./races.js";
 import { fill_availability_methods } from "./component_management.js";
 import Combat from "./models/combat.js";
+import {enableDevConsole} from "./dev_console.js";
 import { Rewards } from "./rewards.js";
 import { ReputationManager } from "./reputation.js";
 import { traders } from "./data/traders.js";
@@ -9445,165 +9446,6 @@ function set_game_speed(multiplier) {
     return game_speed;
 }
 
-/**
- * development console, can be enabled in config.js
- * exposes a bunch of useful functions to browser console
- *
- *     add_active_effect("Coffee", 1800)
- *     give({items: [{item: "Iron sword", quality: 120}], money: 50000}) //can use any valid reward argument
- *     goto("Slums")
- *     set_speed(100)
- */
-function enable_dev_console() {
-    const list = (registry) => Object.keys(registry).sort();
-
-    const real_add_active_effect = add_active_effect;
-
-    const helpers = {
-        //duration is in in-game minutes, like every duration in content
-        add_active_effect: (effect_key, duration = 600) => {
-            if(!effect_templates[effect_key]) {
-                console.error(`No such effect as "${effect_key}". Try list_effects().`);
-                return;
-            }
-            real_add_active_effect(effect_key, duration);
-            return `${effect_key} for ${duration} minutes`;
-        },
-
-        give: (rewards) => {
-            process_rewards({rewards, source_type: "dev console", source_name: "dev console"});
-            return Object.keys(rewards);
-        },
-
-        /*
-            adds all buff-type effects at once, selecting strongest possible effect for mutually exclusive ones,
-            and skipping the rest;
-            returns applied and skipped effects
-        */
-        add_best_effects: (duration = 1800) => {
-            if(typeof duration !== "number" || !(duration > 0)) {
-                console.error(`Duration has to be a positive number of in-game minutes, got "${duration}".`);
-                return;
-            }
-
-            const buffs = Object.keys(effect_templates).filter(key => effect_templates[key].tags?.buff);
-            const applied = [];
-            const skipped = [];
-            buffs.sort().forEach(key => {
-                real_add_active_effect(key, duration);
-                (active_effects[key] ? applied : skipped).push(key);
-            });
-
-            return skipped.length
-                ? {applied, held_back_by_a_stronger_effect: skipped}
-                : applied;
-        },
-        add_money: (amount) => { add_money_to_character(amount, 'debug console'); return character.money; },
-        add_xp: (amount) => { add_xp_to_character(amount); return character.xp.current_level; },
-        add_skill_xp: (skill, amount) => {
-            if(!skills[skill]) {
-                console.error(`No such skill as "${skill}". Try list_skills().`);
-                return;
-            }
-            add_xp_to_skill({skill: skills[skill], xp_to_add: amount});
-            return skills[skill].current_level;
-        },
-
-        //goes to specified location, unlocks it if needed
-        go_to: (location_name) => {
-            if(!locations[location_name]) {
-                console.error(`No such location as "${location_name}". Try list_locations().`);
-                return;
-            }
-            unlock_location({location: locations[location_name], skip_message: true});
-            change_location({location_id: location_name});
-            return location_name;
-        },
-
-        set_flag: (flag, value = true) => {
-            if(!(flag in global_flags)) {
-                console.error(`No such flag as "${flag}". Known: ${list(global_flags).join(", ")}`);
-                return;
-            }
-            global_flags[flag] = value;
-            return `${flag} = ${value}`;
-        },
-
-        simulate_combat: ({use_hero, fighter_locations}) => {
-            if(current_location.tags.combat_zone) {
-                change_location({location_id: current_location.parent_location.id});
-                console.warn('Cannot simulate while another fight is happening - retreated from ongoing combat');
-            }
-
-            for(let i = 0; i < fighter_locations.length; i++) {
-                if(!locations[fighter_locations[i]]) {
-                    console.error('No such location as '+location[fighter_locations[i]]);
-                    return;
-                }
-            }
-
-            let attackers;
-            let defenders;
-
-            if(use_hero) {
-                attackers = [character];
-                defenders = locations[fighter_locations[0]].get_next_enemies();
-            } else {
-                attackers = locations[fighter_locations[0]].get_next_enemies();
-                defenders = locations[fighter_locations[1]].get_next_enemies();
-            }
-
-            let combat_window = document.getElementById("combat_window");
-            if(!combat_window) {
-                combat_window = document.createElement("div");
-                combat_window.id = "combat_window";
-
-                const attacker_box = document.createElement("div");
-                attacker_box.id = "attacker_box";
-                const defender_box = document.createElement("div");
-                defender_box.id = "defender_box";
-
-                const exit_button = document.createElement("div");
-                exit_button.id = "combat_window_exit";
-                exit_button.innerText = translate("ui exit");
-
-                exit_button.addEventListener("click", () => {
-                    change_location({location_id: current_location.id});
-                    combat_window.remove();
-                });
-
-                combat_window.append(attacker_box, defender_box, exit_button);
-            }
-
-            document.body.append(combat_window);
-            
-            current_combat = new Combat({
-                attackers,
-                defenders,
-                attackers_ui_slot: combat_window.querySelector("#attacker_box"),
-                defenders_ui_slot: combat_window.querySelector("#defender_box"),
-                is_special_combat: true,
-            });
-            current_combat.start();
-        },
-
-        list_effects: () => list(effect_templates),
-        list_items: () => list(item_templates),
-        list_locations: () => list(locations),
-        list_skills: () => list(skills),
-        list_quests: () => list(quests),
-        list_dialogues: () => list(dialogues),
-        list_flags: () => list(global_flags),
-
-        set_speed: (multiplier) => set_game_speed(multiplier),
-    };
-
-    Object.keys(helpers).forEach(name => { window[name] = helpers[name]; });
-
-    console.log("Dev console is active. Available functions:\n");
-    console.log(Object.keys(helpers).join("(),\n") + "()");
-}
-
 window.Verify_Game_Objects = Verify_Game_Objects;
 
 set_loading_screen_progress("Waking up from a nyap...");
@@ -10229,9 +10071,7 @@ if(testHooksEnabled) {
     window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate,project:id=>structuredClone(domainRegistry.project(id)),refreshCombatView:()=>{if(current_combat&&!current_combat.is_ended)update_displayed_fighters_stats();},saveStatus:()=>({ownsSave,restoring:restoringNativeSave,writeBlocked:harvestWriteReason()})});
 }
 
-if(config.enable_dev_mode) {
-    enable_dev_console();
-}
+if(config.enable_dev_mode) enableDevConsole({effect_templates, item_templates, locations, skills, quests, dialogues, global_flags, character, Combat, translate, add_active_effect, process_rewards, add_money_to_character, add_xp_to_character, add_xp_to_skill, unlock_location, change_location, set_game_speed, currentLocation: () => current_location, activeEffects: () => active_effects, setCombat: combat => { current_combat = combat; }});
 export { 
     readVillageLedgerSentence,
     current_combat,

@@ -2,7 +2,7 @@ import {centerModes} from './center_modes.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {createShellResize} from './shell_resize.js';
 import {createShellComposition} from './shell_composition.js';
-import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,workspaceRegions,LAYOUT_SPEC} from './layout_spec.js';
+import {regionFor,shellOrder,companionPanels,contextOf,contextLabel,boxOf,workspaceRegions,gridTemplate,LAYOUT_SPEC} from './layout_spec.js';
 import {readPlacement,writePlacement,moveBox,swapCompanions,resetContext,isDefault,moveControl,resizeContext,normalizePlacement} from './shell_layout_edit.js';
 import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
@@ -107,6 +107,8 @@ function makeShell(module) {
     if (module.shell) return;
     if (!module.placeholder) { module.placeholder = document.createComment(`workspace:${module.id}`); module.node.before(module.placeholder); }
     const shell = el('section', 'workspace-module'); shell.dataset.module = module.id; shell.tabIndex = -1;
+    // UM9: a box's look keys on its box, never its region, so it looks the same in any slot.
+    const box = boxOf(module.id); if (box) shell.dataset.box = box;
     const header = el('div', 'workspace-module-header');
     const handle = button('↕', 'handle', module.id); handle.className = 'workspace-drag-handle'; handle.draggable = false; handle.title = 'Drag to reorder or dock. Arrow keys move; left/right changes dock.'; 
     const title = el('strong'); title.tabIndex = 0; title.setAttribute('role', 'button');
@@ -267,6 +269,13 @@ export function updateWorkspace() {
     owner.root.dataset.parity=owner.parity&&!owner.narrow&&owner.context==='play'?'r3':'';
     owner.root.dataset.parityCombat=String(!!registry.get('combat')?.eligible());
     setData(owner.root,'layoutContext',placementContext());
+    // UM8: the parity grid's areas and column shares come from the spec; CSS has one generic rule.
+    const grid=gridTemplate({context:placementContext(),atLeast:px=>window.matchMedia(`(min-width:${px}px)`).matches});
+    setStyle(owner.board,'--shell-areas',grid.areas);setStyle(owner.board,'--shell-columns',grid.columns);
+    grid.shares.forEach((share,i)=>setStyle(owner.board,`--shell-share-${i+1}`,share));
+    // UM9: each region names the main box placed in it, so region-wide looks follow the box.
+    const mainBoxes=Object.entries(LAYOUT_SPEC.boxes).filter(([,def])=>!def.companion).map(([box,def])=>[box,parityRegion(def.lead)]);
+    for(const [id,region] of Object.entries(owner.regions))setData(region,'mainBox',mainBoxes.filter(([,at])=>at===id).map(([box])=>box).join(' '));
     owner.root.dataset.parityItem=String(!!registry.get('shell-detail')?.eligible());
     // Companions the player placed beside the actions show there even where the context would not
     // recommend them (WX11); shell_composition.js reads this list.
@@ -489,7 +498,7 @@ export function mountWorkspace({ root = document.getElementById('main_content') 
     const preview=el('div','workspace-drop-preview'); preview.hidden=true; board.append(preview);
     const vault=el('div','workspace-undiscovered'); vault.hidden=true; board.append(vault);
     const regions={};
-    for(const {id,label} of workspaceRegions()){const region=el('div','workspace-dock parity-region');region.dataset.region=id;region.setAttribute('aria-label',`${label} region`);regions[id]=region;board.append(region);}
+    for(const {id,label} of workspaceRegions()){const region=el('div','workspace-dock parity-region');region.dataset.region=id;region.style.setProperty('--shell-area',id);region.setAttribute('aria-label',`${label} region`);regions[id]=region;board.append(region);}
     const media = window.matchMedia('(max-width: 1000px)'); owner = { root, toolbar, menu, menuSummary, shellTools, board, docks, regions, contextBar,context:'play',editing:false,picker, vault, config, status, media, narrow: media.matches, layout: read(media.matches), targets, preview, cleanup: [] };
     owner.composition=requestedComposition;owner.shell=false;owner.parity=paritySelected();loadPlacement();
     if(owner.parity||shellSelected()){owner.baseLayout=owner.layout;owner.baseComposition=owner.composition;owner.shell=true;owner.layout=makeShellLayout(owner.narrow);owner.composition=true;}

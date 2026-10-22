@@ -10,6 +10,7 @@ import {placeTypeEffectText} from './place_types_projection.js';
 import {SECONDARY_STATS,secondaryVisible,pinKey,isRate} from './condition_facts.js';
 import {mountConditionPanel} from './condition_panel.js';
 import {mountShellControlBoxes} from './shell_control_boxes.js';
+import {mountShellStripBoxes} from './shell_strip_boxes.js';
 import {rendered} from './panel_reveal.js';
 import {descriptionCopy} from './shell_item_description.js';
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
@@ -197,7 +198,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
         const source=document.getElementById('inventory_div'),css=getComputedStyle(source);
         for(const [key,value]of Object.entries({'--shell-preview-size':css.fontSize,'--shell-preview-fill':css.getPropertyValue('--custom-background'),'--shell-preview-text':css.getPropertyValue('--custom-text'),'--shell-preview-accent':css.getPropertyValue('--custom-accent')}))preview.style.setProperty(key,value);
         preview.dataset.customPalette=source.dataset.customPalette||'false';
-        const region=document.querySelector('.parity-region[data-region="inventory"]')||row,box=region.getBoundingClientRect(),expanded=!!row.closest('#center_mode_content');
+        const region=document.querySelector('.parity-region[data-main-box="inventory"]')||row,box=region.getBoundingClientRect(),expanded=!!row.closest('#center_mode_content');
         preview.style.setProperty('--shell-preview-width',expanded?Math.max(280,box.width-8)+'px':'28em');
         preview.style.setProperty('--shell-preview-left',(expanded?box.left+4:Math.min(box.right+6,innerWidth-480))+'px');
         preview.style.setProperty('--shell-preview-top',Math.max(48,Math.min(box.top,innerHeight-300))+'px');
@@ -256,7 +257,8 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
     const latest=action('Latest',()=>{const native=document.querySelector('.log-unread-anchor button');if(native)native.click();else{const box=document.getElementById('message_box_div');box.scrollTop=box.scrollHeight;}});latest.title='Jump to the latest message';let combatStopped=false;const combatLog=action('Stop combat log',()=>{combatStopped=setCombatReportsStopped(!combatStopped);combatLog.textContent=combatStopped?'Resume combat log':'Stop combat log';combatLog.setAttribute('aria-pressed',String(combatStopped));});combatLog.title='Stop recording new hit, miss, block and defeat reports in this presentation. Combat continues; existing history, loot and growth reports remain. Resets on reload.';
     const clearLog=action('Clear',()=>{hideContext();clear_message_log();});clearLog.title='Clear the visible report history. Character, discoveries, quests and combat are unchanged.';
     logTools.append(filters,follow,latest,combatLog,clearLog);
-    // R21 control boxes (CB1–CB5): Inventory and Reports choices open from one box each.
+    // R21 control boxes (CB1–CB5): Inventory and Reports choices open from one box each; UM5 adds Skills, Quests and Crafting.
+    const strips=mountShellStripBoxes();
     const boxes=mountShellControlBoxes({compact,tabs,sortHome,sort,reverse,inventoryList,listTools,log:{tools:logTools,filters,follow,latest,combatLog,clearLog},keepInventory:{stored:()=>getDisplaySetting('panel.belongings.controls')==='kept',store:on=>setDisplaySettings({'panel.belongings.controls':on?'kept':'popover'})}});
     definePanel({id:'shell-log-tools',title:'Reports controls',role:'log',node:logTools,home,defaultDock:'right',after:'messages',eligible:()=>home.dataset.parity==='r3',discovered:()=>home.dataset.parity==='r3'});
 
@@ -327,7 +329,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn}) {
         root.dataset.secondaryShown=String([...secondaryGrid.children].filter(n=>!n.hidden).length);
     }
     function render(){
-        placeSort();tabs.refresh();boxes.render();inventoryComposition.render(rowForSelection());storageComparison.render();
+        placeSort();tabs.refresh();boxes.render();strips.render();inventoryComposition.render(rowForSelection());storageComparison.render();
         condition.render();syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
 
         if(contextSource){if(contextSource.isConnected&&contextSource.checkVisibility()&&active())showContext(contextSource);else hideContext();}

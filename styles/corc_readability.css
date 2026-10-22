@@ -96,4 +96,4 @@
 #main_content.workspace-active[data-parity="r3"] #basic_character_info_div .character_bar_parent_div > [id$="_tooltip"] {display:none!important;}
 /* A deliberately short player frame can scroll when later resources add rows;
    preserve the chosen text size and the routes to Gear and Condition. */
-#main_content.workspace-active[data-parity="r3"] [data-region="player"] {overflow-y:auto;overscroll-behavior:contain;}
+#main_content.workspace-active[data-parity="r3"] [data-main-box="you"] {overflow-y:auto;overscroll-behavior:contain;}

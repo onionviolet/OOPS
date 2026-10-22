@@ -14,7 +14,7 @@
 
 /* R21c: in the parity shell the awakened window sits under You. The stat sheet keeps its natural
    height (shrinking only when the row cannot hold it); the window takes the rest and scrolls inside. */
-#main_content.workspace-active[data-parity="r3"] [data-region="player"]:has(> .workspace-module[data-module="status-window"]:not([hidden])) > .workspace-module[data-module="shell-character"] { flex: 0 1 auto !important; }
-#main_content.workspace-active[data-parity="r3"] [data-region="player"]:has(> .workspace-module[data-module="status-window"]:not([hidden])) > .workspace-module[data-module="shell-character"] > .workspace-module-body { height: auto !important; }
+#main_content.workspace-active[data-parity="r3"] .parity-region:has(> .workspace-module[data-module="status-window"]:not([hidden])) > .workspace-module[data-module="shell-character"] { flex: 0 1 auto !important; }
+#main_content.workspace-active[data-parity="r3"] .parity-region:has(> .workspace-module[data-module="status-window"]:not([hidden])) > .workspace-module[data-module="shell-character"] > .workspace-module-body { height: auto !important; }
 #main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module[data-module="status-window"]:not([hidden]) { flex: 1 0 4.5em !important; display: flex !important; flex-direction: column; }
 #main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module[data-module="status-window"] > .workspace-module-body { flex: 1 1 0 !important; min-height: 0; overflow: auto; }

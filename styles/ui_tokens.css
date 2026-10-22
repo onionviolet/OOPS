@@ -643,22 +643,20 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #main_content.workspace-active:not([data-layout-editing="true"]) .workspace-module-header > [data-workspace-action="pin"] { display:none; }
 @media (min-width:1001px) {
 #main_content.workspace-active[data-parity="r3"] .workspace-board {
- display:grid; grid-template-columns:minmax(0,336fr) minmax(0,110fr) minmax(0,446fr) minmax(0,379fr);
+ display:grid; grid-template-columns:var(--shell-columns);
  grid-template-rows: minmax(0, min(304px,45%)) minmax(0,1fr);
- grid-template-areas:"player player focus log" "inventory actions actions log";
+ grid-template-areas:var(--shell-areas);
  gap:4px; padding:3px; min-height:0;
 }
 #main_content.workspace-active[data-parity="r3"] .workspace-board > .workspace-dock[data-dock] { display:none; }
 #main_content.workspace-active[data-parity="r3"] .parity-region {
- display:flex; flex-direction:column; height:100%; min-width:0; min-height:0;
+ grid-area:var(--shell-area); display:flex; flex-direction:column; height:100%; min-width:0; min-height:0;
  overflow:hidden; padding:0; gap:0; box-sizing:border-box;
  border:3px solid var(--p23-frame); background:var(--p23-region-fill); color:var(--p23-text);
 }
-#main_content.workspace-active[data-parity="r3"] [data-region="player"] {grid-area:player; background:var(--p23-context);}
-#main_content.workspace-active[data-parity="r3"] [data-region="focus"] {grid-area:focus; background:var(--p23-context);}
-#main_content.workspace-active[data-parity="r3"] [data-region="inventory"] {grid-area:inventory;}
-#main_content.workspace-active[data-parity="r3"] [data-region="actions"] {grid-area:actions;}
-#main_content.workspace-active[data-parity="r3"] [data-region="log"] {grid-area:log; background:var(--p23-log-fill);}
+#main_content.workspace-active[data-parity="r3"] [data-main-box="you"] {background:var(--p23-context);}
+#main_content.workspace-active[data-parity="r3"] [data-main-box="around"] {background:var(--p23-context);}
+#main_content.workspace-active[data-parity="r3"] [data-region="log"] {background:var(--p23-log-fill);}
 #main_content.workspace-active[data-parity="r3"] .parity-region > .workspace-module {
  position:relative!important; inset:auto!important; height:auto!important; max-height:none!important;
  flex:0 0 auto; min-height:0!important; min-width:0; width:100%; overflow:hidden;
@@ -737,7 +735,7 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #main_content.workspace-active[data-parity="r3"] .workspace-module[data-module="messages"] {height:100%!important;}
 #main_content.workspace-active[data-parity="r3"] #message_log_div {height:100%;min-height:0;display:flex;flex-direction:column;}
 #main_content.workspace-active[data-parity="r3"] #message_box_div {height:auto;min-height:0;flex:1 1 0;}
-#main_content.workspace-active[data-parity="r3"] [data-region="focus"]:has([data-custom-palette="true"]),
+#main_content.workspace-active[data-parity="r3"] [data-main-box="around"]:has([data-custom-palette="true"]),
 #main_content.workspace-active[data-parity="r3"][data-shell-custom-palette="true"] .parity-region {background:var(--shell-user-fill)!important;color:var(--shell-user-text);}
 }
 @media (min-width:1001px) {
@@ -810,7 +808,7 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 @media (min-width:1001px) {
 /* The existing binding form remains in the expanded native Inventory. More
    actions → Hotkey opens that exact form, so selection does not spend a list row. */
-#main_content.workspace-active[data-parity="r3"] [data-region="inventory"] #inventory_content_div .known-item-binding {display:none;}
+#main_content.workspace-active[data-parity="r3"] [data-box="inventory"] #inventory_content_div .known-item-binding {display:none;}
 }
 @media (min-width:1001px) {
 #main_content.workspace-active[data-parity="r3"][data-parity-expanded="true"] [data-region="actions"] > .workspace-module[data-module="shell-detail"] {display:none!important;}
@@ -1045,7 +1043,7 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #main_content.workspace-active[data-parity="r3"] .scene-local-tabs[hidden],
 #main_content.workspace-active[data-parity="r3"] .scene-chips[hidden] {display:none!important;}
 @media(min-width:1700px){
-#main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-rows:minmax(0,min(440px,48%)) minmax(0,1fr);grid-template-columns:minmax(0,360fr) minmax(0,120fr) minmax(0,590fr) minmax(0,420fr);gap:6px;}
+#main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-rows:minmax(0,min(440px,48%)) minmax(0,1fr);gap:6px;}
 #main_content.workspace-active[data-parity="r3"] .shell-stat-records {gap:.3em .75em;}
 }
 #main_content.workspace-active[data-parity="r3"]:not([data-place-tab="options"]) #location_related_div:not(.center-mode-open) :is(#pacing_status_panel,#durability_panel,#p23_combat_options_panel) {display:none!important;}
@@ -1177,14 +1175,14 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > button[hidden]
 #main_content.workspace-active[data-parity="r3"] .shell-nearby > button {font:inherit;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:.4em .5em;background:transparent;border:0;border-bottom:1px solid var(--p23-quiet-line);}
 #main_content.workspace-active[data-parity="r3"] .shell-nearby small {color:var(--p23-muted);}
 @media(min-width:1700px){
-#main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-columns:minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr);grid-template-rows:minmax(0,min(560px,50%)) minmax(0,1fr);gap:6px;}
+#main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-rows:minmax(0,min(560px,50%)) minmax(0,1fr);gap:6px;}
 #main_content.workspace-active[data-parity="r3"] .shell-equipment {grid-template-columns:repeat(2,minmax(0,1fr));}
 #main_content.workspace-active[data-parity="r3"] .shell-gear-disclosure[open] {flex:0 0 100%;}
 #main_content.workspace-active[data-parity="r3"] .shell-gear-disclosure[open] > summary {text-align:left;border-bottom:1px solid var(--p23-quiet-line);}
 #main_content.workspace-active[data-parity="r3"] .shell-equipment > button {text-align:left;padding:.25em .4em;font:inherit;}
 }
 @media(min-width:2800px){
-#main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-columns:minmax(0,420fr) minmax(0,200fr) minmax(0,700fr) minmax(0,460fr);grid-template-rows:minmax(0,min(700px,48%)) minmax(0,1fr);gap:8px;padding:6px;}
+#main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-rows:minmax(0,min(700px,48%)) minmax(0,1fr);gap:8px;padding:6px;}
 #main_content.workspace-active[data-parity="r3"] .shell-combat-overview {grid-template-columns:repeat(4,minmax(0,1fr));}
 #main_content.workspace-active[data-parity="r3"] .combat-focus-choices[data-presentation="panels"] {grid-template-columns:repeat(4,minmax(0,1fr));}
 #main_content.workspace-active[data-parity="r3"] .shell-log-tools {grid-template-columns:repeat(5,minmax(0,1fr));}
@@ -1480,11 +1478,7 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
  --p23-inventory-fill: linear-gradient(160deg,#000a3d,#003a5e 70%,#004a6e);
  --p23-detail-slot-fill: linear-gradient(180deg,#2b2150,#171034);
 }
-/* R22b (SU6): at the primary target You takes Inventory's column width, matching the column below
-   it; the freed width goes to Around you. The floors keep the R21 widths. */
-@media (min-width:1700px) {
-#main_content.workspace-active[data-parity="r3"] .workspace-board {grid-template-areas:"player focus focus log" "inventory actions actions log";}
-}
+/* R22b (SU6) areas at the primary target now live in the layout spec (UM8, `grids`). */
 
 /* GU10 (Round 12): High contrast, a per-browser display setting (display_settings.js `contrast`).
    It redefines the same tokens every panel already reads, on every element with !important so the

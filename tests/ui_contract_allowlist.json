@@ -926,8 +926,8 @@
       "count": 1
     },
     {
-      "key": "src/main.js|foreign-host|2b21553d02e26e79",
-      "path": "src/main.js",
+      "key": "src/dev_console.js|foreign-host|2b21553d02e26e79",
+      "path": "src/dev_console.js",
       "rule": "foreign-host",
       "snippet": "combat_window.append(attacker_box, defender_box, exit_button);",
       "count": 1

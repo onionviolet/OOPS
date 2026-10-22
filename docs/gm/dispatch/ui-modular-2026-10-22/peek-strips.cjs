@@ -1,0 +1,20 @@
+// UM5 inspection helper: capture the Journal and Skills boxes and Crafting in the parity shell.
+const L=require('../ui-foundation-2026-10-15/r11-lib.cjs');const {fs,path}=L;const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const base=process.env.URL,tag=process.argv[2]||'peek',E=path.join(__dirname,'evidence',tag);fs.mkdirSync(E,{recursive:true});
+(async()=>{const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+const font=Number(process.env.FONT||14);
+const ctx=await b.newContext({viewport:{width:1920,height:1080},reducedMotion:'reduce'});await ctx.route('**/private_packs/manifest.json',r=>r.fulfill({json:{schema:1,packs:[]}}));
+const p=await ctx.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));p.setDefaultTimeout(25000);
+await p.goto(base+'/style.css');await p.evaluate(d=>{localStorage.clear();localStorage.setItem('save data',d);},L.save);
+await p.goto(base+'/?test_hooks=1',{waitUntil:'domcontentloaded'});await L.R.startFresh(p);await p.evaluate(()=>simulationTestHooks.pause());if(font!==14)await L.textSize(p,font);await p.waitForTimeout(1500);
+const clip=async(sel,name)=>{const el=p.locator(sel).first();if(await el.count()&&await el.isVisible()){await el.screenshot({path:path.join(E,name+'.png')});return true;}return false;};
+const out={};
+out.journal=await clip('.workspace-module[data-module="records"]','journal');
+await p.evaluate(()=>document.getElementById('journal_show_bestiary')?.click());await p.waitForTimeout(300);out.journalBestiary=await clip('.workspace-module[data-module="records"]','journal-bestiary');
+await p.evaluate(()=>document.getElementById('journal_show_quests')?.click());
+await p.locator('[data-panel-path="skills"]').first().evaluate(n=>n.click());await p.waitForTimeout(800);out.skills=await clip('.workspace-module[data-module="skills"]','skills')||await clip('.expanded-panel-view','skills-expanded');
+await p.keyboard.press('Escape');await p.waitForTimeout(300);
+await p.locator('[data-panel-path="crafting"]').first().evaluate(n=>n.click());await p.waitForTimeout(800);out.crafting=await clip('#crafting_window','crafting');
+await p.screenshot({path:path.join(E,'page.png')});
+out.controls=await p.evaluate(()=>Object.fromEntries(['skill_sorting_buttons','journal_control_div','skill_and_stance_control_div','crafting_mainpage_buttons','crafting_subpage_buttons'].map(id=>{const n=document.getElementById(id);return[id,n?{visible:!!n.getClientRects().length,parent:n.parentElement?.id||n.parentElement?.className,kids:[...n.children].map(c=>({tag:c.tagName,role:c.getAttribute('role'),tab:c.tabIndex,text:c.textContent.trim().slice(0,20),shown:!!c.getClientRects().length}))}:null];})));
+out.errors=errors;fs.writeFileSync(path.join(E,'peek.json'),JSON.stringify(out,null,1));console.log(JSON.stringify(out,null,0).slice(0,3000));await b.close();})();

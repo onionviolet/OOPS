@@ -52,7 +52,7 @@
 #main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[aria-pressed="true"] {color:var(--p23-text);background:color-mix(in srgb,var(--tab-hue) 22%,transparent);border-top-color:var(--tab-hue);border-bottom-color:var(--tab-hue);}
 #main_content.workspace-active[data-parity="r3"] .inventory-tabs > button[aria-pressed="true"] .inventory-tab-count {color:var(--p23-text);}
 /* FC7: the inventory region and the item detail slot get their own tints. */
-#main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) [data-region="inventory"] {background:var(--p23-inventory-fill);}
+#main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) [data-main-box="inventory"] {background:var(--p23-inventory-fill);}
 #main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) [data-region="actions"] > .workspace-module[data-module="shell-detail"] {background:var(--p23-detail-slot-fill);}
 /* FC6: the session's new-item marker reads "new" in the parity shell (word, not only a dot). */
 #main_content.workspace-active[data-parity="r3"] #inventory_content_div [data-item-new] .item_name::after {content:"new";width:auto;height:auto;margin-left:.4em;padding:0 .25em;font-size:.72em;font-weight:700;line-height:1.2;vertical-align:.15em;color:var(--p23-new);background:none;box-shadow:none;border:1px solid currentColor;}

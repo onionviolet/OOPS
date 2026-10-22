@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { LAYOUT_SPEC, workspaceRegions, regionFor, shellOrder, companionsFor, companionPanels, topRowHeight, contextOf, contextLabel } from '../src/layout_spec.js';
+import { LAYOUT_SPEC, workspaceRegions, regionFor, shellOrder, companionsFor, companionPanels, topRowHeight, contextOf, contextLabel, gridTemplate } from '../src/layout_spec.js';
 
 test('workspace region descriptors preserve native reading order and labels', () => {
     assert.deepEqual(workspaceRegions(), [
@@ -205,4 +205,37 @@ test('UIL7 split clamps protect both adjacent regions including Reports', async 
     assert.equal(clampSplit(-50,1300,300,450),300);
     assert.equal(clampSplit(1500,1300,300,450),850);
     assert.equal(clampSplit(500,1300,300,450),500);
+});
+
+// UM8 (2026-10-22): the grid is spec data. The host writes these strings; CSS has one generic rule.
+test('UM8 grid bands reproduce the former stylesheet areas, columns and inventory shares', () => {
+    const at = w => px => w >= px;
+    const base = gridTemplate({atLeast: at(1536)}), wide = gridTemplate({atLeast: at(1920)}), huge = gridTemplate({atLeast: at(3000)});
+    assert.equal(base.areas, '"player player focus log" "inventory actions actions log"');
+    assert.equal(base.columns, 'minmax(0,336fr) minmax(0,110fr) minmax(0,446fr) minmax(0,379fr)');
+    assert.equal(wide.areas, '"player focus focus log" "inventory actions actions log"');
+    assert.equal(wide.columns, 'minmax(0,410fr) minmax(0,100fr) minmax(0,610fr) minmax(0,410fr)');
+    assert.equal(huge.columns, 'minmax(0,420fr) minmax(0,200fr) minmax(0,700fr) minmax(0,460fr)');
+    // The former hand-computed inventory composition shares (top = tracks 1+2, log = track 4).
+    for (const [g, top, log] of [[base, 35.0904799, 29.8190401], [wide, 33.3333333, 26.7973856], [huge, 34.8314607, 25.8426966]]) {
+        assert.ok(Math.abs(parseFloat(g.shares[0]) + parseFloat(g.shares[1]) - top) < 1e-6);
+        assert.equal(parseFloat(g.shares[3]), log);
+    }
+});
+test('UM8 every area names a spec region and every region has an area', () => {
+    const regions = Object.keys(LAYOUT_SPEC.regions);
+    for (const bands of Object.values(LAYOUT_SPEC.grids)) for (const band of bands) {
+        const names = new Set(band.areas.join(' ').split(/\s+/));
+        assert.deepEqual([...names].sort(), [...regions].sort());
+        for (const row of band.areas) assert.equal(row.split(' ').length, band.columns.length);
+    }
+});
+test('UM3 a composition with a sixth region and its own grid is data only', () => {
+    const regions = {...LAYOUT_SPEC.regions, map: {label: 'Local map', panels: []}};
+    const grids = {...LAYOUT_SPEC.grids, wide: [{minWidth: 1001, areas: ['player focus map log', 'inventory actions actions log'], columns: [1, 1, 1, 1]}]};
+    const contexts = {...LAYOUT_SPEC.contexts, travel: {...LAYOUT_SPEC.contexts.travel, grid: 'wide'}};
+    const spec = {...LAYOUT_SPEC, regions, grids, contexts};
+    assert.deepEqual(workspaceRegions(spec).map(r => r.id), ['player', 'focus', 'inventory', 'actions', 'log', 'map']);
+    assert.equal(gridTemplate({context: 'travel', atLeast: () => true}, spec).areas, '"player focus map log" "inventory actions actions log"');
+    assert.equal(gridTemplate({context: 'idle', atLeast: () => true}, spec).areas, gridTemplate({context: 'idle', atLeast: () => true}).areas);
 });

@@ -236,7 +236,7 @@
     "src/world_completion_runtime.js -> src/world_completion_materials_runtime.js"
   ],
   "lineCounts": {
-    "src/main.js": 10310,
+    "src/main.js": 10115,
     "src/display.js": 6767,
     "src/save_files.js": 310
   }

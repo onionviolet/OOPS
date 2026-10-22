@@ -49,3 +49,12 @@ panel IDs and native element IDs) and a few hard-coded lists in the workspace ho
 
 Counts come from `grep` over `styles/ui_tokens.css` and `src/*.js` at the R21 branch. Nothing in
 ACCOUNT FOR NOW or LATER is built.
+
+## Execution round, 2026-10-22
+
+Weibao asked for all five open items. [Round record](../../ui-modular-2026-10-22/CHECKPOINT.md).
+UM4 was already true: regions and Tab order come from the spec, and a test covers it, so the
+"Still fixed" note about `mountWorkspace` above is history. UM3/UM8 and UM9 are implemented as
+structural moves, proved identical at the AD40 desktop targets. UM5 (Skills, Quests and
+Crafting control boxes) is implemented as a visible proposal; visual acceptance is open. One
+`main.js` slice (the dev console) moved out. Unmerged branch `ui-modular-2026-10-22`; no commit.

@@ -69,7 +69,8 @@ export function createControlBox({id, title, placement = 'below', keepOpen = nul
         if (body.parentNode !== panel) panel.append(body);
         panel.showPopover(); position(); openBox = api;
         button.setAttribute('aria-expanded', 'true');
-        if (focus) (body.querySelector('input:not([hidden]),select,button:not(:disabled)') || close).focus({preventScroll: true});
+        // Native strips moved in (UM5) are focusable divs with role=button; they count as controls too.
+        if (focus) (body.querySelector('input:not([hidden]),select,button:not(:disabled),[role="button"][tabindex="0"]:not([hidden])') || close).focus({preventScroll: true});
     }
     function hide({restore = true} = {}) {
         if (!isOpen()) return;

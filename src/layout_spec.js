@@ -89,6 +89,19 @@ export const LAYOUT_SPEC = Object.freeze({
         service: Object.freeze({label: 'service', when: Object.freeze({centerTasks: Object.freeze(['mixing', 'crafting'])}), companions: Object.freeze([])}),
     }),
     contextPriority: Object.freeze(['combat', 'service', 'travel']),
+    // UM3/UM8 (2026-10-22): the parity grid as data. A context names its grid (`grid`, default
+    // 'standard'); each band applies from `minWidth` (CSS px) and gives its areas, one string per
+    // row, and its column shares (fr). The host writes them as CSS variables and CSS keeps one
+    // generic rule, so a composition with another region needs no CSS edit. Rows, gaps and the
+    // top-row fit stay with shell_composition.js and the stylesheet.
+    grids: Object.freeze({
+        standard: Object.freeze([
+            Object.freeze({minWidth: 1001, areas: Object.freeze(['player player focus log', 'inventory actions actions log']), columns: Object.freeze([336, 110, 446, 379])}),
+            // R22b (SU6): at the primary target You takes Inventory's column width; the freed width goes to Around you.
+            Object.freeze({minWidth: 1700, areas: Object.freeze(['player focus focus log', 'inventory actions actions log']), columns: Object.freeze([410, 100, 610, 410])}),
+            Object.freeze({minWidth: 2800, areas: Object.freeze(['player focus focus log', 'inventory actions actions log']), columns: Object.freeze([420, 200, 700, 460])}),
+        ]),
+    }),
     // Top-row fit (WX3). The top row takes what You needs, or the opponent cards in a fight, plus
     // a frame. Caps keep the bottom row useful. Rows that yield (secondary stats) may grow it only
     // to the R14 default, so at laptop sizes they yield before inventory and actions (R11 order).
@@ -245,6 +258,20 @@ export function contextOf({combat = false, travel = false, task = null} = {}, sp
     return 'idle';
 }
 export const contextLabel = (context, spec = LAYOUT_SPEC) => spec.contexts[context]?.label || context;
+
+// UM8: the grid for a context at the current width. `atLeast(px)` answers the band's media test,
+// so the host can use matchMedia. `shares` are each column's percent of the whole, for CSS that
+// sizes against the default tracks (inventory composition).
+export function gridTemplate({context = 'idle', atLeast}, spec = LAYOUT_SPEC) {
+    const bands = spec.grids[spec.contexts[context]?.grid || 'standard'];
+    const band = bands.filter(b => atLeast(b.minWidth)).at(-1) || bands[0];
+    const total = band.columns.reduce((a, b) => a + b, 0);
+    return {
+        areas: band.areas.map(row => `"${row}"`).join(' '),
+        columns: band.columns.map(c => `minmax(0,${c}fr)`).join(' '),
+        shares: band.columns.map(c => `${(c / total * 100).toFixed(7)}%`),
+    };
+}
 
 // The box a panel belongs to, if any.
 export const boxOf = (id, spec = LAYOUT_SPEC) => Object.keys(spec.boxes).find(box => spec.boxes[box].panels.includes(id)) || null;

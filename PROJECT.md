@@ -1,3 +1,14 @@
+## UI modularity round, 2026-10-22
+
+Weibao asked for the five open UI modularity items. [Round record](docs/gm/dispatch/ui-modular-2026-10-22/CHECKPOINT.md).
+The parity grid's areas and column shares now live in `LAYOUT_SPEC.grids` (UM3/UM8); UM4 was
+already true. Box looks key on the box rather than the region, so a moved box keeps its look
+(UM9). Both are structural: geometry is equal at 1920×1080, 1800×1040 and 1536×864 at 14/21px,
+including a live resize, a resized placement and the UI preview. Skills sorting, Quests Hide
+completed and Crafting recipe kind/Makeable now open from the shared control box (UM5). This is a
+proposal with one extra click each; visual acceptance is open. The dev console moved out of
+`main.js` (10,274 → 10,114 lines). Tests, architecture, rules and rule-behavior checks pass; no push.
+
 ## Inventory overhaul and combined Electron publication, 2026-10-21
 
 Weibao selected implementation of the inventory overhaul and remaining fitting

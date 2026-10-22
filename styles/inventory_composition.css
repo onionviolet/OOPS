@@ -6,11 +6,11 @@
 #main_content.workspace-active[data-parity="r3"] [data-inventory-kind="other"] {--inventory-kind-color:var(--p23-item-other);}
 @media(min-width:1001px) {
 /* Transfer width from track 1 to track 2. You spans both: its width and Reports
-   stay as before. Ratios below reproduce the existing default breakpoints. UIL7's inline !important grid owns explicit saved sizing.
+   stay as before. Shares come from the layout spec's grid band (UM8). UIL7's inline !important grid owns explicit saved sizing.
    Service expansions have another geometry and retain its existing owner. */
 #main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"]:not([data-center-task]) .workspace-board:has(> [data-region="inventory"] > [data-module="belongings"]):not([style*="grid-template-columns"]) {
  --inventory-default-width:min(calc(var(--shell-context-size,var(--ui-type-body))*24),22%);
- --inventory-top-share:35.0904799%;--inventory-log-share:29.8190401%;
+ --inventory-top-share:calc(var(--shell-share-1) + var(--shell-share-2));--inventory-log-share:var(--shell-share-4);
  grid-template-columns:minmax(0,var(--inventory-default-width)) minmax(0,calc(var(--inventory-top-share) - var(--inventory-default-width))) minmax(0,1fr) minmax(0,var(--inventory-log-share));
 }
 #main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"] #inventory_content_div .inventory_item_name {
@@ -35,12 +35,6 @@
 #main_content.workspace-active[data-parity="r3"] .inventory-kind-caption[hidden] {display:none;}
 #main_content.workspace-active[data-parity="r3"] .shell-item-detail:not([data-custom-palette="true"]) > .inventory-kind-caption,
 #main_content.workspace-active[data-parity="r3"]:not([data-shell-custom-palette="true"]) .shell-item-detail[data-inventory-kind] > .shell-item-title {color:var(--inventory-kind-color);}
-}
-@media(min-width:1700px) {
-#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"]:not([data-center-task]) .workspace-board:has(> [data-region="inventory"] > [data-module="belongings"]):not([style*="grid-template-columns"]) {--inventory-top-share:33.3333333%;--inventory-log-share:26.7973856%;}
-}
-@media(min-width:2800px) {
-#main_content.workspace-active[data-parity="r3"][data-inventory-composition="true"]:not([data-center-task]) .workspace-board:has(> [data-region="inventory"] > [data-module="belongings"]):not([style*="grid-template-columns"]) {--inventory-top-share:34.8314607%;--inventory-log-share:25.8426966%;}
 }
 /* Ordinary item inspection is a lower companion, so Around you stays usable. */
 @media(min-width:1001px) {
