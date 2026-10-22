@@ -84,9 +84,11 @@ none). Those are the gaps below.
     court, +4 steppe; paying bandits is +3 steppe, -2 brotherhood; beating
     bandits is the reverse; defaulting costs bankers 6; tax dodged is -4 court,
     +3 steppe. Owner: ECR22.
-  - **E2-c Licensed goods.** Six goods need a purchased license; carrying one
-    without it risks seizure (stated in the license text; the seizure path was
-    not traced). Owner: ECR20.
+  - **E2-c Licensed goods.** Six goods need a purchased license (price scaled
+    by the court's tier). Buying and market listing are blocked without it. On
+    the road a tax collector event fires when the cargo includes a licensed
+    good you lack: surrender everything (all seized) or bribe (half value),
+    traced in `journey.gd` (source). Owner: ECR20.
   - **E2-d Bills of exchange.** Pay 1 percent to deposit cash in one city and
     redeem in another at a premium of 0.035 percent per km, capped at 15
     percent, scaled by the bankers' tier. Redeeming at home returns the face
@@ -126,6 +128,12 @@ none). Those are the gaps below.
   - **E3-b Closed gold loop.** Heroes earn from monsters, bounties and
     treasure, spend in your shops, and tax collectors (walking units that can
     be killed with the gold they carry) bring tax to the palace. Owner: ECR26.
+  - **E3-e Gold passes through buildings.** Shops, the smith and the inn keep
+    a treasury that heroes pay into (potion 40, gear tiers 150/350/700 and
+    120/280/600, inn fee 10 which also raises morale); gear tier is capped by
+    the building's level; tax collectors carry treasury gold to the palace; a
+    wandering merchant sells rare wares at half price and the crown takes 30
+    percent as tolls; thieves strike buildings for gold. Owner: ECR26.
   - **E3-c Heroes leave when morale is low** ("I have had enough of this
     realm") and walk away from the palace.
   - **E3-d Eight guilds, each producing one class; personality draws four
@@ -155,14 +163,16 @@ none). Those are the gaps below.
 - Worth playing? Yes, 20 minutes. Confirm: do the delayed events feel
   authored-as-consequence of the choice, or random.
 
-## Attempted, not read
+## Gap pass: former "not read" games (2026-10-22, second pass)
 
 | Code | Game | Result | Check in play |
 | --- | --- | --- | --- |
-| E5 | [DOGMA++](https://vmtbits.itch.io/dogma) | Build redirects to `modestus.name` login and register server (multiplayer). Accounts are out of bounds. Page claims: 14 opposing powers that cancel, followers abandon on mismatch, holy wars between temples (stated-not-found). | Whether powers that cancel create real belief trade-offs. |
-| E6 | [GOD Inc.](https://soupsarah.itch.io/god-inc) | Godot 4.7 pack format 4; the shared `extract_pck.py` only supports format 3, so unread. Page: win converts on hex planets, rival god's non-believers. | Whether conversion is a flow or a flat count. |
-| E7 | [GOD HELP ME](https://inheogames.itch.io/god-help-me) | Unity with PlayMaker; typetrees stripped, content not recoverable by strings. Page: prayers where you see sins, reputation as wise/forgotten/worse. | Whether refusal has lasting social consequence. |
-| E8 | [Levers of Democracy](https://phil42.itch.io/levers-of-democracy) | Unity WebGL, not opened. Page: three voting systems, 28 cultural traits, procedural newspapers. | Whether policies act through district traits. |
+| E5 | [DOGMA++](https://vmtbits.itch.io/dogma) | Server-side: the build redirects to a login and register page on `modestus.name`; accounts are out of bounds. Page claims only (14 opposing powers that cancel, holy wars between temples, follower loss on mismatch): stated-not-found. | Whether cancelling powers create real belief trade-offs. |
+| E6 | [GOD Inc.](https://soupsarah.itch.io/god-inc) | Read (Godot 4.7 pack, format 4; a scratch copy of the shared extractor with the version assert relaxed worked, then `decode_gdc.py`: 34 scripts, 0 errors). It is a Populous-style hex game, not a conversion-flow sim: a mana pool fed by population (`MANA_RATE` 0.008, base 0.15, cap 1200, three terrain bands 0.8/1.0/1.45) pays for named powers (lightning 80, swamp 100, quake 140, champion 150, volcano 300, nuke 320, flood 400). **E6-a** The rival god plays the same quote-and-spend rules with five personality parameter sets (aggression time, odds ratio, smite interval, favourite power, a flood-when-lower flag). **E6-b** Contract briefs are rule sets (growth, sea, quake cost, aggression) with an unlock level. Gods in YAIR can reuse E6-a as a way to give a rival institution a style without new rules. | Whether the rival's personality changes how you play, or only when it attacks. |
+| E7 | [GOD HELP ME](https://inheogames.itch.io/god-help-me) | Read (Unity IL2CPP with PlayMaker; content recovered from the serialized FSM strings of one scene object). It is a linear sequence of petitioners: each one has a Yes and a No branch that adds or subtracts 1 on one integer, an outcome line per branch, and a final compare that selects among three endings ("Too Good to Be True", "The Forgotten God", "The Wise God"). **No lasting per-petitioner consequence, no stat beyond that counter.** Low value for YAIR beyond the framing of prayers that look good but backfire. | Whether any refusal reads as consequence or is only an ending flag. |
+| E8 | [Levers of Democracy](https://phil42.itch.io/levers-of-democracy) | Partly read (Unity IL2CPP; UI and tooltip strings only, scoring code not read). **E8-a** Each district has traits in categories (industries ranked dominant/major/minor, geography with significance I/II/III worth +3/+5/+7, religion, language, age group, density, demography); each policy matches one category, so a policy's value depends on where it applies. **E8-b** Policy points carry over each cycle. **E8-c** Election is decided by relative popularity. Representation systems: three voting rules. | Whether district traits make a policy mix feel local, as AD27 wants for markets. |
+| E9 | [Ea-Nasir's Shop](https://paulrb.itch.io/ea-nasir-shop-game) | Read (Unity IL2CPP, strings only). Customers have a status class (commoner, noble, soldier, farmer, merchant), several attitude variants of the same class, and each sales tactic (flattery, pressure, chat, handshake, tales) has an accept and a reject line per personality. Three interactions per customer. Jam scale; low value. | None needed. |
+| E10 | [The Gods are Hungry](https://jamespatton.itch.io/the-gods-are-hungry) | Page lists no web embed (only the itch widget route), so there is no build to read. | Skip unless a download is allowed. |
 
 ## Screened by page text only (not decoded)
 
@@ -211,15 +221,32 @@ Trade Empire, Star Ledger, Bear and Bull and similar.
 ## Verification
 
 Read: Debt Ledger `economy.js`, `contracts.js` in full, `world.js` and
-`data.js` at the cited ranges, Silver Way `data/*.json` (factions, licenses,
-donations, titles, events), decoded `factions.gd`, `finance.gd`, `intel.gd`,
-and constants in `economy.gd`; Dash Realms hero, bounty and tax-collector
-code; Fivefold Crown event, diplomacy and world-director code (formatted
-bundles). Not read: GOD Inc., GOD HELP ME, Levers (engine-compiled or format
-unsupported), DOGMA++ (server login), Ea-Nasir (Unity, not fetched), the
-license seizure path in Silver Way, Dash Realms shop spending, and
-full-game play. No game code was executed. Tools: curl for 8 itch pages and
-CDN files at 1-5 s spacing (no 429), `esbuild` as formatter, the shared
-`extract_pck.py` (wrapped with an 8-byte trailer for a standalone pack) and
-`decode_gdc.py`, UnityPy open on one data file. About 55 tool calls. Nothing
-committed.
+`data.js` at the cited ranges; Silver Way `data/*.json`, decoded `factions.gd`,
+`finance.gd`, `intel.gd`, `journey.gd` (contraband event) and `economy.gd`
+constants; Dash Realms hero, bounty, shop and tax-collector code; Fivefold
+Crown event, diplomacy and world-director code; GOD Inc. `rival_god.gd`,
+`contracts.gd` and `pop_world.gd` constants; God Help Me FSM strings from one
+scene object; Levers and Ea-Nasir MonoBehaviour and UI strings. Not read:
+Levers scoring code, GOD Inc. conversion and combat internals beyond the
+constants, DOGMA++ (server login), The Gods are Hungry (no web build), and
+full-game play. No game code was executed. Tools: curl at 1-5 s spacing (no
+429), `esbuild` as formatter, the shared `extract_pck.py` (wrapped with an
+8-byte trailer; a scratch copy with the format assert relaxed for the format 4
+pack), `decode_gdc.py`, UnityPy on three data files, a small
+UnityWebData splitter. About 95 tool calls over both passes. Nothing committed.
+
+## Gap ledger
+
+| Gap | Status | Evidence or locator |
+| --- | --- | --- |
+| Silver Way license seizure path | closed | `journey.gd` contraband event (surrender all or bribe at half value), `sim.gd` 138-140 blocks buying; E2-c |
+| Dash Realms shop spending | closed | pretty.js 19904-19928, 20191-20243, 21279-21281; E3-e |
+| GOD Inc. (format 4 pack) | closed | `private/economy-god-inc/` decoded scripts; E6 |
+| GOD HELP ME | closed, low value | `private/economy-misc/god-help-me-fsm-strings.txt`; E7 |
+| Levers of Democracy scoring code | partly closed; code unreadable: IL2CPP, no dumper run (strings give the rule structure only) | `private/economy-levers/strings.txt`; E8 |
+| Ea-Nasir's Shop | closed, low value: jam-scale haggling lines | `private/economy-ea-nasir/strings.txt`; E9 |
+| DOGMA++ | server-side: login and register on an external host, accounts out of bounds | `modestus.name/gal/dogma/` page body; E5 |
+| The Gods are Hungry | unreadable: no web build on the page | page markup has no embed; E10 |
+| Dash Realms and Fivefold Crown are formatted bundles, not full reads | low value: the traced systems are the ones YAIR maps to | locators in `private/economy-*/LOCATORS.md` |
+| Tags beyond the first page of each list (36 of 70 to 299 per tag) | low value: later pages are lower ranked and the first pass already hit the useful mechanisms | tag URLs in `private/economy-misc/screened_urls.txt` |
+| How any of these feel in play | needs play | per-game "confirm" lines |

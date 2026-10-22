@@ -529,3 +529,19 @@ affixes, My Cultivation Sect guide text and Ascending the Dao pills. Not read: a
 and audio, the Godot engine wasm, and individual translation strings. Nothing was
 executed. About 130 tool calls in total, one 429 on two itch pages (waited 90 s once), no downloads
 beyond the HTML5 files and one `.pck`. Nothing committed.
+
+## Gap ledger
+
+| Gap | Status | Evidence or locator |
+|---|---|---|
+| Ascending the Dao: does the UI state why a sect rank is locked | closed | `game.pretty.js` ~1750-1790: the next locked row lists each unmet requirement as task, current level over required level (only unmet ones shown) |
+| Patriarch "enemies grow stronger" | closed | `stripped.html` ~12855, growth per win |
+| Drifting Cloud rival remembers school name | closed, not found | rival list fixed; school name only in own header and sect screens |
+| Drifting Cloud territory bonuses persist across lives | closed, inferred reset | rebirth copy list (`index-COlxwVe-.pretty.js` ~1018) omits `conq`; page text says persist; needs play to confirm |
+| My Cultivation Sect outcomes of hunt, home, crafting, offline | closed | `main.pretty.js` 2625-2640, 2852-2916, 2949-2995 |
+| Godot wasm | unreadable: engine binary, no game logic | scripts and `.res` values decoded instead |
+| Godot world map contents | closed | stub: `world.gd` prints only, empty tile list |
+| Art and audio assets | low value: not mechanisms | Patriarch base64 images, Cocos and Godot textures |
+| Per-language translation strings | low value: same mechanics in 8 languages | Patriarch, Office Immortal |
+| Server-side behavior (cloud sync, ads, leaderboards) | server-side | Office Immortal sync codes, My Cultivation Sect ad hooks; client code only |
+| Real feel of pacing, odds and UI | needs play | nothing was executed |

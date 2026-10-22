@@ -75,3 +75,25 @@ Build: itch html 10198112, Godot 4.2 web, index.pck 412 KB with GDScript left as
 
 ## Verification
 Read: Runemaster's SpellWithRunes, Rune, RuneModifier, StateSpellbook, Entity.sufferSpellDamage and rune descriptions; Etsa Djavul's pck strings (Rune, Level, Drawing, DrawArea); Spell Looper raw strings from data.unity3d. Not read: Runemaster per-rune stats and monster files; Looper consequence table and scenes (UnityPy typetree stripped, il2cpp not dumped); every download-only title. About 40 tool calls, itch page requests spaced 5 s; no 429s. No game code executed.
+
+## Gap pass additions (2026-10-22)
+
+- **Runemaster per-rune stats (closed)**: bases are Fire (hit 2-6, over-time 1-2, 1 mana, 50 percent ailment for 4 turns), Ice (3-5, 1 mana, 30 percent, 2 turns), Thunder (1-11, 30 percent, 3 turns), Light (2-4, no ailment), Dark (no hit, over-time 1-2, 100 percent ailment for 6 turns, no crits), plus Earth and Air as utility. Shape runes Sphere, Ray, Area and Trap (trap +20 percent damage) and 20 or so supports (Hit: +50 percent hit and +60 percent mana, removes over-time; Chain: -40 percent damage and +20 percent mana; Fear: 40 percent flee chance, -30 percent damage, +40 percent mana). Compatibility is not symmetric: Fear and others omit Earth, Trap accepts only the seven elements. Elemental monsters subtract their own element from incoming spell damage (fire 20-25, ice 10-15, dark 5-10), so element choice matters against matching monsters. Every hit has a flat 20 percent base resist roll plus equipment bonuses.
+- **Mimimage (partly closed, GameMaker JS, 5.1 MB, readable identifiers)**: runes feed per-spell numeric axes held in a persistent controller indexed by spell number: move, lift, up, boost, fire, ice, lightning, time, portal, protect, aim, number, monster, copy, charge, chaos, water, death, circle, growth and a few more. About 25 spell objects (homing, shield, bubble shield, twister, telekinesis, slow time, copy, ice, fire, magma, explosion, cure, chicken, crystal, portal, shadow form and others) read those axes in formulas such as "ice plus boost times 0.5" or "protect scales shield strength". Ten rune slots track whether each rune was found. So composition is additive axes that different spell objects interpret, not named recipes. Per-rune axis assignments were not traced.
+- **Looper (partly closed)**: effect vocabulary visible in strings includes Luck, Ward, Charisma, Life, Death, Love, Peace, Fire, Heat, Cold, Strike, Weak, Corrupt; aspect vocabulary Pure, Regular, Powerful, Strange, Corrupt. Feedback lines come in three kinds: client reaction to the cast ("I would have preferred a stronger Ward"), a news-style outcome headline, and an ending epilogue. Roughly 1,000 strings total, matching the authors' 900-line claim. The key from (effect, target, aspect) to line is not recoverable: typetree is stripped and scripts are il2cpp.
+
+## Gap ledger
+
+| Gap | Status | Evidence or locator |
+|---|---|---|
+| Runemaster per-rune stats | closed | `private/magic/runemaster/Rune*.js`, `EntityElemental*.js` |
+| Runemaster unread monsters and maps | low value: no magic mechanism beyond elemental reduction | file list in `runemaster/list.txt` |
+| Looper consequence table text | closed as a string dump (no key) | `private/magic/looper/rawstrs.txt` |
+| Looper key from rune combo to line, rune count | unreadable: UnityPy typetree stripped, scripts il2cpp, Il2CppDumper not run | `looper/web/data.unity3d`, `global-metadata.dat` 10.4 MB present |
+| Looper aspect effect on outcome | needs play | tutorial lines 115-127 of `rawstrs.txt` |
+| Mimimage per-rune axes | low value: GameMaker minified identifiers; trace is long for little new idea | `private/magic/mimi/m.js` |
+| Witches' Rune | low value: GDevelop divination generator, hover text only | `private/magic/NOTES.md` |
+| Echoes of Syntax, Unchained Mage, Demortal, Of Mist and Shadows, Lingua Magica, Runelite | unreadable by rule: download only | page reads in `private/magic/page_*.html` |
+| Spellscriber, Spellslinger of Xandabar, RuneCode, Runic Conjecture | server-side or off-itch / search snippet only | not fetched |
+| Etsa Djavul glyph data and level phrases | low value: binary scene resources, mechanism already read | `etsa/pck_strings.txt` |
+| Whether Runemaster compatibility prunes the build menu in practice | needs play | StateCreateSpell.js |

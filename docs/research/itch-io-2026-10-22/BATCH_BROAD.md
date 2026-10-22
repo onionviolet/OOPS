@@ -133,12 +133,21 @@ Source: itch `/games/tag-<x>/html5` listings (simulation, immersive-sim, economy
 - **YAIR mapping**: `docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md` already mentions GOAP; nothing new.
 - Worth playing? No.
 
-### Not decoded (one line each)
+### Gap pass additions (2026-10-22, second pass)
 
-- The Liars' Line: embed is a 2.6 KB cover page that links to an external site; outside the allowed route, not fetched.
-- Sovereign Tower and Trouble in NPC Town: CDN index returned a 404 page; not retried.
-- Rum & Timber, Twilight Tower (Unity), Flawed Heist (Godot), Necromarket (libGDX): engine builds, not opened for this batch.
-- Hadean Lands, Anchorhead and the other parser games: listed only; Z-machine/Glulx story files were not fetched.
+- **EMERGENT, more sections read (source, all.js headers and code):** debt now has a bank limit and an over-indebtedness procedure with two outcomes, and a failing company states how many months of cash remain before it dies (V72, L13177); unemployment is a period with a hardening job market (worse after 40 and with a longer CV gap), eroding reputation, skills and morale, with staged exits (lower the bar, retrain, temp work, network) (V73, L13767); rivals appear one at a time, want something specific (promotion, clients, inheritance), act visibly and can be answered, because the developer found nothing ever moved against a passive player (L9299); an optional shadow-business layer is abstract (integrity profile, intermediaries, traces, evidence, investigations) and states that a clean company is fully competitive (L2930); the market is an offline valuation chain with a readable explanation (fundamentals to fair value to sentiment, sector cycle and macro) (L3388); cities carry cost, pay, size, strong sectors, life quality and map position (L9535); travel cost depends on who pays (parents for minors, employer for business, student after grants) and people met on the road stay in the world (L4410); about 40 countries each have salary, cost of living, tax, benefits, healthcare, labour protection, pensions, lending and inflation phases (L4882-L5600). The store claim of country-specific consequences is therefore confirmed as data tables read by the systems.
+- **Medieval Merchant Simulator, more files read (source):** religion is a catalog of faiths with maximum spouses by sex, divorce allowed or not, annulment allowed or not, and city institutions (religion-system.js L5-35); the farm is a capacity-per-level herd where breeding chance is 0.30 plus 0.15 per pair, capped at 0.80, and animals move between pasture and other zones (farm-service.js L117-135); branch offices cost a base fee plus a step per existing branch, carry per-ordinal maintenance, storage by warehouse level, and port modules by level with berths, storage, crew and fee discount (branch-system.js L1-30); pilot ports have berth fees, duty rates and a named manager (port-system.js L1-8). Combat techniques, travel dice and visual-novel services were not read.
+- **Trouble In NPC Town (Phaser, source):** a jam game where NPC crowd members random-walk with layered hat, top and bottom sprites and can be clicked dead; missions ask the player to visit corners, stay in crowds, or stalk an NPC at a set distance (Missions.js L1-25). No world model. Low value.
+- **Uncharted Wanders (dashingstrike, Ludum Dare style, glov engine):** goods carry a realm tag (physical, spirit or both) and each town has a want and a sell table of price and stock per good, so arbitrage works across a physical and a spiritual realm; supplies are universal (app.pretty.js L5523-5560). Prices and stocks are per-town tables, not a simulation. Relevant only as a minimal "two-realm trade" shape for ECR and AD27.
+- **Rum & Timber (Unity, IL2CPP):** unpacked `Web.data`, extracted the 14 MB `global-metadata.dat` and read the string table. Names only (no method bodies): Contract with ContractRep and ContractGain, Faction and FactionCard, Demand with relax/step/max, DefensePoints, Housing, Market, Island and IslandType. It suggests faction-reputation contracts and demand that relaxes over time; nothing traced.
+- **Twilight Tower (Unity, mono/IL2CPP metadata):** unpacked the same way; names only: CardData, CardManager, ChoiceNode, ChoiceValue, and a dialogue/ink-style handler set. No morality or survival numbers found in strings.
+
+### Not decoded (one line each, details in the gap ledger)
+
+- The Liars' Line: the embed is a cover page; the game is on the developer's own site, outside the allowed route.
+- Sovereign Tower and Flawed Heist: no browser build exists (Windows, and Windows/Linux, downloads only).
+- Necromarket: Java/libGDX from LD44; not opened.
+- Parser games (Hadean Lands, Anchorhead and others), the detective titles, Marketfield, Trash Inc., Cat Cove Inn, Fossil Quest and AIMLUS: see the ledger.
 
 ## Top findings
 
@@ -150,4 +159,34 @@ Source: itch `/games/tag-<x>/html5` listings (simulation, immersive-sim, economy
 
 ## Verification line
 
-Read: listings for 15 tag pages (no 429s, 4-5 s spacing); 15 store pages for title, tags, iframe id; fully or mostly read EMERGENT (header comments for every module and about a dozen modules read in full; two large data scripts truncated), MMS-M (14 domain, service and data files plus the payroll section of game.js), No Main Quest (game.js and data.js structure), AI Civ (setup, event generation), Antfall (step and ledger), Idle Fantasy Shop (acceptance and haggle code), Dominion of Darkness (manual and four passages), GOAP (action definitions). Not read: MMS-M's religion, farm, port and combat files beyond name; EMERGENT's market, travel, map and shadow-business sections beyond headers; any Unity/Godot build; parser story files. Nothing executed; esbuild used only as a pretty-printer. Roughly 60 tool calls (curl for fetches; WebFetch was 403 on itch). Dedupe: titles grepped over `docs/**/*.md` outside `private/`; only Seedship and Colony Adventure were already covered. Nothing committed.
+Read: listings for 15 tag pages (no 429s, 4-5 s spacing); 15 store pages for title, tags, iframe id; fully or mostly read EMERGENT (header comments for every module and about a dozen modules read in full; two large data scripts truncated), MMS-M (14 domain, service and data files plus the payroll section of game.js), No Main Quest (game.js and data.js structure), AI Civ (setup, event generation), Antfall (step and ledger), Idle Fantasy Shop (acceptance and haggle code), Dominion of Darkness (manual and four passages), GOAP (action definitions). Not read: MMS-M's religion, farm, port and combat files beyond name; EMERGENT's market, travel, map and shadow-business sections beyond headers; any Unity/Godot build; parser story files. Nothing executed; esbuild used only as a pretty-printer. Roughly 60 tool calls in the first pass plus about 30 in the gap pass (curl for fetches; WebFetch was 403 on itch). The gap pass additionally read Rum & Timber and Twilight Tower metadata strings, NPC Town and Uncharted Wanders source, and more EMERGENT and Medieval Merchant Simulator sections; its remaining gaps are in the ledger below. Dedupe: titles grepped over `docs/**/*.md` outside `private/`; only Seedship and Colony Adventure were already covered. Nothing committed.
+
+
+## Gap ledger
+
+| Gap | Status | Evidence or locator |
+|---|---|---|
+| EMERGENT: market, travel, map, shadow business, countries, debt, unemployment, rivals | closed (headers and core code read; remaining sections are text tables and UI) | `private/emergent-heir/all.js` L2930, L3388, L4410, L4882-5600, L9299, L9535, L13177, L13767 |
+| EMERGENT: two large data scripts truncated | low value: portrait metadata and country name tables | scripts 3 and 29 in `all.js` |
+| EMERGENT: "world keeps moving without you" | closed: monthly company ticks, shocks, rivals, market and country phases exist | L176-190, L9299, L3388, L5097 |
+| MMS-M: religion, farm, branch, port | closed | `private/mms-m/js/domain/religion-system.js`, `farm-service.js`, `data/branch-system.js`, `port-system.js` |
+| MMS-M: combat techniques, travel dice, visual-novel service, city quests, rest of game.js (25,280 lines) | low value for YAIR: combat and travel are covered by other owners; content-heavy. Files not fetched | script names in `private/mms-m/index.html` |
+| MMS-M: whether a hired spouse is paid | needs play | payroll code distinguishes `person.spouse` (game.js L22781-22850) but pay source not traced |
+| No Main Quest: remembered lines change behavior? | closed: no. Memory only quoted in greetings and `remember` replies | `private/no-main-quest/game.js` L221-251 |
+| AI Civilization: live model use | closed: none (no fetch/XHR) | `private/ai-civ-15/index.html`, grep count 0 |
+| Dominion of Darkness: only 4 passages read | low value: AI-generated passage fan-out of one pattern (influence, recruit, discord event) | `private/dominion-of-darkness/index.html` |
+| GOAP sim: planner type | closed: hand-written precondition picker, not a symbolic planner | `private/goap-sim/index.pretty.js` L22940-23075 |
+| Idle Fantasy Shop: breakdown shown to player? | needs play | computed in runtime.pretty.js L957-960; UI use not traced |
+| Trouble In NPC Town | closed (jam, no world model) | `private/npc-town/Scripts/` |
+| Sovereign Tower | unreadable: no HTML5 build, Windows download only | store page: single "Download for Windows" |
+| Flawed Heist | unreadable: no HTML5 build (Windows/Linux downloads only; Godot) | store page downloads list |
+| The Liars' Line | server-side / outside route: embed links to developer site | `private/liars-line/index.html` (2.6 KB cover) |
+| Rum & Timber (Unity) | closed to names only: method bodies are in WASM, not dumped | `private/rum-timber/Build/meta.strings`; global-metadata.dat 13,965,044 B |
+| Twilight Tower (Unity) | closed to names only | `private/twilight-tower/meta.strings`; 3,689,508 B metadata |
+| Necromarket (libGDX, LD44) | low value: 2019 jam shopkeeper story game; not opened | store page tags libgdx, ludum-dare-44 |
+| Uncharted Wanders | closed (see additions) | `private/uncharted-wanders/app.pretty.js` L5523-5560 |
+| Parser games (Hadean Lands, Anchorhead, Terminal City, warrigal titles) | needs play: story files are Glulx/Z-code or hosted engines, not readable source; listing-only | listing lines in screen table |
+| Detective games (Teide, Midnight Dispatch, The Liars' Line) | needs play / server-side: no HTML5 embed found in the page HTML for Teide | store page of Teide has no `html-classic` iframe |
+| Marketfield (19872439), Trash Inc. (19906784), Cat Cove Inn (6577714), Fossil Quest (16435062) | low value: incremental/management patterns already covered by earlier batches; embeds located, not opened | iframe ids from store pages |
+| AIMLUS v0.5 | low value: Unity WebGL alpha (id 11594859), tagged emergent; not opened | store page iframe path |
+| Listing-only titles (rows 19-41 of the screen, other than those above) | low value / not read: one-line screen only; promote from the play queue if wanted | screen table |

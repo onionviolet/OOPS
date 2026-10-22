@@ -30,7 +30,7 @@ skipped); Tamer Guild and Spirit Beasts appear only as palette references.
 - **D** Monster Ranch: Crossbreed! (Sunday Plugins, RPG Maker MZ): 3x3 parents, one raised year.
 - **D (names only)** Cat Cove Inn (Loaf Labs, Unity): fostering, per-cat relations, rehoming to owners.
 - **D (sibling, not traced)** Spiretoon Park (Spirevale): same engine as Grim Brood (its genetics.js header says so).
-- Checked, not decoded: princi-pal (itch page is an egg wrapper that opens a Next.js site), Racing Pigeons (Blazor/.NET), Murong Yi's Celestial Pet Zone (Ren'Py web, xianxia pet VN), Greyhound Dynasties and Beanlings Wildlands (no HTML5 iframe found on the page), Dungeon Calamity (pets that evolve, plain dungeon crawler).
+- Gap pass added: Greyhound Dynasties, Racing Pigeons (ILSpy), Dungeon Calamity, princi-pal (server-side), Celestial Pet Zone (Ren'Py), Mothkeeper (no genetics); see "Gap pass additions". Beanlings Wildlands is account-gated on its own site.
 - Seen, not opened (listing only): Tamaweb, Pixel Monster, KittyToy, Mothkeeper (itch 429), Goldfish Husbandry, Cat Breeding Simulator, Monster Recombinator, Breaking Rat, Neuro-Sama Tutel Rancher, Sunny Spot Breeders, Blob Ranch, Shrimp Raising, Hachiko, Pocket Pet Day Care, Beast Keeper, Echolon, Tamer Guild (paid), Spirit Beasts, Omnissey, Hamster Simulator, Fishsie, SHOALKEEPER.
 - Relationship tag (373 hits) is mostly visual novels and interactive fiction with no system to read; none opened.
 
@@ -209,14 +209,118 @@ reshuffles owners on a timer and records rehomed cat names and types. Mechanics 
 5. **Wishes as predicates, with neighbour de-duplication and leave-after-two-bad-nights** (Grim Brood villagers).
    A small goal engine for household members that acts without scripting. [source]
 
+## Gap pass additions (2026-10-22, second read)
+
+Closing the "not read" items above found more. Same rules: static reads, proposals only.
+
+### DRGN, rest of `game_state.gd` and `main.gd` (source; decoded)
+
+- *Eggs know the keeper.* Spending one evening beside an egg ("watching" it) makes the hatchling start with bond 11
+  instead of 5 and a first memory line that it knew the keeper's voice before hatching. (game_state.gd 828-846, 1534-1566)
+- *Incubation is a three-way trade.* Natural heating hatches a day later with health +5 and stress -4; stable is neutral;
+  intensive is a day sooner with health -6 and stress +8. Locked once incubation starts. Base incubation 3-8 days from size,
+  rarity, mutation and immunity. (805-826, 1534-1536, 1642-1657)
+- *Knowledge is bought in tiers.* Appraisal level 1 (10 coins) shows the market offer, level 2 (22) a breeding score, level 3
+  (45) a genetic test that reveals carried genes. (1011-1037)
+- *Market has a rotating mood and a saturation counter.* A four-phase focus rotates every cycle (colors, working
+  dragons, breeders' lines, quiet); each phase adds up to about 16-18 percent to price for the matching gene; every sale adds saturation that cuts
+  price (up to 45 percent) and decays one point per cycle; line prestige and reputation add up to 18 and 10 percent. (1178-1262)
+- *Creatures decide for themselves at the edge.* An exhausted working dragon swaps itself to rest and the event line says so. (511-545)
+- `main.gd` is UI only (78 functions: farm, breeding, incubator, market, genealogy, tutorial, hatch-reveal tween). Nothing further for mechanics.
+
+### Greyhound Dynasties (Vite bundle 601,772 B; HTML5 on the itch page, GitHub README also exists but returned 404, so not read)
+
+Readability: minified, pretty-printed (14,256 lines); build `18309949-1850252`. No license stated.
+
+- **Continuous polygenic traits with regression and disagreement.** Eleven racing and health traits. A pup's trait is 55 plus 0.82 times
+  (parent mean minus 55), scaled noise that shrinks as parents differ less (up to 42 percent), and a shared per-group wobble so related
+  traits (pace group, stamina group, bend and temperament group) drift together. (pretty.js 8325-8350)
+- **Inbreeding narrows variance and adds named penalties.** Coefficient up to 0.5 shrinks all noise (by 1.3x to 1.4x of the coefficient) and, above 0.06,
+  can subtract from fertility, injury resistance and longevity with probability 0.9 times the coefficient; a tier label (none... severe)
+  shows the impact. (8341-8350, 8449)
+- **Major genes** (explosive break, deep stamina, fragile frame, late maturer, iron constitution): inherit with 0.82 if both parents carry,
+  0.48 if one, 0.012 or 0.008 otherwise. (8352-8355)
+- **Pairing "nick" score.** A compatibility number (20-95) from complementary strengths (one parent covers the other's weak traits),
+  shared weaknesses (penalty), matching preference, mean temperament, and pairings of major genes (deep stamina with explosive break +5), with
+  plain-language lines ("strong nick", "balanced cross"). Litter size 1-5 from fertility, dam brood quality and sire potency; conception chance
+  from fertility state minus inbreeding. (9392-9420, 9279)
+- **Rival kennels are personalities.** Archetype records (The Masters: elite blood, no cash, will not gamble) with weights for racing aggression,
+  commercialization, dynasty acquisition and cash reserve drive their stud, sale and purchase choices. (8492-8530, 8640)
+- YAIR mapping: the genetics doc's G46-G48 (population heredity, generated bodies); household and rival houses
+  (`src/home_staff.js` is the only analogous consumer). The variance-shrinks-with-kinship shape is the reusable bit. [source]
+
+### Racing Pigeons: Loft and Legacy (Blazor/.NET; webcil assemblies unwrapped and decompiled with ILSpy; source-level)
+
+Polish UI, free browser sim. No license stated. `RacingPigeons.Core.wasm` was re-wrapped as a PE and decompiled.
+
+- **Trait = sum of 8 four-level alleles per haplotype.** Each trait has 8 loci per haplotype with values 0-3; potential = (sire haplotype sum + dam haplotype
+  sum) / 48 x 100, plus special-gene effects. Gametes pick each locus from a random parent haplotype and mutate +/-1 at 0.002 per locus. (Genetics/Genome.cs)
+- **Five special genes that only act when both haplotypes carry them** (compass +12 orientation, iron lungs +10 endurance, weak heart -15 endurance and -5 speed,
+  infertility -40 fertility, fragile -15 resilience); the code exposes "expression chance" as the product of the two parents' copy fractions, which is how a
+  carrier-pair preview can be shown. (SpecialGenes.cs, Genome.ExpressionChance)
+- **Breeding value is progeny-tested.** A bird's value is the average quality of its recorded offspring minus the population mean, plus their podiums
+  and prestige. (Breeding/BreedingValue.cs)
+- **Hatch odds.** Base 0.35, plus fertility bonus 0.6, minus inbreeding penalty 0.8; two eggs a clutch. (BreedingRules.cs)
+- Also in the build (names, not traced): auctions, vaccination and season disease, lost birds per race, rival fanciers with skill and greed. (utf-16 strings, class list)
+- YAIR mapping: G18 and G46; progeny-tested value is a clean answer to "how does the world judge a line" (bloodline prestige rows). [source]
+
+### Cat Cove Inn, Il2CppDumper pass plus asset strings (names, fields, flavour text; method bodies not recovered)
+
+Il2CppDumper (project toolset) ran against `WebGL.wasm` and `global-metadata.dat` (dump.cs, 11 cat types, `CatData`
+fields: relationship value list, portraits, names). Rehoming UI has failed/success response lists, owner portraits and a trait-request
+text list; the owners ask in flavour text ("I work long hours", "I can't have a pet that's too loud", "a cat that's always ready to tussle") rather than naming a trait. Each named cat has four
+relationship-tier lines from wary to devoted, the top one ending in a gift. Numbers (tier thresholds, relation steps) live in serialized assets
+that need type trees; not recovered (stated-not-found). (private/cat-cove-inn/asset_strings.txt)
+
+### Spiretoon Park (engine shared with Grim Brood; additions only)
+
+Trait table with a spontaneous rate per trait (good and bad), transmission 0.55 when both parents carry and 0.22 when one does, cap 4 traits; staff roles
+(farmhand, stockman, vet, guide) with wages; a ranch dog companion that follows the rancher, herds loose animals home and chases foxes; a visiting
+critic and a merchant who leaves at midnight; workshops that turn produce into goods at midnight. (index.html 836-856, 1013-1020, 2454-2470)
+
+### Small reads
+
+- *BEASTBLOOM preview is a sampled simulation.* The preview runs the real breeding function 400 times with derived seeds and reports species odds, mutation odds and trait
+  odds as bands (guaranteed, likely, possible, unknown); habitat multiplies chosen mutation chances by 2.5 and a catalyst by 3; a "guaranteed surprise" rule
+  forces one recessive trait or a form mutation when a breed would otherwise show nothing new. (pretty.js 4826-4850, 4915-4925)
+- *Dungeon Calamity.* Taming is a chance per bait: 30 percent any, 45 lure, 70 percent with the beast's favorite food; pets are stat blocks with
+  collars (+25 HP, +8 ATK, +10 percent absorb) and a kennel. No bond. (index.html 7963-7975, 8055-8100)
+- *princi-pal.* The client posts the player's free-text advice to a server route and receives updated personality, six moral stats (dominance, compassion,
+  devotion, ego, purity, retribution) and evolution ids. The judging is server-side. (private/princi-pal/pretty.js 85-130)
+- *Celestial Pet Zone.* Ren'Py script strings show three egg types, a pet happiness level (happy to very unhappy) that selects the hatch/care scenes, and a release scene.
+  Thin.
+- *Mothkeeper* (Construct 3, `data.json` 1.6 MB): no gene, breed, trait or mutation strings; herbs feed moths. Not a breeding game.
+
 ## Verification
 
 Read: DRGN game_state.gd lines 1-60, 885-935, 1147-1177, 1507-1526, 1659-1680, 1704-1760, 1827-1873 (decoded from
 bytecode); Grim Brood genetics.js (lines 1-230), forms.js, lineage.js, village.js in full, grep of care.js and
 sim.js; BEASTBLOOM pretty.js excerpts (526-534, 564, 573, 625, 1040-1075, 4660-4760); LureField pretty.js 389-398,
 1730-1760, 2116-2130; Pitbull index.html 759-800, 1119-1150; Monster Ranch common events summary and plugin header;
-Cat Cove Inn metadata strings only. Not read: Spiretoon Park beyond its header, DRGN main.gd and
-market code, BEASTBLOOM battle code, all VN titles, Racing Pigeons, Greyhound Dynasties. Not run: any game code.
+Cat Cove Inn metadata strings only (first pass; the gap pass added Il2CppDumper output and asset strings). Not read after the gap pass: see the Gap ledger. Not run: any game code.
 Tools: esbuild as pretty-printer; project `decode_gdc.py` for GDScript; ad hoc pck v4 splitter (the shared
 `extract_pck.py` supports only embedded v3 packs); about 60 tool calls, itch page requests spaced at least 5 s,
 one HTTP 429 (Mothkeeper, not retried).
+
+## Gap ledger
+
+| Gap | Status | Evidence or locator |
+|---|---|---|
+| Spiretoon Park not traced | closed (additions only; core is Grim Brood's engine) | index.html 836-856, 1013-1020, 2454-2470 |
+| DRGN `main.gd` and market code | closed (main.gd is UI; market, incubation, appraisal read) | game_txt/game_state.gd 805-846, 1011-1037, 1178-1262 |
+| princi-pal | server-side (judging is a server route; client read) | private/princi-pal/pretty.js 85-130 |
+| Cat Cove Inn logic | closed at field and text level; method bodies and numeric tier thresholds unreadable without type trees (needs play) | private/cat-cove-inn/dump/dump.cs 223250-224560, asset_strings.txt |
+| BEASTBLOOM predicted-percentage code | closed | pretty.js 4826-4850, 4915-4925 |
+| BEASTBLOOM battle code | low value: auto-battle combat, not bonds | not opened |
+| Racing Pigeons | closed (webcil unwrapped, ILSpy; Core assembly read for genetics and breeding; AI fancier and market classes listed, not read) | private/racing-pigeons/il/RacingPigeons.Core.* |
+| Greyhound Dynasties | closed (bundle read for genetics, pairing, AI profiles); GitHub README returned 404 | private/greyhound-dynasties/pretty.js 8325-8530, 9392-9420 |
+| Beanlings Wildlands | server-side and account-gated (no sign-up made); only the public form-rules script exists | private/beanlings-wildlands/ |
+| Mothkeeper (429 earlier) | closed, low value: no genetics | private/mothkeeper/data.json |
+| Murong Yi's Celestial Pet Zone | closed, low value: short VN, three pets and a happiness enum | private/xianxia-pet-zone/rpy/game/*.strings.txt |
+| Dungeon Calamity | closed, low value: bait odds and pet stat blocks | private/dungeon-calamity/index.html 7963-8100 |
+| Relationship-tag visual novels (373 hits) | low value: no system to read in a browser build; most are linear text | tag page only |
+| Tamaweb, Pixel Monster, KittyToy and other listing-only titles | not opened: virtual-pet loops of the Tamagotchi type; the played verdicts above do not depend on them | listing only |
+| Cat Cove Inn rehome matching puzzle, DRGN scene variety, Grim Brood hide reading | needs play | verdict table |
+| Grim Brood remaining `care.js`, `pit.js`, `market.js`, `quests.js` | low value: sickness, fights and sales are standard | downloaded in private/grim-brood/js, only greps read |
+
+Gap-pass tools: Il2CppDumper (project toolset) on the Cat Cove wasm; UnityPy raw-string scan; ILSpy CLI on a PE rebuilt from the webcil Racing Pigeons assembly; esbuild pretty-print (Greyhound Dynasties, princi-pal); Ren'Py rpyc zlib string scan; no game code executed. About 40 further tool calls.
