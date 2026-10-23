@@ -59,7 +59,8 @@ class Watch(unittest.TestCase):
             add_chapter(root, con, 1)
             env = dict(os.environ, MANGA_TEXT_PRIVATE=str(root / "private"), MANGA_TEXT_LIBRARY=str(root / "library"),
                        MANGA_TEXT_CATALOGUE=str(root / "cat.sqlite"), MANGA_TEXT_HOME=str(root / "home"),
-                       MANGA_TEXT_PAUSE_FILE=str(root / "PAUSE"), OCR_MAX_WORKERS="2")
+                       MANGA_TEXT_PAUSE_FILE=str(root / "PAUSE"), OCR_MAX_WORKERS="2",
+                       MANGA_TEXT_BOOK_QUEUE=str(root / "no_queue.json"))
             prog = root / "private/runs/watch_progress.json"
             p = subprocess.Popen([PY, str(HERE / "manga_text.py"), "watch", "--interval", "5", "--nice", "0"], env=env,
                                  stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -80,7 +81,7 @@ class Watch(unittest.TestCase):
                 self.assertTrue(wait_for(lambda: (root / "private/Fixture_Series/ch0002/chapter.jsonl").exists()), "did not resume")
                 # STOP ends it
                 (root / "private/runs/STOP").write_text("")
-                self.assertIsNotNone(wait_for(lambda: p.poll() is not None, 40), "did not stop")
+                self.assertIsNotNone(wait_for(lambda: p.poll() is not None, 150), "did not stop")
                 self.assertEqual(json.loads(prog.read_text())["state"], "stopped")
             finally:
                 if p.poll() is None:

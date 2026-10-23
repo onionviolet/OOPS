@@ -50,6 +50,24 @@ $PY -m unittest discover -s scripts/manga_text/tests      # 40+ synthetic-fixtur
 `search` prints locators only. `--kind` takes `speech`, `caption`, `sfx`, `page_number`, `unknown`, `text` (webtoon blocks), or
 `panel_<type>` (`panel_*` for all panels). `--loose` ignores case, accents, spaces and line-break hyphens.
 
+## Books: scanned PDFs and fixed-layout EPUBs
+
+```bash
+$PY $M book --path FILE.pdf [--title T] [--lang ja|en|ja,en] [--ocr auto|always|never] [--force]
+```
+
+Local only, zero model tokens. Pages are rendered read-only from the file (PDFKit; EPUB spine images), PDF text layers are used when a page
+has 40 or more characters (`auto`), other pages go through Apple Vision with Japanese and English recognition (automatic language
+detection). Output is `private/<title>/x-book/chapter.jsonl` with `format: "book"`, `file_sha256` (also in `cbz_sha256`, so the same
+index, `summary`, `query`, `slice`, `export` and `verify` work), one `page` record per page, `book_text` items (`text_raw` is never
+altered; `lang` is `ja`, `zh-or-ja`, `en` or `other`; nothing is translated), and `book_table` / `book_profile` regions with
+`key_values` (ruled tables, ruled boxes and framed boxes; `Key：Value` and two-column rows). Damaged files (no page tree or trailer) are
+reported as an error, not guessed. The `databook` profile (`profiles/databook.json`) holds the region settings.
+
+The watcher reads the governor queue `~/.local/share/source-platform/governor/books/ocr_queue.json` (list or `{items: [...]}` of
+paths or `{path|file|final_path, title, ocr, lang}`) plus `private/runs/book_queue_local.json`, processes new books first, one at a
+time, and skips finished books by file hash and tool block. The queue file is only read.
+
 ## Token-light access for other agents (hard rule: no model tokens per page or chapter)
 
 Bulk work is deterministic and local (Apple Vision, the detector, OpenCV, SQLite FTS, plain Python/Swift). Agents never receive page
@@ -138,6 +156,9 @@ by chapter). Term matching is loose by default (line-break hyphens, accents, spa
 Findings and pilot results: [AUDIT_USES_2026-10-23.md](../../docs/research/manga-text/AUDIT_USES_2026-10-23.md).
 
 ## Known limits
+
+Books: vertical Japanese text was not read in a synthetic test; handwriting and busy backgrounds (label chips over art) are read
+poorly; tables are only found when they have ruled lines; storyboard-style sheets come out garbled.
 
 Sound effects are largely missed by Apple Vision; side-by-side panels with offset bubbles can be misordered; stylized system
 fonts garble OCR (keys and values need a crop look); no speaker or scene data in stage 1; panel `story_function` is a type-level

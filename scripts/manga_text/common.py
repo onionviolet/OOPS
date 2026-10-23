@@ -183,6 +183,17 @@ def detector_revision():
         return "unknown"
 
 
+PDFBIN = HOME / "bin" / "pdfpages"
+
+
+def ensure_pdfbin():
+    src = HERE / "pdfpages.swift"
+    if PDFBIN.exists() and PDFBIN.stat().st_mtime >= src.stat().st_mtime:
+        return
+    PDFBIN.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(["swiftc", "-O", str(src), "-o", str(PDFBIN)], check=True)
+
+
 def ensure_bin():
     src = HERE / "avision.swift"
     if BIN.exists() and BIN.stat().st_mtime >= src.stat().st_mtime:
@@ -202,7 +213,7 @@ def _ocr_cache():
     return con
 
 
-def ocr_images(paths, batch=40, use_cache=True):
+def ocr_images(paths, batch=40, use_cache=True, langs=None):
     """Apple Vision on image files via the compiled helper (batches of 40; a warm persistent process measured the same speed).
 
     Results are cached by sha256 of the image bytes plus the helper source hash, so an interrupted chapter resumes from its finished
@@ -210,7 +221,8 @@ def ocr_images(paths, batch=40, use_cache=True):
     ensure_bin()
     res, todo, keys = {}, [], {}
     con = _ocr_cache() if use_cache else None
-    hh = _helper_hash()
+    hh = _helper_hash() + ("" if not langs or langs == ["en-US"] else ":" + ",".join(langs))
+    lang_args = ["--lang", ",".join(langs)] if langs and langs != ["en-US"] else []
     for p in map(str, paths):
         key = hashlib.sha256(Path(p).read_bytes()).hexdigest() + ":" + hh
         keys[p] = key
@@ -221,9 +233,24 @@ def ocr_images(paths, batch=40, use_cache=True):
             res[Path(p).name] = d
         else:
             todo.append(p)
+    def helper(files, timeout):
+        """One helper call with a timeout: a hung Vision call (seen once, after an idle stretch) must not stall the watcher forever."""
+        try:
+            return subprocess.run([str(BIN)] + lang_args + files, capture_output=True, text=True, check=True, timeout=timeout).stdout
+        except subprocess.TimeoutExpired:
+            return None
+
     for i in range(0, len(todo), batch):
-        out = subprocess.run([str(BIN)] + todo[i:i + batch], capture_output=True, text=True, check=True).stdout
-        for p, line in zip(todo[i:i + batch], out.splitlines()):
+        files = todo[i:i + batch]
+        out = helper(files, 300 + 10 * len(files))
+        if out is None:                                      # retry image by image so one bad page costs one timeout, not the batch
+            lines = []
+            for f in files:
+                o = helper([f], 120)
+                lines.append(o.strip().splitlines()[0] if o and o.strip() else json.dumps({"file": Path(f).name, "obs": [], "error": "ocr_timeout"}))
+        else:
+            lines = out.splitlines()
+        for p, line in zip(files, lines):
             d = json.loads(line)
             res[d["file"]] = d
             if con and "error" not in d:
@@ -512,6 +539,11 @@ def doctor():
             line(f"module {mod}", True, getattr(m, "__version__", ""))
         except Exception as e:  # noqa: BLE001
             line(f"module {mod}", False, str(e)[:80])
+    try:
+        ensure_pdfbin()
+        line("PDF page helper (PDFKit) compiled", PDFBIN.exists(), str(PDFBIN))
+    except Exception as e:  # noqa: BLE001
+        line("PDF page helper (PDFKit) compiled", False, str(e)[:100])
     sw = subprocess.run(["which", "swiftc"], capture_output=True, text=True).stdout.strip()
     line("swiftc (Xcode command line tools)", bool(sw), sw)
     try:

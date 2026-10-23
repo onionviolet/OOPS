@@ -1,0 +1,14 @@
+{
+  "name": "databook",
+  "version": 1,
+  "extends": "default",
+  "series": [],
+  "finders": {
+    "color_window": {"enabled": false},
+    "black_fill": {"enabled": false},
+    "outline": {"enabled": true, "interior_median_max": 255, "interior_bright_max": 1.0},
+    "frame": {"enabled": true, "bright_threshold": 100, "min_side_cover": 0.6}
+  },
+  "min_text_coverage": 0.03,
+  "classify": {"rules": [], "fallback": "profile_box"}
+}

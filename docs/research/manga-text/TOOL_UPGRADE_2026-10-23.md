@@ -27,3 +27,41 @@ All unit tests use invented images: 40 pass. A full re-run of the library with t
 
 Caption typing is weak; panel cuts fail on diagonal or full-bleed layouts; risk is a ranking aid with a small calibration sample;
 speaker data stays empty until a selected-pages LLM pass; the fresh-machine bootstrap was not run on another Mac.
+
+## Book mode: scanned PDFs and fixed-layout EPUBs (added 2026-10-23)
+
+Same rules: local only, zero model tokens, private outputs, nothing translated. Code `scripts/manga_text/books.py`, `tables.py`,
+`pdfpages.swift`, profile `databook`; command `manga_text.py book`; the watcher reads the governor queue and a local list, books first,
+one at a time, pause-aware. Hand checks were done by a vision model, not a human.
+
+**What was run (watcher, 07:21 to 07:36 UTC, all at low priority):**
+
+| Book | Pages | Route | Items / regions | Time |
+|---|---|---|---|---|
+| JJK official guide (English item, image-only) | 156 | OCR 156 | 1,718 / 25 | 60 s |
+| Fate/Grand Order material I (Japanese scan) | 357 | OCR 357 | 1,966 / 36 | 142 s |
+| Fate/Grand Order material II (Japanese scan) | 337 | OCR 337 | 1,798 / 43 | 243 s |
+| Harry Potter: Page to Screen | 534 | text layer 434, OCR 100 | 471 / 1 | 99 s |
+| Tabletop: Imperium Maledictum, Path of the Planebreaker, AoS Soulbound | 368, 242, 352 | text layer (4, 1, 10 pages OCR) | 496, 247, 457 / 0, 0, 1 | 10, 4, 12 s |
+| Tabletop: WFRP 4e core, 40K 9th core, Numenera Into the Outside, The Strange character options | n/a | damaged files | reported as errors | 0 |
+
+The Naruto Databook 4 and the JJK Japanese fanbook were not in the queue yet; the queue is re-read every cycle.
+
+**Validation.**
+- Synthetic scanned Japanese databook (invented, 2 pages, tilted and noisy): headings and paragraph exact, 5 of 5 table rows exact as key-value pairs,
+  4 of 4 framed-box rows (`Key：Value`) exact, English line exact. Unit tests cover this and a fixed-layout EPUB.
+- Real Japanese stat page (FGO material I, page 52): Japanese body text about 99% right (one wrong character in about 250), skill titles
+  with ranks right. The label-chip stat block over artwork came out as a messy table: 8 of 14 fields right (class, true name, gender, source,
+  attribute, height, strength, endurance, agility, magic read; region and weight garbled, luck and noble phantasm missing), and keys are merged
+  with values because chips have no colon.
+- Real English guide pages (JJK guide, pages 95 and 118): English paragraphs and dialogue lines complete (page 118 all four text blocks, page
+  95 every dialogue line, with a few slips such as "Episoce"); printed Japanese quiz lines read, some cut off at balloon edges; handwritten
+  Japanese on storyboard sheets is garbage; the storyboard table was found for 1 of 3 sheets with garbled rows.
+
+**Failure modes.** Vertical Japanese columns came back empty in the synthetic test (not tested on a real vertical page). Handwriting and text
+over art fail. Tables need ruled lines; chip-style stat blocks need a label list instead. Page-sized frames and panel grids first produced
+123 false regions in the guide; guarding for page size and for mostly empty cells cut that to 25. A Vision call hung once for an hour; helper calls
+now have timeouts with a per-image retry.
+
+**Left.** A chip-label parser for Servant-style blocks, a vertical-text route, and a hand check on the Naruto Databook and the JJK fanbook
+when they arrive.

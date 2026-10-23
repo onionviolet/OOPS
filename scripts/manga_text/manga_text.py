@@ -13,6 +13,7 @@
     manga_text.py verify --series S [--chapter N]               re-check page hashes against the catalogue
     manga_text.py read-page --series S --chapter N --loc P --model M [--prompt page-json-v1]   explicit local LLM read, cached
     manga_text.py fetch-models                                  download and checksum the pinned detector
+    manga_text.py book --path FILE [--title T] [--lang ja,en] [--ocr auto|always|never] [--force]   scanned PDF / fixed-layout EPUB
 
 Run with the venv python (see README.md). Everything is written under the git-ignored private folder."""
 import argparse
@@ -29,6 +30,11 @@ import common as C  # noqa: E402
 
 SHAPE_CACHE = C.RUNS / "shape_cache.json"
 MAX_TRIES = 3
+
+
+def hashlib_sha(path):
+    import hashlib
+    return hashlib.sha256(str(path).encode()).hexdigest()
 
 
 def now():
@@ -309,6 +315,30 @@ def cmd_watch(args):
             wait_while_paused()
             if stop_requested():
                 break
+            books_done = 0
+            # books first (databooks are the priority): scanned PDFs, fixed-layout EPUBs) from the governor's queue and our local list: one at a time
+            try:
+                import books
+                for e in books.queue_entries():
+                    if stop_requested() or pause_file.exists():
+                        break
+                    if tries.get("book:" + e["path"], 0) >= MAX_TRIES:
+                        continue                                # failed three times in this run: leave it until restart
+                    prog["current"] = "book: " + Path(e["path"]).name
+                    save()
+                    caff.hold()
+                    try:
+                        status, detail = run_book(e)
+                    except Exception as ex:  # noqa: BLE001
+                        status, detail = "error", f"{type(ex).__name__}: {ex}"
+                    key = "book:" + e["path"]
+                    if status == "error":
+                        tries[key] = tries.get(key, 0) + 1
+                    if status != "skip":
+                        record(status if status != "skip" else "skipped", detail, Path(e["path"]).name, hashlib_sha(e["path"]))
+                    books_done += status == "done"
+            except Exception as ex:  # noqa: BLE001
+                log(f"book queue check failed: {ex}", logf)
             profiles = webtoon.load_profiles()          # profile edits apply on the next cycle
             rows = [(h, m) for h, m in C.cat_rows() if C.parse_title(m["title"])[0] not in C.EXCLUDE_SERIES]
             rows.sort(key=lambda x: (C.parse_title(x[1]["title"])[0], C.parse_title(x[1]["title"])[2] or 1e9, x[1]["title"]))
@@ -368,7 +398,7 @@ def cmd_watch(args):
                     if stop_requested() or pause_file.exists():
                         queue.clear()                           # let in-flight chapters finish
             save_shapes(shapes)
-            if processed:
+            if processed or books_done:
                 C.write_catalog()
             prog["current"], prog["last_cycle_utc"] = None, now()
             if stop_requested():
@@ -412,6 +442,36 @@ def cmd_read_page(args):
                 "cached": cached, "chars": len(text), **({"text": text[:args.max_chars]} if args.show else {})})
         return
     sys.exit("no such chapter")
+
+
+def run_book(entry, force=False):
+    """Process one queued or explicit book. Returns (status, detail)."""
+    import books
+    import webtoon
+    path = Path(entry["path"])
+    langs, mode = books.entry_options(entry)
+    if entry.get("mode"):
+        mode = entry["mode"]
+    profile = webtoon.load_profiles()["databook"]
+    series = entry.get("title") or books.book_title(path)
+    tools = books.versions(langs, mode, profile)
+    if not force and books.book_done(path, series, tools):
+        return "skip", "unchanged"
+    res = books.process_book(path, series, langs, mode, profile, tools)
+    if "error" in res:
+        return "error", res["error"]
+    books.write_book(res, series)
+    st = res["header"]["stats"]
+    return "done", (f"book {res['header']['page_count']} pages, ocr {st['ocr_pages']}, text layer {st['text_layer_pages']}, items {st['items']}, "
+                    f"regions {st['panels']}, empty {st['empty_pages']}, {res['header']['run']['seconds']}s")
+
+
+def cmd_book(args):
+    os.nice(args.nice)
+    status, detail = run_book({"path": args.path, "title": args.title, "lang": args.lang,
+                               "mode": None if args.ocr == "auto" else args.ocr}, args.force)
+    print(status, detail)
+    C.write_catalog()
 
 
 def cmd_fetch_models(args):
@@ -482,6 +542,14 @@ def main():
     rp.add_argument("--max-chars", type=int, default=1500)
     rp.set_defaults(fn=cmd_read_page)
     sub.add_parser("fetch-models").set_defaults(fn=cmd_fetch_models)
+    bk = sub.add_parser("book")
+    bk.add_argument("--path", required=True)
+    bk.add_argument("--title")
+    bk.add_argument("--lang", help="ja, en or ja,en (default ja-JP and en-US)")
+    bk.add_argument("--ocr", choices=["auto", "always", "never"], default="auto")
+    bk.add_argument("--force", action="store_true")
+    bk.add_argument("--nice", type=int, default=10)
+    bk.set_defaults(fn=cmd_book)
     sub.add_parser("catalog").set_defaults(fn=lambda a: print(json.dumps(C.write_catalog()["totals"])))
     sub.add_parser("reindex").set_defaults(fn=lambda a: print(C.reindex_all(), "chapters indexed"))
 

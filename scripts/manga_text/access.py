@@ -130,11 +130,23 @@ def export_markdown(series, chapter=None):
 def verify(series, chapter=None):
     """Re-check page hashes: the CBZ on disk against the catalogue and against the hashes recorded in the chapter file."""
     import sqlite3
-    con = sqlite3.connect(f"file:{C.CAT}?mode=ro", uri=True)
+    try:
+        con = sqlite3.connect(f"file:{C.CAT}?mode=ro", uri=True)
+        con.execute("select 1 from assets limit 1")
+    except sqlite3.Error:
+        con = None                                   # no catalogue: only book files can be verified
     problems, checked = [], 0
     for f, head in _chapters(series, chapter):
         h = head["cbz_sha256"]
-        row = con.execute("select metadata from assets where hash=?", (h,)).fetchone()
+        if head.get("format") == "book":
+            src = Path(head.get("source_path", ""))
+            if not src.exists():
+                problems.append((head["chapter"], f"book file missing: {src.name}"))
+            elif __import__("books").sha256_file(src) != head["file_sha256"]:
+                problems.append((head["chapter"], f"book file changed since extraction: {src.name}"))
+            checked += 1
+            continue
+        row = con.execute("select metadata from assets where hash=?", (h,)).fetchone() if con else None
         if not row:
             problems.append((head["chapter"], "not in catalogue"))
             continue
@@ -159,5 +171,6 @@ def verify(series, chapter=None):
         if head.get("format") == "webtoon" and [s["sha256"] for s in head["slices"]] != [p["sha256"] for p in pm]:
             problems.append((head["chapter"], "chapter file slice hashes differ from catalogue"))
         checked += 1
-    con.close()
+    if con:
+        con.close()
     return {"chapters_checked": checked, "problems": problems}
