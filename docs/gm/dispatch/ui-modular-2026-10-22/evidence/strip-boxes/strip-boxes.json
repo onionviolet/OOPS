@@ -1,0 +1,40 @@
+{
+ "status": "PASS",
+ "gates": [
+  "1920x1080-14 quests: open, native Hide completed, label, Esc focus",
+  "1920x1080-14 quests box follows the Journal tab",
+  "1920x1080-14 skills: keyboard open, Tab and Enter on a moved sort control, Hide max level, label",
+  "1920x1080-14 crafting: Enter on a moved recipe kind acts",
+  "1920x1080-14 crafting: native recipe kind and Makeable now, label",
+  "1920x1080-14 CTL4: both moved save toggles Save, reload and relabel",
+  "1920x1080-14 classic restores native homes; parity re-boxes",
+  "1920x1080-21 quests: open, native Hide completed, label, Esc focus",
+  "1920x1080-21 quests box follows the Journal tab",
+  "1920x1080-21 skills: keyboard open, Tab and Enter on a moved sort control, Hide max level, label",
+  "1920x1080-21 crafting: Enter on a moved recipe kind acts",
+  "1920x1080-21 crafting: native recipe kind and Makeable now, label",
+  "1920x1080-21 CTL4: both moved save toggles Save, reload and relabel",
+  "1920x1080-21 classic restores native homes; parity re-boxes",
+  "1536x864-21 quests: open, native Hide completed, label, Esc focus",
+  "1536x864-21 quests box follows the Journal tab",
+  "1536x864-21 skills: keyboard open, Tab and Enter on a moved sort control, Hide max level, label",
+  "1536x864-21 crafting: Enter on a moved recipe kind acts",
+  "1536x864-21 crafting: native recipe kind and Makeable now, label",
+  "1536x864-21 CTL4: both moved save toggles Save, reload and relabel",
+  "1536x864-21 classic restores native homes; parity re-boxes"
+ ],
+ "results": [
+  {
+   "tag": "1920x1080-14",
+   "errors": []
+  },
+  {
+   "tag": "1920x1080-21",
+   "errors": []
+  },
+  {
+   "tag": "1536x864-21",
+   "errors": []
+  }
+ ]
+}

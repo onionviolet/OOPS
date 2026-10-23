@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "message": "Native authored action unavailable: method:history:inspect",
+  "gates": [],
+  "pageErrors": []
+}

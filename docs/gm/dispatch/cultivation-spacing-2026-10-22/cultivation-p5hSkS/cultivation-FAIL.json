@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "message": "locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#exit_trade_button')\u001b[22m\n\u001b[2m    - locator resolved to <div tabindex=\"0\" role=\"button\" onclick=\"exitTrade()\" aria-disabled=\"false\" id=\"exit_trade_button\" data-native-keyboard=\"true\">↵                                Exit↵           …</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+  "gates": [
+    "Native circulation selection and played practice reaches first stage",
+    "circulation-practice: native Save/reload/Export/literal-file Import"
+  ],
+  "pageErrors": []
+}

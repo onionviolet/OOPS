@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "lane": "w3-two-origins",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "bundleSha256": "af55a012b8dbdbedd344db6d43ad00008aa108440ee8b10460a363bc192616a0",
+  "gates": [
+    "w3-origin-1: native Save/reload/Export/literal-file Import",
+    "w3-origin-2: native Save/reload/Export/literal-file Import",
+    "Two seeded original histories have different actual owners and obligations; native discovery, restoration, persistence and revisits retain each exact cause"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

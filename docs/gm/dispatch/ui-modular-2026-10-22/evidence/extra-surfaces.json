@@ -1,0 +1,609 @@
+{
+ "status": "PASS",
+ "before": {
+  "liveTo1536": {
+   "cols": "330 197 515 448",
+   "areas": "\"player player focus log\" \"inventory actions actions log\"",
+   "regions": {
+    "player": [
+     17,
+     39,
+     531,
+     324
+    ],
+    "focus": [
+     552,
+     39,
+     515,
+     324
+    ],
+    "inventory": [
+     17,
+     367,
+     330,
+     480
+    ],
+    "actions": [
+     351,
+     367,
+     716,
+     480
+    ],
+    "log": [
+     1071,
+     39,
+     448,
+     808
+    ]
+   }
+  },
+  "liveBack1920": {
+   "cols": "336 293 734 505",
+   "areas": "\"player focus focus log\" \"inventory actions actions log\"",
+   "regions": {
+    "player": [
+     17,
+     39,
+     336,
+     348
+    ],
+    "focus": [
+     359,
+     39,
+     1033,
+     348
+    ],
+    "inventory": [
+     17,
+     393,
+     336,
+     670
+    ],
+    "actions": [
+     359,
+     393,
+     1033,
+     670
+    ],
+    "log": [
+     1398,
+     39,
+     505,
+     1024
+    ]
+   }
+  },
+  "liveMatchesFresh": [
+   true,
+   false
+  ],
+  "fresh": {
+   "1536": {
+    "cols": "330 197 515 448",
+    "areas": "\"player player focus log\" \"inventory actions actions log\"",
+    "regions": {
+     "player": [
+      17,
+      39,
+      531,
+      324
+     ],
+     "focus": [
+      552,
+      39,
+      515,
+      324
+     ],
+     "inventory": [
+      17,
+      367,
+      330,
+      480
+     ],
+     "actions": [
+      351,
+      367,
+      716,
+      480
+     ],
+     "log": [
+      1071,
+      39,
+      448,
+      808
+     ]
+    }
+   },
+   "1920": {
+    "cols": "336 293 734 505",
+    "areas": "\"player focus focus log\" \"inventory actions actions log\"",
+    "regions": {
+     "player": [
+      17,
+      39,
+      336,
+      347
+     ],
+     "focus": [
+      359,
+      39,
+      1033,
+      347
+     ],
+     "inventory": [
+      17,
+      392,
+      336,
+      671
+     ],
+     "actions": [
+      359,
+      392,
+      1033,
+      671
+     ],
+     "log": [
+      1398,
+      39,
+      505,
+      1024
+     ]
+    }
+   }
+  },
+  "liveErrors": [],
+  "resized": {
+   "cols": "411 149 841 467",
+   "areas": "none",
+   "regions": {
+    "player": [
+     17,
+     39,
+     566,
+     458
+    ],
+    "focus": [
+     589,
+     39,
+     841,
+     458
+    ],
+    "inventory": [
+     17,
+     503,
+     411,
+     560
+    ],
+    "actions": [
+     434,
+     503,
+     996,
+     560
+    ],
+    "log": [
+     1436,
+     39,
+     467,
+     1024
+    ]
+   }
+  },
+  "afterReset": {
+   "cols": "336 293 734 505",
+   "areas": "\"player focus focus log\" \"inventory actions actions log\"",
+   "regions": {
+    "player": [
+     17,
+     39,
+     336,
+     347
+    ],
+    "focus": [
+     359,
+     39,
+     1033,
+     347
+    ],
+    "inventory": [
+     17,
+     392,
+     336,
+     671
+    ],
+    "actions": [
+     359,
+     392,
+     1033,
+     671
+    ],
+    "log": [
+     1398,
+     39,
+     505,
+     1024
+    ]
+   }
+  },
+  "resizeErrors": [],
+  "resetMatchesFresh": true,
+  "preview": {
+   "1536": {
+    "cols": "394 129 523 444",
+    "areas": "\"player player focus log\" \"inventory actions actions log\"",
+    "regions": {
+     "player": [
+      17,
+      39,
+      527,
+      316
+     ],
+     "focus": [
+      548,
+      39,
+      523,
+      316
+     ],
+     "inventory": [
+      17,
+      359,
+      394,
+      458
+     ],
+     "actions": [
+      415,
+      359,
+      656,
+      458
+     ],
+     "log": [
+      1075,
+      39,
+      444,
+      778
+     ]
+    },
+    "errors": []
+   },
+   "1920": {
+    "cols": "501 122 745 501",
+    "areas": "\"player focus focus log\" \"inventory actions actions log\"",
+    "regions": {
+     "player": [
+      17,
+      39,
+      501,
+      316
+     ],
+     "focus": [
+      524,
+      39,
+      873,
+      316
+     ],
+     "inventory": [
+      17,
+      361,
+      501,
+      672
+     ],
+     "actions": [
+      524,
+      361,
+      873,
+      672
+     ],
+     "log": [
+      1402,
+      39,
+      501,
+      994
+     ]
+    },
+    "errors": []
+   }
+  }
+ },
+ "after": {
+  "liveTo1536": {
+   "cols": "330 197 515 448",
+   "areas": "\"player player focus log\" \"inventory actions actions log\"",
+   "regions": {
+    "player": [
+     17,
+     39,
+     531,
+     324
+    ],
+    "focus": [
+     552,
+     39,
+     515,
+     324
+    ],
+    "inventory": [
+     17,
+     367,
+     330,
+     480
+    ],
+    "actions": [
+     351,
+     367,
+     716,
+     480
+    ],
+    "log": [
+     1071,
+     39,
+     448,
+     808
+    ]
+   }
+  },
+  "liveBack1920": {
+   "cols": "336 293 734 505",
+   "areas": "\"player focus focus log\" \"inventory actions actions log\"",
+   "regions": {
+    "player": [
+     17,
+     39,
+     336,
+     348
+    ],
+    "focus": [
+     359,
+     39,
+     1033,
+     348
+    ],
+    "inventory": [
+     17,
+     393,
+     336,
+     670
+    ],
+    "actions": [
+     359,
+     393,
+     1033,
+     670
+    ],
+    "log": [
+     1398,
+     39,
+     505,
+     1024
+    ]
+   }
+  },
+  "liveMatchesFresh": [
+   true,
+   false
+  ],
+  "fresh": {
+   "1536": {
+    "cols": "330 197 515 448",
+    "areas": "\"player player focus log\" \"inventory actions actions log\"",
+    "regions": {
+     "player": [
+      17,
+      39,
+      531,
+      324
+     ],
+     "focus": [
+      552,
+      39,
+      515,
+      324
+     ],
+     "inventory": [
+      17,
+      367,
+      330,
+      480
+     ],
+     "actions": [
+      351,
+      367,
+      716,
+      480
+     ],
+     "log": [
+      1071,
+      39,
+      448,
+      808
+     ]
+    }
+   },
+   "1920": {
+    "cols": "336 293 734 505",
+    "areas": "\"player focus focus log\" \"inventory actions actions log\"",
+    "regions": {
+     "player": [
+      17,
+      39,
+      336,
+      347
+     ],
+     "focus": [
+      359,
+      39,
+      1033,
+      347
+     ],
+     "inventory": [
+      17,
+      392,
+      336,
+      671
+     ],
+     "actions": [
+      359,
+      392,
+      1033,
+      671
+     ],
+     "log": [
+      1398,
+      39,
+      505,
+      1024
+     ]
+    }
+   }
+  },
+  "liveErrors": [],
+  "resized": {
+   "cols": "411 149 841 467",
+   "areas": "none",
+   "regions": {
+    "player": [
+     17,
+     39,
+     566,
+     458
+    ],
+    "focus": [
+     589,
+     39,
+     841,
+     458
+    ],
+    "inventory": [
+     17,
+     503,
+     411,
+     560
+    ],
+    "actions": [
+     434,
+     503,
+     996,
+     560
+    ],
+    "log": [
+     1436,
+     39,
+     467,
+     1024
+    ]
+   }
+  },
+  "afterReset": {
+   "cols": "336 293 734 505",
+   "areas": "\"player focus focus log\" \"inventory actions actions log\"",
+   "regions": {
+    "player": [
+     17,
+     39,
+     336,
+     347
+    ],
+    "focus": [
+     359,
+     39,
+     1033,
+     347
+    ],
+    "inventory": [
+     17,
+     392,
+     336,
+     671
+    ],
+    "actions": [
+     359,
+     392,
+     1033,
+     671
+    ],
+    "log": [
+     1398,
+     39,
+     505,
+     1024
+    ]
+   }
+  },
+  "resizeErrors": [],
+  "resetMatchesFresh": true,
+  "preview": {
+   "1536": {
+    "cols": "394 129 523 444",
+    "areas": "\"player player focus log\" \"inventory actions actions log\"",
+    "regions": {
+     "player": [
+      17,
+      39,
+      527,
+      316
+     ],
+     "focus": [
+      548,
+      39,
+      523,
+      316
+     ],
+     "inventory": [
+      17,
+      359,
+      394,
+      458
+     ],
+     "actions": [
+      415,
+      359,
+      656,
+      458
+     ],
+     "log": [
+      1075,
+      39,
+      444,
+      778
+     ]
+    },
+    "errors": []
+   },
+   "1920": {
+    "cols": "501 122 745 501",
+    "areas": "\"player focus focus log\" \"inventory actions actions log\"",
+    "regions": {
+     "player": [
+      17,
+      39,
+      501,
+      316
+     ],
+     "focus": [
+      524,
+      39,
+      873,
+      316
+     ],
+     "inventory": [
+      17,
+      361,
+      501,
+      672
+     ],
+     "actions": [
+      524,
+      361,
+      873,
+      672
+     ],
+     "log": [
+      1402,
+      39,
+      501,
+      994
+     ]
+    },
+    "errors": []
+   }
+  }
+ }
+}

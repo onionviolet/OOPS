@@ -1,0 +1,211 @@
+{
+  "root": "/tmp/oops-proto23-desktop-20261021",
+  "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/panel-design-2026-10-15/private",
+  "setup": "Mid-game native OOPS fixture with declared crafting/food prerequisites; native travel/combat/craft/equipment, fresh homeowner and native meet. Proto23 existing DEV SEEDED lab then original menu/actions. No natural-acquisition or identical-mechanic claim.",
+  "reference": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "errors": [],
+      "originalSourceUnchanged": true,
+      "displayOnlyOverrides": "Lab scale removed; requested native MS Gothic supplied; actual 14/21px body. Fixed source coordinates retained.",
+      "combat": "m e s s a g e　　　l o g\nNew Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nNew item obtained: A Stick\nNew item obtained: Water x5\nNew item obtained: Wheat x5\nItem Acquired: Water x10\nNew blueprint unlocked: \"Flour\"\nNew blueprint unlocked: \"Dough\"\nNew blueprint unlocked: \"Bread\"\nSkill 'Walking' Leveled Up: 2\nNew Skill Unlocked! \"Crafting\"\nNew Skill Unlocked! \"Perception\"\nYou -> 4\nStraw dummy -> 2 (L hand)\nfreeze messagelog　\n　stop combatlog　\nCLR"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "errors": [],
+      "originalSourceUnchanged": true,
+      "displayOnlyOverrides": "Lab scale removed; requested native MS Gothic supplied; actual 14/21px body. Fixed source coordinates retained.",
+      "combat": "m e s s a g e　　　l o g\nNew Skill Unlocked! \"Walking\"\nNEW PERK UNLOCKED (\"Walking\")lvl: 1\nYou learned a new action: \"Run\"\nNew item obtained: A Stick\nNew item obtained: Water x5\nNew item obtained: Wheat x5\nItem Acquired: Water x10\nNew blueprint unlocked: \"Flour\"\nNew blueprint unlocked: \"Dough\"\nNew blueprint unlocked: \"Bread\"\nSkill 'Walking' Leveled Up: 2\nNew Skill Unlocked! \"Crafting\"\nNew Skill Unlocked! \"Perception\"\nYou -> 4\nStraw dummy missed\nYou -> 4\nfreeze messagelog　\n　stop combatlog　\nCLR"
+    }
+  ],
+  "oops": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "geometry": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "page": [
+          1920,
+          1080
+        ],
+        "regions": [
+          {
+            "id": "player",
+            "width": 336,
+            "height": 299
+          },
+          {
+            "id": "focus",
+            "width": 1032.609375,
+            "height": 299
+          },
+          {
+            "id": "inventory",
+            "width": 336,
+            "height": 719
+          },
+          {
+            "id": "actions",
+            "width": 1032.609375,
+            "height": 719
+          },
+          {
+            "id": "log",
+            "width": 505.390625,
+            "height": 1024
+          }
+        ]
+      },
+      "menu": {
+        "box": {
+          "top": 27,
+          "bottom": 191.34375,
+          "left": 1692,
+          "right": 1920,
+          "width": 228,
+          "height": 164.34375
+        },
+        "toolbar": {
+          "top": 68.484375,
+          "bottom": 98.484375,
+          "left": 1700.296875,
+          "right": 1911.703125,
+          "width": 211.40625,
+          "height": 30
+        },
+        "links": {
+          "top": 102.671875,
+          "bottom": 183.046875,
+          "left": 1700.296875,
+          "right": 1911.703125,
+          "width": 211.40625,
+          "height": 80.375
+        },
+        "font": "14px"
+      },
+      "categories": {
+        "height": 28,
+        "tops": [
+          184,
+          184,
+          184,
+          184,
+          184,
+          184,
+          184
+        ],
+        "scrollWidth": 707,
+        "width": 707
+      },
+      "equipped": true,
+      "nativeCraftDelta": 1,
+      "combatReports": "[ Home · 01/04/999, Summer, Mon ]\nSaved the game manually\nLoadouts is now available in navigation.Related panel ›\nSaved the game manually\nCraft settled: Roasted rat meat ×1 from 1 attempt.Crafting ›\nCreated Roasted rat meat x1Crafting ›\nSaved the game manually\n[ Entering Infested field ]\nTime & weather is now available in navigation.Related panel ›\nCurrent location is now available in navigation.Related panel ›\nCombat is now available in navigation.Related panel ›\nOpponents is now available in navigation.Related panel ›\nStance & combatants is now available in navigation.Related panel ›\nWorld events is now available in navigation.Related panel ›\nYou hit Wolf rat for 1\nWolf rat misses you\nYou hit Wolf rat for 1\nWolf rat hits you for 5.9\nYou hit Wolf rat for 1\nStatistics is now available in navigation.Related panel ›\nSaved the game manually"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "geometry": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "page": [
+          1920,
+          1080
+        ],
+        "regions": [
+          {
+            "id": "player",
+            "width": 414.90625,
+            "height": 473
+          },
+          {
+            "id": "focus",
+            "width": 953.703125,
+            "height": 473
+          },
+          {
+            "id": "inventory",
+            "width": 414.90625,
+            "height": 545
+          },
+          {
+            "id": "actions",
+            "width": 953.703125,
+            "height": 545
+          },
+          {
+            "id": "log",
+            "width": 505.390625,
+            "height": 1024
+          }
+        ]
+      },
+      "menu": {
+        "box": {
+          "top": 27,
+          "bottom": 191.34375,
+          "left": 1692,
+          "right": 1920,
+          "width": 228,
+          "height": 164.34375
+        },
+        "toolbar": {
+          "top": 68.484375,
+          "bottom": 98.484375,
+          "left": 1700.296875,
+          "right": 1911.703125,
+          "width": 211.40625,
+          "height": 30
+        },
+        "links": {
+          "top": 102.671875,
+          "bottom": 183.046875,
+          "left": 1700.296875,
+          "right": 1911.703125,
+          "width": 211.40625,
+          "height": 80.375
+        },
+        "font": "14px"
+      },
+      "categories": {
+        "height": 84,
+        "tops": [
+          202,
+          202,
+          202,
+          202,
+          202,
+          202,
+          244
+        ],
+        "scrollWidth": 707,
+        "width": 707
+      },
+      "equipped": true,
+      "nativeCraftDelta": 1,
+      "combatReports": "[ Home · 01/04/999, Summer, Mon ]\nSaved the game manually\nLoadouts is now available in navigation.Related panel ›\nSaved the game manually\nCraft settled: Roasted rat meat ×1 from 1 attempt.Crafting ›\nCreated Roasted rat meat x1Crafting ›\nSaved the game manually\n[ Entering Infested field ]\nTime & weather is now available in navigation.Related panel ›\nCurrent location is now available in navigation.Related panel ›\nCombat is now available in navigation.Related panel ›\nOpponents is now available in navigation.Related panel ›\nStance & combatants is now available in navigation.Related panel ›\nWorld events is now available in navigation.Related panel ›\nYou hit Wolf rat for 1\nWolf rat misses you\nYou hit Wolf rat for 1\nWolf rat hits you for 5.9\nYou hit Wolf rat for 1\nStatistics is now available in navigation.Related panel ›\nSaved the game manually"
+    }
+  ],
+  "checks": [
+    "Original PLAY threshold, onionv guinea pig, Miktaew cat and named original-author support retained"
+  ],
+  "errors": [],
+  "referenceSourceSha256": "a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5",
+  "bundleSha256": "2ee19c0d351f1703f752514b894144e3ad0863debc862c85ed4f684acb03128f",
+  "status": "failed",
+  "failure": {
+    "phase": "home cat",
+    "error": "locator.scrollIntoViewIfNeeded: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.household-scene:visible')\u001b[22m\n\n    at /Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/proto23-desktop-comparison.mjs:54:370",
+    "visible": "Stats\nCondition\nInventory\nJournal\nData\nNotebook\nProjects\nLedger\nWorlds\nBeginning\nSettings\nMore panels…\nHomes\nTools\nProjects\nKnown things\nToday\nWhere I am\nAround this place\nTingen workroom\nYour beginning\nOptional worlds\nNotes, practice & people\nPatrol & custody\nRemembered years\nCharacter vitals\nTime & weather\nCurrent location\nInventory & combat view\nCharacter & preparation\nBelongings\nLocal actions\nReports\nEquipment comparison\nInventory tools\nCondition\nStats & equipment\nItem details\nFocus\nVillage scene\nCurrent work & saving\nWork Ledger\nAppearance\nEffects & sound\nOriginal rules\nDraft preview\nOriginal site\nContinuing connection\nFind\nSaving available.\nSave\nExport\nImport\nMenu\n▾\nYou\nLv 0\n0 / 10 xp\n40/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n25\nAttributes ›\nGear · 0\nCondition\n\nNo active effects\n\nBody · Human\nAll items\n4\nEquipment\n1\nUsable\n1\nOther\n2\nFavorites\n0\nInventory\n10C 2W\nName ↑\n▾\nLinen cloth\n1C 4W\nRough wood log\nx5\n1C\nStale bread\nx5\n2C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\n\nHearthside cottage\n☀ Summer\nDry\n17.9 °C · comfortable\n\n01/04/999 08:00, Mon · ☼ Day\n\nNo work running.\n\nSaving available.\n\nHomes\n▾\nHomes and belongings\n\nYour rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.\n\n1 residence · human body · 102 coins\n\nHearthside cottage · owned · here\nHearthside cottage\n\nA modest cottage with a sound living room and a damaged side room. The deed includes its fixed furnishings. Title: yours.\n\nYou are here. Home services available for this body.\n\nLived-in · 5 furnishing and room comfort. Furnishing details show each active benefit.\n\nMake this your main residence\nHome name Name your home\nFurnishings and selected slots\nPrivate storage · 0/20\nHomeowner repairs and rooms\nHearth and companion\nBuild a home from the land\nHome history\n\n← Hearthside cottage\nHere\nCrafting\nMixing\n?\nReports\nAll reports\n▾\nLatest\n[ Home · 01/04/999, Summer, Mon ]"
+  }
+}

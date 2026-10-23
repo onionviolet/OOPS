@@ -1,0 +1,210 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+People
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels… •
+Homes
+Herbal experiments
+Tools
+Gear workshop
+Projects
+Known things
+Statistics
+Today
+Where I am
+Around this place
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people •
+People you know •
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+Character vitals
+Inventory & combat view
+Journal & received accounts •
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+
+Age: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human
+
+Cold exposure at 14 °C or below · current 14.7 °C
+Cold ← threshold → No cold exposure ●
+Current local reading; tolerance changes this boundary. The warmer side makes no claim about heat safety.
+All items
+3
+Equipment
+1
+Usable
+1
+Other
+1
+Favorites
+0
+Inventory
+5S
+Name ↑
+▾
+Rough wood log
+x2
+1C
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Village
+☀ Summer
+Dry
+14.7 °C · comfortable
+
+01/04/999 08:04, Mon · ☼ Day
+Daylight falls across the village path.
+
+No work running.
+
+Saving available.
+
+Projects
+▾
+Optional projects
+
+Original proposals. Open a project to read its terms before opting in.
+
+Meadow pen · care proposal
+1 ready / 1 actions
+
+Original LP4 proposal. One sheltered, drained grass pen with clean water and one fleece sheep. Feed and brush for one wool batch.
+
+Site: not owned. Animal: none. No inherited animals or materials.
+
+Welfare: No animal.
+
+Care: needs hay; needs attention. Carried hay: 0.
+
+Harvest: 0/6 supported minutes. Collected batches: 0. Carried Wool: 0.
+
+Obtain sheltered pen · 18 coins
+Obtain your suitable sheltered pen first.
+Obtain your suitable sheltered pen first.
+Obtain your suitable sheltered pen first.
+Obtain your suitable sheltered pen first.
+Obtain your suitable sheltered pen first.
+Care and away policy
+Open to review
+
+Policy: feeding and brushing each last 12 played minutes. Six minutes of overlapping care produce one batch of 5 Wool. Progress pauses without support; at most one batch waits. Collection starts a new care cycle. Welfare stays safe in the shelter even when routine care lapses.
+
+Away policy: the open game’s native calendar advances care and production while you work or travel elsewhere. Closed-game wall time adds nothing. No offline feed use, harm, automatic collection or stock. Ready wool remains available when care expires.
+
+Use the wool: after the craftsman teaches Crafting, open Crafting → Tinkering → Wool cloth (5 Wool per attempt). Native skill, station and success chance apply. Cloth supplies wool clothing recipes.
+
+Mistglass conservatory (opt-in proposal)
+0 ready / 1 actions
+
+An original optional test world. Enter with your present body and bag, then explicitly learn its method. Frontier is unchanged.
+
+Enter Mistglass conservatory
+Choose Follow local people and work first.
+
+Elemental preparation
+Open to review
+
+Elemental preparation is off. Inherited damage and armor apply.
+
+Waypost supply clerk
+Clerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.
+Ask for repair notes (one field clear)
+Clear the Infested field once for free repair notes.
+Buy repair notes (10 coins)
+← Village
+Here
+Crafting
+Mixing
+?
+Reports
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]
+Saved the game manually
+Journal & received accounts is now available in navigation.
+Journal ›
+Notes, practice & people is now available in navigation.
+Related panel ›
+People you know is now available in navigation.
+Related panel ›

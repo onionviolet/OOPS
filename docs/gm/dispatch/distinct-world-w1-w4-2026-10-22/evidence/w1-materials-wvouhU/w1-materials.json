@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "lane": "w1-materials",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "86f3117d90927f754fd5a6794706a71000e86c5a8eeaea62a67c92c47eb76f85",
+  "gates": [
+    "w1-prepared-exact-lots: native Save/reload/Export/literal-file Import",
+    "w1-earned-fitting-and-products: native Save/reload/Export/literal-file Import",
+    "Native lesson, local repair shift, two treatments, two usable kit grades, preparation-consuming advancement and changed precise work"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

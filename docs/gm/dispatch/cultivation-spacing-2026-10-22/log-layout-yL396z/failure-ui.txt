@@ -1,0 +1,186 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels…
+Homes
+Herbal experiments
+Tools
+Gear workshop
+Projects
+Known things
+Statistics
+Today
+Where I am
+Around this place
+Tingen workroom
+Your beginning
+Optional worlds
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+Character vitals
+Inventory & combat view
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Cold resistance
+
+Resistance acquired through cold exposure.
+
+Level 1 · 0 / 10 XP
+
+Description recorded with this event.
+Condition
+
+No active effects
+
+Body · Human
+Around you
+
+2 people · 5 services / stations
+
+Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.
+People here · 2
+village elder
+Village neighbor
+village trader
+Merchant
+Services & stations · 5
+Waypost supply clerk
+Supply clerk
+Homes
+Residence rights, furnishings, storage and optional home beginnings.
+Village mixing counter
+Mix and observe your own ingredients.
+Village common herb verge
+Gather common herbs and inspect your carried materials and preparations.
+Gear workshop
+Inspect and work on carried gear: fittings, treatment, repair, reforge and salvage.
+
+Choose someone or something here to inspect.
+
+All
+3
+Gear
+1
+Use
+1
+Other
+1
+★
+0
+Inventory
+5S
+Name ↑
+▾
+Rough wood log
+x2
+1C
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Village
+☀ Summer
+Dry
+14.7 °C · comfortable
+
+01/04/999 08:02, Mon · ☼ Day
+Actions
+Options · 7 (5 ready)
+Daylight falls across the village path.
+
+No work running.
+
+Saving available.
+
+directions Move somewhere else
+directions Fast travel
+question_answer Talk to someone
+storefront Visit a merchant
+work_outline Find work
+fitness_center Train
+Mix at the Village counter
+Here
+Crafting
+Mixing
+?
+Reports
+All reports
+▾
+Latest
+Unlocked new skill: Cold resistance
+Open
+Cold resistance · level 1 · new milestone
+Open
+♫ Heigh ho, heigh ho, it’s off to work I go ♫
+[ Home · 05/04/999, Summer, Fri ]
+Night vision · level 2 · new milestone
+Open

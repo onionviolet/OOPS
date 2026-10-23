@@ -1,0 +1,321 @@
+{
+  "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#loading_screen_play_button')\u001b[22m\n\u001b[2m    - locator resolved to <div class=\"none_display\" id=\"loading_screen_play_button\">↵                PLAY↵            </div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\n    at /Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/corc-electron.mjs:61:117",
+  "errors": [],
+  "receipt": {
+    "root": "/Users/weiwei/code/yet-another-idle-rpg",
+    "profile": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-corc-electron-hMx2Xi",
+    "url": "app://yairpg/index.html",
+    "cases": [
+      {
+        "width": 1920,
+        "height": 1080,
+        "size": 14,
+        "description": "Equipment\nCheap leather pants\n\nEquipped · legs\n\nQuality: 40% [trash]\nSlot: legs\nDefense: 0\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 4C 6W [originally 4C 6W]\nItem specifics\nTake off\nFull item ›\nClose item\nMore actions",
+        "fonts": [
+          {
+            "text": "STR12.0 \n                                        Your streng",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Cheap leather pants",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Ledger workshop cache",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Prepared survey kit",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Sealed survey parcel",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Stale bread",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "EquipmentCheap leather pantsEquipped · legsQuality: 40% [tra",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          }
+        ],
+        "overflow": [
+          false,
+          false
+        ],
+        "actualFonts": [
+          {
+            "familyName": "OOPS Gothic Bitmap 14",
+            "postScriptName": "OOPSGothicBitmap14",
+            "isCustomFont": true,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "size": 21,
+        "description": "Equipment\nCheap leather pants\n\nEquipped · legs\n\nQuality: 40% [trash]\nSlot: legs\nDefense: 0\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 4C 6W [originally 4C 6W]\nItem specifics\nTake off\nFull item ›\nClose item\nMore actions",
+        "fonts": [
+          {
+            "text": "STR12.0 \n                                        Your streng",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "Cheap leather pants",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "Ledger workshop cache",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "Prepared survey kit",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "Sealed survey parcel",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "Stale bread",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "EquipmentCheap leather pantsEquipped · legsQuality: 40% [tra",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          }
+        ],
+        "overflow": [
+          false,
+          false
+        ],
+        "actualFonts": [
+          {
+            "familyName": "OOPS Gothic Bitmap 21",
+            "postScriptName": "OOPSGothicBitmap21",
+            "isCustomFont": true,
+            "glyphCount": 18
+          }
+        ]
+      },
+      {
+        "width": 1800,
+        "height": 1040,
+        "size": 14,
+        "description": "Equipment\nCheap leather pants\n\nEquipped · legs\n\nQuality: 40% [trash]\nSlot: legs\nDefense: 0\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 4C 6W [originally 4C 6W]\nItem specifics\nTake off\nFull item ›\nClose item\nMore actions",
+        "fonts": [
+          {
+            "text": "STR12.0 \n                                        Your streng",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Cheap leather pants",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Ledger workshop cache",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Prepared survey kit",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Sealed survey parcel",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Stale bread",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "EquipmentCheap leather pantsEquipped · legsQuality: 40% [tra",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          }
+        ],
+        "overflow": [
+          false,
+          false
+        ],
+        "actualFonts": [
+          {
+            "familyName": "OOPS Gothic Bitmap 14",
+            "postScriptName": "OOPSGothicBitmap14",
+            "isCustomFont": true,
+            "glyphCount": 19
+          }
+        ]
+      },
+      {
+        "width": 1800,
+        "height": 1040,
+        "size": 21,
+        "description": "Equipment\nCheap leather pants\n\nEquipped · legs\n\nQuality: 40% [trash]\nSlot: legs\nDefense: 0\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 4C 6W [originally 4C 6W]\nItem specifics\nTake off\nFull item ›\nClose item\nMore actions",
+        "fonts": [
+          {
+            "text": "STR12.0 \n                                        Your streng",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "Cheap leather pants",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "Ledger workshop cache",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "Prepared survey kit",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "Sealed survey parcel",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "Stale bread",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          },
+          {
+            "text": "EquipmentCheap leather pantsEquipped · legsQuality: 40% [tra",
+            "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "21px"
+          }
+        ],
+        "overflow": [
+          false,
+          false
+        ],
+        "actualFonts": [
+          {
+            "familyName": "OOPS Gothic Bitmap 21",
+            "postScriptName": "OOPSGothicBitmap21",
+            "isCustomFont": true,
+            "glyphCount": 18
+          }
+        ]
+      },
+      {
+        "width": 1536,
+        "height": 864,
+        "size": 14,
+        "description": "Equipment\nCheap leather pants\n\nEquipped · legs\n\nQuality: 40% [trash]\nSlot: legs\nDefense: 0\nAgility: x0.99\nCold tolerance: +0.5\nCrit resistance: +0.033\nKnown uses\nLeg armor · crafting\nValue: 4C 6W [originally 4C 6W]\nItem specifics\nTake off\nFull item ›\nClose item\nMore actions",
+        "fonts": [
+          {
+            "text": "STR12.0 \n                                        Your streng",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Cheap leather pants",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Ledger workshop cache",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Prepared survey kit",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Sealed survey parcel",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "Stale bread",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          },
+          {
+            "text": "EquipmentCheap leather pantsEquipped · legsQuality: 40% [tra",
+            "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+            "weight": "400",
+            "size": "14px"
+          }
+        ],
+        "overflow": [
+          false,
+          false
+        ],
+        "actualFonts": [
+          {
+            "familyName": "OOPS Gothic Bitmap 14",
+            "postScriptName": "OOPSGothicBitmap14",
+            "isCustomFont": true,
+            "glyphCount": 19
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+ "error": "before: live resize back to 1920 settles like a fresh load\n+ actual - expected\n... Skipped lines\n\n  {\n    areas: '\"player focus focus log\" \"inventory actions actions log\"',\n    cols: '336 293 734 505',\n    regions: {\n      actions: [\n        359,\n+       393,\n-       392,\n        1033,\n+       670\n-       671\n      ],\n      focus: [\n        359,\n        39,\n        1033,\n+       348\n-       347\n      ],\n      inventory: [\n        17,\n+       393,\n-       392,\n        336,\n+       670\n-       671\n      ],\n      log: [\n        1398,\n        39,\n        505,\n...\n        336,\n+       348\n-       347\n      ]\n    }\n  }\n",
+ "before": {
+  "liveTo1536": {
+   "cols": "330 197 515 448",
+   "areas": "\"player player focus log\" \"inventory actions actions log\"",
+   "regions": {
+    "player": [
+     17,
+     39,
+     531,
+     324
+    ],
+    "focus": [
+     552,
+     39,
+     515,
+     324
+    ],
+    "inventory": [
+     17,
+     367,
+     330,
+     480
+    ],
+    "actions": [
+     351,
+     367,
+     716,
+     480
+    ],
+    "log": [
+     1071,
+     39,
+     448,
+     808
+    ]
+   }
+  },
+  "liveBack1920": {
+   "cols": "336 293 734 505",
+   "areas": "\"player focus focus log\" \"inventory actions actions log\"",
+   "regions": {
+    "player": [
+     17,
+     39,
+     336,
+     348
+    ],
+    "focus": [
+     359,
+     39,
+     1033,
+     348
+    ],
+    "inventory": [
+     17,
+     393,
+     336,
+     670
+    ],
+    "actions": [
+     359,
+     393,
+     1033,
+     670
+    ],
+    "log": [
+     1398,
+     39,
+     505,
+     1024
+    ]
+   }
+  }
+ }
+}

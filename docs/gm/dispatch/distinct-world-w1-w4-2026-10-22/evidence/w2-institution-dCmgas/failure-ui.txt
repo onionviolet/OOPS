@@ -1,0 +1,378 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels… •
+Homes
+Herbal experiments
+Tools
+Gear workshop
+Projects
+Known things (1 new)
+Statistics
+Today
+Where I am
+Around this place
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people •
+People you know •
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+World events •
+Character vitals
+Time & weather •
+Current location •
+Inventory & combat view
+Journal & received accounts •
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+head · Empty
+torso · Empty
+arms · Empty
+ring · Empty
+weapon · Empty
+off-hand · Empty
+legs · Empty
+feet · Empty
+amulet · Empty
+artifact · Empty
+cape · Empty
+Tools
+Condition
+
+No active effects
+
+Body · Human
+
+Age: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human
+
+Cold exposure at 14 °C or below · current 18.3 °C
+Cold ← threshold → No cold exposure ●
+Current local reading; tolerance changes this boundary. The warmer side makes no claim about heat safety.
+All items
+3
+Equipment
+1
+Usable
+1
+Other
+1
+Favorites
+0
+Inventory
+5S
+Name ↑
+▾
+Rough wood log
+x2
+1C
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Arlmere family manor
+☀ Summer
+Dry
+18.3 °C · comfortable
+
+01/04/999 08:50, Mon · ☼ Day
+
+No work running.
+
+Saving available.
+
+Homes
+▾
+Homes and belongings
+
+Your rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.
+
+1 residence · human body · 5000 coins
+
+Arlmere family manor · shared · here
+Arlmere family manor
+
+Your family’s country estate. Your room and private chest are yours to use; the estate, staff contracts, pantry and provided furniture belong to the household. Owner: the household. Your occupancy is separate from title.
+
+You are here. Home services available for this body.
+
+Lived-in · 7 furnishing and room comfort. Furnishing details show each active benefit.
+
+Make this your main residence
+
+Kitchen fitted. Learn the ordinary crafting basics to use its recipes.
+
+Furnishings and selected slots
+
+bed: Plain bed · provided by owner. An installed mattress supports ordinary rest and sleep practice.
+
+Pack Plain bedHome: communal and landlord furnishings remain with their owner
+
+blanket: Ragwork blanket · provided by owner. A fitted blanket improves Sleeping XP here.
+
+Pack Ragwork blanketHome: communal and landlord furnishings remain with their owner
+
+tableware: Wooden tableware · provided by owner. Reusable preparation and serving utensils support Cooking XP here.
+
+Pack Wooden tablewareHome: communal and landlord furnishings remain with their owner
+
+hearth: Fitted hearth · provided by owner. An installed fireplace uses actual paid logs, ventilation and the local firewood pile.
+
+Pack Fitted hearthHome: communal and landlord furnishings remain with their owner
+
+shelf: Bookcase · provided by owner. A local reading station. Finished owned books retain their separate native bonus.
+
+Pack BookcaseHome: communal and landlord furnishings remain with their owner
+Private storage · 0/16
+
+Each carried or stored unit uses one local storage unit. Communal furnishings are not yours to sell. Expired lodging permits retrieval.
+
+Cheap leather pants ×1
+Stale bread ×5
+Rough wood log ×2
+Store one selected item
+Hearth and companion
+▱ Hearth · 0 played minutes of fuel · vent open
+Prepaid hearth fuel0/20 · empty
+Plain bed · Active here
+
++10% Sleeping XP; +8% ordinary rest recovery. Active here. Household furnishing; installed here.
+
+Ragwork blanket · Active here
+
++50% Sleeping XP; +0% ordinary rest recovery. Active here. Household furnishing; installed here.
+
+Wooden tableware · Active here
+
++5% Cooking XP; +0% ordinary rest recovery. Active here. Household furnishing; installed here.
+
+Fitted hearth · Active here
+
++0% ordinary rest recovery. Active here. Household furnishing; installed here.
+
+Bookcase · Active here
+
++5% Literacy XP; +0% ordinary rest recovery. Active here. Household furnishing; installed here.
+
+Local home comfort · Active here
+
++6% ordinary rest recovery. Active here. Lived-in · 7 installed furnishing/room comfort. Quiet local rest and settled companionship; smoke suspends this comfort benefit.
+
+Your known home. The picture follows the current hearth and animal state; its layout is illustrative.
+Stock 1 Rough wood log
+Light hearth · 1 Rough wood log
+Bring Moss from your previous local home
+Shelter, weather and repairs
+
+Structure 70/100 · dampness 0/100 · ordinary protection. Roof provides local weather shelter.
+
+Reserve repair materials and begin repairsHome: structural work needs your own home
+Fit extra weather protection · 1 pole/twig + 2 grass, or earthwork for a burrowHome: structural work needs your own home
+Family, staff and household accounts
+
+Family guest: private room and household hospitality. The family retains the estate title, pantry and staff employment. Rowan authorizes these finite requests from retained funds; you may offer your own supplies.
+
+Household treasury: 12 coins. Unclaimed agreed allowance: 0.
+
+Ask Rowan for the agreed allowanceHome: the agreed allowance is exhausted or the household cannot fund it
+
+Rowan, Family steward: present · no accepted order · earned wages 0.
+
+Iven, Household cook: present · no accepted order · earned wages 0.
+
+Toma, Estate caretaker: present · no accepted order · earned wages 0.
+
+Ask Iven to prepare two meals · 2 household coins, 2 meat chunks + 1 log · 10 min
+Ask Toma to patch the roof · 3 household coins, 1 log + 2 grass · 15 min
+Ask Toma to dry the room · 2 household coins + 1 log · 10 minHome: the room is already dry
+Ask Toma to gather on the estate grounds · 2 household coins, 20 of his energy · 30 min → 2 Rough wood log + 3 Home dry grass into his stock
+
+Kitchen: 4 meat chunks, 3 logs, 0 prepared meals. Caretaker: 4 logs, 8 grass.
+
+Staff recover one energy per idle played minute at home, up to 60. Each accepted service reserves 20 energy; below 20 they ask to rest. Leave suspends new requests. Cancellation returns reserved effort and unearned pay.
+
+Rowan: willing to consider a funded request · energy 20/60 · wages 0 coins.
+
+Agree leave with Rowan
+Discuss resuming duties with Rowan
+
+Iven: willing to consider a funded request · energy 60/60 · wages 0 coins.
+
+Agree leave with Iven
+Discuss resuming duties with Iven
+
+Toma: willing to consider a funded request · energy 40/60 · wages 0 coins.
+
+Agree leave with Toma
+Discuss resuming duties with Toma
+
+Sera: willing to consider a funded request · energy 60/60 · wages 4 coins.
+
+Agree leave with Sera
+Discuss resuming duties with Sera
+
+Sera’s primer: 12/120 practice XP covered. Each 20-minute lesson gives 12 actual Literacy XP and costs 4 household coins. Further teaching needs a fitting teacher and text.
+
+Study reading with Sera · 20 min, 4 household coins
+
+Family request: help Rowan check the provision ledger. Status: kept. You may decline or change an unfinished agreement. This request has no deadline; your room and hospitality remain available.
+
+Agree to help with the provision ledgerHome: this particular family request is already fulfilled
+Decline this request for nowHome: this particular family request is already fulfilled
+Keep the agreed ledger appointment · 15 minHome: agree to the actual unfinished ledger request first
+
+Mara is at Village. Available stock: 12 meat chunks, 8 logs. Stock and funds are finite; receiving a delivery creates no refill.
+
+Arrange Mara’s return to Village · 10 minHome: Mara must actually be at the manor
+Order 4 meat chunks + 2 logs · 8 household coins, 20 min delivery
+
+Provision office: earned. The delegate controls institutional funds under an actual agreement.
+
+Pantry office: held by Rowan · fund 16 coins · reserve floor 4 coins · The kitchen holds 4 meat chunks; Rowan orders when it falls below 2.
+
+Hand the office to an available successorHome: the current holder is available; succession is for an absent or departed holder
+Close the pantry office and return its fund
+
+When a life ends, its heir can receive personally owned homes, fittings and belongings. Family rooms, staff service and communal stores need new agreements.
+
+Accept one prepared household mealHome: meet the cook when a prepared household meal is ready
+Offer one owned Rat meat chunksHome: offer one actual usable owned supply
+Offer one owned Rough wood log
+Offer one owned Rough wood log
+Offer one owned Home dry grassHome: offer one actual usable owned supply
+Build a home from the land
+
+Visit Wild willow stand through native travel. This authored unclaimed site offers forked branches for a nest, dry diggable roots for a burrow and a clearing for a lean-to. Materials are gathered in small carried bundles; construction spends real materials and played time, without coins.
+
+Weave dry lining · 3 dry grass bundles · 8 minHome: carry enough usable owned materials
+
+Dry weather currently supports outdoor drying and ordinary work. Repair and construction materials are held at their actual project site. Starting work grants no completed housing.
+
+Home history
+
+Minute 50: Rowan takes the pantry office with 16 household coins set aside. Whenever the kitchen falls below 2 meat chunks, he orders 4 chunks and 2 logs from Mara for 8 office coins. He pauses when resting, on leave, short of funds or when Mara canno
+
+Minute 40: Rowan and Toma reserve ten played minutes to study this office’s actual stock, delivery and reserve terms. Completion qualifies Toma; no mastery, body or personal relationship is transferred.
+
+Minute 40: Your completed ledger work and primer study earn the provision office. You may appoint a qualified steward and fund its actual standing agreement; estate property remains the household’s.
+
+Minute 25: You and Rowan reserve fifteen minutes to reconcile the actual household accounts. Completion keeps this specific family promise; it creates no money or hereditary skill.
+
+Minute 25: You agree to help Rowan check this household’s provision ledger. There is no automatic deadline or penalty. Meet him here when both of you can give it fifteen minutes.
+
+Minute 5: Sera agrees to twenty minutes of shared reading practice, paid four coins from the household treasury. Both of you must remain present. The primer teaches actual Literacy, up to its syllabus limit.
+
+Minute 5: You enter the Arlmere household as a provision worker and student, with a room by agreement. The household retains its estate, finite 32-coin treasury, pantry and staff. Study its primer and keep the ledger appointment to earn provision-off
+
+Rowan takes the pantry office with 16 household coins set aside. Whenever the kitchen falls below 2 meat chunks, he orders 4 chunks and 2 logs from Mara for 8 office coins. He pauses when resting, on leave, short of funds or when Mara cannot supply.
+
+← Arlmere family manor
+Here
+Crafting
+Mixing
+?
+Reports
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]
+Saved the game manually
+Journal & received accounts is now available in navigation.
+Journal ›
+Notes, practice & people is now available in navigation.
+Related panel ›
+People you know is now available in navigation.
+Related panel ›
+Saved the game manually
+[ Entering Arlmere family manor ]
+Time & weather is now available in navigation.
+Related panel ›
+Current location is now available in navigation.
+Related panel ›
+You enter the Arlmere household as a provision worker and student, with a room by agreement. The household retains its estate, finite 32-coin treasury, pantry and staff. Study its primer and keep the ledger appointment to earn provision-office authority; no personal mastery or noble inheritance is granted.
+Saved the game manually
+Sera agrees to twenty minutes of shared reading practice, paid four coins from the household treasury. Both of you must remain present. The primer teaches actual Literacy, up to its syllabus limit.
+Saved the game manually
+World events is now available in navigation.
+Related panel ›
+Saved the game manually
+You agree to help Rowan check this household’s provision ledger. There is no automatic deadline or penalty. Meet him here when both of you can give it fifteen minutes.
+You and Rowan reserve fifteen minutes to reconcile the actual household accounts. Completion keeps this specific family promise; it creates no money or hereditary skill.
+Saved the game manually
+Saved the game manually
+Your completed ledger work and primer study earn the provision office. You may appoint a qualified steward and fund its actual standing agreement; estate property remains the household’s.
+Saved the game manually
+Rowan and Toma reserve ten played minutes to study this office’s actual stock, delivery and reserve terms. Completion qualifies Toma; no mastery, body or personal relationship is transferred.
+Saved the game manually
+Saved the game manually
+Rowan takes the pantry office with 16 household coins set aside. Whenever the kitchen falls below 2 meat chunks, he orders 4 chunks and 2 logs from Mara for 8 office coins. He pauses when resting, on leave, short of funds or when Mara cannot supply.

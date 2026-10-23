@@ -1,0 +1,186 @@
+{
+ "journal": true,
+ "journalBestiary": true,
+ "skills": true,
+ "crafting": true,
+ "controls": {
+  "skill_sorting_buttons": {
+   "visible": false,
+   "parent": "control-box-body",
+   "kids": [
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Sort by name",
+     "shown": false
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Sort by level",
+     "shown": false
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Sort by progress",
+     "shown": false
+    }
+   ]
+  },
+  "journal_control_div": {
+   "visible": false,
+   "parent": "journal_div",
+   "kids": [
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Quests",
+     "shown": false
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Bestiary",
+     "shown": false
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Anthology",
+     "shown": false
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Data",
+     "shown": false
+    },
+    {
+     "tag": "BUTTON",
+     "role": null,
+     "tab": 0,
+     "text": "Notebook",
+     "shown": false
+    }
+   ]
+  },
+  "skill_and_stance_control_div": {
+   "visible": false,
+   "parent": "skills_and_stances_div",
+   "kids": [
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Skills",
+     "shown": false
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Stances",
+     "shown": false
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "???????",
+     "shown": false
+    }
+   ]
+  },
+  "crafting_mainpage_buttons": {
+   "visible": true,
+   "parent": "crafting_window",
+   "kids": [
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Tinkering",
+     "shown": true
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Butchering",
+     "shown": true
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Cooking",
+     "shown": true
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Woodworking",
+     "shown": true
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Smelting",
+     "shown": true
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Forging",
+     "shown": true
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Alchemy",
+     "shown": true
+    }
+   ]
+  },
+  "crafting_subpage_buttons": {
+   "visible": false,
+   "parent": "control-box-body",
+   "kids": [
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Items/trinkets",
+     "shown": false
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Components",
+     "shown": false
+    },
+    {
+     "tag": "DIV",
+     "role": "button",
+     "tab": 0,
+     "text": "Equipment",
+     "shown": false
+    }
+   ]
+  }
+ },
+ "errors": []
+}

@@ -1,0 +1,546 @@
+{
+ "before": [
+  {
+   "box": "you",
+   "slot": "player",
+   "landed": "player",
+   "same": true,
+   "home": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "you",
+   "slot": "focus",
+   "landed": "focus",
+   "same": false,
+   "home": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "you",
+   "slot": "inventory",
+   "landed": "inventory",
+   "same": false,
+   "home": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "inventory",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "around",
+   "slot": "player",
+   "landed": "player",
+   "same": false,
+   "home": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "around",
+   "slot": "focus",
+   "landed": "focus",
+   "same": true,
+   "home": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "around",
+   "slot": "inventory",
+   "landed": "inventory",
+   "same": false,
+   "home": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "inventory",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "inventory",
+   "slot": "player",
+   "landed": "player",
+   "same": false,
+   "home": {
+    "region": "inventory",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "inventory",
+   "slot": "focus",
+   "landed": "focus",
+   "same": false,
+   "home": {
+    "region": "inventory",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "inventory",
+   "slot": "inventory",
+   "landed": "inventory",
+   "same": true,
+   "home": {
+    "region": "inventory",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "inventory",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   }
+  }
+ ],
+ "after": [
+  {
+   "box": "you",
+   "slot": "player",
+   "landed": "player",
+   "same": true,
+   "home": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "you",
+   "slot": "focus",
+   "landed": "focus",
+   "same": true,
+   "home": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "you",
+   "slot": "inventory",
+   "landed": "inventory",
+   "same": true,
+   "home": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "inventory",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "auto",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "0px|0px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(188, 254, 254)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "around",
+   "slot": "player",
+   "landed": "player",
+   "same": true,
+   "home": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "player",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "around",
+   "slot": "focus",
+   "landed": "focus",
+   "same": true,
+   "home": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "around",
+   "slot": "inventory",
+   "landed": "inventory",
+   "same": true,
+   "home": {
+    "region": "focus",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "inventory",
+    "background": "none|rgb(0, 40, 64)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "12.6px|normal|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(186, 196, 217)",
+    "controlBox": null,
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "inventory",
+   "slot": "player",
+   "landed": "player",
+   "same": true,
+   "home": {
+    "region": "inventory",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "player",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "inventory",
+   "slot": "focus",
+   "landed": "focus",
+   "same": true,
+   "home": {
+    "region": "inventory",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "focus",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   }
+  },
+  {
+   "box": "inventory",
+   "slot": "inventory",
+   "landed": "inventory",
+   "same": true,
+   "home": {
+    "region": "inventory",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   },
+   "moved": {
+    "region": "inventory",
+    "background": "linear-gradient(160deg, rgb(0, 10, 61), rgb(0, 58, 94) 70%, rgb(0, 74, 110))|rgba(0, 0, 0, 0)",
+    "overflowY": "hidden",
+    "binding": "none",
+    "header": "14px|normal|rgb(188, 254, 254)|rgba(0, 0, 0, 0)|none",
+    "title": "14px|18.2px|\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace|rgb(255, 255, 255)",
+    "row": "14px|17.5px|system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif|rgb(214, 187, 255)",
+    "controlBox": "14px|normal|rgb(188, 254, 254)|color(srgb 0 0.0713726 0.248314)|rgb(53, 167, 165)",
+    "moved": "ok",
+    "errors": []
+   }
+  }
+ ]
+}

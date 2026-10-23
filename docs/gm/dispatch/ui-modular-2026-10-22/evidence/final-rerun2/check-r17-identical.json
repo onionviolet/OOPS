@@ -1,0 +1,6 @@
+[
+ {
+  "tag": "populated-1920x1080-21",
+  "fail": "locator.click: Timeout 25000ms exceeded."
+ }
+]

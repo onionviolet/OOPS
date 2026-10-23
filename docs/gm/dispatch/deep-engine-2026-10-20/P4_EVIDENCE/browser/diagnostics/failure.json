@@ -1,0 +1,5 @@
+{
+  "phase": "cancel",
+  "error": "TypeError: Cannot read properties of undefined (reading 'job')\n    at file:///private/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-p4-candidate-rtr0_piw/scripts/playtest/repair-journey.mjs:67:206",
+  "errors": []
+}

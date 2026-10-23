@@ -1,0 +1,63 @@
+{
+ "status": "PASS",
+ "before": {
+  "r": {
+   "lists": [
+    44,
+    671,
+    111,
+    66,
+    24,
+    14,
+    6
+   ],
+   "money": 5123,
+   "xp": "THREW TypeError: Cannot read properties of undefined (reading 'current_level')",
+   "skill": "undefined",
+   "effect": "Basic meal for 60 minutes",
+   "badEffect": "undefined",
+   "best": 405,
+   "flag": "is_crafting_unlocked = true",
+   "go": "Village",
+   "speed": 1,
+   "give": [
+    "money"
+   ],
+   "simulate": "undefined"
+  },
+  "errors": [],
+  "logs": [
+   "Dev console is active. Available functions:\n"
+  ]
+ },
+ "after": {
+  "r": {
+   "lists": [
+    44,
+    671,
+    111,
+    66,
+    24,
+    14,
+    6
+   ],
+   "money": 5123,
+   "xp": "THREW TypeError: Cannot read properties of undefined (reading 'current_level')",
+   "skill": "undefined",
+   "effect": "Basic meal for 60 minutes",
+   "badEffect": "undefined",
+   "best": 405,
+   "flag": "is_crafting_unlocked = true",
+   "go": "Village",
+   "speed": 1,
+   "give": [
+    "money"
+   ],
+   "simulate": "undefined"
+  },
+  "errors": [],
+  "logs": [
+   "Dev console is active. Available functions:\n"
+  ]
+ }
+}

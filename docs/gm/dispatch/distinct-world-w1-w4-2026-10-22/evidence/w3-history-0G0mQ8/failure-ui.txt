@@ -1,0 +1,77 @@
+OOPS
+Optimistic Progression Simulator
+by
+onionv
+Inspired by
+Yet Another Idle RPG
+by Miktaew 🐱
+Proto23
+by 23html
+LOADING
+Translating the meows
+No issues in the loading process :)
+
+Explore the original ↙
+
+Play Proto23 · by 23html
+Source on GitHub
+
+Support the original author ↘
+
+Miktaew on Ko-fi
+Source on GitHub
+
+
+Optional beginning 
+No system
+Begin with a system
+Surprise me
+
+A chosen system starts dormant and wakes on your first won fight or day 3. It adds an informational view of your level and known abilities, without granting power. You can leave it off. Surprise me chooses from available starts; currently only this system is available.
+
+Lv 0
+0/0 mana
+01/04/999 08:00, Summer, Mon 
+Inventory
+Combat
+Clears: [0]
+Enemy groups left: 
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+Quests
+Bestiary
+Anthology
+Data
+= Quests =
+Hide completed 
+Lvl: 0
+Strength: 
+Agility: 
+Dexterity: 
+Intuition 
+Defense: 
+Magic: 
+Atk power: 
+Atk spd: 
+Crit rate: 
+Crit mult: 
+AP: 
+ 
+Active effects: 0
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+Save
+Export
+Import
+settings
+v0.6
+help_outline

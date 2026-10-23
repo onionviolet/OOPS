@@ -1,0 +1,315 @@
+[
+ {
+  "tag": "fresh-1920x1080-14",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "fresh-1920x1080-21",
+  "fail": "locator.click: Timeout 25000ms exceeded."
+ },
+ {
+  "tag": "fresh-1800x1040-14",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "fresh-1800x1040-21",
+  "diff": {
+   "pixels": 205,
+   "box": [
+    1170,
+    562,
+    1212,
+    576
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "noise": {
+   "pixels": 205,
+   "box": [
+    1170,
+    562,
+    1212,
+    576
+   ]
+  },
+  "noisy": true
+ },
+ {
+  "tag": "fresh-1536x864-14",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "fresh-1536x864-21",
+  "diff": {
+   "pixels": 197,
+   "box": [
+    934,
+    492,
+    975,
+    506
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "noise": {
+   "pixels": 197,
+   "box": [
+    934,
+    492,
+    975,
+    506
+   ]
+  },
+  "noisy": true
+ },
+ {
+  "tag": "populated-1920x1080-14",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "populated-1920x1080-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "populated-1800x1040-14",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "populated-1800x1040-21",
+  "diff": {
+   "pixels": 1347,
+   "box": [
+    1044,
+    562,
+    1232,
+    583
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "noise": {
+   "pixels": 1347,
+   "box": [
+    1044,
+    562,
+    1232,
+    583
+   ]
+  },
+  "noisy": true
+ },
+ {
+  "tag": "populated-1536x864-14",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "populated-1536x864-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "combat-1920x1080-14",
+  "diff": {
+   "pixels": 1696,
+   "box": [
+    453,
+    7,
+    1767,
+    410
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "noise": {
+   "pixels": 1696,
+   "box": [
+    453,
+    7,
+    1767,
+    410
+   ]
+  },
+  "noisy": true
+ },
+ {
+  "tag": "combat-1920x1080-21",
+  "diff": {
+   "pixels": 28442,
+   "box": [
+    23,
+    71,
+    1899,
+    166
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "noise": {
+   "pixels": 28442,
+   "box": [
+    23,
+    71,
+    1899,
+    166
+   ]
+  },
+  "noisy": true
+ },
+ {
+  "tag": "combat-1800x1040-14",
+  "diff": {
+   "pixels": 73847,
+   "box": [
+    895,
+    496,
+    1289,
+    682
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "noise": {
+   "pixels": 92002,
+   "box": [
+    24,
+    66,
+    1779,
+    682
+   ]
+  },
+  "noisy": true
+ },
+ {
+  "tag": "combat-1800x1040-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "combat-1536x864-14",
+  "diff": {
+   "pixels": 94873,
+   "box": [
+    25,
+    66,
+    1515,
+    658
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "noise": {
+   "pixels": 73847,
+   "box": [
+    738,
+    472,
+    1132,
+    658
+   ]
+  },
+  "noisy": true
+ },
+ {
+  "tag": "combat-1536x864-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ }
+]

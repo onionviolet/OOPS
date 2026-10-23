@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "lane": "w4-paths",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "af55a012b8dbdbedd344db6d43ad00008aa108440ee8b10460a363bc192616a0",
+  "gates": [
+    "w4-prepared-path-reserve: native Save/reload/Export/literal-file Import",
+    "w4-inert-foreign-reserve: native Save/reload/Export/literal-file Import",
+    "w4-compatible-expenditure-products: native Save/reload/Export/literal-file Import",
+    "Two actual intake/preparation laws; native paid-dose conversion; compatible technique; frozen control and practiced material quality; body/instance reserve remains inert outside"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

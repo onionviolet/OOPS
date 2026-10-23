@@ -1,0 +1,11 @@
+{
+  "phase": "open",
+  "error": "locator.waitFor: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#loading_screen_play_button') to be visible\u001b[22m\n\u001b[2m    5 × locator resolved to hidden <div class=\"none_display\" id=\"loading_screen_play_button\">↵                PLAY↵            </div>\u001b[22m\n\n    at Session.open (/Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/lib.mjs:77:20)\n    at async file:///Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/visitor-travel.mjs:12:18",
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "No such element with availability as \"recipe\" -> \"undefined\""
+    }
+  ]
+}

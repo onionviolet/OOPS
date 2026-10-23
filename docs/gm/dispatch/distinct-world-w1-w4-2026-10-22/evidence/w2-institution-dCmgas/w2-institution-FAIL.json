@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "message": "Qualified voluntary handover is supported even while Rowan is available\n\nfalse !== true\n",
+  "gates": [],
+  "pageErrors": []
+}

@@ -1,0 +1,47 @@
+[
+ {
+  "tag": "populated-1920x1080-21",
+  "diff": {
+   "pixels": 9879,
+   "box": [
+    992,
+    562,
+    1388,
+    726
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "noise": {
+   "pixels": 1338,
+   "box": [
+    1132,
+    562,
+    1320,
+    583
+   ]
+  },
+  "noisy": true
+ },
+ {
+  "tag": "populated-1800x1040-21",
+  "diff": {
+   "pixels": 8393,
+   "box": [
+    930,
+    613,
+    1300,
+    726
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "fail": "populated-1800x1040-21: 8393 pixels differ in [930,613,1300,726] and the before build is stable there"
+ }
+]

@@ -1,0 +1,197 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels… •
+Homes
+Herbal experiments
+Tools
+Gear workshop
+Projects
+Known things
+Statistics
+Today
+Where I am
+Around this place
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people •
+People you know •
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+Character vitals
+Time & weather •
+Current location •
+Inventory & combat view
+Journal & received accounts •
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Progress paused because saving failed. Free storage and reload before continuing.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+head · Empty
+torso · Empty
+arms · Empty
+ring · Empty
+weapon · Empty
+off-hand · Empty
+legs · Empty
+feet · Empty
+amulet · Empty
+artifact · Empty
+cape · Empty
+Tools
+Condition
+
+No active effects
+
+Body · Human
+
+Age: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human
+
+Cold exposure at 14 °C or below · current 14.7 °C
+Cold ← threshold → No cold exposure ●
+Current local reading; tolerance changes this boundary. The warmer side makes no claim about heat safety.
+All items
+3
+Equipment
+1
+Usable
+1
+Other
+1
+Favorites
+0
+Inventory
+5000 coins (denominations unfamiliar)
+Name ↑
+▾
+Rough wood log
+x2
+10 coins
+Stale bread
+x5
+20 coins
+[legs]
+Cheap leather pants
+[40%]
+46 coins
+
+Mistglass conservatory
+Local weather unavailable
+
+Local date unavailable
+
+No work running.
+
+Progress paused because saving failed. Free storage and reload before continuing.
+
+Open local controls
+Projects
+▾
+Optional projects
+
+Original proposals. Open a project to read its terms before opting in.
+
+Mistglass conservatory (opt-in proposal)
+0 ready / 3 actions
+Return to Village
+Finish your current work in the writable game tab.
+Trade with conservatory keeper
+Finish your current work in the writable game tab.
+Learn the conservatory method (explicit opt-in)
+Finish your current work in the writable game tab.
+
+Unknown persistent actor p23.mistglass.keeper.
+
+Elemental preparation
+Open to review
+
+Elemental preparation is off. Inherited damage and armor apply.
+
+← Mistglass conservatory
+Here
+Crafting
+Mixing
+?
+Reports
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]
+Saved the game manually
+Journal & received accounts is now available in navigation.
+Journal ›
+Notes, practice & people is now available in navigation.
+Related panel ›
+People you know is now available in navigation.
+Related panel ›
+Saved the game manually
+[ Entering Mistglass conservatory ]
+Time & weather is now available in navigation.
+Related panel ›
+Current location is now available in navigation.
+Related panel ›
+Saved the game manually

@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "message": "Authored native action is eligible\n\nfalse !== true\n",
+  "gates": [
+    "Native circulation selection and played practice reaches first stage",
+    "circulation-practice: native Save/reload/Export/literal-file Import"
+  ],
+  "pageErrors": []
+}

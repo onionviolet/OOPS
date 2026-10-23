@@ -1,0 +1,26 @@
+[
+ {
+  "tag": "fresh-1800x1040-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ },
+ {
+  "tag": "populated-1536x864-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ }
+]

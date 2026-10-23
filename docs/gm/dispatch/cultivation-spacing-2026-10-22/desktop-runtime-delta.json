@@ -1,0 +1,9 @@
+{
+  "comparedTo": "v0.6-72af84cf8e66",
+  "changed": [
+    "dist/bundle.js",
+    "dist/bundle.js.map",
+    "index.html",
+    "styles/ui_tokens.css"
+  ]
+}

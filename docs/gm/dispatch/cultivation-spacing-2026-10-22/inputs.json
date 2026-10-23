@@ -1,0 +1,10 @@
+{
+  "src/absorb_p23/world_adaptation/index.js": "49044da8c205ee58aed3c9bdbf8c442f967c9c1c747b951f644a9532a6d8943b",
+  "src/absorb_p23/world_adaptation/techniques.js": "d0f80cba29cc5a0d7409534f2cecc4aa5e993d75aeb1cfb01d7a4608c3f29601",
+  "src/absorb_p23/host_joins/world_adaptation.js": "7a4346af444cf31e11174cbc3b29b4aa54fa27c1ec2c77d7af930664a237edfb",
+  "src/absorb_p23/host_joins/world_adaptation_ui.js": "0b6d47c68161ad35e2a9ba227e243a1d9d1a9fbadef2caccb3c56a6cdb079302",
+  "src/main.js": "e988cac7974a9928d05b470d4aa58614d5934fc16b95fed091d94f35875c61e3",
+  "src/proto23_shell.js": "ca8730b100f2fa275cb315ef73d2bf89a887af962fcbec8951f661085494f22a",
+  "styles/ui_tokens.css": "81bebaff1f7546c014013b9ce506217fba8f9ce1f6700e340f3bf9a82bfbfa22",
+  "dist/bundle.js": "a696c8399c7bfd3dc8fffce02835281a9271e3204ff221ff4f527a9eeee1f3b9"
+}

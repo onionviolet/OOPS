@@ -1,0 +1,29 @@
+[
+ {
+  "tag": "fresh-1920x1080-21",
+  "diff": {
+   "pixels": 205,
+   "box": [
+    1258,
+    562,
+    1300,
+    576
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "noise": {
+   "pixels": 205,
+   "box": [
+    1258,
+    562,
+    1300,
+    576
+   ]
+  },
+  "noisy": true
+ }
+]

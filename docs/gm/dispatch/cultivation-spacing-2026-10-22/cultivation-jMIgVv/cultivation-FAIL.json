@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "message": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#systems_workshop_panel [data-systems=\"enroll\"]') to be visible\u001b[22m\n\u001b[2m    24 × locator resolved to hidden <button type=\"button\" data-systems=\"enroll\">Follow local people and work</button>\u001b[22m\n",
+  "gates": [],
+  "pageErrors": []
+}

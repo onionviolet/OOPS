@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "message": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-mender-action=\"lesson\"]') to be visible\u001b[22m\n\u001b[2m    23 × locator resolved to hidden <button disabled type=\"button\" data-mender-action=\"lesson\" title=\"Follow local people and work before recording repair practice.\">Study hide preparation with the craftsman · 5 min</button>\u001b[22m\n",
+  "gates": [],
+  "pageErrors": []
+}

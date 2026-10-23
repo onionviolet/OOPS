@@ -1,0 +1,191 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Travelers
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels… •
+Homes
+Herbal experiments
+Tools
+Gear workshop
+Projects
+Known things
+Statistics
+Today
+Where I am
+Around this place
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people •
+People you know •
+Patrol & custody
+Village travelers
+Village neighbors
+Remembered years
+Character vitals
+Inventory & combat view
+Journal & received accounts •
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+
+Age: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human
+
+Cold exposure at 14 °C or below · current 14.7 °C
+Cold ← threshold → No cold exposure ●
+Current local reading; tolerance changes this boundary. The warmer side makes no claim about heat safety.
+Around you
+
+2 people · 5 services / stations
+
+Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.
+
+Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north. It's surrounded by many fields, most of them infested by huge rats. There is a relatively calm, somewhat small river south of it with no bridges over it, and with some old structures on the other side, clearly not used for years if not longer. Many villagers seem to have nothing to do and are just sitting around.
+
+People here · 2
+village elder
+Village neighbor
+village trader
+Merchant
+Services & stations · 5
+Waypost supply clerk
+Supply clerk
+Homes
+Residence rights, furnishings, storage and optional home beginnings.
+Village mixing counter
+Mix and observe your own ingredients.
+Village common herb verge
+Gather common herbs and inspect your carried materials and preparations.
+Gear workshop
+Inspect and work on carried gear: fittings, treatment, repair, reforge and salvage.
+
+That subject is no longer available here. Choose another known subject.
+
+All
+3
+Gear
+1
+Use
+1
+Other
+1
+★
+0
+Inventory
+5S
+Name ↑
+▾
+Rough wood log
+x2
+1C
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Village
+☀ Summer
+Dry
+14.7 °C · comfortable
+
+01/04/999 08:04, Mon · ☼ Day
+Actions
+Options · 7 (5 ready)
+Daylight falls across the village path.
+
+No work running.
+
+Saving available.
+
+directions Move somewhere else
+directions Fast travel
+question_answer Talk to someone
+storefront Visit a merchant
+work_outline Find work
+fitness_center Train
+Mix at the Village counter
+Here
+Crafting
+Mixing
+?
+Reports
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]
+Saved the game manually
+Journal & received accounts is now available in navigation.
+Journal ›
+Notes, practice & people is now available in navigation.
+Related panel ›
+People you know is now available in navigation.
+Related panel ›

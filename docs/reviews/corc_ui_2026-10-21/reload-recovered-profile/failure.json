@@ -1,0 +1,31 @@
+{
+  "i": 0,
+  "error": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#loading_screen_play_button:not(.none_display)') to be visible\u001b[22m\n\u001b[2m    24 × locator resolved to hidden <div tabindex=\"0\" role=\"button\" class=\"fade_in\" data-focused=\"true\" id=\"loading_screen_play_button\">↵                PLAY↵            </div>\u001b[22m\n\n    at ready (/Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/electron-reload.mjs:21:75)\n    at /Users/weiwei/code/yet-another-idle-rpg/scripts/playtest/electron-reload.mjs:33:9",
+  "state": {
+    "buttons": [
+      {
+        "html": "<div id=\"loading_screen_play_button\" class=\"fade_in\" role=\"button\" tabindex=\"0\" data-focused=\"true\">\n                PLAY\n            </div>",
+        "display": "block",
+        "rect": {
+          "x": 799,
+          "y": 470,
+          "width": 202,
+          "height": 26,
+          "top": 470,
+          "right": 1001,
+          "bottom": 496,
+          "left": 799
+        }
+      }
+    ],
+    "progress": "Waiting for you to click 'PLAY'",
+    "body": "Stats\nCondition\nInventory\nJournal\nData\nNotebook\nPeople\nTravelers\nProjects\nLedger\nWorlds\nBeginning\nSettings\nMore panels…\nHerbal experiments\nTools\nProjects\nKnown things\nStatistics\nToday\nWhere I am\nLoadouts\nAround this place\nTingen workroom\nYour beginning\nOptional worlds\nNotes, practice & people\nPeople you know\nPatrol & custody\nVillage travelers\nVillage neighbors\nRemembered years\nWorld events\nCharacter vitals\nInventory & combat view\nJournal & received accounts\nCharacter & preparation\nBelongings\nLocal actions\nReports\nEquipment comparison\nInventory tools\nCondition\nStats & equipment\nItem details\nFocus\nVillage scene\nCurrent work & saving\nWork Ledger\nAppearance\nEffects & sound\nOriginal rules\nDraft preview\nOriginal site\nContinuing connection\nFind\nSaving available.\nSave\nExport\nImport\nMenu\n▾\nYou\nLv 0\n0 / 10 xp\n40/40 stamina\n60/60 hp\nSTR\n12.0\nAGL\n7.9\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n25\nlegs\nCheap leather pants\nAttributes ›\nGear · 1\nCondition\n\nNo active effects\n\nBody · Human\nAround you\n\n2 people · 2 services / stations\n\nMedium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.\nPeople here · 2\nvillage elder\nVillage neighbor\nvillage trader\nMerchant\nServices & stations · 2\nWaypost supply clerk\nSupply clerk\nVillage mixing counter\nMix and observe your own ingredients.\n\nChoose someone or something here to inspect.\n\nAll\n4\nGear\n0\nUse\n1\nOther\n3\n★\n0\nInventory\n10C 4W\nName ↑\n▾\n[legs] "
+  },
+  "errors": [],
+  "loads": [
+    {
+      "i": -1,
+      "ready": true
+    }
+  ]
+}

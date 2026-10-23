@@ -1,0 +1,200 @@
+Stats
+Condition
+Inventory
+Journal
+Data
+Notebook
+People
+Projects
+Ledger
+Worlds
+Beginning
+Settings
+More panels…
+Homes
+Tools
+Projects
+Known things (1 new)
+Statistics
+Today
+Around this place
+Tingen workroom
+Your beginning
+Optional worlds
+Notes, practice & people
+People you know
+Patrol & custody
+Remembered years
+World events
+Character vitals
+Time & weather
+Current location
+Inventory & combat view
+Journal & received accounts
+Character & preparation
+Belongings
+Local actions
+Reports
+Equipment comparison
+Inventory tools
+Condition
+Stats & equipment
+Item details
+Focus
+Village scene
+Current work & saving
+Work Ledger
+Appearance
+Effects & sound
+Original rules
+Draft preview
+Original site
+Continuing connection
+Find
+Saving available.
+Save
+Export
+Import
+Menu
+▾
+You
+Lv 0
+0 / 10 xp
+40/40 stamina
+60/60 hp
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5.0%
+Crit ×
+130.0%
+AP
+32
+EP
+25
+Hero XP
+×1.5
+Skill XP
+×1.5
+Global XP
+×1.5
+Attributes ›
+Gear · 0
+Condition · 1 effect
+Spark of Inspiration
+1750m
+Buff
+Body · Human
+
+Age: Adult · Gender presentation: Ambiguous · Height: Average · Race: Human
+
+Cold exposure at 14 °C or below · current 16.1 °C
+Cold ← threshold → No cold exposure ●
+Current local reading; tolerance changes this boundary. The warmer side makes no claim about heat safety.
+All items
+4
+Equipment
+1
+Usable
+1
+Other
+2
+Favorites
+0
+Inventory
+4S 99C 7W
+Name ↑
+▾
+Cloudseed dose
+3W
+Rough wood log
+x2
+1C
+Stale bread
+x5
+2C
+[legs]
+Cheap leather pants
+[40%]
+4C 6W
+
+Mistglass conservatory
+Local weather unavailable
+
+Local date unavailable
+
+No work running.
+
+Saving available.
+
+Projects
+▾
+Optional projects
+
+Original proposals. Open a project to read its terms before opting in.
+
+Mistglass conservatory (opt-in proposal)
+0 ready / 6 actions
+
+Condensate: 6.65 / 10. Conservatory mist: +0.125 per played minute.
+
+Still-pool refinement: Integrated · 48 practiced minutes.
+
+Practice settling the mist, even with a full reserve. Lower throughput buys steadier purification; this does not guarantee success.
+
+Spend one Cloudseed dose and 2 condensate. Twelve played minutes. 95% success awards 30 native Meditation XP.
+
+5% failure: dose and 2 condensate spent, no XP, six played minutes of rawness blocking absorption and another trial. Leaving this world/body interrupts the trial.
+
+Practice stages: learning → practiced at 16 → integrated at 48 played mist minutes. Practice pauses during purification, rawness and absence.
+
+Open-mist absorption: condensate/min 0.125 → 0.125 → 0.125; purification 75% → 75% → 75%.
+
+Threaded-breath circulation: condensate/min 0.1 → 0.175 → 0.25; purification 75% → 75% → 75%.
+
+Still-pool refinement: condensate/min 0.075 → 0.1 → 0.125; purification 85% → 90% → 95%.
+
+Return to Village
+Finish your current work in the writable game tab.
+Trade with conservatory keeper
+Finish your current work in the writable game tab.
+Purify one paid Cloudseed dose
+Finish your current work in the writable game tab.
+Open-mist absorption
+Finish your current work in the writable game tab.
+Threaded-breath circulation
+Finish your current work in the writable game tab.
+Still-pool refinement
+Finish your current work in the writable game tab.
+
+Elemental preparation
+Open to review
+
+Elemental preparation is off. Inherited damage and armor apply.
+
+← Mistglass conservatory
+Here
+Crafting
+Mixing
+?
+Reports
+All reports
+▾
+Latest
+Saved the game manually
+Saved the game manually
+Saved the game manually

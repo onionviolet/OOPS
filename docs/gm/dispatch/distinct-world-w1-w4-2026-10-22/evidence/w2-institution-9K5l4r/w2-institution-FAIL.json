@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    person: {\n      'book.lotm.supervisor': {\n        skill_xp: {\n          'Cold resistance': 0,\n...\n          Axes: 0,\n+         Breathing: 8.38,\n-         Breathing: 8.23,\n          Butchering: 0,\n          Climbing: 0,\n          Combat: 0,\n          Cooking: 0,\n          Crafting: 0,\n",
+  "gates": [
+    "w2-funded-qualified-office: native Save/reload/Export/literal-file Import"
+  ],
+  "pageErrors": []
+}

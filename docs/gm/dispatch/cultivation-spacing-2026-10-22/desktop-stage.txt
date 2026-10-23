@@ -1,0 +1,5 @@
+
+> desktop:snapshot
+> node desktop/snapshot.cjs
+
+Snapshot v0.6-9b8c50adfbc2 (82 files) in /Users/weiwei/Library/Application Support/oops-progression-simulator/builds/v0.6-9b8c50adfbc2

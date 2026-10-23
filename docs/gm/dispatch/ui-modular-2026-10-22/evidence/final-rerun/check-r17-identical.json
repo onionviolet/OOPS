@@ -1,0 +1,36 @@
+[
+ {
+  "tag": "populated-1920x1080-21",
+  "fail": "locator.click: Timeout 25000ms exceeded."
+ },
+ {
+  "tag": "populated-1800x1040-21",
+  "diff": {
+   "pixels": 8393,
+   "box": [
+    930,
+    613,
+    1300,
+    726
+   ]
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  },
+  "fail": "locator.click: Timeout 25000ms exceeded."
+ },
+ {
+  "tag": "combat-1800x1040-21",
+  "diff": {
+   "pixels": 0,
+   "box": null
+  },
+  "geoEqual": true,
+  "errors": {
+   "before": [],
+   "after": []
+  }
+ }
+]

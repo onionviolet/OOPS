@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "message": "Cannot read properties of undefined (reading 'p23.mistglass.history')",
+  "gates": [],
+  "pageErrors": []
+}

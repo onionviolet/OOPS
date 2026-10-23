@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "lane": "w3-history",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "01af8b61dd53a09397c4727bee4e05869cf5cc1d6aabe6e11e120684ba232121",
+  "gates": [
+    "w3-historical-restoration: native Save/reload/Export/literal-file Import",
+    "Native account, surviving masonry, timber restoration, exact lot debit and retained origin on revisit"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}
