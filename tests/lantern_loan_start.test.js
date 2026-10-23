@@ -40,3 +40,11 @@ test('a borrowed power runs on two measures, burns the keeper’s oil per use an
     f.plan.state = JSON.parse(JSON.stringify(f.plan.state));
     assert.equal(f.plan.state.actors.player.resources['lanternloan.measures.charges'], 1, 'charges survive reload');
 });
+
+test('a concealed borrowed gift shows in the description only when an observer could see it', async () => {
+    const {characterBioView} = await import('../src/character_bio.js');
+    const f = setup(), args = {state: f.plan.state, registry: f.registry, context: ctx(f)};
+    assert.equal(characterBioView(args).description.find(r => r.id === 'look.bearing'), undefined, 'hidden from the unobserved view');
+    const seen = characterBioView({...args, reveal: ['lanternloan.loan']}).description.find(r => r.id === 'look.bearing');
+    assert.match(seen.detail, /keeper’s mark/);
+});

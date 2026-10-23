@@ -62,3 +62,12 @@ test('three steps of mastery halve the stamina price of a warming', () => {
     wait(f, 20); act(f, 'warm');
     assert.equal(10 - f.plan.vitals.player.stamina, 2, 'full stamina 10 minus the halved price');
 });
+
+test('a visible gift shows in the derived self-description and nothing is stored for it', async () => {
+    const {characterBioView} = await import('../src/character_bio.js');
+    const f = setup(), before = JSON.stringify(f.plan.state.actors.player);
+    const view = characterBioView({state: f.plan.state, registry: f.registry, context: ctx(f)});
+    const hands = view.description.find(r => r.id === 'look.hands');
+    assert.match(hands.detail, /palms run warm/);
+    assert.equal(JSON.stringify(f.plan.state.actors.player), before, 'viewing writes no state');
+});

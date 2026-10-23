@@ -14,7 +14,7 @@ const alive = {all:[eq('actor.life', 'alive'), eq('native.ready')]};
 export function createWarmHandStartContent() {
     const world = `${P}.kitchen`, room = `${P}.room`;
     const command = (name, label, extra = {}) => ({id:`${P}.${name}`, revision:1, label, group:'structured_local', worldId:world, actorId:'player', location:room, audience:['$actor'], costs:[], effects:[], ...extra});
-    const sources = [{id:`${P}.gift`, revision:1, kind:'trait', label:'Warm hands', grants:[],
+    const sources = [{id:`${P}.gift`, revision:1, kind:'trait', label:'Warm hands', grants:[], look:{slot:'hands',rank:1,text:'Your palms run warm; cold bread steams faintly in them.'},
         bioDetail:'Your palms run warmer than anyone’s. A loaf held a while in them comes back from the cold.'}];
     const stamina = scale => ({type:'vital', key:'stamina', amount:{fact:'power.costScale', scale}});
     const steady = {all:[alive, {fact:`power.${P}.warming.mastery`, op:'gte', value:2, reason:'Your hands are not yet steady enough to warm a whole batch. Practice first.'}]};
