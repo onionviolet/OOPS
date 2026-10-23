@@ -64,6 +64,7 @@ export function deriveHeirLeftovers(previous, {equippedKeys = []} = {}) {
         home, reputation, papers: [...new Set(written)], apprentice: [...new Set(taught)],
         obligations, debts, archiveLine: !!ties.successor};
     if(residences)leftovers.residences=residences;
+    const family=previous?.kin;if(Array.isArray(family)&&family.length)leftovers.kin=family.filter(k=>object(k)&&typeof k.name==='string').map(k=>({name:k.name,relation:k.relation,age:Number.isSafeInteger(k.age)?k.age:null}));
     leftovers.empty = !residences?.money && !residences?.goods.length && !Object.keys(residences?.homes.properties||{}).length && !residences?.homes.portable && !money && !leftovers.belongings.length && !leftovers.chest.length && !home && !leftovers.papers.length && !leftovers.apprentice.length;
     return leftovers;
 }

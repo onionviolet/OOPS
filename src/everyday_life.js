@@ -14,6 +14,17 @@ const settle = [condition(IRRITATED, "remove", "$target"), condition(UNSETTLED, 
 const social = d => ({revision: 1, worldId: "base.frontier", actorId: "player", location: "Village",
     targetId: "oldCraftsman", coLocated: true, group: "social", costs: [], effects: [], ...d});
 
+// Habit catalog (O5b, 2026-10-23, proposal). A habit is derived from a command's own
+// completed count, so it needs no new state or migration and reloads for free.
+// `shapes` names what it changes: 'mood' rows add a faster route to a mood
+// condition; every row also adds one scene line (texture, labelled).
+export const EVERYDAY_HABITS = Object.freeze([
+    Object.freeze({id: "quietBreak", command: "village.quiet_break", threshold: 3, fact: "habit.quietBreak", shapes: "mood",
+        line: "Stepping away to settle has become a habit; a minute is enough to feel level again."}),
+]);
+// Social routine thresholds: a known person answers differently once familiarity is earned.
+export const FAMILIAR_AT = 3;
+
 export const moodConditions = [
     {id: IRRITATED, revision: 1, label: "Irritated by an interruption", stacking: "max"},
     {id: UNSETTLED, revision: 1, label: "Unsettled after an awkward exchange", stacking: "max"},
@@ -36,6 +47,17 @@ export const socialCommands = [
         requires: {all: [met, eq("village.craftsmanIrritated", true)]},
         costs: [{type: "transfer", from: "$actor", to: "$target", key: wood, count: 1}],
         effects: [...settle, respect("Apologized for the interruption and supplied an actual log for later work.")]}),
+    social({id: "village.word_after_work", label: "Share a word at the bench after work · 2 min", duration: 2, cancellation: "forfeit",
+        visibleWhen: eq("village.craftsmanIdle", true), requires: {all: [met, eq("village.craftsmanIdle", true, "He is busy or irritated now.")]},
+        effects: [{type: "relationship", actor: "$target", target: "$actor", axis: "familiarity", amount: 1, text: "Shared a few easy words at the bench once his work was done."}]}),
+    social({id: "village.ask_between_cuts", label: "Ask for a moment between cuts", visibleWhen: {all: [eq("village.craftsmanBusy", true), eq("village.craftsmanKnowsYou", true)]},
+        requires: {all: [met, eq("village.craftsmanBusy", true, "He is not working at the bench now."), eq("village.craftsmanKnowsYou", true, "He does not know you well enough yet.")]},
+        effects: [{type: "knowledge", key: "craftsman.hearsYou", stage: "understood", value: "He lays the tool down for a known face; he will answer between cuts."}]}),
+    {revision: 1, worldId: "base.frontier", actorId: "player", group: "social", id: "village.habit_pause",
+        label: "Settle with a quick pause · 1 min", location: "Village", duration: 1, cancellation: "forfeit", costs: [],
+        visibleWhen: eq("habit.quietBreak", true),
+        requires: eq("habit.quietBreak", true, "Take a few quiet breaks in the Shack first."),
+        effects: [condition(UNSETTLED, "remove"), condition(REASSURED, "apply", null, 20)]},
     {revision: 1, worldId: "base.frontier", actorId: "player", group: "social", id: "village.quiet_break",
         label: "Take a quiet break in the Shack · 3 min", location: "Shack", duration: 3, cancellation: "forfeit", costs: [],
         visibleWhen: {any: [eq("village.playerUnsettled", true), eq("village.playerReassured", false)]},
@@ -48,12 +70,16 @@ export function activeMood(state, actorId, id) {
     return c && c.intensity > 0 && (c.expiresAt == null || c.expiresAt > state.clock) ? c : null;
 }
 
+const craftsmanBusy = state => !!state.actors.oldCraftsman?.facts["work.order"] || !!state.actors.oldCraftsman?.facts["field.partsOrder"] || !!state.simulation?.jobs.some(j => (j.participants || [j.actorId]).includes("oldCraftsman"));
 export function everydayFacts(state, {hour = 8} = {}) {
     const p = state.simulation?.people.oldCraftsman;
-    return {"village.craftsmanBusy": !!state.actors.oldCraftsman?.facts["work.order"] || !!state.actors.oldCraftsman?.facts["field.partsOrder"] || !!state.simulation?.jobs.some(j => (j.participants || [j.actorId]).includes("oldCraftsman")),
+    return {"village.craftsmanBusy": craftsmanBusy(state),
         "village.craftsmanIrritated": !!activeMood(state, "oldCraftsman", IRRITATED),
         "village.playerUnsettled": !!activeMood(state, "player", UNSETTLED),
         "village.playerReassured": !!activeMood(state, "player", REASSURED),
+        "village.craftsmanIdle": !p || p.life === "alive" ? !craftsmanBusy(state) && !activeMood(state, "oldCraftsman", IRRITATED) : false,
+        "village.craftsmanKnowsYou": (state.simulation?.relationships?.oldCraftsman?.player?.axes?.familiarity || 0) >= FAMILIAR_AT,
+        ...Object.fromEntries(EVERYDAY_HABITS.map(h => [h.fact, (state.actors.player.completed[h.command] || 0) >= h.threshold])),
         "village.teacherHours": recurringWindow(TEACHER_WINDOW, hour * 60).open,
         "village.waypostChapterOpen": !state.actors.player.facts["village.waypostChapterClosed"],
         "village.craftsmanPresent": !p || p.life === "alive" && p.location === "Village"};
@@ -91,8 +117,11 @@ export function everydayScene(state, facts) {
         else if(state.actors.player.completed["village.interrupt_work"]) text.push("He has returned to his tools. You remember his earlier request for quiet.");
         else if(facts["village.craftsmanBusy"]) text.push("The craftsman counts fittings into small piles without looking up.");
         else if(facts["village.craftsmanPresent"]) text.push("The craftsman brushes wood shavings from the bench before setting out his tools.");
+        if(facts["village.craftsmanKnowsYou"] && !facts["village.craftsmanIrritated"]) text.push(facts["village.craftsmanBusy"]
+            ? "He glances up and nods before you speak; he will answer between cuts." : "He slides the spare stool toward you without being asked.");
         if(state.simulation?.knowledge.player?.["craftsman.preferences"] && !facts["village.craftsmanIrritated"]) text.push("You know he prefers practical help and questions after work.");
     }
+    for(const h of EVERYDAY_HABITS) if(facts[h.fact]) text.push(h.line);
     if(facts["village.playerUnsettled"]) text.push("The abrupt exchange stays on your mind. A quiet break or time will help.");
     else if(facts["village.playerReassured"]) text.push("You feel settled enough to take your time with unfamiliar details.");
     return text.join(" ");
