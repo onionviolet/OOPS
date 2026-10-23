@@ -6,6 +6,7 @@ import {planHomeStaff} from './home_staff.js';
 import {conditionOf} from './home_building_model.js';
 import {FORTUNE_DIALS,roll,settleAwakening,watchList,recordDeath,causeOfDeath,easeHousehold,emptyHousehold,unlockedRoutines,routineMayRun,ROUTINES,observableScore} from './household_fortunes.js';
 import {collectObligations} from './obligations_ledger.js';
+import './peer_standing_domain.js';
 import {createFortunesPanel} from './household_fortunes_panel.js';
 import {readPort} from './ui_ports.js';
 // Household fortunes wired to the manor staff (IM9 awakening, IM10 cause-charged deaths, OG16 routines).

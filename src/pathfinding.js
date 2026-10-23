@@ -2,6 +2,7 @@
 
 import { skills } from "./data/skills.js";
 import {get_context} from "./main.js";
+import {pathWear} from "./runtime_state.js";
 
 
 
@@ -132,7 +133,8 @@ class Pathfinder {
         while(!priority_queue.is_queue_empty()) {
             const [, loc1] = priority_queue.shift_from_queue();
             if(this.adjacent[loc1]) { //a minor check for that singular case of having only 1 location, therefore no adjacents, which would throw an error in next line
-                for(const [loc2, weight] of this.adjacent[loc1]) {
+                for(const [loc2, authored] of this.adjacent[loc1]) {
+                    const weight = authored * pathWear.factor(loc1, loc2);
 
                     if(distance[loc1] == undefined) distance[loc1] = Infinity;
                     if(distance[loc2] == undefined) distance[loc2] = Infinity;

@@ -66,3 +66,28 @@ test('wired ledger domain: failed batch changes the adapter forecast, round-trip
  domainRegistry.validate(saved);domainRegistry.load(saved);assert.equal(d.ledgerStamp(),1);
  domainRegistry.load({});assert.equal(d.ledgerStamp(),0);assert.equal(domainRegistry.save({}).craftLedger,undefined);
 });
+test('live failure path: a thin steep spends the lots, records a thin failure and charges the verge grudge through the obligations ledger',async()=>{
+ const {stageCrafting,quoteCrafting,materialKey,catalogue,roughBatch,villageSources}=await import('../src/crafting_frontier_runtime.js');
+ const {harvest}=await import('../src/craft_sources.js');
+ const {createObligations,validateObligations}=await import('../src/obligations_ledger.js');
+ const {chargeGrudge,grudgeNow,GRUDGE}=await import('../src/craft_grudge.js');
+ assert.equal(roughBatch({outputs:{oral:{health:13}}}).code,'thin');assert.equal(roughBatch({outputs:{oral:{bind:14}}}),null);
+ const ctx={clock:100,world:'base.frontier',location:'Village',blocked:'',root:77};
+ // Search real harvested lots for one the floor rejects, so the assertion rides on live numbers, not a stub.
+ let found=null;
+ for(let root=1;root<80&&!found;root++){
+  const h=harvest(villageSources,{root:root*7919,world:ctx.world,location:ctx.location,source:'village-herbs',at:0,actor:{skill:0}});
+  for(const it of h.result.items){
+   const owner0=stageCrafting(null,{},quoteCrafting(null,{},{type:'harvest'},ctx),{...ctx,root:root*7919}).state;
+   const key=materialKey(it.material,it.quality),inv={[key]:it.qty};
+   const q=quoteCrafting(owner0,inv,{type:'craft',inputs:[{key,qty:1}]},ctx);if(!q.eligible)continue;
+   const plan=stageCrafting(owner0,inv,q,ctx);if(plan.failure){found={plan,key};break;}}
+ }
+ assert.ok(found,'some live lot should steep thin');
+ const {plan,key}=found;
+ assert.equal(plan.failure.code,'thin');assert.equal(plan.batch,null);assert.deepEqual(plan.items,[{key,amount:-1}]);assert.deepEqual(Object.keys(plan.state.products),[]);
+ let ledger=createFailureLedgerFor(plan);assert.equal(forecastFromLedger(ledger,{materials:plan.failure.result.product.inputs.map(i=>i[1]),process:[['steep',1]]}).reasons[0],'thin');
+ let o=chargeGrudge(createObligations(),0);assert.equal(grudgeNow(o,0),1);o=chargeGrudge(o,0);assert.equal(grudgeNow(o,0),2);
+ assert.equal(grudgeNow(o,GRUDGE.seasonMinutes),1);assert.equal(grudgeNow(o,3*GRUDGE.seasonMinutes),0);validateObligations(o);
+ function createFailureLedgerFor(p){return recordBatchAttempt(createFailureLedger(),p.failure.result,{reasons:[p.failure.code]});}
+});

@@ -6,7 +6,7 @@ import {createObligations, writeObligation, obligation} from './obligations_ledg
 
 export const DAY = 1440;
 export const STANDING_SCHEMA = 1;
-export const LIMITS = Object.freeze({deeds: 20, rumours: 12, memoryPerRegion: 60, traffic: 200});
+export const LIMITS = Object.freeze({deeds: 20, rumours: 12, memoryPerRegion: 60, traffic: 200, claims: 12});
 
 // Institutions are world data. Each names a rival; a shift moves the rival the other way by
 // `backlash` of the amount (Silver Way: 0.6), because friends of one side are read by the other.
@@ -35,6 +35,10 @@ export const DIALS = Object.freeze({
     appraisal: {value: 0.65, why: 'An ordinary trader reads a rumour\'s sureness right about two times in three. Appraisal and experience raise it (ECR23).'},
     rumourEvery: {value: 0.5, why: 'Half the days someone repeats a price they heard.'},
     verifyBand: {value: 0.15, why: 'A claimed price within a seventh of what you then see counts as having held up.'},
+    roadDanger: {value: {Village: 0.05, Slums: 0.35, Town: 0.1}, other: 0.15, mishap: 0.5, share: 0.1,
+        why: 'Arriving somewhere new carries a pickpocket or a dropped load; the Slums bite hardest. Chance per arrival is half the district\'s danger; a mishap costs a tenth of the purse, a little more where it is dangerous.'},
+    deductible: {value: 2, why: 'The broker keeps the first coins of any claim so small slips are not worth filing.'},
+    claimDays: {value: 3, why: 'Brokers pay on paper: a claim is owed to you now and settled a few days later (ECR21 dated terms).'},
     insuranceRate: {value: 0.05, danger: 8, payout: 0.75, why: 'Premium is 5% of cargo value times (1 + 8 x route danger); a claim pays three quarters (Silver Way).'},
 });
 
@@ -56,7 +60,7 @@ export const DEEDS = Object.freeze({
 
 const clamp = (n, a, b) => Math.min(b, Math.max(a, n));
 export const fresh = () => ({schema: STANDING_SCHEMA, standing: {}, loans: {}, ledger: createObligations(), memory: {},
-    rumours: [], insurance: null, traffic: {}, deeds: [], rumourDay: -1});
+    rumours: [], insurance: null, claims: [], traffic: {}, deeds: [], rumourDay: -1});
 
 export const tierIndex = score => DIALS.tierCuts.value.filter(cut => score >= cut).length;
 export const tierOf = score => TIERS[tierIndex(score)];
@@ -179,6 +183,9 @@ export function syncLedger(state, now) {
             amount: loan ? owedNow(loan, now) : 0, why: `Borrowed from the ${FACTIONS[id].label}`, source: 'economy_standing',
             since: loan?.takenAt ?? 0, eases: 0, carries: true}));
     }
+    for(const r of ledger.rows) if(r.id.startsWith('claim:') && !(state.claims ?? []).some(c => c.id === r.id)) ledger = writeObligation(ledger, {...r, amount: 0});
+    for(const c of state.claims ?? []) ledger = writeObligation(ledger, obligation({id: c.id, kind: 'coin', debtor: 'insurer', creditor: 'player',
+        amount: c.amount, why: c.why, source: 'economy_standing', since: c.at, eases: 0, carries: false}));
     return {...state, ledger};
 }
 // Dated consequence (E1-c, ECR21): once past grace, the rate ratchets and standing drops, once.
@@ -205,11 +212,34 @@ export function buyInsurance(state, quote, now, label = 'cargo') {
     if(state.insurance) throw Error('One policy at a time.');
     return {...state, insurance: {label, value: quote.value, premium: quote.premium, payout: quote.payout, at: now}};
 }
-export function claimInsurance(state, lostValue) {
+
+// A road mishap is the loss event a policy pays on (ECR18: theft needs an agent, so it lands where
+// agents are). Deterministic from the arrival minute, so a reload cannot reroll it.
+export const roadDanger = region => DIALS.roadDanger.value[region] ?? DIALS.roadDanger.other;
+export function rollMishap({region, purse, now, seed = 'mishap'}) {
+    const danger = roadDanger(region);
+    if(!(purse >= 10) || roll(seed, region, now) >= danger * DIALS.roadDanger.mishap) return null;
+    const loss = Math.max(1, Math.floor(purse * DIALS.roadDanger.share * (1 + danger)));
+    const why = danger >= 0.3 ? `A crew in the ${region} lightened your purse by ${loss}.` : `You lost ${loss} coins on the road into ${region}.`;
+    return {loss, region, why};
+}
+// File a claim for a loss the policy covers: the broker then owes the player (a ledger row) until due.
+export function fileClaim(state, loss, now) {
     const p = state.insurance;
-    if(!p) return {state, payout: 0};
-    const payout = Math.min(p.payout, Math.floor(lostValue * DIALS.insuranceRate.payout));
-    return {state: {...state, insurance: null}, payout};
+    if(!p) return {state, claim: null};
+    const covered = Math.min(loss, p.value);
+    const amount = Math.max(0, Math.floor(covered * DIALS.insuranceRate.payout) - DIALS.deductible.value);
+    const next = {...state, insurance: null};
+    if(amount <= 0) return {state: next, claim: null, note: 'The loss was under the deductible.'};
+    const claim = {id: `claim:${now}`, amount, at: now, due: now + DIALS.claimDays.value * DAY, why: `Insurance claim for ${p.label}`};
+    return {state: syncLedger({...next, claims: [...state.claims, claim].slice(-LIMITS.claims)}, now), claim};
+}
+// Pays claims whose date has come; returns the coins to hand over.
+export function settleClaims(state, now) {
+    const due = state.claims.filter(c => c.due <= now);
+    if(!due.length) return {state, paid: 0};
+    const next = syncLedger({...state, claims: state.claims.filter(c => c.due > now)}, now);
+    return {state: next, paid: due.reduce((n, c) => n + c.amount, 0)};
 }
 
 // ---- market memory and rumours (G42) -----------------------------------------------------------
@@ -268,6 +298,7 @@ export function validateStanding(slice) {
     }
     if(!slice.ledger || slice.ledger.family !== 'obligations@1') bad('bad ledger.');
     if(!Array.isArray(slice.rumours) || slice.rumours.length > LIMITS.rumours) bad('too many rumours.');
+    if(!Array.isArray(slice.claims ?? []) || (slice.claims ?? []).length > LIMITS.claims) bad('too many claims.');
     if(!Array.isArray(slice.deeds) || slice.deeds.length > LIMITS.deeds) bad('too many deeds.');
     for(const entries of Object.values(slice.memory ?? {})) if(Object.keys(entries).length > LIMITS.memoryPerRegion) bad('memory too large.');
     if(Object.keys(slice.traffic ?? {}).length > LIMITS.traffic) bad('traffic too large.');

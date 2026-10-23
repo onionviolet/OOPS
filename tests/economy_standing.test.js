@@ -56,7 +56,6 @@ test('insurance prices by danger, pays a share, one policy', () => {
     assert.equal(q.premium, 25); assert.equal(q.payout, 75);
     const st = s.buyInsurance(s.fresh(), q, 0);
     assert.throws(() => s.buyInsurance(st, q, 0), /One policy/);
-    assert.equal(s.claimInsurance(st, 100).payout, 75);
 });
 
 test('route wear saturates under its cap; slice validates and migrates', () => {
@@ -66,4 +65,19 @@ test('route wear saturates under its cap; slice validates and migrates', () => {
     assert.throws(() => s.validateStanding({...s.fresh(), standing: {nobody: 1}}), /standing/);
     const st = s.takeLoan(s.shiftStanding(s.fresh(), 'counting_house', 30, 't', 0), 'counting_house', 10, 0);
     assert.doesNotThrow(() => s.validateStanding(JSON.parse(JSON.stringify(st))));
+});
+
+test('a road mishap on an insured traveller becomes a dated claim owed through the ledger', () => {
+    const hit = (() => { for(let now = 0; now < 20000; now += 37) { const m = s.rollMishap({region: 'Slums', purse: 100, now}); if(m) return {m, now}; } })();
+    assert.ok(hit, 'a mishap occurs within a bounded run');
+    assert.equal(s.rollMishap({region: 'Slums', purse: 100, now: hit.now})?.loss, hit.m.loss);
+    assert.equal(s.rollMishap({region: 'Village', purse: 5, now: hit.now}), null);
+    let st = s.buyInsurance(s.fresh(), s.quoteInsurance(100, 0.2), hit.now);
+    const {state: filed, claim} = s.fileClaim(st, hit.m.loss, hit.now);
+    assert.equal(claim.amount, Math.max(0, Math.floor(hit.m.loss * 0.75) - 2)); assert.equal(filed.insurance, null);
+    assert.equal(filed.ledger.rows.find(r => r.id === claim.id).debtor, 'insurer');
+    assert.equal(s.settleClaims(filed, hit.now + D).paid, 0);
+    const done = s.settleClaims(filed, hit.now + 4 * D);
+    assert.equal(done.paid, claim.amount); assert.equal(done.state.ledger.rows.length, 0);
+    assert.equal(s.fileClaim(s.fresh(), 10, 0).claim, null);
 });

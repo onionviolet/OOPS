@@ -33,7 +33,7 @@ export function residueOf(result, matrixAxis = 'matrix') {
 
 // Records a resolved batch. A batch with no outputs is a failure; any other is
 // ignored (returns the same ledger). Returns a new ledger; the input is untouched.
-export function recordBatchAttempt(ledger, result) {
+export function recordBatchAttempt(ledger, result, {reasons = null} = {}) {
     const {product} = result;
     if(Object.keys(product.outputs).length) return ledger;
     const consumed = product.inputs.filter(i => i[0] === 'consumed').map(i => i[1]);
@@ -44,7 +44,7 @@ export function recordBatchAttempt(ledger, result) {
     const entry = {materials: [...new Set(consumed)].sort(compareCodePoints), tries: prior ? prior.tries.map(t => ({...t})) : [], count: (prior?.count ?? 0) + 1};
     if(same) { const t = entry.tries.find(x => x.process === process); t.count += 1; }
     else {
-        entry.tries.push({process, count: 1, reasons: failureReasons(result), residue: residueOf(result)});
+        entry.tries.push({process, count: 1, reasons: reasons ?? failureReasons(result), residue: residueOf(result)});
         if(entry.tries.length > MAX_TRIES_PER_PAIR) entry.tries.shift();
     }
     const pairs = {...ledger.pairs, [key]: entry};

@@ -101,6 +101,10 @@ export function projectCrafting(owner,inventory) {
    const seen=new Set((owner?.knowledge?.player?.[p.id]?.facts??[]).filter(f=>f.startsWith('effect:')).map(f=>f.slice(7)));
    return {key,count,...view,composition:compositionName(p,view.name,owner),derived:deriveProductName(doseRules,p,{known:seen})};})};
 }
+// A steep that leaves no oral effect at the floor is too thin to be a preparation: the lots are spent and nothing comes of
+// them. This follows from the batch's own numbers (salt thins sap by mass, a weak lot carries little); no lot is refused.
+export const ROUGH_BATCH={floor:14,code:'thin',reason:'The steep came out too thin: too little sap or oil in the water to hold, so the lots were wasted.'};
+export function roughBatch(product){return Math.max(0,...Object.values(product.outputs.oral??{}))<ROUGH_BATCH.floor?ROUGH_BATCH:null;}
 // The first failing native gate leads; place comes after it.
 function eligibility(context){return context.blocked||(context.world==='base.frontier'&&context.location==='Village'?'':'Return to Village to experiment.');}
 function inputLots(request,owner,inventory) {
@@ -133,7 +137,7 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
  if(!fresh.eligible)fail(fresh.reason);if(fresh.token!==quoted.token)fail('This quote changed. Review the current materials and place again.');
  const request=fresh.request,at=context.clock;
  let next=owner?structuredClone(owner):createCraftState({world:'base.frontier',life:0});
- const items=[];let effect=null,binding=null,batch=null,overdose=null,nextDepth=depth;
+ const items=[];let effect=null,binding=null,batch=null,overdose=null,failure=null,nextDepth=depth;
  if(request.type==='harvest'){
   const source=request.source??'village-herbs',key=nodeKey(context.world,context.location,source);
   const result=harvest(villageSources,{root:context.root,world:context.world,location:context.location,source,at,actor:{skill:0},node:next.sources.nodes[key]});
@@ -142,9 +146,10 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
   for(const i of result.result.items)items.push({key:materialKey(i.material,i.quality),amount:i.qty});
  }else if(request.type==='craft'){
   const lots=inputLots(request,next,inventory),result=resolveBatch(law,{inputs:lots.map(({material,qty})=>({material,qty})),process:request.process??[{op:'steep',level:1}],stations:[]});
-  next=recordProduct(next,result.product);for(const i of lots)items.push({key:i.key,amount:-i.qty});
-  items.push({key:keyForProduct(BATCH_FAMILY,result.product),amount:1});
-  batch=result;
+  for(const i of lots)items.push({key:i.key,amount:-i.qty});
+  const rough=roughBatch(result.product);
+  if(rough)failure={code:rough.code,reason:rough.reason,result:{...result,product:{...result.product,outputs:{}}}};
+  else{next=recordProduct(next,result.product);items.push({key:keyForProduct(BATCH_FAMILY,result.product),amount:1});batch=result;}
  }else {
   const p=productFromNativeKey(request.key,next),raw=p.outputs.oral??{},oral=cancelOutputs(doseRules,p.outputs).outputs.oral??{},binds=bindOf(p)>0;
   // Tolerance dulls a repeat dose of the same effect; past the overdose line the excess is a poison condition.
@@ -169,7 +174,7 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
   nextDepth={dose,log:recordTrial(depth.log,{materials:consumed,process:p.process,seen,at})};
  }
  next.sequence++;validateOwner(next);
- return {state:next,items,effect,binding,batch,overdose,depth:nextDepth};
+ return {state:next,items,effect,binding,batch,overdose,failure,depth:nextDepth};
 }
 
 // Display names for ids in the experiment log; the log itself keeps exact ids.

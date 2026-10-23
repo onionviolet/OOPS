@@ -99,7 +99,7 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
             blocker.textContent = route.blockerText || reasonsText(route.reasons);
             commitment.textContent = route.commitmentText;
             const worn = routeTraffic(route.id);
-            wear.textContent = worn.count ? `Walked ${worn.count} time${worn.count === 1 ? '' : 's'}; worn in ${Math.round(worn.gain * 1000) / 10}% (recorded only: travel time does not read this yet).` : '';
+            wear.textContent = worn.count ? `Walked ${worn.count} time${worn.count === 1 ? '' : 's'}; worn in ${Math.round(worn.gain * 1000) / 10}% (these doorway routes are instant; the wear shortens ordinary journeys between places).` : '';
             for (const row of [description, terms, blocker, commitment, wear]) row.hidden = !row.textContent;
         }
         const currentRouteIds = new Set((section.routes || []).map(route => route.id));

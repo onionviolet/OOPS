@@ -9,11 +9,13 @@ import {get_current_light_level, get_current_temperature_smoothed} from './weath
 import {current_game_time} from './game_time.js';
 import {bindReadingLightReader} from './reveal_chain.js';
 import {configureStoryInsight} from './story_insight_domain.js';
+import {configurePledges} from './pledges_domain.js';
 
 // Native composition for the two carried-tool owners. Neither domain configures
 // the other. The independent lamp factory receives only its supported operations.
 export function configureNativeToolDomains(operations) {
     configureStoryInsight(operations);
+    configurePledges({...operations, clock: () => calendarMinutes(current_game_time)});
     configureToolsDomain({...operations, clock: () => calendarMinutes(current_game_time)});
     configureGearWorkshop({...operations, favorites: favourite_items, temperature: get_current_temperature_smoothed, clock: () => calendarMinutes(current_game_time)});
     configureAgingContact({root: operations.root, actor: operations.actor, world: operations.world, location: operations.location, persist: operations.persist, logMessage: operations.logMessage});

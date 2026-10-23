@@ -25,10 +25,11 @@ test('breakthrough: paying cuts risk to a floor, never zero; failure sets back a
     assert.deepEqual([q.from, q.units, q.cost, q.to], [460, 5, 125, 50]);
     assert.equal(riskFor(trial, 2, {stability: 2, units: 6}), 50);
     const fail1 = attemptBreakthrough(trial, createTrialState(), {tier: 2, roll: 100, progress: 1000});
-    assert.deepEqual([fail1.passed, fail1.lost, fail1.state.pressure, fail1.waves], [false, 300, 3, 3]);
+    assert.deepEqual([fail1.passed, fail1.lost, fail1.state.pressure, fail1.waves], [false, 300, 9, 3]);
     assert.equal(riskFor(trial, 2, {pressure: 3, scar: 2}), 700);
-    const paid = attemptBreakthrough(trial, fail1.state, {tier: 2, roll: 100, progress: 1000, stability: 2, units: 6});
-    assert.deepEqual([paid.passed, paid.spent, paid.state.pressure], [true, 150, 2]);
+    assert.equal(attemptBreakthrough(trial, createTrialState(), {tier: 1, roll: 0, progress: 0}).state.pressure, 3, 'tier below tribulation adds one step');
+    const paid = attemptBreakthrough(trial, fail1.state, {tier: 2, roll: 999, progress: 1000, stability: 2, units: 6});
+    assert.deepEqual([paid.passed, paid.spent, paid.state.pressure], [true, 150, 8]);
     assert.deepEqual(validateTrialState(JSON.parse(JSON.stringify(paid.state))), paid.state);
     assert.throws(() => riskFor(trial, 2, {units: 7}), /Pay between/);
 });

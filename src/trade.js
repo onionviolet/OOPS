@@ -3,7 +3,7 @@ import {recoverTradeRequests} from './shop_restock.js';
 "use strict";
 
 import { update_displayed_trader, update_displayed_trader_inventory, 
-         update_displayed_character_inventory, exit_displayed_trade, update_displayed_money, update_displayed_total_price } from "./display.js";
+         update_displayed_character_inventory, exit_displayed_trade, update_displayed_money, update_displayed_total_price, log_message } from "./display.js";
 import { character } from "./data/character.js";
 import { skills } from "./data/skills.js";
 import { getItemFromKey } from "./items.js";
@@ -27,7 +27,7 @@ let restockReview = false;
 let current_bread_subtotal=0, use_market_coupon=false;
 // Standing terms for the open vendor (G41). Part of the quote, so a change before accept reads as stale.
 let current_terms=null;
-bindStandingHost({addCoins:(n,source)=>{addPurse(character,n,source);update_displayed_money();},coins:()=>character.money});
+bindStandingHost({addCoins:(n,source)=>{addPurse(character,n,source);update_displayed_money();},coins:()=>character.money,log:text=>log_message(text,'message_critical')});
 const to_sell = {value: 0, items: [], groups: {}};
 const to_buy = {value: 0, items: [], groups: {}};
 

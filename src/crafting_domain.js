@@ -5,6 +5,7 @@ import {ActiveEffect} from './active_effects.js';
 import {calendarMinutes} from './world_rhythm.js';
 import {depthOwner,setDepthOwner,depthView} from './craft_depth_domain.js';
 import {craftingOwner,setCraftingOwner,validateOwner,validateCraftingEnvelope,isCraftedKey,quoteCrafting,stageCrafting,projectCrafting,EFFECT_ID,MATERIAL_CARRIER,BIND_ID,OVERDOSE_ID,shortenPoison} from './crafting_frontier_runtime.js';
+import {standingState,setStandingState,chargeCraftGrudge,craftGrudge} from './economy_standing_domain.js';
 import {createCraftingHome} from './crafting_home.js';
 import {ledgerOwner,setLedgerOwner,noteBatch,ledgerStamp,forecastCraft} from './craft_ledger_domain.js';
 let native,panel;
@@ -12,16 +13,17 @@ let native,panel;
 export function configureCraftingDomain(operations){native=operations;}
 function read(){return native.read();}
 // The panel view keys on the same native gate the quote reads, so a changed reason redraws (UIE16).
-function project(){const c=read();return {...projectCrafting(craftingOwner,c.inventory),failures:ledgerStamp(),depth:depthView(c.clock,craftingOwner),blocked:c.blocked,location:c.location,world:c.world,discovered:craftingOwner!==null||c.world==='base.frontier'&&c.location==='Village'};}
+function project(){const c=read();return {...projectCrafting(craftingOwner,c.inventory),failures:ledgerStamp(),grudge:craftGrudge(),depth:depthView(c.clock,craftingOwner),blocked:c.blocked,location:c.location,world:c.world,discovered:craftingOwner!==null||c.world==='base.frontier'&&c.location==='Village'};}
 function quote(request){const c=read();return quoteCrafting(craftingOwner,c.inventory,request,c);}
 export function commitCraftingQuote(quoted){
  const c=read(),plan=stageCrafting(craftingOwner,c.inventory,quoted,c,depthOwner());
  for(const item of plan.items)if(item.amount<0)native.assertSpend(item.key);
- const transaction=beginNativeCraftTransaction({owners:[...native.itemOwners(),active_effects],bindings:[{get:()=>craftingOwner,set:setCraftingOwner},{get:ledgerOwner,set:setLedgerOwner},{get:depthOwner,set:setDepthOwner}]});
+ const transaction=beginNativeCraftTransaction({owners:[...native.itemOwners(),active_effects],bindings:[{get:()=>craftingOwner,set:setCraftingOwner},{get:ledgerOwner,set:setLedgerOwner},{get:depthOwner,set:setDepthOwner},{get:standingState,set:setStandingState}]});
  try{
   // Publish tentatively inside the existing native rollback boundary. create_save resolves item references against this owner.
   setCraftingOwner(plan.state);
   if(plan.batch)noteBatch(plan.batch);
+  if(plan.failure){noteBatch(plan.failure.result,[plan.failure.code]);chargeCraftGrudge();}
   if(plan.depth)setDepthOwner(plan.depth);
   for(const item of plan.items)if(item.amount<0)native.removeItem(item.key,-item.amount);else native.addItem(item.key,item.amount);
   if(plan.binding){

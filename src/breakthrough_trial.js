@@ -42,7 +42,8 @@ export function attemptBreakthrough(rules, state, {tier, roll, progress, stabili
     const risk = riskFor(rules, tier, {pressure: state.pressure, stability, scar, units});
     const waves = rules.tribulationFrom != null && tier >= rules.tribulationFrom ? rules.tribulationWaves ?? 1 : 0;
     const passed = roll >= risk;
-    const pressure = passed ? Math.max(0, state.pressure + rules.perPressureOnPass) : state.pressure + rules.pressureOnFail;
+    // A tribulation tier fails harder: the demon takes one pressure step per wave.
+    const pressure = passed ? Math.max(0, state.pressure + rules.perPressureOnPass) : state.pressure + rules.pressureOnFail * Math.max(1, waves);
     const lost = passed ? 0 : Math.floor(progress * rules.setback / 1000);
     return {state: {...state, pressure, last: {tier, risk, passed, units}}, passed, risk, waves, lost, spent: units * rules.pay.perUnit};
 }

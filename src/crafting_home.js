@@ -4,14 +4,14 @@ const node=(tag,text)=>{const n=document.createElement(tag);if(text)n.textConten
 // Expanded center workspace view. The shared center controller owns Back and Esc.
 export function createCraftingHome({read,quote,execute,forecast}) {
  const panel=node('section');panel.id='crafting_engine_home';panel.className='expedition_panel';panel.dataset.surfaceType='expanded-center';
- const title=node('h2','Village experiments'),description=node('p','Gather herbs and river salt on the Village common verge, select carried materials, then try a small steeped batch. Salty batches bind toxin when drunk. Original frontier trial. Properties act before you know them.'),harvest=node('button','Gather from the Village verge'),stock=node('div'),detail=node('div'),history=node('p'),products=node('div'),notebook=node('div'),notice=node('p');
+ const title=node('h2','Village experiments'),description=node('p','Gather herbs and river salt on the Village common verge, select carried materials, then try a small steeped batch. Salty batches bind toxin when drunk. Original frontier trial. Properties act before you know them.'),harvest=node('button','Gather from the Village verge'),stock=node('div'),detail=node('div'),history=node('p'),grudge=node('p'),products=node('div'),notebook=node('div'),notice=node('p');
  harvest.type='button';harvest.id='crafting_gather';detail.dataset.craftDetail='';notice.setAttribute('role','status');
- history.dataset.craftForecast='';notebook.dataset.craftNotebook='';panel.append(title,description,harvest,stock,detail,history,products,notebook,notice);
+ history.dataset.craftForecast='';grudge.dataset.craftGrudge='';notebook.dataset.craftNotebook='';panel.append(title,description,harvest,stock,detail,history,grudge,products,notebook,notice);
  let selected=new Map(),signature='',lastQuote;
  const strength=node('select');strength.id='crafting_steep_level';strength.setAttribute('aria-label','Steep level');
  for(const level of [1,2,3])strength.append(Object.assign(node('option',`Steep level ${level}`),{value:String(level)}));
  strength.onchange=()=>{signature='';render();};panel.insertBefore(strength,stock);
- function run(q){try{execute(q);notice.textContent=q.request.type==='harvest'?'Gathered materials stored in your inventory.':q.request.type==='craft'?'The exact materials became a preparation. Drink to observe it.':'Preparation used. Its observed effects are recorded.';}catch(e){notice.textContent=e.message;}signature='';render();}
+ function run(q){try{const plan=execute(q);notice.textContent=q.request.type==='harvest'?'Gathered materials stored in your inventory.':q.request.type==='craft'?(plan.failure?plan.failure.reason:'The exact materials became a preparation. Drink to observe it.'):'Preparation used. Its observed effects are recorded.';}catch(e){notice.textContent=e.message;}signature='';render();}
  harvest.onclick=()=>run(quote({type:'harvest'}));
  function render(){
   const view=read(),next=JSON.stringify([view,[...selected]]);if(next===signature)return;signature=next;
@@ -32,7 +32,8 @@ export function createCraftingHome({read,quote,execute,forecast}) {
   renderCraftingDetail(detail,{title:`Steep selected materials (level ${strength.value})`,requirements:request.inputs.map(i=>({label:view.materials.find(m=>m.key===i.key)?.name??'Selected material',have:view.materials.find(m=>m.key===i.key)?.count??0,need:i.qty})),output:{name:'Unidentified herbal preparation',count:1},effects:[],chance:100,station:'Village common bench',xp:'Observation only',attempts:lastQuote.eligible?1:0,available:lastQuote.eligible,blocked_reason:lastQuote.reason},
    {onCommit:()=>run(lastQuote),onBlocked:()=>{notice.textContent=lastQuote.reason;}});
   const past=request.inputs.length?forecast(request):{verdict:'untried'};history.hidden=past.verdict==='untried';history.dataset.verdict=past.verdict;
-  history.textContent=past.verdict==='known-fail'?`Tried before: this exact steep of these materials came to nothing ${past.tries===1?'once':past.tries+' times'}${past.reasons.includes('reacted')?', after the materials reacted':', with nothing reacting'}${Object.keys(past.residue).length?`; left over: ${Object.entries(past.residue).map(([a,n])=>`${a} ${n}`).join(', ')}`:''}.`:past.verdict==='near'?'You have failed with these materials under another steep; a different steep may differ.':'';
+  history.textContent=past.verdict==='known-fail'?`Tried before: this exact steep of these materials came to nothing ${past.tries===1?'once':past.tries+' times'}${past.reasons.includes('thin')?', because the steep ran too thin':past.reasons.includes('reacted')?', after the materials reacted':', with nothing reacting'}${Object.keys(past.residue).length?`; left over: ${Object.entries(past.residue).map(([a,n])=>`${a} ${n}`).join(', ')}`:''}.`:past.verdict==='near'?'You have failed with these materials under another steep; a different steep may differ.':'';
+  grudge.hidden=!(view.grudge>0);grudge.textContent=view.grudge>0?`The verge keepers grumble about herbs wasted on thin steeps (${view.grudge}). It eases by one each season.`:'';
   // This bounded trial commits one selected batch. There is no misleading bulk quote.
   for(const b of detail.querySelectorAll('[data-craft-amount]'))b.remove();
   notebook.replaceChildren(node('h3','Experiment notebook'));

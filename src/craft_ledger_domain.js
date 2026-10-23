@@ -8,7 +8,7 @@ let ledger=createFailureLedger();
 export const ledgerOwner=()=>ledger;
 export function setLedgerOwner(value){ledger=value??createFailureLedger();}
 // Called from the crafting commit with the resolved batch; a batch with outputs is ignored by the ledger.
-export function noteBatch(result){ledger=recordBatchAttempt(ledger,result);}
+export function noteBatch(result,reasons=null){ledger=recordBatchAttempt(ledger,result,{reasons});}
 export const ledgerStamp=()=>Object.values(ledger.pairs).reduce((n,e)=>n+e.count,0);
 // request: the crafting request {inputs:[{key,qty}], process:[{op,level}]}. Reads the ledger only; hidden or
 // unobserved axes never appear in the residue, and reaction ids are reduced to "reacted" (AR8, MR truth vs knowledge).
