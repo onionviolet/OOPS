@@ -467,7 +467,7 @@ import {enrollSimulation, commitSimulationCommand, cancelSimulationJob, setSimul
     respondSimulationEvent, simulationOccupiesActor, waitingSimulationChoice} from "./simulation.js";
 import {prepareNativeUnlocks} from "./native_unlock_transaction.js";
 import {readNativeEquipment, prepareNativeEquipment, nativeEquipmentSnapshot} from "./native_equipment_transaction.js";
-import {stageNativeStorageTransfer} from "./native_storage_transaction.js";
+import {stageNativeStorageTransfer, stageCompanionStockTransfer} from "./native_storage_transaction.js";
 import {recordPursuitDeparture,pursuitView} from "./pursuit.js";
 import {createPursuitPanel} from "./pursuit_ui.js";
 
@@ -2038,16 +2038,14 @@ function stampStorageRequests() {
 
 function commitNativeStorage(request) {
     try {
+        if(request.companionId) {persistExpansion(stageCompanionStockTransfer({state: expansionState, gameplay: gameplaySnapshot(), money: character.money, equipment: readNativeEquipment({player: character}), favorites: favourite_items, request})); return true;}
         if(!is_storage_open() || !current_location?.housing?.isUnlocked()) throw new Error("Open an accessible chest first.");
         const plan = stageNativeStorageTransfer({state: expansionState, gameplay: gameplaySnapshot(), money: character.money,
             owners: {player: readInventoryOwner(character.getItems()), chest: readInventoryOwner(player_storage.getItems())},
             equipment: readNativeEquipment({player: character}), favorites: favourite_items, request});
         persistExpansion(plan, {chest: {category: "storage", id: "player"}}, {chest: player_storage.getItems()});
         return true;
-    } catch(error) {
-        log_message(expansionError || error.message, "notification");
-        return false;
-    }
+    } catch(error) {log_message(expansionError || error.message, "notification"); return false;}
 }
 bind_storage_transfer(commitNativeStorage);
 
@@ -9990,7 +9988,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     continuationPanel=createContinuationUI({read:readContinuationUI,command:commandContinuation});
     setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();}},500);
     mountWorkspace();
-    mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,gameStats:()=>game_stats,expansion:()=>expansionState,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
+    mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,gameStats:()=>game_stats,expansion:()=>expansionState,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
     refreshCustomization();
     expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife,readLocalContext:localLifeContext});
     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);
