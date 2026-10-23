@@ -9,7 +9,7 @@ const view = (state, training = []) => characterBioView({state,registry:expediti
 
 test("old biographies disclose no unseen source, technique, identity or invented life history", () => {
     const state=fresh(), before=structuredClone(state), bio=view(state);
-    assert.deepEqual(bio,{identity:"",life:"",learned:[],heritage:[],conditions:[],techniques:[],influences:[]});
+    assert.deepEqual(bio,{identity:"",life:"",description:[],faded:[],learned:[],heritage:[],conditions:[],techniques:[],influences:[]});
     assert.deepEqual(state,before);
     assert.doesNotMatch(JSON.stringify(bio), /Field eye|Parallel|bloodline/i);
 });

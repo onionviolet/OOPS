@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {resolveStart,validateStart,seededStartRng,START_MERGE_RULES} from '../src/start_records.js';
 import {frontierStartWorld as world} from '../src/data/start_layers_frontier.js';
-const vanilla={entry:{mode:'lock',layerId:'vanilla'},background:{mode:'lock',layerId:'empty'},possessions:{mode:'lock',layerId:'empty'}};
-const choices={entry:vanilla.entry,background:{mode:'roll'},possessions:{mode:'roll'}};
+const vanilla={entry:{mode:'lock',layerId:'vanilla'},background:{mode:'lock',layerId:'empty'},possessions:{mode:'lock',layerId:'empty'},body:{mode:'lock',layerId:'empty'}};
+const choices={entry:vanilla.entry,background:{mode:'roll'},possessions:{mode:'roll'},body:vanilla.body};
 test('every Frontier item has a plain single-sentence pocket history',()=>{
     for(const layers of Object.values(world.layers))for(const layer of layers)for(const item of layer.patch.items || []) {
         const line=layer.patch.pockets?.[item.id];
@@ -46,11 +46,11 @@ test('locked vanilla is native parity and provenance names every revision',()=>{
     const r=resolveStart(world,vanilla,'parity');
     assert.deepEqual({money:r.snapshot.money,items:r.snapshot.items,location:r.snapshot.location,quest:r.snapshot.quest},
         {money:102,items:[{id:'Cheap leather pants',quality:40,count:1},{id:'Stale bread',count:5}],location:'Village',quest:'Lost memory'});
-    assert.deepEqual(r.provenance,{worldId:'base.frontier',revision:1,seed:'parity',layers:[{axis:'entry',id:'vanilla',revision:1},{axis:'background',id:'empty',revision:1},{axis:'possessions',id:'empty',revision:1}]});
+    assert.deepEqual(r.provenance,{worldId:'base.frontier',revision:1,seed:'parity',layers:[{axis:'entry',id:'vanilla',revision:1},{axis:'background',id:'empty',revision:1},{axis:'possessions',id:'empty',revision:1},{axis:'body',id:'empty',revision:1}]});
 });
 test('unknown resolves normally but stays in the hidden axis list',()=>{
     const r=resolveStart(world,{...choices,background:{mode:'unknown'}},'blind');
-    assert.deepEqual(r.hidden,['background']);assert.equal(r.layers.length,3);
+    assert.deepEqual(r.hidden,['background']);assert.equal(r.layers.length,4);
     assert.deepEqual(r.snapshot,resolveStart(world,choices,'blind').snapshot);
 });
 test('locks hold and excludes never coexist over 200 seeds',()=>{
@@ -73,13 +73,13 @@ test('dead-end guard rerolls the offending axis without changing unrelated rolls
     w.axes.push('door');w.layers.door=[{id:'dead',revision:1,weight:100,patch:{location:null}},{id:'safe',revision:1,weight:1,patch:{}}];
     for(let i=0;i<20;i++) {
         const r=resolveStart(w,choices,String(i)),base=resolveStart(world,choices,String(i));
-        assert.deepEqual(r.provenance.layers.slice(0,3),base.provenance.layers);assert.equal(r.provenance.layers[3].id,'safe');
+        assert.deepEqual(r.provenance.layers.slice(0,4),base.provenance.layers);assert.equal(r.provenance.layers[4].id,'safe');
     }
     assert.throws(()=>resolveStart(w,{...choices,door:{mode:'lock',layerId:'dead'}},'blocked'),/missing location/);
     w.layers.door[0].patch={quest:null};
     const rerolled=resolveStart(w,choices,'lead-reroll');
-    assert.deepEqual(rerolled.provenance.layers.slice(0,3),resolveStart(world,choices,'lead-reroll').provenance.layers);
-    assert.equal(rerolled.provenance.layers[3].id,'safe');
+    assert.deepEqual(rerolled.provenance.layers.slice(0,4),resolveStart(world,choices,'lead-reroll').provenance.layers);
+    assert.equal(rerolled.provenance.layers[4].id,'safe');
     const r=resolveStart(world,vanilla,'lead');r.snapshot.quest=null;
     assert.equal(validateStart(r).valid,false);r.snapshot.lead='Talk to the elder';assert.equal(validateStart(r).valid,true);
 });
@@ -89,4 +89,9 @@ test('later locked exclusions reroll an earlier roll while incompatible locks fa
     assert.throws(()=>resolveStart(world,{...c,background:{mode:'lock',layerId:'runaway'}},'conflict'),/layer conflict/);
     assert.equal(validateStart(resolveStart(world,{...vanilla,entry:{mode:'lock',layerId:'empty'}},'empty')).valid,true);
     assert.throws(()=>resolveStart(world,{entry:{mode:'lock',layerId:'empty'},background:{mode:'lock',layerId:'farmhand'}},'needs'),/unmet need/);
+});
+test('frail body layer is chosen, never rolled, and leaves the other axes alone',()=>{
+    for(let i=0;i<30;i++)assert.equal(resolveStart(world,{...choices,body:{mode:'roll'}},String(i)).provenance.layers.at(-1).id,'empty');
+    const r=resolveStart(world,{...vanilla,body:{mode:'lock',layerId:'frail'}},'frail');
+    assert.equal(r.provenance.layers.at(-1).id,'frail');assert.equal(r.snapshot.items.find(i=>i.id==='Stale bread').count,7);
 });
