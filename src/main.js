@@ -87,7 +87,7 @@ import {worldCompletionSavedNativeItem} from './world_completion_native.js';
 import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
 import {foundationInteractionProbeContext,foundationInteractionProbeGuard,FOUNDATION_PROBE_GROUP} from './foundation_interaction_content.js';
 import {createFoundationStartContent,FOUNDATION_START_PACK_ID} from './foundation_start_content.js';
-import {createLocalLivelihoodContent} from './local_livelihood_content.js';
+import {createLocalLivelihoodContent} from './local_livelihood_content.js';import {createWarmHandStartContent} from './warm_hand_start_content.js';import {createLanternLoanStartContent} from './lantern_loan_start_content.js';import {createSlakeBenchStartContent} from './slake_bench_start_content.js';
 import {mountWorkspace,registerWorkspaceModule,registerLayoutSignal,workspaceOwns,openWorkspaceModule,expandWorkspaceModule,updateWorkspace} from './workspace_layout.js';
 import {createWorkspaceViews,createEquipmentComparison} from './workspace_views.js';
 import {defaultCustomizationState,validateCustomizationState,getCustomizationSettings,applyCustomizationProfile} from './customization_profiles.js';
@@ -9479,7 +9479,7 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
     onError:()=>console.warn('An optional content pack could not be loaded; the base game remains available.')});
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
-await registerStructuredNative(createLocalLivelihoodContent());
+for(const make of [createLocalLivelihoodContent,createWarmHandStartContent,createLanternLoanStartContent,createSlakeBenchStartContent])await registerStructuredNative(make());
 configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
     itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:key=>assertNativeItemDisposition(expansionState,key),
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
