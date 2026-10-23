@@ -4927,6 +4927,20 @@ AGENTS.md links it for both Codex and Claude. Existing behavior, browser and
 persistence acceptance gates remain in force. Focused commands reuse existing
 tests, and reports identify their scope rather than claiming whole-rule compliance.
 
+### Lean tests and lighter verification paperwork, 2026-10-22
+
+Weibao, after a measurement of the suite (322 files, 2,591 tests, about 87 s, 319 of
+817 October commits touching `tests/`):
+
+> change those rules like that accordingly, having so much excess is wasting filespace and more
+
+Changed [AD36](RULES_INDEX.md#efficient-rule-verification-ad36): lanes run focused
+tests only and one full `npm test` runs at commit; per-task input-identity records
+shrink to one line per check unless evidence is reused; tests are organized by
+system rather than delivery wave, and tests that only pinned a reworked shape are
+deleted or merged. The 2026-10-16 wording above is superseded where they differ.
+A read-only audit that ranks existing tests for pruning is proposed, not yet run.
+
 ### Subsystem scope ladders, 2026-10-16
 
 Weibao:

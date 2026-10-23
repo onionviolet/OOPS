@@ -241,16 +241,20 @@ task record and checks. No separate checklist file or universal compliance score
    it. No test per rule sentence, trivial edit or duplicate implementation detail.
    Include a new test in the focused runner only if its scenario fits that group;
    otherwise run it directly. Tests must be discovered by the intended suite.
-3. **Run at the right time.** Use focused checks after a coherent edit. At completion,
+3. **Run at the right time.** Use focused checks after a coherent edit. A lane or
+   subagent runs only its focused test file and never the full suite (2026-10-22
+   lean-test direction). The full `npm test` runs once, by whoever commits, as the
+   single pre-commit gate. At completion,
    run gates required by the applicable rulebooks, build and changed browser journey
    for runtime claims, and persistence checks when affected. Docs-only work needs
    relevant document/link checks, not a gameplay build. Shared code, ordering,
    persistence or cross-domain changes can justify broader coverage; state why.
-4. **Reuse with an input identity.** Record command, revision plus relevant dirty
-   diff/hash or equivalent reproducible snapshot, result and gaps in the existing
-   checkpoint. Another agent can reuse it after verifying those inputs, dependencies,
-   fixtures, configuration and relevant environment still match. HEAD alone is
-   insufficient in this shared dirty checkout. Invalidate affected evidence after
+4. **Reuse with an input identity.** Record in the existing checkpoint one line per
+   check: command, result and gaps. Add a revision or diff hash only when another
+   agent will reuse the result as evidence (2026-10-22: no per-task input-identity
+   paperwork otherwise). Another agent can reuse it after verifying those inputs,
+   dependencies, fixtures, configuration and relevant environment still match. HEAD
+   alone is insufficient in this shared dirty checkout. Invalidate affected evidence after
    changes or integration; run the affected checks again. A full suite covers its
    included groups, so do not run both on unchanged inputs. Do not duplicate an
    authoritative running CI job unless reproducing a named failure. Local unit
@@ -264,6 +268,12 @@ task record and checks. No separate checklist file or universal compliance score
    rather than copies of all rulebooks. Stop equivalent checks once required gates
    pass. Save integrity, sealed truths and technical versus human acceptance still
    apply; retain useful diagnostics privately where needed.
+6. **Keep the suite lean (2026-10-22).** Organize tests by system or invariant, not
+   by delivery wave or slice (no new `*_b`/`*_c1`-style files). Extend the owning
+   system's file. When a change reworks a feature, delete or merge the tests that
+   only pinned the old shape. A test must protect save integrity, core math, a rule
+   invariant or a reproduced defect; delete duplicates and implementation-detail
+   assertions when found. Dated pruning passes record what went in the task record.
 
 | Change or boundary | Focused route | Scope / additional evidence |
 |---|---|---|

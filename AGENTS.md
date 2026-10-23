@@ -107,6 +107,10 @@ is reached.
 Commands: `npm run build && npm test`, plus `npm run check:arch` and `npm run check:rules`. Add `npm run check:rule-behavior` for rule changes.
 
 Follow [AD36: efficient rule verification](docs/RULES_INDEX.md#efficient-rule-verification-ad36).
+Lean tests (2026-10-22): lanes and subagents run only their focused test file; the
+committer runs the full `npm test` once as the pre-commit gate. Organize tests by
+system, not delivery wave, and delete or merge tests that only pinned a reworked
+shape. Task records get one line per check (command, result, gaps).
 Before implementation, choose relevant existing checks and a failure scenario
 from the touched rules and consumers. Add or extend a regression for changed
 behavior or a reproduced defect when it protects a meaningful invariant; avoid

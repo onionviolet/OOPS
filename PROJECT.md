@@ -482,6 +482,9 @@ guides agents to relevant checks, meaningful regressions and reuse of valid
 evidence, with focused development checks and existing completion gates.
 Keep source reads, logs and handoffs bounded; do not repeat covered checks on
 unchanged inputs. [Request](docs/USER_VISION.md#efficient-rule-checks-and-regressions-2026-10-16).
+**Lean tests (2026-10-22):** lanes run focused tests only, one full `npm test` at
+commit, tests organized by system not wave, stale tests deleted on rework, one-line
+check records. [Request](docs/USER_VISION.md#lean-tests-and-lighter-verification-paperwork-2026-10-22).
 
 **World absorption rules (proposal, 2026-10-17):** at Weibao's request,
 [WA1–WA21](docs/WORLD_ABSORPTION_RULES.md) describe absorbing a book world as a
