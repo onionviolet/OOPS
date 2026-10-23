@@ -9,10 +9,14 @@ isolated environments and current readiness. It also routes Discord, REA,
 engine-specific extraction and verification tooling; the transport contract
 below remains the owner for this novel/fanwork acquisition route.
 
-Source Library 0.6.0 now embeds Komga's EPUB/comic/PDF reader inside the app,
-with Read and saved positions, plus paged local/JNovel/Suwayomi browsing and
-source/series/chapter selection. JNovel volume links stay explicit browser
-handoffs. [Current integration and evidence](/Users/weiwei/code/zlibrary-research/docs/INTEGRATED_READER_0_6_0.md).
+Source Library 0.6.0 embeds a reader inside the app, with Read and saved
+positions, plus paged local/JNovel/Suwayomi browsing and source/series/chapter
+selection. JNovel volume links stay explicit browser handoffs. As of 2026-10-22
+Read opens Kavita's EPUB/PDF/CBZ reader; Komga's reader remains the fallback for
+EPUBs Kavita cannot parse (about half of the current 130). Committed in
+zlibrary-research, not yet live in the running app until its platform restarts.
+[Kavita reader and evidence](/Users/weiwei/code/zlibrary-research/docs/KAVITA_READER_0_6_1.md),
+[Komga integration](/Users/weiwei/code/zlibrary-research/docs/INTEGRATED_READER_0_6_0.md).
 
 For the proposed combined book/comic/manga platform, see the
 [source media comparison and integration plan](SOURCE_MEDIA_ACQUISITION_SCOUT_2026-10-21.md).
