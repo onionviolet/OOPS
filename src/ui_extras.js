@@ -7,6 +7,7 @@ import './statistics_panel.js';
 import './today_strip.js';
 import './region_view.js';
 import './companion_roster.js';
+import './family_tree_panel.js';
 import './loadouts.js';
 import './palette_feedback_domain.js';
 import './hp_brewing_domain.js';

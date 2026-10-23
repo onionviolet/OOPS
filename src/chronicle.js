@@ -1,5 +1,6 @@
 import {xorshift32} from './hash_rng.js';
 import {check, copy as clone, finite, natural as integer} from './basics.js';
+import {extendLineage, validateLineage} from './family_tree.js';
 import {LIFE_LESSONS, lifeVoice, learnedLifeLessons, lifeStage,lifeGrave} from './life_experience.js';
 // Original frontier content. Saved history is authoritative; views never roll events.
 export const GAME_YEAR = 360 * 24 * 60;
@@ -21,6 +22,7 @@ export function validateChronicle(c, clock) {
         check(x.lastYear==null||typeof x.lastYear==='boolean', "Invalid last-year memory.");
         check(x.generation==null||integer(x.generation)&&x.generation>0, "Invalid generation.");
         for(const grave of [x.grave,x.inheritedFrom].filter(v=>v!=null))check(object(grave)&&typeof grave.name==='string'&&grave.name.length<=80&&integer(grave.age)&&typeof grave.epitaph==='string'&&grave.epitaph.length<=512&&(grave.lesson===null||ids.includes(grave.lesson)), "Invalid remembered grave.");
+        validateLineage(x.lineage);
         check(x.grave==null||c.life.endedAt!==null, "A living life cannot have its own grave.");
         if(x.inheritance!=null) {
             if(x.inheritance.residences!=null)check(integer(x.inheritance.residences)&&x.inheritance.residences<=16,'Invalid inherited residence count.');
@@ -290,7 +292,7 @@ export function createHeirChronicle(previous, clock, calendar, name, leftovers) 
     const grave=lifeGrave(previous,name), c=createChronicle(clock,calendar,previous.life.mode==='mortal'), l=leftovers;
     c.knowledge={};
     if(l.recipient==='apprentice')for(const id of l.apprentice)c.knowledge[id]=true;
-    c.life.experience={reflected:[],taught:[],bequest:null,generation:(previous.life.experience?.generation||1)+1,inheritedFrom:grave,
+    c.life.experience={reflected:[],taught:[],bequest:null,generation:(previous.life.experience?.generation||1)+1,inheritedFrom:grave,lineage:extendLineage(previous,grave,l.recipient,l.kin),
         inheritance:{recipient:l.recipient,papers:[...l.papers],apprentice:[...l.apprentice],money:l.money,residences:Object.values(l.residences?.homes.properties||{}).filter(h=>h.id!=='shack'||!l.home).length+(l.residences?.homes.portable?1:0),
             belongings:l.belongings.reduce((n,r)=>n+r[1],0)+(l.residences?.goods||[]).reduce((n,r)=>n+r[1],0),chest:l.chest.reduce((n,r)=>n+r[1],0),home:l.home,obligations:[...l.obligations],archiveLine:l.archiveLine,debtsPaid:l.debts.reduce((n,d)=>n+d.paid,0)}};
     const ties={rememberedPredecessor:grave.name};

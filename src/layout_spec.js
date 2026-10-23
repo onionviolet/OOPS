@@ -198,6 +198,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'carcass-processing': surface('ST4', {home:'Place services; native processing owner',frequency:'frequent',status:'proposal',reads:['inventory','work','place'],contexts:['idle','service']}),
         'region-view': surface('ST2', {home: 'Beside the actions; keeper is the road itself', frequency: 'frequent', status: 'proposal', reads: ['place'], contexts: ['idle', 'travel']}),
         'companions': surface('ST6', {home: 'Side column beside You', frequency: 'occasional', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
+        'family': surface('ST6', {home: 'Side column beside You', frequency: 'rare', status: 'proposal', reads: ['knowledge', 'time'], contexts: ['idle', 'travel', 'service']}),
         'loadouts': surface('ST4', {home: 'Beside Inventory', frequency: 'occasional', status: 'proposal', reads: ['inventory'], contexts: ['idle', 'service']}),
     }),
     // Center views that are not workspace panels; each opens through its own owner.

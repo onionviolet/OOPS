@@ -129,3 +129,31 @@ test("failed publication leaves tuition, moods, provenance and transferred posse
         storage: {setItem() {throw new Error("quota");}}}), /quota/);
     assert.deepEqual(p, before); assert.equal(JSON.stringify(saved), bytes);
 });
+
+test("repeated quiet breaks form a habit that unlocks a faster pause; the habit reloads from counts alone", () => {
+    let p = enroll(); const habit = q => everydayFacts(q.state)["habit.quietBreak"];
+    assert.equal(habit(p), false);
+    for(let i = 0; i < 3; i++) {
+        p = social(p, "village.quiet_break", {location: "Shack"});
+        p = advance(advance(p, 3), 25);
+    }
+    assert.equal(p.state.actors.player.completed["village.quiet_break"], 3);
+    assert.equal(habit(p), true); assert.equal(habit(reload(p)), true);
+    assert.match(everydayScene(p.state, {location: "Village", ...everydayFacts(p.state)}), /has become a habit/);
+    const quick = advance(social(p, "village.habit_pause"), 1);
+    assert.ok(activeMood(quick.state, "player", REASSURED)); assert.equal(activeMood(quick.state, "player", UNSETTLED), null);
+});
+
+test("a shared-word routine builds familiarity until the busy craftsman answers between cuts", () => {
+    let p = social(enroll(), "village.commission");
+    assert.equal(everydayFacts(p.state)["village.craftsmanKnowsYou"], false);
+    p = social(p, "village.working_habits");
+    assert.throws(() => social(p, "village.ask_between_cuts"));
+    p = enroll();
+    for(let i = 0; i < 3; i++) p = advance(social(p, "village.word_after_work"), 2);
+    assert.equal(everydayFacts(p.state)["village.craftsmanKnowsYou"], true); assert.equal(everydayFacts(reload(p).state)["village.craftsmanKnowsYou"], true);
+    const busy = social(p, "village.commission");
+    const heard = social(busy, "village.ask_between_cuts");
+    assert.equal(activeMood(heard.state, "oldCraftsman", IRRITATED), null);
+    assert.ok(heard.state.simulation.knowledge.player["craftsman.hearsYou"]);
+});
