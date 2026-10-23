@@ -1478,3 +1478,59 @@ Everything below stays a proposal; nothing here reopens or closes a gate.
 3. Apply MX's top five micro fixes alongside, since they touch the same panel.
 4. Build the read-only fact adapter and redactor (IA P1, AB P3), with stage 1 as its second reader.
 5. Then SH4 True Appraisal as the second lens, using W5's P1-P2: one property, retained historical readings.
+
+### More to consider: cheat implementations, carry, wiring and the next cards (2026-10-23)
+
+Weibao: "send out all in parallel, ocnsider other cheats too and more, expanding base cheat? more modules? wiring the UI and the engine?" Six read-only lanes
+([K1 to K6](gm/dispatch/cheat-implementation-2026-10-23/)) read the code; nothing was run, built or changed in `src/`. Everything below is a proposal, not an
+accepted decision. Evidence labels are in the lane files. Codes are IM (implementation).
+
+**Corrections first (the code wins where it differs from rows above)**
+
+| Code | Correction | Evidence |
+| --- | --- | --- |
+| IM1 | **The base cheat is lost on heir succession.** `buildLifeHeirSave` copies `npc_lives`, `options`, `inheritance_law` and `discovery_codex` but not `cheats`, and the heir boot skips the save load, so the heir starts with the default empty state. `carry_ledger.js:23-25` says the base cheat carries; that row is data only and nothing enforces it. No test covers it. | K1; checked by Claude in `life_experience_host.js:15-32` |
+| IM2 | **A normal new game never grants a cheat.** The picker is hidden except on localhost with `?start_probe=1`, defaults to none, and the only card it can grant is the talking quest system, which AD29 says is an accompanying cheat, not the quiet base faculty. | K1, K5 |
+| IM3 | **"AB6 and AB9 have two users" stays overstated** (already corrected above). K6 adds: `rule_modules.js` has one `cheat_overlay` mention and no modules of that kind; its fact vocabulary is closed. | K6 |
+| IM4 | **Cards have no holder field**, so a rival-held cheat has no home in the shape (K4); `hooks` is empty and nothing runs it; no PANELS kind fits away-notes or action lists. | K4 |
+| IM5 | **F7 message growth is not a live defect.** Production writes at most one message per card; cap it when the first emitter lands. | K2 |
+| IM6 | **`carryLedger` throws for any world without recorded rules** (only `base.frontier` and `book.paradise.hub`). A cheat carried into a third world fails loudly, not silently. | K6; checked in `carry_ledger.js:33` |
+
+**ACT NOW (current correctness; needs the authorized slice, not done here)**
+
+| Code | Item | Done check |
+| --- | --- | --- |
+| IM7 | Carry `cheats` through `buildLifeHeirSave` and pin it: `tests/cheat_carry.test.js` T1 (pure, expected to FAIL today) and T2 (browser heir flow after reload; needs a test-only `beginHeir` hook in `cheat_game.mjs`). Ship with IM8, not before: a grant that vanishes at the first heir is worse than none. | T1 and T2 fail, then pass; heir does not double-wake or replay the first message |
+
+**ACCOUNT FOR NOW (constraints on the next slice)**
+
+| Code | Constraint | Source |
+| --- | --- | --- |
+| IM8 | **Acquisition default (proposal):** route A as the floor (a new quiet, dormant faculty card granted at new game; AD29 says the talking quest card is not the default), route C (an in-world event) as a dial that swaps only the trigger, B (the picker) as a variant or dev door. Dial `cheat.start`: `quiet-faculty-seed` (default), `none`, `picker`, `event`; per-world setting. The seed is weak at start (no points, minimal benefit), so no unavoidable powerful grant. Open: the quiet card's id, family and benefit at zero points need a design owner (Q3). | K1 |
+| IM9 | **Tolerant read before any schema growth (F3):** a `readCheatSave` that moves each failing held entry byte-exact into a sibling `cheats_quarantine`, retries it on every load, keeps import strict and never resets silently. Land it with the first card-shape change, not after. | K2 |
+| IM10 | **Awakening on the card, not in the function (F2):** card-supplied `state.wake` and `state.firstMessage`, which needs no card schema change. Do it when card 2 lands (rule of two), not before. | K2 |
+| IM11 | **Render cadence (F5):** move the status window's render into the existing `pollDisplays` (`main.js:9793`, 250 ms with hidden-tab deferral) and remove its own timer. One-line edit. | K2 |
+| IM12 | **One cheat host:** a `cheat_host.js` registry domain holding state, an `observe(kind, payload)` dispatcher and a shared `heldCard` predicate, replacing the bare `let cheatState` and the six `awakenOptionalStart` call sites (`main.js:1973, 4820, 8447, 8611, 8675, 9422`). Pattern: `definePanel` plus `registerDomain`, as in `book_world_lotm_domain.js` and `companion_roster.js`. Do not build a hook DSL, a mutation bus, stub panels or `cheat_overlay` rules yet. | K3 |
+| IM13 | **Base-cheat growth uses existing fields:** `stages` is the append-only enduring record (`{id, at, via, carried}`), `state` holds per-life data, `hooks` names surfaces, `observers` exposure, `sources` provenance. Stage definitions live in code, keyed by card id and stage id, so balance fixes reach old saves. Siblings only for a different means, owner or carrier (system, voice, companion, anchor artifact). Schema stays 1. | K5 |
+| IM14 | **Carry table (default, dial, reason):** `stages` carry (AD11); `points`, quest rows, claim history and charges reset by default (expended inputs do not carry, CA5); anchors and checkpoint objects do not carry, but the stage that lets you hold one does. Independent life (new character) keeps nothing by default, with a "same soul" world dial (Q1). Dormant card on heir: carry as-is; open whether the day-3 clock restarts, since the calendar is preserved and the heir would wake on the first tick (Q2). | K1, K5 |
+| IM15 | **Points: no attendance, no offline expiry, shown honestly** (`have 3, earned 7, spent 4`, with each row's have/need and why). First slice: one finite milestone row, manual claim, one point, points buy nothing yet. | K5, AUDIT D1 |
+| IM16 | **Leak and export:** one redactor shared by the share summary and the status window; the human-readable export redacts, the full backup keeps real data so restore works (LQ2). | K6 |
+
+**Next cards, ranked by cheapest honest implementation (K4; names are proposals)**
+
+| Code | Card | Rides on | Why it is worth building |
+| --- | --- | --- | --- |
+| IM17 | True Appraisal | `harvest.js:95` `observeCarcass` (already records age estimate, freshness band, skill) | Makes card 2: the second reader of facts |
+| IM18 | Loaded Dice | `seeded_streams.js` receipts already carry unused `via` and `orig` fields; peeks must use `unitDecision` (`keyedUnit` and `drawUnit` mutate) | Proves the module boundary; `cheat_cards.js` must not import the engine |
+| IM19 | Rehearsed Foe (rival-held Echo Anchor) | a holder-keyed NPC-side state (perhaps `simulation.powers`) | Tests the card shape from the other side |
+| IM20 | Fate Ledger, Earned Habit, Patient Furnace, Pattern Book, Heirloom Compact | see K4 | Wait for a second consumer; Earned Habit, Loaded Dice, Patient Furnace and Heirloom Compact are the non-information ones |
+
+**Modules (K6): BUILD NEXT** the read-only fact adapter and redactor (M1), card version and quarantine (M5, same as IM9), carry-ledger backing rows for soul, body, item, contract and system carriers (M6), and the leak lint (M9). **WAIT FOR A SECOND CONSUMER:** observation retention, the milestone predicate, stream peek, the overlay compiler. **NOT ENOUGH USERS:** an in-game cheat library tab, because it would name undiscovered cards. A `cheat_overlay` is layered over a card, not the same thing: the card holds state, the overlay is a stateless rule effect, guarded by rule-lock refs and fingerprints compared on load, with quarantine and logged receipts.
+
+**Dev inspection (K3):** a read-only `cheat_view` plus draft-based verbs with an explicit apply step and no auto-save, in `dev_console.js` behind `config.enable_dev_mode`; one test, `tests/cheat_dev_view.test.js`. Open: whether `is_on_dev()` really isolates dev saves (not read by K3).
+
+**Do not build yet (K3, K5):** a new schema version or card keys; a points shop; daily boards or streaks; a voice or patron evolution of the faculty; an anchor implementation inside the card; the appraisal lens surface; cross-world fusion, theft or seals; more than S1 as playable until S1 passes a rebuilt browser check at the target viewport (desktop first, mobile deferred).
+
+**Suggested order (separate from the palette):** IM7 with IM8's floor; then IM9 with IM11; then IM12 with IM10 when True Appraisal (IM17) becomes card 2.
+
+**Open questions for Weibao (none block the lanes):** Q1 does an independent life keep the faculty; Q2 does a dormant card keep its clock on an heir; Q3 the quiet card's identity; Q4 does carry live in `buildLifeHeirSave` or in the `carry_ledger` (the ledger has no frontier cheat row).

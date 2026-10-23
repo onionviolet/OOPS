@@ -650,3 +650,7 @@ The shared owner retains five connected considerations and links to existing kno
 ### Deep engine pilots selected, 2026-10-20
 
 Weibao requested one connected chat for each P1–P5 improvement in [the deep engine round](ENGINE_EXPANSION.md#deep-engine-support-for-future-design-2026-10-20). [Dispatch and dependency ledger](gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md) routes shared stat/effect semantics, independent domain ports, scenario tooling, durable timed work and executable authoring. This later implementation selection supersedes only those pilots' prior proposal-only execution status. Existing palette reservations and current native/human gates stay with their owners.
+
+### Cheat implementations, carry, wiring and next cards, 2026-10-23
+
+Heir succession drops the base cheat and no default route grants one; proposal: a quiet seed card at new game, tolerant card read, one cheat host, True Appraisal as card 2. [Round IM1 to IM20](CHEAT_LIBRARY.md#more-to-consider-cheat-implementations-carry-wiring-and-the-next-cards-2026-10-23), [core audit](audits/CHEAT_CORE_AUDIT.md).

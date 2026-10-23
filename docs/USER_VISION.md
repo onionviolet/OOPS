@@ -5987,3 +5987,21 @@ control-height, layer and type-role tokens with checks (UR66–UR68), migration 
 exact-match literals, content-aware region lending (UR69), the rules card and the
 UR41–UR64 compaction with the long form archived, plus a Discord-lesson pass
 recorded in the audit. Visual-feel acceptance, commit and push remain open.
+
+## Cheat implementations, carry, wiring and next cards, 2026-10-23
+
+Weibao asked for a more-to-consider pass on cheat implementations, then:
+"send out all in parallel, ocnsider other cheats too and more, expanding base cheat? more modules? wiring the UI and the engine?"
+Six read-only lanes read the code and docs; the round (IM1 to IM20) is in
+[the cheat library](CHEAT_LIBRARY.md#more-to-consider-cheat-implementations-carry-wiring-and-the-next-cards-2026-10-23),
+lane files in [the dispatch folder](gm/dispatch/cheat-implementation-2026-10-23/) and
+the repeatable [cheat core audit](audits/CHEAT_CORE_AUDIT.md). Everything is a proposal.
+No code, build, commit or push is selected by this request.
+
+Follow-up, same day: “implement each accordingly, consider other necissary rules too”.
+This authorizes GTL1–GTL5 and further gate rules. Delivered as recorded in
+[round 2](PROGRESSION_GATE_RULES.md#round-2-implementation-2026-10-23): the shared
+descriptor, herb lesson migration and inspector in code, the inventory, overflow
+and Paradise catalog as research and proposals, and GTR21–GTR27. Overflow
+policy rows and the Paradise tier slice remain proposals; no gameplay
+balance change, commit or push is selected.
