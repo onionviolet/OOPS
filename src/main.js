@@ -2353,7 +2353,7 @@ function actSimulation(command) {
     if(command.type==='cancel' && expansionState.simulation?.jobs.some(j=>j.actorId==='player'&&['status_care','field_care','book_care','book_care_npc','lore_work','lore_warning'].includes(expeditionRegistry.simulation.commands.get(j.commandId)?.group)))throw new Error('Cancel the actual care job from its care controls.');
     let plan;
     if(command.type === "promise_begin") plan = beginPromiseVisitor(expansionState, expeditionRegistry, context, command.sequence ?? expansionState.sequence);
-    else if(command.type === "body_begin") plan = beginBodyRecord(expansionState, expeditionRegistry, context);
+    else if(command.type === "body_begin") plan = beginBodyRecord(expansionState, expeditionRegistry, context, command.frail);
     else if(command.type === "field_begin") plan = beginFieldWorkshop(expansionState, expeditionRegistry, context);
     else if(command.type === "storylet_begin") {
         const enrolled=expansionState.simulation?null:enrollSimulation(expansionState,expeditionRegistry,context);
@@ -9588,7 +9588,7 @@ if(newGameBeginning) {
             character.addToInventory(start.snapshot.items.map(({id,...item})=>({...item,item_id:id})),true);
             setPurse(character,start.snapshot.money,'start layers',{baseline:true});update_displayed_money();character.updateStatsAndDisplay();
             change_location({location_id:start.snapshot.location,skip_travel_time:true});
-            questManager.startQuest({quest_id:start.snapshot.quest});
+            questManager.startQuest({quest_id:start.snapshot.quest});if(start.provenance.layers.some(l=>l.axis==='body'&&l.id==='frail'))actSimulation({type:'body_begin',frail:true});
             lifeRecord=appendLifeMilestone(lifeRecord,{year:current_game_time.year,at:lifeCalendarMinute(current_game_time),
                 worldId:start.provenance.worldId,kind:'beginning',text:`Start layers: ${start.provenance.layers.map(l=>l.id).join(', ')}. Seed: ${start.provenance.seed}`});
         }
@@ -9994,7 +9994,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     refreshCustomization();
     expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife,readLocalContext:localLifeContext});
     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);
-    characterBio = createCharacterBio({registry: expeditionRegistry, read: readProgression,
+    characterBio = createCharacterBio({registry: expeditionRegistry, skillTable: skills, read: readProgression,
         readTraining: () => Object.values(skills).filter(skill => skill.isUnlocked() && skill.getTotalXP() >= skill.visibility_treshold && skill.getCurrentLvl() > 0)
             .map(skill => ({id:skill.skill_id, label:skill.getName(), level:skill.getCurrentLvl(), effectiveLevel:character.getTotalSkillLevel(skill.skill_id), visible:true,
                 stats:skill.get_bonus_stats({skillXP:{current_level:0},level:skill.getCurrentLvl(),track_dependencies:false}).stats,

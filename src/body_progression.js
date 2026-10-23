@@ -2,6 +2,7 @@ import {eqRawReason as eq} from './basics.js';
 import {enrollSimulation, commitSimulationCommand} from "./simulation.js";
 
 export const SORE_HANDS = "body.sore_hands", SCRAPED_HANDS = "body.scraped_hands";
+export const UNDERFED = "body.underfed", FRAIL_FRAME = "body.frail_frame", STEADY_FRAME = "body.steady_frame";
 export const NATURAL_BALANCE = "body.natural_balance", CONDITIONED_GRIP = "body.conditioned_grip", PALM_MARK = "body.palm_mark", COLD_HARDENED = "body.cold_hardened";
 const yes = eq("actor.body.enrolled",true,"Begin a body record first.");
 const village = eq("location","Village","Return to Village.");
@@ -10,17 +11,20 @@ const body = key => ({type:"body",key,value:true});
 const grant = (sourceId,origin,awakened=true) => ({type:"source",operation:"grant",sourceId,origin,awakened,active:awakened});
 const condition = (id,operation,duration) => ({type:"condition",id,operation,...(duration?{duration}:{})});
 const command = d => ({revision:1,worldId:"base.frontier",actorId:"player",group:"body",costs:[],effects:[],...d});
-const wood=JSON.stringify({id:"Rough wood log"}), kit=JSON.stringify({id:"Prepared survey kit"});
+const wood=JSON.stringify({id:"Rough wood log"}), kit=JSON.stringify({id:"Prepared survey kit"}), bread=JSON.stringify({id:"Stale bread"});
 
 export const bodySources = [
     {id:NATURAL_BALANCE,revision:1,label:"Natural balance",kind:"trait",origin:"inherited",bioDetail:"An innate aptitude; its ancestry remains uncertain.",grants:[{capability:"frontier.preparation",amount:1}]},
-    {id:CONDITIONED_GRIP,revision:1,label:"Conditioned grip",kind:"trait",origin:"trained",bioDetail:"Palms toughened through repeated practice.",grants:[{capability:"frontier.carry",amount:1},{capability:"body.hand_control",amount:1}]},
-    {id:PALM_MARK,revision:1,label:"Palm mark",kind:"trait",origin:"acquired",bioDetail:"A visible mark from rough timber work.",grants:[]},
-    {id:COLD_HARDENED,revision:1,label:"Weathered skin",kind:"trait",origin:"trained",bioDetail:"Skin and breathing settled by repeated cold soaks. It belongs to this body; the lesson stays with you.",grants:[]},
+    {id:CONDITIONED_GRIP,revision:1,label:"Conditioned grip",kind:"trait",origin:"trained",look:{slot:"hands",rank:2,text:"Your palms are callused and firm."},bioDetail:"Palms toughened through repeated practice.",grants:[{capability:"frontier.carry",amount:1},{capability:"body.hand_control",amount:1}]},
+    {id:PALM_MARK,revision:1,label:"Palm mark",kind:"trait",origin:"acquired",look:{slot:"marks",rank:1,text:"A pale line crosses one palm."},bioDetail:"A visible mark from rough timber work.",grants:[]},
+    {id:FRAIL_FRAME,revision:1,label:"Frail frame",kind:"trait",origin:"acquired",bioCause:"Left by a hungry winter before your story began",supersededBy:STEADY_FRAME,fadedDetail:"The thin build from that winter has filled out; it no longer limits you.",look:{slot:"build",rank:1,text:"You are thin, narrow in the shoulders, with hollows under the cheekbones."},bioDetail:"A slight build left thin by a long hungry winter. Hard drills and marker carrying are beyond it for now; food, rest and steady walking build it up.",grants:[]},
+    {id:STEADY_FRAME,revision:1,label:"Steadier frame",kind:"trait",origin:"trained",look:{slot:"build",rank:2,text:"Still slight, but you stand straighter and move with a walker's easy stride."},bioDetail:"Regular walking and proper meals have put some strength in the legs and shoulders.",grants:[{capability:"frontier.carry",amount:1}]},
+    {id:COLD_HARDENED,revision:1,label:"Weathered skin",kind:"trait",origin:"trained",look:{slot:"skin",rank:1,text:"Your skin has the ruddy toughness of someone used to wind."},bioDetail:"Skin and breathing settled by repeated cold soaks. It belongs to this body; the lesson stays with you.",grants:[]},
 ];
 export const bodyCapabilities=[{id:"body.hand_control",label:"Hand control",stacking:"max",providers:[]}];
 export const bodyConditions = [
-    {id:SORE_HANDS,revision:1,label:"Sore hands",stacking:"max",bioVisible:true,bioDetail:"Grip drills need recovery; packing and marker work take longer."},
+    {id:UNDERFED,revision:1,label:"Underfed",stacking:"max",look:{slot:"bearing",rank:1,text:"Your face is pinched and you pause to steady yourself when you stand."},bioVisible:true,bioDetail:"Too little food for too long; hard drills are beyond you until you eat a proper meal."},
+    {id:SORE_HANDS,revision:1,label:"Sore hands",stacking:"max",look:{slot:"hands",rank:1,text:"You flex your hands carefully, favouring them."},bioVisible:true,bioDetail:"Grip drills need recovery; packing and marker work take longer."},
     {id:SCRAPED_HANDS,revision:1,label:"Scraped palms",stacking:"max",bioVisible:true,bioDetail:"Tender palms slow packing and marker work. Rest or played time brings recovery."},
 ];
 const showHands = (id,label,requires,key,text) => command({id,label,group:"social",location:"Village",targetId:"oldCraftsman",coLocated:true,once:true,
@@ -41,7 +45,7 @@ export const bodyCommands = [
         effects:[{type:"faculty",sourceId:NATURAL_BALANCE,operation:"awaken"},{type:"faculty",sourceId:NATURAL_BALANCE,operation:"activate"},
             {type:"knowledge",key:"body.balance",stage:"understood",value:"You steady yourself without the taught correction. The aptitude is innate; its ancestry is still unknown."}]}),
     command({id:"body.grip_drill",label:"Practice careful grips · 3 min · 2 stamina",location:"Village",duration:3,cancellation:"forfeit",
-        visibleWhen:{all:[yes,eq("actor.body.gripLearned",false)]},requires:{all:[yes,eq("body.handsTender",false,"Let your hands recover first.")]},
+        visibleWhen:{all:[yes,eq("actor.body.gripLearned",false)]},requires:{all:[yes,eq("body.handsTender",false,"Let your hands recover first."),eq("body.underfed",false,"Eat a proper meal first; you have nothing to spend.")]},
         description:"Three game minutes and two stamina. Completion gives six Climbing XP and one practice, followed by twelve minutes of soreness. Cancellation forfeits stamina and earns no practice.",
         costs:[{type:"vital",key:"stamina",amount:-2}],effects:[{type:"xp",skill:"Climbing",amount:6},{type:"resource",key:"grip_practice",amount:1},condition(SORE_HANDS,"apply",12)]}),
     command({id:"body.condition_grip",label:"Keep the practiced grip",once:true,location:"Village",
@@ -58,13 +62,29 @@ export const bodyCommands = [
         description:"Three game minutes, no fee. Clears hand soreness and the temporary scrape; learned grip and any lasting mark remain. Waiting also brings recovery.",
         effects:[condition(SORE_HANDS,"remove"),condition(SCRAPED_HANDS,"remove")]}),
     command({id:"body.cold_soak",label:"Stand in the cold wind · 6 min · 2 stamina",location:"Village",duration:6,cancellation:"forfeit",
-        visibleWhen:yes,requires:yes,
+        visibleWhen:yes,requires:{all:[yes,eq("body.underfed",false,"Eat a proper meal first; you have nothing to spend.")]},
         description:"Six game minutes outside and two stamina. Completion counts one cold soak and teaches a little Cold resistance; three soaks can settle a weathered skin. Cancellation forfeits the stamina.",
         costs:[{type:"vital",key:"stamina",amount:-2}],effects:[{type:"xp",skill:"Cold resistance",amount:2},{type:"resource",key:"cold_practice",amount:1}]}),
     command({id:"body.harden_cold",label:"Keep the weathered skin",once:true,location:"Village",
         visibleWhen:{all:[yes,{fact:"resource.cold_practice",op:"gte",value:3}]},requires:yes,
         description:"Three completed cold soaks settle a weathered skin on this body: storm gusts chill you less and cost half the stamina. A different body would not carry it, though you keep knowing how it was earned.",
         effects:[grant(COLD_HARDENED,"trained"),body("skin.weathered"),fact("body.coldLearned"),{type:"knowledge",key:"body.cold",stage:"understood",value:"Repeated cold soaks settled your skin and breathing against gusts. The lesson is yours; the hardening belongs to this body."}]}),
+    command({id:"body.start_frail",label:"A frail beginning",once:true,visibleWhen:eq("actor.body.enrolled",false),location:"Village",
+        description:"Start record for a frail beginning: a thin body after a hungry winter. Applied once when the game starts.",
+        effects:[fact("body.enrolled"),fact("body.gripLearned",false),fact("body.frailStart"),fact("body.steadied",false),grant(FRAIL_FRAME,"acquired"),condition(UNDERFED,"apply"),
+            {type:"knowledge",key:"body.frail",stage:"understood",value:"A long hungry winter left you thin. Food, rest and steady walking are the way back; nothing here is a curse."}]}),
+    command({id:"body.eat_meal",label:"Eat a proper meal · 1 Stale bread · 2 min",location:"Village",duration:2,cancellation:"refund",
+        visibleWhen:{all:[yes,eq("body.underfed",true)]},requires:yes,
+        description:"Sit down and eat one piece of bread slowly. Two game minutes and one Stale bread; completion clears Underfed. Cancelling returns the bread.",
+        costs:[{type:"item",key:bread,amount:-1}],effects:[condition(UNDERFED,"remove"),{type:"knowledge",key:"body.fed",stage:"understood",value:"The meal sits well. Your hands stop shaking and the dizziness lifts."}]}),
+    command({id:"body.steady_walk",label:"Walk the village lane · 4 min · 1 stamina",location:"Village",duration:4,cancellation:"forfeit",
+        visibleWhen:{all:[yes,eq("actor.body.frailStart",true),eq("actor.body.steadied",false)]},requires:{all:[yes,eq("body.underfed",false,"Eat a proper meal first; you have nothing to spend.")]},
+        description:"Four game minutes and one stamina along the lane. Completion teaches a little Running and counts one steady walk; three walks settle a steadier frame. Cancellation forfeits the stamina.",
+        costs:[{type:"vital",key:"stamina",amount:-1}],effects:[{type:"xp",skill:"Running",amount:2},{type:"resource",key:"steady_walks",amount:1}]}),
+    command({id:"body.settle_frame",label:"Keep the steadier frame",once:true,location:"Village",
+        visibleWhen:{all:[yes,eq("actor.body.frailStart",true),{fact:"resource.steady_walks",op:"gte",value:3}]},requires:yes,
+        description:"Three steady walks and a proper meal settle a steadier frame: you can now do marker carrying that was beyond you. The frail build is still part of who you were.",
+        effects:[grant(STEADY_FRAME,"trained"),fact("body.steadied"),{type:"knowledge",key:"body.steadied",stage:"understood",value:"Walking and eating properly have put strength back in your legs. The change came from practice."}]}),
     showHands("body.show_soreness","Let him see your tender hands",eq("body.handsTender",true),"tender_hands","He sees you flexing your tender hands: 'Give them a quiet spell before more work.'"),
     showHands("body.show_calluses","Show your practiced grip",eq("body.callused",true),"callused_hands","He examines the worked palms: 'That grip has been practiced. Keep the care that taught it.'"),
     showHands("body.show_mark","Let him see the palm mark",eq("body.marked",true),"palm_mark","He notices the mark left by rough timber: 'The edge caught you. Smooth it before the next kit.'"),
@@ -73,14 +93,14 @@ export const bodyCommands = [
 
 export function bodyFacts(state) {
     const conditions=state.simulation?.conditions.player || {}, current=id=>conditions[id]?.intensity > 0 && (conditions[id].expiresAt==null || conditions[id].expiresAt>state.clock);
-    return {"body.handsTender":!!(current(SORE_HANDS)||current(SCRAPED_HANDS)),
+    return {"body.underfed":!!current(UNDERFED),"body.handsTender":!!(current(SORE_HANDS)||current(SCRAPED_HANDS)),
         "body.callused":state.simulation?.people.player?.body?.["palms.callused"]===true,
         "body.marked":state.simulation?.people.player?.body?.["palms.marked"]===true};
 }
-export function beginBodyRecord(state,registry,context) {
+export function beginBodyRecord(state,registry,context,frail=false) {
     const enrollment=state.simulation ? null : enrollSimulation(state,registry,context);
     const base=enrollment?.state || state;
-    const out=commitSimulationCommand(base,registry,{id:"body.begin"},{...context,
+    const out=commitSimulationCommand(base,registry,{id:frail ? "body.start_frail" : "body.begin"},{...context,
         external:enrollment?.external || context.external,gameplay:enrollment?.gameplay || context.gameplay});
     if(enrollment) {out.acquisitions=[...enrollment.acquisitions,...out.acquisitions];out.unlocks=[...enrollment.unlocks,...out.unlocks];}
     return out;

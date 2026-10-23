@@ -7,9 +7,11 @@ import {SORE_HANDS, SCRAPED_HANDS, PALM_MARK} from "./body_progression.js";
 export const BODY_STATS = {strength:"Strength", agility:"Agility", dexterity:"Dexterity", intuition:"Intuition",
     max_health:"Health", max_stamina:"Stamina", stamina_efficiency:"Stamina efficiency", cold_tolerance:"Cold tolerance"};
 
+const SLOT_LABELS={build:"Build",bearing:"Bearing",hands:"Hands",marks:"Marks",skin:"Skin"}, SLOT_ORDER=Object.keys(SLOT_LABELS);
 // Biography explains already earned effects. It never applies a bonus, invents
 // a past life, reveals an unobserved technique or writes a second history owner.
-export function characterBioView({state, registry, context, training = []}) {
+// reveal: ids of sources or conditions an observer could actually see; a look marked concealed shows only then.
+export function characterBioView({state, registry, context, training = [], reveal = []}) {
     const actor = state.actors.player, capabilities = inspectCapabilities(state, registry, context);
     const currentConditions = state.simulation?.conditions.player || {};
     const activeCondition = id => {const c=currentConditions[id];return !!(c?.intensity > 0 && (c.expiresAt == null || c.expiresAt>state.clock));};
@@ -19,12 +21,16 @@ export function characterBioView({state, registry, context, training = []}) {
         const grants = Object.values(capabilities).flatMap(capability => capability.contributions
             .filter(c => c.sourceId === id).map(c => `${capability.label} +${c.amount}`));
         const origin=instance.origin || "unknown";
-        const cause = ({inherited:"Inherited body trait · ancestry uncertain",trained:"Acquired through training",acquired:"Acquired through experience"})[origin] ||
+        const cause = source.bioCause || ({inherited:"Inherited body trait · ancestry uncertain",trained:"Acquired through training",acquired:"Acquired through experience"})[origin] ||
             (source.kind === "knowledge" ? "Learned knowledge" : source.kind === "bloodline" ? "Awakened bloodline · origin unknown" : "Discovered trait");
         const label=id === PALM_MARK ? activeCondition(SCRAPED_HANDS) ? "Palm scrape" : "Faint palm scar" : source.label;
-        return [{id, label, detail:grants.join(" · ") || source.bioDetail || "Currently inactive", cause, origin}];
+        const row={id, label, detail:grants.join(" · ") || source.bioDetail || "Currently inactive", cause, origin};
+        // A trait replaced by a held successor fades: kept as a record with its reason, no longer shaping the description.
+        const successor=source.supersededBy && actor.sources[source.supersededBy] ? registry.sources.get(source.supersededBy) : null;
+        return [successor ? {...row, detail:source.fadedDetail || "No longer shapes you.", cause:`Faded: replaced by ${successor.label}`, origin:"faded"} : row];
     });
-    const heritage=sources.filter(row=>row.origin === "inherited"), learned=sources.filter(row=>row.origin !== "inherited");
+    const faded=sources.filter(row=>row.origin === "faded");
+    const live=sources.filter(row=>row.origin !== "faded"), heritage=live.filter(row=>row.origin === "inherited"), learned=live.filter(row=>row.origin !== "inherited");
     const conditions=Object.entries(currentConditions).flatMap(([id,c])=>{
         const definition=registry.simulation.conditions.get(id);
         if(!activeCondition(id) || !(definition?.bioVisible || id.startsWith("mood."))) return [];
@@ -46,7 +52,17 @@ export function characterBioView({state, registry, context, training = []}) {
         return [{id:skill.id, label:skill.label, detail:bonuses.join(" · "),
             cause:`Trained level ${skill.level}${current !== skill.level ? ` · Current level ${current}` : ""}`, effect:skill.bodyEffect || ""}];
     });
+    // Self-description: one line per slot, read only from the rows already filtered above, so sealed or
+    // unawakened sources never appear and nothing is stored. The highest rank in a slot wins.
+    const slots=new Map(), consider=(id,definition,kind)=>{
+        const look=definition?.look; if(!look || look.concealed && !reveal.includes(id)) return;
+        const rank=look.rank ?? 1, held=slots.get(look.slot);
+        if(!held || rank>held.rank) slots.set(look.slot,{rank,row:{id:`look.${look.slot}`,label:SLOT_LABELS[look.slot] || look.slot,detail:look.text,cause:`From ${kind}: ${definition.label}`}});
+    };
+    for(const row of live) consider(row.id,registry.sources.get(row.id),"your body");
+    for(const row of conditions) consider(row.id,registry.simulation.conditions.get(row.id),"your condition");
+    const description=SLOT_ORDER.flatMap(slot=>slots.has(slot) ? [slots.get(slot).row] : []);
     return {identity:worldIdentityView(state, registry).label,
         life:state.chronicle ? `Chronicle age: ${ageYears(state.chronicle, state.clock).toFixed(1)} years${state.chronicle.life.endedAt != null ? " · Life ended" : ""}` : "",
-        learned, heritage, conditions, techniques, influences};
+        description, faded, learned, heritage, conditions, techniques, influences};
 }
