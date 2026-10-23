@@ -455,6 +455,8 @@ def process_chapter(h, meta, tools, profile, cbz=None):
             cv2.imwrite(str(p), canvas[a:b])
             paths.append(p)
         vis = C.ocr_images(paths)
+        if C.ocr_failure_message(vis):
+            return {"error": C.ocr_failure_message(vis)}
         t_vis = time.time() - t0
         raw = []
         for (k, a, b), p in zip(strips, paths):

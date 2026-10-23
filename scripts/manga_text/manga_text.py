@@ -27,9 +27,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import common as C  # noqa: E402
+import failures as F  # noqa: E402
 
 SHAPE_CACHE = C.RUNS / "shape_cache.json"
-MAX_TRIES = 3
 
 
 def hashlib_sha(path):
@@ -96,6 +96,11 @@ def is_done(h, meta, profiles, shapes):
     fmt = head.get("format", "manga")
     tools, _ = tools_for(fmt, series, profiles)
     return C._without_build(head.get("tools")) == C._without_build(tools)
+
+
+def chapter_tools(h, meta, profiles, shapes):
+    series = C.parse_title(meta["title"])[0]
+    return F.tools_id(tools_for(format_of(h, shapes), series, profiles)[0])
 
 
 def process_one(h, meta, profiles, shapes, force=False):
@@ -269,7 +274,7 @@ def cmd_watch(args):
     logf = open(C.RUNS / "watch.log", "a")
     progf = C.RUNS / "watch_progress.json"
     shapes = load_shapes()
-    tries = {}
+    ledger = F.load()
     caff = Caffeinate()
     pause_file = Path(args.pause_file) if args.pause_file else PAUSE_FILE
     prog = {"pid": os.getpid(), "state": "starting", "started_utc": now(), "cycles": 0, "done": 0, "skipped": 0, "missing": 0,
@@ -294,9 +299,16 @@ def cmd_watch(args):
             time.sleep(5)
         log("PAUSE cleared" if not stop_requested() else "STOP while paused", logf)
 
-    def record(status, detail, title, h):
+    def record(status, detail, title, h, profiles=None):
         if status == "error":
-            tries[h] = tries.get(h, 0) + 1
+            try:
+                tid = chapter_tools(h, {"title": title}, profiles or webtoon.load_profiles(), shapes)
+            except Exception:  # noqa: BLE001
+                tid = ""
+            ent = F.record_failure(h, title, detail, h, tid, ledger)
+            detail = f"[{ent['class']}, attempt {ent['attempts']}{', final' if ent['final'] else ', will retry once'}] {ent['reason']}"
+        elif status == "done":
+            F.clear(h, ledger)
         prog[{"done": "done", "skipped": "skipped", "skip": "skipped", "missing": "missing", "error": "errors"}[status]] += 1
         log(f"{status} {title} {h[:10]} {detail}", logf)
 
@@ -322,8 +334,15 @@ def cmd_watch(args):
                 for e in books.queue_entries():
                     if stop_requested() or pause_file.exists():
                         break
-                    if tries.get("book:" + e["path"], 0) >= MAX_TRIES:
-                        continue                                # failed three times in this run: leave it until restart
+                    key = "book:" + e["path"]
+                    try:
+                        langs, mode = books.entry_options(e)
+                        tid = F.tools_id(books.versions(langs, e.get("mode") or mode, webtoon.load_profiles()["databook"]))
+                    except Exception:  # noqa: BLE001
+                        tid = ""
+                    src = F.source_id(e["path"])
+                    if not F.should_attempt(key, src, tid, ledger):
+                        continue                                # failed for good (or retried once) with this file and these tools
                     prog["current"] = "book: " + Path(e["path"]).name
                     save()
                     caff.hold()
@@ -331,9 +350,11 @@ def cmd_watch(args):
                         status, detail = run_book(e)
                     except Exception as ex:  # noqa: BLE001
                         status, detail = "error", f"{type(ex).__name__}: {ex}"
-                    key = "book:" + e["path"]
                     if status == "error":
-                        tries[key] = tries.get(key, 0) + 1
+                        ent = F.record_failure(key, Path(e["path"]).name, detail, src, tid, ledger)
+                        detail = f"[{ent['class']}, attempt {ent['attempts']}{', final' if ent['final'] else ', will retry once'}] {ent['reason']}"
+                    elif status == "done":
+                        F.clear(key, ledger)
                     if status != "skip":
                         record(status if status != "skip" else "skipped", detail, Path(e["path"]).name, hashlib_sha(e["path"]))
                     books_done += status == "done"
@@ -345,10 +366,11 @@ def cmd_watch(args):
             todo = []
             for h, m in rows:
                 try:
-                    if not C.cbz_path(h).exists() or tries.get(h, 0) >= MAX_TRIES:
+                    if not C.cbz_path(h).exists():
                         continue
                     if not is_done(h, m, profiles, shapes):
-                        todo.append((h, m))
+                        if F.should_attempt(h, h, chapter_tools(h, m, profiles, shapes), ledger):
+                            todo.append((h, m))
                 except Exception as e:  # noqa: BLE001
                     log(f"check failed {m['title']}: {e}", logf)
             prog["pending_last_cycle"], prog["state"], prog["cycles"] = len(todo), "working", prog["cycles"] + 1
@@ -419,6 +441,60 @@ def cmd_watch(args):
         prog["state"], prog["current"] = "stopped", None
         save()
         log("exiting", logf)
+
+
+def coverage_rows():
+    """Per series: (series, downloaded, ocr'd, missing, errors). Catalogue read-only; downloaded = cbz present on disk.
+    Books (queue entries) are listed by title, one file each."""
+    import books
+    con = C.db()
+    indexed = {r[0] for r in con.execute("select cbz_sha256 from chapters")}
+    book_titles = {r[0] for r in con.execute("select series from chapters where format = 'book'")}
+    con.close()
+    ledger = F.load()
+    rows = {}
+    for h, m in C.cat_rows():
+        series = C.parse_title(m["title"])[0]
+        if series in C.EXCLUDE_SERIES or not C.cbz_path(h).exists():
+            continue
+        r = rows.setdefault(series, [0, 0, 0])
+        r[0] += 1
+        if h in indexed:
+            r[1] += 1
+        elif h in ledger and ledger[h].get("final"):
+            r[2] += 1
+    out = [(s, d, o, d - o, e) for s, (d, o, e) in rows.items()]
+    for e in books.queue_entries():
+        title = e.get("title") or books.book_title(Path(e["path"]))
+        ok = title in book_titles
+        err = ("book:" + e["path"]) in ledger and ledger["book:" + e["path"]].get("final")
+        out.append(("[book] " + title, 1, int(ok), int(not ok), int(bool(err) and not ok)))
+    return out
+
+
+def cmd_coverage(args):
+    rows = coverage_rows()
+    miss = [r for r in rows if r[3] or r[4]]
+    tot = [sum(r[i] for r in rows) for i in (1, 2, 3, 4)]
+    print(f"{'series':44s} {'down':>5s} {'ocr':>5s} {'miss':>5s} {'err':>4s}")
+    shown = sorted(miss, key=lambda r: -r[3])[:max(1, args.lines - 3)]
+    for s, d, o, m, e in shown:
+        print(f"{s[:44]:44s} {d:5d} {o:5d} {m:5d} {e:4d}")
+    if len(miss) > len(shown):
+        print(f"... {len(miss) - len(shown)} more series with gaps")
+    print(f"{'ALL ' + str(len(rows)) + ' series/books, ' + str(len(rows) - len(miss)) + ' complete':44s} {tot[0]:5d} {tot[1]:5d} {tot[2]:5d} {tot[3]:4d}")
+
+
+def cmd_failures(args):
+    d = F.load()
+    if args.clear:
+        for k in [k for k, e in d.items() if args.clear in e["title"]]:
+            F.clear(k)
+            print("cleared", d[k]["title"])
+        return
+    for e in sorted(d.values(), key=lambda e: (e["class"], e["title"]))[:max(1, args.lines)]:
+        print(f"{e['class']:16s} {'final' if e.get('final') else 'retry':5s} x{e['attempts']} {e['title'][:50]} | {e['reason'][:60]}")
+    print(f"{len(d)} recorded: {dict((f'{c}/{s}', n) for (c, s), n in F.summary(d).items())}")
 
 
 def cmd_search(args):
@@ -498,6 +574,13 @@ def main():
     w.add_argument("--max-workers", type=int, default=0, help="parallel chapter workers (default env OCR_MAX_WORKERS, else 1)")
     w.add_argument("--pause-file", help="pause while this file exists (default ~/.local/share/source-platform/governor/PAUSE)")
     w.set_defaults(fn=cmd_watch)
+    cv = sub.add_parser("coverage", help="downloaded vs OCR'd per series, under 15 lines")
+    cv.add_argument("--lines", type=int, default=14)
+    cv.set_defaults(fn=cmd_coverage)
+    fl = sub.add_parser("failures", help="failure ledger: class, attempts, reason")
+    fl.add_argument("--lines", type=int, default=12)
+    fl.add_argument("--clear", help="forget failures whose title contains this text (the next cycle tries them again)")
+    fl.set_defaults(fn=cmd_failures)
     s = sub.add_parser("search")
     s.add_argument("query")
     s.add_argument("--series")

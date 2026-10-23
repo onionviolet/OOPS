@@ -23,15 +23,18 @@ import cv2
 import numpy as np
 from PIL import Image
 
+import chips as CH
 import common as C
 import tables as TB
 import webtoon as W
 
 BOOKS_VERSION = "books-0.2"      # 0.2: ignore page-sized frames and mostly empty grids (panel layouts)
+BOOKS_JA_VERSION = "books-0.3"   # 0.3: Japanese runs only: chip pass for reversed label text, very_low_confidence flag; English books stay 0.2
 LONG_SIDE = 2400
 TEXT_LAYER_MIN = 40                # chars: below this a PDF page counts as image-only
 CHUNK = 10
 LOW_CONF = 0.9
+VERY_LOW_CONF = 0.4
 DEFAULT_LANGS = ["ja-JP", "en-US"]
 
 
@@ -59,7 +62,7 @@ def lang_of(text):
 
 
 def versions(langs, mode, profile):
-    return {"tool": BOOKS_VERSION, "schema": C.SCHEMA_VERSION,
+    return {"tool": (BOOKS_JA_VERSION + "+" + CH.CHIPS_VERSION) if langs and langs[0].startswith("ja") else BOOKS_VERSION, "schema": C.SCHEMA_VERSION,
             "ocr": f"apple-vision-VNRecognizeTextRequest accurate {','.join(langs)} auto-language macOS-build-{C.mac_build()}",
             "detector": None, "order": "rows; vertical-rl when most lines are tall", "mode": mode,
             "profile": f"{profile['name']}@{W.profile_hash(profile)}"}
@@ -145,12 +148,14 @@ def kv_from_lines(lines):
     return kv
 
 
-def analyse_page(png_path, ocr_result, profile, page_no, file_sha, series):
+def analyse_page(png_path, ocr_result, profile, page_no, file_sha, series, chip_lines=None):
     """Items, tables and profile boxes from one OCR'd page image. Returns (items, regions, direction, size)."""
     im = cv2.imread(str(png_path))
     H, Wd = im.shape[:2]
     gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
     lines = W.lines_from(ocr_result, Wd, H)
+    if chip_lines:
+        lines = chip_lines(lines)
     regions, used_lines = [], set()
     page_area = H * Wd
     for t in TB.find_tables(gray):
@@ -242,12 +247,32 @@ def process_book(path, title=None, langs=None, mode="auto", profile=None, tools=
                     im.save(f)
                 imgs[p] = f
             vis = C.ocr_images(list(imgs.values()), langs=langs) if imgs else {}
+            if C.ocr_failure_message(vis):
+                return {"error": C.ocr_failure_message(vis)}
+            chip_boxes, chip_vis = {}, {}
+            if langs and langs[0].startswith("ja") and imgs:
+                crops = {}
+                for p, f in imgs.items():
+                    im = cv2.imread(str(f))
+                    chip_boxes[p] = CH.find_chips(im)
+                    for k, b in enumerate(chip_boxes[p]):
+                        cf = f.with_name(f"c{p:05d}_{k:02d}.png")
+                        cv2.imwrite(str(cf), CH.crop_for_ocr(im, b))
+                        crops[(p, k)] = cf
+                cv_ = C.ocr_images(list(crops.values()), langs=langs) if crops else {}
+                if C.ocr_failure_message(cv_):
+                    return {"error": C.ocr_failure_message(cv_)}
+                for (p, k), cf in crops.items():
+                    o = cv_.get(cf.name, {}).get("obs", [])
+                    chip_vis[(p, k)] = ("".join(x["text"] for x in o), min([x["conf"] for x in o], default=0.0))
             for p in chunk:
                 items, regions, direction, size = [], [], "horizontal", None
                 source = "none"
                 text_layer = (layer[p]["text"] if kind == "pdf" and p in layer else (ep[p - 1]["text"] if kind == "epub" else "")).strip()
                 if p in imgs:
-                    blocks, regions, direction, size = analyse_page(imgs[p], vis.get(imgs[p].name, {}), profile, p, file_sha, series)
+                    blocks, regions, direction, size = analyse_page(
+                        imgs[p], vis.get(imgs[p].name, {}), profile, p, file_sha, series,
+                        (lambda ls, p=p: CH.add_missing(ls, chip_boxes[p], [chip_vis[(p, k)] for k in range(len(chip_boxes[p]))])) if p in chip_boxes else None)
                     source = "ocr"
                     stats["ocr_pages"] += 1
                     for blk in blocks:
@@ -257,6 +282,8 @@ def process_book(path, title=None, langs=None, mode="auto", profile=None, tools=
                         flags = []
                         if confs and min(confs) < LOW_CONF:
                             flags.append("low_confidence")
+                        if confs and min(confs) < VERY_LOW_CONF and langs and langs[0].startswith("ja"):
+                            flags.append("very_low_confidence")        # Vision reports ja confidence in tiers (0.3, 0.5, 1.0): only the 0.3 tier was wrong often
                         risk = None
                         if lg == "en":
                             risk = C.item_risk(text, confs, C.series_vocab(series))[0]

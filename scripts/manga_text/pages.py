@@ -201,6 +201,8 @@ def process_chapter(h, meta, tools, cbz=None):
         if problems:
             return {"hash": h, "error": "; ".join(problems)}
         vis = C.ocr_images([u["path"] for p in pages for u in p["units"]])
+        if C.ocr_failure_message(vis):
+            return {"error": C.ocr_failure_message(vis)}
         t_vis = time.time() - t0
         det = run_detector(pages)
         t_det = time.time() - t0 - t_vis

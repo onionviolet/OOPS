@@ -41,6 +41,8 @@ $PY $M run --series "Jujutsu Kaisen" [--chapters 1,10,16] [--force]     # explic
 $PY $M run --all --progress docs/research/manga-text/private/runs/run_progress.json
 $PY $M watch [--interval 600] [--max-workers N] [--pause-file PATH]      # one instance; STOP or PAUSE file
 $PY $M search "literal phrase" --series "Omniscient Reader" --kind "panel_scenario_card" [--chapter 10-20] [--limit 20] [--loose]
+$PY $M coverage                              # per series: downloaded, OCR'd, missing, errors (under 15 lines)
+$PY $M failures [--clear TITLE]              # failure ledger: class, attempts, reason
 $PY $M catalog | reindex | profiles | shape --hash <cbz sha256> | doctor | fetch-models
 $PY $M verify --series X [--chapter N]       # re-check page hashes: CBZ on disk vs catalogue vs chapter files
 $PY $M export --series X [--chapter N]       # chapter.md per chapter (private, text only)
@@ -101,9 +103,26 @@ hash; a macOS build change alone does not invalidate a chapter), logs to `privat
 after the current chapter. If `~/.local/share/source-platform/governor/PAUSE` exists it finishes the current chapter, takes no new work,
 releases its `caffeinate` assertion (it holds one only while processing) and idles until the file is gone. `--max-workers N` or env
 `OCR_MAX_WORKERS=N` sets parallel chapter workers (default 1); `OCR_THREADS=N` caps OpenCV/BLAS threads. No LaunchAgent is installed;
-the watcher does not survive a reboot (see the audit file for an optional LaunchAgent description). Chapters whose CBZ is missing on disk are retried next cycle; a chapter that
-errors three times in one watcher run is left alone until restart. Profile files are re-read every cycle; code changes need a
-restart.
+the watcher does not survive a reboot (see the audit file for an optional LaunchAgent description). Chapters whose CBZ is missing on disk are skipped until it appears.
+Profile files are re-read every cycle; code changes need a restart.
+
+#### Failures: classify, retry once, never loop
+
+Every error goes to `private/runs/failures.json` (survives restarts) with a class, a short reason, the attempt count and whether it
+is final. Classes: `corrupt_source` (truncated or damaged PDF, bad zip, unreadable image), `missing_source`, `hash_mismatch`,
+`kind_mismatch` (unsupported file type), `unsupported_image`, `killed_memory` (helper killed, SIGKILL), `timeout`, `vision_failure`,
+`other`. The first five are permanent: one attempt, then skipped. The rest get one retry (two attempts), then are final. An entry is
+ignored (the item is tried again) when the source file identity (size and mtime for books, content hash for chapters) or the tool
+versions change. `failures --clear TITLE` forgets one by hand. If a Vision batch is killed or times out, OCR retries image by image
+so one bad page cannot take down a chapter; a page that still fails makes the chapter an `ocr_failed` error instead of silently
+indexing an empty page. The 2026-10-23 errors were one Bleach chapter whose 20-image batch was SIGKILLed (memory pressure; it passed on the
+next cycle) and four truncated PDF downloads (no trailer or xref: `qpdf --check` and `pdfinfo` agree), which the old in-memory
+counter retried every cycle after each restart. Re-download those four to process them.
+
+#### Coverage
+
+`coverage` joins the catalogue (read-only; CBZ present on disk, plus queued books) with the OCR index and the ledger, and prints
+only series with a gap, then one total line. `err` counts items whose failure is final.
 
 ## Output layout (stable paths for citing)
 
@@ -121,8 +140,8 @@ Chapter folders are `ch` plus the zero-padded chapter number (`ch0129.5`), or `x
 
 `schema` is in every header and in the `tools` block. 1: manga items (stage1-0.2). 2: webtoon strips and panels. 3 (current): manga
 items get `panel` (gutter cuts, with `panel_method`), `risk` (0 to 1, sorts likely OCR errors first), `in_balloon`, and `kind` is now
-`speech | caption | sfx | page_number | unknown` (was `bubble | free | ...`); the `very_low_confidence` flag is gone and `high_risk`
-replaces it; page records carry a `panels` list. Migration is a re-run: the tool block differs, so the watcher (or `run --force`)
+`speech | caption | sfx | page_number | unknown` (was `bubble | free | ...`); the manga `very_low_confidence` flag is gone and `high_risk`
+replaces it (book mode brings `very_low_confidence` back for Japanese runs only, see below); page records carry a `panels` list. Migration is a re-run: the tool block differs, so the watcher (or `run --force`)
 rewrites the chapter, reusing cached OCR. Old files stay valid readers' input until rewritten (`kind` values differ).
 
 ### Record fields
@@ -154,6 +173,31 @@ profile: it needs no code edit.
 locators and short contexts for a reader to judge), `kv` (panel key-value rows as a table), `numbers` (numbers next to a pattern,
 by chapter). Term matching is loose by default (line-break hyphens, accents, spacing). Outputs go to `private/audits/`.
 Findings and pilot results: [AUDIT_USES_2026-10-23.md](../../docs/research/manga-text/AUDIT_USES_2026-10-23.md).
+
+### Japanese scans (books-0.3, 2026-10-23)
+
+Apple Vision reports Japanese confidence in tiers (0.3, 0.5, 1.0), so `low_confidence` (below 0.9) fired on 67 to 69% of the two Fate/Grand Order
+material books without meaning "wrong". Hand-check by a vision model (not a human) of 30 sampled lines: the 1.0 and 0.5 tiers were
+mostly right (about 7 of 12 mid-tier lines exact, the rest one or two dropped characters); the 0.3 tier was white-on-black label
+chips that Vision misread or dropped. Japanese runs now add `very_low_confidence` (below 0.4) next to `low_confidence`; review that flag
+first. Measured on 10 sampled pages (223 lines, 5,138 characters), each option against the baseline (ja-JP,en-US, accurate, correction on,
+2400 px):
+
+| Option | Result |
+|---|---|
+| language `ja-JP` only / `en-US,ja-JP` order | same: low 50.9% / 50.7% vs 50.2%, chars 5,123 / 5,136 vs 5,138 |
+| language correction off | worse: confident characters 3,029 vs 3,218 |
+| fast recognition level | much worse: 2,826 chars, none confident |
+| render at 3600 px | no gain (chars 5,141, low 52%) |
+| 1.5x cubic upscale, grayscale contrast stretch, CLAHE, deskew | no gain (low 50.0 / 50.9 / 53.2 / 50.2%) |
+| `manga-ocr` on each line crop (cached model, offline) | rejected: it is a single-line model and misread most wide lines that Vision had right (about 49% text agreement, wrong on the lines checked by eye) |
+| chip pass (new) | kept: 7 more label mentions (64 to 71) on the 10-page extract, 91 to 98 items, very-low count unchanged |
+
+The chip pass (`chips.py`) finds dark filled rectangles with light glyphs, inverts and enlarges each, reads it alone with Vision, and adds
+it only when no overlapping first-pass line already contains the same text. The low-confidence rate does not fall (chips read at 0.5);
+the gain is recall of labels such as the three person-reference labels. Vertical text was nearly absent in these books (1 tall line in
+the sample) so no vertical option was measured. Furigana are dropped by Vision; a white-on-black credit banner can lose its last
+characters (not a chip, not fixed). Tool string for Japanese runs is `books-0.3+chips-1`; English-only runs stay `books-0.2`.
 
 ## Known limits
 

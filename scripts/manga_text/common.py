@@ -239,15 +239,21 @@ def ocr_images(paths, batch=40, use_cache=True, langs=None):
             return subprocess.run([str(BIN)] + lang_args + files, capture_output=True, text=True, check=True, timeout=timeout).stdout
         except subprocess.TimeoutExpired:
             return None
+        except subprocess.CalledProcessError as e:           # killed (memory pressure) or crashed on one image: caller retries singly
+            return "FAILED:" + (f"signal {-e.returncode}" if e.returncode < 0 else f"exit {e.returncode}")
 
     for i in range(0, len(todo), batch):
         files = todo[i:i + batch]
         out = helper(files, 300 + 10 * len(files))
-        if out is None:                                      # retry image by image so one bad page costs one timeout, not the batch
+        if out is None or out.startswith("FAILED:"):         # retry image by image so one bad page costs one page, not the batch
             lines = []
             for f in files:
                 o = helper([f], 120)
-                lines.append(o.strip().splitlines()[0] if o and o.strip() else json.dumps({"file": Path(f).name, "obs": [], "error": "ocr_timeout"}))
+                if o is not None and not o.startswith("FAILED:") and o.strip():
+                    lines.append(o.strip().splitlines()[0])
+                else:
+                    why = "ocr_timeout" if o is None else "ocr_failed " + (o[7:] if o else "empty output")
+                    lines.append(json.dumps({"file": Path(f).name, "obs": [], "error": why}))
         else:
             lines = out.splitlines()
         for p, line in zip(files, lines):
@@ -260,6 +266,19 @@ def ocr_images(paths, batch=40, use_cache=True, langs=None):
     if con:
         con.close()
     return res
+
+
+def ocr_failures(vis):
+    """Names of images whose Vision call failed outright (timeout, crash, kill): an empty page is not the same as an unread page."""
+    return sorted(n for n, d in vis.items() if d.get("error"))
+
+
+def ocr_failure_message(vis):
+    bad = ocr_failures(vis)
+    if not bad:
+        return None
+    kinds = sorted({vis[n]["error"] for n in bad})
+    return f"ocr_failed on {len(bad)} of {len(vis)} images ({'; '.join(kinds)[:120]})"
 
 
 # ------------------------------------------------------------------ text quality: lexicon and calibrated risk
