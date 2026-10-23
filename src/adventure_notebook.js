@@ -15,7 +15,7 @@ const panels = [
     ["causal_story_panel","here"],
     ["repository_absorption_panel","here"], ["backlog_expansion_panel","here"], ["ink_narrative_panel","here"],
     ["original_frontier_panel","here"], ["pocket_realm_panel","here"], ["town_panel", "here"], ["village_panel", "here"], ["expedition_panel", "here"], ["field_panel","here"],
-    ["skills_panel","practice"], ["technique_panel", "practice"], ["body_panel", "practice"], ["chronicle_panel", "people"], ["storylet_panel", "people"], ["simulation_panel", "people"], ["pursuit_panel","people"], ["frontier_campaign_panel","people"], ["party_panel","people"], ["exchange_panel","people"], ["observation_panel","people"], ["promise_panel","people"]
+    ["skills_panel","practice"], ["technique_panel", "practice"], ["body_panel", "practice"], ["aging_contact_panel", "practice"], ["chronicle_panel", "people"], ["storylet_panel", "people"], ["simulation_panel", "people"], ["pursuit_panel","people"], ["frontier_campaign_panel","people"], ["party_panel","people"], ["exchange_panel","people"], ["observation_panel","people"], ["promise_panel","people"]
 ];
 const node = (tag, text = "", className = "") => {const n = document.createElement(tag); n.textContent = text; n.className = className; return n;};
 

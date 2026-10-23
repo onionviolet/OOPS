@@ -1,5 +1,6 @@
 // D8-A / P14 S1's optional typed outcome owner. Feed and biography remain views.
 import {natural as nat} from './basics.js';
+import {ensureStreams,rollTable,rollInt} from './seeded_streams.js';
 export const HISTORY_LIMIT=96;
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
 const ref=v=>typeof v==='string'&&v.length>0&&v.length<=240;
@@ -34,6 +35,7 @@ export function validateLoreHistory(state) {
     }
     if(h.consumerPins!=null){check(object(h.consumerPins)&&Object.keys(h.consumerPins).length<=32);for(const refs of Object.values(h.consumerPins))check(Array.isArray(refs)&&refs.length<=8&&refs.every(id=>ids.has(id)));}
     for(const e of Object.values(state.simulation?.events||{}))if(e.historyRef)check(ids.has(e.historyRef));
+    if(h.worldHistories!=null){check(object(h.worldHistories)&&Object.keys(h.worldHistories).length<=16);for(const [id,w] of Object.entries(h.worldHistories)){check(w!=null&&w.worldId===id);validateWorldHistory(w);}}
     return h;
 }
 export function appendStoryOutcome(state,record) {
@@ -65,4 +67,51 @@ export function recordStoryletOutcome(out,event,{result,action,cause,before}) {
         targetPerson:parent?.targetPerson||event.targetId,targetObject:parent?.targetObject||item?.key||null,targetPlace:'Village',action: event.historyRef&&action==='storylet.response'?'aftermath.response':action,result,at:out.state.clock,
         producer:'P3',causeRefs:[event.id,cause],historyCauses:event.historyRef?[event.historyRef]:[],audience:[...event.discoveredBy],
         known:{...(parent?{person:parent.known.person,item:parent.known.item}:{}),label:event.label},applied});
+}
+
+// IM24 (itch.io wave; the stored-relations-matrix idea from Azgaar's map generator, no code or tables copied).
+// A world keeps standing relations between its factions; wars are derived from them by rule, each logged with its cause.
+// Draws are pure keyed decisions on the saved stream root, so a reload or re-derivation reproduces the same history.
+export const RELATION_KINDS=Object.freeze(['ally','friendly','neutral','suspicion','rival','enemy']);
+const RELATION_WEIGHTS=Object.freeze({neighbor:[2,3,3,3,3,2],distant:[1,2,6,2,1,0]});
+const pair=(a,b)=>a<b?`${a}|${b}`:`${b}|${a}`;
+export function validateWorldHistory(w) {
+    if(w==null)return;
+    check(object(w)&&w.schema===1&&ref(w.worldId)&&Array.isArray(w.factions)&&w.factions.length>=2&&w.factions.length<=16&&object(w.relations)&&Array.isArray(w.wars)&&w.wars.length<=64);
+    const ids=new Set();
+    for(const f of w.factions){check(object(f)&&ref(f.id)&&!ids.has(f.id)&&Number.isFinite(f.area)&&f.area>0&&Number.isFinite(f.expansion)&&f.expansion>0);ids.add(f.id);}
+    for(const [k,v] of Object.entries(w.relations)){const [a,b]=k.split('|');check(ids.has(a)&&ids.has(b)&&a<b&&RELATION_KINDS.includes(v));}
+    for(const war of w.wars)check(object(war)&&ref(war.id)&&ids.has(war.attacker)&&ids.has(war.defender)&&war.attacker!==war.defender&&nat(war.year)&&object(war.cause)&&ref(war.cause.relation)&&RELATION_KINDS.includes(war.cause.relation)&&
+        Array.isArray(war.attackerAllies)&&Array.isArray(war.defenderAllies)&&[...war.attackerAllies,...war.defenderAllies].every(id=>ids.has(id)));
+}
+// factions: [{id,area,expansion}] supplied by the world; omitted fields are drawn. Idempotent per world: a stored history is returned unchanged, and each world keeps its own under `worldHistories`.
+export function deriveWorldHistory(state,{worldId='base.frontier',factions=['north','east','south','west','coast'],startYear=0}={}) {
+    validateLoreHistory(state);
+    const h=state.loreHistory ||= {schema:1,enrolledAt:state.clock,nextId:1,evicted:0,receipts:[]};
+    if(h.worldHistories?.[worldId])return h.worldHistories[worldId];
+    const s=ensureStreams(state),stream=`world.events@${worldId}`;
+    const fs=factions.map((f,i)=>{const id=typeof f==='string'?f:f.id;
+        return {id,area:f.area??rollInt(s,stream,`area:${id}`,10,100,{dist:'uniform'}).value,expansion:f.expansion??(rollInt(s,stream,`expansion:${id}`,5,20,{dist:'uniform'}).value/10)};});
+    const relations={};
+    fs.forEach((a,i)=>fs.slice(i+1).forEach((b,j)=>{
+        const ring=j===0||(i===0&&i+j+1===fs.length-1);
+        relations[pair(a.id,b.id)]=RELATION_KINDS[rollTable(s,stream,`relation:${pair(a.id,b.id)}`,RELATION_WEIGHTS[ring?'neighbor':'distant']).index];}));
+    const by=id=>fs.find(f=>f.id===id),rel=(a,b)=>relations[pair(a,b)],atWar=new Set(),wars=[];
+    const power=(f,key)=>f.area*f.expansion*(0.5+rollInt(s,stream,key,0,100,{dist:'uniform'}).value/100);
+    for(const a of fs) for(const b of fs) {
+        const r=a.id===b.id?null:rel(a.id,b.id);
+        if(!['rival','enemy'].includes(r)||atWar.has(a.id)||atWar.has(b.id))continue;
+        const key=`war:${a.id}>${b.id}`,pa=power(a,`${key}:att`),pb=power(b,`${key}:def`);
+        if(pa<=pb)continue;
+        const others=fs.filter(f=>f.id!==a.id&&f.id!==b.id&&!atWar.has(f.id)),
+            defenderAllies=others.filter(f=>rel(f.id,b.id)==='ally'&&rel(f.id,a.id)!=='ally'&&pa<power(f,`${key}:join:${f.id}`)*2).map(f=>f.id),
+            attackerAllies=others.filter(f=>rel(f.id,a.id)==='ally'&&!defenderAllies.includes(f.id)).map(f=>f.id);
+        for(const id of [a.id,b.id,...defenderAllies,...attackerAllies])atWar.add(id);
+        wars.push({id:`war:${wars.length+1}`,attacker:a.id,defender:b.id,year:startYear+rollInt(s,stream,`${key}:year`,1,50,{dist:'uniform'}).value,
+            cause:{relation:r,attackerPower:Math.round(pa),defenderPower:Math.round(pb)},attackerAllies,defenderAllies});
+    }
+    wars.sort((x,y)=>x.year-y.year).forEach((w,i)=>w.id=`war:${i+1}`);
+    const made={schema:1,worldId,factions:fs,relations,wars};validateWorldHistory(made);
+    (h.worldHistories ||= {})[worldId]=made;
+    return made;
 }

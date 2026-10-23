@@ -6,6 +6,8 @@ import {deriveHomeEstate,applyHomeEstate,validateHomeEstate} from './home_inheri
 // as recipient when one was taught.
 import {check, positive as count} from './basics.js';
 import {setSavedPurse} from './money.js';
+import {passHeirloomKey, readMaterialLineage} from './material_lineage.js';
+import {calendarMinutes} from './world_rhythm.js';
 const LESSON_IDS = Object.freeze(['routeSignals', 'guardLesson', 'controlPattern']);
 export const HEIR_OBLIGATIONS = Object.freeze({
     grievance: 'An unsettled assault grievance with the elder (3-coin restitution still owed)',
@@ -13,6 +15,49 @@ export const HEIR_OBLIGATIONS = Object.freeze({
 });
 export const HEIR_HOME_LOCATION = 'Shack';
 const MAX_ROWS = 512;
+
+// Inheritance law (IM8, AD1/AD38, 2026-10-23): a per-world dial that picks the
+// heir from a household's kin. Every field is a default with a reason, not a
+// rule for all worlds; a world may register another law or override a field
+// with an in-world cause. 'single-successor' is today's behavior (no kin
+// consulted, recipient from lessons taught) and stays the default so existing
+// saves and worlds are unchanged. Modeled on Kinfolks' heir order, claimants
+// and spouse life estate (docs/research/ITCH_IO_IDLE_SCREEN_2026-10-22.md I3-a).
+export const HEIR_LAWS = Object.freeze({
+    'single-successor': Object.freeze({id: 'single-successor', order: [], claimants: [], spouseLifeEstate: false, apprenticeFirst: true,
+        reason: 'The original Frontier route: one successor, the apprentice when one was taught, else next of kin.'}),
+    'ultimogeniture': Object.freeze({id: 'ultimogeniture', order: ['youngest-son', 'youngest-daughter'], claimants: ['child', 'spouse'], spouseLifeEstate: true, apprenticeFirst: false,
+        reason: 'Ridge custom: the youngest adult blood son, then the youngest daughter; a widow keeps the house for life while a blood heir waits.'}),
+    'primogeniture': Object.freeze({id: 'primogeniture', order: ['eldest-child'], claimants: ['child'], spouseLifeEstate: false, apprenticeFirst: true,
+        reason: 'Town custom: the eldest adult child takes the house; a taught apprentice still takes the craft.'}),
+});
+export const DEFAULT_HEIR_LAW = 'single-successor';
+export function heirLaw(id = DEFAULT_HEIR_LAW) {
+    check(Object.hasOwn(HEIR_LAWS, id), 'Unknown inheritance law.');
+    return HEIR_LAWS[id];
+}
+const byAge = (a, b) => a.age - b.age || String(a.id).localeCompare(String(b.id));
+// kin: [{id, name, relation: 'child'|'spouse', sex?: 'm'|'f', age, adult?}].
+// Pure. Returns {heir, lifeEstate} or null when the law consults no kin.
+export function resolveHeir(law, kin = []) {
+    const list = Array.isArray(kin) ? kin.filter(k => object(k) && typeof k.id === 'string' && Number.isFinite(k.age)) : [];
+    const adults = list.filter(k => k.relation === 'child' && law.claimants.includes('child') && (k.adult ?? k.age >= 16));
+    const sorted = [...adults].sort(byAge);
+    let heir = null, rule = null;
+    for(const step of law.order) {
+        const sex = step.endsWith('son') ? 'm' : step.endsWith('daughter') ? 'f' : null;
+        const pool = sorted.filter(k => !sex || k.sex === sex);
+        if(!pool.length) continue;
+        heir = step.startsWith('eldest') ? pool[pool.length - 1] : pool[0];
+        rule = step; break;
+    }
+    const spouse = law.claimants.includes('spouse') ? list.find(k => k.relation === 'spouse') : null;
+    const waiting = list.some(k => k.relation === 'child');
+    if(!heir && spouse && !waiting) return {heir: {id: spouse.id, name: spouse.name, relation: 'spouse', rule: 'spouse-sole-claimant'}, lifeEstate: null};
+    if(!heir && !spouse) return null;
+    const lifeEstate = spouse && law.spouseLifeEstate && waiting ? {holder: spouse.id, name: spouse.name, remainder: heir?.id ?? null} : null;
+    return {heir: heir ? {id: heir.id, name: heir.name, relation: 'child', rule} : null, lifeEstate};
+}
 const object = v => v && typeof v === 'object' && !Array.isArray(v);
 
 function rows(owner) {
@@ -30,7 +75,8 @@ export function itemLabel(key) {
 
 // equippedKeys: inventory keys of gear the ended body wore. The live host
 // supplies them; equipment in the save is not a stable item-key source.
-export function deriveHeirLeftovers(previous, {equippedKeys = []} = {}) {
+export function deriveHeirLeftovers(previous, {equippedKeys = [], law: lawId = DEFAULT_HEIR_LAW, kin = previous?.kin} = {}) {
+    const law = heirLaw(lawId);
     const c = previous?.expansion?.chronicle;
     check(c && c.life?.endedAt != null, 'This life has not ended.');
     const x = c.life.experience || {};
@@ -64,6 +110,19 @@ export function deriveHeirLeftovers(previous, {equippedKeys = []} = {}) {
         home, reputation, papers: [...new Set(written)], apprentice: [...new Set(taught)],
         obligations, debts, archiveLine: !!ties.successor};
     if(residences)leftovers.residences=residences;
+    const verdict = law.id === DEFAULT_HEIR_LAW ? null : resolveHeir(law, kin);
+    if(law.id !== DEFAULT_HEIR_LAW) leftovers.law = law.id;
+    if(verdict?.heir) {
+        leftovers.heir = verdict.heir;
+        if(!(law.apprenticeFirst && taught.length)) leftovers.recipient = 'kin';
+    }
+    if(verdict?.lifeEstate) {
+        // The surviving spouse holds the house and its fittings for life; the
+        // remainder passes to the heir when the estate is released (a later
+        // household step). Until then the heir does not receive them.
+        leftovers.lifeEstate = {...verdict.lifeEstate, home: leftovers.home, residences: leftovers.residences ?? null};
+        leftovers.home = false; delete leftovers.residences;
+    }
     leftovers.empty = !residences?.money && !residences?.goods.length && !Object.keys(residences?.homes.properties||{}).length && !residences?.homes.portable && !money && !leftovers.belongings.length && !leftovers.chest.length && !home && !leftovers.papers.length && !leftovers.apprentice.length;
     return leftovers;
 }
@@ -77,6 +136,12 @@ export function validateHeirLeftovers(l) {
     check(object(l.reputation) && Object.values(l.reputation).every(Number.isSafeInteger), 'Invalid inherited standing.');
     check(Array.isArray(l.debts) && l.debts.every(d => d?.id === 'kitDebt' && [d.owed, d.paid, d.shortfall].every(n => Number.isSafeInteger(n) && n >= 0) && d.paid + d.shortfall === d.owed), 'Invalid estate debts.');
     if(l.residences)validateHomeEstate(l.residences);
+    if(l.law != null) heirLaw(l.law);
+    if(l.heir != null) check(object(l.heir) && typeof l.heir.id === 'string' && ['child', 'spouse'].includes(l.heir.relation), 'Invalid named heir.');
+    if(l.lifeEstate != null) {
+        check(object(l.lifeEstate) && typeof l.lifeEstate.holder === 'string' && typeof l.lifeEstate.home === 'boolean', 'Invalid life estate.');
+        if(l.lifeEstate.residences) validateHomeEstate(l.lifeEstate.residences);
+    }
     return l;
 }
 
@@ -86,8 +151,11 @@ export function applyHeirLeftovers(next, leftovers) {
     validateHeirLeftovers(leftovers);
     setSavedPurse(next, (next.character.money || 0) + leftovers.money, 'heir inheritance');
     const inv = next.inventories ||= {};
-    merge(((inv.person ||= {}).main_character ||= {}), leftovers.belongings);
-    merge(((inv.storage ||= {}).player ||= {}), leftovers.chest);
+    // IM12: processed goods gain a dated 'passed' line as they cross to the heir.
+    let at = null; try {at = calendarMinutes(next['current time']);} catch {}
+    const passed = rows => at == null ? rows : rows.map(([key, n]) => [passHeirloomKey(key, at, 'the heir'), n]);
+    merge(((inv.person ||= {}).main_character ||= {}), passed(leftovers.belongings));
+    merge(((inv.storage ||= {}).player ||= {}), passed(leftovers.chest));
     if(leftovers.home) {
         const loc = ((next.availabilities ||= {}).location ||= {});
         loc[HEIR_HOME_LOCATION] = (loc[HEIR_HOME_LOCATION] ?? 0) | 1;
@@ -104,6 +172,11 @@ export function heirLeftoverLines(l, labels = {}) {
     const lessonName = id => labels[id] || id;
     const goods = list => list.slice(0, 6).map(([k, n]) => `${itemLabel(k)}${n > 1 ? ` ×${n}` : ''}`).join(', ') + (list.length > 6 ? `, and ${list.length - 6} more` : '');
     const lines = [l.recipient === 'apprentice' ? 'Recipient: the apprentice you taught.' : 'Recipient: your next of kin.'];
+    if(l.law) lines.push(`Inheritance law: ${HEIR_LAWS[l.law].reason}`);
+    if(l.heir) lines.push(`Named heir: ${l.heir.name || l.heir.id} (${l.heir.rule.replaceAll('-', ' ')}).`);
+    if(l.lifeEstate) lines.push(`Life estate: ${l.lifeEstate.name || l.lifeEstate.holder} keeps the house for life${l.lifeEstate.remainder ? '; it then passes to the heir' : ''}.`);
+    const heirlooms = [...l.belongings, ...l.chest].filter(([k]) => {try {return !!readMaterialLineage(k);} catch {return false;}}).reduce((n, [, c]) => n + c, 0);
+    if(heirlooms) lines.push(`Heirlooms: ${heirlooms} processed ${heirlooms === 1 ? 'good gains' : 'goods gain'} a line recording that it passed to the heir.`);
     if(l.money) lines.push(`Money: ${l.money} coins.`);
     if(l.belongings.length) lines.push(`Belongings (${total(l.belongings)}): ${goods(l.belongings)}.`);
     if(l.chest.length) lines.push(`Stored in the chest (${total(l.chest)}): ${goods(l.chest)}.`);

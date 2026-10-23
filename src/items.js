@@ -1,7 +1,9 @@
 import {registerDomicileItems} from './home_content.js';
 import {registerGearMaterials} from './gear_native_content.js';
 import {registerFieldWorksItems} from './field_works_content.js';
-import {readMaterialLineage} from './material_lineage.js';
+import {readMaterialLineage, heirloomText} from './material_lineage.js';
+import {current_game_time} from './game_time.js';
+import {calendarMinutes} from './world_rhythm.js';
 import {lineagePresentation} from './processed_materials.js';
 import {validateWork, workedWearProfile, workContributions, mergeWorkStats} from './gear_work.js';
 import {resolveNativeCraftingItem,registerCraftingCarriers} from './crafting_native_items.js';
@@ -1276,7 +1278,7 @@ function getItemFromKey(key) {
         const name = item.getName(), view = lineagePresentation(key, lineage.history.at(-1).at);
         item.getName = () => `${name} · batch ${view.at}`;
         const observations = view.observations.map(o => `Source estimate at game minute ${o.at}, Butchering ${o.skill}: age ${o.min} to ${o.max} minutes, ${o.freshness}, ${o.integrity}.`);
-        item.description = `${item.description || ''} Processed by ${view.process} at game minute ${view.at}. ${view.note} ${observations.join(' ')}`;
+        item.description = `${item.description || ''} Processed by ${view.process} at game minute ${view.at}. ${view.note} ${observations.join(' ')}${heirloomText(key, calendarMinutes(current_game_time)) && ` ${heirloomText(key, calendarMinutes(current_game_time))}`}`;
     }
     const work = JSON.parse(key).gearwork;
     if(work != null) {

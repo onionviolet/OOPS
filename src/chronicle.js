@@ -1,6 +1,6 @@
 import {xorshift32} from './hash_rng.js';
 import {check, copy as clone, finite, natural as integer} from './basics.js';
-import {LIFE_LESSONS, lifeVoice, learnedLifeLessons, lifeStage,lifeGrave} from './life_experience.js';
+import {LIFE_LESSONS, LIVED_TAGS, remembersLived, lifeVoice, learnedLifeLessons, lifeStage,lifeGrave} from './life_experience.js';
 // Original frontier content. Saved history is authoritative; views never roll events.
 export const GAME_YEAR = 360 * 24 * 60;
 const object = value => value && typeof value === "object" && !Array.isArray(value);
@@ -20,7 +20,7 @@ export function validateChronicle(c, clock) {
         check(object(x) && ['reflected','taught'].every(k=>Array.isArray(x[k]) && x[k].length<=3 && new Set(x[k]).size===x[k].length && x[k].every(id=>ids.includes(id)&&c.knowledge[id])) && (x.bequest===null || ids.includes(x.bequest)&&c.knowledge[x.bequest]), "Invalid life experience.");
         check(x.lastYear==null||typeof x.lastYear==='boolean', "Invalid last-year memory.");
         check(x.generation==null||integer(x.generation)&&x.generation>0, "Invalid generation.");
-        for(const grave of [x.grave,x.inheritedFrom].filter(v=>v!=null))check(object(grave)&&typeof grave.name==='string'&&grave.name.length<=80&&integer(grave.age)&&typeof grave.epitaph==='string'&&grave.epitaph.length<=512&&(grave.lesson===null||ids.includes(grave.lesson)), "Invalid remembered grave.");
+        for(const grave of [x.grave,x.inheritedFrom].filter(v=>v!=null))check(object(grave)&&typeof grave.name==='string'&&grave.name.length<=80&&integer(grave.age)&&typeof grave.epitaph==='string'&&grave.epitaph.length<=512&&(grave.lesson===null||ids.includes(grave.lesson))&&(grave.lived==null||Array.isArray(grave.lived)&&grave.lived.length<=LIVED_TAGS.length&&new Set(grave.lived).size===grave.lived.length&&grave.lived.every(t=>LIVED_TAGS.includes(t))), "Invalid remembered grave.");
         check(x.grave==null||c.life.endedAt!==null, "A living life cannot have its own grave.");
         if(x.inheritance!=null) {
             if(x.inheritance.residences!=null)check(integer(x.inheritance.residences)&&x.inheritance.residences<=16,'Invalid inherited residence count.');
@@ -128,7 +128,7 @@ export function advanceChronicle(c, clock) {
 export function chronicleFacts(c) {
     return {"chronicle.enrolled": !!c, "chronicle.pledged": !!c?.relationships.villageElder?.ties.archiveDuty,
         "chronicle.dutyDone": !!c?.relationships.villageElder?.ties.dutyKept,
-        "chronicle.routeSignals": !!c?.knowledge.routeSignals, "chronicle.alive": !c || c.life.endedAt === null};
+        "chronicle.routeSignals": !!c?.knowledge.routeSignals, "chronicle.remembersConcession": remembersLived(c, "elderConcession"), "chronicle.alive": !c || c.life.endedAt === null};
 }
 
 export function recordArchiveDuty(c, clock, receiptId) {
@@ -184,6 +184,11 @@ export function commandChronicle(state, command, context, expectedSequence = sta
             check(c.life.mode!=='mortal' || lifespanDeadline(c)-at>=5, "There is not enough time to study.");
             c.knowledge[lesson.id]=true; minutes=5;
             note(c, `I work through the old papers on ${lesson.label}. It makes sense now, in my own way.`,at,true);
+        } else if(command.type === "remember") {
+            check(remembersLived(c, "elderConcession"), "No earlier life stood before the old master.");
+            check(!r.ties.rememberedConcession, "You already greeted him that way.");
+            relationshipChange(c, "villageElder", {id: `remember:${next.sequence + 1}`, axes: {trust: 1}, ties: {rememberedConcession: true}, text: "Greeted him as the one my predecessor once stood before."}, at);
+            note(c, "I greet the elder the way my predecessor earned. He studies me a moment, then nods: he remembers that life.", at, true);
         } else if(command.type === "inspect") {
             check(!c.knowledge.elderClue, "This clue is already recorded.");
             c.knowledge.elderClue = true; note(c, "The elder carries his weight with unusual balance. His actual strength remains unknown.", at);

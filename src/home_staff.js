@@ -43,3 +43,4 @@ export function planHomeStaff(s,r,c,out) {
     default:return false;
     }
 }
+export {awakeningChance,settleAwakening,settleGroup,watchList,recordDeath,easeHousehold,emptyHousehold,recordCompletion,unlockedRoutines,routineMayRun,ROUTINES} from './household_fortunes.js';

@@ -17,11 +17,17 @@ import {readInventoryOwner} from "./acquisition.js";
 import {loot_sold_count} from "./market_saturation.js";
 import {tradeQuoteFingerprint} from "./native_trade_transaction.js";
 import NPCRegistry from "./data/npcs.js";
+import {termsFor, recordTrade, bindStandingHost} from "./economy_standing_domain.js";
+import {renderStandingTerms} from "./economy_standing_ui.js";
+import {addPurse} from "./economy_domain.js";
 
 let current_trader = null;
 let current_quote = null;
 let restockReview = false;
 let current_bread_subtotal=0, use_market_coupon=false;
+// Standing terms for the open vendor (G41). Part of the quote, so a change before accept reads as stale.
+let current_terms=null;
+bindStandingHost({addCoins:(n,source)=>{addPurse(character,n,source);update_displayed_money();},coins:()=>character.money});
 const to_sell = {value: 0, items: [], groups: {}};
 const to_buy = {value: 0, items: [], groups: {}};
 
@@ -73,7 +79,7 @@ function start_trade(trader_key) {
 function cancel_trade() {
     restockReview=false;setRestockNotice();
     current_quote = null;use_market_coupon=false;current_bread_subtotal=0;
-    document.getElementById("p23_market_trade_quote")?.remove();
+    document.getElementById("p23_market_trade_quote")?.remove();document.getElementById('economy_standing_terms')?.remove();
 
     to_buy.items = [];
     to_buy.groups = {};
@@ -93,6 +99,7 @@ function readTradeQuote() {
         buyValue: to_buy.value, breadSubtotal:current_bread_subtotal, sellValue: to_sell.value, money: character.money,
         marketLife:host.previewP23MarketPurchase(current_trader,{buySubtotal:to_buy.value,breadSubtotal:current_bread_subtotal,buyUnits:to_buy.items.reduce((n,row)=>n+row.count,0),useCoupon:use_market_coupon}),
         margin: NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region),
+        standing: current_terms,
         player: readInventoryOwner(character.getItems()),
         vendor: readInventoryOwner(NPCRegistry.get(current_trader).getTraderInventory()),
         market: structuredClone(loot_sold_count)};
@@ -113,6 +120,10 @@ function accept_trade() {
         throw new Error("Trade quote changed. Review the refreshed price before accepting again.");
     }
     host.commitNativeTrade(quoted, current_quote);
+    const region=current_location.market_region;
+    recordTrade({region,vendorId:quoted.vendorId,sellValue:quoted.sellValue,buyValue:quoted.buyValue,
+        seen:[...quoted.sell,...quoted.buy].map(({item_key})=>{const item=getItemFromKey(item_key);
+            return {key:item_key,label:item.name||item_key,price:item.getValue({region})};})});
     cancel_trade();
     update_displayed_money();
 }
@@ -355,6 +366,7 @@ function calculate_total_values() {
     to_buy.value = 0;
     to_sell.value = 0;
     current_bread_subtotal=0;
+    current_terms=termsFor(current_location.market_region,current_trader,character.reputation);
 
 
     ///////////////////////////////////////////////
@@ -420,6 +432,7 @@ function calculate_total_values() {
                                         stop_multiplier_at: Math.max(0,sold_saturation-bought_saturation+to_sell.groups[traded_group_key].sorted[i].count),
                                         count: to_sell.groups[traded_group_key].sorted[i].count,
                                         region: current_location.market_region,
+                                        price_multiplier: current_terms.sell,
                                     });
 
             //array too short compared to tier: push a spreaded array with the length of how much is missing, filled with zeroes                        
@@ -471,7 +484,7 @@ function calculate_total_values() {
                                         stop_multiplier_at: Math.max(0,sold_saturation-bought_saturation-to_buy.groups[traded_group_key].sorted[i].count),
                                         count: to_buy.groups[traded_group_key].sorted[i].count,
                                         region: current_location.market_region,
-                                        price_multiplier: trader.getProfitMargin(current_location.market_region),
+                                        price_multiplier: trader.getProfitMargin(current_location.market_region)*current_terms.buy,
                                         is_selling: false,
                                     });
             to_buy.groups[group_key].group_value+=line_value;
@@ -490,7 +503,7 @@ function calculate_total_values() {
     });
 
     current_quote = readTradeQuote();
-    renderP23MarketQuote();
+    renderP23MarketQuote();renderStandingBox();
     const total=to_sell.value-current_quote.marketLife.quote.total;
     window.dispatchEvent(new CustomEvent("native-trade-total",{detail:total}));
     return total;
@@ -515,6 +528,13 @@ function renderP23MarketQuote() {
     label.append(input,document.createTextNode(' Use one earned customer coupon (up to 5 coins; minimum payment 1 coin)'));
     input.onchange=()=>{use_market_coupon=input.checked;const net=calculate_total_values();update_displayed_total_price(net);};
     const explanation=document.createElement('p');explanation.textContent=preview.quote.explanation;box.append(label,explanation);
+}
+
+function renderStandingBox() {
+    const anchor=document.getElementById('trade_price_value');if(!anchor)return;
+    let box=document.getElementById('economy_standing_terms');
+    if(!box){box=document.createElement('div');box.id='economy_standing_terms';box.setAttribute('role','group');anchor.parentElement.append(box);}
+    renderStandingTerms(box,current_terms);
 }
 
 function get_item_value(selected_item) {

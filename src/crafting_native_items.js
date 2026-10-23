@@ -1,4 +1,4 @@
-import {MATERIAL_CARRIER,PRODUCT_CARRIER,craftingOwner,materialFromKey,productFromNativeKey,catalogue} from './crafting_frontier_runtime.js';
+import {MATERIAL_CARRIER,PRODUCT_CARRIER,craftingOwner,materialFromKey,productFromNativeKey,compositionName,catalogue} from './crafting_frontier_runtime.js';
 import {projectProduct,projectMaterial} from './craft_state.js';
 // Constructors are provided by the existing item owner, never imported back.
 export function resolveNativeCraftingItem(key,{Material,UsableItem}) {
@@ -11,7 +11,7 @@ export function resolveNativeCraftingItem(key,{Material,UsableItem}) {
  const product=productFromNativeKey(key);if(!product)return null;
  const view=()=>projectProduct(craftingOwner,catalogue,product.id,'player');
  const item=new UsableItem({id:PRODUCT_CARRIER,name:view().name,value:1,effects:[],tags:{medicine:true},description:'An original herbal experiment. Drink to observe its effects; a new dose replaces the previous preparation.'});
- item.inventory_key=key;item.getName=()=>view().name;return item;
+ item.inventory_key=key;item.getName=()=>compositionName(product,view().name);return item;
 }
 export function registerCraftingCarriers({templates,Material,UsableItem}) {
  templates[MATERIAL_CARRIER]=new Material({name:MATERIAL_CARRIER,value:1,material_type:'gathered herb',description:'One exact harvested material lot.'});

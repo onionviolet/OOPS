@@ -57,13 +57,81 @@ export function readMaterialLineage(itemKey) {
     const value = parseKey(itemKey);
     const lineage = value.lineage;
     if (!object(lineage) || lineage.schema !== MATERIAL_LINEAGE_SCHEMA || lineage.revision !== MATERIAL_LINEAGE_REVISION ||
-        Object.keys(lineage).some(k => !['schema', 'revision', 'family', 'facts', 'history'].includes(k))) fail('Invalid or unsupported material lineage.');
+        Object.keys(lineage).some(k => !['schema', 'revision', 'family', 'facts', 'history', 'deeds'].includes(k))) fail('Invalid or unsupported material lineage.');
     boundedText(lineage.family, 'material family', 120);
     validateFacts(lineage.facts);
     if((value.quality ?? null) !== (lineage.facts.quality ?? null) || (value.completeness ?? null) !== (lineage.facts.completeness ?? null)) fail('Material properties disagree with their lineage.');
     if (!Array.isArray(lineage.history) || lineage.history.length < 1 || lineage.history.length > 64) fail('Invalid material history.');
     lineage.history.forEach(validateProcessEvent);
+    if (lineage.deeds != null) validateDeeds(lineage.deeds);
     return clone(lineage);
+}
+
+// Heirloom biography (IM12, modeled on Kinfolks' passing lines, 2026-10-23).
+// Dated holder and deed lines ride inside the immutable lineage, so they travel
+// with the key through save, export and import with no separate save slice.
+// Old keys have no `deeds` and stay valid. The cap keeps keys bounded.
+export const HEIRLOOM_LINE_CAP = 14;
+const DEED_KINDS = ['passed', 'deed'];
+function validateDeeds(deeds) {
+    if (!Array.isArray(deeds) || deeds.length > HEIRLOOM_LINE_CAP) fail('Invalid heirloom biography.');
+    deeds.forEach((line, i) => {
+        if (!object(line) || Object.keys(line).some(k => !['at', 'kind', 'holder', 'text'].includes(k)) || !nonnegative(line.at) || !DEED_KINDS.includes(line.kind)) fail('Invalid heirloom line.');
+        if (line.holder != null) boundedText(line.holder, 'heirloom holder', 80);
+        if (line.text != null) boundedText(line.text, 'heirloom deed', 160);
+        if (line.kind === 'passed' && line.holder == null) fail('A passing line names its new holder.');
+        if (line.kind === 'deed' && line.text == null) fail('A deed line needs text.');
+        if (i > 0 && line.at < deeds[i - 1].at) fail('Heirloom lines run in date order.');
+    });
+}
+
+export function heirloomLines(itemKey) {
+    return clone(readMaterialLineage(itemKey)?.deeds ?? []);
+}
+
+// Value grows with age and with the number of recorded lines: a dial, not a
+// price. minutesPerYear is the world's own year length (default 365 days).
+export function heirloomValue(itemKey, now, {minutesPerYear = 525600, perYear = 1, perLine = 2} = {}) {
+    const lineage = readMaterialLineage(itemKey);
+    if (!lineage) return 0;
+    const born = lineage.facts.born ?? lineage.history[0].at;
+    const years = Math.max(0, Math.floor((nonnegative(now) ? now - born : 0) / minutesPerYear));
+    return years * perYear + (lineage.deeds?.length ?? 0) * perLine;
+}
+
+// Passing an heirloom or recording a deed on it changes the key (the lineage is
+// part of identity), so this plans a whole-stack swap: consume the old key,
+// produce the new one. kind 'passed' needs holder; 'deed' needs text.
+export function planHeirloomLine({stock, item_key, count, at, kind, holder, text}) {
+    const lineage = readMaterialLineage(item_key);
+    if (!lineage) fail('Only processed material carries an heirloom biography.');
+    if (!positive(count) || stockCount(stock, item_key) < count) fail('Selected material is stale or insufficient.');
+    const line = {at, kind, ...(holder != null ? {holder} : {}), ...(text != null ? {text} : {})};
+    const deeds = [...(lineage.deeds ?? []), line];
+    validateDeeds(deeds.length > HEIRLOOM_LINE_CAP ? deeds.slice(-HEIRLOOM_LINE_CAP) : deeds);
+    const next = {...lineage, deeds: deeds.slice(-HEIRLOOM_LINE_CAP)};
+    const parsed = parseKey(item_key);
+    const nextKey = canonical({...parsed, lineage: next});
+    return {item_key: nextKey, output: {item_key: nextKey, count}, inputs: [{item_key, count}], lineage: next};
+}
+
+// Heir succession path: a processed good that crosses to the heir gains a
+// 'passed' line. Keys without lineage (or that fail to read) pass unchanged.
+export function passHeirloomKey(itemKey, at, holder) {
+    try {
+        if (!readMaterialLineage(itemKey)) return itemKey;
+        return planHeirloomLine({stock: {[itemKey]: 1}, item_key: itemKey, count: 1, at, kind: 'passed', holder}).item_key;
+    } catch { return itemKey; }
+}
+
+// Item-detail sentence: dated lines plus the value stated in its two parts.
+export function heirloomText(itemKey, now, minutesPerYear = 518400) {
+    const lines = heirloomLines(itemKey);
+    if (!lines.length) return '';
+    const day = at => `day ${Math.floor(at / 1440)}`;
+    const said = lines.map(l => l.kind === 'passed' ? `${day(l.at)}: passed to ${l.holder}` : `${day(l.at)}: ${l.text}`).join('; ');
+    const total = heirloomValue(itemKey, now, {minutesPerYear}), fromLines = lines.length * 2;
+    return `Heirloom history: ${said}. Heirloom value ${total} (${total - fromLines} from age, 1 per year; ${fromLines} from ${lines.length} recorded ${lines.length === 1 ? 'line' : 'lines'}, 2 each).`;
 }
 
 function validateProcessEvent(event) {

@@ -30,7 +30,19 @@ export function lifeExperienceView(c) {
         epitaph:c.life.endedAt!==null?lifeEpitaph(c):null};
 }
 
+// IM11: what a life actually lived, read from its chronicle ties. Graves carry
+// these tags so a later life can ask "did the life before me live this?".
+export const LIVED_TAGS = Object.freeze(['elderConcession', 'dutyKept']);
+export function livedTags(c) {
+    const ties=c?.relationships?.villageElder?.ties||{}, tags=[];
+    if(ties.firstConcession)tags.push('elderConcession');
+    if(ties.dutyKept)tags.push('dutyKept');
+    return tags;
+}
+// True only when the life this one inherited from lived the scene (grave tag).
+export function remembersLived(c, tag) {return !!c?.life?.experience?.inheritedFrom?.lived?.includes(tag);}
+
 export function lifeGrave(c, name='A traveler') {
     if(c.life.endedAt===null)throw new Error('This life is still being lived.');
-    return {name:String(name).slice(0,80),age:Math.floor(lifeAge(c)),epitaph:lifeEpitaph(c),lesson:c.life.experience?.bequest ?? null};
+    return {name:String(name).slice(0,80),age:Math.floor(lifeAge(c)),epitaph:lifeEpitaph(c),lesson:c.life.experience?.bequest ?? null,lived:livedTags(c)};
 }

@@ -23,6 +23,8 @@ export function buildLifeHeirSave(previous, fresh, leftovers = deriveHeirLeftove
     applyHeirLeftovers(next,leftovers);
     if(previous.npc_lives != null)next.npc_lives=structuredClone(previous.npc_lives);
     if(previous.options != null)next.options=structuredClone(previous.options);
+    if(previous.inheritance_law != null)next.inheritance_law=structuredClone(previous.inheritance_law);
+    if(previous.discovery_codex != null)next.discovery_codex=structuredClone(previous.discovery_codex);
     next.life_record=structuredClone(previous.life_record ?? createLifeRecord());
     const grave=next.expansion.chronicle.life.experience.inheritedFrom;
     if(next.life_record)next.life_record=appendLifeMilestone(next.life_record,{year:calendar.year,at:lifeCalendarMinute(calendar),worldId:'base.frontier',kind:'legacy',text:`${grave.name} rests beneath a quiet stone. ${grave.epitaph}`.slice(0,240)});
