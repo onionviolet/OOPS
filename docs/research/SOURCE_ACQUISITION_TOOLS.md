@@ -9,6 +9,26 @@ isolated environments and current readiness. It also routes Discord, REA,
 engine-specific extraction and verification tooling; the transport contract
 below remains the owner for this novel/fanwork acquisition route.
 
+Source Library 0.6.0 now embeds Komga's EPUB/comic/PDF reader inside the app,
+with Read and saved positions, plus paged local/JNovel/Suwayomi browsing and
+source/series/chapter selection. JNovel volume links stay explicit browser
+handoffs. [Current integration and evidence](/Users/weiwei/code/zlibrary-research/docs/INTEGRATED_READER_0_6_0.md).
+
+For the proposed combined book/comic/manga platform, see the
+[source media comparison and integration plan](SOURCE_MEDIA_ACQUISITION_SCOUT_2026-10-21.md).
+It distinguishes provider downloaders, collection managers and readers. The
+selected existing-books/Suwayomi/Komga/CLU stack is now implemented in
+[Source Library 0.5.0](/Users/weiwei/code/zlibrary-research/docs/SOURCE_LIBRARY_0_5_0.md),
+with real provider/file tests and a shared platform download ledger. The
+[0.5.2 light-novel expansion](/Users/weiwei/code/zlibrary-research/docs/LIGHT_NOVEL_SOURCES_0_5_2.md)
+adds the nineteen user-supplied source/directory/crawler references, JNovel
+catalogue search and local EPUB/PDF/CBZ imports. Elscione's automatic browser
+route returned 403 and is persistently stopped; its download implementation has
+not passed a live transfer. Browser handoff plus local intake works independently
+of an automatic provider adapter. Other
+scouted comic downloaders remain candidates; not every upstream client shares
+that ledger or has been installed.
+
 ## Discover and reuse first
 
 Check local source owners and already acquired files first. For a needed new
@@ -20,7 +40,7 @@ meets the request; preserve source/version, raw hashes and actual reading scope.
 | Tool | Actual capability / entry point |
 |---|---|
 | Local library and prepared sources | Read-only Calibre/EPUB discovery first. Registry IDs `calibre`, `saved-sources` and `epub-prepare`; extraction and reading remain separate. |
-| Z-Library research fork | `/Users/weiwei/code/zlibrary-research`, [current profile](/Users/weiwei/code/zlibrary-research/docs/YAIRPG.md). Registry IDs `zlibrary`, `zlibrary-mcp`, `epub-prepare`. Ten MCP tools cover remote edition discovery/acquisition and local intake/search/reading/library comparison. Launch is not registration or authentication. |
+| Source Library / Z-Library research fork | `/Users/weiwei/code/zlibrary-research`, [current profile](/Users/weiwei/code/zlibrary-research/docs/YAIRPG.md). Registry IDs `source-library`, `source-library-services`, `source-library-bootstrap`, `zlibrary`, `zlibrary-mcp`, `epub-prepare`. Twenty-six MCP tools include eight unified platform operations alongside eighteen compatibility research tools. Prefer `platform_download` for the shared ledger. Launch is not registration or authentication. |
 | Personal fork | `/Users/weiwei/code/lncrawl-polite`; read its `AGENTS.md` and `README_POLITE.md`. |
 | Isolated polite CLI | `.venv-polite/bin/python -m lncrawl polite` from that repository. Current CLI accepts a Fanqie book ID and matching local reference font; it is not a general URL downloader. Use `--help` for current arguments. |
 | Reusable transport | `lncrawl.polite.transport.Client`; source at `/Users/weiwei/code/lncrawl-polite/lncrawl/polite/transport.py`. Existing HTML adapters can use this without importing the upstream scraper. |
