@@ -1,0 +1,10 @@
+# Pinned from the working venv (2026-10-23, Python 3.13, macOS arm64). Apple Vision needs macOS + Xcode command line tools.
+numpy==2.5.4
+pillow==13.0.0
+opencv-python-headless==5.0.0.93
+torch==2.14.1
+torchvision==0.29.1
+transformers==5.20.2
+huggingface-hub==2.2.0
+safetensors==0.8.0
+tokenizers==0.23.3

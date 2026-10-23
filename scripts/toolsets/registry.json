@@ -373,6 +373,26 @@
       "effects": "Writes OCR output."
     },
     {
+      "id": "manga-text",
+      "title": "Manga and webtoon text extraction, panel clips, watcher and search",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "{home}/.local/share/manga-text/venv/bin/python",
+        "{repo}/scripts/manga_text/manga_text.py"
+      ],
+      "required": [
+        "{home}/.local/share/manga-text/venv/bin/python",
+        "{repo}/scripts/manga_text/manga_text.py"
+      ],
+      "probe": [
+        "doctor"
+      ],
+      "env": {},
+      "owner": "scripts/manga_text/README.md",
+      "effects": "Reads Source Library CBZs and the catalogue read-only. Writes only to the git-ignored docs/research/manga-text/private/ folder and ~/.local/share/manga-text/ (venv, compiled helper). Subcommands run, watch (one instance; STOP and PAUSE files; OCR_MAX_WORKERS), search, summary, query and slice (token-light locators and bounded text), read-page (explicit local LLM read, cached), verify, export, catalog, reindex, profiles, shape, fetch-models (pinned, checksummed detector), doctor. Bulk steps use zero model tokens; run and watch are long jobs, start them niced and detached."
+    },
+    {
       "id": "ffmpeg",
       "title": "ffmpeg",
       "kind": "launch",

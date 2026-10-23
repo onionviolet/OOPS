@@ -1,0 +1,121 @@
+{
+  "name": "default",
+  "version": 1,
+  "series": [],
+  "strip": {
+    "height": 2400,
+    "overlap": 400
+  },
+  "finders": {
+    "outline": {
+      "enabled": true,
+      "bright_threshold": 190,
+      "min_w": 140,
+      "min_h": 50,
+      "max_area": 700000,
+      "min_hole_fraction": 0.35,
+      "interior_median_max": 100,
+      "interior_bright_max": 0.35
+    },
+    "frame": {
+      "enabled": true,
+      "bright_threshold": 170,
+      "min_w": 140,
+      "min_h": 50,
+      "min_side_cover": 0.65
+    },
+    "black_fill": {
+      "enabled": true,
+      "black": 45,
+      "min_w": 140,
+      "min_h": 50,
+      "min_rect": 0.8,
+      "min_black_fraction": 0.78
+    },
+    "color_window": {
+      "enabled": true,
+      "hue_min": 85,
+      "hue_max": 118,
+      "min_sat": 90,
+      "min_val": 130,
+      "min_w": 180,
+      "min_h": 90,
+      "min_fill": 0.55,
+      "close": 25,
+      "min_raw_coverage": 0.4
+    }
+  },
+  "ocr": {
+    "text_mask": {
+      "min_val": 205,
+      "max_sat": 70
+    }
+  },
+  "min_text_coverage": 0.05,
+  "oversized_area": 450000,
+  "polygon_hole_fraction": 0.8,
+  "classify": {
+    "rules": [
+      {
+        "text_regex": "^[\\d\\s:.]{3,}$",
+        "type": "timer_window"
+      },
+      {
+        "text_regex": "\\b(status|attribute|stats|stat points)\\b",
+        "type": "status_window"
+      },
+      {
+        "text_regex": "\\bskill\\b",
+        "type": "skill_card"
+      },
+      {
+        "text_regex": "\\bquest\\b",
+        "type": "quest"
+      },
+      {
+        "text_regex": "\\brank\\b",
+        "type": "rank_table"
+      },
+      {
+        "source": "color_window",
+        "min_kv": 3,
+        "type": "info_card"
+      },
+      {
+        "source": "color_window",
+        "type": "system_window"
+      },
+      {
+        "shape": "polygon",
+        "type": "hexagon_message"
+      },
+      {
+        "color": "red",
+        "frame": "jagged",
+        "type": "system_notice"
+      },
+      {
+        "color": [
+          "white",
+          "yellow",
+          "none"
+        ],
+        "type": "narration_caption"
+      }
+    ],
+    "fallback": "other_window"
+  },
+  "type_notes": {
+    "narration_caption": "A boxed narration line on a dark page; the narrator's commentary or a scene note. No rule content.",
+    "system_notice": "A short red-text notice in a black box with jagged corners; announces an event in one or two lines like a log line.",
+    "hexagon_message": "A polygon-outlined message with spiked tails; reads as voice from outside the scene, not a menu.",
+    "system_window": "A translucent coloured rectangle with short system text, usually a notification.",
+    "info_card": "A coloured window with a title and three or more key-value rows (a quest-card or stat-card shape).",
+    "timer_window": "A window whose text is digits, a countdown or clock shown over the scene.",
+    "status_window": "A stat or status sheet (names, levels, attributes).",
+    "skill_card": "A skill or ability card (name, level, cost or effect).",
+    "quest": "A quest or task panel.",
+    "rank_table": "A rank or score table.",
+    "other_window": "A framed or coloured text window that fits no other type; check the crop."
+  }
+}

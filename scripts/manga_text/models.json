@@ -1,0 +1,12 @@
+{
+  "detector": {
+    "repo": "ogkalu/comic-text-and-bubble-detector",
+    "revision": "16e8a622f91fabc6b5b65c96d32d1183f8843546",
+    "files": {
+      "config.json": {"sha256": "b6d707933e12e9593a7025604be1c95add70a6db371fdd1532e8854e2256e072", "bytes": 2320},
+      "model.safetensors": {"sha256": "037930a861e67870eb345be01b28cc70d7e2b7956528e48ee0ebdb0c093df80d", "bytes": 171543900},
+      "preprocessor_config.json": {"sha256": "7e9e2245806aa3ef068a5321f5eebee3116fa4cec560173231954ffaca930eca", "bytes": 470}
+    }
+  },
+  "note": "Checked 2026-10-23. fetch-models downloads the pinned revision and verifies every sha256; doctor re-verifies the cached copy."
+}

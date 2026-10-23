@@ -1,0 +1,28 @@
+{
+  "name": "omniscient_reader",
+  "version": 1,
+  "extends": "default",
+  "series": ["Omniscient Reader"],
+  "classify": {
+    "rules": [
+      {"text_regex": "^[\\d\\s:.]{3,}$", "type": "timer_window"},
+      {"text_regex": "remaining time", "type": "timer_window"},
+      {"text_regex": "\\b(scenario|reward|upon failure|time limit)\\b", "type": "scenario_card"},
+      {"text_regex": "\\b(constellation|probability|coin)", "type": "hexagon_message"},
+      {"source": "color_window", "text_regex": "\\blv\\.?\\s*\\d", "type": "skill_card"},
+      {"source": "color_window", "min_kv": 3, "type": "scenario_card"},
+      {"source": "color_window", "type": "system_window"},
+      {"shape": "polygon", "type": "hexagon_message"},
+      {"color": "red", "frame": "jagged", "type": "system_notice"},
+      {"color": ["white", "yellow", "none"], "type": "narration_caption"}
+    ],
+    "fallback": "other_window"
+  },
+  "type_notes": {
+    "scenario_card": "A cyan glowing window with a title bar, window icons, a centred objective and key-value rows (type, difficulty, time limit, reward, failure penalty); sets the stakes of a challenge.",
+    "timer_window": "A translucent blue countdown window with large digits, repeated at falling values to show time pressure.",
+    "hexagon_message": "A hexagon outline with spiked tails; red text is a speaking character, glowing blue on navy is channel and constellation traffic.",
+    "system_window": "A translucent blue rectangle with bracketed system text: achievement, reward, understanding and trait notices.",
+    "skill_card": "A blue window naming a skill with a level or level change."
+  }
+}
