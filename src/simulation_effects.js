@@ -405,6 +405,14 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
                     assert(!entry.owned, "Power already owned.");
                     for(const c of definition.constituents || []) assert(powers[c]?.owned, "Missing combination constituent.");
                     entry.owned = true;
+                    // A holder's own form (W15.S10): the chosen functions are frozen at acquisition and
+                    // checked against the definition's slots and capacity. Without them the command's authored list stands.
+                    if(e.functions) {
+                        assert(definition.model === "design", "Only a designed power takes a chosen design.");
+                        const used = e.functions.reduce((sum, f) => sum + (definition.functions?.[f]?.capacity ?? Infinity), 0);
+                        assert(e.functions.every(f => definition.functions?.[f]) && used <= (definition.capacity ?? 1) && (definition.slots == null || e.functions.length <= definition.slots), "That design exceeds this source's functions, slots or capacity.");
+                        entry.design = {functions: [...e.functions]};
+                    }
                     if(definition.combination === "fusion") for(const c of definition.constituents) powers[c].owned = false;
                 } else if(e.operation === "fragment") {assert(stableId(e.fragment), "Invalid fragment identity."); if(!entry.fragments.includes(e.fragment)) entry.fragments.push(e.fragment);}
                 else {assert(entry.owned && finite(e.amount) && e.amount > 0, "Invalid mastery gain."); entry.mastery += e.amount;}

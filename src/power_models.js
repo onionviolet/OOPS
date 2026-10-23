@@ -20,6 +20,7 @@ export function previewPowerModel(definition, owned, command, {state, context, f
         }
         if(used > capacity) reasons.push("Designed functions exceed the source's absolute capacity.");
         if(definition.slots != null && functions.length > definition.slots) reasons.push("This source does not have enough configured slots.");
+        if(owned.design && functions.some(id => !owned.design.functions.includes(id))) reasons.push("This function is not part of the form this holder chose.");
     } else if(definition.model === "investment") {
         const track = state.simulation.progression[actor]?.[definition.track]?.values || {};
         const invested = track[definition.field || "investment"] || 0;

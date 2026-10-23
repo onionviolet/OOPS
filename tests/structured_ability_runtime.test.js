@@ -94,3 +94,48 @@ test('full pack compiler rejects unsupported ability fields and absent metadata 
 test('declared target cannot be replaced through direct command context',()=>{
  const f=learn(setup());const before=structuredClone(f.plan);assert.throws(()=>commitSimulationCommand(f.plan.state,f.registry,{id:'work.repair'},{...f.context,gameplay:f.plan.gameplay,targetId:'player'}),/participant|target|support/);assert.deepEqual(f.plan,before);
 });
+
+// W15.S10 personal form: the holder's chosen functions are frozen on the owned power at acquisition,
+// the same record serves the player and an NPC holder, and a reload reproduces each choice.
+function designWorld() {
+    const fn = id => ({id:'form.use_'+id, revision:1, label:'Use '+id, worldId:'form.world', powerId:'form.power', duration:0, costs:[],
+        parameters:{functions:[id]}, effects:[{type:'item', key:JSON.stringify({id:'form.made_'+id}), amount:1}]});
+    const d = {id:'form', world:{id:'form.world'}, sources:[{id:'form.gift', revision:1, kind:'trait', label:'Gift', grants:[]}],
+        abilities:['heat', 'light', 'pull'].map(id => ({id:'form.ability_'+id, commandId:'form.use_'+id, sourceId:'form.gift', powerId:'form.power', function:'physical', acquisition:'innate', executionKind:'permanent-imprint', control:eq('actor.calm'), target:null, counters:[], carriers:[]})),
+        simulation:{powers:[{id:'form.power', revision:1, label:'Own form', model:'design', capacity:3, slots:2, functions:{heat:{capacity:1}, light:{capacity:1}, pull:{capacity:2}}}], commands:['heat', 'light', 'pull'].map(fn)}};
+    return d;
+}
+test('a designed power keeps each holder’s own chosen functions, for the player and an NPC, across reload', () => {
+    const d = designWorld();
+    const compiled = compileStructuredAbilities(d);
+    const commands = [...compiled.commands,
+        {id:'form.learn_player', revision:1, label:'Choose heat and light', worldId:'form.world', actorId:'player', costs:[], effects:[{type:'power', powerId:'form.power', operation:'learn', functions:['heat', 'light']}]},
+        {id:'form.learn_guard', revision:1, label:'Choose pull', worldId:'form.world', actorId:'form.guard', costs:[], effects:[{type:'power', powerId:'form.power', operation:'learn', functions:['pull']}]},
+        {id:'form.learn_bad', revision:1, label:'Too much', worldId:'form.world', actorId:'player', costs:[], effects:[{type:'power', powerId:'form.power', operation:'learn', functions:['heat', 'light', 'pull']}]}];
+    const registry = createContentRegistry({worlds:[{id:'base.frontier', label:'Home'}, {id:'form.world', label:'Form'}], sources:d.sources,
+        simulation:{commands, powers:compiled.powers, people:[{id:'form.guard', revision:1, label:'Guard', worldId:'form.world', location:'form.room', inventory:'simulation', resources:{}}],
+            onEnroll:[{type:'source', sourceId:'form.gift', operation:'grant', awakened:true, active:true}, {type:'source', actor:'form.guard', sourceId:'form.gift', operation:'grant', awakened:true, active:true}]}});
+    const state = createExpansionState(); state.actors.player.worldId = 'form.world'; state.worlds['form.world'] = {facts:{}, resources:{}, completed:{}};
+    state.actors.player.facts.calm = true;
+    const base = {worldId:'form.world', facts:{location:'form.room'}, targetId:null, gameplay:{player:{inventory:{}, skills:{}, reputation:{}}}, external:{}};
+    let plan = enrollSimulation(state, registry, {actorId:'player', ...base}); plan.state.actors['form.guard'].facts.calm = true;
+    const ctx = actorId => ({actorId, ...base, gameplay:plan.gameplay, external:plan.external});
+    const run = (actorId, id) => {plan = commitSimulationCommand(plan.state, registry, {id}, ctx(actorId));};
+    const can = (actorId, id) => previewSimulationCommand(plan.state, registry, id, ctx(actorId));
+    assert.throws(() => run('player', 'form.learn_bad'), /slots or capacity/);
+    assert.equal(plan.state.simulation.powers.player, undefined, 'a refused design leaves no half-owned power');
+    run('player', 'form.learn_player'); run('form.guard', 'form.learn_guard');
+    assert.deepEqual(plan.state.simulation.powers.player['form.power'].design, {functions:['heat', 'light']});
+    assert.deepEqual(plan.state.simulation.powers['form.guard']['form.power'].design, {functions:['pull']});
+    assert.equal(can('player', 'form.use_heat').eligible, true);
+    assert.equal(can('player', 'form.use_pull').eligible, false, 'a function outside the holder’s own form refuses');
+    assert.match(can('player', 'form.use_pull').reasons.join(' '), /chose/);
+    assert.equal(can('form.guard', 'form.use_pull').eligible, true);
+    assert.equal(can('form.guard', 'form.use_heat').eligible, false);
+    plan.state = JSON.parse(JSON.stringify(plan.state));
+    assert.equal(can('player', 'form.use_light').eligible, true, 'the choice survives save and reload');
+    run('player', 'form.use_light'); assert.equal(plan.gameplay.player.inventory[JSON.stringify({id:'form.made_light'})], 1);
+    // An authored design without a saved choice keeps the old behavior.
+    const owned = plan.state.simulation.powers.player['form.power']; delete owned.design;
+    assert.equal(can('player', 'form.use_pull').eligible, true, 'no saved design falls back to the command’s own list');
+});
