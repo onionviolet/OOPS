@@ -24,6 +24,8 @@ export const pursuitDefinitions={
     ],
     encounters:[{id:"pursuit.footwork",revision:1,label:"Neri's footwork test",lethal:false,turns:[{cue:"Neri follows your first step and reaches across your escape line. Shift your weight before the light tag.",responses:[
         {id:"ordinary",label:"Plant and turn · 3 stamina",costs:[{type:"vital",key:"stamina",amount:-3}],effects:[]},
+        {id:"cover",label:"Break Neri's reach behind the well wall · 1 stamina",requires:eq("location","Village","Cover is the Village well wall; the Shack is private shelter."),costs:[{type:"vital",key:"stamina",amount:-1}],
+            effects:[{type:"knowledge",key:"pursuit.position",stage:"seen",value:"You kept the Village well wall between you and Neri, so their reach fell short and the turn cost less effort. In open ground it would have cost more."}]},
         {id:"focus",label:"Read the step · 2 measured focus units",costs:[{type:"energy",energyId:"field.focus",operation:"use",output:1,control:2}],effects:[]}
     ]}],settlement:[close("tested"),{type:"source",sourceId:"frontier.trailcraft",operation:"grant"},
         {type:"knowledge",key:"pursuit.notice",stage:"understood",value:"You tested how a witnessed lead becomes a search and an interception. Your trailcraft now adds one route-preparation source."}]}]

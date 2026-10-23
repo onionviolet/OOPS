@@ -88,3 +88,18 @@ test("save failure preserves durable bytes and rejects schema downgrade and corr
     assert.throws(()=>persistExpansionPlan(p,{createSave:()=>JSON.stringify(envelope),bindings:{player:{category:"person",id:"main_character"},oldCraftsman:{category:"person",id:"oldCraftsman"}},storage:{setItem(){writes++;throw Error("quota");}},key:"test"}),/quota/);assert.equal(writes,1);assert.equal(bytes,JSON.stringify(envelope));assert.equal(before.state.simulation.sessions.player,undefined);
     for(const mutate of [s=>s.simulation.pursuits[trail].due=-1,s=>s.simulation.pursuits[trail].lead.observedAt=s.clock+1,s=>s.simulation.pursuits[trail].policy.movementSupply=-1,s=>s.simulation.pursuits[trail].actorId="player"]){const bad=structuredClone(before.state);mutate(bad);assert.throws(()=>loadExpansionState(bad,registry));}
 });
+
+test("spatial cover (O2b): the Village well wall changes the footwork test's cost and leaves a position record; natural per-minute clock matches one jump",()=>{
+    const natural=(p,n)=>{for(let i=0;i<n;i++)p=advance(p,1);return p;};
+    const jump=advance(started(),4),stepped=natural(started(),4);
+    assert.equal(stepped.state.simulation.pursuits[trail].status,"waiting");assert.equal(stepped.state.clock,jump.state.clock);
+    assert.deepEqual(stepped.state.simulation.pursuits[trail].request,jump.state.simulation.pursuits[trail].request);
+    // pacing envelope at the natural clock: request opens within 4 minutes of arranging and lapses 12 minutes after, with no input
+    const reqAt=stepped.state.simulation.pursuits[trail].request.at,begun=stepped.state.simulation.pursuits[trail].startedAt;
+    assert.ok(reqAt-begun<=4);assert.equal(natural(stepped,11).state.simulation.pursuits[trail].status,"waiting");assert.equal(natural(stepped,12).state.simulation.pursuits[trail].status,"declined");
+    const open=answerSimulationEncounter(fieldReload(accept(stepped)).state,registry,"ordinary",fieldContext(accept(stepped)));
+    const cover=answerSimulationEncounter(fieldReload(accept(stepped)).state,registry,"cover",fieldContext(accept(stepped)));
+    assert.equal(open.native.staminaToFull,3);assert.equal(cover.native.staminaToFull,1);
+    assert.equal(cover.state.simulation.pursuits[trail].status,"tested");assert.match(cover.state.simulation.knowledge.player["pursuit.position"].value,/well wall/);
+    assert.equal(open.state.simulation.knowledge.player["pursuit.position"],undefined);
+});

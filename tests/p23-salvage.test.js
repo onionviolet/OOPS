@@ -146,3 +146,18 @@ test('real graded keys enforce portable tool threshold and remain exact in durab
         }
     }
 });
+
+test('quartermaster bounty (CRL44): sound vest is paid, worn vest is not, both leave receipts with the reason', () => {
+    const c = fixture();
+    const sound = stageSalvage(c, quoted(c, req(c, SALVAGE.salvage, spare)));
+    assert.equal(sound.external.money, c.money + SALVAGE.bountyCoin);
+    const r1 = sound.nativePatch.p23_salvage.receipts[sound.receipt.id];
+    assert.equal(r1.bounty, SALVAGE.bountyCoin); assert.match(r1.bountyReason, /Sound issue vest/);
+    const next = advance(c, sound), c2 = {...next, money: sound.external.money};
+    const poor = stageSalvage(c2, quoted(c2, req(c2)));
+    assert.equal(poor.external.money, c2.money);
+    const r2 = poor.nativePatch.p23_salvage.receipts[poor.receipt.id];
+    assert.equal(r2.bounty, 0); assert.match(r2.bountyReason, /Worn vest.*no quartermaster bounty/);
+    assert.ok(poor.acquisitions[0].count >= 1);
+    assert.equal(loadSalvage(poor.nativePatch.p23_salvage).receipts[poor.receipt.id].bounty, 0);
+});

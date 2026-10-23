@@ -10,7 +10,12 @@ import {canonicalDurabilityKey} from '../../absorb_e2/durability.js';
 const key = id => JSON.stringify({id});
 export const SALVAGE = Object.freeze({salvage: 'p23.salvage.vest', craft: 'p23.salvage.survey_kit',
     tool: 'Portable leatherworking kit', material: key('Piece of wolf leather'), log: key('Rough wood log'),
-    output: key('Prepared survey kit'), minimumQuality: 60, skill: 'Crafting', duration: 1});
+    output: key('Prepared survey kit'), minimumQuality: 60, skill: 'Crafting', duration: 1,
+    // CRL44: the quartermaster pays a bounty only for sound issue-grade vests; worn ones are still dismantled.
+    bountyCondition: 50, bountyCoin: 5});
+export const bountyFor = (recipe, wear) => recipe !== SALVAGE.salvage ? {eligible: false, coin: 0, reason: 'The quartermaster pays only for dismantled vests.'}
+    : wear >= SALVAGE.bountyCondition ? {eligible: true, coin: SALVAGE.bountyCoin, reason: `Sound issue vest (condition ${wear}, ${SALVAGE.bountyCondition} needed): the quartermaster pays ${SALVAGE.bountyCoin} coin.`}
+    : {eligible: false, coin: 0, reason: `Worn vest (condition ${wear}, ${SALVAGE.bountyCondition} needed): no quartermaster bounty.`};
 export const salvageItemSpecifications = Object.freeze([{id: SALVAGE.tool, value: 30,
     description: 'A portable blade and awl for reclaiming leather. Needs quality 60 or better and a usable condition.',
     quality: 100, equip_slot: 'sickle'}]);
@@ -22,7 +27,7 @@ export function loadSalvage(value) {
     if (value === undefined) return {schema: 1, learned: false, receipts: {}};
     check(record(value) && Object.keys(value).length===3 && value.schema === 1 && typeof value.learned === 'boolean' && record(value.receipts), 'Unsupported salvage save.');
     for (const [id, r] of Object.entries(value.receipts)) {
-        check(/^p23\.salvage:[1-9]\d*$/.test(id) && record(r) && Object.keys(r).length===10 && r.id === id &&
+        check(/^p23\.salvage:[1-9]\d*$/.test(id) && record(r) && (Object.keys(r).length===10 || (Object.keys(r).length===12 && Number.isSafeInteger(r.bounty) && r.bounty >= 0 && r.bounty <= SALVAGE.bountyCoin && typeof r.bountyReason === 'string' && r.bountyReason.length <= 160)) && r.id === id &&
             [SALVAGE.salvage, SALVAGE.craft].includes(r.recipe) && Number.isSafeInteger(r.sequence) && r.sequence > 0 &&
             id === `p23.salvage:${r.sequence}` && Number.isSafeInteger(r.at) && r.at >= 0 &&
             stableCopy(r.consumedKey) && typeof r.toolKey === 'string' && Number.isFinite(r.condition) && r.condition >= 0 && r.condition <= 100 &&
@@ -90,7 +95,7 @@ export function quoteSalvage(c, request) {
         toolKey: request.toolKey, condition: wear, toolQuality: tool.quality, skillLevel: c.skillLevel,
         outputKey: request.recipe === SALVAGE.salvage ? SALVAGE.material : SALVAGE.output,
         outputCount: request.recipe === SALVAGE.salvage ? Math.min(4, 1 + Math.floor(wear / 50) + Math.min(1, Math.floor(c.skillLevel / 10))) : 1,
-        xp: request.recipe === SALVAGE.salvage ? 2 : 3, duration: SALVAGE.duration};
+        xp: request.recipe === SALVAGE.salvage ? 2 : 3, duration: SALVAGE.duration, bounty: bountyFor(request.recipe, wear)};
     return {...quote, token: JSON.stringify(quote)};
 }
 
@@ -114,11 +119,12 @@ export function stageSalvage(c, request) {
     if(nativeXP)applyGameplayEffect(gameplay, {type: 'xp', skill: SALVAGE.skill, amount: nativeXP}, 'player');
     const receipt = {id, recipe: quote.recipe, sequence: next.sequence, at: next.clock,
         consumedKey: quote.consumedKey, toolKey: quote.toolKey, condition: quote.condition,
-        outputKey: quote.outputKey, outputCount: quote.outputCount, xp: quote.xp};
+        outputKey: quote.outputKey, outputCount: quote.outputCount, xp: quote.xp,
+        bounty: quote.bounty.coin, bountyReason: quote.bounty.reason};
     saved.receipts[id] = receipt; saved.learned = true;
     const durability = c.durability.serialize(); delete durability.condition[quote.consumedKey];
     loadSalvage(saved); validateExpansionState(next); validateGameplaySnapshot(gameplay);
-    return {state: next, gameplay, external: {money: c.money},
+    return {state: next, gameplay, external: {money: c.money + quote.bounty.coin},
         nativePatch: {p23_salvage: saved, equipment_durability: durability}, acquisitions,
         receipt, learnedRecipe: SALVAGE.craft, duration: quote.duration};
 }

@@ -1,0 +1,44 @@
+// Rebuilt bundle, fresh origin, generated saves only; headless. O2a quartermaster bounty and O2b well-wall cover.
+const {launchChrome,withTestHooks}=require('./ui_helpers.cjs'),fs=require('fs'),assert=require('assert/strict'),path=require('path');
+const url=withTestHooks(process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18541/'),out=process.env.YAIRPG_PROOF_DIR||'/private/tmp/claude-501/o2';
+const VW=Number(process.env.VW||1920),VH=Number(process.env.VH||1080);fs.mkdirSync(out,{recursive:true});
+(async()=>{const b=await launchChrome(),errors=[];
+const open=async s=>{const c=await b.newContext({viewport:{width:VW,height:VH}});if(s)await c.addInitScript(s=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(s));},s);const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});await p.goto(url);await p.getByText('PLAY',{exact:true}).click();if(await p.getByText('Confirm',{exact:true}).isVisible())await p.getByText('Confirm',{exact:true}).click();return {c,p}};
+const save=async p=>{await p.evaluate(()=>window.saveProgress());return p.evaluate(()=>JSON.parse(localStorage.getItem('save data')))};
+try{
+let {c,p}=await open();const seed=await save(p);await c.close();
+const vest=JSON.stringify({id:'Leather vest',quality:100}),kit=JSON.stringify({id:'Portable leatherworking kit',quality:100});
+seed.inventories.person.main_character[vest]={count:2};seed.inventories.person.main_character[kit]={count:1};
+({c,p}=await open(seed));
+await p.evaluate(()=>{const e=document.querySelector('[data-durability-option]');e.checked=true;e.dispatchEvent(new Event('change',{bubbles:true}));e.click&&0;});
+const click=(p,sel,n=0)=>p.evaluate(([sel,n])=>document.querySelectorAll(sel)[n].click(),[sel,n]);
+const lines=p=>p.evaluate(()=>document.getElementById('p23_reading_salvage_panel').innerText);
+await click(p,'[data-p23-study="identify"]');await click(p,'[data-p23-study="identify"]');
+let s1=await save(p);const keys=Object.keys(s1.inventories.person.main_character).filter(k=>JSON.parse(k).id==='Leather vest'&&JSON.parse(k).e2_instance);
+assert.equal(keys.length,2);console.log('identified',keys);
+await c.close();
+s1.equipment_durability.condition[keys[0]]=20;s1.equipment_durability.condition[keys[1]]=100;
+s1.character.money=0;
+({c,p}=await open(s1));
+console.log(await lines(p));
+await p.screenshot({path:path.join(out,`salvage-choices-${VW}.png`)});
+const btns=await p.evaluate(()=>[...document.querySelectorAll('[data-p23-study="salvage"]')].map(b=>({t:b.textContent,d:b.disabled,title:b.title})));
+console.log(btns);
+const idx=btns.findIndex(b=>/condition 100/.test(b.t)&&/^Salvage/.test(b.t));assert.ok(idx>=0);
+await click(p,'[data-p23-study="salvage"]',idx);
+let s2=await save(p);const r1=Object.values(s2.p23_salvage.receipts);assert.equal(r1.length,1);assert.equal(r1[0].bounty,5);assert.equal(s2.character.money,5);console.log('receipt1',r1[0]);
+const btns2=await p.evaluate(()=>[...document.querySelectorAll('[data-p23-study="salvage"]')].map(b=>b.textContent));
+const idx2=btns2.findIndex(b=>/condition 20/.test(b)&&/^Salvage/.test(b));assert.ok(idx2>=0);
+await click(p,'[data-p23-study="salvage"]',idx2);
+let s3=await save(p);const r2=Object.values(s3.p23_salvage.receipts);assert.equal(r2.length,2);assert.equal(r2[1].bounty,0);assert.equal(s3.character.money,5);console.log('receipt2',r2[1]);
+await p.waitForTimeout(300);console.log(await lines(p));
+await p.reload();await p.getByText('PLAY',{exact:true}).click();
+const s4=await save(p);assert.deepEqual(s4.p23_salvage,s3.p23_salvage);assert.equal(s4.character.money,5);
+const text=await lines(p);assert.match(text,/Sound issue vest/);assert.match(text,/no quartermaster bounty/);
+await p.screenshot({path:path.join(out,`salvage-after-${VW}.png`)});
+const encoded=await p.evaluate(()=>window.save_to_file());await Promise.all([p.waitForNavigation({waitUntil:'domcontentloaded'}),p.locator('#saved_file_input').setInputFiles({name:'o2.txt',mimeType:'text/plain',buffer:Buffer.from(encoded)})]).catch(e=>console.log('import nav',e.message));
+await p.getByText('PLAY',{exact:true}).click().catch(()=>{});
+const s5=await save(p);assert.deepEqual(s5.p23_salvage,s3.p23_salvage);console.log('import ok');
+console.log('errors',errors);
+}finally{await b.close();}
+})().catch(e=>{console.error(e);process.exit(1)});
