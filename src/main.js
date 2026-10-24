@@ -2717,12 +2717,12 @@ function previewHeir() {
     if(heirRequest?.error) return [heirRequest.error];
     if(heirPreviewLines || expansionState.chronicle?.life.endedAt == null || !ownsSave) return heirPreviewLines || [];
     const serialized = create_save(); if(!serialized) return ["What this life left cannot be counted while saving is unavailable."];
-    return heirPreviewLines ||= heirLeftoverLines(deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys()}), lessonLabels());
+    return heirPreviewLines ||= heirLeftoverLines(deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys(), law: domainRegistry.project('inheritance_law')?.law}), lessonLabels());
 }
 function beginHeir() {
     if(!ownsSave || importProbeToken || foundationSaveBlocked || is_loading_error) throw new Error("Saving must be available before an heir can begin.");
     const serialized = create_save(); if(!serialized) throw new Error("This life could not be saved, so the heir waits.");
-    const leftovers = deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys()});
+    const leftovers = deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys(), law: domainRegistry.project('inheritance_law')?.law});
     lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized);
     localStorage.setItem(heir_request_key, JSON.stringify({schema: 1, leftovers}));
     window.location.reload();
@@ -9988,7 +9988,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     continuationPanel=createContinuationUI({read:readContinuationUI,command:commandContinuation});
     setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();}},500);
     mountWorkspace();
-    mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,gameStats:()=>game_stats,expansion:()=>expansionState,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
+    mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,gameStats:()=>game_stats,villageCareer:()=>villageCareer,expansion:()=>expansionState,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
     refreshCustomization();
     expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife,readLocalContext:localLifeContext});
     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);

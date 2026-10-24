@@ -70,3 +70,23 @@ test('legacy stock keys remain opaque and unsupported lineage revisions fail clo
     const invalid = JSON.stringify({id: 'x', lineage: {schema: 'oops.processed-material', revision: 2, family: 'x', facts: {}, history: []}});
     assert.throws(() => readMaterialLineage(invalid), /unsupported/);
 });
+
+test('heirloom lines append dated holders and deeds, grow value, stay capped and ordered (IM12)', async () => {
+    const {planHeirloomLine, heirloomLines, heirloomValue, HEIRLOOM_LINE_CAP} = await import('../src/material_lineage.js');
+    const key = gradedKey('Rat pelt', 85, 'whole');
+    const made = planProcessedMaterial({stock: stock([key, 1]), inputs: [{item_key: key, count: 1}], output: {id: 'Rat cloak', family: 'animal-hide', count: 1}, process, sourceFacts: {[key]: {born: 0}}});
+    assert.deepEqual(heirloomLines(made.item_key), []);
+    const one = planHeirloomLine({stock: stock([made.item_key, 1]), item_key: made.item_key, count: 1, at: 525600, kind: 'passed', holder: 'Ada'});
+    const two = planHeirloomLine({stock: stock([one.item_key, 1]), item_key: one.item_key, count: 1, at: 1051200, kind: 'passed', holder: 'Bo'});
+    assert.deepEqual(heirloomLines(two.item_key).map(l => [l.at, l.holder]), [[525600, 'Ada'], [1051200, 'Bo']]);
+    const json = JSON.parse(JSON.stringify({k: two.item_key})).k; // export/import round trip
+    assert.deepEqual(readMaterialLineage(json).history, readMaterialLineage(made.item_key).history);
+    assert.ok(heirloomValue(two.item_key, 1051200) > heirloomValue(made.item_key, 1051200), 'lines add value');
+    assert.ok(heirloomValue(made.item_key, 1051200) > heirloomValue(made.item_key, 0), 'age adds value');
+    assert.throws(() => planHeirloomLine({stock: stock([one.item_key, 1]), item_key: one.item_key, count: 1, at: 5, kind: 'deed', text: 'x'}), /date order/);
+    let k = two.item_key;
+    for (let i = 0; i < 20; i++) k = planHeirloomLine({stock: stock([k, 1]), item_key: k, count: 1, at: 2000000 + i, kind: 'deed', text: `deed ${i}`}).item_key;
+    assert.equal(heirloomLines(k).length, HEIRLOOM_LINE_CAP);
+    assert.equal(heirloomLines(k).at(-1).text, 'deed 19');
+    assert.throws(() => planHeirloomLine({stock: stock([key, 1]), item_key: key, count: 1, at: 1, kind: 'deed', text: 'x'}), /processed material/);
+});

@@ -1,5 +1,6 @@
 import { sameKnownRouteQuote } from './known_routes.js';
 import { rendered, shownOrDeferred } from './panel_reveal.js';
+import { recordRouteTraffic, routeTraffic } from './economy_standing_domain.js';
 
 const node = (tag, text = '', className = '') => {
     const element = document.createElement(tag);
@@ -47,6 +48,7 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
             if (!route || !sameKnownRouteQuote(fingerprint, route)) throw new Error('This route changed. Review its current terms again.');
             if (!route.eligible) throw new Error(reasonsText(route.reasons) || 'This route is currently blocked.');
             command(route.command);
+            recordRouteTraffic(route.id);
             notice = 'Route action sent.';
         } catch (error) {
             notice = error?.message || String(error);
@@ -78,16 +80,16 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
                 const card = node('section', '', 'expedition_card'), button = node('button');
                 const destination = node('p'), description = node('p', '', 'expedition_preview');
                 const terms = node('p', '', 'expedition_preview'), blocker = node('p', '', 'expedition_requirements');
-                const commitment = node('p', '', 'expedition_requirements');
+                const commitment = node('p', '', 'expedition_requirements'), wear = node('p', '', 'expedition_preview');
                 button.type = 'button';
                 button.addEventListener('click', () => entry.current && activate(entry.current.id, entry.current));
-                card.append(button, destination, description, terms, blocker, commitment);
-                entry = { card, button, destination, description, terms, blocker, commitment, current: route };
+                card.append(button, destination, description, terms, blocker, commitment, wear);
+                entry = { card, button, destination, description, terms, blocker, commitment, wear, current: route };
                 routeRows.set(route.id, entry);
                 routes.append(card);
             }
             entry.current = route;
-            const { button, destination, description, terms, blocker, commitment } = entry;
+            const { button, destination, description, terms, blocker, commitment, wear } = entry;
             button.textContent = route.label;
             button.disabled = !snapshot.canWrite || !!snapshot.error || !route.eligible;
             button.setAttribute('aria-label', `${route.direction === 'return' ? 'Return to' : 'Travel to'} ${route.destinationLabel}: ${route.label}`);
@@ -96,7 +98,9 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
             terms.textContent = route.costText;
             blocker.textContent = route.blockerText || reasonsText(route.reasons);
             commitment.textContent = route.commitmentText;
-            for (const row of [description, terms, blocker, commitment]) row.hidden = !row.textContent;
+            const worn = routeTraffic(route.id);
+            wear.textContent = worn.count ? `Walked ${worn.count} time${worn.count === 1 ? '' : 's'}; worn in ${Math.round(worn.gain * 1000) / 10}% (these doorway routes are instant; the wear shortens ordinary journeys between places).` : '';
+            for (const row of [description, terms, blocker, commitment, wear]) row.hidden = !row.textContent;
         }
         const currentRouteIds = new Set((section.routes || []).map(route => route.id));
         for (const [id, entry] of routeRows) if (!currentRouteIds.has(id)) {

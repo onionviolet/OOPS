@@ -37,7 +37,7 @@ const showHands = (id,label,requires,key,text) => command({id,label,group:"socia
 export const bodyCommands = [
     command({id:"body.begin",label:"Begin a body record",once:true,location:"Village",visibleWhen:eq("actor.body.enrolled",false),
         requires:{all:[village,eq("village.elderMet",true,"Meet the Village elder first.")]},
-        description:"Follow your training, recovery and visible changes. This also follows local people and work. It introduces no aging or closed-browser losses.",
+        description:"Follow your training, recovery and visible changes. This also follows local people and work. Years and company are followed in their own panel; nothing is lost while the browser is closed.",
         effects:[fact("body.enrolled"),fact("body.gripLearned",false),grant(NATURAL_BALANCE,"inherited",false)]}),
     command({id:"body.study_balance",label:"Study your footing · 2 min",once:true,location:"Village",duration:2,cancellation:"forfeit",
         visibleWhen:{all:[yes,eq(`faculty.${NATURAL_BALANCE}.awakened`,false)]},requires:yes,

@@ -1,4 +1,5 @@
-import {LIFE_LESSONS,lifeExperienceView,lifeGrave} from './life_experience.js';
+import {LIFE_LESSONS,lifeExperienceView,lifeGrave,remembersLived} from './life_experience.js';
+import {domainRegistry} from './domain_registry.js';
 import {ageYears, lifespanDeadline, responseCost} from "./chronicle.js";
 import {Game_Time, format_time} from "./game_time.js";
 import {knownPeopleView} from "./people_knowledge.js";
@@ -39,6 +40,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
     add("duty", "Keep archive promise · 5 min, 1 coin", duty);
     add("cancel-duty", "Cancel archive work · reserved coin refunded", cancelDuty);
     add("inherit", "Claim the archive succession", () => command({type: "inherit"}));
+    add("remember", "Greet the elder as my predecessor earned · the life before me stood before him", () => command({type: "remember"}));
     add("debrief", "Discuss the observed counter", () => command({type: "debrief"}));
     add("lesson", "Attend the private guard lesson", () => command({type: "lesson"}));
     add("settle", "Settle the assault grievance · 3 coins", () => command({type: "settle"}));
@@ -67,7 +69,8 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
     const heirNotice=node('p');heirNotice.setAttribute('role','status');
     heirButton.addEventListener('click',()=>{try {beginHeir();}catch(e){heirNotice.textContent=e.message;}});
     const independentButton=node('button','Archive this life and begin an independent character');independentButton.type='button';independentButton.dataset.life='begin-independent';independentButton.addEventListener('click',()=>{try{beginIndependent?.();}catch(e){heirNotice.textContent=e.message;}});
-    end.append(graveText,bequestText,heirNotice,exportButton,heirButton,independentButton,resetButton); document.body.append(end);
+    const carryText=node('div');carryText.id='chronicle_carry_ledger';
+    end.append(graveText,bequestText,carryText,heirNotice,exportButton,heirButton,independentButton,resetButton); document.body.append(end);
     const moment = (c, at) => {const t = new Game_Time(c.calendarAtEnrollment); t.goUp(at - c.enrolledAt); return t.toString();};
 
     function render(force = false) {
@@ -129,11 +132,13 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
                 if(r.ties.archiveDuty && !r.ties.dutyKept) show("duty", !available);
                 if(dutyJob) show("cancel-duty");
                 if(c.events.inheritance.status === "open") show("inherit", !available || !r.ties.dutyKept || !!r.ties.grievance);
+                if(remembersLived(c, "elderConcession") && !r.ties.rememberedConcession) show("remember", !available);
                 if(c.events.debrief?.status === "open") show("debrief", !available || !!r.ties.grievance);
                 if(c.events.lesson?.status === "open") show("lesson", !available || (r.axes.trust || 0) < 1 || !!r.ties.grievance);
                 if(r.ties.grievance) show("settle", !available || context.money < 3);
             }
         }
+        if(!want.get("remember").hidden)buttons.get("remember").title=want.get("remember").disabled?"Speak with the elder in the Village first, with no other work running.":"";
         for(const [id, b] of buttons) {const w = want.get(id); if(b.hidden !== w.hidden) b.hidden = w.hidden; if(b.disabled !== w.disabled) b.disabled = w.disabled;}
         syncChildren(events, (c ? Object.values(c.events).map(e => node("p", `${e.label} · ${e.place} · ${e.status === "missed" && !e.heard ? "window closed; aftermath not yet heard" : e.status} · ` +
             (e.status === "scheduled" ? `opens ${moment(c,e.opensAt)}; closes ${moment(c,e.closesAt)}` : e.status === "open" ? `closes ${moment(c,e.closesAt)} (${e.closesAt - state.clock} game minutes)` : e.status === "resolved" ? `resolved ${moment(c,e.settledAt)}` : `window ended ${moment(c,e.closesAt)}`))) : []));
@@ -146,7 +151,10 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
         setText(legacyHelp, beginHeir ? 'An heir begins with their own body, skills and starting things. They also receive what this life actually left behind:' : 'What this life left behind waits for someone to claim it. Export these memories to keep the whole life.');
         if(ended&&!localEnd){const grave=lifeGrave(c,context.heroName);setText(graveText, `A quiet grave. ${grave.epitaph}`);
             let lines;try{lines=heirPreview?heirPreview():[];}catch(e){lines=[e.message];}
-            syncChildren(bequestText, lines.map(t=>node('li',t)));}
+            syncChildren(bequestText, lines.map(t=>node('li',t)));
+            let ledger=[];try{ledger=domainRegistry.project('carry_ledger')||[];}catch{}
+            const crossing=ledger.filter(sec=>sec.boundary!=='world crossing');
+            syncChildren(carryText, crossing.length?[node('h3','What crosses to the next life'),...crossing.map(sec=>{const d=node('div');d.append(node('strong',sec.boundary));const ul=node('ul');for(const r of sec.rows)ul.append(node('li',`${r.what}: ${r.carries}, ${r.scope}. ${r.note}`));d.append(ul);return d;}),node('p',`Discovery codex kept across lives: ${domainRegistry.project('discovery_codex')?.total??0} found.`)]:[]);}
         if(localEnd)setText(endHeading, localEnd.label);
         else if(ended) setText(endHeading, `${context.heroName || "Your character"}’s life ended at ${lifeExperienceView(c).age}`);
         if(ended && !focusEnded) {focusEnded = true; exportButton.focus();}

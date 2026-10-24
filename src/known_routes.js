@@ -72,3 +72,13 @@ export function sameKnownRouteQuote(left, right) {
         left.inputFingerprint === right.inputFingerprint &&
         JSON.stringify(left.command) === JSON.stringify(right.command);
 }
+
+// G40: traffic-built route speed. A path walked often is worn in; the gain is a default with a
+// reason (the ground sets the ceiling), not a law. This is a pure rating over a traversal count.
+// It is a projection input: native travel durations belong to their family owners and do not read
+// it yet, so callers must show it as "worn in", never as a time already saved.
+export const ROUTE_WEAR = Object.freeze({cap: 0.25, rate: 12,
+    why: 'A path walked often is worn in; the ground, not the walker, sets how much quicker it gets (a quarter at most).'});
+export const routeSpeedGain = (count, wear = ROUTE_WEAR) =>
+    !(count > 0) ? 0 : Math.round(wear.cap * (1 - Math.exp(-count / wear.rate)) * 1000) / 1000;
+export const routeMinutes = (minutes, count, wear = ROUTE_WEAR) => Math.max(1, Math.round(minutes * (1 - routeSpeedGain(count, wear))));

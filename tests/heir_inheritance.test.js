@@ -88,3 +88,22 @@ test('an heir saved under the old one-lesson rule stays valid unchanged; invalid
     assert.throws(()=>validateHeirLeftovers({schema:1,recipient:'kin',money:-1}),/Invalid/);
     assert.throws(()=>applyHeirLeftovers(fresh(),{schema:1,recipient:'kin',money:1,belongings:[['x',0]],chest:[],home:false,archiveLine:false,empty:false,papers:[],apprentice:[],obligations:[],reputation:{}}),/goods/);
 });
+
+test('inheritance law is a world dial: one saved household yields different heirs under two laws, default unchanged (IM8)',()=>{
+    const prev=richLife();
+    prev.kin=[{id:'k1',name:'Wren',relation:'child',sex:'f',age:20},{id:'k2',name:'Tam',relation:'child',sex:'m',age:30},{id:'k3',name:'Bo',relation:'child',sex:'m',age:18},{id:'k4',name:'Ivy',relation:'spouse',age:55},{id:'k5',name:'Kit',relation:'child',sex:'m',age:9}];
+    const base=deriveHeirLeftovers(prev);
+    assert.equal(base.heir,undefined);assert.equal(base.law,undefined);assert.equal(base.recipient,'apprentice');assert.equal(base.home,true);
+    const ridge=deriveHeirLeftovers(prev,{law:'ultimogeniture'}),town=deriveHeirLeftovers(prev,{law:'primogeniture'});
+    validateHeirLeftovers(ridge);validateHeirLeftovers(town);
+    assert.equal(ridge.heir.name,'Bo','youngest adult son; the 9-year-old is not a claimant');
+    assert.equal(town.heir.name,'Tam','eldest adult child');
+    assert.equal(ridge.recipient,'kin');assert.equal(town.recipient,'apprentice','primogeniture keeps the taught apprentice');
+    assert.equal(ridge.lifeEstate.holder,'k4');assert.equal(ridge.home,false,'the widow holds the house for life');assert.equal(ridge.lifeEstate.home,true);
+    assert.equal(town.lifeEstate,undefined);assert.equal(town.home,true);
+    assert.ok(heirLeftoverLines(ridge,labels).some(t=>t.includes('Life estate')));
+    assert.throws(()=>deriveHeirLeftovers(prev,{law:'nope'}),/Unknown inheritance law/);
+    const next=buildLifeHeirSave(prev,fresh(),ridge);assert.equal(next.availabilities.location.Shack&1,0);
+    const sole=deriveHeirLeftovers({...prev,kin:[{id:'s',name:'Ivy',relation:'spouse',age:50}]},{law:'ultimogeniture'});
+    assert.equal(sole.heir.relation,'spouse');assert.equal(sole.lifeEstate,undefined);
+});

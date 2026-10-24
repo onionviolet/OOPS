@@ -10,11 +10,12 @@ import {emptyHomes,validateHomes,planHome,homeAt,homeUsable,homeRestable,homeBen
 import {createSimulationState} from './simulation_contracts.js';
 import {applyGameplayEffect} from './gameplay_transactions.js';
 import {createHomePanel} from './home_panel.js';
+import {stageFortunes,configureFortunes} from './household_fortunes_domain.js';
 let state=null,ports,panel;
 export const residenceState=()=>state;
 const bodyControlled=c=>c.body.ownerId==='player'&&c.body.controllerId==='player';
 export function configureHomes(operations) {
-    ports=operations;registerHomeWork(ports.registry);
+    ports=operations;configureFortunes({root:ports.root});registerHomeWork(ports.registry);
     if(!ports.locations[HOME_SITE]) {
         const site=new ports.SafeLocation({name:HOME_SITE,description:'An unclaimed willow stand above the flood line. Fallen twigs, sheltered dry grass and deadwood lie near a forked canopy, diggable roots and a level clearing. Use Homes to gather and build.',is_unlocked:true,is_under_roof:false,
             connected_locations:[{location:ports.locations.Village,travel_time:5,custom_text:'Return to Village'}]});
@@ -123,6 +124,7 @@ export function stageResidenceClock(plan) {
     const next=settleHomes(raw,c,(h,rows)=>{if(homeAt(raw,c)?.id===h.id)effects.push(...rows);},rows=>applyHomeSimulationEffects(plan,rows,ports.registry,c));
     // The pantry office acts on the same root clock; no separate timer or queue.
     if(next.properties.manor&&plan.state.simulation){const office=officeDecision(context({...c,root:plan.state}));if(office.status==='order'){plan.state.sequence++;stageHomeJob(plan,office.job,ports.registry,c);}}
+    if(next.properties.manor&&plan.state.simulation){const fc=context({...c,root:plan.state});stageFortunes(plan,fc,next,{applyEffects:rows=>applyHomeSimulationEffects(plan,rows,ports.registry,fc),stageJob:job=>stageHomeJob(plan,job,ports.registry,fc),log:ports.log});}
     // One root revision owns all household clocks. Local model planning uses
     // sequence+1; ensure the enclosing expansion revision admits that stamp.
     const needed=Math.max(plan.state.sequence,...Object.values(next.properties).map(h=>h.household?.lastSequence||0));

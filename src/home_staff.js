@@ -2,6 +2,7 @@ import {admitHousehold,staffReadiness,planHouseholdLife} from './home_household.
 import {planHomeOffice} from './home_office.js';
 import {HOME_PLACES as P,HOME_STARTS as S,HOME_SITE,homeKey as k} from './home_content.js';
 import {BUILDER,STEWARD,COOK,KEEPER} from './home_work_content.js';
+import {TUTOR} from './home_household_content.js';
 const check=(v,m)=>{if(!v)throw Error('Home: '+m);};
 const resource=(actor,key,amount)=>({type:'resource',actor,key,amount});
 export const HOME_STAFF=[{id:STEWARD,name:'Rowan',role:'Family steward'},{id:COOK,name:'Iven',role:'Household cook'},{id:KEEPER,name:'Toma',role:'Estate caretaker'}];
@@ -38,8 +39,15 @@ export function planHomeStaff(s,r,c,out) {
         out.job={id:'home.staff.'+r.service,actor};out.message='The staff member accepts one finite, funded order. Work uses the shared played clock and can continue while you are elsewhere. Supplies, wages and finished goods retain their actual owners.';return true;
     }
     case 'cancel_staff': {check(atManor,'discuss the current order at the manor');const job=c.jobs?.find(j=>j.id===r.job&&[COOK,KEEPER].includes(j.actorId)&&j.commandId.startsWith('home.staff.'));check(job,'the actual staff order changed');out.job={cancel:job.id,actor:job.actorId};out.message='The requested order is cancelled. Exact unearned wages and unused reserved supplies return to their actual household owners.';return true;}
+    case 'gift_staff': {
+        check(atManor&&[STEWARD,COOK,KEEPER,TUTOR].includes(r.actor)&&c.people?.[r.actor]?.life==='alive'&&c.people[r.actor].location===P.manor.location,'meet this household member at the manor');
+        check(Number.isSafeInteger(r.amount)&&r.amount>0&&r.amount<=c.money,'give a whole number of coins you carry');
+        out.money-=r.amount;out.simEffects.push(resource(r.actor,'home.wages',r.amount));
+        out.message=`${r.amount} coins pass to their own purse as a gift, not as wages. How they take it depends on how well they know you.`;return true;
+    }
     case 'collect_meal': check(atManor&&available(COOK)&&(c.staffStock?.[COOK]?.[k('Roasted rat meat')]||0)>0,'meet the cook when a prepared household meal is ready');out.simEffects.push({type:'transfer',from:COOK,to:'player',key:k('Roasted rat meat'),count:1});out.message='Iven offers one prepared meal under your household hospitality. Pantry ingredients remain communal.';return true;
     case 'supply_staff': {check(atManor&&[COOK,KEEPER].includes(r.actor)&&available(r.actor),'meet this staff member at the manor');const allowed=r.actor===COOK?['Rat meat chunks','Rough wood log']:['Rough wood log','Home dry grass'];check(allowed.includes(r.item)&&(c.inventory[k(r.item)]||0)>0&&!c.unspendable?.includes(k(r.item)),'offer one actual usable owned supply');out.simEffects.push({type:'transfer',from:'player',to:r.actor,key:k(r.item),count:1});out.message='One personal supply is given to the staff member’s actual household stock. This gift does not grant ownership of the estate pantry.';return true;}
     default:return false;
     }
 }
+export {awakeningChance,settleAwakening,settleGroup,watchList,recordDeath,easeHousehold,emptyHousehold,recordCompletion,unlockedRoutines,routineMayRun,ROUTINES} from './household_fortunes.js';

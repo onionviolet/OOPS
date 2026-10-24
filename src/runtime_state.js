@@ -72,3 +72,7 @@ export const game_options = {
 
     stop_crafting_on_material_change: true, //not changeable
 };
+
+// Route wear (G40): the path finder multiplies each leg by this factor. The economy-standing domain
+// replaces it with a traffic-built factor; the default leaves every leg as authored.
+export const pathWear = {factor: (from, to) => 1};

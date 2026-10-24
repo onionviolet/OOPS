@@ -121,3 +121,16 @@ export const binderGrammar = Object.freeze({
         witness: {inputs: [], process: [{op: 'steep', level: 1}]},
     },
 });
+
+// Dose rules for the frontier tonic (G32, G34). Dials with in-world reasons; drinking
+// again while the body is still dulled costs health instead of being refused.
+import {defineDoseRules} from './craft_dose_rules.js';
+export const frontierDoseRules = defineDoseRules({
+    id: 'frontier.dose', revision: 1,
+    pairs: [{a: 'health', b: 'poison', permille: 800, reason: 'Restorative sap soothes most of what the bitter toxin burns, not all of it.'}],
+    tolerance: [
+        {effect: 'health', perDose: 4, decayPerDay: 20, overdoseAt: 60, harm: {effect: 'poison', per: 1}, reason: 'A body still full of sap sours on more of it.'},
+        {effect: 'stamina', perDose: 4, decayPerDay: 20, overdoseAt: 60, harm: {effect: 'poison', per: 1}, reason: 'Bracing oil on top of bracing oil leaves the hands shaking.'},
+    ],
+    names: {health: 'restorative', stamina: 'bracing', poison: 'bitter', bind: 'binding'},
+});
