@@ -53,6 +53,8 @@ files and `dist/` changed in the shared checkout, uncommitted. Values and acts
 are proposals. [Record](docs/gm/dispatch/ascension-paths-2026-10-22/CHECKPOINT.md);
 [ASC1–ASC46](docs/RESEARCH_CULTIVATION_PATHS.md#round-2026-10-22b-gaps-filled-first-ladders-built-value-of-progress-and-rituals).
 
+Worktree reconciliation, 2026-10-24: Weibao asked to merge finished gate-passing lanes and retire stale worktrees, no push. The gated O/F/A candidate (2796/2796 at tree `d59dfe7d`) landed on master as `e3c50c0c3`, superseding the "no commit" status of the O/F/A and LOTM Q2-Q6 work below; five worktrees were retired and the rest kept with owners. [Record](docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md). Not pushed; human acceptance and app adoption remain open.
+
 Start at [RULES_INDEX](docs/RULES_INDEX.md), then use the current owners below.
 The [shared-doc reconciliation](docs/reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md)
 records inspected commits, recent chat results, source fingerprints and limits.

@@ -68,6 +68,12 @@ master does not contain.
 | `qud-g1` to `qud-g7`, `qud-integration-c0781f` | Qud closure `local_a4c80312` | separate integration candidate (65 unique files in the integration checkout), not part of this landing |
 | `~/.codex/worktrees/master-except-start-menu` | Codex | detached, 1 local file |
 
-Master is 22 commits ahead of `origin/master` (7 earlier local commits, the 12
-O/F/A lane and merge commits, the two landing commits and this record); push
-waits for Weibao.
+Master is 24 commits ahead of `origin/master` (7 earlier local commits, the 12
+O/F/A lane and merge commits, the two landing commits and three record commits);
+push waits for Weibao.
+
+Primary-checkout backups of every file the sync overwrote, with `land_log.txt`
+(per-path disposition) and `primary-backup.sha256` (verified), are at
+`/Users/weiwei/.codex/research/worktree-cleanup-2026-10-24/primary-sync/`. For
+the 10 files kept with other sessions' edits, the count of candidate-added lines
+missing from the primary working copy is 0 in every file.
