@@ -1,7 +1,7 @@
 import {validatePathWork,pathWorkView} from '../../mistglass_path_work.js';
 import {check, natural as nat, object as record} from '../../basics.js';
 import {cultivationMethods,freshCultivation,validateCultivation,cultivationView,advanceCultivation} from './techniques.js';
-export {cultivationMethods} from './techniques.js';
+export {cultivationMethods,settleInsight} from './techniques.js';
 import {mistglassProfile as P} from './profile.js';
 export {mistglassProfile, mistglassContent, mistglassEnergyPolicy} from './profile.js';
 

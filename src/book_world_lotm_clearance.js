@@ -1,0 +1,29 @@
+// Church team roles and sealed-item clearance for Tingen (Q4, institutions pass F1, F4, F7, EF6). The ladder (clerk by contract,
+// formal member, captain, senior deacon, archbishop) is source-seen [17, 168]; the grade rules are source-stated by Dunn [19 p51]:
+// grade 2 needs a bishop or team-captain clearance and a central cathedral keeps three to five; grade 3 needs a group of three or more
+// to request it and formal-member clearance. The local vault's one grade-3 item and its handling text are an authored original (WPR5);
+// no higher-grade item is held here. Roles are read from facts the owners already emit, never saved: a probationer who has drunk a
+// dose is a formal member (authored: the source's formal members are the potion-holders of the team).
+import {defineClearance,clearanceFor} from './clearance.js';
+import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K} from './book_world_lotm_ids.js';
+import {eq,all,af,has,no,transfer,know,cmd} from './book_world_lotm_kit.js';
+export const LOTM_CLEARANCE=defineClearance({id:'lotm.church_team',roles:['civil_staff','probationer','formal_member','captain','senior_deacon','bishop','archbishop'],grades:{
+ 3:{needs:{atLeast:'formal_member',group:{min:3,atLeast:'formal_member'}},line:'A grade 3 sealed item is issued to a group of three or more with formal-member clearance.',vague:'The vault will not hand an item to one clerk.'},
+ 2:{needs:{anyOf:['captain','bishop']},line:'A grade 2 sealed item needs a bishop\'s or a team captain\'s clearance; the central cathedral keeps three to five.',vague:'A heavier seal needs someone senior to sign.'}}});
+// Who stands where: Hale is the team's captain stand-in (authored), the member is an original formal member. Roles of present people are data, not entities' knowledge.
+export const LOTM_ROLE_OF={[I.supervisor]:'captain',[I.member]:'formal_member',[I.seniorDeacon]:'senior_deacon'};
+export function playerRole(profileKey,ingested){return profileKey==='civil'?'civil_staff':ingested?'formal_member':'probationer';}
+export const sealedItem={id:'Tingen sealed grade-3 item',description:'A grade 3 sealed item from the Tingen vault: a small tarnished lamp that must not be lit. Handling it needs the group and clearance the church sets; it is returned the same day.'};
+export const clearanceCommands=[
+ cmd('request_sealed_3','Request the vault\'s grade 3 sealed item (needs a group of three with formal-member clearance)',L.workroom,{targetId:I.supervisor,requires:all(eq('lotm.clearance.3'),no('sealed.held')),
+  visibleWhen:all(eq('lotm.ready'),no('sealed.held')),costs:[transfer(I.supervisor,'player',K.sealed3)],effects:[af('sealed.held'),know('sealed.handled','Hale and the member stood with you while the vault released the grade 3 item. The group and your clearance are what let it leave the vault; nobody can take it out alone.','player','player','observation','understood')]}),
+ cmd('return_sealed_3','Return the sealed item to the vault',L.workroom,{targetId:I.supervisor,once:false,requires:has('sealed.held'),visibleWhen:all(eq('lotm.ready'),has('sealed.held')),costs:[transfer('player',I.supervisor,K.sealed3)],effects:[af('sealed.held',false),know('sealed.returned','You returned the sealed item and Hale logged it back into the vault. Custody is the vault\'s again.','player','player','observation','understood')]})];
+// Facts: the player's role and the clearance verdict for each grade the vault can reach from here.
+export function clearanceFacts(state,f,{profile,ingested,here,peopleAt}){
+ const role=playerRole(profile,ingested),present=peopleAt.map(id=>LOTM_ROLE_OF[id]).filter(Boolean);
+ for(const r of LOTM_CLEARANCE.roles)f[`lotm.role.${r}`]=role===r;
+ for(const g of Object.keys(LOTM_CLEARANCE.grades))f[`lotm.clearance.${g}`]=here&&clearanceFor(LOTM_CLEARANCE,g,{role,present}).ok;
+ f['lotm.roleName']=role;f['lotm.presentRoles']=present.join(',');
+ return {role,present};
+}
+export const clearanceView=(role,present,known=true)=>Object.keys(LOTM_CLEARANCE.grades).sort().map(g=>({grade:Number(g),...clearanceFor(LOTM_CLEARANCE,g,{role,present,known})}));

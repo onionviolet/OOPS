@@ -12,6 +12,7 @@ import './stock_view_ui.js';
 import './loadouts.js';
 import './palette_feedback_domain.js';
 import './hp_brewing_domain.js';
+import './rank_gap_observer_domain.js';
 import './lives_carry_domain.js';
 
 // One mount point for the shell-wide helpers that read the DOM the shell already shows: the command

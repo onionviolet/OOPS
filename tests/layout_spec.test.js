@@ -114,12 +114,14 @@ test('UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar ord
     const {routeTable, routeById} = await import('../src/layout_spec.js');
     const r21 = [['Here','h','local-actions'],['Stats','e','preparation'],['Condition','o','condition'],['Inventory','i','belongings'],['Crafting','c','crafting'],['Mixing','m','mixing'],
         ['Journal','j','records','journal_show_quests'],['Bestiary','b','records','journal_show_bestiary'],['Books','a','records','journal_show_books'],
-        ['Data','d','records','journal_show_data'],['Notebook','n','records','journal_show_notebook'],['Skills','k','skills'],
+        ['Data','d','records','journal_show_data'],['Notebook','n','notebook'],['Skills','k','skills'],
         ['People','p','known-people'],['Travelers','t','village-travelers'],['Projects','r','projects'],['Ledger','l','ledger'],
         ['Worlds','w','optional-worlds'],['Beginning','g','beginning'],['Settings','s','customization']];
     assert.deepEqual(routeTable().map(r => [r.label, r.key, r.target, ...(r.tab ? [r.tab] : [])]), r21);
     assert.deepEqual(routeTable().filter(r => r.pane).sort((x, y) => x.pane - y.pane).map(r => r.label), ['Here', 'Skills', 'Crafting', 'Mixing'], 'Center views keep their R21 order');
     assert.equal(routeById('records:bestiary').tab, 'journal_show_bestiary');
+    // The Notebook content is the workspace-owned 'notebook' module; the Journal tab alone showed an empty box.
+    assert.equal(routeById('records:notebook').target, 'notebook');
     assert.equal(routeById('belongings').open, 'in-place');
 });
 
@@ -205,6 +207,16 @@ test('UIL7 split clamps protect both adjacent regions including Reports', async 
     assert.equal(clampSplit(-50,1300,300,450),300);
     assert.equal(clampSplit(1500,1300,300,450),850);
     assert.equal(clampSplit(500,1300,300,450),500);
+});
+
+test('UIL7 the row divider spans only columns where a box ends above and another starts below', async () => {
+    const {dividerSpan}=await import('../src/shell_resize.js');
+    const box=(left,right)=>({left,right});
+    // Focus away: the actions box spans both rows, so the divider covers the left column only.
+    assert.deepEqual(dividerSpan([box(17,518)],[box(17,646)]),[17,518]);
+    // Focus present: left and centre columns both split.
+    assert.deepEqual(dividerSpan([box(17,518),box(524,1396)],[box(17,646),box(652,1396)]),[17,1396]);
+    assert.equal(dividerSpan([box(17,518)],[box(700,900)]),null);
 });
 
 // UM8 (2026-10-22): the grid is spec data. The host writes these strings; CSS has one generic rule.

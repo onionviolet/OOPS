@@ -1,0 +1,54 @@
+Skill layers (dev, read-only)
+Cold resistance (Environmental) (native)
+
+Level: Level 0 of 40, 2 total XP · source: practice (native XP)
+
+Parent: None · source: none
+
+Milestones: at 1 (stats) · source: skill definition
+
+Carry: Native XP is kept by the person; no relearning rule is applied here
+
+Running (Activity) (native)
+
+Level: Level 0 of 50, 6 total XP · source: practice (native XP)
+
+Parent: None · source: none
+
+Milestones: at 1 (stats) · at 3 (stats, xp multipliers) · at 5 (stats) · at 7 (stats, xp multipliers) · at 10 (stats, xp multipliers) · at 12 (stats, xp multipliers, unlocks) · at 15 (stats, xp multipliers) · at 20 (stats, xp multipliers) · source: skill definition
+
+Carry: Native XP is kept by the person; no relearning rule is applied here
+
+Climbing (Activity) (native)
+
+Level: Level 0 of 50, 6 total XP · source: practice (native XP)
+
+Parent: None · source: none
+
+Milestones: at 1 (stats) · at 3 (stats) · at 5 (stats) · at 7 (stats) · at 10 (stats, xp multipliers) · at 12 (stats) · at 15 (stats) · at 20 (stats) · source: skill definition
+
+Carry: Native XP is kept by the person; no relearning rule is applied here
+
+Breathing (Character) (native)
+
+Level: Level 0 of 40, 13 total XP · source: practice (native XP)
+
+Parent: None · source: none
+
+Milestones: at 3 (stats, xp multipliers) · at 5 (stats) · at 7 (stats, xp multipliers) · at 10 (stats) · at 12 (stats, xp multipliers) · at 15 (stats, xp multipliers) · at 20 (stats, xp multipliers) · source: skill definition
+
+Carry: Native XP is kept by the person; no relearning rule is applied here
+
+Warming (simulation)
+
+Held: Owned · source: structured:11
+
+Mastery: 2 after 2 uses · source: authored mastery effects only
+
+Understanding: 0 fragments · source: direct
+
+Carry: Held method stays with you; body-bound grants stay with their body
+
+Source Frail frame: trait/acquired · stays with you
+
+Source Warm hands: trait/inherited · stays with you

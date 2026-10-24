@@ -225,3 +225,25 @@ test('sluice refuses known-but-unaffordable, wrong context and pending trials; o
     }
     assert.equal(enrolled().sluice,undefined);
 });
+
+test('D3 insight overflow converts into drill practice, conserves, and fades with a reason', async () => {
+    const {settleInsight, freshCultivation, validateCultivation} = await import('../src/absorb_p23/world_adaptation/techniques.js');
+    const {skillEventOverflowRow} = await import('../src/skill_overflow_domain.js');
+    const row = skillEventOverflowRow('p23.mistglass', 'purification');
+    assert.equal(row.policy, 'converted');
+    assert.equal(skillEventOverflowRow('p23.mistglass', 'other').policy, 'lost', 'other gains keep the stated loss');
+    const base = {...freshCultivation(), selected: 'breath'};
+    const r1 = settleInsight(base, 12.5, row);               // 2 minutes, 2.5 carried
+    assert.equal(r1.next.minutes.breath, 2); assert.equal(r1.next.insight.carry, 2.5); assert.equal(r1.lost, 0);
+    const r2 = settleInsight(r1.next, 12.5, row);            // pool 15 = 3 minutes
+    assert.equal(r2.next.minutes.breath, 5); assert.equal(r2.next.insight.carry, 0);
+    assert.equal(r2.next.insight.minutes * row.xpPerMinute + r2.next.insight.carry + r2.next.insight.lost, 25, 'excess in = out + held + lost');
+    const full = {...base, minutes: {breath: 47, settling: 0}};
+    const r3 = settleInsight(full, 12, row);                 // room 1 minute, 7 fades
+    assert.equal(r3.next.minutes.breath, 48); assert.equal(r3.lost, 7); assert.equal(r3.minutes, 1);
+    assert.equal(settleInsight(freshCultivation(), 10, row).lost, 10, 'open-mist has no drill');
+    validateCultivation(r3.next);
+    validateCultivation(base);                               // legacy shape without insight loads
+    assert.throws(() => validateCultivation({...base, insight: {carry: -1, lost: 0, minutes: 0}}));
+    assert.equal(settleInsight(base, 0, row).next, base, 'no excess, no change');
+});

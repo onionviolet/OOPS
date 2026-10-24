@@ -38,8 +38,10 @@ export function validateLineage(l) {
 export function projectFamilyTree(chronicle, selfName = 'You') {
     const x = chronicle?.life?.experience, l = x?.lineage;
     const generation = x?.generation || 1;
-    const self = {key: 'self', name: selfName, generation, via: null, self: true, relatives: [], children: []};
-    if(!l || !l.ancestors.length) return {root: self, count: 1, hasFamily: false};
+    // Living kin (a ward, a spouse) hang off this life; once it ends they are frozen into the heir's lineage.
+    const living = kinFromRelationships(chronicle).map((r, j) => ({key: `kin:${j}`, ...r}));
+    const self = {key: 'self', name: selfName, generation, via: null, self: true, relatives: living, children: []};
+    if(!l || !l.ancestors.length) return {root: self, count: 1 + living.length, hasFamily: living.length > 0};
     // Build from the heir upward; each ancestor's `via` is how the next life
     // down received the estate.
     let node = self;
@@ -48,7 +50,7 @@ export function projectFamilyTree(chronicle, selfName = 'You') {
         node = {key: `ancestor:${i}`, name: a.name, age: a.age, generation: a.generation, via: null, self: false,
             relatives: l.relatives.map((r, j) => ({key: `relative:${j}`, ...r})).filter(r => r.of === a.generation), children: [node]};
     });
-    return {root: node, count: l.ancestors.length + l.relatives.length + 1, hasFamily: true};
+    return {root: node, count: l.ancestors.length + l.relatives.length + living.length + 1, hasFamily: true};
 }
 
 const LINK_WORDS = {kin: 'next of kin', apprentice: 'taught apprentice'};
@@ -66,4 +68,13 @@ export function familyTreeRows(tree) {
     };
     walk(tree.root, 0);
     return rows;
+}
+
+// Relatives already recorded in the Chronicle's relationship owner (no new store, so the
+// save keeps them): a relationship whose ties name a kin relation and a display name.
+// Nothing in the game sets these ties yet; a future marriage, adoption or birth command
+// would write them with relationshipChange.
+export function kinFromRelationships(chronicle) {
+    return Object.values(chronicle?.relationships || {}).filter(r => RELATIONS.includes(r?.ties?.kinRelation) && typeof r.ties.kinName === 'string')
+        .map(r => ({name: r.ties.kinName, relation: r.ties.kinRelation, age: Number.isSafeInteger(r.ties.kinAge) ? r.ties.kinAge : null}));
 }

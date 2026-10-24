@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "lane": "o5b-habits",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "9d11a7d277f7bf959ab4ce2fedd31aa28043292e839815d6740d9fb840e0efae",
+  "gates": [
+    "o5b: native Save/reload/Export/literal-file Import"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

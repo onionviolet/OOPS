@@ -219,6 +219,15 @@ export function commandChronicle(state, command, context, expectedSequence = sta
             check((r.axes.trust || 0) >= 1 && !r.ties.grievance && c.knowledge.controlPattern, "This lesson requires established trust, relevant evidence and no unresolved assault.");
             resolve("lesson"); c.knowledge.guardLesson = true;
             note(c, "The practice makes your guards more economical. Future guards in these control challenges cost one less stamina before your usual efficiency modifiers.", at);
+        } else if(command.type === "take_in") {
+            // Authored prototype (AD5/AD38). Default: one orphaned ward, after the archive promise is kept.
+            // Reason: the elder trusts a keeper of promises with a child of the Village. Cost: five coins
+            // for a bed and bread now. Dial: one ward per life here; a world may set more or none.
+            check(r.ties.dutyKept && !r.ties.grievance, "The elder trusts you with a ward only after you keep your archive promise.");
+            check(!c.relationships.ward, "A ward already shares your household.");
+            check(context.money >= 5, "A bed and bread for a ward cost five coins."); moneyDelta = -5;
+            relationshipChange(c, "ward", {id: `take_in:${next.sequence + 1}`, axes: {trust: 1}, ties: {kinRelation: "child", kinName: "Wren", kinAge: 9}, text: "Took in Wren, a nine-year-old orphan of the Village, as your ward."}, at);
+            note(c, "The elder brings a quiet nine-year-old named Wren to your door. I find a second bowl; the household has grown by one.", at, true);
         } else if(command.type === "settle") {
             check(r.ties.grievance && context.money >= 3, "Settlement requires an unresolved grievance and three coins."); moneyDelta = -3;
             relationshipChange(c, "villageElder", {id: `settlement:${next.sequence + 1}`, axes: {trust: 1}, ties: {grievance: false}, text: "Made the declared three-coin restitution. The case closes; the attack remains remembered."}, at);

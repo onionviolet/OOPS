@@ -88,3 +88,15 @@ test('instance history is drawn once from the save seed, survives reload and cha
     advance(legacy,16);stageMistglassSluice(legacy,mistglassContext(legacy.state,native),expeditionRegistry);assert.equal(legacy.external.money,22,'old realms keep the original keeper wage');
     const bad=enrolled();bad.state.mistglassRealm.history.id='invented';assert.throws(()=>validateMistglassEnvelope(envelope(bad)),/history/);
 });
+test('D3: a capped purification quote reports its surplus and the saved drill takes it; uncapped and legacy paths are untouched',()=>{
+    const quote=(cap,seen)=>(_id,n,report)=>{const kept=Math.min(n,cap);if(n>kept){seen.push(n-kept);report?.(n-kept);}return kept;};
+    const run=(cap,method)=>{
+        const p=advance(enrolled(),16);if(method)p.state.worldAdaptation.techniques={schema:1,selected:method,minutes:{breath:0,settling:0}};
+        stageMistglassTrial(p,mistglassContext(p.state,native),expeditionRegistry,{doseKey:key,quoteXP:quote(cap,[])});p.state.worldAdaptation.pending.roll=0;
+        const c=mistglassContext(p.state,native);p.state.clock=28;stageMistglassAdvance(p,c,expeditionRegistry,{quoteXP:quote(cap,[])});validateMistglassEnvelope(envelope(p));return p;};
+    const capped=run(10,'breath'),t=capped.state.worldAdaptation.techniques;
+    assert.equal(capped.gameplay.player.skills.Meditation.xp,10,'the cap itself is unchanged');
+    assert.equal(t.minutes.breath,4);assert.equal(t.insight.last.excess,20);assert.equal(t.insight.minutes*5+t.insight.carry+t.insight.lost,20);
+    const open=run(10);assert.equal(open.state.worldAdaptation.techniques.insight.lost,20,'open-mist has no drill: the surplus fades and is counted');
+    const free=run(100,'breath');assert.equal(free.state.worldAdaptation.techniques.insight,undefined,'no surplus, no record');
+});

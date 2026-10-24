@@ -1,7 +1,12 @@
 // Optional `state.lotm` owner for the early-Tingen probationer branch. Absent means
 // inert: no Tingen presence, job, means or knowledge may exist without it. The
 // only activation path is enrollLotmBranch (book_world_lotm_content.js).
-import {LOTM_IDS as I,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT,LOTM_DIGEST_ACTS} from './book_world_lotm_ids.js';
+import {LOTM_IDS as I,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT,LOTM_DIGEST_ACTS,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
+import {PROFILE_IDS,LOTM_PROFILES} from './book_world_lotm_lives.js';
+import {pathwayAssertions,flagOf} from './book_world_lotm_pathways.js';
+import {causeAssertions,causeHeld} from './book_world_lotm_causes.js';
+import {brokerAssertions} from './book_world_lotm_broker.js';
+import {pathwayRows} from './book_world_lotm_rows.js';
 import {lotmCommands} from './book_world_lotm_actions.js';
 import {jsonData} from './simulation_contracts.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
@@ -9,7 +14,7 @@ const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const prefix=k=>typeof k==='string'&&k.startsWith('book.lotm.');
 export const LOTM_ENTRY_PROFILE='lotm.early_tingen.local_probationer@1';
 export const lotmEnvelopeFields=['schema','definitionRevision','sourceSnapshot','sourceHash','initializedAt','entryProfile'];
-export function createLotmState(clock){return {schema:1,definitionRevision:1,sourceSnapshot:LOTM_SOURCE_SNAPSHOT,sourceHash:LOTM_SOURCE_HASH,initializedAt:clock,entryProfile:LOTM_ENTRY_PROFILE};}
+export function createLotmState(clock,entryProfile=LOTM_ENTRY_PROFILE){return {schema:1,definitionRevision:1,sourceSnapshot:LOTM_SOURCE_SNAPSHOT,sourceHash:LOTM_SOURCE_HASH,initializedAt:clock,entryProfile};}
 export function validateLotmState(state){
  const d=state.lotm,s=state.simulation,a=state.actors||{};
  if(d==null){
@@ -21,7 +26,7 @@ export function validateLotmState(state){
  }
  jsonData(d);
  assert(d&&typeof d==='object'&&!Array.isArray(d)&&Object.keys(d).length===lotmEnvelopeFields.length&&lotmEnvelopeFields.every(k=>Object.hasOwn(d,k)),'Unsupported Tingen branch fields.');
- assert(d.schema===1&&d.definitionRevision===1&&d.sourceSnapshot===LOTM_SOURCE_SNAPSHOT&&d.sourceHash===LOTM_SOURCE_HASH&&d.entryProfile===LOTM_ENTRY_PROFILE,'Unsupported Tingen source or entry profile. Preserve this save for its matching reader.');
+ assert(d.schema===1&&d.definitionRevision===1&&d.sourceSnapshot===LOTM_SOURCE_SNAPSHOT&&d.sourceHash===LOTM_SOURCE_HASH&&PROFILE_IDS.includes(d.entryProfile),'Unsupported Tingen source or entry profile. Preserve this save for its matching reader.');
  assert(natural(d.initializedAt)&&d.initializedAt<=state.clock,'Invalid Tingen activation time.');
  assert(s&&a.player?.worldId===I.world&&state.worlds?.[I.world]&&s.people?.player?.life!=null&&s.people.player.body?.id==='native.player.body'&&s.people.player.body.form==='human','The Tingen branch needs its one actual native player body.');
  for(const owner of [state.realmPrototype,state.featureDestination,state.nestedCampaign,state.bookWorldCampaign,state.motherOfLearning,state.proto23Village,state.mistglassRealm])assert(owner?.activeVisitId==null,'One controlled native body cannot be in the Tingen branch and another retained world.');
@@ -43,6 +48,23 @@ export function validateLotmState(state){
  assert(!has('assessed')||acting===LOTM_DIGEST_ACTS,'An assessment needs a digested potion.');
  assert(!has('promoted')||has('assessed')&&!!src,'A promotion needs the assessment and the Seer source.');
  assert(!!clown===has('promoted'),'The Clown source exists exactly when the promotion is recorded.');
+ // Other pathways (Q1 onward) are rows: each has its own flags and acting resource, additive and optional. One pathway per life.
+ const chosen=row=>has(flagOf(row,'allocated'))||has(flagOf(row,'ingested'))||!!a.player.sources?.[row.base];
+ const seerChosen=has('allocated')||has('ingested')||!!src;
+ // Switching is a stated cause, so a second pathway is allowed only with its cause recorded (B3); without it the save is refused.
+ assert(pathwayRows.filter(chosen).length+(seerChosen?1:0)<=1||causeHeld(has,'switching'),LOTM_SWITCH_NOTICE+' This save holds both pathways.');
+ for(const row of pathwayRows)pathwayAssertions(row,{a,has,assert,natural});
+ // A life holds only its own church's pathways unless a stated cause (switching) is recorded.
+ const prof=Object.values(LOTM_PROFILES).find(x=>x.id===d.entryProfile);
+ assert(causeHeld(has,'switching')||(!seerChosen&&!pathwayRows.some(r=>r.church==='evernight'&&chosen(r))||prof.home==='evernight')&&(!pathwayRows.some(r=>r.church==='machinery'&&chosen(r))||prof.home==='machinery'),'A pathway belongs to its own church\'s life.');
+ // Lives (Q3): a civil clerk is on a post, not the Beyonder track, and the contract flag belongs to that profile only.
+ const civil=d.entryProfile===LOTM_PROFILES.civil.id;
+ assert(!civil||!(seerChosen||pathwayRows.some(chosen)||has('declined')),'A civil clerk holds no Beyonder track, allocation or source.');
+ assert(!has('contract.signed')||civil,'A civil staff contract belongs to the civil clerk profile.');
+ const paid=a.player.resources?.['book.lotm.weeks_paid'];
+ assert(paid===undefined||natural(paid)&&(civil&&has('contract.signed')||paid===0),'Weeks of pay need the signed contract.');
+ brokerAssertions({a,has,assert});
+ causeAssertions({a,has,assert,natural});
  const e=s.energies?.player?.[I.energy];
  assert(!!e===!!src,'The spirituality pool exists exactly when the source does.');
  return true;

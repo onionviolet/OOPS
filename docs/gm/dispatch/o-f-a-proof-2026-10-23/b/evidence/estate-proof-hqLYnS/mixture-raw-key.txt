@@ -1,0 +1,1 @@
+{"id":"Village mixture","mixture":"m1:{\"revision\":1,\"process\":\"steep\",\"inputs\":{\"River bellleaf\":1,\"Spring water\":1},\"fractions\":{\"restore\":110,\"vigor\":0,\"trace\":11,\"matrix\":1879},\"mass\":2000}"}

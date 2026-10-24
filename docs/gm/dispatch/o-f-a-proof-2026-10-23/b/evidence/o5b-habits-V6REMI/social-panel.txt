@@ -1,0 +1,7 @@
+village.working_habits | Ask about his working habits
+village.interrupt_work | Ask for his attention at the busy bench
+village.ask_between_cuts | Ask for a moment between cuts
+village.collect | Collect the finished commissioned kit
+village.measured_pack | Pack carefully · 1 log + 2 coins · 3 min
+village.study_method | Learn measured packing · 1 coin
+village.storylets.begin | Begin Village encounters

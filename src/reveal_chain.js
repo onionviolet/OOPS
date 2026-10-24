@@ -1,10 +1,23 @@
 import {materialInsights, acquiredMaterialIds, inventoryGains} from './material_insights.js';
+import {defineGate, evaluateGate} from './progression_gates.js';
 // Original implementation inspired by Proto23's experience/capability/UI chain.
 // No foreign code, assets or reward values are used. Native owners retain progress.
 export const HERB_LESSON = {material:'Golmoon leaf',count:20,recipe:'Weak healing powder'};
+// GTL2 (2026-10-23): first gate on the shared descriptor. Behaviour unchanged.
+export const HERB_LESSON_GATE = defineGate({id:'frontier.herb_lesson', kind:'knowledge',
+    reason:'Handling enough leaves teaches how they behave when dried and ground.',
+    requires:{all:[
+        {fact:'held.'+HERB_LESSON.material, op:'gte', value:{dial:'count'}, reason:`Hold ${HERB_LESSON.count} ${HERB_LESSON.material}.`, hint:'Handle more of these leaves.'},
+        {fact:'reveal.herbLesson', op:'eq', value:false, reason:'Not yet learned.'}]},
+    dials:{count:{default:HERB_LESSON.count, min:1}},
+    routes:[{id:'recipe-reward', reason:'Any ordinary recipe source (reward, book, teacher) unlocks the preparation directly.', cost:'Whatever that source asks.'}],
+    closes:'persist'});
+export function herbLessonFacts(inventory, learned) {
+    return {['held.'+HERB_LESSON.material]: Object.values(inventory).reduce((n,row)=>n+(row.item?.id===HERB_LESSON.material?row.count:0),0),
+        'reveal.herbLesson': learned === true};
+}
 export function heldLesson(inventory, learned) {
-    if (learned) return false;
-    return Object.values(inventory).reduce((n,row)=>n+(row.item?.id===HERB_LESSON.material?row.count:0),0)>=HERB_LESSON.count;
+    return evaluateGate(HERB_LESSON_GATE, herbLessonFacts(inventory, learned)).met;
 }
 export function revealLessonMessages(plan) {
     return [...(plan.revealLesson ? ['Handling twenty Golmoon leaves taught you a preparation. Review it in Learned preparations.'] : []),

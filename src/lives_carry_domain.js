@@ -5,6 +5,7 @@ import {readPort} from './ui_ports.js';
 import {carryLedger, carryLedgerWorlds} from './carry_ledger.js';
 import {createDiscoveryCodex, validateDiscoveryCodex, observeSaveDiscoveries, discoveryCount} from './discovery_codex.js';
 import {HEIR_LAWS, DEFAULT_HEIR_LAW, heirLaw} from './heir_inheritance.js';
+import './book_world_primordial_domain.js'; // opt-in (?primordial_probe=1) Sect Library credit slice
 
 // IM8 law dial, IM21 carry ledger and OG18 discovery codex, wired as two save
 // slices (`discovery_codex`, `inheritance_law`) and one records panel. The

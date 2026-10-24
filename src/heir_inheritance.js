@@ -6,6 +6,7 @@ import {deriveHomeEstate,applyHomeEstate,validateHomeEstate} from './home_inheri
 // as recipient when one was taught.
 import {check, positive as count} from './basics.js';
 import {setSavedPurse} from './money.js';
+import {kinFromRelationships} from './family_tree.js';
 import {passHeirloomKey, readMaterialLineage} from './material_lineage.js';
 import {calendarMinutes} from './world_rhythm.js';
 const LESSON_IDS = Object.freeze(['routeSignals', 'guardLesson', 'controlPattern']);
@@ -110,7 +111,7 @@ export function deriveHeirLeftovers(previous, {equippedKeys = [], law: lawId = D
         home, reputation, papers: [...new Set(written)], apprentice: [...new Set(taught)],
         obligations, debts, archiveLine: !!ties.successor};
     if(residences)leftovers.residences=residences;
-    const family=previous?.kin;if(Array.isArray(family)&&family.length)leftovers.kin=family.filter(k=>object(k)&&typeof k.name==='string').map(k=>({name:k.name,relation:k.relation,age:Number.isSafeInteger(k.age)?k.age:null}));
+    const family=previous?.kin??kinFromRelationships(c);if(Array.isArray(family)&&family.length)leftovers.kin=family.filter(k=>object(k)&&typeof k.name==='string').map(k=>({name:k.name,relation:k.relation,age:Number.isSafeInteger(k.age)?k.age:null}));
     const verdict = law.id === DEFAULT_HEIR_LAW ? null : resolveHeir(law, kin);
     if(law.id !== DEFAULT_HEIR_LAW) leftovers.law = law.id;
     if(verdict?.heir) {
@@ -169,15 +170,21 @@ export function applyHeirLeftovers(next, leftovers) {
 
 const total = list => list.reduce((n, [, c]) => n + c, 0);
 // Short plain-English lines for the ended-life dialog and the heir's journal.
-export function heirLeftoverLines(l, labels = {}) {
+export function heirLeftoverLines(l, labels = {}, labelItem = itemLabel) {
     const lessonName = id => labels[id] || id;
-    const goods = list => list.slice(0, 6).map(([k, n]) => `${itemLabel(k)}${n > 1 ? ` ×${n}` : ''}`).join(', ') + (list.length > 6 ? `, and ${list.length - 6} more` : '');
+    // The host supplies its observer-safe native item name, not a second codec.
+    const nameOf = key => {
+        try {const name = labelItem(key); if(typeof name === 'string' && name.trim()) return name;} catch {}
+        return 'Unrecognized item';
+    };
+    const goods = list => list.slice(0, 6).map(([k, n]) => `${nameOf(k)}${n > 1 ? ` ×${n}` : ''}`).join(', ') + (list.length > 6 ? `, and ${list.length - 6} more` : '');
     const lines = [l.recipient === 'apprentice' ? 'Recipient: the apprentice you taught.' : 'Recipient: your next of kin.'];
     if(l.law) lines.push(`Inheritance law: ${HEIR_LAWS[l.law].reason}`);
     if(l.heir) lines.push(`Named heir: ${l.heir.name || l.heir.id} (${l.heir.rule.replaceAll('-', ' ')}).`);
     if(l.lifeEstate) lines.push(`Life estate: ${l.lifeEstate.name || l.lifeEstate.holder} keeps the house for life${l.lifeEstate.remainder ? '; it then passes to the heir' : ''}.`);
     const heirlooms = [...l.belongings, ...l.chest].filter(([k]) => {try {return !!readMaterialLineage(k);} catch {return false;}}).reduce((n, [, c]) => n + c, 0);
     if(heirlooms) lines.push(`Heirlooms: ${heirlooms} processed ${heirlooms === 1 ? 'good gains' : 'goods gain'} a line recording that it passed to the heir.`);
+    if(l.kin?.length) lines.push(`Kin left behind: ${l.kin.slice(0, 6).map(k => `${k.name} (${k.relation})`).join(', ')}${l.kin.length > 6 ? `, and ${l.kin.length - 6} more` : ''}. They are recorded on the heir's family tree; nothing else passes with them.`);
     if(l.money) lines.push(`Money: ${l.money} coins.`);
     if(l.belongings.length) lines.push(`Belongings (${total(l.belongings)}): ${goods(l.belongings)}.`);
     if(l.chest.length) lines.push(`Stored in the chest (${total(l.chest)}): ${goods(l.chest)}.`);

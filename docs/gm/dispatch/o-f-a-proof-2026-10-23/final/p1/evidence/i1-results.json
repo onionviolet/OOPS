@@ -1,0 +1,78 @@
+{
+ "notebookNavBeforeBegin": false,
+ "begin": {
+  "tag": "BUTTON",
+  "id": "",
+  "cls": "",
+  "text": "Begin",
+  "resize": false
+ },
+ "beginEffect": {
+  "beginStillThere": false,
+  "actionButtons": [
+   "warmhand.warm",
+   "warmhand.warm_batch",
+   "warmhand.practice"
+  ]
+ },
+ "action": {
+  "tag": "BUTTON",
+  "id": "",
+  "cls": "",
+  "text": "Warm a cold loaf in your palms · stamina",
+  "resize": false
+ },
+ "actionEffectChanged": true,
+ "bio": [
+  {
+   "s": "description",
+   "hit": {
+    "tag": "SUMMARY",
+    "id": "",
+    "cls": "",
+    "text": "How you look",
+    "resize": false
+   },
+   "before": false,
+   "after": true
+  },
+  {
+   "s": "heritage",
+   "hit": {
+    "tag": "SUMMARY",
+    "id": "",
+    "cls": "",
+    "text": "Inherited traits",
+    "resize": false
+   },
+   "before": false,
+   "after": true
+  }
+ ],
+ "warmLoafInInventory": true,
+ "notebookNav": {
+  "tag": "BUTTON",
+  "id": "",
+  "cls": "",
+  "text": "Notebook",
+  "resize": false
+ },
+ "notebookState": {
+  "notebook_box_div": {
+   "visible": false,
+   "hidden": false
+  },
+  "notebook_empty": {
+   "visible": false,
+   "hidden": true
+  },
+  "notebook_empty_text": "No local notes are available here.",
+  "visibleNotebookTabs": [
+   "practice*"
+  ],
+  "journalVisible": false,
+  "notebookRootsVisible": [
+   "adventure_notebook"
+  ]
+ }
+}

@@ -107,3 +107,30 @@ test('inheritance law is a world dial: one saved household yields different heir
     const sole=deriveHeirLeftovers({...prev,kin:[{id:'s',name:'Ivy',relation:'spouse',age:50}]},{law:'ultimogeniture'});
     assert.equal(sole.heir.relation,'spouse');assert.equal(sole.lifeEstate,undefined);
 });
+
+// A display resolver must preserve native names and observer knowledge without
+// touching estate identity, money, durability or generated product knowledge.
+test('estate display resolves worked gear and unknown mixtures without leaking keys or changing estate state',async()=>{
+    const {loadNative}=await import('./helpers/native_loader.mjs');
+    const n=await loadNative(`
+export {getItemFromKey} from './src/items.js';
+export {equipmentDurability as durability} from './src/absorb_e2/durability.js';
+export {createMixtureState,resolveMixture,mixtureKey,mixturePresentation,setMixtureOwner,getMixtureOwner} from './src/mixture_state.js';
+`,{logLevel:'error'});
+    const {freshWork}=await import('../src/gear_work.js');
+    const gear=JSON.stringify({components:{head:'Cheap iron short blade',handle:'Simple wooden short handle'},quality:100,e2_instance:'e2.9001',gearwork:freshWork()});
+    const mixture=n.createMixtureState(12345),product=n.resolveMixture(mixture,{'River bellleaf':1,'Spring water':1},'steep');
+    mixture.products[product.id]=product;n.setMixtureOwner(mixture);
+    const vial=n.mixtureKey(product),prev=richLife();
+    prev.inventories.person.main_character[gear]={count:1};prev.inventories.storage.player[vial]={count:2};
+    const estate=deriveHeirLeftovers(prev),before=structuredClone(estate),durability=n.durability.serialize(),knowledge=JSON.stringify(n.getMixtureOwner());
+    const lines=heirLeftoverLines(estate,labels,key=>n.getItemFromKey(key).getName());
+    assert.ok(lines.some(t=>t.includes(n.getItemFromKey(gear).getName())));
+    assert.ok(lines.some(t=>t.includes(n.mixturePresentation(mixture,product).name+' ×2')));
+    assert.doesNotMatch(lines.join('\n'),/"gearwork"|"components"|"e2_instance"|"fractions"/);
+    assert.deepEqual(estate,before);assert.deepEqual(n.durability.serialize(),durability);assert.equal(JSON.stringify(n.getMixtureOwner()),knowledge);
+    const damaged=structuredClone(estate);damaged.belongings.push(['{"id":"missing-private-item"}',1]);
+    const fallback=heirLeftoverLines(damaged,labels,key=>n.getItemFromKey(key).getName()).join('\n');
+    assert.match(fallback,/Unrecognized item/);assert.doesNotMatch(fallback,/missing-private-item/);
+    assert.match(heirLeftoverLines(estate,labels,()=>null).join('\n'),/Unrecognized item/);
+});

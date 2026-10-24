@@ -3,7 +3,9 @@ import {assertNativeItemDisposition} from '../../native_gameplay_adapter.js';
 import {retainMistglassOrigin,validateMistglassOrigin,observeMistglassHistory,mistglassHistoryView,MISTGLASS_HISTORY_SITUATION} from '../../mistglass_history.js';
 // P00 native owner joins for the original opt-in Mistglass proposal.
 import {check, natural as nat} from '../../basics.js';
-import {mistglassProfile as P,mistglassEnergyPolicy,validateAdaptation,prepareEnrollment,prepareAdvance,prepareTrial,adaptationView,previewTrial,prepareCultivationMethod,previewSluice,prepareSluice,prepareBraceRestoration,sluiceHistories} from '../world_adaptation/index.js';
+import {freshCultivation} from '../world_adaptation/techniques.js';
+import {skillEventOverflowRow} from '../../skill_overflow_domain.js';
+import {mistglassProfile as P,mistglassEnergyPolicy,validateAdaptation,prepareEnrollment,prepareAdvance,settleInsight,prepareTrial,adaptationView,previewTrial,prepareCultivationMethod,previewSluice,prepareSluice,prepareBraceRestoration,sluiceHistories} from '../world_adaptation/index.js';
 import {applyEnergyEffect} from '../../energy_resources.js';
 import {applyGameplayEffect} from '../../gameplay_transactions.js';
 import {drawUnit,keyedUnit,scopedStream} from '../../seeded_streams.js';
@@ -66,6 +68,7 @@ export function validateMistglassEnvelope(save){
     check(!raw||family&&raw.expiresAt!==null&&nat(raw.expiresAt)&&raw.expiresAt<=state.clock+P.failureMinutes&&raw.intensity===1,'Invalid native rawness.');
 }
 function applyPlan(plan,result,registry,{quoteXP=(_id,n)=>n}={}){
+    let insightExcess=0;
     const old=plan.state.worldAdaptation;
     check((old?.revision??null)===result.expectedRevision,'This conservatory action is stale.');
     if(result.expectedReserve!==undefined)check(mistglassReserve(plan.state)===result.expectedReserve,'Conservatory reserve changed.');
@@ -79,7 +82,7 @@ function applyPlan(plan,result,registry,{quoteXP=(_id,n)=>n}={}){
         }else if(e.kind==='native-material-spend'){assertNativeItemDisposition(plan.state,e.key);applyGameplayEffect(plan.gameplay,{type:'item',key:e.key,amount:e.count},'player',true);
         }else if(e.kind==='native-material-product'){applyGameplayEffect(plan.gameplay,{type:'item',key:e.key,amount:e.count},'player');
         }else if(e.kind==='native-skill-xp'){
-            const amount=quoteXP(e.skillId,e.amount);check(Number.isFinite(amount)&&amount>=0,'Invalid native XP quote.');
+            const amount=quoteXP(e.skillId,e.amount,x=>{if(e.eventId?.startsWith('p23.mistglass.trial.'))insightExcess+=x;});check(Number.isFinite(amount)&&amount>=0,'Invalid native XP quote.');
             if(amount)applyGameplayEffect(plan.gameplay,{type:'xp',skill:e.skillId,amount},'player');
         }else if(e.kind==='native-condition'){
             check(e.conditionId===P.blockedConditionId&&nat(e.startsAt)&&nat(e.expiresAt),'Unsupported adaptation condition.');
@@ -92,6 +95,7 @@ function applyPlan(plan,result,registry,{quoteXP=(_id,n)=>n}={}){
             plan.external.money+=e.amount;
         }else throw Error('Unsupported adaptation effect.');
     }
+    if(insightExcess>0){const s=settleInsight(result.state.techniques||freshCultivation(),insightExcess,skillEventOverflowRow(P.worldId,'purification'));result={...result,state:{...result.state,techniques:s.next}};validateAdaptation(result.state);}
     plan.state.worldAdaptation=result.state;return plan;
 }
 export function stageMistglassEnrollment(plan,context,registry,options){return applyPlan(plan,prepareEnrollment(plan.state.worldAdaptation,{...context,optIn:true}),registry,options);}

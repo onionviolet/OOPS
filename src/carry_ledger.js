@@ -28,9 +28,18 @@ const PARADISE = [
 ];
 const WORLD_RULES = Object.freeze({'base.frontier': FRONTIER, 'book.paradise.hub': PARADISE});
 
+// A world pack may add its rows while it is active (opt-in worlds register only when switched on).
+// Same shape as the built-in rows; the built-in worlds cannot be replaced.
+const REGISTERED = new Map();
+export function registerCarryRules(worldId, rows) {
+    if(WORLD_RULES[worldId]) throw new Error(`Carry rules for ${worldId} are built in.`);
+    for(const r of rows) if(!BOUNDARIES.includes(r.boundary) || !CARRY_SCOPES.includes(r.scope) || !r.what || !r.carries) throw new Error(`Bad carry row for ${worldId}.`);
+    REGISTERED.set(worldId, Object.freeze(rows.map(r => Object.freeze({...r}))));
+}
+
 export function carryLedger(worldId) {
-    const rules = WORLD_RULES[worldId];
+    const rules = WORLD_RULES[worldId] ?? REGISTERED.get(worldId);
     if(!rules) throw new Error(`No carry rules recorded for ${worldId}.`);
     return BOUNDARIES.map(boundary => ({boundary, rows: rules.filter(r => r.boundary === boundary).map(r => ({...r}))}));
 }
-export const carryLedgerWorlds = () => Object.keys(WORLD_RULES);
+export const carryLedgerWorlds = () => [...Object.keys(WORLD_RULES), ...REGISTERED.keys()];

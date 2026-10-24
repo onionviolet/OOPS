@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "message": "page.waitForNavigation: Timeout 10000ms exceeded.\n=========================== logs ===========================\nwaiting for navigation until \"domcontentloaded\"\n============================================================",
+  "gates": [],
+  "pageErrors": []
+}

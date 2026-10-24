@@ -7,6 +7,12 @@ import {registerShortcut} from './shortcut_registry.js';
 export function clampSplit(value, total, before, after) {
     return Math.max(before, Math.min(total - after, value));
 }
+// Horizontal extent of the row divider: only where a box ends above it and another starts below it.
+// A box spanning both rows (the actions column while the focus box is away) must keep its own clicks.
+export function dividerSpan(above, below) {
+    const spans = above.flatMap(a => below.map(b => [Math.max(a.left, b.left), Math.min(a.right, b.right)])).filter(([l, r]) => r > l);
+    return spans.length ? [Math.min(...spans.map(s => s[0])), Math.max(...spans.map(s => s[1]))] : null;
+}
 export function createShellResize({root, board, regions, read, context, commit}) {
     registerShortcut({id:'divider-resize',keys:'Arrow keys to resize, Home to reset, Esc cancels a drag',label:'Panel divider',scope:'On a divider'});
     let drag = null, preview = null, lastContext = null;
@@ -107,7 +113,11 @@ export function createShellResize({root, board, regions, read, context, commit})
         place('topLeft', player.right, player.top, gap, service ? reports.height : player.height);
         place('bottomLeft', inventory.right, inventory.top, gap, inventory.height);
         place('log', reports.left-gap, reports.top, gap, reports.height);
-        place('top', player.left, player.bottom, reports.left-player.left-gap, parseFloat(css.rowGap));
+        // The row divider exists only where a box ends above it and another starts below it. A box that
+        // spans both rows (the actions column while the focus box is away) keeps its own clicks.
+        const seam = parseFloat(css.rowGap), near = (a,b) => Math.abs(a-b) <= seam + 2, boxes = rs => rs.filter(visible).map(r => r.getBoundingClientRect());
+        const span = dividerSpan(boxes([regions.player, regions.focus]).filter(a => near(a.bottom, player.bottom)), boxes([regions.inventory, regions.actions]).filter(b => near(b.top, inventory.top))) || [player.left, reports.left-gap];
+        place('top', span[0], player.bottom, span[1]-span[0], seam);
         for (const [key,h] of Object.entries(handles)) {
             const val = key==='top' ? player.height / rect.height : key==='log' ? (reports.left-rect.left)/rect.width : ((key==='topLeft'?player:inventory).right-rect.left)/rect.width;
             h.setAttribute('aria-valuenow',Math.round(val*100));

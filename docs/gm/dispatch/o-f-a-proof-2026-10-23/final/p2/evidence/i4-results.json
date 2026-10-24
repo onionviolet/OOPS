@@ -1,0 +1,12 @@
+{
+ "estate_preview": "Recipient: your next of kin.\nKin left behind: Bram (spouse). They are recorded on the heir's family tree; nothing else passes with them.\nMoney: 4999 coins.\nBelongings (17): Cheap leather pants, Stale bread ×5, Rough wood log ×6, Charcoal ×3, Lamp oil, Cheap iron dagger.\nHome: the Shack in the Village.",
+ "preview_mentions_Bram": true,
+ "family_1-native-heir": "Family\n\n3 people\n\nHero\ngeneration 1 · died at 80\nBram\nspouse of Hero, 60\nYou (this life)\ngeneration 2 · took the estate as next of kin",
+ "family_2-after-reload": "Family\n\n3 people\n\nHero\ngeneration 1 · died at 80\nBram\nspouse of Hero, 60\nYou (this life)\ngeneration 2 · took the estate as next of kin",
+ "family_3-after-import": "Family\n\n3 people\n\nHero\ngeneration 1 · died at 80\nBram\nspouse of Hero, 60\nYou (this life)\ngeneration 2 · took the estate as next of kin",
+ "ok": {
+  "family1": true,
+  "reload": true,
+  "import": true
+ }
+}

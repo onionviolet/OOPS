@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "lane": "estate-proof",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "a7305e5f8d5aba7cb5a310e6cc451a7db2a31b96770293eaf44b459f40439f6f",
+  "gates": [
+    "estate preview names worked dagger and mixture readably",
+    "reload keeps ended-life estate preview identical"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

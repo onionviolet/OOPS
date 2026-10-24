@@ -43,6 +43,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
     add("remember", "Greet the elder as my predecessor earned · the life before me stood before him", () => command({type: "remember"}));
     add("debrief", "Discuss the observed counter", () => command({type: "debrief"}));
     add("lesson", "Attend the private guard lesson", () => command({type: "lesson"}));
+    add("take-in", "Take in an orphaned ward · 5 coins", () => command({type: "take_in"}));
     add("settle", "Settle the assault grievance · 3 coins", () => command({type: "settle"}));
 
     for(const lesson of LIFE_LESSONS) {
@@ -135,6 +136,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
                 if(remembersLived(c, "elderConcession") && !r.ties.rememberedConcession) show("remember", !available);
                 if(c.events.debrief?.status === "open") show("debrief", !available || !!r.ties.grievance);
                 if(c.events.lesson?.status === "open") show("lesson", !available || (r.axes.trust || 0) < 1 || !!r.ties.grievance);
+                if(r.ties.dutyKept && !c.relationships.ward) show("take-in", !available || !!r.ties.grievance || context.money < 5);
                 if(r.ties.grievance) show("settle", !available || context.money < 3);
             }
         }

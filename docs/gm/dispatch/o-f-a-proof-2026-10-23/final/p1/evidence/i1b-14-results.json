@@ -1,0 +1,21 @@
+{
+ "px": "14",
+ "bodyFont": {
+  "custom": "",
+  "body": "14px",
+  "main": "14px"
+ },
+ "begin": {
+  "tag": "BUTTON",
+  "id": "",
+  "cls": "",
+  "text": "Begin",
+  "resize": false
+ },
+ "overflow": {
+  "docScrollW": 1536,
+  "innerW": 1536,
+  "docScrollH": 864,
+  "innerH": 864
+ }
+}

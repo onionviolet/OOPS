@@ -21,15 +21,16 @@ test('native capped grants preserve ordering, uncapped restoration and parent ca
     const limit = skills.Combat.base_xp_cost * config.skill_xp_gains_cap;
     grant('Combat', 1000);
     assert.equal(xp('Combat').total_xp, limit, 'finite capped native grant');
+    // Frontier overflow is banked (GTL6): a later below-cap gain releases as much again.
     grant('Combat', limit / 2);
-    assert.equal(xp('Combat').total_xp, limit * 1.5, 'below-cap grant survives');
+    assert.equal(xp('Combat').total_xp, limit * 2, 'below-cap grant survives and draws an equal banked amount');
     grant('Combat', limit);
-    assert.equal(xp('Combat').total_xp, limit * 2.5, 'exact boundary survives');
+    assert.equal(xp('Combat').total_xp, limit * 3, 'exact boundary survives with no draw past the cap');
 
     const lvl = character.getLevelableComponent();
     lvl.xp_bonuses.total_multiplier.all_skill = 3;
     grant('Combat', limit / 2, {use_bonus: true});
-    assert.equal(xp('Combat').total_xp, limit * 3.5, 'bonus applied before cap');
+    assert.equal(xp('Combat').total_xp, limit * 4, 'bonus applied before cap');
     lvl.xp_bonuses.total_multiplier.all_skill = 1;
 
     grant('Swords', 1000, {add_to_parent: true});

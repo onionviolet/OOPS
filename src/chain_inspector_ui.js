@@ -56,6 +56,9 @@ export function createChainInspector({container, read, developer = false}) {
         panel.style.maxHeight = panel.open ? '84vh' : '';
         panel.style.overflow = panel.open ? 'auto' : '';
         panel.style.zIndex = panel.open ? '10000' : '';
+        // The flat-row token rule forces details transparent; the floating lens needs a solid fill.
+        if (panel.open) panel.style.setProperty('background', 'var(--theme-bg, var(--workspace-surface))', 'important');
+        else panel.style.removeProperty('background');
         render();
     });
     container.append(panel);

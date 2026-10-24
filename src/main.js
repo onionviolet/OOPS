@@ -1,4 +1,4 @@
-import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';
+import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {configureRankGap} from './rank_gap_observer_domain.js';
 import {createFurniturePanel} from './home_furniture_panel.js';
 import {allocatedRecipeInputs,recipeMaterialOutput,treatedRecipeQuality} from './processed_materials.js';
 import {configureCraftingDomain} from './crafting_domain.js';
@@ -835,12 +835,12 @@ function studyContext(state=expansionState,gameplay=gameplaySnapshot()) {
         housingAccessible:!!current_location?.housing?.isUnlocked()&&current_location.getAvailabilityComponent().getStatus().is_unlocked,
         sleepingLevel:character.getTotalSkillLevel('Sleeping'),readProgressPerMinute:readingRate(character.getTotalSkillLevel('Literacy'))};
 }
-function p00NativeSkillXP(id,amount){
+function p00NativeSkillXP(id,amount,report){
     const skill=skills[id];if(!skill?.canGainXP(get_context()))throw Error('Native skill eligibility blocks this settlement.');
     let xp=amount*lifeLearningMultiplier(expansionState.chronicle)*furnitureSkillMultiplier(readFurnitureBonuses(),id)*getPacingEffects(homePacingContext()).efficiency*config.global_xp_multiplier*character.getSkillXPGain(id)*(character.xp_multiplier??1);
     if(skill.parent_skill)xp*=skill.get_parent_xp_multiplier();
     const toNext=character.getLevelableComponent().skill_progress[id]?.xp_to_next_lvl??skill.base_xp_cost;
-    if(Number.isFinite(toNext))xp=Math.min(xp,toNext*config.skill_xp_gains_cap);
+    if(Number.isFinite(toNext)){const cap=toNext*config.skill_xp_gains_cap;if(xp>cap)report?.(Math.round((xp-cap)*100)/100);xp=Math.min(xp,cap);}
     return Math.round(xp*100)/100;
 }
 function nativeBooksSnapshot(){return Object.fromEntries(Object.entries(book_stats).filter(([,b])=>b.accumulated_time>0).map(([id,b])=>[id,{accumulated_time:b.accumulated_time}]));}
@@ -2717,7 +2717,7 @@ function previewHeir() {
     if(heirRequest?.error) return [heirRequest.error];
     if(heirPreviewLines || expansionState.chronicle?.life.endedAt == null || !ownsSave) return heirPreviewLines || [];
     const serialized = create_save(); if(!serialized) return ["What this life left cannot be counted while saving is unavailable."];
-    return heirPreviewLines ||= heirLeftoverLines(deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys(), law: domainRegistry.project('inheritance_law')?.law}), lessonLabels());
+    return heirPreviewLines ||= heirLeftoverLines(deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys(), law: domainRegistry.project('inheritance_law')?.law}), lessonLabels(), key => getItemFromKey(key).getName());
 }
 function beginHeir() {
     if(!ownsSave || importProbeToken || foundationSaveBlocked || is_loading_error) throw new Error("Saving must be available before an heir can begin.");
@@ -9497,7 +9497,7 @@ configureHomes({registry:expeditionRegistry,root:()=>expansionState,locations,re
         inventory:readInventoryOwner(character.getItems()),alive:character.is_alive===true,ready:harvestWritable()&&harvestReady()&&!current_dialogue&&!current_combat&&!is_sleeping&&!is_reading&&!is_in_trade(),
         calendar:calendarSnapshot(),calendarClock:expansionState.clock,writable:harvestWritable(),nativeRights:{shack:locations.Shack.isUnlocked()&&locations.Shack.housing.isUnlocked(),proto:expansionState.actors.player.facts['proto23.cottageRight']===true&&expansionState.simulation?.claims?.['proto23.cottage_right']?.owner==='player'&&expansionState.simulation.claims['proto23.cottage_right'].status==='settled'},fresh:!optionalPackState.structured&&!household&&!expansionState.chronicle,legacyHousehold:household,wet:!!active_effects.Wet,knownGift:(item_log.items['Rat tail']?.number||0)>0,craftingKnown:global_flags.is_crafting_unlocked,meditationKnown:skills.Meditation.isUnlocked()}),
     plan:minutes=>{const plan={state:structuredClone(expansionState),external:{money:character.money},gameplay:gameplaySnapshot()};return minutes?advanceChroniclePlan(plan,minutes,true):plan;},
-    effects:p00HouseholdEffects,commit:plan=>persistExpansion(plan),setForm:form=>{character.getBioComponent().race=form;},log:text=>log_message(text,'notification')});
+    effects:p00HouseholdEffects,commit:plan=>persistExpansion(plan),setForm:form=>{character.getBioComponent().race=form;},log:text=>log_message(text,'notification')});hostPlaceClock({homes:residenceState,expansion:()=>expansionState,character:()=>character,locationId:()=>current_location?.id,inventory:()=>readInventoryOwner(character.getItems()),gameplaySnapshot,assertSpend:key=>assertNativeItemDisposition(expansionState,key),commit:plan=>persistExpansion(plan),log:text=>log_message(text,'notification')});configureRankGap({settle:({minutes,stamina})=>{const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true),fs=character.getFullStats();if(plan.state.clock-expansionState.clock!==minutes)throw Error('Finish the current local decision first.');plan.native={...plan.native,staminaToFull:Math.min(fs.max_stamina,(plan.native?.staminaToFull??fs.max_stamina-fs.stamina)+stamina)};plan.state.sequence++;persistExpansion(plan);domainRegistry.tick(minutes);}});
 configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAutomaticReady,
     harvestTransaction,grantHarvest,logMessage:log_message,random:key=>gameKeyedRandom(STREAMS.loot,key),
     habitatContext,commitHabitatPlan,clock:()=>calendarMinutes(current_game_time),

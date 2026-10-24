@@ -1,0 +1,11 @@
+{
+ "simulationBefore": "absent (no living-world services yet)",
+ "buttonBefore": "enabled",
+ "enrolled": true,
+ "refusalShown": false,
+ "location": "Village",
+ "chartDone": true,
+ "afterReload": true,
+ "exportBytes": 177072,
+ "afterImport": true
+}

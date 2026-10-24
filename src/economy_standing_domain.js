@@ -93,7 +93,7 @@ export const routeTraffic = routeId => {
 
 export function tickStanding() {
     const t = now(), here = current_location?.id ?? null;
-    if(here && lastPlace && here !== lastPlace) { arrived(here, lastPlace); mishap(current_location.market_region, t); }
+    if(here && lastPlace && here !== lastPlace) { arrived(here, lastPlace); if(typeof current_location.market_region === 'string' && current_location.market_region) mishap(current_location.market_region, t); }
     lastPlace = here;
     const {state: paidState, paid} = rules.settleClaims(state, t);
     if(paid) { state = paidState; ports.addCoins(paid, 'insurance claim'); ports.log?.(`The broker pays your claim: ${paid} coins.`); }
