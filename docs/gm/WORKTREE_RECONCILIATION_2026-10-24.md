@@ -68,4 +68,6 @@ master does not contain.
 | `qud-g1` to `qud-g7`, `qud-integration-c0781f` | Qud closure `local_a4c80312` | separate integration candidate (65 unique files in the integration checkout), not part of this landing |
 | `~/.codex/worktrees/master-except-start-menu` | Codex | detached, 1 local file |
 
-Master is 9 commits ahead of `origin/master`; push waits for Weibao.
+Master is 22 commits ahead of `origin/master` (7 earlier local commits, the 12
+O/F/A lane and merge commits, the two landing commits and this record); push
+waits for Weibao.
