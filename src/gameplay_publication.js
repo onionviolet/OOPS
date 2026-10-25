@@ -13,7 +13,7 @@ export function readGameplayActor(actor, skills, context) {
 
 // Stage native item reconstruction and XP calculation BEFORE saving. The
 // returned publication only assigns validated values; rendering is a later step.
-export function prepareGameplayPublication(snapshot, {actors, skills, getItemFromKey, unlockAdapter}) {
+export function prepareGameplayPublication(snapshot, {actors, skills, getItemFromKey, unlockAdapter, preparedSkillUnlocks = []}) {
     validateGameplaySnapshot(snapshot);
     const staged = [], unlocks = [];
     for(const [actorId, saved] of Object.entries(snapshot)) {
@@ -33,7 +33,7 @@ export function prepareGameplayPublication(snapshot, {actors, skills, getItemFro
             const skill = skills[id];
             const next = structuredClone(old || {current_level: 0, total_xp: 0, current_xp: 0,
                 total_xp_to_next_lvl: skill.base_xp_cost, xp_to_next_lvl: skill.base_xp_cost});
-            const result = skill.add_xp({skillXP: next, xp_to_add: delta, track_dependencies: false});
+            const result = skill.add_xp({skillXP: next, xp_to_add: delta, track_dependencies: false, preparedUnlock: preparedSkillUnlocks.includes(id)});
             if(next.total_xp !== target.xp) throw new Error(`Skill ${id} rejected the planned XP.`);
             if(Object.values(result.unlocks || {}).some(entries => entries.length)) {
                 if(!unlockAdapter) throw new Error(`Skill ${id} crosses a content unlock; that reward needs an unlock transaction adapter.`);

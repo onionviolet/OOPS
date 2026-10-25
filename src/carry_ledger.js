@@ -8,6 +8,7 @@ const row = (boundary, what, carries, scope, note) => ({boundary, what, carries,
 
 // base.frontier mirrors heir_inheritance.js and life_experience_host.js.
 const FRONTIER = [
+    row('rebirth', 'Base cheat', 'carries', 'any life', 'Personal faculty and enduring stages follow the continuing self; per-life points reset.'),
     row('death', 'Written and taught lessons', 'carries', 'last life', 'Papers or an apprentice; only reflected or taught lessons.'),
     row('death', 'Coins, belongings, chest, Shack', 'carries', 'last life', 'The estate settles Village kit debt first.'),
     row('death', 'Reputation', 'halved', 'last life', 'Half of each region, rounded toward zero.'),
@@ -39,7 +40,8 @@ export function registerCarryRules(worldId, rows) {
 
 export function carryLedger(worldId) {
     const rules = WORLD_RULES[worldId] ?? REGISTERED.get(worldId);
-    if(!rules) throw new Error(`No carry rules recorded for ${worldId}.`);
+    if(!rules) return BOUNDARIES.map(boundary=>({boundary,rows:[row(boundary,'Unresolved carrier','unresolved','this life',
+        'No local carry mechanism is recorded. The holder and original records are retained pending a compatible passage.')] }));
     return BOUNDARIES.map(boundary => ({boundary, rows: rules.filter(r => r.boundary === boundary).map(r => ({...r}))}));
 }
 export const carryLedgerWorlds = () => [...Object.keys(WORLD_RULES), ...REGISTERED.keys()];

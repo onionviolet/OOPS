@@ -982,10 +982,10 @@
       "count": 1
     },
     {
-      "key": "src/main.js|foreign-host|95387ccc72b842e6",
+      "key": "src/main.js|foreign-host|76d2ec8d97a37825",
       "path": "src/main.js",
       "rule": "foreign-host",
-      "snippet": "const pollDisplays=()=>{quietPlaceDetail.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();};",
+      "snippet": "const pollDisplays=()=>{quietPlaceDetail.render();statusWindow?.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();};",
       "count": 1
     },
     {

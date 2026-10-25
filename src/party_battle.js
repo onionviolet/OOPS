@@ -1,3 +1,4 @@
+import {ensureRehearsedFoe,rehearseOpening} from './rehearsed_foe.js';
 import {savedBattleLoss} from './defeat_domain.js';
 import {xorshift32} from './hash_rng.js';
 import {check} from './basics.js';
@@ -36,6 +37,7 @@ export function initializePartyBattle(state,registry,command,context,expectedSeq
     check(state.simulation?.people[ROAD_RIVAL]?.vitals.health>1,'Mara must recover before another contest.');
     const plan=commitSimulationCommand(state,registry,{id:'rival.confront',requestId:command.requestId},{...context,targetId:ROAD_RIVAL},expectedSequence);
     const session=plan.state.simulation.sessions.player;
+    ensureRehearsedFoe(plan.state,ROAD_RIVAL);
     session.participants.push(PARTY_HELPER);
     session.nativeBattle={schema:2,definitionId:'party.braced_contest',seed:(plan.state.simulation.seed^plan.state.sequence)>>>0||1,actions:0,last:'Lio will interpose on the next attempted blow after bracing. Both stop at one HP.',
         fighters:Object.fromEntries(['player',PARTY_HELPER,ROAD_RIVAL].map(id=>[id,{side:id===ROAD_RIVAL?'defenders':'attackers',role:id===PARTY_HELPER?'guard':'strike',status:'active',moves:0}])),guard:null,guardsPrepared:0,guardsTaken:0,lastTarget:null};
@@ -88,7 +90,9 @@ export function commitPartyBattleAction(state,registry,command,context) {
         check(hp(actorId).health>1&&hp(targetId).health>1,'A fighter has already yielded.');
         const before=hp(actorId).stamina;hp(actorId).stamina=Math.max(0,before-Math.min(before,1/(attacker.stats.stamina_efficiency||1)));
         const random=()=>{b.seed=xorshift32(b.seed);return b.seed/0x100000000;};
-        const strike=rollCombatStrike({attackPower:attacker.attackPower*(hp(actorId).stamina===0?(attacker.emptyStaminaMultiplier||.5):1),attacker:attacker.stats,target:target.stats,shield:target.shield,shieldSkill:target.shieldSkill,random});
+        const rehearsal=rehearseOpening(plan.state,registry,{actorId,targetId,sessionId:session.id,attacker});
+        if(rehearsal.tell)applySimulationEffects(plan,[{type:'knowledge',key:'cheat.rf1.tell',stage:'seen',value:rehearsal.tell}],{actorId},registry,session.id);
+        const strike=rollCombatStrike({attackPower:rehearsal.scale*attacker.attackPower*(hp(actorId).stamina===0?(attacker.emptyStaminaMultiplier||.5):1),attacker:attacker.stats,target:target.stats,shield:target.shield,shieldSkill:target.shieldSkill,random});
         const damage=strike.kind==='hit'?mitigateCombatDamageFromStats(strike.values,target.stats):0;
         hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
         b.last=`${actorId==='player'?'You':'Mara'} ${strike.kind==='hit'?`hit ${targetId===PARTY_HELPER?'Lio':targetId==='player'?'you':'Mara'} for ${Math.round(damage*10)/10}`:strike.kind==='blocked'?'met a full block':'missed'}.`;

@@ -1,3 +1,4 @@
+import {rebaseFurnaceSave} from '../src/patient_furnace.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
@@ -16,7 +17,7 @@ const fixture=JSON.parse(fs.readFileSync(new URL('../docs/gm/dispatch/absorb-all
 function host({enrolled=false,fail=false,bootError=null}={}) {
     const writes=[],events=[];
     const write=(key,bytes)=>{events.push('write');if(fail)throw Error('quota');writes.push([key,bytes]);};
-    const context=vm.createContext({JSON,structuredClone,observeLifeSave,createLifeRecord,advanceVillageLives,
+    const context=vm.createContext({JSON,structuredClone,rebaseFurnaceSave,observeLifeSave,createLifeRecord,advanceVillageLives,
         authorityBootError:bootError,authorityBootPending:false,authorityEnrolled:()=>enrolled,
         nativeAuthority:{commitPreparedSave:bytes=>write('authority',bytes)},localStorage:{},writeGuardedSave:(_,key,bytes)=>write(key,bytes),
         // The real D3 writer over the same stub, so unchanged-write skipping is exercised too.
@@ -25,7 +26,7 @@ function host({enrolled=false,fail=false,bootError=null}={}) {
         deferWhileHidden:()=>false,renderSavedPanels(){},
         nativeP23Transaction:{status:'pending',markDurable(){events.push('durable');this.status='durable';}},
         migrateVillageCareer:()=>{events.push('publish');return {};},migrateWorkLedger:x=>structuredClone(x),customizationFromSave:x=>structuredClone(x.customization),
-        refreshCustomization(){},update_displayed_crafting_recipes(){},validateCheatState:x=>x,defaultCheatState:()=>({}),validatePackState:x=>x,emptyPackState:()=>({}),restoreGeneratedPeople(){},
+        refreshCustomization(){},update_displayed_crafting_recipes(){},setCheatState:x=>{context.cheatState=x??{};},validateCheatState:x=>x,defaultCheatState:()=>({}),validatePackState:x=>x,emptyPackState:()=>({}),restoreGeneratedPeople(){},
         workLedger:structuredClone(fixture.work_ledger),villageCareer:{},customization:{},cheatState:{},optionalPackState:{},lifeRecord:null,npcLives:null,
         workLedgerPanel:null,optionalPackPanel:null,villageCareerControls:null,lifeRecordPanel:null,villageLivesPanel:null});
     vm.runInContext(definition+'\nglobalThis.storage=lifeSaveStorage;',context);

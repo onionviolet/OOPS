@@ -1,3 +1,4 @@
+import {rehearsedFoeObservation} from './rehearsed_foe.js';
 import {previewSimulationCommand} from "./simulation.js";
 import {pursuitView} from "./pursuit.js";
 import {previewFieldRenewal,previewRivalRematch,RIVAL_PURSUIT} from "./frontier_campaign.js";
@@ -29,6 +30,7 @@ export function createFrontierCampaignPanel({registry,read,command}) {
         panel.hidden=!f["field.member"] || snapshot.inDialogue || snapshot.inCombat && !managed;
         notice.textContent=error || message;notice.hidden=!notice.textContent;
         report.textContent=p ? `${p.text} ${f["rival.lastResult"] ? `Last duel: ${f["rival.lastResult"]}.` : ""}` : "An association route has drawn another scout's interest. An optional meeting begins this local rivalry.";
+        const observed=rehearsedFoeObservation(state);if(observed)report.textContent+=' '+observed;
         for(const [id,b] of controls) {
             const d=registry.simulation.commands.get(id);let view;
             try{view=state.simulation ? id === "rival.rematch" ? previewRivalRematch(state,registry,context) : previewSimulationCommand(state,registry,id,{...context,targetId:d.targetId || null}) : null;}catch(e){view={visible:false,reasons:[e.message]};}

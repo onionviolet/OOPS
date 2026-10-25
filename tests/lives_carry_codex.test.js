@@ -49,7 +49,9 @@ test('IM21: ledger lists every boundary with valid scopes for two worlds with di
     }
     assert.notDeepEqual(a,b);
     assert.ok(a[1].rows.some(r=>r.scope==='last life')&&b[2].rows.some(r=>r.carries==='unavailable'));
-    assert.throws(()=>carryLedger('nowhere'),/No carry rules/);
+    const unresolved=carryLedger('nowhere');
+    assert.deepEqual(unresolved.map(section=>section.boundary),[...BOUNDARIES]);
+    assert.ok(unresolved.every(section=>section.rows[0].carries==='unresolved'));
 });
 
 test('OG18: discovery codex counts ids across lives and passes through the heir save',()=>{

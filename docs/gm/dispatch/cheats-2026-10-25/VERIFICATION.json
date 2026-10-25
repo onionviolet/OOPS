@@ -1,0 +1,29 @@
+{
+  "runtimeCommit": "00334132ed2b73cb1e3568f12ab6af39b3a874b3",
+  "master": "3dfc49cf3422c0262d86810df47459f53f3a4a67",
+  "runtimeSha256": "80fe8b20560c4d37bd7c55b9c50cb910a04e36931bbb258266c891d69a3deb02",
+  "runtimeFiles": 854,
+  "builtBundleSha256": "cd484633608b697824fb14a51de047c4aaf83929c838851ba963628274e22640",
+  "fullSuite": {
+    "command": "npm test -- --test-concurrency=1",
+    "tests": 2894,
+    "pass": 2890,
+    "fail": 4,
+    "state": "pre-repair run; not rerun per M3"
+  },
+  "repairs": {
+    "command": "node --test tests/stepper_life_commit.test.js tests/ui_contract.test.js tests/layout_spec.test.js",
+    "pass": 25,
+    "fail": 0
+  },
+  "finalCardRegressions": {
+    "command": "node --test tests/cheat_mechanisms.test.js",
+    "pass": 14,
+    "fail": 0
+  },
+  "browser": "BROWSER.json",
+  "build": "pass",
+  "architecture": "pass; main 10092 vs 10115",
+  "rules": "pass; zero warnings",
+  "remainingGate": "combined candidate full suite after lane reconciliation; human acceptance separately open"
+}

@@ -1,0 +1,15 @@
+{
+  "route": "Pattern Book",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "checks": [
+    "UI sketches actually carried readable method; design has no material knowledge",
+    "Save/reload retains exact design and cost",
+    "literal Import retains exact design",
+    "real beginHeir carries design; after returning estate book, UI rebuild enables native learned method and displays missing ingredients"
+  ],
+  "pass": true,
+  "errors": []
+}
