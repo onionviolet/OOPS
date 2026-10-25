@@ -515,13 +515,20 @@ function calculate_total_values() {
  * @param {Boolean} is_stackable
  * @returns total value of items, including character haggling skill and trader profit margin
  */
+// Stable presentation home: settlement totals stay visible while optional
+// coupon/standing explanations open in one disclosure. No quote is recomputed.
+function tradeQuoteDetails(anchor) {
+    const existing=document.getElementById('trade_quote_details');if(existing)return existing;
+    const details=document.createElement('details');details.id='trade_quote_details';const title=document.createElement('summary');title.textContent='Price details and coupon';details.append(title);anchor.after(details);
+    return details;
+}
 function renderP23MarketQuote() {
     const preview=current_quote?.marketLife,context=preview?.context;
     const eligible=current_trader==='villageTrader'&&context?.worldId==='base.frontier'&&context.location==='Village';
     if(!eligible){document.getElementById('p23_market_trade_quote')?.remove();return;}
     const total=document.getElementById('trade_price_value');if(!total)return;
     let box=document.getElementById('p23_market_trade_quote');
-    if(!box){box=document.createElement('div');box.id='p23_market_trade_quote';total.parentElement.append(box);}
+    if(!box){box=document.createElement('div');box.id='p23_market_trade_quote';tradeQuoteDetails(total).append(box);}
     box.replaceChildren();
     const label=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.checked=use_market_coupon;
     input.dataset.p23MarketCoupon='true';input.disabled=preview.state.couponsIssued<=preview.state.couponsUsed;
@@ -533,7 +540,7 @@ function renderP23MarketQuote() {
 function renderStandingBox() {
     const anchor=document.getElementById('trade_price_value');if(!anchor)return;
     let box=document.getElementById('economy_standing_terms');
-    if(!box){box=document.createElement('div');box.id='economy_standing_terms';box.setAttribute('role','group');anchor.parentElement.append(box);}
+    if(!box){box=document.createElement('div');box.id='economy_standing_terms';box.setAttribute('role','group');tradeQuoteDetails(anchor).append(box);}
     renderStandingTerms(box,current_terms);
 }
 

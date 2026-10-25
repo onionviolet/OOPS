@@ -313,23 +313,23 @@
                     <div id = "trade_div">
                         <p id="trade_stock_notice" role="status" hidden></p>
                         <div id = "trader_sorting_buttons" class="activable_buttons flex_wrap"> 
-                            <div id = "trader_sort_by_name" class = "trader_sorting_button active_selection_button" onclick='sortTraderInventory("name")' data-translation="ui sort name"></div>
-                            <div id = "trader_sort_by_price" class = "trader_sorting_button" onclick='sortTraderInventory("price")' data-translation="ui sort value"></div>
-                            <div id = "trader_sort_by_type" class = "trader_sorting_button" onclick='sortTraderInventory("type")' data-translation="ui sort type"></div>
+                            <button type="button" id = "trader_sort_by_name" class = "trader_sorting_button active_selection_button" onclick='sortTraderInventory("name")' data-translation="ui sort name"></button>
+                            <button type="button" id = "trader_sort_by_price" class = "trader_sorting_button" onclick='sortTraderInventory("price")' data-translation="ui sort value"></button>
+                            <button type="button" id = "trader_sort_by_type" class = "trader_sorting_button" onclick='sortTraderInventory("type")' data-translation="ui sort type"></button>
                         </div>
                         <div id = "trader_category_buttons" class="activable_buttons flex_wrap">
-                            <div id = "trader_category_all" class = "trader_category_button active_selection_button" onclick='showAllTraderItems()'>
+                            <button type="button" id = "trader_category_all" class = "trader_category_button active_selection_button" onclick='showAllTraderItems()'>
                                 all
-                            </div>
-                            <div id = "trader_category_equipment" class = "trader_category_button" onclick="showOnlyTraderEquipment()">
+                            </button>
+                            <button type="button" id = "trader_category_equipment" class = "trader_category_button" onclick="showOnlyTraderEquipment()">
                                 equipment
-                            </div>
-                            <div id = "trader_category_usable" class = "trader_category_button" onclick="showOnlyTraderConsumables()">
+                            </button>
+                            <button type="button" id = "trader_category_usable" class = "trader_category_button" onclick="showOnlyTraderConsumables()">
                                 usable
-                            </div>
-                            <div id = "trader_category_other" class = "trader_category_button" onclick="showOnlyTraderOther()">
+                            </button>
+                            <button type="button" id = "trader_category_other" class = "trader_category_button" onclick="showOnlyTraderOther()">
                                 other
-                            </div>
+                            </button>
                         </div>
 
 
@@ -348,15 +348,15 @@
                                 <div id = "trade_price_value"> 0C </div>
                             </div>
 
-                            <div id = "accept_trade_button" onclick = "acceptTrade()">
+                            <button type="button" id = "accept_trade_button" onclick = "acceptTrade()">
                                 Accept
-                            </div> 
-                            <div id = "cancel_trade_button" onclick = "cancelTrade()">
+                            </button>
+                            <button type="button" id = "cancel_trade_button" onclick = "cancelTrade()">
                                 Cancel
-                            </div> 
-                            <div id = "exit_trade_button" onclick = "exitTrade()">
+                            </button>
+                            <button type="button" id = "exit_trade_button" onclick = "exitTrade()">
                                 Exit
-                            </div>
+                            </button>
                         </div>
                     </div>
 

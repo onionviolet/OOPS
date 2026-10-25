@@ -177,7 +177,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'herbal-experiments': surface(UNSET),
         'optional-worlds': surface('ST3', {representations: routed}),
         'beginning': surface('ST3', {representations: routed}),
-        'continuation': surface(UNSET),
+        'continuation': surface('ST3', {home:'Continuing connection',frequency:'rare',status:'proposal',representations:routed}),
         'equipment-comparison': surface(UNSET),
         'tools': surface(UNSET),
         'fields': surface(UNSET),
@@ -243,6 +243,7 @@ export const LAYOUT_SPEC = Object.freeze({
         {id: 'ledger', label: 'Ledger', key: 'l', target: 'ledger'},
         {id: 'optional-worlds', label: 'Worlds', key: 'w', target: 'optional-worlds'},
         {id: 'beginning', label: 'Beginning', key: 'g', target: 'beginning'},
+        {id: 'continuation', label: 'Connection', key: 'y', target: 'continuation', select: 'continuation_open'},
         {id: 'customization', label: 'Settings', key: 's', target: 'customization'},
     ].map(Object.freeze)),
 });
