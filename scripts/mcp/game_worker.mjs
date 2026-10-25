@@ -52,15 +52,30 @@ function look({scope, offset = 0} = {}) {
     offset = Math.max(0, Math.floor(Number(offset) || 0));
     return {
         time: clock(), location: text('location_name_span'),
-        started: !!g.hiddenReason(g.document.getElementById('loading_screen')),
+        started: !!g.hiddenReason(g.document.getElementById('loading_screen')) && g.document.documentElement.dataset.startScreen === 'closed',
         screen: visibleText(root).slice(0, 12000),
         actions: last.slice(offset, offset + 80).map((c, index) => ({index: index + offset, key: c.key, text: c.text})),
         actionCount: last.length, pageErrors: g.errors.length,
     };
 }
 
+// Choose an actual visible native select option. This dispatches the same
+// input/change path as a player and cannot introduce an unavailable option.
+async function selectOption(selector, value) {
+    const g = need(), select = g.document.querySelector(selector);
+    if(!select || select.tagName !== 'SELECT') throw new Error('Choose a native select control.');
+    if(select.disabled || g.hiddenReason(select)) throw new Error('Select control is not actionable.');
+    const option = [...select.querySelectorAll('option')].find(o => o.value === String(value));
+    if(!option || option.disabled) throw new Error(`No available player option ${value}.`);
+    await g.fill(select, String(value));
+}
+
+async function openPanel(id) {
+    await selectOption('#workspace_navigation select[aria-label="Other known panels"]', id);
+}
+
 const ops = {
-    async new({seed = 1, heroName = 'Agent', path, url = 'http://localhost/?test_hooks=1'} = {}) {
+    async new({seed = 1, heroName = 'Agent', path, panel, url = 'http://localhost/?test_hooks=1'} = {}) {
         const target = new URL(url);
         if(!['localhost', '127.0.0.1'].includes(target.hostname) || target.protocol !== 'http:') throw new Error('Only a localhost test origin is supported.');
         target.searchParams.set('test_hooks', '1');
@@ -68,12 +83,15 @@ const ops = {
         const encoded = path ? readFileSync(safePath(path), 'utf8') : null;
         game = await boot(null, {seed, heroName, url: target.href});
         if(encoded) await game.importFile(encoded);
+        if(panel) await openPanel(panel);
         return look();
     },
     look: args => look(args),
-    async click({index, key, text: label}) {
+    async click({index, key, text: label, panel, value}) {
         const g = need();
-        if(index !== undefined) {
+        if(panel) await openPanel(panel);
+        else if(value !== undefined) await selectOption(key, value);
+        else if(index !== undefined) {
             const hit = last[index];
             if(!hit) throw new Error(`No action ${index}; call game_look first.`);
             await g.click(hit.el);
@@ -83,7 +101,7 @@ const ops = {
             if(!hit) throw new Error(`No clickable element with text ${label}`);
             await g.click(hit.el);
         }
-        else throw new Error('Give index, key or text.');
+        else throw new Error('Give index, key, text or panel.');
         return look();
     },
     async step({minutes}) {

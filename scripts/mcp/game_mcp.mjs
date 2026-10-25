@@ -53,13 +53,13 @@ const obj = (properties, required = []) => ({type: 'object', properties, require
 
 const tools = [
     {name: 'game_new', description: 'Start a fresh game (new hero) or resume from an exported file. Replaces any running game. Automatically clicks PLAY through the headless driver. Returns started and what the player sees.',
-        inputSchema: obj({seed: {type: 'integer', description: 'Seed for all randomness; same seed and same actions give the same game.'}, heroName: {type: 'string'}, url: {type: 'string', description: 'Localhost test origin, for opt-in world entry flags. Defaults to http://localhost/?test_hooks=1.'}, path: {type: 'string', description: 'An export file written by game_export.'}}),
+        inputSchema: obj({seed: {type: 'integer', description: 'Seed for all randomness; same seed and same actions give the same game.'}, heroName: {type: 'string'}, panel: {type: 'string', description: 'Open a known panel through the native More panels select, e.g. projects, continuation, lotm. Does not enroll or unlock it.'}, url: {type: 'string', description: 'Localhost test origin, for opt-in world entry flags. Defaults to http://localhost/?test_hooks=1.'}, path: {type: 'string', description: 'An export file written by game_export.'}}),
         handler: a => call('new', a).then(view)},
     {name: 'game_look', description: 'What the player sees now: location, game time, screen text and the numbered list of available actions.', readOnly: true,
         inputSchema: obj({scope: {type: 'string', description: 'Optional CSS selector for a visible panel.'}, offset: {type: 'integer', description: 'Action offset, in pages of 80. Indices remain absolute within this view.'}}),
         handler: a => call('look', a).then(view)},
-    {name: 'game_click', description: 'Do one action the way a player clicks it. Prefer index from the last game_look; key and text also work. Returns the new view.',
-        inputSchema: obj({index: {type: 'integer'}, key: {type: 'string', description: 'CSS selector from an action key.'}, text: {type: 'string', description: 'Exact button text.'}}),
+    {name: 'game_click', description: 'Do one native player action. Prefer index from game_look; key/text clicks, key+value selects, and panel navigation also work. Returns the new view.',
+        inputSchema: obj({value: {type: 'string', description: 'Choose an available option in the visible native select identified by key.'}, panel: {type: 'string', description: 'Open a known panel using the native More panels select. No discovery bypass.'}, index: {type: 'integer'}, key: {type: 'string', description: 'CSS selector from an action key.'}, text: {type: 'string', description: 'Exact button text.'}}),
         handler: a => call('click', a).then(view)},
     {name: 'game_step', description: 'Let game time pass (1 to 10080 minutes). Runs as fast as the CPU allows.', inputSchema: obj({minutes: {type: 'integer'}}, ['minutes']),
         handler: a => call('step', a).then(view)},

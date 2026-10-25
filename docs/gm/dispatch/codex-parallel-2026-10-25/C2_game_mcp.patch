@@ -1,0 +1,443 @@
+diff --git a/scripts/headless/runner.mjs b/scripts/headless/runner.mjs
+--- a/scripts/headless/runner.mjs
++++ b/scripts/headless/runner.mjs
+@@ -211,7 +211,43 @@
+             clipboard:{writeText:() => Promise.resolve(), readText:() => Promise.resolve('')},
+             locks:{request(name, opts, cb) {const fn = typeof opts === 'function' ? opts : cb; return Promise.resolve().then(() => fn({name, mode:'exclusive'}));}, query:() => Promise.resolve({held:[], pending:[]})}});
+         const observer = class {constructor(cb) {this.cb = cb;} observe() {} unobserve() {} disconnect() {} takeRecords() {return [];}};
+-        def('MutationObserver', observer); def('ResizeObserver', observer); def('IntersectionObserver', observer);
++        // Attribute observers drive native startup/navigation. Poll at settle boundaries,
++        // including CSSOM style writes, rather than leaving their callbacks inert.
++        // Child-list/character-data observation remains outside this bounded shim.
++        game.attributeObservers = new Set();
++        def('MutationObserver', class {
++            constructor(cb) {this.cb = cb; this.targets = new Map();}
++            observe(target, options = {}) {
++                this.targets.set(target, {options, before: this.read(target, options)});
++                game.attributeObservers.add(this);
++            }
++            read(target, options) {
++                const nodes = options.subtree ? [target, ...target.querySelectorAll('*')] : [target];
++                const values = new Map();
++                if(options.attributes || options.attributeFilter) for(const node of nodes) {
++                    const attrs = new Map((options.attributeFilter || node.getAttributeNames()).map(name =>
++                        [name, name === 'style' ? node.style.cssText : node.getAttribute(name)]));
++                    values.set(node, attrs);
++                }
++                return values;
++            }
++            flush() {
++                const records = [];
++                for(const [target, slot] of this.targets) {
++                    const after = this.read(target, slot.options);
++                    for(const [node, attrs] of after) for(const name of new Set([...attrs.keys(), ...(slot.before.get(node)?.keys() || [])])) {
++                        const old = slot.before.get(node)?.get(name) ?? null, value = attrs.get(name) ?? null;
++                        if(old !== value) records.push({type: 'attributes', target: node, attributeName: name, oldValue: slot.options.attributeOldValue ? old : null});
++                    }
++                    slot.before = after;
++                }
++                if(records.length) this.cb(records, this);
++                return records.length;
++            }
++            disconnect() {this.targets.clear(); game.attributeObservers.delete(this);}
++            takeRecords() {return [];}
++        });
++        def('ResizeObserver', observer); def('IntersectionObserver', observer);
+         def('matchMedia', q => ({matches:false, media:q, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}}));
+         def('getComputedStyle', el => el?.style ?? {getPropertyValue:() => ''});
+         def('Audio', class {play() {return Promise.resolve();} pause() {} addEventListener() {}});
+@@ -422,6 +458,7 @@
+                 ran++;
+             }
+             await new Promise(r => setImmediate(r));
++            for(const observer of this.attributeObservers) ran += observer.flush();
+             if(!ran) break;
+         }
+         this.timerNow = end;
+diff --git a/scripts/mcp/game_mcp.mjs b/scripts/mcp/game_mcp.mjs
+--- a/scripts/mcp/game_mcp.mjs
++++ b/scripts/mcp/game_mcp.mjs
+@@ -52,13 +52,14 @@
+ const obj = (properties, required = []) => ({type: 'object', properties, required});
+ 
+ const tools = [
+-    {name: 'game_new', description: 'Start a fresh game (new hero) or resume from an exported file. Replaces any running game. Returns what the player sees.',
+-        inputSchema: obj({seed: {type: 'integer', description: 'Seed for all randomness; same seed and same actions give the same game.'}, heroName: {type: 'string'}, path: {type: 'string', description: 'An export file written by game_export.'}}),
++    {name: 'game_new', description: 'Start a fresh game (new hero) or resume from an exported file. Replaces any running game. Automatically clicks PLAY through the headless driver. Returns started and what the player sees.',
++        inputSchema: obj({seed: {type: 'integer', description: 'Seed for all randomness; same seed and same actions give the same game.'}, heroName: {type: 'string'}, panel: {type: 'string', description: 'Open a known panel through the native More panels select, e.g. projects, continuation, lotm. Does not enroll or unlock it.'}, url: {type: 'string', description: 'Localhost test origin, for opt-in world entry flags. Defaults to http://localhost/?test_hooks=1.'}, path: {type: 'string', description: 'An export file written by game_export.'}}),
+         handler: a => call('new', a).then(view)},
+     {name: 'game_look', description: 'What the player sees now: location, game time, screen text and the numbered list of available actions.', readOnly: true,
+-        handler: () => call('look').then(view)},
+-    {name: 'game_click', description: 'Do one action the way a player clicks it. Prefer index from the last game_look; key and text also work. Returns the new view.',
+-        inputSchema: obj({index: {type: 'integer'}, key: {type: 'string', description: 'CSS selector from an action key.'}, text: {type: 'string', description: 'Exact button text.'}}),
++        inputSchema: obj({scope: {type: 'string', description: 'Optional CSS selector for a visible panel.'}, offset: {type: 'integer', description: 'Action offset, in pages of 80. Indices remain absolute within this view.'}}),
++        handler: a => call('look', a).then(view)},
++    {name: 'game_click', description: 'Do one native player action. Prefer index from game_look; key/text clicks, key+value selects, and panel navigation also work. Returns the new view.',
++        inputSchema: obj({value: {type: 'string', description: 'Choose an available option in the visible native select identified by key.'}, panel: {type: 'string', description: 'Open a known panel using the native More panels select. No discovery bypass.'}, index: {type: 'integer'}, key: {type: 'string', description: 'CSS selector from an action key.'}, text: {type: 'string', description: 'Exact button text.'}}),
+         handler: a => call('click', a).then(view)},
+     {name: 'game_step', description: 'Let game time pass (1 to 10080 minutes). Runs as fast as the CPU allows.', inputSchema: obj({minutes: {type: 'integer'}}, ['minutes']),
+         handler: a => call('step', a).then(view)},
+diff --git a/scripts/mcp/game_mcp_check.mjs b/scripts/mcp/game_mcp_check.mjs
+--- a/scripts/mcp/game_mcp_check.mjs
++++ b/scripts/mcp/game_mcp_check.mjs
+@@ -39,12 +39,89 @@
+ }
+ 
+ async function greetElder(c, seed) {
++    const fresh = await c.tool('game_new', {seed});
++    assert.equal(fresh.started, true, 'game_new auto-starts PLAY');
++    assert.doesNotMatch(fresh.screen, /Waiting for you to click|Inspired by/, 'hidden startup text is absent');
++    let choices = fresh, work;
++    for(let offset = 0; offset < fresh.actionCount; offset += 80) {
++        choices = await c.tool('game_look', {offset});
++        work = choices.actions.find(a => /Find work/.test(a.text));
++        if(work) break;
++    }
++    assert.ok(work, 'interactive Village livelihood action is reachable');
++    await c.tool('game_click', {text: work.text});
++    const working = await c.tool('game_look', {scope: '#location_actions_div'});
++    const patrol = working.actions.find(a => a.key === '[data-activity="patrolling"]');
++    assert.ok(patrol, 'Find work reveals the interactive Village patrol action');
++    await c.tool('game_click', {index: patrol.index});
++    // Patrol ticking has a baseline game defect (B1 report), outside the MCP seam.
++    // This regression proves the formerly hidden control is reachable and accepts a click.
++    assert.equal((await c.tool('game_status')).errors.length, 0, 'Village action click raises no page error');
+     await c.tool('game_new', {seed});
+     await c.tool('game_click', {key: '.choice_dialogue'});
+     await c.tool('game_click', {key: '[data-dialogue="villageElder"]'});
+     await c.tool('game_click', {key: '[data-textline="hello"]'});
+     await c.tool('game_step', {minutes: 15});
+     return c.tool('game_save');
++}
++
++async function nativeDropdownRoundtrip(c) {
++    await c.tool('game_new', {seed: 251036});
++    const local = () => c.tool('game_look', {scope: '#location_actions_div'});
++    let v = await local();
++    await c.tool('game_click', {index: v.actions.find(a => /Move somewhere else/.test(a.text)).index});
++    v = await local();
++    await c.tool('game_click', {index: v.actions.find(a => /Go to \[Wild willow stand\]/.test(a.text)).index});
++    v = await local();
++    assert.equal(v.location, 'Wild willow stand');
++    const dropdown = v.actions.find(a => a.key === '.location_choice_dropdown');
++    assert.ok(dropdown, 'native listener-only dropdown appears in action list');
++    await c.tool('game_click', {index: dropdown.index});
++    v = await local();
++    const back = v.actions.find(a => /Return to Village/.test(a.text));
++    assert.ok(back, 'native dropdown reveals a return route');
++    const returned = await c.tool('game_click', {index: back.index});
++    assert.equal(returned.location, 'Village');
++}
++
++async function blockedRoutes(c) {
++    // Native startup must leave the launch-screen mode, not merely hide its text.
++    await c.tool('game_new', {seed: 251041, panel: 'continuation'});
++    let v = await c.tool('game_look', {scope: '#continuation_panel'});
++    assert.ok(v.actions.some(a => a.key === '#continuation_open'), 'BLD3 native continuing connection is reachable');
++    await c.tool('game_click', {key: '#continuation_open'});
++    v = await c.tool('game_look', {scope: '#continuation_view'});
++    assert.ok(v.actions.some(a => a.text === 'Begin a fresh life'), 'native fresh-life confirmation route is offered');
++    const unknown = (await c.rpc('tools/call', {name: 'game_click', arguments: {panel: 'nonexistent-c2-panel'}})).result;
++    assert.equal(unknown.isError, true, 'panel helper cannot invent unknown panels');
++
++    await c.tool('game_new', {seed: 251042, panel: 'lotm', url: 'http://localhost/?lotm_probe=1'});
++    v = await c.tool('game_look', {scope: '#lotm_panel'});
++    assert.ok(v.actions.some(a => /Begin as a Nighthawk/.test(a.text)), 'BLD2 localhost opt-in start exposed through native panel');
++    await c.tool('game_click', {key: '[data-lotm="enroll"]'});
++    v = await c.tool('game_look', {scope: '#lotm_panel'});
++    assert.match(v.screen, /Tingen/);
++    assert.equal(v.location, 'Tingen supervised workroom', 'native enrollment moves to its own workroom');
++    assert.doesNotMatch(v.screen, /A disposable test start/, 'enrollment retires the test-start choices');
++
++    await c.tool('game_new', {seed: 251043});
++    await c.tool('game_click', {key: '.choice_dialogue'});
++    await c.tool('game_click', {key: '[data-dialogue="villageElder"]'});
++    await c.tool('game_click', {key: '[data-textline="hello"]'});
++    await c.tool('game_click', {key: '#center_mode_back'});
++    await c.tool('game_step', {minutes: 1});
++    await c.tool('game_click', {key: '[data-place-tab="options"]'});
++    await c.tool('game_click', {key: '#systems_workshop_panel > summary'});
++    await c.tool('game_click', {key: '[data-systems="enroll"]'});
++    await c.tool('game_click', {panel: 'projects'});
++    await c.tool('game_click', {key: '#projects_drawer > summary'});
++    await c.tool('game_click', {key: '#p23_mistglass_panel > summary'});
++    v = await c.tool('game_look', {scope: '#p23_mistglass_panel'});
++    assert.ok(v.actions.some(a => /Enter Mistglass/.test(a.text)), 'BMC1 native conservatory entry is exposed after local enrollment');
++    await c.tool('game_click', {key: '[data-mistglass-action="enter"]'});
++    v = await c.tool('game_look', {scope: '#p23_mistglass_panel'});
++    assert.ok(v.actions.some(a => /Learn the conservatory method/.test(a.text)), 'native Mistglass entry reached without debug state');
++    assert.equal((await c.tool('game_status')).errors.length, 0);
+ }
+ 
+ const c = client();
+@@ -56,15 +133,23 @@
+     assert.deepEqual(list.sort(), ['game_click', 'game_export', 'game_load', 'game_look', 'game_new', 'game_report_limit', 'game_save', 'game_status', 'game_step']);
+     assert.equal((await c.rpc('nope')).error.code, -32601);
+ 
++    const remote = (await c.rpc('tools/call', {name: 'game_new', arguments: {url: 'https://example.com/'}})).result;
++    assert.equal(remote.isError, true, 'remote entry origins are refused');
++    await blockedRoutes(c);
++    await nativeDropdownRoundtrip(c);
+     const a = await greetElder(c, 11);
+     assert.ok(a.heroCreated);
+     const looked = await c.tool('game_look');
+     assert.ok(looked.actions.length > 0 && typeof looked.screen === 'string');
++    const laterPage = await c.tool('game_look', {offset: 80});
++    assert.ok(laterPage.actions.length > 0 && laterPage.actions[0].index === 80, 'later controls are exposed with stable absolute indices');
+     await c.tool('game_click', {index: 0}).catch(() => {});   // index path must not crash the server
+     const b = await greetElder(c, 11);
+     assert.equal(b.hash, a.hash, 'same seed and actions, same save');
+     // Export itself touches state (reward timers), so compare with a save taken just after it.
+     const exported = await c.tool('game_export');
++    const secondExport = await c.tool('game_export');
++    assert.notEqual(secondExport.path, exported.path, 'exports cannot overwrite each other at the same virtual instant');
+     const atExport = (await c.tool('game_status')).time;
+     await c.tool('game_step', {minutes: 60});
+     assert.notDeepEqual((await c.tool('game_status')).time, atExport, 'time passes');
+@@ -72,6 +157,10 @@
+     const after = await c.tool('game_status');
+     assert.deepEqual(after.time, atExport, 'export then load returns to the exported moment');
+     assert.ok((await c.tool('game_save')).heroCreated, 'same hero after load');
++    const resumed = await c.tool('game_new', {path: exported.path, seed: 11});
++    assert.deepEqual(resumed.time, atExport, 'game_new path decodes an MCP export through the native import route');
++    assert.equal(resumed.started, true);
++    assert.ok((await c.tool('game_save')).heroCreated, 'same hero after resume');
+     const bad = (await c.rpc('tools/call', {name: 'game_load', arguments: {path: '/etc/passwd'}})).result;
+     assert.equal(bad.isError, true, 'paths outside the export folder are refused');
+     const noted = await c.tool('game_report_limit', {wanted: 'a screenshot of the village', blockedBy: 'no browser here', workaround: 'read game_look text'});
+diff --git a/scripts/mcp/game_worker.mjs b/scripts/mcp/game_worker.mjs
+--- a/scripts/mcp/game_worker.mjs
++++ b/scripts/mcp/game_worker.mjs
+@@ -4,7 +4,7 @@
+ // Replies carry what a player could see, plus hashes. Raw saves never leave:
+ // export writes a file under the private temp folder and returns only its path.
+ import {boot, canonicalSave} from '../headless/runner.mjs';
+-import {createHash} from 'node:crypto';
++import {createHash, randomUUID} from 'node:crypto';
+ import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
+ import {tmpdir} from 'node:os';
+ import {join, resolve} from 'node:path';
+@@ -18,34 +18,90 @@
+ const clock = () => {const t = game.snapshot()['current time']; return {day: t.day_count, hour: t.hour, minute: t.minute};};
+ const sha = s => createHash('sha256').update(s).digest('hex').slice(0, 16);
+ 
+-function look() {
++// The DOM shim's innerText includes hidden descendants. Walk visible text instead.
++function visibleText(root) {
++    const parts = [];
++    const visit = node => {
++        if(node.nodeType === 3) {parts.push(node.textContent); return;}
++        if(node.nodeType !== 1 || /^(SCRIPT|STYLE|TEMPLATE)$/.test(node.tagName) || game.css.hiddenReason(node)) return;
++        for(const child of node.childNodes) visit(child);
++        parts.push('\n');
++    };
++    game.css.reset();
++    visit(root);
++    return parts.join(' ').replace(/[ \t]+/g, ' ').replace(/ *\n */g, '\n').replace(/\n{3,}/g, '\n\n').trim();
++}
++
++// Native travel/resource dropdowns use addEventListener on a div, without role,
++// tabindex or inline onclick. Include that known player-control seam explicitly.
++function controls(g) {
++    const rows = g.clickables();
++    for(const el of g.document.querySelectorAll('.location_choice_dropdown')) {
++        if(!rows.some(c => c.el === el) && !el.disabled && !el.closest('[aria-disabled="true"]') && !g.css.hiddenReason(el)) {
++            rows.push({el, key: '.location_choice_dropdown', text: el.textContent.trim().slice(0, 60)});
++        }
++    }
++    return rows;
++}
++
++function look({scope, offset = 0} = {}) {
+     const g = need();
+-    last = g.clickables();
++    const root = scope ? g.document.querySelector(scope) : g.document.body;
++    if(!root) throw new Error(`No view for ${scope}`);
++    last = controls(g).filter(c => root === c.el || root.contains(c.el));
++    offset = Math.max(0, Math.floor(Number(offset) || 0));
+     return {
+         time: clock(), location: text('location_name_span'),
+-        screen: g.document.body.innerText.replace(/\n{3,}/g, '\n\n').slice(0, 3500),
+-        actions: last.slice(0, 80).map((c, index) => ({index, key: c.key, text: c.text})),
++        started: !!g.hiddenReason(g.document.getElementById('loading_screen')) && g.document.documentElement.dataset.startScreen === 'closed',
++        screen: visibleText(root).slice(0, 12000),
++        actions: last.slice(offset, offset + 80).map((c, index) => ({index: index + offset, key: c.key, text: c.text})),
+         actionCount: last.length, pageErrors: g.errors.length,
+     };
+ }
+ 
++// Choose an actual visible native select option. This dispatches the same
++// input/change path as a player and cannot introduce an unavailable option.
++async function selectOption(selector, value) {
++    const g = need(), select = g.document.querySelector(selector);
++    if(!select || select.tagName !== 'SELECT') throw new Error('Choose a native select control.');
++    if(select.disabled || g.hiddenReason(select)) throw new Error('Select control is not actionable.');
++    const option = [...select.querySelectorAll('option')].find(o => o.value === String(value));
++    if(!option || option.disabled) throw new Error(`No available player option ${value}.`);
++    await g.fill(select, String(value));
++}
++
++async function openPanel(id) {
++    await selectOption('#workspace_navigation select[aria-label="Other known panels"]', id);
++}
++
+ const ops = {
+-    async new({seed = 1, heroName = 'Agent', path} = {}) {
++    async new({seed = 1, heroName = 'Agent', path, panel, url = 'http://localhost/?test_hooks=1'} = {}) {
++        const target = new URL(url);
++        if(!['localhost', '127.0.0.1'].includes(target.hostname) || target.protocol !== 'http:') throw new Error('Only a localhost test origin is supported.');
++        target.searchParams.set('test_hooks', '1');
+         if(game) game.close();
+-        const save = path ? readFileSync(safePath(path), 'utf8') : null;
+-        game = await boot(save, {seed, heroName});
++        const encoded = path ? readFileSync(safePath(path), 'utf8') : null;
++        game = await boot(null, {seed, heroName, url: target.href});
++        if(encoded) await game.importFile(encoded);
++        if(panel) await openPanel(panel);
+         return look();
+     },
+-    look: () => look(),
+-    async click({index, key, text: label}) {
++    look: args => look(args),
++    async click({index, key, text: label, panel, value}) {
+         const g = need();
+-        if(index !== undefined) {
++        if(panel) await openPanel(panel);
++        else if(value !== undefined) await selectOption(key, value);
++        else if(index !== undefined) {
+             const hit = last[index];
+             if(!hit) throw new Error(`No action ${index}; call game_look first.`);
+             await g.click(hit.el);
+         } else if(key) await g.click(key);
+-        else if(label) await g.clickText(label);
+-        else throw new Error('Give index, key or text.');
++        else if(label) {
++            const hit = controls(g).find(c => c.el.textContent.trim() === label || c.text === label);
++            if(!hit) throw new Error(`No clickable element with text ${label}`);
++            await g.click(hit.el);
++        }
++        else throw new Error('Give index, key, text or panel.');
+         return look();
+     },
+     async step({minutes}) {
+@@ -66,7 +122,7 @@
+     async export() {
+         const encoded = await need().exportFile();
+         mkdirSync(EXPORT_DIR, {recursive: true});
+-        const path = join(EXPORT_DIR, `save-${Date.now()}.txt`);
++        const path = join(EXPORT_DIR, `save-${randomUUID()}.txt`);
+         writeFileSync(path, encoded);
+         return {path, bytes: encoded.length};
+     },
+diff --git a/docs/tools/GAME_MCP_LIMITS.md b/docs/tools/GAME_MCP_LIMITS.md
+--- a/docs/tools/GAME_MCP_LIMITS.md
++++ b/docs/tools/GAME_MCP_LIMITS.md
+@@ -18,17 +18,52 @@
+ 
+ | Limit | Workaround today | Expand by |
+ | --- | --- | --- |
++| P1: hidden title text says waiting for PLAY after the driver has started; text clicks miss controls that the action list exposes (2026-10-25) | **Fixed on B1 branch:** `game_new` explicitly reports `started`; view filters hidden descendants; text clicks use the action-list controls. Regression reaches Village Find work after game_new | Reintegrate B1 patch and rerun stdio check in primary. Baseline already auto-clicked PLAY; no game source defect found. |
+ | No screenshots; `game_look` is text from an in-process DOM | Read `screen` text and the action list | Electron backend over CDP with `capturePage` (EL17); UI claims still need rebuilt browser evidence (AGENTS.md) |
+ | No `game_quote`; commands run only as clicks | Click, then read the result | Expose the AR7 quote step on a window entry point, then a `game_quote` tool |
+-| `game_look` lists at most 80 actions and 3,500 characters of screen text | `game_click` by key or text still reaches the rest | A `scope` or `offset` argument |
++| `game_look` pages 80 actions and 12,000 visible-text characters (B1, fixed on branch) | Use `offset` for more actions and `scope` for a panel; indices refer to the full current scoped list | Headless CSS remains approximate; desktop layout still needs a browser |
++| Listener-only native travel/resource dropdown divs were absent outside the Village registry (BFA2) | **Fixed on B1 branch:** include visible `.location_choice_dropdown` controls; verified Village → Wild willow stand → Village | Regression exercises the return route without game source changes |
++| `game_new(path)` fed an encoded export into a raw JSON boot slot (BHB1, 2026-10-25) | **Fixed on B1 branch:** boot a fresh disposable realm, then use the same native import route as `game_load` | Regression resumes an exported life and checks the clock and created hero |
++| Export filenames used virtual `Date.now()` in a shared temp folder | **Fixed on B1 branch:** node:crypto UUID filenames prevent same-instant and parallel-server overwrites | Regression exports twice at the same virtual instant and requires distinct paths |
++| Short text such as `Find work` may omit icons and hidden text included in the action label | Use the listed action index or the complete returned label; B1 text clicks now match those labels | Return concise visible labels with unambiguous IDs in a later wrapper pass |
+ | One game per server; `game_new` replaces it | Run another server | A session id on every tool |
+ | `game_step` is capped at 10,080 minutes per call | Call it again | Raise the cap with a progress reply |
+ | `game_load` reads only from the export temp folder | `game_export` first | An explicit allow-list setting |
+ | No sealed-truth or debug tools, by design | Read what the player sees | Only with an explicit flag and Weibao's instruction (sealed secrets rule) |
+ | Seen once in 7 runs: `game_load` can fail with "did not settle within 40 s of timer time" | Retry, or `game_new` with `path` | Reproduce under load and fix in the headless import settle |
+-| Boots the working tree, so another session's unfinished edit can break it. Seen 2026-10-23 (cleared by the owners within the hour, no fix needed here; `inventory_component` and `person.js` already form a cycle through `items.js` at HEAD, so module order decides whether it bites): an import cycle through `src/models/person.js` and `src/components/inventory_component.js` made `game_new` fail with "Cannot set properties of undefined (setting 'person')" | Wait for or ask the owning session; `git stash` is not allowed here | A frozen bundle option (`path` to a built bundle) so agents can pin a known-good build |
++| Boots the working tree, so another session's unfinished edit can break it. Seen 2026-10-23 (cleared by the owners within the hour, no fix needed here; `inventory_component` and `person.js` already form a cycle through `items.js` at HEAD, so module order decides whether it bites): an import cycle through `src/models/person.js` and `src/components/inventory_component.js` made `game_new` fail with "Cannot set properties of undefined (setting 'person')" | Wait for or ask the owning session; `git stash` is not allowed here | A frozen bundle option (a distinct `bundlePath`; `path` already means save export). B1 deferred: runner reload closes over its harness bundler and checkout assets, so a wrapper-only path is not an honest freeze. B1 pins isolated committed master `3a1180dc2`. |
+ | Headless layout is not real: CSS visibility is approximate | Use the browser playtest bot for layout | n/a |
++
++## C2 native panel access (2026-10-25)
++
++The B1 Mistglass, Tingen and continuation access blockers shared a headless
++startup defect: the no-op `MutationObserver` left the workspace in title-screen
++mode after PLAY. C2's runner delivers attribute changes at settle boundaries
++(including inline style changes), allowing native startup observers to close
++that mode. Child-list and character-data observation remain unimplemented.
++
++`game_new({panel:"projects"})` and `game_click({panel:"continuation"})` automate
++the native More panels selector using the existing visible controls. `game_click({key:<select>,value:<option>})`
++also supports visible, enabled native select options. They neither
++unlock panels nor enroll the character. Unknown panels fail. For Tingen use
++`game_new({url:"http://localhost/?lotm_probe=1",panel:"lotm"})`, then choose the
++native test enrollment. This is the game's existing disposable localhost
++start, not a new ordinary-world entrance. Mistglass first requires speaking to
++the Village elder. Return with the native center Back control, advance one
++played minute, open the place Options tab and Iona’s work ledger, and choose
++Follow local people and work. Then open Projects, Optional projects, and the
++Mistglass disclosure for its explicit entry and method choices. Continuing
++connection uses its ordinary Open your connection action.
++
++Frozen-bundle support remains deferred. `path` already means an exported save;
++the runner uses an instrumented bundle plus checkout HTML/CSS/assets on reload.
++A bundle path alone would not pin those inputs, so it is not a cheap wrapper
++addition. Current tests identify the checkout/build they actually booted.
+ 
+ ## Not authority
+ 
+ Findings and ledger entries are proposals. UI and persistence claims need their own evidence (AGENTS.md, Verification).
++
++## B1 branch receipt, 2026-10-25
++
++`game_new.url` accepts only an HTTP localhost test origin for opt-in world entry and always enables `test_hooks=1`. It changes entry configuration, not game state. `path` remains an MCP export, not a bundle path. `game_mcp_check.mjs` covers the started state, hidden startup text, Village livelihood control, deterministic elder interaction, save/export/load/resume, unique export paths, unsafe save-path refusal and a temporary limit ledger. Full B1 record: [status](../gm/dispatch/codex-parallel-2026-10-25/B1_STATUS.md).
+diff --git a/docs/gm/dispatch/codex-parallel-2026-10-25/C2_CHECKPOINT.md b/docs/gm/dispatch/codex-parallel-2026-10-25/C2_CHECKPOINT.md
+new file mode 100644
+--- /dev/null
++++ b/docs/gm/dispatch/codex-parallel-2026-10-25/C2_CHECKPOINT.md
+@@ -0,0 +1,49 @@
++# C2 MCP coverage checkpoint, 2026-10-25
++
++Owner: C2. Isolated branch `codex/game-mcp-play-2026-10-25`; merge `5a2ed4c9e` includes requested master `9b997ea60`. No runtime source edits authorized here. Primary playtest report ownership transferred from B1 to C2 by Weibao.
++
++Rules: AD6-AD8 (player observation), AD22 (save integrity), AD32/AD36 (authority and verification), AD34 (desktop acceptance separate), AR3/AR7/AR8, AU1-AU7. MCP seam only; no new gameplay rules.
++
++Routes under investigation: native workspace More panels selector opens Projects, Continuing connection and Tingen workroom. LOTM enrollment additionally requires the existing localhost `lotm_probe=1` flag. No synthetic state or sealed-truth route.
++
++Finite dispatch: 4 fresh Luna-medium workers, one invocation per area (Mistglass, LOTM, continuation, combat), max 4 concurrent. Each owns only its C2 area report and scratch receipts. Coordinator integrates the report. No descendants or runtime edits. Allowance telemetry unavailable; bounded dispatch, no API fallback. Stop each after requested journeys or concrete reproducible remaining blockers and persistence receipts.
++
++Frozen-bundle path deferred after inspection: `game_new.path` already means an encoded save. Runner reload rebuilds a harness-instrumented bundle and reads checkout HTML/CSS; a bundle-only option would not pin the game. A complete frozen root is outside this cheap wrapper seam.
++
++## Route diagnosis and implementation
++
++All three routes exist. B1's title text was hidden, but the native workspace's
++`startScreen` remained `open`, because the runner's MutationObserver never
++called the native start-screen observer. C2 implements bounded attribute
++observer delivery at settle boundaries (style included), so PLAY now closes
++that mode through the existing observer. No gameplay state edit.
++
++A first regression caught another distinction: Layout / Panels / Show restores
++a module's dock setting, but unmapped parity modules still need the ordinary
++More panels expansion route. C2's `panel` shortcut uses that visible selector,
++validates the option, and dispatches native input/change. `game_click` also
++accepts `value` with a select `key`; hidden, disabled, absent options fail.
++
++Runtime identity: committed `src` tree `6f928fb9523f41ce21c8140461ba39d81ecc7a52`,
++`dist/bundle.js` SHA-256 `652f967dc96777ce3c78a01a5d214c082e30e14000e9cccecd9ad1cc1897aec4`.
++MCP actually bundles this worktree's source with harness instrumentation; the
++dist hash is a build receipt, not a claim that MCP imports dist. Concurrent
++primary uncommitted gameplay is excluded from these journeys.
++
++## Verification while editing
++
++- `npm run build`: PASS; branch runtime bundle hash above. Generated source-map path drift reverted from this lane's build; no dist change selected.
++- `npm run check:arch`: PASS; existing grandfathered baseline unchanged.
++- `npm run check:rules`: PASS, zero warnings; no rule changes, rule-behavior rerun not needed.
++- `npm test`: 2,872/2,877 pass. Four localhost fixtures denied with `listen EPERM`; one independent alloy fixture reached its 60-second timeout under concurrent tests. No changed runtime code.
++- `node --test tests/cheat_awakening.test.js tests/cheat_cards.test.js tests/rt_slice1_fixtures.test.js` outside sandbox: PASS 9/9, covering all four denied cases.
++- `YAIRPG_FIXTURE_TIMEOUT_MS=180000 node --test tests/alloy_equipment.test.js`: PASS 5/5; timeout failure cleared in focused rerun.
++- `node scripts/mcp/game_mcp_check.mjs`: in progress; intermediate route assertions corrected as described above. No claim of final pass yet.
++
++Focused route receipt: `/tmp/c2-mist-route.log` reaches `Mistglass conservatory`
++and its native Learn method control after elder hello, center Back, one played
++minute, place Options, Iona ledger enrollment, More panels → Projects and the
++two project disclosures. Tingen enrollment reached its actual workroom;
++continuation exposed Begin a fresh life. Final combined MCP regression remains
++running separately; intermediate failures were route/test assumptions, not
++runtime source changes.

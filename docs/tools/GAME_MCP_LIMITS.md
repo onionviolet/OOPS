@@ -34,6 +34,32 @@ Check the ledger size any time with `node scripts/mcp/game_mcp.mjs --self-check`
 | Boots the working tree, so another session's unfinished edit can break it. Seen 2026-10-23 (cleared by the owners within the hour, no fix needed here; `inventory_component` and `person.js` already form a cycle through `items.js` at HEAD, so module order decides whether it bites): an import cycle through `src/models/person.js` and `src/components/inventory_component.js` made `game_new` fail with "Cannot set properties of undefined (setting 'person')" | Wait for or ask the owning session; `git stash` is not allowed here | A frozen bundle option (a distinct `bundlePath`; `path` already means save export). B1 deferred: runner reload closes over its harness bundler and checkout assets, so a wrapper-only path is not an honest freeze. B1 pins isolated committed master `3a1180dc2`. |
 | Headless layout is not real: CSS visibility is approximate | Use the browser playtest bot for layout | n/a |
 
+## C2 native panel access (2026-10-25)
+
+The B1 Mistglass, Tingen and continuation access blockers shared a headless
+startup defect: the no-op `MutationObserver` left the workspace in title-screen
+mode after PLAY. C2's runner delivers attribute changes at settle boundaries
+(including inline style changes), allowing native startup observers to close
+that mode. Child-list and character-data observation remain unimplemented.
+
+`game_new({panel:"projects"})` and `game_click({panel:"continuation"})` automate
+the native More panels selector using the existing visible controls. `game_click({key:<select>,value:<option>})`
+also supports visible, enabled native select options. They neither
+unlock panels nor enroll the character. Unknown panels fail. For Tingen use
+`game_new({url:"http://localhost/?lotm_probe=1",panel:"lotm"})`, then choose the
+native test enrollment. This is the game's existing disposable localhost
+start, not a new ordinary-world entrance. Mistglass first requires speaking to
+the Village elder. Return with the native center Back control, advance one
+played minute, open the place Options tab and Iona’s work ledger, and choose
+Follow local people and work. Then open Projects, Optional projects, and the
+Mistglass disclosure for its explicit entry and method choices. Continuing
+connection uses its ordinary Open your connection action.
+
+Frozen-bundle support remains deferred. `path` already means an exported save;
+the runner uses an instrumented bundle plus checkout HTML/CSS/assets on reload.
+A bundle path alone would not pin those inputs, so it is not a cheap wrapper
+addition. Current tests identify the checkout/build they actually booted.
+
 ## Not authority
 
 Findings and ledger entries are proposals. UI and persistence claims need their own evidence (AGENTS.md, Verification).

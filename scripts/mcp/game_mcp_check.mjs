@@ -84,6 +84,46 @@ async function nativeDropdownRoundtrip(c) {
     assert.equal(returned.location, 'Village');
 }
 
+async function blockedRoutes(c) {
+    // Native startup must leave the launch-screen mode, not merely hide its text.
+    await c.tool('game_new', {seed: 251041, panel: 'continuation'});
+    let v = await c.tool('game_look', {scope: '#continuation_panel'});
+    assert.ok(v.actions.some(a => a.key === '#continuation_open'), 'BLD3 native continuing connection is reachable');
+    await c.tool('game_click', {key: '#continuation_open'});
+    v = await c.tool('game_look', {scope: '#continuation_view'});
+    assert.ok(v.actions.some(a => a.text === 'Begin a fresh life'), 'native fresh-life confirmation route is offered');
+    const unknown = (await c.rpc('tools/call', {name: 'game_click', arguments: {panel: 'nonexistent-c2-panel'}})).result;
+    assert.equal(unknown.isError, true, 'panel helper cannot invent unknown panels');
+
+    await c.tool('game_new', {seed: 251042, panel: 'lotm', url: 'http://localhost/?lotm_probe=1'});
+    v = await c.tool('game_look', {scope: '#lotm_panel'});
+    assert.ok(v.actions.some(a => /Begin as a Nighthawk/.test(a.text)), 'BLD2 localhost opt-in start exposed through native panel');
+    await c.tool('game_click', {key: '[data-lotm="enroll"]'});
+    v = await c.tool('game_look', {scope: '#lotm_panel'});
+    assert.match(v.screen, /Tingen/);
+    assert.equal(v.location, 'Tingen supervised workroom', 'native enrollment moves to its own workroom');
+    assert.doesNotMatch(v.screen, /A disposable test start/, 'enrollment retires the test-start choices');
+
+    await c.tool('game_new', {seed: 251043});
+    await c.tool('game_click', {key: '.choice_dialogue'});
+    await c.tool('game_click', {key: '[data-dialogue="villageElder"]'});
+    await c.tool('game_click', {key: '[data-textline="hello"]'});
+    await c.tool('game_click', {key: '#center_mode_back'});
+    await c.tool('game_step', {minutes: 1});
+    await c.tool('game_click', {key: '[data-place-tab="options"]'});
+    await c.tool('game_click', {key: '#systems_workshop_panel > summary'});
+    await c.tool('game_click', {key: '[data-systems="enroll"]'});
+    await c.tool('game_click', {panel: 'projects'});
+    await c.tool('game_click', {key: '#projects_drawer > summary'});
+    await c.tool('game_click', {key: '#p23_mistglass_panel > summary'});
+    v = await c.tool('game_look', {scope: '#p23_mistglass_panel'});
+    assert.ok(v.actions.some(a => /Enter Mistglass/.test(a.text)), 'BMC1 native conservatory entry is exposed after local enrollment');
+    await c.tool('game_click', {key: '[data-mistglass-action="enter"]'});
+    v = await c.tool('game_look', {scope: '#p23_mistglass_panel'});
+    assert.ok(v.actions.some(a => /Learn the conservatory method/.test(a.text)), 'native Mistglass entry reached without debug state');
+    assert.equal((await c.tool('game_status')).errors.length, 0);
+}
+
 const c = client();
 try {
     const init = await c.rpc('initialize', {protocolVersion: '2025-06-18', capabilities: {}, clientInfo: {name: 'check', version: '1'}});
@@ -95,6 +135,7 @@ try {
 
     const remote = (await c.rpc('tools/call', {name: 'game_new', arguments: {url: 'https://example.com/'}})).result;
     assert.equal(remote.isError, true, 'remote entry origins are refused');
+    await blockedRoutes(c);
     await nativeDropdownRoundtrip(c);
     const a = await greetElder(c, 11);
     assert.ok(a.heroCreated);
