@@ -868,3 +868,14 @@ XP, mastery and exact selection/content receipts retain their existing owners.
 `src/book_world_hp_facts.js` projects the local lesson windows and read models;
 `world_calendar.js` projects its elapsed header clock. Scope and proof:
 [D7 checkpoint](../gm/dispatch/hp-world-2026-10-25/CHECKPOINT.md).
+
+### E3 typed beginning presentation seam, 2026-10-25
+
+`createStructuredBeginningChoices` in `src/structured_beginning_choice.js` accepts
+presentation registrations referencing loader-owned typed starts. Both HP lives
+consume it through `registerHpBeginnings`; the existing Beginning workspace previews,
+confirms or cancels selection. Preview is transient and grants nothing. The durable
+receipt and cargo grant remain in `planStructuredSelection`/`beginStructuredCampaign`;
+there is no new save slice. Saved D7 definitions and commands remain exact. This is
+a public entry presentation seam, not a world-law permission list or travel system.
+Evidence: [E3 checkpoint](../gm/dispatch/hp-arrival-2026-10-25/CHECKPOINT.md).

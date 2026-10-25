@@ -1,0 +1,21 @@
+{
+  "parentHead": "5d9e1bd4e80eb1e9bd7d56cd7a542fa843239be9",
+  "verifiedMaster": "3dfc49cf3422c0262d86810df47459f53f3a4a67",
+  "sha256": {
+    "src/main.js": "e1614019838dbfba2c04f912cf05994a60a80c848236242c9c5ae9eb83f6fcd8",
+    "src/structured_beginning_choice.js": "d71ea5bffcb039787460d6cca09da2f14353b103f9e94654db9d930db3ddc29b",
+    "src/structured_pack_ui.js": "8ef3f64063c2639980b0bbe1e5248baf509494df1826abf9f43b020f13f399dc",
+    "src/book_world_hp_content.js": "57315f749482b95855837b3803243e2dee2382e96c4b1e6bb84b35a1445b4c37",
+    "src/simulation_effects.js": "b6c8f4725f247aff1ff0cb1ac6d8c6141dbec2e706f7acba6add0d35aefad9e4",
+    "src/structured_pack_runtime.js": "3701ce8b042560a7242897a2c988cc8bc081606b5dde6b85b3f0907c549ba1b6",
+    "src/world_packs/book_hp_pack.js": "6ccfa3edfdad3c21628661c1b01b05b8f157e27b100bb57f294e541b87afbf54",
+    "src/world_packs/book_hp_life_data.js": "0291d0e075889a33aff5e8dc8746fd77f44254919ea1bca6c651e40570166411",
+    "tests/structured_beginning_choice.test.js": "43fd881734e365e9aac0a46a420e22cc94c68f695d2edeb566ef7f620c813b1a",
+    "tests/hp_arrival_compatibility.test.js": "77b5f67c4148f86c94127d59c48c250264b1c9c505bd2c4a8c732d893fb7fed4",
+    "scripts/hp_arrival_browser.cjs": "bf6d6c720efeb98e9d23fd6ecefcfc9f08bd5af22bd14cca60eb5d2d6b9f83f5",
+    "dist/bundle.js": "1d8d1b0408b21ee8b1ebd6efe8d07dbc77eaa16f6286af19ba8a31342c5a6095"
+  },
+  "oldMasterBundleSha256": "cb486a0f676892e570ec37bf3d77fa85fd26ab9fe4972d27fc7562199a4ec076",
+  "noPrivateSaves": true,
+  "humanAcceptance": "pending"
+}

@@ -378,8 +378,8 @@ import {beginStructuredCampaign,planStructuredSelection,validateStructuredBootst
 import {requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
-import {createHpLifeContent} from './book_world_hp_content.js';
-import {initialStructuredBeginning} from './structured_beginning_choice.js';
+import {registerHpBeginnings} from './book_world_hp_content.js';
+import {createStructuredBeginningChoices} from './structured_beginning_choice.js';
 import {nativeStructuredEquipmentTemplate} from './structured_equipment_runtime.js';
 import {readWornEquipment} from './worn_equipment_comparison.js';
 import {createContentPackPanel} from './content_pack_ui.js';
@@ -390,8 +390,7 @@ const optionalPacks=new Map();
 const foundationProbeEnabled=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('foundation_probe')==='1';
 const structuredPacks=new Map();
 // Local authoring preview selects an optional candidate without replacing live content.
-const structuredCandidateId=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)?new URLSearchParams(location.search).get('structured_candidate'):null;
-const initialStructuredDefinition=()=>structuredPacks.get(structuredCandidateId)||initialStructuredBeginning(structuredPacks,foundationProbeEnabled?FOUNDATION_START_PACK_ID:null);
+const beginningChoices=createStructuredBeginningChoices(structuredPacks,()=>foundationProbeEnabled?FOUNDATION_START_PACK_ID:null);
 const packDefinitionsForSave=()=>new Map([...optionalPacks,...structuredPacks]);
 let structuredPanel,structuredNotice='',suspendedStructuredSave=null;
 const nativeLifeEnded=(state=expansionState)=>state.chronicle?.life.endedAt!=null||structuredLifeEnded(state,optionalPackState.structured);
@@ -2091,24 +2090,24 @@ function structuredContext() {
         facts:{...contexts.player.facts,location:current_location?.id,'skill.Crafting':character.getTotalSkillLevel('Crafting')},busy:!!current_activity||!!current_game_action||!!current_combat||!!current_dialogue||is_sleeping||is_reading||is_in_trade()};
 }
 function readStructuredCampaign() {
-    const record=optionalPackState.structured,d=record?structuredPacks.get(record.packId):optionalPackState.pendingStructured?structuredPacks.get(optionalPackState.pendingStructured.packId):initialStructuredDefinition();
+    const record=optionalPackState.structured,d=record?structuredPacks.get(record.packId):optionalPackState.pendingStructured?structuredPacks.get(optionalPackState.pendingStructured.packId):beginningChoices.definition();
     const canWrite=ownsSave&&!foundationSaveBlocked&&!expansionError&&!importProbeToken;
     if(!d)return {available:false,active:false,canWrite:false};
     const context=structuredContext();
     const view=structuredCampaignView(expansionState,d,record,context);
     if(optionalPackState.pendingStructured){requireStructuredSelection(optionalPackState.pendingStructured,structuredPacks);view.beginLabel='Continue beginning';}
     if(record&&d.renewal)view.renewal=previewStructuredRenewal(expansionState,d,context);
-    return {...view,pauseReason:feedbackClockPauseReason(),canWrite:canWrite&&(record||current_location?.id==='Village'&&!nativeOccupationReason()&&!context.busy),error:structuredNotice};
+    return {...beginningChoices.preview(view,optionalPackState),pauseReason:feedbackClockPauseReason(),canWrite:canWrite&&(record||current_location?.id==='Village'&&!nativeOccupationReason()&&!context.busy),error:structuredNotice};
 }
 function commandStructuredCampaign(command) {
     try {
         if(nativeLifeEnded())throw Error('This life has ended.');
         if(!ownsSave||foundationSaveBlocked||expansionError||importProbeToken)throw Error('Restore saving before continuing.');
-        const record=optionalPackState.structured,d=record?structuredPacks.get(record.packId):optionalPackState.pendingStructured?structuredPacks.get(optionalPackState.pendingStructured.packId):initialStructuredDefinition(),context=structuredContext();
-        if(!d)throw Error('This beginning content is unavailable.');
+        const record=optionalPackState.structured,d=record?structuredPacks.get(record.packId):optionalPackState.pendingStructured?structuredPacks.get(optionalPackState.pendingStructured.packId):beginningChoices.definition(),context=structuredContext();
+        if(beginningChoices.handle(command,optionalPackState,context)){structuredNotice='';structuredPanel?.render(true);return;}
         if(optionalPackState.pendingStructured&&command.type!=='begin')throw Error('Finish your saved beginning first.');
         let plan,next;
-        if(command.type==='begin') {
+        if(command.type==='begin' && beginningChoices.require(command,optionalPackState)) {
             if(current_location?.id!=='Village'||nativeOccupationReason())throw Error('Begin from an unoccupied native opening.');
             if(d.starts&&!optionalPackState.pendingStructured){
                 const selected=planStructuredSelection(expansionState,d,context);
@@ -9481,7 +9480,7 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 for(const make of [createLocalLivelihoodContent,createWarmHandStartContent,createLanternLoanStartContent,createSlakeBenchStartContent])await registerStructuredNative(make());
-for(const profile of ['school','trade'])await registerStructuredNative(createHpLifeContent(profile));
+await registerHpBeginnings(registerStructuredNative,beginningChoices);
 configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),skill:character.getTotalSkillLevel('Literacy'),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
     itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:key=>assertNativeItemDisposition(expansionState,key),addSkillXp:(skill,xp)=>add_xp_to_skill({skill:skills[skill],xp_to_add:xp,use_bonus:false,cap_gained_xp:false}),
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
