@@ -27,7 +27,7 @@
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-652f967dc967"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-186351919a8e"></script>
 
         <!--Icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -312,7 +312,8 @@
 
                     <div id = "trade_div">
                         <p id="trade_stock_notice" role="status" hidden></p>
-                        <div id = "trader_sorting_buttons" class="activable_buttons flex_wrap"> 
+                        <div id = "trader_sorting_buttons" class="activable_buttons flex_wrap">
+                            <button type="button" id="shop_lock_clear">Release kept stock</button> 
                             <div id = "trader_sort_by_name" class = "trader_sorting_button active_selection_button" onclick='sortTraderInventory("name")' data-translation="ui sort name"></div>
                             <div id = "trader_sort_by_price" class = "trader_sorting_button" onclick='sortTraderInventory("price")' data-translation="ui sort value"></div>
                             <div id = "trader_sort_by_type" class = "trader_sorting_button" onclick='sortTraderInventory("type")' data-translation="ui sort type"></div>
