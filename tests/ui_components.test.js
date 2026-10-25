@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createDom} from '../scripts/headless/dom.mjs';
 import {decorateActionComponents} from '../src/ui_components.js';
+import {quotedActionList} from '../src/ui/panel_sections.js';
 
 test('disabled reasons preserve subject descriptions and follow a moved action without orphan notes', () => {
     const saved = {document:globalThis.document, MutationObserver:globalThis.MutationObserver};
@@ -29,4 +30,17 @@ test('disabled reasons preserve subject descriptions and follow a moved action w
         assert.equal(b.getAttribute('aria-describedby').split(/\s+/).length, 2);
         b.remove(); decoration.refresh(); assert(!root.querySelector('.ui-disabled-reason'));
     } finally {decoration?.destroy(); Object.assign(globalThis, saved);}
+});
+
+test('quoted action groups keep unavailable alternatives and one shared reason without allowing activation', () => {
+    const saved=globalThis.document,dom=createDom();dom.loadHTML('<body></body>');globalThis.document=dom.document;
+    try {
+        const activations=[],root=quotedActionList([{id:'ready',label:'Repair now',enabled:true},{id:'a',label:'Fit a kit',enabled:false,reason:'Study first.'},{id:'b',label:'Cut a lining',enabled:false,reason:'Study first.'}],{id:'test-work',activate:id=>activations.push(id)});
+        document.body.append(root);
+        const buttons=[...root.querySelectorAll('button')];
+        assert.equal(root.querySelectorAll('details').length,1);
+        assert.equal(root.querySelector('details').open,false);
+        for(const b of buttons){b.click();if(b.disabled)assert.equal(document.getElementById(b.getAttribute('aria-describedby')).textContent,'Study first.');}
+        assert.deepEqual(activations,['ready']);assert.equal(buttons.length,3);
+    } finally {globalThis.document=saved;}
 });

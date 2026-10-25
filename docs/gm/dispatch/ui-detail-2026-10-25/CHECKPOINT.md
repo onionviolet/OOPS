@@ -28,6 +28,19 @@ Primary checkout is dirty and remains untouched. Cultivation audit reports prima
 ## Changes
 
 - D1-C1 (UR7, UR17, AR3): disabled reasons preserve existing `aria-describedby` IDs, follow controls moved by modular panels and retire orphan notes. One shared note identity across nested decorators; no gameplay mutation. Regression covers disabled/enabled transitions, moved and removed buttons, existing subject descriptions and borrowed panels.
+- D1-C2 (UR6/7/14/41/59–63/65–68, AR3/8/11): shared section/visible-label/quoted-action components feed the workshop and Mistglass. Workshop has numbered choose/plan/review steps, an honest empty selection, visible control labels and grouped unavailable work. Mistglass separates visit, reserve, method practice, purification stakes, sluice, path work and history; existing `meter_bar` shows only owner-provided reserve and method progress. No new rates, rewards, roll, clock or eligibility authority. Browser/visual verification pending.
+- `node --test tests/ui_components.test.js tests/ui_contract.test.js tests/home_household.test.js tests/gear_workshop.test.js tests/continuation_state.test.js`: PASS 35 on D1-C2 source with in-progress household/continuation changes; geometry not covered.
+- `node --test tests/ui_components.test.js`: PASS 2 after adding grouped-action eligibility/accessibility regression.
+
+## Source absorption ledger (proposals)
+
+| ID | Source / fit | Built or skipped |
+| --- | --- | --- |
+| D1-S1 | Discord sweep F1/S1 and P1: method-owned practice milestones fit Mistglass's existing 16/48-minute stages | Built a progress track from the existing read model, current method heading and disclosed stage/rate comparison. No new realm system. |
+| D1-S2 | Discord sweep F2/S2/S3: shared framed title/description/effect grammar fits independent workshop and cultivation panels | Built shared sections and action groups, nearby costs/reasons and labeled work steps. Existing subject inspection stays with its owner. |
+| D1-S3 | Discord sweep F6/P2: show independently deciding quantities | Built reserve pool plus practice track in Mistglass, using existing meter semantics. A trial with only remaining time remains text; no invented second process variable. |
+| D1-S4 | Discord sweep F4/F5: introduced fields and readable text navigation | Preserve discovery and opt-in gates, label the current method and entry sequence. No pre-discovery character fields or hidden-truth dump. |
+| D1-S5 | Discord sweep P3–P5/P6–P10: food harm, rounding economics, rest overlap, activity mechanisms, ecology, policy automation and auto-breakthrough are gameplay proposals | Skipped gameplay changes in this UI lane. Existing quotes/time/learning owners remain authoritative. |
 
 ## Before/after index
 
