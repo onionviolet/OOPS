@@ -16,7 +16,8 @@ function balanced(s,start,open='{',close='}') {
  }throw Error('Unbalanced live table.');
 }
 const inert=class {constructor(data){Object.assign(this,data);}};
-const evaluate=s=>runInNewContext(`(${s})`,{TradeItem:inert,TradeItemGroup:inert,LocationActivity:inert,LocationGatheringActivity:inert},{timeout:100});
+// Guard runaway source evaluation, allowing parallel test workers to be descheduled.
+const evaluate=s=>runInNewContext(`(${s})`,{TradeItem:inert,TradeItemGroup:inert,LocationActivity:inert,LocationGatheringActivity:inert},{timeout:1000});
 export function readVillageSupplyTables() {
  const source=read('items.js'),items={};
  for(const m of source.matchAll(/item_templates\["([^"\n]+)"\]\s*=\s*new \w+\(\{/g)) {const body=balanced(source,m.index+m[0].length-1),value=body.match(/\bvalue:\s*(\d+(?:\.\d+)?)/),type=body.match(/material_type:\s*"([^"]+)"/);if(value)items[m[1]]={value:Number(value[1]),materialType:type?.[1]};}

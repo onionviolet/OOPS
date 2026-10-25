@@ -8,6 +8,7 @@
  M tests/p23-world-adaptation.test.js
  M tests/peer_standing_domain.test.js
  M tests/pledges.test.js
+ M tests/stepper_life_commit.test.js
  M tests/ui_contract_allowlist.json
 ?? tests/combat_review.test.js
 ?? tests/companion_wishes.test.js

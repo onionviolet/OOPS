@@ -30,8 +30,8 @@ Initial read-only `git -C /Users/weiwei/code/yet-another-idle-rpg status --short
 tracked dirty: continuation_state, economy_standing, gear_dimensions, gear_workshop,
 household_fortunes_domain, life_record, p23-host-joins-world-adaptation,
 p23-world-adaptation, peer_standing_domain, pledges (`.test.js`), ui_contract_allowlist.json.
-All remain untouched, including as destinations. All 29 initially untracked primary
-test files are excluded. Primary status is rechecked before each edit slice.
+All remain untouched, including as destinations. All initially untracked primary
+test files are excluded; full paths are recorded in `DEFERRED_PRIMARY_TESTS.txt`. Primary status is rechecked before each edit slice.
 
 ## Checks and progress
 
@@ -65,6 +65,23 @@ Final gate follows the final implementation commit, per the explicit lane brief:
 `npm test`, `npm run check:arch`, `npm run check:rules`. Results pending below.
 The post-commit validation receipt will be written here without another commit,
 so the full suite runs after the branch’s last commit as requested.
+
+## Post-commit verification receipt
+
+Reorganization candidate HEAD: `585746158be8ac7550d1eadbc8dd2eca351b9091`.
+Four reorganization commits from base, followed by the bounded harness repair below; no master integration or push. The working tree was
+clean when the final gates started. Only this checkpoint and the deferred-path
+snapshot receive post-commit documentation updates.
+
+- `npm run check:arch`: PASS, source ratchets satisfied; six grandfathered main imports and 226 cyclic edges remain unchanged. Log `/private/tmp/lean-tests-arch.log`.
+- `npm run check:rules`: PASS, 22 register rows, 41 AD codes, 125 relative links, 0 warnings. Log `/private/tmp/lean-tests-rules.log`.
+- Exact registration check with an additional literal-occurrence count: PASS, all 390 registrations retained once across final destinations; existing npm glob unchanged. Focused slice counts independently match the original mapped case totals.
+- Final read-only primary status versus base-to-HEAD paths: PASS, zero overlap with all 42 currently dirty/untracked primary paths. The snapshot also includes newly dirty `stepper_life_commit.test.js` and untracked `native_rendering.test.js`; neither is touched. R2/R3 world-adaptation remains deferred.
+- First final `/usr/bin/time -p npm test` at `585746158`: FAIL 2,876/2,877, one source-extraction VM timeout in untouched `traveler_lint_hint.test.js:16`; 307.52 s real (runner 305.345 s), 0 skipped. Log `/private/tmp/lean-tests-final.log`. Root runner files: 372 → 360 (12 fewer, 3.23%); no assertions removed.
+- `node --test tests/traveler_lint_hint.test.js` on unchanged failed-run inputs: PASS 3/3 (7.531 s). Log `/private/tmp/lean-tests-timeout-repro.log`. The 100 ms VM wall-time bound in the offline source-table helper is load-sensitive; source evaluation uses inert constructors and no native gameplay code. This is a harness/tooling timing defect, not an observed game runtime defect.
+- Repair: `scripts/village_supply_tables.mjs` retains identical literal inputs, sandbox context and output, with the runaway-evaluation guard widened from 100 ms to 1 s. Primary helper/test paths were clean. No assertion changed; no synthetic timing assertion added.
+- `node --test tests/{traveler_lint_hint,village_obtainability,village_traveler_asks,world_history_consumers,generated_people}.test.js`: PASS 20/20 (2.708 s), unchanged output/knowledge/invariant checks cover direct consumers. Log `/private/tmp/lean-tests-extraction.log`.
+- Required post-repair final `npm test`, architecture and rule-index gates: pending after the harness repair commit. Repeating the full suite is justified by the named final-gate failure and the repaired shared extraction helper.
 
 ## Assertion relocation mapping
 
