@@ -267,6 +267,37 @@ ownership and reader access rather than assuming a coordinator's tab is shared.
 
 </details>
 
+## Data gap-fill workflow (DGF), 2026-10-25
+
+Proven on LOTM potions (2026-10-24 to 25, [dispatch record](../gm/dispatch/potion-pathways-2026-10-24/CHECKPOINT.md),
+[CRAFTING_ENGINE rounds 8 to 12](../CRAFTING_ENGINE.md#round-8-2026-10-24-potion-requirements-brewing-versus-drinking-and-orphaned-materials)).
+Weibao asked to save it for other worlds. Use it when a world's system needs
+**structured data** (recipes, formulas, ranks, prices, rituals, ingredients) and the
+existing reader notes cover only part of it. It turned 43 known formula slots into 184
+plus 81 book-checked rows, mostly without new reading.
+
+| Step | What | Tool and model | Done check |
+|---|---|---|---|
+| DGF1 | Measure the gap from existing notes: slots known per rank and line | Sonnet lane over notes only | Coverage table with evidence tags |
+| DGF2 | **Scan the native-language text by keyword**, not by reading. Pick 5 to 10 terms in the original language (LOTM: 主材料, 辅助材料, 晋升仪式, 魔药配方) | `tools/book_deep_dive/keyword_scan.py`, no model | Hit counts per term and chapter |
+| DGF3 | Cut locator-tagged context passages and split into shards at chapter boundaries | `hit_context_shards.py` | About 30,000 characters per shard |
+| DGF4 | Extract rows per shard: one JSON object per formula or rule, with locator and SHOWN or STATED | Haiku, one per shard, two at a time, at most a few tool calls | All lines parse; reply lists counts |
+| DGF5 | **Look for the wiki's data modules first.** Many wikis keep lists in Lua (`Module:...`); page text is just a renderer. List `allpages` in the main, Archive and Module namespaces | In-app browser, same-origin API | Module found with revid |
+| DGF6 | If Weibao asks for the wiki: try the official dump; if it is dead, pull all pages through the API at 50 per request and 1 second apart, plus categories and an image manifest; save through a browser download to the private folder | In-app browser; `fetch_wiki_images.py` for images | Page counts, hashes, gitignore checked |
+| DGF7 | Parse the module in the browser into JSON (keep citations per field); save the snapshot with revid and content hash | In-app browser | Rows, fields filled, citation kinds counted |
+| DGF8 | **Crosswalk** wiki rows to book rows on the original-language name; compare | Small script, then Sonnet judges agree, partial, conflict, bad join | Every book row matched or listed |
+| DGF9 | Recheck every conflict yourself in the original text; the book wins | Coordinator, grep on the private context file | Each conflict resolved with a locator |
+| DGF10 | Fold into the owning palette as a round; record the source ladder (text, author posts, author Q&A, wiki, licensed adaptations, fan compilations, ours) | Coordinator | Round saved; USER_VISION line; check:rules passes |
+
+Rules that came out of the run:
+- **Do not spoof a browser user agent** in shell fetches; it was refused as bot-check circumvention. Use the in-app browser API route, or the site's own dump.
+- **Sites blocked by browser safety policy** (Reddit, 2026-10-25) stay blocked in both browsers. Do not route around them; ask Weibao for an export or his own browsing.
+- **Login-only channels** (QQ, WeChat originals, Qidian comments) are Weibao's route.
+- **Bulk browser collection needs his ask** for that wiki; a blocked fetch alone does not authorize it (see Wiki route above).
+- **Units and near-duplicate lines** are the commonest wiki errors (X1: a "7 drops" copied onto the next line). Check quantities against the text before they become game data.
+- Raw text, wiki dumps and images stay in `docs/research/novels/<source>/` (gitignored). Committed docs paraphrase and link.
+- Fan wikis are usually CC BY-SA; images have mixed licences. Keep both private unless a shipped pack adds attribution.
+
 ## Worlds without a local text
 
 For anime, manga and games with no local copy, run a wiki-first audit:

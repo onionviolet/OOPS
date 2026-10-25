@@ -23,7 +23,12 @@ Short version:
 6. Cross-check the wiki in the in-app browser with
    `wiki_api_in_browser.js` (scripted fetches usually get 403). Record
    revision ids.
-7. Write the synthesis in the source's private research folder, copy the
+7. When the world needs structured data (recipes, formulas, ranks, rituals)
+   and notes cover only part of it, run the data gap-fill workflow
+   (playbook section DGF): keyword-scan the original-language text, Haiku
+   shard extraction, the wiki's data modules, a crosswalk, and recheck every
+   conflict in the text.
+8. Write the synthesis in the source's private research folder, copy the
    reader files beside it, and report what was read, what was blocked and
    what stays open.
 

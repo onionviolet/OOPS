@@ -32,6 +32,8 @@ export function validateLotmEnvelope(save){
  assert(sealed<=1&&(count(save,'main_character',K.sealed3)===1)===(f['book.lotm.sealed.held']===true),'The sealed item must have one holder, and the player holds it exactly while it is signed out.');
  // Broker lots: each item has at most one holder (saves from before the broker hold none).
  for(const key of [K.frog,K.hairs,K.ink,...pathwayRows.filter(r=>r.market).flatMap(r=>[K[r.market.baseHold],K[r.market.nextHold]])])assert(count(save,'main_character',key)+count(save,I.broker,key)+reserved(state,key)<=1,'A broker lot item must have one holder.');
+ // The single brewable frog: a brew in progress has consumed it, so held plus consumed never exceeds the one frog.
+ assert(count(save,'main_character',K.frog)+count(save,I.broker,K.frog)+reserved(state,K.frog)+(f['book.lotm.cc.brew.started']===true?1:0)<=1,'A consumed frog cannot also be held.');
  for(const name of LOTM_SAMPLES)assert(count(save,'main_character',K[name])+count(save,I.supervisor,K[name])+reserved(state,K[name])===1,'Each sample must have exactly one holder.');
  return true;
 }

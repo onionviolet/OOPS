@@ -9,6 +9,7 @@ import {freeze,eq,gte,all,not,af,has,no,item,transfer,attention,use,know,present
 import {pathwayCommands,pathwayFlags,pathwaySources,pathwayFacts,flagOf} from './book_world_lotm_pathways.js';
 import {pathwayRows,allRows} from './book_world_lotm_rows.js';
 import {abilityCommands} from './book_world_lotm_abilities.js';
+import {brewCommands,brewFlags,brewFacts} from './book_world_lotm_brew.js';
 import {causeCommands,causeSteadyCommand,causeFlags,causeFacts} from './book_world_lotm_causes.js';
 import {brokerCommands,lotFlags,brokerFacts} from './book_world_lotm_broker.js';
 import {clearanceCommands,clearanceFacts,LOTM_ROLE_OF} from './book_world_lotm_clearance.js';
@@ -60,6 +61,7 @@ const baseCommands=[
   effects:[{type:'source',actor:'player',sourceId:I.clown,operation:'grant',origin:'acquired',awakened:true,active:true},af('promoted'),
    know('promoted','The Clown potion is gone for good. The same whispers rose and passed. Your body answers faster and steadier, and your face holds whatever you set on it. This Sequence needs digesting in turn, by its own role.','player','player','observation','understood')]}),
  ...pathwayRows.flatMap(pathwayCommands),
+ ...brewCommands,
  ...districtCommands,
  ...lifeCommands,
  ...clearanceCommands,
@@ -87,7 +89,7 @@ export const lotmSources=freeze([{id:I.source,revision:1,label:'Seer source (ini
  ...pathwayRows.flatMap(pathwaySources)]);
 const LIFE_FLAGS=['contract.signed','sealed.held',...lotFlags,...causeFlags];
 const DISTRICT_FLAGS=LOTM_DISTRICTS.map(d=>`endorsed.${d.id}`);
-const LOTM_FLAGS=['reportedIn','allocated','declined','ingested','stabilized','methodLearned','refusedHigh','assessed','promoted',...pathwayRows.flatMap(pathwayFlags),...DISTRICT_FLAGS,...LIFE_FLAGS,...LOTM_SAMPLES.flatMap(n=>[`took.${n}`,`observed.${n}`,`returned.${n}`])];
+const LOTM_FLAGS=['reportedIn','allocated','declined','ingested','stabilized','methodLearned','refusedHigh','assessed','promoted',...pathwayRows.flatMap(pathwayFlags),...brewFlags,...DISTRICT_FLAGS,...LIFE_FLAGS,...LOTM_SAMPLES.flatMap(n=>[`took.${n}`,`observed.${n}`,`returned.${n}`])];
 export function lotmFacts(state,ctx={}){
  const s=state.simulation||{},p=s.people?.player,sup=s.people?.[I.supervisor],f={};
  const alive=x=>x?.life==='alive'&&x.body?.form==='human'&&(x.body.hands??0)>=2&&x.body.mobile===true;
@@ -115,12 +117,12 @@ export function lotmFacts(state,ctx={}){
  f['lotm.acting']=acting;f['lotm.digested']=acting>=LOTM_DIGEST_ACTS;f['lotm.holds.clownDose']=inv[K.clownDose]||0;
  for(const row of pathwayRows)pathwayFacts(row,state,f,{inv,flag});
  // One pathway per life: any allocation or ingestion elsewhere closes the other offers.
- const rows=allRows.map(r=>[flagOf(r,'allocated'),flagOf(r,'ingested')]);
+ const rows=allRows.map(r=>[flagOf(r,'allocated'),flagOf(r,'ingested'),flagOf(r,'brew.started')]);
  // The primary lane's block facts (kept additively): another pathway's allocation, ingestion or source blocks switching; holding another pathway's dose blocks the step (wrong potion).
  for(const P of allRows){const others=allRows.filter(Q=>Q!==P),srcOf=Q=>Q.key==='seer'?I.source:Q.base,held=Q=>(inv[K[Q.holds.base]]||0)>0||(inv[K[Q.holds.next]]||0)>0;
-  f[`lotm.other.${P.pid}.allocated`]=others.some(Q=>flag(flagOf(Q,'allocated')));f[`lotm.other.${P.pid}.ingested`]=others.some(Q=>flag(flagOf(Q,'ingested'))||!!state.actors?.player?.sources?.[srcOf(Q)]);
+  f[`lotm.other.${P.pid}.allocated`]=others.some(Q=>flag(flagOf(Q,'allocated'))||flag(flagOf(Q,'brew.started')));f[`lotm.other.${P.pid}.ingested`]=others.some(Q=>flag(flagOf(Q,'ingested'))||!!state.actors?.player?.sources?.[srcOf(Q)]);
   f[`lotm.block.${P.pid}.switching`]=f[`lotm.other.${P.pid}.allocated`]||f[`lotm.other.${P.pid}.ingested`];f[`lotm.block.${P.pid}.wrongPotion`]=others.some(held);}
- f['lotm.pathChosen']=rows.some(([a,i])=>flag(a)||flag(i));f['lotm.ingestedAny']=rows.some(([,i])=>flag(i));
+ f['lotm.pathChosen']=rows.some(([a,i,b])=>flag(a)||flag(i)||flag(b));f['lotm.ingestedAny']=rows.some(([,i])=>flag(i));brewFacts(state,f);
  const profile=enrolled?profileKeyOf(state):null;
  for(const k of Object.keys(LOTM_PROFILES))f[`lotm.profile.${k}`]=profile===k;
  for(const d of LOTM_DISTRICTS)f[`lotm.home.${d.id}`]=!!profile&&LOTM_PROFILES[profile].home===d.id;
