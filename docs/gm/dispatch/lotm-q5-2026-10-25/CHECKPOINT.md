@@ -30,3 +30,7 @@ Input: `b7769821` plus the Q5 broker/actions/envelope/host/UI, broker regression
 - `git diff --check` on owned Q5 source/test/doc paths: PASS.
 
 Q5 playable gate complete. No unverified selected gameplay; human taste/pacing and normal-app adoption remain open. Full combined suite and merge-readiness receipt follow after the Q5 commit, as directed for the final branch tree. Source-driven rebuilding is required for integration; generated bundle/map/index remain outside this lane's commit scope.
+
+## C1 final branch-tree receipt
+
+Q5 committed as `167f10227`; newer docs-only master `3dfc49cf3` merged as `1bedd2c5e`. Clean final candidate rebuild is byte-identical to the Q5 browser bundle. Build, architecture and rules (0 warnings) pass. One full `npm test`: 2886 tests, 2882 pass, 4 localhost EPERM failures, 0 skipped; exit 1. All four blocked cases pass in a permitted retry of the three affected files (9/9, exit 0); same frozen source/test tree, no code changes. No second full invocation. Exact inputs, commands, bounds, preserved context and remaining integration gate: [MERGE_READINESS](MERGE_READINESS.md). Final receipt is documentation only. No master/primary checkout changes or push; generated outputs restored to branch HEAD.
