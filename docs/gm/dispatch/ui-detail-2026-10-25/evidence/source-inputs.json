@@ -1,0 +1,35 @@
+{
+  "base": "3dfc49cf3",
+  "sourceFiles": {
+    "index.html": "67ca8e88fb17c8efa7fdd2b88ccbe9df14a72b966ffcafc07468fa5c0f65ee48",
+    "styles/ui_tokens.css": "5051107b69d09fdc9e34ea628398b0404d4f2fafbef15a1f10585d3c4db1ed11",
+    "src/ui_components.js": "41b6b8a6c5640dafd4f3a10ddde2edb06152e526cdcac1f77a489e303d3101e4",
+    "src/ui/panel_sections.js": "72d886936d4d8c5287be9c752663a19e517312449617bb53987bc852d51fd6f3",
+    "src/gear_workshop_panel.js": "f4c27ffee493e9ffa3a188e168064af400d96a773adb2b10777b8942db339554",
+    "src/absorb_p23/host_joins/world_adaptation_ui.js": "6f03099841e99b87b883e3a040b8c7583df8ba9bdd02841afeb1d2bdc992593d",
+    "src/home_panel.js": "0326446484cb0dbfd738cddaf7ea4338c897ad9b7f76c85da8265a52d34a3ce8",
+    "src/home_household_panel.js": "24237d218f915703af080f04d3253e7b9cc2d321a1723e143462b917c7693963",
+    "src/continuation_ui.js": "469c8897833716b5b27c3cc634f291373f79b2fe3301daa8f1eefeb5ffc934e0",
+    "src/game_bar.js": "7a153541d37b489f3ec0e86fcbe8e395b94d34e776039165eed34499f66ea8bb",
+    "src/workspace_navigation.js": "0dbe3bf351f32182cc69c2ed8fb38ea6b2e5cf50042b88054432c9789e3e0caf",
+    "src/layout_spec.js": "4551f84df593e9b39d1ed1912331f9c8cf162d13ddd75ef196e0a2d713f6b769",
+    "src/trade.js": "9abc8a271e0ec391867527d8031ac4844e7cdc70f1f8c5f49a1904249fc03580",
+    "src/ui/combat_display.js": "2f9f1984ff669d548447001f951483dcfa03f351b0b3bc5c225b86d8f5bbdf68",
+    "src/field_layer_panel.js": "8dde0775574c0dc7a3ee8b3711bf94e70225b9caf1ac1eb762474f121c8ff5a2"
+  },
+  "pairedViews": 64,
+  "viewports": [
+    "1920x1080",
+    "1440x900"
+  ],
+  "afterArtifact": {
+    "dist/bundle.js": "f1e067eb938aebd2347592e9cf852f059c941ecbcf39c4226e98ad1ce2cdbb87",
+    "styles/ui_tokens.css": "5051107b69d09fdc9e34ea628398b0404d4f2fafbef15a1f10585d3c4db1ed11",
+    "index.html": "67ca8e88fb17c8efa7fdd2b88ccbe9df14a72b966ffcafc07468fa5c0f65ee48"
+  },
+  "beforeArtifact": {
+    "dist/bundle.js": "652f967dc96777ce3c78a01a5d214c082e30e14000e9cccecd9ad1cc1897aec4",
+    "styles/ui_tokens.css": "460942d861f015c8c79545a8c12192fc3b8ef795e4993fe416bf5d237a16553d",
+    "index.html": "015df259addb23d6431d449958e04e12d36054627a00aeef36b6712535b0a8fd"
+  }
+}

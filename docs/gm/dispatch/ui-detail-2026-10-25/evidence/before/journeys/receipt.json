@@ -1,0 +1,425 @@
+{
+  "phase": "before",
+  "setup": "Public mid fixture: crafting and craftsman introduction declared, not natural acquisition proof. Native simulation enrollment, Mistglass entry/learning, travel/combat, home start and continuation controls are real commands.",
+  "captures": [
+    {
+      "label": "mistglass-entry",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "workspace:projects",
+      "text": "Projects\n▾\nOptional projects\n\nOriginal proposals. Open a project to read its terms before opting in.\n\nMeadow pen · care proposal\n1 ready / 1 actions\nMistglass conservatory (opt-in proposal)\n1 ready / 1 actions\n\nAn original optional test world. Enter with your present body and bag, then explicitly learn its method. Frontier is unchanged.\n\nEnter Mistglass conservatory\n\nElemental preparation\nOpen to review\nWaypost supply clerk\nClerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.\nAsk for repair notes (one field clear)\nFinish current work in the writable Village tab.\nBuy repair notes (10 coins)\nFinish current work in the writable Village tab."
+    },
+    {
+      "label": "mistglass-entry",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "workspace:projects",
+      "text": "Projects\n▾\nOptional projects\n\nOriginal proposals. Open a project to read its terms before opting in.\n\nMeadow pen · care proposal\n1 ready / 1 actions\nMistglass conservatory (opt-in proposal)\n1 ready / 1 actions\n\nAn original optional test world. Enter with your present body and bag, then explicitly learn its method. Frontier is unchanged.\n\nEnter Mistglass conservatory\n\nElemental preparation\nOpen to review\nWaypost supply clerk\nClerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.\nAsk for repair notes (one field clear)\nFinish current work in the writable Village tab.\nBuy repair notes (10 coins)\nFinish current work in the writable Village tab."
+    },
+    {
+      "label": "mistglass-learned",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "workspace:projects",
+      "text": "Projects\n▾\nOptional projects\n\nOriginal proposals. Open a project to read its terms before opting in.\n\nMistglass conservatory (opt-in proposal)\n5 ready / 13 actions\n\nCondensate: 0 / 10. Conservatory mist: +0.125 per played minute.\n\nOpen-mist absorption: Learning.\n\nReceive ambient mist without a deliberate circulation drill. Keeps the original rate and 75% purification chance.\n\nOutflow sluice: jammed. Clearing it drives 2 condensate of pressure; Open-mist absorption (Learning) spends 2. The keeper pays 2 coins per cleared jam.\n\nThe keeper says her grandmother cut this outflow herself after a hard winter. The sluice is hers, and she pays whoever clears it.\n\nPrecise path work: choose a practiced method. Source: Choose circulation or refinement for a precise work technique.. Frontier physical h"
+    },
+    {
+      "label": "mistglass-learned",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "workspace:projects",
+      "text": "Projects\n▾\nOptional projects\n\nOriginal proposals. Open a project to read its terms before opting in.\n\nMistglass conservatory (opt-in proposal)\n5 ready / 13 actions\n\nCondensate: 0 / 10. Conservatory mist: +0.125 per played minute.\n\nOpen-mist absorption: Learning.\n\nReceive ambient mist without a deliberate circulation drill. Keeps the original rate and 75% purification chance.\n\nOutflow sluice: jammed. Clearing it drives 2 condensate of pressure; Open-mist absorption (Learning) spends 2. The keeper pays 2 coins per cleared jam.\n\nThe keeper says her grandmother cut this outflow herself after a hard winter. The sluice is hers, and she pays whoever clears it.\n\nPrecise path work: choose a practiced method. Source: Choose circulation or refinement for a precise work technique.. Frontier physical h"
+    },
+    {
+      "label": "mistglass-practice",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "workspace:projects",
+      "text": "Projects\n▾\nOptional projects\n\nOriginal proposals. Open a project to read its terms before opting in.\n\nMistglass conservatory (opt-in proposal)\n5 ready / 13 actions\n\nCondensate: 0.3 / 10. Conservatory mist: +0.1 per played minute.\n\nThreaded-breath circulation: Learning · 3 practiced minutes · next stage at 16.\n\nPractice circulation while in the mist, even with a full reserve. Begins slowly; practiced control increases condensate throughput. Purification remains 75%; practiced flow spends a little less on sluice work.\n\nOutflow sluice: jammed. Clearing it drives 2 condensate of pressure; Threaded-breath circulation (Learning) spends 2. The keeper pays 2 coins per cleared jam.\n\nThe keeper says her grandmother cut this outflow herself after a hard winter. The sluice is hers, and she pays whoeve"
+    },
+    {
+      "label": "mistglass-practice",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "workspace:projects",
+      "text": "Projects\n▾\nOptional projects\n\nOriginal proposals. Open a project to read its terms before opting in.\n\nMistglass conservatory (opt-in proposal)\n5 ready / 13 actions\n\nCondensate: 0.3 / 10. Conservatory mist: +0.1 per played minute.\n\nThreaded-breath circulation: Learning · 3 practiced minutes · next stage at 16.\n\nPractice circulation while in the mist, even with a full reserve. Begins slowly; practiced control increases condensate throughput. Purification remains 75%; practiced flow spends a little less on sluice work.\n\nOutflow sluice: jammed. Clearing it drives 2 condensate of pressure; Threaded-breath circulation (Learning) spends 2. The keeper pays 2 coins per cleared jam.\n\nThe keeper says her grandmother cut this outflow herself after a hard winter. The sluice is hers, and she pays whoeve"
+    },
+    {
+      "label": "mistglass-reloaded",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "workspace:projects",
+      "text": "Projects\n▾\nOptional projects\n\nOriginal proposals. Open a project to read its terms before opting in.\n\nMistglass conservatory (opt-in proposal)\n5 ready / 13 actions\n\nCondensate: 0.3 / 10. Conservatory mist: +0.1 per played minute.\n\nThreaded-breath circulation: Learning · 3 practiced minutes · next stage at 16.\n\nPractice circulation while in the mist, even with a full reserve. Begins slowly; practiced control increases condensate throughput. Purification remains 75%; practiced flow spends a little less on sluice work.\n\nOutflow sluice: jammed. Clearing it drives 2 condensate of pressure; Threaded-breath circulation (Learning) spends 2. The keeper pays 2 coins per cleared jam.\n\nThe keeper says her grandmother cut this outflow herself after a hard winter. The sluice is hers, and she pays whoeve"
+    },
+    {
+      "label": "mistglass-reloaded",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "workspace:projects",
+      "text": "Projects\n▾\nOptional projects\n\nOriginal proposals. Open a project to read its terms before opting in.\n\nMistglass conservatory (opt-in proposal)\n5 ready / 13 actions\n\nCondensate: 0.3 / 10. Conservatory mist: +0.1 per played minute.\n\nThreaded-breath circulation: Learning · 3 practiced minutes · next stage at 16.\n\nPractice circulation while in the mist, even with a full reserve. Begins slowly; practiced control increases condensate throughput. Purification remains 75%; practiced flow spends a little less on sluice work.\n\nOutflow sluice: jammed. Clearing it drives 2 condensate of pressure; Threaded-breath circulation (Learning) spends 2. The keeper pays 2 coins per cleared jam.\n\nThe keeper says her grandmother cut this outflow herself after a hard winter. The sluice is hers, and she pays whoeve"
+    },
+    {
+      "label": "workshop",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "workspace:gear-workshop",
+      "text": "Gear workshop\n▾\nGear workshop\n\nWork on carried gear. Materials, process and maker control decide the result. Unequip an item before changing it.\n\nChoose maker\nYou · Forging 0\nOld craftsman · Forging 15\nChoose carried equipment\nAttach material role\nRemove material role\nHeat workpiece\nWork hot metal\nQuench in oil\nTemper metal\nFinish the surface\nRefit the handling\nImprove through use\nReplace component\nMake rigid setting\nReforge craftsmanship\nRepair with material\nField material repair\nDismantle for components\nChoose material when needed\nCheap leather pants ×1\nChoose role\ngrip\nlining\ncoating\nsetting\n\nChoose native equipment carried in your pack. Unequip it first.\n\nApply quoted process\n\nLocal repairer\n\nThe craftsman can teach local preparation and fitting through actual repair work.\n\nStudy hide "
+    },
+    {
+      "label": "workshop",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "workspace:gear-workshop",
+      "text": "Gear workshop\n▾\nGear workshop\n\nWork on carried gear. Materials, process and maker control decide the result. Unequip an item before changing it.\n\nChoose maker\nYou · Forging 0\nOld craftsman · Forging 15\nChoose carried equipment\nAttach material role\nRemove material role\nHeat workpiece\nWork hot metal\nQuench in oil\nTemper metal\nFinish the surface\nRefit the handling\nImprove through use\nReplace component\nMake rigid setting\nReforge craftsmanship\nRepair with material\nField material repair\nDismantle for components\nChoose material when needed\nCheap leather pants ×1\nChoose role\ngrip\nlining\ncoating\nsetting\n\nChoose native equipment carried in your pack. Unequip it first.\n\nApply quoted process\n\nLocal repairer\n\nThe craftsman can teach local preparation and fitting through actual repair work.\n\nStudy hide "
+    },
+    {
+      "label": "herbal-experiments",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "workspace:herbal-experiments",
+      "text": "Village experiments\n▾\nVillage experiments\n\nGather herbs and river salt on the Village common verge, select carried materials, then try a small steeped batch. Salty batches bind toxin when drunk. Original frontier trial. Properties act before you know them.\n\nGather from the Village verge\nVillage shelf\n\nVillage method book: Lets you follow the salt-and-herb steep while you carry it. Lose it and the method goes with it.\n\nTake a copy\n\nVillage method slate: Study it to learn the salt-and-herb steep for good. The slate is used up.\n\nTake a copy\n\nVillage reading primer: Reading it once teaches you a little. Reading it again teaches nothing new.\n\nTake a copy\nCarried books and slates\n\nNothing carried. Take a copy from the shelf.\n\nSteep level 1\nSteep level 2\nSteep level 3\nFree experiment (no method)\n"
+    },
+    {
+      "label": "herbal-experiments",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "workspace:herbal-experiments",
+      "text": "Village experiments\n▾\nVillage experiments\n\nGather herbs and river salt on the Village common verge, select carried materials, then try a small steeped batch. Salty batches bind toxin when drunk. Original frontier trial. Properties act before you know them.\n\nGather from the Village verge\nVillage shelf\n\nVillage method book: Lets you follow the salt-and-herb steep while you carry it. Lose it and the method goes with it.\n\nTake a copy\n\nVillage method slate: Study it to learn the salt-and-herb steep for good. The slate is used up.\n\nTake a copy\n\nVillage reading primer: Reading it once teaches you a little. Reading it again teaches nothing new.\n\nTake a copy\nCarried books and slates\n\nNothing carried. Take a copy from the shelf.\n\nSteep level 1\nSteep level 2\nSteep level 3\nFree experiment (no method)\n"
+    },
+    {
+      "label": "combat",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": null,
+      "text": "Go back to [Village] [15m]"
+    },
+    {
+      "label": "combat",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": null,
+      "text": "Go back to [Village] [15m]"
+    },
+    {
+      "label": "manor-overview",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "workspace:homes",
+      "text": "Homes\n▾\nHomes and belongings\n\nYour rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.\n\n1 residence · human body · 102 coins\n\nArlmere family manor · shared · here\nArlmere family manor\n\nYour family’s country estate. Your room and private chest are yours to use; the estate, staff contracts, pantry and provided furniture belong to the household. Owner: the household. Your occupancy is separate from title.\n\nYou are here. Home services available for this body.\n\nLived-in · 7 furnishing and room comfort. Furnishing details show each active benefit.\n\nMake this your main residence\n\nKitchen fitted. Learn the ordinary crafting basics to use its recipes.\n\nFurnishings and selected slots\nPrivate storage · 0/16\nHearth and companion\nShelter, weather and repai"
+    },
+    {
+      "label": "manor-overview",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "workspace:homes",
+      "text": "Homes\n▾\nHomes and belongings\n\nYour rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.\n\n1 residence · human body · 102 coins\n\nArlmere family manor · shared · here\nArlmere family manor\n\nYour family’s country estate. Your room and private chest are yours to use; the estate, staff contracts, pantry and provided furniture belong to the household. Owner: the household. Your occupancy is separate from title.\n\nYou are here. Home services available for this body.\n\nLived-in · 7 furnishing and room comfort. Furnishing details show each active benefit.\n\nMake this your main residence\n\nKitchen fitted. Learn the ordinary crafting basics to use its recipes.\n\nFurnishings and selected slots\nPrivate storage · 0/16\nHearth and companion\nShelter, weather and repai"
+    },
+    {
+      "label": "manor-household",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "workspace:homes",
+      "text": "Homes\n▾\nHomes and belongings\n\nYour rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.\n\n1 residence · human body · 102 coins\n\nArlmere family manor · shared · here\nArlmere family manor\n\nYour family’s country estate. Your room and private chest are yours to use; the estate, staff contracts, pantry and provided furniture belong to the household. Owner: the household. Your occupancy is separate from title.\n\nYou are here. Home services available for this body.\n\nLived-in · 7 furnishing and room comfort. Furnishing details show each active benefit.\n\nMake this your main residence\n\nKitchen fitted. Learn the ordinary crafting basics to use its recipes.\n\nFurnishings and selected slots\n\nbed: Plain bed · provided by owner. An installed mattress supports or"
+    },
+    {
+      "label": "manor-household",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "workspace:homes",
+      "text": "Homes\n▾\nHomes and belongings\n\nYour rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.\n\n1 residence · human body · 102 coins\n\nArlmere family manor · shared · here\nArlmere family manor\n\nYour family’s country estate. Your room and private chest are yours to use; the estate, staff contracts, pantry and provided furniture belong to the household. Owner: the household. Your occupancy is separate from title.\n\nYou are here. Home services available for this body.\n\nLived-in · 7 furnishing and room comfort. Furnishing details show each active benefit.\n\nMake this your main residence\n\nKitchen fitted. Learn the ordinary crafting basics to use its recipes.\n\nFurnishings and selected slots\n\nbed: Plain bed · provided by owner. An installed mattress supports or"
+    },
+    {
+      "label": "manor-household-fortunes",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "workspace:household-fortunes",
+      "text": "Household\n▾\nHousehold fortunes\n\nWhat the household can see of its people. Nobody here knows who is nearer to awakening; the list ranks what you have noticed.\n\nWatch list\n\nIven · circumstances 0.79\n\nToma · circumstances 0.79\n\nRowan · circumstances 0.79\n\nSera · circumstances 0.79\n\nStaff, part by part\nRowan · Family steward\n\nBed 70% — Sound sleep in a dry, warm bed lets a body keep what it takes in.\n\nFed 80% — Being fed and tended leaves a person with attention to spare for the odd thing they notice.\n\nTended 100% — Being fed and tended leaves a person with attention to spare for the odd thing they notice.\n\nIven · Household cook\n\nBed 70% — Sound sleep in a dry, warm bed lets a body keep what it takes in.\n\nFed 80% — Being fed and tended leaves a person with attention to spare for the odd thing "
+    },
+    {
+      "label": "manor-household-fortunes",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "workspace:household-fortunes",
+      "text": "Household\n▾\nHousehold fortunes\n\nWhat the household can see of its people. Nobody here knows who is nearer to awakening; the list ranks what you have noticed.\n\nWatch list\n\nIven · circumstances 0.79\n\nToma · circumstances 0.79\n\nRowan · circumstances 0.79\n\nSera · circumstances 0.79\n\nStaff, part by part\nRowan · Family steward\n\nBed 70% — Sound sleep in a dry, warm bed lets a body keep what it takes in.\n\nFed 80% — Being fed and tended leaves a person with attention to spare for the odd thing they notice.\n\nTended 100% — Being fed and tended leaves a person with attention to spare for the odd thing they notice.\n\nIven · Household cook\n\nBed 70% — Sound sleep in a dry, warm bed lets a body keep what it takes in.\n\nFed 80% — Being fed and tended leaves a person with attention to spare for the odd thing "
+    },
+    {
+      "label": "manor-social-trust",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "workspace:social-trust",
+      "text": "Regard\n▾\nRegard and standing\n\nGifts are coins from your purse to theirs. Nobody refuses a gift; a gift too large for how well they know you costs trust instead.\n\nRowan · stranger · 0 trust\n\nComfortable gift up to 10 coins at this tier.\n\nGive 5 coinsRowan (stranger): +0 trust.Give 10 coinsRowan (stranger): +1 trust.Give 30 coinsRowan (stranger): too large for how well they know you, -19 trust. A stranger wonders what a large gift is meant to buy.Give 100 coinsRowan (stranger): too large for how well they know you, -89 trust. A stranger wonders what a large gift is meant to buy.\nIven · stranger · 0 trust\n\nComfortable gift up to 10 coins at this tier.\n\nGive 5 coinsIven (stranger): +0 trust.Give 10 coinsIven (stranger): +1 trust.Give 30 coinsIven (stranger): too large for how well they know yo"
+    },
+    {
+      "label": "manor-social-trust",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "workspace:social-trust",
+      "text": "Regard\n▾\nRegard and standing\n\nGifts are coins from your purse to theirs. Nobody refuses a gift; a gift too large for how well they know you costs trust instead.\n\nRowan · stranger · 0 trust\n\nComfortable gift up to 10 coins at this tier.\n\nGive 5 coinsRowan (stranger): +0 trust.Give 10 coinsRowan (stranger): +1 trust.Give 30 coinsRowan (stranger): too large for how well they know you, -19 trust. A stranger wonders what a large gift is meant to buy.Give 100 coinsRowan (stranger): too large for how well they know you, -89 trust. A stranger wonders what a large gift is meant to buy.\nIven · stranger · 0 trust\n\nComfortable gift up to 10 coins at this tier.\n\nGive 5 coinsIven (stranger): +0 trust.Give 10 coinsIven (stranger): +1 trust.Give 30 coinsIven (stranger): too large for how well they know yo"
+    },
+    {
+      "label": "connection-default",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "continuation",
+      "text": "Your continuing connection\nReturnAnchors & studyLearning\n\nFirst life · one continuing self\n\nReturn or continue\nReturn to initial pointReturn to later checkpoint\nSet a later checkpoint first.\nBegin a fresh life\nIntentional repeat loop · off"
+    },
+    {
+      "label": "connection-default",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "continuation",
+      "text": "Your continuing connection\nReturnAnchors & studyLearning\n\nFirst life · one continuing self\n\nReturn or continue\nReturn to initial pointReturn to later checkpoint\nSet a later checkpoint first.\nBegin a fresh life\nIntentional repeat loop · off"
+    },
+    {
+      "label": "connection-return",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "continuation",
+      "text": "Your continuing connection\nReturnAnchors & studyLearning\n\nFirst life · one continuing self\n\nReturn or continue\nReturn to initial pointReturn to later checkpoint\nSet a later checkpoint first.\nBegin a fresh life\nIntentional repeat loop · off"
+    },
+    {
+      "label": "connection-return",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "continuation",
+      "text": "Your continuing connection\nReturnAnchors & studyLearning\n\nFirst life · one continuing self\n\nReturn or continue\nReturn to initial pointReturn to later checkpoint\nSet a later checkpoint first.\nBegin a fresh life\nIntentional repeat loop · off"
+    },
+    {
+      "label": "connection-review",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "continuation",
+      "text": "Your continuing connection\nReturnAnchors & studyLearning\n\nFirst life · one continuing self\n\nThis world and body rewind. Memories, compatible learned mastery and enduring connection upgrades carry. Physical gains restore to the chosen point. Other retained worlds are outside the currently supported rewind scope.\n\nConfirm Return to initial pointKeep this life unchanged"
+    },
+    {
+      "label": "connection-review",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "continuation",
+      "text": "Your continuing connection\nReturnAnchors & studyLearning\n\nFirst life · one continuing self\n\nThis world and body rewind. Memories, compatible learned mastery and enduring connection upgrades carry. Physical gains restore to the chosen point. Other retained worlds are outside the currently supported rewind scope.\n\nConfirm Return to initial pointKeep this life unchanged"
+    },
+    {
+      "label": "connection-study",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "continuation",
+      "text": "Your continuing connection\nReturnAnchors & studyLearning\n\nFirst life · one continuing self\n\nInitial: Y999 · 4/1 · 08:00. Later: Not established.\n\nInvestigate the connection\n\nStudy: 0/10 min. Observe how the initial return point remains recognizable; practice identifying another moment. Study progresses with ordinary unoccupied time.\n\nInvestigate · 10 min of available time"
+    },
+    {
+      "label": "connection-study",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "continuation",
+      "text": "Your continuing connection\nReturnAnchors & studyLearning\n\nFirst life · one continuing self\n\nInitial: Y999 · 4/1 · 08:00. Later: Not established.\n\nInvestigate the connection\n\nStudy: 0/10 min. Observe how the initial return point remains recognizable; practice identifying another moment. Study progresses with ordinary unoccupied time.\n\nInvestigate · 10 min of available time"
+    },
+    {
+      "label": "connection-learning",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "continuation",
+      "text": "Your continuing connection\nReturnAnchors & studyLearning\n\nFirst life · one continuing self\n\nRemembered learning · 0 observed skills\n\nThis connection carries reading, crafting, smelting and forging knowledge. Other training is remembered, but its bodily effects are not transferred to another embodiment by this form of the connection.\n\nFirst life · remembered: You chose an ordinary beginning without a system."
+    },
+    {
+      "label": "connection-learning",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "continuation",
+      "text": "Your continuing connection\nReturnAnchors & studyLearning\n\nFirst life · one continuing self\n\nRemembered learning · 0 observed skills\n\nThis connection carries reading, crafting, smelting and forging knowledge. Other training is remembered, but its bodily effects are not transferred to another embodiment by this form of the connection.\n\nFirst life · remembered: You chose an ordinary beginning without a system."
+    },
+    {
+      "label": "trade",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "task": "trade",
+      "text": "Trade\nSort by name\nSort by value\nSort by type\nall\nequipment\nusable\nother\nBread kwas x4\n5\n10\nall\n16C\nCannot afford one more\nCamping supplies\n5\n10\nall\n8S\nCannot afford one more\nCoal x17\n5\n10\nall\n2C 8W\nCoil of rope\n5\n10\nall\n1S 60C\nCannot afford one more\nFresh bread x7\n5\n10\nall\n16C\nCannot afford one more\nGlass bottle x6\n5\n10\nall\n8C\nGlass phial x10\n5\n10\nall\n4C\nLamp oil x4\n5\n10\nall\n10C\nOil lamp\n5\n10\nall\n1S\nCannot afford one more\nP23 scent pouch x6\n5\n10\nall\n2C 4W\nP23 smoke pellet x6\n5\n10\nall\n3C 2W\nP23 throwing stone x6\n5\n10\nall\n1C 2W\nPrepared survey kit x3\n5\n10\nall\n8W\nStale bread x11\n5\n10\nall\n8C\nSurvey rope\n5\n10\nall\n1C 6W\nWeak healing powder x3\n5\n10\nall\n16C\nCannot afford one more\n[Book] \"ABC for kids\"\n5\n10\nall\n40C\nCannot afford one more\n[Book] \"Tales of the Lantern Road\" x2\n5\n10\nall\n2C\n[Comp] Clo"
+    },
+    {
+      "label": "trade",
+      "viewport": [
+        1440,
+        900
+      ],
+      "task": "trade",
+      "text": "Trade\nSort by name\nSort by value\nSort by type\nall\nequipment\nusable\nother\nBread kwas x4\n5\n10\nall\n16C\nCannot afford one more\nCamping supplies\n5\n10\nall\n8S\nCannot afford one more\nCoal x17\n5\n10\nall\n2C 8W\nCoil of rope\n5\n10\nall\n1S 60C\nCannot afford one more\nFresh bread x7\n5\n10\nall\n16C\nCannot afford one more\nGlass bottle x6\n5\n10\nall\n8C\nGlass phial x10\n5\n10\nall\n4C\nLamp oil x4\n5\n10\nall\n10C\nOil lamp\n5\n10\nall\n1S\nCannot afford one more\nP23 scent pouch x6\n5\n10\nall\n2C 4W\nP23 smoke pellet x6\n5\n10\nall\n3C 2W\nP23 throwing stone x6\n5\n10\nall\n1C 2W\nPrepared survey kit x3\n5\n10\nall\n8W\nStale bread x11\n5\n10\nall\n8C\nSurvey rope\n5\n10\nall\n1C 6W\nWeak healing powder x3\n5\n10\nall\n16C\nCannot afford one more\n[Book] \"ABC for kids\"\n5\n10\nall\n40C\nCannot afford one more\n[Book] \"Tales of the Lantern Road\" x2\n5\n10\nall\n2C\n[Comp] Clo"
+    }
+  ],
+  "checks": [
+    "Native simulation player is present on introduced-craftsman fixture",
+    "Actual native field combat reaches current opponent context and Reports; shield backing readout has reproduced suffix"
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    }
+  ],
+  "inputs": {
+    "dist/bundle.js": "652f967dc96777ce3c78a01a5d214c082e30e14000e9cccecd9ad1cc1897aec4",
+    "styles/ui_tokens.css": "460942d861f015c8c79545a8c12192fc3b8ef795e4993fe416bf5d237a16553d",
+    "index.html": "015df259addb23d6431d449958e04e12d36054627a00aeef36b6712535b0a8fd"
+  },
+  "shieldReadout": [
+    "Atk: 1dmg| Spd: 0.98| Hit: 100%| 🛡️: 12345| Def: 1"
+  ],
+  "secondaryPanels": [
+    {
+      "id": "household-fortunes",
+      "status": "captured on actual manor start"
+    },
+    {
+      "id": "social-trust",
+      "status": "captured on actual manor start"
+    },
+    {
+      "id": "family",
+      "status": "not available on this supported manor start; source review only"
+    },
+    {
+      "id": "companions",
+      "status": "not available on this supported manor start; source review only"
+    },
+    {
+      "id": "stock_view",
+      "status": "not available on this supported manor start; source review only"
+    },
+    {
+      "id": "place_clock",
+      "status": "not available on this supported manor start; source review only"
+    },
+    {
+      "id": "statistics",
+      "status": "not available on this supported manor start; source review only"
+    },
+    {
+      "id": "known-routes",
+      "status": "not available on this supported manor start; source review only"
+    },
+    {
+      "id": "skills",
+      "status": "not available on this supported manor start; source review only"
+    },
+    {
+      "id": "reading-reference",
+      "status": "not available on this supported manor start; source review only"
+    },
+    {
+      "id": "learned-preparations",
+      "status": "not available on this supported manor start; source review only"
+    },
+    {
+      "id": "world-events",
+      "status": "not available on this supported manor start; source review only"
+    },
+    {
+      "id": "loadouts",
+      "status": "not available on this supported manor start; source review only"
+    }
+  ],
+  "missingResources": [
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json"
+  ],
+  "fontAssets": "Existing primary-checkout Gothic assets copied locally, ignored and not committed"
+}

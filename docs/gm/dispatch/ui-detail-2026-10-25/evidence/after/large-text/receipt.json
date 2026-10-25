@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "21px workshop respects both desktop viewports",
+    "Empty equipment selection names the next step; high-contrast path captured"
+  ],
+  "cases": [],
+  "missingResources": [
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json"
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    }
+  ]
+}
