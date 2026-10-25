@@ -53,8 +53,9 @@ no new clocks, transactions or save slices.
 ## Remaining gates
 
 Technical lane checks complete, with the full-suite environmental/time-limit
-failures covered by focused passing reruns as recorded above. The script and
-rebuilt bundle are included for repeatable review. Primary overlaps require
+failures covered by focused passing reruns as recorded above. The browser script
+is included for repeatable review; generated files are excluded by the correction
+below. Primary overlaps require
 narrow-hunk integration and a fresh integrated build. Human taste acceptance,
 integration into master and installed-app adoption remain outside this lane.
 No push. Copied untracked `scripts/mcp/` is left untouched and uncommitted.
@@ -64,3 +65,37 @@ No push. Copied untracked `scripts/mcp/` is left untouched and uncommitted.
 - `8470b7ff7a239cdbaef0a7e5b8a3057836e66d9d`: fix: preserve patrol job tooltip during skill refresh
 - `6632e9135314288f1ecacea53209a69587ccfbd3`: fix: explain uncertain experimental preparation outcomes
 - `bcfaeb12c45f77dbcafad04be68cf5d0d96b7e12`: fix: distinguish residence storage from personal chest
+
+## G1 delivery cleanup, 2026-10-25
+
+The original delivery committed generated files contrary to M1 in
+`codex-parallel-2026-10-25/WAVE4_RULES.md`. Weibao's one G1 resume authorizes
+this correction only. Forward commit `1c1412220dcfa1324f65d33ffb71db886d826bc8`
+restores `dist/bundle.js`, `dist/bundle.js.map` and the generated-only bundle
+version tag in `index.html` to current master
+`3dfc49cf3422c0262d86810df47459f53f3a4a67`. Those master blobs also match
+the merge base, so none of these paths remains in `master...HEAD`.
+
+Final payload head: `1c1412220dcfa1324f65d33ffb71db886d826bc8`.
+Final lane HEAD: the checkpoint-only child commit titled
+`docs: record C3 generated-artifact delivery correction` on
+`codex/playtest-fixes-2026-10-25` (resolve with `git rev-parse HEAD`).
+
+The source, tests and browser script remain byte-identical to `af662dd8c`.
+All qualified suite/browser receipts above remain exact historical evidence at
+their original inputs. The verified bundle remains in that commit's Git history;
+the branch-tip bundle now intentionally represents master, not a new C3 build.
+The merger rebuilds after source integration. No equivalent full suite or browser
+rerun was performed. No reset, rebase, force, master merge, primary write or push.
+
+- `git diff af662dd8c 1c1412220 --name-only`: PASS, only the two named dist paths and `index.html` changed.
+- `git diff af662dd8c HEAD --exit-code -- src/ tests/ scripts/playtest_c3_browser.mjs`: PASS, source/tests/browser script unchanged.
+- `git diff master --name-only -- dist/bundle.js dist/bundle.js.map index.html`: PASS, restored files match current master exactly.
+- `git diff master...HEAD --name-only -- dist/ index.html`: PASS, empty payload for generated paths.
+- `git diff master...HEAD --check`: PASS, no whitespace errors.
+- Primary collision checks before restoration/checkpoint edits: primary's generated paths are dirty; primary checkpoint absent. No primary files written.
+
+Remaining integration overlap, rechecked on this resume: primary still has
+uncommitted changes in `src/display.js`, `src/crafting_home.js`,
+`src/home_content.js` and `src/home_panel.js`. Integrate the narrow C3 hunks with
+those owners, then rebuild. The untracked copied `scripts/mcp/` remains untouched.
