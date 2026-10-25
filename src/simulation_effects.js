@@ -1,4 +1,5 @@
 import {domainRegistry} from './domain_registry.js';
+import {hpFacts} from './book_world_hp_facts.js';
 import {generatedPeoplePresenceFacts} from './story_aftermath.js';
 import {leverFacts} from './lever_lesson.js';
 import {fieldWorksFacts} from './field_works_facts.js';
@@ -136,6 +137,7 @@ function buildSimulationFacts(state, context, registry, predicates = null) {
     // Native clock callers may supply only expedition facts. Re-read current LOTM role/body
     // support through its existing domain projection at the actual commit boundary.
     if(state.lotm) Object.assign(facts,domainRegistry.project('lotm','facts',state,context)||{});
+    Object.assign(facts,hpFacts(state,context));
     Object.assign(facts,leverFacts(state,context),generatedPeoplePresenceFacts(state,context));
     Object.assign(facts,fieldWorksFacts(state,context));
     Object.assign(facts,partnerFacts(state),systemsWorkshopFacts(state),foundationInteractionProbeFacts(state,context));

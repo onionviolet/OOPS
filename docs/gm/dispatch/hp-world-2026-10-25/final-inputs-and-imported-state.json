@@ -1,0 +1,21 @@
+{
+  "actualImportedNativeLiteracyXp": 5,
+  "adultImportedPurse": 8,
+  "adultImportedDebt": 0,
+  "adultImportedTill": 24,
+  "adultImportedShelfFragmentSets": 5,
+  "adultImportedShelfPanes": 1,
+  "schoolLoanSettled": true,
+  "sourceSha256": {
+    "src/main.js": "0bd8e6f3112709868ab9e7c0fdfab8435118a7dc933da7bb2f9141b1d66346b7",
+    "src/simulation_effects.js": "b6c8f4725f247aff1ff0cb1ac6d8c6141dbec2e706f7acba6add0d35aefad9e4",
+    "src/structured_pack_runtime.js": "3701ce8b042560a7242897a2c988cc8bc081606b5dde6b85b3f0907c549ba1b6",
+    "src/world_calendar.js": "27e774778f22add7a1ec924f6e2826ea5781cf015509eb7d40f16653e36cb357",
+    "src/world_packs/book_hp_pack.js": "6ccfa3edfdad3c21628661c1b01b05b8f157e27b100bb57f294e541b87afbf54",
+    "src/world_packs/book_hp_life_data.js": "0291d0e075889a33aff5e8dc8746fd77f44254919ea1bca6c651e40570166411",
+    "src/book_world_hp_content.js": "642cda9d0f82d0021292b9e211d0634e0d55a5fa79ea2118327e4d6ec8bb1c5b",
+    "src/book_world_hp_facts.js": "1b24cd76c3d73296004130fb003e08c2bec6b6a5fa0f25ea5e259cb53e691a31",
+    "tests/world_pack_hp.test.js": "8600a7d0aa5e92cc5714159de70c9dad8f45c57786ee12bd7c9a0ac2f01b1240"
+  },
+  "builtBundleSha256": "2bd31e59b6dfbb7bd030cd8c957d21e05d20d9728923004d5812a77a1b8901d7"
+}

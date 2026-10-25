@@ -1,3 +1,4 @@
+import {hpSchoolLife,hpTradeLife} from './book_hp_life_data.js';
 // Plain-data world pack (WA21): one pinned canon potion, Polyjuice, authored and attributed.
 // Source: J.K. Rowling, Harry Potter and the Chamber of Secrets. Paraphrase only; no source
 // text is bundled. Locators are page tags in the private seven-novel extraction
@@ -14,10 +15,11 @@ export default {
  "format": "yairpg.world-pack",
  "formatVersion": 1,
  "id": "book.hp",
- "revision": 1,
+ "revision": 2,
+ "saveCompatibleFrom": 1,
  "saveSchema": 1,
  "kind": "canon",
- "title": "Polyjuice slice · one pinned potion",
+ "title": "Harry Potter · Polyjuice and first local lives",
  "sourceSnapshot": {
   "hash": "18c33156efa508396c6d1fcb4f763cff99e976b06b27fb34712f05d1d9d25ec9",
   "locator": "HP-seven-novel-collection B2 text (private extraction, not shipped); windows PDF-p427, p432-433, p454, p481, p486-488, p498-499, p504"
@@ -42,6 +44,8 @@ export default {
   ]
  },
  "native": {
+  "schoolLife": hpSchoolLife,
+  "tradeLife": hpTradeLife,
   "schema": 2,
   "id": "book.hp",
   "revision": 1,

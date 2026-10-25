@@ -1,0 +1,239 @@
+{
+  "base": "http://127.0.0.1:5113",
+  "queryParameters": false,
+  "errors": [],
+  "journeys": [
+    {
+      "profile": "school",
+      "previewMatrix": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": true
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": true
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": true
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": true
+        }
+      ],
+      "activeMatrix": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": null
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": null
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": null
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": null
+        }
+      ],
+      "cancelUnchanged": true,
+      "reloadClearsUncommittedPreview": true,
+      "retainedCargo": true,
+      "oneStartingWand": true,
+      "reservationRefund": true,
+      "realTimeActivity": true,
+      "saveReloadExportLiteralImport": true,
+      "oldMasterImport": true,
+      "d7BrowserFixtureImport": true,
+      "preEntryImport": true
+    },
+    {
+      "profile": "trade",
+      "previewMatrix": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": true
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": true
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": true
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": true
+        }
+      ],
+      "activeMatrix": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": null
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": null
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": null
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false,
+          "visible": true,
+          "confirmVisible": null
+        }
+      ],
+      "cancelUnchanged": true,
+      "reloadClearsUncommittedPreview": true,
+      "retainedCargo": true,
+      "oneStartingWand": true,
+      "reservationRefund": true,
+      "realTimeActivity": true,
+      "saveReloadExportLiteralImport": true,
+      "oldMasterImport": true,
+      "d7BrowserFixtureImport": true,
+      "preEntryImport": true
+    }
+  ],
+  "hashes": {
+    "d7-school-input.json": "c42d23ca7ee852e6f984f90905b2289dc1ddbb972694c0a86cf9f2c3b26c9b12",
+    "d7-school-input.txt": "09dff92383aff1ea6100a0f21715350c175219854d92aad6be95317ea3e55a6b",
+    "d7-trade-input.json": "e20a9bee07852a5f12c58e7e3fdc9922c1f18a9b4ab18266fa3a77fe0c103fbe",
+    "d7-trade-input.txt": "376a7361fab265843797f7c3802971c23c0a82ad40073bfcb40d222032ffcaa2",
+    "golden-d7.json": "09b77899d9ab1996e6b2fc64fc6b8cde7d04dcc00c59776d2f6f62887faf29de",
+    "old-master-default.json": "6aa949ae0442e500c4dec66fd0f31c14707b487c4207710589fe7bd0b1032e5e",
+    "old-master-default.txt": "f849fb5fa9d9393b9dd9ad3de05360048412db64c3e69451f71f43f265b5936d",
+    "school-active-1536-14.png": "3d52cf7357003d75873c8a7a22a1e460578ad69f139e47912cedb1c2130257f2",
+    "school-active-1536-21.png": "e2c54c87634bf6c2e60bb3c71a9252b033727bb742920460873cbb71d84ba4be",
+    "school-active-1920-14.png": "7138faa99cdaff40b2ce1354e6124af92bd4084af01fe56b0c515f7b86e28de8",
+    "school-active-1920-21.png": "7410f9edfac644bd6aa72dabefa3c7e72a6acabd3a3eed08bcf89dd2126d6ca4",
+    "school-arrival-1536-14.png": "25ff1f70827b6ad5041cc4615f644c13b9ba076c240b65a64f7422e941bc2606",
+    "school-arrival-1536-21.png": "992f72b57d89353248c7fafe611c946f3154b9a9446a2c0e6c5faf866c52e09a",
+    "school-arrival-1920-14.png": "98bb2f9016bcf6b5c5945d93c1b21fd5f80f3be3b82c0b9baa7b0826a760e9ed",
+    "school-arrival-1920-21.png": "4a0d5f4a6352cb57dcdfa168c5c96fb91cfa4038b0534009fe61f55cdf9ccdd9",
+    "school-cancelled.json": "54b1f9759923e9f04dc28ec24875a5350154e5a03fea915eab4f8d38abe377be",
+    "school-d7-imported.json": "9dd97d46fe464bc579d22e8cdeb50816df7b7bf3b1acce38c2e8d31f225ad869",
+    "school-entered.json": "574fbbe2be53720953144c94d9eb04be759ddfac7c56de2e70e23b2b3bdadb65",
+    "school-export.txt": "59879c556d10d43d5502919fcda5206f78b60a2f0297a8398894fae1ea8fe090",
+    "school-imported.json": "e8c297b5bbb465b98ad600649ebc6c1acf4ec45cdbd0c84fc648a30571ef2c1f",
+    "school-old-master-imported.json": "71d08b4d4373d41dd8821f806556360406ac98ac5fdc39ddd952dddb550dfa2a",
+    "school-pre-entry-imported.json": "d30d0e97ae308035d6e97b3f897f96a96a82610430830c79d4bca5c9560a1006",
+    "school-pre-entry.json": "81782b1064f4cbe3d0b1c3ba865b38585f4d876a4fa84665065e1f3a840e05b4",
+    "school-pre-entry.txt": "14662f6f69fbdc32fdf2067c60cd5beb5981807c3879dd8b9fa798792093d385",
+    "school-refunded.json": "52d46fcfadf5c3519b22cdc37c9112e8afa679854524d28b63139479eaa6d6a0",
+    "school-reloaded.json": "a6d8939821221cd4508eb18f2a681cc69deed653a5a372cfa8a80c2f9f581bdb",
+    "school-reserved.json": "4176bd370feee26815922bd0d7d84b282b31e0bd431d354c16c5c26d32a56ea7",
+    "school-settled.json": "cf82e57bf22d235aac408a34f4647204e46b6e5324863eb9b3316585c1ab18ae",
+    "trade-active-1536-14.png": "64fbd8e546a5ab35a60b64ca8931c8078d6b792fa3921f205378b72fb6fa6dc3",
+    "trade-active-1536-21.png": "296be7df793b414cd760857022dce42acdc89590afac312900766195a66ea27a",
+    "trade-active-1920-14.png": "791c1d39a76a29303b6a9b059a23663c97e5adb29e186ae3fdc67508c43552cb",
+    "trade-active-1920-21.png": "e5edbdcfbd2b42deb1eb570869d76ead9234fcdbc4c9a325336db4ce461be05d",
+    "trade-arrival-1536-14.png": "825b2975667d2008837ad4a3dbd0117034b47f5c56160c7f7e04982ae9aa5fce",
+    "trade-arrival-1536-21.png": "a86bcfc8bb7f6ee87247d7ee15adaadd7775300b4ee98118dec8f5c5690020f0",
+    "trade-arrival-1920-14.png": "17c239a14af7ddc8e6ec02bdf31a5d7870b12113e5df86d081eac8efbffd925d",
+    "trade-arrival-1920-21.png": "202058f2d540e34a1b46769dc1127f93b3a1570fd87080640517cde5cafba02a",
+    "trade-cancelled.json": "bcf01c4cdd57b63c15ddbb0943c2730167515302f742a88a0e83d540a9bac0cf",
+    "trade-d7-imported.json": "6dd360e071cddc5aff0bd76031ffe860df8c192e75fc02356931702b103bae1b",
+    "trade-entered.json": "fd2bbe014e8f6d32616b2fb632ff64f75dead0a972ee6d340e39333c7fab9e99",
+    "trade-export.txt": "22f23a60797fa0b14e863b4dbeb446d58cd3b7932258264fbdc2f6cd424a2243",
+    "trade-imported.json": "0a6af918e02e328ccba608dfa66a9437bcdc5fb2777bf12bda9949bf7adf65a5",
+    "trade-old-master-imported.json": "521ed059f22fe67d5765d21b3cf1c91eddf4c8fa348db023a0e7d5671372dcf3",
+    "trade-pre-entry-imported.json": "da40f7f140b093e3cb892318ba8c6face28f356c62c0de70f79b56870209691b",
+    "trade-pre-entry.json": "7158eef02d02e45da0440468170b29a9546fcdf8f5b1faa6ef02efed7397bce0",
+    "trade-pre-entry.txt": "b35bde2ca5b0be75e1aa804f32cf4b71e91dbe1ae9fafda97ab3bc261ffdc73f",
+    "trade-refunded.json": "da2c80af2bc023341c37f47facb7ac42171dd32b9aecf8260b423adee4b71ce5",
+    "trade-reloaded.json": "a6e360d27549b8d6ea7cde5d771da2bd83614fb198e976440ba9c6ba75fec0b2",
+    "trade-reserved.json": "91ae1e57917ec1b39943c6091150b297e51d3baf6abe73e95031dff87a45a609",
+    "trade-settled.json": "496c2b83c1409f8563eaf3375841f24f24ae5a3f1c2bfdbf8afc79d1d1876449",
+    "verified-inputs.json": "a2ee80b5bde0663077221f008a7694658fd8402bf49399f98c30cde87e3d22b4",
+    "final-tests.txt": "cdbf9c71121147296f821e2658006c1d8321758707d2ef4b3ac5313b2d9e893f",
+    "environment-retries.txt": "cf9ec81742699e551e7b3822ac2b9382d312cdaab5785326a94525b6ea55121d"
+  }
+}

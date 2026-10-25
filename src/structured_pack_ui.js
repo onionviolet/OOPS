@@ -19,7 +19,7 @@ export function createStructuredPackPanel({read,command,changed}) {
         status:(v.status||[]).map(s=>({label:s.label,value:s.value})),
         actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable})),
         jobs:(v.jobs||[]).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:j.remaining,duration:j.duration||0,cancellable:!!j.cancellable})),
-        pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons}:null,canWrite:!!v.canWrite,error:v.error};};
+        choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons}:null,canWrite:!!v.canWrite,error:v.error};};
     const button=(label,data,request,disabled)=>{
         const b=document.createElement('button');b.type='button';b.textContent=label;Object.assign(b.dataset,data);b.disabled=disabled;
         b.onclick=()=>{
@@ -65,8 +65,24 @@ export function createStructuredPackPanel({read,command,changed}) {
         const add=(parent,label,data,request,disabled)=>{parent.append(button(label,data,request,disabled));rows.get(parent).push(['b',label,data,request,disabled]);};
         live.info.hidden=work.hidden=live.plans.hidden=live.renewal.hidden=actions.hidden=!(view.available||view.active);
         if(view.available||view.active){
-            p(view.title);p(view.description);
-            if(!view.active)add(info,view.beginLabel||'Begin',{structuredBegin:'begin'},{type:'begin'},!view.canWrite);
+            p(view.arrival?.label||view.title);if(!view.arrival)p(view.description);
+            if(!view.active){
+                if(view.choices.length){
+                    p('Choosing a life previews it. Confirm to leave Village; cancel to keep your opening.');
+                    const label=node('label',info);label.textContent='Optional world and life ';
+                    const select=node('select',label);select.dataset.structuredChoice='life';select.setAttribute('aria-label','Optional world and life');select.disabled=!view.canWrite;
+                    for(const choice of [{packId:'',label:'Keep my current opening'},...view.choices]){const option=node('option',select);option.value=choice.packId;option.textContent=choice.label;}
+                    select.value=view.selectedBeginning;
+                    select.onchange=()=>{try{command(select.value?{type:'select-beginning',packId:select.value}:{type:'cancel-beginning'});notice='';noticeError=false;}catch{noticeError=true;notice=projected().error||'This beginning is unavailable.';}render(true);};
+                    rows.get(info).push(['choices',view.choices,view.selectedBeginning,view.canWrite]);
+                }
+                add(info,view.arrival?'Confirm arrival':view.beginLabel||'Begin',{structuredBegin:'begin'},{type:'begin',...(view.selectedBeginning?{packId:view.selectedBeginning,contentHash:view.beginningHash}:{})},!view.canWrite);
+                if(view.arrival){
+                    add(info,'Cancel life choice',{structuredChoiceCancel:'cancel'},{type:'cancel-beginning'},!view.canWrite);
+                    p(view.arrival.arrival);p(view.arrival.means);
+                    p('Carried cargo, equipment and Frontier coins stay yours, unchanged. Local supplies arrive once; local units do not convert Frontier coins.');
+                }
+            }
             else {
                 p(view.place);
                 for(const site of view.expeditions)p(`${site.label}: ${site.phase}${site.injury>0?' · treatment needed':''}`);
