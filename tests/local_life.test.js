@@ -20,11 +20,9 @@ test('C2 compatibility: absent saves default empty; unsupported or malformed con
     for(const malformed of [null,[],false,3,'saved']) assert.throws(()=>normalizeLocalLife(malformed),/Invalid/);
     assert.equal(normalizeLocalLife({mealClaim:-1,searches:{Village:{misses:1e8}}}).searches.Village.misses,100);
 });
-test('C2 source balance and readable documentation remain in agreement',()=>{
+test('C2 source balance matches its balance file',()=>{
     const baseline=JSON.parse(readFileSync(new URL('../src/absorb_c2/balance.json',import.meta.url)));
     assert.deepEqual(baseline.searchAndExposure,LOCAL_LIFE_BALANCE);assert.deepEqual(baseline.meal,MEAL_SCHEDULE);
-    const doc=readFileSync(new URL('../docs/gm/dispatch/absorb-2026-10-11/W-C2.md',import.meta.url),'utf8');
-    for(const text of ['40%','0.25','12:00–14:00','15 played minutes','5 coins'])assert.ok(doc.includes(text),text);
 });
 test('C2 exposure is played, bounded by actual remaining poison and replay resistant',()=>{
     let s=advanceLocalLife(undefined,frame({foodPoisonRemaining:20})).state;

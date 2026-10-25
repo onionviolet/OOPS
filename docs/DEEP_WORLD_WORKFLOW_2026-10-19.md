@@ -517,3 +517,118 @@ locator, bounded scope and explicit disposition; its eventual runtime journey
 uses the actual state owner and survives current-format round trips. Wider
 catalog enrichment and full-world depth remain parallel proposals, not a new
 barrier to the authorized Seer slice.
+
+## Round 4: why runtime worlds stay thin (2026-10-25)
+
+Weibao: "we should have way more potions than that... the definition of worlds that we have right
+now is too little no? Not in depth at all, more to consider?" Proposals only; no runtime change.
+Evidence (haiku read-only counts of `src/` exports and greps, approximate): Tingen has about 200
+commands but 4 places, 1 named NPC and no institution data; HP, Mistglass and the Primordial sect
+are close to docs-only at runtime; Frontier is richest (8 sites, 7 NPCs, 154 actions). Potions: about
+8 LOTM doses over 4 pathways with only Corpse Collector brewable, against 43 of 220 sequence slots
+with known formulas (23 full) in the potion table; HP has Polyjuice; cultivation has no pills.
+
+### ACCOUNT FOR NOW
+
+- **DWF95 Content is authored as code.** Each potion, place or role is a hand-written command
+  module (`src/book_world_lotm_brew.js` is one potion), so every item costs a lane, a proof
+  matrix and tests. Default: the first instance of a kind may be bespoke; the second becomes a data
+  row on a shared mechanism and the first is folded into it. Dial: a thing with its own mechanics
+  stays bespoke. Reason: per-item cost is what keeps a 466-row census at 8 doses.
+- **DWF96 The census does not reach the game.** No `src/` file reads the potion table or the LOTM
+  and HP catalog rows. Default: a row with enough fields loads as a shallow runtime thing (inspect,
+  buy, sell, hold, hear of) through existing verbs, carrying DWF72's "unwritten" marker; rings add
+  depth later. This relaxes DWF3's "catalog, not playable" for rows only, not for tuning.
+- **DWF97 One prepared-dose mechanism across worlds.** Today there are three: the LOTM bench brew,
+  the HP cauldron (`hp_brewing_*`), and `craft_dose_rules.js` (pure, unwired); cultivation has none.
+  Default: formula slots shaped like `craft_recipes.js` selectors, heat or bench, time, failure by
+  mechanism (wrong aux, interrupted brew), and the dose ledger, with world dials for what a dose
+  does. AD38 applies: a brew works by how it works, not by a permitted-recipe list. Making rules
+  MR1-MR36 keep authority; this is a shared seam with three consumers, not a generic interpreter.
+- **DWF98 Proof tier by change kind.** A new or changed mechanism keeps the full matrix (rebuilt
+  browser at 1920×1080 and 1536×864, save, reload, Export, Import). A data row on a proven mechanism
+  needs the schema lint plus one sampled journey per batch. Evidence for the split: across the
+  2026-10-24/25 lanes, the three real product defects (LOTM Q6 refund gap, C2 dock route, B1 patrol
+  error) came from browser or MCP play, while full-suite failures were mostly harness noise
+  (sandbox EPERM, load timeouts, a stale log excerpt). Extends AD36.
+- **DWF99 Spread beats chain length.** A world feels deep when ordinary things are dense (stocked
+  shops, people with jobs, rumors, several places to go), not when one quest chain is long. Tingen
+  is a long chain in an almost empty town. Default for the next rings: widen places, people and
+  goods before lengthening a chain.
+- **DWF100 Depth is invisible until measured.** DWF73 named a content ledger; nobody runs one, so
+  thinness surfaced only when Weibao noticed. Default: a script prints per world the places, named
+  people, actions, items, institutions and S01-S12 coverage at each checkpoint.
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| DWF101 | Build DWF97 and port the HP cauldron and Corpse Collector onto it | Sonnet high, one session; advisor review of the seam and save compatibility first | Existing HP and CC browser journeys pass unchanged; old saves import |
+| DWF102 | LOTM potions as rows on DWF97: the 23 full formulas brewable, the other known ones buyable or inspectable (absorbs CRAFTING_ENGINE S4 and S6) | Sonnet medium after DWF101 | Three sampled pathways brew in a rebuilt browser; row lint clean |
+| DWF103 | First cultivation pills (about five) on DWF97 with cultivation dials | Sonnet medium after DWF101 | One pill crafted and taken in browser; effect visible in the stat panel |
+| DWF104 | Census loader at the shallow rung (DWF96), HP Diagon Alley first (Gringotts, Apothecary, Eeylops have no runtime hits) | Sonnet medium | The three shops exist as places with stock and keepers in a rebuilt browser, marked shallow |
+| DWF105 | Depth-meter script (DWF100) | Sonnet low | Prints the table for all worlds; matches today's hand counts within about 10% |
+
+## Round 5: other shared mechanisms and lean proof (2026-10-25)
+
+Weibao: "consider other shared mechanisms to help with implementation and more? We should
+remove/optimize tests accordingly?" Evidence: a read-only haiku survey of `src/` concept families
+(two files sampled per family; grep counts are samples, not exhaustive) and a test-suite scan against
+the [leanness audit](reviews/TEST_SUITE_LEANNESS_AUDIT_2026-10-25.md). Mechanisms below are proposals;
+build order is Weibao's call.
+
+### ACT NOW (done)
+
+- **DWF106 Proof tier recorded.** DWF98 became AD36 item 7 in the
+  [rules index](RULES_INDEX.md#efficient-rule-verification-ad36) on Weibao's request.
+- **DWF107 Two prose-pinning assertions removed.** `tests/local_life.test.js` no longer reads a
+  2026-10-11 dispatch doc for balance strings (the balance-file check stays), and
+  `tests/headless/lamplight_journey.test.js` drops its log-prose match; the lit state and light
+  bonus assertions that follow already prove the behavior. Both files pass focused.
+
+### ACCOUNT FOR NOW: shared mechanisms worth building
+
+Same-shape copies found, ranked by payoff. Each keeps its own rulebook authority (MR, AR11-AR16).
+
+| Code | Mechanism | Current copies | Existing seam to grow | New consumers waiting |
+| --- | --- | --- | --- | --- |
+| DWF108 | Content helper kit (`gte`, `eq`, `item`, `coins`, `transfer`, `memory`, `progress`) | Redefined at the top of most world content files, e.g. `original_frontier_career_content.js`, `local_livelihood_content.js` | `basics.js` already exports `eq` and `gte` | Every new world file |
+| DWF109 | Prepared dose | DWF97 | DWF97 | DWF102, DWF103 |
+| DWF110 | Job ladder: ranks, shifts, kit, pay, promotion, salary | `village_career.js`, `original_frontier_career_content.js`, `local_livelihood_content.js`, `home_work*.js` | `faction_rank.js` (generic ladder, unused by village and school) | LOTM civil post (Q3), HP glass trade, cultivation sect duties |
+| DWF111 | Quest and board view from facts | Eight `*QuestView` functions with one read-facts, return-step shape | `quests.js` | Mission boards (Paradise), LOTM errands |
+| DWF112 | Lesson: teacher, fee, practice minutes, bench, knowledge granted | `lever_lesson.js`, `home_school*.js`, `lore_practice_*`, `world_completion_learning_*` | `teacher_window.js`, `life_experience.js` | HP charms lesson, MOL academy, sect teaching |
+| DWF113 | Shop and broker stock | `book_world_lotm_broker.js` re-derives quotes and views | `trade.js`, `shop_restock.js`, `native_trade_transaction.js` | DWF104 Diagon Alley shops |
+
+**Keep bespoke (DWF114).** NPC lives, institutions and rumors differ in mechanics per world, and
+vows already share `vow_rules.js`. Merging them now would build an interpreter for differences.
+
+### ACCOUNT FOR NOW: more to consider
+
+- **DWF115 Mechanisms before content waves.** A content lane built on a bespoke path makes the
+  later port bigger. Default order: helper kit, then dose, job, lesson, shop, each with its
+  existing consumers ported, then content arrives as rows. Dial: a world whose signature mechanic
+  has no shared shape goes bespoke first (DWF95).
+- **DWF116 Ports keep saves.** Ported modules keep their save keys or ship a migration (safety
+  rule, AR save slices). The existing browser journeys for each consumer are the equivalence
+  oracle: a port is done when they pass unchanged and old saves import.
+- **DWF117 Ports are where tests shrink.** Pruning by hand finds little (round 5's scan found two
+  prose assertions and some renames). The large reduction comes when each port folds its
+  per-module tests into one mechanism suite plus a row lint (AD36 item 7).
+- **DWF118 Rows are draftable.** Once content is rows, cheap drafting works: a haiku or local-model
+  pass can turn census rows into dose, job or shop rows, with the row lint and a sampled journey as
+  the gate (DWF83 rules for machine-drafted labels apply).
+- **DWF119 Each mechanism gets an inspector.** A debug view lists a mechanism's rows by world and
+  rung (shallow or deep). It doubles as the DWF100 depth meter and makes thin worlds visible in game.
+- **DWF120 Breadth needs density targets.** Per world, a default floor for the first deep pass, e.g.
+  several places with keepers, stocked shops and a few jobs, before a chain grows longer (DWF99).
+  Set per world; the reason is how a place reads to a player, not a completeness score.
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| DWF121 | DWF108 helper kit: one module, mechanical replacement in world content files | Sonnet low, one session; structural move only (AR) | Build, arch and full suite pass; no behavior diff |
+| DWF122 | DWF110 job ladder on `faction_rank.js`, porting village career first | Sonnet high; advisor review of save shape | Village career browser journey unchanged; old save imports; LOTM civil post and HP glass trade as rows |
+| DWF123 | DWF112 lesson mechanism, porting `lever_lesson.js` and the HP charms lesson | Sonnet medium | Both journeys unchanged in a rebuilt browser |
+| DWF124 | DWF111 quest view builder replacing the eight copies | Sonnet low | Quest panel text unchanged at 1920×1080 for three sampled quests |
+| DWF125 | Test tidy: rename `lp3_practice_supply`, `lp7_material_choice`, `refit_k1_k2`, `lotm_seer_slice` (and `p23-*` once clean) to system names; review the deepStrictEqual literals in `inventory_tabs`, `layout_spec`, `start_records`, `relationship_view`, `tag_store`, `invention_planner`, `systems_irrigation_model`, `combat_focus`; merge the `trial_*` files into the pledges suite and the `world_pack_*` files (not `world_pack_save`) after setup comparison | Sonnet low | Full suite passes; save, migration and compatibility files untouched |

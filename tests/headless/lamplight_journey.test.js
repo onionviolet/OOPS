@@ -40,7 +40,6 @@ test('lamplight: buy, light, reveal the Cave depths wall, persist through reload
 
     await game.click(`#inventory_content_div > [data-character_item='${key('Oil lamp')}']`);
     await game.click('[data-shell-item-action="use"]');
-    assert.match(game.lastLog(), /fill and light your oil lamp/);
     save = await game.save();
     assert.equal(count(save, 'Lamp oil'), 0);
     assert.equal(save.lamplight.lit, true);

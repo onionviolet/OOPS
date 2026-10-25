@@ -279,6 +279,18 @@ task record and checks. No separate checklist file or universal compliance score
    only pinned the old shape. A test must protect save integrity, core math, a rule
    invariant or a reproduced defect; delete duplicates and implementation-detail
    assertions when found. Dated pruning passes record what went in the task record.
+7. **Proof scales with the kind of change (2026-10-25).** From Weibao's 2026-10-25
+   question whether tests should be removed or optimized
+   ([request](USER_VISION.md#world-depth-shared-mechanisms-and-lean-proof-2026-10-25)).
+   A new or changed mechanism keeps the full route above. A content row added on a
+   mechanism that already has browser and persistence proof needs the mechanism's row
+   lint or schema test plus one sampled journey per batch, not a new test per row.
+   When a bespoke module ports onto a shared mechanism, its per-module tests fold into
+   the mechanism suite and the row lint; keep only save, migration and compatibility
+   cases. Assert state and behavior, not log prose or dispatch-doc text. Evidence:
+   in the 2026-10-24/25 lanes the real product defects came from browser or MCP play,
+   while full-suite failures were mostly harness noise
+   ([DWF98](DEEP_WORLD_WORKFLOW_2026-10-19.md#round-4-why-runtime-worlds-stay-thin-2026-10-25)).
 
 | Change or boundary | Focused route | Scope / additional evidence |
 |---|---|---|

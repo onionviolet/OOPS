@@ -6198,3 +6198,20 @@ proposals. LOTM continues under C1 and is excluded.
 [D7 checkpoint](gm/dispatch/hp-world-2026-10-25/CHECKPOINT.md) owns execution
 evidence; [HP brief](worlds/harry-potter/WORLD_BRIEF.md) owns its bounded world
 scope. This does not turn later full-world slices into completed gameplay.
+
+## World depth, shared mechanisms and lean proof, 2026-10-25
+
+Weibao: "we should have way more potions than that I believe, The definition of
+worlds that we have right now is too little no? Not in depth at all, more to
+consider? Are tests even all that useful?" Then: "Save accordingly, consider
+other shared mechanisms to help with implementation and more? We should
+remove/optimize tests accordingly?"
+
+Direction: runtime worlds and potion coverage should be far deeper than they are,
+and implementation should move toward shared mechanisms that turn per-world
+content into data. Tests should be trimmed where they only pin prose or shape,
+and proof should scale with the kind of change. The analysis and proposals live in
+[deep world workflow rounds 4 and 5](DEEP_WORLD_WORKFLOW_2026-10-19.md#round-4-why-runtime-worlds-stay-thin-2026-10-25);
+the verification direction is AD36 item 7 in the
+[rules index](RULES_INDEX.md#efficient-rule-verification-ad36). Build order of the
+proposed mechanisms is not yet chosen; this entry authorizes no runtime wave.
