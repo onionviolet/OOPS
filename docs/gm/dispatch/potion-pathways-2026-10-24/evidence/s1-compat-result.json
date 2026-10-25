@@ -1,0 +1,11 @@
+{
+ "mode": "compat",
+ "root": "this checkout",
+ "port": 61666,
+ "errors": [],
+ "log": [
+  "old probe save loaded on the new build; panel shows the Corpse Collector ladder and the held dose",
+  "the old allocated dose still drinks through the existing ingest",
+  "re-saved and reloaded on the new build"
+ ]
+}

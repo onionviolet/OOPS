@@ -6005,3 +6005,53 @@ descriptor, herb lesson migration and inspector in code, the inventory, overflow
 and Paradise catalog as research and proposals, and GTR21–GTR27. Overflow
 policy rows and the Paradise tier slice remain proposals; no gameplay
 balance change, commit or push is selected.
+
+## Potion requirements, more to consider, 2026-10-24
+
+Weibao asked: "what about potion crafting requirements and more? more to consider?"
+Saved as [CRAFTING_ENGINE round 8](CRAFTING_ENGINE.md#round-8-2026-10-24-potion-requirements-brewing-versus-drinking-and-orphaned-materials)
+(PZ1–PZ12, PZ-L1–PZ-L4). These are proposals. Nothing is dispatched, built or committed.
+
+Follow-up, same day: "send stuff accordingly, consider higher sequence ones too, consider
+stuff for all the pathways, and on how to implement accordingly". Three research lanes
+returned, folded as [CRAFTING_ENGINE round 9](CRAFTING_ENGINE.md#round-9-2026-10-24-all-pathways-higher-sequences-and-how-to-implement)
+(PZ13–PZ22, slices S0–S9). These are proposals; no build was selected.
+
+Later the same day Weibao added: "consider somethign like the perfect run and other hero works
+and more? Super suportive on RR? You have been summoned? more to conider?" Round saved in the
+[source deep dive queue](research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md) (HQ1-HQ8, HW1-HW9). He also
+said: "Run Worm next; leave No Game No Life until I decide on getting more volumes."
+
+Follow-up, same day: "For F4 F5 F6 can we look online or search for data books? More to
+consider?" No official data book was found. The fan wiki's structured table (mostly the
+author's own formula posts) and a scan of the Chinese text are folded as
+[CRAFTING_ENGINE round 10](CRAFTING_ENGINE.md#round-10-2026-10-24-filling-the-gaps-from-the-chinese-text-and-online-sources)
+(PZ23–PZ31). These are proposals.
+
+Follow-up, 2026-10-25: "where can we find the things to address the 35 gaps? can we download
+the wiki accordingly? Consider the mmo stuff and more ... Author posts or qq channels ...
+dont forget the replacing ingredident with stuff with similar traits", then "check reddit as
+well" and "what about stuff like symbolism and more?" Folded as
+[CRAFTING_ENGINE round 11](CRAFTING_ENGINE.md#round-11-2026-10-25-the-seq-1-and-seq-0-gaps-the-whole-wiki-symbolism-and-substitution)
+(PZ32–PZ39). These are proposals.
+
+Follow-up, 2026-10-25: "for 'swapping ingredients' I meant in implementation, especially with
+the procedural materials and more for other world stuff ... could be interchangeable if other
+stuff can be obtained ... maybe 7 drops is 10ml ... Download symbol vocab and pictures and
+everything accordingly ... Save this deep workflow for other worlds as well". Folded as
+[CRAFTING_ENGINE round 12](CRAFTING_ENGINE.md#round-12-2026-10-25-swapping-ingredients-by-trait-across-every-world)
+(TSW1–TSW11). The workflow is saved as
+[playbook DGF1–DGF10](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#data-gap-fill-workflow-dgf-2026-10-25)
+and step 7 of the source-deep-dive skill. Proposals; no build selected.
+
+Follow-up, 2026-10-25: "send out and work on both?" then "dont limit yourself, dispatch something
+to implement/absorb in depth? also create a future workflow for something like this? we should
+write down our existing systems to help fit in better like the swappable ingredients that works
+to varying degrees so that there isnt so much hoops in the future?" Results:
+[potion-pathways checkpoint](gm/dispatch/potion-pathways-2026-10-24/CHECKPOINT.md#results-2026-10-25);
+[systems register](SYSTEMS_REGISTER.md); [mechanic absorption workflow](gm/MECHANIC_ABSORPTION_WORKFLOW.md).
+Implemented-unverified by Weibao; not committed.
+
+On 2026-10-25 Weibao chose: "Run both in parallel accordingly" (The Perfect Run and Super
+Supportive) and asked "download super supportive accordingly?". Both rounds are recorded in the
+[source deep dive queue](research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md).

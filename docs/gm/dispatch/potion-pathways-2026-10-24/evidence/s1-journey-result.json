@@ -1,0 +1,21 @@
+{
+ "mode": "journey",
+ "root": "this checkout",
+ "port": 62764,
+ "errors": [],
+ "log": [
+  "Nighthawk probationer enrolled; disposable save funded to 5000 pence (browser start money is outside the slice)",
+  "formula bought from Hale: 1200 pence, money 3800",
+  "frog bought through the broker, money 3752",
+  "screenshots: s1-before-brew-1920x1080.png, s1-before-brew-1536x864-14px.png, s1-before-brew-1536x864-21px.png",
+  "brew started: frog consumed, stage recorded",
+  "saved and reloaded mid-brew: stage and start clock survive",
+  "screenshots: s1-brew-ready-1920x1080.png, s1-brew-ready-1536x864-14px.png, s1-brew-ready-1536x864-21px.png",
+  "brewed dose held: the same Corpse Collector dose item, allocated recorded",
+  "brewed dose drunk through the existing ingest: Corpse Collector source granted",
+  "screenshots: s1-drunk-1920x1080.png, s1-drunk-1536x864-14px.png, s1-drunk-1536x864-21px.png",
+  "save, reload: source and flags kept",
+  "Export string (193188 chars) literally imported after walking away: state restored",
+  "Export button download re-imported through the file input: state confirmed"
+ ]
+}

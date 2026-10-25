@@ -847,3 +847,272 @@ rebuilt-verified. [Continuation report](gm/dispatch/title-rules-implementation-2
 keeps current input identity, fixture/compatibility limits and the broader
 perishable/history remainder. This is a reversible native proposal, not a
 universal rule that touching ingredients reveals any recipe.
+
+## Round 8 (2026-10-24): potion requirements, brewing versus drinking, and orphaned materials
+
+Weibao asked: "what about potion crafting requirements and more? more to consider?"
+This round is a palette of proposals. It builds on PD1–PD14, IX12–IX24, WR1–WR10
+and the LOTM gates [LMG1–LMG6](worlds/progression-gates-2026-10-23/LORD_OF_THE_MYSTERIES.md#11-potion-access-formula-ingredients-conservation)
+and avoids restating them. Rules applied: MR1–MR36, AR14–AR16, AD38, LC6 scope trap.
+Sealed content: none read or shown.
+
+### What the code does today (SHOWN, master `8ac514f01`)
+
+- **No LOTM brewing verb.** Every Tingen dose (Seer, Corpse Collector, Savant, Sailor and their Sequence 8 doses) is issued already prepared from an institution's stores, or bought unmarked through the broker (`book_world_lotm_content.js:25-44`, `book_world_lotm_pathways.js:14`). LMG1 (formula) and LMG2 (ingredients) are designed but have no runtime. *Correction (round 9, same day): only the Seer dose sits in a store (`LOTM_NATIVE_STOCK`). The Corpse Collector, Savant and Sailor doses are created by the accept and assess commands' effects (`book_world_lotm_pathways.js:22,29`), so no stock is drawn down.*
+- **Orphaned formula materials.** The broker sells a dried black-spotted frog, a bundle of rare hairs and a jar of grave-dust ink (`book_world_lotm_broker.js:19-22`). Each is labeled "a formula material". Only facts, the save envelope and the held-items line read them (`actions.js:133`, `envelope.js:34`, `ui.js:37`). A player can buy a frog that does nothing.
+- **Two potion engines.** The HP Polyjuice slice (`hp_brewing_state.js`, 305 lines) runs its own model with ingredient lots, moon provenance, stewing, loans, theft notice and assay. It does not import `craft_resolver.js` or the product registry, contrary to ER15/ER16. Tingen has no brewing model at all.
+- **A typed requirement engine already exists.** `progression_gates.js` defines gate kinds (capacity, knowledge, credential, resource, maturation and others), close rules, overflow policies and a vague hint.
+
+### PZ. Potion requirements and more
+
+| Code | Consideration | Default | Dial and reason | Extends |
+|---|---|---|---|---|
+| PZ1 | **Brewing and drinking are separate gates.** Brewing reads formula, materials, bench and brewer. Drinking reads the drinker's body, pathway, digestion and order. | A dose you cannot safely drink can still be brewed, held, sold, given or kept for an heir | Per world; LOTM states both sets (LMG1–2 brew, LMG5–7 drink) | LMG1–7, PD1 |
+| PZ2 | **Requirements are gate rows.** Formula known is `knowledge`; materials held is `resource`; supervision or licence is `credential`; bench and skill are `capacity`; moon or rest time is `maturation`. | Every brew requirement is a `defineGate` row with a player-facing hint, never a bespoke check | Hint precision per world (vague hint when the formula is unknown) | `progression_gates.js`, WR5–WR7, WR9 |
+| PZ3 | **Partial knowledge is a state.** A formula can be known in full, known in part (main known, auxiliaries missing) or claimed by a seller | A partial formula still brews, with a hidden flaw that surfaces as drinking risk, not as a refusal | How much a partial brew is worth per world; reason: LMG1 says formulas are hard to verify | PD9, LMG1, LMG11 |
+| PZ4 | **Every requirement needs another way to meet it.** You can buy the formula, earn it by merit, copy it, or commission a brewer. You can buy, borrow, steal or loot materials. | A commission meets the brew requirement with someone else's capacity, at a price and a trust risk | Which routes exist per world; HP's loans and theft already prove the pattern | C10 helper commissions, AD38 |
+| PZ5 | **Brewing obeys conservation.** A brew whose main ingredient is a characteristic debits the same ledger the LOTM envelope asserts. An institution's issued doses come from finite stores. | No dose appears from nowhere; an issue draws down a stock record, and the wait list follows from that stock | Stock size per institution; reason LMG3 | LMG3, LMG9 |
+| PZ6 | **What can be batched is a world law.** One characteristic makes one dose. HP cauldrons make several doses per batch. | `batchable` is declared per formula family | Per world; HP batches already exist | PD11, IX15, WR8 |
+| PZ7 | **A brew in progress is saved state.** Ingredients are committed at the start, and the brew holds its stage, its due time and the brewer. | Save, reload and import keep the exact stage. Brewing is reversible until the end (salvage per WR4); only drinking is irreversible. | Salvage share per world | PD8, MR persistence rules |
+| PZ8 | **A requirement checklist on the bench.** Show each requirement as met, unmet, unknown or suspected, read from the gate rows. | One list built from gate quotes, with no separate UI logic | Detail per world; desktop first (AD34) | UV rows, UR rules |
+| PZ9 | **Every buyable material has a use.** A sold formula material needs at least one consumer (a brew, a barter, an appraisal), or its text must say plainly that it is a trade good | Lint: every market row's item key appears in some recipe, gate or trade | Applies everywhere; prevents frog-style dead ends | WA lint, IX22 |
+| PZ10 | **Cross-world vocabulary lives in WR rows.** HP: moon provenance and stewing (WR9, WR2). Mistglass: paid Cloudseed dose for refinement. LOTM: main ingredient or characteristic plus auxiliaries. | Per-world differences are WR fields, not per-world lists | Pills and furnace grades belong to the active cultivation lane ([CG checkpoint](gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md), slice 3) | WR1–WR10, XD3 |
+| PZ11 | **Debug view of truth versus known.** An inspector shows a dose's true formula, its flaws and its ledger debit next to what the brewer believes | Read-only; changes nothing | Debug-only | PD14, GA9 |
+| PZ12 | **Who may brew is a source question.** Whether a non-Beyonder can brew a Beyonder potion, and what the procedure and time are, is not established in the reviewed LOTM notes this round checked | Treat as an open source check, not a fact | Resolve from existing notes before building PZ-L1 | LC3, DWF57 |
+
+### Disposition
+
+**ACT NOW (done here):** findings above; this round saved; cross-link added under LMG1–LMG2.
+
+**ACCOUNT FOR NOW (constraints, no feature work):**
+- The next potion domain lands on the shared making envelope and product registry (ER15, ER16). HP converts later, not now.
+- Brew requirements use `progression_gates.js` (PZ2).
+- Conservation and the save envelope's dose counts include any brewed dose (PZ5).
+- Brewing stays reversible until the last step; only the existing ingest is irreversible (PZ7).
+- LC6 still holds: one formula, supervised, before any general potion crafting.
+
+**LATER / DELEGATE (not dispatched):**
+
+| Code | Slice | Level, effort | Done check |
+|---|---|---|---|
+| PZ-L1 | Tingen brew-your-own, first slice: one Corpse Collector formula (bought or earned), the broker frog as a real input, a supervised workroom brew, and a dose that is the same item as the issued one | Sonnet build after an Opus look at the gate and ledger design; one session | On a fresh origin a frog is consumed, a dose is made, the existing ingest accepts it, the stock ledger balances, and save, reload and import keep a brew in progress |
+| PZ-L2 | Source check for PZ12 from existing LOTM and COI notes only (no new reading) | Haiku extraction, Sonnet review | Who brews, what steps, how long and what fails, each with a note locator; or a stated "not shown" |
+| PZ-L3 | Material-consumer lint (PZ9) over pack and market rows | Sonnet, small | Lint lists frog, hairs and ink until PZ-L1 lands; zero after |
+| PZ-L4 | Move HP Polyjuice onto the shared envelope (ER15) | Sonnet with Opus review; medium | Existing HP tests pass unchanged; products use the registry |
+
+## Round 9 (2026-10-24): all pathways, higher Sequences and how to implement
+
+Weibao: "send stuff accordingly, consider higher sequence ones too, consider stuff
+for all the pathways, and on how to implement accordingly". Three Sonnet lanes worked
+from existing notes and code only ([dispatch record](gm/dispatch/potion-pathways-2026-10-24/CHECKPOINT.md)).
+Lane files own the detail; this round keeps the conclusions. All proposals.
+MYSTERIES files were not opened.
+
+- [Pathway potion table](gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md): all 22 pathways, Sequences 9 to 0, evidence-tagged, conflicts C1–C12 listed.
+- [Brewing and higher Sequences](gm/dispatch/potion-pathways-2026-10-24/BREWING_AND_HIGHER_SEQUENCES.md): PZ12 answered, rung-by-rung requirements, 22 workarounds, gate-kind mapping, conflicts K1–K12.
+- [Implementation design](gm/dispatch/potion-pathways-2026-10-24/IMPLEMENTATION_DESIGN.md): data shape, brew verb, ledger, rungs, save compatibility, slices S0–S9.
+
+### What the lanes found (spot-checked against the cited files)
+
+- **PZ12 answered.** In the notes an ordinary person can brew. Audrey mixes her Spectator potion in a home laboratory (R005-C15, checked). At Seq 9 to 7 brewing is ordered measures and stirring, with no ritual or spirituality, and the main ingredients must not be overdosed (Old Neil, `0031`).
+- **Requirements climb by rung.** Seq 9–7 are mostly skill and money. Seq 7–6 are mostly price and scarcity. Seq 5 adds an authored ritual. Seq 4 adds mythical form, a neighbour swap, and the church issuing a finished potion plus its ritual rather than a recipe. Seq 3–0 need world-scale acts, and Seq 0 needs the Uniqueness. No ritual appears below Seq 5.
+- **Evidence is thin and uneven.** Only 43 of 220 Sequence slots have a known main ingredient, and only 23 have main plus auxiliaries. Eight pathways have no named ingredients. Known ingredients stop at Seq 4 except on the Fool line. The Tingen-native lines, Darkness (Nighthawks) and Paragon (Machinery), are among the thinnest. Sun and Visionary are the best evidenced.
+- **Not found in the notes:** a brewing failure on the page, brew duration, Beyonder potion shelf life, Seq 3–1 digestion numbers, and any Moon-line brewing.
+- **Code constraints.** Non-Seer doses are minted, not stocked (round 8 correction). `state.lotm` must have exactly its envelope fields (`book_world_lotm_state.js:28`). Saved jobs must equal their command definitions. The body is asserted human. The shared making envelope (L10) has not landed.
+
+### PZ (continued). Higher Sequences and all pathways
+
+| Code | Consideration | Default | Dial and reason |
+|---|---|---|---|
+| PZ13 | **Every rung has the same shape.** Each Sequence's potion, formula (main or "or" alternates, auxiliaries), acting principles, digestion and optional ritual live in one row from Seq 9 to Seq 0 | A new pathway or rung is data. A new verb exists only for a genuinely new mechanism. | Rows carry an `offered` flag, so data can exist before play reaches it (LC6) |
+| PZ14 | **Missing evidence shows as missing.** Unknown ingredients are labeled authored or generated, never passed off as canon | Gaps are filled by the world's grammar (DG18), labeled, and frozen on reveal (GR3) | How much is authored per pathway; the thin lines need the most |
+| PZ15 | **Characteristics are the main ingredient's twin.** A same-Sequence characteristic replaces the main ingredient, but auxiliaries are still needed and it cannot skip a rung | A ledger keeps characteristics conserved per pathway and Sequence; deaths, sealing and brewing move units, and nothing is created | Purity and imprint risk per world (LMG3) |
+| PZ16 | **Institutions supply differently by rung.** At low and mid rungs the church hands out recipe and materials. At Seq 4 and above it hands out a finished potion plus its ritual. | Supply route is a per-rung field on the holder | Derived stock and wait lists follow from the ledger (PZ5) |
+| PZ17 | **Rituals are maturation gates with a staged condition.** A mermaid's song at sea, ice in darkness, a staged play, a 10,000-person gathering | One rite module reads the gate rows; each ritual is data with its place, time and participants | COI's scaled-down shortcuts are a dial with a cost |
+| PZ18 | **Waiting and digestion conflict between sources.** Church wait is 3 years. Digestion takes 3 months to 2 years at Seq 8–7 and 3 to 20 years at Seq 5–4. | Use the acting-digestion ranges and keep the conflicts listed | Pace per world and life; the idle clock makes long waits playable |
+| PZ19 | **Ways around requirements are mechanisms, not exceptions.** Substitutes, artifacts, borrowed power, boons, transfers and hybrid outcomes (22 listed by L2) | Each carries its stated cost (AD38) | Which ones a given life can reach |
+| PZ20 | **Higher rungs change what the body is.** Mythical form at Seq 4 and up needs a form overlay; the human-body assertion must not block it | A form overlay on the existing body owner, not a second body | Visible form rules per world |
+| PZ21 | **Seq 3 and above are deferred.** The notes have almost no requirement data there and the scale is world-sized | Catalog rows only (inspectable, not playable) until play reaches Seq 4 | Reopen when a life reaches Seq 4 |
+| PZ22 | **Next pathways follow evidence and place.** Visionary second, Sun third by evidence. Tyrant is the Tingen-native option with thin data. | Choose by evidence depth plus a Tingen holder | Weibao's taste outranks the ranking |
+
+### Disposition
+
+**ACT NOW (done):** round 8 correction above; lane files saved; this round saved.
+
+**ACCOUNT FOR NOW:**
+- Build the brew leaf against the shared envelope's interface (ER15), so it does not become a third potion engine.
+- Brew state uses facts, notes and counters inside the existing `state.lotm` fields, guarded by a golden snapshot of the shipped commands. No new save owner.
+- Requirements are `defineGate` rows. L2's mapping needs no new gate kind.
+- Every value filled in for a thin pathway is labeled authored.
+
+**LATER / DELEGATE (implementation order from L3, not dispatched):**
+
+| Slice | What you can play | Level, effort | Done check |
+|---|---|---|---|
+| S0 | Nothing new: adapter for the new row shape, golden snapshot of shipped commands, material-consumer lint (PZ-L3) | Haiku then Sonnet, small | Golden test passes unchanged; lint lists frog, hairs, ink |
+| O1 | Design review of D1–D3 (dose identity, flaw carrier, derived stock) | Opus, one pass | Decisions written in the design file |
+| S1 | PZ-L1: brew one Corpse Collector Seq 9 dose from a formula plus the broker frog; same item as the issued dose | Sonnet, one session | Fresh origin: frog consumed, dose made, existing ingest accepts it, save/reload/import mid-brew |
+| S2 | Partial or forged formula, hidden flaw, appraiser reveal, drinking a flawed dose | Sonnet, one session | Flaw invisible until appraised; drink risk applies |
+| S3 | Characteristic ledger and derived institutional stock | Sonnet with Opus review | Envelope asserts conservation; issuing draws stock |
+| S4 | Savant and Sailor brew as pure data | Sonnet, small | No new command code; adapter retired |
+| S5 | Seq 7 for one pathway | Sonnet, one session | Rung offered from data, played to the next assessment |
+| S6 | Remaining pathways at Seq 9–8 as data, batched, after you play S1–S5 | Sonnet, batched | Each pathway enrolls, brews or receives, drinks and digests; authored values labeled |
+| S7 | One Seq 5 ritual | Opus design, Sonnet build | The rite gates the drink by place, time and participants |
+| S8 | Seq 4: neighbour swap, form overlay, divinity pressure | Opus design, Sonnet build | Swap table read from data; form survives save |
+| S9 | Move row data into a `book.lotm` pack | Sonnet | Same journeys before and after |
+
+New modules proposed: `book_world_lotm_brew.js`, `book_world_lotm_ledger.js`, `book_world_lotm_rites.js`; everything else is row data.
+
+## Round 10 (2026-10-24): filling the gaps from the Chinese text and online sources
+
+Weibao: "For F4 F5 F6 can we look online or search for data books? More to consider?"
+F4 was thin formula coverage, F5 the thin Tingen lines, F6 missing brewing facts
+([round 9](#round-9-2026-10-24-all-pathways-higher-sequences-and-how-to-implement)).
+Route, budget and file locations: [dispatch checkpoint, round 10](gm/dispatch/potion-pathways-2026-10-24/CHECKPOINT.md#round-10-gap-fill-from-the-chinese-text-and-online-sources-2026-10-24).
+Raw rows stay private and gitignored; this round paraphrases.
+
+### What was found
+
+| Source | What it gives | Weight |
+|---|---|---|
+| **Official data book** | None found in Chinese or English searches. The print editions are novel volumes only. | n/a |
+| **Fan wiki `Module:Sequence/standard`** (revid 127043, 2026-09-12; read through its API in the in-app browser) | One structured table for 219 standard Sequences: main and auxiliary ingredients for **184**, advancement rituals for **131**, acting methods for **59**, plus potion and characteristic appearance and Chinese names. Every pathway has 8 or 9 of its 10 formulas, including 3 or 4 at Seq 4 and above. The 35 gaps are all Seq 1 and Seq 0. Most rows cite the author's WeChat posts that released complete formulas per pathway, plus book chapters. | Author-stated, one step below the novel (the 2026-10-10 crosscheck's rule) |
+| **Chinese novel text** (local EPUB, keyword scan plus four Haiku extraction shards, 81 rows) | 41 potions with formula rows, 24 with main plus auxiliaries; 14 rituals; 6 brewing-procedure passages; 4 substitution rules; Seq 4 to 0 formulas and rituals for several lines | Canon text; wins on conflict |
+| Game-guide and Minecraft-mod pages | Partial or invented formulas | Not canon; not used |
+
+Spot check: the wiki's Seer and Bard rows match the Chinese text (Seer 10 ml squid blood and 50 g star crystal, `0700`; Bard alternatives and auxiliaries, `0142`). The wiki also lists an 80 ml red wine auxiliary for Bard that this scan did not find in the book; it is cited to the author post.
+
+**F4 is mostly closed** at Seq 9 to Seq 2, through the author's own posts. **F5 is closed:** Darkness (Nighthawks) and Paragon (Machinery) each have 8 formulas in the wiki table. **F6 is partly closed:** the book shows brewing procedure, such as distilled water, a clean black iron pot and auxiliaries in order (`0170`); a strict addition order for one Seq 6 brew (`0461`); and a high-Sequence cauldron method (`1306`). Shelf life and brew duration are still not found anywhere, and a brew failing on the page is still not shown.
+
+### More to consider (PZ, continued)
+
+| Code | Consideration | Default | Dial and reason |
+|---|---|---|---|
+| PZ23 | **Source tier on every row.** Novel text, author post, wiki inference and our own authored values carry different weight | Each formula, ritual and price row stores its tier and locator, and the novel wins on conflict | Tier shown in a debug view only; the player sees in-world certainty, not citations |
+| PZ24 | **The wiki table becomes the catalog layer.** 184 formulas can exist as inspectable records long before they are playable | Import as catalog rows (S5 three-layer canon); a rung becomes playable only when `offered` | Ring width per life (CX1, LC6) |
+| PZ25 | **Quantities are real.** Formulas state millilitres, grams and drops, and the book says under-dosing is safer while over-dosing risks madness or death | Store quantities. Deviation is a tolerance band: below lowers potency or digestion speed, above adds loss-of-control risk | Band width per rung |
+| PZ26 | **Procedure is data where the book shows it.** Order of addition, vessel and water preparation appear for a few brews | Shown procedures become step rows; elsewhere a generic ordered-add default, labeled authored | Detail on demand (DP rows) |
+| PZ27 | **Ingredient identity needs a crosswalk.** Translations disagree (Lavos squid, Lavar octopus). The wiki gives Chinese names. | Stable ingredient ids keyed on the Chinese name, with English aliases | Applies to every translated world |
+| PZ28 | **Each main ingredient implies a creature or a place.** About 180 formulas name a few hundred materials, almost all from monsters, mythical creatures or special sites | Ingredient rows link to a source creature or site (SR rules). Unknown sources are generated, labeled and frozen on reveal. | Encounter density per region |
+| PZ29 | **Seq 1 and Seq 0 stay world events.** All 35 wiki gaps are there, and the book's Seq 0 rituals are abstract acts against history or fate | Keep them catalog-only (PZ21) | Reopen only if a life reaches Seq 2 |
+| PZ30 | **Licence and privacy.** Wiki text is CC BY-SA and the novel is copyrighted | Raw rows stay in the private gitignored path. Committed docs paraphrase. A shipped pack would need wiki attribution, and stays in the private pack path (AD1). | Per distribution |
+| PZ31 | **Pin the snapshot.** Wikis change | Store the module revid and a content hash with the import; a later re-import diffs, not overwrites | Re-pull cadence |
+
+### Disposition
+
+**ACT NOW (done):** online search; wiki structure and coverage measured; Chinese text scanned and extracted to `book_rows.jsonl` (private); spot check; this round saved.
+
+**ACCOUNT FOR NOW:** source tier field (PZ23) and ingredient ids keyed on Chinese names (PZ27) belong in L3's row shape before S0 starts.
+
+**LATER / DELEGATE:**
+
+| Code | Slice | Level, effort | Done check |
+|---|---|---|---|
+| PZ-L5 | Save the wiki module snapshot (about 135 KB parsed JSON) to the private research path. **Needs Weibao's yes: it is a file download.** | Coordinator, minutes | File saved with revid and hash; not committed |
+| PZ-L6 | Crosswalk: join wiki rows to book rows on Chinese name; mark agree, book-only, wiki-only and conflict | Sonnet, small script plus review | Every book formula row matched or listed; conflicts named |
+| PZ-L7 | Ingredient-to-source table (PZ28) for the pathways chosen for S1 to S5 | Sonnet | Each main ingredient has a creature or site, or a labeled generated one |
+
+## Round 11 (2026-10-25): the Seq 1 and Seq 0 gaps, the whole wiki, symbolism and substitution
+
+Weibao asked where to find what fills the 35 gaps and whether the wiki can be
+downloaded. He also asked to consider the MMO, author posts, QQ channels, Reddit,
+replacing ingredients with ones of similar traits, and symbolism.
+Evidence and files: [dispatch checkpoint](gm/dispatch/potion-pathways-2026-10-24/CHECKPOINT.md);
+[crosswalk](gm/dispatch/potion-pathways-2026-10-24/CROSSWALK.md). All proposals.
+
+### What was found
+
+- **Whole wiki saved (private).** Fandom's official S3 dump link returned 403. The wiki API in the in-app browser pulled all 2,021 non-redirect pages in main, Archive and Module namespaces (11.7 M characters, 50 pages per request, one second apart). Saved to the gitignored `docs/research/novels/lord-of-mysteries/wiki-api-2026-10-25/` (sha256 `ae1e9877…`). Category pages were skipped.
+- **Author posts are in it.** The Archive namespace holds the author's WeChat posts with formulas for about 21 pathways and complete rituals for some, such as Corpse Collector and Fate.
+- **The 35 gaps are rules, not missing lists.** All are Seq 1 and Seq 0. Seq 1 takes a Seq 1 characteristic as its main ingredient (fan compilations of the author posts add nine spirit-world specialties as auxiliaries; not yet checked). Seq 0 takes the pathway's Uniqueness plus the other Seq 1 characteristics (LMG17). The book's Seq 0 rituals are abstract acts, such as deceiving time, history or fate once. Visionary is the stated exception: its Seq 0 can swap two Seq 1 characteristics for imagined ones.
+- **Crosswalk (PZ-L6).** 69 book rows against the wiki: 25 agree, 21 book partial, 8 wiki partial, 12 not comparable, 2 conflicts, 1 bad join. Both conflicts were rechecked against the Chinese text, and **the book wins**. Priest of Light rock water is 10 ml, not 7 drops. Unshadowed sun divine bird blood is 60 ml, not 100 ml (`1064`). One Clown row carried a wrong Sequence label from extraction.
+- **Substitution is canon.** The wiki's Potion System page says ingredients and rituals can be substituted and alternatives exist. The book gives the mechanism. Main ingredients are the "corresponding part" of a creature, plant or crystal (`0018`). The potion's name is its core symbol, a concrete image, and the key to digestion (`0021`); names drifted through translation but only had to keep representing that symbol (`0006`). A scan of the text found 236 symbolism or correspondence passages that also mention potions, materials or rituals.
+- **MMO.** A licensed LOTM MMORPG by Spark Nexa (China; beta dates conflict between reports) uses pathways, potions, sanity-gated advancement that can fail, and acting measured on three meters. It is a licensed adaptation, not canon. Its data would need the game client.
+- **Blocked or login-only.** Reddit is blocked by safety policy in both the in-app browser and Chrome, and was not worked around. QQ channels, WeChat originals and Qidian chapter comments need Weibao's signed-in accounts. Zhihu, Baidu Baike and Bilibili compilations are reachable but are fan work.
+
+### Source ladder for filling gaps (PZ38)
+
+Novel text, then author posts (wiki Archive), then author Q&A on login-only channels, then wiki inference, then licensed adaptations (MMO, animation), then fan compilations, then our own authored values. Each row keeps its tier (PZ23). The book overrides the wiki on conflict (X1, X2).
+
+### PZ (continued). Symbolism and substitution
+
+| Code | Consideration | Default | Dial and reason |
+|---|---|---|---|
+| PZ32 | **Seq 1 and Seq 0 are rule formulas.** | Seq 1 needs a same-name Seq 1 characteristic plus auxiliaries; Seq 0 needs the Uniqueness plus the remaining Seq 1 characteristics; the ritual is an abstract world act | Visionary's imagined-characteristic exception is data. These stay catalog-only (PZ29). |
+| PZ33 | **Ingredients carry symbol tags.** Each ingredient gets tags for its symbols (sun, song, fire, night, death, secrets) and its "corresponding part" class (organ, blood, crystal, plant liquid) | Tags come from the creature, the pathway and the potion's core symbol. Agents draft them; the source tier is kept. | The same tag model as IX tag rules and WR3 substitution policy |
+| PZ34 | **Substitution by symbol match.** An auxiliary can be replaced by an item sharing its symbols and class. A main can be replaced only by a same-Sequence characteristic, a listed "or" alternative, or a strong symbol match. | Closer match means full potency. A partial match lowers potency or slows digestion. A mismatch adds hidden residue and loss-of-control risk, shown only by appraisal or by drinking (PZ3). | Tolerance per rung, tighter higher up; the book's wrong-pathway rule is the extreme case |
+| PZ35 | **One symbol vocabulary for everything mystical.** Potions, ritual magic (candles, oils, herbs matching an aspect), acting (the name as key), rituals and divination read the same tags | Symbol tags live on items, places, acts and times; checks compare tag sets | This is AD38 in LOTM form: a method works if its symbols fit, whatever its label |
+| PZ36 | **Rituals as symbol thresholds.** A Seq 5 ritual is a set of required symbols (sea, song, a mythical creature), not one fixed script; COI's scaled-down rituals show the threshold can be met more cheaply at a cost | The canon ritual is the reference solution. A player's own staging passes if it meets the threshold. | Threshold strictness per rung |
+| PZ37 | **Acting checks read symbols too.** An act digests when it fits the potion's core symbol. The MMO's three meters are a design reference only. | Acting rows list the core symbol and example acts; free acts are scored by tag fit | How generous the fit is per life |
+| PZ39 | **Book override layer.** Importing the wiki table needs a layer where book-verified values replace wiki values | Catalog import applies overrides first and logs every one | Grows as more rows are checked |
+
+### Disposition
+
+**ACT NOW (done):** whole wiki saved privately; crosswalk folded; X1 and X2 resolved toward the book; symbolism scan saved privately; this round saved.
+
+**ACCOUNT FOR NOW:** symbol tags (PZ33) and the override layer (PZ39) join source tier and Chinese-keyed ingredient ids in L3's row shape before S0.
+
+**LATER / DELEGATE:**
+
+| Code | Slice | Level, effort | Done check |
+|---|---|---|---|
+| PZ-L8 | Symbol vocabulary: tags from the 236 book passages plus wiki ingredient lists, for the S1 to S5 pathways first | Haiku extraction, Sonnet merge | Every S1 to S5 ingredient tagged with tier and locator |
+| PZ-L9 | Catalog import script: wiki rows plus book overrides into catalog JSON (private) | Sonnet, small | 219 rows, overrides logged, PZ-L3 lint passes |
+| PZ-L10 | MMO data: only with the game client Weibao owns or installs (installing needs his yes) | Later | Mechanics notes labeled licensed adaptation |
+| PZ-L11 | Login-only channels (QQ, WeChat originals, Qidian comments) and Reddit: Weibao's own signed-in route, or an export he provides | Weibao | Any new author statement added at its tier |
+
+## Round 12 (2026-10-25): swapping ingredients by trait, across every world
+
+Weibao: "for 'swapping ingredients' I meant in implementation, especially with the
+procedural materials and more for other world stuff ... materials will have traits
+assigned to them and stuff, and could be interchangeable if other stuff can be obtained
+... maybe 7 drops is 10ml ... Download symbol vocab and pictures and everything".
+This round is about the engine, not LOTM alone. Proposals.
+
+### 7 drops versus 10 ml (X1)
+
+They are different ingredients, not one amount in two units. The Seq 5 formula in the
+book lists fingered citron juice 7 drops **and** rock water 10 ml (`0706p71`). The wiki
+repeated "7 drops" on the rock water line. A drop is about 0.05 ml, so 7 drops is
+roughly 0.35 ml. The book wins. The question still points at a real need: TSW9 below.
+
+### What the engine already does (SHOWN)
+
+- **Traits exist.** A catalogue material has tags (with parent hierarchy through `TagRegistry.expand`) and numeric property axes: fractions that must sum with an inert matrix (conservation) plus bounded scalars (`craft_materials.js:53-130`). Families generate coherent seeded materials (`generateMaterial`, `:164`).
+- **Slots already accept substitutes.** A recipe slot selects by exact material, by tag query (`all`/`any`/`not`) or by property threshold (`craft_recipes.js:2-3, 23-27, 66`). `materialPool` and `pickMaterial` find every material matching a query (`:199-223`).
+- **Provenance exists for native items.** `material_lineage.js` keeps facts per processed cohort: born, origin world, quality, completeness, evidence, treatment.
+- **Not yet joined.** Native game items (rat pelts, logs, herbs), the HP Polyjuice slice and LOTM doses are not catalogue materials, so none of them can be swapped by trait today.
+- **LOTM source data now on disk (private).** The wiki's `Module:Ingredient/data` holds 291 ingredient entries with descriptions, 12 with storage or decay facts (for example, light-sensitive blood kept in opaque containers). Pages `Symbolism` and `Laws of Mysticism` record the author's statement that the system rests on the Law of Similarity and the Law of Contagion.
+
+### TSW. Trait-based substitution for all worlds
+
+| Code | Consideration | Default | Dial and reason |
+|---|---|---|---|
+| TSW1 | **Every ingredient is a trait bundle.** Physical axes (fractions, scalars) plus tags in three layers: physical (organ, blood, resin, metal), functional (binder, solvent, catalyst, preservative) and symbolic (sun, night, song, death) | A material may carry any layer; a world declares which layers its laws read | Mundane worlds read physical and functional only; mystical worlds add symbolic |
+| TSW2 | **A formula names roles, not items.** Each slot states the traits it needs (a tag query or property threshold) and names one canonical item as the reference answer | Canon formulas keep their named item as the reference; any material that satisfies the slot's query fits | Slot strictness per world and per rung (exact, profile, or none: WR3) |
+| TSW3 | **Similarity scores the swap.** Fit is how much of the slot's required traits the substitute shares, weighted by layer | Full fit gives the reference result. Partial fit changes potency, quality, time or risk, through the outcome the world's law reads. Below a floor, the slot rejects the item with a reason. | Weights per world; LOTM weights symbolic heavily, Village tonics weight functional |
+| TSW4 | **Contagion is provenance.** Where an item has been, what touched it, and whose it was can matter: a characteristic carries its former owner's imprint; a relic carries its saint | Lineage facts (`material_lineage.js`) and a contact list feed the same fit check | Read only where a world's law says contact matters |
+| TSW5 | **Cross-world swaps follow a directional law.** A material brought from another world keeps its traits but is read by the host world's law | WR10: inert, weakened, unstable or native, set per world pair, never silently native | A swap can work across worlds, and its cost is the host law's reading |
+| TSW6 | **Knowing a swap works is knowledge.** A player learns that two items share a role by test, teacher, text or appraisal | Learned relations widen what the bench offers; unknown swaps can still be tried, with an uncertain preview | IX22 learn-rules-not-pairs; mastery widens the set |
+| TSW7 | **Generated materials join the same pool.** Procedural materials from families carry the same three layers | A generated herb with the right traits fits a canon slot, labeled generated and frozen on reveal (GR3) | Generator budget per world (GR11) |
+| TSW8 | **Scarcity drives swapping.** The interesting case is when the canonical item can't be obtained | The bench shows the reference item, owned substitutes ranked by fit, and what each costs in outcome | No auto-substitution: the player chooses |
+| TSW9 | **Units are part of the trait.** Drops, millilitres, grams and pieces are kept as stated; conversions exist only where the world defines them | Quantity slots compare in the stated unit; a swap in another unit converts through a declared density or count | Prevents the "7 drops is 10 ml" class of error in data and in play |
+| TSW10 | **Storage and decay are traits too.** Light sensitivity, freshness and rot appear in source data | A decay trait reads the clock and the container (PD5, PD6) | Only where the world states it |
+| TSW11 | **One importer per world.** A world's ingredient source (wiki table, book rows, our own palette) becomes catalogue materials through one script with tier, locator and overrides | LOTM first: 291 wiki ingredients plus book overrides; HP next from its census | AR11: the second world must need less new code than the first |
+
+### Disposition
+
+**ACT NOW (done):** X1 rechecked; whole wiki, category pages, ingredient data and symbolism pages saved privately; images downloading (see checkpoint); this round saved.
+
+**ACCOUNT FOR NOW:**
+- The LOTM brew leaf (S1) should read slots as role plus trait query, with the frog as the reference item, so substitution needs no rewrite later.
+- Native items need a bridge to catalogue materials before any cross-world swap. That bridge is a mapping table (item id to material), not a rewrite of the inventory.
+
+**LATER / DELEGATE:**
+
+| Code | Slice | Level, effort | Done check |
+|---|---|---|---|
+| TSW-L1 | Native-item bridge: map 20 to 40 existing items (pelts, logs, herbs, oils) to catalogue materials with three trait layers | Sonnet, one session | Existing recipes unchanged; a trait query finds native items |
+| TSW-L2 | LOTM ingredient importer (TSW11) with symbol tags drafted from descriptions (PZ-L8) | Haiku drafts tags, Sonnet merges | 291 materials, tiers and overrides logged, lint passes |
+| TSW-L3 | First trait swap in play: one slot (a binder or a Seq 9 auxiliary) accepts a substitute with a fit preview | Sonnet, one session, after S1 | Fresh origin: reference and substitute both work, with different outcomes, through save, reload and import |
+| TSW-L4 | Cross-world swap: one item from another world in a host-world recipe under the WR10 law | Opus design, Sonnet build | The host law's reading shows in the outcome and in the log |
