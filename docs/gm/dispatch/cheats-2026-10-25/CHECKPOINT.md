@@ -42,7 +42,7 @@ Quiet faculty now seeds separately from the optional talking system; awakening r
 | IM18 | Loaded Dice | Built native loot-call slice, browser-exercised | seeded_streams cell call, durable override, receipts |
 | IM20 | Fate Ledger | Built visible-encounter read, browser-exercised | pure stream decision, actual native foe projection |
 | IM20 | Earned Habit | Built finite routine adapter, browser-exercised | harvest routine and existing native clock |
-| IM19 / RF1 | NPC-held card | Unbuilt | actor powers need registered descriptor and repeatable encounter/recognition route; arbitrary cards cannot be inserted into simulation.powers |
+| IM19 / RF1 | NPC-held card | Built, focused tests and native browser pass | registered actor power, existing paid rematch, native/party planner, observer knowledge |
 | IM20 | Patient Furnace | Unbuilt | away_ledger maths exists; authoritative native offline replay policy absent |
 | IM20 | Pattern Book | Unbuilt | craftLedger's knowledge-redacted forecast exists; no cross-world learned-pattern consumer |
 | IM20 | Heirloom Compact | Unbuilt | heir_inheritance and obligations exist; no executable bequest/claim adapter for a card |
@@ -81,3 +81,27 @@ Runtime commit: 00334132. Foundational carrier commit: 97890a27. [Input identity
 Resume order: RF1 registered actor-power/rematch adapter, then the missing native offline policy for Patient Furnace, knowledge-safe Pattern Book and executable Heirloom Compact. Continue from this branch/checkpoint; do not reinterpret palette aliases or simulator modes as ready-made card specifications. The unresolved scope and effort/done checks are IM27–IM28 in CHEAT_LIBRARY. This is a useful partial lane, not completion of the request to implement every remaining cheat.
 
 Local generated residue intentionally excluded from commits: dist/bundle.js, dist/bundle.js.map, index.html build-version tokens, and the earlier browser-failure.png. The final screenshots and JSON receipts are the review artifacts. Nothing merged to master or pushed.
+
+## Same-session G1 resume from 7088a420 (2026-10-25)
+
+Status: running under the user's same-session continuation. Original full-suite receipt and dirty dist/index/failure evidence are preserved. No master merge, push, deletion or primary write is authorized in this resume. Rules remain AD11/22/26/29/36/38, AR1–16, observer knowledge and existing native clocks/estate transactions. Reusing mechanic-absorption and more-to-consider workflow; parent owns code, two bounded readers own source reconciliation/test drafting.
+
+Correction F5: the prior checkpoint's missing-rematch assertion was wrong. `frontier_campaign.js:rival.recover`, `rival.rematch`, `prepareRivalRematch` and `tests/frontier_campaign.test.js` already implement paid recovery and repeatable contests. RF1 will reuse them. Missing adapters are implementation work, not policy blockers.
+
+RF1 seam: registered simulation power with typed card/holder state, existing native/party contest executor and observer knowledge. Target 1920×1080 desktop; mobile deferred. Failure cases: hidden holder state leaks before a tell; first encounter is falsely predicted; reload repeats a paid reaction; a different opening is predicted despite absent memory; failed persistence mutates live actor memory.
+
+M4 checked before edits: primary src/native_battle.js, src/party_battle.js, src/main.js and src/layout_spec.js dirty. Primary src/frontier_campaign.js, src/frontier_campaign_ui.js, src/native_battle_contracts.js and tests/frontier_campaign.test.js clean. Further files checked per slice below. The cultivation run receives no writes.
+
+
+### RF1 completed slice (same-session resume)
+
+Registered actor power and typed holder-owned card memory land through `campaignDefinitions.powers` / the existing simulation registry. Native and party strike planners share the adapter; first witnessed opening teaches, a matching later opening consumes the holder's stamina and uses the existing damage/RNG resolver, and changed actual means break the read. Same-session replay does not repeat the paid reaction. Observer knowledge, rather than the private card, supplies the persistent Notes/People tell. This is bounded rematch rehearsal; full NPC temporal rewind is not claimed.
+
+M4 further exact overlaps: primary src/simulation_content.js and src/simulation_contracts.js are dirty. D4 adds one registered power and one specialized record validator there; preserve the primary lane's other definitions/validation. No primary file was written.
+
+- node --test tests/rehearsed_foe.test.js tests/frontier_campaign.test.js tests/party_battle.test.js: PASS 26/26, actual learning/rematch/cost, changed opening, JSON reload, observer boundary, malformed holder and stale/repeated action.
+- npm run build: PASS; local generated evidence retained.
+- npm run check:arch: PASS; main 10092 vs baseline 10115, no new cycles.
+- node docs/gm/dispatch/cheats-2026-10-25/rf1-browser.mjs: PASS, fresh profile at 5104 / 1920×1080; actual guarded native strike, paid recovery/rematch, observation rendered through existing Notes/People, Save/reload and literal Import preserve the exact holder record. No page errors. [Receipt](RF1_BROWSER.json), [desktop evidence](rf1-1920.png).
+
+The browser fixture establishes the association route and initial contest with existing engine commands; native actions, costs and durable writes are exercised through test-only hooks. Natural discovery/pacing remains human acceptance. Original full-run and targeted repair receipts remain unchanged; no new full suite.

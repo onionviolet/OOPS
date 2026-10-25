@@ -1,3 +1,4 @@
+import {ensureRehearsedFoe,rehearseOpening} from './rehearsed_foe.js';
 import {savedBattleLoss} from './defeat_domain.js';
 import {check} from './basics.js';
 import {rollCombatStrike,mitigateCombatDamageFromStats} from "./combat_math.js";
@@ -13,6 +14,7 @@ export function initializeNativeBattle(plan) {
     const session=plan.state.simulation?.sessions.player;
     check(session?.definitionId === "rival.native_duel","No native road encounter.");
     session.nativeBattle ||= {schema:1,seed:(plan.state.simulation.seed ^ plan.state.sequence)>>>0 || 1,actions:0,last:"The agreed duel is ready. Both stop at one HP."};
+    ensureRehearsedFoe(plan.state,ROAD_RIVAL);
     validateNativeBattle(session.nativeBattle,session);return plan;
 }
 export function readNativeFighter(actor) {
@@ -52,7 +54,9 @@ export function commitNativeBattleStrike(state,registry,{actorId,targetId,attack
     const hadStamina=vitals.stamina > 0;
     const cost=Math.min(vitals.stamina,1/(attacker.stats.stamina_efficiency || 1));
     vitals.stamina=Math.max(0,vitals.stamina-cost);
-    const strike=rollCombatStrike({attackPower:attacker.attackPower*(hadStamina && vitals.stamina === 0 ? (attacker.emptyStaminaMultiplier || .5) : 1),attacker:attacker.stats,target:target.stats,shield:target.shield,shieldSkill:target.shieldSkill,random});
+    const rehearsal=rehearseOpening(plan.state,registry,{actorId,targetId,sessionId:session.id,attacker});
+    if(rehearsal.tell)applySimulationEffects(plan,[{type:'knowledge',key:'cheat.rf1.tell',stage:'seen',value:rehearsal.tell}],{actorId},registry,session.id);
+    const strike=rollCombatStrike({attackPower:rehearsal.scale*attacker.attackPower*(hadStamina && vitals.stamina === 0 ? (attacker.emptyStaminaMultiplier || .5) : 1),attacker:attacker.stats,target:target.stats,shield:target.shield,shieldSkill:target.shieldSkill,random});
     const victim=targetId === "player" ? plan.vitals.player : plan.state.simulation.people[targetId].vitals;
     check(victim?.health > 1,"The target has already yielded.");
     const damage=strike.kind === "hit" ? mitigateCombatDamageFromStats(strike.values,target.stats) : 0;
