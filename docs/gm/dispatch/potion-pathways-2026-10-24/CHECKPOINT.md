@@ -128,3 +128,11 @@ closed once a dose is allocated; prices and times are proposals; human play acce
 
 Workflow saved: [MECHANIC_ABSORPTION_WORKFLOW](../../MECHANIC_ABSORPTION_WORKFLOW.md) plus
 skill `.claude/skills/mechanic-absorption`; router row added in RULES_INDEX.
+
+## Landed and cleaned, 2026-10-25
+
+Committed `af68acc0f` (code) and `3a1180dc2` (records) on master and pushed to origin
+(`8ac514f01..3a1180dc2`, which also published another session's `640bc884b`). Then removed the
+three lane worktrees and the integration worktree (each verified byte-identical to master
+first) and deleted their merged branches, stopped the preview server and dropped its launch
+entry. Private research data and `private_packs/lotm-ingredients/` are kept.
