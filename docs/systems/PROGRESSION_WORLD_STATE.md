@@ -856,3 +856,8 @@ timer; add a boundary (S10).
 When a system listed here changes shape, update its entry in the same change and
 re-grep every `file:line`. This file orients; the code and the rulebooks win on any
 disagreement.
+
+
+## D4 native cheat consumers, 2026-10-25
+
+The cheat domain (`src/cheat_host.js`) owns `cheats` and retained `cheats_quarantine` slices; `src/cheat_mechanisms.js` plans full-envelope actions and publishes through the injected native guarded writer. It reuses progression-gate evaluation for lived insight, `harvest.observeCarcass` for timed appraisal, the native finite harvest routine for habit, and `seeded_streams` for fate and paid loot calls. Pending calls and enduring keyed overrides live in the stream cell; observer logs are not their authority. The existing continuation restore and heir builder call the personal-faculty carrier; no second return system was introduced. These are bounded native consumers, not support for arbitrary reference cheats. [D4 exact state and remaining scope](../gm/dispatch/cheats-2026-10-25/CHECKPOINT.md).

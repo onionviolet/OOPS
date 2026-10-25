@@ -1534,3 +1534,38 @@ accepted decision. Evidence labels are in the lane files. Codes are IM (implemen
 **Suggested order (separate from the palette):** IM7 with IM8's floor; then IM9 with IM11; then IM12 with IM10 when True Appraisal (IM17) becomes card 2.
 
 **Open questions for Weibao (none block the lanes):** Q1 does an independent life keep the faculty; Q2 does a dormant card keep its clock on an heir; Q3 the quiet card's identity; Q4 does carry live in `buildLifeHeirSave` or in the `carry_ledger` (the ledger has no frontier cheat row).
+
+### D4 implementation status and more to consider: native cards and real carrier boundaries (2026-10-25)
+
+Lane authority: Weibao asked D4 to inventory every cheat/card, build the remaining cards in priority order on existing engine owners, wire their UI and carry, check at least five in a headless browser, and commit small slices. This selects implementation work; the older K1–K6 proposals remain historical. The following names, capacities and one-insight development/refill costs are reversible authored defaults, not new accepted world laws. [Inventory and exact evidence](gm/dispatch/cheats-2026-10-25/CHECKPOINT.md).
+
+| Card | Branch status | Actual owner and boundary |
+|---|---|---|
+| Continuing insight, quiet faculty | Built bounded slice | `cheat_host` domain; quiet ordinary seed, card-driven discovery, finite lived milestones, manual claims and enduring developments. Existing continuation/heir owners perform returns; this card does not invent a second rewind engine. |
+| Quest system, optional accompanying card | Built finite quest slice | Existing status window, native won-zone counter and manual first-victory point claim. No points shop or attendance board. |
+| True Appraisal (IM17) | Built carcass slice | Existing `observeCarcass`; minimum skill-equivalent 25, never lowers a better native reading. Saved readings retain their observation time; they do not silently refresh. |
+| Loaded Dice (IM18) | Built loot-call slice | Existing seeded stream cell owns the paid pending call; real native loot consumes it. Receipt records `via`/`orig`; a durable override survives short-log eviction and keyed replay. Capacity default 2, refill costs lived insight. |
+| Fate Ledger (IM20) | Built encounter-reading slice | Pure seeded decision read for a visible native foe's remaining loot decision. No cursor advance, no hidden encounter list and no raw engine keys in the player flow. Capacity default 3. |
+| Earned Habit (IM20) | Built finite routine adapter | Existing carcass routine and native processing clock; prior manual processing supplies the physical pattern. It does not bypass tools, body occupation or native interruption rules. Capacity default 3. |
+| Rehearsed Foe (IM19), Patient Furnace, Pattern Book, Heirloom Compact | Unbuilt | See the concrete owner gaps below and the full source-row inventory. Broad book/game reference powers remain proposals unless their own mechanics are implemented. |
+
+IM1/IM7 now use `carryCheats` in the existing heir owner; IM2/IM8 seed the distinct quiet faculty. IM9 retains failed local entries in sibling `cheats_quarantine` as original JSON and retries them on later load, including opaque damaged quarantine strings; Import remains strict for active cards. IM10 reads awakening triggers/messages from cards. IM11 uses the existing display poll. IM12 moves state/save/commands into one registered cheat host, without a mutation bus or hook DSL. IM13 validates append-only development records. IM14 carries learned developments through the continuing self: an heir starts with empty module reserves and fresh local point/claim accounting; insight can refill a reserve. Temporal return keeps enduring faculty development while the existing target snapshot owns local module inputs when already present. An accompanying system is not assumed to share the faculty's carrier. IM6 returns an explicit unresolved carry record for an unrecorded world instead of throwing or inventing a travel rule.
+
+The root inventory starts with 324 overlapping source rows, including families, aliases and simulator modes, then adds explicit runtime rows. It is not 324 independent ready-to-build cards. IM3/IM4 overlay and NPC-holder work, IM16's broader share-summary redactor, and the read-only dev inspector remain unfinished. UI projections hide dormant and undiscovered cards; full backups intentionally retain real restoring data.
+
+**ACT NOW (done in D4)**
+
+- IM21: Native decisions, costs and publication use one envelope transaction and the existing guarded writer. Failed storage does not publish charges, points, observations or calls. Regressions cover double claims, pending-call collisions, receipt eviction and malformed stages.
+- IM22: Five faculties plus the optional system have UI routes. Dormant content stays out of the workspace; discovered content appears through known-panel navigation. Fate reads an actual visible subject, with in-world dates for retained observations. Desktop target 1920×1080; mobile remains deferred.
+- IM23: The actual heir reload/preflight/import route retains learned developments without replaying awakening. Local unreadable entries remain in the full backup with a generic restore warning; unknown world carry is unresolved rather than silently dropped.
+
+**ACCOUNT FOR NOW**
+
+- IM24: Carry provenance and local fuel differ. A retained learned module is not free energy, and an accompanying system, item or contract needs its own backing. Current reserves are authored dials, not universal limits or an anti-cheat policy.
+- IM25: A short observer log cannot own a committed keyed result. Loaded Dice stores its enduring override in the stream cell; UI logs remain bounded. Peeking reads that same owner without creating a new receipt.
+- IM26: The primary cultivation lane edits continuation files. D4's continuation hunk only imports and invokes the faculty carrier in `restore`; merge it with that lane's intent, baggage, retention and challenge changes. D4 did not edit those primary files.
+
+**LATER / DELEGATE (remaining authorized scope, not delivered)**
+
+- IM27: Finish the next native owner adapters: RF1 needs a registered actor power plus a repeatable encounter/recognition route; Patient Furnace needs an authoritative offline replay policy beyond `computeAway`; Pattern Book must use `craftLedger`'s knowledge-redacted forecast rather than raw hidden residue; Heirloom Compact needs an executable bequest/claim adapter over the actual estate and debt owner. Level Sol, effort medium per adapter, done check: effect, cost, UI, regression and native save/reload/import journey for each.
+- IM28: Reference powers without a built world/content mechanism remain proposal rows in the inventory. Absorb their actual means, inputs, reach and carrier through their named world owner, rather than giving a generic card an allowed-outcome list. Level Luna for bounded source extraction, Sol for an adapter, effort per world; done check: source-qualified mechanism and a played native consumer. The broad inventory is unfinished implementation scope, not a claim of completion.

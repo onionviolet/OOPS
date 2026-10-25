@@ -1,0 +1,52 @@
+{
+  "viewport": "1920x1080",
+  "port": 5104,
+  "checks": [
+    "ordinary beginning is quiet; dormant UI hidden",
+    "quiet base: four lived insights claimed and four facets developed through UI",
+    "True Appraisal: native specimen observation retained with time",
+    "Loaded Dice: UI pays charge; actual native loot stream returns called result",
+    "Earned Habit: UI starts existing finite routine",
+    "Quest system: UI manually claims native victory once",
+    "Fate Ledger: UI reads a visible foe in a real native encounter without raw engine keys",
+    "real Save and page reload retain every card and reserve",
+    "literal Import through production load_from_file, guarded preflight and reload retains cards",
+    "real beginHeir reload/preflight/import: enduring stages and learned modules retained, local reserves empty, no repeated awakening"
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "font": 14,
+      "contentWidth": 851,
+      "contentScrollWidth": 851,
+      "actualFont": "14px"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "font": 21,
+      "contentWidth": 847,
+      "contentScrollWidth": 847,
+      "actualFont": "21px"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "font": 14,
+      "contentWidth": 634,
+      "contentScrollWidth": 634,
+      "actualFont": "14px"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "font": 21,
+      "contentWidth": 631,
+      "contentScrollWidth": 631,
+      "actualFont": "21px"
+    }
+  ],
+  "errors": [],
+  "pass": true
+}
