@@ -121,3 +121,18 @@ test('wild work checks site, means and owned usable material rather than chargin
     const r=rig();r.c.inventory={};r.run({type:'start',profile:'wildbird'});r.c.body.beak=false;assert.throws(()=>r.run({type:'gather',item:'Home fallen twigs'}),/beak/);r.c.body.beak=true;r.c.body.flying=false;assert.throws(()=>r.run({type:'build',home:'nest'}),/flight/);r.c.body.flying=true;r.c.location='Village';assert.throws(()=>r.run({type:'gather',item:'Home dry grass'}),/willow/);assert.throws(()=>r.run({type:'acquire',home:'nest'}),/wild site/);
     r.c.location='Wild willow stand';r.c.inventory[k('Home dry grass')]=3;r.c.unspendable=[k('Home dry grass')];assert.throws(()=>r.run({type:'weave_lining'}),/borrowed/);assert.equal(r.c.inventory[k('Home dry grass')],3);
 });
+
+
+test('manor residence goods survive reload and travel, with retrieval at their own home',()=>{
+    const r=rig();r.run({type:'start',profile:'ducal'});
+    const key=k('Linen cloth'),carried=r.c.inventory[key];r.run({type:'deposit',home:'manor',key});
+    assert.equal(r.state.properties.manor.stock[key],1);
+    assert.equal(r.c.inventory[key],carried-1);
+    r.state=JSON.parse(JSON.stringify(r.state));validateHomes(r.state,r.c);
+    r.c.location='Village';
+    assert.throws(()=>r.run({type:'withdraw',home:'manor',key}),/collect stored goods at their actual home/);
+    assert.equal(r.state.properties.manor.stock[key],1);
+    r.c.location=P.manor.location;r.run({type:'withdraw',home:'manor',key});
+    assert.equal(r.state.properties.manor.stock[key],undefined);
+    assert.equal(r.c.inventory[key],carried);
+});

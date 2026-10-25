@@ -7,7 +7,8 @@ export function mountStorageComparison({host, carried, chest, transfer}) {
     const deposit=doc.createElement('button'), withdraw=doc.createElement('button');
     deposit.type=withdraw.type='button';deposit.textContent='Store 1 in chest';withdraw.textContent='Take 1 from chest';
     deposit.dataset.storageCompare='deposit';withdraw.dataset.storageCompare='withdraw';
-    summary.dataset.storageComparison='';host.append(label,summary,deposit,withdraw);
+    const identity=doc.createElement('p');identity.textContent="Personal chest · separate from each home's residence storage. For goods stored at a home, open Homes, select that residence, then Residence storage → Take. Return to that residence to collect them.";
+    summary.dataset.storageComparison='';host.append(identity,label,summary,deposit,withdraw);
     const batch=transfer?mountStorageBatch({host,carried,chest,transfer}):null;
     let selected=null, signature='';
     const rows=(list,attribute)=>new Map([...list.querySelectorAll(`[${attribute}]`)].map(row=>[row.getAttribute(attribute),row]));
