@@ -50,3 +50,6 @@ button[data-new-count]::after {
 #hp_brewing .hp-row{display:flex;align-items:center;gap:var(--ui-space-2);flex-wrap:wrap;margin:var(--ui-space-2) 0;}
 #hp_brewing select,#hp_brewing button{margin:var(--ui-space-1) var(--ui-space-2) var(--ui-space-1) 0;}
 #hp_brewing .hp-note,#hp_brewing .hp-ledger,#hp_brewing .hp-notice{margin:var(--ui-space-2) 0;}
+
+/* G2: one-line feeling under a reputation rank */
+.data_entry_feeling { font-size: var(--ui-type-small); opacity: 0.75; margin: 0 0 var(--ui-space-2) var(--ui-space-2); }

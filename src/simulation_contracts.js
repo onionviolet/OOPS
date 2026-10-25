@@ -11,6 +11,8 @@ import {validatePursuitDefinition, validatePursuitEffect, validatePursuits} from
 import {validateNativeBattle} from "./native_battle_contracts.js";
 import {validateCausalStoryJob} from './world_completion_causal_job_validation.js';
 import {causalStoryDefinitions} from './causal_story_content.js';
+import {validateConstructEffect, validateConstructState} from './temporary_construct.js';
+import {validateSourceSuppliers} from './source_suppliers.js';
 
 export function stableId(v) {return typeof v === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !["__proto__", "constructor", "prototype"].includes(v);}
 export function jsonData(value, depth = 0) {
@@ -39,7 +41,7 @@ export function numeric(v) {return finite(v) || record(v) && typeof v.fact === "
 // Lazy and hoisted so declarative project compilation can validate through the
 // existing native-registry import cycle without weakening any effect checks.
 var operations;
-function simulationOperations() {return operations ||= new Set(["spawn", "relocate", "fact", "resource", "vital", "body", "item", "transfer", "xp", "reputation", "knowledge", "relationship", "claim", "condition", "life", "source", "faculty", "power", "progress", "title", "equipment", "custody", "unlock", "event", "world", "party", "energy", "observation", "site", "pursuit", "situation", "container", "foundationInteraction"]);}
+function simulationOperations() {return operations ||= new Set(["spawn", "relocate", "fact", "resource", "vital", "body", "item", "transfer", "xp", "reputation", "knowledge", "relationship", "claim", "condition", "life", "source", "faculty", "power", "progress", "title", "equipment", "custody", "unlock", "event", "world", "party", "energy", "observation", "site", "pursuit", "situation", "container", "foundationInteraction", "construct"]);}
 
 
 export function validateSimulationEffect(e) {
@@ -67,6 +69,9 @@ export function validateSimulationEffect(e) {
     if(e.type === "condition") assert(stableId(e.id) && ["apply", "remove"].includes(e.operation) && (e.duration == null || natural(e.duration) && e.duration > 0), "Invalid condition.");
     if(e.type === "life") assert(["alive", "incapacitated", "dead", "departed"].includes(e.status) && typeof e.reason === "string", "Invalid story-life effect.");
     if(e.type === "source" || e.type === "faculty") assert(stableId(e.sourceId) && ["grant", "remove", "awaken", "activate", "suppress", "develop"].includes(e.operation), "Invalid faculty effect.");
+    if(e.supplier != null) assert(["source", "faculty"].includes(e.type) && stableId(e.supplier), "Invalid source supplier.");
+    if(e.shifts != null) assert(["source", "faculty"].includes(e.type) && e.operation === "grant" && Array.isArray(e.shifts) && e.shifts.every(x => record(x) && (x.type === "body" && stableId(x.key) && ["boolean", "number", "string"].includes(typeof x.value) || x.type === "condition" && stableId(x.id))), "Invalid source shifts.");
+    if(e.type === "construct") validateConstructEffect(e);
     if(e.type === "power") assert(stableId(e.powerId) && ["learn", "copy", "transfer", "remove", "fragment", "refine"].includes(e.operation), "Invalid power acquisition.");
     if(e.type === "power" && e.functions != null) assert(e.operation === "learn" && Array.isArray(e.functions) && e.functions.length > 0 && new Set(e.functions).size === e.functions.length && e.functions.every(f => typeof f === "string" && f.length > 0), "Invalid chosen power design.");
     if(e.type === "progress") assert(stableId(e.track) && stableId(e.field) && finite(e.amount), "Invalid progress effect.");
@@ -231,6 +236,7 @@ export function validateSimulationState(s, state, registry) {
     for(const key of ["jobs", "party", "transitions", "log"]) assert(Array.isArray(s[key]), `Invalid simulation ${key}.`);
     const person = id => assert(stableId(id) && s.people[id] && state.actors[id], `Unknown persistent actor ${id}.`);
     validateContainerState(s,state,registry,person);
+    validateConstructState(state); validateSourceSuppliers(state);
     validateSituations(s, state, registry, person);
     for(const knowledge of Object.values(s.knowledge)) for(const k of Object.values(knowledge)) validateKnowledgeBasis(k.basis, person, s.situations || {});
     if(s.energies != null) validateEnergyState(s.energies, person, registry);

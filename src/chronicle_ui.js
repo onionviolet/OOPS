@@ -4,6 +4,7 @@ import {ageYears, lifespanDeadline, responseCost} from "./chronicle.js";
 import {Game_Time, format_time} from "./game_time.js";
 import {knownPeopleView} from "./people_knowledge.js";
 import {setText, syncChildren} from "./dom_sync.js";
+import {MURAL_LIMIT,historyMurals} from "./world_history_consumers.js";
 
 export function createChroniclePanel({read, command, duty, cancelDuty, exportSave, reset, beginHeir, heirPreview,beginIndependent,archiveExports=[]}) {
     const node = (tag, text = "") => {const n = document.createElement(tag); n.textContent = text; return n;};
@@ -46,6 +47,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
     add("take-in", "Take in an orphaned ward · 5 coins", () => command({type: "take_in"}));
     add("settle", "Settle the assault grievance · 3 coins", () => command({type: "settle"}));
 
+    for(let n=1;n<=MURAL_LIMIT;n++) {const warId=`war:${n}`; add(`mural.${warId}`, `Read the village mural · ${warId}`, () => command({type: "read_mural", warId}));}
     for(const lesson of LIFE_LESSONS) {
         add(`reflect.${lesson.id}`, `Write down ${lesson.label}`, () => command({type:'reflect',lesson:lesson.id}));
         add(`teach.${lesson.id}`, `Teach your apprentice ${lesson.label} · 5 minutes`, () => command({type:'teach',lesson:lesson.id}));
@@ -76,10 +78,10 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
 
     function render(force = false) {
         if(!panel.isConnected) document.getElementById("location_actions_div").append(panel);
-        const {structuredLife:localEnd,state, context, enabled, error, occupied, dutyJob, canWrite, pauseReason} = read(), c = state.chronicle;
+        const {structuredLife:localEnd,state, context, enabled, error, occupied, dutyJob, canWrite, pauseReason} = read(), c = state.chronicle, murals = historyMurals(state);
         // Same signature as before (chronicle JSON plus the small fields); the chronicle
         // is serialized again only when a new chronicle object is published.
-        const small = JSON.stringify([localEnd, context.location, context.stamina, context.ratStep, enabled, occupied, dutyJob, error, pauseReason, notice]);
+        const small = JSON.stringify([localEnd, context.location, context.stamina, context.ratStep, Object.keys(murals), enabled, occupied, dutyJob, error, pauseReason, notice]);
         if(!force && c === lastChronicle && small === lastSmall && signature !== undefined) return;
         if(c !== lastChronicle || chronicleJSON === undefined) {lastChronicle = c; chronicleJSON = JSON.stringify(c);}
         lastSmall = small;
@@ -125,6 +127,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
                     if(!c.life.experience?.reflected.includes(lesson.id)) show(`reflect.${lesson.id}`, !available);
                     if(living.teaching && !c.life.experience?.taught.includes(lesson.id)) show(`teach.${lesson.id}`, !available);
                 }
+                for(const [warId,m] of Object.entries(murals)) if(!c.knowledge[`mural.${warId}`]) {show(`mural.${warId}`, !available); setText(buttons.get(`mural.${warId}`), `Read the village mural · year ${m.year}`);}
                 if(!c.knowledge.elderClue) show("inspect", !available);
                 show("spar", !available || !!r.ties.grievance); show("attack", !available);
                 if(Object.values(c.events).some(e => e.status === "missed" && !e.heard && state.clock >= e.closesAt + 8)) show("hear", !available);

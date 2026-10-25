@@ -1,5 +1,7 @@
 import {favourite_items} from './runtime_state.js';
 import './material_lineage_domain.js';
+import {configureFields} from './field_layer_domain.js';
+import {domainRegistry} from './domain_registry.js';
 import {configureGearWorkshop} from './gear_workshop_domain.js';
 import {calendarMinutes} from './world_rhythm.js';
 import {configureToolsDomain, refreshToolsPanel} from './tools_domain.js';
@@ -19,6 +21,7 @@ export function configureNativeToolDomains(operations) {
     configureToolsDomain({...operations, clock: () => calendarMinutes(current_game_time)});
     configureGearWorkshop({...operations, favorites: favourite_items, temperature: get_current_temperature_smoothed, clock: () => calendarMinutes(current_game_time)});
     configureAgingContact({root: operations.root, actor: operations.actor, world: operations.world, location: operations.location, persist: operations.persist, logMessage: operations.logMessage});
+    configureFields({...operations, root: operations.root, lampShining: () => domainRegistry.project('lamplight')?.shining === true});
     const {actor, count, itemOwners, assertSpend, removeItem, persist, writable,
         location, refresh, logMessage, locationRevealed, revealLocation} = operations;
     configureLamplight({actor, count, itemOwners, assertSpend, removeItem, persist,

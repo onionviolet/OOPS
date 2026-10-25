@@ -1,0 +1,35 @@
+{
+  "journey": "g2",
+  "origin": "http://127.0.0.1:63246/",
+  "viewports": [
+    "1920x1080",
+    "1536x864"
+  ],
+  "checks": [
+    "screenshot g2-01-reputation-rank-1920x1080.png",
+    "PASS 1920x1080 G2 Data tab: \"Neighbour (60)\" and its feeling line",
+    "screenshot g2-02-discounted-lesson-row-1920x1080.png",
+    "PASS 1920x1080 G2 lesson row \"at a neighbour's price\" visible, Costs 1 wooden coin, full-price row absent",
+    "PASS 1920x1080 G2 discounted row state: Save/reload/Export/literal Import exact",
+    "screenshot g2-03-lesson-learned-1920x1080.png",
+    "PASS 1920x1080 G2 discounted lesson taken: money 5000 -> 4999",
+    "PASS 1920x1080 G2 lesson learned: Save/reload/Export/literal Import exact",
+    "screenshot g2-04-full-price-contrast-1920x1080.png",
+    "PASS 1920x1080 G2 contrast at reputation 0: full-price row (2 coins), no discount row",
+    "PASS 1920x1080 G2 contrast: Save/reload/Export/literal Import exact",
+    "NOTE hello line covered by .shell-resize-handle; activated with keyboard (Enter)",
+    "screenshot g2-01-reputation-rank-1536x864.png",
+    "PASS 1536x864 G2 Data tab: \"Neighbour (60)\" and its feeling line",
+    "screenshot g2-02-discounted-lesson-row-1536x864.png",
+    "PASS 1536x864 G2 lesson row \"at a neighbour's price\" visible, Costs 1 wooden coin, full-price row absent",
+    "PASS 1536x864 G2 discounted row state: Save/reload/Export/literal Import exact",
+    "screenshot g2-03-lesson-learned-1536x864.png",
+    "PASS 1536x864 G2 discounted lesson taken: money 5000 -> 4999",
+    "PASS 1536x864 G2 lesson learned: Save/reload/Export/literal Import exact",
+    "screenshot g2-04-full-price-contrast-1536x864.png",
+    "PASS 1536x864 G2 contrast at reputation 0: full-price row (2 coins), no discount row",
+    "PASS 1536x864 G2 contrast: Save/reload/Export/literal Import exact"
+  ],
+  "status": "passed",
+  "errors": []
+}

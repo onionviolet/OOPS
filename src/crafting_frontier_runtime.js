@@ -2,14 +2,20 @@
 import {natural} from './basics.js';
 import {frontierCatalogue as catalogue,frontierBrewLaw as law} from './craft_content_frontier.js';
 import {defineSourceTable,forecastHarvest,harvest,nodeKey} from './craft_sources.js';
-import {createCraftState,freezeMaterials,setSourceNode,recordProduct,observe,projectProduct,projectMaterial,validateCraftState} from './craft_state.js';
+import {createCraftState,freezeMaterials,freezeRecipe,setSourceNode,recordProduct,observe,projectProduct,projectMaterial,validateCraftState} from './craft_state.js';
 import {resolveBatch,BATCH_FAMILY} from './craft_resolver.js';
 import {formatBatchName} from './craft_item_name.js';
 import {frontierDoseRules as doseRules} from './craft_content_frontier.js';
 import {cancelOutputs,deriveProductName,applyDose,createDoseState} from './craft_dose_rules.js';
 import {createExperimentLog,recordTrial,propertyView} from './craft_experiment_log.js';
 import {classifyProductKey,keyForProduct,resolveProductKey} from './craft_product_registry.js';
+import {MATRIX} from './craft_materials.js';
+import {matchRecipe} from './craft_recipes.js';
+import {canUseRecipe,examine,examineQuote,learnFromReference,readTraining,recipeAccess,registerReference,validateReferences} from './craft_reference.js';
+import {REFERENCES,REFERENCE_SPECS,REFERENCE_CARRIER,SALT_STEEP,referenceIdOf,referenceKey} from './craft_reference_content.js';
 export {catalogue,law};
+export {REFERENCES,REFERENCE_CARRIER,referenceIdOf,referenceKey};
+const ACTOR='player',RECIPES={[SALT_STEEP.id]:SALT_STEEP},EXAMINE_DIFFICULTY=2,EXAMINE_COST=1;
 export const MATERIAL_CARRIER='Gathered herb',PRODUCT_CARRIER=law.carrier,EFFECT_ID='Crafted herbal preparation',BIND_ID='Toxin binding',BIND_DURATION=60,OVERDOSE_ID='Herbal overdose';
 export const villageSources=defineSourceTable(catalogue,{id:'village.trial-sources',revision:1,sources:[
  {id:'village-herbs',name:'Village common herb verge',kind:'gather',at:'village',capacity:12,regenPerDay:12,
@@ -39,7 +45,10 @@ export function isCraftedKey(key){return classifyProductKey(key)?.family===BATCH
 export function validateOwner(owner) {
  if(owner==null)return null;
  if(owner.scope?.world!=='base.frontier'||!natural(owner.scope?.life))fail('Unsupported crafting scope.');
- return validateCraftState(owner,{catalogues:{[catalogue.ref]:catalogue},laws:{[law.ref]:law},sourceTables:{[villageSources.ref]:villageSources}});
+ validateCraftState(owner,{catalogues:{[catalogue.ref]:catalogue},laws:{[law.ref]:law},sourceTables:{[villageSources.ref]:villageSources}});
+ validateReferences(owner);
+ for(const [id,d] of Object.entries(owner.references?.defs??{}))if(JSON.stringify(REFERENCE_SPECS.find(r=>r.id===id))!==JSON.stringify(d))fail(`Unknown Village reference ${id}.`);
+ return owner;
 }
 const bindOf=product=>product?.law===law.ref?(product.outputs.oral?.bind??0):0;
 // Revision 2 reads the product through the cancel table and any tolerance scales (permille per effect);
@@ -82,7 +91,7 @@ export function validateCraftedExposure(saved,product,id=EFFECT_ID) {
 export function validateCraftingEnvelope(slice,envelope) {
  validateOwner(slice);
  function walk(value){if(!value||typeof value!=='object')return;for(const [key,row]of Object.entries(value)){
-  if(key.startsWith('{')){const k=JSON.parse(key);if(k.id===MATERIAL_CARRIER)materialFromKey(key,slice);else if(classifyProductKey(key)?.family===BATCH_FAMILY)productFromNativeKey(key,slice);}
+  if(key.startsWith('{')){const k=JSON.parse(key);if(k.id===MATERIAL_CARRIER)materialFromKey(key,slice);else if(k.id===REFERENCE_CARRIER){if(!REFERENCES[k.ref]||referenceKey(k.ref)!==key)fail('Invalid reference item.');}else if(classifyProductKey(key)?.family===BATCH_FAMILY)productFromNativeKey(key,slice);}
   else walk(row);
  }}
  walk(envelope.inventories);walk(envelope.inventory);
@@ -99,8 +108,14 @@ export function projectCrafting(owner,inventory) {
   products:Object.entries(inventory).filter(([key])=>isCraftedKey(key)).map(([key,count])=>{
    const p=productFromNativeKey(key,owner),view=projectProduct(owner,catalogue,p.id,'player');
    const seen=new Set((owner?.knowledge?.player?.[p.id]?.facts??[]).filter(f=>f.startsWith('effect:')).map(f=>f.slice(7)));
-   return {key,count,...view,composition:compositionName(p,view.name,owner),derived:deriveProductName(doseRules,p,{known:seen})};})};
+   return {key,count,...view,composition:compositionName(p,view.name,owner),derived:deriveProductName(doseRules,p,{known:seen})};}),
+  references:Object.entries(inventory).filter(([key])=>referenceIdOf(key)).map(([key,count])=>({key,count,...REFERENCES[referenceIdOf(key)],read:(owner?.references?.read?.[ACTOR]??[]).includes(referenceIdOf(key))})),
+  shelf:Object.values(REFERENCES).map(r=>({id:r.id,name:r.name,blurb:r.blurb,mode:r.mode})),
+  methods:Object.entries(recipeAccess(owner??{},ACTOR,heldRefs(inventory))).map(([id,via])=>({id,name:RECIPES[id]?.name??id,via,slots:RECIPES[id]?.slots.map(({id:slot,select,qty})=>({id:slot,qty,tags:select.tags?.all??[]}))??[]})),
+  examinable:Object.entries(inventory).filter(([key])=>{try{return JSON.parse(key).id===MATERIAL_CARRIER;}catch{return false;}}).map(([key])=>{const m=materialFromKey(key,owner).material;return {key,id:m.id,name:projectMaterial(owner,catalogue,m.id,'player').name,misses:owner?.references?.attempts?.[ACTOR]?.[m.id]?.misses??0,cost:examineQuote(owner??{},ACTOR,m.id,{cost:{sample:EXAMINE_COST}}).cost.sample};})};
 }
+// Reference access is a carried fact (inventory), never a stored one: loss removes it, learned recipes remain.
+export const heldRefs=inventory=>Object.entries(inventory).filter(([key,count])=>count>0&&referenceIdOf(key)).map(([key])=>referenceIdOf(key));
 // A steep that leaves no oral effect at the floor is too thin to be a preparation: the lots are spent and nothing comes of
 // them. This follows from the batch's own numbers (salt thins sap by mass, a weak lot carries little); no lot is refused.
 export const ROUGH_BATCH={floor:14,code:'thin',reason:'The steep came out too thin: too little sap or oil in the water to hold, so the lots were wasted.'};
@@ -114,6 +129,27 @@ function inputLots(request,owner,inventory) {
   const record=materialFromKey(key,owner);if(!record)fail('Select a gathered material.');return {key,qty,material:record.material};
  });
 }
+function checkMethod(owner,inventory,request,lots) {
+ const recipe=RECIPES[request.recipe]??fail('Unknown method.');
+ if(!canUseRecipe(owner??{},ACTOR,recipe.id,heldRefs(inventory)))fail('You have no access to this method. Carry its book or learn it first.');
+ const m=matchRecipe(catalogue,recipe,lots.map(({material,qty})=>({material,qty})),{process:request.process??[{op:'steep',level:1}]});
+ if(!m.ok)fail(`The selected materials do not fit ${recipe.name}: ${m.problems.map(p=>`${p.slot??'batch'} ${p.reason}`).join('; ')||'unfit'}.`);
+}
+function refLot(inventory,key,mode) {
+ const id=referenceIdOf(key),d=REFERENCES[id];
+ if(!d||d.mode!==mode)fail(mode==='learn'?'Choose a study object.':'Choose a training book.');
+ if(!(inventory[key]>0))fail('You no longer carry this object.');
+ return d;
+}
+function examineLot(owner,inventory,request) {
+ if(!(inventory[request.key]>0))fail('You no longer carry this sample.');
+ const record=materialFromKey(request.key,owner)??fail('Choose a gathered material.');
+ const q=examineQuote(owner??{},ACTOR,record.material.id,{cost:{sample:EXAMINE_COST}});
+ if(q.cost.sample>inventory[request.key])fail(`Examining again costs ${q.cost.sample} samples; you carry ${inventory[request.key]}.`);
+ const facts=Object.keys(record.material.properties).filter(a=>a!==MATRIX&&!catalogue.axes[a].hidden).map(a=>`axis:${a}`);
+ if(!facts.length)fail('Nothing visible to learn from this material.');
+ return {material:record.material,facts,cost:q.cost.sample};
+}
 export function quoteCrafting(owner,inventory,request,context) {
  let reason=eligibility(context);
  if(!reason)try{
@@ -125,11 +161,19 @@ export function quoteCrafting(owner,inventory,request,context) {
   }else if(request.type==='craft'){
    const lots=inputLots(request,owner,inventory);
    resolveBatch(law,{inputs:lots.map(({material,qty})=>({material,qty})),process:request.process??[{op:'steep',level:1}],stations:[]});
+   if(request.recipe)checkMethod(owner,inventory,request,lots);
+  }else if(request.type==='acquire'){
+   if(!REFERENCES[request.ref])fail('Unknown shelf object.');
+  }else if(request.type==='return'){if(!referenceIdOf(request.key)||!(inventory[request.key]>0))fail('You no longer carry this object.');
+  }else if(request.type==='learn'){refLot(inventory,request.key,'learn');
+  }else if(request.type==='read'){const d=refLot(inventory,request.key,'training');
+   if((owner?.references?.read?.[ACTOR]??[]).includes(d.id))fail('You have already read this; it has nothing new to teach you.');
+  }else if(request.type==='examine'){examineLot(owner,inventory,request);
   }else if(request.type==='use'){
    if(!(inventory[request.key]>0))fail('You no longer carry this preparation.');productFromNativeKey(request.key,owner)??fail('Choose a crafted herbal preparation.');
   }else fail('Unknown crafting command.');
  }catch(e){reason=e.message;}
- const token=JSON.stringify([owner?.sequence??null,inventory,context.clock,context.world,context.location,context.blocked,request]);
+ const token=JSON.stringify([owner?.sequence??null,inventory,context.clock,context.world,context.location,context.blocked,context.skill??0,request]);
  return {eligible:!reason,reason,token,request:structuredClone(request)};
 }
 export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth()) {
@@ -137,7 +181,7 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
  if(!fresh.eligible)fail(fresh.reason);if(fresh.token!==quoted.token)fail('This quote changed. Review the current materials and place again.');
  const request=fresh.request,at=context.clock;
  let next=owner?structuredClone(owner):createCraftState({world:'base.frontier',life:0});
- const items=[];let effect=null,binding=null,batch=null,overdose=null,failure=null,nextDepth=depth;
+ const items=[];let effect=null,binding=null,batch=null,overdose=null,failure=null,nextDepth=depth,grant=null,outcome=null;
  if(request.type==='harvest'){
   const source=request.source??'village-herbs',key=nodeKey(context.world,context.location,source);
   const result=harvest(villageSources,{root:context.root,world:context.world,location:context.location,source,at,actor:{skill:0},node:next.sources.nodes[key]});
@@ -145,11 +189,27 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
   next=freezeMaterials(next,catalogue,result.result.items.map(i=>i.material));next=setSourceNode(next,key,result.node);
   for(const i of result.result.items)items.push({key:materialKey(i.material,i.quality),amount:i.qty});
  }else if(request.type==='craft'){
-  const lots=inputLots(request,next,inventory),result=resolveBatch(law,{inputs:lots.map(({material,qty})=>({material,qty})),process:request.process??[{op:'steep',level:1}],stations:[]});
+  const lots=inputLots(request,next,inventory);if(request.recipe)checkMethod(next,inventory,request,lots);const result=resolveBatch(law,{inputs:lots.map(({material,qty})=>({material,qty})),process:request.process??[{op:'steep',level:1}],stations:[]});
   for(const i of lots)items.push({key:i.key,amount:-i.qty});
   const rough=roughBatch(result.product);
   if(rough)failure={code:rough.code,reason:rough.reason,result:{...result,product:{...result.product,outputs:{}}}};
   else{next=recordProduct(next,result.product);items.push({key:keyForProduct(BATCH_FAMILY,result.product),amount:1});batch=result;}
+ }else if(request.type==='acquire'){
+  const d=REFERENCES[request.ref],spec=REFERENCE_SPECS.find(r=>r.id===d.id);
+  if(spec.recipe)next=freezeRecipe(next,RECIPES[spec.recipe],null);
+  next=registerReference(next,spec);items.push({key:referenceKey(d.id),amount:1});outcome={kind:'acquired',text:`You took a ${d.name} from the shelf.`};
+ }else if(request.type==='return'){
+  items.push({key:request.key,amount:-1});outcome={kind:'returned',text:`You put the ${REFERENCES[referenceIdOf(request.key)].name} back on the shelf. Anything you already learned stays with you.`};
+ }else if(request.type==='learn'){
+  const r=learnFromReference(next,ACTOR,referenceIdOf(request.key),heldRefs(inventory));if(!r.ok)fail(r.reason);
+  next=r.state;items.push({key:request.key,amount:-1});outcome={kind:'learned',text:`You learned ${RECIPES[r.recipe].name}. The object is used up; the method stays with you.`};
+ }else if(request.type==='read'){
+  const r=readTraining(next,ACTOR,referenceIdOf(request.key),heldRefs(inventory));if(!r.ok)fail(r.reason);
+  next=r.state;grant=r.grant;outcome={kind:'read',text:`You read it. ${grant.id} improves a little.`};
+ }else if(request.type==='examine'){
+  const lot=examineLot(next,inventory,request),r=examine(next,ACTOR,lot.material.id,{skill:context.skill??0,difficulty:EXAMINE_DIFFICULTY,root:context.root,facts:lot.facts,cost:{sample:EXAMINE_COST},at});
+  next=r.state;items.push({key:request.key,amount:-r.cost.sample});
+  outcome=r.ok?{kind:'identified',text:'You studied the sample and now know its visible properties.'}:{kind:'failure',text:`You misread the sample and learned nothing. It was used up; the next try costs ${r.failure.retryCost.sample} samples.`};
  }else {
   const p=productFromNativeKey(request.key,next),raw=p.outputs.oral??{},oral=cancelOutputs(doseRules,p.outputs).outputs.oral??{},binds=bindOf(p)>0;
   // Tolerance dulls a repeat dose of the same effect; past the overdose line the excess is a poison condition.
@@ -174,7 +234,7 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
   nextDepth={dose,log:recordTrial(depth.log,{materials:consumed,process:p.process,seen,at})};
  }
  next.sequence++;validateOwner(next);
- return {state:next,items,effect,binding,batch,overdose,failure,depth:nextDepth};
+ return {state:next,items,effect,binding,batch,overdose,failure,depth:nextDepth,grant,outcome};
 }
 
 // Display names for ids in the experiment log; the log itself keeps exact ids.

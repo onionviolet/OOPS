@@ -1,0 +1,68 @@
+--- a/src/chain_inspector.js
++++ b/src/chain_inspector.js
+@@ -80,13 +80,13 @@
+ 
+ // GTL3 (2026-10-23): shared gate descriptors with their current inputs. Author
+ // truth, so undiscovered conditions show here; evaluation is a pure read.
+-const INSPECTED_GATES = [{gate: HERB_LESSON_GATE, facts: f => herbLessonFacts(f.inventory || {}, f.expansion?.actors?.player?.facts?.['reveal.herbLesson'])}];
++const INSPECTED_GATES = [{gate: HERB_LESSON_GATE, facts: f => herbLessonFacts(f.inventory || {}, f.expansion?.actors?.player?.facts?.['reveal.herbLesson']), completed: input => input['reveal.herbLesson'] === true}];
+ function projectGates(frame) {
+-    return INSPECTED_GATES.flatMap(({gate, facts}) => {
+-        const input = facts(frame), r = evaluateGate(gate, input);
++    return INSPECTED_GATES.flatMap(({gate, facts, completed = () => false}) => {
++        const input = facts(frame), r = evaluateGate(gate, input), done = completed(input);
+         return [row('source', gate.id, `${gate.kind} gate, ${gate.closes}. Reason: ${gate.reason}\nDials: ${show(r.dials)}\nRoutes: ${gate.routes.map(x => `${x.id} (${x.reason} Cost: ${x.cost})`).join('; ')}${gate.overflow ? `\nOverflow: ${gate.overflow.policy}, ${gate.overflow.reason}` : ''}`),
+-            row('observation', `${gate.id} now`, `${r.met ? 'open' : 'waiting'}${r.known ? '' : ' (inputs unknown)'}. Inputs: ${show(input)}`,
+-                r.met ? '' : `Author: ${r.authorReasons.join(' ')} Player sees: ${r.shown.join(' ')}`)];
++            row('observation', `${gate.id} now`, `${done ? 'learned (persistent)' : r.met ? 'open' : 'waiting'}${done || r.known ? '' : ' (inputs unknown)'}. Inputs: ${show(input)}`,
++                done ? 'Lesson already learned; repeat acquisition is not needed.' : r.met ? '' : `Author: ${r.authorReasons.join(' ')} Player sees: ${r.shown.join(' ')}`)];
+     });
+ }
+ 
+--- a/tests/chain_inspector.test.js
++++ b/tests/chain_inspector.test.js
+@@ -56,3 +56,44 @@
+     assert.ok(rows.some(r=>r.role==='part template'&&r.ref==='Wolf rat'));
+     assert.ok(rows.some(r=>r.role==='output batch'&&r.why.includes('receipt output count')));
+ });
++
++// R3: acquisition eligibility closes after learning; retained knowledge stays complete.
++import {createAcquisitionLesson, heldLesson, stageRevealKnowledge} from '../src/reveal_chain.js';
++import {prepareNativeUnlocks} from '../src/native_unlock_transaction.js';
++const leafKey=JSON.stringify({id:'Golmoon leaf'});
++const leafStock=n=>({[leafKey]:{item:{id:'Golmoon leaf'},count:n}});
++const gateRow=f=>projectChains(f,{developer:true}).find(c=>c.id==='gates').rows.at(-1);
++function assertLearnedLesson(f) {
++    const before=JSON.stringify(f), row=gateRow(freeze(f));
++    assert.match(row.detail,/learned \(persistent\)/);
++    assert.doesNotMatch(row.detail,/waiting|inputs unknown/);
++    assert.doesNotMatch(row.why,/Not yet learned|Something is still missing/);
++    assert.equal(JSON.stringify(f),before,'completion inspection is observer-safe');
++}
++test('herb lesson shows eligibility before learning and persistent completion after both commitment paths',()=>{
++    const facts={}, unlocks=[];
++    const acquire=createAcquisitionLesson({canWrite:()=>true,read:()=>({facts,worldId:'base.frontier',known:()=>false}),unlock:rows=>unlocks.push(...rows),notify:()=>{},refresh:()=>{}});
++    const frame=n=>({inventory:leafStock(n),expansion:{actors:{player:{facts}}}});
++    assert.match(gateRow(frame(19)).detail,/waiting/);
++    assert.match(gateRow(frame(20)).detail,/^open/);
++    acquire(leafStock(19),[]);assert.equal(facts['reveal.herbLesson'],undefined);
++    acquire(leafStock(20),[]);assert.equal(facts['reveal.herbLesson'],true);
++    assert.ok(unlocks.some(r=>r.recipe_id==='Weak healing powder'));
++    const count=unlocks.length;acquire(leafStock(25),[]);
++    assert.equal(unlocks.length,count,'inspection fix does not reopen acquisition');
++    assert.equal(heldLesson(leafStock(25),true),false);
++    assertLearnedLesson(frame(25));
++    assertLearnedLesson({inventory:{},expansion:structuredClone(frame(25).expansion)});
++    const plan={state:{actors:{player:{worldId:'base.frontier',facts:{}}}},gameplay:{player:{inventory:{[leafKey]:20}}}};
++    stageRevealKnowledge(plan,{[leafKey]:19},0);
++    let published=false;
++    const tx=prepareNativeUnlocks(plan.unlocks,{availabilities:{recipe:{'Weak healing powder':{setStatus:s=>{published=s.is_unlocked;}}}},flags:{}});
++    const envelope={availabilities:{recipe:{'Weak healing powder':0}}};
++    tx.write(envelope);assert.equal(envelope.availabilities.recipe['Weak healing powder'],1);
++    assert.equal(published,false);tx.publish();assert.equal(published,true);
++    assertLearnedLesson({inventory:leafStock(20),expansion:plan.state});
++    const alternative={inventory:leafStock(19),expansion:{actors:{player:{facts:{'reveal.herbLesson':false}}}},availabilities:envelope.availabilities};
++    assert.match(gateRow(alternative).detail,/waiting/,'recipe availability is not evidence of this handling lesson');
++    const next={state:structuredClone(plan.state),gameplay:{player:{inventory:{[leafKey]:25}}}};
++    stageRevealKnowledge(next,{[leafKey]:20},0);assert.equal(next.revealLesson,undefined);
++});

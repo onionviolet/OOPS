@@ -1,0 +1,58 @@
+{
+  "viewports": [
+    "1920x1080",
+    "1536x864"
+  ],
+  "steps": [
+    {
+      "ok": true,
+      "msg": "1920x1080 B mural button reachable via More panels > notebook > People (visible=true, enabled=true)"
+    },
+    {
+      "ok": true,
+      "msg": "screenshot g5-mural-button-real-ui-1920x1080.png"
+    },
+    {
+      "ok": true,
+      "msg": "screenshot g5-mural-read-real-ui-1920x1080.png"
+    },
+    {
+      "ok": true,
+      "msg": "1920x1080 B mural clicked via real UI; knowledge mural.war:1; text in panel DOM nodes=1: The wall shows year 1: The west reach rose with the south reach beside them against the coast reach, from a standing enmity. The painted ground is kept holy."
+    },
+    {
+      "ok": true,
+      "msg": "1920x1080 B mural: Save/reload/Export/literal Import canonical-equal"
+    },
+    {
+      "ok": true,
+      "msg": "1536x864 B mural button reachable via More panels > notebook > People (visible=true, enabled=true)"
+    },
+    {
+      "ok": true,
+      "msg": "screenshot g5-mural-button-real-ui-1536x864.png"
+    },
+    {
+      "ok": true,
+      "msg": "screenshot g5-mural-read-real-ui-1536x864.png"
+    },
+    {
+      "ok": true,
+      "msg": "1536x864 B mural clicked via real UI; knowledge mural.war:1; text in panel DOM nodes=1: The wall shows year 1: The west reach rose with the south reach beside them against the coast reach, from a standing enmity. The painted ground is kept holy."
+    },
+    {
+      "ok": true,
+      "msg": "1536x864 B mural: Save/reload/Export/literal Import canonical-equal"
+    },
+    {
+      "ok": true,
+      "msg": "no page errors (last session)"
+    }
+  ],
+  "muralText_1920x1080": "The wall shows year 1: The west reach rose with the south reach beside them against the coast reach, from a standing enmity. The painted ground is kept holy.",
+  "muralTextInPanel_1920x1080": 1,
+  "muralText_1536x864": "The wall shows year 1: The west reach rose with the south reach beside them against the coast reach, from a standing enmity. The painted ground is kept holy.",
+  "muralTextInPanel_1536x864": 1,
+  "pageErrors": [],
+  "status": "passed"
+}

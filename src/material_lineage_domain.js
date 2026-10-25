@@ -1,5 +1,6 @@
 import {registerDomain} from './domain_registry.js';
 import {readMaterialLineage} from './material_lineage.js';
+import {parseHeirloomKey} from './heirloom_items.js';
 import {isLineageMaterial} from './processed_materials.js';
 import {validateSpecimen} from './harvest.js';
 import {calendarMinutes} from './world_rhythm.js';
@@ -12,6 +13,7 @@ export function validateMaterialLineageEnvelope(envelope) {
     function validate(key,depth=0) {
         if(!own(key))return;
         if(depth>12)throw Error('Unsupported material lineage depth.');
+        if(parseHeirloomKey(key))return; // G3: a unique named object, its identity is the key; story_requests owns its request
         const parsed=JSON.parse(key),lineage=readMaterialLineage(key);
         if(!isLineageMaterial(parsed.id))throw Error('Unsupported native material lineage carrier.');
         for(const e of lineage.history) {

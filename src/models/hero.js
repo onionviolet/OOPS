@@ -298,7 +298,7 @@ class Hero extends Person {
             }
 
             const {id} = JSON.parse(items[i].item_key);
-            if(id && item_templates[id].tags.usable && favourite_consumables[id]) {
+            if(id && item_templates[id]?.tags.usable && favourite_consumables[id]) {
                 remove_consumable_from_favourites(id);
             } else if(favourite_items[items[i].item_key]) {
                 const item = getItemFromKey(items[i].item_key);

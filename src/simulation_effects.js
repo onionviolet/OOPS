@@ -61,6 +61,9 @@ import {applyEnergyEffect} from "./energy_resources.js";
 import {canonicalDurabilityKey} from './absorb_e2/durability.js';
 import {applyPursuitEffect,pursuitContact} from "./pursuit.js";
 import {framedSimulationFacts} from './simulation_render.js';
+import {grantSource,removeSource} from './source_suppliers.js';
+import {applyConstructEffect} from './temporary_construct.js';
+import {syncEquipSources} from './implant_service.js';
 
 // structuredClone-equivalent deep copy for the JSON-shaped plan data (state,
 // gameplay, budgets), about twice as fast on large saves. Shared references and
@@ -378,10 +381,8 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
         } else if(e.type === "source" || e.type === "faculty") {
             const definition = registry.sources.get(e.sourceId); assert(definition, "Unknown capability source.");
             const faculties = s.faculties[actor] ||= {};
-            if(e.operation === "grant") {
-                a.sources[e.sourceId] ||= {acquiredAt: state.clock, expiresAt: e.duration ? state.clock + e.duration : null, receiptId: cause, worldId: a.worldId, revision: definition.revision, origin: e.origin || "unknown"};
-                faculties[e.sourceId] ||= {awakened: e.awakened ?? false, active: e.active ?? false, suppressed: false, development: 0};
-            } else if(e.operation === "remove") {delete a.sources[e.sourceId]; delete faculties[e.sourceId];}
+            if(e.operation === "grant") grantSource(state, actor, definition, {supplier: e.supplier, duration: e.duration, origin: e.origin || "unknown", receiptId: cause, awakened: e.awakened ?? false, active: e.active ?? false, shifts: e.shifts});
+            else if(e.operation === "remove") removeSource(state, actor, e.sourceId, {supplier: e.supplier});
             else {
                 const f = faculties[e.sourceId]; assert(f && a.sources[e.sourceId], "Faculty must be acquired first.");
                 if(e.operation === "awaken") f.awakened = true;
@@ -389,6 +390,7 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
                 else if(e.operation === "suppress") f.suppressed = e.suppressed ?? true;
                 else {assert(finite(e.amount) && e.amount > 0, "Invalid source development."); f.development += e.amount;}
             }
+        } else if(e.type === "construct") {applyConstructEffect(plan,e,actor,cause,registry,{readInventory:inventory,writeInventory});
         } else if(e.type === "power") {
             const definition = registry.simulation.powers.get(e.powerId); assert(definition, "Unknown executable power.");
             const powers = s.powers[actor] ||= {}, existing = powers[e.powerId];
@@ -431,10 +433,13 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
                 const next = stageAcquisition({owner: inventory(plan,actor)}, {consumes: e.key ? [{owner:"owner",key:e.key,count:1}] : [], grants: old ? [{owner:"owner",key:old,count:1}] : []}).owner;
                 writeInventory(plan,actor,next);
                 if(e.key == null) delete slots[e.slot]; else slots[e.slot] = e.key;
+                syncEquipSources(state, actor, registry, old, e.key ?? null, cause);
                 continue;
             }
+            const previousKey = slots[e.slot] ?? null;
             if(e.key == null) delete slots[e.slot];
             else {assert(inventory(plan, actor)[e.key] > 0, "Actor does not own this equipment."); assert(!Object.values(slots).includes(e.key) || slots[e.slot] === e.key, "Item is already equipped."); slots[e.slot] = e.key;}
+            syncEquipSources(state, actor, registry, previousKey, e.key ?? null, cause);
         } else if(e.type === "unlock") {
             assert(actor === "player", "Native content unlocks belong to the hero."); plan.unlocks.push(e);
         } else if(e.type === "event") {

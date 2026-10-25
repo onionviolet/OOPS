@@ -1,0 +1,22 @@
+diff --git a/src/components/levelable_component.js b/src/components/levelable_component.js
+index 2b883e6e4..4190c5ecc 100644
+--- a/src/components/levelable_component.js
++++ b/src/components/levelable_component.js
+@@ -1,4 +1,5 @@
+ import {recordLearning} from '../recent_learning.js';
++import {settleCappedSkillGain} from '../skill_overflow_domain.js';
+ "use strict";
+ 
+ import { config } from "../config.js";
+@@ -134,7 +135,10 @@ class LevelableComponent extends StatHaver {
+ 
+         if(cap_gained_xp && Number.isFinite(skillXP.xp_to_next_lvl)) {
+             //cap on singular gains for non-crafting skills; cap for crafting skills handled in crafting code as it's dependent on how many items are made at once
+-            xp_to_add = Math.min(xp_to_add, skillXP.xp_to_next_lvl*config.skill_xp_gains_cap);
++            const cap = skillXP.xp_to_next_lvl*config.skill_xp_gains_cap;
++            // The world decides whether the excess is lost or banked for later gains (GTR16).
++            xp_to_add = is_from_loading ? Math.min(xp_to_add, cap)
++                : settleCappedSkillGain({skillId: skill.skill_id, xp: xp_to_add, cap, xpToNext: skillXP.xp_to_next_lvl});
+         }
+         
+         const prev_name = skill.getName();

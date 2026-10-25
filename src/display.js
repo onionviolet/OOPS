@@ -43,6 +43,7 @@ import { enemy_killcount, enemy_templates } from "./enemies.js";
 import { playerAttributeDefinitions, GEAR_DIMENSION_NOTES, PERCENT_ATTRIBUTES, DAMAGE_TAKEN_FLOOR, affixSourceRows } from "./player_attribute_definitions.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
+import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
 import {recipeMakeableNow, itemRecipeStatus} from "./crafting_visibility.js";
 import {readPort} from './ui_ports.js';
@@ -4802,12 +4803,18 @@ function update_displayed_reputation() {
             clear_HTML_content(rep_value_span);
 
             insert_HTML(rep_name_span, capitalize_first_letter(reputation_region) + " reputation");
-            insert_HTML(rep_value_span, character.reputation[reputation_region]);
+            const rank = rankOf(reputation_region, character.reputation[reputation_region]);
+            insert_HTML(rep_value_span, `${rank.name} (${character.reputation[reputation_region]})`);
+            rep_div.title = `${rank.feeling} ${rank.next ? `Next: ${rank.next.name} at ${rank.next.at}.` : "Highest rank."}`;
 
             rep_div.appendChild(rep_name_span);
             rep_div.appendChild(rep_value_span);
 
             data_entry_divs.reputation.appendChild(rep_div);
+            const rep_feeling = document.createElement("div");
+            rep_feeling.classList.add("data_entry_feeling");
+            rep_feeling.textContent = rank.feeling;
+            data_entry_divs.reputation.appendChild(rep_feeling);
         }
     });
 }

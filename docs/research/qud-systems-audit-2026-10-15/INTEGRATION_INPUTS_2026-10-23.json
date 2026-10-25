@@ -1,0 +1,135 @@
+{
+ "master_head": "547209e82c29e897e6b602a4ef5d8e8ab46b3ebf",
+ "lane_base": "d8af620f2",
+ "generated": "2026-10-23",
+ "lanes": {
+  "G1": {
+   "worktree": "qud-g1-reference-123844",
+   "tracked_diff_sha256": "f7fccb16e29bab8c95591d4bf59f8dee56a181b6712e8f8aff13bca6183d67af",
+   "modified": [
+    "src/crafting_domain.js",
+    "src/crafting_frontier_runtime.js",
+    "src/crafting_home.js",
+    "src/crafting_native_items.js",
+    "src/main.js"
+   ],
+   "untracked": {
+    "scripts/reference_browser.cjs": "4e341b621c6cd9d36cdd256f62100d41c0ed5d58bed311928474142c4c9a9a88",
+    "src/craft_reference.js": "8c6a15bb43257352ca9f8bc533c5fec609b9279956060e9728dcbbed3f89829e",
+    "src/craft_reference_content.js": "d27ca1f7a629ea7711e1eed69552df035de73fb46765d985295ee3e06d988d93",
+    "tests/craft_reference.test.js": "a29dcac93db84b4792337ff4c92cbc90ba27d74cab35166742c64631dc2a353f"
+   }
+  },
+  "G2": {
+   "worktree": "qud-g2-rank-4363ba",
+   "tracked_diff_sha256": "3d0abd6650b73ba2e99eac6039c6f84d962a64d234ad979932b5466346ce384b",
+   "modified": [
+    "src/display.js",
+    "src/main.js",
+    "src/reputation.js",
+    "src/skill_expansion_content.js",
+    "src/skill_expansion_host.js",
+    "src/titles.js"
+   ],
+   "untracked": {
+    "src/faction_rank.js": "6c57c4f365cc7c8025f53c4f27f827219a83a15cc02d43757937e2badde5d33a",
+    "tests/faction_rank.test.js": "8096e20d8db44e7865baf1d97a05e43c1ebba8710bbeac39c97c18ec91c97a6d"
+   }
+  },
+  "G3": {
+   "worktree": "qud-g3-fetch-6ccc86",
+   "tracked_diff_sha256": "2d4397f393223ba18e367d7fd5de6165a8eb85c336e2d7d8d3875d381a93a734",
+   "modified": [
+    "src/generated_people_ui.js",
+    "src/items.js",
+    "src/lore_history_view.js",
+    "src/main.js",
+    "src/material_lineage_domain.js",
+    "src/models/hero.js",
+    "src/story_requests.js"
+   ],
+   "untracked": {
+    "src/heirloom_items.js": "0a0f97108b740d23938c2fb147764fcd14cc32d93e7c1f42e7b5d49458efbf78",
+    "tests/story_request_unique.test.js": "2a4231c4d58d0ec0834e3ddd172d02d3660bc61bf41fda6202916394874131f1"
+   },
+   "note": "also edits material_lineage_domain.js and models/hero.js, and adds src/heirloom_items.js, beyond the merge-plan inventory"
+  },
+  "G4": {
+   "worktree": "qud-g4-implants-cb17f7",
+   "tracked_diff_sha256": "f34c5d2a666e60c9e65575fcd5b2fb2b8688cd251924f43678b2beb308cac4b2",
+   "modified": [
+    "src/backlog_expansion_body.js",
+    "src/capabilities.js",
+    "src/simulation.js",
+    "src/simulation_contracts.js",
+    "src/simulation_effects.js",
+    "src/structured_ability_runtime.js"
+   ],
+   "untracked": {
+    "src/implant_service.js": "97fc3208c2e1314a079f2b0e67c138d39090f81e3bbd118576502730d0de4eeb",
+    "src/source_suppliers.js": "39894355baa1c82ef26049d8305cc80b26bb0775fad9fa8fb47adf0e7d78dcbf",
+    "src/temporary_construct.js": "b8635d0a86a9b2c470bed7ea60507833f61506c1592a0715dbc66d8dd706f88b",
+    "tests/source_suppliers_constructs.test.js": "8aab47f853abb1321bd05a88e53af68331a9d487115b81de2f7dc99735265454"
+   }
+  },
+  "G5": {
+   "worktree": "qud-g5-history-57e13f",
+   "tracked_diff_sha256": "e3e8871632c9b954816c84073b2c6aa7896c11c9bf8f88e694f151cd7a65c747",
+   "modified": [
+    "src/chronicle.js",
+    "src/chronicle_ui.js",
+    "src/generated_people.js",
+    "src/generated_people_ui.js",
+    "src/lore_history_state.js"
+   ],
+   "untracked": {
+    "src/world_history_consumers.js": "f98397319dbc918699e3918299d8835b471b275b5885069fdd87e90ed6f29985",
+    "tests/world_history_consumers.test.js": "3c5694b6aeb7200213d91a8c9bf5494fd09e148260f3908ac957bdcd848db7e7"
+   }
+  },
+  "G6": {
+   "worktree": "qud-g6-naming-69da15",
+   "tracked_diff_sha256": "919a097c80d7e761926f3537bd6a4918091e3bfc3ed5c5e4087ec1a704f24683",
+   "modified": [
+    "src/items.js",
+    "src/main.js",
+    "src/name_grammar.js",
+    "src/ui_extras.js"
+   ],
+   "untracked": {
+    "scripts/naming_relics_browser.cjs": "3d29a8b6bbc44063e292e8569f6d37f0449d20341d0365b4f6a76a1eb3f5efbf",
+    "src/item_description.js": "c3f351f3e4ce0dac9daa60586b5a975ca2407f2667cc14a38efbfea3557ed3ec",
+    "src/naming_achievements_ui.js": "c96989bf3ab444668ff7a6d474dddd54f2bfe418d47824f4ff728777ba0c70d0",
+    "src/naming_act.js": "afac60dddd9dd29135044eac9b032e469d039b606db7a1f9096353932674ceea",
+    "src/relic_generator.js": "576dcb43e1bcf2bfaf818a06dbdc69c778ff8cf3b45f906ad339a56a4a682bdc",
+    "tests/naming_items_native.test.js": "39401358c7d6050fb334b14ac9ddb37ee0111d9e5642e2e10c1ddd9b64dfdd35",
+    "tests/naming_relics.test.js": "9e247cff0c69fd6e1b33d06032a516d1b2243380afecb16b8e9ff6dcb1eef871"
+   },
+   "gitignored_untracked": {
+    "src/achievements.js": "a2ee6cc481367da676e77754c605110de5a63c28c8727ed90ece8957c450436e",
+    "note": "matched by .gitignore line 2 \"achievements.js\"; missed by plain untracked listing; must be added with git add -f or renamed before any commit"
+   }
+  },
+  "G7": {
+   "worktree": "qud-g7-fields-66ba3f",
+   "tracked_diff_sha256": "249cd4bf1d2cdf4ad31fe4ce835485c74cf64abf27056cffccd78c20f258aad4",
+   "modified": [
+    "docs/RULES_INDEX.md",
+    "src/native_tool_domains.js"
+   ],
+   "untracked": {
+    "docs/PHYSICAL_FIELD_LAYER_DESIGN_2026-10-23.md": "1cb4a5beba8f7ec8e7951be2b4382e7f5bffa469383a8402d5066805adeaafdc",
+    "scripts/playtest/fields-continuity.mjs": "eafd58fe9461511542a1e9ca2b8077fb44d1926057e43085e63c20f2b885010a",
+    "src/field_layer.js": "ac10e3149e5e3abbde395cc7e355d809625f43f335c84674f8ad9bb0b8c69a05",
+    "src/field_layer_domain.js": "376b7859f0d6ec0ae81b605b9dc4ae606e216aa5ade4ef050c38a0914988108d",
+    "src/field_layer_factory.js": "09549932787ee4002bb1d5d45784b0f304b91de5755d1fae120a5776e0c925f3",
+    "src/field_layer_panel.js": "5d4ae4a089b9a7cbcfdcd08af1338dbfa7b81a3451fd5e12184811dc9c234319",
+    "tests/field_layer.test.js": "a23dc181f468619ffd1363cf36a6bdecc18410c59a9da3623c6e8650a57d433c"
+   }
+  }
+ },
+ "baseline_dependency_copied": {
+  "src/progression_gates.js": "3e7cf4951422a89006120887da6f68723ba9fcb7a99b91913a406605de2157d4",
+  "note": "imported by tracked src/pledges.js at master 547209e82 but untracked in the primary checkout; copied read-only so the candidate builds"
+ }
+}

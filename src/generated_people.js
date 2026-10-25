@@ -18,7 +18,8 @@ export function createGeneratedPeople(seed,at,authoredNames=[],streamState=null,
     let rng=deriveSimulationSeed(seed,`village.generated_people@${revision}`);
     const draw=n=>{if(streamState)return Math.floor(drawUnit(streamState,scopedStream(revision===1?'world.people:village':'world.people:village.generated_people@2'),revision===1?'generation':'generation@2')*n);rng=xorshift32(rng);return Math.floor(rng/0x100000000*n);};
     const people=[];
-    for(let i=0;i<3;i++) {
+    const origins=context.history?.origins,count=Math.min(5,origins?.length||3);
+    for(let i=0;i<count;i++) {
         const template=peopleTemplates[draw(peopleTemplates.length)],id=`traveler_${i+1}`;
         const naming=generatePersonName({seed:streamState?draw(0x100000000):rng,key:id,used:people.map(p=>p.name),authored:authoredNames.length?authoredNames:undefined});
         const pool=[...traits],picked=[];for(let j=0,n=2+draw(2);j<n;j++)picked.push(pool.splice(draw(pool.length),1)[0]);
@@ -27,22 +28,23 @@ export function createGeneratedPeople(seed,at,authoredNames=[],streamState=null,
         people.push({id,...naming,templateId:template.id,role:template.role,traits:picked,knownTraits:[],met:false,
             need:{id:needs[draw(needs.length)],initial:60+draw(26),value:70},goal,
             possessions:{coins:reward+2+draw(8),keepsake:template.keepsakes[draw(template.keepsakes.length)],supplies:{}},
-            arrivedAt:at+(i===2?1440:0),status:i===2?'on_road':'visiting',resident:false,action:'arriving',relationship:null});
+            arrivedAt:at+(i>=2?1440*(i-1):0),status:i>=2?'on_road':'visiting',resident:false,action:'arriving',relationship:null,...(origins?{origin:structuredClone(origins[i])}:{})});
     }
     return advanceGeneratedPeople({schema:1,...(revision===2?{generationRevision:2}:{}),seed,rng,enrolledAt:at,lastMinute:at,people},at);
 }
 export function validateGeneratedPeople(s) {
     check(s&&s.schema===1&&natural(s.seed)&&s.seed<=0xffffffff&&natural(s.rng)&&s.rng<=0xffffffff&&natural(s.enrolledAt)&&natural(s.lastMinute)&&s.lastMinute>=s.enrolledAt,'schema/clock');
     const revision=s.generationRevision??1;check([1,2].includes(revision),'generation revision');
-    check(Array.isArray(s.people)&&s.people.length===3,'population');const ids=new Set(),names=new Set();
+    check(Array.isArray(s.people)&&s.people.length>=3&&s.people.length<=5&&(s.people.length===3||s.people.every(p=>p.origin)),'population');const ids=new Set(),names=new Set();
     for(const p of s.people) {
-        check(/^traveler_[1-3]$/.test(p.id)&&!ids.has(p.id)&&typeof p.name==='string'&&p.name.length<=64&&!names.has(p.name.toLowerCase()),'identity');ids.add(p.id);names.add(p.name.toLowerCase());
+        check(/^traveler_[1-5]$/.test(p.id)&&!ids.has(p.id)&&typeof p.name==='string'&&p.name.length<=64&&!names.has(p.name.toLowerCase()),'identity');ids.add(p.id);names.add(p.name.toLowerCase());
         check(peopleTemplates.some(t=>t.id===p.templateId)&&typeof p.role==='string'&&p.role.length<=40&&['hill','river','road'].includes(p.culture)&&p.grammarRevision===1,'template');
         check(Array.isArray(p.traits)&&p.traits.length>=2&&p.traits.length<=3&&new Set(p.traits).size===p.traits.length&&p.traits.every(t=>traits.includes(t))&&Array.isArray(p.knownTraits)&&new Set(p.knownTraits).size===p.knownTraits.length&&p.knownTraits.every(t=>p.traits.includes(t))&&typeof p.met==='boolean'&&(p.met||p.knownTraits.length===0),'traits/knowledge');
         check(needs.includes(p.need?.id)&&natural(p.need.initial)&&p.need.initial<=100&&natural(p.need.value)&&p.need.value<=100,'need');
         check(p.goal?.id==='supply'&&typeof p.goal.fulfilled==='boolean'&&(revision===1?['Stale bread','Rat pelt','Rat tail'].includes(p.goal.item)&&natural(p.goal.reward)&&p.goal.reward>=3&&p.goal.reward<=6&&(p.goal.quantity==null||p.goal.quantity===1):validateVillageGoal(p.goal,p.templateId)),'goal');
         const quantity=revision===1?1:p.goal.quantity;
         check(natural(p.possessions?.coins)&&p.possessions.coins<=(revision===1?20:p.goal.reward+20)&&typeof p.possessions.keepsake==='string'&&p.possessions.keepsake.length<=40&&p.possessions.supplies&&Object.keys(p.possessions.supplies).every(k=>k===p.goal.item&&p.possessions.supplies[k]===quantity),'possessions');
+        check(p.origin==null||p.origin.faction&&typeof p.origin.faction==='string'&&p.origin.faction.length<=40&&['wayfarer','refugee'].includes(p.origin.kind)&&(p.origin.war==null||typeof p.origin.war==='string'),'origin');
         check(natural(p.arrivedAt)&&p.arrivedAt>=s.enrolledAt&&['visiting','on_road','resident'].includes(p.status)&&typeof p.resident==='boolean'&&(!p.resident||p.goal.fulfilled)&&['arriving','resting','talking','planning','browsing','traveling'].includes(p.action)&&[null,'helped with supplies'].includes(p.relationship),'routine');
         check(!p.goal.fulfilled||(p.met&&p.relationship==='helped with supplies'&&p.possessions.supplies[p.goal.item]===quantity),'settlement');
     }validateStoryRequests(s);return s;
@@ -70,7 +72,7 @@ export function generatedPeopleView(s) {
     if(!s)return [];validateGeneratedPeople(s);
     return s.people.filter(p=>p.arrivedAt<=s.lastMinute&&(p.met||p.status!=='on_road')).map(p=>({id:p.id,name:p.met?p.name:'Unmet traveler',role:p.role,status:p.status,action:p.action,met:p.met,
         traits:p.knownTraits,undiscovered:p.met?p.traits.length-p.knownTraits.length:null,need:p.met?p.need.id:null,
-        goal:p.met?structuredClone(p.goal):null,relationship:p.relationship}));
+        goal:p.met?structuredClone(p.goal):null,relationship:p.relationship,...(p.met&&p.origin?{origin:structuredClone(p.origin)}:{})}));
 }
 export function interactGeneratedPerson(state,id,action,{inVillage=true,suppliedItem=null,suppliedQuantity=1}={}) {
     validateGeneratedPeople(state);check(inVillage,'meet them in Village');const s=structuredClone(state),p=s.people.find(p=>p.id===id);

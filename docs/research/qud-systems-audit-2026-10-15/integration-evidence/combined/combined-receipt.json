@@ -1,0 +1,27 @@
+{
+  "viewports": [
+    "1920x1080",
+    "1536x864"
+  ],
+  "checks": [
+    "screenshot g2-reputation-rank-1920x1080.png",
+    "1920x1080 G2: reputation shows \"Neighbour (60)\" with its feeling line",
+    "screenshot g1-reference-shelf-1920x1080.png",
+    "1920x1080 G1: reference shelf visible; one reference taken into the inventory",
+    "screenshot g6-naming-panel-1920x1080.png",
+    "screenshot g7-fields-burning-1920x1080.png",
+    "1920x1080 G7: two packs spilled, lit, 3 minutes stepped",
+    "1920x1080 combined state: Save/reload/Export/literal Import exact",
+    "1920x1080 G3 full-app attempt failed: locator.waitFor: Timeout 6000ms exceeded.",
+    "screenshot g2-reputation-rank-1536x864.png",
+    "1536x864 G2: reputation shows \"Neighbour (60)\" with its feeling line",
+    "screenshot g1-reference-shelf-1536x864.png",
+    "1536x864 G1: reference shelf visible; one reference taken into the inventory",
+    "screenshot g6-naming-panel-1536x864.png",
+    "screenshot g7-fields-burning-1536x864.png",
+    "1536x864 G7: two packs spilled, lit, 3 minutes stepped",
+    "1536x864 combined state: Save/reload/Export/literal Import exact",
+    "1536x864 G3 full-app attempt failed: locator.waitFor: Timeout 6000ms exceeded."
+  ],
+  "status": "passed"
+}

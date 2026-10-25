@@ -1,0 +1,159 @@
+diff --git a/src/chain_inspector.js b/src/chain_inspector.js
+index 46be9ef0c..57da91b22 100644
+--- a/src/chain_inspector.js
++++ b/src/chain_inspector.js
+@@ -3,6 +3,8 @@
+ import {HARVEST_SPECIES, HARVEST_PARTS, HARVEST_CAP, GRADED_IDS, partNames} from './harvest.js';
+ import {INGREDIENTS, MIXTURE_ID} from './mixture_state.js';
+ import {FEATURE_OBJECT_KEYS, featureObjectDefinitions} from './feature_expansion_objects.js';
++import {evaluateGate} from './progression_gates.js';
++import {HERB_LESSON_GATE, herbLessonFacts} from './reveal_chain.js';
+ 
+ const show = value => JSON.stringify(value);
+ const count = value => value?.count ?? (typeof value === 'number' ? value : 0);
+@@ -76,6 +78,18 @@ function projectFeatureObjects({expansion = {}, inventory = {}} = {}) {
+     return [...rows, ...templates];
+ }
+ 
++// GTL3 (2026-10-23): shared gate descriptors with their current inputs. Author
++// truth, so undiscovered conditions show here; evaluation is a pure read.
++const INSPECTED_GATES = [{gate: HERB_LESSON_GATE, facts: f => herbLessonFacts(f.inventory || {}, f.expansion?.actors?.player?.facts?.['reveal.herbLesson'])}];
++function projectGates(frame) {
++    return INSPECTED_GATES.flatMap(({gate, facts}) => {
++        const input = facts(frame), r = evaluateGate(gate, input);
++        return [row('source', gate.id, `${gate.kind} gate, ${gate.closes}. Reason: ${gate.reason}\nDials: ${show(r.dials)}\nRoutes: ${gate.routes.map(x => `${x.id} (${x.reason} Cost: ${x.cost})`).join('; ')}${gate.overflow ? `\nOverflow: ${gate.overflow.policy}, ${gate.overflow.reason}` : ''}`),
++            row('observation', `${gate.id} now`, `${r.met ? 'open' : 'waiting'}${r.known ? '' : ' (inputs unknown)'}. Inputs: ${show(input)}`,
++                r.met ? '' : `Author: ${r.authorReasons.join(' ')} Player sees: ${r.shown.join(' ')}`)];
++    });
++}
++
+ // T3 integration slot: pass a retained resolver-produced trace as ruleTrace.
+ // The inspector clones/displays it verbatim. Never call a resolver here or infer
+ // missing traces from products. This field is transient view input, not a save domain.
+@@ -87,5 +101,6 @@ export function projectChains(frame = {}, {developer = false} = {}) {
+         {id:'mixtures', label:'P2 ingredients → mixture → observed method', rows:projectMixtures(frame)},
+         {id:'feature', label:'Feature objects: cut → dry → kit; match branch', rows:projectFeatureObjects(frame)},
+         {id:'rules', label:'Resolver rule trace', rows:[row('observation','T3 trace', frame.ruleTrace == null ? 'No resolver trace supplied. Reserved for T3; no recomputation.' : show(structuredClone(frame.ruleTrace)))]},
++        {id:'gates', label:'Progression gates (GTR) · inputs → open or waiting', rows:projectGates(frame)},
+     ];
+ }
+diff --git a/src/chain_inspector_ui.js b/src/chain_inspector_ui.js
+index 1a16ac20b..4e0cae3f2 100644
+--- a/src/chain_inspector_ui.js
++++ b/src/chain_inspector_ui.js
+@@ -56,6 +56,9 @@ export function createChainInspector({container, read, developer = false}) {
+         panel.style.maxHeight = panel.open ? '84vh' : '';
+         panel.style.overflow = panel.open ? 'auto' : '';
+         panel.style.zIndex = panel.open ? '10000' : '';
++        // The flat-row token rule forces details transparent; the floating lens needs a solid fill.
++        if (panel.open) panel.style.setProperty('background', 'var(--theme-bg, var(--workspace-surface))', 'important');
++        else panel.style.removeProperty('background');
+         render();
+     });
+     container.append(panel);
+diff --git a/src/components/levelable_component.js b/src/components/levelable_component.js
+index 2b883e6e4..4190c5ecc 100644
+--- a/src/components/levelable_component.js
++++ b/src/components/levelable_component.js
+@@ -1,4 +1,5 @@
+ import {recordLearning} from '../recent_learning.js';
++import {settleCappedSkillGain} from '../skill_overflow_domain.js';
+ "use strict";
+ 
+ import { config } from "../config.js";
+@@ -134,7 +135,10 @@ class LevelableComponent extends StatHaver {
+ 
+         if(cap_gained_xp && Number.isFinite(skillXP.xp_to_next_lvl)) {
+             //cap on singular gains for non-crafting skills; cap for crafting skills handled in crafting code as it's dependent on how many items are made at once
+-            xp_to_add = Math.min(xp_to_add, skillXP.xp_to_next_lvl*config.skill_xp_gains_cap);
++            const cap = skillXP.xp_to_next_lvl*config.skill_xp_gains_cap;
++            // The world decides whether the excess is lost or banked for later gains (GTR16).
++            xp_to_add = is_from_loading ? Math.min(xp_to_add, cap)
++                : settleCappedSkillGain({skillId: skill.skill_id, xp: xp_to_add, cap, xpToNext: skillXP.xp_to_next_lvl});
+         }
+         
+         const prev_name = skill.getName();
+diff --git a/src/display.js b/src/display.js
+index 215856b3b..a8f108a17 100644
+--- a/src/display.js
++++ b/src/display.js
+@@ -5454,7 +5454,11 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
+     if (skill.getCurrentXP() !== "Max") {
+         skill_bar_divs[skill.category][skill.skill_id].children[0].classList.remove("skill_bar_capped");
+         skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.getCurrentXP()/skill.getXPToNextLvl()*1000)/1000}%`;
+-        skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0].innerText = `${expo({number: skill.getCurrentXP()})} / ${expo({number: skill.getXPToNextLvl()})}`;
++        // GTL6: practice banked past the single-gain cap, per world (GTR16, GTR21).
++        const digesting = domainRegistry.project('skill_overflow', 'bank', skill.skill_id) || 0;
++        const xp_line = skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0];
++        xp_line.innerText = `${expo({number: skill.getCurrentXP()})} / ${expo({number: skill.getXPToNextLvl()})}` + (digesting > 0 ? ` · digesting ${expo({number: digesting})}` : '');
++        xp_line.title = digesting > 0 ? domainRegistry.project('skill_overflow', 'row')?.reason || '' : '';
+ 
+     } else {
+         skill_bar_divs[skill.category][skill.skill_id].children[0].classList.add("skill_bar_capped");
+diff --git a/src/reveal_chain.js b/src/reveal_chain.js
+index bd896f02e..46801aea8 100644
+--- a/src/reveal_chain.js
++++ b/src/reveal_chain.js
+@@ -1,10 +1,23 @@
+ import {materialInsights, acquiredMaterialIds, inventoryGains} from './material_insights.js';
++import {defineGate, evaluateGate} from './progression_gates.js';
+ // Original implementation inspired by Proto23's experience/capability/UI chain.
+ // No foreign code, assets or reward values are used. Native owners retain progress.
+ export const HERB_LESSON = {material:'Golmoon leaf',count:20,recipe:'Weak healing powder'};
++// GTL2 (2026-10-23): first gate on the shared descriptor. Behaviour unchanged.
++export const HERB_LESSON_GATE = defineGate({id:'frontier.herb_lesson', kind:'knowledge',
++    reason:'Handling enough leaves teaches how they behave when dried and ground.',
++    requires:{all:[
++        {fact:'held.'+HERB_LESSON.material, op:'gte', value:{dial:'count'}, reason:`Hold ${HERB_LESSON.count} ${HERB_LESSON.material}.`, hint:'Handle more of these leaves.'},
++        {fact:'reveal.herbLesson', op:'eq', value:false, reason:'Not yet learned.'}]},
++    dials:{count:{default:HERB_LESSON.count, min:1}},
++    routes:[{id:'recipe-reward', reason:'Any ordinary recipe source (reward, book, teacher) unlocks the preparation directly.', cost:'Whatever that source asks.'}],
++    closes:'persist'});
++export function herbLessonFacts(inventory, learned) {
++    return {['held.'+HERB_LESSON.material]: Object.values(inventory).reduce((n,row)=>n+(row.item?.id===HERB_LESSON.material?row.count:0),0),
++        'reveal.herbLesson': learned === true};
++}
+ export function heldLesson(inventory, learned) {
+-    if (learned) return false;
+-    return Object.values(inventory).reduce((n,row)=>n+(row.item?.id===HERB_LESSON.material?row.count:0),0)>=HERB_LESSON.count;
++    return evaluateGate(HERB_LESSON_GATE, herbLessonFacts(inventory, learned)).met;
+ }
+ export function revealLessonMessages(plan) {
+     return [...(plan.revealLesson ? ['Handling twenty Golmoon leaves taught you a preparation. Review it in Learned preparations.'] : []),
+diff --git a/tests/chain_inspector.test.js b/tests/chain_inspector.test.js
+index b2540986d..35093e8d7 100644
+--- a/tests/chain_inspector.test.js
++++ b/tests/chain_inspector.test.js
+@@ -37,7 +37,7 @@ test('non-developer views fail closed without even reading hidden or unknown pro
+ });
+ test('legacy absence does not initialize owners or streams',()=>{
+     const f=freeze({});const rows=projectChains(f,{developer:true});
+-    assert.equal(rows.length,4);assert.deepEqual(f,{});assert.match(rows[0].rows[0].detail,/No retained/);
++    assert.equal(rows.length,5);assert.deepEqual(f,{});assert.match(rows[0].rows[0].detail,/No retained/);
+ });
+ test('actual scheduling, latest-only receipt, held inputs and kit branch are explicit',()=>{
+     const rows=projectChains(fixture(),{developer:true}), text=JSON.stringify(rows);
+diff --git a/tests/micro_p1_xp.test.js b/tests/micro_p1_xp.test.js
+index b357031e6..f46256aa9 100644
+--- a/tests/micro_p1_xp.test.js
++++ b/tests/micro_p1_xp.test.js
+@@ -21,15 +21,16 @@ test('native capped grants preserve ordering, uncapped restoration and parent ca
+     const limit = skills.Combat.base_xp_cost * config.skill_xp_gains_cap;
+     grant('Combat', 1000);
+     assert.equal(xp('Combat').total_xp, limit, 'finite capped native grant');
++    // Frontier overflow is banked (GTL6): a later below-cap gain releases as much again.
+     grant('Combat', limit / 2);
+-    assert.equal(xp('Combat').total_xp, limit * 1.5, 'below-cap grant survives');
++    assert.equal(xp('Combat').total_xp, limit * 2, 'below-cap grant survives and draws an equal banked amount');
+     grant('Combat', limit);
+-    assert.equal(xp('Combat').total_xp, limit * 2.5, 'exact boundary survives');
++    assert.equal(xp('Combat').total_xp, limit * 3, 'exact boundary survives with no draw past the cap');
+ 
+     const lvl = character.getLevelableComponent();
+     lvl.xp_bonuses.total_multiplier.all_skill = 3;
+     grant('Combat', limit / 2, {use_bonus: true});
+-    assert.equal(xp('Combat').total_xp, limit * 3.5, 'bonus applied before cap');
++    assert.equal(xp('Combat').total_xp, limit * 4, 'bonus applied before cap');
+     lvl.xp_bonuses.total_multiplier.all_skill = 1;
+ 
+     grant('Swords', 1000, {add_to_parent: true});

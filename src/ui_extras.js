@@ -3,6 +3,7 @@ import {mountRowContextMenu} from './row_context_menu.js';
 import {mountEmptyStates} from './empty_states.js';
 // Importing these registers their domains and panels before the registry initializes (main.js).
 import './known_things.js';
+import './naming_achievements_ui.js';
 import './statistics_panel.js';
 import './today_strip.js';
 import './region_view.js';

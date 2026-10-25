@@ -5,8 +5,8 @@ import {assert, record, stableId, jsonData, validatePredicate} from './simulatio
 
 const functions = {
     physical: new Set(['vital', 'condition', 'body', 'item', 'equipment', 'relocate']),
-    craft: new Set(['item', 'transfer', 'equipment', 'container']),
-    storage: new Set(['container', 'transfer', 'custody']),
+    craft: new Set(['item', 'transfer', 'equipment', 'container', 'construct']),
+    storage: new Set(['container', 'transfer', 'custody', 'construct']),
     perception: new Set(['knowledge', 'observation']),
     support: new Set(['vital', 'condition', 'body', 'energy', 'relationship', 'knowledge'])
 };
@@ -139,6 +139,8 @@ export function compileStructuredAbilities(definition) {
         else assert(!command.powerId, 'Ability must declare its native learned power.');
         assert(Array.isArray(command.effects) && command.effects.some(e => functions[row.function].has(e.type)), 'Ability needs a concrete functional effect consumer.');
         assert(Array.isArray(command.costs), 'Ability must disclose its actual native costs.');
+        // A temporary construct is executed by the construct service: it needs a creating effect with a finite duration (src/temporary_construct.js).
+        if(row.executionKind === 'temporary-construct') assert(command.effects.some(e => e.type === 'construct' && e.operation === 'create' && e.duration > 0), 'A temporary construct ability needs a construct effect with a finite duration.');
         if(row.target || command.effects.some(e => e.actor === '$target' || e.target === '$target')) assert(command.targetId || command.targetDefinitionId, 'Targeted ability needs an actual declared participant.');
         const bindings = compileConditions(definition, row, command, powers, owned);
         if(bindings.primary.length) alternatives[0] = {all: [alternatives[0], ...bindings.primary.map(safeRule)]};

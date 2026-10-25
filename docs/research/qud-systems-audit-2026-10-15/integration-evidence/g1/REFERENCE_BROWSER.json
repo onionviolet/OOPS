@@ -1,0 +1,26 @@
+{
+ "viewport": "1920x1080",
+ "examine": [
+  "failure",
+  "identified",
+  "failure",
+  "failure"
+ ],
+ "checks": [
+  "three references carried",
+  "recipe frozen and references registered",
+  "method offered from the carried book",
+  "salt and herb lots gathered",
+  "craft by method made a preparation",
+  "method hint names the slots",
+  "book put back, recipe still frozen, nothing learned",
+  "method no longer offered without the book",
+  "examine ran and reported an outcome",
+  "primer grants Literacy once",
+  "second read is blocked",
+  "slate consumed and recipe learned",
+  "method offered as learned without any book",
+  "save, reload keep owner and inventory",
+  "Export and literal Import keep owner and inventory"
+ ]
+}

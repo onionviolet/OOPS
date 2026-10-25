@@ -1,3 +1,4 @@
+import {ensureWorldHistory,historyMurals} from './world_history_consumers.js';
 import {xorshift32} from './hash_rng.js';
 import {check, copy as clone, finite, natural as integer} from './basics.js';
 import {extendLineage, validateLineage} from './family_tree.js';
@@ -161,6 +162,8 @@ export function commandChronicle(state, command, context, expectedSequence = sta
     if(command.type === "enroll") {
         check(!c && ["open", "mortal"].includes(command.mode), "Choose a chronicle once.");
         next.chronicle = createChronicle(at, context.calendar, command.mode === "mortal");
+        // The village mural reads the derived world history; derive it once (idempotent) when the chronicle begins.
+        ensureWorldHistory(next);
     } else {
         check(c && c.life.endedAt === null, "This chronicle is absent or its life has ended.");
         if(c.session) check(["respond", "withdraw", "policy"].includes(command.type), "Finish or withdraw from the elder encounter first.");
@@ -191,6 +194,11 @@ export function commandChronicle(state, command, context, expectedSequence = sta
             check(!r.ties.rememberedConcession, "You already greeted him that way.");
             relationshipChange(c, "villageElder", {id: `remember:${next.sequence + 1}`, axes: {trust: 1}, ties: {rememberedConcession: true}, text: "Greeted him as the one my predecessor once stood before."}, at);
             note(c, "I greet the elder the way my predecessor earned. He studies me a moment, then nods: he remembers that life.", at, true);
+        } else if(command.type === "read_mural") {
+            const line=historyMurals(next)[command.warId];
+            check(line&&line.warId===command.warId&&typeof line.text==="string"&&line.text.length<=512, "No such mural is painted here.");
+            check(!c.knowledge[`mural.${command.warId}`], "You already read this mural.");
+            c.knowledge[`mural.${command.warId}`]=true; note(c, line.text, at);
         } else if(command.type === "inspect") {
             check(!c.knowledge.elderClue, "This clue is already recorded.");
             c.knowledge.elderClue = true; note(c, "The elder carries his weight with unusual balance. His actual strength remains unknown.", at);

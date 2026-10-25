@@ -42,7 +42,7 @@ export function skillExpansionPresentation(state,registry,context){
     description:'Observe the offered work first. Seeing it does not teach the method.',reasons:s?safeReasons(preview):[{known:true,text:'Follow local people and work to take this offer.'}]});
    families.push({id:hint.id,row:hint,actions:s?[{id:discover.id,row:hint,targetId:discover.targetId||null}]:[],milestones:[]});continue;
   }
-  const actions=[],ids=[family.learnCommandId,...family.practiceCommandIds,...family.useCommandIds,
+  const actions=[],ids=[family.learnCommandId,...(family.learnAltIds||[]),...family.practiceCommandIds,...family.useCommandIds,
    ...(skillFamilyDefinitions.find(f=>f.id===family.id)?.recoveryIds||[])];
   for(const id of new Set(ids)){
    const d=registry.simulation.commands.get(id);if(!d||d.once&&actor.completed[id])continue;

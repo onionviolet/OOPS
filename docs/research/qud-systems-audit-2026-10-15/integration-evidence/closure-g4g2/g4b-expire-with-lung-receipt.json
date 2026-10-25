@@ -1,0 +1,24 @@
+{
+  "journey": "g4b-expire-with-lung",
+  "origin": "http://127.0.0.1:49566/",
+  "viewports": [
+    "1920x1080",
+    "1536x864"
+  ],
+  "checks": [
+    "screenshot g4-05-copy-made-expire-with-lung-1920x1080.png",
+    "PASS expire-with-lung-1920x1080 copy made: records show temporary copy; suppliers=[\"construct:backlog.brass_copy\",\"implant:backlog.brass_lung.bl01\"]; logs 6->5",
+    "PASS expire-with-lung-1920x1080 copy made: Save/reload/Export/literal Import exact",
+    "screenshot g4-09-copy-expired-lung-stays-expire-with-lung-1920x1080.png",
+    "PASS expire-with-lung-1920x1080 expired after 35 min with lung installed: suppliers=[\"implant:backlog.brass_lung.bl01\"]; log returned",
+    "PASS expire-with-lung-1920x1080 expired (lung stays): Save/reload/Export/literal Import exact",
+    "screenshot g4-05-copy-made-expire-with-lung-1536x864.png",
+    "PASS expire-with-lung-1536x864 copy made: records show temporary copy; suppliers=[\"construct:backlog.brass_copy\",\"implant:backlog.brass_lung.bl01\"]; logs 6->5",
+    "PASS expire-with-lung-1536x864 copy made: Save/reload/Export/literal Import exact",
+    "screenshot g4-09-copy-expired-lung-stays-expire-with-lung-1536x864.png",
+    "PASS expire-with-lung-1536x864 expired after 35 min with lung installed: suppliers=[\"implant:backlog.brass_lung.bl01\"]; log returned",
+    "PASS expire-with-lung-1536x864 expired (lung stays): Save/reload/Export/literal Import exact"
+  ],
+  "status": "passed",
+  "errors": []
+}

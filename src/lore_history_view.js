@@ -9,6 +9,6 @@ export function storyRecap(state,personId,observer='player') {
  const deed=[...rows].reverse().find(r=>r.action.startsWith('request.'));
  if(!deed)return null;
  const later=rows.find(r=>r.action==='aftermath.response'&&r.basis.includes(deed.id));
- const line=deed.result==='delivered'?`Story so far: you delivered ${deed.quantity===1?'one':deed.quantity} ${deed.item} to ${deed.person} and received ${deed.fee} wood coins at played minute ${deed.at}.`:`Story so far: you declined ${deed.person}'s ${deed.item} request at played minute ${deed.at}; no supplies changed hands.`;
+ const line=deed.result==='delivered'?`Story so far: you delivered ${deed.quantity===1?'one':deed.quantity} ${deed.item} to ${deed.person} and received ${deed.fee} wood coins at played minute ${deed.at}.`:deed.result==='failed'?`Story so far: ${deed.person}'s ${deed.item} could not be returned, and the reserved fee went back to them at played minute ${deed.at}.`:`Story so far: you declined ${deed.person}'s ${deed.item} request at played minute ${deed.at}; no supplies changed hands.`;
  return {line:line+(later?.result==='listen'?' Later, you compared road signs together.':''),basis:later?.result==='listen'?[deed.id,later.id]:[deed.id],coverage:'Remembered requests since enrollment; earlier life is not reconstructed.'};
 }

@@ -1,5 +1,6 @@
 import {check} from './basics.js';
 import {evaluateRule} from "./rules.js";
+import {liveSuppliers} from "./source_suppliers.js";
 
 export const SOURCE_KINDS = ["skill", "equipment", "knowledge", "trait", "bloodline", "technique", "condition", "world", "support"];
 export const SOURCE_ORIGINS = ["unknown", "inherited", "trained", "acquired"];
@@ -54,9 +55,11 @@ export function queryCapabilities(state, registry, context, facts) {
             if(faculty && (!faculty.awakened || !faculty.active || faculty.suppressed)) continue;
             const source = registry.sources.get(sourceId);
             check(source, `Unknown capability source ${sourceId}.`);
+            // Each live named supplier counts once; an unnamed source is one supplier.
+            const receipts = instance.suppliers ? liveSuppliers(instance, state.clock).map(([supplierId, entry]) => ({supplierId, receiptId: entry.receiptId})) : [{receiptId: instance.receiptId}];
             for(const grant of source.grants.filter(g => g.capability === definition.id)) {
-                if(!grant.when || evaluateRule(grant.when, facts).met) contributions.push({sourceId, kind: source.kind,
-                    label: source.label, amount: grant.amount, receiptId: instance.receiptId});
+                if(!grant.when || evaluateRule(grant.when, facts).met) for(const receipt of receipts) contributions.push({sourceId, kind: source.kind,
+                    label: source.label, amount: grant.amount, receiptId: receipt.receiptId, ...(receipt.supplierId ? {supplierId: receipt.supplierId} : {})});
             }
         }
         const value = definition.stacking === "max" ? Math.max(0, ...contributions.map(c => c.amount))

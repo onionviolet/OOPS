@@ -180,6 +180,8 @@ export const LAYOUT_SPEC = Object.freeze({
         'continuation': surface(UNSET),
         'equipment-comparison': surface(UNSET),
         'tools': surface(UNSET),
+        'fields': surface(UNSET),
+        'naming': surface(UNSET),
         'household-fortunes': surface('ST6', {home: 'Reference dock; opens once the manor household has been seen', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),
         'lives_carry': surface('ST6', {home: 'Reference dock; opens once a life has ended or a carry exists', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time', 'people']}),
         'story-insight': surface('ST6', {home: 'Reference dock beside Records; recaps and world history from saved state', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),

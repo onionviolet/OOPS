@@ -2,10 +2,15 @@
 import {copy as clone, deepFreeze as freeze, eqRaw as eq, natural, object} from './basics.js';
 import {activePractice} from './techniques.js';
 import {simulationOccupiesActor} from './simulation.js';
+import {installImplant,removeImplant,implantRecords} from './implant_service.js';
+import {constructRecords,applyConstructEffect,expireConstruct} from './temporary_construct.js';
 import {backlogAssert as assert, backlogRecord, backlogActor, backlogInventory,
     backlogItem, backlogTransfer, backlogLog, assertBacklogBoundary} from './backlog_expansion_core.js';
 
 const key = id => JSON.stringify({id});
+// The brass lung is the first definition of the reusable implant service (src/implant_service.js).
+const BRASS_LUNG_IMPLANT = {id:'backlog.brass_lung.bl01',slot:'intake',forms:['human'],requires:['intakePort'],
+    sourceId:'backlog.installed_brass_lung',bodyFlag:'brassLungId'};
 export const BODY_IDS = freeze({brasswright:'backlog.brasswright',clay:'backlog.clay_vessel',
     donor:'backlog.family_mara',recipient:'backlog.family_ren',specimen:'backlog.brass_lung.bl01',
     nativeBody:'native.player.body',clayBody:'backlog.clay_vessel.body',right:'backlog.family.workbench',
@@ -20,6 +25,11 @@ export const bodyItemDefinitions = freeze([{id:'Brass lung BL-01',name:'Brass lu
     description:'One removable, serialized pressure device. Training and wood fuel are separate from ownership.',
     tags:{expedition:true,backlog_specimen:true}}]);
 
+// The one temporary copy a player can press from the installed lung (G4). It is a second supplier of the same source.
+const BRASS_COPY_ID = 'backlog.brass_copy';
+const BRASS_COPY_REGISTRY = {sources:new Map([[BODY_IDS.brassSource,{id:BODY_IDS.brassSource,revision:1}]])};
+const constructIo = {readInventory:(plan,actorId) => backlogInventory(plan,actorId),
+    writeInventory:(plan,actorId,bag) => {const held = backlogInventory(plan,actorId);for(const k of Object.keys(held)) delete held[k];Object.assign(held,bag);}};
 const human = id => ({id,ownerId:id.split('.body')[0],controllerId:id.split('.body')[0],
     form:'human',mobile:true,hands:2,breathesAir:true,intakePort:true});
 const personDefinition = (id,label,body,resources = {}) => ({id,label,revision:1,worldId:'base.frontier',
@@ -64,6 +74,8 @@ export const bodyCommands = freeze([
     row('press_brass_seal','Pressure-fit one sound seal','Consume one Sound seal blank and one pressure unit to make a Fitted parcel seal.','device'),
     row('suppress_brass_lung','Close the lung valve','Disable the installed source while retaining the device, learned control and unused pressure.','device'),
     row('activate_brass_lung','Open the trained lung valve','Reactivate the same installed specimen after learning its control.','device'),
+    row('copy_brass_lung','Press a short-lived copy of BL-01','Set one log inside a 30-minute temporary copy of the installed lung. It supplies the same pressure source as a second supporter and returns the log when it ends.','device'),
+    row('dismiss_brass_copy','Let the lung copy go','End the temporary copy early; its log comes back and only its own support leaves.','device'),
     row('remove_brass_lung','Remove BL-01','Return the same specimen to your bag and vent unused pressure. Learned control remains.','device'),
     row('meet_clay_vessel','Meet Tern, a clay vessel','Introduce one actual stationary clay body with its own possessions and reserve.','possession'),
     row('ask_clay_vessel','Ask to borrow Tern\'s body','Obtain Tern\'s explicit consent for one of at most two controlled visits and an agreed return at the Village.','possession'),
@@ -261,8 +273,7 @@ export function stageBodyCommand(plan,command,context) {
         assert(b.form === 'human' && b.intakePort === true && !b.brassLungId,'BL-01 fits only the selected human intake port.');
         backlogItem(plan,'player',BODY_ITEM_KEYS.specimen,-1);
         Object.assign(r.specimen,{phase:'installed',hostId:'player',hostBodyId:b.id});
-        b.brassLungId = BODY_IDS.specimen;
-        source(plan,'player',BODY_IDS.brassSource,'acquired',player.facts['backlog.brass_control_learned'] === true);
+        installImplant(plan,{actorId:'player',implant:BRASS_LUNG_IMPLANT,body:b,cause:cause(plan),active:player.facts['backlog.brass_control_learned'] === true});
         if(player.facts['backlog.brass_control_learned']) s.faculties.player[BODY_IDS.brassSource].development = 1;
         addPressure(player,0);
         break;
@@ -305,10 +316,22 @@ export function stageBodyCommand(plan,command,context) {
         faculty.suppressed = false;faculty.active = true;
         break;
     }
+    case 'backlog.body.copy_brass_lung': {
+        installed(plan,r);
+        assert(!s.constructs?.[BRASS_COPY_ID],'The lung copy already exists.');
+        applyConstructEffect(plan,{type:'construct',operation:'create',constructId:BRASS_COPY_ID,duration:30,contents:'return',
+            sourceId:BODY_IDS.brassSource,store:[{key:BODY_ITEM_KEYS.wood,count:1}]},'player',cause(plan),BRASS_COPY_REGISTRY,constructIo);
+        break;
+    }
+    case 'backlog.body.dismiss_brass_copy':
+        assert(s.constructs?.[BRASS_COPY_ID],'There is no lung copy to let go.');
+        expireConstruct(plan,BRASS_COPY_ID,constructIo,BRASS_COPY_REGISTRY);
+        break;
     case 'backlog.body.remove_brass_lung': {
         const {specimen,person,actor} = installed(plan,r);
+        assert(!s.constructs?.[BRASS_COPY_ID],'Let the lung copy go before removing BL-01; the copy keeps the source alive.');
         assert(!(backlogInventory(plan,'player')[BODY_ITEM_KEYS.specimen] || 0),'A second loose specimen conflicts with removal.');
-        delete person.body.brassLungId;removeSource(plan,'player',BODY_IDS.brassSource);
+        removeImplant(plan,{actorId:'player',implant:BRASS_LUNG_IMPLANT,body:person.body});
         actor.resources['backlog.brass_pressure'] = 0;
         Object.assign(specimen,{phase:'stock',hostId:null,hostBodyId:null,holderId:'player',removals:specimen.removals + 1});
         backlogItem(plan,'player',BODY_ITEM_KEYS.specimen,1,{acquisition:false});
@@ -597,6 +620,7 @@ export function bodyView(state,context = {}) {
         ? `You control Tern\'s stationary clay hands: ${state.simulation.people.player.vitals.stamina}/2 physical stamina. Your ${r.possession.homeBody.form} body rests in the Village. Tern\'s goods and private reserve stay with Tern. Explicit return restores both controls.`
         : `Tern: ${r.possession.status}; ${state.simulation.people[BODY_IDS.clay]?.vitals?.stamina || 0}/2 physical stamina remains; ${r.possession.pressed} seals pressed.`);
     if(r?.family) records.push(`Mara and Ren remain alive. The workbench right belongs to ${state.simulation.claims[BODY_IDS.right].owner === BODY_IDS.donor ? 'Mara' : 'Ren'}; succession ${r.family.status}; ${r.family.prepared}/2 kits produced, ${r.family.collected} transferred to you.`);
+    records.push(...implantRecords(state),...constructRecords(state));
     return {title:'Bodies and living succession',description:'Optional original physical proofs. Creation origins, owned devices, consenting control and family rights each have separate rules.',
         records,physical:bodyPhysicalProjection(state),freshOpeningAvailable:!!context.freshOpening};
 }

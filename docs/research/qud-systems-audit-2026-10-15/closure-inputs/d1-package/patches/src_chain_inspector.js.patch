@@ -1,0 +1,39 @@
+diff --git a/src/chain_inspector.js b/src/chain_inspector.js
+index 46be9ef0c..57da91b22 100644
+--- a/src/chain_inspector.js
++++ b/src/chain_inspector.js
+@@ -3,6 +3,8 @@
+ import {HARVEST_SPECIES, HARVEST_PARTS, HARVEST_CAP, GRADED_IDS, partNames} from './harvest.js';
+ import {INGREDIENTS, MIXTURE_ID} from './mixture_state.js';
+ import {FEATURE_OBJECT_KEYS, featureObjectDefinitions} from './feature_expansion_objects.js';
++import {evaluateGate} from './progression_gates.js';
++import {HERB_LESSON_GATE, herbLessonFacts} from './reveal_chain.js';
+ 
+ const show = value => JSON.stringify(value);
+ const count = value => value?.count ?? (typeof value === 'number' ? value : 0);
+@@ -76,6 +78,18 @@ function projectFeatureObjects({expansion = {}, inventory = {}} = {}) {
+     return [...rows, ...templates];
+ }
+ 
++// GTL3 (2026-10-23): shared gate descriptors with their current inputs. Author
++// truth, so undiscovered conditions show here; evaluation is a pure read.
++const INSPECTED_GATES = [{gate: HERB_LESSON_GATE, facts: f => herbLessonFacts(f.inventory || {}, f.expansion?.actors?.player?.facts?.['reveal.herbLesson'])}];
++function projectGates(frame) {
++    return INSPECTED_GATES.flatMap(({gate, facts}) => {
++        const input = facts(frame), r = evaluateGate(gate, input);
++        return [row('source', gate.id, `${gate.kind} gate, ${gate.closes}. Reason: ${gate.reason}\nDials: ${show(r.dials)}\nRoutes: ${gate.routes.map(x => `${x.id} (${x.reason} Cost: ${x.cost})`).join('; ')}${gate.overflow ? `\nOverflow: ${gate.overflow.policy}, ${gate.overflow.reason}` : ''}`),
++            row('observation', `${gate.id} now`, `${r.met ? 'open' : 'waiting'}${r.known ? '' : ' (inputs unknown)'}. Inputs: ${show(input)}`,
++                r.met ? '' : `Author: ${r.authorReasons.join(' ')} Player sees: ${r.shown.join(' ')}`)];
++    });
++}
++
+ // T3 integration slot: pass a retained resolver-produced trace as ruleTrace.
+ // The inspector clones/displays it verbatim. Never call a resolver here or infer
+ // missing traces from products. This field is transient view input, not a save domain.
+@@ -87,5 +101,6 @@ export function projectChains(frame = {}, {developer = false} = {}) {
+         {id:'mixtures', label:'P2 ingredients → mixture → observed method', rows:projectMixtures(frame)},
+         {id:'feature', label:'Feature objects: cut → dry → kit; match branch', rows:projectFeatureObjects(frame)},
+         {id:'rules', label:'Resolver rule trace', rows:[row('observation','T3 trace', frame.ruleTrace == null ? 'No resolver trace supplied. Reserved for T3; no recomputation.' : show(structuredClone(frame.ruleTrace)))]},
++        {id:'gates', label:'Progression gates (GTR) · inputs → open or waiting', rows:projectGates(frame)},
+     ];
+ }

@@ -1,0 +1,31 @@
+{
+  "journey": "g4b-remove-refused-then-dismiss",
+  "origin": "http://127.0.0.1:49212/",
+  "viewports": [
+    "1920x1080",
+    "1536x864"
+  ],
+  "checks": [
+    "screenshot g4-05-copy-made-remove-refused-then-dismiss-1920x1080.png",
+    "PASS remove-refused-then-dismiss-1920x1080 copy made: records show temporary copy; suppliers=[\"construct:backlog.brass_copy\",\"implant:backlog.brass_lung.bl01\"]; logs 6->5",
+    "PASS remove-refused-then-dismiss-1920x1080 copy made: Save/reload/Export/literal Import exact",
+    "screenshot g4-06-remove-refused-copy-live-remove-refused-then-dismiss-1920x1080.png",
+    "PASS remove-refused-then-dismiss-1920x1080 Remove BL-01 disabled with the copy reason while the copy lives",
+    "PASS remove-refused-then-dismiss-1920x1080 remove refused: Save/reload/Export/literal Import exact",
+    "screenshot g4-07-dismissed-then-removed-source-gone-remove-refused-then-dismiss-1920x1080.png",
+    "PASS remove-refused-then-dismiss-1920x1080 copy dismissed then BL-01 removed: source gone, log back (6)",
+    "PASS remove-refused-then-dismiss-1920x1080 dismissed then removed: Save/reload/Export/literal Import exact",
+    "NOTE hello line covered by .shell-resize-handle; activated with keyboard (Enter)",
+    "screenshot g4-05-copy-made-remove-refused-then-dismiss-1536x864.png",
+    "PASS remove-refused-then-dismiss-1536x864 copy made: records show temporary copy; suppliers=[\"construct:backlog.brass_copy\",\"implant:backlog.brass_lung.bl01\"]; logs 6->5",
+    "PASS remove-refused-then-dismiss-1536x864 copy made: Save/reload/Export/literal Import exact",
+    "screenshot g4-06-remove-refused-copy-live-remove-refused-then-dismiss-1536x864.png",
+    "PASS remove-refused-then-dismiss-1536x864 Remove BL-01 disabled with the copy reason while the copy lives",
+    "PASS remove-refused-then-dismiss-1536x864 remove refused: Save/reload/Export/literal Import exact",
+    "screenshot g4-07-dismissed-then-removed-source-gone-remove-refused-then-dismiss-1536x864.png",
+    "PASS remove-refused-then-dismiss-1536x864 copy dismissed then BL-01 removed: source gone, log back (6)",
+    "PASS remove-refused-then-dismiss-1536x864 dismissed then removed: Save/reload/Export/literal Import exact"
+  ],
+  "status": "passed",
+  "errors": []
+}

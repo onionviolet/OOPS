@@ -1,6 +1,6 @@
 // Original reversible Frontier prototypes. Native XP, method mastery, stock,
 // knowledge, jobs and publication remain owned by the existing shared services.
-import {all, any, eq} from './basics.js';
+import {all, any, eq, not} from './basics.js';
 export const SKILL_IDS = Object.freeze({
     brace: "frontier.brace_control",
     trail: "frontier.trail_reading",
@@ -60,7 +60,7 @@ export const SKILL_CATALOGUE = Object.freeze([
         milestones: [{at: 2, label: "Matched cuts: make two real kits from the two-log batch"}]},
     {id: SKILL_IDS.inquiry, label: "Shared inquiry", description: "Combine your field evidence with another person's agreed and paid attention.",
         knowledgeKey: SKILL_IDS.inquiry, powerId: SKILL_IDS.inquiry, xpSkill: "Perception", discoverCommandId: "skills.inquiry.observe",
-        learnCommandId: "skills.inquiry.learn", practiceCommandIds: ["skills.inquiry.practice"], useCommandIds: ["skills.inquiry.compare", "skills.inquiry.road_report"],
+        learnCommandId: "skills.inquiry.learn", learnAltIds: ["skills.inquiry.learn_standing"], practiceCommandIds: ["skills.inquiry.practice"], useCommandIds: ["skills.inquiry.compare", "skills.inquiry.road_report"],
         recoveryIds: ["skills.inquiry.recover_attention"],
         milestones: [{at: 1, label: "Joint comparison: learn the drainage procedure"}, {at: 2, label: "Agreed report: obtain current workshop and road observations"}]}
 ]);
@@ -107,8 +107,14 @@ const lessons = [
         [eq("skills.lioSupported"), hands, atLeast("strength", 8, "This human-frame lesson needs Strength 8.")]),
     lesson("trail", SKILL_IDS.trail, null, [stamina(-2)], [evidence], 4),
     lesson("timber", SKILL_IDS.timber, TEACHER, [...fee(1), item(LOG, -1), {type: "resource", actor: "$target", key: "focus", amount: -1}], [teacherReady, hands, eq("world.workbench.wet", false, "Use a dry bench for the cutting lesson.")]),
-    lesson("inquiry", SKILL_IDS.inquiry, TEACHER, [...fee(2), {type: "resource", actor: "$target", key: "focus", amount: -1}], [teacherReady, evidence])
+    lesson("inquiry", SKILL_IDS.inquiry, TEACHER, [...fee(2), {type: "resource", actor: "$target", key: "focus", amount: -1}], [teacherReady, evidence]),
+    // G2 standing price (proposal): a Village rank with a discount teaches the same lesson for less. Rank is
+    // a derived fact (faction_rank.js); the affordability recheck is the ordinary coin cost on start.
+    {...lesson("inquiry", SKILL_IDS.inquiry, TEACHER, [...fee(1), {type: "resource", actor: "$target", key: "focus", amount: -1}], [teacherReady, evidence]),
+        id: "skills.inquiry.learn_standing", label: `Learn ${SKILL_CATALOGUE.find(s => s.id === SKILL_IDS.inquiry).label} at a neighbour's price · 3 min`,
+        visibleWhen: all(seen(SKILL_IDS.inquiry), eq(`power.${SKILL_IDS.inquiry}.owned`, false), atLeast("rank.Village.discount", 1))}
 ];
+lessons[3] = {...lessons[3], visibleWhen: all(seen(SKILL_IDS.inquiry), eq(`power.${SKILL_IDS.inquiry}.owned`, false), not(atLeast("rank.Village.discount", 1)))};
 // Plateau, not a wall (SLL12, SLR34, SLR29): one mastery per plain session up
 // to four, then a smoothly smaller gain that never reaches zero. Coached
 // practice is exactly double the plain gain, so a teacher lifts the plateau.

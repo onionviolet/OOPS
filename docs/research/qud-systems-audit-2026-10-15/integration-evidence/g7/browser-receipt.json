@@ -1,0 +1,17 @@
+{
+  "viewports": [
+    "1920x1080",
+    "1440x900"
+  ],
+  "checks": [
+    "A panel: spill two packs, light with lit lamp, 3 minutes: fire and smoke in the saved slice",
+    "A mid-burn: Save/reload/Export/literal Import exact",
+    "A catch-up: fire out and gas cleared after 120 more minutes",
+    "A settled: Save/reload/Export/literal Import exact",
+    "B laptop: a real vial from the mixing counter spills through the panel with its own fractions",
+    "B collapse: shelf fell after burning; health 60 -> low 56 (never below 1; recovery refills); barred hatch persisted",
+    "B collapsed: Save/reload/Export/literal Import exact",
+    "B settled: Save/reload/Export/literal Import exact"
+  ],
+  "status": "passed"
+}

@@ -42,6 +42,8 @@ export const title_catalog = [
     {id: 'pantry_keeper', family: 'life', name: 'Pantry Keeper', counter: 'items_bought', at: 25, text: 'Buy 25 items through settled native purchases.', requires_counter: true},
     {id: 'small_surprise', family: 'endurance', name: 'Small Surprise', counter: 'weak_enemy_losses', at: 1, text: 'Lose a settled fight to a known novice opponent.', requires_counter: true},
     {id: 'million_tales', family: 'combat', name: 'A Million Encounters', counter: 'kills', at: 1000000, text: 'Defeat 1,000,000 enemies.'},
+    // G2: recognizes a faction rank (faction_rank.js owns the rank itself). No bonus: a title grants a power only where a world says so (AD38).
+    {id: 'village_neighbour', family: 'life', name: 'Village Neighbour', counter: 'rep_village', at: 50, text: 'Reach Neighbour standing in the Village.', requires_counter: true},
     {id: 'well_off', family: 'life', name: 'Well-Off', counter: 'money', at: 10000, text: 'Hold 10,000 coins at once.', bonus: {xp_multipliers: {Haggling: 1.03}}},
 ];
 

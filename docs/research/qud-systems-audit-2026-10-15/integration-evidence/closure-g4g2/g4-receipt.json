@@ -1,0 +1,33 @@
+{
+  "journey": "g4",
+  "origin": "http://127.0.0.1:65291/",
+  "viewports": [
+    "1920x1080",
+    "1536x864"
+  ],
+  "checks": [
+    "screenshot g4-01-panel-open-1920x1080.png",
+    "screenshot g4-02-lung-bought-1920x1080.png",
+    "PASS 1920x1080 G4 BL-01 bought (records: loose with you)",
+    "PASS 1920x1080 G4 bought: Save/reload/Export/literal Import exact",
+    "screenshot g4-03-implant-installed-1920x1080.png",
+    "PASS 1920x1080 G4 implant installed; suppliers=[\"implant:backlog.brass_lung.bl01\"]",
+    "PASS 1920x1080 G4 installed: Save/reload/Export/literal Import exact",
+    "screenshot g4-04-implant-removed-1920x1080.png",
+    "PASS 1920x1080 G4 implant removed; source gone, specimen back in bag",
+    "PASS 1920x1080 G4 removed: Save/reload/Export/literal Import exact",
+    "NOTE hello line covered by .shell-resize-handle; activated with keyboard (Enter)",
+    "screenshot g4-01-panel-open-1536x864.png",
+    "screenshot g4-02-lung-bought-1536x864.png",
+    "PASS 1536x864 G4 BL-01 bought (records: loose with you)",
+    "PASS 1536x864 G4 bought: Save/reload/Export/literal Import exact",
+    "screenshot g4-03-implant-installed-1536x864.png",
+    "PASS 1536x864 G4 implant installed; suppliers=[\"implant:backlog.brass_lung.bl01\"]",
+    "PASS 1536x864 G4 installed: Save/reload/Export/literal Import exact",
+    "screenshot g4-04-implant-removed-1536x864.png",
+    "PASS 1536x864 G4 implant removed; source gone, specimen back in bag",
+    "PASS 1536x864 G4 removed: Save/reload/Export/literal Import exact"
+  ],
+  "status": "passed",
+  "errors": []
+}

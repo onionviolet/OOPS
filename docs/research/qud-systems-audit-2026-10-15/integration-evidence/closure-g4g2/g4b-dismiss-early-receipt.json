@@ -1,0 +1,24 @@
+{
+  "journey": "g4b-dismiss-early",
+  "origin": "http://127.0.0.1:49436/",
+  "viewports": [
+    "1920x1080",
+    "1536x864"
+  ],
+  "checks": [
+    "screenshot g4-05-copy-made-dismiss-early-1920x1080.png",
+    "PASS dismiss-early-1920x1080 copy made: records show temporary copy; suppliers=[\"construct:backlog.brass_copy\",\"implant:backlog.brass_lung.bl01\"]; logs 6->5",
+    "PASS dismiss-early-1920x1080 copy made: Save/reload/Export/literal Import exact",
+    "screenshot g4-08-copy-dismissed-dismiss-early-1920x1080.png",
+    "PASS dismiss-early-1920x1080 copy dismissed early: suppliers=[\"implant:backlog.brass_lung.bl01\"]; log returned (6)",
+    "PASS dismiss-early-1920x1080 dismissed: Save/reload/Export/literal Import exact",
+    "screenshot g4-05-copy-made-dismiss-early-1536x864.png",
+    "PASS dismiss-early-1536x864 copy made: records show temporary copy; suppliers=[\"construct:backlog.brass_copy\",\"implant:backlog.brass_lung.bl01\"]; logs 6->5",
+    "PASS dismiss-early-1536x864 copy made: Save/reload/Export/literal Import exact",
+    "screenshot g4-08-copy-dismissed-dismiss-early-1536x864.png",
+    "PASS dismiss-early-1536x864 copy dismissed early: suppliers=[\"implant:backlog.brass_lung.bl01\"]; log returned (6)",
+    "PASS dismiss-early-1536x864 dismissed: Save/reload/Export/literal Import exact"
+  ],
+  "status": "passed",
+  "errors": []
+}

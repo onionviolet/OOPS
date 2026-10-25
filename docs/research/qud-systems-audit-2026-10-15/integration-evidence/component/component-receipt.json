@@ -1,0 +1,13 @@
+{
+  "viewports": [
+    "1920x1080",
+    "1536x864"
+  ],
+  "checks": [
+    "1920x1080 G5: mural button \"Read the village mural · year 17\" visible, click recorded mural.war:1",
+    "1920x1080 G2 lesson rows: [{\"name\":\"stranger\",\"learn\":[\"learn this method.\",\"learn this method.\",\"learn this method.\",\"Learn Shared inquiry · 3 min\"]},{\"name\":\"neighbour\",\"learn\":[\"learn this method.\",\"learn this method.\",\"learn this method.\",\"Learn Shared inquiry at a neighbour's price · 3 min\"]}]",
+    "1536x864 G5: mural button \"Read the village mural · year 17\" visible, click recorded mural.war:1",
+    "1536x864 G2 lesson rows: [{\"name\":\"stranger\",\"learn\":[\"learn this method.\",\"learn this method.\",\"learn this method.\",\"Learn Shared inquiry · 3 min\"]},{\"name\":\"neighbour\",\"learn\":[\"learn this method.\",\"learn this method.\",\"learn this method.\",\"Learn Shared inquiry at a neighbour's price · 3 min\"]}]"
+  ],
+  "status": "passed"
+}

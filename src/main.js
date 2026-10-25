@@ -577,7 +577,7 @@ expeditionRegistry.bookPlayerAgency={contracts:BOOK_WORLD_AGENCY_CONTRACTS,nativ
 import {createLifeRecord, migrateLifeRecord, observeLifeSave, appendLifeMilestone, lifeCalendarMinute} from './life_record.js';
 import {createLifeRecordPanel} from './life_record_ui.js';
 import {normalizeTitles, grantEarnedTitles, titleView, title_by_id, describeTitleBonus, yearsSince, titleCalendarMinute} from './titles.js';
-import {createTitlesPanel} from './titles_ui.js';
+import {createTitlesPanel} from './titles_ui.js';import {rankFacts,promotionText} from './faction_rank.js';
 let titlesPanel;
 let title_check_ticks = 0;
 import {createVillageLives, advanceVillageLives, addVillageRecruit} from './npc_lives.js';
@@ -1713,7 +1713,7 @@ function buildExpeditionContext() {
     const evidence=frontierNativeEvidence();
     return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeHomes:residenceState(),nativeWeatherClock:{minute:weatherClockMinute(current_game_time),clock:expansionState.clock},nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),equipment:readNativeEquipment({player:character}),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
         facts: {...evidence.facts,...chronicleFacts(expansionState.chronicle), location: current_location?.id, strength: character.getFullStats().strength, agility: character.getFullStats().agility,
-            ...everydayFacts(expansionState, {hour: current_game_time.hour}),
+            ...everydayFacts(expansionState, {hour: current_game_time.hour}),...rankFacts(character.reputation),
             ...bodyFacts(expansionState),
             "day.hour": current_game_time.hour,
             "weather.raining": getPacingEffects(homePacingContext()).raining, "weather.damp": rain_counter > 0,
@@ -4385,10 +4385,10 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
     if(rewards.reputation) {
         Object.keys(rewards.reputation).forEach(region => {
             if(shouldReplayReputation(region, loadingReputationTotals)) {
-                ReputationManager.add_reputation({region, reputation: rewards.reputation[region]});
+                {const change = ReputationManager.add_reputation({region, reputation: rewards.reputation[region]}); if(change && !is_from_loading) log_message(promotionText(region, change), 'level_up');}
             }
         });
-        update_displayed_reputation();
+        update_displayed_reputation();skillExpansionPanel?.render();
     }
 
     if(was_any_location_availability_changed && !is_from_loading) {
@@ -9227,7 +9227,7 @@ function readTitleCounters() {
         playtime_hours: game_stats.total_playtime / 3600,
         money: character.money,
         home_minutes:localLife.homeMinutes,
-        items_bought:localLife.itemsBought,
+        items_bought:localLife.itemsBought,rep_village:character.reputation.Village,
     };
 }
 
@@ -9480,8 +9480,8 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 for(const make of [createLocalLivelihoodContent,createWarmHandStartContent,createLanternLoanStartContent,createSlakeBenchStartContent])await registerStructuredNative(make());
-configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
-    itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:key=>assertNativeItemDisposition(expansionState,key),
+configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),skill:character.getTotalSkillLevel('Literacy'),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
+    itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:key=>assertNativeItemDisposition(expansionState,key),addSkillXp:(skill,xp)=>add_xp_to_skill({skill:skills[skill],xp_to_add:xp,use_bonus:false,cap_gained_xp:false}),
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_character_inventory();update_displayed_effects();update_displayed_crafting_recipes();}});
@@ -9804,7 +9804,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         save:create_save,persist:serialized=>{const saved=JSON.parse(serialized);validateSaveEnvelope(saved,game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized);expansionState=saved.expansion;simulationPanel?.render();},
         authoredNames:[...expeditionRegistry.simulation.people.values()].map(p=>p.label||p.name||p.id),
         itemKey:id=>item_templates[id].getInventoryKey(),canSupply:(key,quantity=1)=>canConsumeNativeCraftingItem(key)&&character.getItems()[key]?.count>=quantity,
-        publishSupply:(key,quantity=1)=>{character.removeFromInventory([{item_key:key,item_count:quantity}]);update_displayed_character_inventory();},publishReward:add_money_to_character});
+        publishSupply:(key,quantity=1)=>{character.removeFromInventory([{item_key:key,item_count:quantity}]);update_displayed_character_inventory();},publishReward:add_money_to_character,publishMint:key=>{character.addToInventory([{item_key:key,count:1}]);update_displayed_character_inventory();},publishCost:(cost,source)=>add_money_to_character(-cost,source)});
     villageLivesPanel = createVillageLivesPanel({read:()=>({state:npcLives,inVillage:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier',canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),meet:()=>{
         if(npcLives || !ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier')throw new Error("Meet your neighbors in Village when your life can be saved.");
         const serialized=create_save();if(!serialized)throw new Error("This meeting could not be remembered.");
@@ -9988,7 +9988,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     continuationPanel=createContinuationUI({read:readContinuationUI,command:commandContinuation});
     setInterval(()=>{if(!authorityOperationBusy){observeContinuationLearning();continuationPanel?.render();maybeRepeatContinuation();}},500);
     mountWorkspace();
-    mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,gameStats:()=>game_stats,villageCareer:()=>villageCareer,expansion:()=>expansionState,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
+    mountWorkspaceNavigation({notice:(text,panelId)=>log_message(text,'notification',{safeText:true,panelId}),ports:{gameTime:()=>current_game_time,sceneCue:receipt=>receipt?quietPlaceDetail.present(receipt):quietPlaceDetail.clear(),presentation:moduleId=>getCustomizationSettings(customization,moduleId||'location',{season:current_game_time.getSeason()}),character:()=>character,counters:readTitleCounters,refreshGear:()=>{update_displayed_equipment();for(const [slot,worn] of Object.entries(character.getEquipment()))if(worn?.getInventoryKey)try{update_displayed_character_inventory({equip_slot:slot});}catch{}},logAchievement:text=>log_message(text,'level_up'),gameStats:()=>game_stats,villageCareer:()=>villageCareer,expansion:()=>expansionState,stock:()=>({carried:readInventoryOwner(character.getItems()),chest:is_storage_open()?readInventoryOwner(player_storage.getItems()):null,equipment:readNativeEquipment({player:character}),favorites:favourite_items}),transferStock:commitNativeStorage,equip:character_equip_item,unequip:character_unequip_item,records:()=>({enemy_killcount,enemy_templates,book_stats,item_templates,item_log,locations,skills})}});
     refreshCustomization();
     expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife,readLocalContext:localLifeContext});
     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);

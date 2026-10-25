@@ -29,9 +29,10 @@ import {remainderConsequencesExistingCommandGate} from './audit_remainder_conseq
 import {advanceWorkPlansBoundary} from './feature_expansion_work_plan.js';
 import {activePractice} from "./techniques.js";
 import {assert, natural, copy, stableId, meets, createSimulationState, validateSimulationState} from "./simulation_contracts.js";
-import {cloneData, person, participant, simulationFacts, applySimulationEffects, refundCosts, inventory, advanceNativeContainerClocks,resolveSimulationCostKeys} from "./simulation_effects.js";
+import {cloneData, person, participant, simulationFacts, applySimulationEffects, refundCosts, inventory, writeInventory, advanceNativeContainerClocks,resolveSimulationCostKeys} from "./simulation_effects.js";
 import {previewPowerModel, resolveEffectAmount, fluencyDuration} from "./power_models.js";
 import {prepareSimulationEffects, resolveOutcomeWeights} from "./simulation_resolution.js";
+import {advanceConstructs,nextConstructBoundary} from './temporary_construct.js';
 import {pursuitReservesActor,nextPursuitBoundary,advancePursuits} from "./pursuit.js";
 export {createSimulationRegistry} from "./simulation_contracts.js";
 export {simulationFacts} from "./simulation_effects.js";
@@ -489,7 +490,7 @@ export function previewSimulationResponse(state, registry, choice, context) {
 const lorePendingJob = /^lore\.(?:work|warning)\./;
 export function nextSimulationBoundary(state,{skipLoreJobs=false,skipCompletionJobs=false,skipCompletionCropChecks=false}={}) {
     const s = state.simulation; if(!s) return Infinity;
-    let at = Math.min(nextStoryletBoundary(state),nextFoundationInteractionBoundary(state),nextPursuitBoundary(state));
+    let at = Math.min(nextConstructBoundary(state),nextStoryletBoundary(state),nextFoundationInteractionBoundary(state),nextPursuitBoundary(state));
     for(const j of s.jobs) if((!skipLoreJobs||!lorePendingJob.test(j.commandId))&&(!skipCompletionJobs||!j.commandId.startsWith("world.completion."))) at = Math.min(at, j.due);
     for(const c of Object.values(s.checks)) if(!skipCompletionCropChecks||!["remainder_consequences.frost_warning","remainder_consequences.frost_settlement"].includes(c.definitionId)) at = Math.min(at, c.due);
     for(const c of Object.values(s.controllers)) if(s.people[c.actorId].life === "alive"&&(!skipCompletionJobs||c.definitionId!=="world.completion.learning.neri_controller")) at = Math.min(at, c.due);
@@ -536,6 +537,7 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
     }
     reconcileRemainderConsequences(out,registry,contexts.player || {});
     reconcileWorldCompletionPlan(out,registry,contexts);
+    work += advanceConstructs(out,registry,{readInventory:inventory,writeInventory});
     for(const [actorId,cs] of Object.entries(s.conditions)) for(const [id,c] of Object.entries(cs)) {
         if(c.expiresAt != null && c.expiresAt <= state.clock) delete cs[id];
         else if(c.nextTick != null && c.nextTick <= state.clock) {

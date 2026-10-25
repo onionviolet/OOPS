@@ -13,7 +13,7 @@ export function createLanternLoanStartContent() {
     const world = `${P}.cellar`, room = `${P}.room`;
     const sources = [{id:`${P}.loan`, revision:1, kind:'trait', label:'Lent night sight', grants:[], look:{slot:'bearing',rank:1,concealed:true,text:'Your eyes hold lamplight a moment too long, and the keeper’s mark shows at your brow.'},
         bioDetail:'The lamp-keeper lent you her night sight. It is hers to take back.'}];
-    const abilities = [{id:`${P}.sight`, commandId:`${P}.see`, sourceId:`${P}.loan`, function:'perception', acquisition:'borrowed', executionKind:'temporary-construct',
+    const abilities = [{id:`${P}.sight`, commandId:`${P}.see`, sourceId:`${P}.loan`, function:'perception', acquisition:'borrowed', executionKind:'device-construct',
         control:eq('actor.life', 'alive'), target:null, counters:[], carriers:[],
         conditions:[{id:`${P}.measures`, charges:{max:2, recharge:{when:'empty', label:'Refit the loan with the keeper’s oil', requires:{fact:`item.${key('oil')}`, op:'gte', value:1, reason:'The keeper’s loan needs a measure of her oil to refit.'}}},
             price:[{type:'item', key:key('oil'), amount:-1}]}]}];

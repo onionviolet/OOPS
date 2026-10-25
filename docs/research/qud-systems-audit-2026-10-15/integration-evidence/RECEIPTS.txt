@@ -1,0 +1,7 @@
+Integration candidate checks (2026-10-23), headless only, fresh origins, generated saves only.
+node scripts/playtest/fields-continuity.mjs (G7): passed; 1920x1080 and 1440x900; save/reload/Export/literal Import exact (g7/browser-receipt.json)
+node scripts/reference_browser.cjs (G1, merged crafting files): 16 PASS lines incl. reference craft, examine, read, learn, save/reload/Export/Import; 1920x1080 (g1/)
+node scripts/naming_relics_browser.cjs (G6): 20 PASS lines incl. naming, relic, achievement, reload, literal Import; 1440x900 (g6/*.png)
+combined-journey.mjs: G2 rank text, G1 shelf, G6 panel, G7 spill and fire, then Save/reload/Export/Import exact; 1920x1080 and 1536x864 (combined/)
+component-harness.mjs: G5 mural button and G2 discounted lesson row, real panels and real engine state in a minimal page with the app stylesheets; same two viewports (component/)
+Not rendered: G3 unique-request row (one full-app attempt failed to find the button; engine test only), G4 (no player-facing UI; engine test only), G5 mural and G2 lesson inside the full app (notebook/skills panels did not open from a seeded save).
