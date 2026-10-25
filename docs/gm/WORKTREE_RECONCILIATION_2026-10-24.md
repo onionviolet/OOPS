@@ -81,7 +81,7 @@ missing from the primary working copy is 0 in every file.
 ## Round 2 (2026-10-24, later)
 
 Weibao: "send new chat to work on work tree reconciliation and merging with master."
-Same scope and rules as round 1; nothing pushed. A finished owner's idle session was
+Same scope and rules as round 1; pushed to origin on Weibao's yes (`origin/master` `6dce8540f` and the record commit after it). A finished owner's idle session was
 not asked to commit first; each takeover below got a one-line note to its session.
 
 ### Landed on master
@@ -143,3 +143,20 @@ Archives for the 17 retired worktrees (MANIFEST, `index.patch`, `worktree.patch`
 
 Process slip: to clear a hung test run I used `pkill -f "node --test"`, against the rule to stop
 processes by PID. It may have ended another session's `node --test` run.
+
+### Round 2 close (2026-10-24, after the owners' sessions were archived)
+
+Weibao had the idle sessions `local_764c576a` (D3), `local_15ab0c13` (LOTM) and `local_82b6ec89`
+(family) archived. Each owner confirmed or had already released its worktree, and the
+family `http.server` (pid 67799) was gone. Before removal: HEAD reachable from master, no process
+with its cwd there, archive SHA256SUMS verified, and the archive's tracked and index patches
+and archived local files matched the live worktree (only the ignored `.claude/launch.json` was not in
+the tarball; a copy was added to each archive). Archives `30-d3-overflow-pilot-9433a4`, `31-lotm-pathways-2e8786`
+and `32-family-habits-3f2101` under `~/.codex/research/worktree-cleanup-2026-10-24/`. The three
+worktrees were cleared and removed with plain `git worktree remove`; branches are kept.
+
+So `d3-overflow-pilot`, `lotm-pathways` and `family-habits` are **retired**; the "Kept" rows above are
+superseded. 20 worktrees retired across round 2 (17 earlier plus these three), none kept from the
+original remaining set. Two worktrees appeared after round 2, `nostalgic-mendeleev-5a565c` (branch
+`claude/ability-engine-4c5ccb`) and `sleepy-wing-82bb46` (branch `claude/desktop-interaction-closure-2e51ef`);
+each has a live session process, so they are left alone and not part of this reconciliation.
