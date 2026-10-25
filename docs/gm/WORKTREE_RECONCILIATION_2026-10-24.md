@@ -132,12 +132,12 @@ missing from those working copies (65 and 23).
 | `desktop-interaction-closure-2e51ef` | Retired. 18 differing files were pre-reconciliation copies of work now on master. |
 | `qud-g1` to `qud-g7`, `qud-integration-c0781f` | Retired after the Qud landing; lane copies of shared files are the pre-merge forms. G7's `RULES_INDEX` router row (physical field layer) was never applied and is not on master; its text is in the archive and in `MERGE_PLAN_2026-10-23.md`. |
 | `~/.codex/worktrees/master-except-start-menu` | Retired (Codex-owned, detached, no process). Its one file, the gear-depth `RELEASE.patch`, landed. |
-| `d2-decision-reasons-c6d17b` | **Kept**, owner `local_23789a55`: ungated UI-reason text edits with no report; its insurance-offer hunk overlaps primary's pending edit. |
-| `d3-overflow-pilot-9433a4` | **Kept**, owner `local_23789a55`: contents already on master, but a session process holds the cwd. |
+| `d2-decision-reasons-c6d17b` | Retired after the round-2 commits. Owner is the itch.io features session `local_c1a96817` (D2 session `local_cbe1e18d`), not `local_23789a55`: its hunks were already applied to primary's pending edits (three files identical, three a subset), the lane has a report and browser evidence, no unique content. Archive `21-*`. |
+| `d3-overflow-pilot-9433a4` | **Kept**, released by `local_23789a55` (its D3 session `local_764c576a`): contents already on master, but that idle session's process holds the cwd. Retire once the session is archived. |
 | `lotm-pathways-2e8786` | **Kept**, owner `local_15ab0c13`: only older evidence PNGs differ; a session process holds the cwd. |
 | `family-habits-3f2101` | **Kept**, owner `local_82b6ec89`: src already on master, evidence landed; a `python -m http.server` (pid 67799) holds the cwd. I did not stop another session's process. |
 
-Archives for the 16 retired worktrees (MANIFEST, `index.patch`, `worktree.patch`,
+Archives for the 17 retired worktrees (MANIFEST, `index.patch`, `worktree.patch`,
 `local-files.tar.gz`, SHA256SUMS, verified) are at `~/.codex/research/worktree-cleanup-2026-10-24/05-*` to `20-*`
 (numbered 05-12 and 13-20); branches are kept. Recover as in round 1.
 
