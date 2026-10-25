@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 import {beginNativeCraftTransaction, nativeCraftQuestOwners} from '../src/native_craft_transaction.js';
+import Inventory,{configureInventoryItems} from '../src/components/inventory_component.js';
 
 class Item {getName() {return 'Original material';}}
 class Quest {
@@ -110,9 +111,9 @@ test('unsupported internal-slot owners fail before native mutation; redraw failu
     assert.throws(() => tx.markDurable(), /already settled/);
 });
 test('actual private inventory and availability components restore without inventory/reward replay', () => {
-    // Native modules import the browser singleton transitively. Evaluate only
-    // these unchanged component classes with their import dependencies supplied,
-    // rather than creating a fake DOM or importing the whole running game.
+    // Inventory now imports independently; exercise the real module and bind
+    // its narrow catalog operations. Availability still reaches browser owners,
+    // so retain the existing isolated class harness for that component.
     function component(path, className, dependencies) {
         const source = readFileSync(new URL(path, import.meta.url), 'utf8')
             .replace(/^import .*;\r?\n/gm, '')
@@ -120,7 +121,7 @@ test('actual private inventory and availability components restore without inven
         return vm.runInNewContext(`${source}\n${className}`, dependencies);
     }
     const item = new Item(); let created = 0;
-    const Inventory = component('../src/components/inventory_component.js', 'InventoryComponent', {getItemFromKey: () => {created++; return item;}, publishChange: () => {}});
+    configureInventoryItems({fromKey: () => {created++; return item;}, keyFromTemplate: () => {throw Error('Unexpected template lookup');}});
     const Availability = component('../src/components/availability_component.js', 'AvailabilityComponent', {process_conditions: () => true});
     const inv = new Inventory(); inv.addToInventory([{item_key: 'material', count: 3}]);
     const items = inv.getItems(), stack = items.material;

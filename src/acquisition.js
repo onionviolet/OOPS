@@ -1,5 +1,5 @@
 import {check} from './basics.js';
-import {validateItemKey} from "./gameplay_transactions.js";
+import {validateItemKey} from "./inventory_key.js";
 
 const object = value => value && typeof value === "object" && !Array.isArray(value);
 export const readInventoryOwner = items => Object.fromEntries(Object.entries(items).map(([key, value]) => [key, value.count]));

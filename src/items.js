@@ -1,3 +1,4 @@
+import {configureInventoryItems} from "./components/inventory_component.js";
 import {registerDomicileItems} from './home_content.js';
 import {addDescriptionClauses} from './item_description.js';
 import {applyNamedIdentity, namingState} from './naming_act.js';
@@ -4693,6 +4694,10 @@ function restoreSystemsWorkshopAvailability(save){
 registerDomicileItems(item_templates, OtherItem);
 availability_havers.push(Item);
 registerEnemyEquipmentItemFactory(getItemFromKey);
+// Narrow catalog adapter; preserves template quality/key semantics for every
+// Person, trader, chest and injected world-pack inventory consumer.
+configureInventoryItems({fromKey:getItemFromKey,keyFromTemplate:(id,quality)=>
+    getItem({...item_templates[id],...(quality?{quality}:{})}).getInventoryKey()});
 
 export {
     item_templates,

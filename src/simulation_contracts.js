@@ -1,3 +1,5 @@
+import {stableId} from "./simulation_ids.js";
+export {stableId} from "./simulation_ids.js";
 import {validateFoundationInteractionEffect,validateFoundationDelivery,validateFoundationInteractionState} from './foundation_interaction_policy.js';
 import {validateContainerDefinition,validateContainerEffect,validateContainerState} from './structured_container_runtime.js';
 import {validateSituationDefinition, validateSituationEffect, validateSituations, validateKnowledgeBasis} from "./causal_situations.js";
@@ -14,7 +16,7 @@ import {causalStoryDefinitions} from './causal_story_content.js';
 import {validateConstructEffect, validateConstructState} from './temporary_construct.js';
 import {validateSourceSuppliers} from './source_suppliers.js';
 
-export function stableId(v) {return typeof v === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(v) && !["__proto__", "constructor", "prototype"].includes(v);}
+
 export function jsonData(value, depth = 0) {
     assert(depth < 32, "Simulation data is too deeply nested.");
     if(value === null || typeof value === "boolean" || typeof value === "string") return;
