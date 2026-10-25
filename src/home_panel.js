@@ -12,23 +12,24 @@ const el=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textCo
 const select=label=>{const n=el('select');n.setAttribute('aria-label',label);return n;};
 const option=(value,label)=>{const n=el('option',label);n.value=value;return n;};
 export function createHomePanel({read,quote,execute}) {
-    const panel=el('section');panel.id='home_panel';panel.className='expedition_panel';
+    const panel=el('section');panel.id='home_panel';panel.className='expedition_panel ui-workbench';
     const title=el('h2','Homes and belongings'),notice=el('p');notice.setAttribute('role','status');
     const intro=el('p','Your rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.');
     const summary=el('p'),homes=select('Inspect residence'),detail=el('div'),start=el('details'),startBody=el('div'),market=el('details'),marketBody=el('div'),history=el('details'),historyBody=el('div'),building=el('details'),buildingBody=el('div');
     start.dataset.homeBeginnings='';start.append(el('summary','Choose a home beginning'),el('p','Optional fresh beginnings. Read the body, home rights and starting goods before choosing. The ordinary Village beginning remains available.'),startBody);
     market.append(el('summary','Village home supplier and lodging'),marketBody);history.append(el('summary','Home history'),historyBody);
-    building.append(el('summary','Build a home from the land'),buildingBody);panel.append(title,intro,summary,homes,detail,building,start,market,history,notice);
+    const shortcuts=el('nav');shortcuts.className='ui-panel-shortcuts';shortcuts.setAttribute('aria-label','Residence sections');
+    building.append(el('summary','Build a home from the land'),buildingBody);panel.append(title,intro,summary,homes,shortcuts,detail,building,start,market,history,notice);
     let signature='',selected='',view,shopSelection='',shopNode=null,nameDrafts=new Map(),depositSelections=new Map();
     const buttons=new Map();
     function action(parent,id,label,request) {
-        let row=buttons.get(id);if(!row){const button=el('button',label),reason=el('small'),wrap=el('div');button.type='button';button.dataset.homeAction=id;wrap.append(button,reason);row={button,reason,wrap,request:null,token:null};buttons.set(id,row);
+        let row=buttons.get(id);if(!row){const button=el('button',label),reason=el('small'),wrap=el('div');button.type='button';button.dataset.homeAction=id;wrap.className='ui-action-row';reason.className='ui-action-reason';reason.id='home-action-reason-'+buttons.size;button.setAttribute('aria-describedby',reason.id);wrap.append(button,reason);row={button,reason,wrap,request:null,token:null};buttons.set(id,row);
             button.onpointerdown=()=>{row.token=quote(row.request);};
             button.onclick=()=>{try{const q=row.token||quote(row.request);row.token=null;const result=execute(q);if(result.location&&centerModes().mode==='workspace:homes'){centerModes().back();expandWorkspaceModule('homes');}notice.textContent=q.result.message;signature='';render();}catch(e){notice.textContent=e.message;row.token=null;signature='';render();}};
         }
         row.request=request;row.button.textContent=label;const q=quote(request);row.button.disabled=!q.eligible;row.reason.textContent=q.eligible?'':q.reason;row.reason.hidden=q.eligible;if(row.wrap.parentElement!==parent)parent.append(row.wrap);
     }
-    const section=(parent,label)=>{const d=el('details');d.append(el('summary',label));parent.append(d);return d;};
+    const section=(parent,label)=>{const d=el('details');d.className='ui-panel-section';d.append(el('summary',label));parent.append(d);return d;};
     function render() {
         if(!panel.isConnected)return;view=read();const sig=JSON.stringify([view,selected]);if(sig===signature)return;signature=sig;
         summary.textContent=view.visible?`${view.homes.length} residence${view.homes.length===1?'':'s'} · ${view.context.body.form} body · ${view.context.money} coins`:'Your known homes are elsewhere.';
@@ -86,6 +87,11 @@ export function createHomePanel({read,quote,execute}) {
         }
         if(c.location===HOME_SITE||view.here)action(buildingBody,'weave_lining','Weave dry lining · 3 dry grass bundles · 8 min',{type:'weave_lining'});
         renderHomeWork({view,body:buildingBody,detail,h,el,section,action});
+        shortcuts.replaceChildren();
+        for(const [label,match]of [['Household','Family, staff'],['Storage','Private storage'],['Furnishings','Furnishings'],['Rooms','Homeowner repairs']]){
+            const target=[...detail.querySelectorAll('details')].find(n=>n.firstElementChild?.textContent.startsWith(match));
+            if(target){const b=el('button',label);b.type='button';b.dataset.homeSection=label;b.onclick=()=>{target.open=true;target.firstElementChild.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});};shortcuts.append(b);}
+        }
         start.hidden=!view.fresh;
         if(view.fresh)action(startBody,'ordinary','Keep your ordinary beginning',{type:'ordinary'});
         if(view.fresh)for(const [id,p]of Object.entries(S)){startBody.append(el('p',p.text));action(startBody,'start:'+id,'Begin as '+p.label,{type:'start',profile:id});}

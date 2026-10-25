@@ -1,5 +1,6 @@
 import {definePanel} from './panel_kit.js';
 import {GEAR_ACTIONS} from './gear_work.js';
+import {panelSection,labelControl,quotedActionList} from './ui/panel_sections.js';
 const el = (tag, text) => {const n = document.createElement(tag); if(text != null) n.textContent = text; return n;};
 const labels = {attack_points:'Attack precision',cold_tolerance:'Cold tolerance',crit_resistance:'Critical resistance',damage_taken:'Damage taken',min_damage_share:'Minimum share of a hit',stamina_efficiency:'Stamina efficiency',attack_speed:'Attack speed',attack_power:'Attack power'};
 const select = label => {const n = el('select'); n.setAttribute('aria-label', label); return n;};
@@ -8,9 +9,15 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
     const panel = el('section'); panel.id = 'gear_workshop'; panel.className = 'expedition_panel';
     const maker = select('Maker'), items = select('Carried gear'), action = select('Gear process'), material = select('Process material'), role = select('Material role'), slot = select('Structural component');
     const inspect = el('div'), details = el('div'), notice = el('p'), run = el('button', 'Apply quoted process'), hides = el('div');
+    panel.classList.add('ui-workbench');
+    const subject=panelSection('1 · Choose carried gear'), process=panelSection('2 · Plan the work'), review=panelSection('3 · Review and apply');
+    const subjectFields=el('div'),processFields=el('div');subjectFields.className=processFields.className='ui-field-grid';
+    subjectFields.append(labelControl(maker,'Maker'),labelControl(items,'Carried equipment'));
+    processFields.append(labelControl(action,'Process'),labelControl(material,'Material'),labelControl(role,'Material role'),labelControl(slot,'Component to replace'));
+    subject.body.append(subjectFields,inspect);process.body.append(processFields);review.body.append(details,run);
     run.type = 'button'; run.dataset.gearCommit = ''; notice.setAttribute('role', 'status');
     panel.append(el('h2', 'Gear workshop'), el('p', 'Work on carried gear. Materials, process and maker control decide the result. Unequip an item before changing it.'),
-        maker, items, inspect, action, material, role, slot, details, run, notice, hides);
+        subject.node,process.node,review.node,notice,hides);
     for(const [id, label] of Object.entries(GEAR_ACTIONS)) action.append(choice(id, label));
     let signature = '', q;
     const request = () => ({maker: maker.value||'player',action: action.value, key: items.value, material: material.value, role: role.value, slot: slot.value});
@@ -18,6 +25,8 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
     function render() {
         if(!panel.isConnected) return;
         const view = read(), sig = JSON.stringify([view, request()]); if(sig === signature) return; signature = sig;
+        const openGroups=new Set([...hides.querySelectorAll('details[open]')].map(n=>n.dataset.actionGroup||n.dataset.workshopSection));
+        const focused=panel.contains(document.activeElement)?document.activeElement.dataset.quotedAction:null;
         fill(maker,(view.makers||[{id:'player',name:'You',skill:view.maker.skill}]).map(m=>[m.id,`${m.name} · Forging ${m.skill}`]),'Choose maker');
         if(!maker.value)maker.value='player';
         fill(items, view.rows.map(r => [r.key, `${r.name} · ${r.quality}% quality · ${r.count} carried`]), 'Choose carried equipment');
@@ -34,18 +43,21 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
             for(const row of item.contributions) inspect.append(el('p', `${row.label}: ${labels[row.stat] || row.stat} ${row.multiplier != null ? '×' + row.multiplier : (row.flat >= 0 ? '+' : '') + row.flat}`));
             const history = item.work?.history || [];
             if(history.length) {const h = el('details'), summary = el('summary', `Work history (${history.length})`); h.append(summary); for(const r of history) h.append(el('p', `${r.action} · ${r.maker} · ${r.location} · game minute ${r.at}`)); inspect.append(h);}
-        }
+        } else inspect.append(el('p',view.rows.length?'Select a carried item to inspect its condition, materials and existing work.':'No component-built gear is carried. This bench works on weapons, shields and assembled armor with replaceable parts. Simple clothing has no such parts here. Unequip suitable worn gear in Inventory first.'));
         const a = action.value;
         material.hidden = !['attach','swap','repair','fieldRepair','quench','socket','reforge'].includes(a);
         role.hidden = !['attach','detach'].includes(a); slot.hidden = a !== 'swap';
         q = quote(request()); run.disabled = !q.eligible;
+        run.setAttribute('aria-describedby','gear-workshop-quote');details.id='gear-workshop-quote';
         details.replaceChildren(el('p', q.eligible ? q.summary : q.reason));
-        hides.replaceChildren(el('h3', 'Local repairer'),el('p',view.repairerStatus||''));
-        for(const r of view.repairer||[]){const b=el('button',r.label);b.type='button';b.dataset.menderAction=r.id;b.disabled=!r.quote.eligible;b.title=r.quote.reason||'';b.onclick=()=>{try{notice.textContent=repairer(r.quote).summary;}catch(e){notice.textContent=e.message;}signature='';render();};hides.append(b);}
-        hides.append(el('h3','Prepare hides'));
-        for(const h of view.hides || []) {const b = el('button', h.label); b.type = 'button'; b.dataset.hideTreatment = h.id; b.disabled = !h.quote.eligible; b.title = h.quote.reason || '';
-            b.onclick = () => {try {notice.textContent = prepareHide(h.quote).summary;} catch(error) {notice.textContent = error.message;} signature = ''; render();};
-            hides.append(el('p', `${h.note}${h.quote.eligible ? '' : ' ' + h.quote.reason}`), b);}
+        const local=panelSection('Local repairer',{description:view.repairerStatus}),treatments=panelSection('Prepare hides',{description:'Choose a treatment to see its material needs and result.',disclosure:true});
+        treatments.node.dataset.workshopSection='hides';
+        const activate=(rows,fn)=>id=>{try{notice.textContent=fn(rows.find(r=>r.id===id).quote).summary;}catch(e){notice.textContent=e.message;}signature='';render();};
+        local.body.append(quotedActionList((view.repairer||[]).map(r=>({...r,enabled:r.quote.eligible,reason:r.quote.reason,attributes:{'data-mender-action':r.id}})),{id:'gear-repairer',activate:activate(view.repairer||[],repairer)}));
+        for(const h of view.hides || []) {const row=el('div');row.className='ui-action-row';row.append(el('p',h.note),quotedActionList([{...h,enabled:h.quote.eligible,reason:h.quote.reason,attributes:{'data-hide-treatment':h.id}}],{id:'gear-hide-'+h.id,activate:activate(view.hides,prepareHide)}));treatments.body.append(row);}
+        hides.replaceChildren(local.node,treatments.node);
+        for(const n of hides.querySelectorAll('details'))if(openGroups.has(n.dataset.actionGroup||n.dataset.workshopSection))n.open=true;
+        if(focused)[...hides.querySelectorAll('[data-quoted-action]')].find(n=>n.dataset.quotedAction===focused)?.focus({preventScroll:true});
         if(q.eligible) for(const row of q.spend.slice(1)) details.append(el('p', `Consumes ${view.materials.find(m => m.key === row.key)?.name || JSON.parse(row.key).id} ×${row.count}`));
     }
     for(const input of [maker, items, action, material, role, slot]) input.onchange = () => {signature = ''; render();};

@@ -1,0 +1,670 @@
+{
+  "sourceCommit": "0ae4203522b7a3b1dbcb20e3c9616d034e5bdcb9",
+  "baselineCommit": "7fff7be3cf9d319f386f19a7ae16b13e649fade8",
+  "sourceFiles": {
+    "src/known_routes_ui.js": "b480c95d2c7cfa32be245b460536d0fc333b67982e792d0ff7467261e00dd339",
+    "src/loadouts.js": "669eebae8e03cbad73ee787a1e4e2c0b90e19d438e6a9806282dba558ae63815",
+    "src/owned_place_clock_panel.js": "5254b689fd7d681729d9dff7b1ff21906655a7bc3f9b5e4d2017ee04b995b74f",
+    "src/rank_gap_observer_domain.js": "671a209c103f4885501ad43213ed5dbe7f7f870c79e72e510bce466fdd768946",
+    "src/stock_view_ui.js": "5ea9fa506d007e523e0b3c7804ea777dfa2be2463babc308afb5eb613261666c",
+    "styles/ui_tokens.css": "185ce6cb122eb00477837dbab7034104de334e27f05f8da47f226c5fd2d98505",
+    "tests/known_routes_ui.test.js": "0706754a039aebf5699411437b9bca5730be378daa42eb1f7d725e91ef07c803"
+  },
+  "beforeArtifact": {
+    "dist/bundle.js": "f1e067eb938aebd2347592e9cf852f059c941ecbcf39c4226e98ad1ce2cdbb87",
+    "styles/ui_tokens.css": "5051107b69d09fdc9e34ea628398b0404d4f2fafbef15a1f10585d3c4db1ed11",
+    "index.html": "67ca8e88fb17c8efa7fdd2b88ccbe9df14a72b966ffcafc07468fa5c0f65ee48"
+  },
+  "afterArtifact": {
+    "dist/bundle.js": "e774ed67aa305e01ee97a8e584456ff0a9a11a3ab7825be1a04d6b03c5cb8e47",
+    "styles/ui_tokens.css": "185ce6cb122eb00477837dbab7034104de334e27f05f8da47f226c5fd2d98505",
+    "index.html": "67ca8e88fb17c8efa7fdd2b88ccbe9df14a72b966ffcafc07468fa5c0f65ee48"
+  },
+  "fixtureRecipe": "scripts/playtest/d1-resume.mjs",
+  "fixtureRecipeSha256": "e7eb78aabd315d0f48fddab193ed71d3988a557db9bf3fe99387bffd19a2f43b",
+  "identities": [
+    {
+      "id": "status-window",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "status-window",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "status-window-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "status-window-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "practice-actions",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "practice-actions",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "practice-actions-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "practice-actions-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "skills",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "skills",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "skills-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "skills-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "reading-reference",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "reading-reference",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "reading-reference-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "reading-reference-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "world-events",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "world-events",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "world-events-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "world-events-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "statistics",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "statistics",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "statistics-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "statistics-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "carcass-processing",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "carcass-processing",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "carcass-processing-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "carcass-processing-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "primordial_credit",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "primordial_credit",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "primordial_credit-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "primordial_credit-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "loadouts",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "loadouts",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "loadouts-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "loadouts-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7"
+    },
+    {
+      "id": "companions",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "companions",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "companions-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "companions-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "stock_view",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "stock_view",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "stock_view-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "stock_view-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "learned-preparations",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "learned-preparations",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "learned-preparations-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "learned-preparations-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "rank_gap_observer",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "rank_gap_observer",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "rank_gap_observer-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "rank_gap_observer-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "known-routes",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "known-routes",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "known-routes-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "known-routes-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6"
+    },
+    {
+      "id": "place_clock",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "id": "place_clock",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "id": "place_clock-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "id": "place_clock-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "id": "family",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "5324be3f882ad52538806c18cecb2098efeabcdc1b14c23c9a8c8b0f6ac11634"
+    },
+    {
+      "id": "family",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "5324be3f882ad52538806c18cecb2098efeabcdc1b14c23c9a8c8b0f6ac11634"
+    },
+    {
+      "id": "family-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "seedSha": "5324be3f882ad52538806c18cecb2098efeabcdc1b14c23c9a8c8b0f6ac11634"
+    },
+    {
+      "id": "family-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "seedSha": "5324be3f882ad52538806c18cecb2098efeabcdc1b14c23c9a8c8b0f6ac11634"
+    }
+  ],
+  "imageSha256": {
+    "resume/before/status-window-1920x1080.png": "b02855fab9956a1ef836fe3edd56b9c9719c120463932168cf6220468c2e087b",
+    "resume/after/status-window-1920x1080.png": "b02855fab9956a1ef836fe3edd56b9c9719c120463932168cf6220468c2e087b",
+    "resume/before/status-window-1440x900.png": "50d5e81dc2a1612e13755b201740bd27d54df260507a90d49351ca4392136a18",
+    "resume/after/status-window-1440x900.png": "50d5e81dc2a1612e13755b201740bd27d54df260507a90d49351ca4392136a18",
+    "resume/before/status-window-21px-1920x1080.png": "e722f9aca69b25ad2da58ed6a0eafb345b24861f9e8f721dbcb5982bcb53df85",
+    "resume/after/status-window-21px-1920x1080.png": "b7ada63030d6f7f88e8a2a0ae3523fe847a620c1df3ce024688f8fbc7f838db1",
+    "resume/before/status-window-21px-1440x900.png": "6cd7b320b1ff3b4fcfaf8c0527a83bb1acde3fc8e3390a060157698d55796223",
+    "resume/after/status-window-21px-1440x900.png": "6cd7b320b1ff3b4fcfaf8c0527a83bb1acde3fc8e3390a060157698d55796223",
+    "resume/before/practice-actions-1920x1080.png": "d208f63dcb8d43f700caf2dc53ccb0e4d6decca01c7f2ac73dc426e19ed99a48",
+    "resume/after/practice-actions-1920x1080.png": "ceb08b967058efdf2e8f8b96ab2204524838f6564024f79656ded30e5336153e",
+    "resume/before/practice-actions-1440x900.png": "4e0a1676875047d2e953d7b1190e2974495b64585d3d2f9153d68b771f286680",
+    "resume/after/practice-actions-1440x900.png": "4e0a1676875047d2e953d7b1190e2974495b64585d3d2f9153d68b771f286680",
+    "resume/before/practice-actions-21px-1920x1080.png": "a78172f5c82456183736d063b9b9f5e26571cceea81c63f928fcd62d010b0792",
+    "resume/after/practice-actions-21px-1920x1080.png": "a78172f5c82456183736d063b9b9f5e26571cceea81c63f928fcd62d010b0792",
+    "resume/before/practice-actions-21px-1440x900.png": "9443ea334ef3326dfb464d56e304decfcb7683fb46290bb85b1e88a80338ec2d",
+    "resume/after/practice-actions-21px-1440x900.png": "9443ea334ef3326dfb464d56e304decfcb7683fb46290bb85b1e88a80338ec2d",
+    "resume/before/skills-1920x1080.png": "c23b977d7384e4aa9ad332ac967f745662f7ea049a9332c249b40f1391af8146",
+    "resume/after/skills-1920x1080.png": "1fbc2fd80dc2735c6480795be0d8a573e7cde2e3c9bd44ac7558ac8256a7cddf",
+    "resume/before/skills-1440x900.png": "d43932191f1cf3852bb9fef631d024158bdc6f49e7968c8813e0b29e080a82f9",
+    "resume/after/skills-1440x900.png": "443cdab8d350a05d6e64ccff6bf6350e2afecb40eaeeb8241747812efe46ed29",
+    "resume/before/skills-21px-1920x1080.png": "df03f769fc4971a9081d5c48e6510c524ffe110d21c10d272716fd725930113a",
+    "resume/after/skills-21px-1920x1080.png": "894dc0c0c3682addd4dece7eab6b991a674c35e737af445475cf80d2d5354657",
+    "resume/before/skills-21px-1440x900.png": "77cde1bf8d9fa7a0c1e6e0a51e54b3ca23bec45c4e8d249323c9067a916bae6d",
+    "resume/after/skills-21px-1440x900.png": "916ffceec52b67be0c780fc0b6da2b0f075a4e51ad0233d00168080d662f8498",
+    "resume/before/reading-reference-1920x1080.png": "54110cb9bcd5591e920e305b432a196069e1555c15c80e07e0ac70233fa05775",
+    "resume/after/reading-reference-1920x1080.png": "66d564049e6b224084b619a36590b3026a199ce58045429f7f7840c01ea3c856",
+    "resume/before/reading-reference-1440x900.png": "a628b28316f74ab0f1a54ec9e52ac2aa1813e9a736e9a72f3858ddfbe9a85ea9",
+    "resume/after/reading-reference-1440x900.png": "5419f05baf368a8809a9266fcae3c889b020c5780e4bc059387b5eeee8775fbf",
+    "resume/before/reading-reference-21px-1920x1080.png": "84954cd7de43d4f4f5df48218a12972b9bab4ceea1ff5602c61e7e5d6609e2ad",
+    "resume/after/reading-reference-21px-1920x1080.png": "0d2a4add1bcf0bd8757bef5658a01e9c9b40970aec9882feb6d4b7dc527ceaa4",
+    "resume/before/reading-reference-21px-1440x900.png": "519ee7d1aacf4fc70d209642f0fd2f7a0723e37fe30b380ef3c0b015116726dd",
+    "resume/after/reading-reference-21px-1440x900.png": "8d3acc8e30b171eb613a17b59df5d940afc1f8be80caaf0c2880cd812a7e6c7a",
+    "resume/before/world-events-1920x1080.png": "bc8b728e0b1b85e5e6ff244fe8be9c017ed4892f7a85c52ee7bc5ad8636914c3",
+    "resume/after/world-events-1920x1080.png": "bc8b728e0b1b85e5e6ff244fe8be9c017ed4892f7a85c52ee7bc5ad8636914c3",
+    "resume/before/world-events-1440x900.png": "38d494c83317d606a89daa77433aab34bfc8c3a9af8f3020284f2ea387e65f3d",
+    "resume/after/world-events-1440x900.png": "38d494c83317d606a89daa77433aab34bfc8c3a9af8f3020284f2ea387e65f3d",
+    "resume/before/world-events-21px-1920x1080.png": "b79ebb7f88993ddde01a8be86a04f4de150d11efe0873b7ef11f4a5e915e7aac",
+    "resume/after/world-events-21px-1920x1080.png": "b79ebb7f88993ddde01a8be86a04f4de150d11efe0873b7ef11f4a5e915e7aac",
+    "resume/before/world-events-21px-1440x900.png": "18baeff43e3fa235eb3474bbad31a07261b02649b1c04161695a91326bcdb840",
+    "resume/after/world-events-21px-1440x900.png": "18baeff43e3fa235eb3474bbad31a07261b02649b1c04161695a91326bcdb840",
+    "resume/before/statistics-1920x1080.png": "77a3c136d7d649110407d100894175ed8168c6d4a7cab2e2923b0ce2ce719681",
+    "resume/after/statistics-1920x1080.png": "c725c6cea50c59f7f50436e8d437cffa0b487366a62b2985bb26c6c5ea6a6506",
+    "resume/before/statistics-1440x900.png": "02aaaae3a1fdf9e7e9bd33c925f3287308242f70e34e5078dbadf4d18263ca65",
+    "resume/after/statistics-1440x900.png": "02aaaae3a1fdf9e7e9bd33c925f3287308242f70e34e5078dbadf4d18263ca65",
+    "resume/before/statistics-21px-1920x1080.png": "004de92125e8bf1e67416dcd25d6ff19b36bed6800dc9a1d19983165a19e4cd5",
+    "resume/after/statistics-21px-1920x1080.png": "004de92125e8bf1e67416dcd25d6ff19b36bed6800dc9a1d19983165a19e4cd5",
+    "resume/before/statistics-21px-1440x900.png": "74232149c88ae1ecdd1337e3358dffdbb8db2f2b7d8ae25b7d2dd7f5f4617f87",
+    "resume/after/statistics-21px-1440x900.png": "74232149c88ae1ecdd1337e3358dffdbb8db2f2b7d8ae25b7d2dd7f5f4617f87",
+    "resume/before/carcass-processing-1920x1080.png": "f95d451bb6e696bb66b480acc12e0abeccfdff2c458b1d76bb7fcc465349013d",
+    "resume/after/carcass-processing-1920x1080.png": "f95d451bb6e696bb66b480acc12e0abeccfdff2c458b1d76bb7fcc465349013d",
+    "resume/before/carcass-processing-1440x900.png": "c137ac90bdd528e2300ccfa1650995f282775bb5cd560de5209b0c5f047e3a15",
+    "resume/after/carcass-processing-1440x900.png": "c137ac90bdd528e2300ccfa1650995f282775bb5cd560de5209b0c5f047e3a15",
+    "resume/before/carcass-processing-21px-1920x1080.png": "ff819d02776c7fb993b375feeec0baac8d2d626bdac62552872007e469837edf",
+    "resume/after/carcass-processing-21px-1920x1080.png": "ff819d02776c7fb993b375feeec0baac8d2d626bdac62552872007e469837edf",
+    "resume/before/carcass-processing-21px-1440x900.png": "f2d7020b0c188da1990943c13c55ff60f2adfc9587a7f5bdd1d08d775b0418f2",
+    "resume/after/carcass-processing-21px-1440x900.png": "f2d7020b0c188da1990943c13c55ff60f2adfc9587a7f5bdd1d08d775b0418f2",
+    "resume/before/primordial_credit-1920x1080.png": "1a853abc9cf7f16b7204543e816de7bb61d725d57320a8448d09af188b2cc960",
+    "resume/after/primordial_credit-1920x1080.png": "1a853abc9cf7f16b7204543e816de7bb61d725d57320a8448d09af188b2cc960",
+    "resume/before/primordial_credit-1440x900.png": "1829cc76281751d72c8608d1c1f44968b6b0ba781c19bdb75733f73d1f0aff32",
+    "resume/after/primordial_credit-1440x900.png": "1829cc76281751d72c8608d1c1f44968b6b0ba781c19bdb75733f73d1f0aff32",
+    "resume/before/primordial_credit-21px-1920x1080.png": "97f65803458589a165482aaccd56fc053df5a6710157cec59af58574113b6f51",
+    "resume/after/primordial_credit-21px-1920x1080.png": "debb0e39a5f3b93eb715b9049f3767d771fcd59c7b859dd9f294fb35d9f9740f",
+    "resume/before/primordial_credit-21px-1440x900.png": "415934e2410de657053c14eb25b993230cd86bc88dfb02c7b43e9ae8a6d334bf",
+    "resume/after/primordial_credit-21px-1440x900.png": "415934e2410de657053c14eb25b993230cd86bc88dfb02c7b43e9ae8a6d334bf",
+    "resume/before/loadouts-1920x1080.png": "14d437074dbfc6e540d4b77d5358bd888816a251c582c3d52a870d7494edb42d",
+    "resume/after/loadouts-1920x1080.png": "36ff3f1d44f0c4ddc2a0ac468fb011824f55edc7519dedacbbcaf3f361a383d1",
+    "resume/before/loadouts-1440x900.png": "4b66ef4f30ae87010baf48d20fa2756c70a03ab0127b4eecb399a7d3ad20c1fe",
+    "resume/after/loadouts-1440x900.png": "4fe169bcdfea36bab4f53fab967e6eaffdc3c009c8f4a92480b8733cdfd6b10f",
+    "resume/before/loadouts-21px-1920x1080.png": "d4b10929cbeaa8d8dae59a5a32b2b3a0e9c3cf0a022dda0d5fcdec1731e6adb8",
+    "resume/after/loadouts-21px-1920x1080.png": "0b4d8d87500dcafa352894beb26c988f74de6a8f41dba25d96548b1f38546b11",
+    "resume/before/loadouts-21px-1440x900.png": "5ef0b8614fcd025d76a1152440c1141554f356dff1d116a93b829afd4598d8c6",
+    "resume/after/loadouts-21px-1440x900.png": "de3fee1c0d5f9efac023d2aa7e98f2309bc6668ee9bf3e706161c32c7d5a5c1f",
+    "resume/before/companions-1920x1080.png": "dd449431552b73989eef1ad59788a7c65f78749aa09aea9acadaf979ff97f9af",
+    "resume/after/companions-1920x1080.png": "94286820f4cff7074db18245bc8d7896402f944e3e79d5e40b313dcc6f3c3e9a",
+    "resume/before/companions-1440x900.png": "9af62d7e1ff7b23e9cf1d220e6e61439ad1f164020ed78f946077606c35ca90f",
+    "resume/after/companions-1440x900.png": "5101f92d51fae7311187e925a32533a25386d838a26be2d56d427698aa59e97c",
+    "resume/before/companions-21px-1920x1080.png": "8519b515114fb12b4683df7ecbb897ae76930e062d61c4a5c2845d1c00972e25",
+    "resume/after/companions-21px-1920x1080.png": "cff55b9315e313e92e604a07150217f5ce316f51d9c50097506caaee361a2ca4",
+    "resume/before/companions-21px-1440x900.png": "93fc5e40d97ea9315e60ce4553597fd48724b47f49c9cc0bdfc02dad3388b848",
+    "resume/after/companions-21px-1440x900.png": "c974b6bf6512f6625d346e6816639806abf8dd706d59295d58633c85aeda8d75",
+    "resume/before/stock_view-1920x1080.png": "6ea6d1fbd3de4252b7ab43d58edcd6a76c4fbd38ef277b1da460f12ccaef48c8",
+    "resume/after/stock_view-1920x1080.png": "d51a7b698837b419eac43504fe8b20489906961237d9c7e22051eae04dea1dd7",
+    "resume/before/stock_view-1440x900.png": "06003c15c50371ffd9d912aff34950cc605435cb107716c90a11c431376820fe",
+    "resume/after/stock_view-1440x900.png": "260f84fb6ddff8a04a0382d53f1a421eb040bd2cbadac1e36a2cb1a3bfc32780",
+    "resume/before/stock_view-21px-1920x1080.png": "393c6cae138afc1fed3a02c4b2c621426285a4e2dc4de851c5e724c848a89a8d",
+    "resume/after/stock_view-21px-1920x1080.png": "7b04ed0c02a270449aff88115ec82fbcc8c3dce593e25d9af7b84bdfe9a6492c",
+    "resume/before/stock_view-21px-1440x900.png": "017e39e53a38f6c3810f41a98de84146721321ca6acf46f2ad61252982c6620a",
+    "resume/after/stock_view-21px-1440x900.png": "c585f0a82b1c38b6209b46f8b1aca2b3a359356a8366040f04fd33c8698abf84",
+    "resume/before/learned-preparations-1920x1080.png": "d47b91350eb868113c2586ae3b1a93c6633322b46ba61ee862fda54642dd7bb7",
+    "resume/after/learned-preparations-1920x1080.png": "8ea9df2e39722a6fdc6bfb76d968d3e96e212f195645c0387431e2333c149a3f",
+    "resume/before/learned-preparations-1440x900.png": "4e18ecbd64d58637c54f611491b6616ee3d6aa1ad27760fe091301bf1270c88d",
+    "resume/after/learned-preparations-1440x900.png": "dd982a59a2a42b36e0d8bceb45d00b0d2d3f7a6afcc14bc100d87f72848bc413",
+    "resume/before/learned-preparations-21px-1920x1080.png": "a0e3cc3156780f7302a42422a948626e201dd61e319e9389afdae5c515f77481",
+    "resume/after/learned-preparations-21px-1920x1080.png": "ff71023fd5fbe0efa5b602aa42c940a678af08acf4cc66432e32094da295817d",
+    "resume/before/learned-preparations-21px-1440x900.png": "27861cac692593f4857df1cf54c335384e67e910e586573e96acb8f40fd70f19",
+    "resume/after/learned-preparations-21px-1440x900.png": "592b15635626e8a31570162aa74343243db5c167b2bc111f4cd135224aa684ea",
+    "resume/before/rank_gap_observer-1920x1080.png": "c1922eda1398eabfdd4065f33f3dba9ede62b97b4015585f7d14deaf3b2ecba8",
+    "resume/after/rank_gap_observer-1920x1080.png": "69050f131e3deb5889af80368f6d45814d4d35442f9d908436bd25ac532d1a42",
+    "resume/before/rank_gap_observer-1440x900.png": "64be98bc5da3d565ad92c43776a68908597e00953339fe452e20d0defa830f7b",
+    "resume/after/rank_gap_observer-1440x900.png": "d50dff17c7b9226b8b73b0ef28430f4e5408d26cf6d808d32adcbfab76582083",
+    "resume/before/rank_gap_observer-21px-1920x1080.png": "5ebb93e5161adc725397108491aac9228145a4add7f4f1412a8216c139b7617e",
+    "resume/after/rank_gap_observer-21px-1920x1080.png": "73563c261c0c5ee6c4d803525b0c714dd4402c716463bf12d23ec5af6280ff18",
+    "resume/before/rank_gap_observer-21px-1440x900.png": "89734180e2e4db71ecf5b93e68823048ec02853dcc2640e6b4668fb2ac0c33f2",
+    "resume/after/rank_gap_observer-21px-1440x900.png": "39524d38fd37b191cc3b49458f98cd471e6ff8bbc6e7b69a97766c1b888d9065",
+    "resume/before/known-routes-1920x1080.png": "cacb8750cc238565791e992644afd7610b34c8b6aa498e3ab35fb66af221682d",
+    "resume/after/known-routes-1920x1080.png": "f2b7068824557a65de40ba038a4de210e728fa9d2798c57df3faf920cc6ea57f",
+    "resume/before/known-routes-1440x900.png": "56e5f49a5b7f6b8fb5d21909e0ba9140346d25a33fb4be52afa8f31628db03b4",
+    "resume/after/known-routes-1440x900.png": "e2ca73c54c1185b93b2d7a1c688128069a3ac222be4a9c82d52ca30d59715503",
+    "resume/before/known-routes-21px-1920x1080.png": "be0d982b47b5a22427c6d9206eb61007ecc0de74f6779726f9e45289a2c99fac",
+    "resume/after/known-routes-21px-1920x1080.png": "f3cb160a49843d76f6079005cf020a6ccc29be8e1eef80763330e64caec3171e",
+    "resume/before/known-routes-21px-1440x900.png": "e98f49ec4f427a60c92bfcc1935b15902db77ecbcd26a2a4edee43ffc69ee059",
+    "resume/after/known-routes-21px-1440x900.png": "38575ae812610496edf1489006ee2e0cfab5684fcf35dbdc634f6da4ace572d6",
+    "resume/before/place_clock-1920x1080.png": "b5353060f3f634cf8af57ae51bf550897a9b66b65290e23c92058ee3db0b5c40",
+    "resume/after/place_clock-1920x1080.png": "9f2b899e5828034a28f115347abc931a5b593fb91c05a331a3bc290bc3342722",
+    "resume/before/place_clock-1440x900.png": "8f6680edd82a56a8a865451486a2db363cb3bb4308d60600d005c6742666a83b",
+    "resume/after/place_clock-1440x900.png": "1c54a54cc349c92bb8d58436bc4f51b04026ab9a92d5991604e59eff1e37fec9",
+    "resume/before/place_clock-21px-1920x1080.png": "9db13a0f12c28f8ec29cd36831d4448ce7f7fbe5e5d1129ee41db49730dbdfa6",
+    "resume/after/place_clock-21px-1920x1080.png": "8682c30e3707e84fb1ec09e1bdee850ea513214514925c35d96b2d122e3ce55a",
+    "resume/before/place_clock-21px-1440x900.png": "dd4426dce2d28b77cff4a686c37918c5cdbbba135a89d55c9981667b93180ba9",
+    "resume/after/place_clock-21px-1440x900.png": "113d45b4c268c067f1fb156bf5610ea65bb5910ad6210905823fe887b9210807",
+    "resume/before/family-1920x1080.png": "bef44d626350411912c20a43f72929d3834c2673da843dd39d36ad08851887dc",
+    "resume/after/family-1920x1080.png": "bef44d626350411912c20a43f72929d3834c2673da843dd39d36ad08851887dc",
+    "resume/before/family-1440x900.png": "3e3ec57da4732223373c7d2f8bfcfa69a2370bfe2021d303f3f76a6448675ae1",
+    "resume/after/family-1440x900.png": "3e3ec57da4732223373c7d2f8bfcfa69a2370bfe2021d303f3f76a6448675ae1",
+    "resume/before/family-21px-1920x1080.png": "27bb54577114b1fbc602152597c3158c6ed9e043d7a0f405c58bb6fa12fa1041",
+    "resume/after/family-21px-1920x1080.png": "27bb54577114b1fbc602152597c3158c6ed9e043d7a0f405c58bb6fa12fa1041",
+    "resume/before/family-21px-1440x900.png": "5758710f8e049488dbfc9e2cdf32fc7305856de8610dda33c1160d9236aa9241",
+    "resume/after/family-21px-1440x900.png": "5758710f8e049488dbfc9e2cdf32fc7305856de8610dda33c1160d9236aa9241"
+  },
+  "originalProofFilesUnchanged": 281
+}

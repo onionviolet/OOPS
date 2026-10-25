@@ -29,8 +29,8 @@ export function mountGameBar({nav}) {
     const bar = make('header', 'game-bar'); bar.id = 'game_bar'; bar.setAttribute('aria-label', 'Game bar');
     const left = make('div', 'game-bar-left'), right = make('div', 'game-bar-right');
     const state = make('span', 'game-bar-save-state'); state.setAttribute('role', 'status'); state.setAttribute('aria-live', 'polite');
-    const more = createControlBox({id: 'game-bar-more', title: 'More panels', placement: 'below'});
-    more.node.classList.add('game-bar-overflow'); more.setLabel('More', 'More panels');
+    const more = createControlBox({id: 'game-bar-more', title: 'Panel shortcuts', placement: 'below'});
+    more.node.classList.add('game-bar-overflow'); more.setLabel('Shortcuts', 'Panel shortcuts');
     const menu = createControlBox({id: 'game-bar-menu', title: 'Menu', placement: 'below', panelHome: root});
     menu.node.classList.add('game-bar-menu'); menu.setLabel('Menu', 'Settings, help, layout and links');
     const menuLinks = make('div', 'game-bar-menu-links');
@@ -50,8 +50,14 @@ export function mountGameBar({nav}) {
         for (const b of buttons) delete b.dataset.barOverflow;
         const shown = buttons.filter(b => !b.hidden && getComputedStyle(b).display !== 'none');
         const fixed = [...nav.children].filter(n => !shown.includes(n) && n.tagName !== 'DIALOG' && getComputedStyle(n).display !== 'none').reduce((w, n) => w + n.getBoundingClientRect().width, 0);
+        // Reserve the overflow button's final label before measuring the routes.
+        // Measuring it while hidden (or under its previous shorter label) could
+        // leave All panels clipped behind the newly expanded shortcut control.
+        more.node.hidden = false;
+        more.setLabel(`Shortcuts ${shown.length}`, 'Panel shortcuts');
+        const widths=shown.map(b => b.getBoundingClientRect().width);
         const room = left.clientWidth - fixed - more.node.getBoundingClientRect().width - 8;
-        const from = overflowFrom(shown.map(b => b.getBoundingClientRect().width), room);
+        const from = widths.reduce((sum,w)=>sum+w,0)+fixed+8<=left.clientWidth ? shown.length : overflowFrom(widths, room);
         const folded = shown.slice(from);
         for (const b of folded) b.dataset.barOverflow = 'true';
         // The widths above leave out the navigation's own padding and gaps, so a tight bar can still
@@ -59,7 +65,7 @@ export function mountGameBar({nav}) {
         for (let i = from - 1; i >= 0 && nav.scrollWidth > nav.clientWidth + 1; i--) { shown[i].dataset.barOverflow = 'true'; folded.unshift(shown[i]); }
         more.node.hidden = !folded.length;
         more.body.replaceChildren(...folded.map(b => { const p = make('button', 'game-bar-overflow-item', b.textContent); p.type = 'button'; p.dataset.overflowPath = b.dataset.panelPath; if (b.dataset.panelTab) p.dataset.overflowTab = b.dataset.panelTab; p.title = b.title; p.disabled = b.disabled; p.addEventListener('click', () => { more.close({restore: false}); b.click(); }); return p; }));
-        more.setLabel(`More ${folded.length}`, `${folded.length} more panels: ${folded.map(b => b.textContent).join(', ')}`);
+        more.setLabel(`Shortcuts ${folded.length}`, `${folded.length} panel shortcuts: ${folded.map(b => b.textContent).join(', ')}`);
     }
     const syncState = () => {
         const line = document.querySelector('#workspace_current_work > p:nth-of-type(2)');

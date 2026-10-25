@@ -259,7 +259,8 @@ function update_fighter_stats({fighter_index, is_attacker}) {
         (r.opposingShield ? `| Hit: 100% 🛡️` : `| Hit: ${r.hitPct}%`) : `| AP: ${r.attackPoints}`;
     
     stats_div.children[3].innerText = r.shield ? 
-        `| 🛡️: ${r.block}2345` : (r.solo ? `| Ddg: ${r.evadePct}%` : `| EP: ${r.evasionPoints}`);
+        `| 🛡️: ${r.block}` : (r.solo ? `| Ddg: ${r.evadePct}%` : `| EP: ${r.evasionPoints}`);
+    stats_div.children[3].title = r.shield ? `Shield block strength: ${r.block}` : r.solo ? 'Chance to evade the current opponent' : 'Evasion rating against multiple opponents';
     stats_div.children[4].innerText = `| Def: ${r.defense}`;
 }
 

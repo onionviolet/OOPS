@@ -1,0 +1,160 @@
+{
+  "checks": [
+    "Actual custom Gothic glyphs loaded at both targets; focused routine row and native item hover captured",
+    "OS reduced motion disables transitions with static focus cues retained",
+    "Save/reload/Export/literal Import preserves explicit appearance and native holdings/player learning at both viewports",
+    "Saved system/21px inventory font and explicit background survive shared styling; effects off/reduced retain static controls",
+    "21px workshop respects both desktop viewports",
+    "Empty equipment selection names the next step; high-contrast path captured"
+  ],
+  "cases": [
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "panelSelectorGeometry": {
+        "right": 1092,
+        "left": 1008,
+        "width": 84,
+        "parentRight": 1106
+      }
+    },
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "actualFonts": [
+        {
+          "familyName": "OOPS Gothic Bitmap 14",
+          "postScriptName": "OOPSGothicBitmap14",
+          "isCustomFont": true,
+          "glyphCount": 21
+        }
+      ],
+      "focus": {
+        "outline": "solid",
+        "shadow": "none",
+        "transition": "0.12s, 0.12s, 0.12s"
+      },
+      "reducedMotion": "1e-06s",
+      "persistence": "Save/reload/Export/literal Import preserves appearance, inventory and player learning"
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "panelSelectorGeometry": {
+        "right": 852,
+        "left": 768,
+        "width": 84,
+        "parentRight": 866
+      }
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "actualFonts": [
+        {
+          "familyName": "OOPS Gothic Bitmap 14",
+          "postScriptName": "OOPSGothicBitmap14",
+          "isCustomFont": true,
+          "glyphCount": 21
+        }
+      ],
+      "focus": {
+        "outline": "solid",
+        "shadow": "none",
+        "transition": "0.12s, 0.12s, 0.12s"
+      },
+      "reducedMotion": "1e-06s",
+      "persistence": "Save/reload/Export/literal Import preserves appearance, inventory and player learning"
+    }
+  ],
+  "missingResources": [
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json",
+    "/private_packs/manifest.json"
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    }
+  ]
+}

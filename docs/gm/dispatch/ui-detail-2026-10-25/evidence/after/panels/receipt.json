@@ -1,0 +1,2295 @@
+{
+  "phase": "after",
+  "fixture": "tests/fixtures/perf/mid.json",
+  "inputs": {
+    "dist/bundle.js": "f1e067eb938aebd2347592e9cf852f059c941ecbcf39c4226e98ad1ce2cdbb87",
+    "styles/ui_tokens.css": "5051107b69d09fdc9e34ea628398b0404d4f2fafbef15a1f10585d3c4db1ed11",
+    "index.html": "67ca8e88fb17c8efa7fdd2b88ccbe9df14a72b966ffcafc07468fa5c0f65ee48"
+  },
+  "captures": [
+    {
+      "id": "homes",
+      "title": "Homes",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/homes-1920x1080.png",
+      "task": "workspace:homes",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Homes\n▾\nHomes and belongings\n\nYour rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.\n\n0 residences · human body · 104 coins\n\nVisit the Village home supplier or choose an optional fresh home beginning. The original Shack remains available through its ordinary route.\n\nBuild a home from the land\nVillage home supplier and lodging\nHome history",
+      "controls": 10,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "homes",
+      "title": "Homes",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/homes-1440x900.png",
+      "task": "workspace:homes",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Homes\n▾\nHomes and belongings\n\nYour rights, furnishings and goods stay with each home. Prices and comfort values are proposed balance.\n\n0 residences · human body · 104 coins\n\nVisit the Village home supplier or choose an optional fresh home beginning. The original Shack remains available through its ordinary route.\n\nBuild a home from the land\nVillage home supplier and lodging\nHome history",
+      "controls": 10,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "herbal-experiments",
+      "title": "Village experiments",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/herbal-experiments-1920x1080.png",
+      "task": "workspace:herbal-experiments",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Village experiments\n▾\nVillage experiments\n\nGather herbs and river salt on the Village common verge, select carried materials, then try a small steeped batch. Salty batches bind toxin when drunk. Original frontier trial. Properties act before you know them.\n\nGather from the Village verge\nVillage shelf\n\nVillage method book: Lets you follow the salt-and-herb steep while you carry it. Lose it and the method goes with it.\n\nTake a copy\n\nVillage method slate: Study it to learn the salt-and-herb steep for good. The slate is used up.\n\nTake a copy\n\nVillage reading primer: Reading it once teaches you a l",
+      "controls": 9,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "herbal-experiments",
+      "title": "Village experiments",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/herbal-experiments-1440x900.png",
+      "task": "workspace:herbal-experiments",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Village experiments\n▾\nVillage experiments\n\nGather herbs and river salt on the Village common verge, select carried materials, then try a small steeped batch. Salty batches bind toxin when drunk. Original frontier trial. Properties act before you know them.\n\nGather from the Village verge\nVillage shelf\n\nVillage method book: Lets you follow the salt-and-herb steep while you carry it. Lose it and the method goes with it.\n\nTake a copy\n\nVillage method slate: Study it to learn the salt-and-herb steep for good. The slate is used up.\n\nTake a copy\n\nVillage reading primer: Reading it once teaches you a l",
+      "controls": 9,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "economy_standing",
+      "title": "Standing and ledger",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/economy_standing-1920x1080.png",
+      "task": "workspace:economy_standing",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Standing and ledger\n▾\nStanding and ledger\nHouses\n\nMarket Circle (Village): Neutral, 0. Rival: Gutter Crews. Sells to you +0%, buys from you +0%.\n\nGutter Crews (Slums): Neutral, 0. Rival: Market Circle. Sells to you +0%, buys from you +0%.\n\nCounting-House (Town): Neutral, 0. Rival: Gutter Crews. Sells to you +0%, buys from you +0%.\n\nWorn paths\n\nWalk the same road often and it gets quicker: up to a quarter off.\n\nCredit\nMarket Circle: limit 10, rate 16% per 28 days. Borrow 10Borrow 25\nGutter Crews: limit 6, rate 24% per 28 days. Borrow 10Borrow 25\nCounting-House: limit 20, rate 16% per 28 days. B",
+      "controls": 9,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "economy_standing",
+      "title": "Standing and ledger",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/economy_standing-1440x900.png",
+      "task": "workspace:economy_standing",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Standing and ledger\n▾\nStanding and ledger\nHouses\n\nMarket Circle (Village): Neutral, 0. Rival: Gutter Crews. Sells to you +0%, buys from you +0%.\n\nGutter Crews (Slums): Neutral, 0. Rival: Market Circle. Sells to you +0%, buys from you +0%.\n\nCounting-House (Town): Neutral, 0. Rival: Gutter Crews. Sells to you +0%, buys from you +0%.\n\nWorn paths\n\nWalk the same road often and it gets quicker: up to a quarter off.\n\nCredit\nMarket Circle: limit 10, rate 16% per 28 days. Borrow 10Borrow 25\nGutter Crews: limit 6, rate 24% per 28 days. Borrow 10Borrow 25\nCounting-House: limit 20, rate 16% per 28 days. B",
+      "controls": 9,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "fields",
+      "title": "Spilled stock and smoke",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/fields-1920x1080.png",
+      "task": "workspace:fields",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Spilled stock and smoke\n▾\nSpilled stock and smoke\n\nSpill a mixture vial or ingredient pack here to see how it behaves.\n\nStock to spill\nNo spillable stock carried\nRoom level\nfloor\nshelf\nrafters\nSpill one\nCarry a mixture vial or ingredient pack to spill.\nLight it with your lamp\nSaving is paused, so nothing can change now.\nDouse that level with spring water\nSaving is paused, so nothing can change now.\nBar the hatch above that level\nSaving is paused, so nothing can change now.\nLift the bar\nSaving is paused, so nothing can change now.\nSweep up\nSaving is paused, so nothing can change now.",
+      "controls": 10,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "fields",
+      "title": "Spilled stock and smoke",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/fields-1440x900.png",
+      "task": "workspace:fields",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Spilled stock and smoke\n▾\nSpilled stock and smoke\n\nSpill a mixture vial or ingredient pack here to see how it behaves.\n\nStock to spill\nNo spillable stock carried\nRoom level\nfloor\nshelf\nrafters\nSpill one\nCarry a mixture vial or ingredient pack to spill.\nLight it with your lamp\nSaving is paused, so nothing can change now.\nDouse that level with spring water\nSaving is paused, so nothing can change now.\nBar the hatch above that level\nSaving is paused, so nothing can change now.\nLift the bar\nSaving is paused, so nothing can change now.\nSweep up\nSaving is paused, so nothing can change now.",
+      "controls": 10,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "tools",
+      "title": "Tools",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/tools-1920x1080.png",
+      "task": "workspace:tools",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Tools\n▾\nTools\n\nTool wear follows Equipment durability, which is off. Rates below are your tools as they are today.\n\nYou carry no tools.",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "tools",
+      "title": "Tools",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/tools-1440x900.png",
+      "task": "workspace:tools",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Tools\n▾\nTools\n\nTool wear follows Equipment durability, which is off. Rates below are your tools as they are today.\n\nYou carry no tools.",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "gear-workshop",
+      "title": "Gear workshop",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/gear-workshop-1920x1080.png",
+      "task": "workspace:gear-workshop",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Gear workshop\n▾\nGear workshop\n\nWork on carried gear. Materials, process and maker control decide the result. Unequip an item before changing it.\n\n1 · Choose carried gear\nMaker\nChoose maker\nYou · Forging 0\nCarried equipment\nChoose carried equipment\n\nNo component-built gear is carried. This bench works on weapons, shields and assembled armor with replaceable parts. Simple clothing has no such parts here. Unequip suitable worn gear in Inventory first.\n\n2 · Plan the work\nProcess\nAttach material role\nRemove material role\nHeat workpiece\nWork hot metal\nQuench in oil\nTemper metal\nFinish the surface\nRe",
+      "controls": 23,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "gear-workshop",
+      "title": "Gear workshop",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/gear-workshop-1440x900.png",
+      "task": "workspace:gear-workshop",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Gear workshop\n▾\nGear workshop\n\nWork on carried gear. Materials, process and maker control decide the result. Unequip an item before changing it.\n\n1 · Choose carried gear\nMaker\nChoose maker\nYou · Forging 0\nCarried equipment\nChoose carried equipment\n\nNo component-built gear is carried. This bench works on weapons, shields and assembled armor with replaceable parts. Simple clothing has no such parts here. Unequip suitable worn gear in Inventory first.\n\n2 · Plan the work\nProcess\nAttach material role\nRemove material role\nHeat workpiece\nWork hot metal\nQuench in oil\nTemper metal\nFinish the surface\nRe",
+      "controls": 23,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "story-insight",
+      "title": "Stories & history",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/story-insight-1920x1080.png",
+      "task": "workspace:story-insight",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Stories & history\n▾\nStories & history\nStories so far\n\nNo story has taken shape yet. Rivalries and debts appear here once the saved record shows them.\n\nRegional history\nRecall the region's history",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "story-insight",
+      "title": "Stories & history",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/story-insight-1440x900.png",
+      "task": "workspace:story-insight",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Stories & history\n▾\nStories & history\nStories so far\n\nNo story has taken shape yet. Rivalries and debts appear here once the saved record shows them.\n\nRegional history\nRecall the region's history",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "pledges",
+      "title": "Vows and trials",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/pledges-1920x1080.png",
+      "task": "workspace:pledges",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Vows and trials\n▾\nVows and tempering\n\nA vow trades freedom for strength and leaves a scar if broken. Tempering sets the body for good; a failed attempt wakes a heart demon that dulls you until you sit it out.\n\nVows (0 of 2 kept)\n\nLong watch: Rise before the village does and keep the first hour to yourself. +6% body, scar 1 if broken. (not sworn) Hard early hours harden the frame. Swear\n\nPlain table: Eat only plain fare and refuse every feast. +5% step, scar 2 if broken. (not sworn) A light belly keeps the feet quick. Swear\n\nOpen hand: Take nothing you did not earn with your own hands. +5% hand",
+      "controls": 7,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "pledges",
+      "title": "Vows and trials",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/pledges-1440x900.png",
+      "task": "workspace:pledges",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Vows and trials\n▾\nVows and tempering\n\nA vow trades freedom for strength and leaves a scar if broken. Tempering sets the body for good; a failed attempt wakes a heart demon that dulls you until you sit it out.\n\nVows (0 of 2 kept)\n\nLong watch: Rise before the village does and keep the first hour to yourself. +6% body, scar 1 if broken. (not sworn) Hard early hours harden the frame. Swear\n\nPlain table: Eat only plain fare and refuse every feast. +5% step, scar 2 if broken. (not sworn) A light belly keeps the feet quick. Swear\n\nOpen hand: Take nothing you did not earn with your own hands. +5% hand",
+      "controls": 7,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "rune-bench",
+      "title": "Rune bench",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/rune-bench-1920x1080.png",
+      "task": "workspace:rune-bench",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Rune bench\n▾\nRune bench\n\nCarve two to four runes on a wood tablet, one log per rune, and wear it. Order matters. An unlearned pairing is not forbidden, only costly: it fizzles and dulls your feet.\n\nPairs tried: 0 of 10\n\nNothing tried yet. A tablet of just two runes shows what that pair does.\n\nEmberGaleRootTideClear\n\nChoose runes in the order they will read.\n\nCarve and wear\nChoose at least two runes.",
+      "controls": 8,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "rune-bench",
+      "title": "Rune bench",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/rune-bench-1440x900.png",
+      "task": "workspace:rune-bench",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Rune bench\n▾\nRune bench\n\nCarve two to four runes on a wood tablet, one log per rune, and wear it. Order matters. An unlearned pairing is not forbidden, only costly: it fizzles and dulls your feet.\n\nPairs tried: 0 of 10\n\nNothing tried yet. A tablet of just two runes shows what that pair does.\n\nEmberGaleRootTideClear\n\nChoose runes in the order they will read.\n\nCarve and wear\nChoose at least two runes.",
+      "controls": 8,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "projects",
+      "title": "Projects",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/projects-1920x1080.png",
+      "task": "workspace:projects",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Projects\n▾\nOptional projects\n\nOriginal proposals. Open a project to read its terms before opting in.\n\nMeadow pen · care proposal\n1 ready / 1 actions\nMistglass conservatory (opt-in proposal)\n1 ready / 1 actions\nElemental preparation\nOpen to review\nWaypost supply clerk\nClerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.\nAsk for repair notes (one field clear)\nFinish current work in the writable Village tab.\nBuy repair notes (10 coins)\nFinish c",
+      "controls": 11,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "projects",
+      "title": "Projects",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/projects-1440x900.png",
+      "task": "workspace:projects",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Projects\n▾\nOptional projects\n\nOriginal proposals. Open a project to read its terms before opting in.\n\nMeadow pen · care proposal\n1 ready / 1 actions\nMistglass conservatory (opt-in proposal)\n1 ready / 1 actions\nElemental preparation\nOpen to review\nWaypost supply clerk\nClerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.\nAsk for repair notes (one field clear)\nFinish current work in the writable Village tab.\nBuy repair notes (10 coins)\nFinish c",
+      "controls": 11,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "known-things",
+      "title": "Known things",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/known-things-1920x1080.png",
+      "task": "workspace:known-things",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Known things\n▾\nKnown things\n\nEverything you have met, in one place. Search narrows the list; nothing here changes the game.\n\nCreatures\nBooks\nItems\nPlaces\n\nDefeat an enemy and it is recorded here.\nOpen People",
+      "controls": 8,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "known-things",
+      "title": "Known things",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/known-things-1440x900.png",
+      "task": "workspace:known-things",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Known things\n▾\nKnown things\n\nEverything you have met, in one place. Search narrows the list; nothing here changes the game.\n\nCreatures\nBooks\nItems\nPlaces\n\nDefeat an enemy and it is recorded here.\nOpen People",
+      "controls": 8,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "naming",
+      "title": "Naming and achievements",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/naming-1920x1080.png",
+      "task": "workspace:naming",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Naming and achievements\n▾\nNaming and achievements\n\nName a piece of gear you carry. A name is yours; wear and use are what earn a piece a quality.\n\nNaming opportunities: 1 available (0 used of 1 earned). More come with crafting and fighting.\n\nEquip something and it can be named here.\n\nAchievements\n\nKept on this device for you, across lives. Achievements grant no power by themselves.\n\nWhat It Is Called: Give an item a name.\nStoried Hand: Name an item that has earned a quality.\nName-Giver: Name five items.\nRecognised: Hold your first title.\nWell Known: Hold ten titles.\nA Hundred Hands: Succeed at",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "naming",
+      "title": "Naming and achievements",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/naming-1440x900.png",
+      "task": "workspace:naming",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Naming and achievements\n▾\nNaming and achievements\n\nName a piece of gear you carry. A name is yours; wear and use are what earn a piece a quality.\n\nNaming opportunities: 1 available (0 used of 1 earned). More come with crafting and fighting.\n\nEquip something and it can be named here.\n\nAchievements\n\nKept on this device for you, across lives. Achievements grant no power by themselves.\n\nWhat It Is Called: Give an item a name.\nStoried Hand: Name an item that has earned a quality.\nName-Giver: Name five items.\nRecognised: Hold your first title.\nWell Known: Hold ten titles.\nA Hundred Hands: Succeed at",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "today",
+      "title": "Today",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/today-1920x1080.png",
+      "task": "workspace:today",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Today\n▾\nToday\n\nMon, Summer, Day · 08:12\n\nYear 999, month 4, day 1\n\nNo commitments are running.\n\nTimed activities at Village\nNothing here keeps set hours.",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "today",
+      "title": "Today",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/today-1440x900.png",
+      "task": "workspace:today",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Today\n▾\nToday\n\nMon, Summer, Day · 08:12\n\nYear 999, month 4, day 1\n\nNo commitments are running.\n\nTimed activities at Village\nNothing here keeps set hours.",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "region-view",
+      "title": "Where I am",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/region-view-1920x1080.png",
+      "task": "workspace:region-view",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Where I am\n▾\nWhere I am\n\nYou are at Village.\n\nInfested field\n15 min away\nGo\nWild willow stand\n5 min away\nGo",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "region-view",
+      "title": "Where I am",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/region-view-1440x900.png",
+      "task": "workspace:region-view",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Where I am\n▾\nWhere I am\n\nYou are at Village.\n\nInfested field\n15 min away\nGo\nWild willow stand\n5 min away\nGo",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "around-place",
+      "title": "Around this place",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/around-place-1920x1080.png",
+      "task": "workspace:around-place",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Around this place\n▾\nSession notes\n\nReturn snapshots and completed local work, from observed native state. Comparisons last for this session only.",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "around-place",
+      "title": "Around this place",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/around-place-1440x900.png",
+      "task": "workspace:around-place",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Around this place\n▾\nSession notes\n\nReturn snapshots and completed local work, from observed native state. Comparisons last for this session only.",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "hp-polyjuice",
+      "title": "Polyjuice bench",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/hp-polyjuice-1920x1080.png",
+      "task": "workspace:hp-polyjuice",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Polyjuice bench\n▾\nPolyjuice bench · Harry Potter pack slice\n\nOne pinned potion from J.K. Rowling's Chamber of Secrets, paraphrased. Steps marked original are this game's proposals, not canon. A prototype slice: there is no Hogwarts world to arrive in yet.\n\nBegin\n\nSet up a small bench, a purse of slice coins and three classmates who might lend a sample. Lots, prices and consequences are original proposals around the sourced formula.\n\nBegin the Polyjuice slice",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "hp-polyjuice",
+      "title": "Polyjuice bench",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/hp-polyjuice-1440x900.png",
+      "task": "workspace:hp-polyjuice",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Polyjuice bench\n▾\nPolyjuice bench · Harry Potter pack slice\n\nOne pinned potion from J.K. Rowling's Chamber of Secrets, paraphrased. Steps marked original are this game's proposals, not canon. A prototype slice: there is no Hogwarts world to arrive in yet.\n\nBegin\n\nSet up a small bench, a purse of slice coins and three classmates who might lend a sample. Lots, prices and consequences are original proposals around the sourced formula.\n\nBegin the Polyjuice slice",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "lives_carry",
+      "title": "Lives & inheritance",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/lives_carry-1920x1080.png",
+      "task": "workspace:lives_carry",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Lives & inheritance\n▾\nLives & inheritance\n\nWhat each life hands on, and what crosses at each boundary. These are the defaults for each world; a world can change them for an in-world reason.\n\nDiscovery codex, kept across every life: 0 items, 0 lessons, 0 known things (0 in all).\n\nInheritance law\nsingle-successor (default)\nultimogeniture\nprimogeniture\n\nsingle-successor: The original Frontier route: one successor, the apprentice when one was taught, else next of kin.\n\nWhat crosses · Frontier\ndeath\nWritten and taught lessons: carries, last life. Papers or an apprentice; only reflected or taught le",
+      "controls": 5,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "lives_carry",
+      "title": "Lives & inheritance",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/lives_carry-1440x900.png",
+      "task": "workspace:lives_carry",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Lives & inheritance\n▾\nLives & inheritance\n\nWhat each life hands on, and what crosses at each boundary. These are the defaults for each world; a world can change them for an in-world reason.\n\nDiscovery codex, kept across every life: 0 items, 0 lessons, 0 known things (0 in all).\n\nInheritance law\nsingle-successor (default)\nultimogeniture\nprimogeniture\n\nsingle-successor: The original Frontier route: one successor, the apprentice when one was taught, else next of kin.\n\nWhat crosses · Frontier\ndeath\nWritten and taught lessons: carries, last life. Papers or an apprentice; only reflected or taught le",
+      "controls": 5,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "lotm",
+      "title": "Tingen workroom",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/lotm-1920x1080.png",
+      "task": "workspace:lotm",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Tingen workroom\n▾\nTingen · probationer branch\n\nA disposable test start: choose a life in early Tingen. Nothing here is canon; this save is for testing.\n\nBegin as a Nighthawk probationer\nBegin from the Village with nothing else under way.\nYou are a clerk of the supervised workroom in early Tingen, on the probationer branch under Warden Hale. Your own money carries over.\nBegin as a Machinery team probationer\nBegin from the Village with nothing else under way.\nYou are a clerk of the Steam and Machinery church's team in the university quarter, on the probationer track under its records officer. Th",
+      "controls": 6,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "lotm",
+      "title": "Tingen workroom",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/lotm-1440x900.png",
+      "task": "workspace:lotm",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Tingen workroom\n▾\nTingen · probationer branch\n\nA disposable test start: choose a life in early Tingen. Nothing here is canon; this save is for testing.\n\nBegin as a Nighthawk probationer\nBegin from the Village with nothing else under way.\nYou are a clerk of the supervised workroom in early Tingen, on the probationer branch under Warden Hale. Your own money carries over.\nBegin as a Machinery team probationer\nBegin from the Village with nothing else under way.\nYou are a clerk of the Steam and Machinery church's team in the university quarter, on the probationer track under its records officer. Th",
+      "controls": 6,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "beginning",
+      "title": "Your beginning",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/beginning-1920x1080.png",
+      "task": "workspace:beginning",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Your beginning\n▸\nYour beginning\n\nA livelihood in Reedbank\n\nOptional original local life: repair Sella’s bread carriers at Mara’s stall. Begin selects one of two adult human starts, with one or two usable hands; both can use the holding jig. Your native name, gender, belongings and earlier progress remain in this save. No combat or Frontier campaign is required. This finite district has local walks and continuing repair work; it currently has no route back to Village. Closing the browser pauses its played clock.\n\nBegin",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "beginning",
+      "title": "Your beginning",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/beginning-1440x900.png",
+      "task": "workspace:beginning",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Your beginning\n▸\nYour beginning\n\nA livelihood in Reedbank\n\nOptional original local life: repair Sella’s bread carriers at Mara’s stall. Begin selects one of two adult human starts, with one or two usable hands; both can use the holding jig. Your native name, gender, belongings and earlier progress remain in this save. No combat or Frontier campaign is required. This finite district has local walks and continuing repair work; it currently has no route back to Village. Closing the browser pauses its played clock.\n\nBegin",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "notebook",
+      "title": "Notes, practice & people",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/notebook-1920x1080.png",
+      "task": "workspace:notebook",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Notes, practice & people\n▾\nNotes, practice & people\nHere\nPractice\nPeople\nTools, practice & local lives\nVillage crossroads\nLantern & floodline work\nOptional lives and local experiments\nAt the seal registry\n\nConversation not started.\n\nConversation controls\nKnown actions\nDiscuss the offered work\n\nUnavailable\n\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\nStated costs\nHear the seal-steward’s terms\nCompletion terms\nMeet the seal steward, counter clerk and a longtime colleague. Hearing their actual terms chan",
+      "controls": 117,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "notebook",
+      "title": "Notes, practice & people",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/notebook-1440x900.png",
+      "task": "workspace:notebook",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Notes, practice & people\n▾\nNotes, practice & people\nHere\nPractice\nPeople\nTools, practice & local lives\nVillage crossroads\nLantern & floodline work\nOptional lives and local experiments\nAt the seal registry\n\nConversation not started.\n\nConversation controls\nKnown actions\nDiscuss the offered work\n\nUnavailable\n\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\nStated costs\nHear the seal-steward’s terms\nCompletion terms\nMeet the seal steward, counter clerk and a longtime colleague. Hearing their actual terms chan",
+      "controls": 117,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "known-people",
+      "title": "People you know",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/known-people-1920x1080.png",
+      "task": "workspace:known-people",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "People you know\n▾\nPeople you know\n\nWhat you have learned and what happened between you. Locations are last known or agreed, rather than live reports.\n\nVillage elder",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "known-people",
+      "title": "People you know",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/known-people-1440x900.png",
+      "task": "workspace:known-people",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "People you know\n▾\nPeople you know\n\nWhat you have learned and what happened between you. Locations are last known or agreed, rather than live reports.\n\nVillage elder",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "patrol",
+      "title": "Patrol & custody",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/patrol-1920x1080.png",
+      "task": "workspace:patrol",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Patrol & custody\n▸\nVillage patrol · Apprentice\n\nTake a loaned lantern and baton through the native patrol job below. Each full round pays 50 base coins; the report bonus is shown below.\n\nTessa, your patrol colleague: “I’ll lend you our lantern and baton. Walk the whole two-hour round, then bring them back.”\n\nNext: Dependable worker. Complete 2 full shifts (0/2). Return 2 completed-shift kits (0/2).\n\nWatchcraft: known no · practiced no (0/5 meditation minutes) · executable now no.\n\nNext full patrol: 50 coins. Read Tessa’s notes or learn from her in person, then rehearse calm sector scanning dur",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "patrol",
+      "title": "Patrol & custody",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/patrol-1440x900.png",
+      "task": "workspace:patrol",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Patrol & custody\n▸\nVillage patrol · Apprentice\n\nTake a loaned lantern and baton through the native patrol job below. Each full round pays 50 base coins; the report bonus is shown below.\n\nTessa, your patrol colleague: “I’ll lend you our lantern and baton. Walk the whole two-hour round, then bring them back.”\n\nNext: Dependable worker. Complete 2 full shifts (0/2). Return 2 completed-shift kits (0/2).\n\nWatchcraft: known no · practiced no (0/5 meditation minutes) · executable now no.\n\nNext full patrol: 50 coins. Read Tessa’s notes or learn from her in person, then rehearse calm sector scanning dur",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "village-travelers",
+      "title": "Village travelers",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/village-travelers-1920x1080.png",
+      "task": "workspace:village-travelers",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Village travelers\n▾\nVillage travelers\n\nListen for travelers on the Village road. This starts new visits from now; your existing neighbors keep their lives.\n\nWelcome road travelers",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "village-travelers",
+      "title": "Village travelers",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/village-travelers-1440x900.png",
+      "task": "workspace:village-travelers",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Village travelers\n▾\nVillage travelers\n\nListen for travelers on the Village road. This starts new visits from now; your existing neighbors keep their lives.\n\nWelcome road travelers",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "village-neighbors",
+      "title": "Village neighbors",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/village-neighbors-1920x1080.png",
+      "task": "workspace:village-neighbors",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Village neighbors\n▾\nVillage neighbors\nGet to know your neighbors",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "village-neighbors",
+      "title": "Village neighbors",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/village-neighbors-1440x900.png",
+      "task": "workspace:village-neighbors",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Village neighbors\n▾\nVillage neighbors\nGet to know your neighbors",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "memories",
+      "title": "Remembered years",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/memories-1920x1080.png",
+      "task": "workspace:memories",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Remembered years\n▾\nRemembered years · 2 memories\nRemember this day\n\nYears remembered",
+      "controls": 5,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "memories",
+      "title": "Remembered years",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/memories-1440x900.png",
+      "task": "workspace:memories",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Remembered years\n▾\nRemembered years · 2 memories\nRemember this day\n\nYears remembered",
+      "controls": 5,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "vitals",
+      "title": "Character vitals",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/vitals-1920x1080.png",
+      "task": "workspace:vitals",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "You\nLv 0\n▾\nCollapse Character vitals\n0 / 10 xp\n40/40 stamina\n60/60 hp",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "vitals",
+      "title": "Character vitals",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/vitals-1440x900.png",
+      "task": "workspace:vitals",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "You\n▾\nCollapse Character vitals\nLv 0\n0 / 10 xp\n40/40 stamina\n60/60 hp",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "combat-controls",
+      "title": "Inventory & combat view",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/combat-controls-1920x1080.png",
+      "task": "workspace:combat-controls",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Inventory & combat view\n▾\nCollapse Inventory & combat view\nInventory\nCombat",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "combat-controls",
+      "title": "Inventory & combat view",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/combat-controls-1440x900.png",
+      "task": "workspace:combat-controls",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Inventory & combat view\n▾\nCollapse Inventory & combat view\nInventory\nCombat",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "records",
+      "title": "Journal & received accounts",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/records-1920x1080.png",
+      "task": "workspace:records",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Journal\n▾\nAll quests\n▾\nLost memory",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "records",
+      "title": "Journal & received accounts",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/records-1440x900.png",
+      "task": "workspace:records",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Journal\n▾\nAll quests\n▾\nLost memory",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "preparation",
+      "title": "Character & preparation",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/preparation-1920x1080.png",
+      "task": "workspace:preparation",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Character & preparation\n▾\nAll attributes\nPrimary\nOffense\nDefense\nHealth\nStamina\nMana\nEnvironment\nLearning\n With modifiers\n\n42 attributes\n\nStrength\n12 points\nAgility\n8 points\nDexterity\n10 points\nIntuition\n10 points\nMagic\n0 points\nAttack power\n1.2 damage\nAttack speed\n1 /s\nAttack rating\n31.623 AP\nHits per attack\n1 hits\nCritical chance\n5%\nCritical damage\n×1.3\nUnarmed base power\n1 damage\nArmor penetration\n0 points\nDefense\n1 points\nEvasion rating\n25.298 EP\nBlock chance\n75%\nShield block strength\nNo shield\nDamage taken\n×1\nMinimum share of a hit\n5%\nCritical resistance\n0%\nGear toughness\nUnavailable\nCurr",
+      "controls": 50,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "preparation",
+      "title": "Character & preparation",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/preparation-1440x900.png",
+      "task": "workspace:preparation",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Character & preparation\n▾\nAll attributes\nPrimary\nOffense\nDefense\nHealth\nStamina\nMana\nEnvironment\nLearning\n With modifiers\n\n42 attributes\n\nStrength\n12 points\nAgility\n8 points\nDexterity\n10 points\nIntuition\n10 points\nMagic\n0 points\nAttack power\n1.2 damage\nAttack speed\n1 /s\nAttack rating\n31.623 AP\nHits per attack\n1 hits\nCritical chance\n5%\nCritical damage\n×1.3\nUnarmed base power\n1 damage\nArmor penetration\n0 points\nDefense\n1 points\nEvasion rating\n25.298 EP\nBlock chance\n75%\nShield block strength\nNo shield\nDamage taken\n×1\nMinimum share of a hit\n5%\nCritical resistance\n0%\nGear toughness\nUnavailable\nCurr",
+      "controls": 50,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "belongings",
+      "title": "Belongings",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/belongings-1920x1080.png",
+      "task": "workspace:belongings",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Inventory\n▾\nAll 5 · Name ↑\n▾\nNothing to clear\nLedger workshop cache\n2W\nPrepared survey kit\nx2\n2W\nSealed survey parcel\nx2\n3W\nStale bread\nx5\n2C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\nSelect an item\n\nChoose a carried stack to compare and act. The compact inventory keeps its place when you return.",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "belongings",
+      "title": "Belongings",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/belongings-1440x900.png",
+      "task": "workspace:belongings",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Inventory\n▾\nAll 5 · Name ↑\n▾\nNothing to clear\nLedger workshop cache\n2W\nPrepared survey kit\nx2\n2W\nSealed survey parcel\nx2\n3W\nStale bread\nx5\n2C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\nSelect an item\n\nChoose a carried stack to compare and act. The compact inventory keeps its place when you return.",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "local-actions",
+      "title": "Local actions",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/local-actions-1920x1080.png",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find work\nfitness_center Train\nMix at the Village counter",
+      "controls": 5,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "local-actions",
+      "title": "Local actions",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/local-actions-1440x900.png",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "directions Move somewhere else\nquestion_answer Talk to someone\nwork_outline Find work\nfitness_center Train\nMix at the Village counter",
+      "controls": 5,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "messages",
+      "title": "Reports",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/messages-1920x1080.png",
+      "task": "workspace:messages",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Reports\nAll reports\n▾\nLatest\n▾\n[ Home · 01/04/999, Summer, Mon ]",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "messages",
+      "title": "Reports",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/messages-1440x900.png",
+      "task": "workspace:messages",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Reports\nAll reports\n▾\nLatest\n▾\n[ Home · 01/04/999, Summer, Mon ]",
+      "controls": 4,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "equipment-comparison",
+      "title": "Equipment comparison",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/equipment-comparison-1920x1080.png",
+      "task": "workspace:equipment-comparison",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Equipment comparison\n▸\nEquipment comparison\n\nCompare equipment you hold or wear. Values describe each item, before your body, skills and situational effects. No equipment changes here.\n\nCompare item \nHeld: Cheap leather pants\nCompare with \nHeld: Cheap leather pants\nItem\tHeld: Cheap leather pants\tHeld: Cheap leather pants\nSlot\tlegs\tlegs\nDefense\t0\t0\nQuality\t40%\t40%\nagility\t×0.99\t×0.99\ncold_tolerance\t+0.5\t+0.5\ncrit_resistance\t+0.033\t+0.033",
+      "controls": 5,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "equipment-comparison",
+      "title": "Equipment comparison",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/equipment-comparison-1440x900.png",
+      "task": "workspace:equipment-comparison",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Equipment comparison\n▸\nEquipment comparison\n\nCompare equipment you hold or wear. Values describe each item, before your body, skills and situational effects. No equipment changes here.\n\nCompare item \nHeld: Cheap leather pants\nCompare with \nHeld: Cheap leather pants\nItem\tHeld: Cheap leather pants\tHeld: Cheap leather pants\nSlot\tlegs\tlegs\nDefense\t0\t0\nQuality\t40%\t40%\nagility\t×0.99\t×0.99\ncold_tolerance\t+0.5\t+0.5\ncrit_resistance\t+0.033\t+0.033",
+      "controls": 5,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "shell-inventory-tools",
+      "title": "Inventory tools",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/shell-inventory-tools-1920x1080.png",
+      "task": "workspace:shell-inventory-tools",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Inventory tools\n▾",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "shell-inventory-tools",
+      "title": "Inventory tools",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/shell-inventory-tools-1440x900.png",
+      "task": "workspace:shell-inventory-tools",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Inventory tools\n▾\nAll\n5\nGear\n1\nUse\n1\nOther\n3\n★\n0\nNothing to clear",
+      "controls": 7,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "condition",
+      "title": "Condition",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/condition-1920x1080.png",
+      "task": "workspace:condition",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Condition\n▾\n\nNo active effects\n\nBody · Human",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "condition",
+      "title": "Condition",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/condition-1440x900.png",
+      "task": "workspace:condition",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Condition\n▾\n\nNo active effects\n\nBody · Human",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "shell-character",
+      "title": "Stats & equipment",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/shell-character-1920x1080.png",
+      "task": "workspace:shell-character",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Stats & equipment\n▾\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n25\nAttributes ›\nGear · 0",
+      "controls": 28,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "shell-character",
+      "title": "Stats & equipment",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/shell-character-1440x900.png",
+      "task": "workspace:shell-character",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Stats & equipment\n▾\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5.0%\nCrit ×\n130.0%\nAP\n32\nEP\n25\nAttributes ›\nGear · 0",
+      "controls": 28,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "focus",
+      "title": "Focus",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/focus-1920x1080.png",
+      "task": "workspace:focus",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Around you\n▾\n\n2 people · 5 services / stations\n\nMedium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.\nPeople here · 2\nvillage elder\nVillage neighbor\nvillage trader\nMerchant\nServices & stations · 5\nWaypost supply clerk\nSupply clerk\nHomes\nResidence rights, furnishings, storage and optional home beginnings.\nVillage mixing counter\nMix and observe your own ingredients.\nVillage common herb verge\nGather common herbs and inspect your carried materials and preparations.\nGear workshop\nInspect and work on carried gear: fittings, treatment, repair, r",
+      "controls": 10,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "focus",
+      "title": "Focus",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/focus-1440x900.png",
+      "task": "workspace:focus",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Around you\n▾\n\n2 people · 5 services / stations\n\nMedium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.\nPeople here · 2\nvillage elder\nVillage neighbor\nvillage trader\nMerchant\nServices & stations · 5\nWaypost supply clerk\nSupply clerk\nHomes\nResidence rights, furnishings, storage and optional home beginnings.\nVillage mixing counter\nMix and observe your own ingredients.\nVillage common herb verge\nGather common herbs and inspect your carried materials and preparations.\nGear workshop\nInspect and work on carried gear: fittings, treatment, repair, r",
+      "controls": 10,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "village-scene",
+      "title": "Village scene",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/village-scene-1920x1080.png",
+      "task": "workspace:village-scene",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Village scene\n▾\n\nVillage\n☀ Summer\nDry\n14.9 °C · comfortable\n\n01/04/999 08:12, Mon · ☼ Day\nDaylight falls across the village path.",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "village-scene",
+      "title": "Village scene",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/village-scene-1440x900.png",
+      "task": "workspace:village-scene",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Village scene\n▾\n\nVillage\n☀ Summer\nDry\n14.9 °C · comfortable\n\n01/04/999 08:12, Mon · ☼ Day\nDaylight falls across the village path.",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "current-work",
+      "title": "Current work & saving",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/current-work-1920x1080.png",
+      "task": "workspace:current-work",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Current work & saving\n▾\nCollapse Current work & saving\n\nNo work running.\n\nSaving available.",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "current-work",
+      "title": "Current work & saving",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/current-work-1440x900.png",
+      "task": "workspace:current-work",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Current work & saving\n▾\nCollapse Current work & saving\n\nNo work running.\n\nSaving available.",
+      "controls": 2,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "ledger",
+      "title": "Work Ledger",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/ledger-1920x1080.png",
+      "task": "workspace:ledger",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Work Ledger\n▾\nWork ledger\n\nComplete work, claim points, then choose a taught method or a connected assistance service.\n\nConnection: offered. Points: 0.\n\nCommissions\nA cooked meal\n\navailable. Create roasted rat meat after accepting this commission.\n\nRecipe: Roasted rat meat.\n\nA wooden hilt\n\navailable. Create a short hilt after accepting this commission.\n\nRecipe: Short hilt.\n\nAcquisition and execution\n\nNot taught.\n\nNo assist leased.\n\nConnect\nRefuse\nDisconnect\nReconnect\nAccept A cooked meal\nClaim A cooked meal reward\nAccept A wooden hilt\nClaim A wooden hilt reward\nLearn precision method (2 points",
+      "controls": 14,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "ledger",
+      "title": "Work Ledger",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/ledger-1440x900.png",
+      "task": "workspace:ledger",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Work Ledger\n▾\nWork ledger\n\nComplete work, claim points, then choose a taught method or a connected assistance service.\n\nConnection: offered. Points: 0.\n\nCommissions\nA cooked meal\n\navailable. Create roasted rat meat after accepting this commission.\n\nRecipe: Roasted rat meat.\n\nA wooden hilt\n\navailable. Create a short hilt after accepting this commission.\n\nRecipe: Short hilt.\n\nAcquisition and execution\n\nNot taught.\n\nNo assist leased.\n\nConnect\nRefuse\nDisconnect\nReconnect\nAccept A cooked meal\nClaim A cooked meal reward\nAccept A wooden hilt\nClaim A wooden hilt reward\nLearn precision method (2 points",
+      "controls": 14,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "customization",
+      "title": "Appearance",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/customization-1920x1080.png",
+      "task": "workspace:customization",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Appearance\n▾\nAppearance\n\nSaving available. Draft changes can now be applied.\n\nProfile, typography, palette and seasonal theme for native modules. Changes remain a draft until applied.\n\nProfile\nDefault\nNative module\nWhole profile\nledger\ncrafting\nlocal-actions\nvitals\npreparation\nbelongings\nrecords\ntime\nlocation\nskills\nmessages\nnotebook\ncustomization\nSeasonal theme\noff\nautomatic\nmanual\nManual season\nspring\nsummer\nautumn\nwinter\nComponent theme\nluminous\nneutral\narcane\nworkshop\nNew profile name\nFont\nsystem\nserif\nmono\ngothic\nFont size\nBackground\nText\nAccent\nSpacing\nProfile import / export JSON\nCreate",
+      "controls": 24,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "customization",
+      "title": "Appearance",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/customization-1440x900.png",
+      "task": "workspace:customization",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Appearance\n▾\nAppearance\n\nSaving available. Draft changes can now be applied.\n\nProfile, typography, palette and seasonal theme for native modules. Changes remain a draft until applied.\n\nProfile\nDefault\nNative module\nWhole profile\nledger\ncrafting\nlocal-actions\nvitals\npreparation\nbelongings\nrecords\ntime\nlocation\nskills\nmessages\nnotebook\ncustomization\nSeasonal theme\noff\nautomatic\nmanual\nManual season\nspring\nsummer\nautumn\nwinter\nComponent theme\nluminous\nneutral\narcane\nworkshop\nNew profile name\nFont\nsystem\nserif\nmono\ngothic\nFont size\nBackground\nText\nAccent\nSpacing\nProfile import / export JSON\nCreate",
+      "controls": 24,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "customization-effects",
+      "title": "Effects & sound",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/customization-effects-1920x1080.png",
+      "task": "workspace:customization-effects",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Effects & sound\n▾\nEffects & sound\n\nSaving available. Draft changes can now be applied.\n\nDefault · Whole profile\n\nOriginal effects for settled Work Ledger and crafting receipts, plus first skill discoveries. Sound requires a gesture.\n\nEffects\noff\nreduced\nfull\nSound after gesture\nReceipt placement\ninline\nmargin\nOriginal VFX motif\nreceipt\nseal\nguidance\nclosing\nReceipt duration (ms)\nVFX color\nVFX background\nStatic VFX\nPlain text VFX\nThis browser\n\nStored in this browser. Changes apply at once. Effects off above turns off every motion here.\n\nStaged opening (proposal)\nOff\nOn\nIntroduce time, character",
+      "controls": 56,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "customization-effects",
+      "title": "Effects & sound",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/customization-effects-1440x900.png",
+      "task": "workspace:customization-effects",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Effects & sound\n▾\nEffects & sound\n\nSaving available. Draft changes can now be applied.\n\nDefault · Whole profile\n\nOriginal effects for settled Work Ledger and crafting receipts, plus first skill discoveries. Sound requires a gesture.\n\nEffects\noff\nreduced\nfull\nSound after gesture\nReceipt placement\ninline\nmargin\nOriginal VFX motif\nreceipt\nseal\nguidance\nclosing\nReceipt duration (ms)\nVFX color\nVFX background\nStatic VFX\nPlain text VFX\nThis browser\n\nStored in this browser. Changes apply at once. Effects off above turns off every motion here.\n\nStaged opening (proposal)\nOff\nOn\nIntroduce time, character",
+      "controls": 56,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "customization-rules",
+      "title": "Original rules",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/customization-rules-1920x1080.png",
+      "task": "workspace:customization-rules",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Original rules\n▾\nOriginal System rules\n\nEdit the original Work Ledger. Power values affect acquired functions. Accepted commissions keep their saved terms. Native inputs, chance limits, output and time still belong to crafting.\n\nApply rules\nDiscard draft\nReset original rules\nExport rules",
+      "controls": 7,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "customization-rules",
+      "title": "Original rules",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/customization-rules-1440x900.png",
+      "task": "workspace:customization-rules",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Original rules\n▾\nOriginal System rules\n\nEdit the original Work Ledger. Power values affect acquired functions. Accepted commissions keep their saved terms. Native inputs, chance limits, output and time still belong to crafting.\n\nApply rules\nDiscard draft\nReset original rules\nExport rules",
+      "controls": 7,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "customization-preview",
+      "title": "Draft preview",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/customization-preview-1920x1080.png",
+      "task": "workspace:customization-preview",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Draft preview\n▾\nDraft component preview · sample controls\nSelected tab\nA longer comparison label\nInspect sample action\nUnavailable action\nSample input\nSample material\tAmount\nPrepared component\t12 units\n\nWarning: sample requirement unmet.\n\nError: sample write unavailable.\n\nKnown place\nVillage\nLevel\nLvl: 0\n\nDraft preview only. Apply activates component states. Cosmetic themes grant no powers.",
+      "controls": 7,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "customization-preview",
+      "title": "Draft preview",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/customization-preview-1440x900.png",
+      "task": "workspace:customization-preview",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Draft preview\n▾\nDraft component preview · sample controls\nSelected tab\nA longer comparison label\nInspect sample action\nUnavailable action\nSample input\nSample material\tAmount\nPrepared component\t12 units\n\nWarning: sample requirement unmet.\n\nError: sample write unavailable.\n\nKnown place\nVillage\nLevel\nLvl: 0\n\nDraft preview only. Apply activates component states. Cosmetic themes grant no powers.",
+      "controls": 7,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "customization-sites",
+      "title": "Original site",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/customization-sites-1920x1080.png",
+      "task": "workspace:customization-sites",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Original site\n▾\nOriginal site\n\nAuthor one original optional site reached from the Village. It has one timed activity that uses a material and makes a product, plus a gather activity for the material. Work runs on the game clock; completion pays real coin. Apply saves it into this life.\n\nNo authored site is applied.\n\nSite\nSite name\nSite description\nMaterial name\nStarting material\nProduct name\nActivity\nActivity name\nActivity description\nMaterial needed to start\nMaterial used\nWork time (played minutes)\nProduct made\nCoin paid on completion (wood coins)\nGathering\nGather time (played minutes)\nMateri",
+      "controls": 20,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "customization-sites",
+      "title": "Original site",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/customization-sites-1440x900.png",
+      "task": "workspace:customization-sites",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Original site\n▾\nOriginal site\n\nAuthor one original optional site reached from the Village. It has one timed activity that uses a material and makes a product, plus a gather activity for the material. Work runs on the game clock; completion pays real coin. Apply saves it into this life.\n\nNo authored site is applied.\n\nSite\nSite name\nSite description\nMaterial name\nStarting material\nProduct name\nActivity\nActivity name\nActivity description\nMaterial needed to start\nMaterial used\nWork time (played minutes)\nProduct made\nCoin paid on completion (wood coins)\nGathering\nGather time (played minutes)\nMateri",
+      "controls": 20,
+      "unlabeled": [],
+      "logHeight": 844
+    },
+    {
+      "id": "continuation",
+      "title": "Continuing connection",
+      "disabled": false,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/continuation-1920x1080.png",
+      "task": "workspace:continuation",
+      "document": [
+        1920,
+        1080
+      ],
+      "text": "Continuing connection\n▾\n\nQuiet faculty · establish a baseline\n\nOpen your connection",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 1024
+    },
+    {
+      "id": "continuation",
+      "title": "Continuing connection",
+      "disabled": false,
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "docs/gm/dispatch/ui-detail-2026-10-25/evidence/after/panels/continuation-1440x900.png",
+      "task": "workspace:continuation",
+      "document": [
+        1440,
+        900
+      ],
+      "text": "Continuing connection\n▾\n\nQuiet faculty · establish a baseline\n\nOpen your connection",
+      "controls": 3,
+      "unlabeled": [],
+      "logHeight": 844
+    }
+  ],
+  "gaps": [
+    {
+      "id": "optional-worlds",
+      "title": "Optional worlds",
+      "disabled": true,
+      "status": "known, ineligible in fixture"
+    },
+    {
+      "id": "shell-detail",
+      "title": "Item details",
+      "disabled": true,
+      "status": "known, ineligible in fixture"
+    }
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    }
+  ],
+  "sourceInventory": [
+    {
+      "id": "vitals",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "shell-character",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "condition",
+      "type": "ST6",
+      "home": "Below You; native body and weather readers",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "status-window",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "focus",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "shell-detail",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "known, see gaps"
+    },
+    {
+      "id": "belongings",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "combat-controls",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "shell-inventory-tools",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "messages",
+      "type": "ST9",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "shell-log-tools",
+      "type": "ST9",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "time",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "location",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "village-scene",
+      "type": "unset",
+      "home": "Village",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "current-work",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "combat",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "stance",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "local-actions",
+      "type": "ST1",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "practice-actions",
+      "type": "ST1",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "pane-navigation",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "records",
+      "type": "ST6",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "skills",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "opponents",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "preparation",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "known-people",
+      "type": "ST6",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "known-routes",
+      "type": "ST6",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "memories",
+      "type": "ST6",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "notebook",
+      "type": "ST6",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "reading-reference",
+      "type": "ST6",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "learned-preparations",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "village-neighbors",
+      "type": "ST6",
+      "home": "Village",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "village-travelers",
+      "type": "ST6",
+      "home": "Village",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "world-events",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "patrol",
+      "type": "ST5",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "ledger",
+      "type": "ST5",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "projects",
+      "type": "ST8",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "herbal-experiments",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "optional-worlds",
+      "type": "ST3",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "known, see gaps"
+    },
+    {
+      "id": "beginning",
+      "type": "ST3",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "continuation",
+      "type": "ST3",
+      "home": "Continuing connection",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "equipment-comparison",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "tools",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "fields",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "naming",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "household-fortunes",
+      "type": "ST6",
+      "home": "Reference dock; opens once the manor household has been seen",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "lives_carry",
+      "type": "ST6",
+      "home": "Reference dock; opens once a life has ended or a carry exists",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "story-insight",
+      "type": "ST6",
+      "home": "Reference dock beside Records; recaps and world history from saved state",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "social-trust",
+      "type": "ST6",
+      "home": "Reference dock; opens once the manor household has been met",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "pledges",
+      "type": "ST6",
+      "home": "Reference dock; vows and tempering, always available",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "rune-bench",
+      "type": "ST6",
+      "home": "Reference dock; rune carving, always available",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "economy_standing",
+      "type": "ST6",
+      "home": "Reference dock; opens once a trade, loan or remembered price exists",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "homes",
+      "type": "ST2",
+      "home": "Known residences and Village home supplier",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "gear-workshop",
+      "type": "ST2",
+      "home": "Native forging station; carried equipment",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "hp-polyjuice",
+      "type": "ST2",
+      "home": "Harry Potter pack slice bench (prototype)",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "place_clock",
+      "type": "ST2",
+      "home": "Owned hearth place (prototype)",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "rank_gap_observer",
+      "type": "ST2",
+      "home": "Goa branch records (prototype)",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "primordial_credit",
+      "type": "ST2",
+      "home": "Sect Library priced credit (prototype, opt-in)",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "lotm",
+      "type": "ST2",
+      "home": "Tingen supervised workroom",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "customization",
+      "type": "ST7",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "customization-effects",
+      "type": "ST7",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "customization-preview",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "customization-rules",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "customization-sites",
+      "type": "unset",
+      "home": "unset",
+      "status": "unset",
+      "coverage": "captured"
+    },
+    {
+      "id": "known-things",
+      "type": "ST6",
+      "home": "Reference dock; Journal companion space",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "statistics",
+      "type": "ST6",
+      "home": "Reference dock; Journal companion space",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "today",
+      "type": "ST5",
+      "home": "Beside the actions; Journal companion space",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "around-place",
+      "type": "ST6",
+      "home": "Reference dock; session return and completed work notes",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "carcass-processing",
+      "type": "ST4",
+      "home": "Place services; native processing owner",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "region-view",
+      "type": "ST2",
+      "home": "Beside the actions; keeper is the road itself",
+      "status": "proposal",
+      "coverage": "captured"
+    },
+    {
+      "id": "companions",
+      "type": "ST6",
+      "home": "Side column beside You",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "family",
+      "type": "ST6",
+      "home": "Side column beside You",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "stock_view",
+      "type": "ST6",
+      "home": "Main column with the records",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    },
+    {
+      "id": "loadouts",
+      "type": "ST4",
+      "home": "Beside Inventory",
+      "status": "proposal",
+      "coverage": "not discovered in this fixture; source inventory only"
+    }
+  ],
+  "missingResources": [
+    "/private_packs/manifest.json"
+  ],
+  "fontAssets": "Existing primary-checkout Gothic assets copied locally, ignored and not committed"
+}

@@ -1,0 +1,1094 @@
+{
+  "phase": "before",
+  "baseline": "7fff7be3cf9d319f386f19a7ae16b13e649fade8",
+  "inputs": {
+    "dist/bundle.js": "f1e067eb938aebd2347592e9cf852f059c941ecbcf39c4226e98ad1ce2cdbb87",
+    "styles/ui_tokens.css": "5051107b69d09fdc9e34ea628398b0404d4f2fafbef15a1f10585d3c4db1ed11",
+    "index.html": "67ca8e88fb17c8efa7fdd2b88ccbe9df14a72b966ffcafc07468fa5c0f65ee48"
+  },
+  "setups": [
+    "Public mid fixture; native saved XP fields Running/Perception/Cooking=1000, 3600 played seconds, completed ABC progress; status grant+awaken factories day3; harvest create/draw/add public Wolf rat; createChronicle invitations. Explicit isolated prerequisites, not natural acquisition.",
+    "Declared met craftsman and 4 carried logs; native field.begin, join_craft paid 2 logs+1 coin and 3 played minutes, then party.meet spawns Lio.",
+    "Declared 19 carried Golmoon leaves and 1 finite trader leaf; actual native purchase triggers heldLesson acquisition at 20, not a forged lesson fact.",
+    "Met-elder native availability prerequisite, then public source-terms chart, Choose independent Paradise entry, enter hub, personal Goa visit. No observations or sealed truths supplied.",
+    "Fresh native Homes > homeowner start, then owner-backed Hearthside clock; open home chest for Stock.",
+    "Family uses createChronicle(mortal), declared age80 prerequisite, advanceChronicle at lifespan, deriveHeirLeftovers and createHeirChronicle. Owner factories, not a naturally played lifetime."
+  ],
+  "captures": [
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "status-window",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/status-window-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Status window\n▾\nLevel\n0\nStrength\n12.0\nAgility\n10.0\nDexterity\n14.0\nIntuition\n14.0\nMagic\n0.0\nEarned titles\n\nReader\n\nSystem points\n\n0\n\nQuests\n\nNo system quests yet. For now, the system only records what you know."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "status-window",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/status-window-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Status window\n▾\nLevel\n0\nStrength\n12.0\nAgility\n10.0\nDexterity\n14.0\nIntuition\n14.0\nMagic\n0.0\nEarned titles\n\nReader\n\nSystem points\n\n0\n\nQuests\n\nNo system quests yet. For now, the system only records what you know."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "status-window-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/status-window-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Status window\n▾\nLevel\n0\nStrength\n12.0\nAgility\n10.0\nDexterity\n14.0\nIntuition\n14.0\nMagic\n0.0\nEarned titles\n\nReader\n\nSystem points\n\n0\n\nQuests\n\nNo system quests yet. For now, the system only records what you know."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "status-window-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/status-window-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Status window\n▾\nLevel\n0\nStrength\n12.0\nAgility\n10.0\nDexterity\n14.0\nIntuition\n14.0\nMagic\n0.0\nEarned titles\n\nReader\n\nSystem points\n\n0\n\nQuests\n\nNo system quests yet. For now, the system only records what you know."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "practice-actions",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/practice-actions-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Practiced actions\n▾\nPracticed actions (proposal)\nRun: offSaving is unavailable.\nInvestigate: offSaving is unavailable."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "practice-actions",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/practice-actions-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Practiced actions\n▾\nPracticed actions (proposal)\nRun: offSaving is unavailable.\nInvestigate: offSaving is unavailable."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "practice-actions-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/practice-actions-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Practiced actions\n▾\nPracticed actions (proposal)\nRun: offSaving is unavailable.\nInvestigate: offSaving is unavailable."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "practice-actions-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/practice-actions-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Practiced actions\n▾\nPracticed actions (proposal)\nRun: offSaving is unavailable.\nInvestigate: offSaving is unavailable."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "skills",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/skills-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Skills\n▾\nName\n▾\n0 / 4 stacks · 0 items\nkeyboard_double_arrow_downCharacter skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downActivity skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downCrafting skills\nkeyboard_arrow_up\nkeyboard_arrow_down\n\nNo matches. Clear search or change the category.\n\nSkills\nStances\n???????"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "skills",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/skills-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Skills\n▾\nName\n▾\n0 / 4 stacks · 0 items\nkeyboard_double_arrow_downCharacter skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downActivity skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downCrafting skills\nkeyboard_arrow_up\nkeyboard_arrow_down\n\nNo matches. Clear search or change the category.\n\nSkills\nStances\n???????"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "skills-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/skills-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Skills\n▾\nName\n▾\n0 / 4 stacks · 0 items\nkeyboard_double_arrow_downCharacter skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downActivity skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downCrafting skills\nkeyboard_arrow_up\nkeyboard_arrow_down\n\nNo matches. Clear search or change the category.\n\nSkills\nStances\n???????"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "skills-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/skills-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Skills\n▾\nName\n▾\n0 / 4 stacks · 0 items\nkeyboard_double_arrow_downCharacter skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downActivity skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downCrafting skills\nkeyboard_arrow_up\nkeyboard_arrow_down\n\nNo matches. Clear search or change the category.\n\nSkills\nStances\n???????"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "reading-reference",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/reading-reference-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Reading reference\n▾\nReading reference (proposal)\n\nCompleted reading opens your reference desk. 0 creatures recorded from your own encounters.\n\nOpen Journal & Bestiary"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "reading-reference",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/reading-reference-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Reading reference\n▾\nReading reference (proposal)\n\nCompleted reading opens your reference desk. 0 creatures recorded from your own encounters.\n\nOpen Journal & Bestiary"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "reading-reference-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/reading-reference-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Reading reference\n▾\nReading reference (proposal)\n\nCompleted reading opens your reference desk. 0 creatures recorded from your own encounters.\n\nOpen Journal & Bestiary"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "reading-reference-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/reading-reference-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Reading reference\n▾\nReading reference (proposal)\n\nCompleted reading opens your reference desk. 0 creatures recorded from your own encounters.\n\nOpen Journal & Bestiary"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "world-events",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/world-events-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "World events\n▾\nWorld events\nVisiting cartographer's briefing\n\nVillage · opens in 10 game minutes\n\nView invitation\nThe elder's archive succession\n\nVillage · opens in 60 game minutes\n\nView invitation\nRecent news\nLife"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "world-events",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/world-events-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "World events\n▾\nWorld events\nVisiting cartographer's briefing\n\nVillage · opens in 10 game minutes\n\nView invitation\nThe elder's archive succession\n\nVillage · opens in 60 game minutes\n\nView invitation\nRecent news\nLife"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "world-events-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/world-events-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "World events\n▾\nWorld events\nVisiting cartographer's briefing\n\nVillage · opens in 10 game minutes\n\nView invitation\nThe elder's archive succession\n\nVillage · opens in 60 game minutes\n\nView invitation\nRecent news\nLife"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "world-events-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/world-events-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "World events\n▾\nWorld events\nVisiting cartographer's briefing\n\nVillage · opens in 10 game minutes\n\nView invitation\nThe elder's archive succession\n\nVillage · opens in 60 game minutes\n\nView invitation\nRecent news\nLife"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "statistics",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/statistics-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Statistics\n▾\nStatistics and records\nLifetime\nTime played\t1 h\nYears lived\t0\nLevel\t0\nDeaths\t0\nEnemies defeated\t0\nKinds of enemy met\t0\nCritical hits dealt\t0\nStrongest hit\t0\nHits taken\t0\nSuccessful crafts\t0\nMaterials gathered\t0\nBooks finished\t1\nMinutes spent at home\t0\nItems bought\t0\nPurse\t10C 4W\nTop skills (up to 10)\nCooking\tLv 6\nRunning\tLv 4\nPerception\tLv 3\nLiteracy\tLv 1\n\nGather a material and it is tallied here.\n\nThese come from records the game already keeps. Per-activity time and per-world tallies are not recorded yet."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "statistics",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/statistics-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Statistics\n▾\nStatistics and records\nLifetime\nTime played\t1 h\nYears lived\t0\nLevel\t0\nDeaths\t0\nEnemies defeated\t0\nKinds of enemy met\t0\nCritical hits dealt\t0\nStrongest hit\t0\nHits taken\t0\nSuccessful crafts\t0\nMaterials gathered\t0\nBooks finished\t1\nMinutes spent at home\t0\nItems bought\t0\nPurse\t10C 4W\nTop skills (up to 10)\nCooking\tLv 6\nRunning\tLv 4\nPerception\tLv 3\nLiteracy\tLv 1\n\nGather a material and it is tallied here.\n\nThese come from records the game already keeps. Per-activity time and per-world tallies are not recorded yet."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "statistics-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/statistics-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Statistics\n▾\nStatistics and records\nLifetime\nTime played\t1 h\nYears lived\t0\nLevel\t0\nDeaths\t0\nEnemies defeated\t0\nKinds of enemy met\t0\nCritical hits dealt\t0\nStrongest hit\t0\nHits taken\t0\nSuccessful crafts\t0\nMaterials gathered\t0\nBooks finished\t1\nMinutes spent at home\t0\nItems bought\t0\nPurse\t10C 4W\nTop skills (up to 10)\nCooking\tLv 6\nRunning\tLv 4\nPerception\tLv 3\nLiteracy\tLv 1\n\nGather a material and it is tallied here.\n\nThese come from records the game already keeps. Per-activity time and per-world tallies are not recorded yet."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "statistics-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/statistics-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Statistics\n▾\nStatistics and records\nLifetime\nTime played\t1 h\nYears lived\t0\nLevel\t0\nDeaths\t0\nEnemies defeated\t0\nKinds of enemy met\t0\nCritical hits dealt\t0\nStrongest hit\t0\nHits taken\t0\nSuccessful crafts\t0\nMaterials gathered\t0\nBooks finished\t1\nMinutes spent at home\t0\nItems bought\t0\nPurse\t10C 4W\nTop skills (up to 10)\nCooking\tLv 6\nRunning\tLv 4\nPerception\tLv 3\nLiteracy\tLv 1\n\nGather a material and it is tallied here.\n\nThese come from records the game already keeps. Per-activity time and per-world tallies are not recorded yet."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "carcass-processing",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/carcass-processing-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Carcass processing\n▾\nCarcass processing\n\nKeep up to 24 per species. Choose a specific carcass before processing. Age follows played time and changes quality; strike damage changes how complete each part is. One-part processing yields only that part; the other parts are lost. Hands take twice as long. Freshness declines over four played hours. 0 carcasses left behind at capacity.\n\n Auto-process whole carcasses during idle fighting; process incoming overflow immediately\n\n0 carcasses processed in this save. Automatic processing is off; any current carcass finishes before stopping.\n\nStop after carcasses: Start finite whole-carcass routine\nWolf rat: 1 carcassesSelected carcass: \nCarcass 1 · condition not yet assessed\n\nCondition estimates remain dated observations. Processing resolves actual condition at completion; refreshing an estimate does not renew the material.\n\nRefresh condition estimate\nProcess whole8 min, 8 Butchering XP; 1 Rat pelt: whole, quality 65%; 1 Rat tail: whole, quality 65%; 2 Rat fang: whole, quality 65%\nTake only pelt4 min, 4 Butchering XP; 1 Rat pelt: whole, quality 65%\nTake only tail2 min, 2 Butchering XP; 1 Rat tail: whole, quality 65%\nTake only fang2 min, 2 Butchering XP; 2 Rat fang: whole, quality 65%"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "carcass-processing",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/carcass-processing-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Carcass processing\n▾\nCarcass processing\n\nKeep up to 24 per species. Choose a specific carcass before processing. Age follows played time and changes quality; strike damage changes how complete each part is. One-part processing yields only that part; the other parts are lost. Hands take twice as long. Freshness declines over four played hours. 0 carcasses left behind at capacity.\n\n Auto-process whole carcasses during idle fighting; process incoming overflow immediately\n\n0 carcasses processed in this save. Automatic processing is off; any current carcass finishes before stopping.\n\nStop after carcasses: Start finite whole-carcass routine\nWolf rat: 1 carcassesSelected carcass: \nCarcass 1 · condition not yet assessed\n\nCondition estimates remain dated observations. Processing resolves actual condition at completion; refreshing an estimate does not renew the material.\n\nRefresh condition estimate\nProcess whole8 min, 8 Butchering XP; 1 Rat pelt: whole, quality 65%; 1 Rat tail: whole, quality 65%; 2 Rat fang: whole, quality 65%\nTake only pelt4 min, 4 Butchering XP; 1 Rat pelt: whole, quality 65%\nTake only tail2 min, 2 Butchering XP; 1 Rat tail: whole, quality 65%\nTake only fang2 min, 2 Butchering XP; 2 Rat fang: whole, quality 65%"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "carcass-processing-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/carcass-processing-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Carcass processing\n▾\nCarcass processing\n\nKeep up to 24 per species. Choose a specific carcass before processing. Age follows played time and changes quality; strike damage changes how complete each part is. One-part processing yields only that part; the other parts are lost. Hands take twice as long. Freshness declines over four played hours. 0 carcasses left behind at capacity.\n\n Auto-process whole carcasses during idle fighting; process incoming overflow immediately\n\n0 carcasses processed in this save. Automatic processing is off; any current carcass finishes before stopping.\n\nStop after carcasses: Start finite whole-carcass routine\nWolf rat: 1 carcassesSelected carcass: \nCarcass 1 · condition not yet assessed\n\nCondition estimates remain dated observations. Processing resolves actual condition at completion; refreshing an estimate does not renew the material.\n\nRefresh condition estimate\nProcess whole8 min, 8 Butchering XP; 1 Rat pelt: whole, quality 65%; 1 Rat tail: whole, quality 65%; 2 Rat fang: whole, quality 65%\nTake only pelt4 min, 4 Butchering XP; 1 Rat pelt: whole, quality 65%\nTake only tail2 min, 2 Butchering XP; 1 Rat tail: whole, quality 65%\nTake only fang2 min, 2 Butchering XP; 2 Rat fang: whole, quality 65%"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "carcass-processing-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/carcass-processing-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Carcass processing\n▾\nCarcass processing\n\nKeep up to 24 per species. Choose a specific carcass before processing. Age follows played time and changes quality; strike damage changes how complete each part is. One-part processing yields only that part; the other parts are lost. Hands take twice as long. Freshness declines over four played hours. 0 carcasses left behind at capacity.\n\n Auto-process whole carcasses during idle fighting; process incoming overflow immediately\n\n0 carcasses processed in this save. Automatic processing is off; any current carcass finishes before stopping.\n\nStop after carcasses: Start finite whole-carcass routine\nWolf rat: 1 carcassesSelected carcass: \nCarcass 1 · condition not yet assessed\n\nCondition estimates remain dated observations. Processing resolves actual condition at completion; refreshing an estimate does not renew the material.\n\nRefresh condition estimate\nProcess whole8 min, 8 Butchering XP; 1 Rat pelt: whole, quality 65%; 1 Rat tail: whole, quality 65%; 2 Rat fang: whole, quality 65%\nTake only pelt4 min, 4 Butchering XP; 1 Rat pelt: whole, quality 65%\nTake only tail2 min, 2 Butchering XP; 1 Rat tail: whole, quality 65%\nTake only fang2 min, 2 Butchering XP; 2 Rat fang: whole, quality 65%"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "primordial_credit",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/primordial_credit-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Sect Library · priced credit\n▾\nSect Library · priced credit\n\nThe Library elder keeps dated paper. Credit never exceeds a disciple's whole value. The first exchange is zero down at 36 percent a year, simple interest, repaid in flat yearly installments over 10 years.\n\nContribution points and the mission\n\nCP in hand: 0. Missions done: 0. Rent is 30 CP a month (SOURCE, recorded only, not charged here).\n\nSect mission: shelve scrolls in the Library: 8 game hours, pays 5 CP less 1 CP for lamp oil, 1 a day. Prototype rates (AUTHORED, see the list at the foot). Not started.\n\nStart the mission\nAsk the Library for\nDivine Firmament Sword Control True Formula: 1,000 CP (SOURCE, c0006 p32) Ask for it\nKilling Life Curse: 300 CP (SOURCE, c0011 p46) Ask for it\nCoiling Dragon method: 1,500 CP (SOURCE, c0027 p1) Ask for it\nAsk the clerk how credit is weighed\nLedger\n\nYou owe the Library nothing.\n\nRepay\n\nNothing to repay.\n\nHeld\n\nNothing issued yet.\n\nIf this life ends\n\ndeath · Body and wealth: drops, this life. Nothing but memory and the chosen base cheat crosses without a carrier (AD11).\n\nrebirth · Memories: carries, any life. Knowledge of people, routes and lines stays.\n\nrebirth · Chosen base cheat: carries, any life. Authored proposal: it grows with the life and does not reset.\n\nrebirth · Open obligations: drops, this life. A restart returns to intake with the first-exchange loan unused (SHOWN BASIS in the loop, c0015 p6, p9-15, p86); no recovery by the sect is shown. A restart that is not an intake reset is not shown, so this stays a dial.\n\nNo debt to carry.\n\nWhere the numbers come from\n\nratePerYear = 0.36: SOURCE. The first-exchange loan is zero down at 36 percent a year over ten years, simple interest on the original principal, repaid as a flat yearly installment: 1,000 CP owes 460 a year (100 principal plus 360 interest), 4,600 in all. (c0006 p33-36 (460 a year, 4,600 in all))\n\ntermYears = 10: SOURCE. Ten years to repay the first-exchange loan. (c0006 p33-36)\n\nbodyValue = 1200: AUTHORED. A disciple's recorded total value in CP. The rule that credit never exceeds it is stated; the figure is authored so the 1,000 CP formula passes and a 1,500 CP method is refused. (rule (credit never exceeds total value) SOURCE c0009 p65-66; figure and formula AUTHORED)\n\nsecondHalfPrice = 600: AUTHORED. The first half of a method is issued free of charge; the second half is bought. The split is sourced, the price is not stated and is NOT canon. (split c0004 p11, c0006 p12-13; price open)\n\nyearDays = 360: AUTHORED. The source shows a year as twelve monthly cycles (rent 30 CP a month, 360 a year) and gives no day count. Authored: 30-day months, 360-day year, which also matches the engine calendar. (c0008 p63-65 (SHOWN arithmetic); days per month authored)\n\nrestart = drops: SHOWN BASIS, dial kept. Whether an open loan crosses a restart. In the loop as shown, the restart returns to intake with the first-exchange loan unused again and no recovery by the sect (SHOWN). Only drops is built: the heir route copies a fixed key list that does not include this slice, so a debt that crosses a restart is not offered in this slice. A non-loop restart is not shown; the sect's price rule (credit never exceeds total value) is a principle, not an observed recovery. (loop: c0015 p6, p9-15, p86 (SHOWN); non-loop restart not shown; c0009 p66 (STATED))\n\nrent = 30: SOURCE. Rent is 30 CP a month (recorded only, not charged in this slice, so the prototype task rates below are not tuned against it). (c0003 p25)\n\ntaskPay = 5: AUTHORED. Prototype pay for one Library shelving mission. Source: missions pay mostly single digits of CP (c0003 p33, STATED); the exact figure is authored. At one mission a day (30-day month) it is about 120 CP a month, enough to meet the 460 CP yearly installment in about four months of missions, so a borrower can repay without grinding. (single digits c0003 p33 (STATED); 5 AUTHORED)\n\ntaskCost = 1: AUTHORED. Prototype cost of one mission: lamp oil and wax, deducted from the pay when the shift ends (so a disciple with 0 CP can still start), on top of the time. (AUTHORED)\n\ntaskMinutes = 480: AUTHORED. Prototype length of one mission: eight game hours of normal game time. It completes through ordinary game ticks; other play continues, but the mission cannot be started again until it ends. (AUTHORED)\n\ntaskPerDay = 1: AUTHORED. Prototype limit: one mission per game day, so repaying takes calendar time and the interest keeps running. (AUTHORED)"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "primordial_credit",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/primordial_credit-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Sect Library · priced credit\n▾\nSect Library · priced credit\n\nThe Library elder keeps dated paper. Credit never exceeds a disciple's whole value. The first exchange is zero down at 36 percent a year, simple interest, repaid in flat yearly installments over 10 years.\n\nContribution points and the mission\n\nCP in hand: 0. Missions done: 0. Rent is 30 CP a month (SOURCE, recorded only, not charged here).\n\nSect mission: shelve scrolls in the Library: 8 game hours, pays 5 CP less 1 CP for lamp oil, 1 a day. Prototype rates (AUTHORED, see the list at the foot). Not started.\n\nStart the mission\nAsk the Library for\nDivine Firmament Sword Control True Formula: 1,000 CP (SOURCE, c0006 p32) Ask for it\nKilling Life Curse: 300 CP (SOURCE, c0011 p46) Ask for it\nCoiling Dragon method: 1,500 CP (SOURCE, c0027 p1) Ask for it\nAsk the clerk how credit is weighed\nLedger\n\nYou owe the Library nothing.\n\nRepay\n\nNothing to repay.\n\nHeld\n\nNothing issued yet.\n\nIf this life ends\n\ndeath · Body and wealth: drops, this life. Nothing but memory and the chosen base cheat crosses without a carrier (AD11).\n\nrebirth · Memories: carries, any life. Knowledge of people, routes and lines stays.\n\nrebirth · Chosen base cheat: carries, any life. Authored proposal: it grows with the life and does not reset.\n\nrebirth · Open obligations: drops, this life. A restart returns to intake with the first-exchange loan unused (SHOWN BASIS in the loop, c0015 p6, p9-15, p86); no recovery by the sect is shown. A restart that is not an intake reset is not shown, so this stays a dial.\n\nNo debt to carry.\n\nWhere the numbers come from\n\nratePerYear = 0.36: SOURCE. The first-exchange loan is zero down at 36 percent a year over ten years, simple interest on the original principal, repaid as a flat yearly installment: 1,000 CP owes 460 a year (100 principal plus 360 interest), 4,600 in all. (c0006 p33-36 (460 a year, 4,600 in all))\n\ntermYears = 10: SOURCE. Ten years to repay the first-exchange loan. (c0006 p33-36)\n\nbodyValue = 1200: AUTHORED. A disciple's recorded total value in CP. The rule that credit never exceeds it is stated; the figure is authored so the 1,000 CP formula passes and a 1,500 CP method is refused. (rule (credit never exceeds total value) SOURCE c0009 p65-66; figure and formula AUTHORED)\n\nsecondHalfPrice = 600: AUTHORED. The first half of a method is issued free of charge; the second half is bought. The split is sourced, the price is not stated and is NOT canon. (split c0004 p11, c0006 p12-13; price open)\n\nyearDays = 360: AUTHORED. The source shows a year as twelve monthly cycles (rent 30 CP a month, 360 a year) and gives no day count. Authored: 30-day months, 360-day year, which also matches the engine calendar. (c0008 p63-65 (SHOWN arithmetic); days per month authored)\n\nrestart = drops: SHOWN BASIS, dial kept. Whether an open loan crosses a restart. In the loop as shown, the restart returns to intake with the first-exchange loan unused again and no recovery by the sect (SHOWN). Only drops is built: the heir route copies a fixed key list that does not include this slice, so a debt that crosses a restart is not offered in this slice. A non-loop restart is not shown; the sect's price rule (credit never exceeds total value) is a principle, not an observed recovery. (loop: c0015 p6, p9-15, p86 (SHOWN); non-loop restart not shown; c0009 p66 (STATED))\n\nrent = 30: SOURCE. Rent is 30 CP a month (recorded only, not charged in this slice, so the prototype task rates below are not tuned against it). (c0003 p25)\n\ntaskPay = 5: AUTHORED. Prototype pay for one Library shelving mission. Source: missions pay mostly single digits of CP (c0003 p33, STATED); the exact figure is authored. At one mission a day (30-day month) it is about 120 CP a month, enough to meet the 460 CP yearly installment in about four months of missions, so a borrower can repay without grinding. (single digits c0003 p33 (STATED); 5 AUTHORED)\n\ntaskCost = 1: AUTHORED. Prototype cost of one mission: lamp oil and wax, deducted from the pay when the shift ends (so a disciple with 0 CP can still start), on top of the time. (AUTHORED)\n\ntaskMinutes = 480: AUTHORED. Prototype length of one mission: eight game hours of normal game time. It completes through ordinary game ticks; other play continues, but the mission cannot be started again until it ends. (AUTHORED)\n\ntaskPerDay = 1: AUTHORED. Prototype limit: one mission per game day, so repaying takes calendar time and the interest keeps running. (AUTHORED)"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "primordial_credit-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/primordial_credit-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Sect Library · priced credit\n▾\nSect Library · priced credit\n\nThe Library elder keeps dated paper. Credit never exceeds a disciple's whole value. The first exchange is zero down at 36 percent a year, simple interest, repaid in flat yearly installments over 10 years.\n\nContribution points and the mission\n\nCP in hand: 0. Missions done: 0. Rent is 30 CP a month (SOURCE, recorded only, not charged here).\n\nSect mission: shelve scrolls in the Library: 8 game hours, pays 5 CP less 1 CP for lamp oil, 1 a day. Prototype rates (AUTHORED, see the list at the foot). Not started.\n\nStart the mission\nAsk the Library for\nDivine Firmament Sword Control True Formula: 1,000 CP (SOURCE, c0006 p32) Ask for it\nKilling Life Curse: 300 CP (SOURCE, c0011 p46) Ask for it\nCoiling Dragon method: 1,500 CP (SOURCE, c0027 p1) Ask for it\nAsk the clerk how credit is weighed\nLedger\n\nYou owe the Library nothing.\n\nRepay\n\nNothing to repay.\n\nHeld\n\nNothing issued yet.\n\nIf this life ends\n\ndeath · Body and wealth: drops, this life. Nothing but memory and the chosen base cheat crosses without a carrier (AD11).\n\nrebirth · Memories: carries, any life. Knowledge of people, routes and lines stays.\n\nrebirth · Chosen base cheat: carries, any life. Authored proposal: it grows with the life and does not reset.\n\nrebirth · Open obligations: drops, this life. A restart returns to intake with the first-exchange loan unused (SHOWN BASIS in the loop, c0015 p6, p9-15, p86); no recovery by the sect is shown. A restart that is not an intake reset is not shown, so this stays a dial.\n\nNo debt to carry.\n\nWhere the numbers come from\n\nratePerYear = 0.36: SOURCE. The first-exchange loan is zero down at 36 percent a year over ten years, simple interest on the original principal, repaid as a flat yearly installment: 1,000 CP owes 460 a year (100 principal plus 360 interest), 4,600 in all. (c0006 p33-36 (460 a year, 4,600 in all))\n\ntermYears = 10: SOURCE. Ten years to repay the first-exchange loan. (c0006 p33-36)\n\nbodyValue = 1200: AUTHORED. A disciple's recorded total value in CP. The rule that credit never exceeds it is stated; the figure is authored so the 1,000 CP formula passes and a 1,500 CP method is refused. (rule (credit never exceeds total value) SOURCE c0009 p65-66; figure and formula AUTHORED)\n\nsecondHalfPrice = 600: AUTHORED. The first half of a method is issued free of charge; the second half is bought. The split is sourced, the price is not stated and is NOT canon. (split c0004 p11, c0006 p12-13; price open)\n\nyearDays = 360: AUTHORED. The source shows a year as twelve monthly cycles (rent 30 CP a month, 360 a year) and gives no day count. Authored: 30-day months, 360-day year, which also matches the engine calendar. (c0008 p63-65 (SHOWN arithmetic); days per month authored)\n\nrestart = drops: SHOWN BASIS, dial kept. Whether an open loan crosses a restart. In the loop as shown, the restart returns to intake with the first-exchange loan unused again and no recovery by the sect (SHOWN). Only drops is built: the heir route copies a fixed key list that does not include this slice, so a debt that crosses a restart is not offered in this slice. A non-loop restart is not shown; the sect's price rule (credit never exceeds total value) is a principle, not an observed recovery. (loop: c0015 p6, p9-15, p86 (SHOWN); non-loop restart not shown; c0009 p66 (STATED))\n\nrent = 30: SOURCE. Rent is 30 CP a month (recorded only, not charged in this slice, so the prototype task rates below are not tuned against it). (c0003 p25)\n\ntaskPay = 5: AUTHORED. Prototype pay for one Library shelving mission. Source: missions pay mostly single digits of CP (c0003 p33, STATED); the exact figure is authored. At one mission a day (30-day month) it is about 120 CP a month, enough to meet the 460 CP yearly installment in about four months of missions, so a borrower can repay without grinding. (single digits c0003 p33 (STATED); 5 AUTHORED)\n\ntaskCost = 1: AUTHORED. Prototype cost of one mission: lamp oil and wax, deducted from the pay when the shift ends (so a disciple with 0 CP can still start), on top of the time. (AUTHORED)\n\ntaskMinutes = 480: AUTHORED. Prototype length of one mission: eight game hours of normal game time. It completes through ordinary game ticks; other play continues, but the mission cannot be started again until it ends. (AUTHORED)\n\ntaskPerDay = 1: AUTHORED. Prototype limit: one mission per game day, so repaying takes calendar time and the interest keeps running. (AUTHORED)"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "primordial_credit-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/primordial_credit-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Sect Library · priced credit\n▾\nSect Library · priced credit\n\nThe Library elder keeps dated paper. Credit never exceeds a disciple's whole value. The first exchange is zero down at 36 percent a year, simple interest, repaid in flat yearly installments over 10 years.\n\nContribution points and the mission\n\nCP in hand: 0. Missions done: 0. Rent is 30 CP a month (SOURCE, recorded only, not charged here).\n\nSect mission: shelve scrolls in the Library: 8 game hours, pays 5 CP less 1 CP for lamp oil, 1 a day. Prototype rates (AUTHORED, see the list at the foot). Not started.\n\nStart the mission\nAsk the Library for\nDivine Firmament Sword Control True Formula: 1,000 CP (SOURCE, c0006 p32) Ask for it\nKilling Life Curse: 300 CP (SOURCE, c0011 p46) Ask for it\nCoiling Dragon method: 1,500 CP (SOURCE, c0027 p1) Ask for it\nAsk the clerk how credit is weighed\nLedger\n\nYou owe the Library nothing.\n\nRepay\n\nNothing to repay.\n\nHeld\n\nNothing issued yet.\n\nIf this life ends\n\ndeath · Body and wealth: drops, this life. Nothing but memory and the chosen base cheat crosses without a carrier (AD11).\n\nrebirth · Memories: carries, any life. Knowledge of people, routes and lines stays.\n\nrebirth · Chosen base cheat: carries, any life. Authored proposal: it grows with the life and does not reset.\n\nrebirth · Open obligations: drops, this life. A restart returns to intake with the first-exchange loan unused (SHOWN BASIS in the loop, c0015 p6, p9-15, p86); no recovery by the sect is shown. A restart that is not an intake reset is not shown, so this stays a dial.\n\nNo debt to carry.\n\nWhere the numbers come from\n\nratePerYear = 0.36: SOURCE. The first-exchange loan is zero down at 36 percent a year over ten years, simple interest on the original principal, repaid as a flat yearly installment: 1,000 CP owes 460 a year (100 principal plus 360 interest), 4,600 in all. (c0006 p33-36 (460 a year, 4,600 in all))\n\ntermYears = 10: SOURCE. Ten years to repay the first-exchange loan. (c0006 p33-36)\n\nbodyValue = 1200: AUTHORED. A disciple's recorded total value in CP. The rule that credit never exceeds it is stated; the figure is authored so the 1,000 CP formula passes and a 1,500 CP method is refused. (rule (credit never exceeds total value) SOURCE c0009 p65-66; figure and formula AUTHORED)\n\nsecondHalfPrice = 600: AUTHORED. The first half of a method is issued free of charge; the second half is bought. The split is sourced, the price is not stated and is NOT canon. (split c0004 p11, c0006 p12-13; price open)\n\nyearDays = 360: AUTHORED. The source shows a year as twelve monthly cycles (rent 30 CP a month, 360 a year) and gives no day count. Authored: 30-day months, 360-day year, which also matches the engine calendar. (c0008 p63-65 (SHOWN arithmetic); days per month authored)\n\nrestart = drops: SHOWN BASIS, dial kept. Whether an open loan crosses a restart. In the loop as shown, the restart returns to intake with the first-exchange loan unused again and no recovery by the sect (SHOWN). Only drops is built: the heir route copies a fixed key list that does not include this slice, so a debt that crosses a restart is not offered in this slice. A non-loop restart is not shown; the sect's price rule (credit never exceeds total value) is a principle, not an observed recovery. (loop: c0015 p6, p9-15, p86 (SHOWN); non-loop restart not shown; c0009 p66 (STATED))\n\nrent = 30: SOURCE. Rent is 30 CP a month (recorded only, not charged in this slice, so the prototype task rates below are not tuned against it). (c0003 p25)\n\ntaskPay = 5: AUTHORED. Prototype pay for one Library shelving mission. Source: missions pay mostly single digits of CP (c0003 p33, STATED); the exact figure is authored. At one mission a day (30-day month) it is about 120 CP a month, enough to meet the 460 CP yearly installment in about four months of missions, so a borrower can repay without grinding. (single digits c0003 p33 (STATED); 5 AUTHORED)\n\ntaskCost = 1: AUTHORED. Prototype cost of one mission: lamp oil and wax, deducted from the pay when the shift ends (so a disciple with 0 CP can still start), on top of the time. (AUTHORED)\n\ntaskMinutes = 480: AUTHORED. Prototype length of one mission: eight game hours of normal game time. It completes through ordinary game ticks; other play continues, but the mission cannot be started again until it ends. (AUTHORED)\n\ntaskPerDay = 1: AUTHORED. Prototype limit: one mission per game day, so repaying takes calendar time and the interest keeps running. (AUTHORED)"
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "loadouts",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/loadouts-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Loadouts\n▾\nLoadouts\n\nRemember what you are wearing, then put it back on in one step. Equipping uses the normal equip rules; an item you no longer hold is skipped and named.\n\nSave current gear\nAlso take off slots the set does not name\n\nNo loadouts yet. Wear what you want to keep, name it above and save."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "loadouts",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/loadouts-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Loadouts\n▾\nLoadouts\n\nRemember what you are wearing, then put it back on in one step. Equipping uses the normal equip rules; an item you no longer hold is skipped and named.\n\nSave current gear\nAlso take off slots the set does not name\n\nNo loadouts yet. Wear what you want to keep, name it above and save."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "loadouts-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/loadouts-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Loadouts\n▾\nLoadouts\n\nRemember what you are wearing, then put it back on in one step. Equipping uses the normal equip rules; an item you no longer hold is skipped and named.\n\nSave current gear\nAlso take off slots the set does not name\n\nNo loadouts yet. Wear what you want to keep, name it above and save."
+    },
+    {
+      "seedSha": "0254a0723051e587f812e7cbe3e3ea3a8a2a8c1cc21e77e78cb2e269c7801ff7",
+      "id": "loadouts-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/loadouts-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Loadouts\n▾\nLoadouts\n\nRemember what you are wearing, then put it back on in one step. Equipping uses the normal equip rules; an item you no longer hold is skipped and named.\n\nSave current gear\nAlso take off slots the set does not name\n\nNo loadouts yet. Wear what you want to keep, name it above and save."
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "companions",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/companions-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Companions\n▾\nCompanions\n\n1 person\n\nLio\nVillage · free · 28/28 health, 12/12 stamina · bond 0\nYou know they are practical: worked side by side suits them (+3).\nMemory keeps the latest 5 scenes.\nShared a mealWalked togetherSat in quiet companyTraded storiesWorked side by side"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "companions",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/companions-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Companions\n▾\nCompanions\n\n1 person\n\nLio\nVillage · free · 28/28 health, 12/12 stamina · bond 0\nYou know they are practical: worked side by side suits them (+3).\nMemory keeps the latest 5 scenes.\nShared a mealWalked togetherSat in quiet companyTraded storiesWorked side by side"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "companions-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/companions-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Companions\n▾\nCompanions\n\n1 person\n\nLio\nVillage · free · 28/28 health, 12/12 stamina · bond 0\nYou know they are practical: worked side by side suits them (+3).\nMemory keeps the latest 5 scenes.\nShared a mealWalked togetherSat in quiet companyTraded storiesWorked side by side"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "companions-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/companions-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Companions\n▾\nCompanions\n\n1 person\n\nLio\nVillage · free · 28/28 health, 12/12 stamina · bond 0\nYou know they are practical: worked side by side suits them (+3).\nMemory keeps the latest 5 scenes.\nShared a mealWalked togetherSat in quiet companyTraded storiesWorked side by side"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "stock_view",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/stock_view-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Stock\n▾\nStock\n\nHand goods to a companion as a loan and take them back whole. Favorites and equipped gear stay carried.\n\nCarried by you · 7\nCheap leather pants (quality 40) × 1Hand 1 to Lio\nStale bread × 5Hand 1 to Lio\nPrepared survey kit × 2Hand 1 to Lio\nLedger workshop cache × 1Hand 1 to Lio\nSealed survey parcel × 2Hand 1 to Lio\nRough wood log × 2Hand 1 to Lio\nGolmoon leaf × 19Hand 1 to Lio\nLio’s pack · 1\nPrepared survey kit × 1"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "stock_view",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/stock_view-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Stock\n▾\nStock\n\nHand goods to a companion as a loan and take them back whole. Favorites and equipped gear stay carried.\n\nCarried by you · 7\nCheap leather pants (quality 40) × 1Hand 1 to Lio\nStale bread × 5Hand 1 to Lio\nPrepared survey kit × 2Hand 1 to Lio\nLedger workshop cache × 1Hand 1 to Lio\nSealed survey parcel × 2Hand 1 to Lio\nRough wood log × 2Hand 1 to Lio\nGolmoon leaf × 19Hand 1 to Lio\nLio’s pack · 1\nPrepared survey kit × 1"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "stock_view-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/stock_view-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Stock\n▾\nStock\n\nHand goods to a companion as a loan and take them back whole. Favorites and equipped gear stay carried.\n\nCarried by you · 7\nCheap leather pants (quality 40) × 1Hand 1 to Lio\nStale bread × 5Hand 1 to Lio\nPrepared survey kit × 2Hand 1 to Lio\nLedger workshop cache × 1Hand 1 to Lio\nSealed survey parcel × 2Hand 1 to Lio\nRough wood log × 2Hand 1 to Lio\nGolmoon leaf × 19Hand 1 to Lio\nLio’s pack · 1\nPrepared survey kit × 1"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "stock_view-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/stock_view-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Stock\n▾\nStock\n\nHand goods to a companion as a loan and take them back whole. Favorites and equipped gear stay carried.\n\nCarried by you · 7\nCheap leather pants (quality 40) × 1Hand 1 to Lio\nStale bread × 5Hand 1 to Lio\nPrepared survey kit × 2Hand 1 to Lio\nLedger workshop cache × 1Hand 1 to Lio\nSealed survey parcel × 2Hand 1 to Lio\nRough wood log × 2Hand 1 to Lio\nGolmoon leaf × 19Hand 1 to Lio\nLio’s pack · 1\nPrepared survey kit × 1"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "learned-preparations",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/learned-preparations-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Learned preparations\n▾\n\nLearned: Weak healing powder. Preparation uses 5 Golmoon leaves. An alchemy station is available.\n\nReview learned herb preparation"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "learned-preparations",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/learned-preparations-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Learned preparations\n▾\n\nLearned: Weak healing powder. Preparation uses 5 Golmoon leaves. An alchemy station is available.\n\nReview learned herb preparation"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "learned-preparations-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/learned-preparations-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Learned preparations\n▾\n\nLearned: Weak healing powder. Preparation uses 5 Golmoon leaves. An alchemy station is available.\n\nReview learned herb preparation"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "learned-preparations-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/learned-preparations-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Learned preparations\n▾\n\nLearned: Weak healing powder. Preparation uses 5 Golmoon leaves. An alchemy station is available.\n\nReview learned herb preparation"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "rank_gap_observer",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/rank_gap_observer-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Watch a working\n▾\nWatch a working\n\nEach watch takes 2 minutes and some stamina. Looking at someone far above you can hurt; what you make out depends on how you look.\n\nPlain sight\nChecking the Goa duty copy against a badge\nPalace-approach admission\nWarded sight (soul crystal sense)\n\nWatch clock 0 min · strain 0\n\nWatch Mia (2 min, 1 stamina)\nWatch Hank (2 min, 1 to 2 stamina)\nWatch Philip Herbert (2 min, 1 to 2 stamina)\nWatch Su Xiao (2 min, 1 to 2 stamina)"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "rank_gap_observer",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/rank_gap_observer-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Watch a working\n▾\nWatch a working\n\nEach watch takes 2 minutes and some stamina. Looking at someone far above you can hurt; what you make out depends on how you look.\n\nPlain sight\nChecking the Goa duty copy against a badge\nPalace-approach admission\nWarded sight (soul crystal sense)\n\nWatch clock 0 min · strain 0\n\nWatch Mia (2 min, 1 stamina)\nWatch Hank (2 min, 1 to 2 stamina)\nWatch Philip Herbert (2 min, 1 to 2 stamina)\nWatch Su Xiao (2 min, 1 to 2 stamina)"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "rank_gap_observer-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/rank_gap_observer-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Watch a working\n▾\nWatch a working\n\nEach watch takes 2 minutes and some stamina. Looking at someone far above you can hurt; what you make out depends on how you look.\n\nPlain sight\nChecking the Goa duty copy against a badge\nPalace-approach admission\nWarded sight (soul crystal sense)\n\nWatch clock 0 min · strain 0\n\nWatch Mia (2 min, 1 stamina)\nWatch Hank (2 min, 1 to 2 stamina)\nWatch Philip Herbert (2 min, 1 to 2 stamina)\nWatch Su Xiao (2 min, 1 to 2 stamina)"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "rank_gap_observer-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/rank_gap_observer-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Watch a working\n▾\nWatch a working\n\nEach watch takes 2 minutes and some stamina. Looking at someone far above you can hurt; what you make out depends on how you look.\n\nPlain sight\nChecking the Goa duty copy against a badge\nPalace-approach admission\nWarded sight (soul crystal sense)\n\nWatch clock 0 min · strain 0\n\nWatch Mia (2 min, 1 stamina)\nWatch Hank (2 min, 1 to 2 stamina)\nWatch Philip Herbert (2 min, 1 to 2 stamina)\nWatch Su Xiao (2 min, 1 to 2 stamina)"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "known-routes",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/known-routes-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": [
+          "button.action-legibility__button"
+        ]
+      },
+      "text": "Notes, practice & people\n▾\nNotes, practice & people\nHere\nPractice\nPeople\nTools, practice & local lives\nParadise · your independent Goa branch\n\nYour own character and received accounts. You hold 0Paradise coins and 0local belli. No survey contract is active. Source edition is supplied English MTL; exact protagonist replacement and arbitrary named-person combat are unselected.\n\nRequest sent. The updated state will appear when available.\n\nKnown actions\nMeet Mia in Gray Terminal\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Meet Mia in Gray Terminal\nReturn from your personal Goa visit\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Return from your personal Goa visit\nGo to Goa provision pier\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Go to Goa provision pier\nGo to Goa guardhouse\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Go to Goa guardhouse\nGo to Goa city gate\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nUnavailable\n\nWhy this is unavailable\nObtain actual local passage approval; your Paradise role is no Goa office.\nStated costs\n0 played minutes\nUnavailable: Go to Goa city gate\nGo to Goa palace approach\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nUnavailable\n\nWhy this is unavailable\nObtain actual local passage approval; your Paradise role is no Goa office.\nStated costs\n0 played minutes\nUnavailable: Go to Goa palace approach\nThis is an original voluntary parallel entry beside the supplied-MTL first-Goa era. You keep your actual living native body, owned cargo and learned history. Ordinary district work and optional contractor travel are separate choices. Entry supplies only the disclosed local language understanding, not Su Xiao’s Hunter role, talent, money, guard office, memories, private task or return protection. Unknown source rights remain unknown. All costs, local played intervals and alternative outcomes are original prototypes; unsupported absence freezes the place.\nChose your own retained human character in a first-Goa alternate branch. Contractor service and language contact are this entry’s limited authored approval, not Su Xiao’s coerced Hunter trial. You own no copied office, talent, memories, equipment or another entrant’s settlement. Source-era cast keeps its own body, goods and private plans. Hub service institutions are evidenced after his Goa return; their concurrent placement here is an explicit original branch choice.\nArrived at your actual return point in the same controlled body and owned cargo. Source-world people, dead/departed states, stock, learned work and changed history remain. Unsupported absence freezes; no source-protagonist reward or reset followed.\nArrived in the same retained Goa instance with your actual body and owned cargo. The source baseline is reference; the actual residents, clock, stock and changed causal consequences remain. Your entry gives no protagonist knowledge or palace office.\nOwned field apparatus\nGoa · craft, rescue and retained aftermath"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "known-routes",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/known-routes-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": [
+          "button.action-legibility__button"
+        ]
+      },
+      "text": "Notes, practice & people\n▾\nNotes, practice & people\nHere\nPractice\nPeople\nTools, practice & local lives\nParadise · your independent Goa branch\n\nYour own character and received accounts. You hold 0Paradise coins and 0local belli. No survey contract is active. Source edition is supplied English MTL; exact protagonist replacement and arbitrary named-person combat are unselected.\n\nRequest sent. The updated state will appear when available.\n\nKnown actions\nMeet Mia in Gray Terminal\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Meet Mia in Gray Terminal\nReturn from your personal Goa visit\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Return from your personal Goa visit\nGo to Goa provision pier\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Go to Goa provision pier\nGo to Goa guardhouse\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Go to Goa guardhouse\nGo to Goa city gate\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nUnavailable\n\nWhy this is unavailable\nObtain actual local passage approval; your Paradise role is no Goa office.\nStated costs\n0 played minutes\nUnavailable: Go to Goa city gate\nGo to Goa palace approach\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nUnavailable\n\nWhy this is unavailable\nObtain actual local passage approval; your Paradise role is no Goa office.\nStated costs\n0 played minutes\nUnavailable: Go to Goa palace approach\nThis is an original voluntary parallel entry beside the supplied-MTL first-Goa era. You keep your actual living native body, owned cargo and learned history. Ordinary district work and optional contractor travel are separate choices. Entry supplies only the disclosed local language understanding, not Su Xiao’s Hunter role, talent, money, guard office, memories, private task or return protection. Unknown source rights remain unknown. All costs, local played intervals and alternative outcomes are original prototypes; unsupported absence freezes the place.\nChose your own retained human character in a first-Goa alternate branch. Contractor service and language contact are this entry’s limited authored approval, not Su Xiao’s coerced Hunter trial. You own no copied office, talent, memories, equipment or another entrant’s settlement. Source-era cast keeps its own body, goods and private plans. Hub service institutions are evidenced after his Goa return; their concurrent placement here is an explicit original branch choice.\nArrived at your actual return point in the same controlled body and owned cargo. Source-world people, dead/departed states, stock, learned work and changed history remain. Unsupported absence freezes; no source-protagonist reward or reset followed.\nArrived in the same retained Goa instance with your actual body and owned cargo. The source baseline is reference; the actual residents, clock, stock and changed causal consequences remain. Your entry gives no protagonist knowledge or palace office.\nOwned field apparatus\nGoa · craft, rescue and retained aftermath"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "known-routes-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/known-routes-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": [
+          "button.action-legibility__button"
+        ]
+      },
+      "text": "Notes, practice & people\n▾\nNotes, practice & people\nHere\nPractice\nPeople\nTools, practice & local lives\nParadise · your independent Goa branch\n\nYour own character and received accounts. You hold 0Paradise coins and 0local belli. No survey contract is active. Source edition is supplied English MTL; exact protagonist replacement and arbitrary named-person combat are unselected.\n\nRequest sent. The updated state will appear when available.\n\nKnown actions\nMeet Mia in Gray Terminal\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Meet Mia in Gray Terminal\nReturn from your personal Goa visit\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Return from your personal Goa visit\nGo to Goa provision pier\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Go to Goa provision pier\nGo to Goa guardhouse\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Go to Goa guardhouse\nGo to Goa city gate\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nUnavailable\n\nWhy this is unavailable\nObtain actual local passage approval; your Paradise role is no Goa office.\nStated costs\n0 played minutes\nUnavailable: Go to Goa city gate\nGo to Goa palace approach\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nUnavailable\n\nWhy this is unavailable\nObtain actual local passage approval; your Paradise role is no Goa office.\nStated costs\n0 played minutes\nUnavailable: Go to Goa palace approach\nThis is an original voluntary parallel entry beside the supplied-MTL first-Goa era. You keep your actual living native body, owned cargo and learned history. Ordinary district work and optional contractor travel are separate choices. Entry supplies only the disclosed local language understanding, not Su Xiao’s Hunter role, talent, money, guard office, memories, private task or return protection. Unknown source rights remain unknown. All costs, local played intervals and alternative outcomes are original prototypes; unsupported absence freezes the place.\nChose your own retained human character in a first-Goa alternate branch. Contractor service and language contact are this entry’s limited authored approval, not Su Xiao’s coerced Hunter trial. You own no copied office, talent, memories, equipment or another entrant’s settlement. Source-era cast keeps its own body, goods and private plans. Hub service institutions are evidenced after his Goa return; their concurrent placement here is an explicit original branch choice.\nArrived at your actual return point in the same controlled body and owned cargo. Source-world people, dead/departed states, stock, learned work and changed history remain. Unsupported absence freezes; no source-protagonist reward or reset followed.\nArrived in the same retained Goa instance with your actual body and owned cargo. The source baseline is reference; the actual residents, clock, stock and changed causal consequences remain. Your entry gives no protagonist knowledge or palace office.\nOwned field apparatus\nGoa · craft, rescue and retained aftermath"
+    },
+    {
+      "seedSha": "340ad3c9a3452626f93247be555cdda600b326562fcb678b4748a73c829069a6",
+      "id": "known-routes-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/known-routes-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": [
+          "button.action-legibility__button"
+        ]
+      },
+      "text": "Notes, practice & people\n▾\nNotes, practice & people\nHere\nPractice\nPeople\nTools, practice & local lives\nParadise · your independent Goa branch\n\nYour own character and received accounts. You hold 0Paradise coins and 0local belli. No survey contract is active. Source edition is supplied English MTL; exact protagonist replacement and arbitrary named-person combat are unselected.\n\nRequest sent. The updated state will appear when available.\n\nKnown actions\nMeet Mia in Gray Terminal\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Meet Mia in Gray Terminal\nReturn from your personal Goa visit\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Return from your personal Goa visit\nGo to Goa provision pier\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Go to Goa provision pier\nGo to Goa guardhouse\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nAvailable\n\nStated costs\n0 played minutes\nDo this: Go to Goa guardhouse\nGo to Goa city gate\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nUnavailable\n\nWhy this is unavailable\nObtain actual local passage approval; your Paradise role is no Goa office.\nStated costs\n0 played minutes\nUnavailable: Go to Goa city gate\nGo to Goa palace approach\n\nCurrent actual body/place/owned stock and stated branch terms apply. Source timeline remains author reference, not player foreknowledge.\n\nUnavailable\n\nWhy this is unavailable\nObtain actual local passage approval; your Paradise role is no Goa office.\nStated costs\n0 played minutes\nUnavailable: Go to Goa palace approach\nThis is an original voluntary parallel entry beside the supplied-MTL first-Goa era. You keep your actual living native body, owned cargo and learned history. Ordinary district work and optional contractor travel are separate choices. Entry supplies only the disclosed local language understanding, not Su Xiao’s Hunter role, talent, money, guard office, memories, private task or return protection. Unknown source rights remain unknown. All costs, local played intervals and alternative outcomes are original prototypes; unsupported absence freezes the place.\nChose your own retained human character in a first-Goa alternate branch. Contractor service and language contact are this entry’s limited authored approval, not Su Xiao’s coerced Hunter trial. You own no copied office, talent, memories, equipment or another entrant’s settlement. Source-era cast keeps its own body, goods and private plans. Hub service institutions are evidenced after his Goa return; their concurrent placement here is an explicit original branch choice.\nArrived at your actual return point in the same controlled body and owned cargo. Source-world people, dead/departed states, stock, learned work and changed history remain. Unsupported absence freezes; no source-protagonist reward or reset followed.\nArrived in the same retained Goa instance with your actual body and owned cargo. The source baseline is reference; the actual residents, clock, stock and changed causal consequences remain. Your entry gives no protagonist knowledge or palace office.\nOwned field apparatus\nGoa · craft, rescue and retained aftermath"
+    },
+    {
+      "seedSha": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "id": "place_clock",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/place_clock-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Hearthside clock\n▾\nHearthside clock\n\nThe hearthstone slows the room only while it is fed; unfed, the hours it withheld come back together. Ratios, prices and shelf lives are proposed balance.\n\nBy eye\nBy sand glass\n\nThe hearth keeps the world's hours.\n\nFeed the hearth · 1 day · 2 coins\nFeed the hearth · 3 days · 6 coins\nRelease the hearth · pay owed daysThe hearth is not slowed.\nMake the reopening offering · 4 coinsThe hearth is not closed.\nBuy a sand glass · 3 coins"
+    },
+    {
+      "seedSha": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "id": "place_clock",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/place_clock-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Hearthside clock\n▾\nHearthside clock\n\nThe hearthstone slows the room only while it is fed; unfed, the hours it withheld come back together. Ratios, prices and shelf lives are proposed balance.\n\nBy eye\nBy sand glass\n\nThe hearth keeps the world's hours.\n\nFeed the hearth · 1 day · 2 coins\nFeed the hearth · 3 days · 6 coins\nRelease the hearth · pay owed daysThe hearth is not slowed.\nMake the reopening offering · 4 coinsThe hearth is not closed.\nBuy a sand glass · 3 coins"
+    },
+    {
+      "seedSha": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "id": "place_clock-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/place_clock-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Hearthside clock\n▾\nHearthside clock\n\nThe hearthstone slows the room only while it is fed; unfed, the hours it withheld come back together. Ratios, prices and shelf lives are proposed balance.\n\nBy eye\nBy sand glass\n\nThe hearth keeps the world's hours.\n\nFeed the hearth · 1 day · 2 coins\nFeed the hearth · 3 days · 6 coins\nRelease the hearth · pay owed daysThe hearth is not slowed.\nMake the reopening offering · 4 coinsThe hearth is not closed.\nBuy a sand glass · 3 coins"
+    },
+    {
+      "seedSha": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "id": "place_clock-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/place_clock-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Hearthside clock\n▾\nHearthside clock\n\nThe hearthstone slows the room only while it is fed; unfed, the hours it withheld come back together. Ratios, prices and shelf lives are proposed balance.\n\nBy eye\nBy sand glass\n\nThe hearth keeps the world's hours.\n\nFeed the hearth · 1 day · 2 coins\nFeed the hearth · 3 days · 6 coins\nRelease the hearth · pay owed daysThe hearth is not slowed.\nMake the reopening offering · 4 coinsThe hearth is not closed.\nBuy a sand glass · 3 coins"
+    },
+    {
+      "seedSha": "5324be3f882ad52538806c18cecb2098efeabcdc1b14c23c9a8c8b0f6ac11634",
+      "id": "family",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/family-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Family\n▾\nFamily\n\n2 people\n\nDisposable predecessor\ngeneration 1 · died at 80\nYou (this life)\ngeneration 2 · took the estate as next of kin"
+    },
+    {
+      "seedSha": "5324be3f882ad52538806c18cecb2098efeabcdc1b14c23c9a8c8b0f6ac11634",
+      "id": "family",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/family-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Family\n▾\nFamily\n\n2 people\n\nDisposable predecessor\ngeneration 1 · died at 80\nYou (this life)\ngeneration 2 · took the estate as next of kin"
+    },
+    {
+      "seedSha": "5324be3f882ad52538806c18cecb2098efeabcdc1b14c23c9a8c8b0f6ac11634",
+      "id": "family-21px",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "path": "resume/before/family-21px-1920x1080.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Family\n▾\nFamily\n\n2 people\n\nDisposable predecessor\ngeneration 1 · died at 80\nYou (this life)\ngeneration 2 · took the estate as next of kin"
+    },
+    {
+      "seedSha": "5324be3f882ad52538806c18cecb2098efeabcdc1b14c23c9a8c8b0f6ac11634",
+      "id": "family-21px",
+      "viewport": [
+        1440,
+        900
+      ],
+      "path": "resume/before/family-21px-1440x900.png",
+      "metrics": {
+        "pageOverflow": 0,
+        "clipped": [],
+        "unlabeled": []
+      },
+      "text": "Family\n▾\nFamily\n\n2 people\n\nDisposable predecessor\ngeneration 1 · died at 80\nYou (this life)\ngeneration 2 · took the estate as next of kin"
+    }
+  ],
+  "gaps": [],
+  "checks": [
+    "Known routes before: native independent Goa visit completed; hidden-vault discovery deadlock leaves the route panel absent from Notebook and navigation. Before images show the native owner view, not a fabricated route panel."
+  ],
+  "loaded": {
+    "xp": {
+      "Iron skin": 0,
+      "Running": 1000,
+      "Weightlifting": 0,
+      "Climbing": 0,
+      "Breathing": 1.2,
+      "Shield blocking": 0,
+      "Equilibrium": 0,
+      "Swimming": 0,
+      "Fortitude": 0,
+      "Meditation": 0,
+      "Unarmed": 0,
+      "Perception": 1000,
+      "Cold resistance": 0,
+      "Evasion": 0,
+      "Combat": 0,
+      "Literacy": 120,
+      "Strength of mind": 0,
+      "Gluttony": 0,
+      "Butchering": 0,
+      "Persistence": 0,
+      "Crafting": 0,
+      "Pest killer": 0,
+      "Giant slayer": 0,
+      "Stance mastery": 0,
+      "Quick steps": 0,
+      "Heavy strike": 0,
+      "Wide swing": 0,
+      "Defensive measures": 0,
+      "Berserker's stride": 0,
+      "Flowing water": 0,
+      "Spatial awareness": 0,
+      "Tight maneuvers": 0,
+      "Night vision": 0,
+      "Presence sensing": 0,
+      "Scrambling": 0,
+      "Heat resistance": 0,
+      "Dazzle resistance": 0,
+      "Weapon mastery": 0,
+      "Swords": 0,
+      "Axes": 0,
+      "Spears": 0,
+      "Hammers": 0,
+      "Daggers": 0,
+      "Wands": 0,
+      "Staffs": 0,
+      "Farming": 0,
+      "Sleeping": 0,
+      "Gathering mastery": 0,
+      "Woodcutting": 0,
+      "Mining": 0,
+      "Digging": 0,
+      "Herbalism": 0,
+      "Animal handling": 0,
+      "Fishing": 0,
+      "Crafting mastery": 0,
+      "Smelting": 0,
+      "Forging": 0,
+      "Cooking": 1000,
+      "Alchemy": 0,
+      "Woodworking": 0,
+      "Medicine": 0,
+      "Poison resistance": 0,
+      "Regeneration": 0,
+      "Haggling": 0,
+      "Famine": 0,
+      "Throwing": 0
+    },
+    "playtime": 3600,
+    "books": {
+      "ABC for kids": {
+        "accumulated_time": 120
+      }
+    }
+  },
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    }
+  ]
+}

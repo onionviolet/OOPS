@@ -1,6 +1,7 @@
 import {definePanel} from './panel_kit.js';
 import {LEVELS} from './field_layer.js';
 import {subscribeChange} from './ui_change_signal.js';
+import {labelControl} from './ui/panel_sections.js';
 const node = (tag, text) => { const n = document.createElement(tag); if (text != null) n.textContent = text; return n; };
 // Place service panel (UR1): the levels of the room you stand in, and quoted spill, light, douse and
 // sweep commands. Reads the domain projection only; never owns state (AR8).
@@ -27,22 +28,32 @@ export function createFieldPanel({read, quote, execute, discovered}) {
         if (v.here) for (const e of v.here.edges) if (e.blocked) { const row = node('div', `hatch ${e.between}: barred (${e.sources.join(', ')})`); row.dataset.fieldEdge = e.between; table.append(row); }
         if (v.burningElsewhere.length) table.append(node('p', `Still burning in ${v.burningElsewhere.join(', ')}.`));
         const keepMaterial = controls.querySelector('[data-field-material]')?.value, keepLevel = controls.querySelector('[data-field-level-select]')?.value;
+        const focused=document.activeElement?.dataset;
+        const focusMaterial=focused&&Object.hasOwn(focused,'fieldMaterial'),focusLevel=focused&&Object.hasOwn(focused,'fieldLevelSelect');
         controls.replaceChildren();
         const material = node('select'); material.dataset.fieldMaterial = '';
+        material.setAttribute('aria-label','Stock to spill');material.disabled=!v.materials.length;
+        if(!v.materials.length){const empty=node('option','No spillable stock carried');empty.value='';material.append(empty);}
         for (const m of v.materials) { const o = node('option', `${m.name || 'Stock'} (${m.count})`); o.value = m.key; material.append(o); }
         const level = node('select'); level.dataset.fieldLevelSelect = '';
+        level.setAttribute('aria-label','Room level');
         LEVELS.forEach((name, i) => { const o = node('option', name); o.value = String(i); level.append(o); });
         if (keepMaterial && [...material.options].some(o => o.value === keepMaterial)) material.value = keepMaterial;
         if (keepLevel) level.value = keepLevel;
         level.onchange = material.onchange = () => { signature = ''; render(); };
         const pourBtn = node('button', 'Spill one'); pourBtn.type = 'button'; pourBtn.dataset.fieldPour = '';
         pourBtn.disabled = !v.materials.length; pourBtn.onclick = () => run({kind: 'pour', key: material.value, level: Number(level.value)});
-        controls.append(material, level, pourBtn,
+        pourBtn.title=v.materials.length?'':'Carry a mixture vial or ingredient pack to spill.';
+        const pickers=node('div');pickers.className='ui-field-grid';pickers.append(labelControl(material,'Stock to spill'),labelControl(level,'Room level'));
+        const actions=node('div');actions.className='ui-quoted-actions';
+        actions.append(pourBtn,
             button('Light it with your lamp', () => ({kind: 'light'}), 'fieldLight'),
             button('Douse that level with spring water', () => ({kind: 'douse', level: Number(level.value)}), 'fieldDouse'),
             button('Bar the hatch above that level', () => ({kind: 'seal', level: Number(level.value)}), 'fieldSeal'),
             button('Lift the bar', () => ({kind: 'unseal', level: Number(level.value)}), 'fieldUnseal'),
             button('Sweep up', () => ({kind: 'sweep'}), 'fieldSweep'));
+        controls.append(pickers,actions);
+        if(focusMaterial)material.focus({preventScroll:true});else if(focusLevel)level.focus({preventScroll:true});
     }
     definePanel({id: 'fields', title: 'Spilled stock and smoke', role: 'actions', node: panel, home: document.getElementById('main_content'),
         discovered, eligible: () => true, unavailableReason: () => 'Carry a mixture or ingredient to spill it here'});

@@ -1,27 +1,39 @@
 import {INVENTORY_KINDS,inventoryRowKind,matchesInventoryFilter} from './inventory_filters.js';
 // Shared display grammar only. Reasons come from the action's existing owner.
 let reasonSequence=0;
+const actionNotes=new WeakMap();
 export function decorateActionComponents(root) {
     let queued=false;
-    const notes=new WeakMap();
+    const notes=actionNotes;
     function refresh() {
         queued=false; observer.disconnect();
+        const liveNotes=new Set();
         for(const button of root.querySelectorAll('button')) {
             const reason=button.disabled ? button.dataset.disabledReason || button.title : '';
             let note=notes.get(button);
             if(!note) {
-                const existing=document.getElementById(button.getAttribute('aria-describedby'));
+                const existing=(button.getAttribute('aria-describedby')||'').split(/\s+/).map(id=>document.getElementById(id)).find(n=>n?.classList.contains('ui-disabled-reason'));
                 if(existing?.classList.contains('ui-disabled-reason')) {note=existing;notes.set(button,note);}
             }
             if(reason&&!note) {
                 note=document.createElement('small');note.className='ui-disabled-reason';
                 note.id=`ui-disabled-${++reasonSequence}`;button.after(note);notes.set(button,note);
-                button.setAttribute('aria-describedby',note.id);
             }
             // A borrowed panel may have two decorators. Idempotent writes let
             // their observers settle rather than triggering each other forever.
-            if(note) {if(note.hidden!==!reason)note.hidden=!reason;if(note.textContent!==reason)note.textContent=reason;}
+            if(note) {
+                liveNotes.add(note);
+                if(button.nextSibling!==note)button.after(note);
+                if(note.hidden!==!reason)note.hidden=!reason;if(note.textContent!==reason)note.textContent=reason;
+                const ids=(button.getAttribute('aria-describedby')||'').split(/\s+/).filter(id=>id&&id!==note.id);
+                if(reason)ids.push(note.id);
+                const described=ids.join(' ');
+                if(described!==button.getAttribute('aria-describedby')){
+                    if(described)button.setAttribute('aria-describedby',described);else button.removeAttribute('aria-describedby');
+                }
+            }
         }
+        for(const note of root.querySelectorAll('.ui-disabled-reason'))if(!liveNotes.has(note))note.remove();
         observer.observe(root,{subtree:true,childList:true,attributes:true,attributeFilter:['disabled','title','data-disabled-reason']});
     }
     const observer=new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(refresh);}});
