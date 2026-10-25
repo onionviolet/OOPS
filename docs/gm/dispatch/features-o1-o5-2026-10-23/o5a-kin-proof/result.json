@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "log": [
+    "action: ward created, 5 coins spent (40 -> 35)",
+    "living tree: [\"You (this life) | generation 1\",\"Wren | child of You, 9\"]",
+    "reload keeps ward",
+    "export + file import keep ward",
+    "estate preview: Kin left behind: Wren (child). They are recorded on the heir's family tree; nothing else passes with them.",
+    "heir tree: [\"Ada | generation 1 · died at 80\",\"Wren | child of Ada, 9\",\"You (this life) | generation 2 · took the estate as next of kin\"]",
+    "heir tree survives reload"
+  ]
+}

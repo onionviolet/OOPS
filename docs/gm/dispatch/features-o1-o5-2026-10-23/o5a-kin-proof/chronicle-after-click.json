@@ -1,0 +1,120 @@
+{
+ "schema": 1,
+ "enrolledAt": 1,
+ "lastClock": 2,
+ "calendarAtEnrollment": {
+  "year": 999,
+  "month": 4,
+  "day": 1,
+  "hour": 8,
+  "minute": 1,
+  "day_count": 1
+ },
+ "life": {
+  "initialAge": 18,
+  "lifespan": 80,
+  "mode": "mortal",
+  "endedAt": null
+ },
+ "knowledge": {},
+ "relationships": {
+  "villageElder": {
+   "axes": {
+    "trust": 1,
+    "respect": 0
+   },
+   "ties": {
+    "role": "acquaintance",
+    "archiveDuty": true,
+    "dutyKept": true
+   },
+   "memories": [
+    {
+     "id": "chronicle.enrollment",
+     "at": 1,
+     "text": "Met as a traveler, with no inherited favors assumed."
+    },
+    {
+     "id": "pledge:1",
+     "at": 1,
+     "text": "Promised to organize archive records before the succession meeting."
+    },
+    {
+     "id": "proof.duty",
+     "at": 1,
+     "text": "Kept the promise to organize the archive records."
+    }
+   ]
+  },
+  "ward": {
+   "axes": {
+    "trust": 1
+   },
+   "ties": {
+    "kinRelation": "child",
+    "kinName": "Wren",
+    "kinAge": 9
+   },
+   "memories": [
+    {
+     "id": "take_in:2",
+     "at": 2,
+     "text": "Took in Wren, a nine-year-old orphan of the Village, as your ward."
+    }
+   ]
+  }
+ },
+ "elder": {
+  "nativeRegistryId": "villageElder",
+  "revealed": false,
+  "encounters": 0,
+  "profile": {
+   "strength": 18,
+   "agility": 24,
+   "control": 30,
+   "posture": 80
+  }
+ },
+ "session": null,
+ "events": {
+  "cartographer": {
+   "id": "cartographer",
+   "label": "Visiting cartographer's briefing",
+   "place": "Village",
+   "opensAt": 11,
+   "closesAt": 41,
+   "status": "scheduled",
+   "heard": false,
+   "missedText": "You hear that a cartographer gave a route-reading briefing in Village earlier. The visiting group has already departed."
+  },
+  "inheritance": {
+   "id": "inheritance",
+   "label": "The elder's archive succession",
+   "place": "Village",
+   "opensAt": 61,
+   "closesAt": 181,
+   "status": "scheduled",
+   "heard": false,
+   "missedText": "You hear that the elder entrusted his old watchpost archive to another traveler in Village. The succession meeting has ended."
+  }
+ },
+ "log": [
+  {
+   "at": 1,
+   "text": "A new chronicle begins. Local invitations have game-time deadlines; rumors can reach you later."
+  },
+  {
+   "at": 1,
+   "text": "Archive duty accepted. Complete the five-minute task through the normal action controls; succession closes at its announced deadline."
+  },
+  {
+   "at": 1,
+   "text": "Your work earns a concrete succession claim. The elder values this kept promise independently of combat prowess."
+  },
+  {
+   "at": 2,
+   "text": "The elder brings a quiet nine-year-old named Wren to your door. I find a second bowl; the household has grown by one.",
+   "life": true
+  }
+ ]
+}

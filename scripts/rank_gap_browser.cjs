@@ -4,13 +4,12 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const {launchChrome,advanceGameMinutes,withTestHooks}=require('./ui_helpers.cjs');
 const {startFresh}=require('../docs/gm/dispatch/vivid-proto23-flow-2026-10-13/checks/routes.cjs');
 const url=withTestHooks(process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18772/index.html'),out=process.env.YAIRPG_PROOF_DIR||'/tmp/yairpg-rank-gap-proof';fs.mkdirSync(out,{recursive:true});
-(async()=>{
- const browser=await launchChrome(),errors=[],log=[];let page;
- const line=(n,v)=>{log.push(`${n}: ${v}`);console.log(`${n}: ${v}`);};
- try{
+
+// Shared route: fresh origin to Goa with localPermit and the duty copy, normal clicks only. Returns the page helpers.
+async function reachGoa({browser,errors,line}){
   const context=await browser.newContext({viewport:{width:1920,height:1080}});
   await context.route('**/private_packs/manifest.json',r=>r.fulfill({json:{schema:1,packs:[]}}));
-  if(process.env.RG_TRACE)await context.addInitScript(()=>{const E=Error;window.Error=function(m){if(m&&!/Failed to load/.test(m))console.error('ERRCTOR '+m);return new E(m);};window.Error.prototype=E.prototype;});page=await context.newPage();page.setDefaultTimeout(16000);page.on('pageerror',e=>errors.push(e.stack));const cons=[];page.on('console',m=>{if(m.type()==='error'||m.type()==='warning'){cons.push(m.text());if(process.env.RG_TRACE&&/ERRCTOR/.test(m.text()))console.log(m.text().slice(0,300));}});
+  const page=await context.newPage();page.setDefaultTimeout(16000);page.on('pageerror',e=>errors.push(e.stack));
   await page.goto(url);await page.waitForFunction(()=>window.simulationTestHooks);await startFresh(page);
   const snap=()=>page.evaluate(()=>window.simulationTestHooks.snapshot());
   const a=page.locator('#location_actions_div');
@@ -18,7 +17,7 @@ const url=withTestHooks(process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18772/in
   for(const key of ['hello','what happened','ask to leave 1','need to']){const l=a.locator(`.dialogue_textline[data-textline="${key}"]`);await l.waitFor({state:'visible'});await l.evaluate(n=>n.click());await l.waitFor({state:'detached'});}
   await page.evaluate(()=>end_dialogue());await advanceGameMinutes(page,3);
   line('elder','four textlines done (village.elderMet is native, main.js metVillageElder)');
-  const openHere=async()=>{await page.getByRole('combobox',{name:'Other known panels'}).selectOption({label:'Notes, practice & people •'});await page.locator('[data-notebook-view="here"]').click();await page.locator('#feature_expansion_panel').evaluate(n=>{n.open=true;});};
+  const openHere=async()=>{await page.getByRole('combobox',{name:'Other known panels'}).selectOption({label:await page.evaluate(()=>[...document.querySelector('select[aria-label="Other known panels"]').options].map(o=>o.textContent).find(t=>/^Notes, practice & people/.test(t)))});await page.locator('[data-notebook-view="here"]').click();await page.locator('#feature_expansion_panel').evaluate(n=>{n.open=true;});};
   await openHere();
   const recover=async()=>{try{await page.waitForLoadState('load',{timeout:8000});}catch{}
    if(await page.locator('#loading_screen_play_button').isVisible()){await page.waitForFunction(()=>window.simulationTestHooks);await page.locator('#loading_screen_play_button').click();await page.waitForFunction(()=>window.simulationTestHooks.saveStatus().ownsSave);await page.waitForTimeout(800);await openHere();line('reload','page reloaded after command; panel reopened');}};
@@ -26,7 +25,7 @@ const url=withTestHooks(process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18772/in
    const b=page.locator('#feature_expansion_panel button',{hasText:re}).first();if(!await b.count())return 'absent';
    if(await b.isDisabled()||await b.getAttribute('aria-disabled')==='true')return 'disabled: '+(await b.evaluate(n=>{const d=n.getAttribute('aria-describedby');return (d&&document.getElementById(d)?.innerText)||n.parentElement?.innerText||'';})).slice(0,300).replace(/\n/g,' ');
    await b.scrollIntoViewIfNeeded();await b.click({timeout:15000,noWaitAfter:true});await page.waitForTimeout(1200);await recover();return 'ok';};
-  const step=async(name,re,tries=400)=>{let r;for(let i=0;i<tries;i++){r=await clickLabel(re);if(r==='ok'){await advanceGameMinutes(page,1);for(let k=0;k<30&&(await snap()).expansion.simulation?.jobs?.some(j=>j.actorId==='player');k++)await advanceGameMinutes(page,5);line(name,'ok; player at '+(await snap()).expansion.simulation?.people?.player?.location);return;}await advanceGameMinutes(page,5);}throw Error(`${name}: ${r}; errors: ${errors.join('|').slice(0,400)}; consoleErr: ${cons.join('|').slice(0,400)}; status: ${await page.evaluate(()=>{document.querySelectorAll('#feature_expansion_panel details').forEach(d=>d.open=true);return [...document.querySelectorAll('#feature_expansion_panel details')].find(d=>/Paradise/.test(d.innerText))?.innerText.slice(0,900)+' || STATUS:'+[...document.querySelectorAll('#feature_expansion_panel [role=status],#feature_expansion_panel p')].map(x=>x.textContent).filter(t=>/hang|again|Review|cannot|Finish/i.test(t)).join('/')})}; chartKnown: ${await page.evaluate(()=>{const e=window.simulationTestHooks.snapshot().expansion;return JSON.stringify({save:window.simulationTestHooks.saveStatus(),completed:Object.keys(e.actors.player.completed||{}).filter(k=>/paradise/.test(k)),know:Object.keys(e.simulation?.knowledge?.player||{}).filter(k=>/paradise/.test(k)),campaign:!!e.bookWorldCampaign,facts:Object.keys(e.actors.player.facts).filter(k=>/paradise/.test(k)),kids:[...document.getElementById('feature_expansion_panel').children].map(c=>c.tagName+(c.hidden?'(H)':'')+':'+c.textContent.slice(0,100)),live:[...document.querySelectorAll('[role=status],[role=alert],.notice,[class*=legib] p,[class*=legib] div')].map(x=>x.textContent.trim().slice(0,150)).filter(Boolean)})})}; buttons: ${JSON.stringify(await page.evaluate(()=>[...document.querySelectorAll('#feature_expansion_panel button')].map(b=>b.textContent.trim().slice(0,70)+(b.disabled?' [dis]':''))))}`);};
+  const step=async(name,re,tries=400)=>{let r;for(let i=0;i<tries;i++){r=await clickLabel(re);if(r==='ok'){await advanceGameMinutes(page,1);for(let k=0;k<30&&(await snap()).expansion.simulation?.jobs?.some(j=>j.actorId==='player');k++)await advanceGameMinutes(page,5);line(name,'ok; player at '+(await snap()).expansion.simulation?.people?.player?.location);return;}await advanceGameMinutes(page,5);}throw Error(`${name}: ${r}; errors: ${errors.join('|').slice(0,400)}; status: ${await page.evaluate(()=>{document.querySelectorAll('#feature_expansion_panel details').forEach(d=>d.open=true);return [...document.querySelectorAll('#feature_expansion_panel details')].find(d=>/Paradise/.test(d.innerText))?.innerText.slice(0,900)+' || STATUS:'+[...document.querySelectorAll('#feature_expansion_panel [role=status],#feature_expansion_panel p')].map(x=>x.textContent).filter(t=>/hang|again|Review|cannot|Finish/i.test(t)).join('/')})}; chartKnown: ${await page.evaluate(()=>{const e=window.simulationTestHooks.snapshot().expansion;return JSON.stringify({save:window.simulationTestHooks.saveStatus(),completed:Object.keys(e.actors.player.completed||{}).filter(k=>/paradise/.test(k)),know:Object.keys(e.simulation?.knowledge?.player||{}).filter(k=>/paradise/.test(k)),campaign:!!e.bookWorldCampaign,facts:Object.keys(e.actors.player.facts).filter(k=>/paradise/.test(k)),kids:[...document.getElementById('feature_expansion_panel').children].map(c=>c.tagName+(c.hidden?'(H)':'')+':'+c.textContent.slice(0,100)),live:[...document.querySelectorAll('[role=status],[role=alert],.notice,[class*=legib] p,[class*=legib] div')].map(x=>x.textContent.trim().slice(0,150)).filter(Boolean)})})}; buttons: ${JSON.stringify(await page.evaluate(()=>[...document.querySelectorAll('#feature_expansion_panel button')].map(b=>b.textContent.trim().slice(0,70)+(b.disabled?' [dis]':''))))}`);};
   await step('living-world enrolment (any existing optional record)',/Begin an optional record of local care/);line('simulation exists',String(!!(await snap()).expansion.simulation));
   await step('chart',/Read the parallel-entry/);await step('enroll',/Choose independent Paradise entry/);await step('enter hub',/Enter the independent contractor district/);
   await step('hub meet',/Meet the independent service desk/);await step('hub shift',/Accept the funded packing shift/);await step('hub ration',/Buy 1 .*Goa ration parcel|Buy 1 .*ration/i);
@@ -38,25 +37,39 @@ const url=withTestHooks(process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18772/in
   s=await snap();const f=s.expansion.actors.player.facts;line('facts',JSON.stringify({localPermit:f['book.paradise.localPermit'],palaceAccess:f['book.paradise.palaceAccess']}));
   assert.ok(f['book.paradise.localPermit']);
   const copyKey=Object.keys(s.inventories.person.main_character).find(k=>/Goa duty copy/.test(k));line('duty copy key',copyKey);assert.ok(copyKey);
-  // panel
-  const opts=await page.evaluate(()=>[...document.querySelector('select[aria-label="Other known panels"]').options].map(o=>o.textContent+(o.disabled?'(d)':'')));line('panel options',opts.join(' | ').slice(0,900));
-  await page.getByRole('combobox',{name:'Other known panels'}).selectOption({label:opts.find(o=>/^Watch a working/.test(o)).replace('(d)','')});
+  return {context,page,snap,openHere,step,clickLabel,recover,s};
+}
+
+// Controlled measurement (task: stamina/time conservation). Engine paused; only explicit advanceTicks run.
+async function main(){
+ const browser=await launchChrome(),errors=[],log=[];let page;
+ const line=(n,v)=>{log.push(`${n}: ${v}`);console.log(`${n}: ${v}`);};
+ try{
+  const r=await reachGoa({browser,errors,line});page=r.page;const snap=r.snap;
+  await page.evaluate(()=>window.simulationTestHooks.pause());
+  const read=async()=>{const s=await snap(),t=s['current time'];return {clock:s.expansion.clock,time:t.day_count*1440+t.hour*60+t.minute,slice:s.rankGapObserver?.clock??null,toFull:s.character.stamina_to_full,seq:s.expansion.sequence,loc:s.expansion.simulation?.people?.player?.location};};
+  const tick=async n=>{for(let i=0;i<n;i++)await page.evaluate(()=>advanceTicks(1));};
+  const rows=[],rec=async(label)=>{const x=await read();rows.push({label,...x});line('M '+label,JSON.stringify(x));return x;};
+  // Control: idle ticks, no watch.
+  await rec('control t0');for(let i=1;i<=3;i++){await tick(1);await rec(`control +${i} tick`);}
+  // Open the panel, then watch (cost 1, witness).
+  await page.getByRole('combobox',{name:'Other known panels'}).selectOption({label:(await page.evaluate(()=>[...document.querySelector('select[aria-label="Other known panels"]').options].map(o=>o.textContent).find(t=>/^Watch a working/.test(t))))});
   const panel=page.locator('#rank_gap_observer_panel');await panel.waitFor({state:'visible'});
-  await page.screenshot({path:path.join(out,'01-watch-panel.png')});
-  const said=()=>panel.locator('#rank_gap_said').textContent();
   const btn=id=>panel.locator(`button[data-subject="book.paradise.${id}"]`);
-  const world=async()=>{const t=(await snap())['current time'];return t.day_count*1440+t.hour*60+t.minute;};
-  const stam=async()=>(await snap()).character.stamina_to_full; // missing stamina; native owner is character.getFullStats()
-  const st0=await stam(),t0=await world();
-  await btn('mia').click();line('witness Mia',await said());assert.match(await said(),/Civilian/);
-  const st1=await stam(),t1=await world();line('stamina/time after one watch',`stamina_to_full ${st0} -> ${st1}; world minute ${t0} -> ${t1}; slice ${JSON.stringify((await snap()).rankGapObserver?.clock)}`);
-  await advanceGameMinutes(page,1);const st2=await stam();line('stamina after +1 tick',`${st2}`);
-  await panel.locator('select').selectOption('duty_copy');await btn('hank').click();line('witness Hank',await said());
-  await panel.locator('select').selectOption('local_permit');await btn('philip_herbert').click();line('glimpse Philip',await said());
-  await panel.locator('select').selectOption('sight');await btn('su_xiao').click();line('blind Su Xiao',await said());
-  await page.screenshot({path:path.join(out,'02-after-watches.png')});
-  s=await snap();fs.writeFileSync(path.join(out,'slice.json'),JSON.stringify(s.rankGapObserver,null,1));
+  await tick(1);await panel.locator('button[data-subject]').first().waitFor();await rec('panel render tick');const b0=await rec('watch#1 before');await btn('mia').click();const b1=await rec('watch#1 immediately after');
+  await tick(1);await rec('watch#1 +1 tick');await tick(1);await rec('watch#1 +2 ticks');
+  // Two watches back to back, no ticks between: 1 (witness) + 2 (glimpse) + 2 (glimpse).
+  await panel.locator('select').selectOption('local_permit');
+  const c0=await rec('watch#2-3 before');await btn('philip_herbert').click();const c1=await rec('watch#2 immediately after');await btn('philip_herbert').click();const c2=await rec('watch#3 immediately after');
+  for(let i=1;i<=4;i++){await tick(1);await rec(`after watches +${i} tick`);}
+  const d=(x,y,k)=>y[k]-x[k];
+  line('CONSERVATION watch#1',`world clock +${d(b0,b1,'clock')} (expect 2); time +${d(b0,b1,'time')}; slice +${d(b0,b1,'slice')||b1.slice-0} (expect 2); toFull +${d(b0,b1,'toFull')} (expect quoted 1); seq +${d(b0,b1,'seq')}`);
+  line('CONSERVATION watch#2',`world clock +${d(c0,c1,'clock')}; slice +${d(c0,c1,'slice')}; toFull +${d(c0,c1,'toFull')} (expect 2)`);
+  line('CONSERVATION watch#3',`world clock +${d(c1,c2,'clock')}; slice +${d(c1,c2,'slice')}; toFull +${d(c1,c2,'toFull')} (expect 2)`);
+  fs.writeFileSync(path.join(out,'measure.json'),JSON.stringify(rows,null,1));
   assert.equal(errors.length,0,errors.join('\n'));line('page errors','none');
  }catch(e){console.error('FAIL',e.message);try{await page.screenshot({path:path.join(out,'fail.png')});}catch{}process.exitCode=1;line('FAIL',e.message);}
  finally{fs.writeFileSync(path.join(out,'journey.log'),log.join('\n'));await browser.close();}
-})();
+}
+module.exports={reachGoa,url,out,launchChrome};
+if(require.main===module)main();

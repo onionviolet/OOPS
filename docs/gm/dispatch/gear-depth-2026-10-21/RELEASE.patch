@@ -1,0 +1,845 @@
+diff --git a/docs/GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md b/docs/GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md
+index 3a8053cfd..e3dea4695 100644
+--- a/docs/GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md
++++ b/docs/GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md
+@@ -341,3 +341,7 @@ world's rules defining what makes gear good. Applied codes: GDP38, ESD1, ESD3, E
+   proposed response is ESD16 in the equipment dimensions owner: separate workmanship, rarity and
+   concrete effects, while letting each world define its own standard. This is not an accepted UI
+   decision.
++
++## Native connected slice, 2026-10-21
++
++Implementation evidence: [gear-depth checkpoint](gm/dispatch/gear-depth-2026-10-21/CHECKPOINT.md). ACT NOW: native gear processes, typed settings, paid reforge, capable maker service, shared item effects, and processed-material cohort lineage are source-implemented and exercised on rebuilt desktop fixtures with persistence. ACCOUNT FOR NOW: native key/count/clock/transaction owners remain authoritative; hidden true age is not a player appraisal, and legacy inputs gain no invented origin. LATER: GX8 connected chemistry/energy/power readers, CRL44 conditional salvage, and CRL24/25 spatial consequence require their own playable consumers and checks. These remaining proposals do not block the verified native gear/material slice or become accepted world laws. Combined-master full gates and merge belong to the integration coordinator.
+diff --git a/src/absorb_e2/durability.js b/src/absorb_e2/durability.js
+index 126f255ea..f677b1c7d 100644
+--- a/src/absorb_e2/durability.js
++++ b/src/absorb_e2/durability.js
+@@ -36,8 +36,25 @@ export function createDurability(initial) {
+                 state.nextId = Math.max(state.nextId, Number(identity(key).slice(3)) + 1);
+             }
+             if (Number.isSafeInteger(value?.nextId) && value.nextId > 0) state.nextId = Math.max(state.nextId, value.nextId);
++            if(value?.uses != null) {
++                if(!record(value.uses)) throw Error('Invalid equipment uses.');
++                state.uses = {};
++                for(const [key, uses] of Object.entries(value.uses)) {
++                    if(!identity(key) || !Number.isSafeInteger(uses) || uses < 0) throw Error('Invalid equipment uses.');
++                    state.uses[key] = uses;
++                }
++            }
+             return api;
+         },
++        uses: itemOrKey => state.uses?.[typeof itemOrKey === 'string' ? itemOrKey : itemOrKey.getInventoryKey()] ?? 0,
++        rekey(from, to) {
++            if(!identity(from) || identity(from) !== identity(to)) throw Error('Equipment rewrite must preserve its instance.');
++            if(from === to) return;
++            if(own(state.condition, to)) throw Error('Equipment rewrite collides with another condition record.');
++            state.condition[to] = api.condition(from); delete state.condition[from];
++            if(state.uses && own(state.uses, from)) {state.uses[to] = state.uses[from]; delete state.uses[from];}
++        },
++        forget(key) {delete state.condition[key]; if(state.uses) delete state.uses[key];},
+         serialize: () => structuredClone(state),
+         get enabled() { return state.enabled; },
+         setEnabled(enabled) { state.enabled = enabled === true; },
+@@ -109,11 +126,13 @@ export function createDurability(initial) {
+             }
+         },
+         wearItem(item, hits = 1) {
+-            if (!state.enabled || !item?.tags?.equippable || !identity(item.getInventoryKey())) return false;
++            if (!item?.tags?.equippable || !identity(item.getInventoryKey())) return false;
+             if (!Number.isSafeInteger(hits) || hits < 0) throw new Error('Invalid equipment use count.');
+             const key = item.getInventoryKey();
++            if (!state.enabled) {if(item.gearwork && hits > 0) (state.uses ||= {})[key] = (state.uses[key] || 0) + hits; return false;}
+             const before = api.condition(key);
+             state.condition[key] = Math.max(0, Math.round((before - hits * DURABILITY_PROPOSAL.wearPerHit * (item.getWearScale?.() ?? 1)) * 10000) / 10000);
++            if(state.condition[key] < before) (state.uses ||= {})[key] = (state.uses[key] || 0) + hits;
+             return state.condition[key] !== before;
+         },
+         // IP2: one call per completed work cycle with the cycle's tool verb.
+@@ -123,6 +142,7 @@ export function createDurability(initial) {
+             if (!Number.isSafeInteger(uses) || uses < 0) throw new Error('Invalid tool use count.');
+             const key = item.getInventoryKey(), before = api.condition(key);
+             state.condition[key] = Math.max(0, Math.round((before - uses * per) * 10000) / 10000);
++            if(state.condition[key] < before) (state.uses ||= {})[key] = (state.uses[key] || 0) + uses;
+             return state.condition[key] !== before;
+         },
+         broken(item) { return state.enabled && !!item && identity(item.getInventoryKey()) !== null && api.condition(item) <= 0; },
+@@ -134,8 +154,8 @@ export function createDurability(initial) {
+         // Root calls only on an actual landed hit. No additional combat loop.
+         landedHit(fighter, target) {
+             let changed = false;
+-            if (fighter?.tags?.main_character) changed = api.wearItem(fighter.getEquipment().weapon) || changed;
+-            if (target?.tags?.main_character) for (const slot of ['off-hand', 'head', 'torso', 'arms', 'legs', 'feet', 'cape']) {
++            if (fighter?.getEquipment) changed = api.wearItem(fighter.getEquipment().weapon) || changed;
++            if (target?.getEquipment) for (const slot of ['off-hand', 'head', 'torso', 'arms', 'legs', 'feet', 'cape']) {
+                 const item = target.getEquipment()[slot];
+                 if (item && (typeof item.getDefense === 'function' || typeof item.getShieldStrength === 'function')) changed = api.wearItem(item) || changed;
+             }
+diff --git a/src/crafting_component_filling.js b/src/crafting_component_filling.js
+index e7f13a7c0..8870418ec 100644
+--- a/src/crafting_component_filling.js
++++ b/src/crafting_component_filling.js
+@@ -87,6 +87,7 @@ const ALL_EXTERIORS = [component_types.HELMET_EXTERIOR, component_types.CHESTPLA
+  */
+ const material_properties = {
+     "rough wood": {
++        family: "wood",
+         tier: 1,
+         weight: 60,
+         strength: 60,
+@@ -97,6 +98,7 @@ const material_properties = {
+         ],
+     },
+     "cheap iron": {
++        family: "metal",
+         tier: 1,
+         weight: 100,
+         strength: 100,
+@@ -109,6 +111,7 @@ const material_properties = {
+         value: 35,
+     },
+     "cheap leather": {
++        family: "fiber",
+         tier: 1,
+         weight: 60,
+         strength: 70,
+@@ -120,6 +123,7 @@ const material_properties = {
+         ]
+     },
+     "wood": {
++        family: "wood",
+         tier: 2,
+         weight: 60,
+         strength: 60,
+@@ -130,6 +134,7 @@ const material_properties = {
+         name: "wooden",
+     },
+     "iron": {
++        family: "metal",
+         tier: 2,
+         weight: 100,
+         strength: 100,
+@@ -141,6 +146,7 @@ const material_properties = {
+         value: 80,
+     },
+     "iron chainmail": {
++        family: "metal",
+         tier: 2,
+         weight: 100,
+         strength: 100,
+@@ -151,6 +157,7 @@ const material_properties = {
+         base_value: 120,
+     },
+     "wolf leather": {
++        family: "fiber",
+         tier: 2,
+         weight: 60,
+         strength: 60,
+@@ -159,7 +166,8 @@ const material_properties = {
+             ...ALL_EXTERIORS,
+         ],
+     },
+-    "leather": { //this is wolf leather too, but different stats for interiors
++    "leather": {
++        family: "fiber", //this is wolf leather too, but different stats for interiors
+         tier: 2,
+         weight: 60,
+         strength: 70,
+@@ -170,6 +178,7 @@ const material_properties = {
+         ],
+     },
+     "wool": {
++        family: "fiber",
+         tier: 2,
+         weight: 40,
+         strength: 50,
+@@ -180,6 +189,7 @@ const material_properties = {
+         ],
+     },
+     "ash wood": {
++        family: "wood",
+         tier: 3,
+         weight: 60,
+         strength: 60,
+@@ -189,6 +199,7 @@ const material_properties = {
+         ]
+     },
+     "weak bone": {
++        family: "bone",
+         tier: 3,
+         weight: 80,
+         strength: 80,
+@@ -197,6 +208,7 @@ const material_properties = {
+         ]
+     },
+     "steel": {
++        family: "metal",
+         tier: 3,
+         weight: 100,
+         strength: 100,
+@@ -208,6 +220,7 @@ const material_properties = {
+         value: 120,
+     },
+     "steel chainmail": {
++        family: "metal",
+         tier: 3,
+         weight: 100,
+         strength: 100,
+@@ -218,6 +231,7 @@ const material_properties = {
+         value: 240,
+     },
+     "steel plate": {
++        family: "metal",
+         tier: 3,
+         weight: 160,
+         strength: 160,
+@@ -228,6 +242,7 @@ const material_properties = {
+         value: 360,
+     },
+     "boar leather": {
++        family: "fiber",
+         tier: 3,
+         weight: 60,
+         strength: 60,
+@@ -237,6 +252,7 @@ const material_properties = {
+         ]
+     },
+     "goat leather": {
++        family: "fiber",
+         tier: 3,
+         weight: 60,
+         strength: 100,
+@@ -247,6 +263,7 @@ const material_properties = {
+         ]
+     },
+     "hickory": {
++        family: "wood",
+         tier: 4,
+         weight: 60,
+         strength: 60,
+@@ -256,6 +273,7 @@ const material_properties = {
+         ]
+     },
+     "turtleshell": {
++        family: "bone",
+         tier: 4,
+         weight: 80,
+         strength: 80,
+@@ -269,6 +287,7 @@ const material_properties = {
+         }
+     },
+     "turtleshell plate": {
++        family: "bone",
+         tier: 4,
+         weight: 80,
+         strength: 80,
+@@ -279,6 +298,7 @@ const material_properties = {
+         name: "turtleshell"
+     },
+     "frumious": {
++        family: "unclassified",
+         tier: 4,
+         weight: 80,
+         strength: 80,
+@@ -287,6 +307,7 @@ const material_properties = {
+         ]
+     },
+     "white iron": {
++        family: "metal",
+         tier: 4,
+         weight: 130,
+         strength: 100,
+@@ -298,6 +319,7 @@ const material_properties = {
+         value: 160,
+     },
+     "white iron chainmail": {
++        family: "metal",
+         tier: 4,
+         weight: 130,
+         strength: 100,
+@@ -308,6 +330,7 @@ const material_properties = {
+         value: 320,
+     },
+     "white iron plate": {
++        family: "metal",
+         tier: 4,
+         weight: 200,
+         strength: 200,
+@@ -318,6 +341,7 @@ const material_properties = {
+         value: 480,
+     },
+     "black iron": {
++        family: "metal",
+         tier: 4,
+         weight: 80,
+         strength: 110,
+@@ -329,6 +353,7 @@ const material_properties = {
+         value: 160,
+     },
+     "black iron chainmail": {
++        family: "metal",
+         tier: 4,
+         weight: 80,
+         strength: 110,
+@@ -339,6 +364,7 @@ const material_properties = {
+         value: 320,
+     },
+     "black iron plate": {
++        family: "metal",
+         tier: 4,
+         weight: 140,
+         strength: 180,
+@@ -349,6 +375,7 @@ const material_properties = {
+         value: 480,
+     },
+     "bear leather": {
++        family: "fiber",
+         tier: 4,
+         weight: 60,
+         strength: 60,
+@@ -358,6 +385,7 @@ const material_properties = {
+         ]
+     },
+     "turtle shellplate": {
++        family: "bone",
+         tier: 4,
+         weight: 100,
+         strength: 140,
+@@ -367,6 +395,7 @@ const material_properties = {
+         ]
+     },
+     "linen": {
++        family: "fiber",
+         tier: 4,
+         weight: 50,
+         strength: 50,
+@@ -377,6 +406,7 @@ const material_properties = {
+         ],
+     },
+     "silk": {
++        family: "fiber",
+         tier: 5,
+         weight: 40,
+         strength: 40,
+@@ -387,6 +417,7 @@ const material_properties = {
+         ],
+     },
+     "alchemical wood": {
++        family: "wood",
+         tier: 5,
+         weight: 60,
+         strength: 60,
+@@ -396,6 +427,7 @@ const material_properties = {
+         ]
+     },
+     "white steel": {
++        family: "metal",
+         tier: 5,
+         weight: 130,
+         strength: 100,
+@@ -409,6 +441,7 @@ const material_properties = {
+         value: 200,
+     },
+     "white chainmail": {
++        family: "metal",
+         tier: 5,
+         weight: 100,
+         strength: 120,
+@@ -419,6 +452,7 @@ const material_properties = {
+         value: 400,
+     },
+     "white plate": {
++        family: "metal",
+         tier: 5,
+         weight: 200,
+         strength: 240,
+@@ -429,6 +463,7 @@ const material_properties = {
+         value: 600,
+     },
+     "black steel": {
++        family: "metal",
+         tier: 5,
+         weight: 80,
+         strength: 110,
+@@ -442,6 +477,7 @@ const material_properties = {
+         value: 200,
+     },
+     "black chainmail": {
++        family: "metal",
+         tier: 5,
+         weight: 80,
+         strength: 110,
+@@ -452,6 +488,7 @@ const material_properties = {
+         value: 400,
+     },
+     "black plate": {
++        family: "metal",
+         tier: 5,
+         weight: 140,
+         strength: 180,
+@@ -462,6 +499,7 @@ const material_properties = {
+         value: 600
+     },
+     "alligator": {
++        family: "fiber",
+         tier: 5,
+         weight: 60,
+         strength: 60,
+@@ -471,6 +509,7 @@ const material_properties = {
+         ]
+     },
+     "snakeskin": {
++        family: "fiber",
+         tier: 5,
+         weight: 60, //a bit heavier than usual but with separate atk spd bonus
+         strength: 100,
+@@ -486,6 +525,7 @@ const material_properties = {
+         }
+     },
+     "monster bone": {
++        family: "bone",
+         tier: 5,
+         weight: 80,
+         strength: 80,
+@@ -906,6 +946,9 @@ const crafting_component_manager = {
+                     item.material_toughness = toughness.value;
+                     item.material_toughness_source = toughness.source;
+                     item.material_label = material.name || material_key;
++                    item.material_weight = material.weight ?? 100;
++                    item.material_warmth = material.warmth ?? 100;
++                    item.material_family = material.family;
+                 }
+                 if(!item_templates[item_id]) {
+                     item_templates[item_id] = item;
+diff --git a/src/data/inventory_templates.js b/src/data/inventory_templates.js
+index c2e5fa748..f6adc173c 100644
+--- a/src/data/inventory_templates.js
++++ b/src/data/inventory_templates.js
+@@ -30,6 +30,7 @@ const inventory_templates = {};
+ 
+ inventory_templates["Basic"] = 
+ [
++    new TradeItemGroup({items:[new TradeItem({item_name:"Cloudy quartz setting",count:[1],chance:1})]}),
+     // Ordinary preparation stays reliable. Rare stock must not gate the first
+     // expedition; existing saves gain these offers at their next normal refresh.
+     new TradeItemGroup({items: [
+diff --git a/src/data/npcs.js b/src/data/npcs.js
+index 4b83271c2..65b99d409 100644
+--- a/src/data/npcs.js
++++ b/src/data/npcs.js
+@@ -1,3 +1,4 @@
++import {setCraftsmanPractice} from '../gear_native_content.js';
+ "use strict";
+ 
+ import { availabilities, talkables } from "./component_references.js";
+@@ -63,6 +64,7 @@ const NPCRegistry = new NPCRegistryC();
+ NPCRegistry.add("villageElder", new NPC({name: "village elder", dialogue: dialogues["village elder"]}));
+ NPCRegistry.add("villageGuard", new NPC({name: "village guard", dialogue: dialogues["village guard"]}));
+ NPCRegistry.add("oldCraftsman", new NPC({name: "old craftsman", dialogue: dialogues["old craftsman"]}));
++setCraftsmanPractice(NPCRegistry.get("oldCraftsman"));
+ NPCRegistry.add("villageMillers", new NPC({name: "village millers", dialogue: dialogues["village millers"]}));
+ 
+ NPCRegistry.add("suspiciousMan", new NPC({name: "suspicious man", dialogue: dialogues["suspicious man"]}));
+diff --git a/src/display.js b/src/display.js
+index 8a0d8316d..e853499d0 100644
+--- a/src/display.js
++++ b/src/display.js
+@@ -1,3 +1,4 @@
++import {gearItemFactsHtml} from './gear_item_facts.js';
+ import {craftBatchGoal} from './craft_batch_goal.js';
+ import {knownRecipeVariants, relatedKnownRecipes, knownUsesHTML, installKnownRecipeLinks, renderRecipeConnections, materialPolicyText, bindSubjectGesture} from './recipe_connections.js';
+ import {mountMaterialChoice} from './material_choice_view.js';
+@@ -542,9 +543,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
+     
+     const item_view=nativeItemView(item);
+     item_tooltip = `<b>${item_view.name}</b>`;
+-    if(item_view.description) {
+-        item_tooltip += `<br>${item_view.description}`;
+-    }
++    item_tooltip += gearItemFactsHtml(item,item_view.description);
+ 
+     let show_quality = item.quality && !options.skip_quality && item.use_quality;
+     let quality = item.quality;
+@@ -2086,7 +2085,8 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
+                 target_item = character.getItems()[key].item;
+                 item_count = item_count || character.getItems()[key].count;
+             } else {
+-                target_item = NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[to_buy.items[trade_index].item_key].item;
++                const selected = to_buy.items[trade_index].item_key;
++                target_item = NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[selected]?.item ?? getItemFromKey(selected);
+                 item_count = item_count || to_buy.items[trade_index].count;
+             }
+             target_class_name = "character_item";
+@@ -2095,7 +2095,8 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
+                 target_item = NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[key].item;
+                 item_count = item_count || NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[key].count;
+             } else {
+-                target_item = character.getItems()[to_sell.items[trade_index].item_key].item;
++                const selected = to_sell.items[trade_index].item_key;
++                target_item = character.getItems()[selected]?.item ?? getItemFromKey(selected);
+                 item_count = item_count || to_sell.items[trade_index].count;
+             }
+             target_class_name = "trader_item";
+diff --git a/src/harvest.js b/src/harvest.js
+index 7f1c58677..2326ab2be 100644
+--- a/src/harvest.js
++++ b/src/harvest.js
+@@ -1,3 +1,5 @@
++import {harvestedMaterialOutput} from './processed_materials.js';
++import {readMaterialLineage} from './material_lineage.js';
+ // Wolf-rat slice. Pure plans have no random calls or native mutations.
+ import {natural} from './basics.js';
+ export const HARVEST_CAP = 24;
+@@ -30,6 +32,7 @@ export function harvestGrade(specimen,{clock,skill=0,tool=0},part){
+ export function gradedKey(id,quality,completeness){return JSON.stringify({id,quality,...(completeness?{completeness}:{})});}
+ export function validateGradedKey(key){
+     const v=JSON.parse(key);
++    if(v.lineage){readMaterialLineage(key);const plain={...v};delete plain.lineage;validateGradedKey(JSON.stringify(plain));return v;}
+     if(v.completeness==null)return v; // Legacy quality-only keys retain their original reader contract.
+     if(v.completeness!=null){
+         if(!GRADED_IDS.includes(v.id)||!Number.isInteger(v.quality)||v.quality<10||v.quality>150||v.quality%5||
+@@ -60,8 +63,12 @@ export function harvestWorkStages(job){
+     const parts=job.choice==='whole'?partNames(job.specimen.species):[job.choice],weight=parts.reduce((n,p)=>n+HARVEST_PARTS[p].minutes,0);
+     return parts.map(p=>({label:`${p} work`,duration:job.total*HARVEST_PARTS[p].minutes/weight}));
+ }
++export function settledHarvestPlan(specimen,choice,context){
++    const plan=planHarvest(specimen,choice,context);
++    return {...plan,outputs:plan.outputs.map(o=>harvestedMaterialOutput(specimen,o,context))};
++}
+ export function finishHarvest(state,specimen,choice,context){
+-    const plan=planHarvest(specimen,choice,context);state.processed++;state.sequence++;
++    const plan=settledHarvestPlan(specimen,choice,context);state.processed++;state.sequence++;
+     const r=state.routine;
+     if(r&&['active','paused'].includes(r.status)&&r.completed<r.target){r.completed++;for(const o of plan.outputs)r.outputs[o.item_key]=(r.outputs[o.item_key]??0)+o.count;if(r.completed===r.target){r.status='complete';state.auto=false;}}
+     state.last={specimen:structuredClone(specimen),key:specimen.key,species:specimen.species,choice,outputs:plan.outputs,damage:specimen.damage,draw:specimen.draw,skill:context.skill,tool:context.tool,clock:context.clock};
+@@ -83,6 +90,18 @@ export function beginHarvest(state,species,choice,context,automatic=false,specim
+     lot.splice(lot.indexOf(specimen),1);state.job={specimen,choice,total:plan.minutes,remaining:plan.minutes,automatic};state.sequence++;return plan;
+ }
+ export function cancelHarvest(state){if(!state.job)return;const s=state.job.specimen;state.lots[s.species].unshift(s);state.job=null;state.sequence++;}
++const freshnessBand = value => value>=.75?'fresh':value>=.25?'aging':'spent';
++const integrityBand = value => value>=75?'intact':value>=40?'damaged':'heavily damaged';
++export function observeCarcass(state,species,specimenKey,{clock,skill=0}={}){
++    const specimen=state.lots[species]?.find(s=>s.key===specimenKey);
++    if(!specimen)throw Error('That selected carcass is no longer available. Choose again.');
++    if(!natural(clock)||clock<specimen.born||!Number.isFinite(skill)||skill<0)throw Error('A current played-time observation is required.');
++    const grade=harvestGrade(specimen,{clock,skill,tool:0},'pelt');
++    const margin=skill>=50?10:skill>=20?30:60,age=clock-specimen.born;
++    const observation={at:clock,skill,ageEstimate:{min:Math.max(0,age-margin),max:age+margin},freshness:freshnessBand(grade.freshness),integrity:integrityBand(grade.integrity)};
++    specimen.observations??=[];specimen.observations.push(observation);state.sequence++;
++    return structuredClone(observation);
++}
+ export function advanceHarvest(state,minutes,context,{ready=true}={}){
+     const results=[];
+     if(state.job&&ready){const remaining=state.job.remaining;if(remaining<=minutes){const elapsedAfterFinish=Math.max(0,minutes-remaining);const completionContext={...context,clock:Math.max(state.job.specimen.born,context.clock-elapsedAfterFinish)};results.push(finishHarvest(state,state.job.specimen,state.job.choice,completionContext));state.job=null;}else state.job.remaining-=minutes;}
+@@ -104,16 +123,18 @@ export function validateSpecimen(s,clock=Number.MAX_SAFE_INTEGER){
+     if(!object(s)||!supportedHarvest(s.species)||typeof s.key!=='string'||!s.key||s.key.length>500||!natural(s.born)||s.born>clock||
+         !Number.isFinite(s.draw)||s.draw<0||s.draw>=1)fail();
+     const expected=drawSpecimen({species:s.species,key:s.key,clock:s.born,damage:validateHarvestDamage(s.damage)},()=>s.draw);
+-    for(const k of ['size','condition','variant'])if(expected[k]!==s[k])fail();return s;
++    for(const k of ['size','condition','variant'])if(expected[k]!==s[k])fail();
++    if(s.observations!=null){if(!Array.isArray(s.observations))fail();let prior=s.born;for(const o of s.observations){if(!object(o)||!natural(o.at)||o.at<s.born||o.at>clock||o.at<prior||!Number.isFinite(o.skill)||o.skill<0||!object(o.ageEstimate)||!natural(o.ageEstimate.min)||!natural(o.ageEstimate.max)||o.ageEstimate.min>o.ageEstimate.max||!['fresh','aging','spent'].includes(o.freshness)||!['intact','damaged','heavily damaged'].includes(o.integrity))fail();const margin=o.skill>=50?10:o.skill>=20?30:60,age=o.at-s.born;if(o.ageEstimate.min!==Math.max(0,age-margin)||o.ageEstimate.max!==age+margin)fail();const grade=harvestGrade(s,{clock:o.at,skill:o.skill,tool:0},'pelt');if(o.freshness!==freshnessBand(grade.freshness)||o.integrity!==integrityBand(grade.integrity))fail();prior=o.at;}}
++    return s;
+ }
+ export function validateHarvest(s,clock=Number.MAX_SAFE_INTEGER){
+     if(s==null)return null;
+     if(!object(s)||s.schema!==1||s.revision!==1||!natural(s.sequence)||!natural(s.left)||!natural(s.processed)||typeof s.auto!=='boolean'||!object(s.lots))fail();
+-    if(s.routine!=null){const r=s.routine;if(!object(r)||Object.keys(r).some(k=>!['target','completed','outputs','started','status'].includes(k))||!Number.isSafeInteger(r.target)||r.target<1||r.target>10000||!natural(r.completed)||r.completed>r.target||r.completed>s.processed||!natural(r.started)||r.started>clock||!['active','paused','complete','cancelled'].includes(r.status)||!object(r.outputs)||Object.keys(r.outputs).length>1500||r.status==='complete'&&r.completed!==r.target||r.completed===r.target&&r.status!=='complete'||r.status==='active'&&!s.auto||['paused','complete','cancelled'].includes(r.status)&&s.auto)fail();let count=0;for(const [key,n]of Object.entries(r.outputs)){const v=validateGradedKey(key);if(!['Rat pelt','Rat tail','Rat fang'].includes(v.id)||v.completeness==null||!Number.isSafeInteger(n)||n<1)fail();count+=n;}if(count<r.completed||count>r.completed*5)fail();}
++    if(s.routine!=null){const r=s.routine;if(!object(r)||Object.keys(r).some(k=>!['target','completed','outputs','started','status'].includes(k))||!Number.isSafeInteger(r.target)||r.target<1||r.target>10000||!natural(r.completed)||r.completed>r.target||r.completed>s.processed||!natural(r.started)||r.started>clock||!['active','paused','complete','cancelled'].includes(r.status)||!object(r.outputs)||Object.keys(r.outputs).length>r.target*5||r.status==='complete'&&r.completed!==r.target||r.completed===r.target&&r.status!=='complete'||r.status==='active'&&!s.auto||['paused','complete','cancelled'].includes(r.status)&&s.auto)fail();let count=0;for(const [key,n]of Object.entries(r.outputs)){const v=validateGradedKey(key);if(!['Rat pelt','Rat tail','Rat fang'].includes(v.id)||v.completeness==null||!Number.isSafeInteger(n)||n<1)fail();count+=n;}if(count<r.completed||count>r.completed*5)fail();}
+     const keys=new Set();const visit=x=>{validateSpecimen(x,clock);if(keys.has(x.key))fail();keys.add(x.key);};
+     for(const [species,lot] of Object.entries(s.lots)){if(!supportedHarvest(species)||!Array.isArray(lot)||lot.length>HARVEST_CAP)fail();for(const x of lot){if(x.species!==species)fail();visit(x);}}
+     if(s.job!=null){const j=s.job;if(!object(j)||typeof j.automatic!=='boolean'||!Number.isFinite(j.remaining)||j.remaining<=0)fail();visit(j.specimen);const plan=planHarvest(j.specimen,j.choice,{clock,skill:0,tool:0});if(j.remaining>plan.minutes||(s.lots[j.specimen.species]?.length??0)+1>HARVEST_CAP)fail();if(j.total!=null&&(![plan.minutes,plan.minutes/2].includes(j.total)||j.remaining>j.total))fail();}
+-    if(s.last!=null){const l=s.last;validateSpecimen(l.specimen,clock);if(!natural(l.clock)||l.clock>clock||l.clock<l.specimen.born||!Number.isFinite(l.skill)||l.skill<0||!Number.isFinite(l.tool)||l.tool<0)fail();const expected=planHarvest(l.specimen,l.choice,l);if(JSON.stringify(expected.outputs)!==JSON.stringify(l.outputs)||l.key!==l.specimen.key||l.species!==l.specimen.species||l.draw!==l.specimen.draw||JSON.stringify(l.damage)!==JSON.stringify(l.specimen.damage))fail();}
++    if(s.last!=null){const l=s.last;validateSpecimen(l.specimen,clock);if(!natural(l.clock)||l.clock>clock||l.clock<l.specimen.born||!Number.isFinite(l.skill)||l.skill<0||!Number.isFinite(l.tool)||l.tool<0)fail();const expected=(l.outputs?.some(o=>JSON.parse(o.item_key).lineage)?settledHarvestPlan:planHarvest)(l.specimen,l.choice,l);if(JSON.stringify(expected.outputs)!==JSON.stringify(l.outputs)||l.key!==l.specimen.key||l.species!==l.specimen.species||l.draw!==l.specimen.draw||JSON.stringify(l.damage)!==JSON.stringify(l.specimen.damage))fail();}
+     return s;
+ }
+ export function validateHarvestEnvelope(envelope,clock=Number.MAX_SAFE_INTEGER){
+diff --git a/src/harvest_ui.js b/src/harvest_ui.js
+index d63aa5135..9024826e2 100644
+--- a/src/harvest_ui.js
++++ b/src/harvest_ui.js
+@@ -30,9 +30,11 @@ export function createHarvestPanel({container,read,act,developer=false,readInspe
+             const label=document.createElement('strong');label.textContent=`${species}: ${lot.length} carcasses`;row.append(label);
+             const selected=lot.find(item=>item.key===selectedBySpecies.get(species))??lot[0];selectedBySpecies.set(species,selected.key);
+             const pickerLabel=document.createElement('label');pickerLabel.textContent='Selected carcass: ';const picker=document.createElement('select');picker.dataset.harvestSpecimen=species;picker.setAttribute('aria-label',`Select ${species} carcass`);
+-            for(const specimen of lot){const age=Math.max(0,frame.context.clock-specimen.born),grade=planHarvest(specimen,'whole',frame.context).outputs[0];const option=document.createElement('option');option.value=specimen.key;option.textContent=`${Math.floor(age)} played min old · ${grade.freshness>=.75?'fresh':grade.freshness>=.25?'aging':'spent'} · ${grade.integrity>=75?'intact':grade.integrity>=40?'damaged':'heavily damaged'} (${grade.completeness})`;option.selected=specimen.key===selected.key;picker.append(option);}
++            for(const [i,specimen] of lot.entries()){const observation=specimen.observations?.at(-1);const option=document.createElement('option');option.value=specimen.key;option.textContent=`Carcass ${i+1} · ${observation?`estimated ${observation.ageEstimate.min}–${observation.ageEstimate.max} min old at minute ${observation.at} · ${observation.freshness}, ${observation.integrity}`:'condition not yet assessed'}`;option.selected=specimen.key===selected.key;picker.append(option);}
+             picker.disabled=!!s.job;picker.onchange=()=>{selectedBySpecies.set(species,picker.value);render(true);};pickerLabel.append(picker);row.append(pickerLabel);
+-            const selectedAge=Math.max(0,frame.context.clock-selected.born);const detail=document.createElement('p');detail.textContent=`This carcass is ${Math.floor(selectedAge)} played minutes old. Forecasts assume work starts now; age at completion can lower quality. Damage affects completeness separately.`;row.append(detail);
++            const detail=document.createElement('p');detail.textContent='Condition estimates remain dated observations. Processing resolves actual condition at completion; refreshing an estimate does not renew the material.';row.append(detail);
++            const observe=document.createElement('button');observe.dataset.harvest='observe';observe.dataset.harvestSpecimen=species;observe.textContent='Refresh condition estimate';observe.disabled=!frame.writable||!!s.job;observe.onclick=()=>run({type:'observe',species,specimenKey:selected.key});row.append(observe);
++            if(selected.observations?.length){const history=document.createElement('ol');history.dataset.harvestObservations=selected.key;for(const [index,observation] of selected.observations.entries()){const entry=document.createElement('li');entry.textContent=`${index===selected.observations.length-1?'Latest estimate':'Earlier observation'} at played minute ${observation.at}, Butchering ${observation.skill}: estimated age ${observation.ageEstimate.min} to ${observation.ageEstimate.max} min; ${observation.freshness}, ${observation.integrity}.`;history.append(entry);}row.append(history);}
+             for(const choice of ['whole',...partNames(species)]){const plan=planHarvest(selected,choice,frame.context);const line=document.createElement('div');const button=document.createElement('button');button.dataset.harvestChoice=choice;button.textContent=choice==='whole'?'Process whole':`Take only ${choice}`;button.disabled=!frame.ready||!!s.job;button.onclick=()=>run({type:'begin',species,choice,specimenKey:selected.key});const forecast=document.createElement('span');forecast.textContent=`${plan.minutes} min, ${plan.xp} Butchering XP; `+plan.outputs.map(o=>`${o.count} ${HARVEST_PARTS[o.part].id}: ${o.completeness}, quality ${o.quality}%`).join('; ');line.append(button,forecast);row.append(line);}
+             body.append(row);}
+         if(s.last){const receipt=document.createElement('p');receipt.id='harvest_receipt';receipt.textContent=`Completed ${s.last.choice} processing of ${s.last.species} (${Math.max(0,s.last.clock-s.last.specimen.born)} played minutes old): `+s.last.outputs.map(o=>`${o.count} ${HARVEST_PARTS[o.part].id}, ${o.completeness}, quality ${o.quality}%`).join('; ');body.append(receipt);}
+diff --git a/src/items.js b/src/items.js
+index 69435c079..4294ae88d 100644
+--- a/src/items.js
++++ b/src/items.js
+@@ -1,3 +1,7 @@
++import {registerGearMaterials} from './gear_native_content.js';
++import {readMaterialLineage} from './material_lineage.js';
++import {lineagePresentation} from './processed_materials.js';
++import {validateWork, workedWearProfile, workContributions, mergeWorkStats} from './gear_work.js';
+ import {resolveNativeCraftingItem,registerCraftingCarriers} from './crafting_native_items.js';
+ import {GRADED_IDS,validateGradedKey} from './harvest.js';
+ import {systemsWorkshopItems} from './systems_workshop_content.js';
+@@ -9,7 +13,7 @@ import {registerAccessoryItems} from './absorb_c1/accessories.js';
+ import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
+ import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats} from "./alloy_equipment.js";
+ import {isReductionStat, scaleReduction, wearScale} from "./gear_dimensions.js";
+-import {normalizeAffixes} from "./gear_affixes.js";
++import {normalizeAffixes,getAffix} from "./gear_affixes.js";
+ import {preserveWorldCompletionNativeItem} from './world_completion_native.js';
+ "use strict";
+ 
+@@ -259,6 +263,7 @@ class Item {
+         if(this.affixes?.length) {
+             key.affixes = this.affixes;
+         }
++        if(this.gearwork) key.gearwork = this.gearwork;
+         return JSON.stringify(key);
+     }
+ 
+@@ -372,6 +377,7 @@ class ItemComponent extends Item {
+         super(item_data);
+         this.item_type = "COMPONENT";
+         this.component_tier = item_data.component_tier || 1;
++        this.component_type = item_data.component_type;
+         this.component_stats = item_data.component_stats || {};
+         this.component_bonus_skill_levels = item_data.component_bonus_skill_levels || {};
+         this.tags["component"] = true;
+@@ -529,8 +535,12 @@ class Equippable extends Item {
+         if(!parts.length) return null;
+         const mean = pick => parts.reduce((sum, {template}) => sum + pick(template), 0) / parts.length;
+         const strength = mean(t => t.material_strength), toughness = mean(t => t.material_toughness);
+-        return {strength, toughness, scale: wearScale({strength, toughness}),
+-            parts: parts.map(({slot, template}) => ({slot, material: template.material_label, toughness: template.material_toughness, source: template.material_toughness_source}))};
++        return workedWearProfile({strength, toughness, scale: wearScale({strength, toughness}),
++            parts: parts.map(({slot, template}) => ({slot, material: template.material_label, strength: template.material_strength, family: template.material_family, toughness: template.material_toughness, source: template.material_toughness_source}))}, this.gearwork);
++    }
++
++    getWorkContributions() {
++        return workContributions(this.gearwork, {condition: durability.enabled ? durability.condition(this) : 100, tier: this.getItemTier(), weapon: !!this.tags.weapon});
+     }
+ 
+     getWearScale() {
+@@ -570,9 +580,9 @@ class Equippable extends Item {
+             if(!this.stats) {
+                 this.stats = this.calculateStats(this.quality);
+             }
+-            return this.stats;
++            return mergeWorkStats(this.stats, this.getWorkContributions());
+         } else {
+-            return this.calculateStats(quality);
++            return mergeWorkStats(this.calculateStats(quality), this.getWorkContributions());
+         }
+     }
+ 
+@@ -1239,6 +1249,7 @@ function getItem(item_data) {
+                 return new ArmorComponent(item_data);
+             else if(item_data.tags["shield component"])
+                 return new ShieldComponent(item_data);
++            else if(item_data.tags['setting component']) return new ItemComponent(item_data);
+             else throw new Error(`Item ${item_data.name} has a wrong component type`);
+         case "MATERIAL":
+             return new Material(item_data);
+@@ -1252,7 +1263,29 @@ function getItem(item_data) {
+  * @param {String} item_data
+  * @returns {Item} item of proper type, created based on item_key
+  */
+-function getItemFromKey(key) {return durability.bindFromKey(key,nativeGetItemFromKey(key));}
++function getItemFromKey(key) {
++    const item = durability.bindFromKey(key,nativeGetItemFromKey(key));
++    const lineage = readMaterialLineage(key);
++    if(lineage) {
++        if(!item || item.tags.equippable || !GRADED_IDS.includes(item.id)) throw Error('Unsupported processed material carrier.');
++        item.materialLineage = lineage; item.inventory_key = key;
++        const name = item.getName(), view = lineagePresentation(key, lineage.history.at(-1).at);
++        item.getName = () => `${name} · batch ${view.at}`;
++        const observations = view.observations.map(o => `Source estimate at game minute ${o.at}, Butchering ${o.skill}: age ${o.min} to ${o.max} minutes, ${o.freshness}, ${o.integrity}.`);
++        item.description = `${item.description || ''} Processed by ${view.process} at game minute ${view.at}. ${view.note} ${observations.join(' ')}`;
++    }
++    const work = JSON.parse(key).gearwork;
++    if(work != null) {
++        if(!item?.tags?.equippable) throw Error('Worked gear must be equipment.');
++        item.gearwork = structuredClone(validateWork(work));
++        item.inventory_key = key;
++    }
++    if(item.affixes?.length) {
++        const name=item.getName(),labels=item.affixes.map(a=>getAffix(a.id)?.name).filter(Boolean);
++        item.getName=()=>`${name} [${labels.join(', ')}]`;
++    }
++    return item;
++}
+ function nativeGetItemFromKey(key) {
+     const crafted=resolveNativeCraftingItem(key,{Material,UsableItem});if(crafted)return crafted;
+     let {id, components, quality, completeness, affixes} = JSON.parse(key);
+@@ -4616,6 +4649,7 @@ add_gear_components();
+ crafting_component_manager.fill_components();
+ add_gear();
+ registerAccessoryItems({item_templates, Amulet});
++registerGearMaterials({templates:item_templates,ItemComponent});
+ registerFortItems({item_templates, book_stats, Book, BookData, Material});
+ setup_ids();
+ // Air workshop proposal: optional templates must not enrich absent-edition saves.
+diff --git a/src/layout_spec.js b/src/layout_spec.js
+index 7f45898a4..6b9697998 100644
+--- a/src/layout_spec.js
++++ b/src/layout_spec.js
+@@ -167,6 +167,7 @@ export const LAYOUT_SPEC = Object.freeze({
+         'continuation': surface(UNSET),
+         'equipment-comparison': surface(UNSET),
+         'tools': surface(UNSET),
++        'gear-workshop': surface('ST2', {home: 'Native forging station; carried equipment', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'equipment', 'place', 'time'], representations: routed}),
+         'lotm': surface('ST2', {home: 'Tingen supervised workroom'}),
+         'customization': surface('ST7', {representations: routed}),
+         'customization-effects': surface('ST7'),
+diff --git a/src/loadouts.js b/src/loadouts.js
+index d7699ee07..13d89dbd4 100644
+--- a/src/loadouts.js
++++ b/src/loadouts.js
+@@ -41,6 +41,10 @@ export const migrateLoadouts = slice => (slice == null ? fresh() : structuredClo
+ // Pure: what equipping `set` would do, given the worn keys and the held keys.
+ // worn {slot: key|null}, held: array of keys. Returns one row per slot the set names.
+ const baseKey = key => { try { const data = JSON.parse(key); delete data.e2_instance; return JSON.stringify(data); } catch { return key; } };
++const sameWorkedInstance = (a,b) => {
++    try {const left=JSON.parse(a),right=JSON.parse(b);return !!(left.gearwork||right.gearwork)&&!!left.e2_instance&&left.e2_instance===right.e2_instance;}
++    catch {return false;}
++};
+ export function planLoadout(set, worn, held, {bareOthers = false} = {}) {
+     const rows = [];
+     const unused = [...held];
+@@ -48,8 +52,8 @@ export function planLoadout(set, worn, held, {bareOthers = false} = {}) {
+         if (worn[slot] === key) { rows.push({slot, key, action: 'keep'}); continue; }
+         let use = unused.indexOf(key);
+         // The same item under another durability instance is still that item.
+-        if (use < 0) use = unused.findIndex(k => baseKey(k) === baseKey(key));
+-        if (use < 0 && worn[slot] && baseKey(worn[slot]) === baseKey(key)) { rows.push({slot, key, action: 'keep'}); continue; }
++        if (use < 0) use = unused.findIndex(k => (baseKey(k) === baseKey(key) || sameWorkedInstance(k,key)));
++        if (use < 0 && worn[slot] && (baseKey(worn[slot]) === baseKey(key) || sameWorkedInstance(worn[slot],key))) { rows.push({slot, key, action: 'keep'}); continue; }
+         if (use < 0) { rows.push({slot, key, action: 'missing'}); continue; }
+         rows.push({slot, key: unused[use], action: 'equip', replaces: worn[slot] || null}); unused.splice(use, 1);
+     }
+diff --git a/src/main.js b/src/main.js
+index 43779c58a..b89e558f0 100644
+--- a/src/main.js
++++ b/src/main.js
+@@ -1,3 +1,4 @@
++import {allocatedRecipeInputs,recipeMaterialOutput} from './processed_materials.js';
+ import {configureCraftingDomain} from './crafting_domain.js';
+ import {configureNativeToolDomains} from './native_tool_domains.js';
+ import {domainRegistry} from './domain_registry.js';import {publishDefeat,combatDefeat,defeatBinding,harmCollapse,heroStanding} from './defeat_domain.js';import {setPurse,addPurse,addSavedPurse,commitPlanMoney,moneyLedgerBinding} from './economy_domain.js';
+@@ -5456,19 +5457,8 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
+                 game_stats.total_crafting_successes += successful_crafting_ammount;
+ 
+                 const harvestQuality = category==='butchering' && GRADED_IDS.includes(result_id) ? consumedHarvestQuality(materials,selected_recipe.materials,attempted_crafting_ammount) : null;
+-                //remove used materials
+-                for (let i = 0; i < selected_recipe.materials.length; i++) {
+-                    let to_remove = (materials[i].need ?? selected_recipe.materials[i].count) * attempted_crafting_ammount;
+-
+-                    for (let j = 0; j < materials[i].items.length && to_remove > 0; j++) {
+-                        const removed = Math.min(materials[i].items[j].count, to_remove);
+-                        const key = materials[i].items[j].item.getInventoryKey();
+-
+-                        character.removeFromInventory([{ item_key: key, item_count: removed }]);
+-
+-                        to_remove -= removed;
+-                    }
+-                }
++                const lineageInputs = allocatedRecipeInputs(materials,selected_recipe.materials,attempted_crafting_ammount);
++                for(const row of lineageInputs) character.removeFromInventory([{item_key:row.item_key,item_count:row.count}]);
+ 
+                 const final_result_count =  count * successful_crafting_ammount; 
+                 //recipe is either full success or full fail
+@@ -5480,7 +5470,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
+                 const final_count = scale_results ? fuzzy_final_result_count : final_result_count;
+ 
+                 if(final_count) {
+-                    character.addToInventory([{item_key: harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey(), count: final_count}]);
++                    character.addToInventory([{item_key: recipeMaterialOutput({resultId:result_id,count:final_count,quality:harvestQuality,allocations:lineageInputs,recipeId:selected_recipe.id,clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId}) || (harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey()), count: final_count}]);
+                     observeFortAcquisition(result_id,final_count,"craft",selected_recipe.id,selected_recipe.name);
+                     let msg = `Created ${item_templates[result_id].getName()}`;
+                     if(attempted_crafting_ammount > 1 || scale_results) {
+@@ -9661,8 +9651,8 @@ configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(
+     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
+     persist:markDurable=>{const save=create_save();if(!save)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
+     refresh:()=>{character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_character_inventory();update_displayed_effects();update_displayed_crafting_recipes();}});
+-configureNativeToolDomains({actor:()=>character,skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
+-    itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:id=>assertNativeItemDisposition(expansionState,item_templates[id].getInventoryKey()),
++configureNativeToolDomains({actor:()=>character,world:()=>expansionState.actors.player.worldId,templates:item_templates,itemFactory:getItemFromKey,craftsman:()=>NPCRegistry.get('oldCraftsman'),craftsmanHere:()=>current_location?.npcs?.includes('oldCraftsman')&&NPCRegistry.get('oldCraftsman').getDialogueAvailability().getStatus().is_unlocked&&(!expansionState.simulation?.people.oldCraftsman||expansionState.simulation.people.oldCraftsman.life==='alive'&&expansionState.simulation.people.oldCraftsman.location===current_location.id),skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
++    itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables,expansionState.streams,NPCRegistry.get('oldCraftsman').getItems()],assertSpend:id=>assertNativeItemDisposition(expansionState,id.startsWith('{')?id:item_templates[id].getInventoryKey()),
+     addItem:(id,count)=>character.addToInventory([{item_id:id,count}]),removeItem:(id,count)=>character.removeFromInventory([{item_key:item_templates[id].getInventoryKey(),item_count:count}]),
+     persist:markDurable=>{const save=create_save();if(!save)throw Error('The tool repair could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
+     refresh:()=>{character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();durabilityPanel?.render();},
+diff --git a/src/native_resources_domain.js b/src/native_resources_domain.js
+index ae3608c9e..5613c81e2 100644
+--- a/src/native_resources_domain.js
++++ b/src/native_resources_domain.js
+@@ -1,5 +1,5 @@
+ import {registerDomain} from './domain_registry.js';
+-import {createHarvest,validateHarvest,validateHarvestEnvelope,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,setHarvestRoutine,pauseHarvestRoutine,resumeHarvestRoutine,cancelHarvestRoutine} from './harvest.js';
++import {createHarvest,validateHarvest,validateHarvestEnvelope,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,setHarvestRoutine,pauseHarvestRoutine,resumeHarvestRoutine,cancelHarvestRoutine,observeCarcass} from './harvest.js';
+ import {validateHabitat,planHabitatAction} from './habitat_care.js';
+ import {createHarvestPanel} from './harvest_ui.js';
+ import {createHabitatPanel} from './habitat_care_ui.js';
+@@ -30,6 +30,7 @@ function actHarvest(request){
+     else if(request.type==='auto'){if(harvestOwner.routine&&['active','paused'].includes(harvestOwner.routine.status)){if(request.value)resumeHarvestRoutine(harvestOwner);else pauseHarvestRoutine(harvestOwner);}else {delete harvestOwner.routine;harvestOwner.auto=!!request.value;}}
+     else if(request.type==='cancel')cancelHarvest(harvestOwner);
+     else if(request.type==='begin')beginHarvest(harvestOwner,request.species,request.choice,ports.harvestContext(),false,request.specimenKey);
++    else if(request.type==='observe')observeCarcass(harvestOwner,request.species,request.specimenKey,ports.harvestContext());
+     else throw Error('Unknown processing action.');});
+     harvestPanel?.render();
+ }
+diff --git a/src/native_tool_domains.js b/src/native_tool_domains.js
+index ef9548373..fb6409bfc 100644
+--- a/src/native_tool_domains.js
++++ b/src/native_tool_domains.js
+@@ -1,3 +1,7 @@
++import {favourite_items} from './runtime_state.js';
++import './material_lineage_domain.js';
++import {configureGearWorkshop} from './gear_workshop_domain.js';
++import {calendarMinutes} from './world_rhythm.js';
+ import {configureToolsDomain, refreshToolsPanel} from './tools_domain.js';
+ import {configureLamplight} from './lamplight_domain.js';
+ import {get_current_light_level} from './weather.js';
+@@ -8,6 +12,7 @@ import {bindReadingLightReader} from './reveal_chain.js';
+ // the other. The independent lamp factory receives only its supported operations.
+ export function configureNativeToolDomains(operations) {
+     configureToolsDomain(operations);
++    configureGearWorkshop({...operations, favorites: favourite_items, clock: () => calendarMinutes(current_game_time)});
+     const {actor, count, itemOwners, assertSpend, removeItem, persist, writable,
+         location, refresh, logMessage, locationRevealed, revealLocation} = operations;
+     configureLamplight({actor, count, itemOwners, assertSpend, removeItem, persist,
+diff --git a/src/player_attribute_definitions.js b/src/player_attribute_definitions.js
+index c12f6828f..50a70000c 100644
+--- a/src/player_attribute_definitions.js
++++ b/src/player_attribute_definitions.js
+@@ -4,7 +4,9 @@
+ // (gear_dimensions.js, docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md).
+ import {DAMAGE_TAKEN_FLOOR, CRIT_RESISTANCE_CAP} from "./gear_dimensions.js";
+ export {DAMAGE_TAKEN_FLOOR};
+-export {affixSourceRows} from "./gear_affixes.js"; // per-affix source rows for the inspector
++import {affixSourceRows as nativeAffixRows} from './gear_affixes.js';
++import {gearWorkSourceRows} from './gear_work.js';
++export const affixSourceRows = (equipment, stat) => [...nativeAffixRows(equipment, stat), ...gearWorkSourceRows(equipment, stat)]; // per-affix source rows for the inspector
+ 
+ export const playerAttributeDefinitions = [
+     ['strength','Strength','primary','points'],
+diff --git a/src/tools_domain.js b/src/tools_domain.js
+index 66bfe9ff9..b6e98c287 100644
+--- a/src/tools_domain.js
++++ b/src/tools_domain.js
+@@ -15,6 +15,14 @@ const INSTANCE = /"e2_instance":"e2\.[1-9]\d*"/;
+ // Composition supplies each domain's ports directly; Tools owns its panel refresh.
+ export function configureToolsDomain(operations) { ports = operations; }
+ export function refreshToolsPanel() { panel?.render(); }
++export function rekeyToolFacts(from, to) {
++    if(!state) return;
++    if(state.job?.key === from) throw Error('Finish the current tool repair before reworking it.');
++    if(!state.instances[from]) return;
++    const instances = {...state.instances};
++    if(to) instances[to] = instances[from];
++    delete instances[from]; state = {...state, instances};
++}
+ export function toolsState() { return state; }
+ export function setToolsState(value) { state = value ?? fresh(); }
+ const facts = key => state.instances[key] ?? {max: MAX, repairs: 0, failures: 0};
