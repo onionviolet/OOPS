@@ -6,7 +6,7 @@
 // (default; a world may set floor 0 with an in-world reason). A failed trial
 // costs progress and adds heart-demon pressure, never the life itself.
 // Pure. Save slice `progression.trial@1` holds pressure and the last outcome.
-// Not wired into live gameplay yet.
+// Used by the registered Pledges domain for the native tempering choice.
 import {natural as nat, positive as pos} from './basics.js';
 
 export const TRIAL_FAMILY = 'progression.trial@1';

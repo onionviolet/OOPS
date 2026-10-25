@@ -1,3 +1,5 @@
+import {quoteCohortAction,commitCohortAction,cohortNativeAction,cohortBattleView} from './cohort_battle.js';
+import {nativeFighterOwnership} from './cohort_battle_facts.js';
 import {savedBattleLoss} from './defeat_domain.js';
 import {FEATURE_SHIELD,FEATURE_HOOK,FEATURE_BATTLE_FOES,featureBattleFacts} from './feature_battle_facts.js';
 import {xorshift32} from './hash_rng.js';
@@ -22,7 +24,7 @@ export const FEATURE_BATTLE_SCHEMA=3;
 export const FEATURE_REFERENCE_BATTLE_SCHEMA=4;
 export const FEATURE_REMAINDER_BATTLE_SCHEMA=5;
 export const FEATURE_HOOK_COOLING_CONDITION='reference_gameplay.hook_cooled';
-export const isFeatureBattleSchema=schema=>schema===FEATURE_BATTLE_SCHEMA||schema===FEATURE_REFERENCE_BATTLE_SCHEMA||schema===FEATURE_REMAINDER_BATTLE_SCHEMA;
+export const isFeatureBattleSchema=schema=>schema===FEATURE_BATTLE_SCHEMA||schema===FEATURE_REFERENCE_BATTLE_SCHEMA||schema===FEATURE_REMAINDER_BATTLE_SCHEMA||schema===6;
 export const FEATURE_BATTLE_ID='feature_battle.sluice';
 export {FEATURE_SHIELD,FEATURE_HOOK,featureBattleFacts};
 export const FEATURE_HELPER='partyPartner';
@@ -139,10 +141,8 @@ function closeOpportunity(b,outcome,action) {
     const r={earnedAction:b.opportunity.earnedAction,attackerId:b.opportunity.attackerId,action,outcome};
     b.opportunityReceipts.push(r);b.opportunityReceipts=b.opportunityReceipts.slice(-16);b.opportunity=null;return r;
 }
-export function featureFighterOwnership(state,id) {
-    if(id==='player')return 'native:player';
-    return JSON.stringify({body:state.simulation?.people[id]?.body,equipment:state.simulation?.equipment[id]||{},owned:state.simulation?.owners[id]||{},progress:state.simulation?.progression[id]||{},sources:state.actors[id]?.sources||{}});
-}
+export const featureFighterOwnership=nativeFighterOwnership;
+
 export function featureOwnedGear(state,id,slot,key) {
     return state.simulation?.equipment[id]?.[slot]===key&&(state.simulation.owners[id]?.[key]||0)>0&&!Object.values(state.simulation.custody).some(c=>c.holder===id&&c.key===key);
 }
@@ -186,6 +186,7 @@ function costOf(state,b,c,context) {
     return optional?optional.cost:quoteRemainderCombatFitAction(state,b,c,context,base).cost;
 }
 export function previewFeatureBattleAction(state,registry,c,context,bindings={}) {
+    if(state.simulation?.sessions.player?.nativeBattle?.schema===6)return quoteCohortAction(state,c,context,bindings);
     const session=state.simulation?.sessions.player,b=session?.nativeBattle,reasons=[];
     try{validateFeatureBattle(b,session,state);}catch(error){return {eligible:false,reasons:[error.message],cost:0};}
     if(c.sessionId!==session.id||c.sequence!==state.sequence||c.action!==b.actions||c.seed!==b.seed)reasons.push('This action belongs to an earlier session, sequence, RNG position or action.');
@@ -265,6 +266,7 @@ function finish(plan,registry,result,context={}) {
     s.log.push({at:state.clock,cause,text:`Sluice claim: ${result}.`});s.log=s.log.slice(-100);delete s.sessions.player;
 }
 export function commitFeatureBattleAction(state,registry,c,context,bindings={}) {
+    if(state.simulation?.sessions.player?.nativeBattle?.schema===6){const plan=commitCohortAction(state,registry,c,context,bindings);validateExpansionState(plan.state,registry);return plan;}
     const quote=previewFeatureBattleAction(state,registry,c,context,bindings);check(quote.eligible,quote.reasons.join(' '));
     const plan=planFor(state,context),s=plan.state.simulation,session=s.sessions.player,b=session.nativeBattle;
     const hp=id=>id==='player'?plan.vitals.player:s.people[id].vitals;
@@ -316,14 +318,14 @@ export function commitFeatureBattleAction(state,registry,c,context,bindings={}) 
             const strike=rollCombatStrike({attackPower:attacker.attackPower*(hadStamina&&hp(c.actorId).stamina===0?(attacker.emptyStaminaMultiplier||.5):1),attacker:attacker.stats,target:stats,shield:Math.max(victim.shield,temporaryShield),shieldSkill:victim.shieldSkill,
                 hitModifier:(focused?1.25:1)*(exposed?1.2:1)*(reference&&c.opportunity==='counter'?1.2:1),damageModifier:targets.length>1?.65:reference&&c.opportunity==='counter'?1.2:1,random});
             const previousHealth=hp(targetId).health;
-            const damage=strike.kind==='hit'?mitigateCombatDamageFromStats(strike.values,stats):0;hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
+            const damage=strike.kind==='hit'?mitigateCombatDamageFromStats(strike.values,stats,0,attacker.stats.armor_penetration??0):0;hp(targetId).health=Math.max(1,hp(targetId).health-damage);b.lastTarget=targetId;
             fieldOutcomes.push({targetId,kind:strike.kind,damage:previousHealth-hp(targetId).health,guarded:!!g});
             if(focused)b.focused=b.focused.filter(id=>id!==requested);if(exposed)b.exposed[requested]--;
             const anchored=foes.includes(c.actorId)&&liveIds(b).includes(FEATURE_SHIELD)&&featureOwnedGear(plan.state,FEATURE_SHIELD,'field_frame',FEATURE_HARNESS)&&!b.wedge;
             if(g&&strike.kind!=='evaded'&&(g.mode==='redirect'||g.by===FEATURE_HELPER&&featurePowerFacts(state,context)['feature.party.drills']>=4)&&!anchored)hp(c.actorId).stamina=Math.max(0,hp(c.actorId).stamina-2);
             if(c.actorId===FEATURE_SHIELD&&(!reference||c.technique==='rush')&&strike.kind==='hit'&&requested==='player')b.escape.progress=Math.max(0,b.escape.progress-1);
             if(c.actorId===FEATURE_HOOK&&(!reference||c.technique==='hook')&&featureOwnedGear(plan.state,FEATURE_HOOK,'hook_pole',FEATURE_HOOK_POLE)&&strike.kind==='hit'){hp(targetId).stamina=Math.max(0,hp(targetId).stamina-(hookAftermath?.extraStaminaLoss??1));b.guards=b.guards.filter(x=>x.by!==targetId);if(hookAftermath){const r=remainderCombatFitHookReceipt(targetId,hookAftermath,{action:b.actions+1,sequence:state.sequence+1});if(r)fitReceipts.push(r);}}
-            const defended=!!g&&foes.includes(c.actorId)&&requested==='player'&&hp(targetId).health>1&&(strike.kind==='blocked'||strike.kind==='hit'&&damage<mitigateCombatDamageFromStats(strike.values,victim.stats));
+            const defended=!!g&&foes.includes(c.actorId)&&requested==='player'&&hp(targetId).health>1&&(strike.kind==='blocked'||strike.kind==='hit'&&damage<mitigateCombatDamageFromStats(strike.values,victim.stats,0,attacker.stats.armor_penetration??0));
             outcomes.push({targetId,kind:strike.kind,damage,defended});
             if(reference&&defended&&!b.opportunity) {
                 b.opportunity={earnedAction:b.actions+1,attackerId:c.actorId,defenderId:targetId,playerMove:b.fighters.player.moves};
@@ -359,6 +361,7 @@ export function featureBattleToken(state) {
     const s=state.simulation?.sessions.player,b=s?.nativeBattle;return isFeatureBattleSchema(b?.schema)?{sessionId:s.id,sequence:state.sequence,action:b.actions,seed:b.seed}:null;
 }
 export function featureNativeAction(state,context,id) {
+    if(state.simulation?.sessions.player?.nativeBattle?.schema===6)return cohortNativeAction(state,id);
     const b=state.simulation?.sessions.player?.nativeBattle;if(!isFeatureBattleSchema(b?.schema)||b.fighters[id]?.status!=='active')return null;
     if(b.schema===5){const optional=remainderCombatObjectivesNativeAction(state,context,id);if(optional?.handled)return optional.action;}
     if(id==='player'&&b.schema>=FEATURE_REFERENCE_BATTLE_SCHEMA) {
@@ -404,6 +407,7 @@ export function featureNativeAction(state,context,id) {
     if(!opponents.includes(target))return null;return {type:'strike',actorId:id,targetId:target};
 }
 export function featureBattleView(state,registry,context,bindings={}) {
+    if(state.simulation?.sessions.player?.nativeBattle?.schema===6)return cohortBattleView(state,registry,context,bindings);
     const session=state.simulation?.sessions.player,b=session?.nativeBattle;if(!isFeatureBattleSchema(b?.schema))return null;
     validateFeatureBattle(b,session,state);const token=featureBattleToken(state),actions=[];
     const add=(label,c)=>{const value={...token,actorId:'player',...c},p=previewFeatureBattleAction(state,registry,value,context,bindings);actions.push({id:`${c.type}:${targetsOf(c).join(':')}${c.opportunity?':'+c.opportunity:''}${c.maneuver?':'+c.maneuver:''}${c.useGripPreparation?':grip':''}${c.physicalPreparation?':'+c.physicalPreparation:''}`,label,command:value,eligible:p.eligible,reasons:p.reasons,cost:p.cost});};

@@ -15,7 +15,7 @@ export const ledgerStamp=()=>Object.values(ledger.pairs).reduce((n,e)=>n+e.count
 export function forecastCraft(request,owner=craftingOwner){
  const mats=(request.inputs??[]).map(i=>materialFromKey(i.key,owner)?.material).filter(Boolean);
  if(!mats.length)return {verdict:'untried',tries:0,reasons:[],residue:{}};
- const f=forecastFromLedger(ledger,{materials:mats.map(m=>m.id),process:(request.process??[]).map(p=>[p.op,p.level])});
+ const f=forecastFromLedger(ledger,{materials:mats.map(m=>m.id),process:(request.process??[]).map(p=>[p.op,p.level]),variant:request.layered?['frontier.layered-brew@1',mats.map(m=>m.id),Math.min(100,Math.max(0,Math.floor(request.control||0)))]:null});
  const known=axis=>!catalogue.axes[axis]?.hidden&&mats.some(m=>knowsAxis(owner??{knowledge:{}},'player')(m.id,axis));
  return {...f,reasons:[...new Set(f.reasons.map(r=>r.startsWith('reaction:')?'reacted':r))],residue:Object.fromEntries(Object.entries(f.residue).filter(([axis])=>known(axis)))};
 }

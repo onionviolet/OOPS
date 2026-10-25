@@ -81,3 +81,20 @@ test('a road mishap on an insured traveller becomes a dated claim owed through t
     assert.equal(done.paid, claim.amount); assert.equal(done.state.ledger.rows.length, 0);
     assert.equal(s.fileClaim(s.fresh(), 10, 0).claim, null);
 });
+
+test('the insurance offer is computed from the region and the dials, and buying it charges the quoted premium', async () => {
+    const {setCurrentLocation} = await import('../src/runtime_state.js');
+    const d = await import('../src/economy_standing_domain.js');
+    setCurrentLocation({id: 'a', market_region: 'Village'});
+    const village = d.insuranceOffer();
+    setCurrentLocation({id: 'b', market_region: 'Slums'});
+    const slums = d.insuranceOffer();
+    assert.equal(village.premium, s.quoteInsurance(50, s.roadDanger('Village')).premium);
+    assert.equal(slums.premium, s.quoteInsurance(50, 0.35).premium);
+    assert.ok(slums.premium > village.premium && slums.danger > village.danger);
+    assert.equal(slums.fee, s.DIALS.deductible.value); assert.equal(slums.days, s.DIALS.claimDays.value);
+    const spent = []; let coins = 100;
+    d.bindStandingHost({coins: () => coins, addCoins: n => { coins += n; spent.push(n); }});
+    d.insure(50, undefined, 'carried cargo');
+    assert.deepEqual(spent, [-slums.premium]);
+});

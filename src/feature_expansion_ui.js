@@ -37,7 +37,7 @@ export function createFeatureExpansionPanel({read, command, present}) {
         // In an unrendered container nothing shows; compute when it is revealed.
         if(!shownOrDeferred(render, () => rendered(element.parentElement))) return;
         const snapshot = read(), view = present(snapshot), enabled = snapshot.canWrite && !snapshot.error;
-        battle.hidden=!isFeatureBattleSchema(snapshot.state.simulation?.sessions.player?.nativeBattle?.schema);
+        battle.hidden=snapshot.state.simulation?.sessions.player?.nativeBattle?.schema===6||!isFeatureBattleSchema(snapshot.state.simulation?.sessions.player?.nativeBattle?.schema);
         if(!view.visible && !element.hidden && element.contains(document.activeElement)) focus();
         element.hidden = !view.visible;
         status.textContent = snapshot.error || snapshot.notice || notice; status.hidden = !status.textContent;

@@ -247,3 +247,45 @@ test('D3 insight overflow converts into drill practice, conserves, and fades wit
     assert.throws(() => validateCultivation({...base, insight: {carry: -1, lost: 0, minutes: 0}}));
     assert.equal(settleInsight(base, 0, row).next, base, 'no excess, no change');
 });
+
+import {prepareDiscipline} from '../src/absorb_p23/world_adaptation/index.js';
+test('vessel debits the same reserve, conserves fused nodes and actually changes consumers',()=>{
+ let s=prepareCultivationMethod(enrolled(),ctx(),'breath').state;
+ assert.throws(()=>prepareDiscipline(s,ctx(),999,'open'),/Needs 1/);
+ const open=prepareDiscipline(s,ctx(),1000,'open');assert.equal(open.effects[0].amount,1000);s=open.state;
+ for(const id of ['node:flow','node:still'])s=prepareDiscipline(s,ctx(),1000,id).state;
+ const before=adaptationView(s,ctx(),0).technique;assert.ok(before.rate>100);assert.ok(before.successThreshold>7500);assert.ok(before.workCost<2000);
+ s=prepareDiscipline(s,ctx(),0,'fuse').state;const d=s.techniques.discipline;
+ assert.deepEqual(d.nodes,{flow:0,still:0,bridge:1});assert.equal(d.impurity,1);
+ assert.throws(()=>prepareDiscipline(s,ctx(),1000,'fuse'),/needs/);
+ const purged=prepareDiscipline(s,ctx(),500,'purge');assert.equal(purged.effects[0].amount,500);assert.equal(purged.state.techniques.discipline.impurity,0);
+ assert.ok(adaptationView(purged.state,ctx(),0).technique.successThreshold>adaptationView(s,ctx(),0).technique.successThreshold);
+ validateAdaptation(JSON.parse(JSON.stringify(purged.state)));
+});
+test('forced circuits, conditioning and paired attention are chunk-invariant and divide minutes',()=>{
+ let s=prepareCultivationMethod(enrolled(),ctx(),'breath').state;
+ s=prepareDiscipline(s,ctx(),1000,'open').state;s=prepareDiscipline(s,ctx(),0,'force').state;
+ let one=s,reserve=0;
+ for(let t=1;t<=17;t++){const p=prepareAdvance(one,ctx(t),reserve);one=p.state;reserve+=p.effects.find(e=>e.kind==='resource-credit')?.amount||0;}
+ const big=prepareAdvance(s,ctx(17),0);assert.deepEqual(big.state.techniques,one.techniques);assert.equal(big.state.exposure,one.exposure);assert.equal(one.techniques.discipline.impurity,2);
+ assert.throws(()=>prepareDiscipline(one,ctx(17),1000,'pair'),/both drills/);
+ one=prepareCultivationMethod(one,ctx(17),'settling').state;one=prepareAdvance(one,ctx(33),0).state;
+ one=prepareDiscipline(one,ctx(33),0,'pair').state;
+ const start=structuredClone(one),a=prepareAdvance(start,ctx(232),0);let b=start,r=0;
+ for(let t=34;t<=232;t++){const p=prepareAdvance(b,ctx(t),r);b=p.state;r+=p.effects.find(e=>e.kind==='resource-credit')?.amount||0;}
+ assert.deepEqual(a.state.techniques,b.techniques);assert.equal(a.state.exposure,b.exposure);assert.equal(b.techniques.minutes.breath,48);assert.equal(b.techniques.minutes.settling,48);
+ const split=prepareAdvance(start,ctx(35),0).state;assert.equal(split.techniques.minutes.breath-start.techniques.minutes.breath,1);assert.equal(split.techniques.minutes.settling-start.techniques.minutes.settling,1);
+ assert.equal(b.techniques.discipline.bodyMinutes,120);
+});
+test('law depth spends actual comprehension, increases real rate and retains frozen trial odds',()=>{
+ let s=prepareCultivationMethod(enrolled(),ctx(),'breath').state;s=prepareDiscipline(s,ctx(),1000,'open').state;
+ assert.throws(()=>prepareDiscipline(s,ctx(),10000,'deepen'),/actual mist/);
+ s=prepareAdvance(s,ctx(16),0).state;const rate=adaptationView(s,ctx(16),10000).technique.rate;
+ const p=prepareDiscipline(s,ctx(16),10000,'deepen');assert.equal(p.effects[0].amount,1000);assert.equal(p.state.techniques.discipline.comprehension,0);
+ assert.ok(adaptationView(p.state,ctx(16),10000).technique.rate>rate);
+ assert.throws(()=>prepareDiscipline(p.state,ctx(16),10000,'deepen'),/32 actual/);
+ const pending=prepareTrial(p.state,ctx(16),{reserve:10000,doseKey:'real-dose',doseAvailable:true,roll:0}).state;
+ assert.throws(()=>prepareDiscipline(pending,ctx(16),10000,'force'),/Finish pending/);
+ const loaded=JSON.parse(JSON.stringify(pending));validateAdaptation(loaded);assert.equal(loaded.pending.threshold,pending.pending.threshold);
+ for(const mutate of [d=>d.residue=8,d=>d.nodes.flow=-1,d=>d.extra=1]){const bad=structuredClone(p.state);mutate(bad.techniques.discipline);assert.throws(()=>validateAdaptation(bad),/vessel/i);}
+});

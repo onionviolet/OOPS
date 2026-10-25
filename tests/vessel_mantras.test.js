@@ -1,0 +1,15 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {freshCultivation,cultivationView,advanceCultivation} from '../src/absorb_p23/world_adaptation/techniques.js';
+import {freshDiscipline,changeDiscipline,validateDiscipline} from '../src/absorb_p23/world_adaptation/discipline.js';
+import {mantraQuote,mantraName} from '../src/vessel_mantras.js';
+const prepared=()=>({...freshCultivation(),selected:'breath',minutes:{breath:48,settling:48},discipline:{...freshDiscipline(),nodes:{flow:1,still:0,bridge:0},depth:{flow:1,still:0},comprehension:200,bodyMinutes:120}});
+test('a composed verse spends actual comprehension and native reserve, freezes its physical pattern and changes the live reader',()=>{
+ const t=prepared(),before=structuredClone(t),q=mantraQuote(t,'flow');assert.equal(q.eligible,true);assert.equal(q.cost,500);assert.equal(q.comprehension,16);const r=changeDiscipline(t,'mantra:flow',500);assert.equal(r.cost,500);assert.deepEqual(t,before);assert.equal(r.next.discipline.comprehension,184);assert.equal(r.next.discipline.mantras.flow.pattern,'current');assert.equal(r.next.discipline.mantras.flow.tier,1);assert.ok(cultivationView(r.next).rate>cultivationView(t).rate);assert.match(mantraName('flow',r.next.discipline.mantras.flow),/turning current/);const switched=changeDiscipline(r.next,'law:still',0).next;assert.equal(cultivationView(switched).rate,cultivationView({...switched,discipline:{...switched.discipline,mantras:undefined}}).rate);validateDiscipline(JSON.parse(JSON.stringify(r.next.discipline)));
+ assert.throws(()=>changeDiscipline(t,'mantra:flow',499),/condensate/);assert.throws(()=>changeDiscipline(r.next,'mantra:flow',5000),/depth 2/);assert.throws(()=>changeDiscipline({...t,minutes:{breath:0,settling:48}},'mantra:flow',5000),/matching drill/);assert.throws(()=>changeDiscipline({...t,discipline:{...t.discipline,nodes:{flow:0,still:0,bridge:0}}},'mantra:flow',5000),/node/);
+});
+test('deeper verses scale the existing budget and control consumer, preserve interval equivalence and leave old saves unchanged',()=>{
+ let t=prepared();t.discipline.depth={flow:3,still:3};t.discipline.comprehension=1000;t.discipline.nodes={flow:0,still:2,bridge:0};t.discipline.law='still';t.selected='mist';const before=cultivationView(t);const costs=[];for(let i=1;i<=3;i++){const q=mantraQuote(t,'still');costs.push([q.cost,q.comprehension]);const r=changeDiscipline(t,'mantra:still',5000);t=r.next;assert.equal(t.discipline.mantras.still.tier,i);}
+ assert.deepEqual(costs,[[500,16],[1000,64],[2000,256]]);assert.ok(cultivationView(t).successThreshold>before.successThreshold);assert.ok(cultivationView(t).workCost<before.workCost);assert.throws(()=>changeDiscipline(t,'mantra:still',10000),/three verses/);
+ const coarse=advanceCultivation(t,137);let fine=t,earned=0n;for(let i=0;i<137;i++){const r=advanceCultivation(fine,1);fine=r.next;earned+=r.earned;}assert.deepEqual(coarse.next,fine);assert.equal(coarse.earned,earned);const bad=structuredClone(t.discipline);bad.mantras.still.tier=4;assert.throws(()=>validateDiscipline(bad),/mantra/);assert.equal(freshDiscipline().mantras,undefined);
+});

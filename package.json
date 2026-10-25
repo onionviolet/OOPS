@@ -14,7 +14,9 @@
     "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
     "build:preview": "node scripts/build_ui_preview.mjs",
     "desktop": "npm run build && npm run desktop:snapshot && electron .",
-    "desktop:snapshot": "node desktop/snapshot.cjs"
+    "desktop:snapshot": "node desktop/snapshot.cjs",
+    "check:desktop": "node scripts/check_desktop.mjs",
+    "mcp:game": "node scripts/mcp/game_mcp.mjs"
   },
   "engines": {
     "node": ">=22.13.0"

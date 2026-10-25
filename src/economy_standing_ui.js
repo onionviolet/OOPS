@@ -19,7 +19,7 @@ export function renderStandingTerms(box, terms) {
     box.append(node('strong', 'Standing in this price'));
     for(const part of terms.parts) {
         const row = node('p', `${part.label}: selling ${pct(part.sell)}, buying ${pct(part.buy)}`);
-        row.title = part.why; row.dataset.standingPart = part.id;
+        row.append(node('span', ` Why: ${part.why}`, 'standing_why')); row.dataset.standingPart = part.id;
         box.append(row);
     }
     const total = node('p', `Together: selling ${pct(terms.sell)}, buying ${pct(terms.buy)}. Item prices listed above are before standing.`);
@@ -36,12 +36,12 @@ export function createEconomyStandingPanel({read, borrow, repay, insure}) {
     const act = (fn, done) => { try { fn(); notice.textContent = done; } catch(e) { notice.textContent = e.message; } render(); };
     function render() {
         const v = read();
-        const next = JSON.stringify([v.factions.map(f => [f.score, f.loan]), v.credit, v.wear, v.claims, v.memory, v.rumours, v.insurance, v.coins, notice.textContent]);
+        const next = JSON.stringify([v.factions.map(f => [f.score, f.loan]), v.credit, v.wear, v.claims, v.memory, v.rumours, v.insurance, v.insuranceOffer, v.coins, notice.textContent]);
         if(next === signature) return; signature = next;
         factions.replaceChildren(node('h3', 'Houses'));
         for(const f of v.factions) {
             const row = node('p', `${f.label} (${f.region}): ${f.tier.label}, ${f.score}. Rival: ${f.rivalLabel}. Sells to you ${pct(f.tier.buy)}, buys from you ${pct(f.tier.sell)}.`);
-            row.dataset.standingFaction = f.id; row.title = f.why; factions.append(row);
+            row.append(node('span', ` Why: ${f.tier.why}`, 'standing_why')); row.dataset.standingFaction = f.id; factions.append(row);
         }
         const last = v.deeds.at(-1);
         if(last) factions.append(node('p', `Last deed: ${last.deed}, ${last.moves.map(m => `${m.id.replace('_', ' ')} ${signed(m.amount)}${m.backlash ? ' (rival backlash)' : ''}`).join('; ')}.`, 'expedition_preview'));
@@ -68,10 +68,14 @@ export function createEconomyStandingPanel({read, borrow, repay, insure}) {
         for(const c of v.claims) credit.append(node('p', `Owed to you by the broker: ${c.amount} coins, due in ${Math.max(0, Math.ceil((c.due - v.now) / 1440))} days.`));
         if(!v.insurance) {
             const line = node('div'); line.dataset.insuranceRow = '';
-            const b = node('button', 'Insure 50 coins of cargo'); b.type = 'button'; b.dataset.insure = '';
-            b.title = 'Premium is 5% of the value times (1 + 8 x road danger); a loss pays three quarters. One policy at a time.';
-            b.onclick = () => act(() => insure(50, 0.2, 'carried cargo'), 'Cargo insured.');
-            line.append(node('span', 'No policy. Road danger here is 0.2, so the premium is 7 coins. A mishap on the road (pickpockets, a dropped load) is what it pays on; the broker keeps 2 coins and settles in 3 days. '), b); credit.append(line);
+            const o = v.insuranceOffer;
+            const b = node('button', `Insure ${o.value} coins of cargo`); b.type = 'button'; b.dataset.insure = ''; b.disabled = !o.eligible || v.coins < o.premium;
+            b.onclick = () => act(() => insure(o.value, o.danger, 'carried cargo'), 'Cargo insured.');
+            const text = o.eligible
+                ? `No policy. Road danger here is ${o.danger}, so the premium is ${o.premium} coins and a loss pays up to ${o.payout}. A mishap on the road (pickpockets, a dropped load) is what it pays on; the broker keeps ${o.fee} coins and settles in ${o.days} days. Why: ${o.why}`
+                : `No policy. ${o.reason}`;
+            const span = node('span', text); span.dataset.insuranceQuote = '';
+            line.append(span, b); credit.append(line);
         }
         memory.replaceChildren(node('h3', 'What you remember of prices'));
         if(!v.memory.length) memory.append(node('p', 'Nothing yet. Trade and you will remember what things fetched.', 'expedition_preview'));

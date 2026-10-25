@@ -51,6 +51,7 @@ export function fighterReadout(combat, {fighter_index, is_attacker}, {skills, ta
         shield: fighter.hasShield(), block: Math.round(fighter.getBlockStrength()),
         evadePct: pct(evasion_chance), evasionPoints: Math.round(fighter.getFullStats().evasion_points),
         defense: fighter_stats.defense,
+        ...(fighter.tags.main_character?{armorPenetration:fighter_stats.armor_penetration??0,protection:{damageTaken:fighter_stats.damage_taken??1,minDamageShare:fighter_stats.min_damage_share??.05,critResistance:fighter_stats.crit_resistance??0,blockChance:fighter_stats.block_chance??0}}:{}),
         youHitPct: !is_attacker && includes_player && opponents.length === 1 ? pct(1-evasion_chance) : null,
     };
 }

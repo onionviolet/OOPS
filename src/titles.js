@@ -6,6 +6,9 @@ export const title_families = ['combat', 'endurance', 'craft', 'life'];
 
 // counter: key of the snapshot built by readTitleCounters in main.js. at: threshold. bonus: optional, small on purpose.
 export const title_catalog = [
+    {id:'measured_breakthrough',family:'endurance',name:'Measured Breakthrough',counter:'earned_trial_quality',at:1,text:'Accept a real performance grade from the practice frame.',requires_counter:true},
+    {id:'many_ways_through',family:'endurance',name:'Many Ways Through',counter:'trial_routes',at:2,text:'Complete graded breakthroughs through two distinct trial routes.',requires_counter:true},
+    {id:'returned_to_the_rig',family:'endurance',name:'Returned to the Rig',counter:'recovered_trial',at:1,text:'Complete a graded trial after a recorded collapse.',requires_counter:true},
     {id: 'first_blood', family: 'combat', name: 'Blooded', counter: 'kills', at: 1, text: 'Defeat your first enemy.'},
     {id: 'hunter', family: 'combat', name: 'Hunter', counter: 'kills', at: 100, text: 'Defeat 100 enemies.', bonus: {xp_multipliers: {Combat: 1.02}}},
     {id: 'slayer', family: 'combat', name: 'Slayer', counter: 'kills', at: 1000, text: 'Defeat 1,000 enemies.', bonus: {xp_multipliers: {Combat: 1.03}}},

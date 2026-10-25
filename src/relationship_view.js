@@ -2,6 +2,7 @@
 // No store merge: simulation edges are directed; chronicle rows belong to a life
 // and describe its counterpart, without proving either person's private opinion.
 import {check, finite, object} from './basics.js';
+import {bondStatuses} from './npc_lives.js';
 const key = value => typeof value === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !['__proto__', 'constructor', 'prototype'].includes(value);
 const own = (record, id) => record && Object.hasOwn(record, id) ? record[id] : undefined;
@@ -112,4 +113,24 @@ export function relationshipFacts(viewer, target) {
         facts[`relationship.chronicle.tie.${tie}`] = value;
     }
     return facts;
+}
+
+/**
+ * Household reads (W3 G03/G06, 2026-10-23): relationship statuses (courting, married, estranged, widowed) derived from the
+ * village lives plus the life-events overlay, and the capped memories one broadcast fact left in each person. A separate
+ * export, so relationshipView's shape and tests are unchanged. `lives` is a validated village-lives state, `slice` the
+ * life_events slice. Memories are a named source ('household'), kept local to it like the other sources.
+ */
+export function householdRelationships(lives, slice, year = lives.lastYear) {
+    check(object(lives) && Array.isArray(lives.people) && object(slice) && object(slice.bonds) && object(slice.memories), 'Invalid household owners.');
+    const names = new Map(lives.people.map(p => [p.id, p.name])), out = {};
+    for (const row of bondStatuses(lives, slice.bonds, year)) {
+        out[row.key] = {a: row.a, b: row.b, names: [names.get(row.a), names.get(row.b)], status: row.status, since: row.since ?? null};
+    }
+    const memories = {};
+    for (const [id, list] of Object.entries(slice.memories)) {
+        check(key(id) && list.length <= RELATIONSHIP_READ_RULES.memoryLimitPerSource, 'Invalid household memories.');
+        memories[id] = list.map((m, index) => ({source: 'household', index, id: m.id, at: m.at, text: m.text}));
+    }
+    return {scope: 'authoritative', statuses: out, memories};
 }

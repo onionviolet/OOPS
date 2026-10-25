@@ -1,7 +1,9 @@
+import {registerCultivationItems,QI_CRADLE} from './cultivation_items.js';
 // Original Frontier domicile content. Values are local balance dials, not world laws.
 export const HOME_WORLD = 'base.frontier';
 const furnishing = (name, slot, price, effects, description, forms=['human']) => ({name, slot, price, effects, description, forms});
 export const DOMICILE_FURNITURE = Object.freeze({
+    [QI_CRADLE]:furnishing('Condensate cradle','qi',30,{},'A fitted chamber for one sealed condensate. A willing household keeper releases four hours of local qi; without a real packet it supplies none.'),
     'Home plain bed': furnishing('Plain bed','bed',30,{rest:1.08,xp:{Sleeping:1.1}},'An installed mattress supports ordinary rest and sleep practice.'),
     'Home ragwork blanket': furnishing('Ragwork blanket','blanket',12,{xp:{Sleeping:1.5}},'A fitted blanket improves Sleeping XP here.'),
     'Home straw pillow': furnishing('Straw pillow','pillow',8,{xp:{Sleeping:1.3}},'A supported headrest improves Sleeping XP here.'),
@@ -49,6 +51,7 @@ export const HOME_IMPROVEMENTS = Object.freeze({
 export const HOME_SUPPLIES = Object.freeze({'Rough wood log':{name:'Rough wood log',price:2},'Linen cloth':{name:'Linen cloth',price:4}});
 export const homeKey = id => JSON.stringify({id});
 export function registerDomicileItems(templates, Item) {
+    registerCultivationItems(templates,Item);
     templates[PACKED_TENT] ||= new Item({id:PACKED_TENT,name:'Packed travel shelter',value:0,description:'Your folded woven shelter and pole frame. Pitch through Homes at a permitted camp; its retained condition travels with this kit.',tags:{domicile:true},saturates_market:false});
     templates['Home damp grass'] ||= new Item({id:'Home damp grass',name:'Damp shelter grass',value:0,description:'Rain-wet grass. Dry it before weaving bedding or binding a sound roof.',tags:{domicile:true},saturates_market:false});
     for(const [id,m] of Object.entries(HOME_MATERIALS)) templates[id] ||= new Item({id,name:m.name,value:0,description:m.description,tags:{domicile:true},saturates_market:false});

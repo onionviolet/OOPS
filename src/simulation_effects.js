@@ -179,6 +179,7 @@ function buildSimulationFacts(state, context, registry, predicates = null) {
         const target = person(state, context.targetId); facts["target.life"] = target.life;
         facts["target.world"] = state.actors[context.targetId].worldId;
         facts["target.location"] = target.location;
+        for(const [key,value]of Object.entries(state.actors[context.targetId]?.facts||{}))facts[`target.actor.${key}`]=value;
         for(const [key,value] of Object.entries(target.body||{}))facts[`target.body.${key}`]=value;
         for(const [id,energy] of Object.entries(s.energies?.[context.targetId]||{})) {
             facts[`target.energy.${id}.known`]=true;
@@ -291,8 +292,17 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
             a.facts[e.as] = facts[e.key]; a.facts[`${e.as}.observedAt`] = state.clock;
         } else if(e.type === "body") (p.body ||= {})[e.key] = e.value;
         else if(e.type === "vital") {
+            // Previously noncombat simulation people acquire a depleted vital
+            // ledger only through an actual supported-capacity procedure.
+            if(p.inventory!=="native"&&!p.vitals&&e.minimumCapacity!==undefined)p.vitals={health:1,max_health:1,stamina:0,max_stamina:0};
             const vitals = p.inventory === "native" ? plan.vitals?.[actor] : p.vitals;
             assert(vitals && finite(vitals[e.key]) && finite(vitals[`max_${e.key}`]), "Vital effect needs an actual actor adapter.");
+            if(e.minimumCapacity!==undefined){
+                // A bodily capacity is supported by this real simulation person.
+                // Raising it never fills current health/stamina or lowers a stronger body.
+                assert(p.inventory!=="native", "Native capacity changes need their actual native stat adapter.");
+                vitals[`max_${e.key}`]=Math.max(vitals[`max_${e.key}`],e.minimumCapacity);
+            }
             const next = vitals[e.key] + e.amount;
             assert(finite(next) && (!spending || next >= 0), `Insufficient ${e.key}.`);
             vitals[e.key] = Math.min(vitals[`max_${e.key}`], Math.max(0, next));

@@ -116,3 +116,25 @@ test('toughness: authored or derived from strength, and equal-strength materials
     assert.ok(wear(brittle) > wear(tempered));
     assert.equal(durability.wearItem({tags: {equippable: true}, getInventoryKey: () => JSON.stringify({id: 'x', 'e2_instance': 'e2.2'})}, 100), true);
 });
+
+import {mitigateCombatDamageFromStats} from '../src/combat_math.js';
+test('armor penetration consumes flat armor points without bypassing guards, chip floors or percent resistance',()=>{
+ const target={defense:20,min_damage_share:.03,damage_taken:.9};
+ assert.equal(mitigateCombatDamageFromStats([50],target,3),24.3);
+ assert.equal(mitigateCombatDamageFromStats([50],target,3,10),33.3);
+ assert.equal(mitigateCombatDamageFromStats([50],target,3,100),42.3);
+ assert.equal(mitigateCombatDamageFromStats([50],target,3,Infinity),24.3);
+ assert.equal(mitigateCombatDamageFromStats([50],target,3,-5),24.3);
+ assert.equal(mitigateCombatDamageFromStats([50],{defense:0},0,100),50);
+ assert.equal(mitigateCombatDamageFromStats([50],{defense:1000,min_damage_share:.03},0,10),1.5);
+});
+test('actual native trophy points and both defender classes use the same penetration law',async()=>{
+ const {character,item_templates,Enemy}=await loadNative('export {character} from "./src/data/character.js"; export {item_templates} from "./src/items.js"; export {Enemy} from "./src/enemies.js";',{stubs:STANCE_LOCATION_STUBS});
+ character.equipItem(item_templates['Wolf trophy']);assert.equal(character.getFullStats().armor_penetration,50);
+ character.equipItem(item_templates['Steel chainmail armor']);const stats=character.getFullStats();stats.health=stats.max_health;
+ const actual=character.takeDamage({damage_values:[50],armor_penetration:10,give_skill_xp:false}).damage_taken;
+ assert.equal(actual,mitigateCombatDamageFromStats([50],stats,0,10));
+ const enemy=new Enemy({name:'Armored target',stats:{health:1000,attack:10,agility:10,dexterity:10,intuition:10,defense:20}});
+ const expected=mitigateCombatDamageFromStats([50],enemy.getFullStats(),0,character.getFullStats().armor_penetration);
+ assert.equal(enemy.takeDamage({damage_values:[50],armor_penetration:character.getFullStats().armor_penetration}).damage_taken,expected);
+});

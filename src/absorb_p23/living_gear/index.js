@@ -22,13 +22,15 @@ function keyKind(key) {
     return data.components?.head === LIVING_GEAR.blade ? 'weapon'
         : data.id === LIVING_GEAR.collector ? 'collector' : data.id === LIVING_GEAR.aura ? 'aura' : null;
 }
+// This particular memory blade settles through attended wear; other gear keeps its own law.
+export const memoryTempering=copy=>1+Math.log1p((copy?.wornMinutes||0)/60)*0.01;
 function validate(value) {
     if (value === undefined) return {schema: 1, lastKill: 0, copies: {}};
     check(record(value) && Object.keys(value).sort().join(',') === 'copies,lastKill,schema' && value.schema === 1 && natural(value.lastKill) && record(value.copies), 'Invalid living gear schema/state.');
     const ids = new Set();
     for (const [key, copy] of Object.entries(value.copies)) {
         const data = copyKey(key), kind = keyKind(key);
-        check(kind && record(copy) && Object.keys(copy).sort().join(',') === 'kills,kind,reserve' && copy.kind === kind && natural(copy.kills) && natural(copy.reserve)
+        check(kind && record(copy) && Object.keys(copy).filter(k=>k!=='wornMinutes').sort().join(',') === 'kills,kind,reserve' && (copy.wornMinutes===undefined || kind==='weapon' && natural(copy.wornMinutes)) && copy.kind === kind && natural(copy.kills) && natural(copy.reserve)
             && copy.reserve <= 30 && (kind === 'collector' || copy.reserve === 0)
             && (kind === 'weapon' || copy.kills === 0), 'Invalid living gear copy.');
         check(!ids.has(data.e2_instance), 'Duplicate living gear identity.');
@@ -45,7 +47,7 @@ export function registerLivingGearItems({item_templates, Amulet, getItem, Weapon
         description: 'Equipped: stores one cinder per native beast/monster kill, up to 30. Spend 3 to recover up to 5 stamina.',
         value: 40, stats: {}, use_quality: false});
     item_templates[LIVING_GEAR.blade] ||= new WeaponComponent({id: LIVING_GEAR.blade, name: LIVING_GEAR.blade,
-        description: 'A blade tempered to remember use.', component_type: 'short blade',
+        description: 'A blade tempered to remember use and attended wear. Its actual worn minutes add a logarithmic tempering factor; loose storage grants no new wear.', component_type: 'short blade',
         component_tier: 1, name_prefix: 'Road memory', attack_value: 5, value: 40, component_stats: {}});
     item_templates[LIVING_GEAR.weapon] ||= new Weapon({id: LIVING_GEAR.weapon, name: LIVING_GEAR.weapon,
         components: {head: LIVING_GEAR.blade, handle: 'Simple wooden short handle'}, quality: 100});
@@ -76,7 +78,7 @@ export function createLivingGear(initial) {
                     if (is_night(time)) lightBonus = 25;
                     else attackMultiplier *= 1.05;
                 }
-                if (kind === 'weapon') attackMultiplier *= 1 + Math.log1p(state.copies[key]?.kills || 0) * 0.01;
+                if (kind === 'weapon') attackMultiplier *= (1 + Math.log1p(state.copies[key]?.kills || 0) * 0.01) * memoryTempering(state.copies[key]);
             }
             return {attackMultiplier, lightBonus};
         },
@@ -107,6 +109,11 @@ export function createLivingGear(initial) {
             }
             return stage(next, {changed, duplicate: false});
         },
+        stageAge({minutes,equipment,assertDisposition}) {
+            check(natural(minutes)&&typeof assertDisposition==='function'&&record(equipment),'Living tempering needs played minutes and physical custody.');
+            const next=api.serialize(),changed=[];if(minutes)for(const [slot,item]of Object.entries(equipment)){if(slot!=='weapon'||kindOf(item)!=='weapon')continue;const key=item.getInventoryKey();copyKey(key);assertDisposition(key);const c=next.copies[key]||={kind:'weapon',kills:0,reserve:0};const elapsed=(c.wornMinutes||0)+minutes;check(natural(elapsed),'Living wear-time overflow.');c.wornMinutes=elapsed;changed.push(key);}
+            return stage(next,{changed,minutes});
+        },
         stageSpend({actor, key, assertDisposition}) {
             check(typeof assertDisposition === 'function', 'Living gear spend needs native custody preflight.');
             const item = actor.getEquipment().ring;
@@ -129,7 +136,7 @@ export function createLivingGear(initial) {
                 const kind = kindOf(item);
                 if (!kind || item.equip_slot !== slot || !isKnown(item)) return [];
                 const key = item.getInventoryKey(); copyKey(key); assertDisposition(key);
-                return [{key, kind, name: item.getName(), kills: state.copies[key]?.kills || 0,
+                return [{key, kind, name: item.getName(), kills: state.copies[key]?.kills || 0,wornMinutes:state.copies[key]?.wornMinutes||0,tempering:memoryTempering(state.copies[key]),
                     reserve: state.copies[key]?.reserve || 0}];
             });
         },

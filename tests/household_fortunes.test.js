@@ -31,3 +31,7 @@ test('OG16: completions unlock a standing routine that still stops at choices an
  const [r]=unlockedRoutines(c);assert.equal(r.id,'daily_meals');
  assert.equal(routineMayRun(r).run,true);assert.equal(routineMayRun(r,{choicePending:true}).run,false);assert.equal(routineMayRun(r,{lethal:true}).run,false);
 });
+
+test('current bed qi and age alter the same seeded awakening assessment without exposing hidden disposition',()=>{
+ const m={id:'test',bed:1,fed:1,tended:1,talent:.5,age:30,qi:0};assert.ok(awakeningChance({...m,qi:1})>awakeningChance(m));assert.ok(awakeningChance({...m,age:70})<awakeningChance(m));assert.ok(awakeningChance({...m,age:1000,qi:1})>0,'age is a response dial, not an absolute exclusion');assert.equal(awakeningChance({...m,qi:9}),awakeningChance({...m,qi:1}));assert.deepEqual(settleAwakening(m,3,'same-seed'),settleAwakening(m,3,'same-seed'));assert.doesNotMatch(JSON.stringify(watchList([{...m,name:'Test',qi:1}])) ,/talent/);
+});

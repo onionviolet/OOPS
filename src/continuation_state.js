@@ -1,3 +1,8 @@
+import {validateIntentMemory,observeIntents,intentMemoryView,anchorIntent,applyIntentMemory} from './continuation_intents.js';
+import {validateBaggage,baggageView,planBaggage,transferBaggage,externalEquipmentReason,validateExternalEquipment} from './continuation_baggage.js';
+import {validateLawMemory,observeLaws,purchaseLawAnchor,lawMemoryView} from './continuation_laws.js';
+import {validateRetention,purchaseAnchor,retentionView,freshRetention} from './continuation_retention.js';
+import {CHALLENGE_GOALS,challengeProgress,validateChallenge,challengeExport,validateChallengeHistory} from './continuation_challenges.js';
 // One continuing self; native snapshots are flat records, never nested journeys.
 import {check, copy, natural} from './basics.js';
 export const CONTINUATION_SCHEMA = 1;
@@ -9,7 +14,7 @@ const object = value => value && typeof value === 'object' && !Array.isArray(val
 const id = value => typeof value === 'string' && /^[a-zA-Z0-9_.:-]{1,160}$/.test(value);
 const preferences = ['language','options','display_preferences','customization','favourite_consumables','favourite_items',
     'favourite_locations','skill_category_order','skill_list_state','message_filters','are_finished_quests_hidden',
-    'last_rewarded_export','total_playtime'];
+    'last_rewarded_export','total_playtime','personal_journal'];
 
 export function nativeMoment(save) {
     const t=save['current time'];
@@ -20,15 +25,15 @@ export function nativeSnapshot(save) {
     const next=copy(save); delete next.continuation;
     return next;
 }
-export function continuationEligibility(save) {
+export function continuationEligibility(save,{travelOnly=false}={}) {
     const bio=save.character?.bio;
     if(bio&&((bio.race||'human')!=='human'||(bio.age||'adult')!=='adult'))
         return 'This embodiment needs its own capability adapter. The current continuation route supports an adult human; your life is preserved.';
     if(save.expansion?.actors?.player?.worldId !== 'base.frontier') return 'Return from this world needs its own temporal means. This slice supports the Frontier.';
-    if(Object.keys(save.expansion?.worlds||{}).some(world=>world!=='base.frontier'))
+    if(!travelOnly&&Object.keys(save.expansion?.worlds||{}).some(world=>world!=='base.frontier'))
         return 'Other retained worlds need a compatible temporal boundary. Their state is preserved; this first slice cannot rewind them.';
-    if(save.content_packs?.structured || save.content_packs?.pendingStructured ||
-        Object.values(save.content_packs?.packs || {}).some(p=>p.active) || save.expansion?.bookWorldCampaign)
+    if(!travelOnly&&(save.content_packs?.structured || save.content_packs?.pendingStructured ||
+        Object.values(save.content_packs?.packs || {}).some(p=>p.active) || save.expansion?.bookWorldCampaign))
         return 'This optional campaign needs a compatible continuation adapter. Its state is preserved.';
     return '';
 }
@@ -44,6 +49,8 @@ export function validateContinuation(value) {
     check(typeof value.loop.enabled==='boolean'&&['initial','checkpoint'].includes(value.loop.target)&&natural(value.loop.cycles), 'Invalid intentional loop.');
     check(Number.isFinite(value.loop.nextAt)&&typeof value.arrivalPaused==='boolean'&&Array.isArray(value.knownMastery)&&
         value.knownMastery.every(x=>typeof x==='string'&&x.length<=160), 'Invalid continuation operation state.');
+    validateIntentMemory(value.intentMemory);validateRetention(value.retention);validateBaggage(value.baggage);validateLawMemory(value.lawMemory);
+    validateChallenge(value.challenge);validateChallengeHistory(value.challengeHistory);if(value.challenge)check(value.active===value.challenge.lifeId&&value.lives[value.challenge.parent]?.paused,'Challenge must retain its shelved parent life.');
     if(value.memories!==undefined)check(Array.isArray(value.memories)&&value.memories.every(m=>object(m)&&id(m.lifeId)&&
         object(m.event)&&typeof m.event.text==='string'&&m.event.text.length<=240&&Number.isFinite(m.event.at)), 'Invalid remembered life events.');
     for(const [key,xp] of Object.entries(value.mastery)) check(typeof key==='string'&&key.length>0&&key.length<=160&&
@@ -52,7 +59,7 @@ export function validateContinuation(value) {
     for(const [key,life] of Object.entries(value.lives)) {
         check(id(key)&&life.id===key&&id(life.bodyId)&&typeof life.label==='string'&&life.label.length<=120&&
             (life.tether===null||id(life.tether)&&value.lives[life.tether]), 'Invalid continuation life binding.');
-        snapshotValid(life.initial);
+        validateExternalEquipment(life);snapshotValid(life.initial);
         if(life.checkpoint!==null) snapshotValid(life.checkpoint);
         if(life.paused!==null) snapshotValid(life.paused);
         check(key===value.active ? life.paused===null : life.paused!==null, 'Paused/active life disagreement.');
@@ -66,7 +73,7 @@ export function validateContinuationEnvelope(save) {
 export function beginContinuation(save, journeyId) {
     check(!save.continuation,'This life already has a continuing connection.');
     check(id(journeyId),'Invalid journey identity.');
-    check(!continuationEligibility(save),continuationEligibility(save));
+    check(!continuationEligibility(save,{travelOnly:true}),continuationEligibility(save,{travelOnly:true}));
     const s=nativeSnapshot(save),lifeId='life-1';
     const next=copy(save);
     next.continuation={schema:1,journeyId,active:lifeId,sequence:0,nextLife:2,
@@ -78,6 +85,8 @@ export function beginContinuation(save, journeyId) {
 export function observeContinuation(save, {canStudy=false,knownSkills=[]}={}) {
     if(!save.continuation)return save;
     const c=validateContinuation(save.continuation),at=nativeMoment(save);
+    if(c.challenge)return save;
+    observeLaws(c,save.expansion);observeIntents(c,save.expansion);
     const skillXP=save.levels?.person?.main_character?.skill_xp || {};
     for(const [skill,xp] of Object.entries(skillXP)) if(Number.isFinite(xp)&&xp>=0)c.mastery[skill]=Math.max(c.mastery[skill]||0,xp);
     c.knownMastery=[...new Set([...(c.knownMastery||[]),...knownSkills.filter(skill=>Object.hasOwn(c.mastery,skill))])];
@@ -94,17 +103,18 @@ export function observeContinuation(save, {canStudy=false,knownSkills=[]}={}) {
     return save;
 }
 function restore(source, snapshot, c) {
+    const externalReason=externalEquipmentReason(c.lives[c.active],snapshot);check(!externalReason,externalReason);
     const next=copy(snapshot);
     for(const key of preferences) if(Object.hasOwn(source,key))next[key]=copy(source[key]);
     next.saved_at=source.saved_at;
     const xp=next.levels?.person?.main_character?.skill_xp;
-    if(xp)for(const skill of COMPATIBLE_MASTERY)if(c.mastery[skill]>0)xp[skill]=Math.max(xp[skill]||0,c.mastery[skill]);
+    if(xp&&!c.challenge)for(const skill of COMPATIBLE_MASTERY)if(c.mastery[skill]>0)xp[skill]=Math.max(xp[skill]||0,c.mastery[skill]);
     // Native load can infer a missing parent's XP from a child. Do not let
     // retained Crafting knowledge create its parent's dexterity conditioning.
     if(xp?.Crafting>0&&!Object.hasOwn(xp,'Crafting mastery'))xp['Crafting mastery']=0;
     c.research.running=false;c.research.observedAt=nativeMoment(next);
     c.arrivalPaused=true;
-    next.continuation=c;
+    applyIntentMemory(next,c);next.continuation=c;
     return next;
 }
 export function planContinuation(original, command, {expectedSequence, fresh, token, label}={}) {
@@ -113,9 +123,27 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
     check(expectedSequence===c.sequence,'This continuation choice is stale. Inspect it again.');
     check(id(token),'Missing continuation event identity.');
     check(c.lastTransition?.token!==token,'This return has already been applied.');
-    check(!continuationEligibility(source),continuationEligibility(source));
+    if(c.challenge)check(['continue','challenge:return','challenge:cancel'].includes(command),'Finish or cancel the isolated challenge before another connection operation.');
+    else if(command!=='continue'){const travelOnly=command==='fresh'||command.startsWith('retention:')||command.startsWith('baggage:')||command.startsWith('law:')||command.startsWith('intent:')||command.startsWith('resume:')||command.startsWith('challenge:begin:');check(!continuationEligibility(source,{travelOnly}),continuationEligibility(source,{travelOnly}));}
     const life=c.lives[c.active];let next=source;
-    if(command==='study') {c.research.running=!c.research.running;c.research.observedAt=nativeMoment(source);}
+    if(command.startsWith('baggage:')){planBaggage(source,c,command.slice(8));}
+    else if(command.startsWith('intent:')){anchorIntent(source,c,command.slice(7));}
+    else if(command.startsWith('law:')){purchaseLawAnchor(source,c,command.slice(4));}
+    else if(command.startsWith('retention:')){const [,kind,...encoded]=command.split(':');purchaseAnchor(source,c,kind,decodeURIComponent(encoded.join(':')));}
+    else if(command.startsWith('challenge:begin:')){
+        const kind=command.slice(16);check(Object.hasOwn(CHALLENGE_GOALS,kind)&&fresh&&!fresh.continuation&&!continuationEligibility(fresh),'Choose a supported fresh challenge life.');
+        const parent=c.active,newId=`life-${c.nextLife++}`,initial=nativeSnapshot(fresh);life.paused=nativeSnapshot(source);
+        initial.global_flags={...initial.global_flags,is_hero_created:true};initial.character.name=source.character.name;
+        c.challenge={kind,parent,lifeId:newId,start:nativeMoment(initial)};c.loop.enabled=false;
+        c.lives[newId]={id:newId,bodyId:`${c.journeyId}:body-${newId}`,label:CHALLENGE_GOALS[kind].label,tether:parent,initial:copy(initial),checkpoint:null,paused:null};c.active=newId;next=restore(source,initial,c);
+    } else if(command==='challenge:return'||command==='challenge:cancel'){
+        const ch=c.challenge;check(ch,'No isolated challenge is active.');const completed=command==='challenge:return',progress=challengeProgress(source,ch.kind);
+        check(!completed||progress.have>=progress.need,'Meet the challenge goal before exporting its stated result, or cancel it.');
+        const parent=c.lives[ch.parent],result=completed?challengeExport(parent.paused,source,ch.kind):{next:copy(parent.paused),exported:0};
+        if(completed){c.retention ||= freshRetention();c.retention.credits++;}
+        c.challengeHistory=[...(c.challengeHistory||[]),{kind:ch.kind,completed,exported:result.exported,minutes:Math.max(0,nativeMoment(source)-ch.start)}].slice(-24);
+        parent.paused=null;delete c.lives[ch.lifeId];c.active=ch.parent;next=restore(source,result.next,c);delete c.challenge;
+    } else     if(command==='study') {c.research.running=!c.research.running;c.research.observedAt=nativeMoment(source);}
     else if(command==='set') {
         check(c.research.checkpoint,'Investigate the connection before marking a later point.');
         life.checkpoint=nativeSnapshot(source);
@@ -127,8 +155,8 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
     } else if(command==='fresh') {
         check(fresh&&!continuationEligibility(fresh),'A compatible native fresh beginning is required.');
         const old=c.active,newId=`life-${c.nextLife++}`;
-        life.paused=nativeSnapshot(source);
         const initial=nativeSnapshot(fresh);
+        transferBaggage(source,initial,c);life.paused=nativeSnapshot(source);
         check(!fresh.continuation,'Fresh life cannot contain another journey.');
         initial.global_flags={...initial.global_flags,is_hero_created:true};
         initial.character.name=source.character.name;
@@ -161,11 +189,11 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
     return next;
 }
 export function continuationView(save) {
-    if(!save?.continuation)return {available:false,reason:continuationEligibility(save)};
+    if(!save?.continuation)return {available:false,reason:continuationEligibility(save,{travelOnly:true})};
     const c=validateContinuation(save.continuation),life=c.lives[c.active];
-    return {available:true,reason:continuationEligibility(save),sequence:c.sequence,life:life.label,active:c.active,
-        initialDate:copy(life.initial['current time']),checkpointDate:life.checkpoint?copy(life.checkpoint['current time']):null,
-        checkpointReachable:!!life.checkpoint&&(!save['current time']||nativeMoment(life.checkpoint)<=nativeMoment(save)),
+    return {available:true,reason:continuationEligibility(save),travelReason:continuationEligibility(save,{travelOnly:true}),retention:retentionView(c,save.character?.money||0),laws:lawMemoryView(c,save.character?.money||0),intents:intentMemoryView(c,save.character?.money||0),baggage:baggageView(save,c),challenge:c.challenge?{...copy(c.challenge),...CHALLENGE_GOALS[c.challenge.kind],...challengeProgress(save,c.challenge.kind)}:null,challengeHistory:copy(c.challengeHistory||[]),sequence:c.sequence,life:life.label,active:c.active,
+        initialBlocked:externalEquipmentReason(life,life.initial),checkpointBlocked:externalEquipmentReason(life,life.checkpoint),initialDate:copy(life.initial['current time']),checkpointDate:life.checkpoint?copy(life.checkpoint['current time']):null,
+        checkpointReachable:!!life.checkpoint&&!externalEquipmentReason(life,life.checkpoint)&&(!save['current time']||nativeMoment(life.checkpoint)<=nativeMoment(save)),
         memories:copy(c.memories||[]).map(m=>({...m,lifeLabel:c.lives[m.lifeId]?.label||'Earlier life'})),arrivalPaused:!!c.arrivalPaused,research:copy(c.research),loop:copy(c.loop),mastery:Object.entries(c.mastery).filter(([skill,xp])=>xp>0&&(c.knownMastery||[]).includes(skill)).map(([skill,xp])=>({skill,xp,usable:COMPATIBLE_MASTERY.includes(skill)})),
         paused:Object.values(c.lives).filter(x=>x.paused).map(x=>({id:x.id,label:x.label,reachable:life.tether===x.id||x.tether===c.active,date:copy(x.paused['current time'])}))};
 }

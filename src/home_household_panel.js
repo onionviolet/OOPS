@@ -1,3 +1,9 @@
+import {renderPersonalLegacy} from './home_personal_legacy.js';
+import {renderHomeContacts} from './home_contacts.js';
+import {renderHomeSchool} from './home_school.js';
+import {renderHouseholdBrood} from './household_brood_ui.js';
+import {renderHomeMedicine,householdEnergyCap} from './home_medicine.js';
+import {renderHomeCultivation} from './home_cultivation.js';
 // ST2: household details inside the existing desktop Homes center panel.
 import {HOUSEHOLD_PEOPLE,TUTOR,SUPPLIER,HOUSEHOLD_TERMS as TERMS} from './home_household_content.js';
 import {staffReadiness} from './home_household.js';
@@ -6,9 +12,15 @@ import {homeKey as k} from './home_content.js';
 import {officeDecision,officeHolder,OFFICE_TERMS} from './home_office.js';
 export function renderHouseholdLife({staff,view,el,action}){
  const c=view.context;
+ renderHomeCultivation({staff,view,el,action});
+ renderHomeSchool({staff,view,el,action});
+ renderPersonalLegacy({staff,view,el,action});
+ renderHomeContacts({staff,view,el,action});
+ renderHouseholdBrood({staff,view,el,action});
+ renderHomeMedicine({staff,view,el,action});
  staff.append(el('p','Staff recover one energy per idle played minute at home, up to 60. Each accepted service reserves 20 energy; below 20 they ask to rest. Leave suspends new requests. Cancellation returns reserved effort and unearned pay.'));
  for(const p of [...HOME_STAFF,HOUSEHOLD_PEOPLE[0]]){
-  staff.append(el('p',`${p.name}: ${staffReadiness(c,p.id)} · energy ${c.staffResources[p.id]?.['home.energy']??'terms pending'}/60 · wages ${c.staffResources[p.id]?.['home.wages']||0} coins.`));
+  staff.append(el('p',`${p.name}: ${staffReadiness(c,p.id)} · energy ${c.staffResources[p.id]?.['home.energy']??'terms pending'}/${householdEnergyCap(c,p.id)} · wages ${c.staffResources[p.id]?.['home.wages']||0} coins.`));
   action(staff,'leave:'+p.id,'Agree leave with '+p.name,{type:'staff_leave',actor:p.id});
   action(staff,'return:'+p.id,'Discuss resuming duties with '+p.name,{type:'staff_return',actor:p.id});
  }

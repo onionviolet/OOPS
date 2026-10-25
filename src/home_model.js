@@ -1,3 +1,7 @@
+import {validateSchoolCircuit} from './home_school_circuit.js';
+import {validateWarehouse} from './home_warehouse.js';
+import {validateBrood,advanceBrood,broodWindow,broodPracticeBonus,planBrood} from './household_brood.js';
+import {domainRegistry} from './domain_registry.js';
 import {newHomeCondition,conditionOf,homeSupportsRest,validateHomeBuilding,settleHomeBuilding,planHomeBuilding} from './home_building_model.js';
 import {admitManorStaff,planHomeStaff} from './home_staff.js';
 import {validateWorkerRooms,planWorkerRoom} from './home_workers.js';
@@ -25,6 +29,9 @@ export function validateHomes(s,{clock=Number.MAX_SAFE_INTEGER,sequence=Number.M
         for(const [slot,row] of Object.entries(h.fixtures))check(record(row)&&fixture(row.key)?.slot===slot&&['player',p.owner].includes(row.owner),'invalid furnishing slot or owner');
         for(const [key,n] of Object.entries(h.stock)){let k;try{k=JSON.parse(key);}catch{throw Error('Home: invalid stock key');}check(record(k)&&(typeof k.id==='string'||record(k.components))&&natural(n)&&n>0,'invalid stored item');}
         if(h.construction!==undefined)check(B[id]&&record(h.construction)&&natural(h.construction.at)&&h.construction.at<=clock&&h.construction.site===HOME_SITE,'invalid construction receipt');
+        if(h.warehouse!==undefined){check(id==='manor','this warehouse contract belongs at the manor');validateWarehouse(h.warehouse,clock);}
+        if(h.circuit!==undefined){check(id==='manor','this forms circuit belongs at the manor');validateSchoolCircuit(h.circuit,clock);}
+        if(h.brood!==undefined){check(id==='manor','this brood chamber belongs at the manor');validateBrood(h.brood,clock);}
         if(h.household){check(!p.legacy,'native household state has its existing owner');check(h.household.homeId===`${p.world||HOME_WORLD}:${p.location}`,'household endpoint mismatch');validateHousehold(h.household,{clock,sequence});if(h.household.animal)animals++;}
         check(Object.values(h.stock).reduce((a,b)=>a+b,0)<=homeCapacity(h),'local storage exceeds capacity');
     }
@@ -48,6 +55,7 @@ export function homeBenefits(s,c) {
     for(const [slot,r]of Object.entries(h.fixtures)){const f=fixture(r.key);if(f.forms.includes(c.body.form))add(`domicile.${slot}`,f.name,conditionOf(h).wetness>=500&&['bed','blanket','pillow'].includes(slot)?{...f.effects,rest:1,xp:{}}:f.effects,`${r.owner==='player'?'Your furnishing':'Household furnishing'}; installed here.`,['bed','hearth'].includes(slot)?2:1);}
     for(const k of h.improvements){const i=I[k];add(`domicile.${k}`,i.name,i,'Completed local improvement.',k==='restore'?2:1);}
     if(!P[h.id].legacy){const comfort=homeComfort(h),a=h.household?.animal,animal=a?.adopted&&a.mood==='content'&&h.household.hearth.smoke===0&&c.body.form==='human'?(a.ageMinutes>=1440?0.05:0.03):0;const smoke=(h.household?.hearth.smoke||0)>0||conditionOf(h).wetness>=500;add('domicile.comfort','Local home comfort',{rest:smoke?1:1+Math.min(6,comfort.score)*0.01+animal},`${comfort.label} · ${comfort.score} installed furnishing/room comfort. Quiet local rest and settled companionship; smoke suspends this comfort benefit.`);}
+    if(h.id==='manor'&&h.fixtures.qi){const qi=domainRegistry.command('home_layout','qiAtBed')?.({home:h.id,world:c.world,fixtures:h.fixtures})||0;if(broodPracticeBonus(h,qi)>1)add('domicile.brood','Attending Cloudseed beetle',{xp:{Meditation:broodPracticeBonus(h,qi)}},'The chosen adult’s trained resonance and inherited mist sense help your real circulation practice in this actual room field.');if(qi>0)add('domicile.imported_qi','Circulation near the charged cradle',{xp:{Meditation:1+Math.min(1,qi)*0.1}},`Qi at the bed: ${qi.toFixed(2)}. Its distance from the powered cradle changes local Meditation learning; the field expires with its real packet.`);}
     out.storageAccess=true;return out;
 }
 export function householdHomeContext(h,c) {
@@ -60,6 +68,7 @@ export function householdHomeContext(h,c) {
 export function settleHomes(raw,c,onEffects,onBuilding) {
     if(raw==null)return raw;const s=structuredClone(raw);
     for(const h of Object.values(s.properties))if(h.household&&h.household.lastClock<c.clock){const ctx=householdHomeContext(h,c);ctx.sequence=Math.max(ctx.sequence,h.household.lastSequence);const r=planHousehold(h.household,{type:'tick',clock:c.clock,sequence:ctx.sequence+1,elapsed:c.clock-h.household.lastClock},ctx);h.household=r.state;onEffects?.(h,r.effects);}
+    for(const h of Object.values(s.properties))if(h.brood)advanceBrood(h.brood,c.clock,broodWindow(c,h));
     settleHomeBuilding(s,c,createProperty,onBuilding);return s;
 }
 function createProperty(id,clock,starting=false) {
@@ -75,7 +84,7 @@ function createProperty(id,clock,starting=false) {
     return h;
 }
 export function planHome(raw,request,c) {
-    validateHomes(raw,c);check(c.alive&&(c.ready||['cancel_work','cancel_staff','cancel_household','office_cancel'].includes(request.type)&&c.writable!==false),'use your living, free body and writable save');
+    validateHomes(raw,c);check(c.alive&&(c.ready||['cancel_work','cancel_staff','cancel_household','office_cancel','cultivation_cancel','medicine_cancel','school_cancel','contacts_cancel','warehouse_stop','legacy_cancel'].includes(request.type)&&c.writable!==false),'use your living, free body and writable save');
     check(c.body.ownerId==='player'&&c.body.controllerId==='player','control your own body');
     check(c.world===HOME_WORLD||Object.entries(c.nativeRights||{}).some(([id,right])=>right&&(P[id].world||HOME_WORLD)===c.world),'visit a world with supported residence rights');
     const simEffects=[];const s=settleHomes(raw,c,null,rows=>simEffects.push(...rows))||emptyHomes(),items=[],out={simEffects,state:s,items,money:c.money,minutes:0,message:'',body:null,householdEffects:[]};
@@ -87,7 +96,7 @@ export function planHome(raw,request,c) {
     const receive=(key,n=1)=>items.push({key,amount:n});
     const means=form=>{check(c.body.mobile!==false,'reach and work at this site with a mobile body');check(c.body.form===form,'this construction method needs a fitting body');if(form==='human')check(c.body.hands>=1,'use a hand to gather and lash');if(form==='bird')check(c.body.flying===true&&c.body.beak===true&&c.body.feet>=1,'nest weaving here needs flight, a beak and grasping feet');if(form==='fox')check(c.body.paws>=2,'dig and gather using usable paws');};
     const site=()=>check(c.location===HOME_SITE&&c.world===HOME_WORLD,'visit the wild willow stand and its suitable unclaimed sites');
-    if(!planHomeBuilding(s,request,c,out,{spend,receive,owner,local,means,site,h})&&!planHomeStaff(s,request,c,out))switch(request.type) {
+    if(!planHomeBuilding(s,request,c,out,{spend,receive,owner,local,means,site,h})&&!planHomeStaff(s,request,c,out)&&!planBrood(s,request,c,out))switch(request.type) {
     case 'institution_join': {
         check(c.world===HOME_WORLD&&c.location==='Village'&&c.body.form==='human'&&c.body.ownerId==='player'&&c.body.controllerId==='player','Meet the household recruiter in Village in your living controlled human body.');
         check(!s.properties.manor&&!c.people?.['home.manor.steward'],'This household already has a retained agreement; visit it instead of creating new funds.');
@@ -128,6 +137,7 @@ export function planHome(raw,request,c) {
     case 'deposit': local();check(Object.values(h.stock).reduce((a,b)=>a+b,0)<homeCapacity(h),'local storage is full');spend(request.key,1);h.stock[request.key]=(h.stock[request.key]||0)+1;out.message='One owned item moved into your private local storage.';break;
     case 'withdraw': check(h&&homeAt(s,c)?.id===h.id,'collect stored goods at their actual home');check((h.stock[request.key]||0)>0,'that stored item is gone');if(--h.stock[request.key]===0)delete h.stock[request.key];receive(request.key);out.message='One stored item returned to your pack. Expired lodging never destroys your belongings.';break;
     case 'improve': {owner();const i=I[request.improvement];check(i&&!h.improvements.includes(request.improvement),'choose an unfinished improvement');check(h.id==='cottage','these room plans fit the cottage');check(request.improvement==='restore'||h.improvements.includes('restore'),'restore the side room before fitting it out');pay(i.coins);spend(homeKey('Rough wood log'),i.wood);h.improvements.push(request.improvement);out.minutes=i.minutes;out.message=`${i.name} completed in ${i.minutes} played minutes.`;break;}
+    case 'layout_fee': {local();check(Number.isSafeInteger(request.fee)&&request.fee>=0&&request.fee<=20&&typeof request.text==='string'&&request.text.length<=200,'use a modest hauling fee');pay(request.fee);out.minutes=5;out.message=request.text;break;}
     case 'worker_assign': {owner(false);out.message=planWorkerRoom(s,request,c,check);break;}
     case 'worker_release': {out.message=planWorkerRoom(s,request,c,check);break;}
     case 'invite': {owner();check(h.improvements.includes('guestroom'),'fit a guest room before offering lodging');check(!s.lodger?.home,'the lodger already occupies a room');check(!Object.values(s.workers||{}).some(a=>a.home===h.id),'the guest room already houses a worker');s.lodger ||= {id:'home.lodger.reed',coins:24,home:null,paidUntil:0};check(s.lodger.coins>=6,'the lodger has no funds for another prepaid stay');s.lodger.coins-=6;out.money+=6;s.lodger.home=h.id;s.lodger.paidUntil=c.clock+1440;out.message='Reed accepts the guest room and pays six coins from a 24-coin travel purse for one played day. Private storage stays yours.';break;}

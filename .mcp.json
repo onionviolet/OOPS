@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "yairpg-game": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "scripts/mcp/game_mcp.mjs"
+      ],
+      "env": {}
+    }
+  }
+}

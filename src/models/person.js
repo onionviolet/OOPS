@@ -430,7 +430,7 @@ class Person{
      * @param {*}
      * @returns [actual damage taken; Boolean if target should faint] 
      */
-    takeDamage({damage_values, can_faint = true, give_skill_xp = true, defense_modifier = 0}) {
+    takeDamage({damage_values, can_faint = true, give_skill_xp = true, defense_modifier = 0, armor_penetration = 0}) {
 
         //TODO: move this to levelable, only make a shortcut in Person?
 
@@ -445,7 +445,7 @@ class Person{
         const levelable = this.getLevelableComponent();
         let fainted;
     
-        const damage_taken = mitigateCombatDamageFromStats(damage_values, levelable.stats.full, defense_modifier);
+        const damage_taken = mitigateCombatDamageFromStats(damage_values, levelable.stats.full, defense_modifier, armor_penetration);
         levelable.stats.full.health -= damage_taken;
     
         if(levelable.stats.full.health <= 0 && can_faint) {
@@ -543,6 +543,7 @@ class Person{
                     (levelable.bonus_skill_levels.flat.equipment[bonus_target] || 0) 
                     + (levelable.bonus_skill_levels.flat.active_effects[bonus_target] || 0) 
                     + (levelable.bonus_skill_levels.flat.skills[bonus_target] || 0)
+                    + (levelable.bonus_skill_levels.flat.rust?.[bonus_target] || 0)
                     + (levelable.bonus_skill_levels.flat.equipment[category] || 0) 
                     + (levelable.bonus_skill_levels.flat.active_effects[category] || 0) 
                     + (levelable.bonus_skill_levels.flat.skills[category] || 0);
@@ -610,6 +611,7 @@ class Person{
                     * (levelable.xp_bonuses.multiplier.skills[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.books[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.titles?.[bonus_target] || 1)
+                    * (levelable.xp_bonuses.multiplier.aptitude?.[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.active_effects[bonus_target] || 1);
         });
 

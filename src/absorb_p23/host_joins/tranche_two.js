@@ -57,3 +57,11 @@ export function stageLivingEquip({state,gameplay,money,gear,wear,item,key,equipm
     return {state:structuredClone(state),gameplay:next,external:{money},equipment:{player:{...equipment,[item.equip_slot]:nextKey}},
         nativePatch:{equipment_durability:staged.serialize(),p23_living_gear:gear.serialize()}};
 }
+
+// A root plan may be retried after a failed writer; its elapsed interval counts once.
+export function stageLivingTime(plan,{gear,fromClock,equipment,assertDisposition}){
+ const minutes=plan.state.clock-fromClock;if(!Number.isSafeInteger(minutes)||minutes<0)throw Error('Living wear needs a forward played interval.');if(!minutes)return;
+ const stamp=JSON.stringify([fromClock,plan.state.clock,Object.entries(equipment).map(([slot,item])=>[slot,item?.getInventoryKey?.()||null])]);
+ if(plan.p00LivingTime){if(plan.p00LivingTime!==stamp)throw Error('Living wear staging inputs changed.');return;}
+ const owner=createLivingGear(plan.nativePatch?.p23_living_gear??gear.serialize()),aged=owner.stageAge({minutes,equipment,assertDisposition});aged.preflight();plan.p00LivingTime=stamp;if(aged.changed.length)plan.nativePatch={...plan.nativePatch,...aged.nativePatch};
+}

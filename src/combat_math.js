@@ -37,8 +37,11 @@ export function mitigateCombatDamage(values, defense = 0, {floorShare = BASE_MIN
 
 // Actual actor snapshots share these defensive layers. Callers keep local guard,
 // shield and world policy in the supplied stats/defense modifier.
-export function mitigateCombatDamageFromStats(values, stats, defenseModifier = 0) {
-    return mitigateCombatDamage(values, (stats.defense ?? 0) + defenseModifier, {
+export function mitigateCombatDamageFromStats(values, stats, defenseModifier = 0, armorPenetration = 0) {
+    // Native points bypass that many points of nonnegative flat armor. Guard
+    // modifiers, shields, the chip floor and percent resistance keep their laws.
+    const armor=stats.defense??0,penetration=Number.isFinite(armorPenetration)?Math.max(0,armorPenetration):0;
+    return mitigateCombatDamage(values, armor-Math.min(Math.max(0,armor),penetration) + defenseModifier, {
         floorShare: stats.min_damage_share,
         taken: effectiveDamageTaken(stats.damage_taken),
     });

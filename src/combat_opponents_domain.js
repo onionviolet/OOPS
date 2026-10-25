@@ -1,3 +1,4 @@
+import {configureCombatReview} from './combat_review_domain.js';
 import {combatSubject} from './combat_subject.js';
 import {registerDomain} from './domain_registry.js';
 // Observer-safe opponent projection (PP5). Publishes only what the native combat view already shows,
@@ -28,6 +29,7 @@ export function projectOpponents(combat, readout) {
 }
 let registered = false;
 export function registerCombatOpponents({getCombat, readout}) {
+    configureCombatReview({getCombat,readout});
     if(registered) return; registered = true;
     registerDomain({id: 'combat-opponents', projection: () => projectOpponents(getCombat(), readout)});
 }

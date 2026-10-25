@@ -36,7 +36,8 @@ export function readProfileState(raw) {
     requireValue(raw.schema === 1 && integer(raw.nextAttempt, 1) && integer(raw.completed) && raw.completed < raw.nextAttempt, 'Invalid training schema/cursor');
     if (raw.pending !== null) {
         const p = raw.pending;
-        keys(p, 'profileId attempt seed level exchange offBalance settled');
+        keys(p, 'profileId attempt seed level exchange offBalance settled'+(p.tower===undefined?'':' tower'));
+        if(p.tower!==undefined){keys(p.tower,'floor repeat');requireValue(integer(p.tower.floor,1,12)&&integer(p.tower.repeat,0,50),'Invalid tower strength terms');}
         requireValue(p.profileId === PROFILE_ID && p.attempt === raw.nextAttempt && integer(p.seed, 0, 4294967295), 'Invalid encounter identity');
         requireValue(p.level === 1 + Math.floor(draw(p.seed, 0x11) * 3) && integer(p.exchange) && integer(p.offBalance, 0, 1) && typeof p.settled === 'boolean' && (!p.settled || p.offBalance === 0), 'Invalid pending encounter');
     }
@@ -45,13 +46,14 @@ export function readProfileState(raw) {
 function contextReady(context) {
     requireValue(context?.worldId === WORLD_ID && context?.locationId === AREA_ID && context?.nativeEligible === true, 'Native world/location/body admission required');
 }
-export function beginAttempt(raw, {seed, ...context}) {
+export function beginAttempt(raw, {seed,tower, ...context}) {
     contextReady(context);
     const state = readProfileState(raw);
     requireValue(state.pending === null, 'Finish or leave the pending attempt first');
     requireValue(integer(seed, 0, 4294967295), 'Native saved RNG seed required');
     state.pending = {profileId: PROFILE_ID, attempt: state.nextAttempt, seed,
-        level: 1 + Math.floor(draw(seed, 0x11) * 3), exchange: 0, offBalance: 0, settled: false};
+        level: 1 + Math.floor(draw(seed, 0x11) * 3), exchange: 0, offBalance: 0, settled: false,...(tower?{tower:clone(tower)}:{})};
+    readProfileState(state);
     return state;
 }
 function pendingState(raw) {
@@ -61,9 +63,10 @@ function pendingState(raw) {
 }
 export function enemySpecification(raw) {
     const {pending: p} = pendingState(raw);
+    const stats=statsForLevel(p.level);if(p.tower){const scale=1+0.15*(p.tower.floor-1)+0.1*p.tower.repeat;for(const key of ['health','attack','defense'])stats[key]=Math.round(stats[key]*scale*100)/100;}
     return {id: ENEMY_ID, name: ENEMY_ID, description: PROFILE.description,
         rank: p.level, xp_value: p.level * 2, size: 'medium', add_to_bestiary: true,
-        tags: ['inanimate'], stats: statsForLevel(p.level), loot_list: []};
+        tags: ['inanimate'], stats, loot_list: []};
 }
 // Preview reads the SAME saved draw as resolution and never advances the cursor.
 export function previewExchange(raw, context) {
@@ -93,7 +96,7 @@ export function planSettlement(raw, {eventId, rank, dropChanceModifier = 1, defe
     requireValue(p && eventId === `p23.reed-circle:${p.attempt}:kill` && defeated === true && rank === p.level, 'Real matching settled kill required');
     requireValue(Number.isFinite(dropChanceModifier) && dropChanceModifier >= 0, 'Invalid native luck/drop modifier');
     if (p.settled) return {duplicate: true, eventId, loot: [], state};
-    const chance = Math.min(1, PROFILE.drop.chance * (1 + (rank - 1) * 0.25) * dropChanceModifier);
+    const chance = Math.min(1, PROFILE.drop.chance * (1 + (rank - 1) * 0.25) * dropChanceModifier/(1+(p.tower?.repeat||0)));
     const loot = draw(p.seed, 0x33) < chance ? [{item_id: PROFILE.drop.item_id, count: 1}] : [];
     p.settled = true; p.offBalance = 0;
     return {duplicate: false, eventId, chance, loot, state};

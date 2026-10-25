@@ -53,3 +53,19 @@ test('save slice validates and migrates; absent slice is null, ledger is derived
     load(s);assert.equal(JSON.stringify(domainRegistry.save({}).household_fortunes).includes('obligations'),false);
     const l=collectFortuneObligations({career:{debt:5}});assert.deepEqual(l.rows.map(r=>r.id),['career:kitDebt']);
 });
+import {bodyKey} from '../src/craft_body_treatment.js';
+test('recipient medicine moves the actual old-age boundary for its own body and no other household member',()=>{
+ const body={id:'native.person.home.manor.steward.body',form:'human'},treated=ctx();treated.people[STEWARD].body=body;treated.staffFacts[STEWARD]={'home.medicineBinding':bodyKey({body})};treated.staffResources[STEWARD]['home.medicineConditioning']=20;
+ load(null);run(0,treated);let r=run(8*360*1440,treated);assert.equal(r.calls.effects.some(e=>e.type==='life'&&e.actor===STEWARD),false,'one supported extra year postpones this exact boundary');
+ r=run(9*360*1440,treated);assert.equal(r.calls.effects.some(e=>e.type==='life'&&e.actor===STEWARD),true,'ordinary old age still occurs at the extended boundary');
+ treated.people[STEWARD].body={...body,instanceId:'replacement'};load(null);run(0,treated);r=run(8*360*1440,treated);assert.equal(r.calls.effects.some(e=>e.type==='life'&&e.actor===STEWARD),true,'a different body does not receive the previous body medicine');
+ load(null);
+});
+
+import {layoutQiAtBed} from '../src/home_layout_domain.js';
+import {freshLayout} from '../src/home_layout.js';
+import {QI_FIELD} from '../src/cultivation_items.js';
+import {observeToday} from '../src/household_fortunes_domain.js';
+test('awakening reads the candidate’s powered physical bed field, and observed awakening is a source-owned read',()=>{
+ const layout=domainRegistry.list().find(d=>d.id==='home_layout');layout.load({family:'home_layout@1',homes:{manor:freshLayout('manor')}});const fixtures={qi:{key:'{"id":"Home condensate cradle"}'},bed:{key:'{"id":"Home plain bed"}'}};const h=manor({fixtures}),c=ctx({extra:{world:'base.frontier',clock:10,conditions:{[KEEPER]:{[QI_FIELD]:{intensity:1,expiresAt:20}}},people:{[KEEPER]:{life:'alive',location:'Arlmere family manor'}}}});assert.ok(layoutQiAtBed('manor','base.frontier',fixtures,true)>0);assert.ok(observeToday(c,h).qi>0);assert.equal(observeToday({...c,clock:20},h).qi,0);assert.equal(observeToday({...c,people:{[KEEPER]:{life:'alive',location:'Village'}}},h).qi,0);load(null);assert.equal(domainRegistry.command('household_fortunes','observedAwakened')(KEEPER),null);layout.load(null);
+});

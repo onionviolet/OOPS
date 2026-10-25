@@ -50,7 +50,7 @@ import {createCombatOptionsPanel} from './absorb_p23/host_joins/combat_options_u
 import {TACTICS,createCombatOptions,validateCombatOptions} from './absorb_p23/combat_options/runtime.js';
 import {createLivingGearPanel} from './absorb_p23/host_joins/tranche_two_ui.js';
 import {createLivingGear,registerLivingGearItems,LIVING_GEAR} from './absorb_p23/living_gear/index.js';
-import {livingGearKind,stageLivingEquip} from './absorb_p23/host_joins/tranche_two.js';
+import {livingGearKind,stageLivingEquip,stageLivingTime} from './absorb_p23/host_joins/tranche_two.js';
 import inventoryTemplates from './data/inventory_templates.js';
 import {TradeItem,TradeItemGroup} from './models/trade_item.js';
 import {PROTO23_IDS} from './proto23_world_ids.js';
@@ -574,7 +574,7 @@ const heirRequest = (() => {
 registerBookSubtletyCatalogue(expeditionRegistry);
 const agencyIntegrity=validateBookWorldAgencyContracts();if(!agencyIntegrity.valid)throw new Error(`Invalid book-world source contracts: ${agencyIntegrity.errors.join('; ')}`);
 expeditionRegistry.bookPlayerAgency={contracts:BOOK_WORLD_AGENCY_CONTRACTS,nativeBindings:new Map([['reincarnation-paradise',{revision:1,worldIds:PARADISE_FOOTPRINTS.map(f=>f.worldId),scope:'first-Goa supplied-MTL alternate branch',status:'implemented-unverified'}],['mother-of-learning',{revision:1,worldIds:MOL_FOOTPRINTS.map(f=>f.worldId),scope:'Cyoria academy independent visitor branch',status:'implemented-unverified'}]])};
-import {createLifeRecord, migrateLifeRecord, observeLifeSave, appendLifeMilestone, lifeCalendarMinute} from './life_record.js';
+import {createLifeRecord, migrateLifeRecord, observeLifeSave, appendLifeMilestone, lifeCalendarMinute,reflectionMessage} from './life_record.js';
 import {createLifeRecordPanel} from './life_record_ui.js';
 import {normalizeTitles, grantEarnedTitles, titleView, title_by_id, describeTitleBonus, yearsSince, titleCalendarMinute} from './titles.js';
 import {createTitlesPanel} from './titles_ui.js';import {rankFacts,promotionText} from './faction_rank.js';
@@ -610,7 +610,7 @@ const lifeSaveStorage = {
     setEnvelope(key, save, onDurable, {force = false} = {}) {
     const next = observeLifeSave(save.life_record ?? createLifeRecord(), save);
     save.life_record = next;
-    const nextNpc = save.npc_lives == null ? null : advanceVillageLives(save.npc_lives, save['current time'].year);
+    const nextNpc = save.npc_lives == null ? null : advanceVillageLives(domainRegistry.command('life_events','stageFamily')?.(save)||save.npc_lives, save['current time'].year);
     if(nextNpc) save.npc_lives = nextNpc;
     if(authorityBootError)throw authorityBootError;
     if(authorityBootPending)throw Error('The enrolled save is awaiting complete native preflight.');
@@ -649,30 +649,30 @@ inventoryTemplates.Basic.unshift(new TradeItemGroup({items:[new TradeItem({item_
 let p23Salvage,readingSalvagePanel;
 let p23Growth,p23GrowthEarned,growthPanel,p23GrowthCounter;
 let mistglassKeeper,mistglassPanel;
-function nativeMistglassContext(state=expansionState,location=current_location?.id){return mistglassContext(state,{body:currentNativeBody(),alive:character.is_alive&&!active_effects.Recovering,location,inventory:readInventoryOwner(character.getItems()),materialClock:calendarMinutes(current_game_time),effectsEnabled:document.documentElement.dataset.effects!=='off'});}
+function nativeMistglassContext(state=expansionState,location=current_location?.id){return mistglassContext(state,{body:currentNativeBody(),alive:character.is_alive&&!active_effects.Recovering,location,inventory:readInventoryOwner(character.getItems()),materialClock:calendarMinutes(current_game_time),wallNowMs:Date.now(),ruleRelic:domainRegistry.command('vessel_thread','support')?.()??null,lawMemory:!continuationState?.challenge?continuationState?.lawMemory?.anchored:null,rootAffinity:domainRegistry.command('inherited_traits','cultivationAffinity')?.()??null,choiceWaiting:!!waitingSimulationChoice(state)||state.chronicle?.session?.policy==='manual',effectsEnabled:document.documentElement.dataset.effects!=='off'});}
 function mistglassCanAct(){return workLedgerCanWrite()&&character.is_alive&&!active_effects.Recovering&&!current_combat&&!current_activity&&!current_dialogue&&!current_game_action&&!is_sleeping&&!is_reading&&!is_in_trade()&&nativeActionReasons(expansionState).length===0;}
 function refreshMistglassStock(){
     if(!workLedgerCanWrite()||expansionState.actors.player.worldId!==MISTGLASS.worldId||current_location.id!==MISTGLASS_LOCATION)throw Error('Visit the actual conservatory keeper in the writable game.');
-    const plan=p23Plan();if(!stageMistglassRestock(plan))return false;
+    const plan=p23Plan();if(!stageMistglassRestock(plan,{inventory:readInventoryOwner(mistglassKeeper.getTradeInventory())}))return false;
     persistExpansion(plan,{[MISTGLASS_KEEPER]:{category:'trader',id:MISTGLASS_KEEPER}},{[MISTGLASS_KEEPER]:mistglassKeeper.getTradeInventory()});return true;
 }
 function actMistglass(id){
     if(!mistglassCanAct())throw Error('Finish current native work before this conservatory choice.');
     if(!expansionState.simulation?.people.player)throw Error('Choose Follow local people and work first.');
-    const plan=p23Plan(),inside=expansionState.actors.player.worldId===MISTGLASS.worldId;
+    const previousClock=expansionState.clock,plan=p23Plan(),inside=expansionState.actors.player.worldId===MISTGLASS.worldId;
     if(id==='trade'){if(!inside||current_location.id!==MISTGLASS_LOCATION)throw Error('Visit the keeper first.');window.startTrade(MISTGLASS_KEEPER);return;}
     if(id==='enter'){
         const first=!plan.state.mistglassRealm;stageMistglassTravel(plan,'enter',{fromLocation:current_location.id});
         if(first)stageMistglassRestock(plan,{forceInitial:true});
     }else if(id==='exit')stageMistglassTravel(plan,'exit');
     else if(id==='learn')stageMistglassTeaching(plan,nativeMistglassContext(plan.state),expeditionRegistry,{quoteXP:p00NativeSkillXP});
-    else if(id.startsWith('method:'))stageMistglassMethod(plan,nativeMistglassContext(plan.state),expeditionRegistry,id.slice(7));else if(id==='sluice')stageMistglassSluice(plan,nativeMistglassContext(plan.state),expeditionRegistry);else if(id==='trial'){
+    else if(id.startsWith('method:'))stageMistglassMethod(plan,nativeMistglassContext(plan.state),expeditionRegistry,id.slice(7),{advance:(p,n)=>advanceChroniclePlan(p,n,true)});else if(id==='sluice')stageMistglassSluice(plan,nativeMistglassContext(plan.state),expeditionRegistry);else if(id==='trial'){
         if(!skills.Meditation.canGainXP(get_context()))throw Error('Learn native Meditation before purification.');
         const key=Object.entries(character.getItems()).find(([,r])=>r.item.id===MISTGLASS.doseItemId&&r.count>0)?.[0];
         if(!key)throw Error('Buy a Cloudseed dose from the keeper.');assertNativeItemDisposition(expansionState,key);
         stageMistglassTrial(plan,nativeMistglassContext(plan.state),expeditionRegistry,{doseKey:key,quoteXP:p00NativeSkillXP});
     }else throw Error('Unknown conservatory choice.');
-    persistExpansion(plan,{[MISTGLASS_KEEPER]:{category:'trader',id:MISTGLASS_KEEPER}},{[MISTGLASS_KEEPER]:mistglassKeeper.getTradeInventory()});mistglassPanel?.render();
+    persistExpansion(plan,{[MISTGLASS_KEEPER]:{category:'trader',id:MISTGLASS_KEEPER}},{[MISTGLASS_KEEPER]:mistglassKeeper.getTradeInventory()});if(plan.state.clock>previousClock)domainRegistry.tick(plan.state.clock-previousClock);mistglassPanel?.render();
 }
 function mistglassFrame(){
     const inside=expansionState.actors.player.worldId===MISTGLASS.worldId,c=nativeMistglassContext(),key=Object.entries(character.getItems()).find(([,r])=>r.item.id===MISTGLASS.doseItemId&&r.count>0)?.[0],known=knownMistglassView(expansionState,c,key);
@@ -957,7 +957,7 @@ function trainingTravelPlan(to,{profile,encounter,allowFainted=false}={}) {
         [`availabilities/location/${AREA_ID}`]:1,...(profile===undefined?{}:{p23EncounterProfile:profile})};
     return plan;
 }
-function actTraining(id) {
+function actTraining(id,options={}) {if(id.startsWith('tower:'))return domainRegistry.command('dojoTower','act')(id);
     if(id==='defensive'||id==='normal') {
         if(current_location.id!==AREA_ID||!current_combat||!trainingContext().nativeEligible||!stances[id]?.isUnlocked())throw Error('Choose an available native stance in the actual training fight.');
         change_stance({stance_id:id});trainingPanel?.render();return;
@@ -967,7 +967,7 @@ function actTraining(id) {
         const anchor=expansionState,plan=trainingTravelPlan(AREA_ID),profile=readProfileState(p23EncounterProfile);
         if(profile.pending)throw Error('Finish or leave the actual pending training attempt first.');
         const seed=Math.floor(drawUnit(plan.state,scopedStream(STREAMS.encounter,WORLD_ID),`${PROFILE_ID}:${profile.nextAttempt}`)*0x100000000)>>>0;
-        const next=beginAttempt(profile,{seed,worldId:WORLD_ID,locationId:AREA_ID,nativeEligible:true});
+        const tower=domainRegistry.command('dojoTower','stageEntry')?.(plan,{...options,attempt:profile.nextAttempt});const next=beginAttempt(profile,{seed,tower,worldId:WORLD_ID,locationId:AREA_ID,nativeEligible:true});
         plan.nativePatch.p23EncounterProfile=next;plan.nativePatch.native_encounter=initialTrainingEncounter(next,Enemy);
         if(expansionState!==anchor)throw Error('The actual training admission changed.');
         persistExpansion(plan);trainingPanel?.render();return;
@@ -976,13 +976,13 @@ function actTraining(id) {
         if(current_location.id!==AREA_ID||!p23EncounterProfile?.pending||!trainingContext().nativeEligible)throw Error('Leave your actual live training attempt.');
         if(current_combat) {
             runP23CombatExchange(current_combat,()=>{
-                p23EncounterProfile=finishAttempt(p23EncounterProfile,{...trainingContext(),abandon:true});
+                domainRegistry.command('dojoTower','finishLive')?.({attempt:p23EncounterProfile.pending.attempt,outcome:options.towerDraw?'draw':'withdrew'});p23EncounterProfile=finishAttempt(p23EncounterProfile,{...trainingContext(),abandon:true});
                 p23EscapeDestination=PROTO23_LOCATIONS.dojo;
                 return {ended:true};
             });
         } else {
             const profile=finishAttempt(p23EncounterProfile,{...trainingContext(),abandon:true});
-            persistExpansion(trainingTravelPlan(PROTO23_LOCATIONS.dojo,{profile,encounter:null}));
+            const plan=trainingTravelPlan(PROTO23_LOCATIONS.dojo,{profile,encounter:null});domainRegistry.command('dojoTower','stageFinish')?.(plan,{attempt:p23EncounterProfile.pending.attempt,outcome:options.towerDraw?'draw':'withdrew'});persistExpansion(plan);
         }
         trainingPanel?.render();return;
     }
@@ -1004,7 +1004,7 @@ function trainingFrame() {
         {id:'defensive',label:'Use Defensive Measures',disabled:!stances.defensive.isUnlocked()||!current_combat},
         {id:'normal',label:'Use normal stance',disabled:!current_combat},
         {id:'leave',label:'Leave alive for the dojo · no training rewards'}];
-    if(!stances.defensive.isUnlocked())lines.push('Defensive Measures is still locked. Learn it through your existing native route; this rung grants no stance.');
+    const tower=domainRegistry.command('dojoTower','presentation')?.(at);if(tower){lines.push(...tower.lines);actions.push(...tower.actions);}if(!stances.defensive.isUnlocked())lines.push('Defensive Measures is still locked. Learn it through your existing native route; this rung grants no stance.');
     return {visible:true,lines,actions,disabled:!trainingContext().nativeEligible||(at===PROTO23_LOCATIONS.dojo&&!!current_combat)};
 }
 function trainingHooks() {
@@ -1035,9 +1035,9 @@ function trainingHooks() {
             if(settlement?.duplicate)return;
             if(!settlement||settlement.expected!==p23EncounterProfile||fighter!==character||target!==combat.defenders[0])throw Error('The native training settlement quote changed.');
             const zone=locations[AREA_ID];if(zone.enemy_groups_killed>=Number.MAX_SAFE_INTEGER)throw Error('Training group cursor exhausted.');
-            p23EncounterProfile=finishAttempt(settlement.state,trainingContext());zone.enemy_groups_killed++;
+            domainRegistry.command('dojoTower','finishLive')?.({attempt:settlement.pending.attempt,outcome:'won'});p23EncounterProfile=finishAttempt(settlement.state,trainingContext());zone.enemy_groups_killed++;
             p23EncounterReceipt={schema:1,eventId:settlement.eventId,attempt:settlement.pending.attempt,seed:settlement.pending.seed,
-                level:settlement.pending.level,clock:expansionState.clock,completed:p23EncounterProfile.completed,dropChanceModifier,loot:structuredClone(settlement.areaLoot)};
+                level:settlement.pending.level,clock:expansionState.clock,completed:p23EncounterProfile.completed,dropChanceModifier,loot:structuredClone(settlement.areaLoot),...(settlement.pending.tower?{tower:structuredClone(settlement.pending.tower)}:{})};
             do_quest_event({quest_event_type:'clear',quest_event_target:AREA_ID,quest_event_count:1});
             nativeCraftMessage(`Native receipt ${settlement.eventId}: level ${settlement.pending.level} training clear. Return to the dojo to repeat.`,'notification');
             p23EscapeDestination=PROTO23_LOCATIONS.dojo;
@@ -1059,7 +1059,7 @@ function livingOwnerFromSave(save){return createLivingGear(save.p23_living_gear)
 function livingOwner(){return createLivingGear(p23LivingGear);}
 function livingEquipment(){return Object.fromEntries(Object.entries(character.getEquipment()).filter(([,item])=>{if(!item)return false;try{assertNativeItemDisposition(expansionState,item.getInventoryKey());assertNativeItemDisposition(expansionState,canonicalDurabilityKey(item.getInventoryKey()));return true;}catch{return false;}}));}
 function livingProjection(){if(restoringNativeSave)return {attackMultiplier:1,lightBonus:0};return livingOwner().project({equipment:livingEquipment(),time:current_game_time,assertDisposition:key=>{assertNativeItemDisposition(expansionState,key);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(key));}});}
-function livingEffects(){if(p23LivingGear===undefined)return {};const p=livingProjection();return {'Living equipment':{tags:{},effects:{stats:{attack_power:{multiplier:p.attackMultiplier}},bonus_skill_levels:{},xp_multipliers:{}}}};}
+function livingEffects(){if(p23LivingGear===undefined)return {};const p=livingProjection();if(p.attackMultiplier===1&&p.lightBonus===0)return {};return {'Living equipment':{id:'Living equipment',name:'Living equipment',description:`Equipped living pieces: attack ×${p.attackMultiplier.toFixed(5)}, local light +${p.lightBonus}.`,tags:{buff:true},effects:{stats:{attack_power:{multiplier:p.attackMultiplier}},bonus_skill_levels:{},xp_multipliers:{}}}};}
 character.setNativeLightBonusReader(()=>p23LivingGear===undefined?0:livingProjection().lightBonus);
 let pendingNativeEncounter = null;
 setFieldcraftKnowledgeReader(()=>expansionState);
@@ -1349,6 +1349,7 @@ function p00HouseholdEffects(plan,result){
 function stageP00Time(plan){
     const elapsed=plan.state.clock-expansionState.clock;
     if(elapsed>0&&!restoringNativeSave){
+        if(p23LivingGear!==undefined)stageLivingTime(plan,{gear:livingOwner(),fromClock:expansionState.clock,equipment:livingEquipment(),assertDisposition:key=>{assertNativeItemDisposition(plan.state,key);assertNativeItemDisposition(plan.state,canonicalDurabilityKey(key));}});
         plan.gameplay ||= gameplaySnapshot();
         stageExposureJoin(plan,p23Exposure,expansionState.clock,p00ExposureContext());
         if(household){
@@ -1993,7 +1994,7 @@ function renderPublicationPanels() {
         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();
         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
         knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
-        growthPanel?.render();mistglassPanel?.render();
+        growthPanel?.render();mistglassPanel?.render();domainRegistry.refresh();
         expansionQuests?.render();
         trancheFourPanel?.render();lifeRecordPanel?.render();
         characterBio?.render();
@@ -3249,7 +3250,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         throw `No such location as "${location_id}"`;
     }
 
-    if((Object.keys(residenceState()?.properties||{}).length>0||p23Exposure!==undefined||household!==undefined||p23LivingGear!==undefined||p23CombatOptions!==undefined||p23Salvage!==undefined||expansionState.p23Reading!==undefined||p23Field!==undefined||p23Repeat!==undefined||p23Market!==undefined||p23Leisure!==undefined)&&!realm_move&&!restoringNativeSave&&!skip_travel_time&&previous_location&&location.id!==previous_location.id){
+    if((expansionState.worlds?.['base.frontier']?.facts?.['drainage.seed']!==undefined||Object.keys(residenceState()?.properties||{}).length>0||p23Exposure!==undefined||household!==undefined||p23LivingGear!==undefined||p23CombatOptions!==undefined||p23Salvage!==undefined||expansionState.p23Reading!==undefined||p23Field!==undefined||p23Repeat!==undefined||p23Market!==undefined||p23Leisure!==undefined)&&!realm_move&&!restoringNativeSave&&!skip_travel_time&&previous_location&&location.id!==previous_location.id){
         if(!pathfinder){pathfinder=new Pathfinder();pathfinder.fill_connections(locations);}
         travel_times[previous_location.id] ||= pathfinder.find_shortest_paths(previous_location.id);
         const running=revealFacts()['reveal.run']===true&&character.getTotalSkillLevel('Running')>=1&&!practiceRunReason();
@@ -3314,6 +3315,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         progress_time({value: Math.max(1,Math.ceil(travel_times[previous_location.id][current_location.id]*(running?.8:1))), source: "travel"});
     }
 
+    travel_times[current_location.id] ||= pathfinder.find_shortest_paths(current_location.id); // Time consumers may invalidate the derived path cache.
     update_displayed_temperature(getPacingEffects(homePacingContext()));
     if(game_options.change_background_color) {
         set_light_based_background_color(!current_location.is_under_roof);
@@ -3361,7 +3363,7 @@ function refreshCustomization() {
     if(deferSimulationRender(refreshCustomization, refreshCustomization)) return;
     if(!customization)return;
     document.documentElement.dataset.effects=customization.profiles?.[customization.active]?.settings?.effects||'full'; // settings pass S3: save-level Effects caps per-browser motion
-    applyCustomizationProfile(customization,{season:current_game_time.getSeason(),moduleNodes:{ledger:document.getElementById('work_ledger_panel'),crafting:document.getElementById('crafting_window'),'local-actions':document.getElementById('location_related_div'),vitals:document.getElementById('basic_character_info_div'),preparation:[document.getElementById('character_div'),document.getElementById('proto23_character')],belongings:[document.getElementById('proto23_item_detail'),document.getElementById('inventory_div'),document.getElementById('inventory_combat_switch_selection')],records:document.getElementById('journal_div'),time:document.getElementById('time_and_location'),location:document.getElementById('location_div'),skills:document.getElementById('skills_and_stances_div'),messages:document.getElementById('message_log_div'),notebook:document.getElementById('adventure_notebook'),'status-window':document.getElementById('status_window_panel'),customization:[document.getElementById('customization_host'),document.getElementById('customization_effects_host'),document.getElementById('customization_rules_host')]}});
+    applyCustomizationProfile(customization,{season:current_game_time.getSeason(),moduleNodes:{ledger:document.getElementById('work_ledger_panel'),crafting:[document.getElementById('crafting_window'),document.getElementById('crafting_engine_home')],'local-actions':[document.getElementById('location_related_div'),...['p23_mistglass_panel','root_retuning_panel','vessel_thread_panel','cultivation_intents_panel','drainage_site_panel','home_panel','cohort_battle_panel'].map(id=>document.getElementById(id))],vitals:document.getElementById('basic_character_info_div'),preparation:[document.getElementById('character_div'),document.getElementById('proto23_character')],belongings:[document.getElementById('proto23_item_detail'),document.getElementById('inventory_div'),document.getElementById('inventory_combat_switch_selection')],records:[document.getElementById('journal_div'),document.getElementById('personal_journal_panel'),document.getElementById('combat_review_panel')],time:document.getElementById('time_and_location'),location:document.getElementById('location_div'),skills:document.getElementById('skills_and_stances_div'),messages:document.getElementById('message_log_div'),notebook:document.getElementById('adventure_notebook'),'status-window':document.getElementById('status_window_panel'),customization:[document.getElementById('customization_host'),document.getElementById('customization_effects_host'),document.getElementById('customization_rules_host')]}});
     customizationPanel?.refresh();workLedgerAuthor?.refresh();
 }
 function saveCustomization(next) {
@@ -4768,11 +4770,11 @@ function runP23CombatExchange(combat,resolve) {
         validateCombatOptions(combat.combatOptions?.snapshot());if(p23LivingGear!==undefined)createLivingGear(p23LivingGear);
         transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),...combat.defenders,...combat.defenders.map(enemy=>enemy.getLevelableComponent()),...(current_location.id===AREA_ID?[locations[AREA_ID],locations[AREA_ID].getAvailabilityComponent()]:[]),item_log,game_stats,global_flags,availabilities,enemy_killcount,favourite_consumables,favourite_items,favourite_locations,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,active_effects,...nativeCraftQuestOwners(quests,active_quests)],
-            bindings:[moneyLedgerBinding,defeatBinding,{get:()=>harvestOwner,set:v=>{setHarvestOwner(v);}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}}]});
+            bindings:[moneyLedgerBinding,defeatBinding,...(domainRegistry.command('combatReview','combatBindings')?.()||[]),...(domainRegistry.command('pledges','combatBindings')?.()||[]),{get:()=>harvestOwner,set:v=>{setHarvestOwner(v);}},{get:()=>p23Growth,set:v=>{p23Growth=v;}},{get:()=>p23GrowthEarned,set:v=>{p23GrowthEarned=v;}},{get:()=>p23EncounterProfile,set:v=>{p23EncounterProfile=v;}},{get:()=>p23EncounterReceipt,set:v=>{p23EncounterReceipt=v;}},{get:()=>pendingNativeEncounter,set:v=>{pendingNativeEncounter=v;}},{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{setCurrentLocation(v);}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{setTravelTimes(v);}}]});
         scope={transaction,messages:[]};nativeP23Scope=scope;nativeCraftScopes.push(scope);
         nativeP23Transaction=transaction;nativeLivingStrike=true;result=resolve();
         if(combat.combatOptions)p23CombatOptions=combat.combatOptions.snapshot();
-        if((p23EscapeDestination||p23FaintDeparture)&&current_location.id===AREA_ID&&p23EncounterProfile?.pending)p23EncounterProfile=finishAttempt(p23EncounterProfile,{...trainingContext({allowFainted:true}),abandon:true});
+        if((p23EscapeDestination||p23FaintDeparture)&&current_location.id===AREA_ID&&p23EncounterProfile?.pending){domainRegistry.command('dojoTower','finishLive')?.({attempt:p23EncounterProfile.pending.attempt,outcome:p23FaintDeparture?'lost':'withdrew'});p23EncounterProfile=finishAttempt(p23EncounterProfile,{...trainingContext({allowFainted:true}),abandon:true});}
         if(p23EscapeDestination||p23FaintDeparture){
             const destination=p23EscapeDestination||p23FaintDeparture.destination,paths=new Pathfinder();paths.fill_connections(locations);
             const minutes=paths.find_shortest_paths(current_location.id)[destination];
@@ -6203,11 +6205,11 @@ function continuationOccupied() {return !!(current_activity||current_game_action
 function observeContinuationLearning() {
     if(!continuationState||importProbeToken||authorityOperationBusy||!global_flags.is_hero_created)return;
     const skill_xp=Object.fromEntries(Object.entries(character.getLevelableComponent().skill_progress).map(([id,p])=>[id,p.total_xp]));
-    observeContinuation({'current time':current_game_time,continuation:continuationState,life_record:lifeRecord,levels:{person:{main_character:{skill_xp}}}},
+    observeContinuation({'current time':current_game_time,continuation:continuationState,expansion:expansionState,life_record:lifeRecord,levels:{person:{main_character:{skill_xp}}}},
         {canStudy:continuationCanWrite()&&!continuationOccupied()&&!continuationState.arrivalPaused&&character.getBio().race==='human'&&character.getBio().age==='adult',knownSkills:Object.keys(skill_xp).filter(id=>skills[id]&&nativeSkillDiscovery(skills[id],character))});
 }
 function readContinuationUI() {
-    const partial={continuation:continuationState,expansion:expansionState,content_packs:optionalPackState,character:{bio:character.getBio()},'current time':current_game_time};
+    const partial={inventories:{person:{main_character:readInventoryOwner(character.getItems())}},observedCraftEffects:domainRegistry.command('crafting','observedEffects')?.()||[],pledges:domainRegistry.project('pledges')?.state,continuation:continuationState,expansion:expansionState,content_packs:optionalPackState,character:{bio:character.getBio(),money:character.money},'current time':current_game_time};
     return {...continuationView(partial),created:!!global_flags.is_hero_created,legacy:hasLoadedNativeSave,
         canWrite:continuationCanWrite()&&!authorityOperationBusy,busy:continuationOccupied()};
 }
@@ -9227,7 +9229,7 @@ function readTitleCounters() {
         playtime_hours: game_stats.total_playtime / 3600,
         money: character.money,
         home_minutes:localLife.homeMinutes,
-        items_bought:localLife.itemsBought,rep_village:character.reputation.Village,
+        items_bought:localLife.itemsBought,rep_village:character.reputation.Village,...(domainRegistry.command('pledges','milestoneCounters')?.()||{}),
     };
 }
 
@@ -9480,17 +9482,17 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 for(const make of [createLocalLivelihoodContent,createWarmHandStartContent,createLanternLoanStartContent,createSlakeBenchStartContent])await registerStructuredNative(make());
-configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),skill:character.getTotalSkillLevel('Literacy'),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
-    itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:key=>assertNativeItemDisposition(expansionState,key),addSkillXp:(skill,xp)=>add_xp_to_skill({skill:skills[skill],xp_to_add:xp,use_bonus:false,cap_gained_xp:false}),
+configureCraftingDomain({actor:()=>character,read:()=>({body:currentNativeBody(),mind:character.getFullStats().intuition,inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),skill:character.getTotalSkillLevel('Literacy'),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
+    itemOwners:()=>[character,character.getItems(),character.getLevelableComponent(),item_log,favourite_items,favourite_consumables,global_flags,availabilities,...Object.values(skills).map(s=>s.getAvailabilityComponent()),which_skills_affect_skill,...nativeCraftQuestOwners(quests,active_quests)],assertSpend:key=>assertNativeItemDisposition(expansionState,key),addSkillXp:(skill,xp)=>add_xp_to_skill({skill:skills[skill],xp_to_add:xp,use_bonus:false,cap_gained_xp:false}),
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_character_inventory();update_displayed_effects();update_displayed_crafting_recipes();}});
-configureNativeToolDomains({root:()=>expansionState,plan:minutes=>{const p=p23Plan();return minutes?advanceChroniclePlan(p,minutes,true):p;},commit:persistExpansion,registry:expeditionRegistry,actor:()=>character,world:()=>expansionState.actors.player.worldId,templates:item_templates,itemFactory:getItemFromKey,craftsman:()=>NPCRegistry.get('oldCraftsman'),craftsmanHere:()=>current_location?.npcs?.includes('oldCraftsman')&&NPCRegistry.get('oldCraftsman').getDialogueAvailability().getStatus().is_unlocked&&(!expansionState.simulation?.people.oldCraftsman||expansionState.simulation.people.oldCraftsman.life==='alive'&&expansionState.simulation.people.oldCraftsman.location===current_location.id),skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
+configureNativeToolDomains({cohortBattle:{resume:()=>featureBattleHost.resume(featureBattleToken(expansionState)),act:c=>featureBattleHost.act(c),view:()=>featureBattleHost?.view(),running:()=>featureBattleHost?.isRunning()||false},lifeRecord:()=>lifeRecord,refreshPractice:()=>mistglassPanel?.render(),worldWorkBlocked:nativeOccupationReason,locations,SafeLocation:OptionalPackLocation,body:currentNativeBody,refreshScene:()=>{if(current_location){update_pathing();if(current_location.tags.safe_zone)update_displayed_normal_location(current_location);}},tradeWritable:()=>workLedgerCanWrite()&&!restoringNativeSave&&!lifeStorageFailure&&character.is_alive,trader:id=>NPCRegistry.get(id).getTraderComponent(),currentTrader:()=>current_trader,refreshTrade:()=>update_displayed_trader_inventory(),trainingAction:(id,options)=>actTraining(id,options),trainingProfile:()=>p23EncounterProfile,combat:()=>current_combat,continuation:()=>continuationState,villageLives:()=>npcLives,setVillageLives:value=>{npcLives=value;},root:()=>expansionState,skills:()=>skills,plan:minutes=>{const p=p23Plan();return minutes?advanceChroniclePlan(p,minutes,true):p;},commit:persistExpansion,registry:expeditionRegistry,actor:()=>character,world:()=>expansionState.actors.player.worldId,templates:item_templates,itemFactory:getItemFromKey,craftsman:()=>NPCRegistry.get('oldCraftsman'),craftsmanHere:()=>current_location?.npcs?.includes('oldCraftsman')&&NPCRegistry.get('oldCraftsman').getDialogueAvailability().getStatus().is_unlocked&&(!expansionState.simulation?.people.oldCraftsman||expansionState.simulation.people.oldCraftsman.life==='alive'&&expansionState.simulation.people.oldCraftsman.location===current_location.id),skillLevel:skill=>character.getTotalSkillLevel(skill),stationTier:kind=>current_location?.crafting?.tiers?.[kind]||0,location:()=>current_location?.id,count:id=>character.getItems()[item_templates[id].getInventoryKey()]?.count||0,
     itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables,expansionState.streams,NPCRegistry.get('oldCraftsman').getItems()],assertSpend:id=>assertNativeItemDisposition(expansionState,id.startsWith('{')?id:item_templates[id].getInventoryKey()),
     addItem:(id,count)=>character.addToInventory([{item_id:id,count}]),removeItem:(id,count)=>character.removeFromInventory([{item_key:item_templates[id].getInventoryKey(),item_count:count}]),
     persist:markDurable=>{const save=create_save();if(!save)throw Error('The tool repair could not be saved.');validateSaveEnvelope(JSON.parse(save),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,save,markDurable);},
     refresh:()=>{character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();durabilityPanel?.render();localLifePanel?.render();practicePanel?.render();},
-    blocked:harvestBlockReason,writable:harvestWritable,idle:()=>!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),
+    blocked:harvestBlockReason,writable:harvestWritable,sleeping:()=>is_sleeping,idle:()=>!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),
     random:key=>gameKeyedRandom(STREAMS.craft,key),logMessage:log_message,locationRevealed:id=>locations[id].isUnlocked(),revealLocation:id=>unlock_location({location:locations[id]})});
 configureHomes({registry:expeditionRegistry,root:()=>expansionState,locations,refreshPlace:()=>{if(current_location?.tags.safe_zone)update_displayed_normal_location(current_location);},pathing:()=>{if(current_location)update_pathing();},bedAccess:(id,available)=>{if(available)unlocked_beds[id]=true;else delete unlocked_beds[id];},SafeLocation:OptionalPackLocation,itemFactory:getItemFromKey,assertSpend:key=>assertNativeItemDisposition(expansionState,key),
     read:()=>({world:expansionState.actors.player.worldId,location:current_location?.id,clock:expansionState.clock,sequence:expansionState.sequence,body:currentNativeBody(),money:character.money,workers:expansionState.simulation?.people||{},
@@ -9685,9 +9687,9 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         render:error=>{if(error)nativeBattlePauseReason=error;frontierCampaignPanel?.render();partyPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();}});
     featureBattleHost=createFeatureBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState:()=>expansionState,getContext:featureWaveContext,persist:persistExpansion,
         getCombat:()=>current_combat,setCombat:c=>{current_combat=c;},endCombat:end_combat,
-        attackersSlot:()=>document.getElementById('feature_battle_attackers'),defendersSlot:()=>document.getElementById('feature_battle_defenders'),
+        attackersSlot:()=>document.getElementById(expansionState.simulation?.sessions.player?.nativeBattle?.schema===6?'cohort_attackers':'feature_battle_attackers'),defendersSlot:()=>document.getElementById(expansionState.simulation?.sessions.player?.nativeBattle?.schema===6?'cohort_defenders':'feature_battle_defenders'),
         refresh:()=>{for(const [is_attacker,list] of [[true,current_combat?.attackers||[]],[false,current_combat?.defenders||[]]])for(let i=0;i<list.length;i++)update_displayed_health_of_fighter({fighter_index:i,is_attacker});},
-        render:()=>{featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();}});
+        render:()=>{domainRegistry.command('cohort','refresh')?.();featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();}});
     frontierCampaignPanel=createFrontierCampaignPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),
         error:expansionError || nativeBattlePauseReason,inDialogue:!!current_dialogue,inCombat:!!current_combat,battleRunning:!!current_combat?.actionAdapter,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actFrontierCampaign});
     partyPanel=createPartyPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),error:expansionError || nativeBattlePauseReason,inDialogue:!!current_dialogue,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actParty});
@@ -9805,11 +9807,11 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         authoredNames:[...expeditionRegistry.simulation.people.values()].map(p=>p.label||p.name||p.id),
         itemKey:id=>item_templates[id].getInventoryKey(),canSupply:(key,quantity=1)=>canConsumeNativeCraftingItem(key)&&character.getItems()[key]?.count>=quantity,
         publishSupply:(key,quantity=1)=>{character.removeFromInventory([{item_key:key,item_count:quantity}]);update_displayed_character_inventory();},publishReward:add_money_to_character,publishMint:key=>{character.addToInventory([{item_key:key,count:1}]);update_displayed_character_inventory();},publishCost:(cost,source)=>add_money_to_character(-cost,source)});
-    villageLivesPanel = createVillageLivesPanel({read:()=>({state:npcLives,inVillage:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier',canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),meet:()=>{
+    villageLivesPanel = createVillageLivesPanel({read:()=>({state:npcLives,inVillage:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier',canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),meet:hard=>{
         if(npcLives || !ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier')throw new Error("Meet your neighbors in Village when your life can be saved.");
         const serialized=create_save();if(!serialized)throw new Error("This meeting could not be remembered.");
-        const save=JSON.parse(serialized);save.npc_lives=createVillageLives(save['current time'].year,expansionState.rng);
-        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
+        const save=JSON.parse(serialized);save.npc_lives=createVillageLives(save['current time'].year,expansionState.rng,hard?'fever_winter':null);
+        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));lifeRecord=save.life_record;lifeRecordPanel?.render();
     }});
     titlesPanel = createTitlesPanel({read: () => titleView(character.titles, readTitleCounters(),{knownOnly:true}),readWorn:()=>wornTitleView(character.titles,character.long_life_worn),readTraining:()=>trainingView(id=>({known:!!nativeSkillDiscovery(skills[id],character),level:character.getLevelableComponent().skill_progress[id]?.current_level || 0})),selectWorn:(id,enabled)=>{try{assertFeatureWriter();const next=selectWornTitle(character.titles,character.long_life_worn,id,enabled);persistExpansion({state:structuredClone(expansionState),external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{'character/long_life_worn':next}});character.updateStatsAndDisplay();update_all_displayed_skills_xp_gain();}catch(error){log_message(error.message,'notification');}},readSettings:()=>getCustomizationSettings(customization,'skills',{season:current_game_time.getSeason()})});
     for(const id of ['Proto23 plain bed','Proto23 cottage hearth','Proto23 bookstand','Prepared survey kit']) {
@@ -9850,8 +9852,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         const save=JSON.parse(serialized), t=save["current time"], worldId=expansionState.actors.player.worldId;
         const at=lifeCalendarMinute(t);
         if(save.life_record.recent.some(e=>e.kind==='memory' && Math.floor(e.at/1440)===Math.floor(at/1440) && e.worldId===worldId)) throw new Error("You have already held this day in memory.");
-        save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at,worldId,kind:'memory',text:`You paused in ${current_location.name || current_location.id} and held this day in memory.`});
-        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
+        save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at,worldId,kind:'memory',...reflectionMessage(save,current_location.name || current_location.id)});
+        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));lifeRecord=save.life_record;lifeRecordPanel?.render();
     }});
     worldEventFeed = createEventFeed({registry: expeditionRegistry,
         read: () => ({...readProgression(), inDialogue: !!current_dialogue, inCombat: !!current_combat}),

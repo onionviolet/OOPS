@@ -1,6 +1,6 @@
 // Example content pack for the crafting engine: original, fictional frontier
 // herbalism. Everything here is data; no engine code names these materials.
-// Not wired into live gameplay yet (see docs/CRAFTING_ENGINE.md).
+// Village experiments bind this content through crafting_domain.
 import {defineCatalogue} from './craft_materials.js';
 import {defineCraftLaw} from './craft_resolver.js';
 import {defineSourceTable} from './craft_sources.js';
@@ -134,3 +134,19 @@ export const frontierDoseRules = defineDoseRules({
     ],
     names: {health: 'restorative', stamina: 'bracing', poison: 'bitter', bind: 'binding'},
 });
+
+// Separate retained revision: old vials keep their exact old law. Salt first
+// binds toxin; salt added after sap precipitates part of the restorative matter.
+export const frontierLayeredLaw=defineCraftLaw({
+ id:'frontier.layered-brew',revision:1,catalogue:frontierCatalogue,carrier:'Herbal vial',
+ ops:[{id:'steep',label:'Steep',levels:[1,3],availability:{restore:700,vigor:1000,toxin:500}},
+      {id:'heat',label:'Brazier heat',levels:[1,12],availability:{restore:1000,vigor:800,toxin:1000}}],
+ directions:[{before:'salt',after:'herb',from:'toxin',to:'ash',permille:700},{before:'herb',after:'salt',from:'restore',to:'ash',permille:400}],
+ thermal:{op:'heat',from:'restore',to:'ash',safePerInput:2},
+ outputs:[{id:'heal',route:'oral',effect:'health',axis:'restore',per:200},{id:'stamina',route:'oral',effect:'stamina',axis:'vigor',per:150},
+ {id:'sicken',route:'oral',effect:'poison',axis:'toxin',per:300},{id:'bind',route:'oral',effect:'bind',axis:'ash',per:150}],tagLaws:[]
+});
+
+export const frontierTabletLaw=defineCraftLaw({id:'frontier.conditioning-tablet',revision:1,catalogue:frontierCatalogue,carrier:'Herbal vial',
+ ops:Object.values(frontierLayeredLaw.ops),directions:frontierLayeredLaw.directions,thermal:frontierLayeredLaw.thermal,
+ outputs:[{id:'conditioning',route:'permanent',effect:'conditioning',axis:'restore',per:100}],tagLaws:[]});

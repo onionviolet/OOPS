@@ -1,8 +1,15 @@
+import {planPersonalLegacy} from './home_personal_legacy.js';
+import {planHomeWarehouse} from './home_warehouse.js';
+import {planHomeContacts} from './home_contacts.js';
+import {planHomeSchool} from './home_school.js';
+import {planHomeMedicine} from './home_medicine.js';
+import {planHomeCultivation} from './home_cultivation.js';
 import {admitHousehold,staffReadiness,planHouseholdLife} from './home_household.js';
 import {planHomeOffice} from './home_office.js';
 import {HOME_PLACES as P,HOME_STARTS as S,HOME_SITE,homeKey as k} from './home_content.js';
 import {BUILDER,STEWARD,COOK,KEEPER} from './home_work_content.js';
 import {TUTOR} from './home_household_content.js';
+import {domainRegistry} from './domain_registry.js';
 const check=(v,m)=>{if(!v)throw Error('Home: '+m);};
 const resource=(actor,key,amount)=>({type:'resource',actor,key,amount});
 export const HOME_STAFF=[{id:STEWARD,name:'Rowan',role:'Family steward'},{id:COOK,name:'Iven',role:'Household cook'},{id:KEEPER,name:'Toma',role:'Estate caretaker'}];
@@ -16,9 +23,13 @@ export function admitManorStaff(profile,out) {
         {type:'item',actor:KEEPER,key:k('Rough wood log'),amount:4},{type:'item',actor:KEEPER,key:k('Home dry grass'),amount:8});
 }
 export function planHomeStaff(s,r,c,out) {
+    if(['hire_builder','staff_order','office_establish','office_train','tutor','pantry_order','cultivation_order','medicine_purge','medicine_capacity','school_study','school_survey','school_lesson','school_promote','school_meet','school_appoint','school_month','school_circuit_start','school_circuit_next'].includes(r.type)&&!(r.type==='school_survey'&&(!r.actor||r.actor==='player'))) {
+        const reason=domainRegistry.command('pledges','actionReason')?.({kind:'paid-help'});
+        check(!reason,reason);
+    }
     const home=s.properties.manor,atManor=home?.access&&c.location===P.manor.location&&c.body.form==='human';
     const available=id=>c.people?.[id]?.life==='alive'&&c.people[id].location===(id===BUILDER?c.location:P.manor.location);
-    if(planHouseholdLife(s,r,c,out)||planHomeOffice(s,r,c,out))return true;
+    if(planPersonalLegacy(s,r,c,out)||planHomeWarehouse(s,r,c,out)||planHomeContacts(s,r,c,out)||planHomeSchool(s,r,c,out)||planHomeMedicine(s,r,c,out)||planHomeCultivation(s,r,c,out)||planHouseholdLife(s,r,c,out)||planHomeOffice(s,r,c,out))return true;
     switch(r.type) {
     case 'hire_builder': {
         check(c.body.form==='human'&&(c.body.hands||0)>0,'agree the shared work with a supported speaking body');

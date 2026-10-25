@@ -6158,6 +6158,22 @@
       "rule": "type",
       "snippet": "line-height:1.1",
       "count": 1
+    },
+    {
+      "key": "styles/material_icons.css|declaration|f549f80d788a71de",
+      "path": "styles/material_icons.css",
+      "rule": "declaration",
+      "snippet": "font-family: 'Material Icons'",
+      "count": 2,
+      "reason": "The local @font-face name and matching icon class must select the Material Icons ligature face. The player text font cannot render these glyphs; retain both exact declarations for offline icons."
+    },
+    {
+      "key": "styles/material_icons.css|type|8d32f542f04b81f7",
+      "path": "styles/material_icons.css",
+      "rule": "type",
+      "snippet": "font-size: 24px",
+      "count": 1,
+      "reason": "Material Icons uses its nominal 24px optical glyph size; player text roles and spacing tokens do not describe icon geometry. Existing context-specific icon size overrides remain in force."
     }
   ]
 }

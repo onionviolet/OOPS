@@ -1,3 +1,4 @@
+import {changeDiscipline,advanceDiscipline} from './discipline.js';
 import {validatePathWork,pathWorkView} from '../../mistglass_path_work.js';
 import {check, natural as nat, object as record} from '../../basics.js';
 import {cultivationMethods,freshCultivation,validateCultivation,cultivationView,advanceCultivation} from './techniques.js';
@@ -24,7 +25,7 @@ export function validateAdaptation(s) {
     if (s.pending !== null) {
         const t = s.pending;
         fields(t, [...(t.threshold===undefined?[]:['threshold']), 'id', 'startedAt', 'dueAt', 'roll']);
-        check(t.threshold===undefined||[7500,8500,9000,9500].includes(t.threshold),'Invalid frozen purification odds.');
+        check(t.threshold===undefined||(nat(t.threshold)&&t.threshold>=500&&t.threshold<=9900),'Invalid frozen purification odds.');
         check(t.id === s.started && nat(t.startedAt) && t.startedAt <= s.clock && t.dueAt === add(t.startedAt, P.trialMinutes) && nat(t.roll) && t.roll < 10000, 'Invalid pending purification.');
         check(t.dueAt > s.clock, 'Unsettled overdue purification.');
     }
@@ -82,13 +83,15 @@ export function prepareAdvance(s, c, reserve) {
     if (s === undefined) return plan(undefined, undefined, []);
     balance(reserve); check(c.clock >= s.clock, 'Played clock moved backwards.');
     check(!s.pending || c.clock <= s.pending.dueAt, 'Split the native clock at the purification deadline.');
-    if (c.clock === s.clock && (!s.pending || stable(s, c))) return plan(s, structuredClone(s), []);
+    if (c.clock === s.clock && (!s.pending || stable(s, c))&&!(s.techniques?.away?.armed&&(!stable(s,c)||c.choiceWaiting))) return plan(s, structuredClone(s), []);
     const n = revise(s), effects = [], minutes = c.clock - s.clock;
+    if(n.techniques?.away&&(!stable(s,c)||c.choiceWaiting))n.techniques.away.armed=false;
     if (stable(s, c) && c.conditionIds.includes(P.exposureConditionId)) {
         // BigInt avoids intermediate multiplication overflow on large intervals.
-        const practice=s.techniques&&!s.pending?advanceCultivation(s.techniques,minutes):null;
+        const practice=s.techniques&&!s.pending?advanceCultivation(s.techniques,minutes,c.rootAffinity):null;
         if(practice)n.techniques=practice.next;
-        const earned = practice?practice.earned:BigInt(minutes) * BigInt(cultivationView(s.techniques).rate);
+        else if(s.techniques?.discipline?.forced){const d=s.techniques.discipline,t=advanceDiscipline(d,minutes);t.comprehension=d.comprehension;t.bodyMinutes=d.bodyMinutes;n.techniques={...structuredClone(s.techniques),discipline:t};}
+        const earned = practice?practice.earned:BigInt(minutes) * BigInt(cultivationView(s.techniques,false,c.rootAffinity).rate);
         const credited = Number(earned < BigInt(P.capacity - reserve) ? earned : BigInt(P.capacity - reserve));
         n.exposure = add(n.exposure, credited);
         if (credited) effects.push({kind: 'resource-credit', resourceId: P.resourceId, amount: credited});
@@ -141,7 +144,7 @@ export function adaptationView(s, c, reserve) {
     validateAdaptation(s); context(c);
     if (!s || c.methodKnown !== true) return null;
     balance(reserve);
-    return {id: P.id, label: P.label, reserve: reserve / P.subunitsPerUnit, capacity: P.capacity / P.subunitsPerUnit, ratePerMinute: cultivationView(s.techniques).rate / P.subunitsPerUnit, technique:cultivationView(s.techniques),pathWork:pathWorkView(s),
+    return {id: P.id, label: P.label, reserve: reserve / P.subunitsPerUnit, capacity: P.capacity / P.subunitsPerUnit, ratePerMinute: cultivationView(s.techniques,false,c.rootAffinity).rate / P.subunitsPerUnit, technique:cultivationView(s.techniques,false,c.rootAffinity),pathWork:pathWorkView(s,c),
         exposureEarned: s.exposure / P.subunitsPerUnit, supported: stable(s, c),
         pending: s.pending ? {id: s.pending.id, dueAt: s.pending.dueAt, remainingMinutes: Math.max(0, s.pending.dueAt - c.clock)} : null,
         last: s.last ? {...s.last} : null, trials: {started: s.started, succeeded: s.succeeded, failed: s.failed},
@@ -151,7 +154,7 @@ export function adaptationView(s, c, reserve) {
 export function prepareCultivationMethod(s,c,methodId) {
     validateAdaptation(s);context(c);
     check(s&&stable(s,c)&&c.conditionIds.includes(P.exposureConditionId)&&c.methodKnown===true,'Practice in your enrolled conservatory body and mist without rawness.');
-    check(!s.pathWork?.prepared,'Finish or abandon the committed path preparation before changing method.');
+    check(!s.pathWork?.prepared||s.pathWork.prepared.supportInstance&&s.pathWork.prepared.supportInstance===c.ruleRelic,'Finish or abandon the committed path preparation before changing method.');
     check(s.clock===c.clock&&!s.pending,'Finish the pending purification and advance the native clock before changing method.');
     check(Object.hasOwn(cultivationMethods,methodId),'Unknown cultivation method.');
     const n=revise(s);n.techniques ||= freshCultivation();n.techniques.selected=methodId;
@@ -162,14 +165,14 @@ export function prepareCultivationMethod(s,c,methodId) {
 // condensate spent for the same pressure output; the keeper pays coins once per jam.
 export function previewSluice(s, c, reserve) {
     validateAdaptation(s); context(c); balance(reserve);
-    const v = cultivationView(s?.techniques), reasons = [];
+    const v = cultivationView(s?.techniques), cost=c.pressureInsight===true?Math.max(0,v.workCost-100):v.workCost, reasons = [];
     const jammedAt = s?.sluice ? s.sluice.lastAt + sluiceWork.rejamMinutes : 0;
     if (!s || !stable(s, c) || !c.conditionIds.includes(P.exposureConditionId)) reasons.push('Work the sluice in your enrolled conservatory body, inside the mist, without rawness.');
     if (s && s.clock !== c.clock) reasons.push('Advance the native played clock before working.');
     if (s?.pending) reasons.push('Finish the pending purification first.');
     if (s && c.clock < jammedAt) reasons.push(`The sluice runs clear; it silts up again in ${jammedAt - c.clock} played minutes.`);
-    if (reserve < v.workCost) reasons.push(`Needs ${v.workCost / P.subunitsPerUnit} condensate; you hold ${reserve / P.subunitsPerUnit}.`);
-    return {eligible: !reasons.length, reasons, cost: v.workCost, output: sluiceWork.output, baseCost: sluiceWork.output,
+    if (reserve < cost) reasons.push(`Needs ${cost / P.subunitsPerUnit} condensate; you hold ${reserve / P.subunitsPerUnit}.`);
+    return {eligible: !reasons.length, reasons, cost, output: sluiceWork.output, baseCost: sluiceWork.output,
         method: v.label, stage: v.stage, wageCoins: sluiceWork.wageCoins, jammed: !s || c.clock >= jammedAt,
         pays: sluiceHistories[c.sluiceHistory]?.pays ?? 'coins'};
 }
@@ -189,4 +192,13 @@ export function prepareBraceRestoration(s,c){
  validateAdaptation(s);context(c);check(s&&stable(s,c)&&c.conditionIds.includes(P.exposureConditionId)&&s.clock===c.clock&&!s.pending,'Restore the brace in your enrolled body, here, after pending purification.');
  const n=revise(s);n.sluice={schema:1,cleared:add(s.sluice?.cleared??0,1),lastAt:c.clock,lastCost:0,route:'brace'};
  return plan(s,n,[sluiceHistories[c.sluiceHistory]?.pays==='reputation'?{kind:'native-reputation',region:'Village',amount:1}:{kind:'native-wage',amount:sluiceWork.wageCoins}]);
+}
+
+// Existing native transaction applies this plan, including energy debit.
+export function prepareDiscipline(s,c,reserve,action){
+ validateAdaptation(s);context(c);balance(reserve);
+ check(s&&stable(s,c)&&c.methodKnown&&c.conditionIds.includes(P.exposureConditionId),'Practice in the enrolled body and mist without rawness.');
+ check(s.clock===c.clock&&!s.pending&&!s.pathWork?.prepared,'Finish pending purification or committed path work first.');
+ const changed=changeDiscipline(s.techniques||freshCultivation(),action,reserve,c.controlledPurge===true,c.lawMemory),n=revise(s);n.techniques=changed.next;
+ return {...plan(s,n,changed.cost?[{kind:'resource-debit',resourceId:P.resourceId,amount:changed.cost}]:[]),expectedReserve:reserve};
 }

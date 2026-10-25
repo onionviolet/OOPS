@@ -1,3 +1,4 @@
+import {cohortDefinitions} from './cohort_battle_content.js';
 import {eqRawReason as requires} from './basics.js';
 import {storyAftermathDefinitions} from './story_aftermath.js';
 import {storyletDefinitions} from './storylet_content.js';
@@ -59,7 +60,7 @@ export const simulationSources = [...paradiseCampaignSources,...molSources,...lo
 export const simulationDefinitions = {
     situations:[...fieldDefinitions.situations,...lotmDefinitions.situations,...(paradiseCampaignDefinitions.situations||[]),...(molDefinitions.situations||[]),...(paradiseDefinitions.situations||[]),...originalFrontierDefinitions.situations,...pocketSimulationDefinitions.situations,...observationDefinitions.situations,...promiseDefinitions.situations,...exchangeDefinitions.situations],
     onEnroll: [{type: "world", worldId: "base.frontier", key: "workbench.wet", value: false}],
-    people: [...(molDefinitions.people||[]),...lotmDefinitions.people,...(paradiseDefinitions.people||[]),...originalFrontierDefinitions.people,...pocketSimulationDefinitions.people,...observationDefinitions.people,...exchangeDefinitions.people,...partyDefinitions.people,...promiseDefinitions.people,{id: "oldCraftsman", revision: 1, label: "Old craftsman", worldId: "base.frontier", location: "Village", inventory: "native", resources: {focus: 3}}, ...campaignDefinitions.people,...helperDefinitions.people,...fieldDefinitions.people,...pursuitDefinitions.people,...encounterDefinitions.people],
+    people: [...cohortDefinitions.people,...(molDefinitions.people||[]),...lotmDefinitions.people,...(paradiseDefinitions.people||[]),...originalFrontierDefinitions.people,...pocketSimulationDefinitions.people,...observationDefinitions.people,...exchangeDefinitions.people,...partyDefinitions.people,...promiseDefinitions.people,{id: "oldCraftsman", revision: 1, label: "Old craftsman", worldId: "base.frontier", location: "Village", inventory: "native", resources: {focus: 3}}, ...campaignDefinitions.people,...helperDefinitions.people,...fieldDefinitions.people,...pursuitDefinitions.people,...encounterDefinitions.people],
     pursuits:[...campaignDefinitions.pursuits,...pursuitDefinitions.pursuits,...encounterDefinitions.pursuits],
     energies:[...(molDefinitions.energies||[]),...lotmDefinitions.energies,...fieldDefinitions.energies],
     sites: [...paradiseCampaignDefinitions.sites,...(molDefinitions.sites||[]),...lotmDefinitions.sites,...(paradiseDefinitions.sites||[]),...originalFrontierDefinitions.sites,...pocketSimulationDefinitions.sites,{id: "village.workbench", revision: 1, label: "Craftsman's workbench", capacity: 1},...fieldDefinitions.sites],
@@ -71,8 +72,8 @@ export const simulationDefinitions = {
         effects: [{type: "knowledge", key: "workbench", stage: "understood", value: "A kit needs sound wood, counted fittings and a dry layout."},
             {type: "power", powerId: "frontier.measured_pack", operation: "learn"},
             {type: "source", sourceId: "frontier.measured_work", operation: "grant", awakened: true, active: true}, fact("sim.measured", true)]}],
-    encounters: [...paradiseCampaignDefinitions.encounters,...(molDefinitions.encounters||[]),...originalFrontierDefinitions.encounters,...skillDefinitions.encounters,...campaignDefinitions.encounters,...helperDefinitions.encounters,...fieldDefinitions.encounters,...pursuitDefinitions.encounters,...encounterDefinitions.encounters],
-    commands: [...paradiseCampaignDefinitions.commands,...(molDefinitions.commands||[]),...lotmDefinitions.commands,...fieldCareDefinitions.commands,...statusCareDefinitions.commands,...(paradiseDefinitions.commands||[]),...originalFrontierDefinitions.commands,...skillDefinitions.commands,...pocketSimulationDefinitions.commands,...observationDefinitions.commands,...exchangeDefinitions.commands,...partyDefinitions.commands,...promiseDefinitions.commands,...campaignDefinitions.commands,
+    encounters: [...cohortDefinitions.encounters,...paradiseCampaignDefinitions.encounters,...(molDefinitions.encounters||[]),...originalFrontierDefinitions.encounters,...skillDefinitions.encounters,...campaignDefinitions.encounters,...helperDefinitions.encounters,...fieldDefinitions.encounters,...pursuitDefinitions.encounters,...encounterDefinitions.encounters],
+    commands: [...cohortDefinitions.commands,...paradiseCampaignDefinitions.commands,...(molDefinitions.commands||[]),...lotmDefinitions.commands,...fieldCareDefinitions.commands,...statusCareDefinitions.commands,...(paradiseDefinitions.commands||[]),...originalFrontierDefinitions.commands,...skillDefinitions.commands,...pocketSimulationDefinitions.commands,...observationDefinitions.commands,...exchangeDefinitions.commands,...partyDefinitions.commands,...promiseDefinitions.commands,...campaignDefinitions.commands,
         ...pursuitDefinitions.commands,
         ...encounterDefinitions.commands,
         ...fieldDefinitions.commands,

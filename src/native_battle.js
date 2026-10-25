@@ -55,7 +55,7 @@ export function commitNativeBattleStrike(state,registry,{actorId,targetId,attack
     const strike=rollCombatStrike({attackPower:attacker.attackPower*(hadStamina && vitals.stamina === 0 ? (attacker.emptyStaminaMultiplier || .5) : 1),attacker:attacker.stats,target:target.stats,shield:target.shield,shieldSkill:target.shieldSkill,random});
     const victim=targetId === "player" ? plan.vitals.player : plan.state.simulation.people[targetId].vitals;
     check(victim?.health > 1,"The target has already yielded.");
-    const damage=strike.kind === "hit" ? mitigateCombatDamageFromStats(strike.values,target.stats) : 0;
+    const damage=strike.kind === "hit" ? mitigateCombatDamageFromStats(strike.values,target.stats,0,attacker.stats.armor_penetration??0) : 0;
     victim.health=Math.max(1,victim.health-damage);battle.actions++;
     battle.last=`${actorId === "player" ? "You" : "Mara"} ${strike.kind === "hit" ? `hit for ${Math.round(damage*10)/10}${strike.critted ? " (critical)" : ""}` : strike.kind === "blocked" ? "met a full block" : "missed"}.`;
     plan.native={hpToFull:plan.vitals.player.max_health-plan.vitals.player.health,staminaToFull:plan.vitals.player.max_stamina-plan.vitals.player.stamina};

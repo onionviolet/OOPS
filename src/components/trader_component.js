@@ -1,3 +1,4 @@
+import {retainShopStock} from '../shop_locks.js';
 import {STREAMS,gameKeyedRandom} from "../seeded_streams.js";
 import {accessoryTradeMargin} from '../absorb_c1/accessories.js';
 "use strict";
@@ -78,7 +79,7 @@ class TraderComponent {
         if(this.played_minute_refresh) return this.played_minute_refresh(context);
         if(this.can_refresh()) {
             //refresh inventory
-            const retained = {};
+            const previous={...this.#inventory.getItems()},retained = {};
             for(const [key, entry] of Object.entries(this.#inventory.getItems())) {
                 if(conservedCampaignKeys.has(key)) {
                     if(!entry?.item || !Number.isSafeInteger(entry.count) || entry.count <= 0) throw new Error('Invalid conserved campaign merchant stock.');
@@ -92,6 +93,7 @@ class TraderComponent {
                 this.#inventory.getItems()[key] = entry;
             }
 
+            const locked=retainShopStock(this.stockOwnerId,previous,this.#inventory.getItems());for(const key of Object.keys(this.#inventory.getItems()))if(!Object.hasOwn(locked,key))delete this.#inventory.getItems()[key];Object.assign(this.#inventory.getItems(),locked);
             this.last_refresh = (current_game_time.day_count + 1 - current_game_time.day_count % this.refresh_time);
             return true;
         }

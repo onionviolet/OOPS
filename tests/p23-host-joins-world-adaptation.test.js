@@ -39,7 +39,7 @@ test('unsupported families and unbound resources reject without native mutation'
     p.state=structuredClone(before.state);delete p.state.worldAdaptation;assert.throws(()=>validateMistglassEnvelope(envelope(p)),/together/);
 });
 test('native merchant refresh stages same owner stock after sixty played minutes',()=>{
-    const p=enrolled();assert.equal(stageMistglassRestock(p),false);assert.equal(stageMistglassRestock(p,{forceInitial:true}),true);assert.deepEqual(p.ownership['p23.mistglass.keeper'],{[key]:4});
+    const p=enrolled();assert.equal(stageMistglassRestock(p),false);assert.equal(stageMistglassRestock(p,{forceInitial:true}),true);assert.equal(p.ownership['p23.mistglass.keeper'][key],4);assert.equal(p.ownership['p23.mistglass.keeper']['{"id":"Mistglass Cloudseed beetle clutch"}'],1);
     advance(p,59);assert.equal(stageMistglassRestock(p),false);advance(p,60);assert.equal(stageMistglassRestock(p),true);assert.equal(p.state.mistglassRealm.lastRestock,60);
 });
 test('native passage closes retained visit; same-clock new context interrupts without refund',()=>{
@@ -99,4 +99,54 @@ test('D3: a capped purification quote reports its surplus and the saved drill ta
     assert.equal(t.minutes.breath,4);assert.equal(t.insight.last.excess,20);assert.equal(t.insight.minutes*5+t.insight.carry+t.insight.lost,20);
     const open=run(10);assert.equal(open.state.worldAdaptation.techniques.insight.lost,20,'open-mist has no drill: the surplus fades and is counted');
     const free=run(100,'breath');assert.equal(free.state.worldAdaptation.techniques.insight,undefined,'no surplus, no record');
+});
+
+import {stageMistglassMethod} from '../src/absorb_p23/host_joins/world_adaptation.js';
+test('vessel commands spend native energy and reject unaffordable changes before mutation',()=>{
+ const p=advance(enrolled(),16),c=mistglassContext(p.state,native);
+ stageMistglassMethod(p,c,expeditionRegistry,'vessel:open');assert.equal(mistglassReserve(p.state),1000);
+ stageMistglassMethod(p,c,expeditionRegistry,'vessel:node:flow');assert.equal(mistglassReserve(p.state),0);
+ const before=structuredClone(p);assert.throws(()=>stageMistglassMethod(p,c,expeditionRegistry,'vessel:node:still'),/Needs 1/);assert.deepEqual(p,before);
+ validateMistglassEnvelope(envelope(p));assert.equal(knownMistglassView(p.state,c,key).view.technique.vessel.state.nodes.flow,1);
+});
+
+test('banked absence spends through the supplied joined clock, retains unspent boundary time and changes real reserve',()=>{
+ const p=enrolled();let wall=100000;const c=()=>mistglassContext(p.state,{...native,wallNowMs:wall});
+ stageMistglassMethod(p,c(),expeditionRegistry,'away:arm');wall+=5500;
+ stageMistglassMethod(p,c(),expeditionRegistry,'away:bank');assert.equal(p.state.worldAdaptation.techniques.away.bank,5);assert.equal(mistglassReserve(p.state),0);
+ const advance=(plan,n)=>({...plan,state:{...structuredClone(plan.state),clock:plan.state.clock+Math.min(n,3)}});
+ stageMistglassMethod(p,c(),expeditionRegistry,'away:spend',{advance});assert.equal(p.state.clock,3);assert.equal(mistglassReserve(p.state),375);assert.equal(p.state.worldAdaptation.techniques.away.bank,2);assert.equal(p.state.worldAdaptation.techniques.away.last.condensate,375);
+ validateMistglassEnvelope(envelope(p));const saved=structuredClone(p);assert.throws(()=>stageMistglassMethod(p,{...c(),choiceWaiting:true},expeditionRegistry,'away:spend',{advance}),/waiting/);assert.deepEqual(p,saved);
+ stageMistglassTravel(p,'exit');assert.equal(p.state.worldAdaptation.techniques.away.armed,false);
+});
+
+import {INQUIRY_KEYS,inquiryView} from '../src/mistglass_inquiry.js';
+test('local inquiry DAG requires actual practiced evidence, pays its comparison and improves a real purge',()=>{
+ const p=enrolled(),c=()=>mistglassContext(p.state,native),act=id=>stageMistglassMethod(p,c(),expeditionRegistry,id);
+ assert.throws(()=>act('inquiry:observe'),/16 actual/);assert.equal(inquiryView(p.state).length,1);
+ act('breath');advance(p,16);act('inquiry:observe');assert.equal(inquiryView(p.state).length,3);assert.throws(()=>act('inquiry:apply'),/discovered evidence/);
+ act('settling');advance(p,32);const before=mistglassReserve(p.state);act('inquiry:compare');assert.equal(mistglassReserve(p.state),before-1000);
+ act('vessel:open');act('vessel:force');advance(p,40);act('vessel:force');assert.equal(p.state.worldAdaptation.techniques.discipline.impurity,1);act('inquiry:residue');assert.equal(inquiryView(p.state).length,4);
+ act('inquiry:apply');assert.equal(p.state.worldAdaptation.techniques.discipline.impurity,0);assert.equal(p.state.simulation.knowledge.player[INQUIRY_KEYS.apply].stage,'understood');
+ act('vessel:force');advance(p,48);act('vessel:force');const reserve=mistglassReserve(p.state);act('vessel:purge');assert.equal(mistglassReserve(p.state),reserve-250);validateMistglassEnvelope(envelope(p));
+ const snapshot=structuredClone(p);assert.throws(()=>act('inquiry:apply'),/already recorded/);assert.deepEqual(p,snapshot);
+});
+
+import {SEALED_CONDENSATE} from '../src/cultivation_items.js';
+test('physical condensate sealing conserves the native reserve and paid carrier',()=>{
+ const p=advance(enrolled(),16),c=mistglassContext(p.state,native);stageMistglassMethod(p,c,expeditionRegistry,'seal');
+ assert.equal(mistglassReserve(p.state),1000);assert.equal(p.gameplay.player.inventory[key],3);assert.equal(p.gameplay.player.inventory[JSON.stringify({id:SEALED_CONDENSATE})],1);
+ validateMistglassEnvelope(envelope(p));
+});
+
+import {seedbedView,quoteSeedbed} from '../src/mistglass_seedbed.js';
+test('a real room crop spends owned wood/dose, freezes in absence, holds without decay and settles at current collection rate once',()=>{
+ const p=enrolled();p.gameplay.player.inventory['{"id":"Rough wood log"}']=2;
+ const context=()=>mistglassContext(p.state,{...native,location:p.state.actors.player.worldId===P.worldId?P.locationId:'Village',inventory:p.gameplay.player.inventory});
+ const act=id=>stageMistglassMethod(p,context(),expeditionRegistry,'seedbed:'+id);
+ act('build');assert.equal(p.gameplay.player.inventory['{"id":"Rough wood log"}'],undefined);act('plant');assert.equal(p.gameplay.player.inventory[key],3);advance(p,60);assert.equal(seedbedView(p.state,context()).crop.remaining,60);
+ stageMistglassTravel(p,'exit');let c=context();p.state.clock=1060;stageMistglassAdvance(p,c,expeditionRegistry);assert.equal(seedbedView(p.state,context()).crop.remaining,60);p.state.sequence++;stageMistglassTravel(p,'enter');c=context();p.state.clock=1120;stageMistglassAdvance(p,c,expeditionRegistry);assert.equal(seedbedView(p.state,context()).crop.ready,true);
+ assert.equal(quoteSeedbed(p.state,context(),'harvest').eligible,false,'a full reserve holds its ripe crop');const held=JSON.stringify(p.state.mistglassRealm.seedbed);advance(p,2000);assert.equal(JSON.stringify(p.state.mistglassRealm.seedbed),held);
+ for(const id of ['open','node:flow','node:still','node:flow','node:still'])stageMistglassMethod(p,context(),expeditionRegistry,'vessel:'+id);
+ const before=mistglassReserve(p.state),q=quoteSeedbed(p.state,context(),'harvest');assert.equal(q.eligible,true);assert.ok(q.amount>1000,'actual collection-time node control raises the initial open-mist valuation');act('harvest');assert.equal(mistglassReserve(p.state),before+q.amount);assert.equal(p.state.mistglassRealm.seedbed.last.rate,q.rate);assert.equal(p.state.mistglassRealm.seedbed.harvests,1);validateMistglassEnvelope(envelope(p));assert.throws(()=>act('harvest'),/120 actual/);
 });

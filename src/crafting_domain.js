@@ -1,4 +1,5 @@
-import {registerDomain} from './domain_registry.js';
+import {treatmentNow,finishTreatment,bodyKey,treatmentCapacity} from './craft_body_treatment.js';
+import {registerDomain,domainRegistry} from './domain_registry.js';
 import {beginNativeCraftTransaction} from './native_craft_transaction.js';
 import {active_effects} from './runtime_state.js';
 import {ActiveEffect} from './active_effects.js';
@@ -11,9 +12,10 @@ import {ledgerOwner,setLedgerOwner,noteBatch,ledgerStamp,forecastCraft} from './
 let native,panel;
 // Each operation has one native owner. This domain never receives the game object.
 export function configureCraftingDomain(operations){native=operations;}
-function read(){return native.read();}
+function read(){return {...native.read(),depth:depthOwner(),temperingStage:domainRegistry.project('pledges')?.state.trial.stage||0};}
+function applyConditioning(){const actor=native.actor?.();if(!actor?.getLevelableComponent)return;const b=depthOwner().body,c=read(),amount=b?.binding===bodyKey(c)?b.conditioning:0;const stats=actor.getLevelableComponent().stats,wanted=amount?{max_stamina:1+amount/100}:{};if(JSON.stringify(stats.multiplier.herbal_conditioning||{})===JSON.stringify(wanted))return;const full=actor.getFullStats(),hp=full.health,sp=full.stamina;stats.multiplier.herbal_conditioning=wanted;actor.updateStatsAndDisplay();const now=actor.getFullStats();now.health=Math.min(now.max_health,hp);now.stamina=Math.min(now.max_stamina,sp);}
 // The panel view keys on the same native gate the quote reads, so a changed reason redraws (UIE16).
-function project(){const c=read();return {...projectCrafting(craftingOwner,c.inventory),failures:ledgerStamp(),grudge:craftGrudge(),depth:depthView(c.clock,craftingOwner),blocked:c.blocked,location:c.location,world:c.world,discovered:craftingOwner!==null||c.world==='base.frontier'&&c.location==='Village'};}
+function project(){const c=read();return {...projectCrafting(craftingOwner,c.inventory),failures:ledgerStamp(),grudge:craftGrudge(),depth:depthView(c.clock,craftingOwner),treatment:treatmentNow(depthOwner().body,c),clock:c.clock,temperingStage:c.temperingStage,blocked:c.blocked,location:c.location,world:c.world,discovered:craftingOwner!==null||c.world==='base.frontier'&&c.location==='Village'};}
 function quote(request){const c=read();return quoteCrafting(craftingOwner,c.inventory,request,c);}
 export function commitCraftingQuote(quoted){
  const c=read(),plan=stageCrafting(craftingOwner,c.inventory,quoted,c,depthOwner());
@@ -35,7 +37,7 @@ export function commitCraftingQuote(quoted){
   if(plan.effect){const effect=new ActiveEffect(plan.effect);effect.craftExposure=structuredClone(plan.effect.craftExposure);active_effects[EFFECT_ID]=effect;}
   native.persist(()=>transaction.markDurable());
  }catch(error){if(transaction.status==='pending')transaction.rollback();throw error;}
- finally{native.refresh();panel?.render();}
+ finally{applyConditioning();native.refresh();panel?.render();}
  return plan;
 }
 const useItem={accepts:isCraftedKey,quote:key=>quote({type:'use',key}),execute:commitCraftingQuote};
@@ -49,7 +51,8 @@ registerDomain({id:'crafting',initialState:()=>null,
    for(const e of Object.values(envelope.active_effects??{}))if(e.craftExposure?.appliedAt>now)throw Error('Crafting exposure is ahead of the native calendar.');
   }
  },migrate:slice=>slice==null?null:structuredClone(validateOwner(slice)),load:setCraftingOwner,
- commands:{quote,execute:commitCraftingQuote,useItem},
+ commands:{planMedicinalResidue:amount=>{if(!native||!Number.isSafeInteger(amount)||amount<1)throw Error('Use an actual positive medicinal residue.');const d=structuredClone(depthOwner()),b=treatmentNow(d.body,native.read());if(b.job)throw Error('Finish the actual bodily treatment before retuning.');if(b.impurity+amount>treatmentCapacity(b))throw Error('Purge medicinal residue or expand this body’s vessel before retuning.');d.body={...b,impurity:b.impurity+amount};return d;},bodyChannels:()=>native?(treatmentNow(depthOwner().body,native.read()).channels||0):0,observedEffects:()=>[...new Set(Object.entries(craftingOwner?.knowledge?.player||{}).filter(([id])=>craftingOwner.products[id]).flatMap(([,k])=>k.facts.filter(f=>f.startsWith('effect:oral.'))))],quote,execute:commitCraftingQuote,useItem},
  projection:project,
- refresh:()=>panel?.render(),panels:[()=>{panel=createCraftingHome({quote,execute:commitCraftingQuote,read:project,forecast:forecastCraft});}]
+ tick:minutes=>{if(!native||!(minutes>0))return;const d=depthOwner();if(d.body?.job&&d.body.binding===bodyKey(read()))setDepthOwner({...d,body:finishTreatment(d.body,read())});applyConditioning();},
+ refresh:()=>{if(native)applyConditioning();panel?.render();},panels:[()=>{panel=createCraftingHome({quote,execute:commitCraftingQuote,read:project,forecast:request=>forecastCraft({...request,control:Math.min(100,Math.floor((read().mind||0)+10*treatmentNow(depthOwner().body,read()).apparatus))})});}]
 });

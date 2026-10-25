@@ -46,3 +46,8 @@ test('an equipped aura refuses a malformed native hour before projection or owne
  save['current time']={hour:20.5};assert.throws(()=>validateTrancheTwoEnvelope(save),/calendar hour/);
  save['current time'].hour=20;validateTrancheTwoEnvelope(save);
 });
+
+import {stageLivingTime} from '../src/absorb_p23/host_joins/tranche_two.js';
+test('root staging counts the actual elapsed interval once across a failed-writer retry and refuses changed staging inputs',()=>{
+ const key=JSON.stringify({components:{head:LIVING_GEAR.blade,handle:'Simple wooden short handle'},quality:100,e2_instance:'e2.1'}),item={equip_slot:'weapon',components:{head:LIVING_GEAR.blade},getInventoryKey:()=>key},gear=createLivingGear(),p={state:{clock:60}},c={gear,fromClock:0,equipment:{weapon:item},assertDisposition:()=>{}};stageLivingTime(p,c);assert.equal(p.nativePatch.p23_living_gear.copies[key].wornMinutes,60);assert.deepEqual(gear.serialize().copies,{});const before=structuredClone(p);stageLivingTime(p,c);assert.deepEqual(p,before);assert.throws(()=>stageLivingTime(p,{...c,fromClock:1}),/inputs changed/);assert.equal(p.nativePatch.p23_living_gear.copies[key].wornMinutes,60);
+});

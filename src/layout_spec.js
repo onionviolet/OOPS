@@ -138,6 +138,13 @@ export const LAYOUT_SPEC = Object.freeze({
     // type yet and stay UNSET until the surface types cover them. Contexts are filled only where
     // a contextual home or the panel's own eligibility fixes them (companions stay in `contexts`); reads use the UIX2 topic names.
     surfaces: Object.freeze({
+        'household-cohort': surface('ST2', {home: 'Willing trained household cohort at the manor', frequency: 'on demand', status: 'proposal', reads: ['body', 'people', 'time', 'inventory']}),
+        'combat-review': surface('ST6', {home: 'Observed combat exchanges', frequency: 'continuous', status: 'proposal', reads: ['body', 'time']}),
+        'cultivation-insights': surface('ST2', {home: 'Earned Frontier insights', frequency: 'on demand', status: 'proposal', reads: ['body', 'time']}),
+        'drainage-site': surface('ST2', {home: 'Observed Riverside site', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
+        'personal-journal': surface('ST6', {home: 'Personal records and discovered atlas', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
+        'root-retuning': surface('ST2', {home: 'Supported conservatory body', frequency: 'on demand', status: 'proposal', reads: ['body', 'time']}),
+        'vessel-thread': surface('ST2', {home: 'Equipped named carrier', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'time']}),
         'vitals': surface(UNSET, {reads: ['body']}),
         'shell-character': surface(UNSET),
         'condition': surface('ST6', {home: 'Below You; native body and weather readers', frequency: 'continuous', status: 'proposal', reads: ['body', 'time', 'place'], representations: routed}),
@@ -183,9 +190,12 @@ export const LAYOUT_SPEC = Object.freeze({
         'fields': surface(UNSET),
         'naming': surface(UNSET),
         'household-fortunes': surface('ST6', {home: 'Reference dock; opens once the manor household has been seen', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),
+        'home-layout': surface('ST6', {home: 'Reference dock; opens once the manor household has been met', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'inventory']}),
+        'inherited_traits': surface('ST6', {home: 'Reference dock; family qualities and what a test reveals, always available', frequency: 'occasional', status: 'proposal', reads: ['body', 'inventory', 'people']}),
         'lives_carry': surface('ST6', {home: 'Reference dock; opens once a life has ended or a carry exists', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time', 'people']}),
         'story-insight': surface('ST6', {home: 'Reference dock beside Records; recaps and world history from saved state', frequency: 'occasional', status: 'proposal', reads: ['place', 'time', 'people']}),
         'social-trust': surface('ST6', {home: 'Reference dock; opens once the manor household has been met', frequency: 'occasional', status: 'proposal', reads: ['place', 'people', 'inventory']}),
+        'life-events': surface('ST6', {home: 'Reference dock; opens once the Village neighbors are known or a life moment is waiting', frequency: 'occasional', status: 'proposal', reads: ['people', 'time', 'inventory']}),
         'pledges': surface('ST6', {home: 'Reference dock; vows and tempering, always available', frequency: 'occasional', status: 'proposal', reads: ['body', 'inventory', 'time']}),
         'rune-bench': surface('ST6', {home: 'Reference dock; rune carving, always available', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'time']}),
         'economy_standing': surface('ST6', {home: 'Reference dock; opens once a trade, loan or remembered price exists', frequency: 'occasional', status: 'proposal', reads: ['inventory', 'place', 'time']}),

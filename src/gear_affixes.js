@@ -189,3 +189,12 @@ export function affixedCraftEntries({parsedKey, crafted, rarityOf, partsOf, rand
     }
     return [...groups].map(([item_key, count]) => ({item_key, count}));
 }
+
+// Re-inscribe one selected rolled affix. Material-derived affixes belong to the
+// underlying component and must be changed by changing that component.
+export function rerollSelectedAffix({list,id,rarity,random}){
+ const selected=list?.find(a=>a.id===id);if(!selected||selected.s==='mechanism')throw Error('Choose an existing rolled inscription; material affixes follow their components.');
+ const kept=list.filter(a=>a.id!==id),picked=rollAffixes({rarity,random,taken:kept,counts:{[rarity]:1}});
+ if(picked.length!==1)throw Error('No compatible inscription fits beside the retained affixes.');
+ return normalizeAffixes([...kept,...picked]);
+}

@@ -1,6 +1,6 @@
 // Native-item bridge: maps plain game items (src/items.js item_templates keys)
 // to catalogue materials with physical, functional and symbolic tag layers.
-// Pure data and lookups: no state, saves, DOM or wiring. Not used by gameplay yet.
+// Pure data and lookups: no state, saves or DOM. Native rendering recipes read it.
 // Symbolic tags are proposals (SYMBOLIC_PROPOSALS), never accepted design.
 import {defineCatalogue, materialTags, matchesQuery} from './craft_materials.js';
 import {compareCodePoints} from './gen_kit.js';

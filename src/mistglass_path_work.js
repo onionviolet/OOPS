@@ -13,12 +13,12 @@ const controlOf=t=>t.stage==='Integrated'?3:t.stage==='Practiced'?2:1;
 export function validatePathWork(w,clock,bodyId,instanceId){
  if(w===undefined)return;
  check(shape(w,['schema','prepared','completed','last'])&&w.schema===1&&natural(w.completed),'Invalid prepared path work.');
- if(w.prepared!==null){const p=w.prepared;check(shape(p,['path','control','at','energySpent','bodyId','instanceId'])&&PATH_WORK[p.path]&&[1,2,3].includes(p.control)&&natural(p.at)&&p.at<=clock&&p.energySpent===1000&&p.bodyId===bodyId&&p.instanceId===instanceId,'Invalid prepared path reserve provenance.');}
+ if(w.prepared!==null){const p=w.prepared;check(shape(Object.fromEntries(Object.entries(p).filter(([k])=>k!=='supportInstance')),['path','control','at','energySpent','bodyId','instanceId'])&&(p.supportInstance===undefined||/^e2\.[1-9]\d*$/.test(p.supportInstance))&&PATH_WORK[p.path]&&[1,2,3].includes(p.control)&&natural(p.at)&&p.at<=clock&&p.energySpent===1000&&p.bodyId===bodyId&&p.instanceId===instanceId,'Invalid prepared path reserve provenance.');}
  if(w.last!==null){const l=w.last;check(shape(l,['path','control','quality','at','productId'])&&PATH_WORK[l.path]&&[1,2,3].includes(l.control)&&l.quality===PATH_WORK[l.path].quality[l.control-1]&&l.productId===PATH_WORK[l.path].product&&natural(l.at)&&l.at<=clock&&w.completed>0,'Invalid path work result.');}else check(w.completed===0,'Missing path work result.');
 }
-export function pathWorkView(s){
+export function pathWorkView(s,c={}){
  const t=cultivationView(s.techniques),d=PATH_WORK[t.id],w=s.pathWork;
- return {path:t.id,label:d?.label||null,source:d?.source||'Choose circulation or refinement for a precise work technique.',quality:d?.quality[controlOf(t)-1]||null,prepared:w?.prepared?{...w.prepared}:null,last:w?.last?{...w.last}:null};
+ return {path:t.id,label:d?.label||null,source:d?.source||'Choose circulation or refinement for a precise work technique.',quality:d?.quality[controlOf(t)-1]||null,prepared:w?.prepared?{...w.prepared}:null,canSwitch:!!w?.prepared?.supportInstance&&w.prepared.supportInstance===c.ruleRelic,last:w?.last?{...w.last}:null};
 }
 export function quotePathWork(s,c,reserve,inventory,action){
  try{
@@ -33,7 +33,7 @@ export function quotePathWork(s,c,reserve,inventory,action){
    summary=`Commit 1 condensate to ${v.label} at control ${controlOf(cultivationView(s.techniques))}. ${v.source}. Quality is frozen for the compatible operation; abandoning releases the spent preparation into the mist, without refund.`;
   }else if(action==='discard'){check(w.prepared,'There is no prepared work to abandon.');summary='The prepared charge disperses into its source mist. Already converted energy and any dose remain spent.';
   }else{
-   const p=w.prepared,d=PATH_WORK[p?.path];check(p&&d,'Prepare a path-specific charge before its compatible technique.');check(action===(p.path==='breath'?'cut':'set'),'This prepared reserve supports its own technique; use Flow-cut for circulation or Set-grain for refinement.');
+   const p=w.prepared,d=PATH_WORK[p?.path];check(!p?.supportInstance||p.supportInstance===c.ruleRelic,'Equip the same woven carrier on its bound body to finish this held charge.');check(p&&d,'Prepare a path-specific charge before its compatible technique.');check(action===(p.path==='breath'?'cut':'set'),'This prepared reserve supports its own technique; use Flow-cut for circulation or Set-grain for refinement.');
    const lot=Object.keys(inventory).find(k=>JSON.parse(k).id==='Rat pelt'&&inventory[k]>0);check(lot,'Carry an owned rat pelt as the physical workpiece.');take(lot,1);
    const product=planProcessedMaterial({stock:inventory,inputs:[{item_key:lot,count:1}],output:{id:d.product,family:'animal-hide',count:1,quality:d.quality[p.control-1]},process:{id:'mistglass.'+action,revision:1,at:c.materialClock??c.clock,world_id:P.worldId,parameters:{path:p.path,control:p.control,energySpent:p.energySpent,conversion:p.path==='breath'?'mist pressure guides the cut':'dissolved seed loosens hair and settles grain'}}});
    receive.push({key:product.item_key,count:1});summary=`${d.label} consumes the actual pelt and committed charge, leaving one ${d.quality[p.control-1]}-quality ${d.product} for native leatherwork. Control changes the material result, not its count.`;
@@ -44,7 +44,7 @@ export function quotePathWork(s,c,reserve,inventory,action){
 export function planPathWork(s,c,reserve,inventory,action){
  const q=quotePathWork(s,c,reserve,inventory,action);check(q.eligible,q.reason);
  const next=structuredClone(s);next.revision++;next.pathWork||={schema:1,prepared:null,completed:0,last:null};const w=next.pathWork;
- if(action==='prepare'){w.prepared={path:s.techniques.selected,control:controlOf(cultivationView(s.techniques)),at:c.clock,energySpent:1000,bodyId:s.bodyId,instanceId:s.instanceId};}
+ if(action==='prepare'){w.prepared={path:s.techniques.selected,control:controlOf(cultivationView(s.techniques)),at:c.clock,energySpent:1000,bodyId:s.bodyId,instanceId:s.instanceId,...(c.ruleRelic?{supportInstance:c.ruleRelic}:{})};}
  else if(action==='discard')w.prepared=null;
  else{const p=w.prepared,d=PATH_WORK[p.path];w.last={path:p.path,control:p.control,quality:d.quality[p.control-1],at:c.clock,productId:d.product};w.completed++;w.prepared=null;}
  return {state:next,quote:q,expectedRevision:s.revision,expectedReserve:reserve,effects:[...(action==='prepare'?[{kind:'resource-debit',resourceId:P.resourceId,amount:1000}]:[]),...q.spend.map(r=>({kind:'native-material-spend',...r})),...q.receive.map(r=>({kind:'native-material-product',...r}))]};

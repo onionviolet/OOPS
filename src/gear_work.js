@@ -2,6 +2,7 @@
 // changes out. No inventory, RNG, clock, save writer or actor singleton here.
 import {wearScale} from './gear_dimensions.js';
 import {quoteHeat, HEAT_WORLDS} from './heat_grades.js';
+import {energyCharge} from './energy_resources.js';
 
 const round = n => Math.round(n * 10000) / 10000;
 const record = v => v && typeof v === 'object' && !Array.isArray(v);
@@ -20,7 +21,7 @@ export const GEAR_ACTIONS = Object.freeze({
     attach: 'Attach material role', detach: 'Remove material role', heat: 'Heat workpiece',
     shape: 'Work hot metal', quench: 'Quench in oil', temper: 'Temper metal', finish: 'Finish the surface',
     refit: 'Refit the handling', hone: 'Improve through use', swap: 'Replace component',
-    socket: 'Make rigid setting', reforge: 'Reforge craftsmanship', repair: 'Repair with material', fieldRepair: 'Field material repair', salvage: 'Dismantle for components',
+    reroll:'Reroll selected inscription',socket: 'Make rigid setting', reforge: 'Reforge craftsmanship', repair: 'Repair with material', fieldRepair: 'Field material repair', salvage: 'Dismantle for components',
 });
 
 export function validateWork(value) {
@@ -124,8 +125,21 @@ export function quoteGearWork({request, inventory, templates, maker, condition =
     const parts = Object.values(item.components).map(id => templates[id]);
     if (parts.some(p => !materialProperties(p))) return block('These components have no modeled material properties yet.');
     const work = structuredClone(validateWork(key.gearwork) || freshWork());
-    const skill = Math.max(0, maker.skill), control = Math.min(1, (skill + maker.station) / 20);
+    const skill = Math.max(0, maker.skill);
+    let control = Math.min(1, (skill + maker.station) / 20), energy = null;
     const action = request.action, field = action === 'fieldRepair';
+    if (request.focus) {
+        if (!['quench', 'temper'].includes(action)) return block('Measured focus steadies quenching or tempering; it does not supply forge heat.');
+        if (control >= 1) return block('Your hand control already reaches this process\'s full precision. Work by hand without spending focus.');
+        if (request.maker === 'oldCraftsman') return block('Choose your own learned focus when you are the maker.');
+        const owned = maker.focus;
+        if (!owned) return block('Learn measured focus through the field association first.');
+        energy = {energyId: 'field.focus', operation: 'use', output: 1, control: 2};
+        if (owned.policy.output < energy.output || owned.policy.control < energy.control) return block('This focus method cannot supply the required precision.');
+        if (owned.reserve < energyCharge(owned.policy, energy)) return block('Recover measured focus at the Shack before this process.');
+        if (owned.strain + owned.policy.strainPerUse > owned.policy.strainLimit) return block('Rest measured focus at the Shack before adding more strain.');
+        control = Math.min(1, control + .25);
+    }
     const metal = parts.some(p => p.material_family === 'metal');
     if (maker.blocked) return block(maker.blocked);
     if (!field && maker.station < 1) return block('A local crafting station is needed for this process.');
@@ -153,6 +167,13 @@ export function quoteGearWork({request, inventory, templates, maker, condition =
         if(chosen?.id !== 'Iron ingot') return block('Select one Iron ingot for the modeled rigid mount.');
         take(request.material);work.socket={type:'rigid-setting',material:request.material};
         summary='Make a rigid setting with one iron ingot. The mount stays with the item; a fitted gem can be installed and removed.';
+    } else if(action==='reroll'){
+        if(!item.components.internal)return block('The Village inscription process currently works through armor interiors.');
+        const target=key.affixes?.find(a=>a.id===request.affix);
+        if(!target||target.s==='mechanism')return block('Select an existing rolled inscription; material-derived affixes require changing the component.');
+        if(skill<3)return block('Inscription isolation needs Forging 3 to preserve neighboring marks.');
+        const ingot=JSON.stringify({id:'Iron ingot'}),fuel=JSON.stringify({id:'Charcoal'});take(ingot);take(fuel);
+        summary=`Re-inscribe ${target.id}. One Iron ingot and one Charcoal are consumed. Other affixes stay fixed; the replacement resolves from the saved craft stream at commitment.`;
     } else if (action === 'reforge') {
         if(!properties || !chosen?.tags.component || !parts.some(p=>p.material_family===chosenTemplate.material_family)) return block('Select a component whose material family can support this reforge.');
         const target=Math.max(item.quality,Math.min(250,Math.round((item.quality*2+(chosen.quality??100)+skill*2+maker.station*5)/3)));
@@ -236,5 +257,6 @@ export function quoteGearWork({request, inventory, templates, maker, condition =
     q.spend = [{key: request.key, count: 1}, ...[...costs].map(([key, count]) => ({key, count}))];
     q.receive = [...returns].map(([key, count]) => ({key, count}));
     if (!destroyed) q.receive.unshift({key: JSON.stringify(key), count: 1});
-    return {...q, eligible: true, summary, repair, destroyed, condition, uses, lawRevision: law.revision, reforge: action === 'reforge', maker: structuredClone(maker), clock};
+    if (energy) summary += ` Measured focus steadies control by up to 25 percentage points; spends ${energyCharge(maker.focus.policy, energy)} focus and adds ${maker.focus.policy.strainPerUse} strain. Fuel and oil costs still apply.`;
+    return {...q, eligible: true, summary, repair, destroyed, condition, uses, lawRevision: law.revision, reforge: action === 'reforge',reroll:action==='reroll'?request.affix:null, maker: structuredClone(maker), clock, ...(energy ? {energy} : {})};
 }

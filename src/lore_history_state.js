@@ -83,6 +83,68 @@ export function validateWorldHistory(w) {
     for(const [k,v] of Object.entries(w.relations)){const [a,b]=k.split('|');check(ids.has(a)&&ids.has(b)&&a<b&&RELATION_KINDS.includes(v));}
     for(const war of w.wars)check(object(war)&&ref(war.id)&&ids.has(war.attacker)&&ids.has(war.defender)&&war.attacker!==war.defender&&nat(war.year)&&object(war.cause)&&ref(war.cause.relation)&&RELATION_KINDS.includes(war.cause.relation)&&
         Array.isArray(war.attackerAllies)&&Array.isArray(war.defenderAllies)&&[...war.attackerAllies,...war.defenderAllies].every(id=>ids.has(id)));
+    if(w.events!=null)validateWorldEvents(w.events,ids);
+}
+// G62 (leftover itch.io wave, 2026-10-23): diplomacy, schism and heresy as dated events on a world history. `relations` stays the
+// year-0 matrix the wars were derived from; a pact or breach is an event, and current standing is a fold over them (one authority).
+// `events` is optional: a history stored before this existed validates unchanged and gains them through upgradeWorldEvents.
+export const EVENT_KINDS=Object.freeze(['pact','breach','schism','heresy']);
+// Default, dial, reason: doctrines a faction can split over. Illustrative palette entries, not canon for any named world.
+export const DOCTRINES=Object.freeze([
+    {id:'tithe',text:'whether the harvest tithe belongs to the hall or to the shrine'},
+    {id:'succession',text:'who may inherit the seat when the elder dies'},
+    {id:'ancestors',text:'whether the dead are asked for counsel or only remembered'},
+    {id:'borders',text:'whether the old boundary stones may be moved'},
+    {id:'oaths',text:'whether an oath sworn under duress still binds'}]);
+function validateWorldEvents(events,ids) {
+    check(Array.isArray(events)&&events.length<=64);
+    const seen=new Set();
+    for(const e of events) {
+        check(object(e)&&ref(e.id)&&!seen.has(e.id)&&EVENT_KINDS.includes(e.kind)&&nat(e.year)&&object(e.cause)&&ref(e.cause.kind)&&(e.cause.ref==null||ref(e.cause.ref)));
+        if(e.kind==='pact'||e.kind==='breach')check(ids.has(e.a)&&ids.has(e.b)&&e.a<e.b&&RELATION_KINDS.includes(e.from)&&RELATION_KINDS.includes(e.to)&&e.from!==e.to);
+        else check(ids.has(e.faction)&&DOCTRINES.some(d=>d.id===e.doctrine)&&(e.child==null||(ref(e.child)&&!ids.has(e.child)))&&(e.kind!=='schism'||(e.child!=null&&nat(e.share)&&e.share>0)));
+        seen.add(e.id);
+    }
+}
+// Standing between two factions after the recorded events up to `year` (default: all). Folds, never stored.
+export function standingAt(w,a,b,year=Infinity) {
+    let now=w.relations[pair(a,b)];
+    for(const e of w.events??[])if((e.kind==='pact'||e.kind==='breach')&&e.year<=year&&pair(e.a,e.b)===pair(a,b))now=e.to;
+    return now;
+}
+// Pure derivation from the stored wars and factions plus keyed draws on the saved stream root. New draw keys only, so the war draws
+// above reproduce unchanged. Rules: allies who fought a shared war from the same side pact; a pact that ended up on opposite sides
+// breaks; the attacker and defender sink to enmity; a large faction may split over a doctrine, and its parent may call that heresy.
+function deriveEvents(state,w) {
+    const s=ensureStreams(state),stream=`world.events@${w.worldId}`,out=[],push=e=>out.push(e);
+    const draw=(key,lo,hi)=>rollInt(s,stream,key,lo,hi,{dist:'uniform'}).value;
+    const cur=(a,b,year)=>{let r=w.relations[pair(a,b)];for(const e of out)if((e.kind==='pact'||e.kind==='breach')&&e.year<=year&&pair(e.a,e.b)===pair(a,b))r=e.to;return r;};
+    const move=(kind,a,b,to,year,cause)=>{const [x,y]=a<b?[a,b]:[b,a],from=cur(x,y,year);if(from===to)return;push({kind,a:x,b:y,from,to,year,cause});};
+    for(const war of w.wars) {
+        const sides=[[war.attacker,...war.attackerAllies],[war.defender,...war.defenderAllies]],year=war.year+draw(`pact:${war.id}`,1,3);
+        for(const side of sides)side.forEach((a,i)=>side.slice(i+1).forEach(b=>{if(!['ally','friendly'].includes(cur(a,b,year)))move('pact',a,b,'ally',year,{kind:'common-war',ref:war.id});}));
+        for(const a of sides[0])for(const b of sides[1])if(cur(a,b,year)==='ally')move('breach',a,b,'suspicion',year,{kind:'opposed-in-war',ref:war.id});
+        if(cur(war.attacker,war.defender,year)!=='enemy')move('breach',war.attacker,war.defender,'enemy',year,{kind:'war-grievance',ref:war.id});
+    }
+    let splits=0;
+    for(const f of [...w.factions].sort((x,y)=>y.area*y.expansion-x.area*x.expansion||(x.id<y.id?-1:1))) {
+        if(splits>=2)break;
+        if(draw(`schism:${f.id}`,0,99)>=35+Math.round(f.area*f.expansion/4))continue;
+        const doctrine=DOCTRINES[draw(`schism:${f.id}:doctrine`,0,DOCTRINES.length-1)],year=draw(`schism:${f.id}:year`,1,50),child=`${f.id}.reformed`,share=Math.max(1,Math.floor(f.area*draw(`schism:${f.id}:share`,20,40)/100));
+        push({kind:'schism',faction:f.id,child,share,doctrine:doctrine.id,year,cause:{kind:'doctrine',ref:doctrine.id}});
+        push({kind:'heresy',faction:f.id,child,doctrine:doctrine.id,year:year+draw(`heresy:${f.id}`,1,5),cause:{kind:'schism',ref:child}});splits++;
+    }
+    // One unaccompanied denunciation where no split happened: a doctrine condemned but its holders stayed.
+    const quiet=w.factions.find(f=>!out.some(e=>e.faction===f.id)&&draw(`heresy:${f.id}:lone`,0,99)<30);
+    if(quiet)push({kind:'heresy',faction:quiet.id,child:null,doctrine:DOCTRINES[draw(`heresy:${quiet.id}:doctrine`,0,DOCTRINES.length-1)].id,year:draw(`heresy:${quiet.id}:year`,1,50),cause:{kind:'doctrine',ref:null}});
+    return out.sort((x,y)=>x.year-y.year||(x.kind<y.kind?-1:1)).slice(0,64).map((e,i)=>({id:`event:${i+1}`,...e}));
+}
+// Idempotent back-fill: a stored history without `events` gains them from its own wars and factions; one with events is untouched.
+export function upgradeWorldEvents(state,worldId='base.frontier') {
+    validateLoreHistory(state);
+    const w=state.loreHistory?.worldHistories?.[worldId];
+    if(!w||w.events!=null)return w??null;
+    const events=deriveEvents(state,w);validateWorldHistory({...w,events});w.events=events;return w;
 }
 // factions: [{id,area,expansion}] supplied by the world; omitted fields are drawn. Idempotent per world: a stored history is returned unchanged, and each world keeps its own under `worldHistories`.
 export function deriveWorldHistory(state,{worldId='base.frontier',factions=['north','east','south','west','coast'],startYear=0}={}) {
@@ -111,7 +173,7 @@ export function deriveWorldHistory(state,{worldId='base.frontier',factions=['nor
             cause:{relation:r,attackerPower:Math.round(pa),defenderPower:Math.round(pb)},attackerAllies,defenderAllies});
     }
     wars.sort((x,y)=>x.year-y.year).forEach((w,i)=>w.id=`war:${i+1}`);
-    const made={schema:1,worldId,factions:fs,relations,wars};validateWorldHistory(made);
+    const made={schema:1,worldId,factions:fs,relations,wars};made.events=deriveEvents(state,made);validateWorldHistory(made);
     (h.worldHistories ||= {})[worldId]=made;
     return made;
 }

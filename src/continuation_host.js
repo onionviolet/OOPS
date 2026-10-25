@@ -10,7 +10,7 @@ export function createContinuationHost({capture,preflight,publish,ownsSave,freez
         busy=true;const was=freeze();
         try {
             const before=revision(),source=capture();
-            const newLife=action==='fresh'?await fresh():undefined;
+            const newLife=(action==='fresh'||action.startsWith('challenge:begin:'))?await fresh():undefined;
             const next=planContinuation(source,action,{...request,fresh:newLife});
             await preflight(next);
             if(!ownsSave()||revision()!==before)throw Error('The active save changed during continuation checks. Your life is kept.');

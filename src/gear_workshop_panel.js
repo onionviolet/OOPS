@@ -7,13 +7,17 @@ const choice = (value, label) => {const n = el('option', label); n.value = value
 export function createGearWorkshopPanel({read, quote, execute, prepareHide,repairer}) {
     const panel = el('section'); panel.id = 'gear_workshop'; panel.className = 'expedition_panel';
     const maker = select('Maker'), items = select('Carried gear'), action = select('Gear process'), material = select('Process material'), role = select('Material role'), slot = select('Structural component');
+    const affix=select('Inscription to reroll');
+    const focus = select('Process control');
+    focus.append(choice('', 'Work by hand'), choice('focus', 'Use measured focus for precision'));
     const inspect = el('div'), details = el('div'), notice = el('p'), run = el('button', 'Apply quoted process'), hides = el('div');
     run.type = 'button'; run.dataset.gearCommit = ''; notice.setAttribute('role', 'status');
     panel.append(el('h2', 'Gear workshop'), el('p', 'Work on carried gear. Materials, process and maker control decide the result. Unequip an item before changing it.'),
-        maker, items, inspect, action, material, role, slot, details, run, notice, hides);
+        maker, items, inspect, action, material, role, slot, focus,affix, details, run, notice, hides);
     for(const [id, label] of Object.entries(GEAR_ACTIONS)) action.append(choice(id, label));
     let signature = '', q;
-    const request = () => ({maker: maker.value||'player',action: action.value, key: items.value, material: material.value, role: role.value, slot: slot.value});
+    const request = () => ({maker: maker.value||'player',action: action.value, key: items.value, material: material.value, role: role.value, slot: slot.value,affix:affix.value,
+        ...(['quench','temper'].includes(action.value) && focus.value ? {focus: true} : {})});
     const fill = (node, rows, empty) => {const value = node.value; node.replaceChildren(choice('', empty), ...rows.map(([id,name]) => choice(id, name))); if(rows.some(([id]) => id === value)) node.value = value;};
     function render() {
         if(!panel.isConnected) return;
@@ -35,7 +39,9 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
             const history = item.work?.history || [];
             if(history.length) {const h = el('details'), summary = el('summary', `Work history (${history.length})`); h.append(summary); for(const r of history) h.append(el('p', `${r.action} · ${r.maker} · ${r.location} · game minute ${r.at}`)); inspect.append(h);}
         }
-        const a = action.value;
+        const a = action.value;affix.hidden=a!=='reroll';fill(affix,(item?.affixes||[]).filter(a=>a.s!=='mechanism').map(a=>[a.id,`${a.id}: ${a.v}`]),'Choose rolled inscription');
+        focus.hidden = !view.focusKnown || !['quench','temper'].includes(a) || maker.value !== 'player';
+        if(focus.hidden) focus.value = '';
         material.hidden = !['attach','swap','repair','fieldRepair','quench','socket','reforge'].includes(a);
         role.hidden = !['attach','detach'].includes(a); slot.hidden = a !== 'swap';
         q = quote(request()); run.disabled = !q.eligible;
@@ -48,7 +54,7 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
             hides.append(el('p', `${h.note}${h.quote.eligible ? '' : ' ' + h.quote.reason}`), b);}
         if(q.eligible) for(const row of q.spend.slice(1)) details.append(el('p', `Consumes ${view.materials.find(m => m.key === row.key)?.name || JSON.parse(row.key).id} ×${row.count}`));
     }
-    for(const input of [maker, items, action, material, role, slot]) input.onchange = () => {signature = ''; render();};
+    for(const input of [maker, items, action, material, role, slot, focus,affix]) input.onchange = () => {signature = ''; render();};
     run.onclick = () => {
         try {const result = execute(q); notice.textContent = result.summary; signature = ''; render(); if(result.resultKey) {items.value = result.resultKey; render();}}
         catch(error) {notice.textContent = error.message; signature = ''; render();}

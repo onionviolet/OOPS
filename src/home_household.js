@@ -1,3 +1,4 @@
+import {householdEnergyCap} from './home_medicine.js';
 import {HOME_PLACES as P,homeKey as k} from './home_content.js';
 import {HOUSEHOLD_TERMS as TERMS,TUTOR,SUPPLIER} from './home_household_content.js';
 const STEWARD='home.manor.steward',COOK='home.manor.cook',KEEPER='home.manor.keeper';
@@ -19,11 +20,11 @@ export function admitHousehold(out){
 export function settleHouseholdRest(plan,previous){
  if(!previous?.simulation)return;
  const start=previous.clock,end=plan.state.clock;if(end<=start)return;
- for(const id of staff){const a=plan.state.actors[id],person=plan.state.simulation?.people[id];
+ for(const id of HOUSEHOLD_ACTORS){const a=plan.state.actors[id],person=plan.state.simulation?.people[id];
   if(!a||person?.life!=='alive'||person.location!==P.manor.location||!Object.hasOwn(a.resources,'home.energy'))continue;
   const intervals=(previous.simulation.jobs||[]).filter(j=>(j.participants||[j.actorId]).includes(id)).map(j=>[Math.max(start,j.startedAt??start),Math.min(end,j.due)]).filter(([a,b])=>b>a).sort((a,b)=>a[0]-b[0]);
   let occupied=0,last=start;for(const [a,b]of intervals){occupied+=Math.max(0,b-Math.max(last,a));last=Math.max(last,b);}
-  a.resources['home.energy']=Math.min(TERMS.energy,a.resources['home.energy']+Math.max(0,end-start-occupied));
+  a.resources['home.energy']=Math.min(householdEnergyCap({people:plan.state.simulation.people,staffResources:{[id]:a.resources},staffFacts:{[id]:a.facts}},id),a.resources['home.energy']+Math.max(0,end-start-occupied));
  }
 }
 export function staffReadiness(c,id){

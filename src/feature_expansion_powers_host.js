@@ -29,6 +29,7 @@ export function featurePowerPresentation(state,registry,context={},battleView=nu
     }
     const apparatus=featurePowerDefinitions.commands.filter(d=>!d.powerId).filter(d=>meets(d.visibleWhen,facts)&&!(d.once&&a.completed[d.id]));
     if(apparatus.length&&s)sections.push({id:'mature_apparatus',label:'Owned field apparatus',description:'Ordinary supplies make the same real harness. Lio uses only his own consent, body, trained source and actual equipment.',actions:apparatus.map(d=>row(state,registry,context,registry.simulation.commands.get(d.id)))});
+    if(battleView?.kind==='cohort')return {visible:sections.length>0,sections};
     const known=a.facts['feature.battle.seen']===true;
     const discover=registry.simulation.commands.get('feature_battle.inspect');
     if(known||discover&&meets(discover.visibleWhen,facts)&&!a.completed[discover.id]) {

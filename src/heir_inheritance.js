@@ -9,6 +9,7 @@ import {setSavedPurse} from './money.js';
 import {kinFromRelationships} from './family_tree.js';
 import {passHeirloomKey, readMaterialLineage} from './material_lineage.js';
 import {calendarMinutes} from './world_rhythm.js';
+import {heirLine, validateLineage, heirQualityLines} from './lineage_traits.js';
 const LESSON_IDS = Object.freeze(['routeSignals', 'guardLesson', 'controlPattern']);
 export const HEIR_OBLIGATIONS = Object.freeze({
     grievance: 'An unsettled assault grievance with the elder (3-coin restitution still owed)',
@@ -125,6 +126,14 @@ export function deriveHeirLeftovers(previous, {equippedKeys = [], law: lawId = D
         leftovers.lifeEstate = {...verdict.lifeEstate, home: leftovers.home, residences: leftovers.residences ?? null};
         leftovers.home = false; delete leftovers.residences;
     }
+    // W3 G24: qualities travel as a re-rooted lineage slice. The heir is the named kin member when the
+    // law names one that the line records, else a seeded cross of this body and its other parent.
+    if(previous.inherited_traits) {
+        let at = 0; try {at = calendarMinutes(previous['current time']);} catch {}
+        const named = previous.inherited_traits.members.some(m => m.id === leftovers.heir?.id) ? leftovers.heir.id : null;
+        leftovers.lineage = heirLine(previous.inherited_traits, {heirId: named, at, tag: String(c.life.endedAt)});
+        leftovers.inherited = heirQualityLines(leftovers.lineage, leftovers.lineage.selfId);
+    }
     leftovers.empty = !residences?.money && !residences?.goods.length && !Object.keys(residences?.homes.properties||{}).length && !residences?.homes.portable && !money && !leftovers.belongings.length && !leftovers.chest.length && !home && !leftovers.papers.length && !leftovers.apprentice.length;
     return leftovers;
 }
@@ -139,6 +148,8 @@ export function validateHeirLeftovers(l) {
     check(Array.isArray(l.debts) && l.debts.every(d => d?.id === 'kitDebt' && [d.owed, d.paid, d.shortfall].every(n => Number.isSafeInteger(n) && n >= 0) && d.paid + d.shortfall === d.owed), 'Invalid estate debts.');
     if(l.residences)validateHomeEstate(l.residences);
     if(l.law != null) heirLaw(l.law);
+    if(l.lineage != null) validateLineage(l.lineage);
+    if(l.inherited != null) check(Array.isArray(l.inherited) && l.inherited.every(x => typeof x === 'string'), 'Invalid inherited qualities.');
     if(l.heir != null) check(object(l.heir) && typeof l.heir.id === 'string' && ['child', 'spouse'].includes(l.heir.relation), 'Invalid named heir.');
     if(l.lifeEstate != null) {
         check(object(l.lifeEstate) && typeof l.lifeEstate.holder === 'string' && typeof l.lifeEstate.home === 'boolean', 'Invalid life estate.');
@@ -165,6 +176,7 @@ export function applyHeirLeftovers(next, leftovers) {
     const rep = next.character.reputation ||= {};
     for(const [region, v] of Object.entries(leftovers.reputation)) if(Object.hasOwn(rep, region)) rep[region] += v;
     applyHomeEstate(next,leftovers.residences);
+    if(leftovers.lineage) next.inherited_traits = structuredClone(leftovers.lineage);
     return next;
 }
 
@@ -194,6 +206,7 @@ export function heirLeftoverLines(l, labels = {}, labelItem = itemLabel) {
     const standing = Object.entries(l.reputation).map(([r, v]) => `${r} ${v > 0 ? '+' : ''}${v}`);
     if(standing.length) lines.push(`Family standing: ${standing.join(', ')}.`);
     for(const d of l.debts) lines.push(`Debt settled first: the estate paid ${d.paid} of ${d.owed} coins owed to the Village guard for a kept kit${d.shortfall ? `; the remaining ${d.shortfall} was written off` : ''}.`);
+    if(l.inherited?.length) lines.push(`Inherited from the line: ${l.inherited.join(', ')}. Their other alleles stay unknown until tested.`);
     if(l.archiveLine) lines.push('The elder\'s archive stays with your line.');
     for(const id of l.obligations) lines.push(`Obligation: ${HEIR_OBLIGATIONS[id]}.`);
     if(l.residences?.money)lines.push(`Unfinished home work returned ${l.residences.money} coins to the estate before debt settlement.`);

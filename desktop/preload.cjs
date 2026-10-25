@@ -9,7 +9,19 @@ contextBridge.exposeInMainWorld('yairpgHost', {
     desktop: true,
     background: info.background,
     build: info.build,
+    capabilities: info.capabilities || [],
     prompt: (message, initial) => ipcRenderer.sendSync('yairpg:prompt', String(message), String(initial)),
+    // Save backups (A1). An older main process has no handler, so a rejected
+    // call reads as "no backups" instead of an error.
+    mirrorList: () => ipcRenderer.invoke('yairpg:mirror-list').catch(() => []),
+    // Something is waiting for the player (src/host.js). Fire and forget.
+    attention: (count, label) => ipcRenderer.send('yairpg:attention', Number(count) || 0, String(label || '').slice(0, 120)),
+    // Pop-out panels (A3, src/host.js). The game page sends projections; a
+    // pop-out page listens and can ask for the latest one when it opens.
+    projection: (name, data) => ipcRenderer.send('yairpg:projection', String(name), data),
+    onProjection: callback => { ipcRenderer.on('yairpg:projection', (_event, name, data) => callback(name, data)); },
+    projectionLatest: name => ipcRenderer.invoke('yairpg:projection-latest', String(name)).catch(() => null),
+    mirrorRestore: id => ipcRenderer.invoke('yairpg:mirror-restore', String(id)).catch(() => false),
 });
 
 // Hang guard heartbeat (EL46): a page stuck in a busy loop cannot answer.

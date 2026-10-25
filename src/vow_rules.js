@@ -3,7 +3,7 @@
 // (pressure the breakthrough trial reads, src/breakthrough_trial.js). Nothing
 // forbids a vow or breaking one: the price is the rule (AD38). Rules are data
 // per world; the save slice `progression.vows@1` is plain JSON.
-// Pure. Not wired into live gameplay yet.
+// Pure transitions; the Pledges domain owns native commands and admission.
 import {natural as nat, positive as pos} from './basics.js';
 
 export const VOW_FAMILY = 'progression.vows@1';

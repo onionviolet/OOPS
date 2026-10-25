@@ -1,3 +1,4 @@
+import {domainRegistry} from '../domain_registry.js';
 import {damageRecord,supportedHarvest} from '../harvest.js';
 import {effectiveCritChance} from '../gear_dimensions.js';
 import {acquiredLootKeys} from '../gear_acquisition.js';
@@ -19,7 +20,7 @@ import { log_message, update_displayed_health, update_stance_tooltip } from "../
 import { enemy_tag_to_skill_mapping } from "../enemies.js";
 import { item_templates } from "../items.js";
 import {add_xp_to_character, add_xp_to_skill, change_stance, current_stance, finish_combat_round, game_stats, kill_target, kill_player, process_current_loot, tickrate, use_stamina} from "../main.js";
-import {game_options, selected_stance} from "../runtime_state.js";
+import {game_options, selected_stance,current_location} from "../runtime_state.js";
 import { get_hit_chance } from "../misc.js";
 import { do_onhit_animation, do_onstart_animation, fill_fighter_divs, remove_onhit_animation, update_displayed_health_of_fighter } from "../ui/combat_display.js";
 
@@ -204,6 +205,7 @@ class Combat {
     }
 
     end() {
+        if(!this.is_special_combat&&this.nativeExchangeHost)domainRegistry.command('combatReview','finish')?.({id:this.rngKey,outcome:'withdrew'});
         this.is_ended = true;
         this.reset();
     }
@@ -418,6 +420,7 @@ class Combat {
     }
 
     resolveExchange({fighter_index,is_attacker,targets,attack_power}) {
+        if(!this.is_special_combat&&this.nativeExchangeHost)domainRegistry.command('combatReview','begin')?.({id:this.rngKey,place:current_location?.id||''});
         const fighter=(is_attacker?this.attackers:this.defenders)[fighter_index];
         delete this.#pendingLoops[`${is_attacker?'attackers':'defenders'}:${fighter_index}`];
         let leveled = false;
@@ -480,7 +483,7 @@ class Combat {
         const targetIndex=(is_attacker ? this.defenders : this.attackers).indexOf(target);
         const random=decision=>this.#random(side,fighter_index,targetIndex,decision);
         // R22: who did what to whom, snapshotted at emit time for the log (no RNG, no state change).
-        const logEvent=(outcome,extra={})=>combatLogEvent(this,{fighter,fighterIndex:fighter_index,isAttacker:is_attacker,target,outcome,...extra});
+        const logEvent=(outcome,extra={})=>{const event=combatLogEvent(this,{fighter,fighterIndex:fighter_index,isAttacker:is_attacker,target,outcome,...extra});if(!this.is_special_combat&&this.nativeExchangeHost)domainRegistry.command('combatReview','observe')?.({id:this.rngKey,key:`${side}:${fighter_index}:${this.#turns[side][fighter_index]}:${targetIndex}:${outcome}`,event});return event;};
         const opponents = is_attacker ? this.defenders : this.attackers;
         const base_damage = attack_power;
         const opponent_count_xp_multiplier = this.is_special_combat? 1 : opponents.length**(1/3);
@@ -613,8 +616,11 @@ class Combat {
         }
 
         if(!this.is_special_combat&&target.tags.main_character)defense_modifier+=getElementalDefenseModifier({enabled:game_options.elemental_affinities,attacker:fighter,equipment:target.getEquipment(),baseDamage:base_damage});
+        if(!this.is_special_combat&&this.nativeExchangeHost){const charge=domainRegistry.command('pledges','resolvedCharge')?.({fighter,target});if(charge)damages_dealt=damages_dealt.map(n=>n*charge.multiplier);}
         const harvestHealth=target.getFullStats().health;
-        let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, give_skill_xp: (!this.is_special_combat && target.tags.main_character)});
+        let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, armor_penetration:fighter.getFullStats().armor_penetration??0, give_skill_xp: (!this.is_special_combat && target.tags.main_character)});
+
+        if(!this.is_special_combat&&this.nativeExchangeHost)domainRegistry.command('pledges','resolvedSiphon')?.({fighter,target,damage:Math.max(0,Math.min(damage_taken,harvestHealth-Math.max(0,target.getFullStats().health)))});
 
         if(!this.is_special_combat && fighter.tags.main_character && supportedHarvest(target.name)) {
             const weapon=fighter.getEquipment()?.weapon;
@@ -654,6 +660,7 @@ class Combat {
         if(fainted) {
             this.#settledTargets.add(target);
             if(target.tags.main_character) {
+                if(!this.is_special_combat&&this.nativeExchangeHost)domainRegistry.command('combatReview','finish')?.({id:this.rngKey,outcome:'lost'});
                 kill_player({is_combat: true});
                 return;
             } else {
@@ -681,6 +688,7 @@ class Combat {
                 }
                 
                 kill_target({fighter_index, target_index, is_target_an_attacker: !is_attacker, observedDrops});
+                if(!this.is_special_combat&&this.nativeExchangeHost&&this.defenders.every(e=>!e.is_alive))domainRegistry.command('combatReview','finish')?.({id:this.rngKey,outcome:'won'});
                 this.encounterHooks?.afterDefeat?.({combat:this,fighter,target,settlement,dropChanceModifier});
                 this.clearAttackLoop({fighter_index: target_index, is_attacker: !is_attacker});
             }

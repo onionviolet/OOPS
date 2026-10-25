@@ -1,3 +1,4 @@
+import {validateThread} from './vessel_thread.js';
 // The player naming act (G6). Naming binds a chosen name, and optionally a relic quality, to ONE gear
 // instance (its stable e2 instance id), never to an item_key, because identical items share a stack.
 // Save slice `naming` (AR6): {schema:1, used:n, named:{[instanceId]:record}}. Old saves have no slice and
@@ -40,7 +41,8 @@ export function validateNaming(slice) {
     const named = {};
     for (const [id, r] of Object.entries(slice.named)) {
         if (!INSTANCE.test(id) || !object(r)) throw Error('Invalid named item.');
-        named[id] = {name: cleanName(r.name), tier: String(r.tier || 'named').slice(0, 24),
+        validateThread(r.vesselThread);
+        named[id] = {...(r.vesselThread?{vesselThread:structuredClone(r.vesselThread)}:{}),name: cleanName(r.name), tier: String(r.tier || 'named').slice(0, 24),
             uses: Number.isFinite(r.uses) && r.uses >= 0 ? Math.floor(r.uses) : 0, seed: Number.isInteger(r.seed) ? r.seed >>> 0 : 0,
             bestow: normalizeAffixes(r.bestow), clauses: Array.isArray(r.clauses) ? r.clauses.filter(c => c && typeof c.text === 'string' && typeof c.kind === 'string').slice(0, 8) : [], at: Number.isFinite(r.at) ? r.at : 0};
     }
@@ -66,7 +68,7 @@ export function executeNaming(state, quote, requote) {
     if (JSON.stringify(again) !== JSON.stringify(quote)) throw Error('The naming quote changed. Review it again.');
     const rec = state.named[again.instance];
     // Renaming keeps the first bestowal: the item's story is what earned it, not the new word.
-    state.named[again.instance] = {name: again.name, tier: rec?.tier ?? again.relic.tier, uses: rec?.uses ?? again.uses, seed: rec?.seed ?? again.seed,
+    state.named[again.instance] = {...(rec?.vesselThread?{vesselThread:structuredClone(rec.vesselThread)}:{}),name: again.name, tier: rec?.tier ?? again.relic.tier, uses: rec?.uses ?? again.uses, seed: rec?.seed ?? again.seed,
         bestow: rec?.bestow ?? again.relic.affixes, clauses: rec?.clauses ?? again.relic.clauses, at: rec?.at ?? Date.now()};
     if (!rec) state.used += 1;
     return state.named[again.instance];

@@ -2,14 +2,15 @@ import {MENDER_ACTIONS,quoteMender} from './material_apprentice.js';
 import {queryCapabilities} from './capabilities.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {applyGameplayEffect} from './gameplay_transactions.js';
-import {createAffixes} from './gear_affixes.js';
-import {registerDomain} from './domain_registry.js';
+import {createAffixes,rerollSelectedAffix} from './gear_affixes.js';
+import {domainRegistry,registerDomain} from './domain_registry.js';
 import {beginNativeCraftTransaction} from './native_craft_transaction.js';
 import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {toolsState, setToolsState, maxCondition, rekeyToolFacts} from './tools_domain.js';
 import {quoteGearWork, validateWork, materialProperties, GEAR_WORK_LAWS, coldSoakNeed} from './gear_work.js';
 import {createGearWorkshopPanel} from './gear_workshop_panel.js';
 import {HIDE_TREATMENTS, quoteHideTreatment, samePreparationQuote} from './material_treatment.js';
+import {applyEnergyEffect} from './energy_resources.js';
 
 let ports, panel;
 const needOf = item => {
@@ -26,9 +27,11 @@ function maker(selected='player') {
     const unavailable=selected==='oldCraftsman'&&(!person?.is_alive||!ports.craftsmanHere?.());
     return {id: selected==='oldCraftsman'?'oldCraftsman':actor().id || actor().name || 'player', world: ports.world(), location: ports.location(),
         skill: selected==='oldCraftsman'?(person?.getTotalSkillLevel('Forging')||0):(ports.skillLevel('Forging')||0), station: ports.stationTier('forging'),
+        ...(selected === 'player' && ports.root?.()?.simulation?.energies?.player?.['field.focus'] ? {focus: structuredClone(ports.root().simulation.energies.player['field.focus'])} : {}),
         durability: durability.enabled, blocked: unavailable?'The old craftsman is not available here.':!ports.writable() ? 'This game does not own the writable save.' : ports.blocked() || (!ports.idle() ? 'Finish the current activity before working on gear.' : '')};
 }
 export function quoteWorkshop(request) {
+    const refusal=request?.maker==='oldCraftsman'?domainRegistry.command('pledges','actionReason')?.({kind:'paid-help'}):'';if(refusal)return {request:structuredClone(request),eligible:false,reason:refusal,spend:[],receive:[]};
     const quoted = quoteGearWork({request, inventory: actor().getItems(), templates: ports.templates,
         maker: maker(request?.maker), condition: request?.key ? durability.condition(request.key) : 100,
         cap: request?.key ? maxCondition(request.key) : 100, uses: request?.key ? durability.uses(request.key) : 0, clock: ports.clock()});
@@ -49,9 +52,11 @@ export function executeWorkshop(quoted) {
     const txn = beginNativeCraftTransaction({owners: ports.itemOwners(), bindings: [
         {get: () => durability.serialize(), set: value => durability.load(value)},
         {get: toolsState, set: setToolsState},
+        ...(q.energy ? [{get: () => ports.root().simulation.energies, set: value => {ports.root().simulation.energies = value;}}] : []),
     ]});
     let resultKey = null;
     try {
+        if(q.energy) applyEnergyEffect(ports.root(), 'player', q.energy, ports.registry.simulation);
         const input = actor().getItems()[q.request.key].item;
         if(!q.destroyed) {
             const instance = durability.prepareEquip(input, ports.itemFactory, {requireIdentity: true});
@@ -61,6 +66,7 @@ export function executeWorkshop(quoted) {
                 let draw=0;
                 data.affixes=createAffixes({parts:{internal:ports.templates[data.components.internal],external:ports.templates[data.components.external]},rarity:ports.itemFactory(JSON.stringify(data)).getRarity(),random:()=>ports.random(`gear.reforge:${data.e2_instance}:${data.gearwork.history.length}:${draw++}`)});
             }
+            if(q.reroll){let draw=0;data.affixes=rerollSelectedAffix({list:data.affixes,id:q.reroll,rarity:input.getRarity(),random:()=>ports.random(`gear.inscription:${data.e2_instance}:${data.gearwork.history.length}:${draw++}`)});}
             resultKey = JSON.stringify(data);
             // Decode and validate BEFORE removing any item. No lost custody if
             // an authored replacement cannot construct a real native item.
@@ -130,11 +136,11 @@ export function projectWorkshop() {
         rows: Object.entries(inventory).filter(([,r]) => r.item.tags.equippable && r.item.components && !r.item.tags.structuredEquipment)
             .map(([key,r]) => ({key, name: r.item.getName(), count: r.count, quality: r.item.quality,
                 components: r.item.components, condition: durability.condition(key), max: maxCondition(key), uses: durability.uses(key),
-                work: r.item.gearwork || null, need: needOf(r.item), properties: r.item.getWearProfile?.(), contributions: r.item.getWorkContributions?.() || []})),
+                work: r.item.gearwork || null,affixes:r.item.affixes||JSON.parse(key).affixes||[], need: needOf(r.item), properties: r.item.getWearProfile?.(), contributions: r.item.getWorkContributions?.() || []})),
         materials: Object.entries(inventory).filter(([,r]) => r.item.tags.component && materialProperties(ports.templates[r.item.id]) || ['Lamp oil','Iron ingot'].includes(r.item.id))
             .map(([key,r]) => ({key, name: r.item.getName(), count: r.count})),
         makers: [{id:'player',name:'You',skill:m.skill},...(ports.craftsmanHere?.()?[{id:'oldCraftsman',name:'Old craftsman',skill:ports.craftsman().getTotalSkillLevel('Forging')}]:[])],
-        roles: Object.keys(GEAR_WORK_LAWS[m.world]?.roles || {}),
+        roles: Object.keys(GEAR_WORK_LAWS[m.world]?.roles || {}), focusKnown: !!m.focus,
         repairerStatus:ports.root?.().actors.player.sources['frontier.mender.fitted']?'Practiced fitting is retained: either usable kit can support precise lining work.':ports.root?.().actors.player.facts['mender.methodsKnown']?'Preparation lesson recorded. Complete local repair work and demonstrate a fitted preparation.':'The craftsman can teach local preparation and fitting through actual repair work.',
         repairer:Object.entries(MENDER_ACTIONS).filter(([id])=>id==='lesson'?!ports.root?.().actors.player.facts['mender.methodsKnown']:id==='shift'?!ports.root?.().actors.player.facts['mender.repairShift']:id==='advance'?!ports.root?.().actors.player.sources['frontier.mender.fitted']:true).flatMap(([id,label])=>['tool','advance','fine'].includes(id)?['smoked','oiled'].map(route=>({id:id+':'+route,label:label+' · '+route+' lot',quote:quoteRepairer(id+':'+route)})):[{id,label,quote:quoteRepairer(id)}]),
         hides: Object.entries(HIDE_TREATMENTS).map(([id, t]) => ({id, label: t.label, note: t.note, quote: quoteHide(id)}))};

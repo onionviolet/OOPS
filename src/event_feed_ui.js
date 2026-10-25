@@ -1,5 +1,6 @@
 import {definePanel} from './panel_kit.js';
 import {eventFeed} from "./event_feed.js";
+import {reportAttention,reportProjection} from "./host.js";
 
 const node = (tag, text = "") => {const n = document.createElement(tag); n.textContent = text; return n;};
 export function createEventFeed({registry, read, open}) {
@@ -17,6 +18,8 @@ export function createEventFeed({registry, read, open}) {
         const snapshot = read(), {state,context} = snapshot, feed = eventFeed(state,registry,context.facts,snapshot.lifeRecord);
         panel.hidden = !feed.leads.length && !feed.news.length && !feed.life.length && !feed.heard.length;
         const count = feed.leads.filter(e => e.available).length;
+        reportAttention(count, feed.leads.find(e => e.available)?.label || "");
+        reportProjection("events", () => ({leads: feed.leads.map(e => ({label: e.label, detail: e.detail, available: e.available})), news: feed.news.map(m => m.text)}));
         summary.textContent = `World events${count ? ` · ${count} available` : ""}`;
         for(const e of feed.leads) {
             let row = rows.get(e.id);

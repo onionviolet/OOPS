@@ -17,7 +17,12 @@ export function createFortunesPanel({read,obligations,setRoutinePaused}){
         if(!view.visible){body.append(el('p','The manor household has not been seen yet.'));return;}
         const watch=section('Watch list');
         if(!view.watch.length)watch.append(el('p','Nobody is left to watch.'));
-        for(const w of view.watch)watch.append(el('p',`${w.name} · circumstances ${w.score}${w.signs?` · ${w.signs} sign${w.signs===1?'':'s'} noticed`:''}`));
+        if(view.watch.length)watch.append(el('small','Ranked by signs noticed first, then by circumstances (the bed, food and care shown under Staff, part by part).'));
+        for(const w of view.watch){
+            const parts=view.staff.find(s=>s.id===w.id)?.parts||[];
+            const row=el('p',`${w.name} · circumstances ${w.score}${w.signs?` · ${w.signs} sign${w.signs===1?'':'s'} noticed`:''}${parts.length?` · ${parts.map(p=>`${p.label.toLowerCase()} ${pct(p.value)}`).join(', ')}`:''}`);
+            row.dataset.fortuneWatch=w.id;watch.append(row);
+        }
         const staff=section('Staff, part by part');
         for(const s of view.staff){
             const head=s.dead?`${s.name} · ${s.role} · died`:`${s.name} · ${s.role}${s.awakened?' · has awakened':''}`;

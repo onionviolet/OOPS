@@ -7,7 +7,7 @@ import {applySimulationEffects} from './simulation_effects.js';
 import {commitSimulationCommand,cancelSimulationJob,previewSimulationCommand} from './simulation.js';
 export function registerHomeWork(registry) {
     if(!registry)return;const built=createSimulationRegistry(homeWorkDefinitions);
-    for(const family of ['people','commands'])for(const [id,d]of built[family]){if(registry.simulation[family].has(id))throw Error('Duplicate home work definition.');registry.simulation[family].set(id,d);}
+    for(const family of ['people','commands','conditions','events'])for(const [id,d]of built[family]){if(registry.simulation[family].has(id))throw Error('Duplicate home work definition.');registry.simulation[family].set(id,d);}
 }
 export function ensureHomeSimulation(plan,location,body) {
     plan.state.simulation ||= {...createSimulationState(),enrolledAt:plan.state.clock};
@@ -15,7 +15,7 @@ export function ensureHomeSimulation(plan,location,body) {
     if(body&&!plan.state.simulation.people.player.body)plan.state.simulation.people.player.body=structuredClone(body);
 }
 export function homeJobContext(plan,c,actorId='player') {return {actorId,worldId:HOME_WORLD,external:plan.external,gameplay:plan.gameplay,busy:false,
-    facts:{location:actorId==='player'?c.location:plan.state.simulation?.people[actorId]?.location}};}
+    facts:{...c.facts,location:actorId==='player'?c.location:plan.state.simulation?.people[actorId]?.location}};}
 export function applyHomeSimulationEffects(plan,effects,registry,c) {
     if(!effects?.length)return;ensureHomeSimulation(plan,c.location,c.body);plan.acquisitions ||= [];plan.unlocks ||= [];
     applySimulationEffects(plan,effects,homeJobContext(plan,c),registry,`home:${plan.state.sequence}`);

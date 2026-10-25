@@ -8,6 +8,7 @@ import {PARTY_HELPER} from './native_battle_contracts.js';
 import {readPort, whenPortsReady} from './ui_ports.js';
 import {registerChangeCounter} from './change_badges.js';
 import {node, syncList, visibleRenderer, plural, minutesText} from './reference_kit.js';
+import {COMPANION_PROFILES, profileFor, issueWish, wishSignature, wishText, progressWish, departure, returnInDays, comeBack, DAY} from './companion_wishes.js';
 
 // SX6: Companions. One line for each person who is with you or settled near you and whom you have
 // met: Lio once you have met him, and the travellers who have become residents or are visiting.
@@ -60,7 +61,8 @@ export function performBondRite(bond, rite, temperament, when = 0) {
 // from their first trait, which stays hidden until you have learned it; the memory line after a
 // rite ("it suited them") is how play reveals it.
 export const LIO_TEMPERAMENT = 'practical';
-const BOND_SCHEMA = 1;
+// Schema 2 (W3 G29) adds optional per-bond `wish`, `gone`, `issued` and `note`; schema 1 saves still validate and migrate.
+const BOND_SCHEMA = 2;
 const BOND_KEY = /^(party:lio|person:[\w-]{1,64})$/;
 const freshBonds = () => ({schema: BOND_SCHEMA, bonds: {}});
 let bondState = freshBonds(), bondVersion = 0;
@@ -69,15 +71,20 @@ const bondListeners = new Set();
 export function validateBonds(slice) {
     const bad = reason => { throw new Error(`Invalid companion bonds: ${reason}`); };
     if (slice == null) return;
-    if (typeof slice !== 'object' || slice.schema !== BOND_SCHEMA || !slice.bonds || typeof slice.bonds !== 'object') bad('shape');
+    if (typeof slice !== 'object' || ![1, BOND_SCHEMA].includes(slice.schema) || !slice.bonds || typeof slice.bonds !== 'object') bad('shape');
     for (const [key, bond] of Object.entries(slice.bonds)) {
         if (!BOND_KEY.test(key)) bad(`key ${key}`);
         if (!Number.isSafeInteger(bond?.level) || bond.level < 0) bad('level');
         if (!Array.isArray(bond.memory) || bond.memory.length > BOND_MEMORY_CAP) bad('memory');
+        if (bond.wish != null && !(['rite', 'level'].includes(bond.wish.kind) && Number.isFinite(bond.wish.since) && (bond.wish.kind === 'level' ? Number.isSafeInteger(bond.wish.target) : BOND_RITES[bond.wish.rite] && Number.isSafeInteger(bond.wish.need) && Number.isSafeInteger(bond.wish.done)))) bad('wish');
+        if (bond.gone != null && !(Number.isFinite(bond.gone.since) && typeof bond.gone.reason === 'string' && bond.gone.reason.length <= 120)) bad('gone');
+        if (bond.note != null && (typeof bond.note !== 'string' || bond.note.length > 120)) bad('note');
         for (const m of bond.memory) if (!BOND_RITES[m?.rite] || typeof m.preferred !== 'boolean' || !Number.isFinite(m.when) || typeof m.line !== 'string' || m.line.length > 120) bad('memory entry');
     }
 }
-export const migrateBonds = slice => (slice == null ? freshBonds() : structuredClone(slice));
+// DAY is re-exported so a world file can state a patience in the same unit.
+export {DAY, COMPANION_PROFILES};
+export const migrateBonds = slice => (slice == null ? freshBonds() : {...structuredClone(slice), schema: BOND_SCHEMA});
 
 // Pure: the reasons in parts for one row. `temperament` is the true one; `known` says whether you
 // have learned it. Nothing hidden is named until it is known.
@@ -94,7 +101,42 @@ export function bondParts(bond, temperament, known) {
 export function bondLevel(key) { return bondState.bonds[key]?.level || 0; }
 export function doBondRite(key, rite, temperament, when) {
     if (!BOND_KEY.test(key)) throw new Error(`Unknown companion: ${key}`);
-    bondState.bonds[key] = performBondRite(bondState.bonds[key], rite, temperament, when);
+    const old = bondState.bonds[key];
+    if (old?.gone) throw new Error('They are not here. Go looking for them first.');
+    const bond = {...old, ...performBondRite(old, rite, temperament, when)};
+    delete bond.note;
+    bondState.bonds[key] = progressWish(bond, rite, COMPANION_PROFILES[profileFor(key)]);
+    bondVersion++; for (const fn of bondListeners) fn();
+    return bondState.bonds[key];
+}
+
+// W3 G29: open wishes and leaving. Called from the domain tick with the current rows and game minute;
+// a person gets one open wish (no two companions share one) and a free person whose wish stays unmet
+// goes back to the road. Lio only voices wishes. Departure is a roster overlay: it never touches the
+// party or the generated-people state.
+export function stepCompanions(rows, now) {
+    let changed = false;
+    const open = () => Object.entries(bondState.bonds).filter(([, b]) => b.wish && !b.gone).map(([k, b]) => [k, wishSignature(b.wish)]);
+    for (const row of rows) {
+        let bond = bondState.bonds[row.key] ?? {level: 0, memory: []};
+        const profile = COMPANION_PROFILES[profileFor(row.key)];
+        if (bond.gone) continue;
+        if (!bond.wish) {
+            const taken = open().filter(([k]) => k !== row.key).map(([, sig]) => sig);
+            bond = {...bond, wish: issueWish(row.key, bond, now, BOND_RITES, taken), issued: (bond.issued ?? 0) + 1}; changed = true;
+        }
+        const gone = departure(bond, now, profile, row.name);
+        if (gone) { bond = {...bond, gone, note: gone.reason}; changed = true; }
+        bondState.bonds[row.key] = bond;
+    }
+    if (changed) { bondVersion++; for (const fn of bondListeners) fn(); }
+    return changed;
+}
+export function goLooking(key, now) {
+    const bond = bondState.bonds[key];
+    if (!bond) throw new Error(`Unknown companion: ${key}`);
+    const taken = Object.entries(bondState.bonds).filter(([k, b]) => k !== key && b.wish && !b.gone).map(([, b]) => wishSignature(b.wish));
+    bondState.bonds[key] = comeBack(key, bond, now, COMPANION_PROFILES[profileFor(key)], BOND_RITES, taken);
     bondVersion++; for (const fn of bondListeners) fn();
     return bondState.bonds[key];
 }
@@ -112,8 +154,13 @@ function readCompanions() {
     const rows = projectCompanions(expansion, people).map(row => {
         const p = rawBy.get(row.key), temperament = p ? p.traits[0] : LIO_TEMPERAMENT;
         const known = !p || p.knownTraits.includes(temperament), bond = bondState.bonds[row.key];
-        const away = p ? (p.status === 'on_road') : false;
-        return {...row, temperament, level: bond?.level || 0, parts: bondParts(bond, temperament, known),
+        const profile = COMPANION_PROFILES[profileFor(row.key)], gone = !!bond?.gone;
+        const away = (p ? (p.status === 'on_road') : false) || gone;
+        const parts = bondParts(bond, temperament, known);
+        if (bond?.wish && !gone) parts.unshift(`${row.name} ${wishText(bond.wish)}.${profile.leaves ? '' : ` ${profile.reason}`}`);
+        if (bond?.note) parts.push(bond.note);
+        if (gone) parts.unshift(`Gone to the wild road. ${profile.reason}`);
+        return {...row, temperament, level: bond?.level || 0, parts, gone, waitDays: gone ? returnInDays(bond, minute, profile) : 0,
             memory: (bond?.memory || []).map(m => m.line), away, when: minute};
     });
     memo = {key, rows};
@@ -135,15 +182,20 @@ function createRosterPanel() {
             let box = li.querySelector('.bond-rite');
             if (!box) {
                 box = node('div', null, {class: 'bond-rite'});
-                box.append(node('ul', null, {class: 'bond-parts'}), node('ul', null, {class: 'bond-memory', 'aria-label': 'Remembered scenes'}), node('div', null, {class: 'bond-actions', role: 'group'}));
+                box.append(node('ul', null, {class: 'bond-parts'}), node('ul', null, {class: 'bond-memory', 'aria-label': 'Remembered scenes'}), node('div', null, {class: 'bond-actions', role: 'group'}), node('div', null, {class: 'bond-return', role: 'group'}));
                 li.append(box);
             }
-            const [parts, memory, actions] = box.children;
+            const [parts, memory, actions, back] = box.children;
             const sync = (ul, lines) => { if (ul.dataset.sig !== lines.join('\n')) { ul.dataset.sig = lines.join('\n'); ul.replaceChildren(...lines.map(t => node('li', t))); } };
             sync(parts, row.parts); sync(memory, row.memory);
             if (!actions.children.length) for (const rite of Object.keys(BOND_RITES)) {
                 const b = node('button', BOND_RITES[rite][0].toUpperCase() + BOND_RITES[rite].slice(1), {type: 'button'}); b.dataset.bondRite = rite; actions.append(b);
             }
+            const ret = back.firstChild ?? back.appendChild(node('button', 'Go looking for them', {type: 'button'}));
+            ret.dataset.companionReturn = row.key; ret.hidden = !row.gone; ret.disabled = row.waitDays > 0;
+            ret.setAttribute('aria-label', `Go looking for ${row.name}`);
+            ret.textContent = row.waitDays > 0 ? `Go looking for them (in ${plural(row.waitDays, 'day', 'days')})` : 'Go looking for them';
+            ret.onclick = () => { try { goLooking(row.key, row.when); status.textContent = `${row.name} came back. It is kept with your next save.`; } catch (e) { status.textContent = e.message; } };
             for (const b of actions.children) {
                 b.disabled = row.away; b.setAttribute('aria-label', `${BOND_RITES[b.dataset.bondRite]} with ${row.name}`);
                 b.onclick = () => {
@@ -167,6 +219,11 @@ registerDomain({id: 'companions', deps: [], initialState: freshBonds,
     save: () => (Object.keys(bondState.bonds).length ? structuredClone(bondState) : undefined),
     validate: validateBonds, migrate: migrateBonds,
     load: slice => { bondState = slice ? structuredClone(slice) : freshBonds(); bondVersion++; for (const fn of bondListeners) fn(); },
+    tick: minutes => {
+        if (!(minutes > 0) || !readPort('expansion')) return;
+        let minute = 0; try { minute = calendarMinutes(current_game_time); } catch { return; }
+        stepCompanions(readCompanions(), minute);
+    },
     refresh: () => panel?.render(false), panels: [() => { panel = createRosterPanel(); }]});
 
 registerChangeCounter('companions', {read: () => (readPort('expansion') ? readCompanions().map(row => row.key) : null), showing: () => !!panel?.checkVisibility?.()});

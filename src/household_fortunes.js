@@ -1,9 +1,11 @@
 // Household fortunes (IM9, IM10, OG16; AD16, AD19, AD33, AD38). Pure, non-spatial rules over plain
-// serializable rows; nothing here is wired to a save slice yet. Named household members are rows;
+// serializable rows; the household fortunes domain stages their live changes in the root save. Named members are rows;
 // a group row ({group:true,count}) is aggregate. Every number is a dial with an in-world reason.
 export const FORTUNE_DIALS={
  base:{value:0.01,why:'Awakening is rare for anyone; a lean life still has the odd spark.'},
  bed:{value:0.05,why:'Sound sleep in a dry, warm bed lets a body keep what it takes in.'},
+ qi:{value:0.04,why:'A currently powered bed field helps a rested body notice its circulation at the daily assessment.'},
+ age:{peak:30,span:60,floor:0.35,why:'This household curriculum is easiest near early adulthood; older people can still awaken with a lower ordinary response.'},
  care:{value:0.05,why:'Being fed and tended leaves a person with attention to spare for the odd thing they notice.'},
  hidden:{value:[0.5,1.5],why:'Some people are simply nearer to awakening; the household cannot see why.'},
  resentmentEase:{value:1,why:'Grudges fade by about a point per season of decent treatment (AD19: recovery is forgiving).'},
@@ -16,7 +18,8 @@ export const observableScore=m=>clamp(m.bed??0,0,1)*0.5+clamp(m.fed??0,0,1)*0.3+
 export function awakeningChance(m,d=FORTUNE_DIALS){
  const care=(clamp(m.fed??0,0,1)+clamp(m.tended??0,0,1))/2,[lo,hi]=d.hidden.value;
  const hidden=lo+(hi-lo)*clamp(m.talent??0.5,0,1);
- return clamp((d.base.value+d.bed.value*clamp(m.bed??0,0,1)+d.care.value*care)*hidden,0,0.5);
+ const age=Number.isFinite(m.age)?Math.max(d.age?.floor??0.35,1-Math.abs(m.age-(d.age?.peak??30))/(d.age?.span??60)):1;
+ return clamp((d.base.value+d.bed.value*clamp(m.bed??0,0,1)+d.care.value*care+(d.qi?.value??0)*clamp(m.qi??0,0,1))*hidden*age,0,0.5);
 }
 // Advances one named member by `days`; returns the member with `awakened` set on the first success.
 export function settleAwakening(m,days,seed){

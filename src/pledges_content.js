@@ -7,11 +7,20 @@ import {defineGate} from './progression_gates.js';
 
 export const RATION = 'Stale bread', CARVING_WOOD = 'Rough wood log';
 export const TALISMAN_MINUTES = 120;
+export const ORDEAL_TERMS = Object.freeze({turns:12,composure:24,rationGuard:4,collapsePressure:2,gradePermille:5,
+    reason:'The Village practice frame grows heavier each turn; twelve turns close its full weighted course.'});
 
+export const ORDEAL_LOADS=Object.freeze([
+    {label:'Standard frame',pressure:0,score:0,collapse:0},
+    {label:'Raised load',pressure:2,score:1,collapse:1},
+    {label:'Heavy load',pressure:4,score:2,collapse:2},
+].map(Object.freeze));
+// Tightening the rig's existing weight line makes each controlled step harder,
+// and the resulting conditioning is earned only when that loaded attempt holds.
 export const vowRules = defineVowRules({id: 'frontier.vows', revision: 1, maxKept: 2, vows: [
-    {id: 'long-watch', text: 'Rise before the village does and keep the first hour to yourself.', track: 'body', bonus: 60, scar: 1, reason: 'Hard early hours harden the frame.'},
+    {id: 'long-watch', text: 'Keep the dawn hour (06:00–07:00) awake each day.', track: 'body', bonus: 60, scar: 1, reason: 'Hard early hours harden the frame; sleeping through the watch breaks this vow.'},
     {id: 'plain-table', text: 'Eat only plain fare and refuse every feast.', track: 'step', bonus: 50, scar: 2, reason: 'A light belly keeps the feet quick.'},
-    {id: 'open-hand', text: 'Take nothing you did not earn with your own hands.', track: 'hand', bonus: 50, scar: 3, reason: 'A clean conscience steadies the hand.'},
+    {id: 'open-hand', text: 'Do the work with your own hands; commission no paid help.', track: 'hand', bonus: 50, scar: 3, reason: 'Working without hired hands steadies your own.'},
 ]});
 // Where each vow track lands on the hero. Multipliers only: they ride the shared stat buckets (aging_contact does the same).
 export const TRACK_STATS = Object.freeze({body: 'strength', step: 'agility', hand: 'dexterity'});

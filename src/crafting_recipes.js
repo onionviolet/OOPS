@@ -1,12 +1,13 @@
 import {GRADED_IDS} from './harvest.js';
 import {quoteHeat} from './heat_grades.js';
+import {registerRenderingRecipes} from './native_rendering_recipes.js';
 import {registerFortRecipes} from "./fork_fort_content.js";
 import {registerAccessoryRecipes, accessoryCraftChance} from './absorb_c1/accessories.js';
 import {BRACE_ID, deriveBraceStats} from "./alloy_equipment.js";
 "use strict";
 
 import { character } from "./data/character.js";
-import { Armor, ArmorComponent, Cape, Shield, ShieldComponent, Weapon, WeaponComponent, Amulet, item_templates } from "./items.js";
+import { Armor, ArmorComponent, Cape, Shield, ShieldComponent, Weapon, WeaponComponent, Amulet, item_templates, item_log } from "./items.js";
 import { skills } from "./data/skills.js";
 import { clamp, random_range } from "./misc.js";
 
@@ -2118,6 +2119,7 @@ const recipes = {
 
 registerFortRecipes({recipes, ItemRecipe});
 registerAccessoryRecipes({recipes, ItemRecipe});
+registerRenderingRecipes({recipes, ItemRecipe, knowsItem: id => item_log.is_known(id)});
 Object.keys(recipes).forEach(recipe_category => {
     Object.keys(recipes[recipe_category]).forEach(recipe_subcategory => {
         Object.keys(recipes[recipe_category][recipe_subcategory]).forEach(recipe_key => {

@@ -42,6 +42,7 @@ class NPCRegistryC {
         dialogue_owners[dialogue.name] = npc_id;
 
         if(npc.tags.trader) {
+            npc.getTraderComponent().stockOwnerId=npc_id;
             inventories["trader"][npc_id] = npc.getTraderComponent().getInventoryComponent();
             availabilities["trader"][npc_id] = npc.getTraderComponent().getAvailabilityComponent();
         }

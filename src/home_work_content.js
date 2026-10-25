@@ -1,3 +1,8 @@
+import {legacyCommands} from './home_personal_legacy.js';
+import {warehouseCommands} from './home_warehouse.js';
+import {contactDefinitions} from './home_contacts.js';
+import {schoolCommands} from './home_school_content.js';
+import {cultivationDefinitions} from './home_cultivation_content.js';
 import {TUTOR,SUPPLIER,HOUSEHOLD_TERMS as TERMS} from './home_household_content.js';
 import {HOME_PLACES as P,HOME_BUILDINGS as B,HOME_SITE,HOME_WORLD,homeKey as k} from './home_content.js';
 export const BUILDER='home.hired_builder',STEWARD='home.manor.steward',COOK='home.manor.cook',KEEPER='home.manor.keeper';
@@ -9,7 +14,7 @@ const item=(actor,id,amount)=>({type:'item',actor,key:k(id),amount});
 const def=(id,label,extra)=>({id,revision:1,label,worldId:HOME_WORLD,group:'home_work',duration:5,cancellation:'refund',reservationReturns:1,completionFailure:'refund',costs:[],effects:[],...extra});
 export const homeWorkDefinitions={people:[
     [BUILDER,'Ada, contract builder','Village'],[STEWARD,'Rowan, family steward',P.manor.location],[COOK,'Iven, household cook',P.manor.location],[KEEPER,'Toma, estate caretaker',P.manor.location],[TUTOR,'Sera, reading tutor',P.manor.location],[SUPPLIER,'Mara, Village provisioner','Village'],
-].map(([id,label,location])=>({id,revision:1,label,location,worldId:HOME_WORLD,inventory:'simulation',provision:false,body:{id:`native.person.${id}.body`,form:'human',hands:2,mobile:true,ownerId:id,controllerId:id}})),commands:[]};
+].map(([id,label,location])=>({id,revision:1,label,location,worldId:HOME_WORLD,inventory:'simulation',provision:false,body:{id:`native.person.${id}.body`,form:'human',hands:2,mobile:true,ownerId:id,controllerId:id}})),commands:[...legacyCommands,...cultivationDefinitions.commands,...schoolCommands,...contactDefinitions.commands,...warehouseCommands],events:contactDefinitions.events,conditions:cultivationDefinitions.conditions};
 for(const [home,p]of Object.entries(P))if(!p.legacy)for(const kind of ['build','repair','weatherproof']) {
     if(kind==='build'&&!B[home])continue;
     const location=kind==='build'?HOME_SITE:p.location,key=progressKey(home,kind),permission=eq('actor.'+permitKey(home,kind),true);

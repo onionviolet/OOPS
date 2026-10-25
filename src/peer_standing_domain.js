@@ -33,8 +33,8 @@ export function executeGift(quote){
     if(!quote?.eligible)throw Error(quote?.reason||'Review the gift first.');
     const fresh=quoteGift({actor:quote.actor,amount:quote.amount});
     if(!fresh.eligible)throw Error(fresh.reason);
-    const result=domainRegistry.command('homes','execute')(fresh.home);
-    state=giveGift(TRUST_RULES,trustState(),quote.actor,quote.amount).state;
+    const previous=state;state=giveGift(TRUST_RULES,trustState(),quote.actor,quote.amount).state;
+    let result;try{result=domainRegistry.command('homes','execute')(fresh.home);}catch(error){state=previous;throw error;}
     panel?.render();return {...fresh,message:result.message};
 }
 export function projectTrust(){
@@ -52,5 +52,5 @@ registerDomain({id:'social_trust',deps:['homes'],initialState:()=>null,
     migrate:slice=>slice&&slice.family===TRUST_FAMILY?{...createTrustState(),...slice}:null,
     validate:slice=>validateTrust(slice),
     load:slice=>{state=slice?structuredClone(slice):null;},
-    commands:{quote:quoteGift,execute:executeGift},refresh:()=>panel?.render(),projection:projectTrust,
+    commands:{knownStanding:()=>({...trustState().trust}),quote:quoteGift,execute:executeGift},refresh:()=>panel?.render(),projection:projectTrust,
     panels:[()=>{panel=createPeerStandingPanel({read:projectTrust,quote:quoteGift,execute:executeGift});}]});

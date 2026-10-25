@@ -16,7 +16,7 @@ const fixture=JSON.parse(fs.readFileSync(new URL('../docs/gm/dispatch/absorb-all
 function host({enrolled=false,fail=false,bootError=null}={}) {
     const writes=[],events=[];
     const write=(key,bytes)=>{events.push('write');if(fail)throw Error('quota');writes.push([key,bytes]);};
-    const context=vm.createContext({JSON,structuredClone,observeLifeSave,createLifeRecord,advanceVillageLives,
+    const context=vm.createContext({JSON,structuredClone,domainRegistry:{command:()=>undefined},observeLifeSave,createLifeRecord,advanceVillageLives,
         authorityBootError:bootError,authorityBootPending:false,authorityEnrolled:()=>enrolled,
         nativeAuthority:{commitPreparedSave:bytes=>write('authority',bytes)},localStorage:{},writeGuardedSave:(_,key,bytes)=>write(key,bytes),
         // The real D3 writer over the same stub, so unchanged-write skipping is exercised too.

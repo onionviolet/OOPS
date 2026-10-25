@@ -1,3 +1,4 @@
+import {householdLongevity} from './home_medicine.js';
 import {registerDomain,domainRegistry} from './domain_registry.js';
 import {STEWARD,COOK,KEEPER} from './home_work_content.js';
 import {TUTOR} from './home_household_content.js';
@@ -7,6 +8,8 @@ import {conditionOf} from './home_building_model.js';
 import {FORTUNE_DIALS,roll,settleAwakening,watchList,recordDeath,causeOfDeath,easeHousehold,emptyHousehold,unlockedRoutines,routineMayRun,ROUTINES,observableScore} from './household_fortunes.js';
 import {collectObligations} from './obligations_ledger.js';
 import './peer_standing_domain.js';
+import {householdFieldPower} from './home_cultivation_content.js';
+import {layoutBedDelta,layoutQiAtBed} from './home_layout_domain.js';
 import {createFortunesPanel} from './household_fortunes_panel.js';
 import {readPort} from './ui_ports.js';
 // Household fortunes wired to the manor staff (IM9 awakening, IM10 cause-charged deaths, OG16 routines).
@@ -60,10 +63,10 @@ export function validateFortunes(slice,clock=Infinity){
 // What the household can see today, from the actual manor and staff state. `bed` is the room, `fed` the
 // larder/purse, `tended` the standing agreement. Hidden talent is derived, never saved or projected.
 export function observeToday(c,manor){
-    const q=conditionOf(manor),bed=manor.access===false?0:clamp(q.integrity/100,0,1)*(1-clamp(q.wetness/300,0,1));
+    const q=conditionOf(manor),roomBed=manor.access===false?0:clamp(q.integrity/100,0,1)*(1-clamp(q.wetness/300,0,1)),bed=roomBed>0?clamp(roomBed+layoutBedDelta('manor',c.world,manor.fixtures),0,1):0;
     const meat=(c.staffStock?.[COOK]?.[k('Rat meat chunks')]||0)+(c.staffStock?.[COOK]?.[k('Roasted rat meat')]||0);
     const funds=c.staffResources?.[STEWARD]?.['home.estateFunds']||0;
-    return {bed,fedToday:meat>0||funds>=2?1:0,tended:id=>{const f=c.staffFacts?.[id]||{};return f['home.employed']===false?0:f['home.leave']===true?0.5:1;}};
+    return {bed,qi:clamp(layoutQiAtBed('manor',c.world,manor.fixtures,householdFieldPower(c)),0,1),fedToday:meat>0||funds>=2?1:0,tended:id=>{const f=c.staffFacts?.[id]||{};return f['home.employed']===false?0:f['home.leave']===true?0.5:1;}};
 }
 const talentOf=(seed,id)=>roll(seed,id,-1);
 const seedOf=id=>'household:'+id;
@@ -81,7 +84,7 @@ export function stageFortunes(plan,c,homes,{applyEffects,stageJob,log,planStaff}
         const m=next.members[s.id]||={fed:0.8,tended:1,lack:0,signs:0,since:today};
         if(person.life==='dead'){
             if(!next.household.ledger.some(r=>r.id===s.id)){
-                const age=s.age+(today-m.since)/FORTUNE_TERMS.yearDays.value,cause=causeOfDeath({fed:m.fed,bed:o.bed,tended:m.tended,age,lifespan:s.lifespan});
+                const age=s.age+(today-m.since)/FORTUNE_TERMS.yearDays.value,cause=causeOfDeath({fed:m.fed,bed:o.bed,tended:m.tended,age,lifespan:s.lifespan+householdLongevity(c,s.id)});
                 next.household=recordDeath(next.household,{id:s.id},cause,today);
                 next.household.ledger.at(-1).note=`${s.name}: ${next.household.ledger.at(-1).note}`;
                 notes.push(`${s.name} has died (${cause.replace('_',' ')}). The household remembers how they were kept.`);
@@ -95,13 +98,13 @@ export function stageFortunes(plan,c,homes,{applyEffects,stageJob,log,planStaff}
             m.tended=o.tended(s.id);
             m.lack=m.fed<0.2?m.lack+1:Math.max(0,m.lack-1);
             if(!m.awakened){
-                const r=settleAwakening({id:s.id,day,bed:o.bed,fed:m.fed,tended:m.tended,talent:talentOf(seedOf(s.id),s.id)},1,seedOf(s.id));
+                const r=settleAwakening({id:s.id,day,bed:o.bed,qi:person.location===P.manor.location?o.qi:0,age:s.age+(day-m.since)/FORTUNE_TERMS.yearDays.value,fed:m.fed,tended:m.tended,talent:talentOf(seedOf(s.id),s.id)},1,seedOf(s.id));
                 if(r.awakened){m.awakened={day};notes.push(`${s.name} has begun to notice what others miss. The household had kept them dry, fed and looked after.`);}
             }
         }
         const age=s.age+(today-m.since)/FORTUNE_TERMS.yearDays.value;
         const busy=c.jobs?.some(j=>(j.participants||[j.actorId]).includes(s.id));
-        const cause=age>=s.lifespan?'old_age':m.lack>=FORTUNE_TERMS.neglectDays.value?'neglect':null;
+        const cause=age>=s.lifespan+householdLongevity(c,s.id)?'old_age':m.lack>=FORTUNE_TERMS.neglectDays.value?'neglect':null;
         if(cause&&!busy)effects.push({type:'life',actor:s.id,status:'dead',lethal:true,reason:cause==='neglect'?'Neglected by the household':'Of old age'});
     }
     next.lastDay+=days;
@@ -148,9 +151,9 @@ export function projectFortunes(){
     if(!manor||!state)return {visible:false,staff:[],watch:[],routines:[],household:null,parts:[],obligations:[]};
     const c=homes.context||{},o=observeToday(c,manor);
     const rows=FORTUNE_STAFF.map(s=>{const m=state.members[s.id]||{},alive=c.people?.[s.id]?.life==='alive';
-        return {id:s.id,name:s.name,role:s.role,alive,bed:o.bed,fed:m.fed??0.8,tended:m.tended??1,signs:m.signs||0,awakened:m.awakened||null,dead:c.people?.[s.id]?.life==='dead'};});
+        return {id:s.id,name:s.name,role:s.role,alive,bed:o.bed,qi:c.people?.[s.id]?.location===P.manor.location?o.qi:0,fed:m.fed??0.8,tended:m.tended??1,signs:m.signs||0,awakened:m.awakened||null,dead:c.people?.[s.id]?.life==='dead'};});
     const watch=watchList(rows).map(w=>({...w,score:Math.round(w.score*100)/100}));
-    const parts=[['Bed','bed',FORTUNE_DIALS.bed.why],['Fed','fed',FORTUNE_DIALS.care.why],['Tended','tended',FORTUNE_DIALS.care.why]];
+    const parts=[['Bed','bed',FORTUNE_DIALS.bed.why],['Fed','fed',FORTUNE_DIALS.care.why],['Tended','tended',FORTUNE_DIALS.care.why],['Bed qi','qi',FORTUNE_DIALS.qi.why]];
     const counts=routineCounts({actors:ports?.root?.()?.actors||{}});
     return {visible:true,staff:rows.map(({id,name,role,alive,dead,awakened})=>({id,name,role,alive,dead,awakened,
         parts:parts.map(([label,key,why])=>({label,value:Math.round(rows.find(r=>r.id===id)[key]*100)/100,why}))})),
@@ -164,7 +167,7 @@ registerDomain({id:'household_fortunes',deps:['homes'],initialState:()=>null,
     migrate:slice=>migrateFortunes(slice),
     validate:(slice,envelope)=>validateFortunes(slice,envelope.expansion?.clock),
     load:slice=>{state=slice?structuredClone(slice):null;},
-    commands:{setRoutinePaused},
+    commands:{setRoutinePaused,observedAwakened:id=>state?.members[id]?.awakened?{...state.members[id].awakened}:null},
     refresh:()=>panel?.render(),
     panels:[()=>{panel=createFortunesPanel({read:projectFortunes,setRoutinePaused,obligations:()=>collectFortuneObligations({career:readPort('villageCareer')}).rows});}],
     projection:projectFortunes});

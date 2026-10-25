@@ -43,6 +43,7 @@ export function repay(factionId, amount) {
     return paid;
 }
 export function insure(value, danger, label) {
+    if(danger == null) danger = rules.roadDanger(current_location?.market_region);
     const quote = rules.quoteInsurance(value, danger);
     const next = rules.buyInsurance(state, quote, now(), label);
     if((ports.coins?.() ?? 0) < quote.premium) throw Error(`The premium is ${quote.premium} coins.`);
@@ -101,9 +102,16 @@ export function tickStanding() {
     next = rules.drawRumour(next, t);
     if(next !== state) set(next);
 }
+// The policy offer: a fixed 50-coin cargo, priced by the actual quote at this region's road danger.
+export const INSURE_VALUE = 50;
+export function insuranceOffer() {
+    const region = current_location?.market_region, danger = rules.roadDanger(region);
+    const quote = rules.quoteInsurance(INSURE_VALUE, danger);
+    return {...quote, region, fee: rules.DIALS.deductible.value, days: rules.DIALS.claimDays.value, rate: rules.DIALS.insuranceRate, why: rules.DIALS.insuranceRate.why};
+}
 const view = () => {
     const t = now();
-    return {state, now: t,
+    return {state, now: t, insuranceOffer: insuranceOffer(),
         factions: Object.entries(rules.FACTIONS).map(([id, f]) => ({id, ...f, score: rules.scoreOf(state, id), tier: rules.tierOf(rules.scoreOf(state, id)),
             rivalLabel: rules.FACTIONS[f.rival]?.label, loan: state.loans[id] ? rules.loanStatus(state.loans[id], t) : null})),
         credit: creditView(), ledger: state.ledger.rows, memory: rules.memoryRows(state, t), rumours: rules.rumourView(state),

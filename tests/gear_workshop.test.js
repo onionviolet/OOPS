@@ -11,6 +11,7 @@ export {setToolsState,toolsState} from './src/tools_domain.js';
 export {applyEquipmentStats} from './src/equipment_stats.js';
 export {Enemy} from './src/enemies.js';
 export {character} from './src/data/character.js';
+export {fieldDefinitions} from './src/field_workshop.js';
 `,{stubs: STANCE_LOCATION_STUBS,logLevel:'error'});
 const basicKey = JSON.stringify({components:{head:'Cheap iron short blade',handle:'Simple wooden short handle'},quality:100});
 const partKey = id => JSON.stringify({id,quality:100});
@@ -156,4 +157,61 @@ test('native hide preparation accepts idle elapsed time, stamps current chronolo
  const before=JSON.stringify(items);
  assert.throws(()=>n.executeHide(stale),/untreated rat pelts/);
  assert.equal(JSON.stringify(items),before,'rejected quote spends nothing');
+});
+
+test('learned focus steadies real quench and temper results, spends its own reserve and rolls back with a failed save',async()=>{
+ const f=await fixture(),{n,items,ports,run}=f;
+ const policy=n.fieldDefinitions.energies.find(e=>e.id==='field.focus');
+ const root={simulation:{energies:{player:{'field.focus':{policy:structuredClone(policy),reserve:4,strain:0}}}}};
+ ports.root=()=>root;ports.registry={simulation:{energies:new Map([[policy.id,policy]])}};
+ n.configureGearWorkshop(ports);
+ let k=run('heat');
+ const request={action:'quench',key:k,material:key('Lamp oil'),focus:true};
+ const q=n.quoteWorkshop(request),ordinary=n.quoteWorkshop({...request,focus:false});
+ assert.equal(q.eligible,true,q.reason);
+ assert.ok(JSON.parse(q.receive[0].key).gearwork.treatment.toughness>JSON.parse(ordinary.receive[0].key).gearwork.treatment.toughness);
+ const before=JSON.stringify([items,root,n.durability.serialize()]);
+ n.quoteWorkshop(request);assert.equal(JSON.stringify([items,root,n.durability.serialize()]),before,'preview spends neither energy nor stock');
+ f.setFail(true);assert.throws(()=>n.executeWorkshop(q),/save failed/);
+ assert.equal(JSON.stringify([items,root,n.durability.serialize()]),before,'native transaction also restores energy');
+ f.setFail(false);k=n.executeWorkshop(q).resultKey;
+ assert.equal(root.simulation.energies.player['field.focus'].reserve,2);
+ assert.equal(root.simulation.energies.player['field.focus'].strain,1);
+ assert.equal(items[key('Lamp oil')].count,1);
+ assert.ok(items[k].item.getWorkContributions().some(r=>r.label==='Heat-treated edge'));
+ k=run('temper',k,{focus:true});
+ assert.equal(root.simulation.energies.player['field.focus'].reserve,0);
+ assert.equal(root.simulation.energies.player['field.focus'].strain,2);
+ assert.ok(items[k].item.getWearProfile().toughness>n.getItemFromKey(basicKey).getWearProfile().toughness);
+ assert.match(n.quoteWorkshop({action:'temper',key:k,focus:true}).reason,/Recover measured focus/);
+});
+
+test('focus cannot replace heat or oil, transfer to another maker, or spend from a stale reserve',async()=>{
+ const f=await fixture(),{n,ports,run,items}=f;
+ const policy=n.fieldDefinitions.energies.find(e=>e.id==='field.focus');
+ const root={simulation:{energies:{player:{}}}};
+ ports.root=()=>root;ports.registry={simulation:{energies:new Map([[policy.id,policy]])}};n.configureGearWorkshop(ports);
+ let k=run('heat');const request={action:'quench',key:k,material:key('Lamp oil'),focus:true};
+ assert.match(n.quoteWorkshop(request).reason,/Learn measured focus/);
+ root.simulation.energies.player[policy.id]={policy:structuredClone(policy),reserve:4,strain:0};
+ assert.match(n.quoteWorkshop({action:'heat',key:k,focus:true}).reason,/does not supply forge heat/);
+ const q=n.quoteWorkshop(request);root.simulation.energies.player[policy.id].reserve=0;
+ const before=JSON.stringify(items);assert.throws(()=>n.executeWorkshop(q),/Recover measured focus/);assert.equal(JSON.stringify(items),before);
+ root.simulation.energies.player[policy.id].reserve=4;root.simulation.energies.player[policy.id].strain=policy.strainLimit;
+ assert.match(n.quoteWorkshop(request).reason,/Rest measured focus/);
+ root.simulation.energies.player[policy.id].strain=0;
+ f.setSkill(20);assert.match(n.quoteWorkshop(request).reason,/Work by hand without spending focus/);f.setSkill(10);
+ delete items[key('Lamp oil')];assert.equal(n.quoteWorkshop(request).eligible,false,'focus cannot stand in for consumed quench medium');
+ f.setClock(106);assert.match(n.quoteWorkshop(request).reason,/cooled/);
+});
+
+test('selected inscription reroll preserves neighboring affixes and copy identity, debits stock and rolls back on quota failure',async()=>{
+ const f=await fixture(),{n,actor,items}=f,draws=[];const owners=f.ports.itemOwners;
+ f.ports.itemOwners=()=>[...owners(),draws];f.ports.random=k=>{draws.push(k);return .7;};n.configureGearWorkshop(f.ports);
+ const data=JSON.parse(n.item_templates['Steel chainmail armor'].getInventoryKey());data.quality=150;data.affixes=[{id:'armor.nimble',v:.02,s:'roll'},{id:'armor.vital',v:.03,s:'roll'}];const armor=JSON.stringify(data);actor.addToInventory([{item_key:armor,count:1}]);
+ const q=n.quoteWorkshop({action:'reroll',key:armor,affix:'armor.nimble'});assert.equal(q.eligible,true,q.reason);assert.equal(draws.length,0);
+ const stock=items[key('Iron ingot')].count;f.setFail(true);assert.throws(()=>n.executeWorkshop(q),/save failed/);assert.equal(draws.length,0);assert.equal(items[key('Iron ingot')].count,stock);assert.ok(items[armor]);
+ f.setFail(false);const result=n.executeWorkshop(q),again=JSON.parse(result.resultKey);
+ assert.deepEqual(again.affixes.find(a=>a.id==='armor.vital'),data.affixes[1]);assert.equal(again.affixes.length,2);assert.equal(items[key('Iron ingot')].count,stock-1);assert.ok(again.e2_instance);assert.ok(draws.length>0);
+ n.validateWorkshopEnvelope({inventories:{player:{[result.resultKey]:{count:1}}}});
 });

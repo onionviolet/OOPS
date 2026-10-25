@@ -1,3 +1,5 @@
+import {renderWarehouse} from './home_warehouse.js';
+import {renderVillageContacts} from './home_contacts.js';
 import {renderHomeWork} from './home_building_panel.js';
 import {HOME_WORKERS} from './home_workers.js';
 import {centerModes} from './center_modes.js';
@@ -53,6 +55,7 @@ export function createHomePanel({read,quote,execute}) {
             if(!Object.keys(h.fixtures).length)furniture.append(el('p','No installed furnishings.'));
             for(const [slot,row]of Object.entries(h.fixtures)){const f=F[JSON.parse(row.key).id];furniture.append(el('p',`${slot}: ${f.name} · ${row.owner==='player'?'yours':'provided by owner'}. ${f.description}`));action(furniture,`remove:${h.id}:${slot}`,'Pack '+f.name,{type:'remove',home:h.id,slot});}
             for(const [key,n]of Object.entries(c.inventory))if(F[JSON.parse(key).id])action(furniture,`install:${h.id}:${key}`,`Install ${F[JSON.parse(key).id].name} · ${n} carried`,{type:'install',home:h.id,key});
+            renderWarehouse({host:detail,view,home:h,el,action});
             const stock=section(detail,`Private storage · ${Object.values(h.stock).reduce((a,b)=>a+b,0)}/${homeCapacity(h)}`);
             stock.append(el('p','Each carried or stored unit uses one local storage unit. Communal furnishings are not yours to sell. Expired lodging permits retrieval.'));
             const deposit=select('Carried item to store');for(const [key,n]of Object.entries(c.inventory))deposit.append(option(key,`${c.itemNames?.[key]||JSON.parse(key).id||'Assembled gear'} ×${n}`));
@@ -90,6 +93,7 @@ export function createHomePanel({read,quote,execute}) {
         if(view.fresh)action(startBody,'ordinary','Keep your ordinary beginning',{type:'ordinary'});
         if(view.fresh)for(const [id,p]of Object.entries(S)){startBody.append(el('p',p.text));action(startBody,'start:'+id,'Begin as '+p.label,{type:'start',profile:id});}
         market.hidden=c.world!=='base.frontier'||c.location!=='Village';
+        if(!market.hidden&&view.homes.some(h=>h.id==='manor'))renderVillageContacts({host:marketBody,view,action});
         if(!view.state.properties.manor)action(marketBody,'institution_join','Join the household as a provision worker and student',{type:'institution_join'});
         for(const [id,p]of Object.entries(P))if(!['family','manor'].includes(id)&&!p.legacy&&!B[id])action(marketBody,'acquire:'+id,`${p.tenure==='rented'?'Rent':p.price?'Buy':'Settle'} ${p.name} · ${p.price} coins${p.period?' / day':''}`,{type:'acquire',home:id});
         const shop=shopNode||(shopNode=select('Furnishing to buy'));if(!shop.options.length)for(const [id,f]of Object.entries({...F,...HOME_SUPPLIES}))shop.append(option(id,`${f.name} · ${f.price} coins`));if(shopSelection)shop.value=shopSelection;if(shop.parentElement!==marketBody)marketBody.append(shop);const updateShop=()=>{shopSelection=shop.value;action(marketBody,'buy','Buy selected furnishing',{type:'buy',item:shop.value});};shop.onchange=updateShop;updateShop();

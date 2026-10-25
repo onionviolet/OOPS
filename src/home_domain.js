@@ -1,17 +1,21 @@
+import {stagePersonalLegacies} from './home_personal_legacy.js';
+import {stageWarehouse,WAREHOUSE_JOB} from './home_warehouse.js';
+import {QI_FIELD} from './cultivation_items.js';
+import {broodView} from './household_brood.js';
 import {HOUSEHOLD_ACTORS,settleHouseholdRest} from './home_household.js';
 import {officeDecision} from './home_office.js';
 import {isRainingOnDay} from './weather_calendar.js';
 import {registerHomeWork,applyHomeSimulationEffects,stageHomeJob,previewHomeJob} from './home_work.js';
 import {conditionOf} from './home_building_model.js';
 import {STEWARD,COOK,KEEPER,BUILDER} from './home_work_content.js';
-import {registerDomain} from './domain_registry.js';
+import {registerDomain,domainRegistry} from './domain_registry.js';
 import {HOME_PLACES as P, HOME_WORLD, DOMICILE_FURNITURE as F, HOME_SITE, HOME_BUILDINGS as B} from './home_content.js';
 import {emptyHomes,validateHomes,planHome,homeAt,homeUsable,homeRestable,homeBenefits,homeDescription,settleHomes,householdHomeContext} from './home_model.js';
 import {createSimulationState} from './simulation_contracts.js';
 import {applyGameplayEffect} from './gameplay_transactions.js';
 import {createHomePanel} from './home_panel.js';
 import {stageFortunes,configureFortunes} from './household_fortunes_domain.js';
-let state=null,ports,panel;
+let state=null,ports,panel,needsPlaceRefresh=false;
 export const residenceState=()=>state;
 const bodyControlled=c=>c.body.ownerId==='player'&&c.body.controllerId==='player';
 export function configureHomes(operations) {
@@ -37,20 +41,21 @@ export function configureHomes(operations) {
 function context(overrides={}) {
     const c={...ports.read(),...overrides};
     const root=overrides.root||ports.root?.();delete c.root;const sim=root?.simulation;
-    c.resources=root?.actors.player.resources||{};c.people=Object.fromEntries(Object.entries(sim?.people||{}).filter(([id])=>[...HOUSEHOLD_ACTORS,BUILDER].includes(id)));c.jobs=sim?.jobs||[];
+    c.conditions={[KEEPER]:sim?.conditions?.[KEEPER]?.[QI_FIELD]?{[QI_FIELD]:structuredClone(sim.conditions[KEEPER][QI_FIELD])}:{}};c.resources=root?.actors.player.resources||{};c.people=Object.fromEntries(Object.entries(sim?.people||{}).filter(([id])=>[...HOUSEHOLD_ACTORS,BUILDER].includes(id)));c.jobs=sim?.jobs||[];
     c.staffResources=Object.fromEntries([...HOUSEHOLD_ACTORS,BUILDER].map(id=>[id,root?.actors[id]?.resources||{}]));c.staffStock=Object.fromEntries(HOUSEHOLD_ACTORS.map(id=>[id,sim?.owners[id]||{}]));
-    c.staffFacts=Object.fromEntries(HOUSEHOLD_ACTORS.map(id=>[id,root?.actors[id]?.facts||{}]));c.playerFacts=root?.actors.player.facts||{};
+    c.staffFacts=Object.fromEntries(HOUSEHOLD_ACTORS.map(id=>[id,root?.actors[id]?.facts||{}]));c.playerFacts=root?.actors.player.facts||{};c.paidHelpReason=domainRegistry.command('pledges','actionReason')?.({kind:'paid-help'})||'';c.warehouseCompleted=root?.actors['home.manor.supplier']?.completed?.[WAREHOUSE_JOB]||0;
     c.weatherAt=at=>{if(!c.calendar)return {raining:false};const minute=c.calendar.day_count*1440+c.calendar.hour*60+c.calendar.minute+at-(c.calendarClock??c.clock);return {raining:isRainingOnDay(Math.floor(minute/1440))};};
     c.raining=c.weatherAt(c.clock).raining;
     c.fresh=c.fresh&&state?.beginning===true;
     c.legacyAnimal=!!c.legacyHousehold?.animal;
+    c.facts={...c.facts,'cultivation.awakened':!!domainRegistry.command('household_fortunes','observedAwakened')?.(KEEPER)};
     const here=homeAt(state,c);
     c.animalElsewhere=c.legacyAnimal||Object.values(state?.properties||{}).some(h=>h.id!==here?.id&&h.household?.animal);
     c.itemNames=Object.fromEntries([...new Set([...Object.keys(c.inventory),...Object.values(state?.properties||{}).flatMap(h=>Object.keys(h.stock))])].map(key=>{try{return [key,ports.itemFactory(key).getName?.()||JSON.parse(key).id||'Assembled gear'];}catch{return [key,'Stored item'];}}));
     c.unspendable=Object.keys(c.inventory).filter(key=>{try{ports.assertSpend(key);return false;}catch{return true;}});
     return c;
 }
-export function syncHomeLocations() {
+export function syncHomeLocations({render=true}={}) {
     if(!ports)return;const c=context();let pathsChanged=false,servicesChanged=false;
     for(const [id,p]of Object.entries(P)) {
         if(p.legacy)continue;const h=state?.properties[id],place=ports.locations[p.location];
@@ -69,15 +74,20 @@ export function syncHomeLocations() {
         place.crafting.getAvailabilityComponent().is_unlocked=usable&&!!h.fixtures.hearth&&!!h.fixtures.tableware;
         place.activities.meditating.getAvailabilityComponent().is_unlocked=usable&&!!h.fixtures.incense;
     }
+    needsPlaceRefresh ||= servicesChanged;
     if(pathsChanged&&c.location)ports.pathing?.();
-    if(servicesChanged&&c.location)ports.refreshPlace?.();
+    if(render&&needsPlaceRefresh&&c.location) {
+        // Refresh after inventory/vitals publish, with the current derived travel row.
+        // A display error must not interrupt a physical fixture's stock debit.
+        needsPlaceRefresh=false;ports.pathing?.();ports.refreshPlace?.();
+    }
 }
-function publish(next){state=next;syncHomeLocations();}
+function publish(next){state=next;syncHomeLocations({render:false});}
 export function projectHomes() {
     if(!ports)return {visible:false,homes:[],ready:false};
-    const c=context(),homes=Object.values(state?.properties||{}),{weatherAt,...publicContext}=c;
+    const c=context(),publicHome=h=>{const {brood,...visible}=h;return brood?{...visible,broodPublic:broodView(brood,c,h)}:visible;},homes=Object.values(state?.properties||{}).map(publicHome),{weatherAt,...publicContext}=c;
     return {visible:c.world===HOME_WORLD||homes.length>0||Object.values(c.nativeRights||{}).some(Boolean),ready:c.ready&&c.alive&&bodyControlled(c),context:publicContext,
-        state:state||emptyHomes(),homes,here:homeAt(state,c),fresh:c.fresh&&state?.beginning===true&&!state?.start&&homes.length===0&&!c.legacyAnimal};
+        state:state?{...state,properties:Object.fromEntries(homes.map(h=>[h.id,h]))}:emptyHomes(),homes,here:homes.find(h=>h.id===homeAt(state,c)?.id)||null,fresh:c.fresh&&state?.beginning===true&&!state?.start&&homes.length===0&&!c.legacyAnimal};
 }
 export function quoteHome(request) {
     try{const c=context(),result=planHome(state,request,c);if(result.simEffects.length||result.job){const trial=ports.plan(0);applyHomeSimulationEffects(trial,result.simEffects,ports.registry,c);if(result.job&&!result.job.cancel){const preview=previewHomeJob(trial,result.job,ports.registry,c);if(!preview.eligible)throw Error(preview.reasons.join(' '));}}return {eligible:true,request:structuredClone(request),revision:state?.revision??0,sequence:c.sequence,
@@ -124,7 +134,9 @@ export function stageResidenceClock(plan) {
     const next=settleHomes(raw,c,(h,rows)=>{if(homeAt(raw,c)?.id===h.id)effects.push(...rows);},rows=>applyHomeSimulationEffects(plan,rows,ports.registry,c));
     // The pantry office acts on the same root clock; no separate timer or queue.
     if(next.properties.manor&&plan.state.simulation){const office=officeDecision(context({...c,root:plan.state}));if(office.status==='order'){plan.state.sequence++;stageHomeJob(plan,office.job,ports.registry,c);}}
+    if(next.properties.manor&&plan.state.simulation){const wc=context({...c,root:plan.state});stageWarehouse(plan,wc,next,{applyEffects:rows=>applyHomeSimulationEffects(plan,rows,ports.registry,wc),stageJob:job=>stageHomeJob(plan,job,ports.registry,wc)});}
     if(next.properties.manor&&plan.state.simulation){const fc=context({...c,root:plan.state});stageFortunes(plan,fc,next,{applyEffects:rows=>applyHomeSimulationEffects(plan,rows,ports.registry,fc),stageJob:job=>stageHomeJob(plan,job,ports.registry,fc),log:ports.log});}
+    if(plan.state.simulation)stagePersonalLegacies(plan,context({...c,root:plan.state}),rows=>applyHomeSimulationEffects(plan,rows,ports.registry,context({...c,root:plan.state})));
     // One root revision owns all household clocks. Local model planning uses
     // sequence+1; ensure the enclosing expansion revision admits that stamp.
     const needed=Math.max(plan.state.sequence,...Object.values(next.properties).map(h=>h.household?.lastSequence||0));

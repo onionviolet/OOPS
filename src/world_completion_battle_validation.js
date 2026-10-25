@@ -1,13 +1,15 @@
+import {validateCohortBattle} from './cohort_battle_validation.js';
 // Existing sluice descriptor validation, isolated from the runtime executor.
 import {check, natural} from './basics.js';
 import {validateRemainderCombatFitBattle} from './audit_remainder_combat_fit_hooks.js';
 import {validateRemainderCombatObjectivesBattle} from './audit_remainder_combat_objectives_battle.js';
 export const FEATURE_BATTLE_SCHEMA=3,FEATURE_REFERENCE_BATTLE_SCHEMA=4,FEATURE_REMAINDER_BATTLE_SCHEMA=5;
-export const isFeatureBattleSchema=s=>s===3||s===4||s===5;
+export const isFeatureBattleSchema=s=>s===3||s===4||s===5||s===6;
 const FEATURE_BATTLE_ID='feature_battle.sluice',FEATURE_SHIELD='featureBattleShield',FEATURE_HOOK='featureBattleHook',FEATURE_HELPER='partyPartner';
 const foes=[FEATURE_SHIELD,FEATURE_HOOK];
 const validVitals=v=>v&&['health','stamina','max_health','max_stamina'].every(k=>Number.isFinite(v[k])&&v[k]>=0)&&v.max_health>1&&v.health<=v.max_health&&v.stamina<=v.max_stamina;
 export function validateFeatureBattle(b,session,state) {
+    if(b?.schema===6)return validateCohortBattle(b,session,state);
     check(isFeatureBattleSchema(b?.schema)&&b.definitionId===FEATURE_BATTLE_ID&&b.revision===1&&session?.definitionId===FEATURE_BATTLE_ID&&session.revision===1&&session.commandId==='feature_battle.start'&&session.targetId===FEATURE_SHIELD&&session.lethal===false,'Unsupported native sluice binding.');
     check(typeof session.id==='string'&&/^simulation:[1-9][0-9]*$/.test(session.id)&&session.turn===0&&Array.isArray(session.turns)&&session.turns.length===1&&Array.isArray(session.settlement)&&session.settlement.length===0,'Invalid native sluice parent session.');
     if(state)check(Number.isSafeInteger(Number(session.id.split(':')[1]))&&Number(session.id.split(':')[1])<=state.sequence,'Invalid native sluice parent sequence.');

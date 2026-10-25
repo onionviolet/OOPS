@@ -15,7 +15,7 @@ const isCount = n => Number.isSafeInteger(n) && n > 0;
 export const createFailureLedger = () => ({family: LEDGER_FAMILY, pairs: {}});
 
 const pairKey = ids => [...new Set(ids)].sort(compareCodePoints).join('\u0000');
-const processKey = process => process.map(([op, level]) => `${op}#${level}`).join('>');
+const processKey = (process,variant) => process.map(([op, level]) => `${op}#${level}`).join('>')+(variant?'|'+JSON.stringify(variant):'');
 
 // Why a batch failed, from its own trace: reactions that fired explain the
 // loss; an unexplained empty result is 'inert'.
@@ -39,7 +39,7 @@ export function recordBatchAttempt(ledger, result, {reasons = null} = {}) {
     const consumed = product.inputs.filter(i => i[0] === 'consumed').map(i => i[1]);
     const key = pairKey(consumed);
     const prior = ledger.pairs[key];
-    const process = processKey(product.process);
+    const process = processKey(product.process,product.order?[product.law,product.order,product.thermal?.control??0]:null);
     const same = prior?.tries.find(t => t.process === process);
     const entry = {materials: [...new Set(consumed)].sort(compareCodePoints), tries: prior ? prior.tries.map(t => ({...t})) : [], count: (prior?.count ?? 0) + 1};
     if(same) { const t = entry.tries.find(x => x.process === process); t.count += 1; }
@@ -55,10 +55,10 @@ export function recordBatchAttempt(ledger, result, {reasons = null} = {}) {
 
 // Reads the ledger only. request: {materials:[id], process:[[op, level]]}.
 // verdict: 'untried' | 'near' (same materials, other process) | 'known-fail'.
-export function forecastFromLedger(ledger, {materials, process = []}) {
+export function forecastFromLedger(ledger, {materials, process = [],variant}) {
     const entry = ledger.pairs[pairKey(materials)];
     if(!entry) return {verdict: 'untried', tries: 0, reasons: [], residue: {}};
-    const exact = entry.tries.find(t => t.process === processKey(process));
+    const exact = entry.tries.find(t => t.process === processKey(process,variant));
     if(exact) return {verdict: 'known-fail', tries: exact.count, reasons: exact.reasons, residue: exact.residue};
     const last = entry.tries[entry.tries.length - 1];
     return {verdict: 'near', tries: 0, reasons: last.reasons, residue: last.residue, otherProcesses: entry.tries.map(t => t.process)};

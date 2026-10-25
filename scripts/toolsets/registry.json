@@ -424,6 +424,27 @@
       "effects": "Builds temporary bundle and starts fresh origin/Chrome; private screenshots can contain sealed text."
     },
     {
+      "id": "game-mcp",
+      "title": "Game MCP server (headless, stdio)",
+      "kind": "launch",
+      "root": "{repo}",
+      "argv": [
+        "node",
+        "{repo}/scripts/mcp/game_mcp.mjs"
+      ],
+      "required": [
+        "{repo}/scripts/mcp/game_mcp.mjs",
+        "{repo}/scripts/headless/runner.mjs"
+      ],
+      "probe": [
+        "--self-check"
+      ],
+      "env": {},
+      "owner": "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md",
+      "effects": "Starts a stdio MCP server over a headless copy of the game: no browser, no Electron, never the player's save. Exports write only under the temp folder yairpg-mcp. Not MCP registration; add it to a client yourself.",
+      "note": "Eight tools: game_new, game_look, game_click, game_step, game_status, game_save, game_export, game_load. Deterministic by seed."
+    },
+    {
       "id": "headless-bench",
       "title": "Full-game Node benchmark",
       "kind": "launch",

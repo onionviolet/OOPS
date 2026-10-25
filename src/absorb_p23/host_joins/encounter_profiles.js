@@ -87,12 +87,12 @@ export function validateTrainingEnvelope(save) {
     }
     const receipt = save.p23EncounterReceipt;
     if (receipt !== undefined) {
-        assert(exact(receipt, ['schema','eventId','attempt','seed','level','clock','completed','dropChanceModifier','loot']) &&
+        assert(exact(receipt, ['schema','eventId','attempt','seed','level','clock','completed','dropChanceModifier','loot',...(receipt.tower===undefined?[]:['tower'])]) &&
             receipt.schema === 1 && natural(receipt.attempt) && receipt.attempt > 0 && receipt.attempt < profile.nextAttempt &&
             natural(receipt.clock) && receipt.clock <= state.clock && receipt.completed === profile.completed && profile.completed > 0 &&
             Number.isFinite(receipt.dropChanceModifier) && receipt.dropChanceModifier >= 0 && Array.isArray(receipt.loot), 'Invalid native training receipt.');
         const before = beginAttempt({schema: 1, nextAttempt: receipt.attempt, completed: receipt.completed - 1, pending: null},
-            {seed: receipt.seed, worldId: WORLD_ID, locationId: AREA_ID, nativeEligible: true});
+            {seed: receipt.seed,...(receipt.tower?{tower:receipt.tower}:{}), worldId: WORLD_ID, locationId: AREA_ID, nativeEligible: true});
         const plan = planSettlement(before, {eventId: receipt.eventId, rank: receipt.level, defeated: true,
             dropChanceModifier: receipt.dropChanceModifier, worldId: WORLD_ID, locationId: AREA_ID, nativeEligible: true});
         assert(same(plan.loot, receipt.loot), 'Training receipt differs from its saved deterministic settlement.');

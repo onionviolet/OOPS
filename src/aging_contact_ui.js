@@ -20,13 +20,14 @@ export function createAgingContactPanel({read, commands, stances}) {
         for(const c of view.conditions) {
             const card = node('section', '', 'expedition_card');card.dataset.agingCondition = c.id;
             card.append(node('p', c.diagnosed ? `${c.title} · stage ${c.severity}/3 · ${c.treated ? 'in care' : c.stance}` : `${c.symptom} (cause not yet known)`), node('p', c.next, 'expedition_requirements'));
+            card.append(node('p', Object.entries(stances).map(([stance, def]) => `${stance === 'ignore' ? 'Ignore' : 'Manage'}: ${def.text}`).join(' '), 'expedition_requirements'));
             for(const [stance, def] of Object.entries(stances)) {
                 const b = button(`${stance === 'ignore' ? 'Ignore' : 'Manage'}`, {agingStance: `${c.id}:${stance}`}, () => commands.stance(c.id, stance), c.stance === stance);
                 b.title = def.text;card.append(b);
             }
             const t = button(`Treat · ${c.cost} coins`, {agingTreat: c.id}, () => commands.treat(c.id), money < c.cost || !here);
-            t.title = 'A season of care from the Village healer: eases one stage and slows the condition to a tenth of its pace. The ceiling recovers; age itself does not.';
-            card.append(t);body.append(card);
+            t.title = `${!here ? 'Only in the Village. ' : money < c.cost ? `Needs ${c.cost} coins. ` : ''}A season of care from the Village healer: eases one stage and slows the condition to a tenth of its pace. The ceiling recovers; age itself does not.`;
+            card.append(t, node('p', `Treat: a season of care from the Village healer eases one stage and slows the condition to a tenth of its pace. The ceiling recovers; age itself does not.${!here ? ' Not available away from the Village.' : money < c.cost ? ` You carry ${money} of the ${c.cost} coins.` : ''}`, 'expedition_requirements'));body.append(card);
         }
         const k = view.contact, card = node('section', '', 'expedition_card');card.dataset.agingContact = k.phase;
         card.append(node('p', `Company: ${k.label} (${k.score}/100). ${k.text}`));

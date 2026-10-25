@@ -1,6 +1,7 @@
+import {consumeTablet,startTreatment,treatmentNow} from './craft_body_treatment.js';
 // ORIGINAL Village trial. Uses the engine's composition law, not the older mixture law.
 import {natural} from './basics.js';
-import {frontierCatalogue as catalogue,frontierBrewLaw as law} from './craft_content_frontier.js';
+import {frontierCatalogue as catalogue,frontierBrewLaw as law,frontierLayeredLaw as layeredLaw,frontierTabletLaw as tabletLaw} from './craft_content_frontier.js';
 import {defineSourceTable,forecastHarvest,harvest,nodeKey} from './craft_sources.js';
 import {createCraftState,freezeMaterials,freezeRecipe,setSourceNode,recordProduct,observe,projectProduct,projectMaterial,validateCraftState} from './craft_state.js';
 import {resolveBatch,BATCH_FAMILY} from './craft_resolver.js';
@@ -45,21 +46,21 @@ export function isCraftedKey(key){return classifyProductKey(key)?.family===BATCH
 export function validateOwner(owner) {
  if(owner==null)return null;
  if(owner.scope?.world!=='base.frontier'||!natural(owner.scope?.life))fail('Unsupported crafting scope.');
- validateCraftState(owner,{catalogues:{[catalogue.ref]:catalogue},laws:{[law.ref]:law},sourceTables:{[villageSources.ref]:villageSources}});
+ validateCraftState(owner,{catalogues:{[catalogue.ref]:catalogue},laws:{[law.ref]:law,[layeredLaw.ref]:layeredLaw,[tabletLaw.ref]:tabletLaw},sourceTables:{[villageSources.ref]:villageSources}});
  validateReferences(owner);
  for(const [id,d] of Object.entries(owner.references?.defs??{}))if(JSON.stringify(REFERENCE_SPECS.find(r=>r.id===id))!==JSON.stringify(d))fail(`Unknown Village reference ${id}.`);
  return owner;
 }
-const bindOf=product=>product?.law===law.ref?(product.outputs.oral?.bind??0):0;
+const bindOf=product=>[law.ref,layeredLaw.ref].includes(product?.law)?(product.outputs.oral?.bind??0):0;
 // Revision 2 reads the product through the cancel table and any tolerance scales (permille per effect);
 // revision 1 exposures from older saves keep the raw reading so they still validate.
 export function craftedExposure(product,at,scales=null,revision=2) {
- if(!product||product.law!==law.ref||!natural(at))fail('Invalid herbal preparation.');
+ if(!product||![law.ref,layeredLaw.ref].includes(product.law)||!natural(at))fail('Invalid herbal preparation.');
  const oral=(revision===1?product.outputs:cancelOutputs(doseRules,product.outputs).outputs).oral??{},duration=12,k=id=>revision===1?1:(scales?.[id]??1000)/1000;
  const mark={revision,product:product.id,appliedAt:at,expiresAt:at+duration,policy:'replace'};
  if(revision>1&&scales&&Object.keys(scales).length)mark.scales={...scales};
  return {id:EFFECT_ID,name:EFFECT_ID,description:'An observed original herbal preparation; a new dose replaces the old one.',duration,
-  effects:{stats:{health_regeneration_flat:{flat:(oral.health??0)*k('health')/10},stamina_regeneration_flat:{flat:(oral.stamina??0)*k('stamina')/10},health_loss_flat:{flat:-(oral.poison??0)/10}},bonus_skill_levels:{}},
+  effects:{stats:{health_regeneration_flat:{flat:(oral.health??0)*k('health')/10},stamina_regeneration_flat:{flat:(oral.stamina??0)*k('stamina')/10},health_loss_flat:{flat:-(oral.poison??0)*(revision>=3?k('poison'):1)/10}},bonus_skill_levels:{}},
   tags:{effect:true},group_tags:{},affected_by_travel:true,base_xp_value:1,potency:0,craftExposure:mark};
 }
 // Taking more while the body is still dulled costs health: a condition, never a refusal (craft_dose_rules).
@@ -81,7 +82,7 @@ export function shortenPoison(effects,strength) {
  return Object.entries(effects).filter(([,e])=>e?.tags?.poison&&e.duration>0).map(([id,e])=>({id,duration:e.duration>strength?e.duration-strength:null}));
 }
 export function validateCraftedExposure(saved,product,id=EFFECT_ID) {
- const x=saved?.craftExposure;if(!x||(id!==EFFECT_ID&&id!==BIND_ID&&id!==OVERDOSE_ID)||!natural(x.appliedAt)||(x.revision!==1&&!(x.revision===2&&id!==BIND_ID))||x.policy!=='replace'||x.product!==product?.id)fail('Dangling crafted exposure.');
+ const x=saved?.craftExposure;if(!x||(id!==EFFECT_ID&&id!==BIND_ID&&id!==OVERDOSE_ID)||!natural(x.appliedAt)||(x.revision!==1&&!([2,3].includes(x.revision)&&id!==BIND_ID))||x.policy!=='replace'||x.product!==product?.id)fail('Dangling crafted exposure.');
  const expected=id===BIND_ID?bindingExposure(product,x.appliedAt):id===OVERDOSE_ID?overdoseExposure(product,x.appliedAt,x.overdose):craftedExposure(product,x.appliedAt,x.scales,x.revision);
  if(JSON.stringify(x)!==JSON.stringify(expected.craftExposure)||!Number.isFinite(saved.duration)||saved.duration<=0||saved.duration>expected.duration||
     JSON.stringify(saved.effects)!==JSON.stringify(expected.effects)||saved.name!==expected.name||saved.id!==expected.id||saved.description!==expected.description||
@@ -108,7 +109,7 @@ export function projectCrafting(owner,inventory) {
   products:Object.entries(inventory).filter(([key])=>isCraftedKey(key)).map(([key,count])=>{
    const p=productFromNativeKey(key,owner),view=projectProduct(owner,catalogue,p.id,'player');
    const seen=new Set((owner?.knowledge?.player?.[p.id]?.facts??[]).filter(f=>f.startsWith('effect:')).map(f=>f.slice(7)));
-   return {key,count,...view,composition:compositionName(p,view.name,owner),derived:deriveProductName(doseRules,p,{known:seen})};}),
+   return {key,count,...view,formulation:p.thermal??null,orderNames:(p.order??[]).map(id=>materialName(id,owner)),composition:compositionName(p,view.name,owner),derived:deriveProductName(doseRules,p,{known:seen})};}),
   references:Object.entries(inventory).filter(([key])=>referenceIdOf(key)).map(([key,count])=>({key,count,...REFERENCES[referenceIdOf(key)],read:(owner?.references?.read?.[ACTOR]??[]).includes(referenceIdOf(key))})),
   shelf:Object.values(REFERENCES).map(r=>({id:r.id,name:r.name,blurb:r.blurb,mode:r.mode})),
   methods:Object.entries(recipeAccess(owner??{},ACTOR,heldRefs(inventory))).map(([id,via])=>({id,name:RECIPES[id]?.name??id,via,slots:RECIPES[id]?.slots.map(({id:slot,select,qty})=>({id:slot,qty,tags:select.tags?.all??[]}))??[]})),
@@ -119,9 +120,10 @@ export const heldRefs=inventory=>Object.entries(inventory).filter(([key,count])=
 // A steep that leaves no oral effect at the floor is too thin to be a preparation: the lots are spent and nothing comes of
 // them. This follows from the batch's own numbers (salt thins sap by mass, a weak lot carries little); no lot is refused.
 export const ROUGH_BATCH={floor:14,code:'thin',reason:'The steep came out too thin: too little sap or oil in the water to hold, so the lots were wasted.'};
-export function roughBatch(product){return Math.max(0,...Object.values(product.outputs.oral??{}))<ROUGH_BATCH.floor?ROUGH_BATCH:null;}
+export function roughBatch(product){if(product.outputs.permanent?.conditioning>0)return null;if(product.order)return Math.max(0,...Object.values(product.outputs.oral??{}))<1?ROUGH_BATCH:null;return Math.max(0,...Object.values(product.outputs.oral??{}))<ROUGH_BATCH.floor?ROUGH_BATCH:null;}
 // The first failing native gate leads; place comes after it.
 function eligibility(context){return context.blocked||(context.world==='base.frontier'&&context.location==='Village'?'':'Return to Village to experiment.');}
+function batchRequest(request,lots,context){return {inputs:lots.map(({material,qty})=>({material,qty})),process:request.process??[{op:'steep',level:1}],stations:[],...(request.layered?{order:lots.map(l=>l.material.id),control:Math.min(100,Math.max(0,Math.floor((context.mind||0)+10*treatmentNow(context.depth?.body,context).apparatus)))}:{})};}
 function inputLots(request,owner,inventory) {
  if(!Array.isArray(request.inputs)||!request.inputs.length||request.inputs.length>12)fail('Select at least one carried material for an experiment.');
  const unique=new Set();return request.inputs.map(({key,qty})=>{
@@ -159,8 +161,12 @@ export function quoteCrafting(owner,inventory,request,context) {
    const forecast=forecastHarvest(villageSources,source,{at:context.clock,actor:{skill:0},node:owner?.sources.nodes[nodeKey(context.world,context.location,source)]});
    if(!forecast.stock)fail('This verge is depleted; regrowth uses played time.');
   }else if(request.type==='craft'){
+   if(request.tablet&&!request.layered)fail('Conditioning tablets use the layered brazier process.');
    const lots=inputLots(request,owner,inventory);
-   resolveBatch(law,{inputs:lots.map(({material,qty})=>({material,qty})),process:request.process??[{op:'steep',level:1}],stations:[]});
+   if(request.layered&&!(inventory[JSON.stringify({id:'Charcoal'})]>0))fail('Layered brazier work spends one owned Charcoal per batch.');
+   resolveBatch(request.tablet?tabletLaw:request.layered?layeredLaw:law,batchRequest(request,lots,context));
+  }else if(request.type==='treatment'){
+   const t=startTreatment(context.depth?.body,request.action,context);if((inventory[JSON.stringify({id:t.spend.id})]||0)<t.spend.count)fail(`Needs ${t.spend.count} ${t.spend.id}.`);
    if(request.recipe)checkMethod(owner,inventory,request,lots);
   }else if(request.type==='acquire'){
    if(!REFERENCES[request.ref])fail('Unknown shelf object.');
@@ -170,14 +176,14 @@ export function quoteCrafting(owner,inventory,request,context) {
    if((owner?.references?.read?.[ACTOR]??[]).includes(d.id))fail('You have already read this; it has nothing new to teach you.');
   }else if(request.type==='examine'){examineLot(owner,inventory,request);
   }else if(request.type==='use'){
-   if(!(inventory[request.key]>0))fail('You no longer carry this preparation.');productFromNativeKey(request.key,owner)??fail('Choose a crafted herbal preparation.');
+   if(!(inventory[request.key]>0))fail('You no longer carry this preparation.');const p=productFromNativeKey(request.key,owner)??fail('Choose a crafted herbal preparation.');if(p.outputs.permanent)consumeTablet(context.depth?.body,p,context);
   }else fail('Unknown crafting command.');
  }catch(e){reason=e.message;}
- const token=JSON.stringify([owner?.sequence??null,inventory,context.clock,context.world,context.location,context.blocked,context.skill??0,request]);
+ const token=JSON.stringify([owner?.sequence??null,inventory,context.clock,context.world,context.location,context.blocked,context.skill??0,context.mind,context.body,context.depth?.body??null,context.temperingStage??0,request]);
  return {eligible:!reason,reason,token,request:structuredClone(request)};
 }
 export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth()) {
- const fresh=quoteCrafting(owner,inventory,quoted.request,context);
+ context={...context,depth};const fresh=quoteCrafting(owner,inventory,quoted.request,context);
  if(!fresh.eligible)fail(fresh.reason);if(fresh.token!==quoted.token)fail('This quote changed. Review the current materials and place again.');
  const request=fresh.request,at=context.clock;
  let next=owner?structuredClone(owner):createCraftState({world:'base.frontier',life:0});
@@ -189,11 +195,16 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
   next=freezeMaterials(next,catalogue,result.result.items.map(i=>i.material));next=setSourceNode(next,key,result.node);
   for(const i of result.result.items)items.push({key:materialKey(i.material,i.quality),amount:i.qty});
  }else if(request.type==='craft'){
-  const lots=inputLots(request,next,inventory);if(request.recipe)checkMethod(next,inventory,request,lots);const result=resolveBatch(law,{inputs:lots.map(({material,qty})=>({material,qty})),process:request.process??[{op:'steep',level:1}],stations:[]});
+  const lots=inputLots(request,next,inventory);if(request.recipe)checkMethod(next,inventory,request,lots);const result=resolveBatch(request.tablet?tabletLaw:request.layered?layeredLaw:law,batchRequest(request,lots,context));
+  if(request.layered)items.push({key:JSON.stringify({id:'Charcoal'}),amount:-1});
   for(const i of lots)items.push({key:i.key,amount:-i.qty});
   const rough=roughBatch(result.product);
   if(rough)failure={code:rough.code,reason:rough.reason,result:{...result,product:{...result.product,outputs:{}}}};
   else{next=recordProduct(next,result.product);items.push({key:keyForProduct(BATCH_FAMILY,result.product),amount:1});batch=result;}
+ }else if(request.type==='treatment'){
+  const t=startTreatment(depth.body,request.action,context);items.push({key:JSON.stringify({id:t.spend.id}),amount:-t.spend.count});nextDepth={...depth,body:t.body};
+ }else if(request.type==='use'&&productFromNativeKey(request.key,next).outputs.permanent){
+  const p=productFromNativeKey(request.key,next),t=consumeTablet(depth.body,p,context);nextDepth={...depth,body:t.body};items.push({key:request.key,amount:-1});next=observe(next,'player',p.id,['effect:permanent.conditioning'],at);
  }else if(request.type==='acquire'){
   const d=REFERENCES[request.ref],spec=REFERENCE_SPECS.find(r=>r.id===d.id);
   if(spec.recipe)next=freezeRecipe(next,RECIPES[spec.recipe],null);
@@ -213,10 +224,10 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
  }else {
   const p=productFromNativeKey(request.key,next),raw=p.outputs.oral??{},oral=cancelOutputs(doseRules,p.outputs).outputs.oral??{},binds=bindOf(p)>0;
   // Tolerance dulls a repeat dose of the same effect; past the overdose line the excess is a poison condition.
-  let dose=depth.dose,over=0;const scales={};
+  let dose=depth.dose,over=0;const channels=treatmentNow(depth.body,context).channels||0,scales=channels?{poison:1000-200*channels}:{};
   for(const e of ['health','stamina'])if(oral[e]>0){const r=applyDose(doseRules,dose,e,oral[e],at);dose=r.state;if(r.effective<oral[e])scales[e]=Math.floor(r.effective*1000/oral[e]);if(r.overdose)over+=r.overdose.amount;}
   // A purely binding preparation carries no tonic dose, so it leaves the tonic effect alone.
-  if(!binds||['health','stamina','poison'].some(k=>raw[k]>0))effect=craftedExposure(p,at,scales);
+  if(!binds||['health','stamina','poison'].some(k=>raw[k]>0))effect=craftedExposure(p,at,scales,channels?3:2);
   if(over)overdose=overdoseExposure(p,at,over);
   if(binds)binding={effect:bindingExposure(p,at),strength:bindOf(p)};
   items.push({key:request.key,amount:-1});
@@ -231,7 +242,7 @@ export function stageCrafting(owner,inventory,quoted,context,depth=freshDepth())
    }
    if(facts.length)next=observe(next,'player',next.materials[id]?id:`authored:${id}`,facts,at);
   }
-  nextDepth={dose,log:recordTrial(depth.log,{materials:consumed,process:p.process,seen,at})};
+  nextDepth={...depth,dose,log:recordTrial(depth.log,{materials:consumed,process:p.process,seen,at})};
  }
  next.sequence++;validateOwner(next);
  return {state:next,items,effect,binding,batch,overdose,failure,depth:nextDepth,grant,outcome};

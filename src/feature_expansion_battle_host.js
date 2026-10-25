@@ -1,4 +1,5 @@
 import {check} from './basics.js';
+import {cohortFrameFit} from './cohort_gear_facts.js';
 import {remainderCombatFitNativeStats} from './audit_remainder_combat_fit_hooks.js';
 import {readNativeFighter} from './native_battle.js';
 import {featureBattleToken,featureNativeAction,commitFeatureBattleAction,withdrawFeatureBattle,featureBattleView,validateFeatureBattle,
@@ -16,10 +17,10 @@ export function createFeatureBattleHost({Combat,Enemy,registry,player,getState,g
         const state=getState(),b=state.simulation?.sessions.player?.nativeBattle;
         for(const [id,f] of Object.entries(fighters)) {
             if(id!=='player') {
-                const p=state.simulation.people[id],stats=f.getFullStats(),frame=featureOwnedGear(state,id,'field_frame',FEATURE_HARNESS),hook=featureOwnedGear(state,id,'hook_pole',FEATURE_HOOK_POLE);
+                const p=state.simulation.people[id],stats=f.getFullStats(),cohortFit=b?.schema===6?cohortFrameFit(state,id):null,frame=cohortFit?cohortFit.active:featureOwnedGear(state,id,'field_frame',FEATURE_HARNESS),hook=featureOwnedGear(state,id,'hook_pole',FEATURE_HOOK_POLE);
                 const fit=remainderCombatFitNativeStats(state,b,id);
-                Object.assign(stats,p.vitals);stats.defense=(p.body.defense||0)+(fit?fit.defenseBonus:frame?2:0);stats.attack_power=p.body.attack+(hook?1:0);
-                stats.block_chance=fit?fit.blockChance:frame ? .6 : 0; // Actual owned/equipped physical frame.
+                Object.assign(stats,p.vitals);stats.defense=(p.body.defense||0)+(fit?fit.defenseBonus:frame?2:0);stats.attack_power=(b?.schema===6?f.cohortBaseAttack+2*(b.admission.training[id]||0):p.body.attack)+(hook?1:0);
+                stats.block_chance=fit?fit.blockChance:cohortFit?cohortFit.blockChance:frame ? .6 : 0; // Actual owned/equipped physical frame.
             }
             f.is_alive=isFeatureBattleSchema(b?.schema)&&b.fighters[id]?.status==='active';
         }
@@ -52,15 +53,15 @@ export function createFeatureBattleHost({Combat,Enemy,registry,player,getState,g
         fighters={player:nativePlayer};nativePlayer.name=player.name;nativePlayer.is_alive=true;
         for(const id of Object.keys(b.fighters).filter(id=>id!=='player')) {
             const p=state.simulation.people[id];check(p?.body&&p?.vitals,'Missing actual native NPC body.');
-            const f=new Enemy({id,name:id===FEATURE_HELPER?'Lio':id===FEATURE_SHIELD?'Nera':'Oren',description:id===FEATURE_HELPER?'A willing porter using his own body and equipment':'A local sluice tollkeeper',add_to_bestiary:false,tags:['living','person'],
-                stats:{...p.body,health:p.vitals.max_health,max_stamina:p.vitals.max_stamina}});f.init();
+            const f=new Enemy({id,name:b.schema===6?(registry.simulation.people.get(id)?.label||'Household member'):id===FEATURE_HELPER?'Lio':id===FEATURE_SHIELD?'Nera':'Oren',description:b.schema===6?'A willing participant using their own actual body and paid physical instruction':id===FEATURE_HELPER?'A willing porter using his own body and equipment':'A local sluice tollkeeper',add_to_bestiary:false,tags:['living','person'],
+                stats:{...p.body,...(b.schema===6?{attack:p.body.attack??0}:{}),health:p.vitals.max_health,max_stamina:p.vitals.max_stamina}});f.init();if(b.schema===6)f.cohortBaseAttack=p.body.attack??f.getFullStats().strength/10;
             // Enemy remains the native stats owner. Its actual saved equipment
             // supplies a physical block, rather than borrowing player gear.
             const fit=()=>remainderCombatFitNativeStats(getState(),getState().simulation?.sessions.player?.nativeBattle,id);
-            f.hasShield=()=>fit()?.hasFrame??featureOwnedGear(getState(),id,'field_frame',FEATURE_HARNESS);
+            f.hasShield=()=>getState().simulation?.sessions.player?.nativeBattle?.schema===6?cohortFrameFit(getState(),id).active:fit()?.hasFrame??featureOwnedGear(getState(),id,'field_frame',FEATURE_HARNESS);
             f.getBlockStrength=()=>fit()?.blockStrength??(f.hasShield()?4:0);
             f.getEquipment=()=>f.hasShield()?{'off-hand':{tags:{ignore_skill:false}}}:{};
-            f.getTotalSkillLevel=skill=>skill==='Shield blocking'?(id===FEATURE_HELPER?Math.min(20,featurePowerFacts(getState(),getContext())['feature.party.drills']*5):10):0;
+            f.getTotalSkillLevel=skill=>skill==='Shield blocking'?(b.schema===6?0:id===FEATURE_HELPER?Math.min(20,featurePowerFacts(getState(),getContext())['feature.party.drills']*5):10):0;
             Object.assign(f.getFullStats(),p.vitals);f.is_alive=b.fighters[id].status==='active';fighters[id]=f;
         }
         const active=Object.keys(b.fighters).filter(id=>b.fighters[id].status==='active');

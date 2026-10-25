@@ -1,4 +1,5 @@
-import {REFERENCES,REFERENCE_CARRIER,referenceIdOf,MATERIAL_CARRIER,PRODUCT_CARRIER,craftingOwner,materialFromKey,productFromNativeKey,compositionName,catalogue} from './crafting_frontier_runtime.js';
+import {REFERENCES,REFERENCE_CARRIER,referenceIdOf} from './craft_reference_content.js';
+import {MATERIAL_CARRIER,PRODUCT_CARRIER,craftingOwner,materialFromKey,productFromNativeKey,compositionName,catalogue} from './crafting_frontier_runtime.js';
 import {projectProduct,projectMaterial} from './craft_state.js';
 // Constructors are provided by the existing item owner, never imported back.
 export function resolveNativeCraftingItem(key,{Material,UsableItem}) {

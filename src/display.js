@@ -1,3 +1,4 @@
+import {keptShopKeys} from './shop_locks.js';
 import {gearItemFactsHtml} from './gear_item_facts.js';
 import {craftBatchGoal} from './craft_batch_goal.js';
 import {knownRecipeVariants, relatedKnownRecipes, knownUsesHTML, installKnownRecipeLinks, renderRecipeConnections, materialPolicyText, bindSubjectGesture} from './recipe_connections.js';
@@ -120,6 +121,7 @@ function refreshVendorStates() {
     if(!current_trader) return;
     const trader = NPCRegistry.get(current_trader).getTraderComponent();
     const inventory = trader.getTradeInventory();
+    const clear=document.getElementById('shop_lock_clear');if(clear){clear.onclick=()=>{try{domainRegistry.command('shopLocks','clear')();}catch(e){log_message(e.message,'notification');}};clear.disabled=!keptShopKeys(current_trader).length;clear.title='Release this merchant’s keep plan so ordinary future refreshes can replace its stock.';}
     for(const [key, row] of Object.entries(trader_item_divs)) {
         seenVendorRows.set(key, row);
     }
@@ -131,6 +133,7 @@ function refreshVendorStates() {
         const selected = to_buy.items.find(x => x.item_key === key)?.count || 0;
         const status = vendorState({stock: entry?.count || 0, selected, price,
             money: character.money, buying: to_buy.value, selling: to_sell.value});
+        let keep=row.querySelector('[data-shop-lock-key]');if(!keep){keep=document.createElement('button');keep.type='button';keep.dataset.shopLockKey=key;keep.onclick=e=>{e.stopPropagation();try{domainRegistry.command('shopLocks','toggle')(key);}catch(err){log_message(err.message,'notification');}};row.append(keep);}const kept=keptShopKeys(current_trader).includes(key);keep.textContent=kept?'Release':'Keep';keep.setAttribute('aria-pressed',String(kept));keep.title='Keep exactly the remaining units through this merchant’s stock refresh, including zero after purchase. Release this plan to receive ordinary future stock. No copy or free goods are created.';keep.disabled=!entry?.count&&!kept;
         row.dataset.vendorState = status.state;
         row.setAttribute('aria-disabled', String(['sold-out', 'in-basket'].includes(status.state)));
         let label = row.querySelector('[data-vendor-status]');
@@ -4364,6 +4367,8 @@ const playerAttributeSourceLabels = {
     equipment:'Equipment', skill_milestones:'Skill milestones', books:'Books',
     titles:'Titles', light_level:'Light', environment:'Environment', stance:'Stance',
     active_effects:'Active effects',
+    vow_oath:'Kept vows',tempering:'Tempering',heart_demon:'Heart-demon strain',talisman:'Worn talisman',
+    herbal_conditioning:'Herbal conditioning',inherited_qualities:'Inherited qualities',dojo_insight:'Reed-circle insight',
 };
 
 export function readPlayerAttributeInspector() {
@@ -4416,7 +4421,7 @@ export function readPlayerAttributeInspector() {
     };
     const referenceNotes = {
         magic:'Native model value; no magic-based ability or combat consumer is established by this inspector.',
-        armor_penetration:'Native authored value; no armor-bypass combat consumer was traced. This does not establish effective armor penetration.',
+        armor_penetration:'Each point bypasses one point of nonnegative flat armor on a landed hit, up to the target’s armor. Shields, guard modifiers, minimum damage and percent resistance still apply.',
         mana_efficiency:'Native model factor; no mana-spending consumer was traced. This does not establish a working mana-cost reduction.',
         heat_tolerance:'Native authored temperature-difference value; no active heat-protection consumer was traced.',
     };

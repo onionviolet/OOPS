@@ -57,6 +57,7 @@ export function validateSimulationEffect(e) {
     if(e.type === "fact") assert(["actor", "world", "campaign", "journey"].includes(e.scope) && stableId(e.key) && ["boolean", "number", "string"].includes(typeof e.value), "Invalid fact effect.");
     if(e.type === "resource") assert(stableId(e.key) && numeric(e.amount), "Invalid resource effect.");
     if(e.type === "vital") assert(["health", "stamina"].includes(e.key) && numeric(e.amount), "Invalid vital effect.");
+    if(e.minimumCapacity!==undefined)assert(e.type==='vital'&&finite(e.minimumCapacity)&&e.minimumCapacity>0, "Invalid supported vital capacity.");
     if(e.type === "body") assert(stableId(e.key) && ["boolean", "number", "string"].includes(typeof e.value), "Invalid body property.");
     if(e.type === "item") {validateItemKey(e.key); assert(Number.isSafeInteger(e.amount) && e.amount !== 0, "Invalid item amount.");}
     if(e.reservationReturn != null) assert(e.reservationReturn === true && (e.type === "item" && e.amount > 0 || e.type === "transfer"), "Invalid reservation return.");

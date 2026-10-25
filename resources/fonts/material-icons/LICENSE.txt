@@ -1,0 +1,3 @@
+Material Icons font by Google, licensed under the Apache License, Version 2.0
+(https://www.apache.org/licenses/LICENSE-2.0). Source: https://fonts.google.com/icons
+Fetched from fonts.gstatic.com on 2026-10-23 (v145) so the desktop app runs offline.

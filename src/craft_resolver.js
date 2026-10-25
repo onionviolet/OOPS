@@ -26,7 +26,7 @@ const sortKeys = object => Object.fromEntries(Object.keys(object).sort(compareCo
 //  output:   {id, route, effect, axis, per, mode:'dose'|'total'|'scalar'}
 //  tagLaw:   {tag, axis, min}  (fraction axes: permille concentration; scalar: value)
 export function defineCraftLaw(spec) {
-    only(spec, ['id', 'revision', 'catalogue', 'carrier', 'ops', 'reactions', 'outputs', 'tagLaws'], 'law');
+    only(spec, ['id', 'revision', 'catalogue', 'carrier', 'ops', 'reactions', 'outputs', 'tagLaws','directions','thermal'], 'law');
     const catalogue = spec.catalogue ?? fail('Law needs a catalogue.');
     const axis = (id, kind) => {
         const def = catalogue.axes[id] ?? fail(`Unknown law axis: ${id}.`);
@@ -79,8 +79,15 @@ export function defineCraftLaw(spec) {
         if(!nat(t.min)) fail('Tag law minimum must be a non-negative integer.');
         return {tag: t.tag, axis: t.axis, min: t.min};
     });
+    const directions=(spec.directions||[]).map(r=>{
+        only(r,['before','after','from','to','permille'],'direction');axis(r.from,'fraction');axis(r.to,'fraction');
+        if(!catalogue.registry.has(r.before)||!catalogue.registry.has(r.after)||!nat(r.permille)||r.permille>1000||r.from===r.to)fail('Invalid directional reaction.');
+        return {...r};
+    });
+    const thermal=spec.thermal;
+    if(thermal){only(thermal,['op','from','to','safePerInput'],'thermal');axis(thermal.from,'fraction');axis(thermal.to,'fraction');if(!ops[thermal.op]||!pos(thermal.safePerInput))fail('Invalid thermal law.');}
     return deepFreeze({id: text(spec.id, 'Law ID'), revision: spec.revision, ref: versioned(spec.id, spec.revision),
-        catalogue, carrier: text(spec.carrier ?? 'Crafted batch', 'Carrier'), ops, reactions, outputs, tagLaws});
+        directions,thermal:thermal?{...thermal}:null,catalogue, carrier: text(spec.carrier ?? 'Crafted batch', 'Carrier'), ops, reactions, outputs, tagLaws});
 }
 
 function canonicalInputs(law, inputs) {
@@ -103,7 +110,7 @@ function canonicalInputs(law, inputs) {
 }
 
 // request: {inputs:[{material, qty, role?}], process:[{op, level}], stations?:[tag], recipe?:{ref}}
-export function resolveBatch(law, {inputs, process = [], stations = [], recipe = null}) {
+export function resolveBatch(law, {inputs, process = [], stations = [], recipe = null, order, control=0}) {
     const {catalogue} = law, basis = catalogue.basis;
     const lots = canonicalInputs(law, inputs);
     const consumed = lots.filter(l => l.role === 'consumed'), catalysts = lots.filter(l => l.role === 'catalyst');
@@ -122,6 +129,18 @@ export function resolveBatch(law, {inputs, process = [], stations = [], recipe =
         else scalarSums[id] = safe(scalarSums[id] + qty * basis * value);
     }
     const trace = [];
+    let ordered=[];
+    if(law.directions.length){
+        ordered=order||consumed.map(l=>l.material.id);
+        if(!Array.isArray(ordered)||ordered.length!==consumed.length||new Set(ordered).size!==consumed.length||ordered.some(id=>!consumed.some(l=>l.material.id===id)))fail('Order must name each consumed material exactly once.');
+        for(let i=0;i+1<ordered.length;i++)for(const r of law.directions){
+            const a=consumed.find(l=>l.material.id===ordered[i]).material,b=consumed.find(l=>l.material.id===ordered[i+1]).material;
+            if(!materialTags(catalogue,a).has(r.before)||!materialTags(catalogue,b).has(r.after))continue;
+            const moved=Math.floor(amounts[r.from]*r.permille/1000);amounts[r.from]-=moved;amounts[r.to]+=moved;
+            trace.push({kind:'direction',before:a.id,after:b.id,from:r.from,to:r.to,moved});
+        }
+    }
+
     const react = (after, step) => {
         for(const r of law.reactions) {
             if(r.after !== after) continue;
@@ -155,6 +174,16 @@ export function resolveBatch(law, {inputs, process = [], stations = [], recipe =
         return {op: op.id, level};
     });
     react(null, steps.length);
+    let thermal;
+    if(law.thermal){
+        if(!nat(control)||control>100)fail('Invalid batch control.');
+        const heat=steps.filter(s=>s.op===law.thermal.op).reduce((n,s)=>n+s.level,0),safeHeat=consumed.length*law.thermal.safePerInput+Math.floor(control/10),residual=Math.max(0,heat-safeHeat);
+        const moved=Math.floor(amounts[law.thermal.from]*Math.min(900,residual*100)/1000);
+        amounts[law.thermal.from]-=moved;amounts[law.thermal.to]+=moved;
+        thermal={control,heat,safeHeat,residual,impurity:moved,grade:Math.max(1,new Set(ordered).size),tier:Math.max(1,...consumed.map(l=>Math.ceil((l.material.properties.hardness||0)/25)))};
+        trace.push({kind:'heat',...thermal});
+    }
+
     if(Object.values(amounts).reduce((n, v) => n + v, 0) !== mass || Object.values(amounts).some(v => v < 0)) fail('Batch does not conserve mass.');
     const scalars = Object.fromEntries(Object.entries(scalarSums).map(([id, sum]) => [id, Math.floor(sum / mass)]));
     const outputs = {};
@@ -170,7 +199,7 @@ export function resolveBatch(law, {inputs, process = [], stations = [], recipe =
     const identity = {family: BATCH_FAMILY, law: law.ref, catalogue: catalogue.ref, recipe: recipe?.ref ?? null,
         inputs: lots.map(l => [l.role, l.material.id, l.material.revision, l.qty]), process: steps.map(s => [s.op, s.level]),
         stations: [...stationTags].sort(compareCodePoints).filter(t => steps.some(s => law.ops[s.op].station === t) || law.reactions.some(r => r.station === t)),
-        composition: sortKeys({...amounts}), mass};
+        composition: sortKeys({...amounts}), mass,...(law.directions.length?{order:[...ordered]}:{}),...(thermal?{thermal}: {})};
     const product = {id: 'cb1:' + address(identity), ...identity, scalars: sortKeys(scalars),
         availability: sortKeys(availability), outputs: sortKeys(Object.fromEntries(Object.entries(outputs).map(([r, e]) => [r, sortKeys(e)]))),
         tags: [...new Set(tags)].sort(compareCodePoints), carrier: law.carrier};
@@ -190,7 +219,7 @@ export function validateBatchProduct(law, product, materialsById) {
         return {material, qty, role};
     });
     const again = resolveBatch(law, {inputs, process: product.process.map(([op, level]) => ({op, level})), stations: product.stations,
-        recipe: product.recipe ? {ref: product.recipe} : null}).product;
+        recipe: product.recipe ? {ref: product.recipe} : null,order:product.order,control:product.thermal?.control??0}).product;
     if(JSON.stringify(again) !== JSON.stringify(product)) fail('Product disagrees with its retained law and materials.');
     return product;
 }
