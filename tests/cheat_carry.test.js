@@ -19,7 +19,7 @@ test('optional talking system is distinct and awakening uses each card message',
 });
 test('heir receives enduring faculty stages without copying points, claim rows or the accompanying system',()=>{
  const s=awakenCheats(seedBeginningCheats(defaultCheatState(),{choice:'system-quests',at}),{wonFight:true,dayCount:1,at}).state;
- s.held['quiet-faculty'].card.stages.push({id:'learned',at,via:'practice',carried:true});s.held['quiet-faculty'].card.state.points=5;
+ s.held['quiet-faculty'].card.stages.push({id:'true-appraisal',at,via:'practice',carried:true});s.held['quiet-faculty'].card.state.points=5;s.held['quiet-faculty'].card.state.earned=5;
  const fresh={character:{name:'You',money:0,reputation:{}},levels:{},'current time':at,
  inventories:{person:{main_character:{}},storage:{player:{}}},availabilities:{location:{Shack:0}},expansion:{}};
  const end=62*GAME_YEAR,previous={...structuredClone(fresh),cheats:s,expansion:{rng:7,clock:end,chronicle:advanceChronicle(createChronicle(0,at,true),end)}};

@@ -142,6 +142,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'shell-character': surface(UNSET),
         'condition': surface('ST6', {home: 'Below You; native body and weather readers', frequency: 'continuous', status: 'proposal', reads: ['body', 'time', 'place'], representations: routed}),
         'status-window': surface(UNSET),
+        'cheat-faculty': surface('ST5', {home:'Character-owned continuing insight',frequency:'on demand',status:'proposal',reads:['body','inventory','time'],representations:routed}),
         'focus': surface(UNSET),
         'shell-detail': surface(UNSET, {contexts: ['idle', 'combat', 'travel', 'service']}),
         'belongings': surface(UNSET, {reads: ['inventory'], representations: routed}),

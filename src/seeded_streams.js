@@ -25,6 +25,11 @@ export function validateStreams(s) {
     for(const [name,c] of Object.entries(s.cells)) {
         // Preserve unknown future stream names on import, but never draw them.
         if(!name || name.length>240 || !object(c) || !natural(c.n) || !uint(c.salt)) throw Error('Invalid saved stream cell.');
+        if(c.call!==undefined&&(!object(c.call)||!Number.isFinite(c.call.value)||c.call.value<0||c.call.value>=1||c.call.via!=='loaded-dice'))throw Error('Invalid saved stream call.');
+        if(c.overrides!==undefined){
+            if(!object(c.overrides))throw Error('Invalid committed stream decisions.');
+            for(const [id,r] of Object.entries(c.overrides))if(!object(r)||r.id!==id||r.s!==name||r.via!=='loaded-dice'||!Number.isFinite(r.u)||r.u<0||r.u>=1||!Number.isFinite(r.orig)||r.orig<0||r.orig>=1)throw Error('Invalid committed stream decision.');
+        }
     }
     for(const r of s.log) if(!object(r) || typeof r.s!=='string' || typeof r.k!=='string' || !natural(r.n) || !uint(r.salt) ||
         !Number.isFinite(r.u) || r.u<0 || r.u>=1) throw Error('Invalid saved stream receipt.');
@@ -64,12 +69,36 @@ export function nextOrdinal(state,stream) {
 }
 export function drawUnit(state,stream,key) {
     const n=nextOrdinal(state,stream),s=state.streams;
-    const result=unitDecision(s,stream,key,n,s.cells[stream].salt);
+    const result=resolveStreamDecision(s,stream,key,n);
     remember(s,result.receipt);return result.value;
 }
 export function keyedUnit(state,stream,key,n=0) {
-    const s=ensureStreams(state),result=unitDecision(s,stream,key,n,s.cells[stream]?.salt||0);
+    const s=ensureStreams(state),result=resolveStreamDecision(s,stream,key,n);
     remember(s,result.receipt);return result.value;
+}
+// A paid call is part of the same stream owner as its eventual decision.
+export function armStreamCall(state,stream,call) {
+    requireStream(stream);
+    if(!call||call.via!=='loaded-dice'||!Number.isFinite(call.value)||call.value<0||call.value>=1)throw Error('Invalid stream call.');
+    const s=ensureStreams(state),cell=s.cells[stream]??={n:0,salt:0};
+    if(cell.call)throw Error('A call is already waiting on this stream.');
+    cell.call={...call};
+}
+export function peekStreamDecision(s,stream,key,n=0) {
+    const result=unitDecision(s,stream,key,n,s.cells[stream]?.salt||0);
+    const prior=s.cells[stream]?.overrides?.[result.receipt.id]??s.log.find(r=>r.id===result.receipt.id&&r.via);
+    if(prior)return {value:prior.u,receipt:{...prior}};
+    const call=s.cells[stream]?.call;
+    if(call)return {value:call.value,receipt:{...result.receipt,u:call.value,orig:result.value,via:call.via}};
+    return result;
+}
+function resolveStreamDecision(s,stream,key,n) {
+    const result=peekStreamDecision(s,stream,key,n);
+    const cell=s.cells[stream];
+    if(result.receipt.via&&cell?.call&&!cell.overrides?.[result.receipt.id]&&!s.log.some(r=>r.id===result.receipt.id&&r.via)){
+        cell.overrides??={};cell.overrides[result.receipt.id]={...result.receipt};delete cell.call;
+    }
+    return result;
 }
 export function rollChance(s,stream,key,p,n=0) {
     if(!Number.isFinite(p)||p<0||p>1)throw Error('Invalid chance.');

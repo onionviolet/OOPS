@@ -40,7 +40,8 @@ export function registerCarryRules(worldId, rows) {
 
 export function carryLedger(worldId) {
     const rules = WORLD_RULES[worldId] ?? REGISTERED.get(worldId);
-    if(!rules) throw new Error(`No carry rules recorded for ${worldId}.`);
+    if(!rules) return BOUNDARIES.map(boundary=>({boundary,rows:[row(boundary,'Unresolved carrier','unresolved','this life',
+        'No local carry mechanism is recorded. The holder and original records are retained pending a compatible passage.')] }));
     return BOUNDARIES.map(boundary => ({boundary, rows: rules.filter(r => r.boundary === boundary).map(r => ({...r}))}));
 }
 export const carryLedgerWorlds = () => [...Object.keys(WORLD_RULES), ...REGISTERED.keys()];

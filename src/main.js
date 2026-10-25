@@ -61,7 +61,7 @@ import {HOUSEHOLD,householdRest} from './absorb_p23/household/model.js';
 import {householdPresentation} from './absorb_p23/household/host.js';
 import {createHouseholdPanel} from './absorb_p23/host_joins/tranche_one_ui.js';
 import {STREAMS,ensureStreams,bindGameStreams,gameKeyedRandom,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
-import {GRADED_IDS,consumedHarvestQuality,gradedKey} from './harvest.js';
+import {GRADED_IDS,consumedHarvestQuality,gradedKey,replacedHarvestDrop} from './harvest.js';
 import {buildVillageObtainability,villageTablesFromNative} from './village_obtainability.js';
 import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {resolveWorldCalendar, createCalendarLog} from './world_calendar.js';
@@ -369,8 +369,7 @@ import {createExpansionState, loadExpansionState, commitAction, advanceSimulatio
 import {beginFieldWorkshop} from "./field_workshop.js";
 import {createFieldPanel} from "./field_ui.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
-import {validateCheatState} from './cheat_cards.js';
-import {cheatState,setCheatState,configureCheatHost,seedCheatBeginning,observeCheats as awakenOptionalStart} from './cheat_host.js';
+import {cheatState,setCheatState,readCheatSave,configureCheatHost,commandCheat,seedCheatBeginning,observeCheats as awakenOptionalStart} from './cheat_host.js';
 import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, cancelPack, advancePackSettlement, preparePackSave, packSaveState} from './content_packs.js';
 import {syncAuthoredRegistration, applyAuthoredState, resetAuthoredState, AUTHORED_WORLD_ID} from './authored_site.js';
 import {createAuthoredSiteUI} from './authored_site_ui.js';
@@ -6613,6 +6612,7 @@ function load(save_data) {
             catch(error){suspendedStructuredSave=structuredClone(save_data);throw error;}
             syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());
+            if(!importProbeToken)save_data=readCheatSave(save_data);
             save_data = validateSaveEnvelope(save_data, game_version);
             continuationState=save_data.continuation?structuredClone(save_data.continuation):null;
             if(!importProbeToken&&continuationState?.arrivalPaused&&!continuationArrivalRelease)continuationArrivalRelease=suspendEngine();
@@ -9722,7 +9722,9 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             }):[];
             return knownRoutesPresentation(snapshot,{refinement:refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext}),proto23:proto23Presentation(snapshot.state,expeditionRegistry,snapshot.context),pocket:{view:pocketView,actions:pocketActions}});
         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
-    configureCheatHost({writable:()=>!importProbeToken&&ownsSave&&!foundationSaveBlocked&&!is_loading_error&&!restoringNativeSave,
+    configureCheatHost({read:()=>({decisions:(current_combat?.defenders||[]).filter(e=>e.is_alive&&e.rngKey).flatMap(e=>{const i=e.loot_list.findIndex(row=>!replacedHarvestDrop(e.name,row.item_name));return i<0?[]:[{id:e.rngKey,label:e.name+' · first remaining drop',key:e.rngKey+':drop:'+i,keyed:true}];}),harvest:harvestOwner,expansion:expansionState,locations,levels:{person:{main_character:{skill_xp:{Crafting:character.getLevelableComponent().skill_progress.Crafting?.total_xp||0,Perception:character.getLevelableComponent().skill_progress.Perception?.total_xp||0}}}}}),
+        harvestSkill:()=>harvestContext().skill,occupied:request=>!['peek','call'].includes(request.type)&&continuationOccupied(),publish:next=>{setHarvestOwner(next.harvest??null);expansionState.streams=next.expansion.streams;harvestPanel?.render();},
+        writable:()=>!importProbeToken&&ownsSave&&!foundationSaveBlocked&&!is_loading_error&&!restoringNativeSave,
         moment:()=>({dayCount:current_game_time.day_count,at:cheatCalendarTime()}),
         wonFight:()=>Object.values(locations).some(zone=>zone.tags.combat_zone&&zone.enemy_groups_killed>0),
         capture:()=>{const bytes=create_save();return bytes?JSON.parse(bytes):null;},
@@ -9730,7 +9732,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         log:message=>log_message(message,'notification'),refresh:()=>statusWindow?.render()});
     // CH1 panel wiring: read native stats and only held title names.
     statusWindow = createStatusWindow({read: () => ({cheats: cheatState, level: character.getLevelableComponent().current_level,
-        stats: character.getFullStats(), titles: titleView(character.titles, readTitleCounters()).filter(row => row.held).map(row => row.name)}),
+        quest:domainRegistry.project('cheats'),claim:()=>commandCheat({type:'system-claim'}),stats: character.getFullStats(), titles: titleView(character.titles, readTitleCounters()).filter(row => row.held).map(row => row.name)}),
         onKnown: () => {
             // Appearance names this module only after its persisted discovery.
             const select = document.querySelector('#customization_host select[aria-label="Native module"]');

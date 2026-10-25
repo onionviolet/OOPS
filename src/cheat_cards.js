@@ -1,4 +1,5 @@
-// C0 data contract. Cards describe future behavior; granting one runs no hooks.
+import {validateModuleState,moduleCard,CHEAT_MODULES} from './cheat_definitions.js';
+// C0 data contract. Granting one runs no hooks.
 const CARD_KEYS = ['id', 'family', 'name', 'ui', 'terms', 'hooks', 'state', 'stages', 'observers', 'sources'];
 const PANELS = new Set(['status-window', 'death-menu', 'anchor-list', 'system-shop', 'companion-voice',
     'simulator', 'simulator-foresight', 'appraisal-lens', 'harvest-ledger', 'harvest-multiplier-ledger',
@@ -35,6 +36,7 @@ export function validateCheatCard(card) {
     if(!PANELS.has(card.ui)) throw new Error('Invalid cheat card ui: unknown panel.');
     if(!TERMS.has(card.terms)) throw new Error('Invalid cheat card terms.');
     object(card.state, 'card state');
+    validateModuleState(card);
     if(Object.hasOwn(card.state, 'awakened') && typeof card.state.awakened !== 'boolean')
         throw new Error('Invalid cheat awakened state: expected a boolean.');
     if(Object.hasOwn(card.state, 'points') && (!Number.isSafeInteger(card.state.points) || card.state.points < 0))
@@ -109,6 +111,14 @@ export function carryCheats(source, target = defaultCheatState(), {heir = false}
     const carried = structuredClone(entry);
     if(heir) carried.card.state = {...quietFacultyCard().state, awakened: entry.card.state.awakened};
     next.held['quiet-faculty'] = carried;
+    for(const stage of carried.card.stages) {
+        if(!CHEAT_MODULES.some(d=>d.id===stage.id)||next.held[stage.id])continue;
+        const card=moduleCard(stage.id);
+        // Learned means endure; per-life reserves start empty on a new body.
+        if(heir){card.state.used=card.state.charges;card.state.charges=0;}
+        const original=from.held[stage.id];
+        next.held[stage.id]=heir||!original?{card,acquired:structuredClone(carried.acquired),messages:[]}:structuredClone(original);
+    }
     return validateCheatState(next);
 }
 export function awakenedStatusCard(state) {

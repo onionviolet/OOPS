@@ -25,6 +25,7 @@ export function createStatusWindow({read, onKnown = () => {}}) {
         const section = node('div'); section.className = 'status_window_detail';
         const value = node('p'); value.setAttribute(`data-status-${key}`, ''); section.append(node('strong', label), value); panel.append(section); fields[key] = value;
     }
+    const claim=node('button','Claim first victory · 1 point');claim.type='button';claim.className='action_button';claim.dataset.systemClaim='';claim.onclick=()=>{try{read().claim();}catch(e){fields.quests.textContent=e.message;}};panel.append(claim);
     function render() {
         const snapshot = read(), entry = awakenedStatusCard(snapshot.cheats);
         panel.hidden = !entry;
@@ -37,7 +38,8 @@ export function createStatusWindow({read, onKnown = () => {}}) {
         for(const [stat, value] of values) value.textContent = snapshot.stats[stat].toFixed(1);
         fields.titles.textContent = snapshot.titles.join(', ') || 'No titles earned yet.';
         fields.points.textContent = String(entry.card.state.points ?? 0);
-        fields.quests.textContent = 'No system quests yet. For now, the system only records what you know.';
+        fields.quests.textContent = snapshot.quest?.text || 'No system quests yet. For now, the system only records what you know.';
+        claim.hidden=!snapshot.quest?.canClaim;
         // R22b (Weibao, 2026-10-17): compact by default; comfortable stays a setting.
         // R21c: in the parity shell the window sits under You and yields like the secondary stats:
         // it may grow the top row only to the elastic default, then scrolls inside You.

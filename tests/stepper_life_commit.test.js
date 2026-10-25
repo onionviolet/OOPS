@@ -25,7 +25,7 @@ function host({enrolled=false,fail=false,bootError=null}={}) {
         deferWhileHidden:()=>false,renderSavedPanels(){},
         nativeP23Transaction:{status:'pending',markDurable(){events.push('durable');this.status='durable';}},
         migrateVillageCareer:()=>{events.push('publish');return {};},migrateWorkLedger:x=>structuredClone(x),customizationFromSave:x=>structuredClone(x.customization),
-        refreshCustomization(){},update_displayed_crafting_recipes(){},validateCheatState:x=>x,defaultCheatState:()=>({}),validatePackState:x=>x,emptyPackState:()=>({}),restoreGeneratedPeople(){},
+        refreshCustomization(){},update_displayed_crafting_recipes(){},setCheatState:x=>{context.cheatState=x??{};},validateCheatState:x=>x,defaultCheatState:()=>({}),validatePackState:x=>x,emptyPackState:()=>({}),restoreGeneratedPeople(){},
         workLedger:structuredClone(fixture.work_ledger),villageCareer:{},customization:{},cheatState:{},optionalPackState:{},lifeRecord:null,npcLives:null,
         workLedgerPanel:null,optionalPackPanel:null,villageCareerControls:null,lifeRecordPanel:null,villageLivesPanel:null});
     vm.runInContext(definition+'\nglobalThis.storage=lifeSaveStorage;',context);
