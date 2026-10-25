@@ -28,3 +28,10 @@ a line before relying on it. Update the owning file when a system or a degree la
 3. Gate overflow policies mostly unread.
 4. Per-life world-pack state has no importer outside the pack modules.
 5. No legacy-command mechanism for in-flight jobs after a command changes.
+
+## Keeping it current
+
+Expansion items for this register live in the workflow's
+[expansion backlog](gm/MECHANIC_ABSORPTION_WORKFLOW.md#expansion-backlog-keep-growing-this-2026-10-25):
+MAW-X2 (drift check against exported functions), MAW-X8 (combat, people, sites and UI layout
+entries) and MAW-X9 (owners for each gap above).
