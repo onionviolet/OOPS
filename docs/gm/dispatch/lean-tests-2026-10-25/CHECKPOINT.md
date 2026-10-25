@@ -62,16 +62,19 @@ Existing compatibility, layout, world-pack lifecycle and distinct combat nonce /
 practice suites remain unchanged. This is test organization, not new gameplay.
 
 Final gate follows the final implementation commit, per the explicit lane brief:
-`npm test`, `npm run check:arch`, `npm run check:rules`. Results pending below.
-The post-commit validation receipt will be written here without another commit,
-so the full suite runs after the branch’s last commit as requested.
+`npm test`, `npm run check:arch`, `npm run check:rules`. Final results are below.
+The original delivery left the post-commit validation receipt uncommitted.
+G1’s same-session continuation now authorizes committing only this checkpoint.
+The recorded checks remain valid for unchanged implementation inputs; no
+equivalent suite is rerun for this documentation-only receipt.
 
 ## Post-commit verification receipt
 
 Reorganization candidate HEAD: `585746158be8ac7550d1eadbc8dd2eca351b9091`.
 Four reorganization commits from base, followed by the bounded harness repair below; no master integration or push. The working tree was
-clean when the final gates started. Only this checkpoint and the deferred-path
-snapshot receive post-commit documentation updates.
+clean when the final gates started. The original delivery updated this checkpoint and the deferred-path snapshot
+after the implementation gates. The deferred snapshot was included in the harness
+repair commit; this continuation commits only the final checkpoint receipt.
 
 - `npm run check:arch`: PASS, source ratchets satisfied; six grandfathered main imports and 226 cyclic edges remain unchanged. Log `/private/tmp/lean-tests-arch.log`.
 - `npm run check:rules`: PASS, 22 register rows, 41 AD codes, 125 relative links, 0 warnings. Log `/private/tmp/lean-tests-rules.log`.
@@ -81,7 +84,16 @@ snapshot receive post-commit documentation updates.
 - `node --test tests/traveler_lint_hint.test.js` on unchanged failed-run inputs: PASS 3/3 (7.531 s). Log `/private/tmp/lean-tests-timeout-repro.log`. The 100 ms VM wall-time bound in the offline source-table helper is load-sensitive; source evaluation uses inert constructors and no native gameplay code. This is a harness/tooling timing defect, not an observed game runtime defect.
 - Repair: `scripts/village_supply_tables.mjs` retains identical literal inputs, sandbox context and output, with the runaway-evaluation guard widened from 100 ms to 1 s. Primary helper/test paths were clean. No assertion changed; no synthetic timing assertion added.
 - `node --test tests/{traveler_lint_hint,village_obtainability,village_traveler_asks,world_history_consumers,generated_people}.test.js`: PASS 20/20 (2.708 s), unchanged output/knowledge/invariant checks cover direct consumers. Log `/private/tmp/lean-tests-extraction.log`.
-- Required post-repair final `npm test`, architecture and rule-index gates: pending after the harness repair commit. Repeating the full suite is justified by the named final-gate failure and the repaired shared extraction helper.
+- Repair commit / final gate input: `e9c547605c7e4de208b2d6d200cdcec12204a3f8`. `npm test` completed with the same dependencies and localhost/browser permissions as the valid baseline. Repeating the full suite is justified by the named final-gate failure and the repaired shared extraction helper.
+- Post-repair `npm run check:arch`: PASS, unchanged ratchets/grandfathered counts; log `/private/tmp/lean-tests-arch-repaired.log`.
+- Post-repair `npm run check:rules`: PASS, 0 warnings; log `/private/tmp/lean-tests-rules-repaired.log`.
+
+## Final result
+
+- Post-repair `/usr/bin/time -p npm test`: PASS 2,877/2,877, 0 failed/cancelled/skipped/todo; 122.94 s real (runner 122.782 s), user 519.91 s, sys 56.82 s. Input `e9c547605c7e4de208b2d6d200cdcec12204a3f8`; log `/private/tmp/lean-tests-final-repaired.log`. Post-repair architecture and rules gates also passed after this commit.
+- Baseline comparison: 2,877 → 2,877 tests; 372 → 360 root test files (12 fewer, 3.23%); 419.58 → 122.94 s observed real time (296.64 s less). Baseline user CPU was 577.89 s, sys 63.01 s. Concurrent machine load differed materially, so this is not a controlled benchmark or proof of a stable causal speedup. The cleanup preserves coverage and reduces file/process count.
+- Final read-only primary status overlap check: PASS, 0 changed branch paths overlap the 42 dirty/untracked primary paths. Full deferred path inventory is `DEFERRED_PRIMARY_TESTS.txt`; world-adaptation proposal moves remain deferred. No primary files, master ref, user saves, or remote refs changed by this lane.
+- Five implementation commits through `e9c547605`, followed by this checkpoint-only delivery receipt under G1’s same-session continuation. All test organization and the harness guard repair were already committed. No equivalent suite was rerun because only documentation changed; the exact final 2,877/2,877 receipt above remains authoritative for implementation input `e9c547605`. No further build/browser gameplay gate applies because application behavior and persistence were unchanged; the retained native-save browser journey passed in the full suite. Headless subdirectory tests remain outside the existing npm command, as at baseline.
 
 ## Assertion relocation mapping
 
