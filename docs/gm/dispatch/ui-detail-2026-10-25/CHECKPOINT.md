@@ -105,10 +105,44 @@ All current screenshots are isolated public-fixture/test-origin views. Fixture p
 Coordinator reconciliation of primary overlaps and unexercised gated states, then Weibao's actual visual/play acceptance. Canonical evidence completion is recorded in the final handoff below. No merge/push/install permission is inferred from this branch delivery. Mobile remains deferred.
 
 
-## Final handoff
+## Original handoff (superseded by the G1 resume below)
 
 Canonical evidence is complete: 64 paired views at both desktop targets (46 navigation panels, 17 native journey views, one named-item inspection), with 56 of 73 registered surfaces represented by a panel or visible shell/native-state view. The other 17 are explicitly source-inventory-only/gated in COVERAGE; this is not an all-world-state certification. The DOM census has no empty unnamed control and no page overflow in its captured states. Native actor/read-model and player appearance/holdings/learning round-trips are qualified in the receipts.
 
 Runtime is committed through `82b5be9c`. The evidence/record commit follows it. No runtime source remains uncommitted; rebuilt dist and preliminary diagnostic audit attempts are intentionally outside the committed source candidate. The assigned server is stopped after final artifact verification.
 
 Play review: open the comparison index first, then run the rebuilt branch on port 5101. Check Mistglass method/reserve/stakes, workshop steps, manor Household shortcut, Connection anchors/review/cancel, native trade footer and Reports. These are candidate choices, not accepted defaults. Coordinator M4 reconciliation and the source-only gated-state cases remain separate work; no master merge, push or app adoption is claimed.
+
+
+## G1 resume, 2026-10-25: remaining original D1 panel scope
+
+Weibao authorized this one resume in the same branch/worktree on port 5101. It closes the original 17 source-only rows through native routes and declared public owner-factory prerequisites. Mobile stays deferred; no D4/dirty cultivation merge, primary writes, master merge, push, deletion, cultivation contact or further dispatch. The full suite is not rerun.
+
+[RESUME.md](RESUME.md) owns the exact per-surface prerequisite, inspection, change and final disposition. Sixteen panels are reached at both desktop viewports at 14px and 21px. Optional worlds is blocked by the exact absent `private_packs/manifest.json` and actual pack files, rather than by the original fixture. Known routes required a real discovery fix: it deferred behind its own hidden parent. Its before views reproduce the missing native panel after valid entry; its after views open the owner-projected panel. Other comparisons show the same native surface.
+
+| Code | Change | Rules and evidence |
+| --- | --- | --- |
+| G1-C1 | Known routes computes its read-only native projection in the undiscovered workspace vault, breaking the visibility/discovery cycle | UR10/14/49, AR3. Hidden-parent regression and native terms-chart/independent-Goa journey. |
+| G1-C2 | Loadout name, hearth-reading and observer-method controls use the existing shared visible-label component; loadout checkbox is aligned with its label | UR7/14/32/35/65–68. Paired 14px/21px views at both targets, keyboard Space check. |
+| G1-C3 | Stock count says item kinds; stock and companion buttons reuse existing action-row spacing | UR25/40/60/65–68. Paired populated Stock/Companion views. Primary companion renderer is untouched; `.bond-actions` consumes CSS. |
+
+Runtime source: `0ae4203522b7a3b1dbcb20e3c9616d034e5bdcb9`. Old canonical images and `evidence/source-inputs.json`, `verification.json` remain unchanged. New input identities, image hashes and verification are under `evidence/resume/`; the comparison gallery adds resume cases with their own D1 baseline label. Generated dist and generated-only HTML query changes are excluded from commits.
+
+Checks, one line each:
+
+- `node --test tests/ui_components.test.js tests/ui_contract.test.js tests/owned_place_clock.test.js tests/rank_gap_observer.test.js`: 24/24 pass, before the final shared-CSS consumer adjustment.
+- `node --test tests/known_routes_ui.test.js tests/known_routes.test.js tests/companion_bond_rite.test.js tests/stock_view.test.js`: 21/21 pass, including hidden-parent discovery regression.
+- `node --test tests/ui_contract.test.js`: final 3/3 pass after the CSS consumer adjustment.
+- `npm run build`: pass for final runtime; hashes in resume/source-inputs.json.
+- `npm run check:arch`: pass, main 10113/10115, display 6724/6767, save 310/310; no new cycles.
+- `npm run check:rules`: pass, 22 rows, 41 AD codes, 125 links, zero warnings.
+- `node scripts/playtest/d1-resume.mjs before` / `after`: final browser receipt in resume/verification.json; both desktop targets and 14px/21px. Known-route before is an explicit absent-panel reproduction.
+- Original `npm test`: unchanged exact receipt, 2879 total / 2875 pass / four sandbox bind failures, then the three affected files 9/9 with reviewed local-server access. It predates the original late navigation/spill fixes (53 focused checks) and G1 source; no later full-suite claim.
+
+M4: new runtime edits are six small source/CSS paths plus one focused test; no primary files copied. The original seven overlap files remain in the earlier M4 table. Primary's dirty companion renderer differs in its bond-return child; this resume avoids that file entirely and styles its existing `.bond-actions` class. Cultivation overlap remains a coordinator hunk reconciliation, with no owner contact or merge in this resume.
+
+Final consideration round: ACT NOW (done): native/disposable prerequisites replace fixture absence as a blocker; route discovery and concrete field/count/action defects fixed. ACCOUNT FOR NOW: keep old proof identity separate from the resume baseline and preserve primary owner hunks in combined integration. LATER/BLOCKED: Optional worlds, bounded owner-supplied-content check only; done when its exact manifest/pack loads and its native panel can be inspected at the same targets. No new lane or dispatch.
+
+Remaining gate: combined owner reconciliation/integration and Weibao's play/taste acceptance. This is a branch proposal, not a merged, pushed, installed or human-accepted overhaul.
+
+G1 evidence seal: 96 paired gallery views, 32 new views / 128 new images; 72/73 surfaces rendered or qualified inline. The 281 original proof files outside the extended gallery HTML remain byte-identical. The assigned Python server on port 5101 was verified by PID/command/CWD and stopped after capture.

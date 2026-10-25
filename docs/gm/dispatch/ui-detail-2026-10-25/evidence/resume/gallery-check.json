@@ -1,0 +1,14 @@
+{
+  "pairedViews": 96,
+  "newViews": 32,
+  "newSurfaces": 16,
+  "newImages": 128,
+  "originalProofFilesUnchanged": 281,
+  "selected": "resume/known-routes-21px",
+  "imageDimensions": [
+    1440,
+    900
+  ],
+  "baselineLabel": "D1 7fff7be3c",
+  "result": "passed"
+}
