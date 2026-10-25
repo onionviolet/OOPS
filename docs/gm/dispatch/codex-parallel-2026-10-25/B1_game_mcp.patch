@@ -1,0 +1,531 @@
+diff --git a/scripts/mcp/game_mcp.mjs b/scripts/mcp/game_mcp.mjs
+index b2f0a926c..2df43bfac 100644
+--- a/scripts/mcp/game_mcp.mjs
++++ b/scripts/mcp/game_mcp.mjs
+@@ -52,11 +52,12 @@ const view = r => ({text: JSON.stringify(r, null, 1), data: r});
+ const obj = (properties, required = []) => ({type: 'object', properties, required});
+ 
+ const tools = [
+-    {name: 'game_new', description: 'Start a fresh game (new hero) or resume from an exported file. Replaces any running game. Returns what the player sees.',
+-        inputSchema: obj({seed: {type: 'integer', description: 'Seed for all randomness; same seed and same actions give the same game.'}, heroName: {type: 'string'}, path: {type: 'string', description: 'An export file written by game_export.'}}),
++    {name: 'game_new', description: 'Start a fresh game (new hero) or resume from an exported file. Replaces any running game. Automatically clicks PLAY through the headless driver. Returns started and what the player sees.',
++        inputSchema: obj({seed: {type: 'integer', description: 'Seed for all randomness; same seed and same actions give the same game.'}, heroName: {type: 'string'}, url: {type: 'string', description: 'Localhost test origin, for opt-in world entry flags. Defaults to http://localhost/?test_hooks=1.'}, path: {type: 'string', description: 'An export file written by game_export.'}}),
+         handler: a => call('new', a).then(view)},
+     {name: 'game_look', description: 'What the player sees now: location, game time, screen text and the numbered list of available actions.', readOnly: true,
+-        handler: () => call('look').then(view)},
++        inputSchema: obj({scope: {type: 'string', description: 'Optional CSS selector for a visible panel.'}, offset: {type: 'integer', description: 'Action offset, in pages of 80. Indices remain absolute within this view.'}}),
++        handler: a => call('look', a).then(view)},
+     {name: 'game_click', description: 'Do one action the way a player clicks it. Prefer index from the last game_look; key and text also work. Returns the new view.',
+         inputSchema: obj({index: {type: 'integer'}, key: {type: 'string', description: 'CSS selector from an action key.'}, text: {type: 'string', description: 'Exact button text.'}}),
+         handler: a => call('click', a).then(view)},
+diff --git a/scripts/mcp/game_mcp_check.mjs b/scripts/mcp/game_mcp_check.mjs
+index 20f0fa048..62dc501bf 100644
+--- a/scripts/mcp/game_mcp_check.mjs
++++ b/scripts/mcp/game_mcp_check.mjs
+@@ -39,6 +39,24 @@ function client() {
+ }
+ 
+ async function greetElder(c, seed) {
++    const fresh = await c.tool('game_new', {seed});
++    assert.equal(fresh.started, true, 'game_new auto-starts PLAY');
++    assert.doesNotMatch(fresh.screen, /Waiting for you to click|Inspired by/, 'hidden startup text is absent');
++    let choices = fresh, work;
++    for(let offset = 0; offset < fresh.actionCount; offset += 80) {
++        choices = await c.tool('game_look', {offset});
++        work = choices.actions.find(a => /Find work/.test(a.text));
++        if(work) break;
++    }
++    assert.ok(work, 'interactive Village livelihood action is reachable');
++    await c.tool('game_click', {text: work.text});
++    const working = await c.tool('game_look', {scope: '#location_actions_div'});
++    const patrol = working.actions.find(a => a.key === '[data-activity="patrolling"]');
++    assert.ok(patrol, 'Find work reveals the interactive Village patrol action');
++    await c.tool('game_click', {index: patrol.index});
++    // Patrol ticking has a baseline game defect (B1 report), outside the MCP seam.
++    // This regression proves the formerly hidden control is reachable and accepts a click.
++    assert.equal((await c.tool('game_status')).errors.length, 0, 'Village action click raises no page error');
+     await c.tool('game_new', {seed});
+     await c.tool('game_click', {key: '.choice_dialogue'});
+     await c.tool('game_click', {key: '[data-dialogue="villageElder"]'});
+@@ -47,6 +65,25 @@ async function greetElder(c, seed) {
+     return c.tool('game_save');
+ }
+ 
++async function nativeDropdownRoundtrip(c) {
++    await c.tool('game_new', {seed: 251036});
++    const local = () => c.tool('game_look', {scope: '#location_actions_div'});
++    let v = await local();
++    await c.tool('game_click', {index: v.actions.find(a => /Move somewhere else/.test(a.text)).index});
++    v = await local();
++    await c.tool('game_click', {index: v.actions.find(a => /Go to \[Wild willow stand\]/.test(a.text)).index});
++    v = await local();
++    assert.equal(v.location, 'Wild willow stand');
++    const dropdown = v.actions.find(a => a.key === '.location_choice_dropdown');
++    assert.ok(dropdown, 'native listener-only dropdown appears in action list');
++    await c.tool('game_click', {index: dropdown.index});
++    v = await local();
++    const back = v.actions.find(a => /Return to Village/.test(a.text));
++    assert.ok(back, 'native dropdown reveals a return route');
++    const returned = await c.tool('game_click', {index: back.index});
++    assert.equal(returned.location, 'Village');
++}
++
+ const c = client();
+ try {
+     const init = await c.rpc('initialize', {protocolVersion: '2025-06-18', capabilities: {}, clientInfo: {name: 'check', version: '1'}});
+@@ -56,15 +93,22 @@ try {
+     assert.deepEqual(list.sort(), ['game_click', 'game_export', 'game_load', 'game_look', 'game_new', 'game_report_limit', 'game_save', 'game_status', 'game_step']);
+     assert.equal((await c.rpc('nope')).error.code, -32601);
+ 
++    const remote = (await c.rpc('tools/call', {name: 'game_new', arguments: {url: 'https://example.com/'}})).result;
++    assert.equal(remote.isError, true, 'remote entry origins are refused');
++    await nativeDropdownRoundtrip(c);
+     const a = await greetElder(c, 11);
+     assert.ok(a.heroCreated);
+     const looked = await c.tool('game_look');
+     assert.ok(looked.actions.length > 0 && typeof looked.screen === 'string');
++    const laterPage = await c.tool('game_look', {offset: 80});
++    assert.ok(laterPage.actions.length > 0 && laterPage.actions[0].index === 80, 'later controls are exposed with stable absolute indices');
+     await c.tool('game_click', {index: 0}).catch(() => {});   // index path must not crash the server
+     const b = await greetElder(c, 11);
+     assert.equal(b.hash, a.hash, 'same seed and actions, same save');
+     // Export itself touches state (reward timers), so compare with a save taken just after it.
+     const exported = await c.tool('game_export');
++    const secondExport = await c.tool('game_export');
++    assert.notEqual(secondExport.path, exported.path, 'exports cannot overwrite each other at the same virtual instant');
+     const atExport = (await c.tool('game_status')).time;
+     await c.tool('game_step', {minutes: 60});
+     assert.notDeepEqual((await c.tool('game_status')).time, atExport, 'time passes');
+@@ -72,6 +116,10 @@ try {
+     const after = await c.tool('game_status');
+     assert.deepEqual(after.time, atExport, 'export then load returns to the exported moment');
+     assert.ok((await c.tool('game_save')).heroCreated, 'same hero after load');
++    const resumed = await c.tool('game_new', {path: exported.path, seed: 11});
++    assert.deepEqual(resumed.time, atExport, 'game_new path decodes an MCP export through the native import route');
++    assert.equal(resumed.started, true);
++    assert.ok((await c.tool('game_save')).heroCreated, 'same hero after resume');
+     const bad = (await c.rpc('tools/call', {name: 'game_load', arguments: {path: '/etc/passwd'}})).result;
+     assert.equal(bad.isError, true, 'paths outside the export folder are refused');
+     const noted = await c.tool('game_report_limit', {wanted: 'a screenshot of the village', blockedBy: 'no browser here', workaround: 'read game_look text'});
+diff --git a/scripts/mcp/game_worker.mjs b/scripts/mcp/game_worker.mjs
+index 513003c28..69e657605 100644
+--- a/scripts/mcp/game_worker.mjs
++++ b/scripts/mcp/game_worker.mjs
+@@ -4,7 +4,7 @@
+ // Replies carry what a player could see, plus hashes. Raw saves never leave:
+ // export writes a file under the private temp folder and returns only its path.
+ import {boot, canonicalSave} from '../headless/runner.mjs';
+-import {createHash} from 'node:crypto';
++import {createHash, randomUUID} from 'node:crypto';
+ import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
+ import {tmpdir} from 'node:os';
+ import {join, resolve} from 'node:path';
+@@ -18,25 +18,59 @@ const text = id => game.document.getElementById(id)?.textContent.trim() ?? '';
+ const clock = () => {const t = game.snapshot()['current time']; return {day: t.day_count, hour: t.hour, minute: t.minute};};
+ const sha = s => createHash('sha256').update(s).digest('hex').slice(0, 16);
+ 
+-function look() {
++// The DOM shim's innerText includes hidden descendants. Walk visible text instead.
++function visibleText(root) {
++    const parts = [];
++    const visit = node => {
++        if(node.nodeType === 3) {parts.push(node.textContent); return;}
++        if(node.nodeType !== 1 || /^(SCRIPT|STYLE|TEMPLATE)$/.test(node.tagName) || game.css.hiddenReason(node)) return;
++        for(const child of node.childNodes) visit(child);
++        parts.push('\n');
++    };
++    game.css.reset();
++    visit(root);
++    return parts.join(' ').replace(/[ \t]+/g, ' ').replace(/ *\n */g, '\n').replace(/\n{3,}/g, '\n\n').trim();
++}
++
++// Native travel/resource dropdowns use addEventListener on a div, without role,
++// tabindex or inline onclick. Include that known player-control seam explicitly.
++function controls(g) {
++    const rows = g.clickables();
++    for(const el of g.document.querySelectorAll('.location_choice_dropdown')) {
++        if(!rows.some(c => c.el === el) && !el.disabled && !el.closest('[aria-disabled="true"]') && !g.css.hiddenReason(el)) {
++            rows.push({el, key: '.location_choice_dropdown', text: el.textContent.trim().slice(0, 60)});
++        }
++    }
++    return rows;
++}
++
++function look({scope, offset = 0} = {}) {
+     const g = need();
+-    last = g.clickables();
++    const root = scope ? g.document.querySelector(scope) : g.document.body;
++    if(!root) throw new Error(`No view for ${scope}`);
++    last = controls(g).filter(c => root === c.el || root.contains(c.el));
++    offset = Math.max(0, Math.floor(Number(offset) || 0));
+     return {
+         time: clock(), location: text('location_name_span'),
+-        screen: g.document.body.innerText.replace(/\n{3,}/g, '\n\n').slice(0, 3500),
+-        actions: last.slice(0, 80).map((c, index) => ({index, key: c.key, text: c.text})),
++        started: !!g.hiddenReason(g.document.getElementById('loading_screen')),
++        screen: visibleText(root).slice(0, 12000),
++        actions: last.slice(offset, offset + 80).map((c, index) => ({index: index + offset, key: c.key, text: c.text})),
+         actionCount: last.length, pageErrors: g.errors.length,
+     };
+ }
+ 
+ const ops = {
+-    async new({seed = 1, heroName = 'Agent', path} = {}) {
++    async new({seed = 1, heroName = 'Agent', path, url = 'http://localhost/?test_hooks=1'} = {}) {
++        const target = new URL(url);
++        if(!['localhost', '127.0.0.1'].includes(target.hostname) || target.protocol !== 'http:') throw new Error('Only a localhost test origin is supported.');
++        target.searchParams.set('test_hooks', '1');
+         if(game) game.close();
+-        const save = path ? readFileSync(safePath(path), 'utf8') : null;
+-        game = await boot(save, {seed, heroName});
++        const encoded = path ? readFileSync(safePath(path), 'utf8') : null;
++        game = await boot(null, {seed, heroName, url: target.href});
++        if(encoded) await game.importFile(encoded);
+         return look();
+     },
+-    look: () => look(),
++    look: args => look(args),
+     async click({index, key, text: label}) {
+         const g = need();
+         if(index !== undefined) {
+@@ -44,7 +78,11 @@ const ops = {
+             if(!hit) throw new Error(`No action ${index}; call game_look first.`);
+             await g.click(hit.el);
+         } else if(key) await g.click(key);
+-        else if(label) await g.clickText(label);
++        else if(label) {
++            const hit = controls(g).find(c => c.el.textContent.trim() === label || c.text === label);
++            if(!hit) throw new Error(`No clickable element with text ${label}`);
++            await g.click(hit.el);
++        }
+         else throw new Error('Give index, key or text.');
+         return look();
+     },
+@@ -66,7 +104,7 @@ const ops = {
+     async export() {
+         const encoded = await need().exportFile();
+         mkdirSync(EXPORT_DIR, {recursive: true});
+-        const path = join(EXPORT_DIR, `save-${Date.now()}.txt`);
++        const path = join(EXPORT_DIR, `save-${randomUUID()}.txt`);
+         writeFileSync(path, encoded);
+         return {path, bytes: encoded.length};
+     },
+diff --git a/docs/tools/GAME_MCP_LIMITS.md b/docs/tools/GAME_MCP_LIMITS.md
+index 464dc145e..cf28871fb 100644
+--- a/docs/tools/GAME_MCP_LIMITS.md
++++ b/docs/tools/GAME_MCP_LIMITS.md
+@@ -18,17 +18,26 @@ Check the ledger size any time with `node scripts/mcp/game_mcp.mjs --self-check`
+ 
+ | Limit | Workaround today | Expand by |
+ | --- | --- | --- |
++| P1: hidden title text says waiting for PLAY after the driver has started; text clicks miss controls that the action list exposes (2026-10-25) | **Fixed on B1 branch:** `game_new` explicitly reports `started`; view filters hidden descendants; text clicks use the action-list controls. Regression reaches Village Find work after game_new | Reintegrate B1 patch and rerun stdio check in primary. Baseline already auto-clicked PLAY; no game source defect found. |
+ | No screenshots; `game_look` is text from an in-process DOM | Read `screen` text and the action list | Electron backend over CDP with `capturePage` (EL17); UI claims still need rebuilt browser evidence (AGENTS.md) |
+ | No `game_quote`; commands run only as clicks | Click, then read the result | Expose the AR7 quote step on a window entry point, then a `game_quote` tool |
+-| `game_look` lists at most 80 actions and 3,500 characters of screen text | `game_click` by key or text still reaches the rest | A `scope` or `offset` argument |
++| `game_look` pages 80 actions and 12,000 visible-text characters (B1, fixed on branch) | Use `offset` for more actions and `scope` for a panel; indices refer to the full current scoped list | Headless CSS remains approximate; desktop layout still needs a browser |
++| Listener-only native travel/resource dropdown divs were absent outside the Village registry (BFA2) | **Fixed on B1 branch:** include visible `.location_choice_dropdown` controls; verified Village → Wild willow stand → Village | Regression exercises the return route without game source changes |
++| `game_new(path)` fed an encoded export into a raw JSON boot slot (BHB1, 2026-10-25) | **Fixed on B1 branch:** boot a fresh disposable realm, then use the same native import route as `game_load` | Regression resumes an exported life and checks the clock and created hero |
++| Export filenames used virtual `Date.now()` in a shared temp folder | **Fixed on B1 branch:** node:crypto UUID filenames prevent same-instant and parallel-server overwrites | Regression exports twice at the same virtual instant and requires distinct paths |
++| Short text such as `Find work` may omit icons and hidden text included in the action label | Use the listed action index or the complete returned label; B1 text clicks now match those labels | Return concise visible labels with unambiguous IDs in a later wrapper pass |
+ | One game per server; `game_new` replaces it | Run another server | A session id on every tool |
+ | `game_step` is capped at 10,080 minutes per call | Call it again | Raise the cap with a progress reply |
+ | `game_load` reads only from the export temp folder | `game_export` first | An explicit allow-list setting |
+ | No sealed-truth or debug tools, by design | Read what the player sees | Only with an explicit flag and Weibao's instruction (sealed secrets rule) |
+ | Seen once in 7 runs: `game_load` can fail with "did not settle within 40 s of timer time" | Retry, or `game_new` with `path` | Reproduce under load and fix in the headless import settle |
+-| Boots the working tree, so another session's unfinished edit can break it. Seen 2026-10-23 (cleared by the owners within the hour, no fix needed here; `inventory_component` and `person.js` already form a cycle through `items.js` at HEAD, so module order decides whether it bites): an import cycle through `src/models/person.js` and `src/components/inventory_component.js` made `game_new` fail with "Cannot set properties of undefined (setting 'person')" | Wait for or ask the owning session; `git stash` is not allowed here | A frozen bundle option (`path` to a built bundle) so agents can pin a known-good build |
++| Boots the working tree, so another session's unfinished edit can break it. Seen 2026-10-23 (cleared by the owners within the hour, no fix needed here; `inventory_component` and `person.js` already form a cycle through `items.js` at HEAD, so module order decides whether it bites): an import cycle through `src/models/person.js` and `src/components/inventory_component.js` made `game_new` fail with "Cannot set properties of undefined (setting 'person')" | Wait for or ask the owning session; `git stash` is not allowed here | A frozen bundle option (a distinct `bundlePath`; `path` already means save export). B1 deferred: runner reload closes over its harness bundler and checkout assets, so a wrapper-only path is not an honest freeze. B1 pins isolated committed master `3a1180dc2`. |
+ | Headless layout is not real: CSS visibility is approximate | Use the browser playtest bot for layout | n/a |
+ 
+ ## Not authority
+ 
+ Findings and ledger entries are proposals. UI and persistence claims need their own evidence (AGENTS.md, Verification).
++
++## B1 branch receipt, 2026-10-25
++
++`game_new.url` accepts only an HTTP localhost test origin for opt-in world entry and always enables `test_hooks=1`. It changes entry configuration, not game state. `path` remains an MCP export, not a bundle path. `game_mcp_check.mjs` covers the started state, hidden startup text, Village livelihood control, deterministic elder interaction, save/export/load/resume, unique export paths, unsafe save-path refusal and a temporary limit ledger. Full B1 record: [status](../gm/dispatch/codex-parallel-2026-10-25/B1_STATUS.md).
+diff --git a/docs/tools/game_mcp_limits.jsonl b/docs/tools/game_mcp_limits.jsonl
+index 997413c54..a9f8c9afe 100644
+--- a/docs/tools/game_mcp_limits.jsonl
++++ b/docs/tools/game_mcp_limits.jsonl
+@@ -1 +1,8 @@
+ {"at":"2026-10-25T05:02:14.514Z","wanted":"Click the PLAY action shown on the game_new title screen to begin a player-visible run.","blockedBy":"game_new exposed the title text in screen but its action list contained no PLAY action; game_click(text='PLAY') left the same title screen.","workaround":"Continue by using the village location/actions already exposed in the same state; inspect game_look and use its current numbered actions."}
++{"at":"2026-10-25T05:15:35.872Z","wanted":"Click the visible Find work choice returned in the scoped #location_actions_div view by its exact displayed text.","blockedBy":"game_click text Find work returned No clickable element with text Find work.","workaround":"Use the absolute action index in the default full game_look view."}
++{"at":"2026-10-25T05:17:00.701Z","wanted":"Open the test-only LOTM Tingen branch panel from a fresh Village life using the allowed localhost lotm_probe route and then use normal player enrollment controls.","blockedBy":"The normal visible center views expose Here, Crafting, Mixing and ? only; no Tingen workroom or LOTM start control appears in any paged visible action list after game_new, despite the localhost lotm_probe flag. No direct or debug/state mutation route is authorized in this playtest.","workaround":"Continue natural gameplay and continuation checks, then record Tingen pathways and districts as not exercised because the entry surface is unreachable through current normal controls."}
++{"at":"2026-10-25T05:17:53.788Z","wanted":"Take the offered Village patrol for two hours after opening Find work in a fresh game.","blockedBy":"game_click on the visible patrol offer returned 'Cannot read properties of undefined (reading skill_required)'","workaround":"Continue with read-only inspection and save/export/import; report the player-action exception as a blocker."}
++{"at":"2026-10-25T05:18:24.446Z","wanted":"Reach the player-visible Mistglass opt-in route from a fresh Village start to test cultivation and trials.","blockedBy":"The active layout exposes only Here, Crafting, Mixing and ? in Center views. The source route to Projects exists, but its route bar and Mistglass panel are absent from game_look/clickables; the visible Village nearby list also omits Projects. No direct world-entry URL flag was found.","workaround":"Continue through visible Village actions and combat to establish how much of the requested life can be tested; report Mistglass entry as unverified if no player-visible route appears."}
++{"at":"2026-10-25T05:18:28.882Z","wanted":"Return from the visible Wild willow stand location to continue a Village livelihood/workshop playtest.","blockedBy":"At Wild willow stand, scoped #location_actions_div returns actionCount 0 and no actions; the default game_look has no actionable way back despite visible screen text “directions Move somewhere else”.","workaround":"Start a new fresh life to continue Village testing; do not claim site harvesting coverage."}
++{"at":"2026-10-25T05:19:02.575Z","wanted":"Resume an exported household save through game_new({path}), as requested for persistence coverage.","blockedBy":"game_new(path) fails with load_from_localstorage SyntaxError: Unexpected token Y in YAIR-UTF8-. game_load of the identical export succeeds.","workaround":"Verify import with game_load and compare day/location, then stop further resume-path attempts."}
++{"at":"2026-10-25T05:21:04.737Z","wanted":"Open the visible continuing-connection panel and begin a fresh life through its normal confirmation flow.","blockedBy":"After fresh game_new and game_save, all paged game_look actions contain no continuation/connection action and game_look scope #continuation_panel returns an empty screen/actions. No continuation transition is available through normal visible controls.","workaround":"Preserve the seed and current life, step through three in-game days, then test save/export/resume; mark the fresh-life continuation and baggage path unexercised."}
+diff --git a/docs/gm/dispatch/codex-parallel-2026-10-25/B1_CONTINUATION_LOTM.md b/docs/gm/dispatch/codex-parallel-2026-10-25/B1_CONTINUATION_LOTM.md
+new file mode 100644
+index 000000000..1fd3f2b0d
+--- /dev/null
++++ b/docs/gm/dispatch/codex-parallel-2026-10-25/B1_CONTINUATION_LOTM.md
+@@ -0,0 +1,49 @@
++# B1-D continuation and LOTM playtest, 2026-10-25
++
++Input: isolated branch `codex/game-mcp-play-2026-10-25`, committed master `3a1180dc2` plus the MCP wrapper fix. Player-facing controls only; no game source or save editing. Seed `251034`. Main receipt: `/tmp/b1-lotm.jsonl`. Applies AD6–AD8, AD10–AD12, AD15–AD17, AD32, AD36, AR7–AR8, PIR22 and sealed-secret handling.
++
++## Findings
++
++### BLD1 — Bug: Village patrol time advance throws
++
++- **Area:** Fresh Frontier life, ordinary work control.
++- **Repro:** `game_new({seed:251034,url:'http://localhost/?test_hooks=1&lotm_probe=1'})`; `game_click` the visible `Find work` action; click the offered `Take a loaned kit and patrol with Tessa (2 hours, 50 coins)` control (`[data-activity="patrolling"]`), then `game_step({minutes:120})`.
++- **Expected:** Complete the two-hour patrol or show an ordinary player-facing reason it cannot continue.
++- **Observed:** Patrol starts, then the step returns `Cannot read properties of undefined (reading 'skill_required')`. This prevents a clean two-hour work result; the worker remains usable.
++- **Severity:** bug.
++- **Receipt:** `/tmp/b1-lotm.jsonl`; `game_report_limit` recorded the exception. No other work activity was tested; idle stepping remained available.
++
++### BLD2 — Blocker: Tingen panel is absent on the test entry route
++
++- **Area:** LOTM entry, both Sequence 9 pathways and Tingen districts.
++- **Repro:** Fresh game with the seed and localhost URL above, including `lotm_probe=1`; save once; inspect default and paged `game_look` actions; inspect `game_look({scope:'#lotm_panel'})`.
++- **Expected:** The opt-in Tingen branch appears as a normal player control, allowing enrollment and pathway/district play.
++- **Observed:** The game starts in Village (`started:true`), but no paged action contains LOTM/Tingen. The scoped panel view is empty both before and after `game_save`. The visible Options groups and local-life controls did not expose it.
++- **Severity:** blocker for this requested coverage; no claim about pathway behavior.
++- **Receipt:** `/tmp/b1-lotm.jsonl`; `game_report_limit` recorded the missing entry route. No direct host command or save mutation used.
++
++### BLD3 — Blocker: fresh-life connection has no reachable player control
++
++- **Area:** Continuation, memory and baggage across lives.
++- **Repro:** Fresh game as above; inspect default and paged `game_look` actions, then `game_look({scope:'#continuation_panel'})`; repeat the scope check after `game_save`.
++- **Expected:** A visible continuing-connection control opens the ordinary confirmation flow for a fresh life and its carryover details.
++- **Observed:** No action contains “continuation,” “connection,” or “fresh life”; the scoped panel view is empty. No new life could be started through visible controls, so law memory, baggage and reciprocal return remain untested.
++- **Severity:** blocker for requested continuation coverage.
++- **Receipt:** `/tmp/b1-lotm.jsonl`; `game_report_limit` recorded the missing continuation route. No direct host command or save mutation used.
++
++## Coverage
++
++| Area | Result | Evidence / gap |
++|---|---|---|
++| Initial life and entry | Reached | `game_new` starts in Village at day 1, 08:00 with the test-only URL. Initial view includes home, mixing, herb verge and gear-workshop services. |
++| Several days in the active life | Reached by idle stepping | Three `game_step({minutes:1440})` calls advanced the same life to day 4, 08:00 in Village. The patrol step exception interrupted active-work testing. |
++| Continuation, fresh life, law memory and baggage | Not exercised | BLD3; no visible player route. |
++| LOTM Seer and Corpse Collector pathways | Not exercised | BLD2; entry panel unavailable. |
++| LOTM Tingen districts and timed movement | Not exercised | BLD2; no district controls exposed. |
++| Save/export/load | Reached | `game_save`: 116,785 bytes, hash `26625ddf61b9b1cc`; export wrote `/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-mcp/save-64ed4004-b931-429b-b7dd-729c57542c39.txt`; `game_new({path})` resumed at day 4, 08:00, Village. A second save returned 129,027 bytes; second export and `game_load({path})` restored day 4, 08:00, Village with zero page errors. These are disposable harness saves. |
++
++The UI offered useful local landmarks, a timed market notice, a local search action, and the elder’s direct route advice. Those are promising orientation cues, but this pass could not judge activity feel, continuation or Tingen play.
++
++## Remaining gate
++
++Expose the LOTM enrollment and continuing-connection panels through ordinary visible controls on the authorized test route, then repeat this slice. Fix the `patrolling` action exception. Until then, all three blockers above remain; this is headless MCP evidence only, not desktop or human acceptance.
+diff --git a/docs/gm/dispatch/codex-parallel-2026-10-25/B1_FRONTIER.md b/docs/gm/dispatch/codex-parallel-2026-10-25/B1_FRONTIER.md
+new file mode 100644
+index 000000000..4ddce33b0
+--- /dev/null
++++ b/docs/gm/dispatch/codex-parallel-2026-10-25/B1_FRONTIER.md
+@@ -0,0 +1,46 @@
++# B1 playtest area A: Frontier livelihood, workshop, and gear
++
++**Input:** isolated `codex/game-mcp-play-2026-10-25` worktree at master `3a1180dc274868d1e4350058a74725ac6b534394`, with the task's MCP wrapper correction. Fresh test origins used seeds 251031–251046. Player-visible actions only; no source edits or debug mutations. Applied AD6–AD8, AD32, AD36–AD38, AR7–AR8, MR1–MR36, AU1–AU15, and sealed-secrets handling from AGENTS/RULES_INDEX.
++
++## Coverage
++
++| Area | Result | Boundary |
++|---|---|---|
++| Fresh Village start | Reached | `game_new` reports `started: true`; two people, five services/stations, 10C and 2W are visible. |
++| Livelihood: Find work → patrolling | Partial | Took the visible loaned kit and started Patrolling with Tessa. The two-hour shift pays 5C, grants XP/milestone notices, returns the loaned kit, and stops work, but the 120-minute `game_step` call throws after resolving it. |
++| Wild willow stand | Visited and exited | Travel takes 5 minutes. The site description says no known people/services/stations and offers no gather action. Initial shim failed to expose its return dropdown; the coordinator's wrapper correction exposes it, and `Return to Village [5m]` works. This was a tool-wrapper gap during the run, not a remaining game blocker. |
++| Village common herb verge | Gathered and crafted one trial | Gather produces carried material instantly. A selected one-item free experiment showed `Success 100%` and `Can craft now: 1 attempt`, but the trial came out too thin and consumed the lots. See BFA3. |
++| Gear workshop and starting pants | Inspected; basic equip works | Starting Cheap leather pants show 40% quality and known stat effects. Clicking Equip changes the item action to Take off and its inventory category count from Gear 1 to Gear 0. The workshop opens and lists fitting, treatment, repair, reforge, salvage, and local-repair options; no workshop process was submitted. |
++| Time and persistence | Reached Day 3; round trip passed | With no work running, stepped 720 + 720 + 1,440 minutes from Day 1 08:00 to Day 3 08:00. Save hash `5d5b78a752083a40`; Export then Import returned to Day 3 08:00 in Village. Status reports 2,880 minutes and no page errors. |
++
++## Findings
++
++### BFA1 — 120-minute patrolling step reports an exception after resolving the shift (bug)
++
++- **Area:** Village livelihood / Find work.
++- **Reproduction:** `game_new({seed: 251031})`; in default `game_look`, click the `work_outline Find work` action; from the resulting list click `[data-activity="patrolling"]`; call `game_step({minutes: 120})`.
++- **Expected:** Advance two in-game hours, resolve the 5C full-round pay, return the loaned kit, and return a normal result from `game_step`.
++- **Observed:** Tool returns `Cannot read properties of undefined (reading 'skill_required')`. Follow-up `game_look` shows Day 1 10:00, “Hero stopped patrolling,” `Hero earned 5 C`, and earned-XP/level notices. A following 1-minute step succeeds. `game_status` reports no page errors. Coordinator independently reproduced with seed 251035. Receipts: `/tmp/b1-workrecover.jsonl` and coordinator `/tmp/b1-patrol-repro.jsonl`.
++- **Severity:** bug. The outcome is applied but the action reports failure, leaving callers unsure whether it is safe to retry.
++
++### BFA3 — “Success 100%” trial can consume the only selected lot without making a preparation (confusing)
++
++- **Area:** Village experiments / Frontier steeped preparation.
++- **Reproduction:** `game_new({seed: 251046})`; open the visible Village common herb verge, choose “Open Village common herb verge,” click “Gather from the Village verge,” then click the carried-material checkbox and “Craft 1.”
++- **Expected:** The preview's `Success 100%` and `Can craft now: 1 attempt` communicate whether this attempt can make the listed unidentified herbal preparation.
++- **Observed:** With one Low rushwort selected, the click consumes the lot and reports: “The steep came out too thin: too little sap or oil in the water to hold, so the lots were wasted.” No preparation is created. The UI separately warns that properties act before they are known, so an exploratory loss is plausible; the ambiguity is whether the displayed success percentage describes completion of the attempt or success at making a viable preparation.
++- **Severity:** confusing. A single exploratory attempt; other lots and combinations were not tested. Receipt: `/tmp/b1-herb-craft.jsonl`.
++
++## BFA2 — Recovered play-surface issue (fixed-on-branch)
++
++At Wild willow stand, the original lane wrapper exposed the visible dropdown label without a click target. The coordinator's wrapper change adds `.location_choice_dropdown` to visible controls. Retest at seed 251040 returned `Return to Village [5m]` under key `div[onclick=change_location]`, and clicking it reached Village at 08:10. The lane's earlier `game_report_limit` entry is historical; the return route now works in the tested wrapper.
++
++## What felt good
++
++The starting character has useful immediate context: currency/materials, a concrete gear item, and a local service list. Patrolling communicates its two-hour pay cadence and returns its loaned kit. The herb verge gives a no-cost visible route from gathering to examining a sample or trying a batch, and the workshop lists concrete operations instead of an empty workbench. The multi-day save/export/import round trip returned to the same location and time.
++
++## Remaining coverage
++
++No viable steep was made; the preparation was not drunk. Other herb lots/recipes and the experiment notebook remain unverified. The workshop's repair, fitting, treatment, reforge, and salvage operations were listed but not performed. No multi-day work routine was selected; the Day 3 run was idle, and only save/export/import persistence was assessed.
++
++No game source or runtime files were edited. This report records playtest observations, not accepted design decisions.
+diff --git a/docs/gm/dispatch/codex-parallel-2026-10-25/B1_HOUSEHOLD.md b/docs/gm/dispatch/codex-parallel-2026-10-25/B1_HOUSEHOLD.md
+new file mode 100644
+index 000000000..e282d104a
+--- /dev/null
++++ b/docs/gm/dispatch/codex-parallel-2026-10-25/B1_HOUSEHOLD.md
+@@ -0,0 +1,56 @@
++# B1 playtest: household and manor
++
++Input: isolated worktree at master `3a1180dc274868d1e4350058a74725ac6b534394` with the task's fixed `scripts/mcp/` wrapper. Rules applied: AD6–8, AD11–18, AD23, AD32, AD36–38, AD41; AR7–8; UR1–17; PIR, SLR, and ECR where household contacts, learning, time, and funds intersect. This is player-visible headless play evidence; it does not establish desktop layout or human acceptance. No game source edits or commits.
++
++## Coverage
++
++| Life | Start and location | Actions and time | Persistence | Result |
++|---|---|---|---|---|
++| B1, manor household | `game_new`, seed 251032, Village Day 1 08:00; Homes → Open Homes → Choose a home beginning → Duke’s child; arrived at Arlmere family manor | Opened the private chest and household panel; claimed the ten-coin allowance; requested and completed Iven’s meal preparation; accepted one meal; requested and completed Toma’s estate gathering; agreed Sera’s leave, resumed her duties, and completed a reading lesson; accepted and completed Rowan’s ledger appointment. Advanced 1,440 played minutes after the activities, reaching Day 2 09:15. All action receipts had 0 page errors. | `game_save`: hash `07b38481f581f570`, 122,614 bytes; export 163,516 bytes; `game_load` of that exact export returned Arlmere family manor at Day 2 09:15, with 0 page errors. The initial `game_new({seed:1,path})` failed; see BHB1. After the wrapper correction, the same export resumed through `game_new(path)`. | Staff and household requests changed state through played time; the export restored the home and clock. On a resumed copy, five-minute travel to Village and purchase of Hearthside cottage for 80 coins left 32 from 112 displayed coins and listed both `Arlmere family manor · shared` and `Hearthside cottage · owned`. The private chest showed 1/16 after a storage deposit. |
++| B1, continued from the original manor export | New stdio server resumed the Day 2 09:15 Arlmere export through `game_new(path)` | Advanced 720 minutes to Day 2 21:15, then 240 minutes to Day 3 01:15. Each response reported `started: true` and 0 page errors. | `game_save`: hash `27bf9541b72f81c9`, 134,894 bytes; export 179,888 bytes; `game_load` of that export returned Arlmere family manor at Day 3 01:15, with 0 page errors. | The same life reached a third in-game day and stayed at its manor. On reload, the personal chest surface said it was empty while Homes later showed the residence's private storage at 1/16. See BHB2 for the unresolved store identity. |
++
++The in-world accounting was legible during play. The household showed 60 coins and an unclaimed 10-coin allowance; claiming it left 50. Iven’s ten-minute, two-coin meal order reduced kitchen stock from 4 to 2 meat chunks and 3 to 2 logs, then left two prepared meals. The result showed 2 coins earned by Iven. Toma’s gathering used his energy and produced materials into his stock; the caretaker panel reported recovery during idle played time at home. Sera’s lesson was a paid twenty-minute appointment and Rowan’s ledger work required a separate agreement before the fifteen-minute appointment could be kept. The family panel distinguished the player's room and private chest from household title, staff employment, pantry, and communal furnishings.
++
++## Findings
++
++### BHB1 — `game_new(path)` could not resume an exported save (fixed on this worktree)
++
++- **Area:** Game MCP persistence handoff.
++- **Reproduction:** On the B1 life above, call `game_export`, then `game_load({path: exported.path})`. The import succeeds and returns Arlmere family manor at Day 2 09:15. Then call `game_new({seed: 1, path: exported.path})`.
++- **Expected:** `game_new` resumes the supplied exported life at its saved home and time.
++- **Observed:** It fails with `Game reported a loading error: Something went wrong on loading from localStorage! SyntaxError: Unexpected token 'Y', "YAIR-UTF8-"... is not valid JSON` from `load_from_localstorage`. The normal `game_load` route is a working workaround.
++- **Severity:** bug on the initial wrapper input. The coordinator's follow-up fix passed the same exported-life resume path.
++- **Evidence:** `/tmp/b1-household-finaljourney.out`, Day 2 09:15, saved hash and export receipt above; exact failure at the final `game_new(path)` call. The requested `game_report_limit` was called once and recorded ledger entry 7; its response notes the working `game_load` workaround.
++- **Follow-up:** The coordinator changed `game_new(path)` to boot a fresh game and import the encoded export through the existing import route. `node /tmp/b1-resume-verify.mjs` passed on the updated worktree: the same export resumed at Arlmere family manor, Day 2 09:15, with `started: true` and 0 page errors. This verifies the observed path only; the full MCP regression remains the coordinator's gate.
++
++### BHB2 — Private-storage count and personal-chest copy disagree (confusing; store identity unresolved)
++
++- **Area:** Manor private storage and personal chest.
++- **Reproduction:** In the first B1 life, the Homes panel started at `Private storage · 0/16`. The player-visible result of `Store one selected item` said, `One owned item moved into your private local storage.` After the Day 2 09:15 export resumed through `game_new(path)` and advanced to Day 3 01:15, open `Open your personal chest` at Arlmere family manor. Then travel the native five-minute route to Village and open Homes.
++- **Expected:** If these labels refer to the same store, the stored unit appears in the chest; if they refer to separate stores, the copy should distinguish them clearly.
++- **Observed:** The chest view says `Nothing is stored here yet. Move items in from your inventory.` The Village Homes panel still says `Private storage · 1/16`; the residence text describes the player's `private chest`. No item was moved during this follow-up. Both screens had 0 page errors.
++- **Severity:** confusing. The visible labels suggest a shared store, but the observed count and contents differ. I did not inspect source or raw save data, so I cannot establish whether the two surfaces intentionally use distinct storage authorities.
++- **Evidence:** `/tmp/b1-household.jsonl` records the original deposit receipt and Home count; `/tmp/b1-day3-followup.jsonl` records the two time steps, save, export, and import; `/tmp/b1-day3-chest-check.jsonl` records the empty chest copy; `/tmp/b1-day3-property-check.jsonl` records the 1/16 Homes count after reload.
++
++## What felt good
++
++- The optional manor start was discoverable from the Village Homes service and immediately explained the private-room/shared-estate relationship. The start went directly to the manor at the same clock time.
++- Household funds, player allowance, staff wages, kitchen stores, prepared food, caretaker stock and personal chest were presented as separate things with visible reasons and costs.
++- Staff and family actions had grounded completion gates: paid supplies and reserved effort for staff work, shared presence and a real syllabus for teaching, and an explicit agreement before the family appointment. There was no invented deadline or housing penalty during the two-day check.
++- The exact exported save imported back into the manor with its day and time intact through `game_load`, and later resumed through corrected `game_new(path)`.
++- The supplier showed a concrete contrast between the shared manor and owned cottage. Buying the cottage changed the displayed funds from 112 to 32 and left both residences on the Homes panel; private storage stayed at the manor with a visible 1/16 unit count.
++
++## Coverage gaps
++
++The resumed cottage copy traveled from the manor to the Village, but no return trip was exercised. I did not test the Royal child start, rental, home construction/repair, furniture installation, alternate body starts, or staff leave during pending work. The manor life now reached Day 3 01:15, though ordinary household pacing beyond that remains unassessed. Storage deposit and the 1/16 count were observed; chest retrieval and whether the two storage surfaces share an authority remain unresolved.
++
++## Checks
++
++- `node /tmp/b1-household-finaljourney.mjs` — household journey and two-day advance reached Day 2 09:15; save/export/import passed; `game_new(path)` failed as BHB1.
++- `node /tmp/b1-resume-verify.mjs` — PASS after the coordinator's wrapper fix; same export resumed at Arlmere family manor, Day 2 09:15, with 0 page errors.
++- `node /tmp/b1-home-purchase.mjs` — PASS; resumed the same synthetic save, traveled five minutes to Village, bought Hearthside cottage, and observed two distinct residence rights plus the manor's private storage count.
++- `node /tmp/b1-day3-followup.mjs` — PASS; resumed the original manor export, stepped 720+240 minutes through Day 3 01:15, then Save/Export/Import returned the same day and manor with 0 page errors.
++- `node /tmp/b1-day3-chest-check.mjs` — PASS for visible chest access at Day 3 01:15; the chest view reported empty.
++- `node /tmp/b1-day3-property-check.mjs` — PASS for visible Homes panel at Village 5 minutes later; manor remained shared and private storage showed 1/16. This leaves BHB2's store-identity question open.
++- `node /tmp/b1-limit-report.mjs` — `game_report_limit` recorded successfully; ledger reports 7 entries.
++- Runtime and source tests — not run; this lane was an authorized player-visible playtest.
+diff --git a/docs/gm/dispatch/codex-parallel-2026-10-25/B1_MISTGLASS.md b/docs/gm/dispatch/codex-parallel-2026-10-25/B1_MISTGLASS.md
+new file mode 100644
+index 000000000..b7bd3093f
+--- /dev/null
++++ b/docs/gm/dispatch/codex-parallel-2026-10-25/B1_MISTGLASS.md
+@@ -0,0 +1,53 @@
++# B1 Area C playtest: Mistglass and combat
++
++Status: complete at the bounded MCP-playable scope. Input: isolated master `3a1180dc274868d1e4350058a74725ac6b534394` plus the MCP wrapper fix. Fresh test origin: `http://localhost/?test_hooks=1`, seed `251033`. MCP reported `started: true`, Village, Day 1 08:00, and zero page errors.
++
++Applied rules: AD6–AD8, AD15–AD17, AD19–AD20, AD25, AD28, AD32, AD36–AD38, MR1–MR7, MR10–MR12, MR16–MR22, MR27–MR32, CBR2–CBR3, CBR5–CBR7, CBR9–CBR16, CBR19–CBR30, AD41.
++
++## Checkpoint
++
++| Area | Coverage so far | State |
++| --- | --- | --- |
++| Mistglass entry | Fresh Village start; inspected visible actions and optional Projects surface | Blocked at route discovery. The Projects route and Mistglass presenter exist in source, but are not in the active MCP-visible controls. No explicit world-entry URL flag was found. No cultivation behavior reached. |
++| Condensation / vessel geometry / seedbed / brood | Not reached | Unverified; no player-visible route yet. |
++| Formulation / medicine / trials | Not reached | Unverified; no player-visible route yet. |
++| Combat | Not reached | No combat state or outcome was seen. Village patrol is a livelihood job; it does not establish a combat route. |
++| Combat review | Not reached | No combat report from a fight was available to review. |
++| Time, Save / Export / Import | Seed `251034` advanced from Day 1 08:00 to Day 3 08:00 in 24-hour steps; Save, Export, cross-process `game_new({path})`, and Import all retained Day 3 08:00 at Village with zero page errors | Reached for the ordinary starting life. This checks persistence only for this idle Village state. |
++
++### Limit recorded
++
++**BMC1 (route access, blocker for this playtest lane)**
++
++- Area: Mistglass entry and all cultivation systems.
++- Repro: call `game_new({seed:251033,url:'http://localhost/?test_hooks=1'})`; inspect the visible action list and `#workspace_pane_navigation`.
++- Expected: a player-visible route to optional Projects and the Mistglass opt-in panel, or a documented entry route.
++- Observed: only Here, Crafting, Mixing and `?` are exposed in Center views; `#workspace_navigation`, the Projects route button, and Mistglass panel have no visible actions. The Village context list omits Projects. Source shows a Projects route and opt-in panel, but their UI is not exposed in this test surface.
++- Severity: blocker for reaching the requested content through this MCP playtest; this does not establish a game defect or that cultivation is unreachable in the rendered desktop app.
++- Receipts: `/tmp/b1-mistglass.jsonl`; one `game_report_limit` entry appended to `docs/tools/game_mcp_limits.jsonl`.
++- Felt good: fresh-start result explicitly says `started: true`; the visible basic Village state is legible.
++
++No source edits, save fixtures, or game-state debug mutations. Temp MCP transcript is unfiltered runtime text and is not a report surface for sealed content.
++
++### Finding
++
++**BMC2 (Village patrol advance errors, bug)**
++
++- Area: time advance during an ordinary Village livelihood patrol job.
++- Repro: `game_new({seed:251033})`; `game_look({scope:'#location_actions_div'})`; click action index `2` (Find work); click action index `70` (Take a loaned kit and patrol with Tessa); `game_step({minutes:120})`.
++- Expected: the two-hour patrol shift advances or settles its stated pay and work outcome.
++- Observed: the `game_step` operation returns `Cannot read properties of undefined (reading 'skill_required')`. The server remains usable; no combat state or fight outcome was observed. Patrol had started at Day 1 08:00.
++- Severity: bug, this job's first time advance errors. This does not establish patrol as a combat route.
++- Receipts: `/tmp/b1-mistglass.jsonl` (includes the call and error).
++- Felt good: the job offer explains the two-hour duration and 50-coin pay before starting.
++
++## Completion checkpoint
++
++MCP actions during this bounded pass: fresh starts, project/control visibility inspection, the Village Find work and patrol attempt, two 24-hour idle advances, Save, Export, cross-process path resume, another 24-hour advance, Save, Export and Import. The 120-minute patrol step returned an operation error rather than ending the worker. A separate fresh life reached Day 3 08:00 and completed persistence checks. Mistglass cultivation, combat, and combat review remain untested because their player routes were not reached. Headless text evidence does not establish desktop viewport visibility or human acceptance.
++
++Checks:
++
++- `game_new({seed:251033,url:'http://localhost/?test_hooks=1'})`: PASS for started Village state; route BMC1 not exposed.
++- `game_step({minutes:120})` after starting the patrol job: ERROR, BMC2; no combat reached.
++- `game_step({minutes:720})` twice plus `game_step({minutes:1440})` on seed `251034`: PASS, Day 3 08:00.
++- `game_save`, `game_export`, new server `game_new({path:<export>})`, and `game_load({path:<export>})`: PASS; time/location retained at Day 3 08:00/Village, page errors zero. Save hash after Day 3: `387e7da8758d70f2`.
+diff --git a/docs/gm/dispatch/codex-parallel-2026-10-25/B1_STATUS.md b/docs/gm/dispatch/codex-parallel-2026-10-25/B1_STATUS.md
+new file mode 100644
+index 000000000..c480ca8b3
+--- /dev/null
++++ b/docs/gm/dispatch/codex-parallel-2026-10-25/B1_STATUS.md
+@@ -0,0 +1,39 @@
++# B1 game MCP fix and playtest, 2026-10-25
++
++Input: isolated `codex/game-mcp-play-2026-10-25`, master `3a1180dc274868d1e4350058a74725ac6b534394`, copied untracked primary `scripts/mcp/` and `docs/tools/`. `node_modules` remains a symlink and untouched. Applies AD6–AD8, AD32, AD36–AD38, AD41, AU1–AU15; no game runtime or product-direction changes. Headless evidence does not establish desktop layout or human acceptance.
++
++P1 diagnosis: `boot()` already clicks PLAY. The shim's `body.innerText` still includes hidden startup text, and `clickText()` searches fewer control kinds than `clickables()`. The old stdio regression passed on this input, including elder dialogue. Wrapper correction filters hidden text, explicitly reports `started`, matches text against the same actionable controls, and pages/scopes views. `game_new.url` permits localhost opt-in world test origins, preserving the test-hooks requirement.
++
++Finite playtest plan: four Luna-medium workers, one area each, no descendants, isolated server per worker. Parent owns MCP changes and final report, workers own only B1 area reports and temporary client scripts. Included-allowance telemetry unavailable; no paid fallback. No game source changes or private saves.
++
++Frozen-bundle option deferred: `runner.reload()` closes over `bundleGame()` and imports a harness-instrumented module, while HTML/CSS/fetches still come from the checkout. Merely accepting a bundle path in this wrapper would imply a freeze it cannot provide. This sweep pins the committed isolated worktree instead.
++
++Checks:
++- Original `node scripts/mcp/game_mcp_check.mjs`: PASS, nine tools, deterministic elder dialogue/persistence; did not assert hidden startup text or livelihood reachability.
++- Updated `node scripts/mcp/game_mcp_check.mjs`: PASS before localhost option, adds started/hidden text and reachable Village Find work regression, deterministic seed/save/export/import and ledger checks. Final run pending.
++
++Playtest and completion gates running. Full source suite reserved for one pre-commit run. No push authorized.
++
++Partial follow-up: parent reproduced Village patrol step failure at seed251035, 120 minutes (`skill_required` undefined); recorded as P2 in the primary report without source changes. MCP regression stops after reaching/clicking Patrol, separating tool reachability from this runtime defect. Full suite: 2,873/2,877 passed, four local-HTTP tests failed EPERM under sandbox; targeted three-file rerun outside sandbox running. Build/arch/rules passed. Build-only sourcemap path change restored from isolated HEAD, not committed.
++
++Parallel safety fix: export filenames used virtual Date.now in a shared temp directory. Wrapper now uses node:crypto randomUUID, with a same-instant two-export regression; no save bytes changed.
++
++Final tool checks on the current MCP inputs:
++- `node scripts/mcp/game_mcp_check.mjs` (log `/tmp/b1-mcp-resume.log`): PASS, nine tools, deterministic hash `e03130b905d6f533`; includes native export/resume and unique filenames. Replaced the overbroad patrol ticking assertion after it reproduced P2, retaining reachable/control-click checks.
++- `npm run build`: PASS on baseline source plus MCP changes. No product code changed; generated source-map path-only output restored.
++- `npm run check:arch`: PASS; baseline grandfathered cycles unchanged.
++- `npm run check:rules`: PASS, 22 register rows, 41 AD codes, zero warnings. No rule changes; rule-behavior gate not applicable.
++- `npm test`: 2,873/2,877 PASS; four failures are local HTTP bind EPERM in the sandbox, not assertion failures.
++- `node --test tests/cheat_awakening.test.js tests/cheat_cards.test.js tests/rt_slice1_fixtures.test.js` outside sandbox: 9/9 PASS, covering all four denied tests. Full suite not rerun; runtime inputs unchanged.
++
++A household worker reproduced encoded-export `game_new(path)` failure; wrapper fixed and regression passes. All tool fixes await coordinator application; no primary scripts or tool ledger modified directly.
++
++## Completion receipt
++
++Four Luna-medium area workers completed bounded player-visible sweeps. Every area's retained test life reached at least Day3 and exercised save/export/import; manor Day3 01:15, Frontier/Mistglass idle Day3 08:00, LOTM-route attempt idle Day4 08:00. Active progression was exercised for the reached Frontier and household actions; idle days do not prove multi-day routine pacing. Worker artifacts own exact seeds, actions, hashes and gaps. Parent reviewed all returns and deduplicated patrol errors. BFA2 remains the native-dropdown code; new crafting ambiguity is BFA3 (do not reuse the earlier code).
++
++Additional wrapper fix: listener-only `.location_choice_dropdown` controls are now included. Natural Village → Wild willow stand → Village journey passes; final stdio check `/tmp/b1-mcp-final-complete.log` PASS, including this regression and the page80 action regression. No `src/`, headless runner, transport, dependency or installed-app change.
++
++Open findings include patrol runtime error, ambiguous crafting percentage, storage identity, and inaccessible Mistglass/Tingen/continuation routes. The consolidated primary `docs/reviews/PLAYTEST_SWEEP_2026-10-25.md` records full repros, actual coverage, positive play feedback and ranked top10. These blockers mean the requested cultivation/combat/continuation/LOTM mechanics are explicitly untested, not complete gameplay coverage.
++
++Coordinator delivery: `B1_game_mcp.patch` uses git no-index diffs against the copied original scripts/tools, plus new lane records. The consolidated report is already updated directly in primary and mirrored into this isolated branch, so it is intentionally excluded from the patch to avoid double application. No primary tool/runtime files changed here. Apply patch, rerun the direct-stdio regression in primary; no merge/push or installed adoption implied. Frozen-build input remains deferred for a runner-owned change.
