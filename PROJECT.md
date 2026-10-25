@@ -1,5 +1,7 @@
 ## Current delivery routing, checked 2026-10-22
 
+Landing 2026-10-25: all 13 Codex lane branches are merged on `origin/master` (build, 2,944 tests, arch and rules pass; lane records and reviews committed). Primary's local `master` lags until its dirty overlaps are committed. [Landing record](docs/gm/RECONCILIATION_2026-10-25.md#landing-2026-10-25).
+
 Normal-app master update, 2026-10-22: the normal player app now adopts
 `v0.6-1c223618b5b5`, with all 82 runtime files matching the verified master
 runtime. A natural-clock Electron check found and corrected preparation quotes
