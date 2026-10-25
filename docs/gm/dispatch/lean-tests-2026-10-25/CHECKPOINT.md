@@ -47,6 +47,25 @@ test files are excluded. Primary status is rechecked before each edit slice.
 - Review A (Luna-low): checked M1/R1 imports, lexical fixture scopes, document/equipment-reader restoration and native-loader prefixes; no assertion loss found. Coordinator confirmed exact block preservation plus original import identities and reviewed the scoped diff. No test re-run by reviewer.
 - Commit sequencing correction: the R1 commit process overlapped the next slice’s preparation and captured new system destinations before their original paths retired. This commit finishes those moves; final equivalence and discovery compare the complete branch to base. No unrelated work was present or included. Further edits/commits are sequential.
 
+- Host slice `node --test tests/{growth_profile,known_detail,title_training,reading,exposure,household,living_gear,combat_options,field_familiarity,leisure_memory,market_life,native_optional_envelope}.test.js`: PASS 171/171; initial log `/private/tmp/lean-tests-hosts.log`, final import/setup cleanup log `/private/tmp/lean-tests-hosts-final.log` (0.428 s runner). Original assertions unchanged; unused copied fixtures removed from combat/market host blocks, and unused split imports removed.
+- Review B (Luna-low): owner grouping, same-directory fixture URLs, seeded-stream fixture scope and executable references spot-checked; two retired-path references corrected in the fixture README and playtest comment. Reviewer did not independently prove all bodies; coordinator’s exact-block check supplies that evidence.
+- `python3 docs/gm/dispatch/lean-tests-2026-10-25/verify-relocation.py`: PASS, all 390 original registration blocks from 46 base files retained exactly once, every assertion intact, every destination discovered by the existing npm glob. Coordinator reviewed unified import bindings and fixture closures, plus unchanged helpers/source modules. No runtime code changed.
+
+## Scope outcome and final gates
+
+M1 implemented with isolated lifecycle fixture blocks. M2/R3 implemented through
+owner-specific integration suites rather than a mixed host-joins file. The one
+cross-family schema case stays whole in `native_optional_envelope.test.js`.
+R1–R6 implemented where primary files are clean. R2/R3 world-adaptation tests
+remain deferred. No deletion proposal was justified; no assertions were pruned.
+Existing compatibility, layout, world-pack lifecycle and distinct combat nonce /
+practice suites remain unchanged. This is test organization, not new gameplay.
+
+Final gate follows the final implementation commit, per the explicit lane brief:
+`npm test`, `npm run check:arch`, `npm run check:rules`. Results pending below.
+The post-commit validation receipt will be written here without another commit,
+so the full suite runs after the branch’s last commit as requested.
+
 ## Assertion relocation mapping
 
 No assertion or invariant was deleted. Cases are numbered in their original
@@ -71,6 +90,18 @@ loop iterations. Detailed source/destination/case/title lists are in
 | `structured_container_integration.test.js` | 1, 2, 3, 4, 5 | `structured_container.test.js` | 21 |
 | `structured_container_preparation.test.js` | 1, 2, 3, 4 | `structured_container.test.js` | 31 |
 | `structured_container_runtime.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | `structured_container.test.js` | 47 |
+| `p23-host-joins-growth.test.js` | 1, 2, 3, 4 | `growth_profile.test.js` | 15 |
+| `p23-host-joins-known-detail.test.js` | 1, 2 | `known_detail.test.js` | 7 |
+| `p23-host-joins-long-life.test.js` | 1, 2, 3 | `title_training.test.js` | 8 |
+| `p23-host-joins-tranche3.test.js` | 1, 2 | `reading.test.js` | 8 |
+| `p23-host-joins-tranche-one.test.js` | 1, 2, 3, 4 | `exposure.test.js` | 11 |
+| `p23-host-joins-tranche-one.test.js` | 5 | `household.test.js` | 2 |
+| `p23-host-joins-tranche-two.test.js` | 1, 2, 3, 4, 5, 7 | `living_gear.test.js` | 15 |
+| `p23-host-joins-tranche-two.test.js` | 6 | `combat_options.test.js` | 2 |
+| `p23-host-joins-step2.test.js` | 1 | `native_optional_envelope.test.js` | 3 |
+| `p23-host-joins-step2.test.js` | 2, 4 | `leisure_memory.test.js` | 3 |
+| `p23-host-joins-step2.test.js` | 3 | `field_familiarity.test.js` | 2 |
+| `p23-host-joins-step2.test.js` | 5 | `market_life.test.js` | 3 |
 | `p23-combat-options.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 | `combat_options.test.js` | 57 |
 | `p23-encounter-host.test.js` | 1, 2, 3, 4 | `encounter_host.test.js` | 14 |
 | `p23-encounter-profiles.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 | `encounter_profiles.test.js` | 48 |

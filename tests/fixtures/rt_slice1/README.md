@@ -13,7 +13,7 @@ native serializer output suitable for isolated-origin localStorage loading.
 | town-returned | Higher-level hero completed begin, brief, timber, settle, return; one kit and corrected ledger retained |
 
 Generate: `node tests/helpers/rt_slice1_fixtures.mjs`.
-Verify: `node --test tests/rt_slice1_fixtures.test.js`.
+Verify: `node --test tests/native_save_fixtures.test.js`.
 Use a fresh disposable localhost origin and import a `.save.txt`. Wood logs and
 iron remain for repeating the two item recipes in the native crafting screen.
 The fixtures contain completed craft outputs, not a persistent receipt, because

@@ -1,7 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {build} from 'esbuild';
-import {normalizeMarketLife,planMarketTrade,quoteMarketPurchase,planMarketDelivery,marketLifeView} from '../src/absorb_p23/market_life/market_life.js';
+import {normalizeMarketLife, planMarketTrade, quoteMarketPurchase, planMarketDelivery, marketLifeView} from '../src/absorb_p23/market_life/market_life.js';
+import {nativeMarketPreview} from '../src/absorb_p23/host_joins/tranche_four.js';
+
+// market_life: original fixture scope retained.
+{
 const context = {worldId:'base.frontier',location:'Village',traderId:'village trader',alive:true,
     clock:100,calendarMinute:100,marketKnown:true,effectsEnabled:true};
 const buy = (index,buyUnits=5) => ({index,buyUnits,buySubtotal:buyUnits*20,breadSubtotal:buyUnits*20,useCoupon:false});
@@ -138,3 +142,15 @@ test('native sales cause saturation; purchases and recovery reduce it without in
     assert.equal(n.get_loot_price_modifier({value:100,how_many_sold:499,is_group:false}),.1);
     assert.equal(n.get_loot_price_modifier({value:100,how_many_sold:-10,is_group:false}),1);
 });
+
+}
+
+// p23-host-joins-step2: original fixture scope retained.
+{
+test('market quote consumes native rounded subtotals and leaves coupon off by default',()=>{
+ const c={worldId:'base.frontier',location:'Village',alive:true,clock:4,calendarMinute:1444,traderId:'village trader'},b={buySubtotal:101,breadSubtotal:21,buyUnits:2,useCoupon:false};
+ const q=nativeMarketPreview(undefined,c,b);assert.equal(q.quote.total,101);assert.equal(q.quote.couponDiscount,0);assert.deepEqual(q.basket,b);
+});
+
+}
+

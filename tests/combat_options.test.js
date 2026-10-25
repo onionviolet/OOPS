@@ -1,13 +1,17 @@
-import {damageRecord,supportedHarvest} from '../src/harvest.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
+import {damageRecord, supportedHarvest} from '../src/harvest.js';
 import {combatHitText} from '../src/ui_polish.js';
 import {combatLogEvent} from '../src/combat_log.js';
 import {createCombatOptions, validateCombatOptions, validateEncounterCombatProfile} from '../src/absorb_p23/combat_options/runtime.js';
 import {rollBaseCombatDamage, nextAttackTiming, get_hit_chance, mitigateCombatDamage} from '../src/combat_math.js';
 import {effectiveCritChance} from '../src/gear_dimensions.js';
+import {validateTrancheTwoEnvelope} from '../src/absorb_p23/host_joins/tranche_two.js';
+
+// combat_options: original fixture scope retained.
+{
 
 function setup(state) {
     const inventory = {'P23 throwing stone': 3, 'P23 smoke pellet': 2, 'P23 scent pouch': 2};
@@ -159,3 +163,16 @@ test('R51 native independent cooldowns retain a 4:1 speed ratio without a burst 
     n.calls.timers[1]();
     assert.equal(n.calls.delays[2], 1000 / 60 + 10);
 });
+
+}
+
+// p23-host-joins-tranche-two: original fixture scope retained.
+{
+test('paused combat state requires the same real encounter and survivor phase',()=>{
+ const save={combatOptions:{schema:1,selected:null,breakRequested:false,lastEvent:2,phase:'encounter-break'}};
+ assert.throws(()=>validateTrancheTwoEnvelope(save),/saved native encounter/);save.native_encounter={enemies:[{alive:true}]};assert.throws(()=>validateTrancheTwoEnvelope(save),/survivors/);
+ save.native_encounter.enemies[0].alive=false;validateTrancheTwoEnvelope(save);
+});
+
+}
+

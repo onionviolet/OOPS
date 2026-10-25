@@ -1,6 +1,6 @@
 // Re-fit K1 work-plan proof (2026-10-22): the itinerary's latest settled step shows
 // beside current work. The fixture drives the real reserve route in node (as
-// tests/fa09_routines does) on top of the perf fixture, then loads it as a generated
+// tests/routine_jobs does) on top of the perf fixture, then loads it as a generated
 // save on fresh origins. No personal saves; fixture facts are not natural-acquisition
 // evidence. Usage: node scripts/playtest/refit-k1-work-plan.mjs . <out> (after npm run build)
 import assert from 'node:assert/strict';

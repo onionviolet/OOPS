@@ -2,8 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {Game_Time} from '../src/game_time.js';
 import {normalizeLocalLife} from '../src/absorb_c2/local_life.js';
-import {FIELD_SITE,normalizeFieldFamiliarity,validateFieldFamiliarity,validateFieldSnapshot,lunarWindow,
-    fieldAction,advanceFieldFamiliarity,fieldView} from '../src/absorb_p23/field_familiarity/index.js';
+import {FIELD_SITE, normalizeFieldFamiliarity, validateFieldFamiliarity, validateFieldSnapshot, lunarWindow, fieldAction, advanceFieldFamiliarity, fieldView} from '../src/absorb_p23/field_familiarity/index.js';
+import {readFileSync} from 'node:fs';
+import {stageTrancheFourReward} from '../src/absorb_p23/host_joins/tranche_four.js';
+
+// field_familiarity: original fixture scope retained.
+{
 
 const calendar=(day=15,hour=0,minute=0)=>({year:999,month:4,day:1,hour,minute,day_count:day});
 const frame=(extra={})=>({worldId:'base.frontier',alive:true,idle:true,knownSite:true,
@@ -140,3 +144,18 @@ test('P07 whole-save preflight rejects impossible occurrence and clock bindings'
         {...done,lastHarvestOccurrence},frame({clock:6})));
     assert.throws(()=>validateFieldSnapshot(done,frame({clock:5})));
 });
+
+}
+
+// p23-host-joins-step2: original fixture scope retained.
+{
+const fixture=()=>JSON.parse(readFileSync(new URL('../docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/fixtures/tranche1-prelight.json',import.meta.url)));
+test('field output uses the native bag without supplying passive XP or money',()=>{
+ const plan={state:fixture().expansion,gameplay:{player:{inventory:{},skills:{}}}};
+ stageTrancheFourReward(plan,{state:{},native:{money:0,skillXp:{},items:[{item_id:'Cooking herbs',count:1}]},messages:[]},{keyFor:id=>JSON.stringify({id})});
+ assert.equal(plan.gameplay.player.inventory['{"id":"Cooking herbs"}'],1);
+ assert.throws(()=>stageTrancheFourReward(plan,{native:{money:1,skillXp:{},items:[]},messages:[]},{keyFor:x=>x}),/passive/);
+});
+
+}
+
