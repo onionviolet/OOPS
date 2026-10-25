@@ -2,17 +2,15 @@
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
 import {compileClaims, claimEffects} from './claim_runtime.js';
 import {eq} from './basics.js';
+import {gteReason as gte, moneyKeyNative as money, coinsActorFirst as coins} from './content_kit.js';
 export const LIVELIHOOD_PACK_ID = 'reedbank';
 const P = LIVELIHOOD_PACK_ID;
 export const livelihoodKey = name => JSON.stringify({id:`${P}.${name}`});
 const key = livelihoodKey;
-const gte = (fact,value,reason) => ({fact,op:'gte',value,...(reason?{reason}:{})});
 const all = (...rows) => ({all:rows});
 const flag = (name,value=true,actor='player') => ({type:'fact',scope:'actor',actor,key:`${P}.${name}`,value});
 const note = (name,value,actor='player') => ({type:'knowledge',actor,key:`${P}.${name}`,stage:'understood',value});
 const item = (name,amount,actor='player') => ({type:'item',actor,key:key(name),amount});
-const money = amount => ({type:'resource',key:'money',native:true,amount});
-const coins = (actor,amount) => ({type:'resource',actor,key:'coins',amount});
 const give = (name,from,to) => ({type:'transfer',key:key(name),from,to,count:1});
 const support = () => all(eq('actor.life','alive'),eq('native.ready'),eq('body.mobile'),gte('body.hands',1,'The holding jig needs one usable hand.'));
 const bench = () => all(support(),eq('actor.reedbank.access',true,'Buy a repair kit and bench access from Mara.'),gte(`item.${key('kit')}`,1,'Keep your repair kit with you.'));

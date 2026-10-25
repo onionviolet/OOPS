@@ -1,8 +1,8 @@
 // Delayed letters use the simulation event director; introductions name the
 // willing seller and actual remaining stock, rather than granting cargo.
 import {domainRegistry} from './domain_registry.js';
+import {eqRaw as eq} from './basics.js';
 const S='home.manor.steward',T='home.manor.tutor',M='home.manor.supplier',ROOM='Arlmere family manor';
-const eq=(fact,value)=>({fact,op:'eq',value});
 const res=(actor,key,amount,extra={})=>({type:'resource',actor,key,amount,...extra});
 export const REPORT_RETURN='home.contacts.report_return';
 export const contactDefinitions={events:[{

@@ -3,6 +3,7 @@
 import {all, eq, not, sameStructural as same} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as OK} from './feature_expansion_objects.js';
 import {assert, natural, record} from './simulation_contracts.js';
+import {itemPlayer as item, staminaPlayer as stamina, moneyActorNativeKey as money} from './content_kit.js';
 
 export const AUDITED_FIXTURE_IDS = Object.freeze({
     world: O.world, eda: O.miri, site: O.site, situation: O.situation,
@@ -16,9 +17,6 @@ export const AUDITED_FIXTURE_KEYS = Object.freeze({
 const K = AUDITED_FIXTURE_KEYS;
 const af = (key, value = true) => ({type: 'fact', actor: 'player', scope: 'actor', key: `${prefix}${key}`, value});
 const wf = (key, value) => ({type: 'world', worldId: I.world, key: `${prefix}${key}`, value});
-const item = (key, amount) => ({type: 'item', actor: 'player', key, amount});
-const stamina = amount => ({type: 'vital', actor: 'player', key: 'stamina', amount});
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
 const payEda = amount => ({type: 'resource', actor: I.eda, key: 'coins', amount});
 const know = (key, text, stage = 'seen', actor = 'player', attributedTo = I.eda, kind = 'instruction') => ({
     type: 'knowledge', actor, key: `${prefix}${key}`, stage, value: text,

@@ -1,5 +1,6 @@
 import {all, deepFreeze as freeze, eq, not} from './basics.js';
 import {PROTO23_IDS as I, PROTO23_LOCATIONS as L, PROTO23_KEYS as K} from './proto23_world_ids.js';
+import {moneyActorNativeKey as money} from './content_kit.js';
 export * from './proto23_world_ids.js';
 export const proto23Worlds = [{id: I.world, label: 'Proto23 village · furnished visitor life', publicName: 'Proto23 village',
     continuityLabel: 'Original independent retained-body visitor branch',
@@ -25,7 +26,6 @@ const people = [
 const af = (name, value = true) => ({type: 'fact', scope: 'actor', actor: 'player', key: I.prefix + name, value});
 const wf = (name, value = true) => ({type: 'world', worldId: I.world, key: I.prefix + name, value});
 const item = (key, amount, returned = false, actor = 'player') => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
 const purse = (actor, amount) => ({type: 'resource', actor, key: 'coins', amount});
 const attention = actor => ({type: 'resource', actor, key: 'attention', amount: -1});
 const effort = (amount, actor = 'player') => ({type: 'vital', actor, key: 'stamina', amount});

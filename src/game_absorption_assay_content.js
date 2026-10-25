@@ -3,6 +3,7 @@
 import {all, eq, not} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as OK} from './feature_expansion_objects.js';
 import {NETHACK_FIELDCRAFT_KEYS as NK} from './nethack_fieldcraft_content.js';
+import {staminaPlayer as stamina} from './content_kit.js';
 
 export const GAME_ABSORPTION_ASSAY_IDS = Object.freeze({
     world: O.world, eda: O.miri, site: O.site, situation: O.situation,
@@ -25,7 +26,6 @@ export const gameAbsorptionAssayItemSpecifications = Object.freeze([
 const fact = (name, value = true) => ({type: 'fact', scope: 'actor', actor: 'player', key: `${I.prefix}${name}`, value});
 const item = (key, amount, actor = 'player', reservationReturn = false) => ({type: 'item', actor, key, amount,
     ...(reservationReturn ? {reservationReturn: true} : {})});
-const stamina = amount => ({type: 'vital', actor: 'player', key: 'stamina', amount});
 const know = (name, value, stage = 'seen', kind = 'observation', attributedTo = 'player', actor = 'player') => ({type: 'knowledge', actor,
     key: `${I.prefix}${name}`, stage, value, basis: {kind, attributedTo, situationId: I.situation}});
 const discharge = () => item(K.empty, 1, 'player', true);

@@ -1,12 +1,12 @@
 import {SUPPLIER} from './home_household_content.js';
 // A small household school, using the existing people's reserved work queues.
 import {QI_FIELD} from './cultivation_items.js';
+import {eqRaw as eq} from './basics.js';
 export const SCHOOL_ROSTER=[['home.manor.keeper','Toma'],['home.manor.cook','Iven'],['home.manor.steward','Rowan'],['home.manor.tutor','Sera']];
 export const SCHOOL_VISITOR=SUPPLIER;
 export const SCHOOL_STUDENTS=[...SCHOOL_ROSTER,[SCHOOL_VISITOR,'Mara (visiting provisioner)']];
 export const SCHOOL_ROOM='Arlmere family manor',SCHOOL_STEWARD='home.manor.steward';
 const K='home.manor.keeper',S=SCHOOL_STEWARD;
-const eq=(fact,value)=>({fact,op:'eq',value});
 const atLeast=(fact,value)=>({fact,op:'gte',value});
 const res=(actor,key,amount)=>({type:'resource',actor,key,amount});
 const ready={all:[eq('actor.home.employed',true),{not:eq('actor.home.leave',true)},atLeast('resource.home.energy',20)]};

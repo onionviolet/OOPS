@@ -3,6 +3,7 @@
 import {all, deepFreezeUnlessFrozen as deepFreeze, eq, sameJson as same} from './basics.js';
 import {SOCIETY_IDS as S, SOCIETY_ITEMS} from './feature_expansion_society.js';
 import {assert,natural,record} from './simulation_contracts.js';
+import {coinsActorFirst as coin, moneyActorKeyNative as money, staminaActorFirst as stamina} from './content_kit.js';
 
 const P = S.prefix, W = S.world, H = S.household, O = S.craftsperson;
 const LOG = SOCIETY_ITEMS.wood, KIT = SOCIETY_ITEMS.kit;
@@ -12,9 +13,6 @@ const knowledge = (key, value) => ({type: 'knowledge', actor: 'player', key: `${
     stage: 'seen', value, basis: {kind: 'observation', attributedTo: 'player', situationId: `${P}.home_agreement`}});
 const item = (actor, key, amount, reservationReturn = false) => ({type: 'item', actor, key, amount,
     ...(reservationReturn ? {reservationReturn: true} : {})});
-const coin = (actor, amount) => ({type: 'resource', actor, key: 'coins', amount});
-const money = amount => ({type: 'resource', actor: 'player', key: 'money', native: true, amount});
-const stamina = (actor, amount) => ({type: 'vital', actor, key: 'stamina', amount});
 const resource = (actor, key, amount) => ({type: 'resource', actor, key, amount});
 
 const local = eq('society.clockSupported', true, 'The household cannot meet while you are away from the supported local clock.');

@@ -1,11 +1,11 @@
 // Finite imported qi, taught through the household's existing jobs and roster.
 import {QI_FIELD,QI_FIELD_MINUTES,SEALED_CONDENSATE} from './cultivation_items.js';
+import {eqRaw as eq} from './basics.js';
 export const CULTIVATION_KEEPER='home.manor.keeper';
 export const CULTIVATION_STEWARD='home.manor.steward';
 export const CULTIVATION_ROOM='Arlmere family manor';
 export const CRADLE_FILM='home.cradleFilm';
 export const FIELD_SERVICE_TERMS=Object.freeze({filmPerPacket:1,lossPerFilm:.05,cleanedPerVisit:1});
-const eq=(fact,value)=>({fact,op:'eq',value});
 const res=(actor,key,amount)=>({type:'resource',actor,key,amount});
 const ready={all:[eq('actor.home.employed',true),{not:eq('actor.home.leave',true)},{fact:'resource.home.energy',op:'gte',value:20}]};
 const field={all:[eq('actor.home.employed',true),eq('location',CULTIVATION_ROOM),{fact:`condition.${QI_FIELD}`,op:'gte',value:1}]};

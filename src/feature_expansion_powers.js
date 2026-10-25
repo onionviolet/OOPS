@@ -2,6 +2,7 @@
 // native XP, stock, jobs and the sole durable publisher remain authoritative.
 import {all, eq} from './basics.js';
 import {SKILL_IDS, skillExpansionFacts} from './skill_expansion_content.js';
+import {gteReason as gte, staminaOptionalActor as stamina, moneyNativeKey as money, itemOptionalActor as item} from './content_kit.js';
 export const FEATURE_POWER_WORLD = 'base.frontier';
 export const FEATURE_HARNESS = JSON.stringify({id:'Braced field harness'});
 export const FEATURE_HOOK_POLE = JSON.stringify({id:'Sluice hook pole'});
@@ -25,11 +26,7 @@ export const FEATURE_SPECIALIZATIONS = Object.freeze([
         {id:'read',label:'Read a response',text:'Compare an observed opponent’s stance, strip a held guard and expose one or two native strike openings.'},
         {id:'signal',label:'Coordinate the release',text:'Give Lio an agreed signal that reduces his next guard’s stamina cost while still spending his own guard effort.'}]}
 ]);
-const gte=(fact,value,reason)=>({fact,op:'gte',value,...(reason?{reason}:{})});
 const af=(key,value=true,actor)=>({type:'fact',scope:'actor',key,value,...(actor?{actor}:{})});
-const stamina=(amount,actor)=>({type:'vital',key:'stamina',amount,...(actor?{actor}:{})});
-const money=amount=>({type:'resource',native:true,key:'money',amount});
-const item=(key,amount,actor)=>({type:'item',key,amount,...(actor?{actor}:{})});
 const xp=(skill,amount)=>({type:'xp',skill,amount});
 const known=id=>eq(`power.${id}.owned`);
 const mature=id=>gte(`power.${id}.mastery`,4,'Complete the basic drill to mastery four first.');

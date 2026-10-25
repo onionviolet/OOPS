@@ -1,12 +1,12 @@
 // Original reversible proposals. Import is inert; existing simulation owners
 // execute exact stock, purse, source, participant/site and publication effects.
 import {all, any, eq, not} from './basics.js';
+import {gteReason as gte, itemKeyActor as item, staminaAmountFirst as stamina, transferKeyCountFirst as transfer} from './content_kit.js';
 const W = "base.frontier", P = "original_frontier", M = P + ".mira", N = P + ".wen";
 const I = P + ".iven", H = P + ".halden", S = P + ".jun";
 const T = P + ".load_tally", STOP = P + ".stop_procedure", SAMPLE = P + ".sample_check";
 const LOG = JSON.stringify({id:"Rough wood log"}), KIT = JSON.stringify({id:"Prepared survey kit"});
 const WOOD = JSON.stringify({id:"Wood log"}), ASH = JSON.stringify({id:"Ash wood log"});
-const gte = (fact,value,reason) => ({fact,op:"gte",value,...(reason ? {reason} : {})});
 const a = (key,value=true,reason) => eq("actor." + P + "." + key,value,reason);
 const w = (key,value=true,reason) => eq("world." + P + "." + key,value,reason);
 const af = (key,value=true,actor="player") => ({type:"fact",scope:"actor",actor,key:P + "." + key,value});
@@ -14,9 +14,6 @@ const wf = (key,value=true) => ({type:"world",worldId:W,key:P + "." + key,value}
 const money = amount => ({type:"resource",native:true,actor:"player",key:"money",amount});
 const res = (actor,key,amount) => ({type:"resource",actor,key,amount});
 const coin = (actor,amount) => res(actor,"coins",amount);
-const item = (key,amount,actor="player") => ({type:"item",actor,key,amount});
-const stamina = (amount,actor="player") => ({type:"vital",actor,key:"stamina",amount});
-const transfer = (key,count,from,to) => ({type:"transfer",key,count,from,to});
 const know = (key,value,actor="player") => ({type:"knowledge",actor,key:P + "." + key,stage:"understood",value});
 const memory = (actor,text) => ({type:"relationship",actor,target:"player",axis:"trust",amount:0,text});
 const observe = key => ({type:"observation",scope:"world",key:P + "." + key,as:P + "." + key});

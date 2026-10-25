@@ -1,5 +1,6 @@
 // Original finite local proposals. Registration creates no actor or offer.
 import {all, eq} from './basics.js';
+import {moneyKeyNative as money} from './content_kit.js';
 export const REMAINDER_OFFERS_GROUP = 'remainder_offers';
 export const REMAINDER_OFFERS_WORLD = 'base.frontier';
 export const REMAINDER_OFFERS_KEYS = Object.freeze({log:JSON.stringify({id:'Rough wood log'}),kit:JSON.stringify({id:'Prepared survey kit'})});
@@ -10,7 +11,6 @@ const yes = eq('auditRemainder.enrolled');
 const local = all(yes,eq('remainder.offers.clockSupported',true,'This local offer needs supported home-realm played time.'));
 const hands = eq('remainder.offers.handsUsable',true,'Use your recovered hands for this material work.');
 const resource = (key,amount,actor) => ({type:'resource',key,amount,...(actor?{actor}:{})});
-const money = amount => ({type:'resource',key:'money',native:true,amount});
 const vital = (key,amount) => ({type:'vital',key,amount});
 const af = (key,value=true,actor) => ({type:'fact',scope:'actor',key:`remainder.offers.${key}`,value,...(actor?{actor}:{})});
 const know = (key,value,actor='player') => ({type:'knowledge',actor,key:`remainder.offers.${key}`,stage:'understood',value});

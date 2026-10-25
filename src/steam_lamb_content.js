@@ -1,6 +1,7 @@
 // LAMB-P02: original local agreement and service, separate from learned means.
 import {all, eq} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as K} from './feature_expansion_objects.js';
+import {moneyActorNativeKey as money, itemKeyActorReturned as item} from './content_kit.js';
 
 export const STEAM_LAMB_IDS = Object.freeze({world: O.world, group: 'steam_lamb', prefix: 'steam.lamb.',
     owner: O.miri, site: O.site, situation: O.situation, method: O.method, version: 1,
@@ -15,9 +16,7 @@ const office = eq('steamLamb.office', true, 'Eda must still hold your agreed fit
 const live = all(local, eq('steamLamb.handsUsable', true, 'Recover your hands before fitting work.'),
     eq('steamLamb.ownerSupported', true, 'Eda needs her present consent, living body, usable hands and trained fitting method.'),
     eq('steamLamb.benchSupported', true, 'Use Eda’s actual fitting bench.'));
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
 const purse = amount => ({type: 'resource', actor: I.owner, key: 'coins', amount});
-const item = (key, amount, actor = 'player', returned = false) => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});
 const fact = (key, value, actor) => ({type: 'fact', scope: 'actor', actor, key, value});
 const know = (key, value) => ({type: 'knowledge', actor: 'player', key: `${I.prefix}${key}`, stage: 'seen', value,
     basis: {kind: 'observation', attributedTo: I.owner, situationId: I.situation}});

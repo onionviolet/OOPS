@@ -3,6 +3,7 @@
 import {all, eq, not} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as OK} from './feature_expansion_objects.js';
 import {REFERENCE_GAMEPLAY_KEYS as RK} from './reference_gameplay_content.js';
+import {gteReason as gte, itemKeyActorReturned as item, staminaAmountFirst as stamina} from './content_kit.js';
 export const NETHACK_FIELDCRAFT_IDS = Object.freeze({world: O.world, group: 'nethack_fieldcraft', eda: O.miri, site: O.site,
     dog: 'nethack_fieldcraft.rill', open: 'nethack_fieldcraft.open', oil: 'nethack_fieldcraft.reed_oil', scent: 'nethack_fieldcraft.scented_recess', train: 'nethack_fieldcraft.train', assay: 'nethack_fieldcraft.assay',
     trialPlain: 'nethack_fieldcraft.trial_dull', trialFine: 'nethack_fieldcraft.trial_fineDull', scentCommand: 'nethack_fieldcraft.scent',
@@ -18,9 +19,6 @@ export const nethackFieldcraftItemSpecifications = Object.freeze([
     {id: 'Workshop ration', description: 'One actual portion suitable for Rill, Eda\'s workshop dog. Feeding supplies disclosed satiety and effort capacity; it creates no friendship reward.', value: 1},
     {id: 'Recovered fitting pin', description: 'One actual fitting pin retrieved from Eda\'s recess with her permission. Bind it with one sound stave and one set resin into an existing Prepared survey kit.', value: 1},
 ]);
-const gte = (fact, value, reason) => ({fact, op: 'gte', value, ...(reason ? {reason} : {})});
-const item = (key, amount, actor = 'player', returned = false) => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});
-const stamina = (amount, actor = 'player') => ({type: 'vital', actor, key: 'stamina', amount});
 const resource = (key, amount, actor = I.dog) => ({type: 'resource', actor, key, amount});
 const fact = (name, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: `nethack_fieldcraft.${name}`, value});
 const know = (name, value, stage = 'seen', actor = 'player', attributedTo = 'player', kind = 'observation') =>

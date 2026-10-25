@@ -3,6 +3,7 @@
 import {all} from './basics.js';
 import {SOCIETY_IDS as S} from './feature_expansion_society.js';
 import {agreedDutyContinuationDefinitions} from './agreed_duty_continuation.js';
+import {coinsActorFirst as coin, moneyActorKeyNative as money} from './content_kit.js';
 
 const P = S.prefix, W = S.world, H = S.household, O = S.craftsperson, V = S.apprentice;
 const worldFact = (key, value) => ({type: 'world', worldId: W, key: `${P}.${key}`, value});
@@ -10,8 +11,6 @@ const knowledge = (key, value, attributedTo) => ({type: 'knowledge', actor: 'pla
     stage: 'seen', value, basis: {kind: 'observation', attributedTo, situationId: `${P}.home_agreement`}});
 const assent = (actor,key,value) => ({type:'knowledge',actor:'player',key:`${P}.duty.assent.${key}`,stage:'seen',value,
     basis:{kind:'observation',attributedTo:actor,situationId:`${P}.home_agreement`}});
-const coin = (actor, amount) => ({type:'resource',actor,key:'coins',amount});
-const money = amount => ({type:'resource',actor:'player',key:'money',native:true,amount});
 const permission = (operation,key,actor,target) => ({type:'claim',operation,key,actor,...(target?{target}:{})});
 const fact = (key, value) => ({type: 'fact', scope: 'world', key: `${P}.${key}`, value});
 const actorFact = (key,value,actor='player') => ({type:'fact',scope:'actor',actor,key:`${P}.${key}`,value});

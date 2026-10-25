@@ -5,14 +5,12 @@ import {all, deepFreeze as freeze, eqNoReason as eq, gte} from './basics.js';
 import {NESTED_IDS as I,NESTED_LOCATIONS as L,NESTED_KEYS as K,NESTED_MISSIONS} from './feature_expansion_nested_content.js';
 import {assert,natural,copy} from './simulation_contracts.js';
 import {previewSimulationCommand,commitSimulationCommand,cancelSimulationJob} from './simulation.js';
+import {itemActorFirst as item, staminaActorFirst as stamina, transferCount as transfer} from './content_kit.js';
 
 const flag=(name,key,value=true)=>({type:'fact',scope:'actor',actor:'player',key:`nested.life.${name}.${key}`,value});
 const worldFlag=(world,key,value=true)=>({type:'world',worldId:world,key:`nested.life.${key}`,value});
 const credit=(actor,amount)=>({type:'resource',actor,key:'nested.credit',amount});
 const demand=(actor,name,amount)=>({type:'resource',actor,key:`nested.life.${name}.demand`,amount});
-const item=(actor,key,amount,returned=false)=>({type:'item',actor,key,amount,...(returned?{reservationReturn:true}:{})});
-const stamina=(actor,amount)=>({type:'vital',actor,key:'stamina',amount});
-const transfer=(from,to,key,count=1)=>({type:'transfer',from,to,key,count});
 const know=(name,key,value)=>({type:'knowledge',actor:'player',key:`nested.life.${name}.${key}`,stage:'seen',value});
 const f=(name,key,value=true)=>eq(`nested.life.${name}.${key}`,value);
 const offer=name=>`nested.life.${name}.offer`,work=name=>`nested.life.${name}.work`;

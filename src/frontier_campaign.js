@@ -2,11 +2,11 @@ import {RF1_DEFINITION} from './rehearsed_foe.js';
 import {all, eqNoReason as eq} from './basics.js';
 import {commitSimulationCommand,previewSimulationCommand, previewCampaignTransition, commitCampaignTransition} from "./simulation.js";
 import {validateExpansionState} from "./expansion_engine.js";
+import {moneyNativeKey as money} from './content_kit.js';
 
 export const ROAD_RIVAL = "roadRival", RIVAL_PURSUIT = "frontier.road_rival";
 const wood=JSON.stringify({id:"Rough wood log"}),kit=JSON.stringify({id:"Prepared survey kit"}),rope=JSON.stringify({id:"Survey rope"});
 const fact=(key,value=true)=>({type:"fact",scope:"actor",key,value});
-const money=amount=>({type:"resource",native:true,key:"money",amount});
 const item=(key,amount)=>({type:"item",key,amount});
 const member=eq("actor.field.member"),facility=eq("actor.field.facility");
 const command=d=>{const value={revision:1,worldId:"base.frontier",actorId:"player",location:"Village",costs:[],effects:[],...d};if(!value.location)delete value.location;return value;};

@@ -2,6 +2,7 @@
 // All numbers, played intervals, wages and alternative outcomes are prototypes.
 // Definitions grant nothing. Existing simulation/native owners publish effects.
 import {PARADISE_IDS as I,PARADISE_LOCATIONS as L,PARADISE_KEYS as K,PARADISE_FOOTPRINTS} from './book_world_paradise_ids.js';
+import {itemActorFirst as item, transferCount as transfer} from './content_kit.js';
 const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
 const eq=(fact,value=true)=>({fact,op:'eq',value}),gte=(fact,value)=>({fact,op:'gte',value});
 const all=(...rules)=>({all:rules}),any=(...rules)=>({any:rules}),not=rule=>({not:rule});
@@ -11,8 +12,6 @@ const money=(actor,amount,hub=false)=>({type:'resource',actor,key:hub?'book.para
 const attention=(actor,amount=-1)=>({type:'resource',actor,key:'book.paradise.attention',amount});
 const agenda=actor=>({type:'resource',actor,key:'book.paradise.agenda',amount:-1});
 const stamina=(actor,amount=-1)=>({type:'vital',actor,key:'stamina',amount});
-const item=(actor,key,amount,returned=false)=>({type:'item',actor,key,amount,...(returned?{reservationReturn:true}:{})});
-const transfer=(from,to,key,count=1)=>({type:'transfer',from,to,key,count});
 const know=(key,value,attributedTo,actor='player',kind='observation',stage='seen')=>({type:'knowledge',actor,key:`book.paradise.${key}`,stage,value,basis:{kind,attributedTo,situationId:'book.paradise.side_branch'}});
 const has=key=>eq(`actor.book.paradise.${key}`),world=(key,value=true)=>eq(`world.book.goa.${key}`,value);
 const support=id=>eq(`paradise.support.${id}`),local=w=>eq(`paradise.local.${w}`);

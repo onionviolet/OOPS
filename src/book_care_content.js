@@ -3,6 +3,7 @@
 // Registration supplies no person, item, clock, source or reward.
 import {all, eq, not} from './basics.js';
 import {PARADISE_IDS as P, PARADISE_LOCATIONS as L, PARADISE_KEYS as K} from './book_world_paradise_ids.js';
+import {itemActorFirst as item} from './content_kit.js';
 
 export const BOOK_CARE_IDS = Object.freeze({
     prefix:'book.care.', group:'book_care', npcGroup:'book_care_npc',
@@ -11,7 +12,6 @@ export const BOOK_CARE_IDS = Object.freeze({
 });
 const I=BOOK_CARE_IDS;
 const af=(key,value=true,actor='player')=>({type:'fact',scope:'actor',actor,key:I.prefix+key,value});
-const item=(actor,key,amount,returned=false)=>({type:'item',actor,key,amount,...(returned?{reservationReturn:true}:{})});
 const vital=(actor,key,amount)=>({type:'vital',actor,key,amount});
 const attention=(actor,amount=-1)=>({type:'resource',actor,key:'book.paradise.attention',amount});
 const coin=(actor,amount,hub)=>({type:'resource',actor,key:hub?'book.paradise.coin':'book.paradise.belli',amount});

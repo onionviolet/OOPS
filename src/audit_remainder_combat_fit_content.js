@@ -1,6 +1,7 @@
 // Original reversible ToME/KeeperRL/Rogue Legacy inspired Frontier choices.
 // Plain content only: the existing simulation executor owns jobs and stock.
 import {all, eq, not} from './basics.js';
+import {itemPlayer as item, staminaPlayer as stamina} from './content_kit.js';
 export const REMAINDER_COMBAT_FIT_IDS = Object.freeze({
     world: 'base.frontier', group: 'remainder_combat_fit', type: 'audit_remainder',
     terms: 'remainder_combat_fit.terms', practice: 'remainder_combat_fit.grip_practice',
@@ -28,8 +29,6 @@ export const remainderCombatFitItemSpecifications = Object.freeze([
         description: 'One real flexible frame. Willing Lio wearing his owned supported frame in a newly enrolled sluice attempt blocks at three and resists only a pole pull\'s extra stamina loss. Ordinary hit damage and wounds still apply.'},
 ]);
 const af = (key, value = true) => ({type: 'fact', actor: 'player', scope: 'actor', key: `remainder_combat_fit.${key}`, value});
-const item = (key, amount) => ({type: 'item', actor: 'player', key, amount});
-const stamina = amount => ({type: 'vital', actor: 'player', key: 'stamina', amount});
 const know = (key, value) => ({type: 'knowledge', actor: 'player', key: `remainder_combat_fit.${key}`, stage: 'understood', value});
 const enrolled = eq('auditRemainder.enrolled', true, 'Accept the optional local audit additions first.');
 const terms = eq('remainder.combatFit.terms', true, 'Review and accept these optional fit and body-use terms first.');

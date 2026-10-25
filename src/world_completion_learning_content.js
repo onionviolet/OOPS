@@ -3,6 +3,7 @@
 import {all, eq, not} from './basics.js';
 import {REMAINDER_HOME_IDS as H, REMAINDER_HOME_KEYS as K} from './audit_remainder_home_content.js';
 import {worldCompletionStripStamp} from './world_completion_strip.js';
+import {itemActorFirst as item, staminaActorFirst as stamina, moneyActorNativeKey as money, transferOne as transfer} from './content_kit.js';
 
 export const WORLD_COMPLETION_LEARNING_IDS = Object.freeze({
     world: H.world, group: 'world_completion_learning', prefix: 'world.completion.learning.',
@@ -19,11 +20,7 @@ export const worldCompletionLearningItemSpecifications = [{id: 'Measured drain s
 const f = (name, reason) => eq('worldCompletionLearning.' + name, true, reason);
 const af = (name, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: P + name, value});
 const wf = (name, value) => ({type: 'world', worldId: I.world, key: P + name, value});
-const item = (actor, key, amount, returned = false) => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});
-const stamina = (actor, amount) => ({type: 'vital', actor, key: 'stamina', amount});
 const resource = (actor, key, amount) => ({type: 'resource', actor, key, amount});
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
-const transfer = (from, to, key) => ({type: 'transfer', from, to, key, count: 1});
 const know = (name, value, actor = 'player', speaker = actor, instruction = false) => ({type: 'knowledge', actor, key: P + name,
     stage: instruction ? 'understood' : 'seen', value, basis: {kind: instruction ? 'instruction' : 'observation', attributedTo: speaker, situationId: I.situation}});
 const command = d => ({revision: 1, worldId: I.world, group: I.group, actorId: 'player', location: 'Village', reservationReturns: 1,

@@ -4,6 +4,7 @@
 import {all} from './basics.js';
 import {REFERENCE_GAMEPLAY_IDS as R, REFERENCE_GAMEPLAY_KEYS as RK} from './reference_gameplay_content.js';
 import {FEATURE_OBJECT_KEYS as O} from './feature_expansion_objects.js';
+import {itemPlayerReturned as item, staminaPlayer as stamina} from './content_kit.js';
 
 export const FACTORIO_RETORT_IDS = Object.freeze({
     world: R.world, group: 'factorio_retort', prefix: 'factorio_retort.',
@@ -42,8 +43,6 @@ export const factorioRetortOperatingRequires = all(
     f('rackOwned', 'Retain your actual owned rack and the existing fitting-bench permission.'),
 );
 const operating = factorioRetortOperatingRequires;
-const item = (key, amount, returned = false) => ({type: 'item', actor: 'player', key, amount, ...(returned ? {reservationReturn: true} : {})});
-const stamina = amount => ({type: 'vital', actor: 'player', key: 'stamina', amount});
 const know = (name, value) => ({type: 'knowledge', actor: 'player', key: I.prefix + name, stage: 'seen', value,
     basis: {kind: 'observation', attributedTo: 'player', situationId: I.situation}});
 const command = d => ({revision: T.revision, worldId: I.world, group: I.group, actorId: 'player', location: 'Village',

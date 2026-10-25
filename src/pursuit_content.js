@@ -1,6 +1,6 @@
 import {eqRaw as eq} from './basics.js';
+import {moneyNativeKey as money} from './content_kit.js';
 const close=result=>({type:"pursuit",pursuitId:"village.trail_test",operation:"close",result});
-const money=amount=>({type:"resource",native:true,key:"money",amount});
 const command=d=>({revision:1,group:"pursuit",actorId:"player",worldId:"base.frontier",costs:[],effects:[],...d});
 export const pursuitSources=[{id:"frontier.trailcraft",revision:1,label:"Witnessed trailcraft",kind:"knowledge",description:"A practiced sense of what a pursuer can actually observe.",grants:[{capability:"frontier.preparation",amount:1}]}];
 export const pursuitDefinitions={

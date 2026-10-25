@@ -4,10 +4,9 @@
 import {all, deepFreezeUnlessFrozen as freezeDeep, eq, not} from './basics.js';
 import {FEATURE_OBJECT_IDS} from './feature_expansion_objects.js';
 import {REFERENCE_GAMEPLAY_IDS as I, REFERENCE_GAMEPLAY_KEYS as K} from './reference_gameplay_content.js';
+import {gteReason as gte, staminaPlayer as stamina} from './content_kit.js';
 
-const gte = (fact, value, reason) => ({fact, op: 'gte', value, ...(reason ? {reason} : {})});
 const item = (key, amount, returned = false) => ({type: 'item', key, amount, actor: 'player', ...(returned ? {reservationReturn: true} : {})});
-const stamina = amount => ({type: 'vital', actor: 'player', key: 'stamina', amount});
 const af = (key, value) => ({type: 'fact', scope: 'actor', actor: 'player', key: `reference.coolingRefinement.${key}`, value});
 const know = (key, value) => ({type: 'knowledge', actor: 'player', key: `reference.coolingRefinement.${key}`, stage: 'seen', value,
     basis: {kind: 'observation', attributedTo: 'player', situationId: FEATURE_OBJECT_IDS.situation}});

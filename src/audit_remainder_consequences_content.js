@@ -3,6 +3,7 @@
 import {all, eq, not} from './basics.js';
 import {EXCHANGE_CLERK, EXCHANGE_SITUATION, EXCHANGE_ITEMS} from './exchange_content.js';
 import {NESTED_IDS as N, NESTED_LOCATIONS as L, NESTED_KEYS as NK} from './feature_expansion_nested_content.js';
+import {staminaAmountFirst as stamina, moneyActorNativeKey as money} from './content_kit.js';
 
 export const REMAINDER_CONSEQUENCES_IDS = Object.freeze({
     group: 'remainder_consequences', prefix: 'remainder_consequences.', facts: 'remainder.consequences.',
@@ -27,9 +28,7 @@ export const remainderConsequencesItemSpecifications = Object.freeze([
 ]);
 const f = (name, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: `${P}${name}`, value});
 const item = (stock, amount, actor = 'player') => ({type: 'item', actor, key: stock, amount});
-const stamina = (amount, actor = 'player') => ({type: 'vital', actor, key: 'stamina', amount});
 const credit = (amount, actor = 'player') => ({type: 'resource', actor, key: 'nested.credit', amount});
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
 const claim = (claimKey, operation, actor = 'player') => ({type: 'claim', actor, key: claimKey, operation});
 const schedule = (eventId, delay, target) => ({type: 'event', actor: 'player', eventId, delay, ...(target ? {target} : {})});
 const know = (name, value, attributedTo, situationId, actor = 'player', kind = 'observation') => ({

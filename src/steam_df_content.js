@@ -1,6 +1,7 @@
 // DF-P04 is an original optional service, not a reproduction of DF formulas.
 import {all, eq} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as K} from './feature_expansion_objects.js';
+import {moneyActorNativeKey as money} from './content_kit.js';
 
 export const STEAM_DF_IDS = Object.freeze({world: O.world, group: 'steam_df', prefix: 'steam.df.',
     owner: O.miri, site: O.site, situation: O.situation, item: K.sound,
@@ -16,7 +17,6 @@ const live = all(eq('steamDF.supported', true, 'Use your current living body and
     eq('steamDF.ownerSupported', true, 'Eda must be present, willing and able to use her own hands.'),
     eq('steamDF.benchSupported', true, 'Eda must retain her actual fitting bench.'));
 const enrolled = eq('steamDF.enrolled', true, 'Ask Eda about offered-stock reports first.');
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
 const wage = amount => ({type: 'resource', actor: I.owner, key: 'coins', amount});
 const knowledge = (key, value) => ({type: 'knowledge', actor: 'player', key, stage: 'seen', value,
     basis: {kind: 'observation', attributedTo: I.owner, situationId: I.situation}});

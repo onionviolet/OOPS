@@ -2,6 +2,7 @@
 import {all, eq} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as K} from './feature_expansion_objects.js';
 import {PROTO23_KEYS as P} from './proto23_world_ids.js';
+import {itemPlayerReturned as item, staminaAmountFirst as stamina, moneyActorNativeKey as money} from './content_kit.js';
 
 export const STEAM_BOH_IDS = Object.freeze({world: O.world, group: 'steam_boh', prefix: 'steam.boh.',
     owner: O.miri, site: O.site, situation: O.situation, authorMethod: O.method,
@@ -26,9 +27,6 @@ const prepared = eq('steamBOH.prepared', true, 'Work through the clearance compa
 const learned = eq('steamBOH.learned', true, 'Read the manual after preparing the clearance comparison.');
 const diagnostic = eq('steamBOH.diagnosticAvailable', true, 'First try the difficult reading and discover the missing comparison.');
 const own = (name, reason) => eq(`steamBOH.own.${name}`, true, reason || `Carry your own ${name === 'manual' ? 'Bench clearance manual' : 'Sound repair stave sample'}; put it away from equipment and return any borrowed one first.`);
-const item = (key, amount, returned = false) => ({type: 'item', actor: 'player', key, amount, ...(returned ? {reservationReturn: true} : {})});
-const stamina = (amount, actor = 'player') => ({type: 'vital', actor, key: 'stamina', amount});
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
 const wage = amount => ({type: 'resource', actor: I.owner, key: 'coins', amount});
 const fact = (key, value) => ({type: 'fact', scope: 'actor', actor: 'player', key, value});
 const know = (key, value, stage = 'seen', attributedTo = 'player') => ({type: 'knowledge', actor: 'player', key: `${I.prefix}${key}`, stage, value,

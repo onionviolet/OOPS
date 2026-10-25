@@ -19,6 +19,7 @@ import {rollCombatStrike,mitigateCombatDamageFromStats} from './combat_math.js';
 import {activePractice} from './techniques.js';
 import {SKILL_IDS} from './skill_expansion_content.js';
 import {featurePowerFacts,FEATURE_HARNESS,FEATURE_HOOK_POLE,FEATURE_KIT,FEATURE_LOG,FEATURE_POWER_WORLD} from './feature_expansion_powers.js';
+import {staminaOptionalActor as stamina} from './content_kit.js';
 export const FEATURE_BATTLE_SCHEMA=3;
 // Frozen schema3 sessions retain their original cadence, costs and choices.
 export const FEATURE_REFERENCE_BATTLE_SCHEMA=4;
@@ -30,7 +31,6 @@ export {FEATURE_SHIELD,FEATURE_HOOK,featureBattleFacts};
 export const FEATURE_HELPER='partyPartner';
 const foes=FEATURE_BATTLE_FOES;
 const af=(key,value=true)=>({type:'fact',scope:'actor',key,value});
-const stamina=(amount,actor)=>({type:'vital',key:'stamina',amount,...(actor?{actor}:{})});
 const command=d=>({revision:1,worldId:FEATURE_POWER_WORLD,actorId:'player',location:'Village',group:'feature_battle',costs:[],effects:[],...d});
 const seen=eq('actor.feature.battle.seen'),open=eq('actor.feature.battle.routeCleared',false);
 const admittedOpen={any:[open,all(eq('auditRemainder.enrolled'),eq('remainder.combatObjectives.practiceWatchReady'))]};

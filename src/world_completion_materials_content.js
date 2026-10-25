@@ -4,6 +4,7 @@ import {all, eq, sameJson as equal} from './basics.js';
 import {assert, copy} from './simulation_contracts.js';
 import {worldCompletionStripStamp} from './world_completion_strip.js';
 import {REMAINDER_HOME_KEYS as H} from './audit_remainder_home_content.js';
+import {itemPlayer as item, staminaPlayer as stamina} from './content_kit.js';
 import {REMAINDER_CONSEQUENCES_IDS as C, REMAINDER_CONSEQUENCES_KEYS as CK,
     remainderConsequencesDefinitions} from './audit_remainder_consequences_content.js';
 
@@ -40,8 +41,6 @@ const crop = all(enrolled, local, hands, measured,
     f('frostOpen', 'The same six-minute crop window has expired.'),
     f('noCoverJob', 'Finish or cancel the existing cover of this same crop first.'));
 const wf = (key, value = true) => ({type: 'world', worldId: I.world, key: I.prefix + key, value});
-const item = (key, amount) => ({type: 'item', actor: 'player', key, amount});
-const stamina = amount => ({type: 'vital', actor: 'player', key: 'stamina', amount});
 const know = (key, text, speaker = 'player', situationId = I.plot) => ({type: 'knowledge', actor: 'player',
     key: I.prefix + key, stage: 'seen', value: text,
     basis: {kind: 'observation', attributedTo: speaker, situationId}});

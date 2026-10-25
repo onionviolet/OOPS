@@ -2,6 +2,7 @@
 // streams, people, inventory, custody, claims and durable native publication.
 import {all, eq} from './basics.js';
 import {runIrrigationModel} from './systems_irrigation_model.js';
+import {itemKeyActor as item, moneyActorNativeKey as money, transferKeyCountFirst as transfer} from './content_kit.js';
 export const SW='systems_workshop', PROVIDER=SW+'.provider', APPRENTICE=SW+'.apprentice';
 const key=id=>JSON.stringify({id});
 export const SWK=Object.freeze({wood:key('Rough wood log'),kit:key('Prepared survey kit'),aligned:key('Seam-aligned survey kit'),glass:key('Glass phial'),pin:key('Counted fitting pin'),cache:key('Ledger workshop cache'),seal:key('Stillglass seal'),lens:key('Measured inspection lens'),meat:key('Rat meat chunks'),food:key('Sealed trail ration'),parcel:key('Sealed survey parcel'),parts:key('Irrigation fittings'),ordinaryFood:key('Ordinary trail ration'),ordinaryParcel:key('Unsealed survey parcel'),spoiledFood:key('Spoiled trail ration'),spoiledParcel:key('Drifted survey parcel')});
@@ -9,11 +10,8 @@ export const systemsWorkshopItems=[['Seam-aligned survey kit','A real prepared s
 const not=r=>({not:r});
 const f=(name,value=true,actor='player')=>({type:'fact',scope:'actor',actor,key:SW+'.'+name,value});
 const a=(name,value=true)=>eq('actor.'+SW+'.'+name,value);
-const item=(key,amount,actor='player')=>({type:'item',actor,key,amount});
 const res=(key,amount,actor='player')=>({type:'resource',actor,key,amount});
-const money=amount=>({type:'resource',actor:'player',native:true,key:'money',amount});
 const know=(name,value,actor='player')=>({type:'knowledge',actor,key:SW+'.'+name,stage:'understood',value});
-const transfer=(key,count,from,to)=>({type:'transfer',key,count,from,to});
 const source=(sourceId,operation,actor='player')=>({type:'source',sourceId,operation,actor,...(operation==='grant'?{awakened:true,active:true}:{})});
 const live=all(eq('actor.life','alive'),eq('actor.world','base.frontier'));
 const opened=a('joined'), connected=all(opened,a('connected'));

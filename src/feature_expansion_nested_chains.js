@@ -2,13 +2,13 @@
 // Existing situations, people, native inventories, sources, jobs and publisher
 // own every mutable value. Importing these immutable definitions enrolls nothing.
 import {all, any, deepFreeze as freeze, eq, not} from './basics.js';
+import {gteReason as gte, itemActorFirst as item} from './content_kit.js';
 export const NESTED_CHAIN_IDS = Object.freeze({roles:'nested.chain.roles',welfare:'nested.chain.welfare',method:'nested.chain.method',
  hub:'nested.paradise_hub',salt:'nested.saltworks',archive:'nested.archive',issuer:'nested.hub.issuer',trainer:'nested.hub.trainer',
  keeper:'nested.saltworks.keeper',foreman:'nested.saltworks.foreman',registrar:'nested.archive.registrar',claimant:'nested.archive.claimant',witness:'nested.archive.witness',
  pulse:'nested.pressure_pulse',office:'nested.chain.roles.provisional_office'});
 export const NESTED_CHAIN_ITEMS = Object.freeze({log:JSON.stringify({id:'Rough wood log'}),kit:JSON.stringify({id:'Prepared survey kit'}),rope:JSON.stringify({id:'Survey rope'})});
 const I=NESTED_CHAIN_IDS,K=NESTED_CHAIN_ITEMS;
-const gte=(fact,value,reason)=>({fact,op:'gte',value,...(reason?{reason}:{})});
 const phase=(chain,...values)=>any(...values.map(value=>eq(`situation.${I[chain]}.phase`,value)));
 const af=(chain,key,value=true,actor='player')=>({type:'fact',scope:'actor',actor,key:`nested.chain.${chain}.${key}`,value});
 const wf=(world,key,value)=>({type:'world',worldId:world,key,value});
@@ -16,7 +16,6 @@ const credit=(actor,amount)=>({type:'resource',actor,key:'nested.credit',amount}
 const attention=(actor,amount=-1)=>({type:'resource',actor,key:'nested.attention',amount});
 const agenda=(actor,amount=-1)=>({type:'resource',actor,key:'nested.agenda',amount});
 const stamina=(actor,amount=-1)=>({type:'vital',actor,key:'stamina',amount});
-const item=(actor,key,amount,returned=false)=>({type:'item',actor,key,amount,...(returned?{reservationReturn:true}:{})});
 const memory=(actor,target,text,amount=1)=>({type:'relationship',actor,target,axis:'respect',amount,text});
 const knowledge=(chain,key,value,attributedTo,actor='player',stage='seen',kind='observation')=>({type:'knowledge',actor,key:`nested.chain.${chain}.${key}`,stage,value,
  basis:{kind,attributedTo,situationId:I[chain]}});

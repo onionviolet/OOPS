@@ -2,6 +2,7 @@
 // person, stock, save or RNG. The host must explicitly register the returned
 // schema-2 definition through its ordinary structured native pipeline.
 import {eq} from './basics.js';
+import {gteReason as gte} from './content_kit.js';
 export const FOUNDATION_START_PACK_ID = 'foundation_start';
 export const FOUNDATION_START_IDS = Object.freeze({
     world:'foundation_start.workroom',room:'foundation_start.shelter',
@@ -12,7 +13,6 @@ export const FOUNDATION_START_IDS = Object.freeze({
     method:'foundation_start.method',reserve:'foundation_start.reserve',legacy:'foundation_start.legacy',
 });
 const key=id=>JSON.stringify({id});
-const gte=(fact,value,reason)=>({fact,op:'gte',value,...(reason?{reason}:{})});
 const fact=(name,value)=>({type:'fact',scope:'actor',key:`foundation_start.${name}`,value});
 const note=(name,value)=>({type:'knowledge',key:`foundation_start.${name}`,stage:'understood',value});
 

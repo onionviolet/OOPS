@@ -3,6 +3,7 @@
 import {allTruthy as all, eq, not} from './basics.js';
 import {ARTIFACT_WORKSHOP_IDS as A, ARTIFACT_WORKSHOP_KEYS as AK} from './artifact_workshop_content.js';
 import {REMAINDER_HOME_IDS as H} from './audit_remainder_home_content.js';
+import {moneyActorNativeKey as money, staminaActorFirst as stamina} from './content_kit.js';
 
 export const WORLD_COMPLETION_LENS_IDS = Object.freeze({
     world: A.world, maker: A.maker, group: 'world_completion_lens', prefix: 'world.completion.lens.',
@@ -16,8 +17,6 @@ export const WORLD_COMPLETION_LENS_POLICY = Object.freeze({revision: 1, deposit:
 const I = WORLD_COMPLETION_LENS_IDS, K = WORLD_COMPLETION_LENS_KEYS, P = WORLD_COMPLETION_LENS_POLICY;
 const f = (name, value = true, reason) => eq(`worldCompletionLens.${name}`, value, reason);
 const af = (name, value = true) => ({type: 'fact', actor: 'player', scope: 'actor', key: I.prefix + name, value});
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
-const stamina = (actor, amount) => ({type: 'vital', actor, key: 'stamina', amount});
 const reserve = (actor, amount, loan = false) => ({type: 'item', actor, key: K.amber, amount,
     ...(amount > 0 ? {reservationReturn: true} : {}), ...(loan ? {custodyUse: {
         schema: 1, loanId: I.loanId, owner: I.maker, holder: 'player', key: K.amber, count: 1,

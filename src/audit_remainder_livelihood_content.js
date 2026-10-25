@@ -1,6 +1,7 @@
 // Reversible original local commissions, using the existing residents, native
 // stock, purses, learned operations, sites, common clock and job executor.
 import {all, deepFreeze as freeze, eq, not} from './basics.js';
+import {coinsActorFirst as coins, moneyActorNativeKey as money, itemActorFirst as item, transferCount as transfer, staminaActorFirst as stamina} from './content_kit.js';
 export const REMAINDER_LIVELIHOOD_IDS = Object.freeze({
     prefix: 'remainder_livelihood', group: 'remainder_livelihood', world: 'base.frontier',
     orr: 'feature_society.orr', vale: 'feature_society.vale', lio: 'partyPartner',
@@ -20,11 +21,6 @@ export const remainderLivelihoodItemSpecifications = Object.freeze([]);
 const af = (key, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: `${P}.${key}`, value});
 const wf = (key, value) => ({type: 'world', worldId: I.world, key: `${P}.${key}`, value});
 const resource = (actor, key, amount) => ({type: 'resource', actor, key: `${P}.${key}`, amount});
-const coins = (actor, amount) => ({type: 'resource', actor, key: 'coins', amount});
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
-const item = (actor, key, amount, returned = false) => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});
-const transfer = (from, to, key, count = 1) => ({type: 'transfer', from, to, key, count});
-const stamina = (actor, amount) => ({type: 'vital', actor, key: 'stamina', amount});
 const claim = (operation, key, actor, target) => ({type: 'claim', operation, key, actor, ...(target ? {target} : {})});
 const know = (key, value, actor = 'player') => ({type: 'knowledge', actor, key: `${P}.${key}`, stage: 'seen', value});
 const f = (key, value = true, reason) => eq(`remainder.livelihood.${key}`, value, reason);

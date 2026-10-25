@@ -1,12 +1,12 @@
 // Original, reversible INC-P1 field proposals. Definitions alone do not enroll,
 // move, teach, clear native zones or publish rewards. Shared owners execute them.
 import {all, any, eq, not} from './basics.js';
+import {gteReason as gte, moneyKeyNative as money} from './content_kit.js';
 const WORLD = "base.frontier", MIRA = "original_frontier.mira", WEN = "original_frontier.wen";
 const NEA = "original_frontier.nea", IVER = "original_frontier.iver";
 const LOG = JSON.stringify({id: "Rough wood log"}), KIT = JSON.stringify({id: "Prepared survey kit"}), ROPE = JSON.stringify({id: "Survey rope"});
 const RAT = "frontier.rat_step", STEP = "field.load_step", FOCUS = "field.focus", DRIVE = "field.drive";
 const BRACE = "frontier.brace_control", TRAIL = "frontier.trail_reading", INQUIRY = "frontier.shared_inquiry";
-const gte = (fact, value, reason) => ({fact, op: "gte", value, ...(reason ? {reason} : {})});
 const lte = (fact, value, reason) => ({fact, op: "lte", value, ...(reason ? {reason} : {})});
 const af = (key, value = true, actor) => ({type: "fact", scope: "actor", key: `original_frontier.${key}`, value, ...(actor ? {actor} : {})});
 const wf = (key, value = true) => ({type: "world", worldId: WORLD, key: `original_frontier.${key}`, value});
@@ -15,7 +15,6 @@ const absent = key => not(actor(key));
 const item = (key, amount, holder) => ({type: "item", key, amount, ...(holder ? {actor: holder} : {})});
 const stamina = (amount, holder) => ({type: "vital", key: "stamina", amount, ...(holder ? {actor: holder} : {})});
 const coins = (amount, holder) => ({type: "resource", key: "coins", amount, actor: holder});
-const money = amount => ({type: "resource", key: "money", native: true, amount});
 const attention = (amount, holder) => ({type: "resource", key: "fieldAttention", amount, actor: holder});
 const energy = (energyId, output, control) => ({type: "energy", energyId, operation: "use", output, control});
 const xp = (skill, amount) => ({type: "xp", skill, amount});

@@ -6,10 +6,10 @@ import {REMAINDER_COMBAT_OBJECTIVES as I,REMAINDER_COMBAT_OBJECTIVE_KEYS as K,co
     ownedCombatObjectiveItem,fittingCarried,fittingReturnEffect,remainderMaintainedBraceSupported} from './audit_remainder_combat_objectives_content.js';
 import {endRemainderCombatObjective} from './audit_remainder_combat_objectives_state.js';
 import {SKILL_IDS} from './skill_expansion_content.js';
+import {itemPlayerReturned as item} from './content_kit.js';
 const exact=(x,fields)=>object(x)&&Object.keys(x).sort().join('|')===[...fields].sort().join('|');
 const targets=c=>c.targetIds||(c.targetId?[c.targetId]:[]),battle=state=>state.simulation?.sessions?.player?.nativeBattle;
 const stagedContext=(plan,context)=>({...context,gameplay:plan.gameplay,vitals:plan.vitals,equipment:plan.equipment});
-const item=(key,amount,returned=false)=>({type:'item',actor:'player',key,amount,...(returned?{reservationReturn:true}:{})});
 const live=(b,id)=>b.fighters?.[id]?.status==='active';
 const admissionPreparation={guard:K.guard,brace_wrap:K.wrap,traversal:K.traversal};
 export function remainderCombatObjectivesAdmissionReasons(state,context={},command={}){

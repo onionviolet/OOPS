@@ -3,6 +3,7 @@
 import {all, eq, not} from './basics.js';
 import {compileSiteProject} from './site_projects.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as OK} from './feature_expansion_objects.js';
+import {itemKeyActorReturned as item, moneyActorNativeKey as money, staminaAmountFirst as stamina, transferCount as transfer} from './content_kit.js';
 
 export const REMAINDER_HOME_IDS = Object.freeze({
     world: O.world, group: 'remainder_home', bench: O.site, eda: O.miri, grain: O.method,
@@ -27,12 +28,8 @@ export const remainderHomeItemSpecifications = Object.freeze([
 ]);
 const af = (name, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: P + name, value});
 const wf = (name, value = true) => ({type: 'world', worldId: I.world, key: P + name, value});
-const item = (key, amount, actor = 'player', returned = false) => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
 const coins = (amount, actor = I.eda) => ({type: 'resource', actor, key: 'coins', amount});
-const stamina = (amount, actor = 'player') => ({type: 'vital', actor, key: 'stamina', amount});
 const attention = amount => ({type: 'resource', actor: I.resident, key: 'attention', amount});
-const transfer = (from, to, key, count = 1) => ({type: 'transfer', from, to, key, count});
 const know = (name, value, stage = 'seen', actor = 'player', attributedTo = actor, kind = 'observation') => ({type: 'knowledge', actor,
     key: P + name, stage, value, basis: {kind, attributedTo, situationId: I.situation}});
 const enrolled = eq('auditRemainder.enrolled', true, 'Accept the optional local remainder terms first.');

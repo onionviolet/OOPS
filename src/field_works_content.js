@@ -2,6 +2,7 @@
 // local material laws and ordinary simulation commands, not Minecraft recipes.
 import {fieldWorksExtensionDefinitions} from './field_works_extension_content.js';
 import {all, any, eq, not} from './basics.js';
+import {itemOptionalActor as item, transferCount as transfer} from './content_kit.js';
 
 export const WORKS = Object.freeze({prefix:'field.works.', world:'base.frontier', spirit:'fieldWorksSpirit', artisan:'fieldWorksArtisan', courier:'fieldWorksCourier', bench:'field.works.bench'});
 const P=WORKS.prefix, key=id=>JSON.stringify({id});
@@ -30,12 +31,10 @@ export const fieldWorksItemSpecs=[
 export function registerFieldWorksItems({item_templates,OtherItem}) {
     for(const [name,description,value] of fieldWorksItemSpecs) item_templates[name]=new OtherItem({id:name,name,description,value,tags:{expedition:true}});
 }
-const item=(key,amount,actor)=>({type:'item',key,amount,...(actor?{actor}:{})});
 const res=(key,amount,actor='player',capacity)=>({type:'resource',key:P+key,amount,actor,...(capacity==null?{}:{capacity})});
 const fact=(key,value=true,actor='player')=>({type:'fact',scope:'actor',actor,key:P+key,value});
 const cash=amount=>({type:'resource',native:true,key:'money',amount,actor:'player'});
 const know=(key,value,actor='player')=>({type:'knowledge',actor,key:P+key,stage:'understood',value});
-const transfer=(from,to,key,count=1)=>({type:'transfer',from,to,key,count});
 const f=(name,reason)=>eq('fieldWorks.'+name,true,reason);
 const enrolled=f('enrolled'), supported=f('supported','Return to your supported field workshop in the Frontier.'), operating=all(enrolled,supported);
 const visible=(...rules)=>all(enrolled,...rules);

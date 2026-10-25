@@ -2,6 +2,7 @@
 // participant, reservation, condition and played-clock owners do all work.
 import {all, eq, not} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as OK} from './feature_expansion_objects.js';
+import {gteReason as gte, staminaAmountFirst as stamina} from './content_kit.js';
 export const REFERENCE_GAMEPLAY_IDS = Object.freeze({world: O.world, group: 'reference_gameplay', teacher: O.miri, site: O.site,
     cooling: 'reference_gameplay.cooling', open: 'reference_gameplay.open', practice: 'reference_gameplay.practice',
     plan: 'reference_gameplay.cooling_plan', hook: 'featureBattleHook', field: 'reference_gameplay.hook_cooled'});
@@ -15,9 +16,7 @@ export const referenceGameplayItemSpecifications = Object.freeze([
     {id: 'Cooling salt packet', description: 'One finite measured salt input for sleeve recharge or a supervised test. Asking and revisiting do not replenish it.', value: 1},
     {id: 'Set repair resin', description: 'Actual sap set by a discharged cooling sleeve. Two sound staves and one resin make two native survey kits at the fitting bench.', value: 2},
 ]);
-const gte = (fact, value, reason) => ({fact, op: 'gte', value, ...(reason ? {reason} : {})});
 const item = (key, amount, actor = 'player', returned = false) => ({type: 'item', key, amount, actor, ...(returned ? {reservationReturn: true} : {})});
-const stamina = (amount, actor = 'player') => ({type: 'vital', actor, key: 'stamina', amount});
 const money = amount => ({type: 'resource', native: true, actor: 'player', key: 'money', amount});
 const coins = amount => ({type: 'resource', actor: I.teacher, key: 'coins', amount});
 const fact = (key, value = true) => ({type: 'fact', scope: 'actor', key: `reference_gameplay.${key}`, value});

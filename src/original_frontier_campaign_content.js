@@ -1,6 +1,7 @@
 import {all, any, eq, gte} from './basics.js';
 import {originalFrontierCareerDefinitions,originalFrontierCareerSources} from './original_frontier_career_content.js';
 import {originalFrontierFieldDefinitions,originalFrontierFieldSources} from './original_frontier_field_content.js';
+import {coinsActorFirst as coins} from './content_kit.js';
 // Original Frontier proposal content. Registration never enrolls actors;
 // the explicit native meeting publishes enrollment and opening together.
 export const ORIGINAL_FRONTIER_IDS = Object.freeze({
@@ -17,7 +18,6 @@ const route = value => eq(`world.${prefix}.route`, value);
 const af = (key, value = true, actor = "player") => ({type: "fact", scope: "actor", actor, key: `${prefix}.${key}`, value});
 const wf = (key, value = true) => ({type: "world", worldId: ids.world, key: `${prefix}.${key}`, value});
 const shift = (from, to) => ({type: "situation", situationId: ids.situation, operation: "advance", expected: Array.isArray(from) ? from : [from], phase: to});
-const coins = (actor, amount) => ({type: "resource", actor, key: "coins", amount});
 const pay = amount => ({type: "resource", actor: "player", native: true, key: "money", amount});
 const know = (key, value, actor = "player", kind = "observation", attributedTo = ids.dispatcher) => ({
     type: "knowledge", actor, key: `${prefix}.${key}`, stage: kind === "instruction" ? "understood" : "seen", value,

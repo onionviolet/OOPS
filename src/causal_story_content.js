@@ -4,6 +4,7 @@ import {CAUSAL_STORY_PEOPLE as P, CAUSAL_STORY_PROFILES as PROFILES, CAUSAL_STOR
     CAUSAL_STORY_WORLD as WORLD, CAUSAL_STORY_LOCATION as LOCATION, CAUSAL_STORY_ITEMS as K,
     CAUSAL_STORY_SOURCES as SOURCES, causalStoryId} from './causal_story_ids.js';
 import {freezeCausalStoryContent as freeze, causalStoryPeople, causalStoryActorFacts} from './causal_story_actors.js';
+import {moneyActorKeyNative as money, staminaActorFirst as stamina, itemActorFirst as item} from './content_kit.js';
 export {CAUSAL_STORY_NATIVE_PEOPLE, causalStorySeedEffects, causalStoryNativeStats} from './causal_story_actors.js';
 
 export const CAUSAL_STORY_SITES = freeze({delivery:Object.fromEntries(PROOFS.map(p => [p, `causal.story.delivery.${p}`])),
@@ -16,9 +17,6 @@ const player = all(enrolled, eq('causal.playerSupported'));
 const at = (proof, key, value=true) => eq(`causal.proof.${proof}.${key}`, value);
 const flag = (proof, key, actor, value=true) => ({type:'fact', scope:'actor', actor, key:causalStoryId(proof, key), value});
 const resource = (actor, key, amount) => ({type:'resource', actor, key:`causal.story.${key}`, amount});
-const money = amount => ({type:'resource', actor:'player', key:'money', native:true, amount});
-const stamina = (actor, amount) => ({type:'vital', actor, key:'stamina', amount});
-const item = (actor, key, amount, returned=false) => ({type:'item', actor, key, amount, ...(returned ? {reservationReturn:true} : {})});
 const know = (proof, key, actor, value, attributedTo, stage='understood', kind='instruction') => ({type:'knowledge', actor,
     key:causalStoryId(proof, key), stage, value, ...(attributedTo ? {basis:{kind, attributedTo, situationId:causalStoryId(proof, 'situation')}} : {})});
 const timed = (duration, support, siteId, coLocated=true) => ({duration, cancellation:'refund', completionFailure:'refund',

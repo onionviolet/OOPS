@@ -4,6 +4,7 @@
 import {all, eq} from './basics.js';
 import {repositoryAbsorptionSubstitutionCommands} from './repository_absorption_substitutions.js';
 import {repositoryAbsorptionChainCommands} from './repository_absorption_chains.js';
+import {gteReason as gte, itemKeyActor as item, staminaAmountFirst as stamina, moneyNativeKey as money} from './content_kit.js';
 export const REPOSITORY_ABSORPTION_VERSION = 1;
 export const REPOSITORY_ABSORPTION_IDS = Object.freeze({
     actor: 'repositories.miri', lantern: 'repositories.lantern', pump: 'repositories.pump',
@@ -23,15 +24,11 @@ export const REPOSITORY_ABSORPTION_ITEMS = Object.freeze({
     protectedKit:key('Wax-sealed survey kit'), soakedKit:key('Soaked survey kit'),
 });
 const I = REPOSITORY_ABSORPTION_ITEMS;
-const gte = (fact,value,reason) => ({fact,op:'gte',value,...(reason?{reason}:{})});
 const phase = (id,...values) => values.length === 1 ? eq(`situation.${id}.phase`,values[0]) : {any:values.map(v=>eq(`situation.${id}.phase`,v))};
 const shift = (id,from,to) => ({type:'situation',situationId:id,operation:'advance',expected:Array.isArray(from)?from:[from],phase:to});
 const af = (name,value=true,actor='player') => ({type:'fact',scope:'actor',actor,key:`repositories.${name}`,value});
 const wf = (name,value=true) => ({type:'world',worldId:WORLD,key:`repositories.${name}`,value});
-const item = (key,amount,actor='player') => ({type:'item',actor,key,amount});
-const stamina = (amount,actor='player') => ({type:'vital',actor,key:'stamina',amount});
 const purse = (amount,actor=MIRI) => ({type:'resource',actor,key:'coins',amount});
-const money = amount => ({type:'resource',native:true,key:'money',amount});
 const know = (name,value,{actor='player',kind='observation',situation=LANTERN,attributedTo='player'}={}) => ({
     type:'knowledge',actor,key:`repositories.${name}`,stage:kind==='instruction'?'understood':'seen',value,
     basis:{kind,attributedTo,situationId:situation},

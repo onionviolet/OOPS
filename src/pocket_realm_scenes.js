@@ -3,11 +3,11 @@
 import {all, check as assert, copyJson as copy, deepFreeze as freeze, eq} from './basics.js';
 import {createRealmConnection, realmConnectionBinding} from "./realm_connections.js";
 import {validateRealmBoundaryRule, validateRealmEndpoint} from "./realm_boundary_rules.js";
+import {staminaOptionalActor as stamina} from './content_kit.js';
 const stable = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !["__proto__", "constructor", "prototype"].includes(value);
 const itemKey = id => JSON.stringify({id});
 const item = (id, amount, actor) => ({type: "item", key: itemKey(id), amount, ...(actor ? {actor} : {})});
-const stamina = (amount, actor) => ({type: "vital", key: "stamina", amount, ...(actor ? {actor} : {})});
 
 export const POCKET_SCENE_REVISION = 1;
 export const POCKET_SCENE_DEFAULT_BINDINGS = freeze({worldId: "pocket.folded_glasshouse",

@@ -2,6 +2,7 @@
 // and item-gated events. This is not a direct Marvel or other source-world copy.
 import {allTruthy as all, eq} from './basics.js';
 import {compileArtifactCollection, compileItemEncounter} from './artifact_collection.js';
+import {moneyNativeKey as money, itemOptionalActor as item, transferCount as transfer} from './content_kit.js';
 
 export const ARTIFACT_WORKSHOP_IDS = Object.freeze({world: 'base.frontier', group: 'artifact_collection',
     maker: 'artifact_collection.mara', open: 'artifact_collection.open', situation: 'artifact_collection.workshop', scene: 'artifact_collection.tray', enter: 'artifact_collection.inspect_projection'});
@@ -15,9 +16,6 @@ const live = eq('actor.life', 'alive', 'Recover before using the workshop.');
 const opened = eq('actor.artifact_collection.opened');
 const af = (key, value = true) => ({type: 'fact', scope: 'actor', key: `artifact_collection.${key}`, value});
 const stamina = amount => ({type: 'vital', key: 'stamina', amount});
-const money = amount => ({type: 'resource', native: true, key: 'money', amount});
-const item = (key, amount, actor) => ({type: 'item', key, amount, ...(actor ? {actor} : {})});
-const transfer = (from, to, key, count = 1) => ({type: 'transfer', from, to, key, count});
 const know = (key, value, attributedTo = 'player') => ({type: 'knowledge', key: `artifact_collection.${key}`, stage: 'seen', value,
     basis: {kind: attributedTo === 'player' ? 'observation' : 'recollection', attributedTo, situationId: I.situation}});
 const command = d => ({revision: 1, worldId: I.world, group: I.group, actorId: 'player', location: 'Village',

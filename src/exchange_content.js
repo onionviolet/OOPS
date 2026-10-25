@@ -1,9 +1,9 @@
 import {all, eq} from './basics.js';
+import {moneyNativeKey as money} from './content_kit.js';
 export const EXCHANGE_CLERK='exchangeClerk',EXCHANGE_SITUATION='exchange.parcel',EXCHANGE_LOAN='exchange.gauge';
 export const EXCHANGE_ITEMS=Object.fromEntries(['Wet seal blank','Sound seal blank','Fitted parcel seal','Parcel gauge','Sealing template','Prepared survey kit','Rough wood log'].map(id=>[id,JSON.stringify({id})]));
 const key=id=>EXCHANGE_ITEMS[id];
 const phase=p=>eq(`situation.${EXCHANGE_SITUATION}.phase`,p),phases=(...ps)=>({any:ps.map(phase)});
-const money=amount=>({type:'resource',native:true,key:'money',amount});
 const item=(id,amount,actor)=>({type:'item',key:key(id),amount,...(actor?{actor}:{})});
 const fact=(k,value=true,actor)=>({type:'fact',scope:'actor',key:k,value,...(actor?{actor}:{})});
 const shift=(from,to)=>({type:'situation',situationId:EXCHANGE_SITUATION,operation:'advance',expected:[from],phase:to,text:`Parcel work: ${from} → ${to}.`});

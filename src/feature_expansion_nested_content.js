@@ -2,6 +2,7 @@
 // destinations, contracts, dialogue and prototype prices. PR01–PR08 qualify
 // distinctions, not these invented scenes or any original franchise canon.
 import {all, eqNoReason as eq, gte} from './basics.js';
+import {itemActorFirst as item} from './content_kit.js';
 export const NESTED_SCHEMA = 1;
 export const NESTED_NATIVE_DOMAIN = 'nested_campaign_native';
 export const NESTED_IDS = Object.freeze({hub:'nested.paradise_hub',salt:'nested.saltworks',archive:'nested.archive',
@@ -46,7 +47,6 @@ const unstarted=chain=>eq(`nested.chain.${chain}.started`,false);
 const af=(key,value,actor='player')=>({type:'fact',scope:'actor',actor,key:`nested.${key}`,value});
 const wf=(worldId,key,value)=>({type:'world',worldId,key,value});
 const credit=(actor,amount)=>({type:'resource',actor,key:'nested.credit',amount});
-const item=(actor,key,amount,returned=false)=>({type:'item',actor,key,amount,...(returned?{reservationReturn:true}:{})});
 const knowledge=(key,value,actor='player',stage='seen')=>({type:'knowledge',actor,key:`nested.${key}`,value,stage});
 const relationship=(actor,target,text)=>({type:'relationship',actor,target,axis:'trust',amount:1,text});
 const local=(id,label,worldId,location,extra={})=>({id:`nested.${id}`,label,revision:1,actorId:'player',worldId,location,group:'nested_campaign',costs:[],effects:[],requires:eq('nested.nativeBound'),...extra});

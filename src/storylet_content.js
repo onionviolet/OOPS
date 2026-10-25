@@ -1,10 +1,10 @@
 // E2 Village cards, adapted to existing single-target effects and played time.
 // Fixed original contacts are a bounded bridge; P4 owns generated residents.
 import {all, not} from './basics.js';
+import {moneyNativeKey as money} from './content_kit.js';
 const F = (fact, op, value) => ({fact, op, value});
 const is = (key, value=true) => F(key,'eq',value);
 const fact = (key,value=true) => ({type:'fact',scope:'actor',key,value});
-const money = amount => ({type:'resource',native:true,key:'money',amount});
 const item = (id,amount) => ({type:'item',key:JSON.stringify({id}),amount});
 const xp = (skill,amount) => ({type:'xp',skill,amount});
 const neighbor = 'storylet.neighbor';

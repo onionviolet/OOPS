@@ -3,6 +3,7 @@
 import {all, any, eq, not} from './basics.js';
 import {LEVER_PRACTICE_BRACE, leverPracticeBraceItem} from './lever_practice_supply.js';
 import {dryingRewardDefinition} from './earned_drying_tracker.js';
+import {gteReason as gte} from './content_kit.js';
 export const FEATURE_OBJECT_IDS = Object.freeze({
     world: 'base.frontier', group: 'feature_objects', miri: 'feature_objects.miri',
     situation: 'feature_objects.sluice', site: 'feature_objects.fitting_bench',
@@ -32,7 +33,6 @@ export const FEATURE_OBJECT_KEYS = Object.freeze({
     log: key('Rough wood log'), sap: key('Tree sap'), kit: key('Prepared survey kit'),
 });
 const K = FEATURE_OBJECT_KEYS;
-const gte = (fact, value, reason) => ({fact, op: 'gte', value, ...(reason ? {reason} : {})});
 const af = (name, value = true, actor) => ({type: 'fact', scope: 'actor', key: `feature_objects.${name}`, value, ...(actor ? {actor} : {})});
 const wf = (name, value) => ({type: 'world', worldId: I.world, key: `feature_objects.${name}`, value});
 const item = (key, amount, actor = 'player', returned = false) => ({type: 'item', key, amount, actor, ...(returned ? {reservationReturn: true} : {})});

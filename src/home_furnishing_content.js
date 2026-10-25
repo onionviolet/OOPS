@@ -4,6 +4,7 @@ import {all, deepFreeze as freeze, eq} from './basics.js';
 import {compileSiteProject} from './site_projects.js';
 import {REMAINDER_HOME_KEYS as existingKeys} from './audit_remainder_home_content.js';
 import {MOL_KEYS} from './book_world_mol_ids.js';
+import {itemPlayerReturned as item, moneyActorNativeKey as money} from './content_kit.js';
 
 export const HOME_FURNISHING_IDS = Object.freeze({prefix: 'home_furnishings.', group: 'home_furnishings',
     world: 'base.frontier', site: 'field.assembly', location: 'Shack', situation: 'home_furnishings.fit_out',
@@ -16,8 +17,6 @@ export const HOME_FURNISHING_KEYS = Object.freeze({log: existingKeys.log, sap: e
 const I = HOME_FURNISHING_IDS, K = HOME_FURNISHING_KEYS, P = I.prefix;
 const af = (name, value = true) => ({type: 'fact', scope: 'actor', actor: 'player', key: P + name, value});
 const wf = (key, value = true) => ({type: 'world', worldId: I.world, key, value});
-const item = (key, amount, returned = false) => ({type: 'item', actor: 'player', key, amount, ...(returned ? {reservationReturn: true} : {})});
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
 const effort = amount => ({type: 'vital', actor: 'player', key: 'stamina', amount});
 const know = (name, value, stage = 'seen') => ({type: 'knowledge', actor: 'player', key: P + name, stage, value,
     basis: {kind: 'observation', attributedTo: 'player', situationId: I.situation}});

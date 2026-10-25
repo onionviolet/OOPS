@@ -3,6 +3,7 @@
 import {all, eq, not} from './basics.js';
 import {CRUSH_SOCIAL_IDS} from './crush_social_facts.js';
 import {SOCIETY_IDS as S} from './feature_expansion_society.js';
+import {staminaActorFirst as stamina} from './content_kit.js';
 
 export {CRUSH_SOCIAL_IDS} from './crush_social_facts.js';
 export const CRUSH_SOCIAL_ITEMS = Object.freeze({wood: JSON.stringify({id: 'Rough wood log'}), kit: JSON.stringify({id: 'Prepared survey kit'})});
@@ -12,7 +13,6 @@ const fact = (key, value = true, actor = 'player') => ({type: 'fact', scope: 'ac
 const know = (key, value, actor = 'player') => ({type: 'knowledge', actor, key: `${P}.${key}`, stage: 'seen', value,
     basis: {kind: 'observation', attributedTo: visitorId, situationId: promiseId}});
 const memory = text => ({type: 'relationship', actor: visitorId, target: 'player', axis: 'trust', amount: 1, text});
-const stamina = (actor, amount) => ({type: 'vital', actor, key: 'stamina', amount});
 const item = (actor, key, amount) => ({type: 'item', actor, key, amount});
 const metHelp = all(eq(`situation.${promiseId}.phase`, 'met_help'), eq('crushSocial.metHelp'));
 const local = eq('crushSocial.local', true, 'Meet Tamsin in the Village with supported local contact.');

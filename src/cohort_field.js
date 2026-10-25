@@ -3,7 +3,7 @@
 import {COHORT_MEMBERS,COHORT_ROOM} from './cohort_battle_facts.js';
 import {drainageEdges,drainageLayout,drainageLocation,drainageRoom,drainageGate} from './drainage_layout.js';
 import {simulationOccupiesActor} from './simulation.js';
-const eq=(fact,value=true)=>({fact,op:'eq',value});
+import {eqNoReason as eq} from './basics.js';
 const pairs=[[COHORT_ROOM,'Village',5],['Village',drainageLocation(0),5],...Array.from(new Map([...drainageEdges(1),...drainageEdges(2)].map(([a,b])=>[a+':'+b,[drainageLocation(a),drainageLocation(b),2]])).values())];
 export const cohortFieldLegs=pairs.flatMap(([a,b,minutes])=>[{from:a,to:b,minutes},{from:b,to:a,minutes}]);
 export const cohortFieldId=(actor,from,to)=>'cohort.field.'+actor+'.'+cohortFieldLegs.findIndex(r=>r.from===from&&r.to===to);

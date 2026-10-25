@@ -2,6 +2,8 @@
 // training, rescue and aftermath are original reversible branch proposals.
 // Definitions grant no person, body, stock, source, purse or reward on import.
 import {PARADISE_IDS as P, PARADISE_LOCATIONS as L, PARADISE_KEYS as K} from './book_world_paradise_ids.js';
+import {eq, gte} from './basics.js';
+import {itemActorFirst as item, transferOne as transfer} from './content_kit.js';
 
 export const PARADISE_CAMPAIGN_IDS = Object.freeze({prefix:'book.paradise.campaign.', group:'book_paradise_campaign',
     npcGroup:'book_paradise_campaign_npc', method:'book.paradise.campaign.line_rigging', bench:'book.paradise.campaign.personal_bench',
@@ -11,15 +13,11 @@ export const PARADISE_CAMPAIGN_IDS = Object.freeze({prefix:'book.paradise.campai
 export const PARADISE_CAMPAIGN_KEYS = Object.freeze({cloth:JSON.stringify({id:'Linen cloth'}), herb:JSON.stringify({id:'Golmoon leaf'})});
 export const PARADISE_CAMPAIGN_WINDOW = Object.freeze({assembly:58, danger:60, deadline:72});
 const I=PARADISE_CAMPAIGN_IDS, F=I.prefix, Q=PARADISE_CAMPAIGN_KEYS;
-const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
-const gte=(fact,value)=>({fact,op:'gte',value});
 const all=(...rules)=>({all:rules}), not=rule=>({not:rule});
 const f=(name,reason)=>eq('paradiseCampaign.'+name,true,reason);
 const af=(name,value=true,actor='player')=>({type:'fact',scope:'actor',actor,key:F+name,value});
 const wf=(name,value=true)=>({type:'world',worldId:P.goa,key:F+name,value});
 const old=(name,value=true)=>({type:'world',worldId:P.goa,key:'book.goa.'+name,value});
-const item=(actor,key,amount,returned=false)=>({type:'item',actor,key,amount,...(returned?{reservationReturn:true}:{})});
-const transfer=(from,to,key)=>({type:'transfer',from,to,key,count:1});
 const vital=(actor,key,amount)=>({type:'vital',actor,key,amount});
 const stamina=(actor,amount)=>vital(actor,'stamina',amount);
 const purse=(actor,amount,hub=false)=>({type:'resource',actor,key:hub?'book.paradise.coin':'book.paradise.belli',amount});

@@ -1,6 +1,7 @@
 // Original reversible Frontier prototypes. Native XP, method mastery, stock,
 // knowledge, jobs and publication remain owned by the existing shared services.
 import {all, any, eq, not} from './basics.js';
+import {moneyNativeKey as money, staminaOptionalActor as stamina} from './content_kit.js';
 export const SKILL_IDS = Object.freeze({
     brace: "frontier.brace_control",
     trail: "frontier.trail_reading",
@@ -19,8 +20,6 @@ const mastery = (id, amount) => atLeast(`power.${id}.mastery`, amount, `Practice
 const knowledge = (id, stage, value, teacher) => ({type: "knowledge", key: id, stage,
     value: teacher ? `${value} Instruction/report source: ${teacher === LIO ? "Lio" : "the old craftsman"}.` : value});
 const af = (key, value = true) => ({type: "fact", scope: "actor", key, value});
-const money = amount => ({type: "resource", native: true, key: "money", amount});
-const stamina = (amount, actor) => ({type: "vital", key: "stamina", amount, ...(actor ? {actor} : {})});
 const item = (key, amount) => ({type: "item", key, amount});
 const xp = (skill, amount) => ({type: "xp", skill, amount});
 const refine = (id, amount = 1) => ({type: "power", powerId: id, operation: "refine", amount});

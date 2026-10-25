@@ -3,6 +3,7 @@
 import {all, eq, not} from './basics.js';
 import {REMAINDER_HOME_IDS as H, REMAINDER_HOME_KEYS as K} from './audit_remainder_home_content.js';
 import {REMAINDER_LIVELIHOOD_IDS as L} from './audit_remainder_livelihood_content.js';
+import {moneyActorNativeKey as money, staminaActorFirst as stamina, itemActorFirst as item} from './content_kit.js';
 
 export const LORE_PRACTICE_IDS = Object.freeze({world: H.world, neri: H.resident, orr: L.orr, ressa: 'remainder.offers.ressa',
     workshop: H.workshop, residence: H.residence, shift: 'lore.work.shift', rain: 'lore.warning.rain',
@@ -16,10 +17,7 @@ const f = (name, value = true, reason) => eq(`lore.${name}`, value, reason);
 const local = f('local', true, 'Use your actual living human body in the supported home realm and played clock.');
 const hands = f('playerHands', true, 'Recover your two usable hands first.');
 const wf = (name, value = true) => ({type: 'world', worldId: I.world, key: `lore.${name}`, value});
-const money = amount => ({type: 'resource', actor: 'player', native: true, key: 'money', amount});
 const resource = (actor, key, amount) => ({type: 'resource', actor, key, amount});
-const stamina = (actor, amount) => ({type: 'vital', actor, key: 'stamina', amount});
-const item = (actor, key, amount, returned = false) => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});
 const transfer = (from, to, key, returned = false) => ({type: 'transfer', from, to, key, count: 1, ...(returned ? {reservationReturn: true} : {})});
 export const lorePracticeKnowledge = (key, text, actor = 'player', speaker = actor, situationId = key.startsWith('lore.work.') ? I.shift : I.rain) =>
     ({type: 'knowledge', actor, key, stage: 'seen', value: text, basis: {kind: 'observation', attributedTo: speaker, situationId}});

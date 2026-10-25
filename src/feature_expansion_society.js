@@ -1,6 +1,7 @@
 // Original reversible content. Residents enter once through an explicit meeting.
 // Their purses, stock, consent, work and knowledge use existing simulation owners.
 import {all, eq, not} from './basics.js';
+import {coinsActorFirst as coin, moneyActorKeyNative as money, itemActorFirst as item, transferCount as transfer, staminaActorFirst as stamina} from './content_kit.js';
 export const SOCIETY_IDS = Object.freeze({prefix: 'feature_society', world: 'base.frontier',
     household: 'feature_society.hessa', craftsperson: 'feature_society.orr', apprentice: 'feature_society.vale',
     home: 'feature_society.home', bench: 'feature_society.bench', method: 'feature_society.ordinary_join',
@@ -13,12 +14,7 @@ const af = (key, value = true, actor = 'player') => ({type: 'fact', scope: 'acto
 const wf = (key, value = true) => ({type: 'world', worldId: W, key: `${P}.${key}`, value});
 const a = (key, value = true) => eq(`actor.${P}.${key}`, value);
 const w = (key, value = true) => eq(`world.${P}.${key}`, value);
-const coin = (actor, amount) => ({type: 'resource', actor, key: 'coins', amount});
-const money = amount => ({type: 'resource', actor: 'player', key: 'money', native: true, amount});
-const item = (actor, key, amount, returned = false) => ({type: 'item', actor, key, amount, ...(returned ? {reservationReturn: true} : {})});
-const transfer = (from, to, key, count = 1) => ({type: 'transfer', from, to, key, count});
 const resource = (actor, key, amount) => ({type: 'resource', actor, key, amount});
-const stamina = (actor, amount) => ({type: 'vital', actor, key: 'stamina', amount});
 const knowledge = (key, value, actor = 'player', stage = 'seen', attributedTo = H) => ({type: 'knowledge', actor,
     key: `${P}.${key}`, stage, value, basis: {kind: stage === 'understood' ? 'instruction' : 'observation', attributedTo, situationId: `${P}.home_agreement`}});
 const memory = (actor, target, text) => ({type: 'relationship', actor, target, axis: 'respect', amount: 1, text});

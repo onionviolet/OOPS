@@ -1,6 +1,7 @@
 // ONI-P04: original sheltered nursery fiction and compressed timing.
 // Optional native work only; neither source plant code nor ecology is imported.
 import {all, eq} from './basics.js';
+import {itemPlayer as item, staminaPlayer as stamina} from './content_kit.js';
 export const STEAM_ONI_IDS = Object.freeze({world: 'base.frontier', group: 'steam_oni', prefix: 'steam.oni.',
     begin: 'steam.oni.begin', build: 'steam.oni.build_tray', cycle: 'steam.oni.tend_cycle',
     enrolled: 'steam.oni.enrolled', built: 'steam.oni.trayBuilt', site: 'steam.oni.nursery_tray', situation: 'steam.oni.nursery_plan', version: 1});
@@ -12,8 +13,6 @@ const support = all(eq('steamONI.supported', true, 'Return beneath the Shack roo
     eq('steamONI.handsUsable', true, 'Let your sore or scraped hands recover before tending the tray.'));
 const tray = eq('steamONI.trayPresent', true, 'Finish your own nursery tray at the Shack first.');
 const unbuilt = eq('steamONI.trayPresent', false, 'Your nursery tray is already built.');
-const item = (key, amount) => ({type: 'item', actor: 'player', key, amount});
-const stamina = amount => ({type: 'vital', actor: 'player', key: 'stamina', amount});
 const fact = key => ({type: 'fact', scope: 'actor', actor: 'player', key, value: true});
 const know = (key, value) => ({type: 'knowledge', actor: 'player', key: `${I.prefix}${key}`, stage: 'understood', value});
 const command = d => ({revision: 1, worldId: I.world, group: I.group, actorId: 'player', location: 'Shack', costs: [], effects: [], ...d});
