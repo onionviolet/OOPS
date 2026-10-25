@@ -12,7 +12,7 @@ export async function cheatGame({start = 'none', port = 0, viewport = {width:192
         plugins: [{name: 'cheat-test-access', setup(build) {
             build.onLoad({filter: /[/\\]src[/\\]main\.js$/}, () => ({contents: source + `
                 import {readNativeFighter as rfRead,commitNativeBattleStrike as rfStrike,withdrawNativeBattle as rfWithdraw} from './native_battle.js';
-                globalThis.__cheatTest = {ready:()=>ownsSave&&!restoringNativeSave&&!importProbeToken,create_save, load, craft:(request)=>domainRegistry.command('crafting','execute')(domainRegistry.command('crafting','quote')(request)), craftView:()=>domainRegistry.project('crafting'),
+                globalThis.__cheatTest = {continuation:commandContinuation,ready:()=>ownsSave&&!restoringNativeSave&&!importProbeToken,create_save, load, craft:(request)=>domainRegistry.command('crafting','execute')(domainRegistry.command('crafting','quote')(request)), craftView:()=>domainRegistry.project('crafting'),
                   rfContext:()=>campaignContext(),openPeople:()=>adventureNotebook.open('people'),
                   rfStrike:()=>{const p=expansionState.simulation.people.roadRival,e=new Enemy({name:'Opponent',stats:{...p.body,health:p.vitals.max_health,max_stamina:p.vitals.max_stamina}});e.init();Object.assign(e.getFullStats(),p.vitals);persistExpansion(rfStrike(expansionState,expeditionRegistry,{actorId:'player',targetId:'roadRival',attacker:rfRead(character),target:rfRead(e)},campaignContext()));frontierCampaignPanel?.render();},
                   rfWithdraw:()=>{persistExpansion(rfWithdraw(expansionState,expeditionRegistry,campaignContext()));frontierCampaignPanel?.render();},

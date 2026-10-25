@@ -33,3 +33,19 @@ test('temporal carrier keeps faculty acquired after a checkpoint without copying
  assert.ok(next.held['quiet-faculty']);assert.equal(next.held['system-quests'],undefined);
  assert.deepEqual(carryCheats(undefined),defaultCheatState());
 });
+
+test('native temporal return retains later designs and spent journey bank while restoring local reserves',async()=>{
+ const {grantCheat}=await import('../src/cheat_cards.js'),{moduleCard}=await import('../src/cheat_definitions.js'),{SALT_STEEP}=await import('../src/craft_reference_content.js');
+ const {beginContinuation,planContinuation}=await import('../src/continuation_state.js');
+ let cheats=awakenCheats(seed(),{dayCount:3,at}).state;
+ for(const id of ['pattern-book','patient-furnace']){cheats=grantCheat(cheats,moduleCard(id),{route:'test',at});cheats.held['quiet-faculty'].card.stages.push({id,at,via:'test',carried:true});}
+ Object.assign(cheats.held['patient-furnace'].card.state.away,{assigned:true,world:'base.frontier',anchor:1000,bank:20});
+ const initial=beginContinuation({character:{name:'Ada'},levels:{person:{main_character:{skill_xp:{}}}},'current time':at,cheats,expansion:{actors:{player:{worldId:'base.frontier'}},worlds:{'base.frontier':{}}}},'carry-test');
+ const source=structuredClone(initial);source.cheats.held['pattern-book'].card.state.patterns.push({world:'base.frontier',at:1,recipe:structuredClone(SALT_STEEP)});source.cheats.held['pattern-book'].card.state.used=1;source.cheats.held['pattern-book'].card.state.charges=2;
+ Object.assign(source.cheats.held['patient-furnace'].card.state.away,{bank:12,spent:8,anchor:5000});
+ const restored=planContinuation(source,'initial',{expectedSequence:0,token:'return-1'});
+ assert.deepEqual(restored.cheats.held['pattern-book'].card.state.patterns,source.cheats.held['pattern-book'].card.state.patterns);
+ assert.equal(restored.cheats.held['pattern-book'].card.state.charges,3,'local reserves use native snapshot policy');
+ assert.equal(restored.cheats.held['patient-furnace'].card.state.away.bank,12);assert.equal(restored.cheats.held['patient-furnace'].card.state.away.spent,8);validateCheatState(restored.cheats);
+ const again=planContinuation(restored,'initial',{expectedSequence:1,token:'return-2'});assert.equal(again.cheats.held['patient-furnace'].card.state.away.bank,12);validateCheatState(again.cheats);
+});

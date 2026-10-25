@@ -112,15 +112,27 @@ export function carryCheats(source, target = defaultCheatState(), {heir = false}
     if(heir) carried.card.state = {...quietFacultyCard().state, awakened: entry.card.state.awakened};
     next.held['quiet-faculty'] = carried;
     for(const stage of carried.card.stages) {
-        if(!CHEAT_MODULES.some(d=>d.id===stage.id)||next.held[stage.id])continue;
+        if(!CHEAT_MODULES.some(d=>d.id===stage.id))continue;
+        const original=from.held[stage.id];
+        if(next.held[stage.id]){
+            // Designs and journey time belong to the continuing self. Local
+            // charges and routine assignment still come from the restored body.
+            if(stage.id==='pattern-book'&&original)next.held[stage.id].card.state.patterns=structuredClone(original.card.state.patterns);
+            if(stage.id==='patient-furnace'&&original){
+                const a=next.held[stage.id].card.state.away,b=original.card.state.away;
+                for(const key of ['bank','spent','remainder'])a[key]=b[key];
+                if(a.assigned)a.anchor=null; // stamp arrival, never re-credit the snapshot’s wall interval
+            }
+            continue;
+        }
         const card=moduleCard(stage.id);
         // Learned means endure; per-life reserves start empty on a new body.
         if(heir){card.state.used=card.state.charges;card.state.charges=0;
             if(stage.id==='patient-furnace')card.state.away={...structuredClone(from.held[stage.id]?.card.state.away??card.state.away),assigned:false,world:null,anchor:null,stop:'Retained time follows the journey. Assign a supported routine in this life.'};
             if(stage.id==='heirloom-compact')card.state.receipt=structuredClone(from.held[stage.id]?.card.state.receipt??null);
             if(stage.id==='pattern-book')card.state.patterns=structuredClone(from.held[stage.id]?.card.state.patterns??[]);}
-        const original=from.held[stage.id];
         next.held[stage.id]=heir||!original?{card,acquired:structuredClone(carried.acquired),messages:[]}:structuredClone(original);
+        if(!heir&&stage.id==='patient-furnace'&&next.held[stage.id].card.state.away.assigned)next.held[stage.id].card.state.away.anchor=null;
     }
     return validateCheatState(next);
 }

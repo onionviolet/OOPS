@@ -149,3 +149,12 @@ Built SH3 bounded route: passive age projection over retained player observation
 - `npm run check:arch`: pass; `/tmp/d4-freshness-arch.log`.
 - `node docs/gm/dispatch/cheats-2026-10-25/freshness-browser.mjs`: pass, rebuilt fresh-origin1920x1080 port5104; UI appraisal and five actual native minutes -> dated original unchanged and age rendered, Save/reload/literal Import exact record, actual heir keeps learned sense and starts body-local records fresh. `FRESHNESS_BROWSER.json`, inspected `freshness-1920.png`.
 - M4: only existing branch cheat definition/mechanism/UI owners plus one current-calendar read in primary-dirty `src/main.js`; new leaf projection and regression. No primary, layout, heir-owner or continuation_* writes in this slice.
+
+### G1 temporal carrier repair (2026-10-25)
+
+Final review found a real remaining adapter defect: a snapshot already holding Pattern Book could replace a later sketch, and an old Patient Furnace snapshot could restore spent journey time. Fixed in `carryCheats`: enduring designs and current bank/spent/remainder follow the continuing self, while native snapshot policy still supplies local reserves and assignment. A temporal arrival stamps a new wall anchor, so its old interval is not credited twice. Pattern history is validated independently from restored per-body charge usage. No continuation owner was edited.
+
+- `node --test tests/cheat_carry.test.js tests/continuation_state.test.js tests/continuation_host.test.js tests/pattern_book.test.js tests/patient_furnace.test.js`: 25/25 pass; actual continuation planner restores twice without duplicating bank or dropping later designs, and existing host checks remain green. `/tmp/d4-temporal-carry-tests.log`.
+- `npm run build`: pass; `/tmp/d4-temporal-carry-build.log`.
+- `node docs/gm/dispatch/cheats-2026-10-25/temporal-browser.mjs`: pass, rebuilt fresh-origin1920x1080 port5104; later UI sketch and native bank expenditure -> actual continuation host/preflight/durable write/reload -> current design/bank retained, local body/reserves restored, remembered design reconstructs in native crafting. `TEMPORAL_BROWSER.json`, inspected `temporal-1920.png`. One harness correction handles the return's expected page navigation.
+- M4: branch writes only `src/cheat_cards.js`, `src/cheat_definitions.js`, `src/patient_furnace.js`, `tests/cheat_carry.test.js`, `tests/helpers/cheat_game.mjs`. Primary-dirty continuation_state/host/ui files and continuation tests read/run only. Cultivation changes remain untouched.

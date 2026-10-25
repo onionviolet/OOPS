@@ -38,7 +38,7 @@ export function validateModuleState(card) {
         throw Error('Invalid cheat retained reading.');
     if(card.id==='patient-furnace')validateFurnace(s.away);
     if(card.id==='heirloom-compact')validateCompact(s);
-    if(card.id==='pattern-book'){if(!Array.isArray(s.patterns)||s.patterns.length>s.used||new Set(s.patterns.map(p=>p?.recipe?.id)).size!==s.patterns.length)throw Error('Invalid retained patterns.');for(const p of s.patterns)validatePattern(p);}
+    if(card.id==='pattern-book'){if(!Array.isArray(s.patterns)||new Set(s.patterns.map(p=>p?.recipe?.id)).size!==s.patterns.length)throw Error('Invalid retained patterns.');for(const p of s.patterns)validatePattern(p);}
     for(const r of s.readings||[]){
         if(card.id==='true-appraisal'&&(!r.ageEstimate||!natural(r.ageEstimate.min)||!natural(r.ageEstimate.max)||r.ageEstimate.min>r.ageEstimate.max||
             !Number.isFinite(r.skill)||r.skill<0||typeof r.species!=='string'||typeof r.key!=='string'||r.source!=='true-appraisal'||

@@ -8,12 +8,13 @@ export const FURNACE_DEFAULTS=Object.freeze({realMsPerMinute:1000/config.tickrat
 export const emptyFurnace=()=>({assigned:false,world:null,anchor:null,bank:0,remainder:0,spent:0,stop:'Assign a finite processing routine.'});
 const natural=n=>Number.isSafeInteger(n)&&n>=0;
 export function validateFurnace(a){
-    if(!a||typeof a.assigned!=='boolean'||!(a.world===null||typeof a.world==='string')||!(a.anchor===null||natural(a.anchor))||!natural(a.bank)||!natural(a.spent)||!natural(a.remainder)||a.remainder>=FURNACE_DEFAULTS.realMsPerMinute||typeof a.stop!=='string'||(a.assigned&&(!a.world||a.anchor===null)))throw Error('Invalid Patient Furnace time record.');
+    if(!a||typeof a.assigned!=='boolean'||!(a.world===null||typeof a.world==='string')||!(a.anchor===null||natural(a.anchor))||!natural(a.bank)||!natural(a.spent)||!natural(a.remainder)||a.remainder>=FURNACE_DEFAULTS.realMsPerMinute||typeof a.stop!=='string'||(a.assigned&&!a.world))throw Error('Invalid Patient Furnace time record.');
     return a;
 }
 export function accrueFurnace(cheats,now){
     const next=structuredClone(cheats),a=next?.held?.['patient-furnace']?.card.state.away;
     if(!a)return next;validateFurnace(a);
+    if(a.assigned&&a.anchor===null)a.anchor=now;
     if(a.assigned&&now>=a.anchor){const elapsed=now-a.anchor+a.remainder;a.bank+=Math.floor(elapsed/FURNACE_DEFAULTS.realMsPerMinute);a.remainder=elapsed%FURNACE_DEFAULTS.realMsPerMinute;a.anchor=now;}
     validateFurnace(a);return next;
 }

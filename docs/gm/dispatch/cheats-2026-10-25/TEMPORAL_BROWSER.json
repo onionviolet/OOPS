@@ -1,0 +1,14 @@
+{
+  "route": "existing continuation carry",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "checks": [
+    "after initial point: UI sketch and actual native bank expenditure",
+    "actual continuation host preflight/write/reload: later design retained, local reserves/body restore, spent journey time stays spent",
+    "retained design reconstructs into actual crafting after return"
+  ],
+  "pass": true,
+  "errors": []
+}

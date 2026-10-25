@@ -1569,9 +1569,9 @@ The root inventory starts with 324 overlapping source rows, including families, 
 - IM25: A short observer log cannot own a committed keyed result. Loaded Dice stores its enduring override in the stream cell; UI logs remain bounded. Peeking reads that same owner without creating a new receipt.
 - IM26: The primary cultivation lane edits continuation files. D4's continuation hunk only imports and invokes the faculty carrier in `restore`; merge it with that lane's intent, baggage, retention and challenge changes. D4 did not edit those primary files.
 
-**LATER / DELEGATE (remaining authorized scope, not delivered)**
+**Prior D4 remaining scope (superseded by same-session G1 receipts below)**
 
-- IM27: Finish the next native owner adapters: RF1 needs a registered actor power plus a repeatable encounter/recognition route; Patient Furnace needs an authoritative offline replay policy beyond `computeAway`; Pattern Book must use `craftLedger`'s knowledge-redacted forecast rather than raw hidden residue; Heirloom Compact needs an executable bequest/claim adapter over the actual estate and debt owner. Level Sol, effort medium per adapter, done check: effect, cost, UI, regression and native save/reload/import journey for each.
+- IM27 (delivered in G1): Registered actor-power/rematch, knowledge-safe readable-design Pattern Book, executable estate Compact and native OD4/TBANK Furnace. The prior claim that rematch/offline policy were absent was corrected against existing owners and accepted direction; raw hidden crafting residue is not copied. Level Sol, effort medium per adapter, done check: effect, cost, UI, regression and native save/reload/import journey for each.
 - IM28: Reference powers without a built world/content mechanism remain proposal rows in the inventory. Absorb their actual means, inputs, reach and carrier through their named world owner, rather than giving a generic card an allowed-outcome list. Level Luna for bounded source extraction, Sol for an adapter, effort per world; done check: source-qualified mechanism and a played native consumer. The broad inventory is unfinished implementation scope, not a claim of completion.
 
 
@@ -1588,3 +1588,25 @@ D4 G1 Heirloom Compact: nominate counted owned goods, then execute the claim thr
 D4 G1 Patient Furnace: [checkpoint](gm/dispatch/cheats-2026-10-25/CHECKPOINT.md#g1-patient-furnace-slice-2026-10-25) corrects the prior missing-policy assertion from accepted OD4/TBANK authority and records native transaction, locked-skill repair and actual away/Import/heir browser proof. Numeric cadence/batch defaults are implementation dials; no new aging/loss policy.
 
 D4 G1 SH3: Freshness Sense reads existing observer timestamps, with actual native time, Save/reload/Import and heir proof in [checkpoint](gm/dispatch/cheats-2026-10-25/CHECKPOINT.md#g1-freshness-sense-slice-2026-10-25). The finite-routine completion milestone funds the eighth native development; no points shop or attendance loop.
+
+#### More to consider: G1 native mechanisms and boundary completion (2026-10-25)
+
+The same-session instruction selected native adapters, not326 independent specs. All326 source rows now map once into13 mechanism families in [family reconciliation](gm/dispatch/cheats-2026-10-25/FAMILY_RECONCILIATION.md). Aliases, grades, simulator policies and grouped IM20 rows retain their source meaning.
+
+**ACT NOW (done)**
+
+- IM29: RF1 actor-owned rehearsal, readable-design Pattern Book, executable estate Compact, accepted OD4/TBANK Furnace and retained-record Freshness Sense are built through their native owners. Each has regression and rebuilt fresh-origin desktop proof; Save/reload/literal Import and actual heir carry apply per mechanism. Source rows PC02/03/04, SH3 and IM19 statuses are updated on this branch.
+- IM30: Enduring payloads are separate from restored local inputs. Actual continuation return now retains later patterns and already-spent bank accounting while restoring local body/reserves; it stamps arrival without re-crediting the old wall interval. Existing continuation owner performs the return; no continuation_* writes in G1. Native actor memory stays with its actual holder and observer knowledge stays separate.
+- IM31: Corrected two false blockers. Paid rematches already existed, and OD4/TBANK already authorizes bounded native forward offline work. Missing adapters were implemented. Furnace's first locked-skill award uses a typed prepared-unlock query/quote before the existing durable publication; native conditions still apply.
+
+**ACCOUNT FOR NOW**
+
+- IM32: The actual carrier chooses the boundary. Designs follow continuing memory; estate goods use local succession and debt; time bank follows the journey, while routine assignment belongs to the current body/world. Foreign-clock information has no inferred local freshness. Numeric reserve/cadence/batch defaults are reversible data dials, not global limits.
+- IM33: Source-qualified broader powers remain proposals. The [family owner](gm/dispatch/cheats-2026-10-25/FAMILY_RECONCILIATION.md#authority-boundary-for-remaining-source-palettes) names B1–B4: paused anchors/simulator growth, source-specific backing/content, larger identity/reset/body/reward policies. A missing view or serializer is not a blocker. Generic actor/stat/RNG support alone is not evidence that a named book power exists.
+
+**LATER / DELEGATE (policy/source proposals, not another D4 wave)**
+
+- IM34: Source-specific chart, rebirth reward, inherited-body, patron-incident, multi-self and world-deed unlock variants need the concrete choices in the seven remaining PC rows. Existing archive-line world memory is acknowledged; it does not select a class/race unlock economy. Level Sol, effort per world, done check: selected native mechanism/backing plus cost, observer route, real consumer and boundary proof. Paused anchor-in-card and post-S1 simulator scope stay paused under K3/K5 and G1.
+- IM35: Merger reconciles exact M4 overlaps and runs the combined full integration gate once on the combined candidate. Level Sol, effort medium, done check: merged input identity, full suite and rebuilt desktop checks. D4 kept the exact failed pre-repair full-suite receipt plus targeted repairs and did not rerun the full suite. Human discovery/pacing acceptance is separate.
+
+IM27 is now delivered for its bounded native mechanisms, with the above authority corrections. IM28's broad reference powers remain source-policy proposals, reconciled explicitly rather than silently labeled built. Exact commands, gaps and the final verified source identity are in the [original checkpoint](gm/dispatch/cheats-2026-10-25/CHECKPOINT.md).
