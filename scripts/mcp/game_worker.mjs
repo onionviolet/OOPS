@@ -75,6 +75,14 @@ async function openPanel(id) {
 }
 
 const ops = {
+    captureState() {return {save:need().snapshot()};},
+    quote({command}) {
+        if(command !== 'lamp.toggle') throw Error('Unsupported quote command. Use lamp.toggle.');
+        const q = need().module.scenarioLampOperations.quote();
+        // Explicit observer-safe fields, not a generic registry or truth dump.
+        return {command, quote:{eligible:q.eligible,reason:q.reason,action:q.action,spend:q.spend,oil:q.oil}};
+    },
+    async reload() {await need().reload(); return look();},
     async new({seed = 1, heroName = 'Agent', path, panel, url = 'http://localhost/?test_hooks=1'} = {}) {
         const target = new URL(url);
         if(!['localhost', '127.0.0.1'].includes(target.hostname) || target.protocol !== 'http:') throw new Error('Only a localhost test origin is supported.');
@@ -112,7 +120,7 @@ const ops = {
     },
     status() {
         const g = need();
-        return {time: clock(), location: text('location_name_span'), boots: g.boots, stats: g.stats,
+        return {stateHash:sha(canonicalSave(g.snapshot())), time: clock(), location: text('location_name_span'), boots: g.boots, stats: g.stats,
             errors: g.errors.slice(-5).map(e => String(e.message ?? e).slice(0, 300))};
     },
     async save() {

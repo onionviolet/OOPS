@@ -6,18 +6,20 @@
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
-import {mkdtempSync, readFileSync} from 'node:fs';
+import {mkdtempSync, readFileSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
-import {join} from 'node:path';
+import {join, dirname, resolve} from 'node:path';
 
 const LEDGER = join(mkdtempSync(join(tmpdir(), 'yairpg-limits-')), 'limits.jsonl');   // never the repo ledger
 
+const ROOT=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const SERVER = fileURLToPath(new URL('./game_mcp.mjs', import.meta.url));
 
 function client() {
     const child = spawn(process.execPath, [SERVER], {stdio: ['pipe', 'pipe', 'inherit'], env: {...process.env, YAIRPG_MCP_LIMITS: LEDGER}});
     let buffer = '', next = 1;
     const waiting = new Map();
+    child.on('exit',(code,signal)=>{for(const pending of waiting.values()) pending({error:{message:`MCP server exited (${code ?? signal})`}});waiting.clear();});
     child.stdout.setEncoding('utf8').on('data', chunk => {
         buffer += chunk;
         let at;
@@ -31,11 +33,93 @@ function client() {
         child.stdin.write(JSON.stringify({jsonrpc: '2.0', id, method, params}) + '\n');
     });
     const tool = async (name, args = {}) => {
-        const r = (await rpc('tools/call', {name, arguments: args})).result;
+        if(process.env.YAIRPG_MCP_CHECK_TRACE) process.stderr.write(`${name} ${args.sessionId ?? 'default'}\n`);
+        const reply=await rpc('tools/call', {name, arguments: args});
+        assert.ok(!reply.error,reply.error?.message);
+        const r=reply.result;
         assert.equal(r.isError, false, `${name}: ${r.content[0].text}`);
         return r.structuredContent;
     };
-    return {rpc, tool, notify: (method, params) => child.stdin.write(JSON.stringify({jsonrpc: '2.0', method, params}) + '\n'), close: () => {child.stdin.end(); return new Promise(r => child.on('exit', r));}};
+    return {rpc, tool, notify: (method, params) => child.stdin.write(JSON.stringify({jsonrpc: '2.0', method, params}) + '\n'), close: () => {if(child.exitCode !== null || child.signalCode) return Promise.resolve();child.stdin.end(); return new Promise(r => child.on('exit', r));}};
+}
+
+async function nativeOnly(c) {
+    const frozen=await c.tool('game_freeze');
+    await c.tool('game_new',{sessionId:'native',seed:11,...frozen});
+    const before=(await c.tool('game_status',{sessionId:'native'})).stateHash;
+    const result=await c.tool('game_screenshot',{sessionId:'native',backend:'electron'});
+    assert.equal(result.backend,'electron-cdp');assert.equal(result.width,1920);assert.equal(result.height,1080);
+    assert.equal(readFileSync(result.path).subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+    assert.ok(result.bytes>10000);
+    assert.equal((await c.tool('game_status',{sessionId:'native'})).stateHash,before,'native screenshot does not mutate source session');
+    await c.tool('game_close',{sessionId:'native'});
+    console.log(JSON.stringify({slice:'native-only',result:'PASS',frozen,screenshot:result}));
+}
+
+async function frozenAndNative(c) {
+    const frozen=await c.tool('game_freeze');
+    assert.match(frozen.bundleSha256,/^[a-f0-9]{64}$/);
+    assert.match(frozen.manifestSha256,/^[a-f0-9]{64}$/);
+    assert.ok(frozen.inputCount>10);
+    await c.tool('game_new',{sessionId:'frozen',seed:11,...frozen});
+    await c.tool('game_save',{sessionId:'frozen'});
+    const first=await c.tool('game_look',{sessionId:'frozen'});
+    const q=await c.tool('game_quote',{sessionId:'frozen',command:'lamp.toggle'});
+    assert.equal(first.build.bundleSha256,frozen.bundleSha256);
+    // Test actual working-tree drift. This lane is the sole writer here, and
+    // every byte is restored even on failure. No primary checkout is touched.
+    const paths=['src/main.js','scripts/headless/runner.mjs','index.html','style.css'];
+    const originals=paths.map(p=>readFileSync(join(ROOT,p)));
+    try {
+        writeFileSync(join(ROOT,paths[0]),'throw new Error("E4 live source must not boot");');
+        writeFileSync(join(ROOT,paths[1]),'throw new Error("E4 live runner must not load");');
+        writeFileSync(join(ROOT,paths[2]),'<html><body>LIVE HTML DRIFT</body></html>');
+        writeFileSync(join(ROOT,paths[3]),'* {display:none !important}');
+        const reloaded=await c.tool('game_reload',{sessionId:'frozen'});
+        assert.equal(reloaded.started,true);
+        assert.equal(reloaded.location,first.location);
+        assert.deepEqual(reloaded.time,first.time);
+        assert.doesNotMatch(reloaded.screen,/LIVE HTML DRIFT/);
+        assert.deepEqual((await c.tool('game_quote',{sessionId:'frozen',command:'lamp.toggle'})).quote,q.quote);
+        assert.equal(reloaded.build.manifestSha256,frozen.manifestSha256);
+    } finally {paths.forEach((p,i)=>writeFileSync(join(ROOT,p),originals[i]));}
+    const exported=await c.tool('game_export',{sessionId:'frozen'});
+    const atExport=(await c.tool('game_status',{sessionId:'frozen'})).time;
+    await c.tool('game_step',{sessionId:'frozen',minutes:7});
+    await c.tool('game_load',{sessionId:'frozen',path:exported.path});
+    assert.deepEqual((await c.tool('game_status',{sessionId:'frozen'})).time,atExport,'frozen import reloads pinned inputs');
+    const badPair=await c.rpc('tools/call',{name:'game_new',arguments:{sessionId:'frozen',bundlePath:frozen.bundlePath}});
+    assert.equal(badPair.result.isError,true,'bundle alone cannot claim freeze');
+    const mismatch=await c.rpc('tools/call',{name:'game_new',arguments:{sessionId:'frozen',...frozen,bundlePath:frozen.bundlePath+'.wrong'}});
+    assert.equal(mismatch.result.isError,true,'manifest/bundle mismatch rejected');
+    const manifest=JSON.parse(readFileSync(frozen.snapshotManifest,'utf8'));
+    assert.ok(manifest.inputs.some(r=>r.path==='scripts/mcp/game_worker.mjs'));
+    writeFileSync(frozen.bundlePath,'throw new Error("tampered external snapshot");');
+    const tampered=await c.rpc('tools/call',{name:'game_new',arguments:{sessionId:'frozen',...frozen}});
+    assert.equal(tampered.result.isError,true,'tampered input rejected before replacing existing session');
+    assert.equal((await c.tool('game_reload',{sessionId:'frozen'})).started,true,'session owns frozen bytes even if supplied snapshot changes');
+    const cap=await c.tool('game_capabilities');
+    const badBackend=await c.rpc('tools/call',{name:'game_screenshot',arguments:{sessionId:'frozen',backend:'headless'}});
+    assert.equal(badBackend.result.isError,true,'DOM cannot masquerade as screenshot');
+    const before=(await c.tool('game_status',{sessionId:'frozen'})).stateHash;
+    const image=await c.rpc('tools/call',{name:'game_screenshot',arguments:{sessionId:'frozen',backend:'electron'}});
+    let native;
+    if(image.result.isError) {
+        assert.match(image.result.content[0].text,/Electron screenshot unavailable/);
+        native={status:'blocked',preflight:cap.screenshot,error:image.result.content[0].text};
+        if(process.env.YAIRPG_MCP_REQUIRE_ELECTRON==='1') assert.fail(native.error);
+    } else {
+        native=image.result.structuredContent;
+        assert.equal(native.backend,'electron-cdp');
+        assert.equal(native.width,1920);assert.equal(native.height,1080);
+        const bytes=readFileSync(native.path);
+        assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+        assert.ok(bytes.length>10000,'real rendered PNG');
+        assert.equal(native.transientUiRestored,false);
+    }
+    assert.equal((await c.tool('game_status',{sessionId:'frozen'})).stateHash,before,'native mirror cannot mutate game session');
+    await c.tool('game_close',{sessionId:'frozen'});
+    console.log(JSON.stringify({slice:'frozen/native',frozen,native}));
 }
 
 async function greetElder(c, seed) {
@@ -138,11 +222,59 @@ try {
     assert.equal(init.result.serverInfo.name, 'yairpg-game');
     c.notify('notifications/initialized');
     const list = (await c.rpc('tools/list')).result.tools.map(t => t.name);
-    assert.deepEqual(list.sort(), ['game_click', 'game_export', 'game_load', 'game_look', 'game_new', 'game_report_limit', 'game_save', 'game_status', 'game_step']);
+    assert.deepEqual(list.sort(), ['game_capabilities', 'game_screenshot', 'game_close', 'game_freeze', 'game_quote', 'game_reload', 'game_click', 'game_export', 'game_load', 'game_look', 'game_new', 'game_report_limit', 'game_save', 'game_status', 'game_step'].sort());
     assert.equal((await c.rpc('nope')).error.code, -32601);
 
+    if(process.argv.includes('--native-only')) {
+        await nativeOnly(c);
+    } else if(process.argv.includes('--freeze-only')) {
+        await frozenAndNative(c);
+    } else {
     const remote = (await c.rpc('tools/call', {name: 'game_new', arguments: {url: 'https://example.com/'}})).result;
     assert.equal(remote.isError, true, 'remote entry origins are refused');
+    await c.tool('game_new', {seed:17});
+    await c.tool('game_save');
+    const defaultSave=await c.tool('game_status');
+    const q=await c.tool('game_quote',{command:'lamp.toggle'});
+    assert.equal(q.quote.eligible,false,'native AR7 quote explains missing lamp');
+    assert.match(q.quote.reason,/lamp/);
+    const rejected=await c.rpc('tools/call',{name:'game_quote',arguments:{command:'debug.truth'}});
+    assert.equal(rejected.result.isError,true,'unlisted quote commands fail closed');
+    assert.equal((await c.tool('game_status')).stateHash,defaultSave.stateHash,'quotes consume no items, money, oil or time');
+    const fixture=await c.tool('game_export');
+    const encoded=readFileSync(fixture.path,'utf8');
+    const fresh=JSON.parse(Buffer.from(encoded.replace(/^YAIR-UTF8-1:/,''),'base64').toString('utf8'));
+    for(const id of ['Oil lamp','Lamp oil']) fresh.inventories.person.main_character[JSON.stringify({id})]={count:1};
+    fresh.lamplight={schema:1,lit:false,oil:0,noticed:{}};
+    writeFileSync(fixture.path,Buffer.from(JSON.stringify(fresh),'utf8').toString('base64'));
+    await c.tool('game_load',{path:fixture.path});
+    const fundedBefore=(await c.tool('game_status')).stateHash;
+    const funded=await c.tool('game_quote',{command:'lamp.toggle'});
+    assert.equal(funded.quote.eligible,true);assert.equal(funded.quote.spend,1);
+    await c.tool('game_quote',{command:'lamp.toggle'});
+    assert.equal((await c.tool('game_status')).stateHash,fundedBefore,'funded quotes do not spend oil or light lamp; old unmarked export imports');
+    await c.tool('game_new',{sessionId:'other',seed:31});
+    const otherTime=(await c.tool('game_status',{sessionId:'other'})).time;
+    await c.tool('game_save',{sessionId:'other'});
+    const otherSave=await c.tool('game_status',{sessionId:'other'});
+    await c.tool('game_step',{minutes:8});
+    assert.deepEqual((await c.tool('game_status',{sessionId:'other'})).time,otherTime,'clocks are isolated');
+    assert.equal((await c.tool('game_status',{sessionId:'other'})).stateHash,otherSave.stateHash,'save storage is isolated');
+    const ownExport=await c.tool('game_export');
+    await c.tool('game_step',{sessionId:'other',minutes:12});
+    await c.tool('game_load',{path:ownExport.path});
+    await c.tool('game_save',{sessionId:'other'});
+    const laterOther=(await c.tool('game_status',{sessionId:'other'})).time;
+    await c.tool('game_reload',{sessionId:'other'});
+    assert.deepEqual((await c.tool('game_status',{sessionId:'other'})).time,laterOther,'reload uses selected session storage');
+    await c.tool('game_new',{seed:17});
+    assert.deepEqual((await c.tool('game_status',{sessionId:'other'})).time,laterOther,'replacing default preserves other game');
+    await c.tool('game_close',{sessionId:'other'});
+    assert.equal((await c.rpc('tools/call',{name:'game_status',arguments:{sessionId:'other'}})).result.isError,true,'closed id cannot access default');
+    assert.equal((await c.rpc('tools/call',{name:'game_new',arguments:{sessionId:''}})).result.isError,true,'invalid ids rejected');
+    assert.equal((await c.tool('game_status')).sessionId,'default','omitted id preserves default session');
+    console.log(JSON.stringify({slice:'quote/sessions',result:'PASS'}));
+    await frozenAndNative(c);
     await blockedRoutes(c);
     await nativeDropdownRoundtrip(c);
     const a = await greetElder(c, 11);
@@ -175,4 +307,5 @@ try {
     assert.equal(noted.ledgerEntries, 1);
     assert.match(readFileSync(LEDGER, 'utf8'), /screenshot of the village/);
     console.log(JSON.stringify({result: 'PASS', hash: a.hash, tools: list.length}));
+    }
 } finally { await c.close(); }
