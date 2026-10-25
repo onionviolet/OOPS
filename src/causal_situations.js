@@ -1,4 +1,5 @@
-import {assert, record, stableId, natural, copy} from "./simulation_contracts.js";
+import {check as assert, object as record, natural, copy} from "./basics.js";
+import {stableId} from "./simulation_ids.js";
 
 // Context describes one existing history. It does not create a native world copy.
 export function validateSituationDefinition(d) {

@@ -1,0 +1,14 @@
+1..2879
+# tests 2879
+# suites 0
+# pass 2878
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 166860.542209
+real 167.64
+user 501.77
+sys 50.20
+
+One source-stripping harness failure was corrected. Focused native transaction rerun: 7 pass, 0 fail. Full suite not rerun. See CHECKPOINT.md.

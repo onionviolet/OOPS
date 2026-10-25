@@ -2,7 +2,9 @@ import {deferSimulationRender} from './simulation_render.js';
 // One synchronous lifecycle. Native clock, transaction and storage owners stay outside.
 export function createDomainRegistry() {
     const domains=new Map();
+    let orderedDomains;
     function ordered() {
+        if(orderedDomains)return orderedDomains;
         const result=[],visiting=new Set(),seen=new Set();
         function visit(id) {
             if(seen.has(id))return;
@@ -12,16 +14,25 @@ export function createDomainRegistry() {
             visiting.delete(id);seen.add(id);result.push(d);
         }
         for(const id of domains.keys())visit(id);
-        return result;
+        return orderedDomains=Object.freeze(result);
     }
     function registerDomain(domain) {
         if(!domain||typeof domain.id!=='string'||!domain.id||domains.has(domain.id))throw Error('Domain needs a unique id.');
         if(domain.deps!=null&&(!Array.isArray(domain.deps)||domain.deps.some(id=>typeof id!=='string')))throw Error('Invalid domain dependencies.');
         for(const hook of ['initialState','save','validate','migrate','load','tick','refresh','projection','ownsItemKey'])if(domain[hook]!=null&&typeof domain[hook]!=='function')throw Error(`Invalid domain hook: ${hook}`);
-        domains.set(domain.id,Object.freeze({...domain}));return domain;
+        // Snapshot registration metadata so later caller edits cannot change the
+        // lifecycle graph or command routing. Domain closure state stays owned.
+        const commands=domain.commands && Object.freeze(Object.fromEntries(Object.entries(domain.commands).map(([name,command])=>
+            [name,command && typeof command==='object'?Object.freeze({...command}):command])));
+        domains.set(domain.id,Object.freeze({...domain,
+            ...(domain.deps?{deps:Object.freeze([...domain.deps])}:{}),
+            ...(domain.panels?{panels:Object.freeze([...domain.panels])}:{}),
+            ...(commands?{commands}:{})}));
+        orderedDomains=undefined;
+        return domain;
     }
     return Object.freeze({registerDomain,
-        list:()=>ordered(),
+        list:()=>[...ordered()],
         initialize:()=>{for(const d of ordered())if(d.initialState)d.load?.(d.initialState());},
         save:envelope=>{for(const d of ordered()){if(!d.save)continue;const slice=d.save(envelope);if(slice!==undefined)envelope[d.id]=slice;}return envelope;},
         validate:envelope=>{for(const d of ordered())d.validate?.(envelope[d.id],envelope);return envelope;},

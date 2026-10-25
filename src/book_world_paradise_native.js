@@ -1,5 +1,5 @@
 import {PARADISE_FOOTPRINTS as footprints,PARADISE_NATIVE_DOMAIN as nativeDomain,PARADISE_NATIVE_STOCK as nativeStock,paradiseDefinitions as definitions} from './book_world_paradise_content.js';
-import {activeParadiseVisit as activeVisit,validateParadiseCampaignState as validateCampaignState} from './book_world_paradise_host.js';
+import {activeParadiseVisit as activeVisit,validateParadiseCampaignState as validateCampaignState} from './book_world_paradise_state.js';
 import {createBookWorldNative} from './book_world_native_base.js';
 // Paradise binding of the shared book-world native module. Only world data and
 // wording live here; save keys (bookWorldCampaign, inventories.book_world_campaign, PARADISE_NATIVE_DOMAIN) are unchanged.

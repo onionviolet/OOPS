@@ -1306,3 +1306,22 @@ Place a real dependency boundary inside the interval: a title/skill changes a me
 Reload reconstructs current derived capability through existing owners. In the recovered source, a saved marker guards a title's one-time talent application; OOPS already derives known held-title bonuses in `titleBonuses` and grants only newly earned IDs. Preserve that design instead of adding another applied-bonus cache. Presentation's bounded receipt deduplication is not authority for rewards, stock spending or title entitlement. A return may summarize missed public events while leaving settled rewards unchanged and quieting obsolete animations.
 
 **ACT NOW (done):** folded the boundary scenarios into this plan. **ACCOUNT FOR NOW:** keep clock, transition, derived capability and presentation owners distinct. **LATER / DELEGATE:** extend CRJ10, Sol medium, medium effort. Done: a real midpoint transition, foreground/throttled/policy-return comparisons, no duplicate reward/bonus, and reload/import checks for any changed persisted state. A private inspector can compare true state with public projection; its output stays outside player-facing knowledge/discovery. No power blocker, timer change, migration or new offline policy is selected here.
+
+
+## D2 modularity and measurement round, 2026-10-25
+
+Execution evidence and exact limits: [D2 checkpoint](gm/dispatch/engine-modularity-2026-10-25/CHECKPOINT.md). AR3–AR6, AR9–AR16 apply. This round adds no accepted product rule or stack migration.
+
+**ACT NOW (done):** cut inventory-to-catalog construction coupling with two narrow catalog operations; retain one shared inventory registry and save format. Extract shared item-key and simulation-ID validators into leaf owners, use the existing rounding owner, and bypass the Paradise host re-export from native bindings. Snapshot domain registration metadata and reuse dependency order until another domain registers. Regression scenarios cover late registration, caller mutation, item routing and independent inventory initialization. Exact browser/full-suite status lives in the checkpoint.
+
+**ACCOUNT FOR NOW:** registry overhead and expansion tick cost are different measurements. A 100-domain dispatch microbenchmark improves, while unmatched machine load makes before/after whole-game wall time inconclusive. Committed synthetic fixtures remain the reproducible input; no personal save is used. World-pack Maps currently have a documented read-only convention, so changing their public mutation behavior needs a separate consumer compatibility pass. Main/display imports and broad simulation cycles remain explicit debt, not hidden by a larger baseline.
+
+**LATER / DELEGATE (proposals):**
+
+| Item | Level / effort | Done check |
+| --- | --- | --- |
+| Cut native UI/bootstrap callbacks from item/actor modules one consumer at a time | Sol / medium per seam | Smaller SCC and no new exemptions; same native action, Save/reload/Export/Import on rebuilt desktop bundle |
+| Separate backlog validation dependencies from engine orchestration | Sol / medium | Expansion and backlog share the same validator/schema constants without mutual import; unchanged acceptance/rejection fixtures |
+| Trace simulation/effect host cycles by actual operations rather than moving an omnibus context | Sol / large, bounded slices | Each extracted operation has two real consumers and no extra clock/save/transaction authority |
+| Re-run startup/tick/serialization measurements when host load is below core count | Luna / small | Same fixture hashes and browser route, matched load, before/after medians plus exact bytes |
+| Inventory world-pack registry Map methods before proposing immutable adapters | Luna / small read-only scan | Every mutation and lookup caller classified; preserve iteration/identity or document explicit compatibility choice |

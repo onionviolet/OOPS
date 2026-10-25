@@ -1,0 +1,12 @@
+[
+  {
+    "name": "before",
+    "inputModules": 812,
+    "entryBundleBytes": 10600634
+  },
+  {
+    "name": "after",
+    "inputModules": 19,
+    "entryBundleBytes": 57397
+  }
+]

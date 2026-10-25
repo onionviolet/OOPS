@@ -1,3 +1,5 @@
+import {validateItemKey} from "./inventory_key.js";
+export {validateItemKey} from "./inventory_key.js";
 import {check} from './basics.js';
 import {stageAcquisition} from "./acquisition.js";
 // Plain snapshots of owned v0.6 state. No component, DOM or storage mutation.
@@ -24,13 +26,6 @@ export function validateGameplaySnapshot(snapshot = {}) {
     return snapshot;
 }
 
-export function validateItemKey(key) {
-    check(typeof key === "string", "An item needs its complete inventory key.");
-    let value;
-    try {value = JSON.parse(key);} catch {throw new Error("Invalid inventory key.");}
-    check(object(value) && (safeKey(value.id) || object(value.components)), "Invalid inventory key.");
-    if(value.quality != null) check(amount(value.quality), "Invalid item quality.");
-}
 
 export function validateGameplayEffect(effect, cost = false) {
     if(effect.type === "item") {
