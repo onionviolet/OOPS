@@ -1,3 +1,4 @@
+import {informationFreshness} from './information_freshness.js';
 import {nominateHeirloom} from './heirloom_compact.js';
 import {sketchPattern,rebuildPattern} from './pattern_book.js';
 import {projectCrafting} from './crafting_frontier_runtime.js';
@@ -19,6 +20,7 @@ export function insightMilestones(save) {
         {id:'practised-perception',label:'Learn through perception',met:(xp.Perception||0)>0},
         {id:'learned-method',label:'Learn a written method',met:(save.crafting?.references?.learned?.player?.length||0)>0},
         {id:'recorded-pattern',label:'Retain a readable design',met:(save.cheats?.held?.['pattern-book']?.card.state.patterns.length||0)>0},
+        {id:'completed-routine',label:'Complete an entrusted finite routine',met:save.harvest?.routine?.status==='complete'},
     ];
     return rows.map(row=>({...row,met:evaluateGate(defineGate({id:`cheat.insight.${row.id}`,kind:'knowledge',reason:row.label,requires:{fact:row.id,op:'eq',value:true},routes:[{id:'live',reason:'Reflect on relevant lived experience.',cost:'Practice and attention.'}]}),{[row.id]:row.met},{knows:()=>true}).met}));
 }
@@ -28,7 +30,7 @@ export function cheatProjection(save) {
     const state=faculty.card.state;
     return {visible:true,points:state.points??0,earned:state.earned??0,spent:state.spent??0,
         milestones:insightMilestones(save).map(m=>({...m,claimed:(state.claimed||[]).includes(m.id)})),
-        decisions:save.decisions||[],
+        decisions:save.decisions||[],freshness:informationFreshness(save),
         heirlooms:['person','chest'].flatMap(source=>Object.entries(source==='person'?save.inventories?.person?.main_character||{}:save.inventories?.storage?.player||{}).filter(([,r])=>r.count>0).map(([key,r])=>({source,key,count:r.count}))),
         methods:projectCrafting(save.crafting,Object.fromEntries(Object.entries(save.inventories?.person?.main_character||{}).map(([k,r])=>[k,r.count]))).methods,
         development:CHEAT_MODULES.find(d=>!save.cheats.held[d.id])? 'Explore the next facet · 1 insight':null,
@@ -105,7 +107,7 @@ export function planCheatAction(original, request) {
         if(typeof request.key!=='string'||!request.key.trim()||request.key.length>240)throw Error('Name the decision to read.');
         const stream=scopedStream('loot',save.expansion.actors.player.worldId),s=ensureStreams(save.expansion),n=request.keyed?0:(s.cells[stream]?.n||0)+1;
         const reading=peekStreamDecision(s,stream,request.key,n);spend(card);
-        card.state.readings.push({at,key:request.key,label:request.label||'Loot decision',ordinal:n,value:reading.value,source:'fate-ledger',via:reading.receipt.via});
+        card.state.readings.push({at,key:request.key,label:request.label||'Loot decision',ordinal:n,value:reading.value,source:'fate-ledger',world:save.expansion.actors.player.worldId,via:reading.receipt.via});
     } else if(request.type==='routine') {
         const card=held(save,'earned-habit');
         if(!(save.harvest?.processed>0))throw Error('Process a carcass by hand before entrusting its pattern to habit.');

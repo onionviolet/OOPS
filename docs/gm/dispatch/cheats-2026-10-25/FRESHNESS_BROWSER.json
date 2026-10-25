@@ -1,0 +1,14 @@
+{
+  "route": "Freshness Sense",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "checks": [
+    "native UI appraisal then five actual clock minutes: original observer reading unchanged; Freshness Sense reports age",
+    "Save/reload/literal Import retain the exact dated observation",
+    "real native heir keeps learned sense; body-local observation store starts fresh"
+  ],
+  "pass": true,
+  "errors": []
+}

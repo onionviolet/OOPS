@@ -27,7 +27,7 @@ export function createCheatPanel({read,act,nameItem}) {
         if(s.development)body.append(button(s.development,{type:'develop'},s.points<1||!!s.reason));
         for(const card of s.cards) {
             const section=node('section');section.className='panel-info';section.dataset.cheatCard=card.id;
-            section.append(node('h3',card.name),node('p',card.description),node('p',`Charges ${card.state.charges} · used ${card.state.used}`));
+            section.append(node('h3',card.name),node('p',card.description));if(card.state.charges+card.state.used)section.append(node('p',`Charges ${card.state.charges} · used ${card.state.used}`));
             if(card.state.charges<card.state.charges+card.state.used-card.state.recharged)section.append(button('Restore 1 reserve · 1 insight',{type:'recharge',id:card.id},s.points<1||!!s.reason));
             if(card.id==='true-appraisal')for(const specimen of s.specimens)section.append(button(`Read ${specimen.species}`,{type:'appraise',...specimen},!card.state.charges||!!s.reason));
             if(card.id==='loaded-dice')section.append(button('Commit next loot roll low · 1 charge',{type:'call'},!card.state.charges||!!s.reason));
@@ -41,6 +41,10 @@ export function createCheatPanel({read,act,nameItem}) {
                 const count=node('input');count.type='number';count.min='1';count.max='10000';count.value='3';count.setAttribute('aria-label','Carcasses in routine');
                 const b=button('Entrust finite processing · 1 charge',{type:'routine'},!card.state.charges||!!s.reason);b.onclick=()=>run({type:'routine',target:Number(count.value)});section.append(count,b);
             }
+            if(card.id==='freshness-sense'){
+                if(!s.freshness.length)section.append(node('p','Retain an observation to sense its age.'));
+                for(const r of s.freshness)section.append(node('p',`${r.label}: ${r.ageMinutes===null?'source clock cannot be compared here':r.ageMinutes+' played minutes old'} · recorded ${moment(r.at)}.`));
+            }
             if(card.id==='patient-furnace'){section.append(node('p',`Retained time: ${card.state.away.bank} min · spent forward: ${card.state.away.spent} min. ${card.state.away.stop}`),button('Assign current routine · 1 charge',{type:'assign-furnace'},!card.state.charges||!!s.reason),button('Spend up to 30 retained minutes',{type:'settle-furnace'},!card.state.away.bank||!!s.reason));}
             if(card.id==='heirloom-compact'){
                 const select=node('select');select.setAttribute('aria-label','Owned heirloom lot');
@@ -53,7 +57,7 @@ export function createCheatPanel({read,act,nameItem}) {
             if(card.id==='pattern-book'){
                 for(const m of s.methods)section.append(button(`Sketch ${m.name} · 1 charge`,{type:'sketch',id:m.id},!card.state.charges||card.state.patterns.some(p=>p.recipe.id===m.id)||!!s.reason));
                 if(!s.methods.length)section.append(node('p','Carry a readable method book or learn a method before sketching.'));
-                for(const p of card.state.patterns){section.append(node('p',`${p.recipe.name} · design from ${p.world} · as of ${moment(p.at)}`),button('Rebuild remembered method · 1 charge',{type:'rebuild-pattern',id:p.recipe.id},!card.state.charges||!!s.reason));}
+                for(const p of card.state.patterns){section.append(node('p',`${p.recipe.name} · design from Frontier · as of ${moment(p.at)}`),button('Rebuild remembered method · 1 charge',{type:'rebuild-pattern',id:p.recipe.id},!card.state.charges||!!s.reason));}
             }
             if(card.state.readings)for(const r of card.state.readings.slice(-3))section.append(node('p',r.source==='true-appraisal'?`${r.species}: ${r.freshness}, ${r.integrity}, age ${r.ageEstimate.min}–${r.ageEstimate.max} min · as of ${moment(r.at)}`:`${r.label||'Loot decision'}: ${r.value<.25?'low':r.value<.75?'middling':'high'} roll · as of ${moment(r.at)}${r.via?' · committed call':''}`));
             body.append(section);

@@ -10,6 +10,7 @@ export const CHEAT_MODULES = Object.freeze([
     {id:'pattern-book',name:"Traveler's Pattern Book",family:'knowledge',ui:'quiet',hook:'crafting.pattern',description:'Remember a method you can actually read. Rebuild its design in a new body, using the original law. Materials, skill and hidden properties stay separate.',state:{revision:1,charges:3,used:0,recharged:0,patterns:[]}},
     {id:'heirloom-compact',name:'Heirloom Compact',family:'legacy',ui:'quiet',hook:'heir.estate',description:'Nominate counted owned goods for the successor chosen by local inheritance law. The estate rechecks the lot and claims it at succession; debts and duties still settle through their owners.',state:{revision:1,charges:2,used:0,recharged:0,nomination:null,receipt:null}},
     {id:'patient-furnace',name:'Patient Furnace',family:'offline-routine',ui:'quiet',hook:'native-clock.forward',description:'Assign the current finite processing routine. Unused away time banks at the native awake cadence; spend it forward with real calendar, body, ingredients and choice stops. Thirty minutes per press; the remainder stays banked.',state:{revision:1,charges:2,used:0,recharged:0,away:emptyFurnace()}},
+    {id:'freshness-sense',name:'Freshness Sense',family:'perception',ui:'quiet',hook:'knowledge.timestamp',description:'Sense the age of retained observations from their original timestamps. Develop with lived insight; reading these dates uses no additional reserve. An old reading keeps its original content.',state:{revision:1,charges:0,used:0,recharged:0}},
 ]);
 export function moduleCard(id) {
     const d=CHEAT_MODULES.find(x=>x.id===id);if(!d)throw Error('Unknown faculty development.');
@@ -19,7 +20,7 @@ export function moduleCard(id) {
 const natural=x=>Number.isSafeInteger(x)&&x>=0;
 export function validateModuleState(card) {
     if(card.id==='quiet-faculty'){
-        const s=card.state,ids=new Set(),milestones=new Set(['recognition','first-victory','first-processing','practised-craft','practised-perception','learned-method','recorded-pattern']);
+        const s=card.state,ids=new Set(),milestones=new Set(['recognition','first-victory','first-processing','practised-craft','practised-perception','learned-method','recorded-pattern','completed-routine']);
         if(!natural(s.points)||!natural(s.earned)||!natural(s.spent)||s.points!==s.earned-s.spent||!Array.isArray(s.claimed)||s.claimed.some(id=>!milestones.has(id))||new Set(s.claimed).size!==s.claimed.length)
             throw Error('Invalid cheat faculty accounting.');
         if(!Array.isArray(card.stages))throw Error('Invalid cheat faculty stages.');
@@ -43,6 +44,6 @@ export function validateModuleState(card) {
             !Number.isFinite(r.skill)||r.skill<0||typeof r.species!=='string'||typeof r.key!=='string'||r.source!=='true-appraisal'||
             !['fresh','aging','spent'].includes(r.freshness)||!['intact','damaged','heavily damaged'].includes(r.integrity)))throw Error('Invalid cheat appraisal reading.');
         if(card.id==='fate-ledger'&&(!natural(r.ordinal)||typeof r.key!=='string'||!r.key||!Number.isFinite(r.value)||r.value<0||r.value>=1||r.source!=='fate-ledger'||
-            ![null,'loaded-dice'].includes(r.via)||(r.label!==undefined&&typeof r.label!=='string')))throw Error('Invalid cheat fate reading.');
+            (r.world!==undefined&&typeof r.world!=='string')||![null,'loaded-dice'].includes(r.via)||(r.label!==undefined&&typeof r.label!=='string')))throw Error('Invalid cheat fate reading.');
     }
 }
