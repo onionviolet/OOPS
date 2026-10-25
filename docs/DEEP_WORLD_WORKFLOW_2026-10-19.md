@@ -696,3 +696,180 @@ action list per panel), the potion table's section 0.1 rules, and `src/lotm_ingr
 | DWF141 | Characteristic drops from Tingen hostiles replacing a main ingredient (DWF134) | Sonnet medium | One defeat yields a characteristic that brews its Sequence's dose |
 | DWF142 | Cultivation pills and smithing on the process envelope (DWF137) | Sonnet medium each | One pill and one forged item through the shared lifecycle in browser |
 | DWF143 | Brew failure by mechanism using `craft_dose_rules.js` (DWF133) | Sonnet medium | Overdose and wrong-order cases produce stated consequences, not refusals |
+
+## Round 7: the same pattern for everything that is not a potion (2026-10-25)
+
+Weibao, while another chat builds the potion side (rounds 4 and 6): "consider stuff like that and
+more to also address so that non potion stuff would also be able to comprehensively be
+implemented". Proposals only; no runtime change. Jobs, quest boards, lessons, shops (DWF110-DWF113),
+the making process (DWF126, DWF137) and the meter (DWF105, DWF119) are already proposed and are cited,
+not repeated. Evidence: kind counts from the private censuses (`HP_CENSUS.jsonl`,
+`LOTM_CENSUS.jsonl`) and exports and headers of the seams named below. Fits marked "sampled" come
+from headers and exports only.
+
+### ACCOUNT FOR NOW: census kind to seam
+
+| Code | Census kinds (rows) | Seam to grow | Shallow rung (existing verbs) | Deep rung adds |
+| --- | --- | --- | --- | --- |
+| DWF144 | HP spell (100); LOTM sequence abilities (220, potion side owns the doses) | `compileStructuredAbilities` for use (6 consumers, LOTM S9/S8 already rows; its `function`, `acquisition: learned` and `ordinary-technique` fields fit a charm); `techniques.js` for learning and understanding only (its header: not a spell engine) | Hear of, read about, see cast | Learned through a lesson (DWF112), cast as a command with a held wand as `sourceId`, counters and failure |
+| DWF145 | HP creature (18) | `enemies.js` `enemy_templates` and `droplist` (native data table) | Inspect, hear of, buy a part | Fightable or tameable template; drops feed ingredients (DWF131) |
+| DWF146 | HP plant (18), ingredient (4) | Acquisition rows (DWF131); `world_completion_crop_clock.js` is one bespoke crop, not a seam | Buy, hold, inspect | Forage spot, greenhouse or garden plot, seasons from `world_calendar` |
+| DWF147 | HP magical_object (16), artifact (13), wand wood and core (12); LOTM sealed_artifact (11) | `compileArtifactCollection` (sampled; already compiles held items into paid commands with no second inventory) | Hold, inspect, buy or sell where canon sells it | Uses as abilities (DWF144 `device-construct`), drawbacks, wand choosing as a row match |
+| DWF148 | HP textbook (32); LOTM ritual instructions and formulas as texts | No shared seam: `book_care_*`, `pattern_book`, `feature_expansion_book_*` are separate (sampled) | Own, read for minutes | What reading grants (a technique, a formula, a map, a rumor), language or clearance, copies, wrong copies (DWF132) |
+| DWF149 | LOTM ritual (27) | The DWF126 process envelope with an effect instead of a product | Hear of, read | Materials, place and time conditions, failure by mechanism |
+| DWF150 | LOTM location (19); HP places (inside other kinds today) | `authored_site.js` compiles one site per draft from fixed `DRAFT_FIELDS`; a many-row loader is new work. `known_routes` for travel | Visit, see who is there, what is sold | Activities, jobs, events, keepers' routines |
+| DWF151 | LOTM person (26) | `generated_people` routines plus `people_knowledge` (sampled) | Know of, find at a place and hour, talk | A life (`npc_lives`), stays bespoke (DWF114) |
+| DWF152 | LOTM organization (33); HP school_office_role (15), subject (14) | `faction_rank.js` ladder (DWF110), lesson (DWF112) | Know of, see its seat and members | Membership ladder, duties, pay; politics and secrets bespoke |
+| DWF153 | LOTM rule (45) | None needed: these are dials and validator inputs to other mechanisms (pathway generator DWF139, acting, loss of control), not things. `rule_modules.js` targets oral restoration and is not their owner | Read in a text (DWF148) | The mechanism that obeys it |
+
+**DWF114 stands, refined.** Shared rows for people, organizations and roles; bespoke behavior
+for lives, politics and institutions. A row gives a name, seat, schedule and ladder; what the
+organization does stays per world.
+
+### ACCOUNT FOR NOW: more to consider
+
+- **DWF154 Density is edges, not rows.** A spell needs a wand (wood and core rows), is taught in a
+  subject by a role from a textbook, and some need plant or creature parts. The censuses already
+  carry `relations` and `containedIn`. Default: the loader keeps edges, so deepening one row lights
+  up its neighbors (the shop that sells the wand, the teacher who teaches the charm). The meter
+  (DWF105) counts resolved edges per world beside row counts.
+- **DWF155 "Hear of" is the shared shallow verb.** Every kind's shallow rung starts with knowing it
+  exists. A rumor or mention that points at any row covers most of what rumors need without a
+  rumor mechanism (DWF114 keeps rumor behavior bespoke).
+- **DWF156 Shallow rows live in catalogues, not action lists.** 100 spells or 33 organizations as
+  buttons would flood panels (DWF128's problem at scale). Default: shallow rows show in a per-world
+  catalogue tab and where situated (a shop's stock, a teacher's syllabus); rows the player can use add
+  actions (UR41-UR49 disclosure).
+- **DWF157 Rows are static; saves hold relations.** Default: row data ships with the build. Saves hold the
+  player's relation to a row (known, held, learned, member) keyed by a stable row id, so new rows
+  need no migration and a renamed row needs an alias entry (DWF116 save rule).
+- **DWF158 The private census is not the shipped catalogue.** Rows carry `licence`, and some touch
+  sealed truths. Default: a filter step makes the shippable copy, keeping surface labels and IDs
+  and leaving sealed fields in sealed files (Round 2, sealed-secrets rule). Every loader below runs
+  through it.
+- **DWF159 Other worlds reuse the families.** MOL academy spells and Paradise skills on DWF144,
+  cultivation manuals on DWF148, sect halls on DWF152, original worlds' creatures on DWF145. One
+  family mechanism serves several worlds, as DWF137 does for making.
+- **DWF160 Families the census lacks.** Services (lodging, healing, transport; `implant_service.js`
+  is one bespoke example), routes, calendar events and jobs have no census kind yet. A census
+  re-pass with these kinds feeds the same loader (DWF3 scope, haiku readers).
+
+### LATER / DELEGATE
+
+Order follows DWF115: the loader and filter first, then one family per lane with its existing
+consumer as the equivalence oracle. Meter columns extend DWF105's done check.
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| DWF161 | Census row loader with edges and the shippable filter (DWF154, DWF157, DWF158); shares DWF104's shallow rung | Sonnet high; advisor review of row-id stability and the sealed filter | Filtered copy has no sealed field; rows appear in a catalogue tab in a rebuilt browser |
+| DWF162 | HP spells: ten charms learnable and castable on DWF144 (after DWF123) | Sonnet medium | One charm learned in a lesson and cast in browser; the other 90 visible as shallow |
+| DWF163 | HP creatures and plants as rows (DWF145, DWF146) | Sonnet medium | One creature fought or inspected and one plant foraged in browser; drops reach inventory |
+| DWF164 | Text mechanism: reading grants a technique, formula or map (DWF148) | Sonnet medium; advisor review of overlap with `book_care_*` | One textbook read grants a technique; one bought formula can be wrong |
+| DWF165 | Many-row place loader beside `authored_site` (DWF150), Diagon Alley and Tingen districts first | Sonnet high | Six new places with keepers and stock reachable by route in a rebuilt browser; old saves import |
+| DWF166 | Rituals on the process envelope (DWF149, after DWF101) | Sonnet medium | One ritual run and one failed by a stated mechanism in browser |
+| DWF167 | Census re-pass for services, routes, events and jobs (DWF160) | Haiku readers, bounded spans | New kinds in the private census with locators |
+
+## Round 7: rituals, lore-true sources, factions and missions (2026-10-25)
+
+Weibao: "Consider ritual implementations and more... Consider lore reasons like shops and stuff and
+more, missions, societies and factions and more and more to consider?" Evidence: a haiku extraction
+from the [potion table](gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md), its brewing
+notes and the [LOTM institutions pass](worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md)
+(evidence tags kept there). Canon recorded about 25 rituals, from Seq 5 up, plus four that exist
+with content missing. Proposals unless marked.
+
+### ACT NOW (done)
+
+- **DWF144 Build lane told to store routes and rituals as data.** The running DWF101/DWF102 lane now
+  shows the canon route (church issue, Tarot Club, Psychology Alchemists, Silver City, hunted
+  characteristic, black market) instead of a generic "unavailable", and records each ritual's
+  condition, scale, materials and evidence. An unmet ritual is a stated loss-of-control risk when
+  drinking, not a brewing lock.
+
+### Rituals
+
+- **DWF145 A ritual is a set of conditions checked at the moment of drinking.** The canon list reads
+  as conditions on place, time, sound, company, creature, emotion and body: drink at sea while a
+  mermaid sings; under a full moon with metals and gems laid as phases; in a crowd of over ten
+  thousand amid resonance; buried in ice in darkness; inside a sea creature. Default: each ritual
+  row lists conditions as rule predicates over facts the game already tracks (location, moon phase,
+  weather, crowd size, held items, a contracted creature) plus consumed materials.
+- **DWF146 Rituals work by principle, so substitutes count.** Canon says a similar sound can stand in
+  for the mermaid's song. Default: each condition names its principle and accepts any substitute
+  that meets it, with a fit score (AD38; the substitute ranker in `lotm_ingredient_catalogue.js` is
+  the pattern). A weak substitute raises risk; it does not refuse.
+- **DWF147 Ritual scale pulls in other systems.** Solitary rites (write out all you know, analyze one
+  drop of mythical blood, bury yourself in ice) are player actions. Creature rites need contracts,
+  hunts or taming. Crowd rites need events and gatherings (DWF70). Territory and war rites need world
+  state and faction conflict. The ritual mechanism should call those owners, not re-model them.
+- **DWF148 Rituals are shared across worlds.** The same moment-of-transition check fits cultivation
+  breakthroughs and tribulations, HP Animagus preparation (canon: weather and moon conditions over
+  time), and Mother of Learning soul work. Default: one ritual-condition mechanism with world dials,
+  next to the process envelope (DWF126).
+- **DWF149 Ritual outcomes are graded.** Met: safer transition. Partly met or substituted: stated
+  loss-of-control odds. Absent: high risk, still the player's choice. Canon's own leeway (pre-signs
+  are reversible for about a week) gives a recovery window.
+
+### Lore-true sources
+
+- **DWF150 A route is an institution, not a shop.** Canon routes each have a keeper, an access gate,
+  a payment and a risk:
+
+| Route | Keeper | Access | Payment | Risk |
+| --- | --- | --- | --- | --- |
+| Church issue | Nighthawks, Storm, Machinery (in Tingen) | Membership, merit, exam | Service, waiting | Promotion loss of control |
+| Tarot Club | Patron and members | Invitation | Favor, sacrifice, credit | Debt to a patron |
+| Psychology Alchemists | Society officers | Contribution | Equal barter, advance against future work | Forgery |
+| Broker | Trusted middleman (in Tingen) | Introduction | Money plus commission (canon 15%) | Forgery, escrow |
+| Silver City | Council | Contact across the sea | Knowledge trade | Distance |
+| Hunt | None | Win a fight | Danger | Imprint, pollution |
+| Inheritance | Family | Kinship | The parent loses a Sequence | Family cost |
+| Ruins and leaks | Fallen houses | Find or buy | Money | Fakes |
+| Black market | Unknown | Contacts | Money | Raids, fakes (not in docs; authored) |
+
+  Default: a route row (keeper, access predicate, payment kind, risk, delay, lore text, evidence)
+  over the existing escrow, rank and quest seams, so a new route is data.
+- **DWF151 Every shop has a reason to exist and a reason to refuse.** A seller stocks what its
+  faction holds and refuses what it guards (the Machinery team keeps its line to its own
+  probationers, already in the rows). Default: stock and refusals derive from the holder table, so
+  Tingen sells Darkness, Death, Tyrant and Paragon goods, and anything else arrives through a route
+  from elsewhere.
+- **DWF152 Rare goods are dangerous to hold.** High-Sequence materials and characteristics pollute
+  and imprint. Tingen already has clearance grades and sealed custody (Q4), so a Seq 4+ material
+  should enter that custody system rather than a pocket.
+- **DWF153 Buying attracts attention.** Illegal Beyonder goods draw church and police notice. Default:
+  a heat value per buyer and route that raises raid and questioning odds, decaying with time.
+
+### Factions, societies and missions
+
+- **DWF154 Contribution is the shared currency of institutions.** Churches pay merit; societies keep
+  contribution; cultivation sects run contribution points and treasure halls; Paradise has points;
+  academies have standing. Default: one contribution ledger per institution plus an institution store
+  whose stock and prices are rows. This mechanism has consumers in nearly every world.
+- **DWF155 Missions are how contribution is earned.** Canon examples: merit checks before a Seq 8
+  handover, team assignments, brokered commissions, bounties (the Blood Admiral bounty), and hunts
+  for characteristics. Default: mission rows on the quest board seam (DWF111) with reward kinds
+  (money, contribution, formula, ingredient, characteristic, standing), issuer, risk and a deadline.
+- **DWF156 Societies have secrecy rules.** The Tarot Club runs on code names and hidden identities;
+  the Nighthawks sign secrecy terms. Default: membership carries a secrecy duty, and a breach is a
+  consequence path (expulsion, hunt, debt called in), not a flag.
+- **DWF157 A faction's view of the player follows pathway and conduct.** Holders guard their own
+  lines, rivals compete for the same Uniqueness, and terrorist orders recruit from the desperate.
+  Default: attitude reads pathway, membership, heat and contribution through the identity owner's
+  directed attitude (DWF75).
+- **DWF158 Most canon factions are not in Tingen.** The Mystery Order, Aurora Order, Intis church,
+  Witch Cult and others sit in other cities. Default: they reach Tingen as visitors, letters, agents
+  or rumors first, and travel to Backlund and beyond is the later place layer (DWF99 spread).
+- **DWF159 Ingredients have homes.** High-Sequence mains are parts of named creatures that live in
+  places (spirit-world harpies, sea creatures, mythical beasts). Default: a creature ecology row
+  (where it lives, how it is taken, what it yields) links places, hunts and the bench.
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| DWF160 | Ritual-condition mechanism (DWF145-DWF149) with LOTM Sun 5 (ice burial) and Visionary 5 (contracted harpy) as first rows | Sonnet high; advisor review | One solitary and one creature ritual graded met, substituted and absent in a rebuilt browser |
+| DWF161 | Route rows (DWF150) over escrow, rank and quest seams, starting with church issue and broker | Sonnet medium | One formula obtained by two routes with different gates and risks |
+| DWF162 | Contribution ledger and institution store (DWF154), LOTM church and one cultivation sect | Sonnet high | Contribution earned by a mission buys a formula in both worlds |
+| DWF163 | Mission rows on the quest board (DWF155): Nighthawk assignment, brokered commission, bounty | Sonnet medium | Three mission kinds complete and pay their reward kinds |
+| DWF164 | Heat and raid odds (DWF153) | Sonnet low | A black-market purchase raises heat; it decays; a raid can occur and is logged |
