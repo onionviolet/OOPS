@@ -63,3 +63,18 @@ Correction for BF1: non-ownership, mismatch or uncertain allegiance alone does n
 justify a universal unsupported/cannot-cast verdict. Keep actual source, learned
 method, custody, condition and source-qualified performance separate. These pages
 do not establish ordinary nonmagical adults acquiring magical faculty by practice.
+
+## D7 bounded spell cases, 2026-10-25
+
+Read from the existing private English seven-novel extraction in the primary checkout,
+not newly acquired and not a full-book read. Only short selected windows were inspected.
+
+| ID | Window / source identity | Inspected consequence and boundary |
+|---|---|---|
+| HP-D7-S1 | B1:PDF-p137–138, `book-01.txt` SHA-256 `aa4e950432c809b14ce045b08bcb134b175afaa7102ce29f94d3f3229e45875e` | SHOWN motion/pronunciation instruction, unsuccessful attempts, and a feather rising. Does not establish safe heavy loads, exact training duration or universal success odds. |
+| HP-D7-S2 | B4:PDF-p1276, `book-04.txt` SHA-256 `35cc9d7bce57219c308fd532879ce1448575e6aaa08d6833884fdd4c40c4db30` | SHOWN Reparo reuniting the shattered compartment pane. No missing-material, wand-repair or enchanted-object rule inferred. |
+
+The school timetable, first-year optional repair tutorial, adult prior learning,
+original tutor/trader, quantities, local purses/debts, costs and practice thresholds
+are labelled original slice proposals. H6–H8's supplemental wand evidence remains
+separate from these novel windows. No whole-canon acquisition/reading claim follows.

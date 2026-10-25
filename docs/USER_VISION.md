@@ -6055,3 +6055,13 @@ Implemented-unverified by Weibao; not committed.
 On 2026-10-25 Weibao chose: "Run both in parallel accordingly" (The Perfect Run and Super
 Supportive) and asked "download super supportive accordingly?". Both rounds are recorded in the
 [source deep dive queue](research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md).
+
+## Harry Potter first playable slices, 2026-10-25
+
+Weibao's D7 brief: "maybe full world implementation"; build opt-in HP entry with
+one life profile, school calendar/lessons, descriptor wand/spell practice, then
+a second life and place layer, one verified slice at a time. Values/names are
+proposals. LOTM continues under C1 and is excluded.
+[D7 checkpoint](gm/dispatch/hp-world-2026-10-25/CHECKPOINT.md) owns execution
+evidence; [HP brief](worlds/harry-potter/WORLD_BRIEF.md) owns its bounded world
+scope. This does not turn later full-world slices into completed gameplay.

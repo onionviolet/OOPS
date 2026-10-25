@@ -378,6 +378,7 @@ import {beginStructuredCampaign,planStructuredSelection,validateStructuredBootst
 import {requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
+import {createHpLifeContent} from './book_world_hp_content.js';
 import {initialStructuredBeginning} from './structured_beginning_choice.js';
 import {nativeStructuredEquipmentTemplate} from './structured_equipment_runtime.js';
 import {readWornEquipment} from './worn_equipment_comparison.js';
@@ -9480,6 +9481,7 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 for(const make of [createLocalLivelihoodContent,createWarmHandStartContent,createLanternLoanStartContent,createSlakeBenchStartContent])await registerStructuredNative(make());
+for(const profile of ['school','trade'])await registerStructuredNative(createHpLifeContent(profile));
 configureCraftingDomain({read:()=>({inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),skill:character.getTotalSkillLevel('Literacy'),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
     itemOwners:()=>[character,character.getItems(),item_log,favourite_items,favourite_consumables],assertSpend:key=>assertNativeItemDisposition(expansionState,key),addSkillXp:(skill,xp)=>add_xp_to_skill({skill:skills[skill],xp_to_add:xp,use_bonus:false,cap_gained_xp:false}),
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),

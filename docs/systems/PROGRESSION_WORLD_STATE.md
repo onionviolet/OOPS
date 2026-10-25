@@ -856,3 +856,15 @@ timer; add a boundary (S10).
 When a system listed here changes shape, update its entry in the same change and
 re-grep every `file:line`. This file orients; the code and the rulebooks win on any
 disagreement.
+
+## D7 HP application, 2026-10-25 branch candidate
+
+`book.hp` now supplies original school/trade life data in
+`src/world_packs/book_hp_life_data.js`, admitted by the bundled loader and adapted
+by `src/book_world_hp_content.js` to the existing structured-pack compiler.
+This adds a second world application of S8/S9/S10/S12 and the ability descriptors,
+not another save owner or method interpreter. Native body, stock, custody, jobs,
+XP, mastery and exact selection/content receipts retain their existing owners.
+`src/book_world_hp_facts.js` projects the local lesson windows and read models;
+`world_calendar.js` projects its elapsed header clock. Scope and proof:
+[D7 checkpoint](../gm/dispatch/hp-world-2026-10-25/CHECKPOINT.md).

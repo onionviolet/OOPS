@@ -1080,6 +1080,13 @@ digestion/promotion, whole Tingen, exceptional protagonist faculties and cross-w
 integration. Current native bindings remain absent in the inspected profile paths.
 Recommendation/defaults are not accepted runtime scope or a dispatched build.
 
+**D7 branch candidate, 2026-10-25:** Weibao explicitly selected HP first playable
+slices. [D7 checkpoint](docs/gm/dispatch/hp-world-2026-10-25/CHECKPOINT.md) records
+two opt-in native lives, lessons/calendar, descriptor practice and a trade/place
+loop. The 2026-10-15 unbound comparison above is historical; this candidate's
+build/browser/persistence evidence does not imply master integration, full-world
+completion or human acceptance. LOTM C1 remains a separate lane.
+
 ## LOTM initiation plan and question chat, 2026-10-15
 
 [Consolidated LOTM plan](docs/gm/LOTM_INITIATION_IMPLEMENTATION_PLAN_2026-10-15.md)
