@@ -1,3 +1,4 @@
+import {labelControl} from './ui/panel_sections.js';
 // Small desktop panel for the HTP45 owned-place clock pilot (proposal). Mobile layout deferred.
 import {definePanel} from './panel_kit.js';
 import {PLACE_DIALS,SHELF_LIFE,OBSERVER_ROUTES} from './owned_place_clock.js';
@@ -10,7 +11,7 @@ export function createPlaceClockPanel({read,state,quote,execute,project}) {
     notice.setAttribute('role','status');
     const route=el('select');route.setAttribute('aria-label','How you read the hearth');
     for(const id of Object.keys(OBSERVER_ROUTES)){const o=el('option',id==='present'?'By eye':'By sand glass');o.value=id;route.append(o);}
-    const view=el('div'),actions=el('div');panel.append(title,intro,route,view,actions,notice);
+    const view=el('div'),actions=el('div');panel.append(title,intro,labelControl(route,'How you read the hearth'),view,actions,notice);
     function act(label,request){
         const b=el('button',label),reason=el('small'),wrap=el('div');b.type='button';
         b.dataset.placeClockAction=request.type+(request.days?':'+request.days:'')+(request.key?':'+nameOf(request.key):'');
