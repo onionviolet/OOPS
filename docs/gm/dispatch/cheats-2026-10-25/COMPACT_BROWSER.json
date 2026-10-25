@@ -1,0 +1,15 @@
+{
+  "route": "Heirloom Compact",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "checks": [
+    "UI nominates two actually owned chest goods for local successor",
+    "Save/reload retains exact nomination and cost",
+    "literal Import retains exact nomination",
+    "real beginHeir executes exact claim once: two personal, conserved remaining chest, nomination cleared; claim receipt survives another Save/reload"
+  ],
+  "pass": true,
+  "errors": []
+}

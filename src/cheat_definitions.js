@@ -1,3 +1,4 @@
+import {validateCompact} from './heirloom_compact.js';
 import {validatePattern} from './pattern_book.js';
 // Authored defaults. Costs describe these faculties, not universal world law.
 export const CHEAT_MODULES = Object.freeze([
@@ -6,6 +7,7 @@ export const CHEAT_MODULES = Object.freeze([
     {id:'fate-ledger',name:'Fate Ledger',family:'foresight',ui:'simulator-foresight',hook:'stream.peek',description:'Read one named loot decision without advancing or drawing it. A call already committed by Loaded Dice is included.',state:{revision:1,charges:3,used:0,recharged:0,readings:[]}},
     {id:'earned-habit',name:'Earned Habit',family:'practice',ui:'quiet',hook:'harvest.routine',description:'Set a finite carcass routine after processing one by hand. Existing tools, time, body and interruption rules still apply.',state:{revision:1,charges:3,used:0,recharged:0}},
     {id:'pattern-book',name:"Traveler's Pattern Book",family:'knowledge',ui:'quiet',hook:'crafting.pattern',description:'Remember a method you can actually read. Rebuild its design in a new body, using the original law. Materials, skill and hidden properties stay separate.',state:{revision:1,charges:3,used:0,recharged:0,patterns:[]}},
+    {id:'heirloom-compact',name:'Heirloom Compact',family:'legacy',ui:'quiet',hook:'heir.estate',description:'Nominate counted owned goods for the successor chosen by local inheritance law. The estate rechecks the lot and claims it at succession; debts and duties still settle through their owners.',state:{revision:1,charges:2,used:0,recharged:0,nomination:null,receipt:null}},
 ]);
 export function moduleCard(id) {
     const d=CHEAT_MODULES.find(x=>x.id===id);if(!d)throw Error('Unknown faculty development.');
@@ -31,6 +33,7 @@ export function validateModuleState(card) {
         throw Error('Invalid cheat module state.');
     if(s.readings!==undefined&&(!Array.isArray(s.readings)||s.readings.length>s.used||s.readings.some(r=>!r||typeof r!=='object'||!Number.isFinite(r.at))))
         throw Error('Invalid cheat retained reading.');
+    if(card.id==='heirloom-compact')validateCompact(s);
     if(card.id==='pattern-book'){if(!Array.isArray(s.patterns)||s.patterns.length>s.used||new Set(s.patterns.map(p=>p?.recipe?.id)).size!==s.patterns.length)throw Error('Invalid retained patterns.');for(const p of s.patterns)validatePattern(p);}
     for(const r of s.readings||[]){
         if(card.id==='true-appraisal'&&(!r.ageEstimate||!natural(r.ageEstimate.min)||!natural(r.ageEstimate.max)||r.ageEstimate.min>r.ageEstimate.max||

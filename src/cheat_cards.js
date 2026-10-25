@@ -116,6 +116,7 @@ export function carryCheats(source, target = defaultCheatState(), {heir = false}
         const card=moduleCard(stage.id);
         // Learned means endure; per-life reserves start empty on a new body.
         if(heir){card.state.used=card.state.charges;card.state.charges=0;
+            if(stage.id==='heirloom-compact')card.state.receipt=structuredClone(from.held[stage.id]?.card.state.receipt??null);
             if(stage.id==='pattern-book')card.state.patterns=structuredClone(from.held[stage.id]?.card.state.patterns??[]);}
         const original=from.held[stage.id];
         next.held[stage.id]=heir||!original?{card,acquired:structuredClone(carried.acquired),messages:[]}:structuredClone(original);

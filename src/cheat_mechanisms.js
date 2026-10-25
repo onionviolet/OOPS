@@ -1,3 +1,4 @@
+import {nominateHeirloom} from './heirloom_compact.js';
 import {sketchPattern,rebuildPattern} from './pattern_book.js';
 import {projectCrafting} from './crafting_frontier_runtime.js';
 import {defineGate,evaluateGate} from './progression_gates.js';
@@ -28,6 +29,7 @@ export function cheatProjection(save) {
     return {visible:true,points:state.points??0,earned:state.earned??0,spent:state.spent??0,
         milestones:insightMilestones(save).map(m=>({...m,claimed:(state.claimed||[]).includes(m.id)})),
         decisions:save.decisions||[],
+        heirlooms:['person','chest'].flatMap(source=>Object.entries(source==='person'?save.inventories?.person?.main_character||{}:save.inventories?.storage?.player||{}).filter(([,r])=>r.count>0).map(([key,r])=>({source,key,count:r.count}))),
         methods:projectCrafting(save.crafting,Object.fromEntries(Object.entries(save.inventories?.person?.main_character||{}).map(([k,r])=>[k,r.count]))).methods,
         development:CHEAT_MODULES.find(d=>!save.cheats.held[d.id])? 'Explore the next facet · 1 insight':null,
         cards:CHEAT_MODULES.filter(d=>save.cheats.held[d.id]).map(d=>({...d,state:structuredClone(save.cheats.held[d.id].card.state)})),
@@ -78,6 +80,8 @@ export function planCheatAction(original, request) {
         const skill=Math.max(25,Number.isFinite(request.skill)?request.skill:0);
         const reading=observeCarcass(save.harvest,request.species,request.key,{clock:at,skill});
         card.state.readings.push({...reading,species:request.species,key:request.key,source:'true-appraisal'});
+    } else if(request.type==='bequeath') {
+        const card=held(save,'heirloom-compact'),nomination=nominateHeirloom(save,request,at);spend(card);card.state.nomination=nomination;
     } else if(request.type==='sketch') {
         const card=held(save,'pattern-book');
         if(card.state.patterns.some(p=>p.recipe.id===request.id))throw Error('This design is already retained.');

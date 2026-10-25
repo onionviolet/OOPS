@@ -2,7 +2,7 @@ import {definePanel} from './panel_kit.js';
 import {centerModes} from './center_modes.js';
 const moment=at=>{const day=Math.floor(at/1440),year=Math.floor(day/360),within=day%360;return `Y${year} ${Math.floor(within/30)+1}/${within%30+1} ${String(Math.floor(at/60)%24).padStart(2,'0')}:${String(at%60).padStart(2,'0')}`;};
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
-export function createCheatPanel({read,act}) {
+export function createCheatPanel({read,act,nameItem}) {
     const home=node('section');home.id='cheat_faculty_panel';home.dataset.surfaceType='character-summary';
     const open=node('button','Explore your continuing insight');open.type='button';open.className='action_button';home.append(open);
     definePanel({id:'cheat-faculty',title:'Continuing insight',role:'character',node:home,home:document.getElementById('character_div'),defaultDock:'left',
@@ -40,6 +40,14 @@ export function createCheatPanel({read,act}) {
             if(card.id==='earned-habit') {
                 const count=node('input');count.type='number';count.min='1';count.max='10000';count.value='3';count.setAttribute('aria-label','Carcasses in routine');
                 const b=button('Entrust finite processing · 1 charge',{type:'routine'},!card.state.charges||!!s.reason);b.onclick=()=>run({type:'routine',target:Number(count.value)});section.append(count,b);
+            }
+            if(card.id==='heirloom-compact'){
+                const select=node('select');select.setAttribute('aria-label','Owned heirloom lot');
+                for(const lot of s.heirlooms){const name=nameItem(lot.key);const o=node('option',`${name} · ${lot.source} · ${lot.count} owned`);o.value=JSON.stringify({source:lot.source,key:lot.key});select.append(o);}
+                const count=node('input');count.type='number';count.min='1';count.value='1';count.setAttribute('aria-label','Heirloom count');
+                const b=button('Bequeath to local successor · 1 charge',{type:'bequeath'},!card.state.charges||!s.heirlooms.length||!!s.reason);b.onclick=()=>run({type:'bequeath',...JSON.parse(select.value),count:Number(count.value)});section.append(select,count,b);
+                const n=card.state.nomination;if(n)section.append(node('p',`Nominated: ${nameItem(n.key)} ×${n.count} from ${n.source}. Claim executes when you begin the heir; changed stock may lapse.`));
+                const r=card.state.receipt;if(r)section.append(node('p',`Last succession: ${r.status} · ${nameItem(r.key)} ×${r.count} for ${r.recipient}.`));
             }
             if(card.id==='pattern-book'){
                 for(const m of s.methods)section.append(button(`Sketch ${m.name} · 1 charge`,{type:'sketch',id:m.id},!card.state.charges||card.state.patterns.some(p=>p.recipe.id===m.id)||!!s.reason));

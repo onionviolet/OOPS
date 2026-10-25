@@ -27,6 +27,7 @@ export function buildLifeHeirSave(previous, fresh, leftovers = deriveHeirLeftove
     if(previous.inheritance_law != null)next.inheritance_law=structuredClone(previous.inheritance_law);
     if(previous.discovery_codex != null)next.discovery_codex=structuredClone(previous.discovery_codex);
     next.cheats=carryCheats(previous.cheats, fresh.cheats, {heir:true});
+    if(next.cheats.held['heirloom-compact']&&leftovers.compact)next.cheats.held['heirloom-compact'].card.state.receipt=structuredClone(leftovers.compact);
     next.life_record=structuredClone(previous.life_record ?? createLifeRecord());
     const grave=next.expansion.chronicle.life.experience.inheritedFrom;
     if(next.life_record)next.life_record=appendLifeMilestone(next.life_record,{year:calendar.year,at:lifeCalendarMinute(calendar),worldId:'base.frontier',kind:'legacy',text:`${grave.name} rests beneath a quiet stone. ${grave.epitaph}`.slice(0,240)});

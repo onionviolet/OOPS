@@ -11,7 +11,7 @@ let ports,panel,quarantine=emptyCheatQuarantine();
 export function configureCheatHost(operations){
     ports=operations;
     if(quarantine.entries.length)ports.log('Some saved records need a compatible reader. Their original data is retained in your full backup.');
-    panel??=createCheatPanel({read:()=>cheatProjection({...ports.read(),cheats:cheatState}),act:commandCheat});
+    panel??=createCheatPanel({read:()=>cheatProjection({...ports.read(),cheats:cheatState}),act:commandCheat,nameItem:operations.nameItem});
 }
 export function commandCheat(request){
     if(!ports.writable())throw Error('Use the writable game tab.');
