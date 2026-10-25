@@ -14,4 +14,6 @@ Follow `docs/gm/MECHANIC_ABSORPTION_WORKFLOW.md` (stages 0 to 7). Short version:
 4. Build lanes in worktrees: golden snapshot, save validators, conservation, old-save load, browser proof at 1920x1080 and 1536x864 at 14 and 21 px. Give lanes absolute paths to uncommitted docs.
 5. Verify lanes yourself: tests, diff, decision file, one screenshot, result JSON.
 6. Integrate and run the full gate; commit and push only on Weibao's yes.
-7. Record: palette round, USER_VISION line, checkpoint, register update, play queue.
+7. Record: palette round, USER_VISION line, checkpoint, register update, play queue, and new lessons in the workflow's expansion backlog (MAW-X codes).
+
+Codex copy: `.agents/skills/mechanic-absorption/SKILL.md`, installed at `~/.codex/skills/mechanic-absorption/`. Change both together (MAW-X1).

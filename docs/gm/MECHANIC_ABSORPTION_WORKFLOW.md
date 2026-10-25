@@ -102,3 +102,21 @@ Weibao's ask; raw data stays in the gitignored research folder or `private_packs
 - Haiku is enough for shard extraction; check its sequence labels (one was wrong).
 - A wiki quantity next to another quantity is the likeliest error (X1).
 - Blocked sites stay blocked; spoofed fetches are refused; logins are Weibao's route.
+
+## Expansion backlog (keep growing this), 2026-10-25
+
+Weibao: "make sure to keep in mind expanding on those and more, and also make the skill work
+for codex". Every run of this workflow checks this list, does what its task touches, and adds
+what it learned. Items are proposals with level, effort and done check.
+
+| Code | Item | Level, effort | Done check |
+|---|---|---|---|
+| MAW-X1 | Codex parity: the skill at `~/.codex/skills/mechanic-absorption/SKILL.md` mirrors `.claude/skills/mechanic-absorption`; update both in the same change | Coordinator, minutes | Both skill files name the same stages and paths |
+| MAW-X2 | Register drift check: a script lists exported functions of the modules the [systems register](../SYSTEMS_REGISTER.md) covers and flags ones the register does not mention; wire it into `check:rules` or a new `check:register` | Sonnet or Sol, small | Running it on master lists zero unexplained exports, or a reviewed allowlist |
+| MAW-X3 | One importer template per world (TSW11): generalize `tools/build_lotm_ingredient_pack.mjs` into a world-agnostic builder plus a per-world source adapter; HP next from its census | Sonnet or Sol, one session | HP ingredients build through the shared builder with less new code than LOTM (AR11) |
+| MAW-X4 | Graded substitution in play (TSW3, TSW-L3): give `matchRecipe` a live caller and a fit score that changes the outcome | Opus or Sol design, Sonnet build | One slot accepts a substitute in a rebuilt browser run with a visible fit preview |
+| MAW-X5 | Lane brief templates: save the build-lane brief (golden snapshot, validators, conservation, old save, browser matrix) as a fill-in template under `docs/gm/` so each dispatch copies it instead of rewriting | Coordinator, small | Next dispatch's brief is a filled template |
+| MAW-X6 | Browser harness kit: factor the shared parts of `o1-browser.cjs` and `s1-brew-browser.cjs` (static server, fresh origin, viewport and font matrix, save/Export/Import, old-save run) into one helper | Sonnet or Sol, one session | Two existing harnesses run unchanged on the helper |
+| MAW-X7 | Integration helper: one script that assembles lane worktrees into a clean integration worktree, runs the full gate, commits own paths through a private index and verifies worktrees before removal (zsh-safe, no `rm` inside `bash -c`) | Sonnet or Sol, one session | A dry run on a two-lane fixture lands and cleans with no manual steps |
+| MAW-X8 | Register coverage gaps: entries for combat, NPC people and helpers, sites and exploration, and UI layout systems | Sonnet or Sol per area | Each area has a register file in the same format |
+| MAW-X9 | Gap list follow-through: the register's MIE-G and progression gaps get owners or are linked to existing palettes | Coordinator | Each gap row names an owner or a palette code |
