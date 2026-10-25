@@ -632,3 +632,67 @@ vows already share `vow_rules.js`. Merging them now would build an interpreter f
 | DWF123 | DWF112 lesson mechanism, porting `lever_lesson.js` and the HP charms lesson | Sonnet medium | Both journeys unchanged in a rebuilt browser |
 | DWF124 | DWF111 quest view builder replacing the eight copies | Sonnet low | Quest panel text unchanged at 1920×1080 for three sampled quests |
 | DWF125 | Test tidy: rename `lp3_practice_supply`, `lp7_material_choice`, `refit_k1_k2`, `lotm_seer_slice` (and `p23-*` once clean) to system names; review the deepStrictEqual literals in `inventory_tabs`, `layout_spec`, `start_records`, `relationship_view`, `tag_store`, `invention_planner`, `systems_irrigation_model`, `combat_focus`; merge the `trial_*` files into the pledges suite and the `world_pack_*` files (not `world_pack_save`) after setup comparison | Sonnet low | Full suite passes; save, migration and compatibility files untouched |
+
+## Round 6: what else rides the dose mechanism (2026-10-25)
+
+Weibao chose "brewable items for all 23" full LOTM formulas, then: "consider other systems that would
+benefit from this and more, and more". DWF121 landed as `b6ea82020` (helper kit, structural only).
+Evidence: `src/book_world_lotm_*` (broker lots as rows, native stock fixed at enrollment, one
+action list per panel), the potion table's section 0.1 rules, and `src/lotm_ingredient_catalogue.js`
+(a substitute ranker over a private pack). Proposals unless marked.
+
+### ACCOUNT FOR NOW (constraints on the DWF101/DWF102 build)
+
+- **DWF126 The envelope is a process, the dose is a product.** Slots, bench, minutes, start and
+  collect fit smithing, cooking and enchanting as well as potions. Keep that lifecycle
+  product-agnostic and put dose behavior (tolerance, ingestion, pathway) in the product logic, as
+  MR's one-envelope-over-separate-product-logics rule asks.
+- **DWF127 Stock must be addable to old saves.** Tingen's broker stock is written once at enrollment
+  (`LOTM_NATIVE_STOCK`), so a save enrolled before new ingredients exist would never see them, and
+  one-of stock runs dry after one brew. Default: new goods seed lazily on first visit, keyed by row
+  revision, with `shop_restock.js` as the restock owner.
+- **DWF128 Brewing needs its own surface.** 23 formulas with buy, start and collect would add about
+  70 buttons to one action list. Default: a bench section that picks one formula and shows its
+  slots, gaps and actions (UR41-UR49 disclosure). Corpse Collector keeps its existing buttons.
+- **DWF129 One price scale per world.** Canon prices are in hundreds of pounds against a clerk's few
+  pounds; Corpse Collector scales 230 to 5 by hand. Default: a world price-scale dial applied to
+  every row with the canon figure kept beside it.
+- **DWF130 Holding is not drinking.** A brewed dose for a pathway with no runtime ingestion is real
+  and holdable or sellable; drinking it shows the DWF72 "unwritten" marker rather than inventing an
+  effect.
+
+### More to consider
+
+- **DWF131 Ingredients are their own system.** The 23 formulas name dozens of ingredients. Each wants
+  a catalogue row plus acquisition rows (broker lot, supplier, forage, hunt, characteristic), and the
+  existing substitute ranker turns a missing aux into free experimentation with a fit score (MR).
+- **DWF132 A formula is knowledge, not a recipe unlock.** It can be bought, taught, copied, stolen,
+  forged or lost, and a bought one can be wrong (MR1 truth versus knowledge; the broker's
+  unverifiable hairs are the pattern).
+- **DWF133 Failure by mechanism.** Canon gives the causes: overdosing an active ingredient (madness or
+  death), wrong order, missing aux. `craft_dose_rules.js` already has a tolerance ledger with no
+  consumer.
+- **DWF134 Characteristics link fights to brewing.** Canon lets a same-Sequence characteristic replace
+  the main ingredient. Tingen already has hostile Beyonders; a defeated one can leave a
+  characteristic (polluted ones poison), so combat feeds the bench.
+- **DWF135 A generated pathway row unlocks drinking.** The table gives name, Sequence, acting
+  principle (sometimes) and loss causes for every pathway. A pathway-row generator with authored
+  gaps marked would make the 23 doses drinkable later. This is the biggest depth lever left in LOTM.
+- **DWF136 NPC brewers make prices.** NPCs who brew rows for sale give the market supply, so prices
+  can move with scarcity (`economy_standing.js` bands).
+- **DWF137 Other worlds on the same process.** Cultivation pills (furnace and fire control as product
+  logic), HP class potions from the census, cooking (the Animal fat slice), the Mother of Learning
+  academy's alchemy, Paradise consumables, and smithing or alloying (`alloy_equipment.js`) as a
+  non-dose product.
+- **DWF138 Ledger inspector.** One view of every formula row by world: evidence tags, gaps, and
+  whether it is brewable, drinkable or inspect-only (DWF119).
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| DWF139 | Pathway-row generator from the table with marked gaps (DWF135) | Sonnet high; advisor review of loss-of-control causes | One generated pathway's Sequence 9 dose drinks and digests in a rebuilt browser |
+| DWF140 | Lazy stock seeding and restock for Tingen sellers (DWF127) | Sonnet medium | A save enrolled before the change sees new ingredients and restock after a day |
+| DWF141 | Characteristic drops from Tingen hostiles replacing a main ingredient (DWF134) | Sonnet medium | One defeat yields a characteristic that brews its Sequence's dose |
+| DWF142 | Cultivation pills and smithing on the process envelope (DWF137) | Sonnet medium each | One pill and one forged item through the shared lifecycle in browser |
+| DWF143 | Brew failure by mechanism using `craft_dose_rules.js` (DWF133) | Sonnet medium | Overdose and wrong-order cases produce stated consequences, not refusals |
