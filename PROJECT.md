@@ -55,6 +55,8 @@ are proposals. [Record](docs/gm/dispatch/ascension-paths-2026-10-22/CHECKPOINT.m
 
 Worktree reconciliation, 2026-10-24: Weibao asked to merge finished gate-passing lanes and retire stale worktrees, no push. The gated O/F/A candidate (2796/2796 at tree `d59dfe7d`) landed on master as `e3c50c0c3`, superseding the "no commit" status of the O/F/A and LOTM Q2-Q6 work below; five worktrees were retired and the rest kept with owners. [Record](docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md). Not pushed; human acceptance and app adoption remain open.
 
+Worktree reconciliation round 2, 2026-10-24: the Qud parity candidate G1-G7 (with D1, R3 and the estate label) landed as `eeae81660` (build, arch, rules, full suite 2858/2858 on the combined tree) beside lane records `e59a8074f`; 16 more worktrees archived and retired, 4 kept with owners (d2, d3, lotm-pathways, family-habits). Open: primary's uncommitted crafting-depth work must merge onto G1's reference shelf. See the [round 2 record](docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md#round-2-2026-10-24-later). Not pushed.
+
 Start at [RULES_INDEX](docs/RULES_INDEX.md), then use the current owners below.
 The [shared-doc reconciliation](docs/reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md)
 records inspected commits, recent chat results, source fingerprints and limits.
