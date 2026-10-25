@@ -7,6 +7,7 @@ import {pathwayAssertions,flagOf} from './book_world_lotm_pathways.js';
 import {causeAssertions,causeHeld} from './book_world_lotm_causes.js';
 import {brewAssertions} from './book_world_lotm_brew.js';
 import {brokerAssertions} from './book_world_lotm_broker.js';
+import {benchAssertions} from './book_world_lotm_bench.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
 import {lotmCommands} from './book_world_lotm_actions.js';
 import {jsonData} from './simulation_contracts.js';
@@ -68,6 +69,7 @@ export function validateLotmState(state){
  const paid=a.player.resources?.['book.lotm.weeks_paid'];
  assert(paid===undefined||natural(paid)&&(civil&&has('contract.signed')||paid===0),'Weeks of pay need the signed contract.');
  brokerAssertions({a,has,assert});
+ benchAssertions(state,{a,has,assert,natural});
  causeAssertions({a,has,assert,natural});
  const e=s.energies?.player?.[I.energy];
  assert(!!e===!!src,'The spirituality pool exists exactly when the source does.');

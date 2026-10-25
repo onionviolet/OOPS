@@ -3,6 +3,8 @@ import {lotmCommands,lotmSources,lotmPowers,lotmEnergies} from './book_world_lot
 import {createLotmState} from './book_world_lotm_state.js';
 import {LOTM_HOSTILES,hostileAbilityCommands,abilityConditions} from './book_world_lotm_abilities.js';
 import {LOTM_PROFILES} from './book_world_lotm_lives.js';
+import {BENCH_STOCK,STOCK_REV_KEY} from './book_world_lotm_bench.js';
+import {LOTM_BENCH_ITEMS,FORMULA_ROWS_REVISION} from './lotm_formula_rows.js';
 export {LOTM_IDS,LOTM_LOCATIONS,LOTM_KEYS,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT} from './book_world_lotm_ids.js';
 export {lotmSources};
 export const lotmWorlds=[{id:I.world,label:'Tingen · supervised probationer branch',publicName:'Tingen',continuityLabel:'Original early-Tingen probationer branch',
@@ -20,7 +22,7 @@ export const lotmPeople=[{id:I.supervisor,label:'Warden Hale (original superviso
  officer(I.seniorDeacon,'Machinery senior deacon (original, unnamed)',L.university,'An authored Machinery examiner using the Nighthawk examination pattern, who conducts the promotion examination; the local office cannot. No canon identity.',3),
  officer(I.machineryOfficer,'Machinery records officer (original, unnamed)',L.university,'An original Machinery team records officer in the university quarter. No canon identity; supervises visitors and errands in the Steam and Machinery district.')];
 // Opening stock lives with the supervisor (plan S3). Prehistory preparation is not debited again.
-export const LOTM_NATIVE_STOCK={[I.supervisor]:{[K.dose]:1,[K.comparator]:1,[K.sampleA]:1,[K.sampleB]:1,[K.sealed3]:1},[I.broker]:{[K.frog]:1,[K.hairs]:1,[K.ink]:1,[K.marketCc9]:1,[K.marketCc8]:1,[K.marketSv9]:1,[K.marketSv8]:1,[K.marketSa9]:1,[K.marketSa8]:1}};
+export const LOTM_NATIVE_STOCK={[I.supervisor]:{[K.dose]:1,[K.comparator]:1,[K.sampleA]:1,[K.sampleB]:1,[K.sealed3]:1},[I.broker]:{[K.frog]:1,[K.hairs]:1,[K.ink]:1,[K.marketCc9]:1,[K.marketCc8]:1,[K.marketSv9]:1,[K.marketSv8]:1,[K.marketSa9]:1,[K.marketSa8]:1,...BENCH_STOCK}};
 export const lotmDefinitions={people:[...lotmPeople,...LOTM_HOSTILES.map(h=>({id:h.id,label:h.label,revision:1,worldId:I.world,location:L.docks,inventory:'native',provision:false,description:'An original hostile Beyonder, not enrolled by default: they hold the same source and use the same ability records as the player. No canon identity.',resources:{},body:{form:'human',hands:2,mobile:true},vitals:{health:24,max_health:24,stamina:18,max_stamina:18}}))],sites:[{id:I.site,revision:1,label:'Tingen supervised workroom bench',capacity:1}],powers:lotmPowers,energies:lotmEnergies,commands:[...lotmCommands,...hostileAbilityCommands],conditions:abilityConditions,encounters:[],controllers:[],situations:[{id:I.situation,revision:1,label:'Original Tingen probationer account',context:{worldId:I.world,instanceId:'book.lotm.tingen.main',continuityId:'book.lotm.probationer.branch',eraId:'book.lotm.early_tingen',regionId:'book.lotm.tingen'},participants:['player'],initialPhase:'present',phases:['present'],privateTruth:{role:'original_probationer'}}]};
 export const LOTM_ITEM_SPECIFICATIONS=[
  ['Tingen prepared Seer dose','One supervised prepared dose from a pinned, authored lot. Holding it grants nothing; taking it is a separate irreversible step.'],
@@ -44,6 +46,7 @@ export const LOTM_ITEM_SPECIFICATIONS=[
   ['Unmarked prepared dose (Sailor line, Sequence 9)','A prepared potion with no label, sold through a broker. Drinking an unverified, unissued dose is a stated route to loss of control; an appraiser can say what it is.'],
   ['Unmarked prepared dose (Sailor line, Sequence 8)','A prepared potion with no label, a step up from the first. Drinking it undigested or out of order is a stated route to loss of control; an appraiser can say what it is.'],
   ['Tingen sealed grade-3 item','A grade 3 sealed item from the Tingen vault: a small tarnished lamp that must not be lit. Handling it needs the group and clearance the church sets; it is returned the same day.']
+  ,...LOTM_BENCH_ITEMS
 ].map(([id,description])=>({id,name:id,description,value:1,tags:{expedition:true,book_world_lotm:true}}));
 export function registerLotmItems({itemTemplates,OtherItem}){for(const spec of LOTM_ITEM_SPECIFICATIONS){if(itemTemplates[spec.id])throw Error(`Duplicate Lord of the Mysteries item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}
 // Pure enrollment of the original probationer branch (plan S2 prototype start).
@@ -57,6 +60,7 @@ export function enrollLotmBranch(state,profile='probationer'){
   Object.assign(state.actors[d.id],{worldId:d.worldId});Object.assign(state.actors[d.id].resources,d.resources);
   s.people[d.id]={life:'alive',inventory:d.inventory,location:d.location,bornAt:state.clock,definitionId:d.id,definitionRevision:d.revision,vitals:{...d.vitals},
    body:{id:`native.person.${d.id}.body`,form:'human',hands:2,mobile:true,ownerId:d.id,controllerId:d.id}};}
+ state.actors[I.broker].resources[STOCK_REV_KEY]=FORMULA_ROWS_REVISION;
  state.lotm=createLotmState(state.clock,LOTM_PROFILES[profile].id);
  return state;
 }

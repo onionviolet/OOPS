@@ -1,0 +1,21 @@
+{
+ "mode": "bench",
+ "root": "this checkout",
+ "port": 51479,
+ "errors": [],
+ "log": [
+  "probationer enrolled; disposable save funded to 40000 pence",
+  "Spectator formula copy bought at the broker desk (Visionary Seq 9, no Tingen church route)",
+  "six materials bought from the supplier counter (stock-limited)",
+  "screenshots: dm-bench-before-1920x1080.png, dm-bench-before-1536x864-14px.png, dm-bench-before-1536x864-21px.png",
+  "brew started, materials consumed, timer shown",
+  "saved and reloaded mid-brew: brewing state and clock kept",
+  "Export string (246780 chars) literally imported after walking away: state restored",
+  "export string imported mid-brew: brew still in progress",
+  "screenshots: dm-bench-ready-1920x1080.png, dm-bench-ready-1536x864-14px.png, dm-bench-ready-1536x864-21px.png",
+  "dose bottled and held; Drink is disabled with the honest \"not yet written\" reason",
+  "dose sold to the broker: money +1500",
+  "screenshots: dm-bench-sold-1920x1080.png, dm-bench-sold-1536x864-14px.png, dm-bench-sold-1536x864-21px.png",
+  "Export button download re-imported through the file input: sold counter kept"
+ ]
+}

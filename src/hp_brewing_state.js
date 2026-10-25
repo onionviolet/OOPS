@@ -5,6 +5,8 @@
 // real action on a copy (MR4). Draws are keyed by a saved root and a saved serial (GR, MR2).
 import {packNative} from './world_pack_registry.js';
 import {drawU32} from './gen_kit.js';
+import {processReady} from './dose_process.js';
+import {HP_PROCESS} from './hp_brewing_formula.js';
 
 const PACK = packNative('book.hp');
 export const HP = Object.freeze({rules: PACK.rules, formula: PACK.formula, outcomes: PACK.outcomes, routes: PACK.routes, ingredients: PACK.ingredients, variants: PACK.variants, evidence: PACK.evidence});
@@ -55,7 +57,7 @@ export function settle(s, now) {
         log(s, doneAt, 'stew', 'A pot of lacewing flies has stewed the full twenty-one days.');
     }
     const brew = s.cauldron.brew;
-    if(brew && now >= brew.readyAt) {
+    if(brew && processReady({startedAt: brew.startedAt, now, minutes: HP_PROCESS.minutes})) {
         const id = `b${brew.id}`;
         s.batches[id] = {id, readyAt: brew.readyAt, grade: brew.grade, doses: R.doses, dosesLeft: R.doses, known: {identified: false, assayed: false}};
         s.cauldron.brew = null;

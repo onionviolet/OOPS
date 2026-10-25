@@ -7,6 +7,7 @@ import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES} from './b
 import {pathwayDoses} from './book_world_lotm_pathways.js';
 import {LOTM_LOTS} from './book_world_lotm_broker.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
+import {benchEnvelope} from './book_world_lotm_bench.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);};
 export const LOTM_PLACES=Object.freeze(Object.values(L));
 const count=(save,owner,key)=>save.inventories?.person?.[owner]?.[key]?.count||0;
@@ -38,6 +39,7 @@ export function validateLotmEnvelope(save){
   assert(count(save,I.broker,lot.item)===1,'An open broker trade needs its item in broker custody.');
  // The single brewable frog: a brew in progress has consumed it, so held plus consumed never exceeds the one frog.
  assert(count(save,'main_character',K.frog)+count(save,I.broker,K.frog)+reserved(state,K.frog)+(f['book.lotm.cc.brew.started']===true?1:0)<=1,'A consumed frog cannot also be held.');
+ benchEnvelope(save,{count,assert,reserved});
  for(const name of LOTM_SAMPLES)assert(count(save,'main_character',K[name])+count(save,I.supervisor,K[name])+reserved(state,K[name])===1,'Each sample must have exactly one holder.');
  return true;
 }
