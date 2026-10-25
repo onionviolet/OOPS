@@ -109,10 +109,10 @@ Fill one line each. Agents treat these as the acceptance record.
 
 ## Added 2026-10-25: P6 LOTM frog brew (S1, integration build)
 
-Committed on master with the rebuilt bundle (2026-10-25). Serve a fresh copy of master as at the top of this file, or the integration worktree:
+Committed on master with the rebuilt bundle (2026-10-25). Serve a fresh copy of master as at the top of this file; the integration worktree was removed after landing:
 
 ```bash
-python3 -m http.server 19951 --bind 127.0.0.1 --directory ~/code/yet-another-idle-rpg/.claude/worktrees/integ-potion-2026-10-25
+python3 -m http.server 19951 --bind 127.0.0.1 --directory ~/yair-play
 ```
 
 1. Open `http://localhost:19951/?lotm_probe=1` → PLAY → **Begin as a Nighthawk probationer** → report to the supervisor.
