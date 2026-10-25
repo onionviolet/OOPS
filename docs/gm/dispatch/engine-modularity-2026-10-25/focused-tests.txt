@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: domain dependencies order optional lifecycle hooks without another clock or save
+ok 1 - domain dependencies order optional lifecycle hooks without another clock or save
+  ---
+  duration_ms: 7.0945
+  type: 'test'
+  ...
+# Subtest: domain registration rejects duplicate ids, bad hooks, missing dependencies and cycles
+ok 2 - domain registration rejects duplicate ids, bad hooks, missing dependencies and cycles
+  ---
+  duration_ms: 0.530458
+  type: 'test'
+  ...
+# Subtest: registration snapshots routing metadata while closure-owned state stays live
+ok 3 - registration snapshots routing metadata while closure-owned state stays live
+  ---
+  duration_ms: 3.490792
+  type: 'test'
+  ...
+# Subtest: inventory imports without the catalog, then uses the catalog operations for keyed and template items
+ok 4 - inventory imports without the catalog, then uses the catalog operations for keyed and template items
+  ---
+  duration_ms: 1.631959
+  type: 'test'
+  ...
+# Subtest: the school loads after its rulebook with an active rule profile
+ok 5 - the school loads after its rulebook with an active rule profile
+  ---
+  duration_ms: 52.118792
+  type: 'test'
+  ...
+# Subtest: load order and every output are independent of input order
+ok 6 - load order and every output are independent of input order
+  ---
+  duration_ms: 294.9825
+  type: 'test'
+  ...
+# Subtest: dependency cycles and their dependants load dormant while the rest runs
+ok 7 - dependency cycles and their dependants load dormant while the rest runs
+  ---
+  duration_ms: 0.907291
+  type: 'test'
+  ...
+# Subtest: missing, old, duplicate and nested dependencies fail only their packs
+ok 8 - missing, old, duplicate and nested dependencies fail only their packs
+  ---
+  duration_ms: 49.371916
+  type: 'test'
+  ...
+# Subtest: feature gating: a missing pack feature dorms the pack, a missing area feature dorms the area
+ok 9 - feature gating: a missing pack feature dorms the pack, a missing area feature dorms the area
+  ---
+  duration_ms: 6.395333
+  type: 'test'
+  ...
+# Subtest: an absent generator dorms its slot and cascades through cohorts, people and edges
+ok 10 - an absent generator dorms its slot and cascades through cohorts, people and edges
+  ---
+  duration_ms: 6.468208
+  type: 'test'
+  ...
+# Subtest: honest coverage: routes only lead to playable areas and reachability is reported
+ok 11 - honest coverage: routes only lead to playable areas and reachability is reported
+  ---
+  duration_ms: 7.483917
+  type: 'test'
+  ...
+# Subtest: rule profiles stay dormant without an owner, a resolver or a valid layer, and the world keeps running
+ok 12 - rule profiles stay dormant without an owner, a resolver or a valid layer, and the world keeps running
+  ---
+  duration_ms: 35.720791
+  type: 'test'
+  ...
+# Subtest: crossings need an authority model, its conversion or cause, and a scale rule across scale classes
+ok 13 - crossings need an authority model, its conversion or cause, and a scale rule across scale classes
+  ---
+  duration_ms: 7.422167
+  type: 'test'
+  ...
+# Subtest: author report and player notices never reveal sealed truth or unlearned places
+ok 14 - author report and player notices never reveal sealed truth or unlearned places
+  ---
+  duration_ms: 245.239625
+  type: 'test'
+  ...
+# Subtest: the entity budget is checked at load
+ok 15 - the entity budget is checked at load
+  ---
+  duration_ms: 85.422083
+  type: 'test'
+  ...
+# Subtest: every bundled world pack loads with no errors and none dormant
+ok 16 - every bundled world pack loads with no errors and none dormant
+  ---
+  duration_ms: 178.346542
+  type: 'test'
+  ...
+# Subtest: a broken pack added to the list fails the suite check, and a dormant pack never installs
+ok 17 - a broken pack added to the list fails the suite check, and a dormant pack never installs
+  ---
+  duration_ms: 153.095542
+  type: 'test'
+  ...
+# Subtest: Cyoria installs from the pack: exports match the pre-conversion hash and the pack matches its ID owners
+ok 18 - Cyoria installs from the pack: exports match the pre-conversion hash and the pack matches its ID owners
+  ---
+  duration_ms: 39.284167
+  type: 'test'
+  ...
+# Subtest: the world_packs domain projects pack identity and adds no save slice
+ok 19 - the world_packs domain projects pack identity and adds no save slice
+  ---
+  duration_ms: 0.434917
+  type: 'test'
+  ...
+# Subtest: the Cyoria coverage pack lints clean against the commands it cites (WAC9, WAC10)
+ok 20 - the Cyoria coverage pack lints clean against the commands it cites (WAC9, WAC10)
+  ---
+  duration_ms: 13.168917
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1320.331667
