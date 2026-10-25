@@ -8,6 +8,7 @@ const row = (boundary, what, carries, scope, note) => ({boundary, what, carries,
 
 // base.frontier mirrors heir_inheritance.js and life_experience_host.js.
 const FRONTIER = [
+    row('rebirth', 'Base cheat', 'carries', 'any life', 'Personal faculty and enduring stages follow the continuing self; per-life points reset.'),
     row('death', 'Written and taught lessons', 'carries', 'last life', 'Papers or an apprentice; only reflected or taught lessons.'),
     row('death', 'Coins, belongings, chest, Shack', 'carries', 'last life', 'The estate settles Village kit debt first.'),
     row('death', 'Reputation', 'halved', 'last life', 'Half of each region, rounded toward zero.'),

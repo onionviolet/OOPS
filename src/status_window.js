@@ -54,6 +54,6 @@ export function createStatusWindow({read, onKnown = () => {}}) {
         eligible: () => !!awakenedStatusCard(read().cheats), unavailableReason: () => 'Your system has not awakened yet.',
         settings: [{key: 'density', label: 'Row spacing', description: 'Choose comfortable or compact spacing for your known stats.',
             options: [['comfortable', 'Comfortable'], ['compact', 'Compact']], default: 'compact'}]});
-    const unsubscribe = subscribeDisplaySettings(render), timer = setInterval(render, 250);
-    return {render, destroy() {clearInterval(timer); unsubscribe(); panel.remove();}};
+    const unsubscribe = subscribeDisplaySettings(render);
+    return {render, destroy() {unsubscribe(); panel.remove();}};
 }

@@ -12,7 +12,7 @@ export async function cheatGame({start = 'none'} = {}) {
         plugins: [{name: 'cheat-test-access', setup(build) {
             build.onLoad({filter: /[/\\]src[/\\]main\.js$/}, () => ({contents: source + `
                 globalThis.__cheatTest = {create_save, load, advance: update_timer, read: () => structuredClone(cheatState),
-                  set: value => {cheatState=validateCheatState(value);}};`, loader: 'js', resolveDir: new URL('src/', root).pathname}));
+                  set: value => {setCheatState(value);}};`, loader: 'js', resolveDir: new URL('src/', root).pathname}));
         }}], bundle: true, write: false, format: 'esm', platform: 'browser', target: 'es2022'});
     const server = createServer(async (req, res) => {
         try {

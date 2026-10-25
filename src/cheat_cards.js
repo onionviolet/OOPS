@@ -84,7 +84,32 @@ export const SYSTEM_QUESTS_CARD = Object.freeze({id: 'system-quests', family: 's
 
 // CH1: explicit dormancy is opt-in; legacy C0 cards and messages stay valid.
 export function optionalStartCard() {
-    return {...structuredClone(SYSTEM_QUESTS_CARD), state: {awakened: false, points: 0}};
+    return {...structuredClone(SYSTEM_QUESTS_CARD), state: {awakened: false, points: 0, wake: {day: 3, victory: true}, firstMessage: FIRST_SYSTEM_MESSAGE}};
+}
+// AD29: this is a personal faculty, without a voice or a quest giver.
+export function quietFacultyCard() {
+    return {...structuredClone(SYSTEM_QUESTS_CARD), id: 'quiet-faculty', family: 'personal-faculty',
+        name: 'Continuing insight', ui: 'quiet', hooks: ['continuation'],
+        state: {awakened: false, points: 0, earned: 0, spent: 0, claimed: [],
+            wake: {day: 3, victory: true}, firstMessage: 'An insight settles into place. What you learn need not end with this life.'}};
+}
+export function seedBeginningCheats(state, {choice = 'none', at} = {}) {
+    let next = validateCheatState(state);
+    if(!next.held['quiet-faculty']) next = grantCheat(next, quietFacultyCard(), {route: 'personal-faculty', at});
+    if(['system-quests', 'surprise'].includes(choice) && !next.held['system-quests'])
+        next = grantCheat(next, optionalStartCard(), {route: 'optional-start', at});
+    return next;
+}
+// A temporal return restores local inputs from its snapshot; enduring faculty
+// stages follow the continuing self. An heir has fresh per-life inputs.
+export function carryCheats(source, target = defaultCheatState(), {heir = false} = {}) {
+    const from = validateCheatState(source ?? defaultCheatState()), next = validateCheatState(target);
+    const entry = from.held['quiet-faculty'];
+    if(!entry) return next;
+    const carried = structuredClone(entry);
+    if(heir) carried.card.state = {...quietFacultyCard().state, awakened: entry.card.state.awakened};
+    next.held['quiet-faculty'] = carried;
+    return validateCheatState(next);
 }
 export function awakenedStatusCard(state) {
     return Object.values(state.held).find(entry => entry.card.ui === 'status-window' &&
@@ -93,13 +118,15 @@ export function awakenedStatusCard(state) {
 export const FIRST_SYSTEM_MESSAGE = 'Your system is awake. You can now read your level and known abilities.';
 export function awakenCheats(state, {dayCount, wonFight = false, at}) {
     const next = validateCheatState(state), messages = [];
-    if(!wonFight && !(dayCount >= 3)) return {state: next, messages};
     for(const [id, entry] of Object.entries(next.held)) {
-        if(entry.card.ui !== 'status-window' || entry.card.state.awakened !== false) continue;
+        if(!['status-window', 'quiet'].includes(entry.card.ui) || entry.card.state.awakened !== false) continue;
+        const wake = entry.card.state.wake ?? {day: 3, victory: true};
+        if(!(dayCount >= wake.day) && !(wonFight && wake.victory)) continue;
         // Validate only the complete transition, never an awake/message-free intermediate.
-        entry.messages.push({text: FIRST_SYSTEM_MESSAGE, at: structuredClone(at)});
+        const message = entry.card.state.firstMessage ?? FIRST_SYSTEM_MESSAGE;
+        entry.messages.push({text: message, at: structuredClone(at)});
         entry.card.state.awakened = true;
-        messages.push(FIRST_SYSTEM_MESSAGE);
+        messages.push(message);
     }
     return {state: validateCheatState(next), messages};
 }

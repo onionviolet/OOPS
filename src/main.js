@@ -369,7 +369,8 @@ import {createExpansionState, loadExpansionState, commitAction, advanceSimulatio
 import {beginFieldWorkshop} from "./field_workshop.js";
 import {createFieldPanel} from "./field_ui.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
-import {defaultCheatState, validateCheatState, grantCheat, optionalStartCard, awakenCheats} from './cheat_cards.js';
+import {validateCheatState} from './cheat_cards.js';
+import {cheatState,setCheatState,configureCheatHost,seedCheatBeginning,observeCheats as awakenOptionalStart} from './cheat_host.js';
 import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, cancelPack, advancePackSettlement, preparePackSave, packSaveState} from './content_packs.js';
 import {syncAuthoredRegistration, applyAuthoredState, resetAuthoredState, AUTHORED_WORLD_ID} from './authored_site.js';
 import {createAuthoredSiteUI} from './authored_site_ui.js';
@@ -394,36 +395,10 @@ const initialStructuredDefinition=()=>structuredPacks.get(structuredCandidateId)
 const packDefinitionsForSave=()=>new Map([...optionalPacks,...structuredPacks]);
 let structuredPanel,structuredNotice='',suspendedStructuredSave=null;
 const nativeLifeEnded=(state=expansionState)=>state.chronicle?.life.endedAt!=null||structuredLifeEnded(state,optionalPackState.structured);
-let cheatState=defaultCheatState();
 let statusWindow;
 function cheatCalendarTime() {
     const {year, month, day, hour, minute, day_count} = current_game_time;
     return {year, month, day, hour, minute, day_count};
-}
-function awakenOptionalStart(wonFight = false) {
-    if(importProbeToken || !ownsSave || foundationSaveBlocked || is_loading_error || restoringNativeSave) return;
-    // A won zone round is retained for retry/load; an individual bestiary kill is not a won fight.
-    const result = awakenCheats(cheatState, {dayCount: current_game_time.day_count,
-        wonFight: wonFight || Object.values(locations).some(zone => zone.tags.combat_zone && zone.enemy_groups_killed > 0), at: cheatCalendarTime()});
-    if(!result.messages.length) return;
-    let durable = false;
-    try {
-        const serialized = create_save();
-        if(!serialized) return;
-        const save = JSON.parse(serialized);
-        save.cheats = result.state;
-        validateSaveEnvelope(save, game_version);
-        // Keep live discovery dormant until the shared storage owner commits.
-        lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, JSON.stringify(save), () => {
-            durable = true;
-            cheatState = result.state;
-        });
-    } catch(error) {
-        if(!durable) {log_message(error.message, 'message_critical'); return;}
-        console.error('Awakening saved; display refresh failed:', error);
-    }
-    for(const message of result.messages) log_message(message, 'notification');
-    statusWindow?.render();
 }
 let optionalPackState=emptyPackState();
 let optionalPackPanel;
@@ -624,7 +599,7 @@ const lifeSaveStorage = {
     if(previousRules?.revision!==workLedger.rules.revision||previousConnection!==workLedger.connection||previousPrecision!==workLedger.precisionKnown||previousAssist!==workLedger.assistUnlocked)update_displayed_crafting_recipes();
     customization=customizationFromSave(save);
     refreshCustomization();
-    cheatState=validateCheatState(save.cheats??defaultCheatState());
+    setCheatState(save.cheats);
     optionalPackState=validatePackState(save.content_packs??emptyPackState());
     lifeRecord = next;
     npcLives = nextNpc;
@@ -6524,7 +6499,6 @@ function create_save({forExport = false} = {}) {
         if(p23Market!==undefined)save_data.p23_market_life=structuredClone(p23Market);
         if(p23Leisure!==undefined)save_data.p23_leisure_memory=structuredClone(p23Leisure);
         if(p23Repeat!==undefined)save_data.absorb_repeat_search=structuredClone(p23Repeat);
-        save_data.cheats = validateCheatState(cheatState);
         save_data.content_packs = packSaveState(optionalPackState,packDefinitionsForSave());
         save_data.village_career = structuredClone(villageCareer);
         save_data.work_ledger=structuredClone(workLedger);
@@ -6646,7 +6620,6 @@ function load(save_data) {
             loadedDisplayPreferences=save_data.display_preferences;
             setMixtureOwner(save_data.mixtures);
             domainRegistry.load(save_data);
-            cheatState=validateCheatState(save_data.cheats??defaultCheatState());
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
             p23Field=Object.hasOwn(save_data,'field_familiarity_p07')?normalizeFieldFamiliarity(save_data.field_familiarity_p07):undefined;
@@ -9591,9 +9564,7 @@ if(newGameBeginning) {
                 worldId:start.provenance.worldId,kind:'beginning',text:`Start layers: ${start.provenance.layers.map(l=>l.id).join(', ')}. Seed: ${start.provenance.seed}`});
         }
         const choice = newGameBeginning.cheatChoice();
-        if(choice === 'system-quests' || choice === 'surprise') {
-            cheatState = grantCheat(cheatState, optionalStartCard(), {route: 'optional-start', at: cheatCalendarTime()});
-        }
+        seedCheatBeginning({choice, at: cheatCalendarTime()});
         lifeRecord = appendLifeMilestone(lifeRecord, {year: current_game_time.year,
             at: lifeCalendarMinute(current_game_time), worldId: 'base.frontier', kind: 'beginning',
             text: choice === 'none' ? 'You chose an ordinary beginning without a system.' :
@@ -9751,6 +9722,12 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             }):[];
             return knownRoutesPresentation(snapshot,{refinement:refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext}),proto23:proto23Presentation(snapshot.state,expeditionRegistry,snapshot.context),pocket:{view:pocketView,actions:pocketActions}});
         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
+    configureCheatHost({writable:()=>!importProbeToken&&ownsSave&&!foundationSaveBlocked&&!is_loading_error&&!restoringNativeSave,
+        moment:()=>({dayCount:current_game_time.day_count,at:cheatCalendarTime()}),
+        wonFight:()=>Object.values(locations).some(zone=>zone.tags.combat_zone&&zone.enemy_groups_killed>0),
+        capture:()=>{const bytes=create_save();return bytes?JSON.parse(bytes):null;},
+        commit:(save,publish)=>{validateSaveEnvelope(save,game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save),publish);},
+        log:message=>log_message(message,'notification'),refresh:()=>statusWindow?.render()});
     // CH1 panel wiring: read native stats and only held title names.
     statusWindow = createStatusWindow({read: () => ({cheats: cheatState, level: character.getLevelableComponent().current_level,
         stats: character.getFullStats(), titles: titleView(character.titles, readTitleCounters()).filter(row => row.held).map(row => row.name)}),
@@ -9787,7 +9764,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         effects:getCustomizationSettings(customization,'location',{season:current_game_time.getSeason()}).effects
     })});
     refreshCustomization();
-    const pollDisplays=()=>{quietPlaceDetail.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();};
+    const pollDisplays=()=>{quietPlaceDetail.render();statusWindow?.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();};
     setInterval(()=>{if(!deferWhileHidden(pollDisplays,pollDisplays))pollDisplays();},250);
     villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
         visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
