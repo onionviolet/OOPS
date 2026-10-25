@@ -127,7 +127,7 @@ export function lotmFacts(state,ctx={}){
  for(const k of Object.keys(LOTM_PROFILES))f[`lotm.profile.${k}`]=profile===k;
  for(const d of LOTM_DISTRICTS)f[`lotm.home.${d.id}`]=!!profile&&LOTM_PROFILES[profile].home===d.id;
  f['lotm.beyonderTrack']=!!profile&&LOTM_PROFILES[profile].beyonderTrack;f['lotm.weeksOwed']=enrolled?weeksOwed(state):0;
- const peopleAt=enrolled?Object.keys(LOTM_ROLE_OF).filter(id=>alive(s.people?.[id])&&s.people[id].location===p.location):[];
+ const peopleAt=enrolled?Object.keys(LOTM_ROLE_OF).filter(id=>state.actors?.[id]?.worldId===I.world&&alive(s.people?.[id])&&s.people[id].location===p.location):[];
  clearanceFacts(state,f,{profile,ingested:f['lotm.ingestedAny'],here:enrolled,peopleAt});
  f['lotm.holds.sealed3']=inv[K.sealed3]||0;
  causeFacts(state,f);
