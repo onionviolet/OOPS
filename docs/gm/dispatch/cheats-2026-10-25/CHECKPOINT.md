@@ -105,3 +105,13 @@ M4 further exact overlaps: primary src/simulation_content.js and src/simulation_
 - node docs/gm/dispatch/cheats-2026-10-25/rf1-browser.mjs: PASS, fresh profile at 5104 / 1920×1080; actual guarded native strike, paid recovery/rematch, observation rendered through existing Notes/People, Save/reload and literal Import preserve the exact holder record. No page errors. [Receipt](RF1_BROWSER.json), [desktop evidence](rf1-1920.png).
 
 The browser fixture establishes the association route and initial contest with existing engine commands; native actions, costs and durable writes are exercised through test-only hooks. Natural discovery/pacing remains human acceptance. Original full-run and targeted repair receipts remain unchanged; no new full suite.
+
+### G1 Pattern Book slice (2026-10-25)
+
+Built: readable native Frontier method -> retained typed design -> continuing-self carry -> paid reconstruction into the existing crafting learned-method owner. No material truth, skill or inputs are copied. Existing crafting UI/quote identifies missing ingredients; its forecasts still use knowledge-redacted `forecastCraft`, and no raw failure residue is copied. Patterns retain original law revision; incompatible worlds retain the design and explain the missing law.
+
+- `node --test tests/pattern_book.test.js tests/cheat_mechanisms.test.js tests/craft_reference.test.js`: 23/23 pass after correcting generated-material fixture; actual recipe consumes inputs, forged/unread patterns and foreign-law reconstruction reject without publishing costs.
+- `npm run build`: pass; `/tmp/d4-pattern-build.log`.
+- `npm run check:arch`: pass; `/tmp/d4-pattern-arch.log`.
+- `node docs/gm/dispatch/cheats-2026-10-25/pattern-browser.mjs`: pass, rebuilt fresh origin 1920x1080 port5104; UI sketch, Save/reload, literal Import, real beginHeir, empty reserves, recharge, rebuild, native crafting missing-input display. `PATTERN_BROWSER.json`, inspected `pattern-1920.png`. Intermediate harness corrections concerned reference-access assumption, Play overlay and ambiguous selector; failure image retained outside commit.
+- M4 exact overlap: `src/main.js` dirty in primary; D4 touches only its existing cheat host ports/import. `src/crafting_frontier_runtime.js` dirty in primary, read only here. `src/cheat_cards.js`, `src/cheat_definitions.js`, `src/cheat_mechanisms.js`, `src/cheat_ui.js`, `tests/cheat_mechanisms.test.js`, `tests/helpers/cheat_game.mjs` branch-only owners; no continuation_* writes. Full combined integration gate remains with merger; no second full suite.

@@ -1,3 +1,4 @@
+import {craftingOwner,setCraftingOwner} from './crafting_frontier_runtime.js';
 import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {configureRankGap} from './rank_gap_observer_domain.js';
 import {createFurniturePanel} from './home_furniture_panel.js';
 import {allocatedRecipeInputs,recipeMaterialOutput,treatedRecipeQuality} from './processed_materials.js';
@@ -9722,8 +9723,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             }):[];
             return knownRoutesPresentation(snapshot,{refinement:refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext}),proto23:proto23Presentation(snapshot.state,expeditionRegistry,snapshot.context),pocket:{view:pocketView,actions:pocketActions}});
         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
-    configureCheatHost({read:()=>({decisions:(current_combat?.defenders||[]).filter(e=>e.is_alive&&e.rngKey).flatMap(e=>{const i=e.loot_list.findIndex(row=>!replacedHarvestDrop(e.name,row.item_name));return i<0?[]:[{id:e.rngKey,label:e.name+' · first remaining drop',key:e.rngKey+':drop:'+i,keyed:true}];}),harvest:harvestOwner,expansion:expansionState,locations,levels:{person:{main_character:{skill_xp:{Crafting:character.getLevelableComponent().skill_progress.Crafting?.total_xp||0,Perception:character.getLevelableComponent().skill_progress.Perception?.total_xp||0}}}}}),
-        harvestSkill:()=>harvestContext().skill,occupied:request=>!['peek','call'].includes(request.type)&&continuationOccupied(),publish:next=>{setHarvestOwner(next.harvest??null);expansionState.streams=next.expansion.streams;harvestPanel?.render();},
+    configureCheatHost({read:()=>({decisions:(current_combat?.defenders||[]).filter(e=>e.is_alive&&e.rngKey).flatMap(e=>{const i=e.loot_list.findIndex(row=>!replacedHarvestDrop(e.name,row.item_name));return i<0?[]:[{id:e.rngKey,label:e.name+' · first remaining drop',key:e.rngKey+':drop:'+i,keyed:true}];}),crafting:craftingOwner,inventories:{person:{main_character:character.getItems()}},harvest:harvestOwner,expansion:expansionState,locations,levels:{person:{main_character:{skill_xp:{Crafting:character.getLevelableComponent().skill_progress.Crafting?.total_xp||0,Perception:character.getLevelableComponent().skill_progress.Perception?.total_xp||0}}}}}),
+        harvestSkill:()=>harvestContext().skill,occupied:request=>!['peek','call'].includes(request.type)&&continuationOccupied(),publish:next=>{setCraftingOwner(next.crafting??null);setHarvestOwner(next.harvest??null);expansionState.streams=next.expansion.streams;harvestPanel?.render();},
         writable:()=>!importProbeToken&&ownsSave&&!foundationSaveBlocked&&!is_loading_error&&!restoringNativeSave,
         moment:()=>({dayCount:current_game_time.day_count,at:cheatCalendarTime()}),
         wonFight:()=>Object.values(locations).some(zone=>zone.tags.combat_zone&&zone.enemy_groups_killed>0),

@@ -1,3 +1,5 @@
+import {sketchPattern,rebuildPattern} from './pattern_book.js';
+import {projectCrafting} from './crafting_frontier_runtime.js';
 import {defineGate,evaluateGate} from './progression_gates.js';
 import {validateCheatState,grantCheat} from './cheat_cards.js';
 import {CHEAT_MODULES,moduleCard} from './cheat_definitions.js';
@@ -14,6 +16,8 @@ export function insightMilestones(save) {
         {id:'first-processing',label:'Process a carcass',met:(save.harvest?.processed||0)>0},
         {id:'practised-craft',label:'Learn through crafting',met:(xp.Crafting||0)>0},
         {id:'practised-perception',label:'Learn through perception',met:(xp.Perception||0)>0},
+        {id:'learned-method',label:'Learn a written method',met:(save.crafting?.references?.learned?.player?.length||0)>0},
+        {id:'recorded-pattern',label:'Retain a readable design',met:(save.cheats?.held?.['pattern-book']?.card.state.patterns.length||0)>0},
     ];
     return rows.map(row=>({...row,met:evaluateGate(defineGate({id:`cheat.insight.${row.id}`,kind:'knowledge',reason:row.label,requires:{fact:row.id,op:'eq',value:true},routes:[{id:'live',reason:'Reflect on relevant lived experience.',cost:'Practice and attention.'}]}),{[row.id]:row.met},{knows:()=>true}).met}));
 }
@@ -24,6 +28,7 @@ export function cheatProjection(save) {
     return {visible:true,points:state.points??0,earned:state.earned??0,spent:state.spent??0,
         milestones:insightMilestones(save).map(m=>({...m,claimed:(state.claimed||[]).includes(m.id)})),
         decisions:save.decisions||[],
+        methods:projectCrafting(save.crafting,Object.fromEntries(Object.entries(save.inventories?.person?.main_character||{}).map(([k,r])=>[k,r.count]))).methods,
         development:CHEAT_MODULES.find(d=>!save.cheats.held[d.id])? 'Explore the next facet · 1 insight':null,
         cards:CHEAT_MODULES.filter(d=>save.cheats.held[d.id]).map(d=>({...d,state:structuredClone(save.cheats.held[d.id].card.state)})),
         specimens:Object.entries(save.harvest?.lots||{}).flatMap(([species,rows])=>rows.map(row=>({species,key:row.key}))),
@@ -73,6 +78,15 @@ export function planCheatAction(original, request) {
         const skill=Math.max(25,Number.isFinite(request.skill)?request.skill:0);
         const reading=observeCarcass(save.harvest,request.species,request.key,{clock:at,skill});
         card.state.readings.push({...reading,species:request.species,key:request.key,source:'true-appraisal'});
+    } else if(request.type==='sketch') {
+        const card=held(save,'pattern-book');
+        if(card.state.patterns.some(p=>p.recipe.id===request.id))throw Error('This design is already retained.');
+        const inventory=Object.fromEntries(Object.entries(save.inventories?.person?.main_character||{}).map(([k,r])=>[k,r.count]));
+        const pattern=sketchPattern(save.crafting,inventory,request.id,at);spend(card);card.state.patterns.push(pattern);
+    } else if(request.type==='rebuild-pattern') {
+        const card=held(save,'pattern-book'),pattern=card.state.patterns.find(p=>p.recipe.id===request.id);
+        if(!pattern)throw Error('That design is not retained.');
+        save.crafting=rebuildPattern(save.crafting,pattern,save.expansion?.actors?.player?.worldId);spend(card);
     } else if(request.type==='call') {
         const card=held(save,'loaded-dice');
         armStreamCall(save.expansion,scopedStream('loot',save.expansion.actors.player.worldId),{value:0,via:'loaded-dice'});spend(card);

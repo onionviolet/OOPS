@@ -60,7 +60,7 @@ test('module costs and failures are atomic; repeated arms cannot double-spend; e
  const s=fixture(),armed=planCheatAction(s,{type:'call'}),before=structuredClone(armed);
  assert.throws(()=>planCheatAction(armed,{type:'call'}),/already waiting/);assert.deepEqual(armed,before);
  const broken=structuredClone(s);broken.cheats.held['loaded-dice'].card.state.charges=-1;assert.throws(()=>validateCheatState(broken.cheats),/module/);
- for(const d of CHEAT_MODULES){const copy=structuredClone(s);copy.cheats.held[d.id].card.state.extra=true;assert.throws(()=>validateCheatState(copy.cheats),/module/);}
+ for(const d of CHEAT_MODULES.filter(d=>s.cheats.held[d.id])){const copy=structuredClone(s);copy.cheats.held[d.id].card.state.extra=true;assert.throws(()=>validateCheatState(copy.cheats),/module/);}
 });
 test('local quarantine preserves failing entry JSON and retries after reader-compatible repair; import validation stays strict',()=>{
  const s=fixture(),raw=structuredClone(s.cheats.held['true-appraisal']);s.cheats.held['true-appraisal'].card.state.revision=2;
@@ -72,7 +72,7 @@ test('local quarantine preserves failing entry JSON and retries after reader-com
 });
 test('heir retains learned modules with empty local reserves and the faculty stage record',()=>{
  const s=fixture(),next=carryCheats(s.cheats,defaultCheatState(),{heir:true});
- for(const d of CHEAT_MODULES){assert.equal(next.held[d.id].card.state.charges,0);assert.equal(next.held[d.id].card.state.used,d.state.charges);}
+ for(const d of CHEAT_MODULES.filter(d=>s.cheats.held[d.id])){assert.equal(next.held[d.id].card.state.charges,0);assert.equal(next.held[d.id].card.state.used,d.state.charges);}
  assert.deepEqual(next.held['quiet-faculty'].card.stages,s.cheats.held['quiet-faculty'].card.stages);validateCheatState(next);
 });
 
