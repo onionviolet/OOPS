@@ -20,3 +20,20 @@ test('domain registration rejects duplicate ids, bad hooks, missing dependencies
  r.registerDomain({id:'b',deps:['a']});assert.throws(()=>r.list(),/cycle/);
  assert.throws(()=>createDomainRegistry().registerDomain({id:'bad',tick:1}),/hook/);
 });
+
+test('registration snapshots routing metadata while closure-owned state stays live',()=>{
+ const r=createDomainRegistry(),calls=[];let n=0;
+ const useItem={accepts:()=>true,quote:()=>({eligible:true}),execute:()=>calls.push('item')};
+ const child={id:'child',deps:['parent'],panels:[()=>calls.push('panel')],commands:{useItem},tick:()=>calls.push(++n)};
+ r.registerDomain(child);r.registerDomain({id:'parent',tick:()=>calls.push('parent')});
+ assert.deepEqual(r.list().map(d=>d.id),['parent','child']);
+ child.deps.push('missing');child.panels.length=0;child.commands.useItem=null;useItem.execute=()=>calls.push('wrong');
+ const listed=r.list();listed.reverse();
+ assert.throws(()=>listed[0].deps.push('missing'),TypeError);
+ assert.throws(()=>{r.command('child','useItem').execute=()=>{};},TypeError);
+ r.tick(1);r.mountPanels();assert.equal(r.useItem('key'),true);
+ assert.deepEqual(calls,['parent',1,'panel','item']);
+ // A late registration invalidates the cached order, including prior failures.
+ r.registerDomain({id:'late',deps:['child'],tick:()=>calls.push('late')});
+ r.tick(1);assert.deepEqual(calls.slice(-3),['parent',2,'late']);
+});
