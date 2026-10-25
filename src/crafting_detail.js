@@ -73,7 +73,7 @@ export function renderCraftingDetail(root, model, handlers) {
     }
     body.append(uses);
 
-    body.append(fact('Makes', `${model.output.name} x${model.output.count}${model.output.scaled ? ' (partial results possible)' : ''}`, 'data-craft-output'));
+    body.append(fact(model.output.uncertain ? 'Possible result' : 'Makes', `${model.output.name} x${model.output.count}${model.output.scaled ? ' (partial results possible)' : ''}`, 'data-craft-output'));
     if(model.effects?.length) {
         // Known effects of using the result, before committing (same data as Result details).
         const effects = el('div', 'craft_detail_effects');
@@ -89,7 +89,7 @@ export function renderCraftingDetail(root, model, handlers) {
         body.append(effects);
     }
     const odds = el('div', 'craft_detail_fact craft_detail_odds');
-    odds.append(el('span', 'craft_detail_label', 'Success'), el('span', 'craft_detail_value', `${model.chance}%`));
+    odds.append(el('span', 'craft_detail_label', model.chance_label ?? 'Success'), el('span', 'craft_detail_value', Number.isFinite(model.chance) ? `${model.chance}%` : 'Unassessed'));
     odds.querySelector('.craft_detail_value').setAttribute('data-craft-chance', '');
     if(Number.isFinite(model.attempts)) {
         // Attempts the materials allow now, not guaranteed outputs. Zero when the native guard refuses.
