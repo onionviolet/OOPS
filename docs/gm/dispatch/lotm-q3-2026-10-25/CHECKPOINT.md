@@ -67,3 +67,23 @@ Final lane input SHA-256 (build identity above):
 | `src/book_world_lotm_ui.js` | `94ea055095881af1dcde0a89fee806b58b0893b8dad14811f8648829b711fcec` |
 | `tests/lotm_lives.test.js` | `b6a81dbf3ee48215eda095ccf16c7a0eed58296091119f7d37f962d219d90807` |
 | `tests/lotm_lives_compat.test.js` | `58ede767b5aaaefb89f132f3768741e5fa39f270d6c4cb3843c301d3762c6c7e` |
+
+## C1 integration, 2026-10-25
+
+Q3 source committed as `40e186d1`; master `9b997ea60a7eb12200dbc825684e6668403aa015` merged without conflicts as `ba40dcc9d`. This preserves master’s Corpse Collector brewing, native material bridge and ingredient catalogue. Primary checkout and master were read only. Inherited queue/Q1/Q2 context remains outside this lane’s commits.
+
+The inherited untracked `tests/lotm_pathway_rows.test.js` targeted a retired factory and assessor API. Replaced with current-row tests of the shared `pathwayDoses` save seam: release at assessment versus examination, missing/duplicate doses and consumed doses. Existing system journeys retain pathway behavior coverage. No runtime API was restored for a copied test.
+
+Input: merge `ba40dcc9d` plus the replacement test. Rules: AR1–AR16, WA13, AD38, SR1–SR24 where places/custody matter, UR1–UR69. Existing desktop 1920×1080 panel; mobile and layout redesign deferred.
+
+- `node --test tests/lotm_*.test.js`: PASS, 91/91, no skipped tests.
+- `npm run build`: PASS; rebuilt browser bundle.
+- `npm run check:arch`: PASS; no new cycle or composition-root growth.
+- `npm run check:rules`: PASS, 0 warnings.
+
+Browser proof and final combined checks follow below. Full `npm test` is intentionally reserved for the final Q5 branch tree under the C1 dispatch.
+
+- `node docs/gm/dispatch/lotm-q3-2026-10-25/checks/profiles.cjs`: PASS on rebuilt bundle SHA-256 `dd07f8d0687100ab6220da341890ea18e44e8877ff0e5ea226b03f757fc2cdf4`. Two fresh browser contexts at 1920×1080, headless Chrome, localhost :19873. Both profiles enroll, earn, spend, Save, reload, Export and literal file Import; exact profile/money/knowledge/resources/facts/place comparison, no page errors. Final balances: probationer 108 pence, civil 1926 pence. Civil salary repeat disabled. Native test hooks advance the actual clock. [Receipt](browser-result.json). Optional private fonts remain unavailable; fallback font used.
+- `git diff --check` on Q3 owned paths: PASS.
+
+Q3 integration gate complete before Q4 source edits. Human pacing/taste acceptance, normal-app adoption and master integration remain separate. No push.

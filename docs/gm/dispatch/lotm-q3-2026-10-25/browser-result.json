@@ -1,0 +1,20 @@
+[
+  {
+    "key": "probationer",
+    "startingMoney": 102,
+    "exportChars": 188368,
+    "errors": [],
+    "steps": "visible panel enrollment, report, civil salary or probationer errand, timed walks, paid endorsement, docks errand, Save, reload, Export string, walk away, literal file Import",
+    "money": 108,
+    "profile": "lotm.early_tingen.local_probationer@1"
+  },
+  {
+    "key": "civil",
+    "startingMoney": 102,
+    "exportChars": 190284,
+    "errors": [],
+    "steps": "visible panel enrollment, report, civil salary or probationer errand, timed walks, paid endorsement, docks errand, Save, reload, Export string, walk away, literal file Import",
+    "money": 1926,
+    "profile": "lotm.early_tingen.new_identity_civil@1"
+  }
+]
