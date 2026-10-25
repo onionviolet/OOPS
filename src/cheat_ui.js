@@ -41,6 +41,7 @@ export function createCheatPanel({read,act,nameItem}) {
                 const count=node('input');count.type='number';count.min='1';count.max='10000';count.value='3';count.setAttribute('aria-label','Carcasses in routine');
                 const b=button('Entrust finite processing · 1 charge',{type:'routine'},!card.state.charges||!!s.reason);b.onclick=()=>run({type:'routine',target:Number(count.value)});section.append(count,b);
             }
+            if(card.id==='patient-furnace'){section.append(node('p',`Retained time: ${card.state.away.bank} min · spent forward: ${card.state.away.spent} min. ${card.state.away.stop}`),button('Assign current routine · 1 charge',{type:'assign-furnace'},!card.state.charges||!!s.reason),button('Spend up to 30 retained minutes',{type:'settle-furnace'},!card.state.away.bank||!!s.reason));}
             if(card.id==='heirloom-compact'){
                 const select=node('select');select.setAttribute('aria-label','Owned heirloom lot');
                 for(const lot of s.heirlooms){const name=nameItem(lot.key);const o=node('option',`${name} · ${lot.source} · ${lot.count} owned`);o.value=JSON.stringify({source:lot.source,key:lot.key});select.append(o);}

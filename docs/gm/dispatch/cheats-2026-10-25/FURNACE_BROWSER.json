@@ -1,0 +1,16 @@
+{
+  "route": "Patient Furnace",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "checks": [
+    "UI assigns actual finite stocked routine and pays one charge",
+    "real elapsed absence loads once into retained bank; no automatic output granted",
+    "UI spends bank through actual native calendar and finite processor: exact debit, outputs, skill XP and stop; unused bank retained",
+    "Save/reload/literal Import retain spent time and real outputs without replaying the routine",
+    "actual beginHeir retains unused journey bank and spent receipt, clears body-local assignment"
+  ],
+  "pass": true,
+  "errors": []
+}

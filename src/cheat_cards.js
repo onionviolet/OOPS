@@ -116,6 +116,7 @@ export function carryCheats(source, target = defaultCheatState(), {heir = false}
         const card=moduleCard(stage.id);
         // Learned means endure; per-life reserves start empty on a new body.
         if(heir){card.state.used=card.state.charges;card.state.charges=0;
+            if(stage.id==='patient-furnace')card.state.away={...structuredClone(from.held[stage.id]?.card.state.away??card.state.away),assigned:false,world:null,anchor:null,stop:'Retained time follows the journey. Assign a supported routine in this life.'};
             if(stage.id==='heirloom-compact')card.state.receipt=structuredClone(from.held[stage.id]?.card.state.receipt??null);
             if(stage.id==='pattern-book')card.state.patterns=structuredClone(from.held[stage.id]?.card.state.patterns??[]);}
         const original=from.held[stage.id];

@@ -1,3 +1,4 @@
+import {rebaseFurnaceSave} from './patient_furnace.js';
 import {craftingOwner,setCraftingOwner} from './crafting_frontier_runtime.js';
 import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {configureRankGap} from './rank_gap_observer_domain.js';
 import {createFurniturePanel} from './home_furniture_panel.js';
@@ -583,6 +584,7 @@ const lifeSaveStorage = {
     // are replaced here; staged domains remain read-only until publication.
     // force: an explicit save writes even when only wall-clock fields changed (D3).
     setEnvelope(key, save, onDurable, {force = false} = {}) {
+    rebaseFurnaceSave(save,Date.now());
     const next = observeLifeSave(save.life_record ?? createLifeRecord(), save);
     save.life_record = next;
     const nextNpc = save.npc_lives == null ? null : advanceVillageLives(save.npc_lives, save['current time'].year);
@@ -810,12 +812,12 @@ function studyContext(state=expansionState,gameplay=gameplaySnapshot()) {
         housingAccessible:!!current_location?.housing?.isUnlocked()&&current_location.getAvailabilityComponent().getStatus().is_unlocked,
         sleepingLevel:character.getTotalSkillLevel('Sleeping'),readProgressPerMinute:readingRate(character.getTotalSkillLevel('Literacy'))};
 }
-function p00NativeSkillXP(id,amount,report){
-    const skill=skills[id];if(!skill?.canGainXP(get_context()))throw Error('Native skill eligibility blocks this settlement.');
+function p00NativeSkillXP(id,amount,report,{cap=true,preparedUnlock=false}={}){
+    const skill=skills[id];if(!skill?.canGainXP(get_context(),{preparedUnlock}))throw Error('Native skill eligibility blocks this settlement.');
     let xp=amount*lifeLearningMultiplier(expansionState.chronicle)*furnitureSkillMultiplier(readFurnitureBonuses(),id)*getPacingEffects(homePacingContext()).efficiency*config.global_xp_multiplier*character.getSkillXPGain(id)*(character.xp_multiplier??1);
     if(skill.parent_skill)xp*=skill.get_parent_xp_multiplier();
     const toNext=character.getLevelableComponent().skill_progress[id]?.xp_to_next_lvl??skill.base_xp_cost;
-    if(Number.isFinite(toNext)){const cap=toNext*config.skill_xp_gains_cap;if(xp>cap)report?.(Math.round((xp-cap)*100)/100);xp=Math.min(xp,cap);}
+    if(cap&&Number.isFinite(toNext)){const cap=toNext*config.skill_xp_gains_cap;if(xp>cap)report?.(Math.round((xp-cap)*100)/100);xp=Math.min(xp,cap);}
     return Math.round(xp*100)/100;
 }
 function nativeBooksSnapshot(){return Object.fromEntries(Object.entries(book_stats).filter(([,b])=>b.accumulated_time>0).map(([id,b])=>[id,{accumulated_time:b.accumulated_time}]));}
@@ -1803,7 +1805,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         ...(unlocks.recipes || []).map(r => ({kind: "recipe", id: recipes[r.category]?.[r.subcategory]?.[r.recipe_id]?.id})),
         ...(unlocks.quests || []).map(id => ({kind: "quest", id}))];
     const p00Hidden=Object.fromEntries(['Famine','Cold resistance'].map(id=>[id,!nativeSkillDiscovery(skills[id],character)]));
-    const publication = prepareGameplayPublication(plan.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
+    const publication = prepareGameplayPublication(plan.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter,preparedSkillUnlocks:(plan.unlocks||[]).filter(e=>e.kind==='skill').map(e=>e.id)});
     const townAccess = townUnlocks(expansionState, plan.state);
     const villageTextChanged = villageLedgerSentence(expansionState) !== villageLedgerSentence(plan.state);
     const unlockPublication = prepareNativeUnlocks([...(plan.unlocks || []), ...publication.unlocks, ...townAccess], {availabilities, flags: global_flags, quests, questManager});
@@ -1830,13 +1832,13 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         for(const c of Object.values(nativeContexts))c.vitalsByActor=stagedVitals;
         const future = advanceSimulation(plan.state, expeditionRegistry, Math.max(0, plan.commitment.due - plan.state.clock),
             plan.external, plan.gameplay, nativeContexts);
-        prepareGameplayPublication(future.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
+        prepareGameplayPublication(future.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter,preparedSkillUnlocks:(plan.unlocks||[]).filter(e=>e.kind==='skill').map(e=>e.id)});
     }
     const practice = activePractice(plan.state.actors.player);
     if(practice) {
         const future = structuredClone(plan.gameplay), p = practice[1].practice;
         applyGameplayEffect(future, {type: "xp", skill: p.xpSkill, amount: Math.max(...p.rewards) * p.xpPerPoint}, "player");
-        prepareGameplayPublication(future, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
+        prepareGameplayPublication(future, {actors: actorBindings, skills, getItemFromKey, unlockAdapter,preparedSkillUnlocks:(plan.unlocks||[]).filter(e=>e.kind==='skill').map(e=>e.id)});
     }
     stageGrowthNativeGrants(plan);
     stageGrowthForPublication(plan);
@@ -1857,6 +1859,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     // happens afterward and never applies rewards.
     readFrame?.invalidate();
     expansionState = plan.state;
+    if(Object.hasOwn(plan.nativePatch||{},'harvest'))setHarvestOwner(plan.nativePatch.harvest);
     localDateLog.commit(nextLocalCalendar);
     if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();}
     if(plan.p00Exposure)p23Exposure=plan.p00Exposure;
@@ -9255,7 +9258,7 @@ function run() {
     start_date = engineNow();
     update();
     // RT8 test hook: replay ticks away (one game minute each while awake) through the sliced
-    // stepper. No player offline policy exists yet; who gets time away stays a design decision.
+    // stepper. Patient Furnace separately uses accepted OD4/TBANK for chosen finite native routines.
     const catchUp = testHooksEnabled ? Number(new URLSearchParams(location.search).get('catch_up_ticks')) : 0;
     if(Number.isSafeInteger(catchUp) && catchUp > 0) {
         window.catchUpResult = fastForward(catchUp).catch(error => {console.error('Catch-up stopped:', error); throw error;});
@@ -9723,7 +9726,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             }):[];
             return knownRoutesPresentation(snapshot,{refinement:refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext}),proto23:proto23Presentation(snapshot.state,expeditionRegistry,snapshot.context),pocket:{view:pocketView,actions:pocketActions}});
         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
-    configureCheatHost({nameItem:key=>getItemFromKey(key).getName(),read:()=>({decisions:(current_combat?.defenders||[]).filter(e=>e.is_alive&&e.rngKey).flatMap(e=>{const i=e.loot_list.findIndex(row=>!replacedHarvestDrop(e.name,row.item_name));return i<0?[]:[{id:e.rngKey,label:e.name+' · first remaining drop',key:e.rngKey+':drop:'+i,keyed:true}];}),crafting:craftingOwner,inventories:{person:{main_character:character.getItems()},storage:{player:inventories.storage.player.getItems()}},harvest:harvestOwner,expansion:expansionState,locations,levels:{person:{main_character:{skill_xp:{Crafting:character.getLevelableComponent().skill_progress.Crafting?.total_xp||0,Perception:character.getLevelableComponent().skill_progress.Perception?.total_xp||0}}}}}),
+    configureCheatHost({furnace:{read:()=>({cheats:cheatState,harvest:harvestOwner,clock:expansionState.clock,context:harvestContext(),quoteXP:amount=>p00NativeSkillXP('Butchering',amount,undefined,{cap:false,preparedUnlock:true}),world:expansionState.actors.player.worldId,reason:harvestBlockReason()}),advance:()=>advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},1),commit:plan=>persistExpansion(plan)},nameItem:key=>getItemFromKey(key).getName(),read:()=>({decisions:(current_combat?.defenders||[]).filter(e=>e.is_alive&&e.rngKey).flatMap(e=>{const i=e.loot_list.findIndex(row=>!replacedHarvestDrop(e.name,row.item_name));return i<0?[]:[{id:e.rngKey,label:e.name+' · first remaining drop',key:e.rngKey+':drop:'+i,keyed:true}];}),crafting:craftingOwner,inventories:{person:{main_character:character.getItems()},storage:{player:inventories.storage.player.getItems()}},harvest:harvestOwner,expansion:expansionState,locations,levels:{person:{main_character:{skill_xp:{Crafting:character.getLevelableComponent().skill_progress.Crafting?.total_xp||0,Perception:character.getLevelableComponent().skill_progress.Perception?.total_xp||0}}}}}),
         harvestSkill:()=>harvestContext().skill,occupied:request=>!['peek','call'].includes(request.type)&&continuationOccupied(),publish:next=>{setCraftingOwner(next.crafting??null);setHarvestOwner(next.harvest??null);expansionState.streams=next.expansion.streams;harvestPanel?.render();},
         writable:()=>!importProbeToken&&ownsSave&&!foundationSaveBlocked&&!is_loading_error&&!restoringNativeSave,
         moment:()=>({dayCount:current_game_time.day_count,at:cheatCalendarTime()}),

@@ -80,6 +80,12 @@ export function planCheatAction(original, request) {
         const skill=Math.max(25,Number.isFinite(request.skill)?request.skill:0);
         const reading=observeCarcass(save.harvest,request.species,request.key,{clock:at,skill});
         card.state.readings.push({...reading,species:request.species,key:request.key,source:'true-appraisal'});
+    } else if(request.type==='assign-furnace') {
+        const card=held(save,'patient-furnace');
+        if(save.harvest?.routine?.status!=='active'||!save.harvest.auto)throw Error('Choose an active finite processing routine first.');
+        if(save.expansion.actors.player.worldId!=='base.frontier')throw Error('This routine needs its Frontier carcasses and tools.');
+        if(!Number.isSafeInteger(request.now)||request.now<0)throw Error('A current wall time is required.');
+        spend(card);Object.assign(card.state.away,{assigned:true,world:save.expansion.actors.player.worldId,anchor:request.now,stop:'Routine assigned. Unused away time will be retained.'});
     } else if(request.type==='bequeath') {
         const card=held(save,'heirloom-compact'),nomination=nominateHeirloom(save,request,at);spend(card);card.state.nomination=nomination;
     } else if(request.type==='sketch') {

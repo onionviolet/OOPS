@@ -1,3 +1,4 @@
+import {accrueFurnace,runPatientFurnace} from './patient_furnace.js';
 import {readCheatSave,emptyCheatQuarantine,validateCheatQuarantine} from './cheat_save.js';
 export {readCheatSave};
 // Cheat envelope owner. Storage, the clock and native mutations remain injected.
@@ -16,6 +17,8 @@ export function configureCheatHost(operations){
 export function commandCheat(request){
     if(!ports.writable())throw Error('Use the writable game tab.');
     if(ports.occupied(request))throw Error('Finish the current activity before concentrating on the faculty.');
+    if(request.type==='settle-furnace'){runPatientFurnace({...ports.furnace,note:reason=>{const next=ports.capture();next.cheats.held['patient-furnace'].card.state.away.stop=reason;ports.commit(next,()=>setCheatState(next.cheats));}});panel?.render(true);ports.refresh();return;}
+    if(request.type==='assign-furnace')request={...request,now:Date.now()};
     if(request.type==='appraise')request={...request,skill:ports.harvestSkill()};
     if(request.type==='peek'){
         const target=ports.read().decisions?.find(d=>d.id===request.target);
@@ -40,6 +43,6 @@ export function observeCheats(wonFight=false){
     ports.refresh();
 }
 registerDomain({id:'cheats',initialState:defaultCheatState,save:()=>validateCheatState(cheatState),projection:()=>systemQuestProjection({...ports?.read(),cheats:cheatState}),
-    validate:value=>{if(value!=null)validateCheatState(value);},load:value=>setCheatState(value??defaultCheatState()),refresh:()=>panel?.render()});
+    validate:value=>{if(value!=null)validateCheatState(value);},load:value=>setCheatState(accrueFurnace(value??defaultCheatState(),Date.now())),refresh:()=>panel?.render()});
 
 registerDomain({id:'cheats_quarantine',initialState:emptyCheatQuarantine,save:()=>validateCheatQuarantine(quarantine),validate:value=>{if(value!=null)validateCheatQuarantine(value);},load:value=>{quarantine=validateCheatQuarantine(value??emptyCheatQuarantine());}});

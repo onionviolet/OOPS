@@ -97,8 +97,8 @@ class Skill {
         return this.#availability;
     }
 
-    canGainXP(context) {
-        return this.getAvailabilityComponent().canBeStarted(context);
+    canGainXP(context, options) {
+        return this.getAvailabilityComponent().canBeStarted(context, options);
     }
 
     getDefaultSkillXP() {
@@ -172,7 +172,7 @@ class Skill {
         }
     }
 
-    add_xp({skillXP, xp_to_add = 0, track_dependencies = true}) {
+    add_xp({skillXP, xp_to_add = 0, track_dependencies = true, preparedUnlock = false}) {
         if(!skillXP) {
             skillXP = this.getDefaultSkillXP();
         }
@@ -181,7 +181,7 @@ class Skill {
             xp_to_add = 0;
         }
 
-        if(xp_to_add == 0 || !this.isUnlocked()) {
+        if(xp_to_add == 0 || !this.isUnlocked() && !preparedUnlock) {
             return {};
         }
         xp_to_add = Math.round(xp_to_add*100)/100;

@@ -59,8 +59,8 @@ class AvailabilityComponent {
      * @param {Object} context 
      * @returns {Boolean}
      */
-    canBeStarted(context) {
-        return this.is_unlocked && !this.is_locked && !this.is_finished && process_conditions(this.start_conditions, context);
+    canBeStarted(context, {preparedUnlock = false} = {}) {
+        return (this.is_unlocked || preparedUnlock) && !this.is_locked && !this.is_finished && process_conditions(this.start_conditions, context);
     }
 
     /**
