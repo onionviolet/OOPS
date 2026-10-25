@@ -66,7 +66,7 @@ test('four acts digest it on Hale\'s finite attention; assessment releases one G
  p=wait(run(p,'act_vigil'),60);refuses(p,'act_vigil');
  assert.equal(acting(p),LOTM_CC_ACTS);assert.equal(path(p).felt,'settled');assert.equal(attention(p),start-4);
  refuses(p,'act_laying_out');refuses(p,'ingest_gravedigger');
- p=run(p,'request_assessment_cc');assert.equal(holds(p,K.gravediggerDose),1);assert.equal(attention(p),start-5);
+ p=run(p,'request_assessment_cc');p=wait(run(p,'request_exam_cc'),60);assert.equal(holds(p,K.gravediggerDose),1);assert.equal(attention(p),start-5);
  assert.equal(p.state.actors.player.sources[I.gravedigger],undefined,'holding grants nothing');
  assert.ok(validateLotmState(p.state));assert.ok(validateLotmEnvelope(save(p)));
  p=run(p,'ingest_gravedigger');
@@ -93,7 +93,7 @@ test('one pathway per life: either dose blocks the other, in both directions, an
  bad(x=>{x.actors.player.resources['book.lotm.cc.acting']=9;},/digestion count/);
  bad(x=>{x.actors.player.facts['book.lotm.cc.assessed']=true;x.actors.player.facts['book.lotm.cc.promoted']=true;},/Gravedigger source exists exactly/);
  bad(x=>{delete x.actors.player.facts['book.lotm.cc.ingested'];},/needs its recorded ingestion|needs its allocation/);
- const env=save(run(digested(),'request_assessment_cc'));
+ const env=save(wait(run(run(digested(),'request_assessment_cc'),'request_exam_cc'),60));
  const e1=structuredClone(env);e1.inventories.person.main_character={};assert.throws(()=>validateLotmEnvelope(e1),/Gravedigger dose must be held exactly once/);
  const e2=structuredClone(save(fresh()));assert.ok(validateLotmEnvelope(e2));
  const pre=run(run(fresh(),'report_in'),'accept_allocation_cc');const e3=save(pre);e3.inventories.person.main_character={};assert.throws(()=>validateLotmEnvelope(e3),/Corpse Collector dose must be held exactly once/);

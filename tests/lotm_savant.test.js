@@ -35,10 +35,10 @@ test('study and apply digest it on the officer\'s attention; the pre-screen rele
 });
 test('the examination is the senior deacon\'s and reads merit, not elapsed time; then one dose is released and drinking it caps at Sequence 8',()=>{
  let p=run(studied(),'request_prescreen_sv');
- assert.equal(lotmFacts(p.state,ctx(p))['lotm.sv.waited'],true,'no wait gates the acting route');
+ assert.equal(lotmFacts(p.state,ctx(p))['lotm.exam.sv.waited'],true,'no wait gates the acting route');
  const deacon=p.state.actors[I.seniorDeacon].resources['book.lotm.attention'];
- p=wait(run(p,'request_exam_sv'),60);assert.equal(p.state.actors[I.seniorDeacon].resources['book.lotm.attention'],deacon-1);assert.equal(holds(p,K.archaeologistDose),1);ok(p);
- assert.equal(p.state.actors.player.sources[I.archaeologist],undefined,'holding grants nothing');refuses(p,'request_exam_sv');
+ p=wait(run(p,'request_exam_sv_role'),60);assert.equal(p.state.actors[I.seniorDeacon].resources['book.lotm.attention'],deacon-1);assert.equal(holds(p,K.archaeologistDose),1);ok(p);
+ assert.equal(p.state.actors.player.sources[I.archaeologist],undefined,'holding grants nothing');refuses(p,'request_exam_sv_role');
  p=run(p,'ingest_archaeologist');ok(p);assert.ok(p.state.actors.player.sources[I.archaeologist]);
  const v=path(p);assert.equal(v.stage,'Sequence 8 · Archaeologist');assert.equal(v.capped,true);
 });

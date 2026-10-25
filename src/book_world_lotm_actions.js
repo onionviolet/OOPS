@@ -6,7 +6,7 @@
 // institutional assessment, then one more atomic ingestion.
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES,LOTM_ENERGY,LOTM_PRACTICE_MINUTES,LOTM_OBSERVE_MINUTES,LOTM_SLEEP_MINUTES,LOTM_READING_MINUTES,LOTM_DIGEST_ACTS,LOTM_CC_ACTS,LOTM_CC_LAYING_MINUTES,LOTM_CC_VIGIL_MINUTES} from './book_world_lotm_ids.js';
 import {freeze,eq,gte,all,not,af,has,no,item,transfer,attention,use,know,present,ready,cmd} from './book_world_lotm_kit.js';
-import {pathwayCommands,pathwayFlags,pathwaySources,pathwayFacts,flagOf} from './book_world_lotm_pathways.js';
+import {examinationCommand,examFacts,pathwayCommands,pathwayFlags,pathwaySources,pathwayFacts,flagOf} from './book_world_lotm_pathways.js';
 import {pathwayRows,allRows} from './book_world_lotm_rows.js';
 import {abilityCommands} from './book_world_lotm_abilities.js';
 import {brewCommands,brewFlags,brewFacts} from './book_world_lotm_brew.js';
@@ -53,14 +53,15 @@ const baseCommands=[
   costs:[use()],effects:[acted(),know('acting.reading','You read for a client and kept it vague: a hint, never a promise. Staying inside the Seer\'s role, curious about fate but wary of it, settles something in you a little more each time.','player','player','observation','understood')]}),
  cmd('act_refusal','Refuse a ledger request to divine someone far above your station',L.workroom,{requires:all(has('methodLearned'),no('refusedHigh'),undigested),
   effects:[af('refusedHigh'),acted(),know('acting.refusal','You turned down the request to look at a powerful person. Fearing what fate might show is also part of the role, and that restraint counted.','player','player','observation','understood')]}),
- cmd('request_assessment','Ask Warden Hale to assess your digestion for the next Sequence',L.workroom,{targetId:I.supervisor,
+ cmd('request_assessment','Ask Warden Hale to pre-screen your digestion before the Nighthawk examination',L.workroom,{targetId:I.supervisor,
   requires:all(eq('lotm.digested'),no('assessed'),gte('lotm.supervisorAttention',1)),costs:[attention()],
-  effects:[af('assessed'),item('player',K.clownDose,1),know('assessment','Hale tested you and judged the Seer potion digested. The workroom releases one prepared Clown dose from its stores. Holding it grants nothing; drinking it is another irreversible step.','player','player','instruction','understood')]}),
+  effects:[af('assessed'),af('exam.required'),know('assessment','Hale judged the potion digested in a local pre-screen. The Nighthawk senior deacon must examine you before a Clown dose is released.','player','player','instruction','understood')]}),
  cmd('ingest_clown','Drink the prepared Clown dose (irreversible: Sequence 8)',L.workroom,{targetId:I.supervisor,
-  requires:all(has('assessed'),no('promoted'),eq('lotm.digested'),eq('lotm.sourceSupported'),gte('lotm.holds.clownDose',1),eq('lotm.block.seer.wrongPotion',false)),costs:[item('player',K.clownDose,-1)],
+  requires:all(has('assessed'),eq('lotm.exam.seer.released'),no('promoted'),eq('lotm.digested'),eq('lotm.sourceSupported'),gte('lotm.holds.clownDose',1),eq('lotm.block.seer.wrongPotion',false)),costs:[item('player',K.clownDose,-1)],
   effects:[{type:'source',actor:'player',sourceId:I.clown,operation:'grant',origin:'acquired',awakened:true,active:true},af('promoted'),
    know('promoted','The Clown potion is gone for good. The same whispers rose and passed. Your body answers faster and steadier, and your face holds whatever you set on it. This Sequence needs digesting in turn, by its own role.','player','player','observation','understood')]}),
  ...pathwayRows.flatMap(pathwayCommands),
+ ...allRows.filter(r=>r.exam).map(examinationCommand),
  ...brewCommands,
  ...districtCommands,
  ...lifeCommands,
@@ -89,7 +90,7 @@ export const lotmSources=freeze([{id:I.source,revision:1,label:'Seer source (ini
  ...pathwayRows.flatMap(pathwaySources)]);
 const LIFE_FLAGS=['contract.signed','sealed.held',...lotFlags,...causeFlags];
 const DISTRICT_FLAGS=LOTM_DISTRICTS.map(d=>`endorsed.${d.id}`);
-const LOTM_FLAGS=['reportedIn','allocated','declined','ingested','stabilized','methodLearned','refusedHigh','assessed','promoted',...pathwayRows.flatMap(pathwayFlags),...brewFlags,...DISTRICT_FLAGS,...LIFE_FLAGS,...LOTM_SAMPLES.flatMap(n=>[`took.${n}`,`observed.${n}`,`returned.${n}`])];
+const LOTM_FLAGS=['reportedIn','allocated','declined','ingested','stabilized','methodLearned','refusedHigh','assessed','exam.required','examined','promoted',...pathwayRows.flatMap(pathwayFlags),...brewFlags,...DISTRICT_FLAGS,...LIFE_FLAGS,...LOTM_SAMPLES.flatMap(n=>[`took.${n}`,`observed.${n}`,`returned.${n}`])];
 export function lotmFacts(state,ctx={}){
  const s=state.simulation||{},p=s.people?.player,sup=s.people?.[I.supervisor],f={};
  const alive=x=>x?.life==='alive'&&x.body?.form==='human'&&(x.body.hands??0)>=2&&x.body.mobile===true;
@@ -115,6 +116,7 @@ export function lotmFacts(state,ctx={}){
  f['lotm.supplierDoses']=natural[I.lot]?.[K.dose]??ctx.gameplay?.[I.supervisor]?.inventory?.[K.dose]??0;
  const acting=state.actors?.player?.resources?.['book.lotm.acting']||0;
  f['lotm.acting']=acting;f['lotm.digested']=acting>=LOTM_DIGEST_ACTS;f['lotm.holds.clownDose']=inv[K.clownDose]||0;
+ examFacts(allRows[0],state,f);
  for(const row of pathwayRows)pathwayFacts(row,state,f,{inv,flag});
  // One pathway per life: any allocation or ingestion elsewhere closes the other offers.
  const rows=allRows.map(r=>[flagOf(r,'allocated'),flagOf(r,'ingested'),flagOf(r,'brew.started')]);
@@ -134,7 +136,7 @@ export function lotmFacts(state,ctx={}){
  for(const r of pathwayRows)if(r.market)for(const n of [r.market.baseHold,r.market.nextHold])f[`lotm.holds.${n}`]=inv[K[n]]||0;
  for(const n of ['frog','hairs','ink'])f[`lotm.holds.${n}`]=inv[K[n]]||0;
  if(enrolled)brokerFacts(state,f,{alive,enrolled,player:p,inventory:ctx.gameplay?.[I.broker]?.inventory||{}});else{f['lotm.brokerHere']=false;f['lotm.escrow']=0;}
- for(const id of [I.supervisor,I.stormOfficer,I.machineryOfficer,I.seniorDeacon,I.stormDeacon,I.member])f[`lotm.attention.${id}`]=state.actors?.[id]?.resources?.['book.lotm.attention']??0;
+ for(const id of [I.supervisor,I.stormOfficer,I.machineryOfficer,I.seniorDeacon,I.stormDeacon,I.evernightDeacon,I.member])f[`lotm.attention.${id}`]=state.actors?.[id]?.resources?.['book.lotm.attention']??0;
  f['lotm.supervisorAttention']=state.actors?.[I.supervisor]?.resources?.['book.lotm.attention']??0;
  return f;
 }

@@ -12,7 +12,7 @@ for(const row of pathwayRows)test(`${row.potion}: next dose releases at its actu
  check();set('allocated');assert.throws(check,/allocated/);
  stock[K[row.holds.base]]=1;check();set('ingested');assert.throws(check,/allocated/);
  stock[K[row.holds.base]]=0;set('assessed');
- if(row.exam){check();set('examined');}
+ if(row.exam){if(row.exam.legacyRelease)set('exam.required');check();set('examined');}
  assert.throws(check,/released/);stock[K[row.holds.next]]=1;check();
  stock[K[row.holds.next]]=2;assert.throws(check,/released/);
  stock[K[row.holds.next]]=1;set('promoted');assert.throws(check,/released/);

@@ -25,7 +25,7 @@ export function validateLotmEnvelope(save){
  const dose=count(save,'main_character',K.dose)+count(save,I.supervisor,K.dose)+reserved(state,K.dose);
  assert(dose===(ingested?0:1),'The prepared dose must be held exactly once until it is taken.');
  const clown=count(save,'main_character',K.clownDose)+count(save,I.supervisor,K.clownDose)+reserved(state,K.clownDose);
- assert(clown===(f['book.lotm.assessed']===true&&f['book.lotm.promoted']!==true?1:0),'The released Clown dose must be held exactly once until it is drunk.');
+ assert(clown===(f['book.lotm.assessed']===true&&(f['book.lotm.exam.required']!==true||f['book.lotm.examined']===true)&&f['book.lotm.promoted']!==true?1:0),'The released Clown dose must be held exactly once until it is drunk.');
  // Other pathways' doses are issued from stores on acceptance and release, so only the allocated and assessed windows hold one.
  for(const row of pathwayRows)pathwayDoses(row,{count:(owner,key)=>count(save,owner,key),reserved,state,f,assert});
  // Sealed grade-3 item (Q4): exactly one holder when the save has one, and held by the player only while the handling flag is set. Saves from before it hold none.

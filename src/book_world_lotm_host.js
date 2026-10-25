@@ -9,7 +9,8 @@ import {enrollLotmBranch,LOTM_NATIVE_STOCK} from './book_world_lotm_content.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
 import {lotmPathView} from './book_world_lotm_path.js';
 import {flagOf} from './book_world_lotm_pathways.js';
-import {pathwayRows} from './book_world_lotm_rows.js';
+import {pathwayRows,allRows} from './book_world_lotm_rows.js';
+const examIds=new Set(allRows.filter(r=>r.exam).map(r=>`book.lotm.${r.exam.currentId||r.exam.id}`));
 import {LOTM_PROFILES,profileKeyOf,lifeEntryEffects} from './book_world_lotm_lives.js';
 import {causeView} from './book_world_lotm_causes.js';
 import {brokerView} from './book_world_lotm_broker.js';
@@ -67,7 +68,7 @@ export function createLotmHost(ports){
  }
  function cancel(jobId){
   writable();const s=state(),job=s.simulation?.jobs.find(j=>j.id===jobId&&j.actorId==='player'&&lotmCommands.some(d=>d.id===j.commandId));
-  assert(job&&job.cancellation==='forfeit','Only a lesson or sleep can be stopped, and what it cost is not returned.');
+  assert(job&&['forfeit','refund'].includes(job.cancellation),'This work cannot be stopped.');
   ports.persist(cancelSimulationJob(s,registry,job.id,ctx(s),s.sequence));
   if(job.commandId===SLEEP&&ports.sleeping())ports.endSleep();
  }
@@ -92,14 +93,14 @@ export function createLotmHost(ports){
   if(!d)return {enrolled:false,startable:startable(),startEnabled:ports.startEnabled(),profiles:Object.values(LOTM_PROFILES).map(({key,label,blurb})=>({key,label,blurb}))};
   const c=ctx(s),f=c.facts,at=s.simulation.people.player.location,e=s.simulation.energies?.player?.[I.energy],know=s.simulation.knowledge?.player||{};
   const actions=[];
-  for(const def of lotmCommands){if(def.id.startsWith('book.lotm.walk_')||def.targetId&&!s.simulation.people[def.targetId])continue;const p=previewSimulationCommand(s,registry,def.id,{...c,targetId:def.targetId||null});
+  for(const def of lotmCommands){if(pathwayRows.some(r=>r.exam?.currentId&&def.id===`book.lotm.${r.exam.id}`)||def.id.startsWith('book.lotm.walk_')||def.targetId&&!s.simulation.people[def.targetId]&&!examIds.has(def.id))continue;const p=previewSimulationCommand(s,registry,def.id,{...c,targetId:def.targetId||null});
    // The rule text of a blocked offer is not player-readable; the switching law is (one pathway per life).
    const other=acceptIds.has(def.id)&&f['lotm.pathChosen']&&!f[`lotm.flag.${acceptFlag[def.id]}`];
    if(p.visible)actions.push({id:def.id,label:def.label,eligible:p.eligible&&!ports.sleeping(),reasons:other?[LOTM_SWITCH_NOTICE]:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,duration:def.duration||0,cancellation:def.cancellation||'none'});}
   const moves=Object.entries(MOVES).filter(([,to])=>to!==at).map(([id,to])=>{const dd=districtOfPlace(to),m=lotmWalkMinutes(at,to);return {id,label:`Walk to ${to} · ${m} min · ${dd.qlabel}: ${dd.q2team}`,eligible:!s.simulation.jobs.length&&!ports.sleeping(),reasons:s.simulation.jobs.length||ports.sleeping()?['Finish or stop your current work first.']:[]};});
   // Plain places list (SR rules): every place, its district, which team answers there and how far it is.
   const places=Object.values(L).map(pl=>{const dd=districtOfPlace(pl);return {place:pl,district:dd.qlabel,team:dd.q2team,church:dd.church,here:pl===at,minutes:pl===at?0:lotmWalkMinutes(at,pl)};});
-  const jobs=s.simulation.jobs.filter(j=>lotmCommands.some(d=>d.id===j.commandId)).map(j=>({id:j.id,label:registry.simulation.commands.get(j.commandId).label,due:j.due,left:Math.max(0,j.due-s.clock),cancellable:j.cancellation==='forfeit'}));
+  const jobs=s.simulation.jobs.filter(j=>lotmCommands.some(d=>d.id===j.commandId)).map(j=>({id:j.id,label:registry.simulation.commands.get(j.commandId).label,due:j.due,left:Math.max(0,j.due-s.clock),cancellation:j.cancellation,cancellable:['forfeit','refund'].includes(j.cancellation)}));
   const holds=Object.fromEntries(['dose','clownDose',...pathwayRows.flatMap(r=>[r.holds.base,r.holds.next]),'sealed3','frog','hairs','ink',...pathwayRows.filter(r=>r.market).flatMap(r=>[r.market.baseHold,r.market.nextHold]),...LOTM_SAMPLES].map(n=>[n,f[`lotm.holds.${n}`]||0]));
   const records=Object.entries(know).filter(([k])=>k.startsWith('book.lotm.')).map(([k,r])=>({id:k,text:r.value,stage:r.stage,at:r.at})).sort((a,b)=>(b.at??0)-(a.at??0));
   const homeKey=profileKeyOf(s),homeChurch=homeKey?districtById(LOTM_PROFILES[homeKey].home)?.church:null,dist=districtOfPlace(at),district=dist&&{id:dist.id,label:dist.label,team:dist.team,officer:dist.officerLabel,officerHere:f['lotm.officerHere'],responders:respondersFor(dist.id,homeChurch).line,home:!!f[`lotm.home.${dist.id}`],onShift:onShift(dist,s.clock),shift:!!dist.shift,claim:dist.claim,why:dist.why,endorsed:!!f[`lotm.home.${dist.id}`]||f[`lotm.flag.endorsed.${dist.id}`]===true,attention:f['lotm.officerAttention']};
