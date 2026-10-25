@@ -1,0 +1,26 @@
+{
+  "head": "547209e82c29e897e6b602a4ef5d8e8ab46b3ebf",
+  "runtimeTreeSha256": "8dbfff41cd01ff363e04909063ef4c71f506b1b36f83e158afe47d6b88f3c7c7",
+  "files": {
+    "src/gear_work.js": "74a9abbe40cc2150f4af86b9a1d527e22a2a1a609044b5b6cc7dfc80c073e840",
+    "src/gear_workshop_domain.js": "6686fb841030ea9dcb8b87bd2fbd08741350e22548dafbc52ab728f2e83aee99",
+    "src/gear_workshop_panel.js": "db0ee65c998295196b4f58f52eb0e9a6cef3bbf30083402d5bd373d65d0e8ebc",
+    "tests/gear_workshop.test.js": "5a91ee5e23ae958901da6af515d58bf675ee64c31acb92563b84a9a5d42cce72",
+    "styles/material_icons.css": "3fc1347eba2f3e91c5ff55ddd49d8773efc39a8fb676bd60df2729af52364e19",
+    "tests/ui_contract_allowlist.json": "8905fbe1727ce216007a6c038c8b3ed9b153121300d617a780b7000dc7c327e3",
+    "dist/bundle.js": "88ae9939906485892257ce731ac9a14e9f5a5b2f2584320cc11d258841214c0c",
+    "index.html": "48bac7784dba8b9d6d449e2ade80a7dade440280cc609ff2d80157ea4d80c445"
+  },
+  "checks": {
+    "npm run build": "PASS",
+    "npm test": "2727/2727 PASS, 0 fail",
+    "npm run check:arch": "PASS, main growth 0",
+    "npm run check:rules": "PASS, 2 existing untracked-rulebook warnings",
+    "focused workshop": "11/11 PASS",
+    "body/codex": "15/15 PASS",
+    "O5 focused UI": "17/17 PASS"
+  },
+  "newFullControlBrowser": "evidence/o1-full-control-z17xsP/o1-full-control.json",
+  "earlierRelevantBundle": "e7ca5a704772147ee629f2f03123c6ae6d6c6f10cfe84cbe0b13a6cf3126e814",
+  "persistence": "No new save slice. Existing actor energies and worked-item identity store the change. All saves in this dispatch are generated."
+}

@@ -56,8 +56,9 @@ Before generating agents or bulk book readers, follow [agent usage rules](docs/A
 AU1–AU15 / AD37. One coordinator, one shared budget including retries and successors;
 readers may spawn lesser agents from reserved portions of that same budget.
 For full-book requests, declare one finite whole-source plan (AU13), target one
-to three coordinating chats, and use fresh Luna-medium reader contexts when
-available. Each reader owns at most 12,000 source words and six model responses,
+to three coordinating chats, and use fresh reader contexts: haiku first in
+Claude sessions (2026-10-23) unless Weibao specifies Codex limits, then
+Luna-medium when available. Each reader owns at most 12,000 source words and six model responses,
 then retires; never feed it the next shard. Keep raw chapters out of coordinator
 history and use bounded continuity notes (AU15). Two generated agents run at once
 by default. The old four-reader cap applies to exploratory tasks, not full books.

@@ -1,0 +1,18 @@
+# H2 true-route partial state (restart after API drop)
+Route read from source (saved code, unverified in browser): village.elderMet = native metVillageElder() (main.js 2286, elder "hello" textline); paradise.chartSupported = native alive, player in Village (book_world_paradise_actions.js:180); book.paradise.chart begins situation; then book.paradise.enroll -> enter_hub -> goa.personal (hub desk) or contract.arrive; localPermit via guard_access (Hank, needs hankMet+warningLearned; hank_copy transfers the duty copy). No src edits yet. Worktree built (npm run build); probe scripts in the scratchpad. Browser probe of Options panel was running when cut off.
+
+## Milestone 1: unpatched browser probe (headless 1920x1080, fresh origin, scripts/rank_gap_browser.cjs in H2 worktree)
+Reached real Goa (worldId book.paradise.goa) with NO patched bundle. Normal-play route that worked: elder 4 textlines (hello, what happened, ask to leave 1, need to) -> open Notes panel > Here > "Tools, practice & local lives" -> enrol living-world simulation FIRST (any optional record, e.g. "Begin an optional record of local care"; without it the chart click silently fails with "The required knowledge, means or circumstances are missing" because chartSupported reads simulation.people.player, absent pre-enrolment) -> chart -> enroll -> enter hub -> hub meet -> funded packing shift (credits) -> buy ration -> "Visit the first-Goa branch" -> Mia -> Go to pier -> Rin -> pier shift (8 belli) -> Go to Goa guardhouse. STALL: "Meet Hank at the guardhouse" unavailable ("That participant is unavailable. Meet the participant at their location. A participating person is unavailable or already working."). Not yet diagnosed (Hank schedule/location). Also finding: simulationTestHooks.saveStatus().writeBlocked = "Return to the frontier world first." while in Goa (saves blocked in Goa; save/reload there is not possible).
+Evidence: /private/tmp/claude-501/h2/proof/journey.log, fail.png (to be copied).
+
+## Milestone 2: OUTCOME A route reached (unpatched)
+Stall was my own timing (pier-shift job still running when moving). After waiting out player jobs: Meet Hank, duty copy, guard_access all ok at Goa guardhouse; facts localPermit=true, palaceAccess=true; inventory key {"id":"Goa duty copy"} present. Panel "Watch a working" was not selectable by label 'Watch a working' in the combobox in my run (investigating). Log: /private/tmp/claude-501/h2/proof/journey.log
+
+## Milestone 3
+Panel "Watch a working" appears in the Other known panels select while in Goa. Stamina is read via snapshot().character.stamina_to_full (character is not a window global). Script ready for watch+stamina+time run; defect fixes and host seam text still to do.
+
+## Milestone 4: defects fixed, tests 12/12 pass
+rank_gap_observer.js: watchCost per verb (glimpse = staminaCost + glimpseExtraStamina), preview gates and quotes it, commit spends the quote. rank_gap_observer_domain.js: configureRankGap(host) injected seam (settle({minutes,stamina})); host mode moves slice clock once (tick ignored while settling), rollback on host throw; fallback spends stamina only if affordable; publicQuote shows a range for unresolved subjects (no verb leak). Tests: node --test tests/rank_gap_observer.test.js. Still to do: rebuild + true-route journey with watch/stamina evidence, check:arch, check:rules, copy evidence, final report.
+
+## Milestone 5: COMPLETE (see final report). Unpatched journey PASS (proof2 files copied here: journey.log, screenshots, slice.json). Fallback (no host) stamina: stamina_to_full 0 -> 1 after one watch, back to 0 after one tick (cost healed/lost); slice.clock 2 vs world minute +1.
+Host seam release text (main.js, two same-line appends): see report.

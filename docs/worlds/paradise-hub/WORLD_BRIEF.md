@@ -59,7 +59,10 @@ footprint vs canon, starts SRP1-SRP32, AUs ARP1-ARP10, first slice and gates),
 [beings, pets and bodies](BEINGS_PETS_AND_BODIES_2026-10-14.md) (BS1-BS5, PB1-PB5),
 [derived worlds and missions](DERIVED_WORLDS_AND_MISSIONS_2026-10-14.md)
 (chronological catalog, mission engine shape, overlaps, N18 mission bodies) and
-[hub life, economy and people](HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md).
+[hub life, economy and people](HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md) and the
+[facilities, roles and subtle details pass](../REINCARNATION_PARADISE_FACILITIES_AND_SUBTLE_DETAILS_2026-10-23.md)
+(2026-10-23, WPR rules, drafted and partly spot-checked, proposals), with
+[derived-world institutions and hunter benefits](DERIVED_WORLD_INSTITUTIONS_AND_HUNTER_BENEFITS_2026-10-23.md).
 The delivered footprint above stays as recorded.
 
 

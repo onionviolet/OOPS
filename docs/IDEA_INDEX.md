@@ -1,5 +1,7 @@
 # Game idea index
 
+[Ideas left inventory, 2026-10-25](audits/IDEAS_LEFT_INVENTORY_2026-10-25.md): D5 proposal crosswalk, remaining audit/world/chat ideas and ranked next playable slices; existing owner codes retained.
+
 ## Current feature routing, checked 2026-10-22
 
 [PROJECT current delivery](../PROJECT.md#current-delivery-routing-checked-2026-10-22)

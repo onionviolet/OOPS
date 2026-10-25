@@ -6,6 +6,8 @@ Status: documentation consolidation complete, runtime gates OPEN. Writer: W19 (`
 
 Authority: [root palette](../../WORLD_CORE_KIT_2026-10-14.md) MG1-MG6 / OV9-OV12, [shared engine/data map](../W6_ENGINE_TEMPLATE.md), [PROJECT](../../../../PROJECT.md#standing-priorities-and-document-authority), [USER_VISION](../../../USER_VISION.md#world-core-kit-every-little-detail-and-a-repeating-audit-2026-10-14). This card consolidates evidence and proposals; it does not override its source/design owners. One realm/one prestige; desktop/laptop first; mobile deferred. Runtime remains paused.
 
+Later pass (2026-10-23, proposals, source-reviewed by a second reader on the listed rows): [institutions, roles and subtle details with a WA6 floor card](../../A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), run under [WPR](../../../WORLD_PASS_RULES.md): coin ladder, pay, legion terms, Guild and shop prices, cut and discipline rules. It upgrades no dated grid cell; runtime stays paused.
+
 ## Kit header
 
 | Field | Consolidated value |

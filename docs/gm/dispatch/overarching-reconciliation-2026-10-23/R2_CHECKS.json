@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-23",
+  "head": "547209e82c29e897e6b602a4ef5d8e8ab46b3ebf",
+  "scope": "R2 documentary reconciliation; no runtime checks rerun",
+  "inspected_input_sha256_before_first_edit": {
+    "docs/research/itch-io-2026-10-22/OPEN_GAPS.md": "c1355ba8ed8d085310270b60cb96c1216732810ba7f772640f53337cefe2074b",
+    "docs/worlds/IMPLEMENTATION_MAP_ABILITIES_PROCEDURES_SUBTLE_INTEGRATIONS_2026-10-23.md": "f518fa95a1aa52d8e043fe14a9aac69cf71bc1ea569e149b611a084500dab618",
+    "src/native_tool_domains.js": "541dedac2440c0911bfab0f343d0aa2f3da1b2676131182eb92071b3aa71b030",
+    "src/main.js": "f2965bc64b4c1459265d442564b119cb513e781cff228738a2ea37a7bf5f5340",
+    "src/ui_extras.js": "4db9c0d27e4057a43eee0943e997ea294e9502523187c94eb75415871ea2289c",
+    "src/life_events_domain.js": "bbd3904ba7c256354840f4c205955d087f5c94ad528df833b7142b797a1c2233",
+    "src/skill_records_domain.js": "a3938abab2d8e8c42bbda98808edeb41ab93ec88fc2db8df112466ea6ccc18cb",
+    "src/lore_history_state.js": "21f5cf45cd07f05d73aac853b43ab1b756f73db75540604856ecd56dad1a4c45",
+    "src/lineage_domain.js": "c04874daaec849266754025a03b1e570a8ada557dbd205e3a112f764e973ba3e",
+    "src/lineage_traits.js": "8a0463ccc4e61ff6134ba683fd43a6848b8d6ede9e59066cdde416cb4f6d9e56",
+    "src/heir_inheritance.js": "4aa42e82661aea91afaf7efeecd38a3c1b512b2bf9724b242bcdd8b3acde86fd",
+    "src/companion_roster.js": "fadc5c582c82cff5ebe02aa7d6f20695ab0e9d477264318c4dd3664d254efdc1",
+    "src/companion_wishes.js": "2e850cec510a138a04bb823e1c6013c51649b129f5a717170e7655f1c2a6b3f1",
+    "src/home_layout_domain.js": "cb6e22c407190f5454692fb9572f0615286b7146258d05d762565dc341f1f50b",
+    "src/household_fortunes_domain.js": "05d79b740144a0e08a48252ecfd84b78f4c735abf41bea71ab2f15926b0c2c0a",
+    "src/economy_standing_domain.js": "5b1b8dfbe21938e17abb73a6b615220c6eb8e6fff32f0ab3989e589df1ce5ca6",
+    "src/trade.js": "6ac87a5851f7af59085eb5ce97da068d880b7d27a99d8427ea99464931721800",
+    "src/book_world_lotm_actions.js": "8828a9494d057d3a060ef8ea1a52b88350315a1024605cf0e77b8b455fe22a73",
+    "src/book_world_lotm_pathways.js": "23fd9eccdf4fce5c9de59fed2fe3f314aa2328f52e2a157c35cf8f7849bc9a19",
+    "src/book_world_lotm_state.js": "583f78f1ccc2fafd239342d87ebd15f0281f5fef029e57408ac38fd23464c09f",
+    "src/book_world_lotm_path.js": "1a5ee469d29884256e4fecec3836f324f3e9bbe84beb5e9d73b2e85146ab3d6f",
+    "src/book_world_paradise_state.js": "45a2f45e01298ef412b23b6ef114338d2b0cc9ca73afb66605d20634d363724b",
+    "src/book_world_paradise_host.js": "fe1e0cef6c33eda403427aeb806f8204138ebc3b15e45bcc122d2f60706f7281",
+    "src/chain_inspector.js": "edbda4a5a177d959b44e88909c545a9da47ab70c460afd55bd3c1247a39345b6",
+    "src/ascension_paths.js": "7038d96dfc23d570ce63ad0693ddcbc6d18396d6859a942772c21fb36e8e5f65",
+    "tests/lotm_pathway_rows.test.js": "5064ff23f3355b571d72afaedcfa3a11ca6f78564958be071349119580dff5f6",
+    "docs/research/itch-io-2026-10-22/W3_EVENTS_NOTES.md": "b283f8b8592d6e5870a0e65e3f0afb5bfb7019d4e8e4aea142b9d35601bc4df5",
+    "docs/research/itch-io-2026-10-22/W3_INSTITUTIONS_NOTES.md": "e63ccf8a07c083f1bca8e31ca5844329c6d5dbb9436669beda6c2d66f4575793",
+    "docs/research/itch-io-2026-10-22/W3_SPATIAL_NOTES.md": "72f3f6c0045401109f1643b49c118be800b781dd38f646acbd3d3e829d328733",
+    "docs/research/itch-io-2026-10-22/W3_TOOLING_NOTES.md": "2f2b0b8ad7dd91a1e72050863ef85bfea84d19fbbe1f7c5a728140c6ba6f02f5",
+    "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md": "b99a7d72a727ed2cc11e76d476107db4b4e2b6e5ab7549e3d680dce6c3434cfe",
+    "docs/worlds/TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md": "78f00930384418ac1fe70b14a88a920091f930ef56a09cbf90dff41ff4f04c16",
+    "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md": "c374998876dc23ad8162f2a757be31ad3f0f12d7f18379dd9fbceb38553a0abc",
+    "docs/gm/dispatch/lotm-q1-2026-10-23/CHECKPOINT.md": "b5828be4c2365f3ef367c45a77f4c95e74d24676324ad29385ba25111dfaf57f",
+    "docs/gm/dispatch/lotm-q2-2026-10-23/CHECKPOINT.md": "1fab3acd97dda789631baeb6f4a9d1e63b24f42414275162deb09dc5d2b74ee5",
+    "docs/gm/dispatch/itch-wiring-2026-10-23/lives-carry-wiring.md": "f6a26ae2cfdf1e086a8cb063b61f94b539268c0545fc4fc18ec466cc1650b087"
+  },
+  "additional_inspected_input_sha256": {
+    "docs/research/itch-io-2026-10-22/BATCH_W3_READS.md": "d73529d4613e70760fdedb4f6a52428e57c66727ded82d1d37e7ef9f66835c87",
+    "src/pledges.js": "63bd03ed5b73316e271d1d5068c2ac95db75dd7e8133af0eac23494fc4687d9d",
+    "src/pledges_content.js": "d71ec7c8e6d104ce2cbcff8635cb849f6dae553b90504d595684485a6ba313de",
+    "src/pledges_domain.js": "a1419dca5a1d6eb4ed51e8963fe04981aaf7b5031a130ac5fa50b228a51b3555",
+    "src/home_domain.js": "c4474d34a8de0547614e71f2de2072333d034776e3f8d9c52856c8ee4a02e48f",
+    "src/story_insight_domain.js": "dbc7f86233ca2d55af39617dfa4c9235db155d1794bbd5efd61e6c58c147165f",
+    "/Users/weiwei/.codex/research/idle-reincarnator/tools/decode_gdc.py": "6b365784c24175132372177fa9aad1d525cbd4fad69b119a1a1148bcd3e7437b"
+  },
+  "nonowned_input_drift_since_capture": [],
+  "zero_loss": {
+    "replaced_blocks": 35,
+    "missing_archive_blocks": [],
+    "reconstructed_originals": [
+      {
+        "file": "docs/research/itch-io-2026-10-22/OPEN_GAPS.md",
+        "baseline_sha256": "c1355ba8ed8d085310270b60cb96c1216732810ba7f772640f53337cefe2074b",
+        "current_sha256": "37f36bb3de3f95b869a8d3899885c8a76922483aae2d3bb5bf1d81ad7896363d",
+        "original_reconstructed_exactly": true
+      },
+      {
+        "file": "docs/worlds/IMPLEMENTATION_MAP_ABILITIES_PROCEDURES_SUBTLE_INTEGRATIONS_2026-10-23.md",
+        "baseline_sha256": "f518fa95a1aa52d8e043fe14a9aac69cf71bc1ea569e149b611a084500dab618",
+        "current_sha256": "8509d33b7008c0c4dd6901f6f11250a1be5800a0115879c2c36bd2b03a4a918e",
+        "original_reconstructed_exactly": true
+      }
+    ]
+  },
+  "links": {
+    "checked": 55,
+    "failures": []
+  },
+  "whitespace": {
+    "current_owner_and_report_failures": [],
+    "git_diff_check_exit": 0,
+    "git_diff_check_output": "",
+    "history_policy": "Verbatim archived lines exempt from whitespace rewrite"
+  },
+  "runtime_verification": "Not run: documentation only; no build, npm tests, browser or personal saves",
+  "owned_current_hashes": {
+    "docs/research/itch-io-2026-10-22/OPEN_GAPS.md": "37f36bb3de3f95b869a8d3899885c8a76922483aae2d3bb5bf1d81ad7896363d",
+    "docs/worlds/IMPLEMENTATION_MAP_ABILITIES_PROCEDURES_SUBTLE_INTEGRATIONS_2026-10-23.md": "8509d33b7008c0c4dd6901f6f11250a1be5800a0115879c2c36bd2b03a4a918e",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/R2_REPORT.md": "a533b804b45d80204a6a52732343ba1c32ca12fa13bca77f024a667cfd2d5814",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/R2_SUPERSEDED.md": "82e19765956c2ad5a9475c84e6e307a2554b8be45dc43ffda61d0f825c597e9b"
+  }
+}

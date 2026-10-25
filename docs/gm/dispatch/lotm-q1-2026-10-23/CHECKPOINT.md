@@ -23,6 +23,7 @@ Tingen holder is sourced (Q6 or the second city).
 ## Authored dial (WPR5), each with its reason
 
 - 4 acts (Seer: 6): three layings-out and one vigil. The line's acting is quiet, repeated handling of the dead, and the church's ordinary wait on a potion is three years and a player who digested by acting is examined on merit (institutions pass F18, X4; corrected 2026-10-23, first written as "roughly a year (source note X3)", which was wrong; the "about a year" figure is Dai's fast pace, 0150 p52), so a short supervised count fits.
+- 4 acts (Seer: 6): three layings-out and one vigil. The line's acting is quiet, repeated handling of the dead, and the church lets a recruit wait roughly a year (source note X3), so a short supervised count fits.
 - 25 minute laying-out, 60 minute vigil (Seer: 10 minute readings): washing and shrouding a body takes longer than a hedged reading; a vigil is an hour in the cold room.
 - Each act spends 1 of Hale's attention instead of spirituality. The cold room is supervised, and Hale's finite attention is the pace limit (3 layings + vigil + assessment = 5 of 6). This pathway grants no spirituality pool: the sourced Sequence 9 abilities are bodily and perceptual (cold, rot, undead recognition).
 - No lesson or sample method: ingestion is followed directly by the acts. Dose text carries "takes courage to drink" as flavor; there is no new verb.

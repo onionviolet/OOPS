@@ -1,0 +1,83 @@
+{
+  "links": [
+    {
+      "target": "CHECKPOINT.md",
+      "exists": true
+    },
+    {
+      "target": "../../../ARCHITECTURE_RULES.md",
+      "exists": true
+    },
+    {
+      "target": "../../../UI_RULES.md",
+      "exists": true
+    },
+    {
+      "target": "../../../../.claude/rules/player-ui.md",
+      "exists": true
+    },
+    {
+      "target": "r3-inputs.json",
+      "exists": true
+    },
+    {
+      "target": "r3-progression-repro.mjs",
+      "exists": true
+    },
+    {
+      "target": "r3-browser-result.json",
+      "exists": true
+    },
+    {
+      "target": "r3-learned-still-waiting-1920.png",
+      "exists": true
+    },
+    {
+      "target": "r3-proposed-inspector.patch",
+      "exists": true
+    },
+    {
+      "target": "r3-reproduction-tests.txt",
+      "exists": true
+    },
+    {
+      "target": "r3-focused-tests.txt",
+      "exists": true
+    },
+    {
+      "target": "r3-candidate.json",
+      "exists": true
+    },
+    {
+      "target": "r3-arch.txt",
+      "exists": true
+    },
+    {
+      "target": "r3-rules.txt",
+      "exists": true
+    },
+    {
+      "target": "r3-input-recheck.json",
+      "exists": true
+    }
+  ],
+  "allLinksExist": true,
+  "trailingWhitespaceLines": [],
+  "createdPaths": [
+    "R3_REPORT.md",
+    "r3-arch.txt",
+    "r3-browser-result.json",
+    "r3-browser.cjs",
+    "r3-build-candidate.mjs",
+    "r3-candidate.json",
+    "r3-focused-tests.txt",
+    "r3-input-recheck.json",
+    "r3-inputs.json",
+    "r3-learned-still-waiting-1920.png",
+    "r3-progression-repro.mjs",
+    "r3-proposed-inspector.patch",
+    "r3-reproduction-tests.txt",
+    "r3-rules.txt",
+    "r3-doc-checks.json"
+  ]
+}

@@ -2031,3 +2031,28 @@ older write-only-after-acceptance wording no longer blocks preparing them.
 Executing steps 2–5 retains its own authorization and preceding playable gate.
 New selected work follows current architecture/rule/compatibility owners;
 no second knowledge store or mandatory planner framework is selected here.
+
+
+## Minecraft second wave: tiers, body and calendar, persistent-cost magic, 2026-10-23
+
+Research palette, not an accepted decision. Ranking and evidence: [SYNTHESIS_2026-10-23](research/minecraft/audits/SYNTHESIS_2026-10-23.md) (X13-X22) and its source audits ([GT](research/minecraft/audits/GT_GREGTECH_DEEP_DIVE.md), [economy](research/minecraft/audits/WV2_ECONOMY_TIERS.md), [ritual magic](research/minecraft/audits/WV2_RITUAL_MAGIC.md), [survival](research/minecraft/audits/WV2_SURVIVAL_COUPLING.md), [faction](research/minecraft/audits/WV2_WORLD_FACTION.md)). Codes here use the `MCW` prefix because shorter prefixes clash with codes already in this file.
+
+### ACT NOW (done in this pass)
+
+Filing and verification only (see the MODULAR section of the same date). No rule or direction changed.
+
+### ACCOUNT FOR NOW
+
+- **MCW1 A rung names what it gates (GT2/GT11, ET6, X14).** When a world uses a tier ladder (TT1-TT11 is illustrative), each rung states the one thing it gates: recipe eligibility, slot count, tool, or growth. Dial: step ratio (x4 recurs across GT, Mystical Agriculture and storage tiers, a weak convergence) and failure shape for an over-rated input: destroys, degrades or only slows. Reason: lethal overload makes each tier a hazard to bystanders and belongs to body rules, so it is per world.
+- **MCW2 One pricing logic per world (ET7, ET21).** Mixing a derived scale with an authored ladder in one world leaves arbitrage by design. It is allowed (ECR15), but name it as a market with a spread. The 3x-48x gap between ProjectE and Mystical Agriculture on pinned goods stands without the solver; derived crafted values wait on the equivalence-ledger spike.
+- **MCW3 Magic as an account or upkeep needs a graded shortfall (RM1/RM3/RM6, X16).** MR20 already says magic input is a step with cost. A shortfall may be paid in health, skipped pulses or nausea instead of a hard stop; each is a dial. No runtime owner was read for this.
+- **MCW4 Thirst, lagged temperature and water provenance stay deferred (HUNGER_AND_BODILY_NEEDS C4).** The survival audit (SV1-SV10) is evidence for those later decisions, not a request to build; BHR1-BHR30 in RULES_INDEX were not opened and must be read first.
+
+### LATER / DELEGATE (suggestions; none dispatched)
+
+| Code | Application | Level / effort | Done check |
+|---|---|---|---|
+| MCW5 | One material row that generates its item, tool and price family (GT1/GT15, X13) mapped on `src/craft_recipes.js` and `src/crafting_domain.js` | Sol medium / one session | A table of present versus missing mechanisms exists (this is GT audit L1); no code |
+| MCW6 | Second reputation layer above region, gaining a fraction of each region gain (WF3) | Sol medium / medium; trigger: a world with cultures spanning regions | Reputation today is per region only (`src/reputation_state.js`); the layer round-trips save and import, and nothing is double counted |
+| MCW7 | Quest policy inheritance (default, chapter, file) and exclusive branches (QL1-QL4, X18) | Sonnet medium / small to read `src/quests.js` first | Read result separates visible, startable and complete or says it does not; no change before that |
+| MCW8 | Seasonal fertility as a binary per season with a stated off-season rate (SV13) | Sol medium / medium; trigger: a farming world needs it | Uses `src/world_calendar.js` and the MF27/MF32 weather read frames, no second timer (AR3) |

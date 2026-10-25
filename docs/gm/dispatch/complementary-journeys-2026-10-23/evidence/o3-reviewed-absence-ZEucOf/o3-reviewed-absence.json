@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "lane": "o3-reviewed-absence",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "e7ca5a704772147ee629f2f03123c6ae6d6c6f10cfe84cbe0b13a6cf3126e814",
+  "gates": [
+    "completed-prepaid-return: native Save/reload/Export/literal-file Import",
+    "paused-prepaid-return: native Save/reload/Export/literal-file Import",
+    "cancelled-prepaid-return: native Save/reload/Export/literal-file Import",
+    "Game document absent for actual wall interval; no automatic reward; reviewed finite prepaid output advances shared time once; pause/resume/cancel refunds unused inputs once; all three persistence boundaries. This is the existing original packing policy, not general offline automation."
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

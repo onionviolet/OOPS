@@ -1,0 +1,8 @@
+{
+  "styles/material_icons.css": "3fc1347eba2f3e91c5ff55ddd49d8773efc39a8fb676bd60df2729af52364e19",
+  "tests/ui_contract_allowlist.json": "8905fbe1727ce216007a6c038c8b3ed9b153121300d617a780b7000dc7c327e3",
+  "tests/ui_contract.test.js": "ae1f44b1d7b2e7a3ca953176e7ca4de3622211e622d1595b34c3a79db83f35ae",
+  "tests/ui_extras.test.js": "4e30bbe96ae61075928a0cd4e29d645f5bca1cf0b4c0def96439e6512b564841",
+  "tests/helpers/ui_contract.mjs": "bc850dc1b86d973982e607acf4de94a2ec49b2c8cf41805ef4480bc235ebdf61",
+  "docs/gm/dispatch/complementary-journeys-2026-10-23/o5-desktop.cjs": "6f7ac86df8ca225bdb0b5a03de511afd1d0bdbd1cf6562e501bed82b9a42c4d4"
+}

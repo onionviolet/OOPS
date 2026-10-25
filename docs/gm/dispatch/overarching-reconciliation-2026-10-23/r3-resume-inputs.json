@@ -1,0 +1,14 @@
+{
+  "head": "547209e82c29e897e6b602a4ef5d8e8ab46b3ebf",
+  "pathHashes": {
+    "src/chain_inspector.js": "edbda4a5a177d959b44e88909c545a9da47ab70c460afd55bd3c1247a39345b6",
+    "tests/chain_inspector.test.js": "86bf219c0ee7d3954dd06116420b922e5b716138d22bbaa68b557cecf89978c1",
+    "src/reveal_chain.js": "467b840551d0a0b191b25a2dbb584ad9fe8c93722777bcd0184bdfcd76b958fa",
+    "src/progression_gates.js": "3e7cf4951422a89006120887da6f68723ba9fcb7a99b91913a406605de2157d4",
+    "src/native_unlock_transaction.js": "2382bab9895016e22d6d25ba5f94929eac76ef14b9cfb7225cb77e08369f65ad"
+  },
+  "explicitReleaseFound": false,
+  "ownershipRequestSentTo": "01a16a2e-1664-71d3-8d03-d5eb86313256",
+  "scope": "learned-herb inspector only",
+  "changesSinceInitial": []
+}

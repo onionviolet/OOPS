@@ -521,3 +521,76 @@ Use Luna low for supplied locator/field corrections, Luna medium for bounded
 source extraction, and the coordinator for canon conflicts or native/save/clock
 seams. No runtime, source-corpus reread, new world or priority change was selected
 by this correction round.
+
+## Round 3: Reincarnation Paradise facilities, roles and hunter benefits (2026-10-23)
+
+Run under [WORLD_PASS_RULES](../WORLD_PASS_RULES.md) (WPR1-WPR32). Two Sonnet-coordinated
+passes with Haiku readers: [facilities, roles and subtle details](../worlds/REINCARNATION_PARADISE_FACILITIES_AND_SUBTLE_DETAILS_2026-10-23.md)
+(F1-F21) and [derived-world institutions and hunter benefits](../worlds/paradise-hub/DERIVED_WORLD_INSTITUTIONS_AND_HUNTER_BENEFITS_2026-10-23.md).
+Machine-translated source; review state drafted plus source-spot-checked (WPR21).
+Proposals, not accepted decisions; no completion level is upgraded, and WG3 stays
+as recorded.
+
+Refinements to the Paradise row (WG3):
+- Derived-world institutions count as Paradise content. Each derived world needs its
+  own institutions and local roles, tagged local, Paradise-provided or Paradise-restricted,
+  with what hunter status changes there.
+- Hunter benefits are a tiered economy: Tier 5 rights (higher Honor Store tier, free
+  stalls and room expansion, a specialization facility) come with duties (violator
+  elimination, World Conflicts, irregular Void entry, rebellion suppression, a stability
+  area). Employee status has more than one entry route and its leave terms conflict
+  between chapters; both readings are kept.
+- Most hub "gap" facilities (mission board, team board, gene service, cursed-item
+  registrar) were not found in the hub itself; the one Mission Board sits in a guild hall.
+- Fraud and abuse the text itself shows (tribute-trap post, staged hearing) belong in
+  the pack as source-qualified hazards.
+
+ACT NOW (done): both documents written, linked from the Paradise brief and kit card;
+F9 revised. ACCOUNT FOR NOW: currency reconciliation (Active Ore, Temporal Power,
+gold pounds, Soul Coins) against HUB_LIFE section 3 is unchecked; MTL naming drift
+(Healing Institute variants, Fifth-Tier for both Contractor and Hunter) needs a
+Chinese-primary check before any name becomes a pack ID. LATER / DELEGATE: read the
+unread derived-world windows (Tokyo Ghoul sid33-136, Witch Guild sid2523-2530 and
+2593-2595 first), the Tier 1-4 and 6-9 promotion notices, and teaching-institute staff
+terms; each on haiku readers under a declared AU budget, with a source spot-check.
+
+## Round 4: Lord of the Mysteries, Reverend Insanity, Omniscient Reader and Paradise round 3 (2026-10-23)
+
+Same method and rules as Round 3 ([WORLD_PASS_RULES](../WORLD_PASS_RULES.md)): Sonnet coordinators, Haiku
+readers, the coordinator opening the source for consequential claims. All proposals; review state drafted
+plus source-spot-checked; no completion level upgraded. Owners:
+[LOTM](../worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md) (Chinese compilation, 47,973 characters in four windows),
+[Reverend Insanity](../worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md) (English, about 43,500 words, 0.9% of the book),
+[ORV](../worlds/OMNISCIENT_READERS_VIEWPOINT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md) (English, 20 of 551 chapters),
+and Paradise round 3 in the [facilities doc](../worlds/REINCARNATION_PARADISE_FACILITIES_AND_SUBTLE_DETAILS_2026-10-23.md).
+
+One subtle missing aspect per world, as found:
+- **LOTM:** church teams split a city by faith and carry set pay, clearance grades and a promotion exam run by a senior deacon; Beyonder trades go through a broker holding money and item, with barter at equal value. The edition has no auction term.
+- **Reverend Insanity:** information and access are priced goods (tips, vouching by route Gu masters); auctions are open outcry with shrinking steps; sect exams run 3, 8 and 15 years.
+- **ORV:** entry for a sponsorless start runs through a stream contract; shop access, sponsor coins and Bureau penalties all settle in coins before bodies.
+- **Paradise:** every tier step pairs a right with a duty or cost; derived-world institutions count as Paradise content, tagged local, Paradise-provided or Paradise-restricted.
+
+Common pattern: money, access and duty arrive together as a priced contract with a hidden cost. A pack
+should model the contract (price, clearance, duty, penalty) once as a shared mechanism (WPR31), with each
+world supplying the nouns.
+
+ACCOUNT FOR NOW: currency reconciliation in Paradise (contribution points, Soul Coins, Paradise Coins,
+Temporal Power, Active Ore); MTL naming drift before any name becomes a pack ID; a Chinese-primary check of
+Paradise leave and leaf terms. Reader-reported rows stay unverified until the coordinator opens them
+(a Haiku reader misread a price or attribution line in three of the four passes, each caught on review). LATER / DELEGATE: each
+doc lists exact unread windows: LOTM serials 536-540, 370-372, 416, 445-446, 1350-1351 first; RI Shang city
+services and Jia trade house; ORV chapters 314-319, 195-198 and the Bureau steps; Paradise V44 Agency and the
+unread Tokyo Ghoul chapters. Mother of Learning, Harry Potter and Shadow Slave have not had this pass.
+
+Round 4 addendum, 2026-10-23 (same method): Mother of Learning, Harry Potter, Shadow Slave and
+Circle of Inevitability each have a pass with a WA6 floor card (K2, K3, K6, K8, K13):
+[MoL](../worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md),
+[HP](../worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md),
+[Shadow Slave](../worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md),
+[Circle of Inevitability](../worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md).
+One subtle aspect each: MoL names no currency and gives almost no prices (procedural gates such as a
+mana-keyed housing key and a licence separate from skill do the work); HP shows no tuition anywhere and
+gates careers by graded exams; Shadow Slave has three stores of value that do not convert freely and a
+free-board Academy with public disclosure; Circle of Inevitability allows only two preaching churches and
+keeps the original Tarot cast as remote patrons. Common finding: where the source gives no prices, the
+repo's numbers are authored and must stay labelled so (WA3, WPR5).

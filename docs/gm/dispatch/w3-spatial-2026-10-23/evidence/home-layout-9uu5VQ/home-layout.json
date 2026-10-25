@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "lane": "home-layout",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "a3782bd1c28c6b6bd683fbda450d889a7661f558f97498127a56913854229e3b",
+  "gates": [
+    "A: a manor save without layouts has no home_layout key",
+    "B: adopt creates a default layout, zero moves, no cost",
+    "C: hearth moved beside the bed via quote then confirm; slice updated; fee charged (4425->4423)",
+    "layout: native Save/reload/Export/literal-file Import",
+    "D: save, reload, Export, literal Import keep the layout slice",
+    "E: a save without the slice loads and stays without it"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

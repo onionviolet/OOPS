@@ -1,0 +1,146 @@
+[
+ {
+  "label": "control t0",
+  "clock": 61,
+  "time": 1981,
+  "slice": null,
+  "toFull": 0,
+  "seq": 19,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "control +1 tick",
+  "clock": 62,
+  "time": 1982,
+  "slice": null,
+  "toFull": 0,
+  "seq": 19,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "control +2 tick",
+  "clock": 63,
+  "time": 1983,
+  "slice": null,
+  "toFull": 0,
+  "seq": 19,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "control +3 tick",
+  "clock": 64,
+  "time": 1984,
+  "slice": null,
+  "toFull": 0,
+  "seq": 19,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "panel render tick",
+  "clock": 65,
+  "time": 1985,
+  "slice": null,
+  "toFull": 0,
+  "seq": 19,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "watch#1 before",
+  "clock": 65,
+  "time": 1985,
+  "slice": null,
+  "toFull": 0,
+  "seq": 19,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "watch#1 immediately after",
+  "clock": 67,
+  "time": 1987,
+  "slice": 2,
+  "toFull": 1,
+  "seq": 20,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "watch#1 +1 tick",
+  "clock": 68,
+  "time": 1988,
+  "slice": 3,
+  "toFull": 0,
+  "seq": 20,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "watch#1 +2 ticks",
+  "clock": 69,
+  "time": 1989,
+  "slice": 4,
+  "toFull": 0,
+  "seq": 20,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "watch#2-3 before",
+  "clock": 69,
+  "time": 1989,
+  "slice": 4,
+  "toFull": 0,
+  "seq": 20,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "watch#2 immediately after",
+  "clock": 71,
+  "time": 1991,
+  "slice": 6,
+  "toFull": 2,
+  "seq": 21,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "watch#3 immediately after",
+  "clock": 73,
+  "time": 1993,
+  "slice": 8,
+  "toFull": 4,
+  "seq": 22,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "after watches +1 tick",
+  "clock": 74,
+  "time": 1994,
+  "slice": 9,
+  "toFull": 2,
+  "seq": 22,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "after watches +2 tick",
+  "clock": 75,
+  "time": 1995,
+  "slice": 10,
+  "toFull": 0,
+  "seq": 22,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "after watches +3 tick",
+  "clock": 76,
+  "time": 1996,
+  "slice": 11,
+  "toFull": 0,
+  "seq": 22,
+  "loc": "Goa guardhouse"
+ },
+ {
+  "label": "after watches +4 tick",
+  "clock": 77,
+  "time": 1997,
+  "slice": 12,
+  "toFull": 0,
+  "seq": 22,
+  "loc": "Goa guardhouse"
+ }
+]

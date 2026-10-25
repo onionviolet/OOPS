@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "message": "Expected values to be strictly equal:\n\n5101 !== 4999\n",
+  "gates": [
+    "borrowed-body-retained-knowledge: native Save/reload/Export/literal-file Import"
+  ],
+  "pageErrors": []
+}

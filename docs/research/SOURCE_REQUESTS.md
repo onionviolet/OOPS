@@ -186,4 +186,4 @@ The [crawl report](power-systems/novel-crawl/REPORT.md) records five bounded sam
 | ID | Book | Where | Why | Status |
 |---|---|---|---|---|
 | S98 | A Certain Magical Index light novels (Toaru), Kazuma Kamachi | Yen Press English edition, or a copy you own | The Toaru audit is wiki-only. Text would verify the Level system, Personal Reality, AIM, vector-control limits and the magic-side rules. Only if you already own it. | Open; low priority |
-| S99 | Re:Zero Arcs 1–4 | Yen Press light novels, or a copy you own | Witch Cult's copies were taken down, so Arcs 1–4 rest on the wiki. Matters for the taboo, early checkpoints, Sanctuary and the Witches' tea party. | Open; low priority |
+| S99 | Re:Zero Arcs 1–4 | Yen Press light novels, or a copy you own | Witch Cult's copies were taken down, so Arcs 1–4 rest on the wiki. Matters for the taboo, early checkpoints, Sanctuary and the Witches' tea party. | Done 2026-10-24: Yen On Vols 1-10 and the WCT Arc 3/4 PDFs were already in Calibre (ids 140-175); Arcs 2-4 read in full in the [Re:Zero card](../worlds/world-core-kit-2026-10-14/cards/re-zero.md) round. Still open: Ex prequels, Vols 11+ (card L1). |

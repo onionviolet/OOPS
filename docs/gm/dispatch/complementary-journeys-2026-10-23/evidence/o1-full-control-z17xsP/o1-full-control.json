@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "lane": "o1-full-control",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "88ae9939906485892257ce731ac9a14e9f5a5b2f2584320cc11d258841214c0c",
+  "gates": [
+    "Fixture raises native Forging admission only; actual paid reheating, eligible hand quench, fully controlled paid-focus refusal without mutation, then successful hand quench with normal oil cost and unchanged focus."
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

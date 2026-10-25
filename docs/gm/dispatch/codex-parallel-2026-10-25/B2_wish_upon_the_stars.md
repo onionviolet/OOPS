@@ -1,0 +1,11 @@
+Lane B2: source deep dive of Wish Upon the Stars 1-8 by Malcolm Tent (2026-10-25). Follow docs/gm/dispatch/codex-parallel-2026-10-25/COMMON.md. Authority: Weibao's one-world-at-a-time deep-dive sequence (HQ4/QL4 in docs/research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md) plus his 2026-10-25 instruction to send out more Codex lanes in parallel. You are the single coordinator for this source (AU13). A separate Claude chat is reading You Are Summoned; do not touch docs/research/novels/you-are-summoned/.
+
+Read .claude/rules/research-and-agents.md, docs/AGENT_USAGE_RULES.md (AU1-AU15), docs/WORLD_PASS_RULES.md (WPR1-WPR32), docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md and the queue. Format examples: cards/perfect-run.md and cards/super-supportive.md under docs/worlds/world-core-kit-2026-10-14/cards/.
+
+Source: Calibre 54 and 59-65, about 1.07M words. Find the library through docs/TOOL_REGISTRY.md. It is read-only; never modify it. Private text and notes go only under gitignored docs/research/novels/wish-upon-the-stars/. Never commit raw prose.
+
+Plan: write one finite whole-source plan first (PLAN.md in that folder). Shard at most 12,000 source words per reader. Readers are fresh gpt-6-luna medium subagents, six responses each, then they retire. Run up to 4 at once (Weibao asked lanes to use subagents). Readers write bounded shard notes; you keep bounded continuity notes and never load raw chapters into your own context beyond a declared small spot-check allowance (enforce the cap before printing).
+
+Focus: how superhero powers and cultivation coexist in one world (the wish mechanic, its counterparty and terms, per HW4), progression and rating layers (HW1), how ordinary unpowered people live (HW6), institutions, economy, and rules as engine state. Also fan premises for living beside the protagonist and a community or wiki cross-check if one exists. Label every claim shown, stated or inferred, with a locator.
+
+Deliverables: card docs/worlds/world-core-kit-2026-10-14/cards/wish-upon-the-stars.md (with a more-to-consider round and an AD5 blanket-claim sweep); private synthesis; and a hunk-only status update of the Wish Upon the Stars row in the queue's Status table (the coordinator pre-claimed it). Do not edit PROJECT.md, USER_VISION.md, IDEA_INDEX or runtime code.

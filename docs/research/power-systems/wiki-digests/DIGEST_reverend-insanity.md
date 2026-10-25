@@ -1,5 +1,14 @@
 # Reverend Insanity wiki digest
 
+New reference scout, 2026-10-24: [Saga of Gu assessment](../../SAGA_OF_GU_SCOUT_2026-10-24.md)
+now includes thirty-six primary-passage comparisons and deeper reuse analysis. It
+clarifies the fee billing unit, qualifies the earlier site-conflict label against
+current live wording, and records a checked feed variant. This adds a secondary
+source; the twenty-eight previously confirmed interaction entries, including the feed
+mix, are now recorded in the RI source profile. The eight newer comparisons remain
+research. It does
+not supersede the revision-backed evidence below or activate a world.
+
 State: revision_digest_available. Dump snapshot review completed 2026-10-10 UTC.
 
 This is a mechanics research record, not an accepted design or gameplay change. Wiki statements are secondary evidence. All E8 mappings are analyst inference; all takeaways are proposals.

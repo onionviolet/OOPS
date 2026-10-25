@@ -600,6 +600,65 @@ stronger and weaker variants; the dials pick them per world.
 - **Test:** the unlock feels earned by a past life and fits the
   world's memory.
 
+### 13. Equivalence Ledger (derived price and exchange), proposal 2026-10-23
+
+- **Promise:** anything you can see how to make is worth exactly what it
+  costs to make, and the ledger will swap it for anything else on that scale.
+- **From:** ProjectE's EMC (every price is the cheapest recipe path from a
+  few pinned anchors; see [WV2 Part A](research/minecraft/audits/WV2_ECONOMY_TIERS.md));
+  Fullmetal Alchemist's equal exchange; a guild or System shop with one tariff.
+- **Form and carrier:** a book, a stamped account or a System shop page that
+  holds a balance of one credit. Carrier: the account and its issuer, not you
+  (ECR12), so it stops at the issuer's border and is lost with the book.
+- **Verbs:** deposit a good (credit = its derived worth minus the fee),
+  withdraw a good (credit = its derived worth plus the fee), read the path
+  (shows how a price was derived and which anchor it rests on), learn a path
+  (study one sample, as in the WV2 learning gate).
+- **Limits (default, dial, reason):**
+  - *Fee.* Default 25% each way, so a deposit and withdrawal of the same good
+    returns about 60%. Dial 0% to 90% per world and per issuer. Reason: the
+    issuer lives on the spread (ECR6, ECR8); a free ledger means a very kind
+    issuer or none.
+  - *Law of equivalence.* Default: derived worth follows the cheapest known
+    recipe path from the world's anchors. Dial: strict (worth equals cost),
+    loose (the issuer keeps a house markup on dear or rare goods), or off.
+    Reason: the anchors say what the world finds common (ECR14), and a
+    world that prices iron low prices its tools low.
+  - *Refuses (by default).* Goods with no path from an anchor (unique,
+    living, named or recognised-only goods), goods whose value is recognition
+    (ECR14), and any path you have not learned. Reason: the ledger measures
+    making, so it has nothing to say about what was never made. Each refusal
+    names its reason on screen.
+  - *Rounding.* Credit is whole units; deposits round down and withdrawals
+    round up. Reason: splitting and recombining must not gain, as in ProjectE,
+    and the game's own `round_item_price` rounds up on sales.
+  - *Supply and saturation.* A deposit counts as a sale into the local
+    market group (so a flood still depresses nearby prices); a withdrawal does
+    not draw down a stock, so the issuer needs a stock or a visit.
+- **Who notices:** merchants, because their trade thins; the issuer, who sees
+  the balance; anyone who reads the book and wants the anchors.
+- **Enemy version:** a guild that sells you back your own deposits at the
+  house markup, or a rival whose ledger anchors disagree with yours.
+- **Variants:** an anchor swap (the issuer re-pins iron after a war), a
+  second ledger with different anchors (arbitrage, stated, ECR1), a ledger
+  that moves goods within one trade group, an inherited book whose
+  learned paths came from a dead owner.
+- **How it differs from neighbours:** *Perfect crafting* (row in the cheat
+  table) changes whether making succeeds and how good it is; the ledger does
+  no making, so skill, station and quality play no part, and it does not touch
+  success chance. The *equivalent exchange* note in
+  [CHEAT_COSMOLOGY](CHEAT_COSMOLOGY.md#meetings-worth-testing) is a world law
+  that blocks a big-return cheat; this card is a cheat that obeys such a law
+  and cannot mint value, so a world with that law can hold it without a hidden
+  payer. It is the fee that pays the issuer.
+- **Small touch:** the book's margin shows the anchor as a pencilled note,
+  such as "iron ore, 5, common here".
+- **Test:** trading a good through the ledger is clearly worse than selling it
+  to a merchant who wants it, and clearly better than having no use for it;
+  at hour 50 the player still gathers and crafts.
+- **Evidence and plan:** [Equivalence Ledger spike](audits/EQUIVALENCE_LEDGER_SPIKE_2026-10-23.md).
+  Proposal, not accepted.
+
 ### What the cards share
 
 - **Carrier first.** Each says what holds the power, so the

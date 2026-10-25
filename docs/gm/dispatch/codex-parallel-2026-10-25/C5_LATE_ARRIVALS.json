@@ -1,0 +1,204 @@
+{
+  "captured_at": "2026-10-25T02:34:27.878293-04:00",
+  "head": "3dfc49cf3422c0262d86810df47459f53f3a4a67",
+  "current_dirty_count": 1366,
+  "initial_dirty_count": 1343,
+  "new_or_status_changed": [
+    {
+      "path": "docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md",
+      "status": " M",
+      "previous_status": null,
+      "owner": "unknown; current owner receipt required",
+      "state": "unknown"
+    },
+    {
+      "path": "nethack-preview.html",
+      "status": " M",
+      "previous_status": null,
+      "owner": "unknown; current owner receipt required",
+      "state": "unknown"
+    },
+    {
+      "path": "src/crafting_recipes.js",
+      "status": " M",
+      "previous_status": null,
+      "owner": "reference-mechanics-2026-10-25/CHECKPOINT.md",
+      "state": "in progress"
+    },
+    {
+      "path": "tests/stepper_life_commit.test.js",
+      "status": " M",
+      "previous_status": null,
+      "owner": "unknown; current owner receipt required",
+      "state": "unknown"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/C5_CHECKPOINT_INVENTORY.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "C5 documentary outputs",
+      "state": "finished documentary scope; see checks"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/C5_COMMIT_PLAN.json",
+      "status": "??",
+      "previous_status": null,
+      "owner": "C5 documentary outputs",
+      "state": "finished documentary scope; see checks"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/C5_GIT_INVENTORY.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "C5 documentary outputs",
+      "state": "finished documentary scope; see checks"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/C5_SUPERSEDED_ROUTING.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "C5 documentary outputs",
+      "state": "finished documentary scope; see checks"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/C5_TONIGHT_REVIEW.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "C5 documentary outputs",
+      "state": "finished documentary scope; see checks"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/COMMON_W4.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "Codex dispatch coordinator / named lane in filename",
+      "state": "in progress or newly dispatched, no final receipt inferred"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/D1_ui_detail.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "Codex dispatch coordinator / named lane in filename",
+      "state": "in progress or newly dispatched, no final receipt inferred"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/D2_engine_modularity.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "Codex dispatch coordinator / named lane in filename",
+      "state": "in progress or newly dispatched, no final receipt inferred"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/D3_language_stack.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "Codex dispatch coordinator / named lane in filename",
+      "state": "in progress or newly dispatched, no final receipt inferred"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/D4_cheats.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "Codex dispatch coordinator / named lane in filename",
+      "state": "in progress or newly dispatched, no final receipt inferred"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/D5_ideas_left.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "Codex dispatch coordinator / named lane in filename",
+      "state": "in progress or newly dispatched, no final receipt inferred"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/D6_agentic.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "Codex dispatch coordinator / named lane in filename",
+      "state": "in progress or newly dispatched, no final receipt inferred"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/D7_hp_world.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "Codex dispatch coordinator / named lane in filename",
+      "state": "in progress or newly dispatched, no final receipt inferred"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/G1_gm.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "Codex dispatch coordinator / named lane in filename",
+      "state": "in progress or newly dispatched, no final receipt inferred"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/HANDOFF_cultivation_U1_U2_U4.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "C5 documentary outputs",
+      "state": "finished documentary scope; see checks"
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/WAVE4_RULES.md",
+      "status": "??",
+      "previous_status": null,
+      "owner": "Codex dispatch coordinator / named lane in filename",
+      "state": "in progress or newly dispatched, no final receipt inferred"
+    },
+    {
+      "path": "docs/gm/dispatch/cultivation-absorption-2026-10-24/checks/reference-formulation.cjs",
+      "status": "??",
+      "previous_status": null,
+      "owner": "unknown; current owner receipt required",
+      "state": "unknown"
+    },
+    {
+      "path": "docs/gm/dispatch/reference-mechanics-2026-10-25/INPUTS.json",
+      "status": "??",
+      "previous_status": null,
+      "owner": "reference-mechanics-2026-10-25/CHECKPOINT.md",
+      "state": "in progress"
+    },
+    {
+      "path": "docs/gm/dispatch/reference-mechanics-2026-10-25/SOURCES.json",
+      "status": "??",
+      "previous_status": null,
+      "owner": "reference-mechanics-2026-10-25/CHECKPOINT.md",
+      "state": "in progress"
+    },
+    {
+      "path": "docs/gm/dispatch/reference-mechanics-2026-10-25/rendering.cjs",
+      "status": "??",
+      "previous_status": null,
+      "owner": "reference-mechanics-2026-10-25/CHECKPOINT.md",
+      "state": "in progress"
+    },
+    {
+      "path": "src/craft_material_fit.js",
+      "status": "??",
+      "previous_status": null,
+      "owner": "reference-mechanics-2026-10-25/CHECKPOINT.md",
+      "state": "in progress"
+    },
+    {
+      "path": "src/native_rendering_recipes.js",
+      "status": "??",
+      "previous_status": null,
+      "owner": "reference-mechanics-2026-10-25/CHECKPOINT.md",
+      "state": "in progress"
+    },
+    {
+      "path": "tests/native_rendering.test.js",
+      "status": "??",
+      "previous_status": null,
+      "owner": "unknown; current owner receipt required",
+      "state": "unknown"
+    }
+  ],
+  "no_longer_dirty": [
+    ".claude/skills/mechanic-absorption/SKILL.md",
+    "docs/SYSTEMS_REGISTER.md",
+    "docs/gm/MECHANIC_ABSORPTION_WORKFLOW.md",
+    ".agents/skills/mechanic-absorption/SKILL.md"
+  ],
+  "note": "Changes observed, not C5 mutations. This file and final C5_CHECKS.json may be written after capture."
+}

@@ -1,0 +1,24 @@
+{
+  "taskSourcePaths": [
+    "src/material_apprentice.js",
+    "src/mistglass_history.js",
+    "src/mistglass_path_work.js",
+    "src/lore_history_state.js",
+    "src/gear_workshop_domain.js",
+    "src/gear_workshop_panel.js",
+    "src/items.js",
+    "src/processed_materials.js",
+    "src/expedition_content.js",
+    "src/main.js",
+    "src/home_office.js",
+    "src/home_model.js",
+    "src/home_staff.js",
+    "src/home_work_content.js",
+    "src/home_panel.js",
+    "src/home_household_panel.js",
+    "src/absorb_p23/world_adaptation/index.js",
+    "src/absorb_p23/host_joins/world_adaptation.js",
+    "src/absorb_p23/host_joins/world_adaptation_ui.js"
+  ],
+  "mismatches": []
+}

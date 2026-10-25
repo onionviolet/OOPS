@@ -150,6 +150,8 @@ skill, and where understanding, not training, is the main way up.
 
 ## 3. The Gu Wilds (inspired by *Reverend Insanity*)
 
+Source-grounded institutions, roles and prices (2026-10-23, proposals, English edition): [Reverend Insanity institutions pass](worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md). For *Omniscient Reader's Viewpoint* see [ORV pass](worlds/OMNISCIENT_READERS_VIEWPOINT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md).
+
 **Premise.** A harsh cultivation world where power lives in Gu, small
 living creatures you raise, feed and refine. Clans hold the mountains;
 the heavens favor the righteous and grind down deviants.
@@ -601,3 +603,5 @@ the books and marked (memory). Everything is a proposal.
 - More candidates for cards: Mother of Learning's time loop city, the
   Speedrunning multiverse, Warlock's World of Gods, Kairos's Greek-myth
   world, Gluttony's Paradise, an original world built around absences.
+
+Source-grounded institutions and price passes without a card here (2026-10-23, proposals, second-reader spot-checked): [A Soldier's Life](worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), [TTKS books](worlds/TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), [A Regressor's Tale](worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), [Primordial Saint Sect](worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), [Fanren simulator](worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md). None upgrades a dated grid cell.

@@ -655,3 +655,22 @@ default with world loops by world law, the one prestige layer as an automation
 layer, record-and-replay plans from subject verbs) live in
 [Around you round 7](../AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md#round-7-2026-10-18-loops-and-starting-over-as-idle-automation).
 They keep D27 and the RL2 off-by-default proposal; nothing here is accepted.
+
+## You Are Summoned source evidence, 2026-10-25 (source row, proposal)
+
+Weibao asked for this source row on 2026-10-25 after the
+[You Are Summoned round](world-core-kit-2026-10-14/cards/you-are-summoned.md) (full read of Books 1-5,
+private synthesis in `docs/research/novels/you-are-summoned/`). It is dated source evidence for how one
+fiction runs crossings. It is not accepted design and changes no D27, MC1 or RL row above.
+
+| Code | What the source shows | Bearing on this owner |
+|---|---|---|
+| YAS-C1 | A home room between worlds repairs the body after each job and is where new skills are committed before they carry | A concrete model of a between-worlds commit point for carryover decisions (AD11) |
+| YAS-C2 | Return lands near the same time and place; extreme differentials are rare; linked summonings track home more closely | Supports reciprocal return near the departure moment (MC1, AD12) and gives a world dial for clock drift |
+| YAS-C3 | Three clocks per crossing: away-time, world time, days between jobs | A way to state transition time without paradox questions |
+| YAS-C4 | Carryover by kind: System-held growth always, physical goods if withdrawn, mana only if shielded, scrolls fail at home, minions stay | A carrier table by item kind and medium (AD11) |
+| YAS-C5 | Deaths on jobs end the job and are repaired; deaths at home are real | A world-qualified death rule (AD13) |
+| YAS-C6 | A gauge fills across a series of short jobs before going home; later a chosen return point | A session shape for repeated short visits (D27 loops stay a player option) |
+| YAS-C7 | Contract penalties and debts follow him home | Bindings carry by their own rules (AD14) |
+
+Proposal status only. Folding any of these into runtime needs its own scope and proof.

@@ -1,0 +1,43 @@
+{
+  "linksChecked": 31,
+  "missingFiles": [],
+  "trailingWhitespaceLines": [],
+  "runtimeTestChanges": [
+    "src/chain_inspector.js",
+    "tests/chain_inspector.test.js"
+  ],
+  "reportHarnessEvidencePaths": [
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/R3_REPORT.md",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-arch.txt",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-browser-result.json",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-browser.cjs",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-build-candidate.mjs",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-candidate.json",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-doc-checks.json",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-fix-arch.txt",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-fix-before.json",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-fix-browser-result.json",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-fix-candidate.json",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-fix-focused-tests.txt",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-fix-inputs.json",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-fix-learned-1920.png",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-fix-red-tests.txt",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-fix-rules.txt",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-focused-tests.txt",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-input-recheck.json",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-inputs.json",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-learned-herb-fix.patch",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-learned-still-waiting-1920.png",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-prepare-regression.mjs",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-progression-repro.mjs",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-proposed-inspector.patch",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-proposed-regression.patch",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-reproduction-tests.txt",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-resume-inputs.json",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-rules.txt",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/r3-final-checks.json"
+  ],
+  "postHashesStillMatch": true,
+  "candidateSourceMatches": true,
+  "snapshotDriftAtBuild": []
+}

@@ -1,5 +1,7 @@
 # Book and media candidates, 2026-10-22
 
+Acquisition receipt for the next round: [2026-10-24](BOOK_ACQUISITION_RECEIPT_2026-10-24.md).
+
 Type: RESEARCH / PROPOSAL. Audience: Weibao and acquisition lanes. Nothing here is
 downloaded, bought or accepted as canon. Rows say what was findable, not what
 should be implemented. Paraphrase only; no book text.

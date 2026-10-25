@@ -6,6 +6,10 @@ Status: documentation consolidation complete, runtime gates OPEN. Writer: W19 (`
 
 Authority: [root palette](../../WORLD_CORE_KIT_2026-10-14.md) MG1-MG6 / OV9-OV12, [shared engine/data map](../W6_ENGINE_TEMPLATE.md), [PROJECT](../../../../PROJECT.md#standing-priorities-and-document-authority), [USER_VISION](../../../USER_VISION.md#world-core-kit-every-little-detail-and-a-repeating-audit-2026-10-14). This card consolidates evidence and proposals; it does not override its source/design owners. One realm/one prestige; desktop/laptop first; mobile deferred.
 
+W4 result (2026-10-24, coordinator census, no reader): the extraction states no calendar dates beyond the summer festival as the end of a month-long loop (c029 p77-78) and gives no numeric mana costs or regeneration rates; qualitative lines at c001 p155, c026 p240 (about half an hour to regain enough reserves), c056 p150, c064 p11, c073 p107, c092 p22. Calendar and mana-cost windows were skipped as empty. Detail: private `passes-2026-10-23/W4_MOL_census_2026-10-24.md`.
+
+Later pass (2026-10-23, proposals, source-spot-checked): [institutions, roles and subtle details with a WA6 floor card](../../MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), run under [WPR](../../../WORLD_PASS_RULES.md): English edition; no named currency, crown is authored; adds K2/K3/K6/K8/K13 floor records. It upgrades no dated grid cell.
+
 ## Kit header
 
 | Field | Consolidated value |

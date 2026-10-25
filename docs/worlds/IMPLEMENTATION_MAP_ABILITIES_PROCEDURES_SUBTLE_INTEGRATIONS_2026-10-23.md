@@ -4,6 +4,10 @@ Status: **proposal; docs-only architecture pass.** Nothing here is an accepted d
 
 Rules applied: WPR4, WPR5 (defaults, dials, reasons), WPR30-WPR32, WA1, WA5, WA7, WA13, WA14, WA17, WA20, AR1-AR16, GR1-GR17, GTR1-GTR20, AD5, AD6-AD8, AD15-AD17, AD22, AD36, AD38. Target viewport for every UI line: desktop 1920x1080; mobile deferred (AD34).
 
+Current-status reconciliation: [R2 report](../gm/dispatch/overarching-reconciliation-2026-10-23/R2_REPORT.md),
+2026-10-23. Superseded status wording is preserved verbatim in [R2 history](../gm/dispatch/overarching-reconciliation-2026-10-23/R2_SUPERSEDED.md).
+The class cards remain proposals; newly wired source does not make their broader designs accepted or delivered.
+
 Owner of this file: it is the cross-world implementation index. Each pass doc keeps its own findings (WPR3); this file cites them by locator and never copies their tables.
 
 ## 0. Reading guide
@@ -24,6 +28,15 @@ Owner of this file: it is the cross-world implementation index. Each pass doc ke
 | HP | `HARRY_POTTER_...` (F1-F23, E1-E6, floor card) | landed during this pass (it was 8 KB with a manifest only when first listed, about 48 KB when re-read); findings after the first ten E rows were not re-read |
 
 Not yet included (pending when this file was resumed): the A Soldier's Life, TTKS and Regressor's Tale passes; classes may gain members when they land. The eight pass docs above plus the Paradise gate catalog had landed when this file was written. Finding codes repeat across docs (every pass has an F1), so every locator below carries its prefix, for example LOTM F10 or RI F1. Queue codes Q1-Q6 are the LOTM build queue; this file uses C (mechanism class), I (integration), B (build step), PC (pass-versus-code contradiction), OQ (open question) and A (action) so none collide.
+The initial pass excluded A Soldier's Life, TTKS and A Regressor's Tale while pending. R2 now inspected their status headers, engine-facts tables and review limits, without reopening novels or reading their full findings. They add bounded class coverage, not runtime selection:
+
+| Prefix | Landed owner and inspected coverage | Existing classes touched; limits |
+|---|---|---|
+| SL | [A Soldier's Life](A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), sections 10 and 15 | C1 entry/testing; C2 command/status; C3 enlistment; C9 access; C13 discipline; C16 debt; C19 healing. Owner reports 21 spot-checked claim groups; runtime stays paused. No price rows promoted by R2 |
+| TT | [TTKS](TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), header, section 13 coverage and 14.5/14.9 | Five distinct book-worlds, not one ladder. EF12 challenge C3/C4; EF14-16 office/service C2/C19; EF17 currencies C14/C16; EF18 choice C1; EF20 compensation C16. Owner says docs only, source-spot-checked; no shared values inferred across the five worlds |
+| ART | [A Regressor's Tale](REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), sections 9 and 15 | C1 intake; C2 belt/duty; C7 ticket venue; C8 fine; C11 hidden stage; C19 teaching/travel service. Owner reports 30+ spot-checked locators; source profile is unactivated, no playable branch inspected |
+
+The initial ten prefix rows above describe their original read states (RP/RPD/RPG share one world); HP's later findings remain outside that read. Findings retain world prefixes because codes repeat. Q1-Q6 are LOTM queue codes; C, I, B, PC, OQ and A below keep their original meanings. This partial index adds no completion grade for any world.
 
 Other docs read: AGENTS.md, RULES_INDEX (core digest), WORLD_PASS_RULES, WORLD_ABSORPTION_RULES, ARCHITECTURE_RULES, GENERATION_FOUNDATION_RULES, ABILITY_AUTHORING (causal contract and variants), PROGRESSION_GATE_RULES, the LOTM lives-and-regions QUEUE. The PIR, ECR and SLR rule texts now live in DOMAIN_RULES and were not reopened; they are cited by code only where PROGRESSION_GATE_RULES or the passes name them.
 
@@ -43,6 +56,21 @@ Git and file state as read on 2026-10-23 from `git status`, `git log` and file h
 | **Documented only** | every class C4, C6, C10 (as a mechanism), C12, C13, C14 (as a conversion registry), C15 (as a pack record kind), C18 (as a document record), plus the shared forms of C2, C3, C5, C7, C8, C9, C11, C16, C17, C19; all pass findings; the whole HP, RI, ORV, SS, COI, RP runtime; MOL's source loop | grep of `src` finds no auction module, no jurisdiction resolver, no clearance or group rule, no loss-of-control mechanism beyond strings and text fields, no hearing procedure |
 
 Nothing in this file was run, built or played. Anything above labelled built means committed, not browser-verified by this pass (WA19).
+The initial nine-world survey describes about nineteen recurring shapes. Each shape has one shared verb, one row a world supplies, and one owning seam. The shared layer owns identity, custody, transactions, knowledge, clocks and save (AR12); the world owns nouns, numbers and laws (WA5). A class below merges worlds by verb and row shape, never by outcome, so a Gu auction and a Dokkaebi auction share the bidding verb and keep their own steps, fees, leaks and refund rules as data.
+
+## 1. Honesty line: built, source-implemented, documented only
+
+Current source inspected for R2 at HEAD `547209e82c29e897e6b602a4ef5d8e8ab46b3ebf` plus the exact dirty-input hashes in [R2 checks](../gm/dispatch/overarching-reconciliation-2026-10-23/R2_CHECKS.json). Shared working-tree files are moving inputs. The original committed/untracked inventory is historical, not a current delivery claim.
+
+| State | What | Evidence and limit |
+|---|---|---|
+| **Source present; baseline delivery elsewhere** | Ascension descriptors, native transactions and registry, MOL/HP pack infrastructure and existing Paradise branch | Original survey remains in R2 history. R2 did not rebuild or establish app adoption; use PROJECT's current routing and its receipts |
+| **Wired; owner-reported browser proof** | LOTM Q1 second pathway and Q2 districts | [Q1](../gm/dispatch/lotm-q1-2026-10-23/CHECKPOINT.md) reports 22 engine tests and Corpse Collector journey. [Q2](../gm/dispatch/lotm-q2-2026-10-23/CHECKPOINT.md) reports 29 engine tests, both district journeys, Seer to Clown, mid-act reload and literal save import at 1920x1080. District teams remain records, not embodied supervisors; broader encounter/pacing checks stay open |
+| **Wired source; focused test definitions inspected** | B2 pathway/assessor factory, B3 cause rows and switching-record validation | `book_world_lotm_pathways.js`, `lotmPathwayCommands`, row-driven validator and view; `tests/lotm_pathway_rows.test.js` contains stub-third-pathway, cause and flagged-save cases. No B2/B3 browser receipt located; test file read, not run. Q1/Q2 proof predates these inputs |
+| **Wired source, not leaf-only** | Progression gate used by chain inspector; obligations consumed by household/economy; standing domain imported by trade; carry ledger/codex domain imported by UI extras | Inspected producer/import/registry edges and save/load hooks. [Lives receipt](../gm/dispatch/itch-wiring-2026-10-23/lives-carry-wiring.md) proves its bounded inheritance/codex journey. This does not prove all shared contract/status designs or every crossing |
+| **Documented proposal beyond bounded implementations** | Generic auction, hearing, conversion registry, institution/status/contract/document shapes; broader C10 pressure/trigger/recovery mechanism; source-loop and later source-world coverage | LOTM has concrete district and cause rows; Paradise has an existing optional campaign, and HP has pack infrastructure. Their newly researched institutions are not thereby implemented. R2 did not audit each world's full runtime |
+
+No gameplay, tests or builds were run by R2. Receipt results above remain attributed to their owners and input scope. Normal-app entry/adoption, publication and director acceptance are separate; localhost LOTM proof does not establish normal-app availability.
 
 ## 2. Seams relied on (read-only survey)
 
@@ -50,6 +78,7 @@ Nothing in this file was run, built or played. Anything above labelled built mea
 |---|---|---|
 | `src/ascension_paths.js` | `definePath`, `pathView`; crossing types quota, structure, insight, trial, ingest, digest, consume, recognition, bodyPoint; stages with `failure` text; position is derived from facts, nothing saved | Crossings test one numeric `need` per fact; no `all`/`any`/`not`, dials, attempts, examiner or clock; failure is text, not a mechanism |
 | `src/book_world_lotm_{ids,actions,content,state,envelope,host,ui,path,domain}.js` | One branch, authored commands via a local `cmd()` helper, flags in actor facts, resources for acting counts, `state.lotm` fixed at schema 1 (queue gate) | Second pathway was added by copying commands, flags, validator lines and view branches under a `cc.` prefix; no pathway factory |
+| `src/book_world_lotm_{ids,actions,content,state,envelope,host,ui,path,domain}.js` | One branch, authored commands via a local `cmd()` helper, flags in actor facts, resources for acting counts, `state.lotm` fixed at schema 1 (queue gate) | Current `book_world_lotm_pathways.js` supplies pathway/assessor/cause rows; actions, validator and ladder read them. Broader generic pack extraction remains a proposal; B2/B3 browser parity not established here |
 | `src/book_world_mol_{actions,content,host,ids,native,state}.js`, `src/world_packs/book_mol_pack.js`, `src/world_pack_registry.js` | Commands, powers, conditions, encounters are pack data installed through `packNative('book.mol')`; the actions file is a freeze plus a fact reader (WA17 pattern) | The LOTM branch has not been moved to this shape |
 | `src/world_pack.js`, `world_pack_loader.js`, `world_pack_manifest.js`, `world_pack_save.js`, `world_pack_population.js`, `world_packs/book_hp_pack.js` | Pure pack lint and kit coverage, pins, save, population with seeded streams | No institution, status, venue or contract record kind in pack lint |
 | `src/progression_gates.js`, `src/rules.js` | `defineGate` (kind, requires, reason, costed routes, closes, overflow, dials), `evaluateGate`, `evaluateRule` | Not imported by ascension crossings; no attempt counter, no group-count leaf |
@@ -58,6 +87,8 @@ Nothing in this file was run, built or played. Anything above labelled built mea
 | `src/simulation_contracts.js` | Command ops incl. `transfer` and `custody`, `knowledge` with stages and basis, claims, relationships, faculties, powers, titles, sites, jobs with costs, effects, duration and cancellation; `state.simulation.custody` rows `{owner,count,at}` | No two-sided hold with verify step; no offer-with-expiry record |
 | `src/native_trade_transaction.js`, `trade.js`, `market_saturation.js`, `economy_domain.js`, `economy_standing*.js` | Quote fingerprint and synchronous revalidation; vendor trade with host callbacks; standing tiers, loans, insurance, price memory, rumour draw and view (untracked) | No auction, no stock refresh with banked attempts, no bound-goods flag, no multi-currency conversion by status |
 | `src/obligations_ledger.js` | Record `{kind coin/favor/grievance/duty, debtor, creditor, amount, why, source, since, eases, carries}`, adapters from household, career, heirs | Header: not wired to save or gameplay; no vouching or sponsor kind |
+| `src/native_trade_transaction.js`, `trade.js`, `market_saturation.js`, `economy_domain.js`, `economy_standing*.js` | Quote fingerprint and synchronous revalidation; vendor trade with host callbacks; standing tiers, loans, insurance, price memory, rumour draw and view; trade imports domain host and domain registers save/load | No auction, no stock refresh with banked attempts, no bound-goods flag, no multi-currency conversion by status |
+| `src/obligations_ledger.js` | Record `{kind coin/favor/grievance/duty, debtor, creditor, amount, why, source, since, eases, carries}`, adapters from household, career, heirs | Header retains the earlier unwired claim, but household imports `collectObligations` and economy writes/reads ledger state. No single migrated writer authority or vouch/sponsor kind established |
 | `src/simulation_clock.js`, `away_ledger.js`, `realm_clock_leases.js`, `realm_boundary_rules.js`, `expansion_engine.js` (checkpoint and rewind of scenarios), `backlog_expansion_time.js`, `carry_ledger.js` | Engine timers, banked-minute ledger, clock leases over the played clock, scenario checkpoint and rewind, carry rules by boundary (death, rebirth, world crossing) | No loop-restart boundary; no deadline-with-death clause; no cadence-gated exam window |
 | `src/people_knowledge.js`, `world_knowledge.js`, `action_legibility.js` | Witnessed-content projection, authored identity versus player knowledge, retained observations and explicit disclosure | No priced-claim or perishable-knowledge model |
 | `src/region_view.js` | Read-only list of connected places with travel time | No authority, jurisdiction or response resolver (SR1-SR24 are docs) |
@@ -65,6 +96,7 @@ Nothing in this file was run, built or played. Anything above labelled built mea
 | `src/audit_remainder_offers_content.js` | A bespoke escrow: a client's price moves into a `supply_escrow` resource until delivery or decline | Single-feature, not a shared held-lot record |
 | `src/agreed_duty_*.js`, `feature_expansion_society.js` | Agreements with durable receipts between society actors | Scoped to one feature; the nearest existing contract-receipt pattern |
 | `src/vow_rules.js` | Data-driven vows, bonus while kept, scar when broken, plain JSON slice `progression.vows@1` | Unwired; scar is the nearest "pressure" shape for loss of control |
+| `src/vow_rules.js` | Data-driven vows, bonus while kept, scar when broken, plain JSON slice `progression.vows@1` | Header says unwired; `pledges.js` and `pledges_content.js` import these rules, and native composition configures `pledges_domain.js`. That does not make LOTM pressure/trigger/recovery implemented |
 
 ## 3. Mechanism classes and their cards
 
@@ -88,6 +120,7 @@ Procedural parts follow one convention. Stream keys use the GR2 form `purpose/su
 | Verb | Cross to the next stage when the stage's crossings are met; some crossings are acts (digest), some are held items (ingest), some are another person's judgment (recognition). |
 | Row shape (world supplies) | The existing path descriptor: stages with crossings `{id, type, label, fact, need, irreversible}`, grants, failure. Proposed optional additions, all additive: crossing `gate` (a `defineGate` id) so a crossing can use all/any/not and dials; `clock` (cadence or wait, with the owning clock); `examiner` (a role fact, so the authored Warden Hale is replaceable by a senior deacon, LOTM X3); `attempts` (max and consequence). |
 | Owning seam | Exists: `ascension_paths.js` `definePath`/`pathView` (committed). Missing: crossing-to-gate link (two evaluators exist: `pathView.met` and `evaluateGate`, against GTR9), attempts, examiner, cadence, and a pathway factory. LOTM currently copies a pathway by hand (see PC1). |
+| Owning seam | Exists: `ascension_paths.js` `definePath`/`pathView` (committed). Missing: crossing-to-gate link (two evaluators exist: `pathView.met` and `evaluateGate`, against GTR9), attempts and cadence in the shared crossing evaluator. LOTM now has a local pathway factory and assessor rows (PC1/PC2); this is not yet a generic ascension examiner mechanism. |
 | Procedural | Exam and assessment outcomes: stream `ladder/{pathId}/exam:{stage}/attempt:{n}` scoped to world and life, clock = world clock, via `check_contract.js`; budget one draw per attempt; reader = the promotion command; freeze the shown outcome. No generator for the ladder itself. |
 | Save | Position is derived from facts (nothing saved today). Attempts as an actor resource `{world}.{path}.attempts.{stage}`; cadence start as a fact timestamp. Additive actor facts and resources, `state.lotm` stays at schema 1 (queue gate); other worlds add an optional slice through the registry (AR2, AR6) under the 2026-10-17 compatibility decision. |
 | Away time | Digestion by acting advances only through acts the player chose; a cadence wait (three years in LOTM F18) runs on the world clock and banks while away (AD15-AD17). The ladder never advances a stage on its own. |
@@ -112,6 +145,7 @@ Procedural parts follow one convention. Stream keys use the GR2 form `purpose/su
 | Verb | Hold a status; its rights and duties arrive as one record; duties come due; attempts and revocation follow stated causes (GTR13). |
 | Row shape | `{id, holder kind, rights:[gate ids or capability grants], duties:[{trigger, check, penalty}], pay or fee, attempts:{max, onFail}, closes:{reason}, leave:{terms}}`. Dials: who sets the bundle (a notice, a world rule, a notarized contract). |
 | Owning seam | Rights: `progression_gates.js` `defineGate` kind credential or social with `closes` revocable (exists, untracked). Duties: `obligations_ledger.js` kind duty (exists, unwired). Titles live in `state.simulation.titles` (`simulation_contracts.js`). Missing: the bundle record, attempt counter, duty trigger and leave terms. |
+| Owning seam | Rights: `progression_gates.js` `defineGate` kind credential or social with `closes` revocable (exists, untracked). Duties: `obligations_ledger.js` kind duty (household/economy consumers exist, not a general duty trigger). Titles live in `state.simulation.titles` (`simulation_contracts.js`). Missing: the bundle record, attempt counter, duty trigger and leave terms. |
 | Procedural | Duty missions drawn from a table: `status/{statusId}/duty:{n}`, world clock, small budget (at most a few per cycle), reader = the duty command. Authored when the world names the duty. |
 | Save | Optional slice via `domain_registry.js` or actor facts; plain JSON; additive. |
 | Away time | A duty that falls due while away becomes a deferred obligation with an `eases` window; it does not auto-fail. Revocation needs a stated cause and shows a log line on return. |
@@ -288,12 +322,15 @@ Procedural parts follow one convention. Stream keys use the GR2 form `purpose/su
 | Verb | A cause adds pressure; a stage reads pressure and may trigger a loss event; rest, ritual or support lowers it. |
 | Row shape | `{cause id, pressure delta, who can know it, stage effects (signs), trigger table, recovery routes, irreversible flag}`. Default: every trigger traces to a stated cause; no cause, no pressure. |
 | Owning seam | Missing as a mechanism. Today: strings in LOTM files and the path `failure` text. Nearest shapes: `vow_rules.js` scar pressure, `breakthrough_trial` (cited there), `check_contract.js`. |
+| Owning seam | Partial: `LOTM_LOSS_CAUSES` and derived block facts gate accept/ingest/assessment, and `loc.switching` qualifies a multi-pathway record. No inspected producer triggers that flag through play, pressure stages or recovery. Nearest shapes: `vow_rules.js` scar pressure, `breakthrough_trial` (cited there), `check_contract.js`. |
 | Procedural | Trigger check per stage: `loss/{lifeId}/{pathId}/stage:{s}/check:{n}`, world clock, weights show the top cause contributors (GR9); budget one per stage per day; reader = the stage command. |
 | Save | Pressure as an actor resource; cause log as facts. Additive. |
 | Away time | Pressure eases on rest at a dial rate; no passive trigger without a recorded cause. |
 | UI | Signs in words (felt state), no numbers (GTR15). |
 | Smallest slice and test | A "wrong-pathway potion" cause row for the existing Seer and Corpse Collector ladders. Test: each listed cause adds pressure; an ordinary day adds none. |
 | Unlocks | Completes Q1 honestly; precondition for Q6; COI Demon rows; ORV Story limit. |
+| Smallest slice and test | Cause rows now exist for both ladders, with focused test definitions. A later selected pressure mechanism would need a cause-to-consequence journey and recovery proof; do not reopen row creation as absent. |
+| Unlocks | Supports Q6 cause coverage; broader backlash and other-world consumers remain proposed, not a new completion gate for Q1. |
 
 ### C11 Information as a priced good: appraisal, rumor, perishable knowledge, private venues
 
@@ -414,6 +451,7 @@ Procedural parts follow one convention. Stream keys use the GR2 form `purpose/su
 | Verb | Owe, lend, vouch, call in; standing shifts by deeds. |
 | Row shape | The existing obligation row (`kind coin/favor/grievance/duty`, debtor, creditor, amount, why, source, since, eases, carries) plus standing tiers and loan terms from `economy_standing.js`. Proposed kinds: `vouch` and `sponsor`. |
 | Owning seam | `obligations_ledger.js` and `economy_standing.js` with its domain (all untracked). Missing: persistence verification, vouching, credit as a venue gate fact. |
+| Owning seam | `obligations_ledger.js` and `economy_standing.js` with trade-host binding and registered save/load domain. Persistence not exercised by R2; vouching and credit as a venue gate remain proposals. |
 | Procedural | None required; interest is not stated in RI, so leave unset (WA8). |
 | Save | Standing schema exists with validate and migrate; verify wiring before relying on it. |
 | Away time | `eases` per season; a favor due while away becomes an overdue row, not a loss. |
@@ -526,6 +564,13 @@ Respecting the LOTM queue (`docs/gm/dispatch/lotm-lives-regions-2026-10-23/QUEUE
 | B2 | Extraction E1: per-pathway command-set factory (structural move, WA17); the checkpoint names it as the next refactor and the two `request_assessment` commands as the merge point for a data-driven assessor row | C1 | Q6 and any later pathway | Do this before Q6 and coordinate with Q2, which is editing the same LOTM files: the second pathway was copied by hand into actions, state validator and view (PC1); a third copy triples the drift. Prove with the same journey before and after (AR9) |
 | B3 | Cause rows for loss of control | C10 | Q6, COI, ORV | The queue says loss of control must stay tied to stated causes; a data row stops a third pathway bypassing it (I5) |
 | B4 | Q2 districts | C8 | Q4, Q5, C13 forums, COI | One region owner; jurisdiction split by faith feeds clearance and who responds |
+Respect the [LOTM queue](../gm/dispatch/lotm-lives-regions-2026-10-23/QUEUE.md) and current file owners. Its early in-flight wording is dated: Q1/Q2 now have receipts, and B2/B3 have newer source than those receipts. This table is a proposed dependency order, not authorization to repeat completed source work or run an extra wave. Queue gates and current desktop evidence rules remain applicable.
+| Step | Queue slice | Classes built once | Reused later by | Why this position |
+|---|---|---|---|---|
+| B1 | Q1 second pathway (done per checkpoint, uncommitted) | C1 second consumer | Q6, RI, Paradise | Initial Q1 proved a second descriptor; the hand-copied command shape has since been replaced by B2 rows |
+| B2 | Extraction E1: pathway factory and assessor rows **source-implemented** | C1 | Q6 and later pathways | `lotmPathwayCommands` and row-driven validator/view inspected; stub-third-pathway test definition exists. Before/after rebuilt browser parity is not established by R2; do not recopy commands |
+| B3 | Cause rows and switching-record support **source-implemented, bounded** | C10 | Q6, later COI/ORV | Five cause rows, command gates and `loc.switching` validator support exist; no inspected gameplay producer for a triggered switching consequence or pressure/recovery journey |
+| B4 | Q2 districts **wired and receipt-proven** | C8 | Q4, Q5, forums, COI | Q2 records both district journeys and persistence at 1920x1080. Other teams remain attributed records, and off-shift/mid-walk browser gaps stay in its checkpoint |
 | B5 | Q3 second life | C18, C3, C16 (advance), C2 (civil staff) | Q4, ORV and RI starts | Start profile, contract and pay are the three things a life needs |
 | B6 | Q4 clearance | C9, C2 (formal member), group-presence leaf | RI sect rank, Paradise tier, HP houses | Extraction E2: write the status bundle world-neutral here, because this is its first full consumer; prove the seam with a second world's rows as a fixture (AR11, WA20), not as runtime |
 | B7 | Q5 broker trade | C5, C11 verify step, C12 forged lot | RP trade market, ORV exchange | Extraction E3: the held-lot record, a shared form of the bespoke escrow in `audit_remainder_offers_content.js` |
@@ -550,6 +595,10 @@ AR12 reminder: the shared layer holds the verb, the validator and the row shape;
 | PC2 | LOTM X3: a senior deacon examines (F9) | The Seer and Corpse Collector `recognition` crossings name Warden Hale | Authored stand-in; keep the label authored and make the examiner a row (C1) |
 | PC3 | LOTM X4: digestion is half a year to three years (F18) | 6 acts (Seer) and 4 acts (Corpse Collector) | Authored dial; keep as prototype values, with the source rate as the reference |
 | PC4 | LOTM X3 is warden versus deacon; the church wait is three years (F18) | The Q1 checkpoint and a code comment on `LOTM_CC_ACTS` cite "source note X3" for a recruit waiting about a year | Probably a different X3 (the checkpoint cites its own deep-dive note); the LOTM pass shows three years. Check before repeating either number |
+| PC1 | Causes should be modelled, not blocked by an unconditional save wall (WPR31, AD38) | Current validator accepts multi-pathway records only with `book.lotm.loc.switching`; actions, asserts and view now read pathway/cause rows | **Earlier finding superseded.** Institutional withholding remains the default. Focused test definitions cover flagged validation; no inspected action produces a triggered loss-of-control consequence. Broader gameplay proof remains open; see R2 history |
+| PC2 | LOTM X3: a senior deacon examines (F9) | `LOTM_ASSESSORS` now makes Hale an explicit authored `warden_prescreen` with `sourceKind: senior deacon` | Row extraction exists; source examiner is still a future consumer. Keep authored divergence, no canon promotion claim |
+| PC3 | LOTM X4: digestion is half a year to three years (F18) | 6 acts (Seer) and 4 acts (Corpse Collector) | Authored dial; keep as prototype values, with the source rate as the reference |
+| PC4 | LOTM pass X3 is the authored warden/deacon distinction; F18/X4 carry waiting/digestion references | `LOTM_CC_ACTS` comment still says about a year, source note X3; Q1 and queue preserve that unresolved locator | Open provenance check. Neither code comment nor this map establishes the correct source wait; keep acts/counts authored until the actual source locator is checked |
 | PC5 | GTR9: one evaluator for gates | `ascension_paths.js` evaluates crossings with its own numeric comparison; `progression_gates.js` evaluates gates through `rules.js` | Link crossing to gate (C1 optional `gate` field). Existing crossings stay |
 | PC6 | MOL C2, C3: crowns are authored only; the pack values differ from the kit card | `book_mol_pack.js` uses crowns | Keep the label authored; do not claim source support |
 | PC7 | SS C1: the kit card said no shard-as-cash conversion, but the source shows market conversion | n/a (documentation) | Conversion rows allow "market, no fixed rate" (C14) |
@@ -559,6 +608,7 @@ AR12 reminder: the shared layer holds the verb, the validator and the row shape;
 | PC11 | COI C5: the sequel has no Nighthawks or Mandated Punishers | n/a | Church team rows are per world; shared record, no shared names |
 
 Unverified by this pass: what the Paradise runtime means by `tier` in `book_world_paradise_*.js` (grep shows tier fields in the host, state, carriers and actions files; it was not opened to see whether tier is a bundle or a number).
+Paradise clarification (R2): existing host and state owners implement optional campaign entry/return, visits and a finite mission. This invalidates the earlier blanket "whole RP runtime documented only" label. Its tier/status bundle semantics were not audited; RPD/RPG's wider benefits remain proposals.
 
 ## 7. Open questions as proposals (defaults, no either/or)
 
@@ -568,6 +618,9 @@ Unverified by this pass: what the Paradise runtime means by `tier` in `book_worl
 | OQ2 | When is the pathway factory extracted? | After Q1 lands and before Q6, as a structural move with the same journey before and after (AR9) |
 | OQ3 | Should a crossing reference a gate? | Yes, as an optional field; existing crossings unchanged |
 | OQ4 | How is switching pathways modelled? | Keep Hale's dose withholding for the slice, add a "wrong-pathway potion" cause row at B3, and let a later lane decide the validator change |
+| OQ2 | When is the pathway factory extracted? | Local extraction exists in current source. Remaining check is its exact input proof, then reuse for a selected Q6; no new extraction dispatched here |
+| OQ3 | Should a crossing reference a gate? | Yes, as an optional field; existing crossings unchanged |
+| OQ4 | How is switching pathways modelled? | Current default withholds the other dose; cause rows and flag-qualified validation exist. No inspected gameplay trigger or recovery route; broader consequence design remains proposed |
 | OQ5 | What is the held-lot record? | A custody-based record with a pair of holders, verify step and expiry, extending the existing custody op |
 | OQ6 | Is a loop-restart boundary added to the carry ledger now? | No. Only if Weibao selects the MOL canon loop (MOL K13 already says opt-in) |
 | OQ7 | How are pass findings cited across worlds? | World prefix plus code, as in section 0 |
@@ -584,6 +637,7 @@ Unverified by this pass: what the Paradise runtime means by `tier` in `book_worl
 
 **ACCOUNT FOR NOW (constraints on current work)**
 1. Q1 is played but uncommitted; the Corpse Collector pathway proves the descriptor, not command-level generality, until B2 shows the factory.
+1. Q1/Q2 have owner-reported play proof; B2 now has a local factory and a stub-third-pathway test definition. Generality, exact-input browser parity and normal-app delivery remain distinct.
 2. Any LOTM price table needs a band plus a premium, never a single price (LOTM F13-F15); the same applies to RI auction prices that carry U labels.
 3. Do not copy RI or ORV price rows into a pack before the locator is opened (WPR19).
 4. A new class must name its clock owner on day one (GR17).
@@ -594,6 +648,7 @@ Unverified by this pass: what the Paradise runtime means by `tier` in `book_worl
 | Item | Level | Effort | Done check |
 |---|---|---|---|
 | A1: Pathway factory design note | sonnet | S | A one-page row shape that regenerates today's Seer and Corpse Collector commands identically |
+| A1: Pathway factory parity | sonnet | S | Factory and assessor rows exist; close remaining evidence by the owner's bounded before/after journey, not by writing a duplicate design |
 | A2: Status bundle row and fixture from two worlds | sonnet | M | A fixture using LOTM Q4 and RP tier rows validates and round-trips as plain data |
 | A3: Held-lot record spec | sonnet | S | A stepped test spec for completed and failed trades |
 | A4: Generator register (auction, stock, offer, broker, rumor, response, lesson, verdict) with budgets and tests | sonnet | M | Each row has stream key, clock, budget, reader and the three GR16 tests named |
@@ -617,3 +672,4 @@ Separate short suggestions (not reasons to stop): give every pass a one-line "cl
 ## 10. Review state (WPR21)
 
 Highest state reached: drafted. Not rules-reconciled in detail with DOMAIN_RULES (PIR, ECR, SLR, CBR texts were not reopened), not built, not browser-verified, not director-accepted. Source facts come from the pass docs, not the novels; no novel was read. The code survey was read-only and partial: `expansion_engine.js`, `trade.js` and the Paradise runtime were opened only as far as headers, export lists and greps. Nothing was run, built or committed.
+Highest map review state remains drafted, with R2 source/status reconciliation. DOMAIN_RULES was not reopened in detail and novels were not read. Later pass coverage is bounded to the sections named in 0.1. Named runtime owners and test definitions were inspected, but R2 ran no gameplay, tests or builds and makes no director-acceptance, package, install or publication claim. The map's proposed shared mechanisms remain distinct from the concrete leaf and consumer implementations in section 1.

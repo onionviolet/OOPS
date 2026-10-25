@@ -569,6 +569,57 @@ executed, no native downloads, nothing committed.
 | IM32 | Obligations ledger proposal (IM29): one record that crafting, household, inheritance and economy write to and read from. | sonnet, medium | A doc maps three existing debt-like states onto one record shape with a migration note. |
 | IM33 | Companion bond rite by temperament with capped scene memory, modeled on DRGN, for `src/companion_roster.js`. | sonnet, small | A fixture shows a preferred rite giving the larger gain and appending a memory line, with the cap enforced. |
 
+## More to consider, round 4 (2026-10-23, leftover items and interactions)
+
+Trigger: Weibao asked for the leftover items (orphan, grief and came-of-age events, genetics and companion wishes, diplomacy and schism, skill floor, spatial homes) despite AD33; recorded in [USER_VISION](../USER_VISION.md#leftover-itchio-items-built-as-small-per-world-dials-2026-10-23). They build as small per-world dials with a reason and cost. Codes continue from IM33. Evidence below was read from `src/` on 2026-10-23; nothing was run in a browser for this round.
+
+### ACT NOW (done)
+
+- **IM34: the aging Treat button now says why it is disabled.** `src/aging_contact_ui.js` gives the title "Only in the Village." or "Needs N coins." before the care text. Wording only; no rule, no behavior change. Not re-run in a browser.
+
+### ACCOUNT FOR NOW
+
+- **IM35: the obligations ledger is only partly the one ledger.** Written by `craft_grudge.js`, `economy_standing.js` and `household_fortunes_domain.js` (grep of `obligations_ledger` imports). Heir grievance and archive duty (`heir_inheritance`) and the career kit debt are adapters that read, not writers. The new orphan, grief and schism rows must write through it (AD14) rather than add counters, or IM32's point is lost.
+- **IM36: `carries` disagrees across two owners.** The household resentment row is `carries: false`, but the carry ledger's frontier row says "Open obligations: carries, last life; grievance stays open". The heir's grievance carries; household resentment does not. Both are true and the row text is blanket. Split the row by source, with the reason, before orphan and grief events add more rows.
+- **IM37: the carry ledger lists no economy, pledge or aging state.** Loans, house standing, a live insurance policy, broker claims, price memory, vows, a heart demon, conditions and contact have no row at death or rebirth. AD11 wants each crossing visible. Default proposals: loans settle from the estate first; standing halves like reputation; vows and demon drop with the body; contact score carries to the heir as inherited family warmth only where a world says so. Each needs a stated reason, as dials.
+- **IM38: two "heart" effects share a word and a stat family.** Aging's `heart` condition (health, stamina ceilings) and pledges' heart demon (strength and agility, up to 30%) are different stats but stack in one late-life body. Check the combined ceiling for a 65-year-old with a failed tempering. Keep names distinct in text so "heart" is not read as one thing.
+- **IM39: grief and orphan events collide with contact decay.** Aging contact already decays company. A death of the single named contact (`villageElder`) can both drop the score and fire a grief event, which counts one loss twice. Let the grief event be the single writer of that drop and mark the contact row as dead, not decayed.
+- **IM40: the skill floor and aging ceilings are the same shape.** Aging has `FLOOR` for health and stamina (0.6 and 0.7); a skill floor is a floor on decay. Use one floor vocabulary (default, dial, reason per world), not a second set of constants.
+- **IM41: debts that ease with time and vows that scar do not meet.** `eases` is per season on rows; a vow's scar and the heart demon's pressure are state on the trial, not ledger rows. A broken vow owed to a person (a pledge to a family member, a diplomacy oath) should be a duty row with a creditor, so the schism and diplomacy dials can read it.
+- **IM42: trust gifts and credit can launder each other.** `peer_standing` allows any gift and charges trust; house credit lends against standing. A gift to a manor member and a loan from a house are separate purses, but a loan spent as gifts could buy tier. Price tier gain from coins that were not borrowed, or note the interaction as an allowed route with its cost (AD22 means no hardening; this is about readable cause, not an anti-exploit).
+- **IM43: spatial homes must carry the household and fortune state they touch.** Staff, routines and obligations are keyed to the manor. A home layout that moves or splits the household needs the staff and routine ids to stay stable. Procedural layout stays out (AD33 kept for that part); an authored home with two or three rooms and a place per routine is the slice.
+- **IM44: away time and company.** AD16 stops away time at important choices. A grief event, an orphaning or a schism offer is such a choice. Contact letters in transit (3 days) and treatment seasons (90 days) keep running through away time, so a coming-of-age or grief event must not be able to expire silently (see IM17).
+- **IM45: blanket wording in shipped text.** These read as always-true and need a default and reason, or a world dial: "Nobody refuses a gift" (peer standing intro), "Both ease with decent treatment; nothing locks" (household record), "Kept whole across every life" (carry ledger codex row), "never to zero" (pledges ration text), "Open obligations carries" (IM36), and "Nothing is left to temper in this slice" is a slice statement, fine. Not edited here: each states a design choice, not wording; a world-specific reason should be added with the dial.
+
+### LATER / DELEGATE
+
+| Code | Item | Level / effort | Done check |
+| --- | --- | --- | --- |
+| IM46 | Split the carry ledger's obligation row by source and add rows for loans, standing, insurance, vows, demon, conditions and contact (IM36, IM37). | sonnet, small | A test lists each new row for `base.frontier` and one book world with its scope and reason; no row lacks a reason. |
+| IM47 | Orphan, grief and came-of-age events as three storylets writing obligation or contact rows (IM35, IM39). | sonnet, medium | A fixture shows a death firing one grief event, one contact drop and one ledger row, and reload keeps them. |
+| IM48 | One floor vocabulary for aging and a skill floor (IM40). | sonnet, small | One constants owner; a test shows both read it. |
+| IM49 | Diplomacy and schism dials over duty rows (IM41). | sonnet, medium | A fixture breaks an oath and the creditor's row reads it; each dial shows a reason. |
+| IM50 | Authored two-to-three-room home with stable staff and routine ids (IM43). | sonnet, medium | A fixture moves a routine between rooms with no id change; browser check at 1536 and 1920. |
+| IM51 | Combined-ceiling check for aging plus heart demon at age 65 and above (IM38). | sonnet, small | A test reports the combined ceiling and that it stays above the stated floor. |
+| IM52 | Add default, dial and reason to the IM45 texts. | sonnet, small | Each string reads from a world dial or names its reason; `check:rules` unaffected. |
+| IM53 | Real long-life headless run over all new systems together (extends IM31). | sonnet, medium | A run of 60 in-game years records condition, contact, standing and ledger rows with no unbounded growth (see `LIMITS` in `economy_standing.js`). |
+
+### Panel audit for IM27 (state reasons in parts)
+
+IM27 checks each new decision surface against the UR rules (UR7 disabled reason, UR32 empty states, UR47 hover descriptions, UR63 commitment together). No rule is added.
+
+| Panel | Reasons in parts | Gap |
+| --- | --- | --- |
+| Aging (`aging_contact_ui.js`) | Health and stamina reasons listed, plus the dial reason | Contact score has one sentence, not parts. Treat title fixed (IM34). |
+| Economy standing (`economy_standing_ui.js`) | Price terms list each standing part with a title; credit rows give a reason | House row reasons live only in a hover title on a non-focusable row (UR47 expects keyboard focus too). The insurance line hardcodes "road danger 0.2 ... 7 coins" as text, not read from state. Borrow disabled by limit shows the row reason only. |
+| Household (`household_fortunes_panel.js`) | Staff parts each carry a why; routines and obligations carry whys | The watch list shows one "circumstances" number with no parts. Standing and resentment are two numbers; their causes are only in the ledger lines below. |
+| Peer standing (`peer_standing_panel.js`) | Each gift button has its eligibility note and consequence | The ranking is coins only; its basis is stated ("by coins in hand"). No gap. |
+| Pledges (`pledges_ui.js`) | Tempering risk names stability, pressure and scar; "Not ready" lists reasons | Risk is shown as a total, not per vow. Swear is disabled with a title; Temper's title is only "Not ready yet." where the line above has the parts. |
+
+Gaps are recorded for later; none needed more than the wording fix in IM34.
+
+Verification: `src/` read for IM35 to IM44; panel files read in full; one source edit (`aging_contact_ui.js`, syntax-checked with `node --check`). No browser run, no test run, nothing committed.
+
 ## YAIR-side gap check (2026-10-22)
 
 The batches' claims about YAIR's own code were mostly name greps. A sonnet
@@ -607,3 +658,8 @@ AD33 defers spatial homes and deprioritizes the NPC-heavy gaps.
 Everything still open from this wave (tool blockers, unread code, play-only
 questions, unreachable builds, YAIR-side gaps) is consolidated in
 [OPEN_GAPS](itch-io-2026-10-22/OPEN_GAPS.md) with stable codes OG1+.
+
+
+## Current cultivation absorption check, 2026-10-24
+
+Weibao requested a mechanic-by-mechanic check of Path and the other researched itch cultivation games against current OOPS, saving what remains. The [absorption matrix](itch-io-2026-10-22/CULTIVATION_ABSORPTION_CHECK.md) covers 42 named entries and 154 mechanism/disposition rows; **CG01–CG30** consolidate the still-missing or partial mechanisms. This is a current-source audit over pinned research, not a new whole-source read or playable-completion receipt. The [open-gap owner](itch-io-2026-10-22/OPEN_GAPS.md#cultivation-absorption-refinement-2026-10-24) links it without replacing OG/IM history or selecting a new build wave.

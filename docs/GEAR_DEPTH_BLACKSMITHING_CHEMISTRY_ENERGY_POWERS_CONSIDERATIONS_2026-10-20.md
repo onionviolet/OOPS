@@ -345,3 +345,29 @@ world's rules defining what makes gear good. Applied codes: GDP38, ESD1, ESD3, E
 ## Native connected slice, 2026-10-21
 
 Implementation evidence: [gear-depth checkpoint](gm/dispatch/gear-depth-2026-10-21/CHECKPOINT.md). ACT NOW: native gear processes, typed settings, paid reforge, capable maker service, shared item effects, and processed-material cohort lineage are source-implemented and exercised on rebuilt desktop fixtures with persistence. ACCOUNT FOR NOW: native key/count/clock/transaction owners remain authoritative; hidden true age is not a player appraisal, and legacy inputs gain no invented origin. LATER: GX8 connected chemistry/energy/power readers, CRL44 conditional salvage, and CRL24/25 spatial consequence require their own playable consumers and checks. These remaining proposals do not block the verified native gear/material slice or become accepted world laws. Combined-master full gates and merge belong to the integration coordinator.
+
+## Connected journeys and more to consider, 2026-10-23
+
+Weibao selected O1–O5 complementary work, then requested parallel chats and
+“more to consider”. [Execution and exact evidence](gm/dispatch/complementary-journeys-2026-10-23/CHECKPOINT.md)
+own the current slice. This round extends the palette; it does not turn the
+choices below into universal world rules or authorize their later features.
+Rules: AD5/6–8/11/15–19/36/38, AR3/6–8/10–12, MR4/5/16/20/23/32.
+
+O1 now connects the existing fuel and oil treatment to the actor's learned
+Measured Focus reserve. Quench and temper can use the existing focus policy for
+additional process control; the completed item carries its physical treatment,
+and native stat/wear readers consume that treatment. This is a bounded GX8
+application, not the full chemistry, energy and powers palette. O2/O3 verify
+existing life and reviewed-packing consumers; O4/O5 have separate parallel
+ownership and verification in the execution record.
+
+| Code | Disposition | Additional interaction and reason | Capability / effort / done check |
+|---|---|---|---|
+| GDP40 | ACT NOW, done and rebuilt-browser verified | At full hand control, the capped focus contribution had no effect but still charged reserve and strain. The quote now tells the maker to work by hand and spends nothing. The final rebuilt browser proves the refusal, unchanged stock/reserve and subsequent successful hand quench separately from the earlier O1 proof. | Existing coordinator / small / PASS: focused regression and `o1-full-control-browser.cjs`; exact input in the execution checkpoint |
+| GDP41 | ACCOUNT FOR NOW | Precision, forge heat and chemical medium have separate owners. Focus does not supply thermal grade or replace oil. The treatment is a lasting material result, so it should not disappear when the maker later rests or changes body; a continuously sustained enchantment would need its own active source reader. | Current slice constraint / no extra feature / existing fuel, oil, focus and saved item checks remain distinct |
+| GDP42 | ACCOUNT FOR NOW | Recovery and travel consume played time, so recovering focus after heating can let a workpiece cool. Preparation comes before heating by default; the commit rechecks the actual hot window. A late rejection must preserve focus, oil and item custody. | Current slice constraint / small / cooling rejection plus unchanged costs; no second heat timer |
+| GDP43 | ACCOUNT FOR NOW | The O2 worker's private rent and earnings are separate from the institution's treasury, supplies and staff wages. Equipment owned privately does not become household stock just because its maker holds office. Succession transfers the agreed institutional resources, while public reports describe the actual new holder's review. | Current slice constraint / bounded / paid-rent-to-office journey retains private purse and conserves institutional funds |
+| GDP44 | ACCOUNT FOR NOW | General absence, an explicitly funded packing interval and a body/heir transition are different boundaries. Existing prepaid packing pauses ordinary play and requires review; its successful proof does not establish general offline wages or transferable mastery. Pending work, living duty holders and available supplies need the owning world's policy before a broader routine can advance. | Current scope boundary / no new policy / preserve the finite packing report and the distinct body/heir evidence |
+| GDP45 | LATER / DELEGATE, proposal | A capable NPC could spend its own learned energy on commissioned treatment. Use that maker's policy, reserve, strain, fee and recovery opportunity, rather than lending the player's reserve or inventing a separate NPC result. Today's optional focus route is the player's own work. | Sol / medium / two makers run the same quote/resolver with different actual reserves; commission cancellation and save failure conserve both purses and energies; rebuilt player/NPC comparison |
+| GDP46 | LATER / DELEGATE, proposal | Fuel choice can become a meaningful preparation decision. Grade and quantity already act; a future timed treatment could also read burn rate and apparatus, with a player-selectable usable alternative when the cheapest eligible fuel is short. Keep this in the existing heat and job owners rather than a second heat bank. | Sol / medium / two fuels on one real staged consumer show distinct time/cost consequences, adequate alternatives work, interrupted work and import settle once |

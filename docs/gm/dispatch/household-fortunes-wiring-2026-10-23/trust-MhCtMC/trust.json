@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "lane": "trust",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "f2f7f6f133688bbaad4baa8ae4275593c796b6ee4888fd830673cabd6507c6b0",
+  "gates": [
+    "A: a 10-coin gift moves coins to Iven's purse and records +1 trust",
+    "B: an oversize gift is accepted and costs trust, reason shown",
+    "trust-a: native Save/reload/Export/literal-file Import",
+    "C: save, reload, Export, literal Import keep the trust slice",
+    "D: a save without the slice loads"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

@@ -1,0 +1,15 @@
+{
+  "head": "547209e82c29e897e6b602a4ef5d8e8ab46b3ebf",
+  "files": {
+    "dist/bundle.js": "e7ca5a704772147ee629f2f03123c6ae6d6c6f10cfe84cbe0b13a6cf3126e814",
+    "styles/material_icons.css": "3fc1347eba2f3e91c5ff55ddd49d8773efc39a8fb676bd60df2729af52364e19",
+    "styles/ui_tokens.css": "460942d861f015c8c79545a8c12192fc3b8ef795e4993fe416bf5d237a16553d",
+    "index.html": "cf230f00d975e754af61a1994c6295ae50207a2577d13fd6093c0014dee42f3f",
+    "src/gear_work.js": "74a9abbe40cc2150f4af86b9a1d527e22a2a1a609044b5b6cc7dfc80c073e840",
+    "src/gear_workshop_domain.js": "6686fb841030ea9dcb8b87bd2fbd08741350e22548dafbc52ab728f2e83aee99",
+    "src/gear_workshop_panel.js": "db0ee65c998295196b4f58f52eb0e9a6cef3bbf30083402d5bd373d65d0e8ebc",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/complementary-journeys-2026-10-23/evidence/o1-focus-workshop-Nc1Np6/focus-tempered-gear.save.txt": "18db9867e7996c69bef1a1d906e85524e7ce1d54ff48aefac2b7aa5f8145ddf9"
+  },
+  "rebuild": "No rebuild; existing O1–O4 served dist retained. CSS loaded directly.",
+  "save": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/complementary-journeys-2026-10-23/evidence/o1-focus-workshop-Nc1Np6/focus-tempered-gear.save.txt"
+}

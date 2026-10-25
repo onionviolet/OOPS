@@ -66,6 +66,7 @@ Also two simulator comparison novels that day: 聖女幫我模擬修仙
 (`docs/research/novels/shengnvbangwomonixiuxian/`) and
 凡人：從極陰島開始的修仙模擬器 (`docs/research/novels/fanrencongjiyindao-moniqi/`,
 free 44 chapters only).
+Source-grounded institutions, prices and roles pass (2026-10-23, proposals, chapters 1-44 only): [Fanren simulator pass](../worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md). Same-day passes for [Primordial Saint Sect](../worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md) and [A Regressor's Tale](../worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md) have no kit card yet.
 Also SSS-Class Suicide Hunter (Revival Hunter on Wuxiaworld), complete
 400-chapter EPUB, on 2026-10-10
 (`docs/research/novels/sss-class-suicide-hunter/DEEP_DIVE_2026-10-10.md`).

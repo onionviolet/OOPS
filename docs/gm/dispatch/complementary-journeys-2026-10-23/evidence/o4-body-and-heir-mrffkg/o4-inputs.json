@@ -1,0 +1,16 @@
+{
+  "inputSave": "docs/gm/dispatch/complementary-journeys-2026-10-23/evidence/o1-focus-workshop-Nc1Np6/focus-tempered-gear.save.txt",
+  "inputSaveSha256": "18db9867e7996c69bef1a1d906e85524e7ce1d54ff48aefac2b7aa5f8145ddf9",
+  "files": {
+    "dist/bundle.js": "e7ca5a704772147ee629f2f03123c6ae6d6c6f10cfe84cbe0b13a6cf3126e814",
+    "src/body_progression.js": "b54248e084f05d6a0b0522bb16b0dbd3c8b3f610e3fc0cd5647997713fb9bc0f",
+    "src/heir_inheritance.js": "4aa42e82661aea91afaf7efeecd38a3c1b512b2bf9724b242bcdd8b3acde86fd",
+    "src/home_inheritance.js": "0ff951503e320d833eae1eeced8bec53d5129df95ac4713448040eee05f7dbf1",
+    "src/main.js": "f2965bc64b4c1459265d442564b119cb513e781cff228738a2ea37a7bf5f5340",
+    "src/chronicle_ui.js": "76477574f1d90b29e4153a3dc0ef8b5b71596ab67e139dc7a17064c7b371b88b",
+    "src/backlog_expansion_time.js": "c1846a23173f6049b2b8514c393fa501244b179de4780c33a376b44db73a95b0",
+    "src/discovery_codex.js": "4fbdfaf668efdb5e4dcd51cb3618e77e9b6450a08ddbd5ef6a5b9eb1d7efbd45",
+    "docs/gm/dispatch/complementary-journeys-2026-10-23/o4-browser.cjs": "224adf743de1086d7ab81b084926af121defd8e622eae3e035f3af68a5f630fa",
+    "docs/gm/dispatch/cultivation-spacing-2026-10-22/browser-helper.cjs": "bc4a9b38dc96d2ca09d7ae8146cd7c8a6f67a7b59daaecbde1d5c5a3cf28039c"
+  }
+}

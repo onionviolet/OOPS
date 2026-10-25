@@ -1295,6 +1295,179 @@ only `window.prompt` pauses the guard, so a future blocking dialog needs the
 same pause.
 
 
+### Delivered: host slice A1-A4 and A7, 2026-10-23
+
+Weibao, 2026-10-23: "implement all of them accordingly, consider optimizations
+and more?" ([record](USER_VISION.md#taking-more-advantage-of-the-electron-host-2026-10-23)).
+A more-to-consider pass first corrected two rankings: the localStorage ceiling
+is not pressing (his Electron save is about 268 KB), so A1 is about durability,
+and a headless playtest bot already existed, so A2 is only what Chrome cannot
+do. Order delivered (proposal, Claude): A1, A7, A4, A2, A3, then A5 once he approved
+the download.
+
+- **A1 save mirror (EL1/EL39, narrowed).** `desktop/save_mirror.cjs` copies the
+  page's whole localStorage (every key, not just `save data`) to
+  `userData/save-mirror/`: `latest.json` plus gzip history, written temp, fsync,
+  rename. Unchanged storage is skipped; history is at most every 5 minutes
+  (forced on close and restore); retention keeps the newest 24 and one per
+  recent day for 14 days; an origin with no parseable save never replaces the
+  mirror. The page stays the only writer (AR3). **Decision recorded:** the host
+  now writes files, and writes localStorage only when he clicks Restore on the
+  recovery page (`/__host/recover.html`, also reachable from File, "Restore a
+  backup..."); the state it replaces is snapshotted first. Quit takes a final
+  snapshot through the game's own `saveProgress`, time-limited to 1.5 s so a
+  hung page cannot block quitting. A newer preload runs against an older main
+  process through the `capabilities` list. Backups stay under userData, not a
+  Finder-visible folder (sealed secrets); File, "Show backups folder" is his
+  click.
+- **A7 window and menu.** Size, position and maximized state persist in
+  `window-state.json`, clamped to connected displays (`desktop/window_state.cjs`).
+  An app menu keeps the standard roles and adds Save now (Cmd+S), Restore a
+  backup, Show backups folder and Pop out world events (Cmd+Shift+E). Background
+  runs read and write neither.
+- **A4 desktop presence.** `src/host.js` is the one seam (browser: no-op). The
+  world-events feed reports how many leads are available; the host sets the
+  Dock badge and shows a silent notification only when the count rises, the
+  window is unfocused and a minute has passed. Clicking it is the only thing
+  that brings the window forward (EL32). Background runs show nothing.
+- **A2 natural-clock soak.** `scripts/desktop_soak.cjs` runs the real app hidden
+  at natural pace and writes `REPORT.md` (counts and numbers only) plus a
+  `trace.json` that is not committed. A 40 s run: clock advanced about 1.0 game
+  minute per wall second while hidden, no console errors, mirror writing. An
+  overnight run is `--seconds 28800`. The bot's deterministic hooks stay
+  localhost-only (EL12); making Electron runs deterministic is a separate
+  decision.
+- **A3 pop-out (first panel: world events, read-only).** View, "Pop out world
+  events" opens `/__host/popout.html?panel=events`, a page that never boots the
+  game and shows projections the game page sends through the host (payloads
+  trimmed in main). One state owner, so no `ownsSave` contention (EL44). Acting
+  on a lead still happens in the game window. Target viewport 480x720 on a
+  second screen; mobile deferred.
+- **Evidence (hidden Electron, fresh userData each):**
+  `tests/desktop_save_mirror.test.js` and `tests/host_seam.test.js` (focused);
+  `scripts/desktop_save_mirror.cjs` PASS (mirror matches save, an emptied origin
+  does not replace it, restore from the recovery page returns the same hero,
+  close writes a `close` snapshot); `scripts/desktop_presence.cjs` PASS
+  (capabilities, attention reaches main, pop-out shows a projection and never
+  boots the game); `desktop_smoke`, `desktop_crash_guard`,
+  `desktop_frozen_build` PASS unchanged. A stress payload screenshot at
+  480x720 shows wrapping with no horizontal overflow.
+- **Implemented-unverified:** the app menu and window-state restore in his real
+  on-screen window (background runs skip both; the menu template builds and
+  `clampBounds` is unit tested); a real notification and Dock badge; a lead
+  actually available in the feed driving attention (the seam is tested, the
+  village had none); a restore over a live save (the check restores over a wiped
+  origin); his real profile.
+- **A5 offline icon font (EL6), done 2026-10-23 after his yes to the download.**
+  Material Icons (Apache 2.0, v145, 129 KB woff2) is in
+  `resources/fonts/material-icons/` with its license note, loaded by
+  `styles/material_icons.css` in place of the Google Fonts link in `index.html`.
+  It was the only runtime network asset (other links are navigation). Both
+  folders are already in the frozen snapshot list.
+  `scripts/desktop_offline.cjs` PASS: frozen path, every `http(s)` request
+  cancelled, font status `loaded`, zero external requests. Not shown: a visible
+  glyph (the first `.material-icons` element measured 0 wide, so it was hidden).
+- **LATER (proposal):** pop-out commands back to the game (needs a game-side
+  listener), more panels (map, ledger, log), save-history diff view (EL39),
+  game MCP (EL16).
+
+### Host modularization and MCP details, 2026-10-23
+
+Weibao, 2026-10-23: "modulization and other aspects to improve and more? mcp
+details and more?" Modularization is done (behavior-preserving); the rest is
+proposal.
+
+**Done.** `desktop/main.cjs` went from 451 lines of seven concerns to a 142-line
+composition root. Modules: `host_context` (run mode, origin test, shared window
+preferences, capability list), `guard_host` (link policy, prompt stand-in, hang
+and crash guard), `build_host` (what `app://` serves, frozen builds),
+`mirror_host`, `presence_host`, `popout_host`, `window_host`. Each registers its
+own IPC and pushes its capability. Fixed on the way: the mirror poll was bound
+to the first window only, so a window recreated on macOS `activate` was never
+mirrored; it now attaches inside `createWindow`. Guards:
+`tests/desktop_ipc_channels.test.js` pairs every preload channel with a host
+module and fails if `main.cjs` grows past 160 lines or takes feature IPC. All six
+desktop checks (smoke, crash guard, frozen build, save mirror, presence, offline)
+pass on the split.
+
+**MCP details (EL16, proposal).**
+- **Transport:** a stdio MCP server in `scripts/` (not in the app) that attaches
+  to a hidden agent instance over the existing CDP port (EL15). The app gains no
+  new network surface; CDP is already localhost-only and off by default. An
+  in-app HTTP MCP (token, Origin check) is only worth it when several agents
+  share one warm instance (EL19). Needs the `@modelcontextprotocol/sdk` package,
+  which is not installed (a download decision).
+- **Page bridge:** a small `window.yairpgAgent` that exists only when the
+  instance was launched for agents, built on existing seams, not DOM clicks:
+  projections (AR8), quote then run for a command (AR7), save, export. Today the
+  page only has `simulationTestHooks` (snapshot, pause, resume) and
+  `advanceTicks`, and those are localhost-only (EL12), so an Electron instance
+  has neither. Whether agent instances may seed time and RNG is the open
+  decision from EL12/EL23.
+- **Tools (first set):** `game_status`, `game_projection(panel)`,
+  `game_quote(command)`, `game_run(command)`, `game_save`, `game_export`,
+  `game_screenshot` (`capturePage`, hidden window), `game_wait(game minutes)`.
+  Read tools and mutating tools are marked apart. No tool returns a sealed
+  truth; secrets appear by ID and status only, and a truth tool would need its
+  own explicit flag.
+- **Safety:** the launcher refuses to start without `YAIRPG_USER_DATA`, so an
+  agent never attaches to his play profile; every instance is recorded with its
+  port and PID (EL24).
+- **Done check (from EL16):** an agent plays the elder greeting through the tools
+  on a hidden instance and the save round-trips.
+
+**Other improvements, ranked (proposal).**
+1. Try File, Restore a backup and the window memory once in his real window; the
+   biggest unverified gap and a two-minute check for him.
+2. A restore from a newer build's backup into an older build is not guarded:
+   store the game version in each snapshot and warn on a downgrade.
+3. Pop-out commands back to the game and more panels (needs a game-side listener
+   through `src/host.js`).
+4. Save-history diff view over the mirror (EL39).
+5. Packaged `.app` and signing (EL10) when he wants it in the Dock without
+   `npm run desktop`.
+
+### Game MCP delivered over the headless runner, 2026-10-23
+
+Weibao, 2026-10-23: "MCP, check if its already been done, consider other things
+to extend dev stuff and more and to make implementation easier", then "also
+other stuff at the same time?" **Check result:** no game-control MCP existed. The
+MCP servers in this repo's world are research tools (REA, book research,
+Source Library, `zlibrary-mcp`); the registry already held the game dev routes
+`playtest`, `headless-bench`, `replay`, `simfuzz` and `perf`. The existing
+`scripts/headless` runner already gives a deterministic, browser-free game with
+`clickables`, `click`, `step`, `save`, `exportFile` and `importFile`, so the
+better first backend is that, not CDP into Electron. This supersedes the
+transport and page-bridge bullets of the earlier EL16 proposal above (the
+Electron and CDP route stays for host-only checks).
+
+- `scripts/mcp/stdio_server.mjs`: a dependency-free MCP server (initialize, ping,
+  tools/list, tools/call over newline-delimited JSON-RPC). No SDK download.
+- `scripts/mcp/game_worker.mjs`: owns one `HeadlessGame` in a child process,
+  because the headless realm replaces Node's timers, Date and console.
+- `scripts/mcp/game_mcp.mjs`: eight tools, `game_new`, `game_look`, `game_click`,
+  `game_step`, `game_status`, `game_save`, `game_export`, `game_load`. Replies
+  are what a player sees plus hashes; `game_save` never returns raw bytes and
+  `game_export` writes under the temp folder `yairpg-mcp`, which is the only
+  place `game_load` reads. Deterministic by seed. Per-call timeout stops a
+  runaway step. Not registered anywhere: register it in a client yourself
+  (command in `desktop/README.md`).
+- Registry entry `game-mcp` (probe `--self-check`); `npm run mcp:game`.
+- **Evidence:** `node scripts/mcp/game_mcp_check.mjs` PASS over the real stdio
+  protocol: the elder greeting by selector key, same seed and actions give the
+  same save hash twice, export then load returns to the exported game time with
+  the same hero, a path outside the export folder is refused.
+  `tests/mcp_stdio.test.js` covers protocol framing. Byte-equal hashes across
+  export and load are not expected (export and import touch bookkeeping fields).
+- **Not done:** screenshots (no browser here; the Electron route owns them), an
+  Electron-instance backend, a `game_quote` command tool (needs the AR7 quote
+  seam exposed on a window entry point), and sealed-truth tools (none, by design).
+
+**Dev conveniences added with it:** `npm run check:desktop` runs all six
+hidden-Electron checks and fails if any fails (`scripts/check_desktop.mjs`);
+`desktop/README.md` lists the modules, the add-a-host-feature steps, every
+environment switch and the checks.
+
 ## Recovered Corc round 5, 2026-10-21: outcome order during catch-up
 
 **Proposal application** of [CRL30/CRL40/CRL41](research/proto23/DESIGN_LESSONS_FOR_OOPS_2026-10-20.md#round-5-2026-10-21-subtle-interactions-folded-into-the-plans), under AD15–AD18, AR3/AR6/AR16 and UR62/UR64. Existing EL/runtime direction is unchanged. The recovered patch modifies battle handling as well as elapsed-time accumulation; no source execution or OOPS timing defect is established.
@@ -1306,3 +1479,286 @@ Place a real dependency boundary inside the interval: a title/skill changes a me
 Reload reconstructs current derived capability through existing owners. In the recovered source, a saved marker guards a title's one-time talent application; OOPS already derives known held-title bonuses in `titleBonuses` and grants only newly earned IDs. Preserve that design instead of adding another applied-bonus cache. Presentation's bounded receipt deduplication is not authority for rewards, stock spending or title entitlement. A return may summarize missed public events while leaving settled rewards unchanged and quieting obsolete animations.
 
 **ACT NOW (done):** folded the boundary scenarios into this plan. **ACCOUNT FOR NOW:** keep clock, transition, derived capability and presentation owners distinct. **LATER / DELEGATE:** extend CRJ10, Sol medium, medium effort. Done: a real midpoint transition, foreground/throttled/policy-return comparisons, no duplicate reward/bonus, and reload/import checks for any changed persisted state. A private inspector can compare true state with public projection; its output stays outside player-facing knowledge/discovery. No power blocker, timer change, migration or new offline policy is selected here.
+
+## Programming language and stack round 7 (TS10-TS17), 2026-10-25
+
+Lane D3, proposal only, under M8/M11, AD22/AD39 and AR1-AR6/AR13. The current
+accepted architecture says no TypeScript migration and the accepted desktop
+direction is Electron plus web. This round compares reversible experiments; it
+does not change either decision. The player is effectively the only player
+(AD22), so deterministic reproduction and save integrity matter more than
+anti-cheat or obfuscation.
+
+### Measurement snapshot
+
+Measured 2026-10-25 in the heavily dirty primary checkout. Counts and timings
+describe these exact shared files, not a clean branch or released build.
+
+- **Source and graph:** 898 `src/**/*.js` files, 145,093 lines, 410 test files;
+  `src/main.js` is 10,113 lines. An esbuild-parsed import scan found 898 source
+  nodes, 3,561 local import edges, 226 cyclic edges and six imports into
+  `src/main.js`. The architecture checker already builds this graph without
+  writing output. Current runtime dependencies are `inkjs`; dev dependencies
+  are Electron and esbuild (`package.json`).
+- **Idle profile:** `node --cpu-prof --cpu-prof-dir=docs/gm/dispatch/codex-parallel-2026-10-25/d3-scratch scripts/headless/bench.mjs --minutes 1440 fresh`
+  advanced a fresh seeded game by 1,440 game minutes in 42.67 wall seconds
+  (34 game minutes per wall second), with 0 reported errors. Node 22.23.3
+  recorded 31,536 samples over 48.77 seconds. Highest self-sample counts were
+  `structuredClone` (4,747, 15.1%), headless DOM `walk` (3,437, 10.9%),
+  `writeExpansionPlan` (2,175, 6.9%), `create_save` (787, 2.5%) and
+  `serializeDurableSave` (635, 2.0%). The clone and DOM costs include the
+  headless harness; they are not browser flamegraph claims. This fresh idle
+  route did not exercise crafting, pathfinding or generation, so it does not
+  rank those candidates. A crowded 1,440-minute profile was stopped after
+  about three minutes without a completed fixture result; no data from it is
+  used. The raw profile is in D3 scratch.
+- **Build:** a no-write esbuild API measurement matching `build.js`'s browser,
+  ESM, ES2022, minify and source-map settings took 232.9 ms; it processed 881
+  inputs and produced 7,101,259 bytes of JavaScript plus an 18,780,816-byte
+  map in memory. This excludes Ink's pre-build check, HTML fingerprint updates
+  and disk writes, so it is not an `npm run build` timing.
+- **Test run:** `/usr/bin/time -lp npm test` took 391.43 seconds wall
+  (391.22 seconds reported by Node), ran 3,030 tests: 3,025 passed and 5
+  failed. Four failures were `listen EPERM` in this sandbox; one current-tree
+  import failed because `tests/lotm_pathway_rows.test.js` requests the absent
+  `LOTM_ASSESSORS` export from `src/book_world_lotm_pathways.js`. The checkout
+  was dirty, so that fifth result is an input mismatch, not a runner diagnosis.
+  Two individual integration tests took 124.9 and 56.5 seconds. The full log is
+  in D3 scratch. No rerun was made.
+- **Save samples:** generated perf fixtures (not personal saves) measured
+  47,654 bytes JSON / 11,196 gzip (`fresh`), 60,817 / 14,187 (`mid`) and
+  279,175 / 27,925 (`crowded`). This supports optional compression for bulky
+  transfers or backups; it does not establish that live compression improves
+  play. The existing format stays readable JSON, and the import/export path
+  already has a `YAIR-UTF8-1:` envelope (`src/save_files.js`).
+
+The headless 24-hour result is one profile of one fresh route on a busy shared
+host (load averages at capture were 50.6/65.0/50.3). Treat its absolute rate as
+a baseline to repeat on a quiet host. Its call tree does support measuring the
+save-planning and publication path before considering a lower-level language.
+
+### Ranked proposals by value per effort
+
+The ranking favors work with evidence of a current cost and a small, reversible
+surface. Each option has its detailed default, dial, cost, risk and first step
+below. All entries remain proposals.
+
+| Rank | Code / option | Value per effort | Basis |
+| --- | --- | --- | --- |
+| 1 | TS16, keep Node test runner; shorten or isolate slow journeys | Medium-high | Current suite takes 6m31s; two journeys alone took 181s. First establish a passing, input-matched baseline because this run had five unrelated failures. |
+| 2 | TS17, finish scoped seeded-RNG coverage | Medium | Named streams and replay tests already exist; classify 28 calls in five files and change only gameplay-affecting ones. |
+| 3 | TS10, optional one-file JSDoc/checkJs pilot | Medium-low | A small check could catch shape errors cheaply, but no current evidence establishes a project-wide type gap and AR currently excludes TS migration. |
+| 4 | TS14, optional compression on export/backup | Low-medium | Fixture gzip shrank crowded JSON by 90%, while no live-save compression bottleneck was measured. |
+| 5 | TS15, esbuild watch/context | Low | The no-write bundle took 233 ms; likely small benefit beside the measured test wait. |
+| 6 | TS12, simulation worker | Low until a pure boundary exists | The current tick has a wide mutable owner surface; worker cloning is itself a measured cost. A pure resolver spike is a safer precursor. |
+| 7 | TS11, WASM/Rust hot paths | Low on current evidence | The profiled idle cost is save planning and publication, not an identified numeric loop. |
+| 8 | TS13, Tauri shell | Very low | It duplicates a working Electron host while AD39 already selects Electron plus web. |
+
+**1. TS10 — Keep JavaScript; consider a small JSDoc/checkJs slice.**
+
+- **Default / dial / reason:** Keep ES modules in JavaScript. If a real shape bug
+  recurs in one leaf domain, try JSDoc plus `checkJs` on that file; a full TS
+  migration is the high-cost dial and would need a later direction change from
+  Weibao. TypeScript documents `checkJs` as checking included JavaScript rather
+  than requiring it to be rewritten ([TSConfig `checkJs`](https://www.typescriptlang.org/tsconfig/checkJs.html)).
+- **Cost:** A bounded pilot is roughly 1-3 files (one config, one script and one
+  annotated module), half to one day including a check gate. A full migration
+  potentially touches all 898 source files and 145k lines, likely weeks or
+  longer; that estimate is uncertain because dynamic globals and DOM code are
+  concentrated in the large entry modules.
+- **Risk:** A repo-wide check can turn many current implicit shapes into noisy
+  errors; a TS emit pipeline adds another build contract without speeding game
+  code. The accepted AR rule currently excludes a migration.
+- **Reversible first step:** On a disposable branch, check one pure leaf module
+  such as `src/clear_state.js` with `tsc --allowJs --checkJs --noEmit`; keep it
+  outside the default gate until the error signal is useful.
+- **Measured evidence:** no TypeScript dependency or tsconfig exists;
+  898 JS modules and 145,093 lines are present. `src/main.js` is 10,113 lines.
+
+**2. TS11 — Keep hot paths in JavaScript; use WASM/Rust only after a focused
+profile names a numeric bottleneck.**
+
+- **Default / dial / reason:** Do not port the simulation tick, crafting,
+  pathfinding or generation now. A WASM module is a dial for a pure,
+  repeatable numeric kernel with large inputs and outputs; the WASM format is
+  portable across systems, but portability alone does not show a speed win
+  ([WASM portability](https://webassembly.org/docs/portability/)).
+- **Cost:** One isolated spike is roughly 4-10 files (Rust crate/build target,
+  JS adapter, parity fixture and benchmark), several days to a week. Replacing
+  several systems would be a multi-week second implementation and build/release
+  path.
+- **Risk:** The measured idle profile is dominated by save planning,
+  `structuredClone` and harness DOM traversal; a Rust kernel would not remove
+  those costs. Buffer conversion and RNG/state ownership can erase any kernel
+  gain or change outcomes.
+- **Reversible first step:** Benchmark a fixed large `resolveBatch()` fixture
+  and its current JS implementation first; only prototype Rust/WASM if the
+  end-to-end cost remains material after input/output conversion.
+- **Measured evidence:** `writeExpansionPlan` has 2,175 self samples and save
+  serialization 635; the idle fixture did not call `resolveBatch`, pathfinding
+  or procgen. Their hotness is unmeasured, not presumed.
+
+**3. TS12 — Keep the live simulation on the main thread; consider a worker for
+pure catch-up after a state boundary exists.**
+
+- **Default / dial / reason:** A worker is not a tick-speed switch. First make
+  the computation independent of DOM and live owners; then use a worker for
+  long catch-up if it improves responsiveness. Worker messages clone ordinary
+  object graphs, and functions/DOM nodes cannot be cloned; transferable buffers
+  help only when the payload is represented as buffers ([MDN worker messaging](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers),
+  [structured clone](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)).
+- **Cost:** A worker prototype around the pure crafting resolver is roughly
+  3-6 files and a few days. Moving the current tick needs a pure step API,
+  versioned messages, cancellation/progress, output publication, worker build
+  wiring and parity tests, likely 10-25 files and multiple weeks.
+- **Risk:** `simulateTick()` and its consumers currently sit in `main.js` among
+  226 cyclic import edges and six imports back into `main.js`. Posting full live
+  state per tick may spend more time cloning than computing and risks competing
+  save authority (AR3).
+- **Reversible first step:** Keep the UI and save writer on the main thread;
+  test one worker call with an immutable snapshot and return value, timing
+  structured-clone cost separately from compute.
+- **Measured evidence:** profile shows 4,747 self samples in Node's
+  `structuredClone` and 2,175 in `writeExpansionPlan`; some clone cost belongs
+  to the harness. No worker is used by `src/` today. The native tick is
+  `simulateTick()` in `src/main.js`; `craft_resolver.resolveBatch()` is already
+  a pure candidate, not a measured hotspot.
+
+**4. TS13 — Keep Electron as the desktop shell; Tauri is a later comparison
+spike only.**
+
+- **Default / dial / reason:** Electron remains the default because AD39 selects
+  Electron plus web and the project already has a working native host. Tauri
+  uses HTML in an operating-system webview with Rust-side commands; its webview
+  runtime follows the selected platform provider ([Tauri architecture](https://tauri.app/concept/architecture/),
+  [Tauri webview versions](https://tauri.app/reference/webview-versions/)).
+  Electron bundles Chromium and Node and exposes host features through its main
+  process and preload bridge ([Electron process model](https://www.electronjs.org/docs/latest/tutorial/process-model)).
+- **Cost:** A visual shell spike is about 3-6 files and a day or two. Replacing
+  the production shell while retaining Save/recovery, window state, menu,
+  presence, pop-outs, packaging and checks likely touches at least the existing
+  18 desktop files plus a parallel host, test and installer surface; estimate
+  several weeks.
+- **Risk:** A second shell duplicates host behavior and platform checks. Tauri's
+  OS webview can differ from the Chromium version already exercised by the
+  Electron app.
+- **Reversible first step:** Build a disposable Tauri window against the
+  existing web bundle and test only native save mirror, font rendering and
+  window lifecycle. Do not duplicate production host features until a measured
+  user cost justifies it.
+- **Measured evidence:** `desktop/` has 18 files; `package.json` pins Electron
+  44.9.2. D3 measured no shell launch, memory, package-size or platform parity
+  comparison, so size claims do not decide this.
+
+**5. TS14 — Keep JSON saves; add compression only to large export/backup paths,
+with domain schema versions as the migration seam.**
+
+- **Default / dial / reason:** Preserve JSON as the canonical readable save.
+  Add a versioned gzip wrapper for bulky backup/export data if it helps transfer
+  or storage; binary encoding is a later dial only if measured parse/write cost
+  justifies loss of inspectability. Browser `CompressionStream` supports gzip
+  in a streaming interface ([MDN `CompressionStream`](https://developer.mozilla.org/en-US/docs/Web/API/CompressionStream)).
+  Schema versions already exist per domain through `domain_registry` migration
+  hooks, with envelope validation and import preflight in `save_files.js`.
+- **Cost:** Optional compression is about 2-4 central/host files and 1-3 days,
+  including old-format import and failure/recovery tests. Binary format is
+  several weeks across 5-10 central files plus every affected domain owner.
+  Adding schema versions to one new owner costs 1-2 files; bulk retrofitting
+  depends on domain coverage.
+- **Risk:** A new prefix/codec can make good saves unreadable if decoder order,
+  truncation handling or backup compatibility is wrong. Live compression burns
+  CPU on every tick and is not supported by current timing evidence.
+- **Reversible first step:** Prototype opt-in compression for exported fixture
+  saves only; preserve plain JSON import/export and add round trips for all
+  three fixture sizes before considering host mirror changes.
+- **Measured evidence:** generated fixture compression reduced `crowded` from
+  279,175 to 27,925 bytes (90.0% smaller), while `fresh` was 47,654 to 11,196.
+  The 24-hour profile assigns measurable work to save planning/serialization,
+  but no step in this run benchmarked compression. Existing domain migration
+  hooks mean schema versioning is partly implemented, not a greenfield rewrite.
+
+**6. TS15 — Keep esbuild; add watch/context only if it shortens the edit loop.**
+
+- **Default / dial / reason:** Keep esbuild 0.25.10 and the current one-bundle
+  pipeline. Its context API can reuse work across rebuilds; compare that in the
+  development loop before changing bundlers ([esbuild build contexts](https://esbuild.github.io/api/#rebuild)).
+- **Cost:** A watch command or context runner is roughly 1-3 files and under a
+  day. A different bundler migration would touch build configuration, preview,
+  worker resolution and release scripts, roughly 5-15 files and several days.
+- **Risk:** Incremental output can hide stale-cache or entrypoint issues; a
+  bundler swap does not fix runtime tick cost.
+- **Reversible first step:** Time a no-write esbuild context rebuild after one
+  source edit, and keep the existing release command unchanged until it shows
+  meaningful saved wait.
+- **Measured evidence:** Current no-write minified build took 232.9 ms for
+  881 inputs and 7.1 MB JS plus an 18.8 MB map. This excludes project prechecks
+  and disk writes. The full suite's 6m31s is currently the larger measured
+  iteration cost.
+
+**7. TS16 — Keep Node's built-in test runner; spend effort on the slow cases.**
+
+- **Default / dial / reason:** Keep `node --test`; no additional test framework
+  is installed. The dial is a controlled per-file concurrency comparison or
+  splitting an expensive integration journey, not a wholesale runner change.
+- **Cost:** A measurement helper is 1-2 files and hours; restructuring the two
+  longest scenarios is likely 2-6 test files and 1-3 days. A runner migration
+  crosses all 410 test files and adds dependency/config work.
+- **Risk:** More process parallelism can worsen CPU and memory contention; the
+  current checkout also had four network-listener failures from sandbox policy
+  and one source/test mismatch. A faster run that changes isolation could hide
+  real shared-state failures.
+- **Reversible first step:** Keep focused test files as the edit gate. Time the
+  two slow journeys separately on a quiet checkout; consider test-runner
+  concurrency only after a passing, input-matched baseline exists.
+- **Measured evidence:** 3,030 tests took 391.43 seconds wall; 3,025 passed and
+  5 failed for the causes above. One native session-note journey took 124.9 s,
+  and one finite-craft journey took 56.5 s. The observed full run is not a
+  passing baseline for release.
+
+**8. TS17 — Keep seeded RNG for consequential gameplay; do not force full-game
+determinism onto cosmetics.**
+
+- **Default / dial / reason:** Continue saved, named streams for outcomes that
+  affect gameplay and reproducible tests. Keep visual particles and incidental
+  text free to vary. A full replay mode is the dial only when a concrete debug
+  or test case needs it; AD22 gives no anti-cheat reason to pay for universal
+  determinism.
+- **Cost:** Classifying existing random calls is a short scan; replacing the
+  gameplay subset likely touches 5-10 files and takes several days including
+  save/replay checks. Full cross-browser replay needs command ordering, timers,
+  content/version identity and persisted RNG decisions, likely many files and
+  multiple weeks.
+- **Risk:** Changing draw order or stream names changes seeded outcomes and may
+  invalidate golden expectations. Scheduling across workers must remain
+  message-ordered; worker completion time cannot select gameplay results.
+- **Reversible first step:** Add a fixture replay assertion around one
+  gameplay-affecting random result, then migrate only that call site to its
+  existing named stream. Leave decorative `Math.random` calls alone.
+- **Measured evidence:** the shared scan finds 28 `Math.random` occurrences in
+  five source files; `seeded_streams.js` already saves schema-1 roots, stream
+  cursors and bounded receipts, and `tests/determinism_replay.test.js` covers
+  same-seed replay. This does not prove whole-game determinism.
+
+### Round close
+
+**ACT NOW (done):** measured current source counts, import graph, a seeded
+24-hour idle profile, no-write bundling, fixture compression ratios and the
+full test duration. Saved the profile and test log in D3 scratch; no runtime,
+dependency, configuration, save or build file changed.
+
+**ACCOUNT FOR NOW:** profile real save planning and publication before selecting
+Rust/WASM or moving ticks to workers. Preserve the current JSON envelope and
+domain migration order. Keep Electron per AD39. Use seeded streams for
+gameplay-affecting outcomes; exclude cosmetic variation unless a later replay
+need warrants it. The current 6m31s test run is not a passing release gate and
+uses a dirty shared tree.
+
+**LATER / DELEGATE:** TS14 export-only compression pilot, Luna low / small effort;
+done check: all three generated fixtures export, import and reload with the
+same gameplay state and old JSON exports remain readable. TS12 pure-resolver
+worker timing spike, Luna low / medium effort; done check: parity output and
+clone/compute/round-trip timings show a net responsiveness benefit. TS11
+WASM/Rust prototype, Sol medium / large effort; only dispatch if a quiet-host
+profile first finds a pure numeric hotspot. TS13 Tauri shell comparison, Luna
+low / medium effort; only reopen if a named desktop issue exceeds the proven
+Electron cost.

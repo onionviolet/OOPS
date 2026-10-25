@@ -1,0 +1,3 @@
+The report is saved at [PLAYTEST_SWEEP_2026-10-25.md](/Users/weiwei/code/yet-another-idle-rpg/docs/reviews/PLAYTEST_SWEEP_2026-10-25.md).
+
+Across three fresh lives, save/export/import worked and time advanced, but the MCP never exposed the visible PLAY button as a click target. I logged this as **P1, blocker** and called `game_report_limit` once. The requested gameplay systems remain unverified because I couldn’t start an interactive run. I made no source, test, dist, or other documentation edits.

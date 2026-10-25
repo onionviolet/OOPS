@@ -1,0 +1,18 @@
+{
+  "scope": "Slice 1 frozen local source and bundle; normal-app adoption not inferred",
+  "files": {
+    "src/pledges.js": "0c611bf69241ae6761a5fbe10c3427ffcb935bf710eefa413af6121f0c04f34c",
+    "src/pledges_domain.js": "fa720527b0a639f7b1eeb07e85baf86c1707a17711afd6f3111ca623e2f9c05c",
+    "src/pledges_content.js": "b576d8fe4ac4c3a72a9c666a1477a8eb61b8449d850ae26d990d5bfc48008da6",
+    "src/pledges_ui.js": "36f47d0004b50f4983f6e5bda287e85690d6714848a6e81d42fb15ea766bca49",
+    "src/lineage_traits.js": "1bfadd2deaa9d9d5f71ab1c60e05a608119e73fd2cc0f3f663429fa801641c3f",
+    "src/lineage_domain.js": "96dd5826ba44e94cd1f459f0a869e927ef3fa593ea772dd6cc1242073cf11619",
+    "src/home_staff.js": "59ee27452d329a5813a627466f76d2233b77c9d942f0804f4aa83d060c632858",
+    "src/main.js": "f2101d9875a872ea9cb3de65a6de711fe7287575f7d886198a260668de4887e8",
+    "src/native_tool_domains.js": "541dedac2440c0911bfab0f343d0aa2f3da1b2676131182eb92071b3aa71b030",
+    "src/breakthrough_trial.js": "845f5e99b5640a2eea51eae29497ac59f31e9a7bcb7a5d3a8053ebab28984edd",
+    "src/vow_rules.js": "a0e5793f301f9668908829d6cdf3ae1497c3fe3dba623591f26616d6162b35af",
+    "dist/bundle.js": "89dcf4683eaa8a5856515b47c3963b8fc5c337f3c0014a072f2c17ec4ff8f74c",
+    "index.html": "2cc66d1271bd023fb79231caa88a171cb30a5a565bbe2a35837cb665b0573ee7"
+  }
+}

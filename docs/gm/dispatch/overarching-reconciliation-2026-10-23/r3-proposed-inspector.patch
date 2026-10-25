@@ -1,0 +1,21 @@
+--- a/src/chain_inspector.js
++++ b/src/chain_inspector.js
+@@ -80,13 +80,13 @@
+ 
+ // GTL3 (2026-10-23): shared gate descriptors with their current inputs. Author
+ // truth, so undiscovered conditions show here; evaluation is a pure read.
+-const INSPECTED_GATES = [{gate: HERB_LESSON_GATE, facts: f => herbLessonFacts(f.inventory || {}, f.expansion?.actors?.player?.facts?.['reveal.herbLesson'])}];
++const INSPECTED_GATES = [{gate: HERB_LESSON_GATE, facts: f => herbLessonFacts(f.inventory || {}, f.expansion?.actors?.player?.facts?.['reveal.herbLesson']), completed: input => input['reveal.herbLesson'] === true}];
+ function projectGates(frame) {
+-    return INSPECTED_GATES.flatMap(({gate, facts}) => {
+-        const input = facts(frame), r = evaluateGate(gate, input);
++    return INSPECTED_GATES.flatMap(({gate, facts, completed = () => false}) => {
++        const input = facts(frame), r = evaluateGate(gate, input), done = completed(input);
+         return [row('source', gate.id, `${gate.kind} gate, ${gate.closes}. Reason: ${gate.reason}\nDials: ${show(r.dials)}\nRoutes: ${gate.routes.map(x => `${x.id} (${x.reason} Cost: ${x.cost})`).join('; ')}${gate.overflow ? `\nOverflow: ${gate.overflow.policy}, ${gate.overflow.reason}` : ''}`),
+-            row('observation', `${gate.id} now`, `${r.met ? 'open' : 'waiting'}${r.known ? '' : ' (inputs unknown)'}. Inputs: ${show(input)}`,
+-                r.met ? '' : `Author: ${r.authorReasons.join(' ')} Player sees: ${r.shown.join(' ')}`)];
++            row('observation', `${gate.id} now`, `${done ? 'learned (persistent)' : r.met ? 'open' : 'waiting'}${done || r.known ? '' : ' (inputs unknown)'}. Inputs: ${show(input)}`,
++                done ? 'Lesson already learned; repeat acquisition is not needed.' : r.met ? '' : `Author: ${r.authorReasons.join(' ')} Player sees: ${r.shown.join(' ')}`)];
+     });
+ }
+ 

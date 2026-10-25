@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "message": "Expected values to be strictly equal:\n\nfalse !== true\n",
+  "gates": [],
+  "pageErrors": []
+}

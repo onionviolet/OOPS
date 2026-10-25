@@ -1,0 +1,44 @@
+diff --git a/src/layout_spec.js b/src/layout_spec.js
+index 127669cae..205896fc3 100644
+--- a/src/layout_spec.js
++++ b/src/layout_spec.js
+@@ -183,6 +183,8 @@ export const LAYOUT_SPEC = Object.freeze({
+         'homes': surface('ST2', {home: 'Known residences and Village home supplier', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'place', 'time', 'body', 'rights'], representations: routed}),
+         'gear-workshop': surface('ST2', {home: 'Native forging station; carried equipment', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'equipment', 'place', 'time'], representations: routed}),
+         'hp-polyjuice': surface('ST2', {home: 'Harry Potter pack slice bench (prototype)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time']}),
++        'place_clock': surface('ST2', {home: 'Owned hearth place (prototype)', frequency: 'on demand', status: 'proposal', reads: ['inventory', 'place', 'time', 'rights']}),
++        'rank_gap_observer': surface('ST2', {home: 'Goa branch records (prototype)', frequency: 'on demand', status: 'proposal', reads: ['place', 'time', 'body']}),
+         'lotm': surface('ST2', {home: 'Tingen supervised workroom'}),
+         'customization': surface('ST7', {representations: routed}),
+         'customization-effects': surface('ST7'),
+diff --git a/src/main.js b/src/main.js
+index 85fb6dc52..14c09ef54 100644
+--- a/src/main.js
++++ b/src/main.js
+@@ -1,4 +1,4 @@
+-import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';
++import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {configureRankGap} from './rank_gap_observer_domain.js';
+ import {createFurniturePanel} from './home_furniture_panel.js';
+ import {allocatedRecipeInputs,recipeMaterialOutput,treatedRecipeQuality} from './processed_materials.js';
+ import {configureCraftingDomain} from './crafting_domain.js';
+@@ -9499,7 +9499,7 @@ configureHomes({registry:expeditionRegistry,root:()=>expansionState,locations,re
+         inventory:readInventoryOwner(character.getItems()),alive:character.is_alive===true,ready:harvestWritable()&&harvestReady()&&!current_dialogue&&!current_combat&&!is_sleeping&&!is_reading&&!is_in_trade(),
+         calendar:calendarSnapshot(),calendarClock:expansionState.clock,writable:harvestWritable(),nativeRights:{shack:locations.Shack.isUnlocked()&&locations.Shack.housing.isUnlocked(),proto:expansionState.actors.player.facts['proto23.cottageRight']===true&&expansionState.simulation?.claims?.['proto23.cottage_right']?.owner==='player'&&expansionState.simulation.claims['proto23.cottage_right'].status==='settled'},fresh:!optionalPackState.structured&&!household&&!expansionState.chronicle,legacyHousehold:household,wet:!!active_effects.Wet,knownGift:(item_log.items['Rat tail']?.number||0)>0,craftingKnown:global_flags.is_crafting_unlocked,meditationKnown:skills.Meditation.isUnlocked()}),
+     plan:minutes=>{const plan={state:structuredClone(expansionState),external:{money:character.money},gameplay:gameplaySnapshot()};return minutes?advanceChroniclePlan(plan,minutes,true):plan;},
+-    effects:p00HouseholdEffects,commit:plan=>persistExpansion(plan),setForm:form=>{character.getBioComponent().race=form;},log:text=>log_message(text,'notification')});
++    effects:p00HouseholdEffects,commit:plan=>persistExpansion(plan),setForm:form=>{character.getBioComponent().race=form;},log:text=>log_message(text,'notification')});hostPlaceClock({homes:residenceState,expansion:()=>expansionState,character:()=>character,locationId:()=>current_location?.id,inventory:()=>readInventoryOwner(character.getItems()),gameplaySnapshot,assertSpend:key=>assertNativeItemDisposition(expansionState,key),commit:plan=>persistExpansion(plan),log:text=>log_message(text,'notification')});configureRankGap({settle:({minutes,stamina})=>{const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes,true),fs=character.getFullStats();if(plan.state.clock-expansionState.clock!==minutes)throw Error('Finish the current local decision first.');plan.native={...plan.native,staminaToFull:Math.min(fs.max_stamina,(plan.native?.staminaToFull??fs.max_stamina-fs.stamina)+stamina)};plan.state.sequence++;persistExpansion(plan);domainRegistry.tick(minutes);}});
+ configureResourceDomains({harvestContext,harvestWritable,harvestReady,harvestAutomaticReady,
+     harvestTransaction,grantHarvest,logMessage:log_message,random:key=>gameKeyedRandom(STREAMS.loot,key),
+     habitatContext,commitHabitatPlan,clock:()=>calendarMinutes(current_game_time),
+diff --git a/src/ui_extras.js b/src/ui_extras.js
+index 7803571df..4c7abe443 100644
+--- a/src/ui_extras.js
++++ b/src/ui_extras.js
+@@ -10,6 +10,7 @@ import './companion_roster.js';
+ import './loadouts.js';
+ import './palette_feedback_domain.js';
+ import './hp_brewing_domain.js';
++import './rank_gap_observer_domain.js';
+ 
+ // One mount point for the shell-wide helpers that read the DOM the shell already shows: the command
+ // palette (GU1) and the row menu (GU9), and it pulls in the reference sections (SX1 to SX6), each a

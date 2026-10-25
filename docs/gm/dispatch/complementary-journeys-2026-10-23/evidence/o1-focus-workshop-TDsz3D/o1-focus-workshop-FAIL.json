@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "message": "Expected values to be strictly equal:\n\n0 !== 1\n",
+  "gates": [
+    "focus-tempered-gear: native Save/reload/Export/literal-file Import"
+  ],
+  "pageErrors": []
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "lane": "estate-label-after",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "094547759b7918f59529ab0059cc5b49af6285beccbb9c367b15d11c636b82b8",
+  "gates": [
+    "Worked native gear uses its existing readable item name in estate preview.",
+    "Repeated preview/desktop resize preserves complete saved expansion, character, inventories and equipment identity/condition; text-only change reuses O4 actual transfer/import proof."
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

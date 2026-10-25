@@ -683,3 +683,29 @@ MF34: the calendar has two distinct owners of meaning, not two new timers. Nativ
 | MF35 | Multi-stop manifests, alternate roads and vehicles | A second real route or vehicle appears; Sol medium / medium. Preserve cargo through route changes, capacity and actual travel times, with one dispatcher owner |
 | MF36 | Different habitats and worker tools | An actual nonhuman worker or job asks for a different bed/tool; Sol medium / medium. Use the existing body, equipment and residence owners rather than species labels or a second staff inventory |
 | MF37 | Humidity/temperature-specific drying or biological garden change | A selected material or world depends on those existing weather channels; Sol medium / medium. Both historical conditions and interruptions have an observable native route; no arbitrary modifier or parallel calendar |
+
+
+## Minecraft second wave: GregTech, Mekanism/AE2/IE/Thermal and logistics audits, 2026-10-23
+
+Research palette, not an accepted decision. Source and ranking: [SYNTHESIS_2026-10-23](research/minecraft/audits/SYNTHESIS_2026-10-23.md) (X13-X22). Evidence: [GT deep dive](research/minecraft/audits/GT_GREGTECH_DEEP_DIVE.md) (GT5U half now source-checked), [TB audit](research/minecraft/audits/TB_MEKANISM_AE2_IE_THERMAL.md) (Q owners now checked), [QL logistics](research/minecraft/audits/WV2_QUESTS_LOGISTICS.md). Audit codes are cited with their file; the bare GT1-GT6 in PROCEDURAL_CRAFTING is a different table. MF1-MF37 above stay the record of what shipped; nothing below revises them.
+
+### ACT NOW (done in this pass)
+
+Verification and filing only: eight GT5U claims re-read in source (one wrong, one unverifiable), TB owner mappings opened (8 confirmed, 2 partial, 1 wrong, 3 unnamed), a cross-audit synthesis written. No runtime, rule or accepted-direction change.
+
+### ACCOUNT FOR NOW (constraints on current chain work)
+
+- **MW1 Failure policy is shown, per station (SP-B2, Q15).** Before any station gets a hazard, its starvation behavior (pause, reset, destroy, degrade) is named in its status line through `src/action_legibility.js`, so a reset is never a silent surprise. MF2a already names the free-load bottleneck; this extends it to the failure side.
+- **MW2 Upkeep is a graded tax by default (GT14, source-confirmed in GT5U).** If a chain station gains wear, each fault costs a fixed share (GT5U: 10% per missing tool, stops only at all six), not an on/off block. Dial: percent per fault, whether a total-failure state exists. Reason: neglect is felt in output, and an automation part spends the same consumables you would by hand.
+- **MW3 Plan and reserve before run (TB24/TB25, QL21, SP-B4).** Any later preview of a multi-stage order shows a plan tree and a missing-inputs list, consumes nothing (MR4, SR13), and counts promises as stock, which MF19/MF26 already do for cargo. The plan-tree readout is the unbuilt part.
+- **MW4 A found or rolled specialist part (QL19, TB36/TB37, GT18 reagent flux).** Parts that change a few named stats (catalyst, capacitor-like tuning part) carry a small record of numbers, per world; "has a listed chance" means it influences, not guarantees (MR2).
+
+### LATER / DELEGATE (suggestions; none dispatched or scheduled)
+
+| Code | Application | Level / effort | Done check |
+|---|---|---|---|
+| MW5 | Derived value for an unlisted good from its properties (burn time, nutrition, process cost) with explicit multipliers and a floor (TB38/Q13, ET1); depends on the equivalence ledger work by emc-cheat-spike | Sol medium / medium after that ledger lands | A new item with no table entry gets a stated price from its properties, previews cost nothing, and a loop in the recipe graph is reported to the designer, not zeroed |
+| MW6 | Kit batching: a stage releases to its consumer only when quotas are met, and shows which quotas are satisfied (TB20/Q14) | Sonnet or Luna medium / small, once a second production site needs it | The release rule runs through the existing receiving-tray custody; partial release is a dial |
+| MW7 | Link capacity with nearest-first allocation and a rationed shortage (TB21/TB13/TB14, Q7/Q8) | Sol medium / large, trigger: a world with real routes under load | Shortage shares proportionally, overload hits the weakest link with a stated cause; no owner exists yet (Q8 FL1-FL5 cover chain shape only) |
+| MW8 | Local residue ledger with smooth decay, a spread floor and stacked harms (GT13, X20) | Sol medium / large, trigger: a selected industrial world | A source raises a per-place value, decay and spread follow a declared clock (SR20), and the cure is a part, gear or distance; sweep any cap for default/dial/reason |
+| MW9 | Two-axis container (kinds and size) with per-kind overhead (TB9/TB22, Q6) | Luna low / small to propose an owner first | Q6 has no owner today; first deliverable is naming one, not code |

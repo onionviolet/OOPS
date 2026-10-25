@@ -1,0 +1,26 @@
+{
+  "retired": [
+    {
+      "port": 19413,
+      "pid": 45201
+    },
+    {
+      "port": 19414,
+      "pid": 48638
+    },
+    {
+      "port": 19415,
+      "pid": 52119
+    },
+    {
+      "port": 19416,
+      "pid": 55819
+    },
+    {
+      "port": 19417,
+      "pid": 58598
+    }
+  ],
+  "retainedFrozenPreview": "http://127.0.0.1:19418/",
+  "otherOwnerServerUntouched": 62620
+}

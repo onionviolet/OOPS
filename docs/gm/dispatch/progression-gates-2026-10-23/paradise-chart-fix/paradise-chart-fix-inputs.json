@@ -1,0 +1,25 @@
+{
+ "name": "Paradise chart-before-enrolment fix (GTR11)",
+ "applyAfter": "D1, R3 and D3 inputs are independent; touches neither",
+ "head": "547209e82c29e897e6b602a4ef5d8e8ab46b3ebf",
+ "paths": [
+  "src/book_world_paradise_host.js",
+  "tests/paradise_chart_enrolment.test.js"
+ ],
+ "preSHA256": {
+  "src/book_world_paradise_host.js": "fe1e0cef6c33eda403427aeb806f8204138ebc3b15e45bcc122d2f60706f7281"
+ },
+ "postSHA256": {
+  "src/book_world_paradise_host.js": "570539d2a6e558e1c3ec1905059a6c886879e1d20bbe592513c97929a9f729eb",
+  "tests/paradise_chart_enrolment.test.js": "7a369db1e4d0b4df5707e80a3efa765ba85a0883435b5ff52416d0e1dc1a341f"
+ },
+ "patchSHA256": "435e58c6bd8d6d99072047a8f5db11f3e9d5c902cf3228e8875def8dfccfb7cf",
+ "applyCheck": {
+  "primary": "git apply --check passes",
+  "integration-o-f-a worktree": "passes",
+  "closure-combined-h1h2 worktree": "passes"
+ },
+ "isolatedCandidate": ".claude/worktrees/paradise-chart-fix, branch claude/paradise-chart-fix (HEAD plus this patch plus the frozen D1 progression_gates.js copy as a build-only dependency, sha 3e7cf495..., not in the patch)",
+ "primaryEdited": false,
+ "committed": false
+}

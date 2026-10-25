@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "lane": "fortunes",
+  "viewport": {
+    "width": 1536,
+    "height": 864
+  },
+  "bundleSha256": "be0eac4140f75e7cbef343b10af4f0c83355fb6242ad23446dc50f760cc23429",
+  "gates": [
+    "A: join manor; 6 played days stage fortunes (rolls, observed fed/tended) into the save",
+    "B: panel renders watch list + parts at 1920 and 1536, no hidden value",
+    "fortunes-a: native Save/reload/Export/literal-file Import",
+    "C: save, reload, Export, literal Import preserve the slice",
+    "D: save without the slice loads and starts observing",
+    "F: cook routine unlocked at 5 completions orders a funded cook job unasked",
+    "G: Stop routine button writes the stop into the slice",
+    "E: starved household loses staff to neglect (fixture primed at 39 lack days); standing/resentment charged; obligations show the grievance",
+    "fortunes-neglect: native Save/reload/Export/literal-file Import",
+    "H: post-death save, reload, Export, Import"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

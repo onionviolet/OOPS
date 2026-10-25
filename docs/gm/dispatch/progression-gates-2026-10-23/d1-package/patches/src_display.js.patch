@@ -1,0 +1,17 @@
+diff --git a/src/display.js b/src/display.js
+index 215856b3b..a8f108a17 100644
+--- a/src/display.js
++++ b/src/display.js
+@@ -5454,7 +5454,11 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
+     if (skill.getCurrentXP() !== "Max") {
+         skill_bar_divs[skill.category][skill.skill_id].children[0].classList.remove("skill_bar_capped");
+         skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.getCurrentXP()/skill.getXPToNextLvl()*1000)/1000}%`;
+-        skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0].innerText = `${expo({number: skill.getCurrentXP()})} / ${expo({number: skill.getXPToNextLvl()})}`;
++        // GTL6: practice banked past the single-gain cap, per world (GTR16, GTR21).
++        const digesting = domainRegistry.project('skill_overflow', 'bank', skill.skill_id) || 0;
++        const xp_line = skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0];
++        xp_line.innerText = `${expo({number: skill.getCurrentXP()})} / ${expo({number: skill.getXPToNextLvl()})}` + (digesting > 0 ? ` · digesting ${expo({number: digesting})}` : '');
++        xp_line.title = digesting > 0 ? domainRegistry.project('skill_overflow', 'row')?.reason || '' : '';
+ 
+     } else {
+         skill_bar_divs[skill.category][skill.skill_id].children[0].classList.add("skill_bar_capped");

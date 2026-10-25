@@ -1,0 +1,13 @@
+diff --git a/tests/chain_inspector.test.js b/tests/chain_inspector.test.js
+index b2540986d..35093e8d7 100644
+--- a/tests/chain_inspector.test.js
++++ b/tests/chain_inspector.test.js
+@@ -37,7 +37,7 @@ test('non-developer views fail closed without even reading hidden or unknown pro
+ });
+ test('legacy absence does not initialize owners or streams',()=>{
+     const f=freeze({});const rows=projectChains(f,{developer:true});
+-    assert.equal(rows.length,4);assert.deepEqual(f,{});assert.match(rows[0].rows[0].detail,/No retained/);
++    assert.equal(rows.length,5);assert.deepEqual(f,{});assert.match(rows[0].rows[0].detail,/No retained/);
+ });
+ test('actual scheduling, latest-only receipt, held inputs and kit branch are explicit',()=>{
+     const rows=projectChains(fixture(),{developer:true}), text=JSON.stringify(rows);

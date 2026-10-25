@@ -1,0 +1,188 @@
+diff --git a/src/absorb_p23/host_joins/world_adaptation.js b/src/absorb_p23/host_joins/world_adaptation.js
+index 3d7e6fa3c..c60970d2b 100644
+--- a/src/absorb_p23/host_joins/world_adaptation.js
++++ b/src/absorb_p23/host_joins/world_adaptation.js
+@@ -3,7 +3,9 @@ import {assertNativeItemDisposition} from '../../native_gameplay_adapter.js';
+ import {retainMistglassOrigin,validateMistglassOrigin,observeMistglassHistory,mistglassHistoryView,MISTGLASS_HISTORY_SITUATION} from '../../mistglass_history.js';
+ // P00 native owner joins for the original opt-in Mistglass proposal.
+ import {check, natural as nat} from '../../basics.js';
+-import {mistglassProfile as P,mistglassEnergyPolicy,validateAdaptation,prepareEnrollment,prepareAdvance,prepareTrial,adaptationView,previewTrial,prepareCultivationMethod,previewSluice,prepareSluice,prepareBraceRestoration,sluiceHistories} from '../world_adaptation/index.js';
++import {freshCultivation} from '../world_adaptation/techniques.js';
++import {skillEventOverflowRow} from '../../skill_overflow_domain.js';
++import {mistglassProfile as P,mistglassEnergyPolicy,validateAdaptation,prepareEnrollment,prepareAdvance,settleInsight,prepareTrial,adaptationView,previewTrial,prepareCultivationMethod,previewSluice,prepareSluice,prepareBraceRestoration,sluiceHistories} from '../world_adaptation/index.js';
+ import {applyEnergyEffect} from '../../energy_resources.js';
+ import {applyGameplayEffect} from '../../gameplay_transactions.js';
+ import {drawUnit,keyedUnit,scopedStream} from '../../seeded_streams.js';
+@@ -66,6 +68,7 @@ export function validateMistglassEnvelope(save){
+     check(!raw||family&&raw.expiresAt!==null&&nat(raw.expiresAt)&&raw.expiresAt<=state.clock+P.failureMinutes&&raw.intensity===1,'Invalid native rawness.');
+ }
+ function applyPlan(plan,result,registry,{quoteXP=(_id,n)=>n}={}){
++    let insightExcess=0;
+     const old=plan.state.worldAdaptation;
+     check((old?.revision??null)===result.expectedRevision,'This conservatory action is stale.');
+     if(result.expectedReserve!==undefined)check(mistglassReserve(plan.state)===result.expectedReserve,'Conservatory reserve changed.');
+@@ -79,7 +82,7 @@ function applyPlan(plan,result,registry,{quoteXP=(_id,n)=>n}={}){
+         }else if(e.kind==='native-material-spend'){assertNativeItemDisposition(plan.state,e.key);applyGameplayEffect(plan.gameplay,{type:'item',key:e.key,amount:e.count},'player',true);
+         }else if(e.kind==='native-material-product'){applyGameplayEffect(plan.gameplay,{type:'item',key:e.key,amount:e.count},'player');
+         }else if(e.kind==='native-skill-xp'){
+-            const amount=quoteXP(e.skillId,e.amount);check(Number.isFinite(amount)&&amount>=0,'Invalid native XP quote.');
++            const amount=quoteXP(e.skillId,e.amount,x=>{if(e.eventId?.startsWith('p23.mistglass.trial.'))insightExcess+=x;});check(Number.isFinite(amount)&&amount>=0,'Invalid native XP quote.');
+             if(amount)applyGameplayEffect(plan.gameplay,{type:'xp',skill:e.skillId,amount},'player');
+         }else if(e.kind==='native-condition'){
+             check(e.conditionId===P.blockedConditionId&&nat(e.startsAt)&&nat(e.expiresAt),'Unsupported adaptation condition.');
+@@ -92,6 +95,7 @@ function applyPlan(plan,result,registry,{quoteXP=(_id,n)=>n}={}){
+             plan.external.money+=e.amount;
+         }else throw Error('Unsupported adaptation effect.');
+     }
++    if(insightExcess>0){const s=settleInsight(result.state.techniques||freshCultivation(),insightExcess,skillEventOverflowRow(P.worldId,'purification'));result={...result,state:{...result.state,techniques:s.next}};validateAdaptation(result.state);}
+     plan.state.worldAdaptation=result.state;return plan;
+ }
+ export function stageMistglassEnrollment(plan,context,registry,options){return applyPlan(plan,prepareEnrollment(plan.state.worldAdaptation,{...context,optIn:true}),registry,options);}
+diff --git a/src/absorb_p23/host_joins/world_adaptation_ui.js b/src/absorb_p23/host_joins/world_adaptation_ui.js
+index 0c2cf4e34..e6c666cfa 100644
+--- a/src/absorb_p23/host_joins/world_adaptation_ui.js
++++ b/src/absorb_p23/host_joins/world_adaptation_ui.js
+@@ -16,6 +16,8 @@ export function createMistglassPanel({host,read,act}){
+             if(f.rawRemaining)text(`Rawness blocks absorption and another trial for ${f.rawRemaining} played minutes.`);
+         }
+         if(v){const t=v.technique;text(`${t.label}: ${t.stage}${t.id==='mist'?'':` · ${t.minutes} practiced minutes`}${t.nextAt===null?'':` · next stage at ${t.nextAt}`}.`);text(t.description);if(v.pending)text('Practice pauses during purification; the trial retains its starting odds.');}
++        if(v?.technique.insight){const i=v.technique.insight,l=i.last;
++            text(`Insight past one sitting settles into practice (converted): ${i.minutes} practiced minutes so far, ${i.carry} insight held, ${i.lost} faded.${l?` Last purification: ${l.excess} surplus → ${l.minutes} minutes${l.lost?`, ${l.lost} faded`:''}.`:''}`);}
+         if(f.sluice){const w=f.sluice;text(`Outflow sluice: ${w.jammed?'jammed':'running clear'}. Clearing it drives ${w.output/1000} condensate of pressure; ${w.method} (${w.stage}) spends ${w.cost/1000}${w.cost<w.baseCost?` instead of ${w.baseCost/1000}`:''}. ${w.pays==='reputation'?'Clearing it discharges the conservatory’s duty to the Village and earns standing there.':`The keeper pays ${w.wageCoins} coins per cleared jam.`}`);}
+         if(f.history)text(f.history);
+         if(v?.pathWork&&f.inside){const w=v.pathWork;text(`Precise path work: ${w.label||'choose a practiced method'}. Source: ${w.source}${w.quality?`; current material quality ${w.quality}`:''}. Frontier physical hides are compatible here; the charge stays bound to this body and instance.`);
+@@ -24,7 +26,7 @@ export function createMistglassPanel({host,read,act}){
+             for(const [id,label,enabled] of [['prepare','Prepare this path’s reserve · 1 condensate; refinement also uses a dose',!!w.label&&!w.prepared],['cut','Flow-cut one owned pelt',w.prepared?.path==='breath'],['set','Set-grain one owned pelt',w.prepared?.path==='settling'],['discard','Abandon the committed preparation',!!w.prepared]]){const b=document.createElement('button');b.textContent=label;b.dataset.mistglassAction='method:path:'+id;const q=v.pathQuotes?.[id];b.disabled=f.disabled||!v.supported||!!v.pending||!enabled||q?.eligible===false;b.title=q?.reason||'';b.onclick=()=>{try{act('method:path:'+id);notice.textContent='';}catch(e){notice.textContent=e.message;}render();};body.append(b);}}
+ 
+         if(v?.history){const h=v.history;if(h.consequence)text(h.consequence+' '+h.terms);for(const [id,label,enabled] of [['inspect','Inspect the surviving outflow masonry',h.heard],['restore','Restore the old outflow brace · 1 rough log',h.inspected&&!h.restored]]){const b=document.createElement('button');b.textContent=label;b.dataset.mistglassAction='method:history:'+id;b.disabled=f.disabled||!f.inside||!enabled;b.onclick=()=>{try{act('method:history:'+id);notice.textContent='';}catch(e){notice.textContent=e.message;}render();};body.append(b);}}
+-        if(f.preview){text(`Spend one Cloudseed dose and 2 condensate. Twelve played minutes. ${f.preview.successPercent}% success awards 30 native Meditation XP.`);text(f.preview.risk);}
++        if(f.preview){text(`Spend one Cloudseed dose and 2 condensate. Twelve played minutes. ${f.preview.successPercent}% success awards 30 native Meditation XP; what one sitting cannot hold settles into your drill's practice minutes (one per 5 surplus) or fades if there is no drill to deepen.`);text(f.preview.risk);}
+         const methods=v&&f.inside?Object.entries(cultivationMethods).map(([id,m])=>({id:`method:${id}`,label:m.label,enabled:!v.pending&&!v.pathWork?.prepared&&v.supported&&v.technique.id!==id,reason:'Finish purification or rawness before switching; the active method is already selected.'})):[];
+         if(methods.length){text('Practice stages: learning → practiced at 16 → integrated at 48 played mist minutes. Practice pauses during purification, rawness and absence.');for(const m of Object.values(cultivationMethods))text(`${m.label}: condensate/min ${m.rates.map(n=>n/1000).join(' → ')}; purification ${m.odds.map(n=>n/100+'%').join(' → ')}.`);}
+         for(const a of [...(f.actions||[]),...methods]){const b=document.createElement('button');b.textContent=a.label;b.dataset.mistglassAction=a.id;b.disabled=f.disabled||a.enabled===false;b.title=f.disabled?'Finish your current work in the writable game tab.':a.reason||'';
+diff --git a/src/absorb_p23/world_adaptation/index.js b/src/absorb_p23/world_adaptation/index.js
+index 60234be80..99fc88ed6 100644
+--- a/src/absorb_p23/world_adaptation/index.js
++++ b/src/absorb_p23/world_adaptation/index.js
+@@ -1,7 +1,7 @@
+ import {validatePathWork,pathWorkView} from '../../mistglass_path_work.js';
+ import {check, natural as nat, object as record} from '../../basics.js';
+ import {cultivationMethods,freshCultivation,validateCultivation,cultivationView,advanceCultivation} from './techniques.js';
+-export {cultivationMethods} from './techniques.js';
++export {cultivationMethods,settleInsight} from './techniques.js';
+ import {mistglassProfile as P} from './profile.js';
+ export {mistglassProfile, mistglassContent, mistglassEnergyPolicy} from './profile.js';
+ 
+diff --git a/src/absorb_p23/world_adaptation/techniques.js b/src/absorb_p23/world_adaptation/techniques.js
+index 6af170552..98eb2f84f 100644
+--- a/src/absorb_p23/world_adaptation/techniques.js
++++ b/src/absorb_p23/world_adaptation/techniques.js
+@@ -9,14 +9,16 @@ export const cultivationMethods = Object.freeze({
+ export const freshCultivation = () => ({schema:1,selected:'mist',minutes:{breath:0,settling:0}});
+ export function validateCultivation(value) {
+     if(value===undefined)return;
+-    check(value && value.schema===1 && Object.keys(value).sort().join(',')==='minutes,schema,selected' && Object.hasOwn(cultivationMethods,value.selected),'Invalid cultivation technique schema/method.');
++    check(value && value.schema===1 && Object.keys(value).filter(k=>k!=='insight').sort().join(',')==='minutes,schema,selected' && Object.hasOwn(cultivationMethods,value.selected),'Invalid cultivation technique schema/method.');
++    if(value.insight!==undefined){const i=value.insight,keys=['carry','lost','minutes'];
++        check(i&&Object.keys(i).filter(k=>k!=='last').sort().join(',')===keys.join(',')&&keys.every(k=>Number.isFinite(i[k])&&i[k]>=0)&&(i.last===undefined||i.last&&['excess','lost','minutes'].every(k=>Number.isFinite(i.last[k])&&i.last[k]>=0)),'Invalid cultivation insight record.');}
+     check(value.minutes && Object.keys(value.minutes).sort().join(',')==='breath,settling' && Object.values(value.minutes).every(n=>natural(n)&&n<=48),'Invalid cultivation practice.');
+ }
+ export function cultivationView(value) {
+     validateCultivation(value);
+     const state=value||freshCultivation(),method=cultivationMethods[state.selected],minutes=state.minutes[state.selected]||0,stage=minutes>=48?2:minutes>=16?1:0;
+     return {id:state.selected,label:method.label,description:method.description,minutes,stage:['Learning','Practiced','Integrated'][stage],nextAt:state.selected==='mist'||stage===2?null:stage===0?16:48,
+-        rate:method.rates[stage],successThreshold:method.odds[stage],workCost:method.work[stage]};
++        rate:method.rates[stage],successThreshold:method.odds[stage],workCost:method.work[stage],insight:state.insight?structuredClone(state.insight):null};
+ }
+ // Split at practice thresholds so one large advance equals many small ones.
+ export function advanceCultivation(value,minutes) {
+@@ -28,3 +30,20 @@ export function advanceCultivation(value,minutes) {
+     }
+     return {next,earned:BigInt(earned)};
+ }
++
++// D3 proposal (2026-10-23): Meditation insight past one sitting's cap settles into the
++// selected drill's practice minutes at row.xpPerMinute (remainder carried); what cannot
++// settle (open-mist method, drill already Integrated) is lost and said so.
++// In: excess + carry. Out: minutes * xpPerMinute + new carry + lost. Hundredths throughout.
++const hundredths=n=>Math.round(n*100)/100;
++export function settleInsight(value,excess,row) {
++    validateCultivation(value);
++    if(!(excess>0)||!value)return {next:value,minutes:0,lost:0,carry:value?.insight?.carry??0};
++    const next=structuredClone(value),id=next.selected,i=next.insight||={carry:0,lost:0,minutes:0};
++    const room=id==='mist'?0:48-next.minutes[id],pool=hundredths(excess+i.carry),want=Math.floor(pool/row.xpPerMinute+1e-9),minutes=Math.min(room,want);
++    const rest=hundredths(pool-minutes*row.xpPerMinute),lost=room>want?0:rest;
++    if(id!=='mist')next.minutes[id]+=minutes;
++    i.minutes+=minutes;i.lost=hundredths(i.lost+(room>want?0:rest));i.carry=room>want?rest:0;
++    i.last={excess:hundredths(excess),minutes,lost};
++    return {next,minutes,lost,carry:i.carry};
++}
+diff --git a/src/main.js b/src/main.js
+index a8eef5341..76c89aca1 100644
+--- a/src/main.js
++++ b/src/main.js
+@@ -835,12 +835,12 @@ function studyContext(state=expansionState,gameplay=gameplaySnapshot()) {
+         housingAccessible:!!current_location?.housing?.isUnlocked()&&current_location.getAvailabilityComponent().getStatus().is_unlocked,
+         sleepingLevel:character.getTotalSkillLevel('Sleeping'),readProgressPerMinute:readingRate(character.getTotalSkillLevel('Literacy'))};
+ }
+-function p00NativeSkillXP(id,amount){
++function p00NativeSkillXP(id,amount,report){
+     const skill=skills[id];if(!skill?.canGainXP(get_context()))throw Error('Native skill eligibility blocks this settlement.');
+     let xp=amount*lifeLearningMultiplier(expansionState.chronicle)*furnitureSkillMultiplier(readFurnitureBonuses(),id)*getPacingEffects(homePacingContext()).efficiency*config.global_xp_multiplier*character.getSkillXPGain(id)*(character.xp_multiplier??1);
+     if(skill.parent_skill)xp*=skill.get_parent_xp_multiplier();
+     const toNext=character.getLevelableComponent().skill_progress[id]?.xp_to_next_lvl??skill.base_xp_cost;
+-    if(Number.isFinite(toNext))xp=Math.min(xp,toNext*config.skill_xp_gains_cap);
++    if(Number.isFinite(toNext)){const cap=toNext*config.skill_xp_gains_cap;if(xp>cap)report?.(Math.round((xp-cap)*100)/100);xp=Math.min(xp,cap);}
+     return Math.round(xp*100)/100;
+ }
+ function nativeBooksSnapshot(){return Object.fromEntries(Object.entries(book_stats).filter(([,b])=>b.accumulated_time>0).map(([id,b])=>[id,{accumulated_time:b.accumulated_time}]));}
+diff --git a/tests/p23-host-joins-world-adaptation.test.js b/tests/p23-host-joins-world-adaptation.test.js
+index ac2c593d8..106201d02 100644
+--- a/tests/p23-host-joins-world-adaptation.test.js
++++ b/tests/p23-host-joins-world-adaptation.test.js
+@@ -88,3 +88,15 @@ test('instance history is drawn once from the save seed, survives reload and cha
+     advance(legacy,16);stageMistglassSluice(legacy,mistglassContext(legacy.state,native),expeditionRegistry);assert.equal(legacy.external.money,22,'old realms keep the original keeper wage');
+     const bad=enrolled();bad.state.mistglassRealm.history.id='invented';assert.throws(()=>validateMistglassEnvelope(envelope(bad)),/history/);
+ });
++test('D3: a capped purification quote reports its surplus and the saved drill takes it; uncapped and legacy paths are untouched',()=>{
++    const quote=(cap,seen)=>(_id,n,report)=>{const kept=Math.min(n,cap);if(n>kept){seen.push(n-kept);report?.(n-kept);}return kept;};
++    const run=(cap,method)=>{
++        const p=advance(enrolled(),16);if(method)p.state.worldAdaptation.techniques={schema:1,selected:method,minutes:{breath:0,settling:0}};
++        stageMistglassTrial(p,mistglassContext(p.state,native),expeditionRegistry,{doseKey:key,quoteXP:quote(cap,[])});p.state.worldAdaptation.pending.roll=0;
++        const c=mistglassContext(p.state,native);p.state.clock=28;stageMistglassAdvance(p,c,expeditionRegistry,{quoteXP:quote(cap,[])});validateMistglassEnvelope(envelope(p));return p;};
++    const capped=run(10,'breath'),t=capped.state.worldAdaptation.techniques;
++    assert.equal(capped.gameplay.player.skills.Meditation.xp,10,'the cap itself is unchanged');
++    assert.equal(t.minutes.breath,4);assert.equal(t.insight.last.excess,20);assert.equal(t.insight.minutes*5+t.insight.carry+t.insight.lost,20);
++    const open=run(10);assert.equal(open.state.worldAdaptation.techniques.insight.lost,20,'open-mist has no drill: the surplus fades and is counted');
++    const free=run(100,'breath');assert.equal(free.state.worldAdaptation.techniques.insight,undefined,'no surplus, no record');
++});
+diff --git a/tests/p23-world-adaptation.test.js b/tests/p23-world-adaptation.test.js
+index 9c802be72..f6c99d020 100644
+--- a/tests/p23-world-adaptation.test.js
++++ b/tests/p23-world-adaptation.test.js
+@@ -225,3 +225,25 @@ test('sluice refuses known-but-unaffordable, wrong context and pending trials; o
+     }
+     assert.equal(enrolled().sluice,undefined);
+ });
++
++test('D3 insight overflow converts into drill practice, conserves, and fades with a reason', async () => {
++    const {settleInsight, freshCultivation, validateCultivation} = await import('../src/absorb_p23/world_adaptation/techniques.js');
++    const {skillEventOverflowRow} = await import('../src/skill_overflow_domain.js');
++    const row = skillEventOverflowRow('p23.mistglass', 'purification');
++    assert.equal(row.policy, 'converted');
++    assert.equal(skillEventOverflowRow('p23.mistglass', 'other').policy, 'lost', 'other gains keep the stated loss');
++    const base = {...freshCultivation(), selected: 'breath'};
++    const r1 = settleInsight(base, 12.5, row);               // 2 minutes, 2.5 carried
++    assert.equal(r1.next.minutes.breath, 2); assert.equal(r1.next.insight.carry, 2.5); assert.equal(r1.lost, 0);
++    const r2 = settleInsight(r1.next, 12.5, row);            // pool 15 = 3 minutes
++    assert.equal(r2.next.minutes.breath, 5); assert.equal(r2.next.insight.carry, 0);
++    assert.equal(r2.next.insight.minutes * row.xpPerMinute + r2.next.insight.carry + r2.next.insight.lost, 25, 'excess in = out + held + lost');
++    const full = {...base, minutes: {breath: 47, settling: 0}};
++    const r3 = settleInsight(full, 12, row);                 // room 1 minute, 7 fades
++    assert.equal(r3.next.minutes.breath, 48); assert.equal(r3.lost, 7); assert.equal(r3.minutes, 1);
++    assert.equal(settleInsight(freshCultivation(), 10, row).lost, 10, 'open-mist has no drill');
++    validateCultivation(r3.next);
++    validateCultivation(base);                               // legacy shape without insight loads
++    assert.throws(() => validateCultivation({...base, insight: {carry: -1, lost: 0, minutes: 0}}));
++    assert.equal(settleInsight(base, 0, row).next, base, 'no excess, no change');
++});

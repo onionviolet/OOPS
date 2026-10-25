@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "fixture": "DEV SEEDED completed herb lesson; no native acquisition claimed",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "url": "http://127.0.0.1:19913/?harvest-inspector=1&test_hooks=1",
+  "recipeUnlocked": true,
+  "learned": true,
+  "gateText": "Progression gates (GTR) · inputs → open or waiting\nOpen to review\nsource · frontier.herb_lesson\nknowledge gate, persist. Reason: Handling enough leaves teaches how they behave when dried and ground.\nDials: {\"count\":20}\nRoutes: recipe-reward (Any ordinary recipe source (reward, book, teacher) unlocks the preparation directly. Cost: Whatever that source asks.)\nobservation · frontier.herb_lesson now\nwaiting. Inputs: {\"held.Golmoon leaf\":20,\"reveal.herbLesson\":true}\nWhy: Author: Not yet learned. Player sees: Something is still missing.",
+  "pageErrors": []
+}

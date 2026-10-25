@@ -1,0 +1,962 @@
+{
+  "as_of": "2026-10-24 America/New_York",
+  "head": "547209e82c29e897e6b602a4ef5d8e8ab46b3ebf",
+  "basis": "dirty working files; hashes bind observations, not a full-source-read or runtime attestation",
+  "groups": {
+    "E01": [
+      "src/pledges.js",
+      "src/pledges_content.js",
+      "src/pledges_domain.js",
+      "src/breakthrough_trial.js",
+      "src/vow_rules.js",
+      "src/native_tool_domains.js"
+    ],
+    "E02": [
+      "src/absorb_p23/world_adaptation/techniques.js",
+      "src/absorb_p23/world_adaptation/profile.js",
+      "src/mistglass_path_work.js",
+      "src/ascension_paths.js",
+      "src/ascension_paths_mistglass.js"
+    ],
+    "E03": [
+      "src/craft_resolver.js",
+      "src/craft_content_frontier.js",
+      "src/crafting_frontier_runtime.js",
+      "src/crafting_domain.js",
+      "src/craft_depth_domain.js",
+      "src/craft_dose_rules.js",
+      "src/craft_experiment_log.js"
+    ],
+    "E04": [
+      "src/lineage_traits.js",
+      "src/lineage_domain.js",
+      "src/heir_inheritance.js"
+    ],
+    "E05": [
+      "src/household_fortunes.js",
+      "src/household_fortunes_domain.js",
+      "src/home_layout.js",
+      "src/home_layout_domain.js",
+      "src/home_domain.js",
+      "src/home_building_model.js",
+      "src/home_model.js"
+    ],
+    "E06": [
+      "src/home_work.js",
+      "src/home_work_content.js",
+      "src/home_staff.js",
+      "src/home_office.js",
+      "src/home_household.js"
+    ],
+    "E07": [
+      "src/peer_standing.js",
+      "src/peer_standing_domain.js",
+      "src/companion_roster.js",
+      "src/companion_wishes.js",
+      "src/npc_lives.js"
+    ],
+    "E08": [
+      "src/chronicle.js",
+      "src/life_experience.js",
+      "src/life_record.js",
+      "src/lives_carry_domain.js",
+      "src/carry_ledger.js",
+      "src/discovery_codex.js",
+      "src/continuation_state.js"
+    ],
+    "E09": [
+      "src/storylet_content.js",
+      "src/storylet_deck.js",
+      "src/simulation.js",
+      "src/story_recognizer.js",
+      "src/story_requests.js",
+      "src/causal_story_core.js"
+    ],
+    "E10": [
+      "src/away_ledger.js",
+      "src/backlog_expansion_time.js",
+      "src/simulation_clock.js",
+      "src/realm_clock_leases.js"
+    ],
+    "E11": [
+      "src/body_progression.js",
+      "src/techniques.js",
+      "src/aging_contact.js",
+      "src/energy_resources.js"
+    ],
+    "E12": [
+      "src/combat_math.js",
+      "src/combat_readout.js",
+      "src/defeat_domain.js",
+      "src/titles.js"
+    ],
+    "E13": [
+      "src/gear_work.js",
+      "src/gear_affixes.js",
+      "src/equipment_stats.js",
+      "src/loadouts.js",
+      "src/material_lineage.js",
+      "src/gear_workshop_domain.js"
+    ],
+    "E14": [
+      "src/known_routes.js",
+      "src/structured_expedition_runtime.js",
+      "src/field_works_content.js",
+      "src/field_works_facts.js",
+      "src/field_works_projection.js",
+      "src/world_completion_crop_clock.js",
+      "src/habitat_care.js"
+    ],
+    "E15": [
+      "src/gen_kit.js",
+      "src/progression_gates.js",
+      "src/main.js",
+      "src/ui_extras.js",
+      "src/save_compatibility.js",
+      "src/save_files.js",
+      "src/structured_pack_runtime.js"
+    ]
+  },
+  "files": {
+    "docs/research/ITCH_IO_IDLE_SCREEN_2026-10-22.md": "2350fb94133d24d63fd6e4e5b407a57c834a6a0e4033d82f5310cf4e7ad342c3",
+    "docs/research/additional-cultivation-2026-10-22/IMPLEMENTATION.md": "009fd02ad5289334df292b66757a2db7a8dd35720bae5574d8c803781ec8d602",
+    "docs/research/additional-cultivation-2026-10-22/REPORT.md": "b06e80061e559c492dadd19b42be10a7e9342219712759b3f52aa8906f9e2f2c",
+    "docs/research/cultivation-idlers/REPORT.md": "0e4a13413f6775e611be896a5e595de4d6e7eddaa33ed7cb8093f12a63a5ae52",
+    "docs/research/itch-io-2026-10-22/BATCH_CULT_REST.md": "27ea2620079a9142ec5eac19e3db5a8446a2dce055296ff04b03ba04594fec9f",
+    "docs/research/itch-io-2026-10-22/BATCH_I1_DEEP.md": "9cdc42ffa8293b27ef431be8432636f6275290c7e11d1742947689d15117b4e9",
+    "docs/research/itch-io-2026-10-22/BATCH_PROGRESSION.md": "7a94bc23cd5139f1d3831823580f45778358739d4a73285b8539d205ae76fe6d",
+    "docs/research/itch-io-2026-10-22/BATCH_SECT.md": "37d5eff0e91a468e6126bfb2c69fe9a2729c37d897fed1df395e75812b032e04",
+    "docs/research/itch-io-2026-10-22/BATCH_W3_READS.md": "d73529d4613e70760fdedb4f6a52428e57c66727ded82d1d37e7ef9f66835c87",
+    "docs/research/itch-io-2026-10-22/OPEN_GAPS.md": "37f36bb3de3f95b869a8d3899885c8a76922483aae2d3bb5bf1d81ad7896363d",
+    "docs/research/itch-io-2026-10-22/PLAY_QUEUE.md": "0d683fa1aeb053fd838f5af42e971caeb20ba8d923282817bbb19c35caf40d79",
+    "docs/research/itch-io-2026-10-22/YAIR_GAP_CHECK.md": "59bd9ced9bdd88e965fe401eb2f921ef6d41b95872dad21b17df47f2f014baa7",
+    "src/absorb_p23/world_adaptation/profile.js": "1fb29f5c7155c61cf1e64933bab47e7f37cf194e5ece19c45f5da0542f16c32b",
+    "src/absorb_p23/world_adaptation/techniques.js": "08f29ec29c674120bf7220be6da9a59b9d9b28790b8c2585245f59bb68ecebf5",
+    "src/aging_contact.js": "cda86af7bc6c97d4e67b5020b1beb1383ff9e156602368c54d9d111a86ff4609",
+    "src/ascension_paths.js": "7038d96dfc23d570ce63ad0693ddcbc6d18396d6859a942772c21fb36e8e5f65",
+    "src/ascension_paths_mistglass.js": "cb96c46fd8b8c4a09978fb0a7de47630cb27db72341764a53ce8d9069c6c6422",
+    "src/away_ledger.js": "b814c48d301c79b99cd12bc577638750b9d39cd1ae61a8a84fe10bfdb797d3ab",
+    "src/backlog_expansion_time.js": "c1846a23173f6049b2b8514c393fa501244b179de4780c33a376b44db73a95b0",
+    "src/body_progression.js": "b54248e084f05d6a0b0522bb16b0dbd3c8b3f610e3fc0cd5647997713fb9bc0f",
+    "src/breakthrough_trial.js": "d381577c9840ebfabf61680f05ac94cfaa0ab01ab6cebfcdff725976b48a7e77",
+    "src/carry_ledger.js": "8d8aeb817d7a1f89fa33e350fc8e43f8b22078fa822b502960e5d001a6a13c1b",
+    "src/causal_story_core.js": "0a226b610917fe056dca78a3567e9c0da7dbb814624fcd86c6de9427314a79cc",
+    "src/chronicle.js": "0f9b32e100dbcf83b1470fd7cf8a90485fc0cec01ee7d5ee8e055e4855d81d55",
+    "src/combat_math.js": "2920f224675053aded167848a20445cc5171c6a0e30b4ae702fe11ed5e93bbe0",
+    "src/combat_readout.js": "85fd0010229dea7b76a6ab676e45a8dbde24ca1c0fee7f4ab8c74177e741db60",
+    "src/companion_roster.js": "3bda3e492c5e00a605eeb70c0d9bb8e0eba7006ea63332119892f4ebc580d78f",
+    "src/companion_wishes.js": "2e850cec510a138a04bb823e1c6013c51649b129f5a717170e7655f1c2a6b3f1",
+    "src/continuation_state.js": "e7f3f2fc746bd055482a9a7c5b21b1b8f60ed3f3a0d57fecc8aa04bb599bb2b2",
+    "src/craft_content_frontier.js": "b822b78350e615527e1db61312689136af53dbfb76461b669283830d31c73128",
+    "src/craft_depth_domain.js": "52483e2e096e3df1bdf2186641a1729d579c0bd5f5d65707cbbadc6bbcce6b04",
+    "src/craft_dose_rules.js": "d9d0388f2e653aafe950fa4866b1de21eda6021a58839ba9c4f0416540ea7492",
+    "src/craft_experiment_log.js": "6f3b88beb952987f867069033956697c84897f285e90c1506d900e2ed68bec61",
+    "src/craft_resolver.js": "27bd49fb95e8b8dca2e2420901009c4f0d0b7bd96466100edcee44867a282415",
+    "src/crafting_domain.js": "6ebb996fc081ed777b4259b2f6115d22b9b76847d35b7b3bb215ca6bf7b4c9ea",
+    "src/crafting_frontier_runtime.js": "b7ee4926b5c501ea11df2c79bae7b5cf31770b80b194e99cad1ac047f40b0b48",
+    "src/defeat_domain.js": "02e7f1756946e869dc902817dedab3b77d07b3cb3c20dab3d91b8d2867c4bdef",
+    "src/discovery_codex.js": "4fbdfaf668efdb5e4dcd51cb3618e77e9b6450a08ddbd5ef6a5b9eb1d7efbd45",
+    "src/energy_resources.js": "19163af11ff5631eb52a8316009977c7689a18aa32ec506715ebbc22f7eaf2aa",
+    "src/equipment_stats.js": "d6e7e2133b52a6f94be270a160e4696621b6598893f1398da429192ce663e302",
+    "src/field_works_content.js": "5502d24b8cb5e4cb779eecd5aca07c3db11bf87defbf152f11a1a72bf51e0e7a",
+    "src/field_works_facts.js": "5b1dabf1151b080df69a3c9d13a30add367bdba729446371b837dc49166cfa23",
+    "src/field_works_projection.js": "221bae61c23c7670b1aecbb85af75d126685812f709020238f9a9316b17213eb",
+    "src/gear_affixes.js": "693b96b22589978fd61351072c9638e2bce639fca9b767121c862fc942fb1bfc",
+    "src/gear_work.js": "74a9abbe40cc2150f4af86b9a1d527e22a2a1a609044b5b6cc7dfc80c073e840",
+    "src/gen_kit.js": "bbbd05aea220aae5f1a8af48252f771851ad089690c9e68f2be0e19c99d38ec4",
+    "src/habitat_care.js": "22d2272d94f0b79ed06851b8829faf800e2fdb73e8b5e55d4d8efabe9f6d74e4",
+    "src/heir_inheritance.js": "388f2db2f1695c5a219cf7b79b913441006b41fdb48edb781c3ac3089763141e",
+    "src/home_domain.js": "c4474d34a8de0547614e71f2de2072333d034776e3f8d9c52856c8ee4a02e48f",
+    "src/home_household.js": "277ef63c12a3d51abef5df512c38bd2fe93c8ef17a11ab50931118e885a53c15",
+    "src/home_layout.js": "6627c89592cd408d1f0e2f8fced464c4b5d9776787c9ba02a845432b7cb9537b",
+    "src/home_layout_domain.js": "cb6e22c407190f5454692fb9572f0615286b7146258d05d762565dc341f1f50b",
+    "src/home_office.js": "3f6746df307480e249667787a80dda9436a93308c4f6342ad5c031fb91986b63",
+    "src/home_staff.js": "f63ae2fe1f2c32f7ea370d90d491c1bb46c873247e6f277848555a070eff12ed",
+    "src/home_work.js": "da7984b99e66973573c9e7662215a798dc95396780e4393795d265defbcea244",
+    "src/home_work_content.js": "55f771724b24209ba0badc7d1a7462581856677e39ec861aac784ad8636dbd9e",
+    "src/household_fortunes.js": "a8d0f4e70f4b99d70b9e4d03d884c80f9fad73d9762e620b856874cbb7b4beb6",
+    "src/household_fortunes_domain.js": "05d79b740144a0e08a48252ecfd84b78f4c735abf41bea71ab2f15926b0c2c0a",
+    "src/known_routes.js": "b26735ee64c3f83464f4a374de13c698e9f926574e9686108570c7227422897f",
+    "src/life_experience.js": "ac78f134d62c391febc855430bed3e72b63cf2c01da7ef72b5328bfa735d2dc8",
+    "src/life_record.js": "f61ece3185a6ec1ed1ed69de56c911e6c243bfa66921b778307f2e837ba64edb",
+    "src/lineage_domain.js": "c04874daaec849266754025a03b1e570a8ada557dbd205e3a112f764e973ba3e",
+    "src/lineage_traits.js": "8a0463ccc4e61ff6134ba683fd43a6848b8d6ede9e59066cdde416cb4f6d9e56",
+    "src/lives_carry_domain.js": "8787490d51c53ebfd0c310deac9f48c5e4534970ea8018f733473016bae29867",
+    "src/loadouts.js": "c0171e7d287949e835fb56921be637085565698411bee17374a64eb8c96c37f0",
+    "src/main.js": "2ae1cfb71056cf3edf12e07259b7d75105d2a7dc092918535cc3bd20bcec1e76",
+    "src/material_lineage.js": "1c70cf1822c9ac7952be2b3be3a2a503f4eed545ccd1b9246622ecbae540a890",
+    "src/mistglass_path_work.js": "f12b5637e2d9a2c5f0aacffad90f2b949cbb45fa44c401ff42d04b25fd4d30e2",
+    "src/native_tool_domains.js": "541dedac2440c0911bfab0f343d0aa2f3da1b2676131182eb92071b3aa71b030",
+    "src/npc_lives.js": "d98c3b3dec5fa89f98f2dc52db52671f80d255dc8c73e47401417b2cc245fdc8",
+    "src/peer_standing.js": "5067bd847f49530bef2d4716711b6a4468f50f66cce48021694fdb8d494d1ada",
+    "src/peer_standing_domain.js": "4ecfeeeb80cce74f5aa522897306ba158f9d051170b9f172997b742fccba7753",
+    "src/pledges.js": "63bd03ed5b73316e271d1d5068c2ac95db75dd7e8133af0eac23494fc4687d9d",
+    "src/pledges_content.js": "d71ec7c8e6d104ce2cbcff8635cb849f6dae553b90504d595684485a6ba313de",
+    "src/pledges_domain.js": "a1419dca5a1d6eb4ed51e8963fe04981aaf7b5031a130ac5fa50b228a51b3555",
+    "src/progression_gates.js": "3e7cf4951422a89006120887da6f68723ba9fcb7a99b91913a406605de2157d4",
+    "src/realm_clock_leases.js": "580935180c07b5c21fed6566bc9cb0586477208bf4a83ab915be57f8357299cf",
+    "src/save_compatibility.js": "29821f4dd4ead18fd0c22919e20f3ead5a2294433d79b2e3b1573a569113bb92",
+    "src/save_files.js": "70d1ef3f7e8fbc2561df294a38a1ca5c4d539930b53d6e5fdd7e62271713b1aa",
+    "src/simulation.js": "5cbacefcabcb946b9a7c802e082aa9239d5ccef1a8b58021b2fb9f29f4d34a05",
+    "src/simulation_clock.js": "02e5e74028285e95d0f959b5a42739500b7dc5686830467cbb2058584d3b4897",
+    "src/story_recognizer.js": "f9a7a1e525cb77be7b03b971ebc33407fb45d41b2cab0e30ead322122edc6dbe",
+    "src/story_requests.js": "d6c8637d2fb30fb853566484bdf9262db9e9dc75d1a59f1bd9b6e89b51afdbcb",
+    "src/storylet_content.js": "e407d3eb42aca08861fdd88941d9fd52ce4f9fd9fee3b97afecce13d4d1d88be",
+    "src/storylet_deck.js": "77ff719982ee9cd0b48ad18caf1f529a2b9acabcbab150b06305f3af07d08463",
+    "src/structured_expedition_runtime.js": "b98e016f0b968a50a4fca607b2a57ab6c3ab639afa6de75169611a870830e0c9",
+    "src/techniques.js": "9daef99344a90e6273376dca1613f8ea4050606b082695f8d6eaf0dfe76c8b23",
+    "src/titles.js": "7769b6c1d2d39021c48105ed1fc8cbc7635a89bec429279e0d736715700e8058",
+    "src/ui_extras.js": "4db9c0d27e4057a43eee0943e997ea294e9502523187c94eb75415871ea2289c",
+    "src/vow_rules.js": "1f39d179472be318426b214d12f51353b35bdaf08c52444180b00d9b86d09301",
+    "src/world_completion_crop_clock.js": "3e9fe3b2d3ae5251148f48113d937ae38a8f4be16cb368a228b9d2b9955a4a35",
+    "src/home_building_model.js": "0b522a027f28550f86327dd44f64a92e6b3ce9cf1373e5efaafbf47748f9a333",
+    "src/home_model.js": "4fcc13587d1c6596468a0725b28a9c428e8e762cad88c78f24f8d919a194a6a6",
+    "src/gear_workshop_domain.js": "6686fb841030ea9dcb8b87bd2fbd08741350e22548dafbc52ab728f2e83aee99",
+    "src/structured_pack_runtime.js": "a7b4b0611dd9da8169b54fd08eac57c3ba7939f6eed21e7ec204d412751738ce"
+  },
+  "searches": {
+    "vessel_and_nodes": {
+      "pattern": "\\b(dantian|wuxing|meridian|spiritual.root|node.fusion|elemental.node)\\b",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 1,
+      "locators": {
+        "src/save_compatibility.js": "3"
+      }
+    },
+    "persistent_law_depth": {
+      "pattern": "lawDepth|law_depth|law.depth|soulPower|soul_power|soul.shop|proficiency.*aptitude",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 0,
+      "locators": {}
+    },
+    "creature_breeding": {
+      "pattern": "breed\\(|breeding|incubat|gene.rank|bloodline",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 15,
+      "locators": {
+        "src/character_bio.js": "18,23",
+        "src/feature_expansion_book_roster.js": "1923,2030",
+        "src/feature_expansion_book_situated.js": "132,143",
+        "src/lineage_traits.js": "20,22,23,64,65,73,138,154",
+        "src/capabilities.js": "4"
+      }
+    },
+    "vow_consumers": {
+      "pattern": "vowTake|vowBreak|vowBonuses|state\\.vows|vowRules",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 16,
+      "locators": {
+        "src/pledges_domain.js": "5,40,41,66,67",
+        "src/pledges_ui.js": "22",
+        "src/pledges.js": "5,8,17,30,31,75",
+        "src/vow_rules.js": "14,40",
+        "src/pledges_content.js": "3,11"
+      }
+    },
+    "current_trial": {
+      "pattern": "attemptBreakthrough|quoteSafeBreakthrough|pressureOnFail|setback",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 15,
+      "locators": {
+        "src/pledges.js": "6,44,51,53",
+        "src/main.js": "23,794",
+        "src/absorb_p23/growth_profile/profile.js": "120",
+        "src/pledges_content.js": "21",
+        "src/breakthrough_trial.js": "17,19,20,33,40,46,47"
+      }
+    },
+    "offline_consumers": {
+      "pattern": "computeAway|bankedMinutes|backlog\\.offline|wallNowMs",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 21,
+      "locators": {
+        "src/main.js": "2546",
+        "src/away_ledger.js": "6,7,11,21,39",
+        "src/backlog_expansion_time.js": "26,29,41,43,45,47,49,79,241,253,256,257,263,346,347"
+      }
+    },
+    "impurity_and_heat": {
+      "pattern": "impurit|purification|thermal|heat.balance|doseRules|overdose",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 63,
+      "locators": {
+        "src/craft_content_frontier.js": "127,128,132,133",
+        "src/crafting_domain.js": "7,33",
+        "src/craft_depth_domain.js": "5,15",
+        "src/craft_dose_rules.js": "1,4,18,20,31,32,76,80,86,88",
+        "src/mistglass_path_work.js": "26",
+        "src/crafting_home.js": "41",
+        "src/main.js": "670",
+        "src/absorb_p23/world_adaptation/techniques.js": "5,6,7",
+        "src/absorb_p23/world_adaptation/index.js": "27,28,29,34,35,36,84,116,155,169,189",
+        "src/absorb_p23/host_joins/world_adaptation_ui.js": "14,18,28,29",
+        "src/absorb_p23/world_adaptation/profile.js": "17",
+        "src/absorb_p23/host_joins/world_adaptation.js": "61,64,162",
+        "src/ascension_paths_mistglass.js": "13",
+        "src/items.js": "4044,4049",
+        "src/crafting_frontier_runtime.js": "8,13,49,57,58,59,61,75,76,102,140,154,155,157,160,167,177"
+      }
+    },
+    "reference_specials": {
+      "pattern": "soul.fork|soulFork|heavenly.insight|grade.*breakthrough|tribulation.*tier",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 4,
+      "locators": {
+        "src/pledges.js": "45",
+        "src/breakthrough_trial.js": "17,43,45"
+      }
+    },
+    "journal": {
+      "pattern": "player.notes|personal.journal|free.text|textarea",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 11,
+      "locators": {
+        "src/workspace_navigation.js": "92",
+        "src/work_ledger_author_ui.js": "7",
+        "src/shell_composition.js": "15",
+        "src/workspace_layout.js": "492",
+        "src/customization_ui.js": "51",
+        "src/authored_site_ui.js": "20,23",
+        "src/absorb_p23/known_detail/hotkeys.js": "16",
+        "src/row_context_menu.js": "83",
+        "src/village_workspace.js": "180",
+        "src/game_bar.js": "39"
+      }
+    },
+    "combat_diagnosis": {
+      "pattern": "rounds.to.kill|rounds.to.fall|diagnos|failure.pity|shared.streak",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 90,
+      "locators": {
+        "src/world_pack_loader.js": "6,29,41,49,54,98,100,136,145,153,159,161,165,171,188,201,202,208,226,230,232,233,234,235,255,261,264,266,286",
+        "src/backlog_expansion_transit.js": "481",
+        "src/feature_expansion_book_roster.js": "1231,1268,1328,1443,1491,2051",
+        "src/steam_boh_host.js": "40",
+        "src/invention_planner.js": "200,201,203,205,206,213",
+        "src/world_pack_manifest.js": "42,133,137,139,202,203,212,217,222",
+        "src/steam_boh_facts.js": "19,31,33,56,58,85,86,116",
+        "src/feature_expansion_book_recognition.js": "1498",
+        "src/world_pack_registry.js": "18",
+        "src/original_frontier_career_content.js": "112,151,154",
+        "src/tag_store.js": "203,212,227,230,233",
+        "src/aging_contact.js": "53,90,94,120,129,162,163,197,198",
+        "src/steam_boh_content.js": "10,27,65,66,75,76,77,79",
+        "src/aging_contact_ui.js": "22",
+        "src/invention_qa.js": "1,170"
+      }
+    },
+    "institutions": {
+      "pattern": "sect|army|soldier|recruit|faction|envoy",
+      "scope": "src/**/*.js, including catalogues and adapters; hits require consumer inspection",
+      "match_count": 891,
+      "locators": {
+        "src/ink_narrative_ui.js": "56,59",
+        "src/field_works_ui.js": "7,17,20",
+        "src/frontier_campaign_ui.js": "8",
+        "src/repository_absorption_ui.js": "37,42,44,46,48,100,117,138",
+        "src/steam_oni_host.js": "37,53",
+        "src/causal_story_ui.js": "92,93,96,148,152,153,154,155,160,166,192,193,204,209,210,217,222,223,229,234,235,276,277,278,281,289,294,297,307,326,327,329,350",
+        "src/proto23_world_host.js": "159,162",
+        "src/world_completion_life_host.js": "28,30,36",
+        "src/book_world_lotm_ids.js": "19",
+        "src/proto23_shell.js": "39,43,47,49,93,98,100,104,112,252,285,327,400,402,403",
+        "src/reference_kit.js": "1,80,89",
+        "src/statistics_panel.js": "54",
+        "src/lever_lesson.js": "25",
+        "src/recent_learning.js": "25",
+        "src/gear_workshop_panel.js": "8",
+        "src/life_events_ui.js": "6,20,31,43",
+        "src/home_building_panel.js": "6,9,23,33",
+        "src/steam_boh_host.js": "31,41",
+        "src/field_care_host.js": "33,35,44",
+        "src/field_works_extension_content.js": "13,15,16,18,19,23,27,28,31,35,36,48",
+        "src/feature_expansion_wave_host.js": "36,37,38,39,41,42,43,44,45,46,54,65,71,75,77,89,92,93,94,95,96,97,98,99,100,101,107",
+        "src/generated_people_ui.js": "67",
+        "src/chain_inspector_ui.js": "30,31,32,36,46,48",
+        "src/mixture_ui.js": "11",
+        "src/book_world_primordial_credit.js": "1,15,28,35,38,39,55,71,100,101,123,153",
+        "src/work_ledger_ui.js": "58,66,93",
+        "src/home_furniture_panel.js": "12,13",
+        "src/home_layout_panel.js": "7",
+        "src/audit_remainder_combat_objectives_host.js": "44,54",
+        "src/factorio_retort_host.js": "177,201",
+        "src/status_window.js": "9,25,26",
+        "src/work_ledger_author_ui.js": "3",
+        "src/reference_gameplay_state.js": "141,142,152,159,161,162",
+        "src/book_world_primordial_ui.js": "6,8,63",
+        "src/feature_expansion_book_roster.js": "490,797,1235,1252,1359,1409,1415,1417,1427,1492,1495",
+        "src/known_routes_ui.js": "47,61,62,63,64,65,66,67,77,80,105",
+        "src/contextual_balm_host.js": "59,62,75",
+        "src/simulation_ui.js": "9,62,63,65,67,78,83",
+        "src/steam_absorption_host.js": "24",
+        "src/loadouts.js": "108",
+        "src/book_world_paradise_host.js": "88,92",
+        "src/ui/preview/main.js": "42",
+        "src/region_view.js": "41",
+        "src/continuation_ui.js": "8,12,19,22,44,53,60,63,66",
+        "src/condition_panel.js": "10",
+        "src/game_absorption_assay_host.js": "40,57",
+        "src/start_probe_ui.js": "6,7,8,9,10,21,53",
+        "src/audit_remainder_host.js": "46,50,53,56,60,61,68,71",
+        "src/feature_expansion_society_host.js": "99,140",
+        "src/feature_expansion_nested_life.js": "133,134,145,148",
+        "src/story_insight_domain.js": "33,34,48",
+        "src/feature_expansion_book_cultivation.js": "36,80,207,325,333,353,389,399",
+        "src/audit_remainder_consequences_host.js": "67,68,79,82",
+        "src/lineage_domain.js": "44",
+        "src/world_pack_save.js": "1,15,19,32,33,34,35,36,47,51,67,68,69,70,79,84,88,89,101,104,108,109,110,111,112,113,114,116,117,118,119,126,127,128,130,135,136,139,140,141,142,143,151,154,155,156,161,162,169,172,176,179,183,184,190,192",
+        "src/absorb_e1/panel.js": "16",
+        "src/known_things.js": "62",
+        "src/cooling_refinement_host.js": "82,120,124,129",
+        "src/feature_expansion_nested_chains_host.js": "61,62,78,82",
+        "src/tools_panel.js": "24,25,26,28,35,36",
+        "src/workspace_views.js": "18",
+        "src/audited_workshop_host.js": "29,30,38,40",
+        "src/world_packs/book_hp_pack.js": "64",
+        "src/feature_expansion_powers_host.js": "16,19,27,31,59,62,63",
+        "src/harvest_ui.js": "17",
+        "src/work_status_view.js": "33",
+        "src/field_ui.js": "10,21,56,89",
+        "src/reveal_chain.js": "93,96",
+        "src/chronicle_ui.js": "58",
+        "src/systems_workshop_ui.js": "11",
+        "src/audit_remainder_home_host.js": "27,52",
+        "src/pledges_ui.js": "7",
+        "src/structured_pack_ui.js": "13,14,60,62,77,94,110",
+        "src/ui_ports.js": "1,3,20",
+        "src/recipe_connections.js": "69",
+        "src/companion_roster.js": "173",
+        "src/home_model.js": "92",
+        "src/enemies.js": "516,532,542,559",
+        "src/backlog_expansion_host.js": "103",
+        "src/site_projects.js": "21",
+        "src/original_frontier_campaign_ui.js": "28,30,31,32,75",
+        "src/encounter_content.js": "14,15,16,37,52",
+        "src/inventory_composition.js": "26",
+        "src/management/host.js": "53,54,55,69,72,74,76,79,82",
+        "src/workspace_layout.js": "109,610",
+        "src/pursuit_ui.js": "7",
+        "src/management/ui.js": "8,16,18,22",
+        "src/empty_states.js": "3",
+        "src/customization_ui.js": "8,40",
+        "src/economy_standing.js": "13,21,23,54,68,79,80,81,83,84,85,87,88,98,101,116,122,137,138,140,142,146,150,151,154,158,160,161,169,170,172,180,183,294,296",
+        "src/artifact_workshop_host.js": "45,68",
+        "src/feature_expansion_book_situated.js": "92,98,99,150,184,220,228",
+        "src/aging_contact_ui.js": "21,32",
+        "src/display_settings.js": "103,106,107,110,124,131,133,156,168,169",
+        "src/home_furnishing_host.js": "24,39",
+        "src/new_game_beginning.js": "9,10,11,14,19,22,24,26,28,29,30,31",
+        "src/absorb_b/furniture.js": "101,104",
+        "src/lives_carry_domain.js": "8,48",
+        "src/village_career_ui.js": "2,6,13,25,27,29,30,32,37,38,39,41",
+        "src/storylet_ui.js": "23,24,28,29",
+        "src/known_routes_host.js": "47,50,52,141,144,147,194,205,226,233,236,239",
+        "src/feature_expansion_ui.js": "16,17,19,28,29,34,45,46,47,51,52,54,62,63,64,66,67,68,82",
+        "src/book_world_primordial_domain.js": "1",
+        "src/steam_lamb_host.js": "30,43",
+        "src/economy_standing_domain.js": "29,30,31,33,36,38,40,41,115,116",
+        "src/world_completion_lens_host.js": "41,45,62",
+        "src/action_legibility_ui.js": "65,66,79,80,81,84,85,86,107,108,109,126",
+        "src/foundation_interaction_ui.js": "13,26,27,39,40",
+        "src/nearby_context_view.js": "34,39,63",
+        "src/economy_standing_ui.js": "30,32,34,39,41,42,44,47,53,54,59,63",
+        "src/authored_site_ui.js": "7",
+        "src/feature_expansion_refinements_host.js": "33,35,36,37,38,39,40,72,73,74,75,79,80,83,87",
+        "src/promise_ui.js": "10",
+        "src/ui_extras.js": "17",
+        "src/world_completion_host.js": "38,39,40,44,46",
+        "src/main.js": "554,583,586,1327,3421,3422,3423,3427,3452,3459,3539,8866,8869,8872,8873,8875,8890,9555,9576,9701,9748,9797,9893,9902",
+        "src/known_routes.js": "15,58",
+        "src/household_fortunes_panel.js": "7,11,18,26,33,37,45",
+        "src/fork_fort_content.js": "25",
+        "src/nethack_fieldcraft_host.js": "25,29,41",
+        "src/character_bio_ui.js": "5,8,10,11,21",
+        "src/storage_batch_ui.js": "5,11",
+        "src/field_works_content.js": "42,74,81,93,98,100,102,106,109,111,113,117,119,121,124,126,128,129,132,134,136,139,141,143,145,147,148,149,151,157,159,161,163,165,166,170,173,175,177,180,186,189,203,206,208,209,210,211,212",
+        "src/content_pack_ui.js": "24,36",
+        "src/world_completion_materials_host.js": "51,66",
+        "src/steam_df_host.js": "38,49",
+        "src/audited_kit_reserve_host.js": "31,73",
+        "src/people_ui.js": "5",
+        "src/absorb_p23/known_detail/presentation.js": "38,39,40,43,44,59,63",
+        "src/palette_feedback_domain.js": "149,150,157,159,161,162,164",
+        "src/npc_lives_ui.js": "9",
+        "src/crush_social_views.js": "191,192,212,237",
+        "src/absorb_p23/household/host.js": "33,41,88",
+        "src/absorb_p23/known_detail/hotkeys.js": "86,87,109,111",
+        "src/world_completion_learning_host.js": "27,45",
+        "src/save_files.js": "86,87",
+        "src/layout_spec.js": "202",
+        "src/village_workspace.js": "42,55,56,64,74,80",
+        "src/today_strip.js": "58",
+        "src/absorb_p23/exposure/panel.js": "16",
+        "src/audit_remainder_offers_host.js": "27,52,53,55,56",
+        "src/adventure_notebook.js": "53,54,57,60,63,72,74,75,117,125",
+        "src/causal_story_host.js": "459,461,473,500,501",
+        "src/items.js": "1500",
+        "src/reference_gameplay_feats.js": "322,349,352,354,355",
+        "src/npc_lives.js": "50,51,55",
+        "src/crafting_home.js": "6",
+        "src/event_feed_ui.js": "27",
+        "src/lore_practice_host.js": "79,80,99,101",
+        "src/titles_ui.js": "30,31,35,46",
+        "src/frontier_campaign.js": "47,49,51,54,56,58",
+        "src/body_ui.js": "10",
+        "src/village_career.js": "12,32,33,35,36,43,64,67,68,135,140,142,143,147,152,154,155,162,178,179,182,194,195,199",
+        "src/book_care_host.js": "36,39,55",
+        "src/backlog_expansion_ui.js": "39",
+        "src/field_workshop.js": "51,56,59,63,65,67,70,73,77,80,85,88,90,92",
+        "src/hp_brewing_panel.js": "11,30,40,46,59,73,87,94,109",
+        "src/home_panel.js": "15,31,52,56,61,62,64,69,71,74,88",
+        "src/peer_standing_panel.js": "6",
+        "src/audit_remainder_combat_fit_host.js": "50,76",
+        "src/book_world_lotm_ui.js": "7",
+        "src/book_world_paradise_campaign_host.js": "47,66,67",
+        "src/skill_expansion_ui.js": "20,21,25",
+        "src/game_bar.js": "76",
+        "src/status_care_host.js": "49,53,69",
+        "src/lore_history_state.js": "73,80,82,92,105,109,115,117,130,134,135,138,139,142,149,150,155,176",
+        "src/crafting_detail.js": "57,106,171",
+        "src/book_world_mol_host.js": "79",
+        "src/data/locations.js": "1548,1550,1565,1570,1670,1714,3630,3631"
+      }
+    }
+  },
+  "corpus": [
+    {
+      "title": "Path of the Idle Cultivator",
+      "rows": [
+        "PA01",
+        "PA02",
+        "PA03",
+        "PA04",
+        "PA05",
+        "PA06",
+        "PA07",
+        "PA08",
+        "PA09",
+        "PA10",
+        "PA11",
+        "PA12",
+        "PA13",
+        "PA14",
+        "PA15",
+        "PA16",
+        "PA17",
+        "PA18",
+        "PA19",
+        "PA20",
+        "PA21",
+        "PA22",
+        "PA23",
+        "PA24",
+        "PA25",
+        "PA26",
+        "PA27",
+        "PA28",
+        "PA29",
+        "PA30"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Nine Peaks",
+      "rows": [
+        "NP01",
+        "NP02",
+        "NP03",
+        "NP04"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Infinite Dao",
+      "rows": [
+        "PR30",
+        "PR31"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Ascending the Dao",
+      "rows": [
+        "SC01",
+        "SC02",
+        "SC03",
+        "SC04",
+        "SC05",
+        "SC06",
+        "SC07",
+        "SC08"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Patriarch: Murim Idle",
+      "rows": [
+        "SC09",
+        "SC10",
+        "SC11",
+        "SC12",
+        "SC13",
+        "SC14",
+        "SC15",
+        "SC16",
+        "SC17",
+        "SC18",
+        "SC19"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "My Cultivation Sect",
+      "rows": [
+        "SC20",
+        "SC21",
+        "SC22",
+        "SC23",
+        "SC24",
+        "SC25",
+        "SC26",
+        "SC27",
+        "SC28",
+        "SC29"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "开宗立派 P0",
+      "rows": [
+        "SC30",
+        "SC31"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Xianxia Sect Simulator",
+      "rows": [
+        "SC32",
+        "SC33"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Drifting Cloud Chronicles",
+      "rows": [
+        "SC34",
+        "SC35"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Office Immortal",
+      "rows": [
+        "SC36",
+        "SC37",
+        "SC38",
+        "SC39"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "The Reincarnation System",
+      "rows": [
+        "PR01",
+        "PR02",
+        "PR03",
+        "PR04"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Heavenly Path Idle",
+      "rows": [
+        "PR05",
+        "PR06",
+        "PR07"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Qingxuan: The Alchemy Hall Cold Case",
+      "rows": [
+        "PR08",
+        "PR09"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Peak Cultivator",
+      "rows": [
+        "PR10",
+        "PR11"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Great Expanse: Road to Immortality",
+      "rows": [
+        "PR12",
+        "PR13",
+        "PR14"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Immortal Ascension",
+      "rows": [
+        "PR15",
+        "PR16",
+        "PR17"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Ascendant Dao",
+      "rows": [
+        "PR18",
+        "PR19",
+        "PR20",
+        "PR21"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Cycle of the First Dawn",
+      "rows": [
+        "PR22",
+        "PR23",
+        "PR24",
+        "PR25",
+        "PR26",
+        "PR27",
+        "PR28",
+        "PR29"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Tụ Linh Quyết",
+      "rows": [
+        "RC01",
+        "RC02",
+        "RC03",
+        "RC04"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Ninefold",
+      "rows": [
+        "RC05",
+        "RC06",
+        "RC07",
+        "RC08"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Idle Xanxia",
+      "rows": [
+        "RC09",
+        "RC10",
+        "RC11",
+        "RC12"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Ascension Tower (hopefuloftech)",
+      "rows": [
+        "RC13",
+        "RC14",
+        "RC15"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Cultivation Genesis",
+      "rows": [
+        "RC16",
+        "RC17",
+        "RC18"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "A Mortal’s Path of Cultivation",
+      "rows": [
+        "RC19",
+        "RC20",
+        "RC21",
+        "RC22"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Quest of Qinghe",
+      "rows": [
+        "RC23",
+        "RC24"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Olumsuzluk Yolu",
+      "rows": [
+        "RC25",
+        "RC26"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Path of Immortal",
+      "rows": [
+        "RC27",
+        "RC28"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Cultivators Chronicles",
+      "rows": [
+        "RC29",
+        "RC30",
+        "RC31"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Cultivation Core Incremental",
+      "rows": [
+        "RC32",
+        "RC33"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Xianxia Idle",
+      "rows": [
+        "RC34"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Alchemy Sovereign",
+      "rows": [
+        "RC35"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Sect Management Alpha",
+      "rows": [
+        "RC36"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Idle Qi Cultivation",
+      "rows": [
+        "UL01"
+      ],
+      "disposition": "source-limited"
+    },
+    {
+      "title": "Nivrael",
+      "rows": [
+        "UL02"
+      ],
+      "disposition": "source-limited"
+    },
+    {
+      "title": "Chronicles of Cultivation",
+      "rows": [
+        "UL03"
+      ],
+      "disposition": "source-limited"
+    },
+    {
+      "title": "SectMind",
+      "rows": [
+        "UL04"
+      ],
+      "disposition": "source-limited"
+    },
+    {
+      "title": "Dao of the Endless Sky",
+      "rows": [
+        "UL05"
+      ],
+      "disposition": "source-limited"
+    },
+    {
+      "title": "Text Cultivation",
+      "rows": [
+        "UL06"
+      ],
+      "disposition": "source-limited"
+    },
+    {
+      "title": "The Left Hand refers to the moon",
+      "rows": [
+        "UL07"
+      ],
+      "disposition": "excluded-non-cultivation"
+    },
+    {
+      "title": "Nine Heavens Ascent",
+      "rows": [
+        "AC01",
+        "AC02"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Idle Cultivation World",
+      "rows": [
+        "AC03",
+        "AC04"
+      ],
+      "disposition": "mechanism-mapped"
+    },
+    {
+      "title": "Cultivation Quest",
+      "rows": [
+        "AC05",
+        "AC06"
+      ],
+      "disposition": "mechanism-mapped"
+    }
+  ],
+  "cross_source_rows": [
+    "PR32"
+  ],
+  "linked_owner_prefixes": {
+    "docs/research/itch-io-2026-10-22/OPEN_GAPS.md": {
+      "bytes": 13302,
+      "sha256": "37f36bb3de3f95b869a8d3899885c8a76922483aae2d3bb5bf1d81ad7896363d"
+    },
+    "docs/research/ITCH_IO_IDLE_SCREEN_2026-10-22.md": {
+      "bytes": 48126,
+      "sha256": "2350fb94133d24d63fd6e4e5b407a57c834a6a0e4033d82f5310cf4e7ad342c3"
+    }
+  },
+  "validation": {
+    "date": "2026-10-24 America/New_York",
+    "matrix_rows": 154,
+    "named_entries": 42,
+    "mapped_games": 35,
+    "source_limited": 6,
+    "excluded_non_cultivation": 1,
+    "gap_families": 30,
+    "local_link_targets": "PASS: all report targets and new owner links exist",
+    "matrix_and_corpus_ids": "PASS: complete unique row assignment and CG01-CG30 sequence",
+    "shared_owner_preservation": "PASS: pre-edit byte-prefix SHA-256 preserved in both owners",
+    "runtime_drift": "PASS: no changes to bound runtime inputs during audit",
+    "research_drift": "only the two intentional owner-link appends",
+    "runtime_tests_build_browser": "not run: documents-only source audit",
+    "independent_review": "not performed; primary agent rechecked high-consequence source boundaries",
+    "scope": "static source comparison; no packaged/installed/deployed/human acceptance inference"
+  }
+}

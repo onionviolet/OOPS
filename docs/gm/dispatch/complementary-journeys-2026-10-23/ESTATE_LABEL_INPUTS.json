@@ -1,0 +1,29 @@
+{
+  "isolatedRoot": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yair-estate-label-21j8_kwo",
+  "sourceBefore": {
+    "src/heir_inheritance.js": "4aa42e82661aea91afaf7efeecd38a3c1b512b2bf9724b242bcdd8b3acde86fd",
+    "src/main.js": "f2965bc64b4c1459265d442564b119cb513e781cff228738a2ea37a7bf5f5340",
+    "tests/heir_inheritance.test.js": "1eaefd48c988529966bccb16692d3ad3ae2e3828c160a307f327c45a4eacc6fc"
+  },
+  "fixture": "evidence/o4-body-and-heir-0BBN65/age-boundary-only.save.txt",
+  "sourceAfter": {
+    "src/heir_inheritance.js": "388f2db2f1695c5a219cf7b79b913441006b41fdb48edb781c3ac3089763141e",
+    "src/main.js": "2ae1cfb71056cf3edf12e07259b7d75105d2a7dc092918535cc3bd20bcec1e76",
+    "tests/heir_inheritance.test.js": "204a886583ae007a167a28a17a863909013da378405b512f9b4dba5445c21635"
+  },
+  "harnessSha256": "f553230edb7244ffa34b73e1af9e3e9150ddb0fb04c509035fd6c7b05036b03c",
+  "exactPatchSha256": "3cf68ae4b5bc0003fc80443ab1c5cab5fd3d71f5a14ecbe7b1097f894b148a91",
+  "isolatedBundleSha256": "094547759b7918f59529ab0059cc5b49af6285beccbb9c367b15d11c636b82b8",
+  "headAtVerification": "547209e82c29e897e6b602a4ef5d8e8ab46b3ebf",
+  "beforeEvidence": "evidence/estate-label-before-B9pDux",
+  "afterEvidence": "evidence/estate-label-after-IQaLK9",
+  "sharedDistWrittenByThisTask": false,
+  "sharedDistObservedAfterSha256": "9d6276d0041f12de8f5d7a8e4f3f45b3a0eb0efeb4c73f2418091f0b476d98a3",
+  "verification": {
+    "inheritance": "7/7 PASS",
+    "carryCodex": "5/5 PASS",
+    "architecture": "PASS main growth0",
+    "rules": "PASS two existing warnings",
+    "isolatedBrowser": "PASS 1920x1080/14px and1536x864/21px; complete saved state unchanged"
+  }
+}

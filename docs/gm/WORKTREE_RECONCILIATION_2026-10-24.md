@@ -160,3 +160,7 @@ superseded. 20 worktrees retired across round 2 (17 earlier plus these three), n
 original remaining set. Two worktrees appeared after round 2, `nostalgic-mendeleev-5a565c` (branch
 `claude/ability-engine-4c5ccb`) and `sleepy-wing-82bb46` (branch `claude/desktop-interaction-closure-2e51ef`);
 each has a live session process, so they are left alone and not part of this reconciliation.
+
+## Round 3 continuation, 2026-10-25
+
+[Round 3 reconciliation](RECONCILIATION_2026-10-25.md) extends this record with the full current worktree/branch, primary-path and recent-checkpoint inventories, tonight’s Codex results, cultivation review handoff and proposed own-paths landing order. It authorizes no commit, merge or retirement; rounds 1–2 above remain dated execution history.

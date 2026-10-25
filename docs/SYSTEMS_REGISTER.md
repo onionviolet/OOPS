@@ -1,5 +1,7 @@
 # Systems register
 
+[Ideas left inventory, 2026-10-25](audits/IDEAS_LEFT_INVENTORY_2026-10-25.md): D5 proposal crosswalk extends this register and MAW-X by reference, with remaining ideas and next playable slices.
+
 Weibao, 2026-10-25: "we should write down our existing systems to help fit in better like the
 swappable ingredients that works to varying degrees so that there isnt so much hoops in the
 future". Open this before designing or absorbing any mechanic: find the system that already
@@ -17,14 +19,18 @@ a line before relying on it. Update the owning file when a system or a degree la
 
 ## Degrees of flexibility worth knowing first
 
-- **Ingredient substitution (SUB0 to SUB4):** exact item, tag query, property threshold, tag plus threshold, catalyst. Built in `craft_recipes.js`, but `matchRecipe` and `generateRecipe` have no live caller yet (checked 2026-10-25), and native items join only through a catalogue bridge (lane A, in review). Graded fit (partial match changes the outcome, TSW3) does not exist yet.
+- **Ingredient substitution (SUB0 to SUB4):** exact item, tag query, property threshold, tag plus threshold, catalyst. Built in `craft_recipes.js`, but `matchRecipe` and `generateRecipe` have no live caller yet (checked 2026-10-25). `craft_material_fit.js` now grades authored property targets behind a tag query; `native_rendering_recipes.js` reads the native catalogue to offer deliberate, known meat-source choices whose contribution sets actual Cooking input quantities. This bounded TSW3/8/9 application does not implement symbolic similarity, arbitrary formula substitution or potency/risk grading. [Execution and proof boundary](gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md).
 - **Requirements:** gate kinds and hint precision exist in `progression_gates.js`; overflow policies are validated there but read only by skill overflow rows (checked: no other reader of `.overflow` in gate code).
 - **Saves:** world envelopes pin exact fields, `definitionRevision` and a source hash, and saved jobs must equal their command definitions. Add commands; do not edit existing ones without a migration (the LOTM golden test guards this).
+
+
+- **Cultivation through shared owners:** directional formula/heat/grade and body treatment live in the existing crafting/depth owners; vessel/law/mantra/attention allocation uses the Mistglass method and shared energy clock. Paid household study, medicine, offices, circuits, awakening-qualified teaching and physical companion travel use existing actual people, estate funds and simulation jobs. Native combat admits a household cohort through the same fighter/transaction cadence. See the [implementation checkpoint](gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md) for exact current source and desktop/persistence receipts.
+- **Physical continuation and living gear:** aptitude/law/habit anchors carry their declared knowledge, while physical baggage moves one exact piece and its auxiliary facts. Export debits source return points and reserves its allocator identity; a frozen appointment referring to the external piece holds that particular return point. The memory blade’s optional `wornMinutes` records actual equipped played time in its existing living-gear copy record, with logarithmic tempering consumed by native attack. Loose/paused copies gain no new wear; the existing baggage adapter transfers that same record. [Carry and review evidence](gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md#independent-review-u1u2u4-recovery).
 
 ## Top gaps (from both files)
 
 1. Live crafting runtime is single-world (Village frontier catalogue).
-2. No graded substitution fit; the recipe matcher has no live caller.
+2. Graded native rendering input costs are implemented; the general recipe matcher still has no live caller, and symbolic/potency/risk substitution remains open.
 3. Gate overflow policies mostly unread.
 4. Per-life world-pack state has no importer outside the pack modules.
 5. No legacy-command mechanism for in-flight jobs after a command changes.

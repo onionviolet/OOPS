@@ -1,5 +1,9 @@
 # User vision and research coverage
 
+## Fitting cultivation reference mechanics selected, 2026-10-24
+
+Weibao: “Implement the fitting missing mechanics from the audit using our existing systems, all of them”. This selects fitting original adaptations across CG01–CG29 in the [absorption audit](research/itch-io-2026-10-22/CULTIVATION_ABSORPTION_CHECK.md), using existing state, command, custody, clock and save owners. It is broader than the audit's five suggested priorities. Unknown source/server behavior (CG30) remains unverified rather than invented. Exact source catalogues, multiplayer economies and forced loss policies are not selected by the word “fitting”. The existing desktop-first, one-realm/one-prestige and playable-slice sequence remain; selected bounded household and cultivation mechanisms are not blocked by the general NPC deferral. [Implementation and proof](gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md) own delivery states. Commit, push and installed-app publication are not selected.
+
 ## Ascension paths built, value of progress and rituals, 2026-10-22
 
 Weibao asked to "fill gap and build htem here accordingly? Feel free to use
@@ -5721,6 +5725,24 @@ checklist of to dos?" Forwarded to the harness lane: UI checks in playthroughs,
 a default harness per layer, current local model options for his Mac, a more to
 consider list and one ordered to-do checklist in the harness doc.
 
+### Taking more advantage of the Electron host, 2026-10-23
+
+Weibao, 2026-10-23: "How to take most advantage of having electron app? adjust
+accoridngly", then "consider more accordingly? as well? /more-to-consider ?",
+then "implement all of them accordingly, consider optimizations and more?"
+Implemented as A1 save mirror and backups, A7 window and menu, A4 desktop
+presence, A2 natural-clock soak and A3 first pop-out panel. He then said "yes,
+download other stuff and more acordingly": A5 offline Material Icons font
+downloaded and bundled; no other runtime network asset exists. Owner:
+[delivered host slice](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#delivered-host-slice-a1-a4-and-a7-2026-10-23).
+
+Same day: "MCP, check if its already been done, consider other things to extend
+dev stuff and more and to make implementation easier", then "also other stuff at
+the same time?" No game MCP existed; a dependency-free game MCP over the
+headless runner, a registry entry, `check:desktop` and `desktop/README.md` were
+built. Owner:
+[game MCP delivered](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#game-mcp-delivered-over-the-headless-runner-2026-10-23).
+
 ### Full retained UI and engine palette implementation, 2026-10-20
 
 After the status review distinguished captured plans from partial implementation (the 53-entry UI checklist had 27 checked and 26 open), Weibao requested: “Fully implement”, then “use luna subagents accordingly and then audit”, then “After auditing, consider better implementation, or just consider implementing yourself after”. This authorizes implementation and subsequent repairs of the retained palette, with native OOPS mechanisms and the accepted shell. Independent audit is followed by root implementation where it improves correctness or integration. The [checkpoint](gm/dispatch/palette-completion-2026-10-20/CHECKPOINT.md) owns execution and evidence. The 90 reference comparison rows remain source evidence, including explicitly unresolved claims, rather than proof that the referenced mechanics exist. Human visual/play acceptance remains separate from implementation and checks.
@@ -5988,6 +6010,28 @@ exact-match literals, content-aware region lending (UR69), the rules card and th
 UR41–UR64 compaction with the long form archived, plus a Discord-lesson pass
 recorded in the audit. Visual-feel acceptance, commit and push remain open.
 
+## Progression gate rules, 2026-10-23
+
+Weibao: “consider implementing ruleset to help absorb progression gates and more? more to consider?”
+
+This authorizes a proposed rulebook for progression gates and a
+more-to-consider round, saved in [PROGRESSION_GATE_RULES](PROGRESSION_GATE_RULES.md)
+(GTR1–GTR20, GTC1–GTC4, GTL1–GTL5). The rulebook applies his earlier remarks
+against gating (famine XP, 2026-10-13; "dont constrain, guide?", 2026-10-17) and
+OD10's unlock-gates-as-possible-mechanism answer; it adds no accepted decision. No runtime change, migration of
+existing gates, commit or push is selected by this request.
+
+## LOTM lives, pathways and regions build queue, 2026-10-23
+
+Weibao: “implement each life and each required part of lifes and more? Other potion paths? other stuff? do things for each direction? Implementation of regions? more to consider?”
+
+This is a standing build direction for the opt-in Lord of the Mysteries Tingen branch: more
+lives (start profiles), more Sequence 9 pathways on the shared descriptor engine, and a
+region layer, built one playable slice at a time. The ranked queue, gates and more-to-consider
+round are saved in [the build queue](gm/dispatch/lotm-lives-regions-2026-10-23/QUEUE.md).
+Reverend Insanity and Omniscient Reader stay documentation-only. No commit, push,
+default-world change or personal-save migration is selected by this request.
+
 ## Cheat implementations, carry, wiring and next cards, 2026-10-23
 
 Weibao asked for a more-to-consider pass on cheat implementations, then:
@@ -6005,6 +6049,86 @@ descriptor, herb lesson migration and inspector in code, the inventory, overflow
 and Paradise catalog as research and proposals, and GTR21–GTR27. Overflow
 policy rows and the Paradise tier slice remain proposals; no gameplay
 balance change, commit or push is selected.
+
+## High-tier power across worlds, 2026-10-23
+
+Weibao asked: "Consider what it would take to implement high power levels like gu immortals(rank 6?) and then sequence 5? in lotm? and other higher level stuff accross other worlds?"
+Saved as considerations in [high-tier power](HIGH_TIER_POWER_CONSIDERATIONS_2026-10-23.md)
+(HTP1 to HTP30), extending ASC, UC and GTR. Everything is a proposal; most high-tier
+canon there is recall pending source dives (HTP25, HTP26). No code, build, commit or
+push is selected by this request, and RI stays documentation-only.
+
+## Leftover itch.io items built as small per-world dials, 2026-10-23
+
+Weibao, after the itch.io wave (orphan, grief and came-of-age events, genetics and companion wishes, diplomacy and schism, a skill floor, spatial homes): asked to build the items the wave left out, despite AD33's deprioritization of NPC-heavy work and deferral of procedural layouts.
+
+This selects those items as bounded work, each as a small per-world dial with its in-world reason and cost (default, dial, reason). It does not make a whole settlement or social simulator a gate. Named household members stay individual and larger groups stay aggregates (IM18). Spatial homes arrive as authored or small-rule layouts, not a procedural layout engine. AD33's general wording stands as dated history for everything this request does not name; the exception is the named leftover items only. Sequencing, risks and codes (IM34+) live in [itch screen round 4](research/ITCH_IO_IDLE_SCREEN_2026-10-22.md#more-to-consider-round-4-2026-10-23-leftover-items-and-interactions); status in [OPEN_GAPS](research/itch-io-2026-10-22/OPEN_GAPS.md).
+
+Then, choosing GTL6: “maybe make it depend on the world, since each world might be different”.
+Weibao selected the single-gain overflow (GTO3) as a per-world policy. Implemented as a
+per-world row table with the frontier banking excess and unlisted worlds keeping the
+stated loss ([record](PROGRESSION_GATE_OVERFLOW_2026-10-23.md#gtl6-implemented-per-world-single-gain-overflow-2026-10-23)).
+Row values and drain behaviour are proposals pending his play; no commit or push selected.
+
+Follow-up, same day: "Dive each in parallel, we can just consider early accordingly, consider other worlds with similar power teirs too and more?"
+Three parallel lanes (LotM, RI, other worlds) are folded into
+[round 2](HIGH_TIER_POWER_CONSIDERATIONS_2026-10-23.md#round-2-source-dives-2026-10-23)
+(HTP31-HTP52) with lane files in [the dispatch folder](gm/dispatch/high-tier-power-2026-10-23/).
+Early consideration only; no code, build, commit or push is selected.
+
+## Complementary playable journeys, 2026-10-23
+
+Weibao asked: “What are work that we can do on top of all our claude work?”
+After Codex proposed O1 chemistry/energy/equipment, O2 an ordinary-life journey,
+O3 returning after time away, O4 mechanism-based retention through transitions,
+and O5 combined player journeys, he selected: “run each accordingly, check claude
+chats accordnigly for more details?”
+
+Execute bounded slices through the existing owners, reuse Claude's delivered
+work and inspect its current scope before writing. The [execution checkpoint](gm/dispatch/complementary-journeys-2026-10-23/CHECKPOINT.md)
+records the chosen local application, proof and remaining boundaries. Per-world
+mechanisms and established clock/carry rules stay authoritative. This request
+does not select a universal power law, general offline policy, commit, push or
+normal-app installation; numerical application choices remain proposals for play.
+
+Then: “audit specific book worlds for more cases, like The Stubborn Skill-Grinder In A Time Loop (Book 5 Stubbed) and more?”
+Five gate audits (Skill-Grinder, Lord of the Mysteries, Mother of Learning, Shadow Slave,
+Reverend Insanity) are saved under `worlds/progression-gates-2026-10-23/`, and recurring
+shapes became proposed GTR28–GTR35 ([round 3](PROGRESSION_GATE_RULES.md#round-3-book-world-audits-2026-10-23)).
+Research and proposals only; no runtime change, commit or push selected.
+
+## Overarching reconciliation and scoped chats, 2026-10-23
+
+Weibao: “reconcile accordingly, send new chats accordingly”, selecting the F1–F5
+[assessment](reviews/OVERARCHING_RECONCILIATION_2026-10-23.md). Reconcile current
+delivery claims and research maps against live owners, then resolve demonstrated
+progression/lifecycle joins and world-coverage claims within existing direction.
+The [dispatch checkpoint](gm/dispatch/overarching-reconciliation-2026-10-23/CHECKPOINT.md)
+owns scoped chat assignments and active-writer exclusions. This instruction does
+not itself select a new world, general offline policy, normal-app entry change,
+commit, push, installation or human acceptance. Existing selected work continues.
+
+## First milestone and scope check, 2026-10-24
+
+Weibao, asked whether planned scope is too broad: “that first milestone doesnt
+have to be that, f3 is being worked on, f4 I just need to see it f5 I like having
+all my ideas on the table”. The one-realm/one-prestige first milestone is no
+longer a required delivery gate; earlier lines that preserve it are dated
+history. Keeping every idea on the table is intended, not scope drift. Unplayed
+work needs to be shown to him, not cut. No new milestone, feature, commit or
+push is selected by this instruction.
+
+## Source deep dives one world at a time, 2026-10-24
+
+Weibao: run the source-deep-dive skill "for one world at a time, starting with Re:Zero
+(then Slime, No Game No Life, Worm, and others)", each producing an implementation-ready
+synthesis covering power as engine state, growth, living beside the protagonist, society and
+crafting hooks, cross-world interaction, sealed secrets and ranked acquisition gaps; save each
+round in the owning palette as ACT NOW / ACCOUNT FOR NOW / LATER; proposals stay unaccepted;
+desktop first. Mid-run he added "use haiku and stuff accordingly and more", taken as haiku for
+bounded readers with a wider fan-out than the AU3/AU10 defaults (stated in the run's plan).
+Re:Zero round: [card](worlds/world-core-kit-2026-10-14/cards/re-zero.md). This instruction does
+not select a build, commit or push.
 
 ## Potion requirements, more to consider, 2026-10-24
 
@@ -6055,3 +6179,12 @@ Implemented-unverified by Weibao; not committed.
 On 2026-10-25 Weibao chose: "Run both in parallel accordingly" (The Perfect Run and Super
 Supportive) and asked "download super supportive accordingly?". Both rounds are recorded in the
 [source deep dive queue](research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md).
+Then: "Run You Are Summoned 1-5 next, same method, with a focus on entry, return and carryover."
+Round recorded in the [queue](research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md) and the
+[You Are Summoned card](worlds/world-core-kit-2026-10-14/cards/you-are-summoned.md).
+
+## All saved reference mechanics selected, 2026-10-25
+
+Weibao: “Implement the fitting missing mechanics from various stuff using our existing systems, all of them”. Asked whether the source set was all saved reference-mechanics audits across games, books and mods or a particular set, he clarified: “everything”.
+
+This selects fitting missing mechanics across the saved reference audits, deduplicated against existing systems and active implementations, one playable slice at a time. The [execution owner](gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md) records scope, source crosswalk, ownership and exact verification. Existing cultivation work retains its owner. This is local implementation authorization; it does not select commit, push, publication or normal-app adoption. Existing desktop priority and sealed discovery routes remain.

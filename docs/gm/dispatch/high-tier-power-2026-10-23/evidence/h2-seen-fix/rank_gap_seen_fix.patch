@@ -1,0 +1,11 @@
+--- a/src/rank_gap_observer_domain.js	2026-10-24 12:12:51
++++ b/src/rank_gap_observer_domain.js	2026-10-24 14:42:23
+@@ -74,7 +74,7 @@
+     select.onchange = () => { meansId = select.value; render(true); };
+     root.append(node('h2', 'Watch a working'), node('p', `Each watch takes ${dialValues().watchMinutes} minutes and some stamina. Looking at someone far above you can hurt; what you make out depends on how you look.`), select, status, rows, said, seen);
+     render = force => {
+-        if (!force && !root.checkVisibility?.()) return;
++        // Not gated on visibility: a collapsed panel must still hold the current sightings when it is opened.
+         const v = view(); if (!v.here) return;
+         select.value = v.means;
+         status.textContent = `Watch clock ${v.clock} min · strain ${v.strain}${v.closed ? ' · sight dazzled' : ''}${v.ward ? ' · warded sight earned' : ''}`;

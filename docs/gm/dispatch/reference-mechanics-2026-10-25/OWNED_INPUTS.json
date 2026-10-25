@@ -1,0 +1,27 @@
+[
+  {
+    "path": "src/craft_material_fit.js",
+    "sha256": "c6180361216d9f87e91025638392aff8d2731cb738eef8e23d8ec9d9171f2813",
+    "matchesBrowserSource": true
+  },
+  {
+    "path": "src/native_rendering_recipes.js",
+    "sha256": "86a0d3f73ccd347f7bbe2ac91c959e222d29a3867a6d0c77fb058df3f5a5f9b4",
+    "matchesBrowserSource": true
+  },
+  {
+    "path": "src/crafting_recipes.js",
+    "sha256": "b137f8edff6e3e1b2ad56c2193ebb32718d5c77d9d7b3992dd8bb6ac3d309515",
+    "matchesBrowserSource": true
+  },
+  {
+    "path": "src/native_material_catalogue.js",
+    "sha256": "7b4ad2c44b3472244da69e95f110544949495c897ae794df18a03b0261b2edfe",
+    "matchesBrowserSource": false
+  },
+  {
+    "path": "tests/native_rendering.test.js",
+    "sha256": "6f4a6c2f33f0c7a803f4818a11fae365af88b8a34fe06a5bd47f856f0a426800",
+    "matchesBrowserSource": null
+  }
+]

@@ -1116,3 +1116,13 @@ roughly 0.35 ml. The book wins. The question still points at a real need: TSW9 b
 | TSW-L2 | LOTM ingredient importer (TSW11) with symbol tags drafted from descriptions (PZ-L8) | Haiku drafts tags, Sonnet merges | 291 materials, tiers and overrides logged, lint passes |
 | TSW-L3 | First trait swap in play: one slot (a binder or a Seq 9 auxiliary) accepts a substitute with a fit preview | Sonnet, one session, after S1 | Fresh origin: reference and substitute both work, with different outcomes, through save, reload and import |
 | TSW-L4 | Cross-world swap: one item from another world in a host-world recipe under the WR10 law | Opus design, Sonnet build | The host law's reading shows in the outcome and in the log |
+
+## Round 13 (2026-10-25): fitting native material contribution
+
+Weibao selected fitting missing mechanics across all saved references and clarified the source set as “everything”. [Scope and evidence](gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md) own implementation status; broader source coverage is still in progress.
+
+| Code | Implemented mechanism | Boundary |
+|---|---|---|
+| TSW12 | A native material may meet a process's physical/functional query while contributing less of its relevant property. `craft_material_fit.js` grades weighted authored targets without a draw; unknown relevant axes return uncertainty. | Tags constrain this particular process; this adds no universal permission list or symbolic law. |
+| TSW13 | The known Animal fat method offers deliberate known meat-source recipes. Existing Boar meat remains three units; proposed native oil contributions produce four Goat meat or ten Crab/Frog meat per attempt. Whole units round upward; excess contribution leaves with discarded cooking remains. | Native cooking owns success, actual stock, XP, transactions and output. No automatic fallback to another source. Values are original game proposals, not biological measurements. |
+| TSW14 | New source choices share the actual learned method and require encountered source knowledge. Their ordinary Animal fat output feeds existing recipes. | No extra learning engine, stock cache or new item/save schema. Whole-formula matching, symbolic substitutions, separate potency/risk grades, foreign-world laws and arbitrary supplied catalogue materials remain distinct work. |

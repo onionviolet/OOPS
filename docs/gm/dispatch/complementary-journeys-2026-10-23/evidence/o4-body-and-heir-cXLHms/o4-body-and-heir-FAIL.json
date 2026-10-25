@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "message": "page.evaluate: ReferenceError: simulationTestHooks is not defined\n    at eval (eval at evaluate (:311:30), <anonymous>:1:25)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+  "gates": [
+    "borrowed-body-retained-knowledge: native Save/reload/Export/literal-file Import"
+  ],
+  "pageErrors": []
+}

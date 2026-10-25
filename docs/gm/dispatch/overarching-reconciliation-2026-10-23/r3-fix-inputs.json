@@ -1,0 +1,19 @@
+{
+  "name": "R3 learned-herb fix",
+  "applyAfter": "D1 frozen dependency package",
+  "preSHA256": {
+    "src/chain_inspector.js": "edbda4a5a177d959b44e88909c545a9da47ab70c460afd55bd3c1247a39345b6",
+    "tests/chain_inspector.test.js": "86bf219c0ee7d3954dd06116420b922e5b716138d22bbaa68b557cecf89978c1"
+  },
+  "postSHA256": {
+    "src/chain_inspector.js": "ddc51b466854019103a4433e1ed16755e46ea6dda5d46e8e14f628e876573689",
+    "tests/chain_inspector.test.js": "5be961f53775555ff1bc9ca3e9e20653494afe68000079115476261b831f261a"
+  },
+  "patchSHA256": "62403825b2dc8c9ed2edb937ad2e7ad8e9e0239a59883a840c81460a6372c932",
+  "paths": [
+    "src/chain_inspector.js",
+    "tests/chain_inspector.test.js"
+  ],
+  "ownershipReturnsTo": "progression parent local_23789a55-a635-4540-ba8b-65cb0c57d4ba at final report",
+  "frozenD1PackageEdited": false
+}

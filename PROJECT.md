@@ -1,4 +1,27 @@
-## Current delivery routing, checked 2026-10-22
+<a id="current-delivery-routing-checked-2026-10-22"></a>
+
+## All saved reference mechanics selected, 2026-10-25
+
+Weibao selected fitting missing mechanics from saved game, book and mod audits and clarified the source scope as “everything”. The [execution record](docs/gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md) owns the all-source crosswalk and sequential playable slices. Existing active cultivation work retains its owner. Local implementation is selected; all-source completion, publication and app adoption are not claimed.
+
+## Fitting cultivation absorption implementation, 2026-10-24
+
+Weibao selected all fitting missing mechanics from the [current-source cultivation audit](docs/research/itch-io-2026-10-22/CULTIVATION_ABSORPTION_CHECK.md) using existing systems. [Scope, ownership and playable gates](docs/gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md) track CG01–CG29 through integrated slices; CG30 remains a source-evidence boundary. This is local implementation authorization, not a claim of completed gameplay, commit, publication or app adoption. [Direction](docs/USER_VISION.md#fitting-cultivation-reference-mechanics-selected-2026-10-24).
+
+## Current delivery routing, reconciled 2026-10-23
+
+Codex lanes, 2026-10-25: [A1–A3, B1–B5 and active C1–C5](docs/gm/dispatch/codex-parallel-2026-10-25/README.md) have separate branch, research, review and playtest results. [Round 3 reconciliation and proposed landing order](docs/gm/RECONCILIATION_2026-10-25.md) record the dirty-checkout inventory and U1–U4 findings at C5’s cutoff. Cultivation’s [current repair receipts](docs/gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md#independent-review-u1u2u4-recovery) now cover U1/U2/U4 locally; U3 remains with LOTM integration. These separate local and branch gates do not merge the lanes or establish app adoption. Landing 2026-10-25: all 13 branches are merged and pushed to `origin/master` (`359345f96`, build, 2944 tests, arch and rules pass); local primary `master` is not yet advanced because of dirty overlaps ([landing record](docs/gm/RECONCILIATION_2026-10-25.md#landing-2026-10-25)).
+
+Reconciliation consolidated, 2026-10-23: R2 corrected research/runtime status owners; R3 corrected the learned-lesson inspector under explicit release, with focused tests and isolated rebuilt desktop proof; its incremental patch is a separate post-D1 input; R45 separated lifecycle/world proof from policy and coverage gaps. [Consolidated status and remaining owners](docs/gm/dispatch/overarching-reconciliation-2026-10-23/CHECKPOINT.md#consolidated-results-2026-10-23) link exact receipts. The latest recorded normal-app adoption remains October 22 evidence; the completed complementary local candidate has its own frozen verification. [Superseded routing](docs/gm/dispatch/overarching-reconciliation-2026-10-23/SUPERSEDED_ROUTING.md) preserves replaced current-summary lines.
+
+Complementary journeys, 2026-10-23: Weibao selected O1–O5 after checking Claude's
+current work. A bounded Measured Focus connection uses the existing workshop,
+energy owner and item-stat readers. Ordinary-life, reviewed-absence and body/heir
+journeys reuse the existing systems; exact verification and remaining boundaries
+live in the [task checkpoint](docs/gm/dispatch/complementary-journeys-2026-10-23/CHECKPOINT.md).
+This task selects no commit, push or normal-app installation.
+
+Final complementary status: O1–O5 are technically complete at the [recorded scope](docs/gm/dispatch/complementary-journeys-2026-10-23/CHECKPOINT.md#final-technical-receipt). Its frozen 2,727-test result and browser receipts are reused, with current bundle/HTML drift explicit in the reconciliation checkpoint.
 
 Normal-app master update, 2026-10-22: the normal player app now adopts
 `v0.6-1c223618b5b5`, with all 82 runtime files matching the verified master
@@ -53,6 +76,8 @@ files and `dist/` changed in the shared checkout, uncommitted. Values and acts
 are proposals. [Record](docs/gm/dispatch/ascension-paths-2026-10-22/CHECKPOINT.md);
 [ASC1–ASC46](docs/RESEARCH_CULTIVATION_PATHS.md#round-2026-10-22b-gaps-filled-first-ladders-built-value-of-progress-and-rituals).
 
+LOTM build queue, 2026-10-23: Weibao asked for more lives, pathways and regions in the Tingen branch, one playable slice at a time. [Queue](docs/gm/dispatch/lotm-lives-regions-2026-10-23/QUEUE.md) (Q1 second Sequence 9 pathway, Q2 districts, Q3 second life); proposals until played; no commit or push selected.
+
 Worktree reconciliation, 2026-10-24: Weibao asked to merge finished gate-passing lanes and retire stale worktrees, no push. The gated O/F/A candidate (2796/2796 at tree `d59dfe7d`) landed on master as `e3c50c0c3`, superseding the "no commit" status of the O/F/A and LOTM Q2-Q6 work below; five worktrees were retired and the rest kept with owners. [Record](docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md). Not pushed; human acceptance and app adoption remain open.
 
 Worktree reconciliation round 2, 2026-10-24: the Qud parity candidate G1-G7 (with D1, R3 and the estate label) landed as `eeae81660` (build, arch, rules, full suite 2858/2858 on the combined tree) beside lane records `e59a8074f`; 20 more worktrees archived and retired, none of the original remainder kept. Open: primary's uncommitted crafting-depth work must merge onto G1's reference shelf. See the [round 2 record](docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md#round-2-2026-10-24-later). Pushed with Weibao's yes.
@@ -64,8 +89,8 @@ This is navigation and status reconciliation, not a new feature dispatch.
 
 | Track | Current state | Authoritative execution / remaining boundary |
 | --- | --- | --- |
-| Shared baseline and desktop UI | Primary checkout is on `master`; source through `7df5a7df7` and documentation receipt `e59df9a28` are published to the personal fork. Later releases supersede earlier local-only and pending-adoption labels below. | [Latest combined release](docs/gm/dispatch/inventory-overhaul-2026-10-21/REPORT.md); [AD41 procedure](docs/gm/SHARED_WORKTREE_PRACTICE.md#primary-checkout-default-2026-10-21). Published inputs matched at audit start; later active cultivation/UI edits have their own checkpoint. Human visual/play acceptance remains open. |
-| Inventory, matched UI and Electron | I2–I5 delivered; latest recorded normal-app adoption is `v0.6-72af84cf8e66`, bundle `e35668b18622`. Recorded clean-export suite: 2,516 passes plus browser, persistence and Electron checks. | [Inventory checkpoint](docs/gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md). Party/cargo stock redesign, whole-game reference parity and human taste acceptance are not claimed. |
+| Shared baseline and desktop UI | C5 initially observed master `9b997ea60`; the later `3dfc49cf3` workflow-doc commit is recorded in the round 3 snapshot. This baseline includes the October 24 O/F/A and Qud landings plus LOTM brewing. Round 2 records an authorized origin push; the October 22 publication identity is historical. | [Rounds 1–2](docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md), [round 3 snapshot](docs/gm/RECONCILIATION_2026-10-25.md). Cached refs are not a fresh remote query. Latest recorded normal-app adoption remains October 22; later dirty inputs and active lanes retain their own gates. |
+| Inventory, matched UI and Electron | I2–I5 delivered. Latest recorded normal-app adoption is `v0.6-1c223618b5b5`, bundle `755bdf98cb88`, with native Save/reload and full restart proof. | [App adoption owner](docs/gm/dispatch/master-ready-review-2026-10-22/APP_ADOPTION.md). Its 2,591-test result applies to its frozen inputs. The older inventory release remains historical proof; later local changes and human visual/play acceptance are separate. |
 | Gear and local-world UI | Native gear workshop/acquisition/lineage and the final visitor calendar/travel journey are published and included in the combined baseline. | [Gear report](docs/gm/dispatch/gear-depth-2026-10-21/INTEGRATION_REPORT.md); [final UI/visitor release](docs/reviews/CORC_UI_2026-10-21.md#final-visitor-journey-and-fork-release-2026-10-21). Broader chemistry/energy/powers remain unfinished. |
 | P4 durable native repair | Implemented, rebuilt native/persistence verified, committed and pushed as `e1a68873d`; retained in the later combined release. | [P4 status](docs/gm/dispatch/deep-engine-2026-10-20/P4_STATUS.md). Earlier preparation-only and no-push statements are historical. |
 | Other deep-engine pilots and retained palette | P1/P2/P3/P5 selected releases and the bounded 53-row palette are included through the consolidated baseline and later releases. | [Deep-engine current routing](docs/gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md#current-delivery-2026-10-21); [palette coverage](docs/gm/dispatch/palette-completion-2026-10-20/COVERAGE.md). These are finite pilots/bindings, not independent construction of every domain or arbitrary world-rule execution. |
@@ -74,7 +99,7 @@ This is navigation and status reconciliation, not a new feature dispatch.
 | Recovered reference mechanics | Later title, recipe, restock, search, perishable observation, lineage and widget/preview deliveries supersede the early open labels at their named scopes. | [Current coverage](docs/gm/dispatch/title-rules-implementation-2026-10-21/COVERAGE.md). Conditional salvage/spatial situations, general deterioration and broader mechanism coverage remain unfinished. |
 | Corc media and research tooling | Exact missing-media request reports 26/26 recovered, unresolved 0; the old creation/startup-only summary below is historical. Tool registry/launchers and headless visibility fixes are published. | [Recovery report](docs/gm/dispatch/corc-missing-media-2026-10-21/REPORT.md); [tool registry](docs/TOOL_REGISTRY.md). Acquisition, reading, gameplay absorption and per-chat tool availability remain separate states. |
 | Different book-world lives and specialties | BF28–BF94 design work is saved, including 41 life/profile cards, 14 shared-engine gap rows and specialty composition. These are proposals and bounded diagnostic evidence, not new playable worlds or a runtime dispatch. | [Round 4 owner](docs/worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md#round-4-shared-engine-gaps-and-specialties-across-lives-2026-10-21); [implementation workflow](docs/DEEP_WORLD_WORKFLOW_2026-10-19.md). Existing source qualification, world pauses and scope deferrals remain. |
-| Active cultivation/UI and reference scouting, 2026-10-22 | New chats started during this audit. Mistglass method/log-description work has active runtime reservations and pending verification; a separate reference-scout chat is researching related projects. | [Cultivation checkpoint](docs/gm/dispatch/cultivation-spacing-2026-10-22/CHECKPOINT.md); chat `01a16205-8f8a-7e00-bcb9-ed5474b28f4a` owns scouting until its report is saved. These are outside the published release's proof; recover current owners before editing. |
+| October 23 local candidate and reconciliation | Complementary O1–O5 completed at their bounded scope: recorded 2,727/2,727 tests, build/architecture/rules and native browser/persistence/desktop checks. R2/R3/R45 reports are complete; identified runtime defects remain with their incumbent owners. | [Frozen complementary inputs](docs/gm/dispatch/complementary-journeys-2026-10-23/FINAL_INPUTS.json); [consolidated reconciliation](docs/gm/dispatch/overarching-reconciliation-2026-10-23/CHECKPOINT.md#consolidated-results-2026-10-23). Workshop/style inputs still match the receipt; bundle/HTML have drifted. No current combined-build, normal-app adoption, publication or human acceptance is inferred. |
 
 The dated sections below preserve successive release inputs. Their older test
 counts, app identities, no-commit statements and pending gates describe those
@@ -463,7 +488,8 @@ FA13 current source passes ten focused contract checks. Native optional enrollme
 
 **Agent usage limits (2026-10-16):** [AD37 / AU1–AU15](docs/AGENT_USAGE_RULES.md)
 budget an explicit full-book request as one finite source-sized pass, targeting
-one to three coordinating chats. Fresh readers default to Luna medium, at most
+one to three coordinating chats. Fresh readers default to Luna medium (haiku in
+Claude sessions, 2026-10-23, per AU5), at most
 12,000 source words and six model responses each, then retire. The coordinator
 uses compact evidence indexes and targeted retrieval. Lesser agents share the
 same budget. A pilot calibrates the remaining plan, with two concurrent agents,
@@ -489,6 +515,18 @@ unchanged inputs. [Request](docs/USER_VISION.md#efficient-rule-checks-and-regres
 **Lean tests (2026-10-22):** lanes run focused tests only, one full `npm test` at
 commit, tests organized by system not wave, stale tests deleted on rework, one-line
 check records. [Request](docs/USER_VISION.md#lean-tests-and-lighter-verification-paperwork-2026-10-22).
+
+**Progression gate rules (proposal, 2026-10-23):** at Weibao's request,
+[GTR1–GTR20](docs/PROGRESSION_GATE_RULES.md) treat any point where progress waits
+(bottleneck, rank, admission, knowledge, maturation, start or UI reveal) as a
+fact rule over actual means with a default, dial, reason and costed routes
+around it, evaluated through `evaluateRule` at commitment time and opened by a
+staged transaction. Round 2 (same day) adds GTR21–GTR27, `src/progression_gates.js`
+with the herb lesson moved onto it, a read-only gates chain in the developer
+inspector (browser checked at 1920x1080), a gate inventory, overflow proposals
+GTO1–GTO17 and a Paradise gate catalog RPG1–RPG55. GTL6 then made the single-gain
+skill XP overflow a per-world row (frontier banks, others lose with a stated reason).
+Round 3 audited five book worlds' gates and added proposed GTR28–GTR35.
 
 **World absorption rules (proposal, 2026-10-17):** at Weibao's request,
 [WA1–WA21](docs/WORLD_ABSORPTION_RULES.md) describe absorbing a book world as a
@@ -1121,6 +1159,13 @@ build/browser/save acceptance is claimed.
   host adapter) are proposals in the owner. AD39. Owner:
   [Electron host round](docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#electron-host-2026-10-20-el).
   [Record](docs/USER_VISION.md#electron-plus-web-2026-10-20).
+  **2026-10-23 host slice (Weibao asked to implement all of it):** save mirror and backups with
+  restore, window state and app menu, Dock badge and notifications, natural-clock soak and a
+  first read-only pop-out (world events) are in `desktop/` behind one `src/host.js` seam;
+  Material Icons now ships locally (the only network asset), so the app runs offline. Menu, notifications and a restore over a live
+  save are unverified on his real window. [Delivered](docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#delivered-host-slice-a1-a4-and-a7-2026-10-23).
+  A dependency-free game MCP (`npm run mcp:game`, registry `game-mcp`) plays the headless game in
+  game terms; it is not registered with any client. [Record](docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#game-mcp-delivered-over-the-headless-runner-2026-10-23).
 - **AR1 net-zero registration lines (2026-10-19, Weibao):** approved DRC1, "zero-growth stays
   the check, a feature line must be paid for by moving a line out, and a reset with a named
   reason is allowed when that needs an unrelated refactor". Owner: AR1 in
@@ -1515,8 +1560,10 @@ build/browser/save acceptance is claimed.
   runtime is established by this decision. See the
   [start standard](docs/WORLD_COMPLETION_STANDARD.md#random-starting-points-without-spoiling-discovery).
 
-- **First milestone:** one realm and one prestige layer. This sequences
-  delivery; it does not cap the vision.
+- **First milestone (revised 2026-10-24):** one realm and one prestige layer is
+  no longer a required gate ([direction](docs/USER_VISION.md#first-milestone-and-scope-check-2026-10-24)).
+  Superseded wording: "one realm and one prestige layer. This sequences
+  delivery; it does not cap the vision."
 - **Branch dimension (2026-10-03):** the expanded setting is its own branch of
   YAIRPG, distinct from the original developer's continuity.
 - **Vanilla stays intact (2026-10-03):** inherited opening, native quests,
@@ -1958,3 +2005,5 @@ The later 2026-10-21 Gothic-default direction above supersedes this wording:
 
 Gothic Appearance candidate, readable prose fallback and rarity/focus glow have
 rebuilt checks. [Styling receipt and 53-entry checklist](docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#tsg-implementation-receipt-2026-10-20)
+- Lives and inheritance wiring (IM8, IM11, IM12, IM21, OG18) landed and browser-checked at 1536/1920: [record](docs/gm/dispatch/itch-wiring-2026-10-23/lives-carry-wiring.md).
+- Weibao, 2026-10-23: build the leftover itch.io items (orphan, grief and came-of-age events, genetics and companion wishes, diplomacy and schism, skill floor, spatial homes) as small per-world dials despite AD33's NPC-heavy deprioritization; AD33 stands for everything not named. [Record](docs/USER_VISION.md#leftover-itchio-items-built-as-small-per-world-dials-2026-10-23), [round 4](docs/research/ITCH_IO_IDLE_SCREEN_2026-10-22.md#more-to-consider-round-4-2026-10-23-leftover-items-and-interactions).

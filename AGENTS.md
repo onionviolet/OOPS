@@ -43,6 +43,8 @@ Making systems: follow `.claude/rules/making-systems.md` and [making rules](docs
 
 Runtime code: follow `.claude/rules/runtime-code.md` and [architecture rules](docs/ARCHITECTURE_RULES.md) AR1-AR16. Runtime lane briefs name their seam and link that file.
 
+World audits, expansion and exploration passes, source dives and reviews: follow [world pass rules](docs/WORLD_PASS_RULES.md) WPR1-WPR32. Lane briefs for such passes name the WPR codes they apply.
+
 Sites, ruins, maps and exploration: follow `.claude/rules/sites-exploration.md` and [site/exploration rules](docs/SITE_AND_EXPLORATION_RULES.md) SR1-SR24.
 
 ## Role
@@ -92,7 +94,8 @@ the playable result. Record accepted decisions in PROJECT.md.
 
 ## Scope
 
-Keep the first milestone to one realm and one prestige layer, while preserving
+The one-realm/one-prestige first milestone is no longer a required gate
+(2026-10-24, [direction](docs/USER_VISION.md#first-milestone-and-scope-check-2026-10-24)). Preserve
 the broader vision in PROJECT.md: deeper existing systems, several progression
 paths and mechanically distinct worlds.
 
@@ -162,6 +165,12 @@ writing another downloader. Reuse its polite transport; an upstream adapter or
 a script with a delay is not automatically polite mode. Keep actual source,
 capture, reading and gameplay verification separate. The shared rules here
 apply to both Codex and Claude through CLAUDE.md's AGENTS.md import.
+
+## Game MCP
+
+The `yairpg-game` MCP (registry `game-mcp`, registered in `.mcp.json` and `.codex/config.toml`) plays the headless game.
+When a limit blocks or slows you, call its `game_report_limit` once and keep going. Before extending the server, read
+[the limits doc](docs/tools/GAME_MCP_LIMITS.md) and its ledger; repeated or work-stalling entries become tools there.
 
 ## Multi-agent work
 

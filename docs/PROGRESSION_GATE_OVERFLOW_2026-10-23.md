@@ -97,6 +97,17 @@ save ("No matches"), an existing list quirk, so the
 shows the recent-learning line, not the bar. Gameplay feel is not yet played by
 Weibao.
 
+## D3 pilot: Mistglass purification surplus converted (2026-10-23, proposal)
+
+Built in an isolated worktree, not yet in this checkout; [D3 report](gm/dispatch/progression-gates-2026-10-23/D3_REPORT.md).
+The purification trial's Meditation XP is capped by the native settlement quote
+(`p00NativeSkillXP`), a separate copy of the single-gain cap that never reached the
+GTL6 table, so its excess was silently lost. Row `p23.mistglass#purification`:
+**converted** into the selected drill's practice minutes at 5 insight per minute
+(dial), remainder carried; fades with no drill or an Integrated drill. GTO6 and
+GTO7 themselves are unchanged. Not accepted by Weibao; integration owners apply it
+after D1 and R3.
+
 ## 3. Implementation shape
 
 Extend the GTL2 gate descriptor `{id, kind, requires, reason, dial, routes,

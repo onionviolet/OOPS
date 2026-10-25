@@ -1,0 +1,9 @@
+{
+  "head": "547209e82c29e897e6b602a4ef5d8e8ab46b3ebf",
+  "reserved": {
+    "src/gear_work.js": "ca4d385c65102b3917ed464ce5fdc5dbd5b907d39021e34bf78450567b0fda45",
+    "src/gear_workshop_domain.js": "6c35603abeb7a817f891d7b5805a354863125413f3ce17539cc5d324e82151a5",
+    "src/gear_workshop_panel.js": "6d4f24fbe012a186964ab6d6eaf1a30de65dc390282ab0aecdf9456b34c78046",
+    "tests/gear_workshop.test.js": "ed84291154d4d3fece7fc4f79c5810713fcd012481719132e61992e37bf1891a"
+  }
+}

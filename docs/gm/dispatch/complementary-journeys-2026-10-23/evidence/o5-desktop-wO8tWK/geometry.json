@@ -1,0 +1,1220 @@
+{
+  "cases": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "font": "14px",
+      "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "controls": [
+        {
+          "tag": "SELECT",
+          "name": "Maker",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 885.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Carried gear",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 885.65625,
+          "right": 1211.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Gear process",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 871.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process material",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 871.65625,
+          "right": 1078.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process control",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 1078.65625,
+          "right": 1320.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Apply quoted process",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 841.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Study hide preparation with the craftsman · 5 min",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 1044.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Help with local repairs · 5 min",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 1044.65625,
+          "right": 1277.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 1198.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 1191.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · smoked lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 1184.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · oiled lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 1177.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 1135.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 1128.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Smoke three rat pelts over a slow fire",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 967.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Dress three rat pelts with lamp oil",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 685.65625,
+          "right": 946.65625
+        }
+      ],
+      "reachable": [
+        {
+          "name": "Carried gear",
+          "rect": {
+            "x": 885.65625,
+            "y": 302.296875,
+            "width": 326,
+            "height": 28
+          }
+        },
+        {
+          "name": "Gear process",
+          "rect": {
+            "x": 685.65625,
+            "y": 493.859375,
+            "width": 186,
+            "height": 28
+          }
+        },
+        {
+          "name": "Process material",
+          "rect": {
+            "x": 871.65625,
+            "y": 493.859375,
+            "width": 207,
+            "height": 28
+          }
+        },
+        {
+          "name": "Process control",
+          "rect": {
+            "x": 1078.65625,
+            "y": 493.859375,
+            "width": 242,
+            "height": 28
+          }
+        }
+      ],
+      "commit": {
+        "x": 685.65625,
+        "y": 553.453125,
+        "width": 156,
+        "height": 28
+      },
+      "back": {
+        "x": 662.65625,
+        "y": 984,
+        "width": 99.546875,
+        "height": 34
+      },
+      "layout": {
+        "pageHeight": 1080,
+        "viewport": 1080,
+        "log": {
+          "visible": true,
+          "left": 1405.421875,
+          "right": 1900,
+          "top": 71,
+          "bottom": 1059,
+          "scrollHeight": 988,
+          "clientHeight": 988
+        }
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "font": "21px",
+      "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "controls": [
+        {
+          "tag": "SELECT",
+          "name": "Maker",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 993.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Carried gear",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1190.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Gear process",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 971.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process material",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 971.65625,
+          "right": 1286.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process control",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1059.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Apply quoted process",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 925.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Study hide preparation with the craftsman · 5 min",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1244.15625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Help with local repairs · 5 min",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1046.15625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1360.4375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1360.4375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · smoked lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1360.4375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · oiled lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1360.4375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1360.4375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1360.4375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Smoke three rat pelts over a slow fire",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1123.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Dress three rat pelts with lamp oil",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 689.65625,
+          "right": 1090.65625
+        }
+      ],
+      "reachable": [
+        {
+          "name": "Carried gear",
+          "rect": {
+            "x": 689.65625,
+            "y": 423.140625,
+            "width": 501,
+            "height": 42
+          }
+        },
+        {
+          "name": "Gear process",
+          "rect": {
+            "x": 689.65625,
+            "y": 687.484375,
+            "width": 282,
+            "height": 42
+          }
+        },
+        {
+          "name": "Process material",
+          "rect": {
+            "x": 971.65625,
+            "y": 687.484375,
+            "width": 315,
+            "height": 42
+          }
+        },
+        {
+          "name": "Process control",
+          "rect": {
+            "x": 689.65625,
+            "y": 729.484375,
+            "width": 370,
+            "height": 42
+          }
+        }
+      ],
+      "commit": {
+        "x": 689.65625,
+        "y": 812.875,
+        "width": 236,
+        "height": 42
+      },
+      "back": {
+        "x": 666.65625,
+        "y": 985,
+        "width": 99.546875,
+        "height": 34
+      },
+      "layout": {
+        "pageHeight": 1080,
+        "viewport": 1080,
+        "log": {
+          "visible": true,
+          "left": 1406.4375,
+          "right": 1896.984375,
+          "top": 82.25,
+          "bottom": 1060,
+          "scrollHeight": 978,
+          "clientHeight": 978
+        }
+      }
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "font": "14px",
+      "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "controls": [
+        {
+          "tag": "SELECT",
+          "name": "Maker",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 845.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Carried gear",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 845.65625,
+          "right": 1171.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Gear process",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 831.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process material",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 831.65625,
+          "right": 1038.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process control",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 887.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Apply quoted process",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 801.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Study hide preparation with the craftsman · 5 min",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 1004.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Help with local repairs · 5 min",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 1004.65625,
+          "right": 1237.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 1158.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 1151.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · smoked lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 1144.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · oiled lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 1137.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 1095.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 1088.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Smoke three rat pelts over a slow fire",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 927.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Dress three rat pelts with lamp oil",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 645.65625,
+          "right": 906.65625
+        }
+      ],
+      "reachable": [
+        {
+          "name": "Carried gear",
+          "rect": {
+            "x": 845.65625,
+            "y": 302.296875,
+            "width": 326,
+            "height": 28
+          }
+        },
+        {
+          "name": "Gear process",
+          "rect": {
+            "x": 645.65625,
+            "y": 493.859375,
+            "width": 186,
+            "height": 28
+          }
+        },
+        {
+          "name": "Process material",
+          "rect": {
+            "x": 831.65625,
+            "y": 493.859375,
+            "width": 207,
+            "height": 28
+          }
+        },
+        {
+          "name": "Process control",
+          "rect": {
+            "x": 645.65625,
+            "y": 521.859375,
+            "width": 242,
+            "height": 28
+          }
+        }
+      ],
+      "commit": {
+        "x": 645.65625,
+        "y": 581.453125,
+        "width": 156,
+        "height": 28
+      },
+      "back": {
+        "x": 622.65625,
+        "y": 944,
+        "width": 99.546875,
+        "height": 34
+      },
+      "layout": {
+        "pageHeight": 1040,
+        "viewport": 1040,
+        "log": {
+          "visible": true,
+          "left": 1317.578125,
+          "right": 1780,
+          "top": 71,
+          "bottom": 1019,
+          "scrollHeight": 948,
+          "clientHeight": 948
+        }
+      }
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "font": "21px",
+      "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "controls": [
+        {
+          "tag": "SELECT",
+          "name": "Maker",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 953.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Carried gear",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1150.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Gear process",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 931.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process material",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 931.65625,
+          "right": 1246.65625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process control",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1019.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Apply quoted process",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 885.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Study hide preparation with the craftsman · 5 min",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1204.15625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Help with local repairs · 5 min",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1006.15625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1272.59375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1272.59375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · smoked lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1272.59375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · oiled lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1272.59375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1272.59375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1272.59375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Smoke three rat pelts over a slow fire",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1083.65625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Dress three rat pelts with lamp oil",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 649.65625,
+          "right": 1050.65625
+        }
+      ],
+      "reachable": [
+        {
+          "name": "Carried gear",
+          "rect": {
+            "x": 649.65625,
+            "y": 452.53125,
+            "width": 501,
+            "height": 42
+          }
+        },
+        {
+          "name": "Gear process",
+          "rect": {
+            "x": 649.65625,
+            "y": 746.265625,
+            "width": 282,
+            "height": 42
+          }
+        },
+        {
+          "name": "Process material",
+          "rect": {
+            "x": 931.65625,
+            "y": 746.265625,
+            "width": 315,
+            "height": 42
+          }
+        },
+        {
+          "name": "Process control",
+          "rect": {
+            "x": 649.65625,
+            "y": 788.265625,
+            "width": 370,
+            "height": 42
+          }
+        }
+      ],
+      "commit": {
+        "x": 649.65625,
+        "y": 871.65625,
+        "width": 236,
+        "height": 42
+      },
+      "back": {
+        "x": 626.65625,
+        "y": 945,
+        "width": 99.546875,
+        "height": 34
+      },
+      "layout": {
+        "pageHeight": 1040,
+        "viewport": 1040,
+        "log": {
+          "visible": true,
+          "left": 1318.59375,
+          "right": 1776.984375,
+          "top": 82.25,
+          "bottom": 1020,
+          "scrollHeight": 938,
+          "clientHeight": 938
+        }
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "font": "14px",
+      "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "controls": [
+        {
+          "tag": "SELECT",
+          "name": "Maker",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 781.84375
+        },
+        {
+          "tag": "SELECT",
+          "name": "Carried gear",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 907.84375
+        },
+        {
+          "tag": "SELECT",
+          "name": "Gear process",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 767.84375
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process material",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 767.84375,
+          "right": 974.84375
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process control",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 823.84375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Apply quoted process",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 737.84375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Study hide preparation with the craftsman · 5 min",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 940.84375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Help with local repairs · 5 min",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 814.84375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 1036.6875
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 1036.6875
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · smoked lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 1036.6875
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · oiled lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 1036.6875
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 1031.84375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 1024.84375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Smoke three rat pelts over a slow fire",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 863.84375
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Dress three rat pelts with lamp oil",
+          "font": "14px",
+          "family": "\"OOPS Gothic Bitmap 14\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 581.84375,
+          "right": 842.84375
+        }
+      ],
+      "reachable": [
+        {
+          "name": "Carried gear",
+          "rect": {
+            "x": 581.84375,
+            "y": 330.296875,
+            "width": 326,
+            "height": 28
+          }
+        },
+        {
+          "name": "Gear process",
+          "rect": {
+            "x": 581.84375,
+            "y": 521.859375,
+            "width": 186,
+            "height": 28
+          }
+        },
+        {
+          "name": "Process material",
+          "rect": {
+            "x": 767.84375,
+            "y": 521.859375,
+            "width": 207,
+            "height": 28
+          }
+        },
+        {
+          "name": "Process control",
+          "rect": {
+            "x": 581.84375,
+            "y": 549.859375,
+            "width": 242,
+            "height": 28
+          }
+        }
+      ],
+      "commit": {
+        "x": 581.84375,
+        "y": 609.453125,
+        "width": 156,
+        "height": 28
+      },
+      "back": {
+        "x": 558.84375,
+        "y": 768,
+        "width": 99.546875,
+        "height": 34
+      },
+      "layout": {
+        "pageHeight": 864,
+        "viewport": 864,
+        "log": {
+          "visible": true,
+          "left": 1077.6875,
+          "right": 1515.984375,
+          "top": 71,
+          "bottom": 843,
+          "scrollHeight": 772,
+          "clientHeight": 772
+        }
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "font": "21px",
+      "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+      "controls": [
+        {
+          "tag": "SELECT",
+          "name": "Maker",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 888.625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Carried gear",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 1035.265625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Gear process",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 866.625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process material",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 899.625
+        },
+        {
+          "tag": "SELECT",
+          "name": "Process control",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 954.625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Apply quoted process",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 820.625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Study hide preparation with the craftsman · 5 min",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 1035.265625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Help with local repairs · 5 min",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 941.125
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · smoked lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 1035.265625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Fit a portable leatherworking kit · 1 treated pelt + 1 log · oiled lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 1035.265625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · smoked lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 1035.265625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Demonstrate a fitted preparation · consume treated pelts · oiled lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 1035.265625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · smoked lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 1035.265625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Cut a fitted lining · 1 treated pelt + usable kit · oiled lot",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 1035.265625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Smoke three rat pelts over a slow fire",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 1018.625
+        },
+        {
+          "tag": "BUTTON",
+          "name": "Dress three rat pelts with lamp oil",
+          "font": "21px",
+          "family": "\"OOPS Gothic Bitmap 21\", \"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "left": 584.625,
+          "right": 985.625
+        }
+      ],
+      "reachable": [
+        {
+          "name": "Carried gear",
+          "rect": {
+            "x": 584.625,
+            "y": 454.53125,
+            "width": 450.640625,
+            "height": 42
+          }
+        },
+        {
+          "name": "Gear process",
+          "rect": {
+            "x": 584.625,
+            "y": 447.65625,
+            "width": 282,
+            "height": 42
+          }
+        },
+        {
+          "name": "Process material",
+          "rect": {
+            "x": 584.625,
+            "y": 489.65625,
+            "width": 315,
+            "height": 42
+          }
+        },
+        {
+          "name": "Process control",
+          "rect": {
+            "x": 584.625,
+            "y": 531.65625,
+            "width": 370,
+            "height": 42
+          }
+        }
+      ],
+      "commit": {
+        "x": 584.625,
+        "y": 644.4375,
+        "width": 236,
+        "height": 42
+      },
+      "back": {
+        "x": 561.625,
+        "y": 769,
+        "width": 99.546875,
+        "height": 34
+      },
+      "layout": {
+        "pageHeight": 864,
+        "viewport": 864,
+        "log": {
+          "visible": true,
+          "left": 1078.265625,
+          "right": 1512.984375,
+          "top": 82.25,
+          "bottom": 844,
+          "scrollHeight": 762,
+          "clientHeight": 762
+        }
+      }
+    }
+  ],
+  "icon": {
+    "loaded": true,
+    "family": "\"Material Icons\"",
+    "font": "24px",
+    "weight": "400",
+    "width": 24,
+    "height": 24,
+    "faces": [
+      {
+        "family": "Material Icons",
+        "status": "loaded",
+        "weight": "normal"
+      }
+    ],
+    "localFontSha256": "4a4dbc62fa335e411b94a532be091c58c0c0c4fa731339f11722577d3cf6443b"
+  }
+}

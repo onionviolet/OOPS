@@ -6,6 +6,8 @@ Status: documentation consolidation complete, runtime gates OPEN. Writer: W19 (`
 
 Authority: [root palette](../../WORLD_CORE_KIT_2026-10-14.md) MG1-MG6 / OV9-OV12, [shared engine/data map](../W6_ENGINE_TEMPLATE.md), [PROJECT](../../../../PROJECT.md#standing-priorities-and-document-authority), [USER_VISION](../../../USER_VISION.md#world-core-kit-every-little-detail-and-a-repeating-audit-2026-10-14). This card consolidates evidence and proposals; it does not override its source/design owners. One realm/one prestige; desktop/laptop first; mobile deferred.
 
+Later pass (2026-10-23, proposals, source-spot-checked): [institutions, roles and subtle details with a WA6 floor card](../../CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md), run under [WPR](../../../WORLD_PASS_RULES.md): English sequel text; two preaching churches, verl d'or and coppet, remote Tarot patrons. It upgrades no dated grid cell.
+
 ## Kit header
 
 | Field | Consolidated value |

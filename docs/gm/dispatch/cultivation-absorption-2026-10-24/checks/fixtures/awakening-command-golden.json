@@ -1,0 +1,896 @@
+{
+  "sourceSha256": "e4145e72c856f2902248f580f4e23c0f71d4725d7be38d29f351311c8548b04c",
+  "commands": [
+    {
+      "id": "home.cultivation.release",
+      "revision": 1,
+      "label": "Toma releases one sealed condensate into the fitted cradle",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.keeper",
+      "location": "Arlmere family manor",
+      "duration": 5,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Mistglass sealed condensate\"}",
+          "amount": -1
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.energy",
+          "amount": -20
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.wages",
+          "amount": 2
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.cultivationPractice",
+          "amount": 0
+        },
+        {
+          "type": "condition",
+          "actor": "home.manor.keeper",
+          "id": "home.cultivation.seeded_mist",
+          "operation": "apply",
+          "duration": 240
+        }
+      ],
+      "targetId": "player",
+      "participants": [
+        "home.manor.keeper",
+        "player"
+      ],
+      "participantsCoLocated": true,
+      "completionCoLocated": true,
+      "requires": {
+        "all": [
+          {
+            "fact": "actor.home.employed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "not": {
+              "fact": "actor.home.leave",
+              "op": "eq",
+              "value": true
+            }
+          },
+          {
+            "fact": "resource.home.energy",
+            "op": "gte",
+            "value": 20
+          }
+        ]
+      },
+      "completionRequires": {
+        "fact": "actor.home.employed",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "id": "home.cultivation.study",
+      "revision": 1,
+      "label": "Toma studies breath circulation in the actual field",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.keeper",
+      "location": "Arlmere family manor",
+      "duration": 30,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.energy",
+          "amount": -20
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.wages",
+          "amount": 2
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.cultivationPractice",
+          "amount": 1
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "actor.home.employed",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "not": {
+                  "fact": "actor.home.leave",
+                  "op": "eq",
+                  "value": true
+                }
+              },
+              {
+                "fact": "resource.home.energy",
+                "op": "gte",
+                "value": 20
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "fact": "actor.home.employed",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "location",
+                "op": "eq",
+                "value": "Arlmere family manor"
+              },
+              {
+                "fact": "condition.home.cultivation.seeded_mist",
+                "op": "gte",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "not": {
+              "fact": "resource.home.cultivationPractice",
+              "op": "gte",
+              "value": 6
+            }
+          }
+        ]
+      },
+      "completionRequires": {
+        "all": [
+          {
+            "fact": "actor.home.employed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "location",
+            "op": "eq",
+            "value": "Arlmere family manor"
+          },
+          {
+            "fact": "condition.home.cultivation.seeded_mist",
+            "op": "gte",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "home.cultivation.lesson",
+      "revision": 1,
+      "label": "Practice circulation with the qualified Toma",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.keeper",
+      "location": "Arlmere family manor",
+      "duration": 30,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.energy",
+          "amount": -20
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -3
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.wages",
+          "amount": 3
+        },
+        {
+          "type": "unlock",
+          "actor": "player",
+          "kind": "skill",
+          "id": "Meditation"
+        },
+        {
+          "type": "xp",
+          "actor": "player",
+          "skill": "Meditation",
+          "amount": 12
+        },
+        {
+          "type": "resource",
+          "actor": "player",
+          "key": "home.cultivationContributions",
+          "amount": 1
+        }
+      ],
+      "targetId": "player",
+      "participants": [
+        "home.manor.keeper",
+        "player"
+      ],
+      "participantsCoLocated": true,
+      "completionCoLocated": true,
+      "requires": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "actor.home.employed",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "not": {
+                  "fact": "actor.home.leave",
+                  "op": "eq",
+                  "value": true
+                }
+              },
+              {
+                "fact": "resource.home.energy",
+                "op": "gte",
+                "value": 20
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "fact": "actor.home.employed",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "location",
+                "op": "eq",
+                "value": "Arlmere family manor"
+              },
+              {
+                "fact": "condition.home.cultivation.seeded_mist",
+                "op": "gte",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "fact": "resource.home.cultivationPractice",
+            "op": "gte",
+            "value": 2
+          }
+        ]
+      },
+      "completionRequires": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "actor.home.employed",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "location",
+                "op": "eq",
+                "value": "Arlmere family manor"
+              },
+              {
+                "fact": "condition.home.cultivation.seeded_mist",
+                "op": "gte",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "fact": "resource.home.cultivationPractice",
+            "op": "gte",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "home.medicine.purge.home.manor.steward",
+      "revision": 1,
+      "label": "Medicinal residue purge",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.steward",
+      "location": "Arlmere family manor",
+      "duration": 12,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Charcoal\"}",
+          "amount": -2
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.wages",
+          "amount": 2
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.medicineResidue",
+          "amount": {
+            "fact": "resource.home.medicineResidue",
+            "scale": -1,
+            "min": -5,
+            "max": 0
+          }
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "actor.home.employed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "not": {
+              "fact": "actor.home.leave",
+              "op": "eq",
+              "value": true
+            }
+          },
+          {
+            "fact": "resource.home.medicineResidue",
+            "op": "gte",
+            "value": 1
+          }
+        ]
+      },
+      "completionRequires": {
+        "fact": "actor.home.employed",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "id": "home.medicine.capacity.home.manor.steward",
+      "revision": 1,
+      "label": "Medicinal capacity appointment",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.steward",
+      "location": "Arlmere family manor",
+      "duration": 24,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Charcoal\"}",
+          "amount": -4
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -3
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.wages",
+          "amount": 3
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.medicineCapacityBonus",
+          "amount": 5
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "actor.home.employed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "not": {
+              "fact": "actor.home.leave",
+              "op": "eq",
+              "value": true
+            }
+          },
+          {
+            "fact": "resource.home.medicineCapacityBonus",
+            "op": "lte",
+            "value": 25
+          }
+        ]
+      },
+      "completionRequires": {
+        "fact": "actor.home.employed",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "id": "home.medicine.purge.home.manor.cook",
+      "revision": 1,
+      "label": "Medicinal residue purge",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.cook",
+      "location": "Arlmere family manor",
+      "duration": 12,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Charcoal\"}",
+          "amount": -2
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.cook",
+          "key": "home.wages",
+          "amount": 2
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.cook",
+          "key": "home.medicineResidue",
+          "amount": {
+            "fact": "resource.home.medicineResidue",
+            "scale": -1,
+            "min": -5,
+            "max": 0
+          }
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "actor.home.employed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "not": {
+              "fact": "actor.home.leave",
+              "op": "eq",
+              "value": true
+            }
+          },
+          {
+            "fact": "resource.home.medicineResidue",
+            "op": "gte",
+            "value": 1
+          }
+        ]
+      },
+      "completionRequires": {
+        "fact": "actor.home.employed",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "id": "home.medicine.capacity.home.manor.cook",
+      "revision": 1,
+      "label": "Medicinal capacity appointment",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.cook",
+      "location": "Arlmere family manor",
+      "duration": 24,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Charcoal\"}",
+          "amount": -4
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -3
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.cook",
+          "key": "home.wages",
+          "amount": 3
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.cook",
+          "key": "home.medicineCapacityBonus",
+          "amount": 5
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "actor.home.employed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "not": {
+              "fact": "actor.home.leave",
+              "op": "eq",
+              "value": true
+            }
+          },
+          {
+            "fact": "resource.home.medicineCapacityBonus",
+            "op": "lte",
+            "value": 25
+          }
+        ]
+      },
+      "completionRequires": {
+        "fact": "actor.home.employed",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "id": "home.medicine.purge.home.manor.keeper",
+      "revision": 1,
+      "label": "Medicinal residue purge",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.keeper",
+      "location": "Arlmere family manor",
+      "duration": 12,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Charcoal\"}",
+          "amount": -2
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.wages",
+          "amount": 2
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.medicineResidue",
+          "amount": {
+            "fact": "resource.home.medicineResidue",
+            "scale": -1,
+            "min": -5,
+            "max": 0
+          }
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "actor.home.employed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "not": {
+              "fact": "actor.home.leave",
+              "op": "eq",
+              "value": true
+            }
+          },
+          {
+            "fact": "resource.home.medicineResidue",
+            "op": "gte",
+            "value": 1
+          }
+        ]
+      },
+      "completionRequires": {
+        "fact": "actor.home.employed",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "id": "home.medicine.capacity.home.manor.keeper",
+      "revision": 1,
+      "label": "Medicinal capacity appointment",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.keeper",
+      "location": "Arlmere family manor",
+      "duration": 24,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Charcoal\"}",
+          "amount": -4
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -3
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.wages",
+          "amount": 3
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.keeper",
+          "key": "home.medicineCapacityBonus",
+          "amount": 5
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "actor.home.employed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "not": {
+              "fact": "actor.home.leave",
+              "op": "eq",
+              "value": true
+            }
+          },
+          {
+            "fact": "resource.home.medicineCapacityBonus",
+            "op": "lte",
+            "value": 25
+          }
+        ]
+      },
+      "completionRequires": {
+        "fact": "actor.home.employed",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "id": "home.medicine.purge.home.manor.tutor",
+      "revision": 1,
+      "label": "Medicinal residue purge",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.tutor",
+      "location": "Arlmere family manor",
+      "duration": 12,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Charcoal\"}",
+          "amount": -2
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -2
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.tutor",
+          "key": "home.wages",
+          "amount": 2
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.tutor",
+          "key": "home.medicineResidue",
+          "amount": {
+            "fact": "resource.home.medicineResidue",
+            "scale": -1,
+            "min": -5,
+            "max": 0
+          }
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "actor.home.employed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "not": {
+              "fact": "actor.home.leave",
+              "op": "eq",
+              "value": true
+            }
+          },
+          {
+            "fact": "resource.home.medicineResidue",
+            "op": "gte",
+            "value": 1
+          }
+        ]
+      },
+      "completionRequires": {
+        "fact": "actor.home.employed",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "id": "home.medicine.capacity.home.manor.tutor",
+      "revision": 1,
+      "label": "Medicinal capacity appointment",
+      "worldId": "base.frontier",
+      "group": "home_work",
+      "actorId": "home.manor.tutor",
+      "location": "Arlmere family manor",
+      "duration": 24,
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "completionFailure": "refund",
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Charcoal\"}",
+          "amount": -4
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.steward",
+          "key": "home.estateFunds",
+          "amount": -3
+        }
+      ],
+      "effects": [
+        {
+          "type": "resource",
+          "actor": "home.manor.tutor",
+          "key": "home.wages",
+          "amount": 3
+        },
+        {
+          "type": "resource",
+          "actor": "home.manor.tutor",
+          "key": "home.medicineCapacityBonus",
+          "amount": 5
+        }
+      ],
+      "requires": {
+        "all": [
+          {
+            "fact": "actor.home.employed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "not": {
+              "fact": "actor.home.leave",
+              "op": "eq",
+              "value": true
+            }
+          },
+          {
+            "fact": "resource.home.medicineCapacityBonus",
+            "op": "lte",
+            "value": 25
+          }
+        ]
+      },
+      "completionRequires": {
+        "fact": "actor.home.employed",
+        "op": "eq",
+        "value": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "projectPreimageSHA256": "bba2b97900693f89cb30e8300d4320ad3a7b73d1946f86837b319b4719090ccf",
+  "projectRemovedLinesAbsentFromHistory": 0,
+  "userVisionPreimageRetained": true,
+  "paths": [
+    "PROJECT.md",
+    "docs/USER_VISION.md",
+    "docs/gm/dispatch/overarching-reconciliation-2026-10-23/SUPERSEDED_ROUTING.md"
+  ],
+  "checkpointRelativeLinks": "PASS",
+  "scopedTrackedDiffWhitespace": "PASS",
+  "chatDispatch": "3 created; initial bounded wait requested",
+  "consolidation": {
+    "projectPreimageSHA256": "ff81f6aef44c4be7734f4bc28a1b5a94cd027a30acb3e631e9ac6a2048ef9c11",
+    "removedLinesAbsentFromArchive": [],
+    "historicalRoutingArchive": "SUPERSEDED_CONSOLIDATION.md",
+    "scope": "PROJECT own current-status hunks plus coordinator CHECKPOINT; no runtime changes",
+    "linkCheck": {
+      "result": "PASS",
+      "checkpointLinksChecked": 11,
+      "broken": [],
+      "legacyAndCurrentProjectAnchor": "PASS"
+    },
+    "trackedWhitespace": "PASS",
+    "complementaryInputComparison": {
+      "src/gear_work.js": {
+        "recorded": "74a9abbe40cc2150f4af86b9a1d527e22a2a1a609044b5b6cc7dfc80c073e840",
+        "current": "74a9abbe40cc2150f4af86b9a1d527e22a2a1a609044b5b6cc7dfc80c073e840",
+        "matches": true
+      },
+      "src/gear_workshop_domain.js": {
+        "recorded": "6686fb841030ea9dcb8b87bd2fbd08741350e22548dafbc52ab728f2e83aee99",
+        "current": "6686fb841030ea9dcb8b87bd2fbd08741350e22548dafbc52ab728f2e83aee99",
+        "matches": true
+      },
+      "src/gear_workshop_panel.js": {
+        "recorded": "db0ee65c998295196b4f58f52eb0e9a6cef3bbf30083402d5bd373d65d0e8ebc",
+        "current": "db0ee65c998295196b4f58f52eb0e9a6cef3bbf30083402d5bd373d65d0e8ebc",
+        "matches": true
+      },
+      "tests/gear_workshop.test.js": {
+        "recorded": "5a91ee5e23ae958901da6af515d58bf675ee64c31acb92563b84a9a5d42cce72",
+        "current": "5a91ee5e23ae958901da6af515d58bf675ee64c31acb92563b84a9a5d42cce72",
+        "matches": true
+      },
+      "styles/material_icons.css": {
+        "recorded": "3fc1347eba2f3e91c5ff55ddd49d8773efc39a8fb676bd60df2729af52364e19",
+        "current": "3fc1347eba2f3e91c5ff55ddd49d8773efc39a8fb676bd60df2729af52364e19",
+        "matches": true
+      },
+      "tests/ui_contract_allowlist.json": {
+        "recorded": "8905fbe1727ce216007a6c038c8b3ed9b153121300d617a780b7000dc7c327e3",
+        "current": "8905fbe1727ce216007a6c038c8b3ed9b153121300d617a780b7000dc7c327e3",
+        "matches": true
+      },
+      "dist/bundle.js": {
+        "recorded": "88ae9939906485892257ce731ac9a14e9f5a5b2f2584320cc11d258841214c0c",
+        "current": "9d6276d0041f12de8f5d7a8e4f3f45b3a0eb0efeb4c73f2418091f0b476d98a3",
+        "matches": false
+      },
+      "index.html": {
+        "recorded": "48bac7784dba8b9d6d449e2ade80a7dade440280cc609ff2d80157ea4d80c445",
+        "current": "713f77387c19230208f316c2fdc2d8b96ba66407b33b0159c3e943836cadcf7c",
+        "matches": false
+      }
+    },
+    "runtimeChecks": "Reused attributed frozen receipts; no build/full suite rerun",
+    "npm run check:rules": {
+      "result": "PASS",
+      "registerRows": 23,
+      "ADCodes": 41,
+      "relativeLinks": 128,
+      "warnings": [
+        "docs/WORLD_PASS_RULES.md exists but untracked",
+        "docs/PROGRESSION_GATE_RULES.md exists but untracked"
+      ]
+    }
+  },
+  "r3CompletionUpdate": {
+    "sourceHashes": {
+      "src/chain_inspector.js": "ddc51b466854019103a4433e1ed16755e46ea6dda5d46e8e14f628e876573689",
+      "tests/chain_inspector.test.js": "5be961f53775555ff1bc9ca3e9e20653494afe68000079115476261b831f261a"
+    },
+    "matchesR3FinalReceipt": true,
+    "history": "SUPERSEDED_R3_STATUS.md",
+    "runtimeChecks": "Attributed R3 final receipts only; no suites rerun",
+    "estatePreview": "coordination reports source/focused7; final desktop proof pending",
+    "documentChecks": {
+      "links": 13,
+      "broken": [],
+      "whitespace": "PASS",
+      "supersededStatus": "Archived verbatim"
+    }
+  },
+  "estateCompletionUpdate": {
+    "receipt": "../complementary-journeys-2026-10-23/ESTATE_LABEL_INPUTS.json",
+    "verification": {
+      "inheritance": "7/7 PASS",
+      "carryCodex": "5/5 PASS",
+      "architecture": "PASS main growth0",
+      "rules": "PASS two existing warnings",
+      "isolatedBrowser": "PASS 1920x1080/14px and1536x864/21px; complete saved state unchanged"
+    },
+    "history": "SUPERSEDED_ESTATE_STATUS.md",
+    "currentSourceMatches": {
+      "src/heir_inheritance.js": true,
+      "src/main.js": true,
+      "tests/heir_inheritance.test.js": true
+    },
+    "remainingGate": "Existing integrator combined-candidate gate; no adoption claim",
+    "checks": "Target files and estate receipt heading exist; new status row whitespace clean; replaced row preserved verbatim"
+  }
+}

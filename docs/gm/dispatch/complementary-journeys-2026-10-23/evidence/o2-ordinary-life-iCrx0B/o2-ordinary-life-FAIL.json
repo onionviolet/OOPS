@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "message": "locator.selectOption: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#homes_panel select').first()\u001b[22m\n",
+  "gates": [
+    "earned-rented-room: native Save/reload/Export/literal-file Import"
+  ],
+  "pageErrors": []
+}

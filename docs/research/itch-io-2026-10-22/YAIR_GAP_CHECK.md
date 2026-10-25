@@ -40,7 +40,7 @@ Read-only verification of every YAIR-side claim in `ITCH_IO_IDLE_SCREEN_2026-10-
 | G24 | No inherited quality, root or trait from two parents; no delayed named-cause events | SECT:125-128,498 | PARTIAL | Only a display label: `src/character_bio.js:22` ("Inherited body trait"); `heir_inheritance.js` carries lessons and goods | Mechanism absent. |
 | G25 | No cause-of-death terms in src; cause-keyed lessons are new | SCOUT:120-121,487 | PARTIAL | `src/defeat_domain.js:8,18-19` records a defeat cause (`combat` or `harm`, place, by) | WRONG that none exist, though it records unconsciousness, not death. |
 | G26 | No orphan, grief, mourn or came-of-age events | SCOUT:314 | CONFIRMED GAP | Only unrelated "orphan" validators; `src/npc_lives.js` is scripted | The batch's own caveat is accurate. |
-| G27 | No skill floor, near-miss or paths-not-taken records | SCOUT:381 | CONFIRMED GAP | No skill decay or rust code found | |
+| G27 | No skill floor, near-miss or paths-not-taken records | SCOUT:381 | BUILT 2026-10-23 | skill_records.js, skillRecords slice; [notes](W3_INSTITUTIONS_NOTES.md) | |
 | G28 | No genotype, allele, pedigree, breeding code | COMPANIONS:15, SCOUT:443, I1_DEEP:156,238 | CONFIRMED GAP | 0 hits for genotype/allele/phenotype/pedigree; `breed` hits only substrings | AD33 deprioritizes NPC-heavy work. |
 | G29 | No bond-ritual, wish or "leaves for the wild" code; `companion_roster.js` is read-only | COMPANIONS:15,84-89,126 | CONFIRMED GAP | `src/companion_roster.js:22` is a 73-line projection; `wish` has no runtime hit | Same AD33 flag as G28. |
 | G30 | No reasons text for job fit in household staff | COMPANIONS:91 | PARTIAL | `src/home_staff.js:30-42` gives refusal reasons via `check(...)`; no fit forecast | |
@@ -75,7 +75,7 @@ Read-only verification of every YAIR-side claim in `ITCH_IO_IDLE_SCREEN_2026-10-
 | G59 | No after-fight cause classifier | SECT:303 | PARTIAL | `src/defeat_domain.js:18-19` records a cause, but not a diagnosis | |
 | G60 | No salience table or post-hoc story recognizer | PROCGEN:108 | CONFIRMED GAP | `salience` 0 hits; `recogniz` hits are item recognition | |
 | G61 | `provenance` in 55 files; gravestone description is the new part | PROCGEN:108 | PARTIAL | 55 files (mostly book-world contracts, for example `src/book_world_player_agency_contracts.js:48`); epitaph exists at `src/life_experience.js:17-24` | Count right; the epitaph is half built. |
-| G62 | No diplomacy, schism, heresy | PROCGEN:17,93 | CONFIRMED GAP | 0 hits | |
+| G62 | No diplomacy, schism, heresy | PROCGEN:17,93 | BUILT 2026-10-23 | world history events; [notes](W3_INSTITUTIONS_NOTES.md) | |
 | G63 | `generated_people.js` has one `relationship` string; no reciprocal labels | PROCGEN:77 | EXISTS | `src/generated_people.js:30,47` | Correct. |
 | G64 | No expiring relationship issues | PROCGEN:170 | PARTIAL | Conditions expire (`src/simulation.js:497,540`); no issue/grievance record | |
 | G65 | Seeded streams, name grammar, frontier campaign already exist | PROCGEN:14 | EXISTS | `src/seeded_streams.js`, `src/name_grammar.js`, `src/frontier_campaign.js` | Correct. |

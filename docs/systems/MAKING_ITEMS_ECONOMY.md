@@ -192,7 +192,7 @@ Three separate recipe systems exist. Pick by how flexible the swap must be.
 | SUB3 compound | `{all:[SUB1, SUB2...]}` | Tag AND threshold. Any `no` fails, any `unknown` makes the match unconfirmed | `:73-74` |
 | SUB4 catalyst | `role:'catalyst'` | Present but not consumed; a lot's role must equal the slot's catalyst-ness | `:82`; retained, not debited: `craft_resolver.js:207-208` |
 
-`matchRecipe` returns `{ok, assignment, unknown, problems}` with named reasons ("no input fits", "extra inputs", "step n differs") shared by UI and NPCs (`:79-118`). There is **no graded fit score**: yes, no or unknown only (MIE-G1, TSW3).
+`matchRecipe` returns `{ok, assignment, unknown, problems}` with named reasons ("no input fits", "extra inputs", "step n differs") shared by UI and NPCs (`:79-118`). This matcher remains yes/no/unknown. The later `craft_material_fit.js` grades authored property targets behind a tag query; its native rendering consumer changes actual source quantities (TSW12–14). It does not yet grade a whole formula or its potency/risk.
 
 **Consumers today.** `defineRecipe` is called once in content (`craft_reference_content.js:11`, `SALT_STEEP`) and in `craft_state.js` validation. `matchRecipe` and `generateRecipe` have **no live caller** (grep over `src` finds none outside their own file). The live Village path does not use recipes at all; it takes free-form inputs (section 4).
 
@@ -522,7 +522,7 @@ Lives in `.claude/worktrees/agent-aae6ede3f52b50209/src/native_material_catalogu
 
 | Code | Gap | Evidence | Related codes |
 |---|---|---|---|
-| MIE-G1 | No graded fit for substitution. `matchRecipe` is yes, no or unknown; legacy picks cheapest; HP is exact. Partial-fit potency, risk and residue do not exist | `craft_recipes.js:64-75`, `crafting_recipes.js:341-350`, `hp_brewing_state.js:85` | TSW3, TSW8, PZ34 |
+| MIE-G1 | Partially implemented 2026-10-25: authored trait fit changes actual native rendering input costs through `craft_material_fit.js` and `native_rendering_recipes.js`. Whole-formula matching remains yes/no/unknown; symbolic, potency, risk and residue grading remain open | [Execution and exact proof](../gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md); `craft_recipes.js`, `hp_brewing_state.js` | TSW3, TSW8, PZ34, TSW12–14 |
 | MIE-G2 | Reference items exist but grant nothing in play: `recipeAccess`, `learnFromReference`, `readTraining` have no live caller, and `matchRecipe`/`generateRecipe` are never called live | grep over `src`; `tests/craft_reference.test.js` only | PZ4, MR3, MR10 |
 | MIE-G3 | The live crafting runtime is single-world: scope must be `base.frontier`, location must be Village, one carrier, one catalogue in `validateOwner` | `crafting_frontier_runtime.js:42-43,110,24-29` | MR11, AR11, TSW11 |
 | MIE-G4 | Lot quality is dropped before resolution; products have no quality axis; yield is mass-derived only | `crafting_frontier_runtime.js:19,111` | MR21 |
@@ -531,7 +531,7 @@ Lives in `.claude/worktrees/agent-aae6ede3f52b50209/src/native_material_catalogu
 | MIE-G7 | One purse, one currency, native key `money` for player only | `simulation_effects.js:308-309`, `money.js:9` | Cross-world trade, WR rows |
 | MIE-G8 | No general decay, freshness or container trait. Carcass freshness, three larder foods and lineage `born` do not connect | `harvest.js:28`, `owned_place_clock.js:12` | TSW10, PD5, PD6 |
 | MIE-G9 | No directional cross-world compatibility law. An item from another world is read only by recipes that name it or share a `material_type` string; MR14 and WR10 are proposals | CRAFTING_ENGINE round 12 TSW5 | MR14, WR10, TSW-L4 |
-| MIE-G10 | Native items are not catalogue materials on master. The bridge exists only in the lane A worktree (35 rows, not wired) | Section 5e | TSW-L1, TSW6 |
+| MIE-G10 | The native catalogue is on master; native rendering now reads it through real Cooking recipes. This does not yet join it to the separate Village composition runtime or establish foreign-world compatibility | `native_material_catalogue.js`, `native_rendering_recipes.js`; [bounded proof](../gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md) | TSW-L1, TSW6, TSW12–14 |
 | MIE-G11 | No units trait: quantities are integers of "units" with no drops-versus-ml conversion | `craft_resolver.js:12`, `craft_materials.js:53` | TSW9 |
 | MIE-G12 | Formula materials sold with no consumer (frog, hairs, ink) | `book_world_lotm_broker.js:19-22`; round 8 | PZ9, PZ-L3 |
 | MIE-G13 | Gate engine not yet used by any brew; brew requirements are bespoke checks | `progression_gates.js` importers (section 12) | PZ2, PZ8 |

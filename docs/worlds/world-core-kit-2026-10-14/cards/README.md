@@ -31,7 +31,24 @@ Cells are **D/R**. **F** = met, **P** = partial, **M** = missing, **U** = unasse
 | [Fullmetal Alchemist](fullmetal-alchemist.md) | P/M | F/M | P/M | P/M | P/M | P/M | P/M | P/M | P/M | P/M | P/M | P/M | P/M | M/M | P/M | P/M | P/M | P/M | 1/16/1 | 0/0/18 |
 | [Naruto](naruto.md) | P/P | P/M | P/M | P/M | P/P | P/P | P/M | P/M | P/P | P/M | P/P | P/M | P/M | F/M | P/M | P/M | P/P | P/M | 1/17/0 | 0/6/12 |
 | [A Soldier's Life](soldiers-life.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
+| [Primordial Saint Sect](primordial-saint-sect.md) | M/M | P/M | P/M | M/M | M/M | P/M | M/M | P/M | M/M | M/M | M/M | M/M | P/M | M/M | M/M | M/M | M/M | M/M | 0/5/13 | 0/0/18 |
+| [A Regressor's Tale](regressors-tale.md) | M/M | P/M | P/M | M/M | M/M | P/M | M/M | P/M | M/M | M/M | M/M | M/M | P/M | M/M | M/M | M/M | M/M | M/M | 0/5/13 | 0/0/18 |
 | [Original Frontier](original-frontier.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
+| [Re:Zero](re-zero.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
+
+| [Tensura](tensura.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
+
+| [Worm](worm.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
+
+| [The Perfect Run](perfect-run.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
+
+| [Super Supportive](super-supportive.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
+
+| [You Are Summoned](you-are-summoned.md) | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | U/U | unassessed | unassessed |
+
+The Re:Zero, Tensura, Worm (2026-10-24), The Perfect Run, Super Supportive and You Are Summoned (2026-10-25) rows from the source-deep-dive queue are later additions, not W1 measurements: each card is a research summary with sealed-slot IDs, and no floor grading was done.
+
+Primordial Saint Sect and A Regressor's Tale rows (2026-10-23, world-readiness coordinator) are later additions, not W1 measurements: the five floor parts are rated P/D from their source-reviewed pass docs, all other parts M, and R is 0 because no runtime or pack exists.
 
 ## K19-K34 and proof trend
 

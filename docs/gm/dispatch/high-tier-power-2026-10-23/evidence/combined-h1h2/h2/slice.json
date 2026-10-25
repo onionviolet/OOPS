@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "clock": 10,
+ "earned": {},
+ "observers": {
+  "player": {
+   "strain": 0.25,
+   "strainAt": 10,
+   "closedUntil": null,
+   "sightings": {
+    "book.paradise.mia": {
+     "verb": "witness",
+     "at": 2,
+     "tier": 0
+    },
+    "book.paradise.hank": {
+     "verb": "witness",
+     "at": 5,
+     "tier": 1
+    },
+    "book.paradise.philip_herbert": {
+     "verb": "glimpse",
+     "at": 7,
+     "tier": null
+    },
+    "book.paradise.su_xiao": {
+     "verb": "blind",
+     "at": 10,
+     "tier": null
+    }
+   },
+   "glimpses": 1
+  }
+ }
+}

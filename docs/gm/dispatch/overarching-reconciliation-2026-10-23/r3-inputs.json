@@ -1,0 +1,17 @@
+{
+  "head": "547209e82c29e897e6b602a4ef5d8e8ab46b3ebf",
+  "sha256": {
+    "src/reveal_chain.js": "467b840551d0a0b191b25a2dbb584ad9fe8c93722777bcd0184bdfcd76b958fa",
+    "src/progression_gates.js": "3e7cf4951422a89006120887da6f68723ba9fcb7a99b91913a406605de2157d4",
+    "src/chain_inspector.js": "edbda4a5a177d959b44e88909c545a9da47ab70c460afd55bd3c1247a39345b6",
+    "src/chain_inspector_ui.js": "c0f94b730e18ac1e1443117a6c21f4aada63caf9337d8ea1e88137c78f65406c",
+    "src/native_unlock_transaction.js": "2382bab9895016e22d6d25ba5f94929eac76ef14b9cfb7225cb77e08369f65ad",
+    "src/main.js": "f2965bc64b4c1459265d442564b119cb513e781cff228738a2ea37a7bf5f5340",
+    "src/ascension_paths.js": "7038d96dfc23d570ce63ad0693ddcbc6d18396d6859a942772c21fb36e8e5f65",
+    "src/ascension_paths_mistglass.js": "cb96c46fd8b8c4a09978fb0a7de47630cb27db72341764a53ce8d9069c6c6422",
+    "src/absorb_p23/world_adaptation/techniques.js": "08f29ec29c674120bf7220be6da9a59b9d9b28790b8c2585245f59bb68ecebf5",
+    "src/skill_overflow_domain.js": "c4157ab7d7b49f8c79446d7494dcf2e34966bc61004777529af05f0b2b4d4072",
+    "src/components/levelable_component.js": "a813ed42b198f435a197eeb8646b798d2d71aa6f2ab54a6dfa8329992e373702"
+  },
+  "status": " M src/chain_inspector.js\n M src/chain_inspector_ui.js\n M src/components/levelable_component.js\n M src/main.js\n M src/reveal_chain.js\n?? src/progression_gates.js\n?? src/skill_overflow_domain.js\n"
+}

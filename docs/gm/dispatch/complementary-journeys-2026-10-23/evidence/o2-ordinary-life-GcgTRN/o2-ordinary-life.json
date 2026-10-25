@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "lane": "o2-ordinary-life",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "e7ca5a704772147ee629f2f03123c6ae6d6c6f10cfe84cbe0b13a6cf3126e814",
+  "gates": [
+    "earned-rented-room: native Save/reload/Export/literal-file Import",
+    "w2-funded-qualified-office: native Save/reload/Export/literal-file Import",
+    "w2-successor-pending-review: native Save/reload/Export/literal-file Import",
+    "w2-successor-settled-delivery: native Save/reload/Export/literal-file Import",
+    "One existing job admission, zero starting purse, actual 120-minute paid shift, rented room purchased from wages; worker/student earns office; qualified steward, finite reserved funding, unavailable pause, living succession and actual successor review precede delivery"
+  ],
+  "pageErrors": [],
+  "prerequisites": "Immutable old baseline: earned Shack permission, native Meditation admission, money and ordinary inventory controls. All new families created by native opt-ins; optional counter control labelled where used."
+}

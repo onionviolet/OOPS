@@ -1,0 +1,9 @@
+Lane B4: read-only correctness review of the primary checkout's uncommitted runtime work (2026-10-25). Follow docs/gm/dispatch/codex-parallel-2026-10-25/COMMON.md.
+
+Why: /Users/weiwei/code/yet-another-idle-rpg has about 125 modified or untracked src/ files from several in-flight lanes (mainly the cultivation absorption run, docs/gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md, plus other Claude sessions). Before anyone commits it, Weibao benefits from an independent bug hunt.
+
+Method: start from `git status --short src tests` and `git diff -- src tests` against HEAD (read-only; never stage or modify). Group the changed files by system (cultivation/Mistglass, crafting/workshop, household/home, combat, continuation, LOTM, UI, other). Fan out up to 4 Luna-medium subagents, one per group, each reviewing for real defects: save/load and migration breaks (AGENTS.md Safety, persistence needs a migration or a compatibility decision), AR1-AR16 violations (docs/ARCHITECTURE_RULES.md), state mutated outside its owner, double-spend or conservation errors, rollback gaps, stale UI projections, import cycles (see the person.js / inventory_component.js note in docs/tools/GAME_MCP_LIMITS.md), and tests asserting the wrong thing. Each finding needs file:line, a concrete failure scenario, and a confidence. Use Sol yourself to verify every finding against the code before you keep it. Drop style nits.
+
+You may run focused `node --test <file>` and `npm run check:arch` / `npm run check:rules` read-only. Do not run `npm run build`: it rewrites dist/, which other sessions own.
+
+Output only: docs/reviews/UNCOMMITTED_RUNTIME_REVIEW_2026-10-25.md, with findings ranked by severity, coded U1, U2 and so on, each naming the owning lane or checkpoint where you can tell. Read-only everywhere else.
