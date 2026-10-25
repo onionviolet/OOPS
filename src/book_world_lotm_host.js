@@ -3,13 +3,14 @@
 // finite stock, native sleep is joined to book.lotm.sleep (D4). The caller supplies ports;
 // this file imports no main.js and publishes only through the one expansion publisher.
 import {enrollSimulation,previewSimulationCommand,commitSimulationCommand,cancelSimulationJob} from './simulation.js';
+import {applySimulationEffects} from './simulation_effects.js';
 import {lotmCommands,lotmContext} from './book_world_lotm_actions.js';
 import {enrollLotmBranch,LOTM_NATIVE_STOCK} from './book_world_lotm_content.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
 import {lotmPathView} from './book_world_lotm_path.js';
 import {flagOf} from './book_world_lotm_pathways.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
-import {LOTM_PROFILES,profileKeyOf} from './book_world_lotm_lives.js';
+import {LOTM_PROFILES,profileKeyOf,lifeEntryEffects} from './book_world_lotm_lives.js';
 import {causeView} from './book_world_lotm_causes.js';
 import {clearanceView} from './book_world_lotm_clearance.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
@@ -49,6 +50,7 @@ export function createLotmHost(ports){
   // A new identity carries no cash (F25): the profile's own purse replaces the frontier money, on this disposable branch only.
   if(profile.cash!=null)plan.external={...plan.external,money:profile.cash};
   for(const [owner,stock] of Object.entries(LOTM_NATIVE_STOCK))plan.gameplay[owner]={inventory:copy(stock),skills:{},reputation:{}};
+  applySimulationEffects(plan,lifeEntryEffects(profileKey),{...c,actorId:'player'},registry,'book.lotm.enroll');
   plan.nativeLocation=profile.start;plan.nativePatch={'current location':profile.start};
   ports.persist(plan);return plan;
  }
