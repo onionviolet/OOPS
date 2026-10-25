@@ -43,6 +43,10 @@ test files are excluded. Primary status is rechecked before each edit slice.
 
 - `node --test tests/{home_furnishing_bonuses,accessory_utility,local_life,fort_supply,pacing,equipment_durability,elemental_affinities}.test.js`: PASS 62/62. R1 plus the same local-life owner from R2; no assertion deletion. New names identify distinct runtime owners; existing home-household and fork-fort suites cover different seams. Exact block preservation now 84 cases across 12 base files.
 
+- `node --test` over the 25 R2/R4/R5/R6 destination suites listed in `relocation-systems.json`: PASS 278/278, including current native-save fixture browser journey; log `/private/tmp/lean-tests-systems.log` (45.530 s runner). All 362 relocated registrations from 39 base files remain literal once in the working result.
+- Review A (Luna-low): checked M1/R1 imports, lexical fixture scopes, document/equipment-reader restoration and native-loader prefixes; no assertion loss found. Coordinator confirmed exact block preservation plus original import identities and reviewed the scoped diff. No test re-run by reviewer.
+- Commit sequencing correction: the R1 commit process overlapped the next slice’s preparation and captured new system destinations before their original paths retired. This commit finishes those moves; final equivalence and discovery compare the complete branch to base. No unrelated work was present or included. Further edits/commits are sequential.
+
 ## Assertion relocation mapping
 
 No assertion or invariant was deleted. Cases are numbered in their original
@@ -67,3 +71,30 @@ loop iterations. Detailed source/destination/case/title lists are in
 | `structured_container_integration.test.js` | 1, 2, 3, 4, 5 | `structured_container.test.js` | 21 |
 | `structured_container_preparation.test.js` | 1, 2, 3, 4 | `structured_container.test.js` | 31 |
 | `structured_container_runtime.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | `structured_container.test.js` | 47 |
+| `p23-combat-options.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 | `combat_options.test.js` | 57 |
+| `p23-encounter-host.test.js` | 1, 2, 3, 4 | `encounter_host.test.js` | 14 |
+| `p23-encounter-profiles.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 | `encounter_profiles.test.js` | 48 |
+| `p23-exposure.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 | `exposure.test.js` | 58 |
+| `p23-field-familiarity.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 | `field_familiarity.test.js` | 72 |
+| `p23-growth-profile.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 | `growth_profile.test.js` | 63 |
+| `p23-household.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | `household.test.js` | 56 |
+| `p23-known-detail.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | `known_detail.test.js` | 49 |
+| `p23-leisure-memory.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 | `leisure_memory.test.js` | 59 |
+| `p23-living-gear.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | `living_gear.test.js` | 54 |
+| `p23-long-life.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | `title_training.test.js` | 56 |
+| `p23-market-life.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | `market_life.test.js` | 62 |
+| `p23-native-authority.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 | `native_authority.test.js` | 83 |
+| `p23-repeat-search.test.js` | 1, 2, 3, 4, 5, 6, 7 | `repeat_search.test.js` | 38 |
+| `p23-reread.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 | `reading.test.js` | 49 |
+| `p23-salvage.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 | `salvage.test.js` | 74 |
+| `p23-save-time-options.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | `backup_undo.test.js` | 33 |
+| `fa09_routines.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 | `routine_jobs.test.js` | 120 |
+| `fa10_manual.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | `manual_learning.test.js` | 90 |
+| `fa11_retort.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 | `retort_jobs.test.js` | 129 |
+| `fa18_runner_consequence.test.js` | 1, 2, 3, 4, 5, 6, 7 | `runner_consequences.test.js` | 36 |
+| `life_experience_b.test.js` | 1, 2, 3, 4, 5 | `life_experience.test.js` | 38 |
+| `life_experience_c.test.js` | 1, 2 | `life_experience.test.js` | 10 |
+| `micro_p1_xp.test.js` | 1 | `skill_xp_grants.test.js` | 13 |
+| `seeded_streams.test.js` | 1, 2, 3, 4, 5, 6, 7, 8 | `seeded_streams.test.js` | 45 |
+| `procgen_wave1_integration.test.js` | 1 | `seeded_streams.test.js` | 7 |
+| `rt_slice1_fixtures.test.js` | 1 | `native_save_fixtures.test.js` | 28 |

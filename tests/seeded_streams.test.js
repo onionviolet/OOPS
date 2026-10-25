@@ -2,9 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {loadNative} from './helpers/native_loader.mjs';
 import {beginNativeCraftTransaction} from '../src/native_craft_transaction.js';
-import {createExpansionState,loadExpansionState} from '../src/expansion_engine.js';
-import {createStreams,ensureStreams,drawUnit,keyedUnit,unitDecision,rollChance,rollInt,rollTable,validateStreams,
-    scopedStream,STREAMS,seededRecipe,validateNativeEncounter} from '../src/seeded_streams.js';
+import {createExpansionState, loadExpansionState} from '../src/expansion_engine.js';
+import {createStreams, ensureStreams, drawUnit, keyedUnit, unitDecision, rollChance, rollInt, rollTable, validateStreams, scopedStream, STREAMS, seededRecipe, validateNativeEncounter, streamSeed} from '../src/seeded_streams.js';
+import {createMixtureState} from '../src/mixture_state.js';
+import {createGeneratedPeople} from '../src/generated_people.js';
+
+// seeded_streams: original fixture scope retained.
+{
 const clone=x=>JSON.parse(JSON.stringify(x));
 const state=seed=>{const s=createExpansionState(seed);ensureStreams(s);return s;};
 
@@ -115,3 +119,24 @@ test('native lineup, loot, stock and pending fighter turns survive save/restore 
         }
     } finally {Math.random=originalRandom;globalThis.document=originalDocument;globalThis.setTimeout=originalTimeout;}
 });
+
+}
+
+// procgen_wave1_integration: original fixture scope retained.
+{
+
+test('one-time generator seeds come from the saved stream root without consuming draws', () => {
+    const state={rng:43,streams:createStreams(43)},before=JSON.stringify(state);
+    const mix=streamSeed(state,STREAMS.craft,'village.mixtures@1'),people=streamSeed(state,scopedStream('world.people'),'village.generated_people@1');
+    assert.equal(JSON.stringify(state),before,'pure: no cell or receipt written');
+    assert.equal(streamSeed(state,STREAMS.craft,'village.mixtures@1'),mix);
+    assert.notEqual(mix,people);
+    const other={rng:44,streams:createStreams(44)};
+    assert.notEqual(streamSeed(other,STREAMS.craft,'village.mixtures@1'),mix);
+    assert.ok(Number.isSafeInteger(mix)&&mix>=0&&mix<=0xffffffff);
+    assert.deepEqual(createMixtureState(mix),createMixtureState(mix));
+    assert.deepEqual(createGeneratedPeople(people,0),createGeneratedPeople(people,0));
+});
+
+}
+
