@@ -41,6 +41,8 @@ test files are excluded. Primary status is rechecked before each edit slice.
 
 - `node --test tests/structured_container.test.js`: PASS 22/22; development, preparation, runtime and native integration fixtures kept in distinct lexical scopes. All 22 registration blocks retained exactly. M1 implemented; no assertions deleted.
 
+- `node --test tests/{home_furnishing_bonuses,accessory_utility,local_life,fort_supply,pacing,equipment_durability,elemental_affinities}.test.js`: PASS 62/62. R1 plus the same local-life owner from R2; no assertion deletion. New names identify distinct runtime owners; existing home-household and fork-fort suites cover different seams. Exact block preservation now 84 cases across 12 base files.
+
 ## Assertion relocation mapping
 
 No assertion or invariant was deleted. Cases are numbered in their original
@@ -53,6 +55,14 @@ loop iterations. Detailed source/destination/case/title lists are in
 
 | Original base file | Original cases (same titles retained) | Final covering system suite | Assert expressions retained |
 |---|---|---|---:|
+| `absorb_b.test.js` | 1, 2, 3, 4, 5 | `home_furnishing_bonuses.test.js` | 30 |
+| `absorb_c1.test.js` | 1, 2, 3, 4, 5, 6 | `accessory_utility.test.js` | 52 |
+| `absorb_c2.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | `local_life.test.js` | 73 |
+| `absorb_d.test.js` | 1, 2, 3, 4, 5, 6, 7, 8 | `fort_supply.test.js` | 49 |
+| `absorb_e1.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | `pacing.test.js` | 52 |
+| `absorb_e2.test.js` | 1, 2, 3, 4, 5, 6 | `equipment_durability.test.js` | 69 |
+| `absorb_e3.test.js` | 1, 2, 3, 4, 5 | `elemental_affinities.test.js` | 30 |
+| `p23_life_loops.test.js` | 1, 2, 3, 4, 5, 6, 7, 8, 9 | `local_life.test.js` | 58 |
 | `structured_container_development.test.js` | 1, 2, 3 | `structured_container.test.js` | 7 |
 | `structured_container_integration.test.js` | 1, 2, 3, 4, 5 | `structured_container.test.js` | 21 |
 | `structured_container_preparation.test.js` | 1, 2, 3, 4 | `structured_container.test.js` | 31 |
