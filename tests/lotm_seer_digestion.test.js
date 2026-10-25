@@ -59,16 +59,16 @@ test('six acts digest the Seer potion; acting then stops and the assessment rele
  p=digested();assert.equal(acting(p),6);assert.equal(path(p).felt,'settled');
  refuses(p,'act_reading');refuses(p,'act_refusal');refuses(p,'ingest_clown');
  const before=p.state.actors[I.supervisor].resources['book.lotm.attention'];
- p=run(p,'request_assessment');
+ p=run(p,'request_assessment');p=wait(run(p,'request_exam_seer'),60);
  assert.equal(holds(p,K.clownDose),1);assert.equal(p.state.actors[I.supervisor].resources['book.lotm.attention'],before-1);
  assert.equal(p.state.actors.player.sources[I.clown],undefined,'holding the dose grants nothing');
  refuses(p,'request_assessment');
  assert.ok(validateLotmState(p.state));assert.ok(validateLotmEnvelope(save(p)));
 });
 test('drinking the Clown dose is atomic and irreversible; the ladder moves to Sequence 8 and caps there',()=>{
- let p=run(digested(),'request_assessment');
+ let p=wait(run(run(digested(),'request_assessment'),'request_exam_seer'),60);
  const v=path(p);assert.equal(v.stage,'Sequence 9 · Seer');assert.equal(v.ready,true);
- assert.deepEqual(v.crossings.map(c=>c.met),[true,true,true]);
+ assert.deepEqual(v.crossings.map(c=>c.met),[true,true,true,true]);
  p=run(p,'ingest_clown');
  assert.equal(holds(p,K.clownDose),0);assert.ok(p.state.actors.player.sources[I.clown]);assert.ok(p.state.actors.player.sources[I.source],'the Seer source stays');
  refuses(p,'ingest_clown');
@@ -76,7 +76,7 @@ test('drinking the Clown dose is atomic and irreversible; the ladder moves to Se
  assert.ok(validateLotmState(p.state));assert.ok(validateLotmEnvelope(save(p)));
 });
 test('the owners refuse forged digestion, promotion or a missing or duplicated Clown dose',()=>{
- let p=run(digested(),'request_assessment');
+ let p=wait(run(run(digested(),'request_assessment'),'request_exam_seer'),60);
  const bad=(mutate,pattern,check=validateLotmState,target=()=>structuredClone(p.state))=>{const x=target();mutate(x);assert.throws(()=>check(x),pattern);};
  bad(x=>{x.actors.player.resources['book.lotm.acting']=7;},/digestion count/);
  bad(x=>{x.actors.player.resources['book.lotm.acting']=5;},/assessment needs a digested/);

@@ -4,11 +4,14 @@ import {fresh,run,at,holds,save,def,hostOver,ctx,lotmFacts,I} from './lotm_helpe
 import {LOTM_LOCATIONS as L,LOTM_KEYS as K} from '../src/book_world_lotm_ids.js';
 import {defineClearance,clearanceFor} from '../src/clearance.js';
 import {LOTM_CLEARANCE} from '../src/book_world_lotm_clearance.js';
+import {previewSimulationCommand} from '../src/simulation.js';
+import {registry} from './lotm_helpers.js';
 import {validateLotmState} from '../src/book_world_lotm_state.js';
 import {validateLotmEnvelope} from '../src/book_world_lotm_envelope.js';
 // LOTM Q4: church team roles and sealed-item clearance on a world-neutral leaf. Grade 2 needs a bishop or a team captain; grade 3 needs a
 // group of three with formal-member clearance; custody is the vault's until a cleared group signs it out.
 const refuses=(p,id)=>assert.throws(()=>run(p,id));
+const withoutExaminer=p=>{p.state.simulation.people[I.evernightDeacon].location=L.lodging;return p;};
 const member=()=>{let p=run(fresh(),'report_in');p=run(p,'accept_allocation');return run(p,'ingest');};
 test('the rule table reads grades 2 and 3 as the source states them, and says why not',()=>{
  assert.equal(clearanceFor(LOTM_CLEARANCE,2,{role:'formal_member'}).ok,false);
@@ -37,14 +40,32 @@ test('one clerk cannot take the grade 3 item; formal membership with the captain
  p=run(p,'return_sealed_3');assert.equal(holds(p,K.sealed3),0);assert.equal(holds(p,K.sealed3,I.supervisor),1);assert.ok(validateLotmEnvelope(save(p)));
 });
 test('the group is real: if the member is elsewhere, or the player is only a probationer, the vault stays shut',()=>{
- let p=member();p.state.simulation.people[I.member].location=L.lodging;refuses(p,'request_sealed_3');
+ let p=withoutExaminer(member());p.state.simulation.people[I.member].location=L.lodging;refuses(p,'request_sealed_3');
  assert.equal(hostOver(p).host.view().clearance.find(g=>g.grade===3).ok,false);
  let q=run(fresh(),'report_in');assert.equal(hostOver(q).host.view().role,'probationer');
  const cs=hostOver(q).host.view().clearance;assert.match(cs.find(g=>g.grade===3).reasons.join(),/formal member clearance/);assert.match(cs.find(g=>g.grade===2).reasons.join(),/captain or bishop/);
 });
 test('a save from before the vault (no member, no item) loads and views',()=>{
- let p=member();delete p.state.simulation.people[I.member];delete p.state.actors[I.member];delete p.gameplay[I.supervisor].inventory[K.sealed3];
+ let p=withoutExaminer(member());delete p.state.simulation.people[I.member];delete p.state.actors[I.member];delete p.gameplay[I.supervisor].inventory[K.sealed3];
  assert.ok(validateLotmState(p.state));assert.ok(validateLotmEnvelope(save(p)));
  refuses(p,'request_sealed_3');
  assert.equal(hostOver(p).host.view().clearance.find(g=>g.grade===3).ok,false);
+});
+
+test('a stale group quote revalidates world, presence and life before transferring custody',()=>{
+ const p=withoutExaminer(member()),d=def('request_sealed_3');
+ const preview=()=>previewSimulationCommand(p.state,registry,d.id,ctx(p,d.targetId));
+ assert.equal(preview().eligible,true);
+ const original=structuredClone(p);
+ // A matching location string in another world supplies no participant to this vault group.
+ p.state.actors[I.member].worldId='base.frontier';
+ assert.equal(preview().eligible,false);refuses(p,'request_sealed_3');
+ assert.equal(holds(p,K.sealed3,I.supervisor),1);assert.equal(holds(p,K.sealed3),0);
+ p.state.actors[I.member].worldId=I.world;
+ p.state.simulation.people[I.member].life='dead';
+ assert.equal(preview().eligible,false);refuses(p,'request_sealed_3');
+ p.state.simulation.people[I.member]=original.state.simulation.people[I.member];
+ p.state.simulation.people[I.member].location=L.lodging;
+ const before=structuredClone(p);
+ refuses(p,'request_sealed_3');assert.deepEqual(p,before,'failed commit changes no state or stock');
 });

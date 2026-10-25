@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {bare,run,at,holds,save,def,hostOver,ctx,lotmFacts,I} from './lotm_helpers.js';
+import {bare,run,at,wait,holds,save,def,hostOver,ctx,lotmFacts,I,registry} from './lotm_helpers.js';
+import {validateSimulationState} from '../src/simulation_contracts.js';
 import {LOTM_LOCATIONS as L,LOTM_PENCE as P} from '../src/book_world_lotm_ids.js';
 import {LOTM_PROFILES,LOTM_WEEK_MINUTES,weeksOwed} from '../src/book_world_lotm_lives.js';
 import {validateLotmState} from '../src/book_world_lotm_state.js';
@@ -14,7 +15,7 @@ test('both profiles enroll from the same start and record which life they are',(
  const a=begin('probationer'),b=begin('civil');
  assert.equal(a.box.p.state.lotm.entryProfile,LOTM_PROFILES.probationer.id);assert.equal(b.box.p.state.lotm.entryProfile,LOTM_PROFILES.civil.id);
  assert.equal(a.host.view().profile,'probationer');assert.equal(b.host.view().profile,'civil');
- for(const o of [a,b]){assert.ok(validateLotmState(o.box.p.state));assert.ok(validateLotmEnvelope(save(o.box.p)));}
+ for(const o of [a,b]){assert.ok(validateLotmState(o.box.p.state));assert.ok(validateLotmEnvelope(save(o.box.p)));validateSimulationState(o.box.p.state.simulation,o.box.p.state,registry.simulation);}
  assert.throws(()=>hostOver(bare()).host.enroll('nobody'));
 });
 test('the probationer keeps their money and the civil clerk arrives with only the profile purse (cash does not travel)',()=>{
@@ -40,7 +41,30 @@ test('a post is not initiation: the civil clerk is offered no dose, the probatio
  let q=run(begin('probationer').box.p,'report_in');assert.ok(run(q,'accept_allocation'));
 });
 test('spend: both pay a district endorsement from their own purse; the clerk\'s smaller purse buys it too',()=>{
- let {box}=begin('civil');let p=at(run(box.p,'report_in'),L.docks);const m0=p.external.money;p=run(p,'endorse_storm');assert.equal(p.external.money,m0-2*P.soli);
+ for(const key of ['probationer','civil']){
+  let {box}=begin(key);let p=at(run(box.p,'report_in'),L.docks);const m0=p.external.money;p=run(p,'endorse_storm');assert.equal(p.external.money,m0-2*P.soli);
+  refuses(p,'endorse_storm');
+ }
+});
+test('opening means balance and both earned purses survive a serialized save without replaying enrollment',()=>{
+ const civil=LOTM_PROFILES.civil;
+ assert.equal(civil.opening.fundedPence-civil.paidBefore.papersPence-civil.paidBefore.clothesAndGoodsPence-civil.opening.passageLegs*civil.passage.perLegPence,civil.cash);
+ assert.equal(civil.opening.debtPence,0);
+ for(const key of ['probationer','civil']){
+  let p=run(begin(key,77).box.p,'report_in');
+  const entry=p.state.simulation.knowledge.player['book.lotm.entry'];
+  assert.equal(entry.value,LOTM_PROFILES[key].blurb);
+  if(key==='civil')p=run(run(p,'sign_contract'),'collect_pay');
+  const before=p.external.money;p=wait(run(p,'errand_evernight'),20);
+  assert.equal(p.external.money,before+12,'both lives earn through the timed errand owner');
+  p=run(at(p,L.docks),'endorse_storm');
+  const restored=JSON.parse(JSON.stringify(p)),snapshot=structuredClone(restored);
+  assert.ok(validateLotmState(restored.state));assert.ok(validateLotmEnvelope(save(restored)));
+  assert.equal(hostOver(restored).host.view().profile,key);
+  assert.deepEqual(restored,snapshot,'reading and validating must not mint money or rewrite history');
+  assert.equal(restored.external.money,key==='civil'?5*P.pound+3*P.pound+12-2*P.soli:77+12-2*P.soli);
+  if(key==='civil')refuses(restored,'collect_pay');
+ }
 });
 test('a hand-edited civil save holding a dose or pathway is refused',()=>{
  let {box}=begin('civil');let p=run(box.p,'report_in');p.state.actors.player.facts['book.lotm.allocated']=true;assert.throws(()=>validateLotmState(p.state),/civil clerk holds no Beyonder/);

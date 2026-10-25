@@ -1,0 +1,159 @@
+{
+  "bundleSha256": "75160cb9fc7fec95423184976456598b4b9241d0b93cfa72b03a2700e760d5ab",
+  "oldSaves": [
+    {
+      "name": "master",
+      "ref": "3dfc49cf3422c0262d86810df47459f53f3a4a67",
+      "inputBundleSha256": "c8824abb9d7729bfd84fadafc44eaf66c39d0e32b56b954f08e8cf042e583792",
+      "literalSavePath": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/lotm-e1-baseline-BIzg5R/master-save.txt",
+      "literalSaveSha256": "985dcfa3dce911d079fcb086bc1c28269ed33bd212a9754deaf9d43f29434ae0",
+      "projectSha256": "1180aa10b23bd39a04a787f7e8c62df959aa4ae5e4c1be2816d9c7163739a259",
+      "unchangedOnImport": true,
+      "oldJobCompleted": true,
+      "noBackfill": true
+    },
+    {
+      "name": "c1",
+      "ref": "4f229ab94a7ef6f821334b0be25998cd405fb5d6",
+      "inputBundleSha256": "43121215dea7a5ff726d24f4423547f2c99b3087d3451944a3948ab2f5cc92d2",
+      "literalSavePath": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/lotm-e1-baseline-BIzg5R/c1-save.txt",
+      "literalSaveSha256": "debf93d48cf8b3004b6b5a5ad84c003d2bd31ee513a05280e7f651f8439367b1",
+      "projectSha256": "7046f862363262d14246dd1f01ac37e828a650ef4c72b547b8213d2cea164632",
+      "unchangedOnImport": true,
+      "oldJobCompleted": true,
+      "noBackfill": true
+    }
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "pageWidth": 1920,
+      "pageHeight": 1080,
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "panelWidth": 699,
+      "panelContentWidth": 699,
+      "actualFont": "14px",
+      "paragraphFont": "14px",
+      "back": true,
+      "screenshot": "evidence/savant-1920x1080-14px.png",
+      "screenshotSha256": "b5a74b132a6efb98dc2494720c1ad4b6208067c1dab3ec829e21fa055a816c39"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "pageWidth": 1920,
+      "pageHeight": 1080,
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "panelWidth": 693,
+      "panelContentWidth": 693,
+      "actualFont": "21px",
+      "paragraphFont": "21px",
+      "back": true,
+      "screenshot": "evidence/savant-1920x1080-21px.png",
+      "screenshotSha256": "d00f632dff68aea77ab0721ad0fa2831d234905fe505a5e6470602d00e5557c7"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "pageWidth": 1536,
+      "pageHeight": 864,
+      "viewportWidth": 1536,
+      "viewportHeight": 864,
+      "panelWidth": 477,
+      "panelContentWidth": 477,
+      "actualFont": "14px",
+      "paragraphFont": "14px",
+      "back": true,
+      "screenshot": "evidence/savant-1536x864-14px.png",
+      "screenshotSha256": "7c8c09bf98bad8bbb94f56899390c705b47c04ff58f2149ad4f98716616bf0cc"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "pageWidth": 1536,
+      "pageHeight": 864,
+      "viewportWidth": 1536,
+      "viewportHeight": 864,
+      "panelWidth": 473,
+      "panelContentWidth": 473,
+      "actualFont": "21px",
+      "paragraphFont": "21px",
+      "back": true,
+      "screenshot": "evidence/savant-1536x864-21px.png",
+      "screenshotSha256": "f270a9630ce40447e224627161b5e77c7412f31e8197fb88e8481330433f820d"
+    }
+  ],
+  "steps": [
+    "native Machinery start and Savant allocation/ingestion",
+    "three study acts and one applied act",
+    "pre-screen gives no promotion dose",
+    "wrong examiner role refused in native UI",
+    "eligible exam reserved attention; pending job persists",
+    "senior-deacon examination releases one dose",
+    "native Archaeologist ingestion and persisted Sequence 8 ladder",
+    "exact master and C1 old-save literal import and old timed-job completion"
+  ],
+  "preExam": {
+    "exportChars": 192440,
+    "exportSha256": "70f2aee59ad2038c2bb434c2d45d9b1b5ed8d033ab69d807910f045d9247219b",
+    "projectSha256": "2ac28a60467a8dfc651109a21741af7deaf719f56a1945830b90b0ee4c388fd7"
+  },
+  "refusal": {
+    "fixture": "literal synthetic reassignment from senior_deacon to captain",
+    "inputSha256": "c18290a8d0ab8597db9e410b52de7f97fd6e13d9ae1a8d0f34e1465b097a372d",
+    "disabled": true,
+    "noDose": true,
+    "screenshot": "evidence/stale-role-refusal.png",
+    "screenshotSha256": "763926a4c8f36cfa8ab52681e79a57cd058cf6643fb7d43210400b419e41e22c"
+  },
+  "pending": {
+    "exportChars": 194944,
+    "exportSha256": "d1987d3d4cb50df995dee6ef62e0d81237b69cf4be9e385cc6b005292864658d",
+    "projectSha256": "4cebb9e7d96e508edb052d2fec0035cb8572367d385cde99d6b17bab248988a7"
+  },
+  "promoted": {
+    "exportChars": 194888,
+    "exportSha256": "f6e8a6746a5cdb235e3db5a5d02b88a4497d84b294a4a367a9f92594c4d11854",
+    "projectSha256": "78e2aabf891dd0c1f44555436b60d522843bc76825b958d9fc97cf913ce78798"
+  },
+  "errors": [],
+  "nighthawk": {
+    "exportChars": 194760,
+    "exportSha256": "08d77af4d6fe2e95c5d1e7b8611269bacef54ed130009315ad4536fbcd32dfcc",
+    "projectSha256": "2a44a97f6f56067bc3ae5fbdde2cd5ab2db14cf7fa0ae6903ec0d0c80d547b85",
+    "screenshot": "evidence/nighthawk-promoted.png",
+    "screenshotSha256": "a9f200eccba8029e32d22c2b81af19a46bde84bddfeac619ae637939d205420f"
+  },
+  "matrixInput": {
+    "path": "/tmp/lotm-e1-after-exam.json",
+    "sha256": "6325de1d17319f3ae289a3f0192555446cab6226dc9cf1867730bbdba12533b8",
+    "provenance": "native post-exam snapshot from the passing fresh-origin journey on this same bundle, literal Import then native promotion"
+  },
+  "sourceTestsTreeSha256": "d570670caf619d8ed86a6105fc9625b591c49dd5fd473b1207a226a6a1b1ca8e",
+  "verificationInputs": "../verification-inputs.json",
+  "seer": {
+    "exportChars": 197892,
+    "exportSha256": "f0446064de33933a044505a1e61e539d784271d4da0a8f2fc3d95b098bd6e81c",
+    "projectSha256": "8c395c39d2629d40967a5fa24932320bfec2bc0088a41c9abf3e3a2d41e1fa56",
+    "screenshot": "evidence/seer-promoted.png",
+    "screenshotSha256": "0ef37b3aeabfcb0bc2fcd3422d03f5a8a0ef47d85fce21005146767adbffd987",
+    "steps": "fresh native Seer entry, control lesson, two readings, real sleep/recovery, three readings, one refusal, pre-screen without dose, senior-deacon exam, Clown ingestion, Save/reload/Export/perturb/literal Import",
+    "errors": []
+  },
+  "sailor": {
+    "exportChars": 194396,
+    "exportSha256": "11c889c551b543d8ac02a77c35d7af40db7aa4a7d25f69086d89967607327821",
+    "projectSha256": "322456b987b9b7b37dbd797ab860802a0ed5136a929a81c89601dc74d5e854a7",
+    "screenshot": "evidence/sailor-promoted.png",
+    "screenshotSha256": "50008af9fd3c7fee5de74dacbd64e758a2f265afd06d098b91b03d6b270d4831",
+    "steps": "fresh native Storm entry, mooring and dive acts, pre-screen without dose, successor exam, native promotion, Save/reload/Export/perturb/literal Import",
+    "errors": []
+  }
+}

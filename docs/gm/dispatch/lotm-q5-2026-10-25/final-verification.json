@@ -1,0 +1,61 @@
+{
+  "inputCommit": "1bedd2c5e4753884927ab1de502a64b461ab733f",
+  "srcTree": "9e2c775891b61f638c2ac7ebc7d93dfc50d7da01",
+  "testsTree": "9cfd67df068b0eddf3256bdcf5b7d825d501c479",
+  "mergedMasters": [
+    "9b997ea60a7eb12200dbc825684e6668403aa015",
+    "3dfc49cf3422c0262d86810df47459f53f3a4a67"
+  ],
+  "bundleSha256": "2348a9de009fd5ddbc43ca8f652f4c47886ce56e09cc779eca5f66496716c0ba",
+  "build": "pass",
+  "architecture": "pass",
+  "rules": {
+    "result": "pass",
+    "warnings": 0
+  },
+  "fullSuite": {
+    "invocations": 1,
+    "tests": 2886,
+    "pass": 2882,
+    "fail": 4,
+    "skipped": 0,
+    "exitCode": 1,
+    "failures": "Four localhost server binds blocked by sandbox EPERM, before browser fixtures ran"
+  },
+  "focusedPermissionRetry": {
+    "command": "node --test tests/cheat_awakening.test.js tests/cheat_cards.test.js tests/rt_slice1_fixtures.test.js",
+    "tests": 9,
+    "pass": 9,
+    "fail": 0,
+    "exitCode": 0,
+    "includesAllFourBlockedCases": true,
+    "sourceChanges": false
+  },
+  "browserSlices": {
+    "q3": "two profiles, fresh origins, earn/spend, Save/reload/Export/literal Import",
+    "q4": "clearance refusal/sign-out/return, Save/reload/Export/literal Import",
+    "q5": "completed/refused trade and barter, three persistence checkpoints, desktop text matrix"
+  },
+  "logs": {
+    "build": {
+      "path": "/tmp/c1-final-build.log",
+      "sha256": "25bb91f27cb295db654807e1a94e60b91e372696e55f6cdc8f990bc5d47a7d9d"
+    },
+    "arch": {
+      "path": "/tmp/c1-final-arch.log",
+      "sha256": "f036f25adfe6bfa9be2207cc286a0093b36f951220641a8af3120a8390d41271"
+    },
+    "rules": {
+      "path": "/tmp/c1-final-rules.log",
+      "sha256": "64410d9a8ce3894f5b4f57890834f329d2fbc8e6440bd220e08bfbd1538fc242"
+    },
+    "tests": {
+      "path": "/tmp/c1-final-tests.log",
+      "sha256": "6cbf3df01da4f840a17d207916b9d32ab0b1ba5a2353f40610a2e9bea60db656"
+    },
+    "localhost-retry": {
+      "path": "/tmp/c1-final-localhost-retry.log",
+      "sha256": "4d8ca3dd7dd907436f51e62b9b9396e251025fbe558da816caa0d55d02aaf31b"
+    }
+  }
+}

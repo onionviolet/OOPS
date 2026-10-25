@@ -1,3 +1,4 @@
+import {domainRegistry} from './domain_registry.js';
 import {generatedPeoplePresenceFacts} from './story_aftermath.js';
 import {leverFacts} from './lever_lesson.js';
 import {fieldWorksFacts} from './field_works_facts.js';
@@ -132,6 +133,9 @@ function buildSimulationFacts(state, context, registry, predicates = null) {
     assert(s && a, "Enroll the living-world services first.");
     const referenceFacts = referenceGameplayFacts(state, context, registry);
     const facts = {...context.facts,...managementFacts(state,context),...gameAbsorptionAssayFacts(state,context,registry),...worldCompletionFacts(state,context),...statusCareFacts(state,context),...fieldCareFacts(state,context),...bookCareFacts(state,context),...lorePracticeFacts(state,context),...causalStoryFacts(state,context),...auditRemainderFacts(state),...relayFacts(state,context),...referenceDeskFacts(state,context),...nestedFacts(state,context,context.nestedNative),...nestedChainFacts(state,context),...nestedLifeFacts(state,context),...paradiseFacts(state,context),...paradiseCampaignFacts(state,context),...featureObjectFacts(state,context,registry), ...referenceFacts, ...auditRemainderCombinedFacts(state,{...context,facts:{...context.facts,...referenceFacts,...auditRemainderFacts(state)}},registry), ...auditedWorkshopFacts(state,{...context,facts:{...context.facts,...referenceFacts}},registry), ...nethackFieldcraftFacts(state,context,registry), ...societyFacts(state,context), ...repositoryAbsorptionFacts(state,context), ...featurePowerFacts(state,context), ...featureBattleFacts(state,context), ...tidemarkContext(state,context).facts, ...originalFrontierFacts(state,context,registry), ...realmFacts(state,actor), ...molFacts(state,context), clock: state.clock, "actor.life": s.people[actor]?.life, "native.alive": actor==='player'?context.nativeAlive===true:s.people[actor]?.life==='alive', "native.ready":context.nativeReady!==false, "actor.world": a.worldId, "actor.location": context.facts?.location || s.people[actor]?.location};
+    // Native clock callers may supply only expedition facts. Re-read current LOTM role/body
+    // support through its existing domain projection at the actual commit boundary.
+    if(state.lotm) Object.assign(facts,domainRegistry.project('lotm','facts',state,context)||{});
     Object.assign(facts,leverFacts(state,context),generatedPeoplePresenceFacts(state,context));
     Object.assign(facts,fieldWorksFacts(state,context));
     Object.assign(facts,partnerFacts(state),systemsWorkshopFacts(state),foundationInteractionProbeFacts(state,context));

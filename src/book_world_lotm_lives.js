@@ -1,5 +1,5 @@
 // Life profiles for the Tingen branch (Q3, WA13): a start profile is body, means, debts, access and knowledge.
-// Two exist. The local probationer (Q1) is on the Beyonder track under Warden Hale. The new-identity civil clerk
+// The local probationer (Q1) is on the Beyonder track under Warden Hale. The new-identity civil clerk
 // arrives under an assumed name, with cash and no papers carried over, and is hired as civil staff: a contract
 // (F7, F8, F17), not initiation. Source facts: papers 8 pounds, clothes and goods about 12 (R), cash left 5 pounds,
 // third-class passage 4 pounds a leg, an ocean ticket needs an official certificate [494 p20, p53-p56]; civil staff
@@ -19,9 +19,17 @@ export const LOTM_PROFILES=Object.freeze({
   blurb:'You are a clerk of the Church of the Storm\'s Mandated Punishers at the docks, on the probationer track under the duty officer. The Nighthawks and the Machinery team hold other districts. Your own money carries over.'},
  civil:{id:'lotm.early_tingen.new_identity_civil@1',key:'civil',label:'Begin under a new identity as civil staff',beyonderTrack:false,cash:5*P.pound,home:'evernight',start:L.workroom,
   contract:{weeklyPence:3*P.pound,termYears:5,secrecy:'for life',allowancePence:10*P.soli},
+  // Proposed start budget: 29 pounds funded before entry, 24 spent, 5 remaining, no outstanding loan.
+  // One paid third-class leg is prehistory, not an executable travel purchase or a ticket in custody.
+  opening:{fundedPence:29*P.pound,debtPence:0,passageLegs:1},
   passage:{perLegPence:4*P.pound,certificateRequired:true},
   paidBefore:{papersPence:8*P.pound,clothesAndGoodsPence:12*P.pound},
-  blurb:'You arrive in Tingen under a bought name. The papers (8 pounds) and clothes were paid for before your story begins and your old cash did not travel: you hold 5 pounds. The Nighthawk office offers a civil clerk\'s contract at 3 pounds a week. It is a post, not a potion.'}});
+  blurb:'Proposed start: an adult human clerk under a bought name. Of 29 pounds funded before entry, papers cost 8, clothes and goods 12, and one third-class passage 4; 5 remain, with no money debt. Your Frontier purse does not travel. The Nighthawk office offers 3 pounds a week, a five-year term and lifetime secrecy. A post brings no potion; church teams know your old ties. Later ocean passage needs an official certificate.'}});
+// Opening history uses the existing knowledge owner. It records paid costs, not fresh charges or invented items.
+export const lifeEntryEffects=key=>[{
+ // The workroom situation begins at report-in, after enrollment. Opening history has no situation attribution.
+ type:'knowledge',actor:'player',key:'book.lotm.entry',stage:'understood',value:LOTM_PROFILES[key].blurb
+}];
 export const PROFILE_IDS=Object.freeze(Object.values(LOTM_PROFILES).map(p=>p.id));
 export const profileKeyOf=state=>Object.values(LOTM_PROFILES).find(p=>p.id===state.lotm?.entryProfile)?.key||null;
 // Weeks of salary earned since the contract was signed and not yet collected. The signing time is the contract note's own timestamp.

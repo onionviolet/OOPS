@@ -5,7 +5,7 @@
 export const LOTM_SOURCE_HASH='6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d';
 export const LOTM_SOURCE_SNAPSHOT='LOTM-EPUB-6126274478a9-r1';
 export const LOTM_IDS=Object.freeze({world:'book.lotm.tingen',supervisor:'book.lotm.supervisor',source:'book.lotm.seer',clown:'book.lotm.clown',corpse:'book.lotm.corpse_collector',gravedigger:'book.lotm.gravedigger',method:'book.lotm.material_perception',
- stormOfficer:'book.lotm.storm_officer',stormDeacon:'book.lotm.storm_deacon',sailor:'book.lotm.sailor',folk:'book.lotm.folk_of_rage',seniorDeacon:'book.lotm.senior_deacon',savant:'book.lotm.savant',archaeologist:'book.lotm.archaeologist',broker:'book.lotm.broker',member:'book.lotm.member',machineryOfficer:'book.lotm.machinery_officer',
+ evernightDeacon:'book.lotm.evernight_deacon',stormOfficer:'book.lotm.storm_officer',stormDeacon:'book.lotm.storm_deacon',sailor:'book.lotm.sailor',folk:'book.lotm.folk_of_rage',seniorDeacon:'book.lotm.senior_deacon',savant:'book.lotm.savant',archaeologist:'book.lotm.archaeologist',broker:'book.lotm.broker',member:'book.lotm.member',machineryOfficer:'book.lotm.machinery_officer',
  energy:'book.lotm.spirituality',strain:'book.lotm.overflow_fatigue',site:'book.lotm.workroom_bench',situation:'book.lotm.probationer_branch',lot:'book.lotm.supplier.stock'});
 export const LOTM_LOCATIONS=Object.freeze({workroom:'Tingen supervised workroom',lodging:'Tingen probationer lodging',docks:'Tingen docks',university:'Tingen university area'});
 // Money is the native `money` resource, read in Tingen as pence (12 pence a soli, 20 soli a pound: 240 a pound). Source prices are in pounds and soli (LOTM F16, F17).
