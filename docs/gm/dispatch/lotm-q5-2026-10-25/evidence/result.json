@@ -1,0 +1,166 @@
+{
+  "bundleSha256": "2348a9de009fd5ddbc43ca8f652f4c47886ce56e09cc779eca5f66496716c0ba",
+  "initialMoney": 1200,
+  "finalMoney": 1128,
+  "pending": {
+    "exportChars": 187072
+  },
+  "barter": {
+    "exportChars": 192464
+  },
+  "closed": {
+    "exportChars": 194256
+  },
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "pageHeight": 1080,
+      "viewportHeight": 1080,
+      "pageWidth": 1920,
+      "viewportWidth": 1920,
+      "panel": true,
+      "records": [
+        {
+          "id": "frog",
+          "width": 677,
+          "contentWidth": 677
+        },
+        {
+          "id": "hairs",
+          "width": 677,
+          "contentWidth": 677
+        },
+        {
+          "id": "ink",
+          "width": 677,
+          "contentWidth": 677
+        }
+      ],
+      "back": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "pageHeight": 1080,
+      "viewportHeight": 1080,
+      "pageWidth": 1920,
+      "viewportWidth": 1920,
+      "panel": true,
+      "records": [
+        {
+          "id": "frog",
+          "width": 671,
+          "contentWidth": 671
+        },
+        {
+          "id": "hairs",
+          "width": 671,
+          "contentWidth": 671
+        },
+        {
+          "id": "ink",
+          "width": 671,
+          "contentWidth": 671
+        }
+      ],
+      "back": true
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "pageHeight": 864,
+      "viewportHeight": 864,
+      "pageWidth": 1536,
+      "viewportWidth": 1536,
+      "panel": true,
+      "records": [
+        {
+          "id": "frog",
+          "width": 455,
+          "contentWidth": 455
+        },
+        {
+          "id": "hairs",
+          "width": 455,
+          "contentWidth": 455
+        },
+        {
+          "id": "ink",
+          "width": 455,
+          "contentWidth": 455
+        }
+      ],
+      "back": true
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "pageHeight": 864,
+      "viewportHeight": 864,
+      "pageWidth": 1536,
+      "viewportWidth": 1536,
+      "panel": true,
+      "records": [
+        {
+          "id": "frog",
+          "width": 451,
+          "contentWidth": 451
+        },
+        {
+          "id": "hairs",
+          "width": 451,
+          "contentWidth": 451
+        },
+        {
+          "id": "ink",
+          "width": 451,
+          "contentWidth": 451
+        }
+      ],
+      "back": true
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "px": 14,
+      "pageHeight": 1040,
+      "viewportHeight": 1040,
+      "pageWidth": 1800,
+      "viewportWidth": 1800,
+      "panel": true,
+      "records": [
+        {
+          "id": "frog",
+          "width": 629,
+          "contentWidth": 629
+        },
+        {
+          "id": "hairs",
+          "width": 629,
+          "contentWidth": 629
+        },
+        {
+          "id": "ink",
+          "width": 629,
+          "contentWidth": 629
+        }
+      ],
+      "back": true
+    }
+  ],
+  "steps": [
+    "fresh civil entry and native walk",
+    "money and item held pending appraisal",
+    "pending money escrow survives Save/reload/Export/verify/literal Import",
+    "one completed trade and one rejected trade retain records",
+    "numeric equal-value barter holds both goods",
+    "pending barter survives Save/reload/Export/verify/literal Import",
+    "completed records survive Save/reload/Export/spend/literal Import"
+  ],
+  "errors": []
+}

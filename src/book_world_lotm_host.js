@@ -12,6 +12,7 @@ import {flagOf} from './book_world_lotm_pathways.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
 import {LOTM_PROFILES,profileKeyOf,lifeEntryEffects} from './book_world_lotm_lives.js';
 import {causeView} from './book_world_lotm_causes.js';
+import {brokerView} from './book_world_lotm_broker.js';
 import {clearanceView} from './book_world_lotm_clearance.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
@@ -105,7 +106,7 @@ export function createLotmHost(ports){
   const doseLabels=pathwayRows.flatMap(r=>[[r.holds.base,`prepared ${r.potion} dose`],[r.holds.next,`prepared ${r.next} dose`]]).filter(([k])=>holds[k]).map(x=>x[1]);
   const clearance=at===L.workroom?clearanceView(f['lotm.roleName'],f['lotm.presentRoles']?f['lotm.presentRoles'].split(','):[]):[];
   const marketHeld=pathwayRows.filter(r=>r.market).flatMap(r=>[[r.market.baseHold,`unmarked dose`],[r.market.nextHold,`unmarked Sequence 8 dose`]]).filter(([k])=>holds[k]).map(x=>x[1]);
-  return {enrolled:true,places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||pathwayRows.some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path:lotmPathView(s,f),holds,actions,moves,jobs,records};
+  return {enrolled:true,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||pathwayRows.some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path:lotmPathView(s,f),holds,actions,moves,jobs,records};
  }
  return {enroll,act,cancel,move,wake,tick,view,startable};
 }

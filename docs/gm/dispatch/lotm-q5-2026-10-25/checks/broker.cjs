@@ -1,0 +1,43 @@
+const {launch,fixture}=require('../../lotm-q4-2026-10-25/checks/support.cjs');
+const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const dir='docs/gm/dispatch/lotm-q5-2026-10-25/evidence';
+(async()=>{const browser=await launch();try{
+ const {LOTM_KEYS:K,LOTM_IDS:I}=await import(process.cwd()+'/src/book_world_lotm_ids.js');
+ const {p,errors,snapshot,button,click,ticks,persistence}=await fixture(browser);
+ const money=async()=>(await snapshot()).character.money;
+ const held=(s,key,owner='main_character')=>s.inventories.person[owner]?.[key]?.count||0;
+ const escrow=s=>s.expansion.actors[I.broker].resources['book.lotm.escrow']||0;
+ await click('enroll_civil');await click('book.lotm.report_in');await click('lotm.move.docks');await ticks(20);
+ const initial=await money();assert.equal(initial,1200);
+ await click('book.lotm.lot_pay_frog');let s=await snapshot();assert.equal(escrow(s),36);assert.equal(held(s,K.frog,I.broker),1);assert.equal(held(s,K.frog),0);
+ assert.equal(await button('book.lotm.lot_settle_frog').isDisabled(),true);
+ assert.match(await p.locator('[data-broker-trade="frog"]').innerText(),/awaiting verification/);
+ const pending=await persistence(()=>click('book.lotm.lot_verify_frog'));
+ assert.equal(escrow(await snapshot()),36);await p.screenshot({path:dir+'/pending-imported.png'});
+ await click('book.lotm.lot_verify_frog');await click('book.lotm.lot_settle_frog');
+ assert.equal(held(await snapshot(),K.frog),1);assert.equal(escrow(await snapshot()),0);
+ await click('book.lotm.lot_pay_hairs');await click('book.lotm.lot_verify_hairs');
+ assert.equal(await button('book.lotm.lot_settle_hairs').isDisabled(),true);
+ await click('book.lotm.lot_reject_hairs');s=await snapshot();assert.equal(held(s,K.hairs),0);assert.equal(escrow(s),0);
+ assert.equal(await money(),initial-36-24);
+ assert.match(await p.locator('[data-broker-trade="frog"]').innerText(),/settled/);
+ assert.match(await p.locator('[data-broker-trade="hairs"]').innerText(),/rejected and refunded/);
+ await click('book.lotm.lot_pay_ink');s=await snapshot();assert.equal(held(s,K.frog),0);assert.equal(held(s,K.frog,I.broker),1);assert.equal(held(s,K.ink,I.broker),1);
+ const barter=await persistence(()=>click('book.lotm.lot_verify_ink'));
+ await click('book.lotm.lot_verify_ink');await click('book.lotm.lot_settle_ink');
+ s=await snapshot();assert.equal(held(s,K.ink),1);assert.equal(held(s,K.frog,I.broker),1);assert.equal(await money(),initial-36-36);
+ const closed=await persistence(()=>click('book.lotm.endorse_storm'));
+ const matrix=[];
+ for(const [width,height,px] of [[1920,1080,14],[1920,1080,21],[1536,864,14],[1536,864,21],[1800,1040,14]]){
+  await p.setViewportSize({width,height});
+  await p.evaluate(px=>{for(const k of ['--ui-type-body','--ui-type-small','--ui-type-title','--custom-size'])document.documentElement.style.setProperty(k,px+'px');document.body.style.fontSize=px+'px';},px);
+  await p.locator('[data-broker-trade="ink"]').scrollIntoViewIfNeeded();
+  const geometry=await p.evaluate(()=>({pageHeight:document.documentElement.scrollHeight,viewportHeight:innerHeight,pageWidth:document.documentElement.scrollWidth,viewportWidth:innerWidth,panel:!!document.querySelector('#lotm_panel'),records:[...document.querySelectorAll('[data-broker-trade]')].map(n=>({id:n.dataset.brokerTrade,width:n.clientWidth,contentWidth:n.scrollWidth})),back:[...document.querySelectorAll('button,a')].some(n=>n.textContent.includes('Tingen docks')&&n.getBoundingClientRect().height>0)}));
+  assert.ok(geometry.pageHeight<=height+2,'page vertical overflow');assert.ok(geometry.pageWidth<=width+2,'page horizontal overflow');
+  assert.ok(geometry.records.every(r=>r.contentWidth<=r.width+1),'trade record width');
+  await p.screenshot({path:`${dir}/closed-${width}x${height}-${px}px.png`});matrix.push({width,height,px,...geometry});
+ }
+ assert.deepEqual(errors,[]);
+ fs.writeFileSync(dir+'/result.json',JSON.stringify({bundleSha256:crypto.createHash('sha256').update(fs.readFileSync('dist/bundle.js')).digest('hex'),initialMoney:initial,finalMoney:await money(),pending,barter,closed,matrix,steps:['fresh civil entry and native walk','money and item held pending appraisal','pending money escrow survives Save/reload/Export/verify/literal Import','one completed trade and one rejected trade retain records','numeric equal-value barter holds both goods','pending barter survives Save/reload/Export/verify/literal Import','completed records survive Save/reload/Export/spend/literal Import'],errors},null,2)+'\n');
+ console.log('Q5 PASS');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

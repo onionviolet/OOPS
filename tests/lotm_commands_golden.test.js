@@ -6,7 +6,7 @@ import {lotmCommands} from '../src/book_world_lotm_actions.js';
 import {hostileAbilityCommands} from '../src/book_world_lotm_abilities.js';
 // S0 golden (potion pathways lane B): every LOTM command definition that existed before brewing (ids, requires, costs, effects, durations,
 // claims, visibility) is pinned by a hash of its exact JSON. A saved job must equal its definition (state.js), so an existing definition may
-// never change; new commands may be added. Regenerate only for a deliberate, recorded revision: `node tests/lotm_commands_golden.test.js --write`.
+// stay stable for timed jobs; new commands may be added. C1 Q5 deliberately tightened only immediate broker pay/verify custody gates (2026-10-25). Regenerate only for a deliberate, recorded revision: `node tests/lotm_commands_golden.test.js --write`.
 const FILE=new URL('./fixtures/lotm_commands_golden.json',import.meta.url);
 const sha=d=>crypto.createHash('sha256').update(JSON.stringify(d)).digest('hex');
 const current=()=>Object.fromEntries([...lotmCommands,...hostileAbilityCommands].map(c=>[c.id,sha(c)]));

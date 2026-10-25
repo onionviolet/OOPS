@@ -133,7 +133,7 @@ export function lotmFacts(state,ctx={}){
  causeFacts(state,f);
  for(const r of pathwayRows)if(r.market)for(const n of [r.market.baseHold,r.market.nextHold])f[`lotm.holds.${n}`]=inv[K[n]]||0;
  for(const n of ['frog','hairs','ink'])f[`lotm.holds.${n}`]=inv[K[n]]||0;
- if(enrolled)brokerFacts(state,f,{alive,enrolled,player:p});else{f['lotm.brokerHere']=false;f['lotm.escrow']=0;}
+ if(enrolled)brokerFacts(state,f,{alive,enrolled,player:p,inventory:ctx.gameplay?.[I.broker]?.inventory||{}});else{f['lotm.brokerHere']=false;f['lotm.escrow']=0;}
  for(const id of [I.supervisor,I.stormOfficer,I.machineryOfficer,I.seniorDeacon,I.stormDeacon,I.member])f[`lotm.attention.${id}`]=state.actors?.[id]?.resources?.['book.lotm.attention']??0;
  f['lotm.supervisorAttention']=state.actors?.[I.supervisor]?.resources?.['book.lotm.attention']??0;
  return f;
