@@ -3,6 +3,10 @@ import assert from 'node:assert/strict';
 import {HOUSEHOLD as H, planHousehold, validateHousehold, householdRest} from '../src/absorb_p23/household/model.js';
 import {commitHousehold, preflightHouseholdImport, householdPresentation} from '../src/absorb_p23/household/host.js';
 import {furnitureComfort} from '../src/absorb_b/furniture.js';
+import {stageHouseholdJoin} from '../src/absorb_p23/host_joins/tranche_one.js';
+
+// household: original fixture scope retained.
+{
 function rig() {
     let state;
     const c = {sequence: 0, clock: 0, homeId: 'test.owned-home', homeOwned: true, atHome: true,
@@ -124,3 +128,18 @@ test('known Here presentation hides undiscovered identity and uses sequenced pub
     assert.equal(JSON.stringify(view).includes('Moss'), false);
     r.c.atHome = false; assert.equal(householdPresentation({household: r.state(), context: r.c, furnitureInput: input}).visible, false);
 });
+
+}
+
+// p23-host-joins-tranche-one: original fixture scope retained.
+{
+const plan=clock=>({state:{clock,sequence:1},gameplay:{player:{inventory:{},skills:{Famine:{xp:0,enabled:true},'Cold resistance':{xp:0,enabled:true}},reputation:{}}}});
+const context={played:true,homeWorld:true,needsFood:true,pacing:{schema:1,hungerEnabled:true,fullness:20},maxStamina:40,staminaToFull:0};
+test('household fuel preflight rejects denied custody before any native owner publication',()=>{
+ const p=plan(0),c={sequence:0,clock:0,homeId:'base.frontier:Shack',atHome:true,homeOwned:true,alive:true,controlled:true,hearthOwned:true,ownedInventory:{'{"id":"Rough wood log"}':1},assertDisposition:()=>{throw Error('borrowed');}};
+ p.gameplay.player.inventory={'{"id":"Rough wood log"}':1};const before=structuredClone(p);
+ assert.throws(()=>stageHouseholdJoin(p,undefined,c,'light'),/borrowed/);assert.deepEqual(p,before);
+});
+
+}
+

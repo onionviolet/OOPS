@@ -1,0 +1,82 @@
+[
+  {
+    "source": "tests/structured_container_development.test.js",
+    "destination": "tests/structured_container.test.js",
+    "cases": [
+      1,
+      2,
+      3
+    ],
+    "titles": [
+      "'continuing actual function development changes native transfer debit at authored stages'",
+      "'legacy two-threshold debit remains unchanged without authored stages'",
+      "'stage policies reject missing zero, duplicates, fractional thresholds and rising outputs'"
+    ],
+    "assertions": 7
+  },
+  {
+    "source": "tests/structured_container_integration.test.js",
+    "destination": "tests/structured_container.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "titles": [
+      "'native person and real non-person owner save together, with failed write preserving prior bytes'",
+      "'joined clock advances exposure at empty boundaries, preserves interior and external actor time'",
+      "'native consciousness refusal is a pure quote and legacy optional objects do not initialize'",
+      "'expiry is a joined boundary before treatment and reserved expiration refunds its exact changed condition'",
+      "'exposure key corruption and access after a staged vital debit reject before publication'"
+    ],
+    "assertions": 21
+  },
+  {
+    "source": "tests/structured_container_preparation.test.js",
+    "destination": "tests/structured_container.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titles": [
+      "'ordinary external stock ages before source acquisition and installation never refreshes its condition'",
+      "'activation without source grants no access, preserves preparation elapsed and cannot repeat'",
+      "'preparation binds actual changed condition and rejects title, policy or prepared native cargo tampering'",
+      "'legacy installed records retain installed behavior and validate without the new flag'"
+    ],
+    "assertions": 31
+  },
+  {
+    "source": "tests/structured_container_runtime.test.js",
+    "destination": "tests/structured_container.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "titles": [
+      "'real non-person ownership and exact accountable title survive store, close and retrieve'",
+      "'trained development changes actual access debit'",
+      "'source loss and actual native unconsciousness retain permanent stock and refuse access'",
+      "'actual compartment interior freezes item exposure while outside clock runs and expired state stays expired'",
+      "'unsupported partial, geometry, custody and insufficient energy refuse before stock movement'",
+      "'preview staging is pure and duplicate transfers cannot manufacture exact units'",
+      "'definition and effect validation reject unbound and contradictory policy'",
+      "'legacy absence passes unchanged and frozen policy validates without a live registry'",
+      "'installation keeps an already changed actual object condition'",
+      "'deferred gathered objects start from actual acquisition condition and freeze only in real storage'"
+    ],
+    "assertions": 47
+  }
+]

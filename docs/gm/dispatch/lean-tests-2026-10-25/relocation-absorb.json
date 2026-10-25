@@ -1,0 +1,198 @@
+[
+  {
+    "source": "tests/absorb_b.test.js",
+    "destination": "tests/home_furnishing_bonuses.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "titles": [
+      "'native housing bonuses are local, readable, and absent on old missing owners', () => {",
+      "'book bonus needs completed owned books, counts distinct works and caps ten', () => {",
+      "'counted carried furniture is inert; only settled installed local fixtures earn bonuses', () => {",
+      "'Shack project flags alone earn nothing; existing earned phased fixture owners do', () => {",
+      "'home kit requires earned adaptation plus current owned physical kit; copies and reload never stack', () => {"
+    ],
+    "assertions": 30
+  },
+  {
+    "source": "tests/absorb_c1.test.js",
+    "destination": "tests/accessory_utility.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "titles": [
+      "'utilities derive solely from the native amulet slot, never saved metadata', () => {",
+      "'luck changes nonzero item craft chance without converting impossible or certain recipes', () => {",
+      "'price reduces only markup and leaves sell values and below-base margins intact', () => {",
+      "'portable cooking respects safety/unlock gates and preserves better native stations', () => {",
+      "'injected equipment reader stays live and accepts the host custody filter', () => {",
+      "'native registration, material acquisition, equipment and save-key roundtrip use existing models', async () => {"
+    ],
+    "assertions": 52
+  },
+  {
+    "source": "tests/absorb_c2.test.js",
+    "destination": "tests/local_life.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "titles": [
+      "'C2 compatibility: absent saves default empty; unsupported or malformed containers reject'",
+      "'C2 source balance and readable documentation remain in agreement'",
+      "'C2 exposure is played, bounded by actual remaining poison and replay resistant'",
+      "'C2 five-minute searches persist misses, cap chance, and award a finite native item once'",
+      "'C2 interruptions and clock jumps never replay unbounded idle searches'",
+      "'C2 hub contact has common-clock cadence, saved misses and one daily occurrence'",
+      "'C2 free meal derives from native calendar, persists claim, and skips missed days'",
+      "'C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged'",
+      "'C2 panel reattaches after native location menu clears unchanged view'",
+      "'parcel first row and quest disclose the mill prerequisite until it is open'",
+      "'ongoing local search changes method as light/means change and retains completed work'"
+    ],
+    "assertions": 73
+  },
+  {
+    "source": "tests/absorb_d.test.js",
+    "destination": "tests/fort_supply.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "titles": [
+      "'old saves start empty without invented knowledge/history; malformed future schema fails'",
+      "'free earned or paid entry gives one real native book and durable funds'",
+      "'repeat hand-ins conserve actual inventory, wages and finite employer budget'",
+      "'repair requires location, reading, actual clear, exact stock and custody'",
+      "'journal uses only actual learned edges and known items, distinguishes reports'",
+      "'known remaining-clear projection never scans or reveals undisclosed thresholds'",
+      "'registration creates original native content once; salvage recovers failed smelting'",
+      "'native Quest placeholder writes preserve prior identities and absent bindings'"
+    ],
+    "assertions": 49
+  },
+  {
+    "source": "tests/absorb_e1.test.js",
+    "destination": "tests/pacing.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "titles": [
+      "'legacy saves default both options off without invented debt or elapsed history'",
+      "'normalization bounds persisted meters and rejects future schema'",
+      "'hunger uses common played minutes, caps floor, and has actual XP effect'",
+      "'off options freeze existing state; absence of explicit home context cannot penalize worlds'",
+      "'native food replenishes even if native meal buff already lasts longer'",
+      "'weather duration actually expires, fog affects outdoors XP, shelter preserves hunger only'",
+      "'optional rain adds native wet route without suppressing the native rain cycle'",
+      "'weather offsets native temperature and respects disabled/sheltered/external worlds'",
+      "'season changes new durations and long common-clock steps equal segmented progression'",
+      "'saved JSON roundtrip restores disabled retained state, phase and next transition without a second clock'",
+      "'readable status and food description explain defaults, effects and scope'",
+      "'panel toggles call integrator and roll back visual checkbox on rejected save'"
+    ],
+    "assertions": 52
+  },
+  {
+    "source": "tests/absorb_e2.test.js",
+    "destination": "tests/equipment_durability.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "titles": [
+      "'old-save and default-off native keys and pacing stay intact'",
+      "'separate equal-quality copies keep immutable keys, distinct damage and repair coins'",
+      "'condition and ID allocation survive serialization, old missing condition defaults full'",
+      "'actual native inventory, Hero equip/unequip, key decoder and equipment publisher preserve worn copy',async(t)=>{",
+      "'staged repair and toggle reject storage/custody failures without live writes or ID forks'",
+      "'landed hits degrade armor and shield with real defense/block penalties and no destruction'"
+    ],
+    "assertions": 69
+  },
+  {
+    "source": "tests/absorb_e3.test.js",
+    "destination": "tests/elemental_affinities.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "titles": [
+      "'option defaults off and never coerces old or malformed save values', () => {",
+      "'gear swap changes actual native damage only against fitting attacks', () => {",
+      "'only current fitting native slots count and protection stays capped', () => {",
+      "'preparation view reveals only provided encounters, deduplicates and changes with setting', () => {",
+      "'native equipped IDs and reconstructed component gear provide real preparation', async () => {"
+    ],
+    "assertions": 30
+  },
+  {
+    "source": "tests/p23_life_loops.test.js",
+    "destination": "tests/local_life.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "titles": [
+      "'life-loop schema upgrades old accounts without inventing historical time or purchases'",
+      "'home minutes count only observed home steps and settled purchase quantities feed public titles'",
+      "'watch gates accept window, pays once at evening and permits later days without catch-up pay'",
+      "'watch interrupted by work or travel never pays; saved active state resumes without replay'",
+      "'weekly restock uses saved calendar claim, next opening and no stockpiling missed weeks'",
+      "'chance visitor is rolled only on arrival, retained on meeting and pamphlet unlocks ordered relay'",
+      "'search reports remaining finds and exhaustion; bleeding exposure trains Iron skin only on played ticks'",
+      "'title cue shares discovery policy but never responds to restored rows or duplicates'",
+      "'parcel relays remain repeatable with explicit restart and three handoffs per pay'"
+    ],
+    "assertions": 58
+  }
+]

@@ -1,0 +1,801 @@
+[
+  {
+    "source": "tests/p23-combat-options.test.js",
+    "destination": "tests/combat_options.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "titles": [
+      "'old saves absent; unsupported or malformed tactics reject before host mutation', () => {",
+      "'paid throw can repeat with distinct native events, duplicate is inert', () => {",
+      "'missing ammo and denied custody preserve selected tactic and inventory', () => {",
+      "'smoke pays a real item and calls escape without any kill reward; no replay', () => {",
+      "'lure offers one authored opportunity per payment, can repeat, never pays a kill', () => {",
+      "'pending tactic, break request and paused phase survive exact JSON export/import', () => {",
+      "'victory break resumes the pending native round once', () => {",
+      "'noncombat throwing training pays again per occurrence and uses native XP host', () => {",
+      "'P16 drop profile is optional and validates before mutation', () => {",
+      "'actual native strike hits armor with single projectile, misses with native hit roll', () => {",
+      "'actual native defeat awards once, duplicate dead target does not repay', () => {",
+      "'actual cooldown exchange consumes ammo, then break prevents scheduling another swing', () => {",
+      "'actual smoke exchange never invokes native damage or loot settlement', () => {",
+      "'actual victory break keeps next encounter pending until one explicit resume', () => {",
+      "'R51 native independent cooldowns retain a 4:1 speed ratio without a burst engine', () => {"
+    ],
+    "assertions": 57
+  },
+  {
+    "source": "tests/p23-encounter-host.test.js",
+    "destination": "tests/encounter_host.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titles": [
+      "'saved training restores actual per-seed rank, XP and damaged health rather than placeholder rank'",
+      "'pending native encounter rejects missing identity, wrong stats, absent profile and unearned exchange cursor'",
+      "'completed and abandoned attempts restore only off the training area with matching native progress'",
+      "'old schema saves need no optional training records'"
+    ],
+    "assertions": 14
+  },
+  {
+    "source": "tests/p23-encounter-profiles.test.js",
+    "destination": "tests/encounter_profiles.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "titles": [
+      "'old save absence is inert and strict schemas reject unknown or malformed state', () => {",
+      "'saved seeds reproduce all authored bands across two hundred attempts', () => {",
+      "'level scaling retains native stat names and no shared template mutation', () => {",
+      "'native admission rejects before mutation and cannot reroll a pending encounter', () => {",
+      "'Reed sweep is probability gated and defensive counter prevents target status', () => {",
+      "'exchange cursor and one-exchange status survive export/import without reroll', () => {",
+      "'area rank and native luck modifier affect a single deterministic draw', () => {",
+      "'settlement state suppresses duplicate publication including after restore', () => {",
+      "'wrong event, rank, absent kill and nonfinite modifiers reject without changes', () => {",
+      "'repeat ladder has new occurrence IDs and no lifetime cap; old events fail', () => {",
+      "'abandon pays no drop/completion and retires the occurrence', () => {",
+      "'native zone contract is optional, one group and repeatable with dojo parent', () => {",
+      "'intent preview is stable without cursor mutation and resolution reads live counter', () => {"
+    ],
+    "assertions": 48
+  },
+  {
+    "source": "tests/p23-exposure.test.js",
+    "destination": "tests/exposure.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "titles": [
+      "'old saves remain absent; defaults have no new weather cost'",
+      "'idle underfed played time earns fractional native Famine XP without activity'",
+      "'tiny ticks retain positive progress rather than rounding it away'",
+      "'fed, nonfeeding, absent body, offline, outside home and hunger-off controls award none'",
+      "'threshold crossing integrates only actual underfed suffix and matches split E1 clock'",
+      "'event replay after reload is idempotent; later real events keep awarding'",
+      "'overlaps and gaps reject before any source mutation'",
+      "'gust and rest have distinct visible temperature and native-resource costs'",
+      "'shelter blocks exposure, still advances the same weather phase; resistance reduces cost'",
+      "'mode off and unavailable weather/body/world freeze phase without added penalties'",
+      "'long common-clock step matches segmented gust costs and saved remainder'",
+      "'pending phase and XP remainder survive JSON literal payload preflight and resume'",
+      "'unsupported/malformed save states reject without mutation'",
+      "'Famine projects a bounded benefit over existing optional penalty only'",
+      "'status reveals only known skill names and explains risk without effects'",
+      "'panel rollback respects failed native commit and does not alter source state'"
+    ],
+    "assertions": 58
+  },
+  {
+    "source": "tests/p23-field-familiarity.test.js",
+    "destination": "tests/field_familiarity.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "titles": [
+      "'P07 optional old-save defaults do not touch C2 or source objects'",
+      "'P07 strict schema preflight rejects malformed records before mutation'",
+      "'P07 window matches native New phase across 120 days and hour boundaries'",
+      "'P07 next window preserves native month/year rollover and fractional lunar cycle'",
+      "'P07 physical harvest settles once, reload/view never creates a claim'",
+      "'P07 two distinct lunar cycles harvest and future occurrences remain reachable'",
+      "'P07 scouting and combat time unlock a faster real search without clear XP'",
+      "'P07 both learning sources can independently reach the useful threshold'",
+      "'P07 ineligible world/location/death and ordinary idle time do not learn'",
+      "'P07 duplicate/backward/gapped callbacks do not replay elapsed familiarity'",
+      "'P07 interruption/closing/phase change stops unpaid search without stock claim'",
+      "'P07 pending and settled serialization stays exact without replaying rewards'",
+      "'P07 known-only projection has no effects or undiscovered name leak'",
+      "'P07 whole-save preflight rejects impossible occurrence and clock bindings'"
+    ],
+    "assertions": 72
+  },
+  {
+    "source": "tests/p23-growth-profile.test.js",
+    "destination": "tests/growth_profile.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "titles": [
+      "'old optional state remains absent with no default profile or bonuses', () => {",
+      "'enrollment requires current world/body, learned preparation and save custody', () => {",
+      "'two funded acquisitions and consumptions propose exact native health and item costs', () => {",
+      "'tonic source projection rebuilds once, while replay does not consume another item', () => {",
+      "'repeat tonics have no lifetime once limit', () => {",
+      "'unsupported bodies/profiles cannot buy, consume or receive projections', () => {",
+      "'unfunded shop, absent item, occupied body and native eligibility reject without mutation', () => {",
+      "'large 150000 XP settles iteratively, crossing each intended milestone exactly once', () => {",
+      "'max finite safe award has finite save/view, no recursive settlement or numeric cap', () => {",
+      "'invalid/overflow awards, altered receipts and concurrent awards reject atomically', () => {",
+      "'supported background progresses during reading on native minutes with replay protection', () => {",
+      "'real body/resources/action conflicts block honestly and blocked time earns nothing later', () => {",
+      "'disabled background and unchecked time leaps cannot invent elapsed rewards', () => {",
+      "'unsupported/malformed imports reject before any mutation', () => {",
+      "'literal JSON fixture imports preserve complete old envelope, pending and completed state without reapplying bonuses', async () => {"
+    ],
+    "assertions": 63
+  },
+  {
+    "source": "tests/p23-household.test.js",
+    "destination": "tests/household.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "titles": [
+      "'optional old-save state is absent and ticks grant nothing', () => {",
+      "'repeated real visits bond, mature and give recurring paid-publisher gifts', () => {",
+      "'known gift gating suppresses undiscovered output without using up opportunity', () => {",
+      "'real log is debited once, burn is bounded, Wet drying needs actual warmth', () => {",
+      "'smoke is opt-in; vent, extinguish and native exit remove exposure', () => {",
+      "'reloading preserves pending animal/hearth exactly, no retroactive upkeep', () => {",
+      "'invalid schemas and forged fields reject before mutating input', () => {",
+      "'custody, home, body, discovered identity and root clock preflight gate commands', () => {",
+      "'atomic host contract prevents duplicate publication and partial preflight failure', () => {",
+      "'comfort derives distinct active fixtures, never inventory price or copies', () => {",
+      "'known Here presentation hides undiscovered identity and uses sequenced public actions', () => {"
+    ],
+    "assertions": 56
+  },
+  {
+    "source": "tests/p23-known-detail.test.js",
+    "destination": "tests/known_detail.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "titles": [
+      "'binding, rebind, use and unbind retain the exact owned identity'",
+      "'typing, composition, held keys, modifiers and handled events cannot fire'",
+      "'lost custody, hidden and stale items never substitute a spare or mutate'",
+      "'conflicting keys, duplicate identity, invalid schema and reserved keys reject'",
+      "'number formatting preserves exact values and rarity never derives from mastery'",
+      "'known chains reuse native preview gates and do not create hidden descendants'",
+      "'drop details require creature-specific player observation; private odds stay absent'",
+      "'optional settings snapshot validates before mutation and preserves local keys',async()=>{",
+      "'actual drop associations settle once per native kill and continue on later kills',async()=>{",
+      "'readiness uses the actual skill presenter and native preview without restating gates',async()=>{"
+    ],
+    "assertions": 49
+  },
+  {
+    "source": "tests/p23-leisure-memory.test.js",
+    "destination": "tests/leisure_memory.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "titles": [
+      "'old absent state stays absent and unsupported schemas reject without mutation'",
+      "'paid start freezes native RNG draw; pending reload/import does not reveal or reroll'",
+      "'two paid rounds use advancing native RNG and settle once each'",
+      "'matching target restores only one paid stamina, no minted coins'",
+      "'pending paid result remains settleable after life ends without stamina resurrection'",
+      "'due time and revision prevent premature settlement or stale payments'",
+      "'resource, location, custody/body and native person controls reject before mutation'",
+      "'gift transfers a real coin and changes only a later known local response'",
+      "'refusal remains different and ordinary leisure stays reachable'",
+      "'kindness can recur after consumed offer without a lifetime cap'",
+      "'absent donor does not grant saved private offer or expose person'",
+      "'malformed counters, paid draw and forged outcomes reject'",
+      "'native defeat baseline creates no invented past; cause memory is idempotent'",
+      "'known-only biography and existing relationship owner accept actual helper facts'",
+      "'sponsored practice spends Eda real coin and no-coin donor leaves ordinary play available'",
+      "'response retry with captured revision cannot duplicate a coin transfer'",
+      "'unattributed native health defeat records recovery without inventing an attacker'"
+    ],
+    "assertions": 59
+  },
+  {
+    "source": "tests/p23-living-gear.test.js",
+    "destination": "tests/living_gear.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "titles": [
+      "'E2 identity contract preserves independent copies with wear disabled', () => {",
+      "'native played clock flips aura at 20:00 and 04:00, removal stops it', () => {",
+      "'kill staging is inert until publication and a real event settles once', () => {",
+      "'identical weapon and collector copies grow independently through swap and re-equip', () => {",
+      "'training, summoned and other actor kills do not award; non-beast kills only grow weapon', () => {",
+      "'collector spend consumes real saved reserve and supplies native stamina publication patch', () => {",
+      "'failed persistence, custody and stale plans leave live resource unchanged', () => {",
+      "'collector reserve has capacity but spending allows unlimited future refill', () => {",
+      "'full old/new copy JSON import controls and schema rejection before mutation', () => {",
+      "'known-only rows and native custody failures cannot expose unknown gear', () => {",
+      "'native item registration and decoder preserve original living weapon components and E2 copies', async () => {"
+    ],
+    "assertions": 54
+  },
+  {
+    "source": "tests/p23-long-life.test.js",
+    "destination": "tests/title_training.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "titles": [
+      "'earned domestic counters cross thresholds without capping repeat progression'",
+      "'missing counters do not invent domestic history or expose unavailable goals'",
+      "'odd settled outcome is one recognition, not a restriction on subsequent fights'",
+      "'every old bonus is preserved verbatim, including worn mode'",
+      "'worn payoff is optional, additive, collection derived and stable through serialization'",
+      "'optional state preflight rejects unsupported schema/unheld/invalid selection without mutation'",
+      "'training registration preflights conflicts and preserves unrelated milestone data'",
+      "'training projection names only known skills and never settles XP'",
+      "'native milestone awards once, repeat training progresses, XP reconstruction restores exact rate',async()=>{",
+      "'worn projection retains valid identity without promising a payoff, and explains each condition'",
+      "'native title replacement preserves trained competence and independent held effects',async()=>{"
+    ],
+    "assertions": 56
+  },
+  {
+    "source": "tests/p23-market-life.test.js",
+    "destination": "tests/market_life.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "titles": [
+      "'old saves remain empty; unsupported and inconsistent records reject before mutation', () => {",
+      "'two favor occurrences provide useful coupons without random draws or lifetime limits', () => {",
+      "'duplicate and older transactions are no-ops; fresh coupon cannot fund its own earning purchase', () => {",
+      "'native delivery changes notice and exact bread price; no passive drift or wall-clock replay', () => {",
+      "'JSON restore retains occurrences, coupons and index exactly; projection never changes state', () => {",
+      "'known-only notice and Effects-off suppress cues without freezing economy', () => {",
+      "'small baskets keep a one-coin floor; selling gives no coupon or purchase subsidy', () => {",
+      "'invalid baskets, incomplete deliveries and overflow cannot mutate caller state', () => {",
+      "'native stock chance/count, restock boundary and earned markup remain unchanged',async()=>{",
+      "'native sales cause saturation; purchases and recovery reduce it without inflation',async()=>{"
+    ],
+    "assertions": 62
+  },
+  {
+    "source": "tests/p23-native-authority.test.js",
+    "destination": "tests/native_authority.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "titles": [
+      "'absent authority is a boot no-op; ordinary publication and capture cannot enroll', async()=>{",
+      "'explicit enrollment performs one guarded durable write and preserves all original hashes',async()=>{",
+      "'capture A, save B and repeated exact undo use one publication each',async()=>{",
+      "'native import preflights candidate and retained backup before one write',async()=>{",
+      "'present invalid roots reject boot, enrollment and normal saves without fallback or mutation',async()=>{",
+      "'real native structural validation rejects unsupported candidate before preflight or write',async()=>{",
+      "'recursive authority metadata in snapshots is refused rather than rewritten',async()=>{",
+      "'host preflight failure preserves root and legacy data; boot failure is loud',async()=>{",
+      "'shared-lock ownership is checked before and after async validation',async()=>{",
+      "'async operation blocks same-tab normal writes and rejects changed root after preflight',async()=>{",
+      "'stale expected bytes refuse prepared native commit',async()=>{",
+      "'changed valid-looking root requires full existing-root preflight before replacement',async()=>{",
+      "'full-origin budget includes legacy and archives and preserves all bytes',async()=>{",
+      "'actual setItem quota failure leaves prior complete authority byte-identical',async()=>{",
+      "'injected native durable owner receives exactly one complete root publication',async()=>{",
+      "'explicit reset clears recovery in one authority publication without deleting legacy data',async()=>{",
+      "'enrolled export imports both snapshots with one write and preserved legacy hashes',async()=>{"
+    ],
+    "assertions": 83
+  },
+  {
+    "source": "tests/p23-repeat-search.test.js",
+    "destination": "tests/repeat_search.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "titles": [
+      "'P14 absent saves preserve finite C2 finds and start without fabricated stock'",
+      "'P14 depletion, stopped feedback, real next occurrence and reload settle each offer once'",
+      "'P14 offers do not accumulate and large clock jumps never pay a batch'",
+      "'P14 failed native persistence can discard a plan without losing or duplicating stock'",
+      "'P14 views are pure; wrong world, busy, dead, movement and backward/repeated clocks cannot harvest'",
+      "'P14 malformed optional state/event rejects before mutation'",
+      "'P14 same-clock departure from Village cancels accrued progress before return'"
+    ],
+    "assertions": 38
+  },
+  {
+    "source": "tests/p23-reread.test.js",
+    "destination": "tests/reading.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "titles": [
+      "'old absence remains absent, explicit schema and null reject before mutation', () => {",
+      "'two rereads settle distinct real events once and keep native book ownership', () => {",
+      "'stopped read survives JSON restore without redrawing or idle progress', () => {",
+      "'pending and completed source roundtrips are exact and settlement replay emits no XP', () => {",
+      "'wave-1 speed input advances progress without a second speed formula', () => {",
+      "'custody, combat, world, body and occupation controls block without changing inputs', () => {",
+      "'draws, malformed receipts and future/backwards clock reject', () => {",
+      "'rest requires earned progression and owned meal, consumes exactly at admission', () => {",
+      "'cancelled rest keeps paid meal consumed and is repeatable with another meal', () => {",
+      "'rest accepts native five-minute batches, crosses calendar year correctly, no replay rewards', () => {",
+      "'rest refuses synchronous 1080-minute replay and unsafe requests', () => {",
+      "'native collection remains distinct, finished and owned across rereads/copies/custody', () => {",
+      "'presentation discloses only known title and actual settled stories', () => {"
+    ],
+    "assertions": 49
+  },
+  {
+    "source": "tests/p23-salvage.test.js",
+    "destination": "tests/salvage.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "titles": [
+      "'old saves grant no recipe; unknown schemas and malformed receipts reject without mutation', () => {",
+      "'missing tool blocks preview and commit without output, receipt, XP or sequence', () => {",
+      "'quality gate applies again at commit and permits threshold exactly', () => {",
+      "'salvage consumes precisely the selected copy, matches displayed yield and teaches recipe', () => {",
+      "'condition and native skill change yield; preview drift is rejected', () => {",
+      "'worn-first choices exclude equipped controls and permit explicit pristine override', () => {",
+      "'unidentified stacks and invalid selected-copy counts are not silently split', () => {",
+      "'custody of selected instance, canonical family or held tool blocks preview and commit', () => {",
+      "'worn-copy portable craft preserves spare, spends one log and returns native kit', () => {",
+      "'acquisition gate blocks direct craft bypass; successful salvage opens craft', () => {",
+      "'stale event replay cannot duplicate output; a fresh physical copy allows another craft', () => {",
+      "'native location, available skill and material guards reject before settlement', () => {",
+      "'native staged envelope keeps exact identities and receipts through JSON import, failed write preserves bytes', () => {",
+      "'broken identified tool blocks both operations without spending its copy', () => {",
+      "'real graded keys enforce portable tool threshold and remain exact in durable receipt', () => {",
+      "'quartermaster bounty (CRL44): sound vest is paid, worn vest is not, both leave receipts with the reason', () => {"
+    ],
+    "assertions": 74
+  },
+  {
+    "source": "tests/p23-save-time-options.test.js",
+    "destination": "tests/backup_undo.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "titles": [
+      "'P15 optional journal is absent on old origins and release keys are disjoint', () => {",
+      "'P15 capture and repeated undo preserve valid exact snapshots and all legacy keys', async () => {",
+      "'P15 quota setItem abort preserves the complete previous origin', async () => {",
+      "'P15 budget accounts for unrelated keys without eviction', async () => {",
+      "'P15 unsupported native schemas reject before loader and storage mutation', async () => {",
+      "'P15 unsupported or malformed journal cannot be overwritten', async () => {",
+      "'P15 real-loader rejection preserves every key', async () => {",
+      "'P15 writable ownership is required both before and after asynchronous preflight', async () => {",
+      "'P15 overlapping async captures cannot lose the winning undo snapshot', async () => {",
+      "'P15 undo requires a valid previous snapshot and preflights both retained saves', async () => {"
+    ],
+    "assertions": 33
+  },
+  {
+    "source": "tests/fa09_routines.test.js",
+    "destination": "tests/routine_jobs.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "titles": [
+      "'SOURCE reserve 4 and held 3 reserve nothing and add no polling; released 2 starts one frozen batch'",
+      "'K1 re-fit: the cursor view shows the latest settled step beside current work, from the common log'",
+      "'SOURCE previously released 3 completes full two-kit output at 5'",
+      "'SOURCE accepted support failure refunds, uses slot, pauses without silent restart; explicit resume consumes remainder'",
+      "'SOURCE future cancellation retains accepted job; current cancellation refunds it once'",
+      "'SOURCE depleted inputs and manual pause do not silently restart; forged control rejected'",
+      "'SOURCE carried reserve excludes custody, equipped, foreign and invalid stock'",
+      "'SOURCE body, realm, location, clock and occupied bench block reserve admission or pause without charge'",
+      "'SOURCE root2 policy/receipt corruption rejects while exact held and pending clones restore'",
+      "'R15 G2 SOURCE reserve cannot be downgraded into the legacy reader grammar; receipt times reject atomically'",
+      "'SOURCE selected existing old measured-pack program spends each batch, completes, depletes and refunds current work'",
+      "'SOURCE actual legacy household mixed plan waits for resident and manual travel then produces useful kit'",
+      "'SOURCE repository previews reserve nothing, selected next job only reserves current inputs and stale request rejects'",
+      "'SOURCE repository exact 3 singles then pair remain manual proposals; current means lost rejects old suggestion'",
+      "'SOURCE durable reserve staging publishes nothing on quota rejection; one retry preserves exact staged stock'",
+      "'SOURCE repository stock band is 1/2 one-job proposal bounded at six and useful protected-kit consumer spends actual output'",
+      "'SOURCE reserve attention/native activity and stamina loss pause without debit; restoring means needs explicit resume'",
+      "'SOURCE actual mixed plan depletion and colleague attention pause; restoring stock never silently resumes'"
+    ],
+    "assertions": 120
+  },
+  {
+    "source": "tests/fa10_manual.test.js",
+    "destination": "tests/manual_learning.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "titles": [
+      "'SOURCE real copy scheduler reserves exact costs, returns paid physical stock once and restores pending'",
+      "'SOURCE trial diagnostic/four-minute fatigue, exact rest and comparison remain separate from learned read'",
+      "'SOURCE natural expiry and rest crossing expiry retain legal diagnostic history'",
+      "'SOURCE paid guided comparison prepares only; separate read preserves actual procedure despite losing copy'",
+      "'SOURCE both learned knife variants conserve held copy, dull held sharp key, produce two real kit keys once'",
+      "'SOURCE cancel copy/trial/rest/comparison/guidance/read/both kits refunds exact inputs and effort without result'",
+      "'SOURCE real scheduler support loss refunds body/site/clock/author/hands/battle failures without outcome'",
+      "'SOURCE admission excludes borrowed/equipped/missing references, alien actor/body/realm and occupied bench'",
+      "'SOURCE stale host quotes and frozen save mutation reject while exact old absence stays inert'",
+      "'SOURCE FA10 durable quota failure leaves live original untouched; explicit retry stores exact caused result'"
+    ],
+    "assertions": 90
+  },
+  {
+    "source": "tests/fa11_retort.test.js",
+    "destination": "tests/retort_jobs.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "titles": [
+      "'SOURCE funded once-only install pays exact costs and creates two distinct receivers, no render replay'",
+      "'SOURCE real pending batch reserves only current inputs and both receivers; exact completion fills both once'",
+      "'SOURCE resin alone stalls next batch without spending; collected residue frees tray, loose disposal pays once'",
+      "'SOURCE cold filled disposal separately pays effort/minute, preserves resin and returns only residue receiver'",
+      "'SOURCE cancel batch and both disposal jobs refunds stock/effort once without receipts'",
+      "'SOURCE common scheduler completion support loss refunds unchanged fuel, material, receivers and effort'",
+      "'SOURCE finite three-batch plan pauses for separate receiver clearing and explicit resume, never reserves future stock'",
+      "'SOURCE depleted inputs pause before debit and restoring means cannot silently restart; forged resume rejects'",
+      "'SOURCE future plan cancel preserves current paid batch; explicit current cancel refunds once'",
+      "'SOURCE admission rejects borrowed/equipped/missing receiver, foreign owner/body and stale sequence'",
+      "'SOURCE exact full envelope conserves stored trays and rejects duplicate, forged, custody/equipment and frozen job corruption'",
+      "'SOURCE old absence inert and exact optional pending retains WorkPlans 1/2 compatibility'",
+      "'SOURCE earned resin current consumer reserves one resin/two staves then yields two kit keys once'",
+      "'SOURCE durable quota failure leaves live pending untouched; explicit retry persists exact completed receipts'",
+      "'R15 G2 regression: cancelling a retort batch leaves an already settled routine settled'"
+    ],
+    "assertions": 129
+  },
+  {
+    "source": "tests/fa18_runner_consequence.test.js",
+    "destination": "tests/runner_consequences.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "titles": [
+      "'FA18 new paid cause and finite later coin/bread conservation'",
+      "'FA18 refusal and insufficient funds never issue or settle'",
+      "'FA18 actual current body/world/location/work requirements retain means'",
+      "'FA18 old help history never retroactively mints meal stock'",
+      "'FA18 persisted account invariants fail closed'",
+      "'FA18 load/view/re-entry/ticks neither refill nor replay paid result'",
+      "'FA18 failing real publisher retains ticket, money and bread then successful envelope joins all'"
+    ],
+    "assertions": 36
+  },
+  {
+    "source": "tests/life_experience_b.test.js",
+    "destination": "tests/life_experience.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "titles": [
+      "'only a learned lesson can be written or taught; teaching spends five shared-clock minutes once'",
+      "'last-year warning and grave occur once at clock boundaries, and the epitaph remembers a real promise'",
+      "'a written lesson waits in the heir papers; studying it costs five minutes and then affects an existing paid response'",
+      "'heir envelope keeps the pristine body and XP and adds what the life left: money, belongings and biography'",
+      "'a pre-slice final-year save receives its warning now, without inventing an earlier journal entry'"
+    ],
+    "assertions": 38
+  },
+  {
+    "source": "tests/life_experience_c.test.js",
+    "destination": "tests/life_experience.test.js",
+    "cases": [
+      1,
+      2
+    ],
+    "titles": [
+      "'a retained lesson has distinct voice at twelve, forty and eighty without inventing knowledge'",
+      "'aging bonus stops at adulthood and at death; epitaph depends on actual deeds'"
+    ],
+    "assertions": 10
+  },
+  {
+    "source": "tests/micro_p1_xp.test.js",
+    "destination": "tests/skill_xp_grants.test.js",
+    "cases": [
+      1
+    ],
+    "titles": [
+      "'native capped grants preserve ordering, uncapped restoration and parent catch-up', async () => {"
+    ],
+    "assertions": 13
+  },
+  {
+    "source": "tests/seeded_streams.test.js",
+    "destination": "tests/seeded_streams.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "titles": [
+      "'same seed and decision order replay across all native system streams'",
+      "'shop/craft/gather draws cannot shift combat, lineup or loot, including keyed order changes'",
+      "'save/restore resumes next draws and old expansion saves derive a deterministic root without changing legacy RNG'",
+      "'decisions are pure, integer ports keep legacy rounding, zero/one chances and tables are explicit'",
+      "'stream imports reject broken/newer state, preserve unknown cells and cap receipts without dropping counters'",
+      "'commit-only recipe view preserves private methods and redirects internal result quality; original preview stays untouched'",
+      "'failed native craft restores consumed stream state with the existing transaction'",
+      "'native lineup, loot, stock and pending fighter turns survive save/restore with Math.random forbidden',async()=>{"
+    ],
+    "assertions": 45
+  },
+  {
+    "source": "tests/procgen_wave1_integration.test.js",
+    "destination": "tests/seeded_streams.test.js",
+    "cases": [
+      1
+    ],
+    "titles": [
+      "'one-time generator seeds come from the saved stream root without consuming draws', () => {"
+    ],
+    "assertions": 7
+  },
+  {
+    "source": "tests/rt_slice1_fixtures.test.js",
+    "destination": "tests/native_save_fixtures.test.js",
+    "cases": [
+      1
+    ],
+    "titles": [
+      "'CN11 seeded saves restore crafts, levels and completed town chain through native loader', {timeout:120000}, async () => {"
+    ],
+    "assertions": 28
+  }
+]

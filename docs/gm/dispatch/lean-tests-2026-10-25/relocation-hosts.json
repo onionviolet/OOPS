@@ -1,0 +1,551 @@
+[
+  {
+    "source": "tests/growth_profile.test.js",
+    "destination": "tests/growth_profile.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "titles": [
+      "'old optional state remains absent with no default profile or bonuses', () => {",
+      "'enrollment requires current world/body, learned preparation and save custody', () => {",
+      "'two funded acquisitions and consumptions propose exact native health and item costs', () => {",
+      "'tonic source projection rebuilds once, while replay does not consume another item', () => {",
+      "'repeat tonics have no lifetime once limit', () => {",
+      "'unsupported bodies/profiles cannot buy, consume or receive projections', () => {",
+      "'unfunded shop, absent item, occupied body and native eligibility reject without mutation', () => {",
+      "'large 150000 XP settles iteratively, crossing each intended milestone exactly once', () => {",
+      "'max finite safe award has finite save/view, no recursive settlement or numeric cap', () => {",
+      "'invalid/overflow awards, altered receipts and concurrent awards reject atomically', () => {",
+      "'supported background progresses during reading on native minutes with replay protection', () => {",
+      "'real body/resources/action conflicts block honestly and blocked time earns nothing later', () => {",
+      "'disabled background and unchecked time leaps cannot invent elapsed rewards', () => {",
+      "'unsupported/malformed imports reject before any mutation', () => {",
+      "'literal JSON fixture imports preserve complete old envelope, pending and completed state without reapplying bonuses', async () => {"
+    ],
+    "assertions": 63
+  },
+  {
+    "source": "tests/p23-host-joins-growth.test.js",
+    "destination": "tests/growth_profile.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titles": [
+      "'old accumulated XP is not backfilled; actual positive native deltas retain hundredths'",
+      "'each further earned threshold can fund a bounded reward without a lifetime once gate'",
+      "'unsupported contexts and schemas do not count or mutate future grant receipts'",
+      "'growth maximum-vital source preserves absolute health and stamina, including clamping departure'"
+    ],
+    "assertions": 15
+  },
+  {
+    "source": "tests/known_detail.test.js",
+    "destination": "tests/known_detail.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "titles": [
+      "'binding, rebind, use and unbind retain the exact owned identity'",
+      "'typing, composition, held keys, modifiers and handled events cannot fire'",
+      "'lost custody, hidden and stale items never substitute a spare or mutate'",
+      "'conflicting keys, duplicate identity, invalid schema and reserved keys reject'",
+      "'number formatting preserves exact values and rarity never derives from mastery'",
+      "'known chains reuse native preview gates and do not create hidden descendants'",
+      "'drop details require creature-specific player observation; private odds stay absent'",
+      "'optional settings snapshot validates before mutation and preserves local keys',async()=>{",
+      "'actual drop associations settle once per native kill and continue on later kills',async()=>{",
+      "'readiness uses the actual skill presenter and native preview without restating gates',async()=>{"
+    ],
+    "assertions": 49
+  },
+  {
+    "source": "tests/p23-host-joins-known-detail.test.js",
+    "destination": "tests/known_detail.test.js",
+    "cases": [
+      1,
+      2
+    ],
+    "titles": [
+      "'legacy absence preserves the envelope; invalid optional schemas reject without mutation'",
+      "'actual loot associates only its own creature and cannot exceed native settlement history'"
+    ],
+    "assertions": 7
+  },
+  {
+    "source": "tests/title_training.test.js",
+    "destination": "tests/title_training.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "titles": [
+      "'earned domestic counters cross thresholds without capping repeat progression'",
+      "'missing counters do not invent domestic history or expose unavailable goals'",
+      "'odd settled outcome is one recognition, not a restriction on subsequent fights'",
+      "'every old bonus is preserved verbatim, including worn mode'",
+      "'worn payoff is optional, additive, collection derived and stable through serialization'",
+      "'optional state preflight rejects unsupported schema/unheld/invalid selection without mutation'",
+      "'training registration preflights conflicts and preserves unrelated milestone data'",
+      "'training projection names only known skills and never settles XP'",
+      "'native milestone awards once, repeat training progresses, XP reconstruction restores exact rate',async()=>{",
+      "'worn projection retains valid identity without promising a payoff, and explains each condition'",
+      "'native title replacement preserves trained competence and independent held effects',async()=>{"
+    ],
+    "assertions": 56
+  },
+  {
+    "source": "tests/p23-host-joins-long-life.test.js",
+    "destination": "tests/title_training.test.js",
+    "cases": [
+      1,
+      2,
+      3
+    ],
+    "titles": [
+      "'recognition stages settled native home and purchase counters without publishing titles'",
+      "'repeat finished anthology does not invent another completed book'",
+      "'optional worn state stays absent and rejects invalid selections in envelope preflight'"
+    ],
+    "assertions": 8
+  },
+  {
+    "source": "tests/reading.test.js",
+    "destination": "tests/reading.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "titles": [
+      "'old absence remains absent, explicit schema and null reject before mutation', () => {",
+      "'two rereads settle distinct real events once and keep native book ownership', () => {",
+      "'stopped read survives JSON restore without redrawing or idle progress', () => {",
+      "'pending and completed source roundtrips are exact and settlement replay emits no XP', () => {",
+      "'wave-1 speed input advances progress without a second speed formula', () => {",
+      "'custody, combat, world, body and occupation controls block without changing inputs', () => {",
+      "'draws, malformed receipts and future/backwards clock reject', () => {",
+      "'rest requires earned progression and owned meal, consumes exactly at admission', () => {",
+      "'cancelled rest keeps paid meal consumed and is repeatable with another meal', () => {",
+      "'rest accepts native five-minute batches, crosses calendar year correctly, no replay rewards', () => {",
+      "'rest refuses synchronous 1080-minute replay and unsafe requests', () => {",
+      "'native collection remains distinct, finished and owned across rereads/copies/custody', () => {",
+      "'presentation discloses only known title and actual settled stories', () => {"
+    ],
+    "assertions": 49
+  },
+  {
+    "source": "tests/p23-host-joins-tranche3.test.js",
+    "destination": "tests/reading.test.js",
+    "cases": [
+      1,
+      2
+    ],
+    "titles": [
+      "'host settlement puts XP and finished book in one unpublished envelope and never mutates native books'",
+      "'host optional absence remains absent and unsupported reading schemas reject before publication'"
+    ],
+    "assertions": 8
+  },
+  {
+    "source": "tests/exposure.test.js",
+    "destination": "tests/exposure.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "titles": [
+      "'old saves remain absent; defaults have no new weather cost'",
+      "'idle underfed played time earns fractional native Famine XP without activity'",
+      "'tiny ticks retain positive progress rather than rounding it away'",
+      "'fed, nonfeeding, absent body, offline, outside home and hunger-off controls award none'",
+      "'threshold crossing integrates only actual underfed suffix and matches split E1 clock'",
+      "'event replay after reload is idempotent; later real events keep awarding'",
+      "'overlaps and gaps reject before any source mutation'",
+      "'gust and rest have distinct visible temperature and native-resource costs'",
+      "'shelter blocks exposure, still advances the same weather phase; resistance reduces cost'",
+      "'mode off and unavailable weather/body/world freeze phase without added penalties'",
+      "'long common-clock step matches segmented gust costs and saved remainder'",
+      "'pending phase and XP remainder survive JSON literal payload preflight and resume'",
+      "'unsupported/malformed save states reject without mutation'",
+      "'Famine projects a bounded benefit over existing optional penalty only'",
+      "'status reveals only known skill names and explains risk without effects'",
+      "'panel rollback respects failed native commit and does not alter source state'"
+    ],
+    "assertions": 58
+  },
+  {
+    "source": "tests/household.test.js",
+    "destination": "tests/household.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "titles": [
+      "'optional old-save state is absent and ticks grant nothing', () => {",
+      "'repeated real visits bond, mature and give recurring paid-publisher gifts', () => {",
+      "'known gift gating suppresses undiscovered output without using up opportunity', () => {",
+      "'real log is debited once, burn is bounded, Wet drying needs actual warmth', () => {",
+      "'smoke is opt-in; vent, extinguish and native exit remove exposure', () => {",
+      "'reloading preserves pending animal/hearth exactly, no retroactive upkeep', () => {",
+      "'invalid schemas and forged fields reject before mutating input', () => {",
+      "'custody, home, body, discovered identity and root clock preflight gate commands', () => {",
+      "'atomic host contract prevents duplicate publication and partial preflight failure', () => {",
+      "'comfort derives distinct active fixtures, never inventory price or copies', () => {",
+      "'known Here presentation hides undiscovered identity and uses sequenced public actions', () => {"
+    ],
+    "assertions": 56
+  },
+  {
+    "source": "tests/living_gear.test.js",
+    "destination": "tests/living_gear.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "titles": [
+      "'E2 identity contract preserves independent copies with wear disabled', () => {",
+      "'native played clock flips aura at 20:00 and 04:00, removal stops it', () => {",
+      "'kill staging is inert until publication and a real event settles once', () => {",
+      "'identical weapon and collector copies grow independently through swap and re-equip', () => {",
+      "'training, summoned and other actor kills do not award; non-beast kills only grow weapon', () => {",
+      "'collector spend consumes real saved reserve and supplies native stamina publication patch', () => {",
+      "'failed persistence, custody and stale plans leave live resource unchanged', () => {",
+      "'collector reserve has capacity but spending allows unlimited future refill', () => {",
+      "'full old/new copy JSON import controls and schema rejection before mutation', () => {",
+      "'known-only rows and native custody failures cannot expose unknown gear', () => {",
+      "'native item registration and decoder preserve original living weapon components and E2 copies', async () => {"
+    ],
+    "assertions": 54
+  },
+  {
+    "source": "tests/combat_options.test.js",
+    "destination": "tests/combat_options.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "titles": [
+      "'old saves absent; unsupported or malformed tactics reject before host mutation', () => {",
+      "'paid throw can repeat with distinct native events, duplicate is inert', () => {",
+      "'missing ammo and denied custody preserve selected tactic and inventory', () => {",
+      "'smoke pays a real item and calls escape without any kill reward; no replay', () => {",
+      "'lure offers one authored opportunity per payment, can repeat, never pays a kill', () => {",
+      "'pending tactic, break request and paused phase survive exact JSON export/import', () => {",
+      "'victory break resumes the pending native round once', () => {",
+      "'noncombat throwing training pays again per occurrence and uses native XP host', () => {",
+      "'P16 drop profile is optional and validates before mutation', () => {",
+      "'actual native strike hits armor with single projectile, misses with native hit roll', () => {",
+      "'actual native defeat awards once, duplicate dead target does not repay', () => {",
+      "'actual cooldown exchange consumes ammo, then break prevents scheduling another swing', () => {",
+      "'actual smoke exchange never invokes native damage or loot settlement', () => {",
+      "'actual victory break keeps next encounter pending until one explicit resume', () => {",
+      "'R51 native independent cooldowns retain a 4:1 speed ratio without a burst engine', () => {"
+    ],
+    "assertions": 57
+  },
+  {
+    "source": "tests/field_familiarity.test.js",
+    "destination": "tests/field_familiarity.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "titles": [
+      "'P07 optional old-save defaults do not touch C2 or source objects'",
+      "'P07 strict schema preflight rejects malformed records before mutation'",
+      "'P07 window matches native New phase across 120 days and hour boundaries'",
+      "'P07 next window preserves native month/year rollover and fractional lunar cycle'",
+      "'P07 physical harvest settles once, reload/view never creates a claim'",
+      "'P07 two distinct lunar cycles harvest and future occurrences remain reachable'",
+      "'P07 scouting and combat time unlock a faster real search without clear XP'",
+      "'P07 both learning sources can independently reach the useful threshold'",
+      "'P07 ineligible world/location/death and ordinary idle time do not learn'",
+      "'P07 duplicate/backward/gapped callbacks do not replay elapsed familiarity'",
+      "'P07 interruption/closing/phase change stops unpaid search without stock claim'",
+      "'P07 pending and settled serialization stays exact without replaying rewards'",
+      "'P07 known-only projection has no effects or undiscovered name leak'",
+      "'P07 whole-save preflight rejects impossible occurrence and clock bindings'"
+    ],
+    "assertions": 72
+  },
+  {
+    "source": "tests/leisure_memory.test.js",
+    "destination": "tests/leisure_memory.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "titles": [
+      "'old absent state stays absent and unsupported schemas reject without mutation'",
+      "'paid start freezes native RNG draw; pending reload/import does not reveal or reroll'",
+      "'two paid rounds use advancing native RNG and settle once each'",
+      "'matching target restores only one paid stamina, no minted coins'",
+      "'pending paid result remains settleable after life ends without stamina resurrection'",
+      "'due time and revision prevent premature settlement or stale payments'",
+      "'resource, location, custody/body and native person controls reject before mutation'",
+      "'gift transfers a real coin and changes only a later known local response'",
+      "'refusal remains different and ordinary leisure stays reachable'",
+      "'kindness can recur after consumed offer without a lifetime cap'",
+      "'absent donor does not grant saved private offer or expose person'",
+      "'malformed counters, paid draw and forged outcomes reject'",
+      "'native defeat baseline creates no invented past; cause memory is idempotent'",
+      "'known-only biography and existing relationship owner accept actual helper facts'",
+      "'sponsored practice spends Eda real coin and no-coin donor leaves ordinary play available'",
+      "'response retry with captured revision cannot duplicate a coin transfer'",
+      "'unattributed native health defeat records recovery without inventing an attacker'"
+    ],
+    "assertions": 59
+  },
+  {
+    "source": "tests/market_life.test.js",
+    "destination": "tests/market_life.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "titles": [
+      "'old saves remain empty; unsupported and inconsistent records reject before mutation', () => {",
+      "'two favor occurrences provide useful coupons without random draws or lifetime limits', () => {",
+      "'duplicate and older transactions are no-ops; fresh coupon cannot fund its own earning purchase', () => {",
+      "'native delivery changes notice and exact bread price; no passive drift or wall-clock replay', () => {",
+      "'JSON restore retains occurrences, coupons and index exactly; projection never changes state', () => {",
+      "'known-only notice and Effects-off suppress cues without freezing economy', () => {",
+      "'small baskets keep a one-coin floor; selling gives no coupon or purchase subsidy', () => {",
+      "'invalid baskets, incomplete deliveries and overflow cannot mutate caller state', () => {",
+      "'native stock chance/count, restock boundary and earned markup remain unchanged',async()=>{",
+      "'native sales cause saturation; purchases and recovery reduce it without inflation',async()=>{"
+    ],
+    "assertions": 62
+  },
+  {
+    "source": "tests/p23-host-joins-tranche-one.test.js",
+    "destination": "tests/exposure.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titles": [
+      "'old optional absence is retained; clock-cursor and unsupported schema preflight reject'",
+      "'passive native XP stages as exact hundredths with matching saved clock and no input mutation'",
+      "'inert old native clock advances do not initialize an optional exposure family'",
+      "'storm costs clamp native stamina and do not stage HP damage or action XP multipliers'"
+    ],
+    "assertions": 11
+  },
+  {
+    "source": "tests/p23-host-joins-tranche-one.test.js",
+    "destination": "tests/household.test.js",
+    "cases": [
+      5
+    ],
+    "titles": [
+      "'household fuel preflight rejects denied custody before any native owner publication'"
+    ],
+    "assertions": 2
+  },
+  {
+    "source": "tests/p23-host-joins-tranche-two.test.js",
+    "destination": "tests/living_gear.test.js",
+    "cases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "titles": [
+      "'living equip pays one stack copy and allocates identity with wear off, without changing source owners'",
+      "'two native copies remain distinct after swapping and imported duplicate owners reject'",
+      "'custody refusal leaves paid-copy and allocator plans untouched'",
+      "'staging an already allocated copy never rebinds the live inventory item to staged wear'",
+      "'optional absence is inert and unknown fields, missing E2 allocation or stacked instance reject'",
+      "'an equipped aura refuses a malformed native hour before projection or owner mutation'"
+    ],
+    "assertions": 15
+  },
+  {
+    "source": "tests/p23-host-joins-tranche-two.test.js",
+    "destination": "tests/combat_options.test.js",
+    "cases": [
+      6
+    ],
+    "titles": [
+      "'paused combat state requires the same real encounter and survivor phase'"
+    ],
+    "assertions": 2
+  },
+  {
+    "source": "tests/p23-host-joins-step2.test.js",
+    "destination": "tests/native_optional_envelope.test.js",
+    "cases": [
+      1
+    ],
+    "titles": [
+      "'old native envelope stays absent; optional schema rejection does not mutate it'"
+    ],
+    "assertions": 3
+  },
+  {
+    "source": "tests/p23-host-joins-step2.test.js",
+    "destination": "tests/leisure_memory.test.js",
+    "cases": [
+      2,
+      4
+    ],
+    "titles": [
+      "'paid-round owner must agree with the native reservation'",
+      "'Eda aid transfers the actual finite donor purse to native money'"
+    ],
+    "assertions": 3
+  },
+  {
+    "source": "tests/p23-host-joins-step2.test.js",
+    "destination": "tests/field_familiarity.test.js",
+    "cases": [
+      3
+    ],
+    "titles": [
+      "'field output uses the native bag without supplying passive XP or money'"
+    ],
+    "assertions": 2
+  },
+  {
+    "source": "tests/p23-host-joins-step2.test.js",
+    "destination": "tests/market_life.test.js",
+    "cases": [
+      5
+    ],
+    "titles": [
+      "'market quote consumes native rounded subtotals and leaves coupon off by default'"
+    ],
+    "assertions": 3
+  }
+]

@@ -1,10 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createChronicle,commandChronicle,advanceChronicle,validateChronicle,createHeirChronicle,GAME_YEAR,responseCost} from '../src/chronicle.js';
-import {lifeGrave,lifeLearningMultiplier} from '../src/life_experience.js';
+import {createChronicle, commandChronicle, advanceChronicle, validateChronicle, createHeirChronicle, GAME_YEAR, responseCost} from '../src/chronicle.js';
+import {lifeGrave, lifeLearningMultiplier, learnedLifeLessons, lifeVoice, lifeEpitaph} from '../src/life_experience.js';
 import {buildLifeHeirSave} from '../src/life_experience_host.js';
-import {createLifeRecord,lifeRecordView} from '../src/life_record.js';
+import {createLifeRecord, lifeRecordView} from '../src/life_record.js';
 import {deriveHeirLeftovers} from '../src/heir_inheritance.js';
+
+// life_experience_b: original fixture scope retained.
+{
 const calendar={year:999,month:4,day:1,hour:8,minute:0,day_count:1};
 const state=()=>({sequence:0,clock:0,chronicle:createChronicle(0,calendar,true),rng:7});
 const ctx={location:'Village',calendar};
@@ -55,3 +58,26 @@ test('a pre-slice final-year save receives its warning now, without inventing an
  const savedAt=c.lastClock,next=advanceChronicle(c,savedAt+1);assert.equal(next.log.at(-1).at,savedAt);assert.equal(next.life.initialAge,78);
  validateChronicle(next,savedAt+1);
 });
+
+}
+
+// life_experience_c: original fixture scope retained.
+{
+const calendar={year:999,month:4,day:1,hour:8,minute:0,day_count:1};
+test('a retained lesson has distinct voice at twelve, forty and eighty without inventing knowledge',()=>{
+ const c=createChronicle(0,calendar);assert.deepEqual(learnedLifeLessons(c),[]);
+ c.knowledge.routeSignals=true;
+ const texts=[12,40,80].map(age=>{c.life.initialAge=age;return lifeVoice(c,'routeSignals')});
+ assert.equal(new Set(texts).size,3);assert.match(texts[0],/!/);assert.match(texts[2],/remember/);
+});
+test('aging bonus stops at adulthood and at death; epitaph depends on actual deeds',()=>{
+ const c=createChronicle(0,calendar);assert.equal(lifeLearningMultiplier(c),1.2);
+ c.life.initialAge=40;assert.equal(lifeLearningMultiplier(c),1);
+ c.life.initialAge=18;c.life.endedAt=1;assert.equal(lifeLearningMultiplier(c),1);
+ assert.match(lifeEpitaph(c),/Not every kindness/);
+ c.relationships.villageElder.ties.dutyKept=true;assert.match(lifeEpitaph(c),/kept a promise/);
+ assert.doesNotMatch(lifeEpitaph(c),/master/);
+});
+
+}
+

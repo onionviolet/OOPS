@@ -2,6 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createKnownItemHotkeys, validateItemBindings, isTypingTarget} from '../src/absorb_p23/known_detail/hotkeys.js';
 import {formatKnownNumber, projectKnownMethodChains, projectObservedDrops, methodRarityWords} from '../src/absorb_p23/known_detail/presentation.js';
+import {validateKnownDetailEnvelope} from '../src/absorb_p23/host_joins/known_detail.js';
+import {settleObservedDrops} from '../src/absorb_p23/known_detail/observations.js';
+
+// known_detail: original fixture scope retained.
+{
 const memory = () => {const m = new Map(); return {getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,v),removeItem:k=>m.delete(k)};};
 function setup() {
     let state = {canWrite:true,items:[{id:'copy:1',label:'Known kit',known:true,owned:true,eligible:true,action:'use',inputFingerprint:'rev1'}]};
@@ -83,3 +88,26 @@ test('readiness uses the actual skill presenter and native preview without resta
  }
  assert.ok(chain.actions.length>0);assert.equal(chains.some(c=>c.id===SKILL_IDS.brace),false);
 });
+
+}
+
+// p23-host-joins-known-detail: original fixture scope retained.
+{
+test('legacy absence preserves the envelope; invalid optional schemas reject without mutation',()=>{
+ const save={enemy_killcount:{Rat:99}},before=structuredClone(save);validateKnownDetailEnvelope(save);assert.deepEqual(save,before);
+ for(const patch of [{display_preferences:{schema:2,settings:{}}},{p23_drop_observations:{schema:2,creatures:{}}}]){
+  const envelope={...save,...patch},before=structuredClone(envelope);assert.throws(()=>validateKnownDetailEnvelope(envelope),/schema/);assert.deepEqual(envelope,before);
+ }
+});
+test('actual loot associates only its own creature and cannot exceed native settlement history',()=>{
+ const event={recipientId:'player',creatureId:'Rat',killOrdinal:1,drops:[{itemId:'Rat tail',count:2}]};
+ const state=settleObservedDrops(undefined,event).state;
+ validateKnownDetailEnvelope({enemy_killcount:{Rat:1},p23_drop_observations:state});
+ assert.throws(()=>validateKnownDetailEnvelope({enemy_killcount:{Rat:0},p23_drop_observations:state}),/native kill/);
+ assert.deepEqual(settleObservedDrops(state,event).state,state);
+ const empty=settleObservedDrops(state,{...event,creatureId:'Wolf',killOrdinal:1,drops:[]}).state;
+ assert.deepEqual(empty.creatures.Wolf.drops,{});assert.deepEqual(empty.creatures.Rat.drops,{'Rat tail':2});
+});
+
+}
+

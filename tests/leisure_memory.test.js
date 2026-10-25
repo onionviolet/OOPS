@@ -1,8 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createLeisureMemory,validateLeisureMemory,startLeisureRound,settleLeisureRound,respondToEda,revisitEda,rememberNativeDefeat,leisureMemoryView,LEISURE_PERSON} from '../src/absorb_p23/leisure_memory/index.js';
-import {appendLifeMilestone,createLifeRecord,lifeRecordView,LIFE_YEAR_MINUTES} from '../src/life_record.js';
-import {createChronicle,relationshipChange,validateChronicle} from '../src/chronicle.js';
+import {createLeisureMemory, validateLeisureMemory, startLeisureRound, settleLeisureRound, respondToEda, revisitEda, rememberNativeDefeat, leisureMemoryView, LEISURE_PERSON} from '../src/absorb_p23/leisure_memory/index.js';
+import {appendLifeMilestone, createLifeRecord, lifeRecordView, LIFE_YEAR_MINUTES} from '../src/life_record.js';
+import {createChronicle, relationshipChange, validateChronicle} from '../src/chronicle.js';
+import {readFileSync} from 'node:fs';
+import {validateTrancheFourEnvelope, stageLeisureMemory} from '../src/absorb_p23/host_joins/tranche_four.js';
+
+// leisure_memory: original fixture scope retained.
+{
 const context = (extra={}) => ({clock:0,rng:123,worldId:'base.frontier',location:'Village',alive:true,conscious:true,idle:true,money:10,stamina:5,
     personId:LEISURE_PERSON,personKnown:true,personPresent:true,personAlive:true,personMoney:1,...extra});
 const restore = s => JSON.parse(JSON.stringify(s));
@@ -134,3 +139,22 @@ test('unattributed native health defeat records recovery without inventing an at
     assert.equal(r.effects[0].text,'You lost consciousness and began recovering.');
     assert.throws(()=>rememberNativeDefeat(createLeisureMemory(),{...e,knownOpponent:'Wolf'},context()));
 });
+
+}
+
+// p23-host-joins-step2: original fixture scope retained.
+{
+const fixture=()=>JSON.parse(readFileSync(new URL('../docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/fixtures/tranche1-prelight.json',import.meta.url)));
+test('paid-round owner must agree with the native reservation',()=>{
+ const s=fixture();s.p23_leisure_memory=createLeisureMemory(s.total_deaths);s.expansion.actors.player.facts['p23.leisure.pendingRound']='invented';assert.throws(()=>validateTrancheFourEnvelope(s),/reservation/);
+});
+test('Eda aid transfers the actual finite donor purse to native money',()=>{
+ const state=fixture().expansion;state.simulation={people:{[LEISURE_PERSON]:{}},relationships:{},causes:{}};state.actors[LEISURE_PERSON]={resources:{coins:7}};
+ const plan={state,external:{money:10}};
+ const result={state:createLeisureMemory(0),minutes:0,effects:[{type:'nativeMoney',amount:7},{type:'personMoney',personId:LEISURE_PERSON,amount:-7}]};
+ stageLeisureMemory(plan,result,{calendar:fixture()['current time'],worldId:'base.frontier',maxStamina:10,stamina:10,lifeRecord:fixture().life_record});
+ assert.equal(plan.external.money,17);assert.equal(plan.state.actors[LEISURE_PERSON].resources.coins,0);
+});
+
+}
+
