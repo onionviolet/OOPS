@@ -4119,6 +4119,8 @@ function tool_tooltip_line(activity) {
  * @returns 
  */
 function update_gathering_tooltip(activity) {
+    // Skill-name refreshes include jobs and training, which have no gathering projection.
+    if(!activity.gained_resources) return;
     if(deferSimulationRender(update_gathering_tooltip, () => update_gathering_tooltip(...arguments))) return;
     let parent = document.querySelector(`[data-activity="${activity.activity_id}"]`);
     let gathering_tooltip;
