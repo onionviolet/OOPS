@@ -24,7 +24,7 @@ export function quotedActionList(rows, {id, activate}) {
     const root = document.createElement('div'); root.className = 'ui-quoted-actions';
     const blocked = new Map();
     for(const row of rows) {
-        if(row.enabled) root.append(makeButton(row));
+        if(row.enabled||row.active) root.append(makeButton(row));
         else {const reason = row.reason || 'This work is not available here yet.'; if(!blocked.has(reason))blocked.set(reason, []); blocked.get(reason).push(row);}
     }
     let groupIndex = 0;
@@ -37,9 +37,11 @@ export function quotedActionList(rows, {id, activate}) {
     }
     function makeButton(row) {
         const b=document.createElement('button'); b.type='button'; b.textContent=row.label;
-        b.disabled=!row.enabled; b.dataset.quotedAction=row.id;
+        b.disabled=!row.enabled&&!row.active; b.dataset.quotedAction=row.id;
+        if(typeof row.active==='boolean')b.setAttribute('aria-pressed',String(row.active));
+        if(row.active&&!row.enabled){b.setAttribute('aria-disabled','true');b.title=row.reason||'Currently selected.';}
         if(row.attributes)for(const [key,value]of Object.entries(row.attributes))b.setAttribute(key,value);
-        b.onclick=()=>activate(row.id);
+        b.onclick=()=>{if(row.enabled)activate(row.id);};
         return b;
     }
     return root;

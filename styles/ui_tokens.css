@@ -289,7 +289,7 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #main_content.workspace-active button,
 #main_content.workspace-active .customization-module button {
     background: var(--theme-control, var(--ui-button-fill)); color: var(--theme-control-text, var(--workspace-text));
-    border: 1px solid var(--theme-border, var(--workspace-border)); min-height: 28px; padding: 3px 7px; box-shadow: var(--ui-shadow);
+    border: 1px solid var(--theme-border, var(--workspace-border)); min-height: var(--ui-control-md); padding: var(--ui-space-2) var(--ui-space-3); box-shadow: var(--ui-shadow);
 }
 #main_content.workspace-active button:disabled,
 #main_content.workspace-active button[aria-disabled="true"] {
@@ -1700,3 +1700,118 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 #main_content.workspace-active[data-parity="r3"] #message_box_div .notice-panel-link::after {content:"›";font-size:var(--custom-size,var(--ui-type-body));line-height:1.3;}
 /* Expanded headings scroll over content and need an opaque surface. */
 #main_content.workspace-active[data-parity="r3"] .expanded-panel-view > .expanded-panel-heading {background:var(--p23-message-fill)!important;}
+
+/* Shared desktop detail grammar. Light marks a control or meaningful state;
+   prose and numeric values keep quiet backing. Reduced motion keeps static cues. */
+:where(:root, .customization-module) {
+ --ui-motion-fast: 120ms;
+ --ui-motion-normal: 180ms;
+ --ui-motion-ease: ease-out;
+ --ui-feedback-accent: var(--theme-accent, var(--workspace-accent, var(--ui-accent)));
+ --ui-feedback-focus: var(--theme-focus, var(--workspace-focus, var(--ui-accent)));
+ --ui-glow-affordance: 0 0 7px color-mix(in srgb, var(--ui-feedback-accent) 32%, transparent);
+ --ui-glow-active: inset 0 -2px var(--ui-feedback-accent), 0 0 7px color-mix(in srgb, var(--ui-feedback-accent) 22%, transparent);
+ --ui-glow-discovery: 0 0 6px color-mix(in srgb, var(--sem-money, var(--ui-accent)) 38%, transparent);
+ --ui-reading-fill: var(--theme-surface, var(--workspace-surface, var(--ui-navy)));
+}
+#main_content.workspace-active :is(button,select,input,textarea,[role="button"],summary) {
+ transition: border-color var(--ui-motion-fast) var(--ui-motion-ease), box-shadow var(--ui-motion-fast) var(--ui-motion-ease), background-color var(--ui-motion-fast) var(--ui-motion-ease);
+}
+#main_content.workspace-active :is(button,select,[role="button"],summary):not(:disabled):not([aria-disabled="true"]):hover {
+ border-color: var(--ui-feedback-accent); box-shadow: var(--ui-glow-affordance);
+}
+#main_content.workspace-active :is(button,[role="button"],summary):not(:disabled):not([aria-disabled="true"]):active {
+ box-shadow: inset 0 0 0 1px var(--ui-feedback-accent); background-color: var(--theme-control, var(--p23-selected));
+}
+#main_content.workspace-active :is(button,[role="button"],summary,select,input,textarea):focus-visible {
+ outline-color: var(--ui-feedback-focus) !important; box-shadow: var(--ui-glow-affordance);
+}
+#main_content.workspace-active :is([aria-current="page"],[aria-pressed="true"],[aria-selected="true"]) {
+ box-shadow: var(--ui-glow-active);
+}
+#workspace_navigation [data-new-home="true"]::after,
+#main_content.workspace-active [data-new-count]:not([data-new-count="0"]) {text-shadow: var(--ui-glow-discovery);}
+#main_content.workspace-active :is(.stat_value,.character_stat_value,.item_count,.inventory_item_count,.meter-bar-value,.log-value,.log-repeat,output,td) {
+ font-variant-numeric: tabular-nums;
+}
+#main_content.workspace-active :is(.ui-disabled-reason,.ui-action-reason) {
+ display:block; margin:var(--ui-space-1) 0 var(--ui-space-2); color:var(--theme-muted,var(--workspace-muted));
+ font-size:var(--custom-small-size,var(--ui-type-small));line-height:var(--ui-line-small);text-shadow:none;
+}
+#main_content.workspace-active :is(.ui-disabled-reason,.ui-action-reason)[hidden] {display:none;}
+/* Workbenches keep a single reading lane; details reveal secondary work without
+   moving the stable subject, quote and commit flow. */
+.ui-workbench { min-width:0; }
+#main_content.workspace-active .ui-workbench > :is(h2,h3) {margin:0 0 var(--ui-space-3);line-height:var(--ui-line-body);font-size:var(--custom-size,var(--ui-type-title));}
+#main_content.workspace-active :is(.ui-workbench,.ui-connection-body) p {margin:var(--ui-space-2) 0 var(--ui-space-3);line-height:var(--ui-line-prose);overflow-wrap:anywhere;text-shadow:none;}
+#main_content.workspace-active .ui-panel-section {
+ margin:var(--ui-space-3) 0; padding:var(--ui-space-3);min-width:0;
+ border:1px solid var(--theme-border,var(--ui-hairline));background:var(--ui-reading-fill);scroll-margin-block:var(--ui-space-3);
+}
+#main_content.workspace-active .ui-panel-section > :is(h3,summary) {
+ margin:0 0 var(--ui-space-2);font-size:var(--custom-size,var(--ui-type-body));line-height:var(--ui-line-body);
+ color:var(--theme-accent,var(--ui-accent));letter-spacing:0;
+}
+#main_content.workspace-active .ui-panel-section > summary {min-height:var(--ui-control-sm);cursor:pointer;}
+#main_content.workspace-active .ui-panel-section:not([open]) > summary {margin-bottom:0;}
+#main_content.workspace-active .ui-panel-section .ui-panel-section {border-width:0 0 1px;padding:var(--ui-space-2) 0;background:transparent;}
+.ui-field-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15em),1fr));gap:var(--ui-space-3);align-items:start;}
+.ui-control-field {display:grid;gap:var(--ui-space-1);min-width:0;}
+.ui-control-field:has(> [hidden]) {display:none;}
+.ui-control-field > span {color:var(--theme-muted,var(--workspace-muted));}
+#main_content.workspace-active .ui-control-field > :is(select,input) {width:100%;min-width:0;min-height:var(--ui-control-md);box-sizing:border-box;}
+#main_content.workspace-active :is(.ui-quoted-actions,.ui-action-row) > button {margin:var(--ui-space-1) var(--ui-space-2) var(--ui-space-1) 0;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:start;min-height:var(--ui-control-md);padding:var(--ui-space-2) var(--ui-space-3);line-height:var(--ui-line-body);}
+.ui-panel-shortcuts {display:flex;flex-wrap:wrap;gap:var(--ui-space-2);margin-block:var(--ui-space-3);}
+#main_content.workspace-active .ui-panel-shortcuts > button {min-height:var(--ui-control-sm);padding:var(--ui-space-1) var(--ui-space-3);}
+#main_content.workspace-active .ui-connection-body .panel-info > button {display:block;margin:var(--ui-space-2) 0;min-height:var(--ui-control-md);text-align:start;max-width:100%;white-space:normal;}
+/* One routine-row grammar, including the counter entrance. */
+#main_content.workspace-active[data-parity="r3"] #location_actions_div > #village_mixing_open {
+ display:block;width:100%;box-sizing:border-box;text-align:start;margin:0;border-width:0 0 1px;border-color:var(--ui-hairline);
+ background:transparent;box-shadow:none;min-height:var(--ui-control-md);padding:var(--ui-space-2) var(--ui-space-3);line-height:var(--ui-line-body);
+}
+#main_content.workspace-active[data-parity="r3"] #location_actions_div > #village_mixing_open::before {content:'⚗ ';color:var(--ui-text);}
+#main_content.workspace-active[data-parity="r3"] #location_actions_div > #village_mixing_open:hover {background:var(--p23-hover-fill);}
+/* Keep settlement controls on screen even when a price explanation wraps. The
+   same native accept/cancel/exit commands remain in their established owner. */
+#main_content.workspace-active #trade_control_div {
+ position:sticky;bottom:0;z-index:var(--ui-layer-sticky);display:flex;flex-wrap:wrap;align-items:center;gap:var(--ui-space-2);
+ padding:var(--ui-space-2);background:var(--ui-reading-fill);border-top:1px solid var(--ui-hairline);height:auto;min-height:0;
+}
+#main_content.workspace-active #trade_control_div > :is(#trader_cost_mult,#trade_price_div) {position:static;width:auto;max-width:100%;height:auto;flex:1 1 auto;}
+#main_content.workspace-active #trade_control_div > button {float:none;width:auto;flex:1 1 auto;min-height:var(--ui-control-md);margin:0;padding:var(--ui-space-2) var(--ui-space-3);outline:none;}
+#main_content.workspace-active #trade_control_div #trade_price_div {display:flex;align-items:center;gap:var(--ui-space-2);}
+#main_content.workspace-active #trade_div :is(.trader_sorting_button,.trader_category_button) {min-height:var(--ui-control-sm);font-size:inherit;margin:0;padding:var(--ui-space-1) var(--ui-space-2);outline:none;}
+#main_content.workspace-active #trade_div :is(#trader_sorting_buttons,#trader_category_buttons) {gap:var(--ui-space-hairline);}
+#main_content.workspace-active #message_box_div :is(.log-original,.log-compact,.log-occurrences) {line-height:var(--ui-line-prose);text-shadow:none;overflow-wrap:anywhere;}
+#main_content.workspace-active #message_box_div .message_common {padding-block:var(--ui-space-2);}
+/* Motion/effects caps do not remove the border, underline or text that conveys
+   the same state. High contrast and effects off also remove decorative light. */
+:root:is([data-effects="off"],[data-display-contrast="high"]) {
+ --ui-glow-affordance:none;--ui-glow-active:inset 0 -2px var(--ui-accent);--ui-glow-discovery:none;
+}
+:root:is([data-effects="off"],[data-display-contrast="high"]) .customization-module {
+ --ui-glow-affordance:none;--ui-glow-active:inset 0 -2px var(--theme-accent,var(--ui-accent));--ui-glow-discovery:none;
+}
+:root:is([data-effects="off"],[data-effects="reduced"]) #main_content.workspace-active :is(button,select,input,textarea,[role="button"],summary) {transition:none;}
+@media (prefers-reduced-motion:reduce) {
+ #main_content.workspace-active :is(button,select,input,textarea,[role="button"],summary) {transition:none;}
+}
+
+#main_content.workspace-active :is(.ui-workbench,#continuation_view) [role="status"]:empty {display:none;}
+/* Full route names retain enough space before the bar folds shortcuts. */
+:root[data-one-bar="true"] #game_bar #workspace_navigation > select {width:12ch;min-width:12ch;max-width:12ch;}
+:root[data-one-bar="true"] #game_bar .game-bar-overflow {flex:0 0 auto;}
+:root[data-one-bar="true"] #game_bar .game-bar-overflow .control-box-button {max-width:none;}
+#main_content.workspace-active #trade_control_div #trade_price_div {display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;}
+#main_content.workspace-active #trade_price_value {width:auto;min-width:0;padding:0;text-align:end;font-variant-numeric:tabular-nums;}
+#main_content.workspace-active #trade_quote_details {grid-column:1/-1;min-width:0;max-height:35vh;overflow:auto;}
+#main_content.workspace-active #trade_quote_details > summary {min-height:var(--ui-control-sm);cursor:pointer;color:var(--ui-accent);}
+#main_content.workspace-active #trade_quote_details :is(p,label) {display:block;margin:var(--ui-space-2) 0;line-height:var(--ui-line-prose);text-align:start;}
+#main_content.workspace-active #trade_quote_details:not(:has(> div:not([hidden]))) {display:none;}
+#main_content.workspace-active .workspace-module:has([data-typography-font="gothic"]) > .workspace-module-header strong {font-weight:var(--ui-weight-regular);}
+
+#main_content.workspace-active .ui-panel-section[data-action-group] > summary > [data-group-status] {display:none;}
+#main_content.workspace-active .ui-workbench .meter-bar-value {margin-inline-start:var(--ui-space-3);}
+#main_content.workspace-active .meter-bar-fill {transition:width var(--ui-motion-normal) var(--ui-motion-ease);}
+:root:is([data-effects="off"],[data-effects="reduced"]) #main_content.workspace-active .meter-bar-fill {transition:none;}
+@media (prefers-reduced-motion:reduce) {#main_content.workspace-active .meter-bar-fill {transition:none;}}

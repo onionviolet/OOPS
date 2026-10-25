@@ -43,7 +43,7 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
             for(const row of item.contributions) inspect.append(el('p', `${row.label}: ${labels[row.stat] || row.stat} ${row.multiplier != null ? '×' + row.multiplier : (row.flat >= 0 ? '+' : '') + row.flat}`));
             const history = item.work?.history || [];
             if(history.length) {const h = el('details'), summary = el('summary', `Work history (${history.length})`); h.append(summary); for(const r of history) h.append(el('p', `${r.action} · ${r.maker} · ${r.location} · game minute ${r.at}`)); inspect.append(h);}
-        } else inspect.append(el('p',view.rows.length?'Select a carried item to inspect its condition, materials and existing work.':'No carried equipment is available. Unequip an item in Inventory, then return here.'));
+        } else inspect.append(el('p',view.rows.length?'Select a carried item to inspect its condition, materials and existing work.':'No component-built gear is carried. This bench works on weapons, shields and assembled armor with replaceable parts. Simple clothing has no such parts here. Unequip suitable worn gear in Inventory first.'));
         const a = action.value;
         material.hidden = !['attach','swap','repair','fieldRepair','quench','socket','reforge'].includes(a);
         role.hidden = !['attach','detach'].includes(a); slot.hidden = a !== 'swap';

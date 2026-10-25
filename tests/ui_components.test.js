@@ -35,12 +35,13 @@ test('disabled reasons preserve subject descriptions and follow a moved action w
 test('quoted action groups keep unavailable alternatives and one shared reason without allowing activation', () => {
     const saved=globalThis.document,dom=createDom();dom.loadHTML('<body></body>');globalThis.document=dom.document;
     try {
-        const activations=[],root=quotedActionList([{id:'ready',label:'Repair now',enabled:true},{id:'a',label:'Fit a kit',enabled:false,reason:'Study first.'},{id:'b',label:'Cut a lining',enabled:false,reason:'Study first.'}],{id:'test-work',activate:id=>activations.push(id)});
+        const activations=[],root=quotedActionList([{id:'ready',label:'Repair now',enabled:true},{id:'current',label:'Current method',enabled:false,active:true},{id:'a',label:'Fit a kit',enabled:false,reason:'Study first.'},{id:'b',label:'Cut a lining',enabled:false,reason:'Study first.'}],{id:'test-work',activate:id=>activations.push(id)});
         document.body.append(root);
         const buttons=[...root.querySelectorAll('button')];
         assert.equal(root.querySelectorAll('details').length,1);
         assert.equal(root.querySelector('details').open,false);
         for(const b of buttons){b.click();if(b.disabled)assert.equal(document.getElementById(b.getAttribute('aria-describedby')).textContent,'Study first.');}
-        assert.deepEqual(activations,['ready']);assert.equal(buttons.length,3);
+        assert.deepEqual(activations,['ready']);assert.equal(buttons.length,4);
+        const current=buttons.find(b=>b.dataset.quotedAction==='current');current.focus();assert.equal(document.activeElement,current);assert.equal(current.getAttribute('aria-disabled'),'true');assert.equal(current.getAttribute('aria-pressed'),'true');
     } finally {globalThis.document=saved;}
 });
