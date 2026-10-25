@@ -1,3 +1,4 @@
+import {stageHeirloomClaim,validateNomination} from './heirloom_compact.js';
 import {deriveHomeEstate,applyHomeEstate,validateHomeEstate} from './home_inheritance.js';
 // Heir succession from what a life actually left behind (accepted direction,
 // docs/RULES_FROM_SCRATCH.md#the-heir, 2026-10-10). Pure: reads a saved
@@ -135,7 +136,7 @@ export function deriveHeirLeftovers(previous, {equippedKeys = [], law: lawId = D
         leftovers.inherited = heirQualityLines(leftovers.lineage, leftovers.lineage.selfId);
     }
     leftovers.empty = !residences?.money && !residences?.goods.length && !Object.keys(residences?.homes.properties||{}).length && !residences?.homes.portable && !money && !leftovers.belongings.length && !leftovers.chest.length && !home && !leftovers.papers.length && !leftovers.apprentice.length;
-    return leftovers;
+    return stageHeirloomClaim(previous,leftovers);
 }
 
 export function validateHeirLeftovers(l) {
@@ -146,6 +147,7 @@ export function validateHeirLeftovers(l) {
     check(Array.isArray(l.obligations) && l.obligations.every(id => Object.hasOwn(HEIR_OBLIGATIONS, id)), 'Invalid inherited obligations.');
     check(object(l.reputation) && Object.values(l.reputation).every(Number.isSafeInteger), 'Invalid inherited standing.');
     check(Array.isArray(l.debts) && l.debts.every(d => d?.id === 'kitDebt' && [d.owed, d.paid, d.shortfall].every(n => Number.isSafeInteger(n) && n >= 0) && d.paid + d.shortfall === d.owed), 'Invalid estate debts.');
+    if(l.compact){validateNomination(l.compact);check(['claimed','lapsed','unresolved'].includes(l.compact.status)&&typeof l.compact.recipient==='string','Invalid compact claim.');}
     if(l.residences)validateHomeEstate(l.residences);
     if(l.law != null) heirLaw(l.law);
     if(l.lineage != null) validateLineage(l.lineage);
@@ -169,6 +171,7 @@ export function applyHeirLeftovers(next, leftovers) {
     const passed = rows => at == null ? rows : rows.map(([key, n]) => [passHeirloomKey(key, at, 'the heir'), n]);
     merge(((inv.person ||= {}).main_character ||= {}), passed(leftovers.belongings));
     merge(((inv.storage ||= {}).player ||= {}), passed(leftovers.chest));
+    if(leftovers.compact?.status==='claimed')merge(inv.person.main_character,passed([[leftovers.compact.key,leftovers.compact.count]]));
     if(leftovers.home) {
         const loc = ((next.availabilities ||= {}).location ||= {});
         loc[HEIR_HOME_LOCATION] = (loc[HEIR_HOME_LOCATION] ?? 0) | 1;
@@ -197,6 +200,7 @@ export function heirLeftoverLines(l, labels = {}, labelItem = itemLabel) {
     const heirlooms = [...l.belongings, ...l.chest].filter(([k]) => {try {return !!readMaterialLineage(k);} catch {return false;}}).reduce((n, [, c]) => n + c, 0);
     if(heirlooms) lines.push(`Heirlooms: ${heirlooms} processed ${heirlooms === 1 ? 'good gains' : 'goods gain'} a line recording that it passed to the heir.`);
     if(l.kin?.length) lines.push(`Kin left behind: ${l.kin.slice(0, 6).map(k => `${k.name} (${k.relation})`).join(', ')}${l.kin.length > 6 ? `, and ${l.kin.length - 6} more` : ''}. They are recorded on the heir's family tree; nothing else passes with them.`);
+    if(l.compact)lines.push(`Heirloom Compact: ${l.compact.status} · ${nameOf(l.compact.key)} ×${l.compact.count} for ${l.compact.recipient}. ${l.compact.status==='claimed'?'Counted separately from the estate; claimed into the successor’s belongings.':'No additional goods transfer.'}`);
     if(l.money) lines.push(`Money: ${l.money} coins.`);
     if(l.belongings.length) lines.push(`Belongings (${total(l.belongings)}): ${goods(l.belongings)}.`);
     if(l.chest.length) lines.push(`Stored in the chest (${total(l.chest)}): ${goods(l.chest)}.`);

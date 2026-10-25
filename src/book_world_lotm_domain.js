@@ -2,6 +2,7 @@
 // save envelope is validated by book_world_lotm_envelope.js, native sleep joins through wake/tick,
 // and the panel mounts with the other domains. main.js makes one configureLotm call.
 import {registerDomain} from './domain_registry.js';
+import {lotmFacts} from './book_world_lotm_actions.js';
 import {createLotmHost,lotmSimulationContexts} from './book_world_lotm_host.js';
 import {createLotmPanel} from './book_world_lotm_ui.js';
 import {lotmPeople} from './book_world_lotm_content.js';
@@ -20,5 +21,5 @@ export function configureLotm(p){
 }
 registerDomain({id:'lotm',deps:[],tick:()=>host?.tick(),refresh:()=>panel?.render(),
  commands:{wake:()=>host?.wake()},
- projection:(kind,...args)=>kind==='contexts'?lotmSimulationContexts(...args):host?.view(),
+ projection:(kind,...args)=>kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?lotmFacts(...args):host?.view(),
  panels:[()=>{panel=createLotmPanel({read:()=>host.view(),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.enroll(profile),home:ports.home()});}]});

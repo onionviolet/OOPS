@@ -30,3 +30,4 @@ produces proposals only; it never selects build scope or changes a standing prio
 | Date | Lanes | Result |
 |---|---|---|
 | 2026-10-23 | K1 to K6 (Claude sonnet, read-only, static reading only) | IM1 to IM20 in the library. Headline: heir succession drops the cheat and no default route grants one. Nothing built, run or committed. |
+| 2026-10-25 | D4; two bounded source/test readers, parent code owner | Quiet faculty, four native modules and finite accompanying-system quest implemented on the D4 branch. Actual browser Save/reload/Import and heir boot checked; final gate receipt in [checkpoint](../gm/dispatch/cheats-2026-10-25/CHECKPOINT.md). The [source-row inventory](../gm/dispatch/cheats-2026-10-25/INVENTORY.md) distinguishes these slices from unfinished reference powers. IM21–IM28 extend the root palette; they do not change accepted world rules. |

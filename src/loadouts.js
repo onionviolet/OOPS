@@ -1,3 +1,4 @@
+import {labelControl} from './ui/panel_sections.js';
 import {registerDomain} from './domain_registry.js';
 import {definePanel} from './panel_kit.js';
 import {readPort, whenPortsReady} from './ui_ports.js';
@@ -113,7 +114,8 @@ function createLoadoutsPanel() {
     const bare = node('input', null, {type: 'checkbox', id: 'loadouts_bare'}), bareLabel = node('label', 'Also take off slots the set does not name', {for: 'loadouts_bare'});
     const status = node('p', '', {role: 'status', 'aria-live': 'polite'}), list = node('ul', null, {'aria-label': 'Loadouts'});
     status.className = 'reference-empty';
-    panel.append(node('h2', 'Loadouts'), intro, name, save, bare, bareLabel, status, list);
+    bareLabel.className = 'ui-checkbox-field'; bareLabel.prepend(bare);
+    panel.append(node('h2', 'Loadouts'), intro, labelControl(name, 'Loadout name'), save, bareLabel, status, list);
 
     const say = text => { status.textContent = text; };
     save.onclick = () => {

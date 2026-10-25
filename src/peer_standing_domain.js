@@ -21,9 +21,12 @@ export function validateTrust(slice){
     if(slice==null)return;validateTrustState(slice);
     for(const id of Object.keys(slice.trust))if(!ids.includes(id))throw Error('Trust: unknown household member.');
 }
+// Registered commands are frozen, so tests substitute the payment seam here rather than editing the registry.
+let homeCommand=name=>domainRegistry.command('homes',name);
+export const useHomeCommandsForTest=source=>{homeCommand=source||(name=>domainRegistry.command('homes',name));};
 export function quoteGift({actor,amount}){
     const staff=TRUST_STAFF.find(s=>s.id===actor);if(!staff)return {eligible:false,reason:'Choose a household member.'};
-    const home=domainRegistry.command('homes','quote')({type:'gift_staff',actor,amount});
+    const home=homeCommand('quote')({type:'gift_staff',actor,amount});
     if(!home.eligible)return {eligible:false,reason:home.reason,actor,amount};
     const g=giveGift(TRUST_RULES,trustState(),actor,amount);
     return {eligible:true,actor,amount,home,change:g.change,tier:g.tier,tooBig:g.tooBig,reason:g.reason,
@@ -34,7 +37,7 @@ export function executeGift(quote){
     const fresh=quoteGift({actor:quote.actor,amount:quote.amount});
     if(!fresh.eligible)throw Error(fresh.reason);
     const previous=state;state=giveGift(TRUST_RULES,trustState(),quote.actor,quote.amount).state;
-    let result;try{result=domainRegistry.command('homes','execute')(fresh.home);}catch(error){state=previous;throw error;}
+    let result;try{result=homeCommand('execute')(fresh.home);}catch(error){state=previous;throw error;}
     panel?.render();return {...fresh,message:result.message};
 }
 export function projectTrust(){

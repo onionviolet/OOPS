@@ -1,0 +1,42 @@
+ M tests/continuation_state.test.js
+ M tests/economy_standing.test.js
+ M tests/gear_dimensions.test.js
+ M tests/gear_workshop.test.js
+ M tests/household_fortunes_domain.test.js
+ M tests/life_record.test.js
+ M tests/p23-host-joins-world-adaptation.test.js
+ M tests/p23-world-adaptation.test.js
+ M tests/peer_standing_domain.test.js
+ M tests/pledges.test.js
+ M tests/stepper_life_commit.test.js
+ M tests/ui_contract_allowlist.json
+?? tests/combat_review.test.js
+?? tests/companion_wishes.test.js
+?? tests/cultivation_away.test.js
+?? tests/cultivation_formulation.test.js
+?? tests/cultivation_guidance.test.js
+?? tests/cultivation_intents.test.js
+?? tests/cultivation_root.test.js
+?? tests/desktop_ipc_channels.test.js
+?? tests/desktop_save_mirror.test.js
+?? tests/dojo_tower.test.js
+?? tests/drainage_site.test.js
+?? tests/home_cultivation.test.js
+?? tests/home_layout.test.js
+?? tests/host_seam.test.js
+?? tests/household_brood.test.js
+?? tests/institutions_records.test.js
+?? tests/life_events.test.js
+?? tests/lineage_traits.test.js
+?? tests/lotm_pathway_rows.test.js
+?? tests/mcp_stdio.test.js
+?? tests/native_rendering.test.js
+?? tests/personal_journal.test.js
+?? tests/shop_locks.test.js
+?? tests/trial_bodies.test.js
+?? tests/trial_routine.test.js
+?? tests/vessel_forks.test.js
+?? tests/vessel_geometry.test.js
+?? tests/vessel_mantras.test.js
+?? tests/vessel_thread.test.js
+?? tests/village_family.test.js

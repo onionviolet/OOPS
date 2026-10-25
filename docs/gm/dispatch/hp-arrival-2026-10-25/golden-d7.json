@@ -1,0 +1,34 @@
+{
+  "source": "createHpLifeContent",
+  "profiles": {
+    "school": {
+      "rawLifeDefinitionSha256": "60f98887abca007da8c704d5d4ecc4dd4cfc4f3da7575c667b999737ac543017",
+      "commands": {
+        "book.hp.school.lesson_charms": "a64a9857a3edb6ca9fdf1677bc67eae0806ee92098c080d78de651b139089ec9",
+        "book.hp.school.lesson_plants": "2d7db10e2d05e11303421d60af2ab98ff04554dbe6992ad705e00e4cb26536f8",
+        "book.hp.school.study_notes": "41cdb380bf38d1e1005317d5b667cfaf966525c1f573e0d789081dd1c756bc2b",
+        "book.hp.school.wait_hour": "1ff4013baab4ea836666d16c6fc8ec425370df42ce0d0667e2a5ee2e8b7d8636",
+        "book.hp.school.repay": "c5493a8a6cab705e4e6d5869e368fb4310dbfd07a40fe3bf3a8bf58195a2a5e8",
+        "book.hp.school.practice_levitation": "f4179720c454422869b053a07ae0738b9639ab5a9fa35434693646c8b29a4035",
+        "book.hp.school.cast_levitation": "975278e6e5cefa9731887d48d40a02f63cd780a70315c43bcc9bd454a94a9f43",
+        "book.hp.school.lesson_repair": "2c652ff3dce361b883aeb4e7a1b451956f4d185deb9c4b8cf5834e4b5623aa4b",
+        "book.hp.school.practice_repair_glass": "95289da1fe40b41dcb1e0d15815b71c5337fd45619fcb3c0dd4e04c2c9b87706",
+        "book.hp.school.cast_repair_glass": "765d8421717c9389d9c7e99e81847b6486c83f8e70e0fc7ae59a1211c2aaf885",
+        "book.hp.school.borrow_wand": "64077debabb7dd48a69602a4e10470b618eea57f40e3c71d5b2b1907d81981d9",
+        "book.hp.school.return_wand": "bb505ba17281fc88fa6f609a9af16222a52120a9051ebf57ce122ecb8260cc49",
+        "book.hp.school.retrieve_feather": "fbd06b84b2c3153eb90e0b2e8d91cafd87ea57b3d4e27ec6eaadfed6591c7968"
+      }
+    },
+    "trade": {
+      "rawLifeDefinitionSha256": "75d141fba477539271646133d1c1190759efcd07fb7963eb587dd8c703b0eb6b",
+      "commands": {
+        "book.hp.trade.repair": "360e4298c6c03f0d0216a9c76e0459722e115829bccadbdfb62282b5b0dcc5a9",
+        "book.hp.trade.deliver": "324cc2a6034190c2d4ab497ef9e3b75e4741835c07ae8e422015641cff68e1b5",
+        "book.hp.trade.buy_fragments": "ec518df63a0841f21c27729be076cdc2e628e8cbd4bcca8e7bf4c8900e8cfd16",
+        "book.hp.trade.repay": "003c2e3f48cbf5b11ada9f4a373167f90f23ae28d3500782233572f1a1169c84",
+        "book.hp.trade.walk_shop": "f116cd40aef828808994a3180c8b8116f0b513f1eee6ea9dd702c64b78272d38",
+        "book.hp.trade.walk_workshop": "c5cc6d61e8be3f6fbec3c89ff58156d9cdac0b67e2acfa402f2ea5a27e038624"
+      }
+    }
+  }
+}

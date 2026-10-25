@@ -26,7 +26,7 @@ test('Sailor plays to Sequence 8 · Folk of Rage: four acts, a pre-screen, the S
  for(let i=0;i<3;i++)p=wait(run(p,'act_mooring'),20);p=wait(run(p,'act_dive'),30);assert.equal(path(p).felt,'settled');
  p=run(p,'request_prescreen_sa');assert.equal(holds(p,K.folkDose),0);ok(p);
  assert.equal(sailorRow.exam.waitMinutes,0,'no wait on the acting route');assert.ok(sailorRow.exam.ordinaryWaitMinutes<savantRow.exam.ordinaryWaitMinutes,'each church sets its own ordinary-member dial');
- p=wait(run(p,'request_exam_sa'),60);assert.equal(holds(p,K.folkDose),1);ok(p);
+ p=wait(run(p,'request_exam_sa_role'),60);assert.equal(holds(p,K.folkDose),1);ok(p);
  p=run(p,'ingest_folk');ok(p);const v=path(p);assert.equal(v.stage,'Sequence 8 · Folk of Rage');assert.equal(v.capped,true);
 });
 test('the pathway\'s abilities are descriptor commands; its scales are a concealed look a Beyonder observer sees',()=>{

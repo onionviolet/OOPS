@@ -103,3 +103,83 @@ BF1, rather than a general wandlore engine or another ordinary-work proxy.
 WPD-R1, proposal reconciliation (AD6–AD9/AD32–AD38, MR6–MR7, WA). The earlier nursery/child/tree comparisons are the wider palette, not required extra starts for the next magical proof. The [source ledger](SOURCE_LEDGER.md#current-acquisition-and-evidence-route-reconciled-2026-10-20) now routes acquired text and current census limits. Keep an actual source-qualified magical operation as the next HP qualification; ordinary work alone cannot prove it. The [beginner potion proposal](../../research/novels/harry-potter/craft-integration-2026-10-12/BEGINNER_POTION_PROPOSAL.md) is one candidate, not a selected build. Its quantities/timing/assessment are authored, and reading instruction grants neither faculty nor stock. Free mixing and accidental known-formula matches remain valid mechanisms, not a formula whitelist.
 
 Before a selected implementation: pin one spell/target/tool or brewing operation, its borrowed-versus-consumed stock, actual teacher/station availability and per-stage settlement. Prove the held tool survives while transformed ingredients do not return as raw stock; an assessment is attributed evidence, not universal efficacy. Level/effort: bounded source extraction then coordinator-owned native/save binding. Done check: the selected operation, supported alternative/refusal, interrupted work and exact current-format round trips. WG6 term absence, delegated plant care and delayed letters stay later proposals unless this ring actually leaves home for school; no full household/post simulator is required.
+
+## D7 first playable lives, 2026-10-25 branch candidate
+
+Weibao's D7 instruction selects four slices: opt-in entry, school calendar/lessons,
+descriptor wand/spell practice, then a second life and place layer. This implements
+that bounded order; it does not claim the whole seven-novel world. Evidence and
+exact launch steps live in [D7 checkpoint](../../gm/dispatch/hp-world-2026-10-25/CHECKPOINT.md).
+
+The bundled `book.hp` pack now supplies two original native life definitions through
+the existing structured beginning/runtime: Muggle-born first-year and adult Diagon
+Alley glass trader. All people, starting resources/debts, timetable, stock, prices,
+practice thresholds and durations are proposals. Canon spell cases have separate
+bounded source anchors in [the ledger](SOURCE_LEDGER.md#d7-bounded-spell-cases-2026-10-25).
+No changed or randomized canon truth is introduced. LOTM remains outside this lane.
+
+School: 70 calendar days with weekday lesson windows and a subsequent term break;
+lessons consume parchment, require the actual tutor and settle native Literacy XP.
+Learning a method, having magical faculty, holding a supported wand and practicing
+mastery are distinct. Two descriptor methods move actual feather/glass targets.
+Wand loan and return preserve custody. Adult trade: own magical faculty and learned
+repair, finite fragments and till, local purse/rent debt, timed workshop/counter
+travel and actual material/cash transfers. A local elapsed calendar supplies the
+header without inventing a canonical civil date or importing Frontier seasons.
+
+These are disposable opt-in authoring branches. The existing structured-start
+owner retains native carried cargo and Frontier money; HP's finite local purses
+and transactions are separate. Natural new-game selection, cargo conversion and
+cross-world travel are not verified by these entries. Do not treat the school
+rank or adult post as an acquired faculty.
+
+### More to consider, D7 round 1
+
+| Code | Finding and disposition | Level, effort, done check |
+|---|---|---|
+| HP-D7-X1 | **ACT NOW, done:** initial school-only panel clock left the shared place header without a date. Bind the same saved opening timestamp to the shared calendar projector and show current purse/debt/method/stock state rather than rely on historical opening prose. | Root, small; focused clock regression and rebuilt desktop header proof |
+| HP-D7-X2 | **ACCOUNT FOR NOW:** a supported borrowed wand is a real custody case, not a universal non-owner casting refusal; ordinary glass repair requires the complete admitted target. Keep wand allegiance, missing material, enchantments and dangerous loads separate from this bounded result. | Root, ongoing constraint; both supported loan use and unsupported source/tool/target refuse or settle correctly |
+| HP-D7-X3 | **LATER / DELEGATE:** add a supply-week arrival and natural life choice through the existing start owner; qualify source-specific guardian access and cargo/currency handling before presenting this authoring start as ordinary travel. | Sol medium, one slice; fresh UI onboarding into either life, no inherited unexplained purse/items, exact old-save persistence |
+| HP-D7-X4 | **LATER / DELEGATE:** further terms, independent subjects, assessment, holidays and post-school careers extend the same learning and calendar owners. The current break grants no missed lessons, wage or rank. | Luna source extraction then Sol implementation, medium; one second-term lesson with a meaningful native reader and school/year progression proof |
+| HP-D7-X5 | **LATER / DELEGATE:** connect a qualified potion lesson to the existing Polyjuice/material owners, and grow the place layer with its own access, stock and witnesses. No duplicate brewing engine, universal spell interpreter or guaranteed canon crisis. | Sol medium, one slice; one source-qualified transaction changes later usable stock and survives reload/import |
+
+## E3 natural life selection, 2026-10-25 branch candidate
+
+HP-D7-X3 is the sole follow-up selected by Weibao: school and adult glass trade are
+reachable after PLAY through **Beginning → Optional world and life → Confirm arrival**,
+without a localhost query. Village remains the default if the player does nothing.
+The original PLAY screen stays simple. A choice previews its means; cancellation
+or reload before confirmation leaves the saved opening unselected. This supersedes
+the D7-only natural-selection verification gap above, not the wider origin palette.
+
+Both choices use the loader-owned D7 typed starts and the same durable selection,
+bootstrap transaction, custody and envelope validators. D7 raw definitions, source
+hashes, snapshots and existing commands remain byte-identical. The transient UI
+preview is not a second save owner. An active or pending beginning controls reentry;
+stale confirmations, occupied openings and duplicate provisioning refuse normally.
+Starting cargo is granted once by that transaction. Existing carried cargo, equipment
+and Frontier coins remain owned and unchanged; local allowance/trade units remain
+separate. This opening grants no cross-world reward or automatic enrollment.
+
+The **supply-week arrival is an original proposal** describing arrangements already
+completed before the existing first-term/workday start. It does not add a simulated
+seven-day period or claim a canon date. School arrival begins in the supervised room
+with the already-arranged means in the D7 profile; the existing guardian reference
+is background supply support, without a new guardian actor or recurring income.
+Adult arrival begins at the rented bench with owned stock, the local purse, rent
+obligation and separate finite merchant stock/till. Source-qualified spells retain
+D7's ledger anchors; this tranche adds no new canon mechanics.
+
+Evidence, JSON saves, actual downloaded exports, desktop screenshots and hashes:
+[E3 checkpoint](../../gm/dispatch/hp-arrival-2026-10-25/CHECKPOINT.md). Human play
+acceptance remains separate. Later terms, potions, places and broader livelihoods
+remain HP-D7-X4/X5 and the existing palette.
+
+### More to consider, E3 round 2
+
+| Code | Finding and disposition | Level, effort, done check |
+|---|---|---|
+| HP-D7-X6 | **ACT NOW, done:** natural choices belong in the existing Beginning workspace, with explicit confirmation and cancellation. Keep preview outside saved state and bind confirmation to the selected content identity; cancel/reselect must reject an old click. | Sol medium, bounded; two native UI journeys without query parameters and stale/cancel regressions |
+| HP-D7-X7 | **ACT NOW, done:** at the 1536×864/21px floor, repeated intro prose pushed confirmation below the fold. Put confirmation/cancel immediately beneath the life choice and keep the full arrival/means below it in the existing scroll owner. | Root, small; rebuilt screenshot and geometry show reachable confirm control at all four desktop combinations |
+| HP-D7-X8 | **ACCOUNT FOR NOW:** a supplied child profile is not a newly simulated guardian or transport system. Describe the supply week as original prior arrangements; preserve actual retained native cargo and distinguish the finite local means from native coins. | Sol medium, constraint; golden definitions unchanged, cargo/purse checks and pre-entry/old-master/D7 compatibility |
+| HP-D7-X9 | **LATER / DELEGATE, proposal:** a future playable pre-term supply errand should extend the existing place/stock/custody owners and have its own compatible edition, rather than changing exact D7 hashes or pretending the current narrative week was played. | Sol medium, one later slice; an actual supported supplier transfer and arrival route survive reload/import, with old edition receipt admission |

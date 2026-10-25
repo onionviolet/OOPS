@@ -10,6 +10,8 @@ import {staffReadiness} from './home_household.js';
 import {HOME_STAFF} from './home_staff.js';
 import {homeKey as k} from './home_content.js';
 import {officeDecision,officeHolder,OFFICE_TERMS} from './home_office.js';
+import {panelSection} from './ui/panel_sections.js';
+import {createMeterBar} from './meter_bar.js';
 export function renderHouseholdLife({staff,view,el,action}){
  const c=view.context;
  renderHomeCultivation({staff,view,el,action});
@@ -17,28 +19,36 @@ export function renderHouseholdLife({staff,view,el,action}){
  renderPersonalLegacy({staff,view,el,action});
  renderHomeContacts({staff,view,el,action});
  renderHouseholdBrood({staff,view,el,action});
- renderHomeMedicine({staff,view,el,action});
- staff.append(el('p','Staff recover one energy per idle played minute at home, up to 60. Each accepted service reserves 20 energy; below 20 they ask to rest. Leave suspends new requests. Cancellation returns reserved effort and unearned pay.'));
+ const group=title=>{const g=panelSection(title);staff.append(g.node);return g.body;};
+ const people=group('People and readiness');
+ people.append(el('p','Staff recover one energy per idle played minute at home, up to 60. Each accepted service reserves 20 energy; below 20 they ask to rest. Leave suspends new requests. Cancellation returns reserved effort and unearned pay.'));
  for(const p of [...HOME_STAFF,HOUSEHOLD_PEOPLE[0]]){
-  staff.append(el('p',`${p.name}: ${staffReadiness(c,p.id)} · energy ${c.staffResources[p.id]?.['home.energy']??'terms pending'}/${householdEnergyCap(c,p.id)} · wages ${c.staffResources[p.id]?.['home.wages']||0} coins.`));
-  action(staff,'leave:'+p.id,'Agree leave with '+p.name,{type:'staff_leave',actor:p.id});
-  action(staff,'return:'+p.id,'Discuss resuming duties with '+p.name,{type:'staff_return',actor:p.id});
+  const person=panelSection(p.name,{description:staffReadiness(c,p.id)});people.append(person.node);
+  const energy=c.staffResources[p.id]?.['home.energy'];
+  if(Number.isFinite(energy)){const meter=createMeterBar();meter.update({id:'household-energy-'+p.id,kind:'pool',label:'Available effort',value:energy,max:60,note:'One energy recovers per idle played minute at home. A service reserves 20.',stock:{free:energy,unit:'energy'}});person.body.append(meter.node);}
+  person.body.append(el('p',`Wages held: ${c.staffResources[p.id]?.['home.wages']||0} coins.`));
+  action(person.body,'leave:'+p.id,'Agree leave with '+p.name,{type:'staff_leave',actor:p.id});
+  action(person.body,'return:'+p.id,'Discuss resuming duties with '+p.name,{type:'staff_return',actor:p.id});
  }
- staff.append(el('p',`Sera’s primer: ${c.resources['home.readingPractice']||0}/${TERMS.lessonCap} practice XP covered. Each 20-minute lesson gives ${TERMS.lessonXP} actual Literacy XP and costs 4 household coins. Further teaching needs a fitting teacher and text.`));
- action(staff,'tutor','Study reading with Sera · 20 min, 4 household coins',{type:'tutor'});
+ const teaching=group('Teaching');
+ teaching.append(el('p',`Sera’s primer: ${c.resources['home.readingPractice']||0}/${TERMS.lessonCap} practice XP covered. Each 20-minute lesson gives ${TERMS.lessonXP} actual Literacy XP and costs 4 household coins. Further teaching needs a fitting teacher and text.`));
+ action(teaching,'tutor','Study reading with Sera · 20 min, 4 household coins',{type:'tutor'});
+ const family=group('Family request');
  const duty=c.playerFacts?.['home.familyDutyKept']?'kept':c.playerFacts?.['home.familyDutyAccepted']?'agreed; ready when you both have time':'not agreed';
- staff.append(el('p','Family request: help Rowan check the provision ledger. Status: '+duty+'. You may decline or change an unfinished agreement. This request has no deadline; your room and hospitality remain available.'));
- action(staff,'family_accept','Agree to help with the provision ledger',{type:'family_accept'});
- action(staff,'family_decline','Decline this request for now',{type:'family_decline'});
- action(staff,'family_duty','Keep the agreed ledger appointment · 15 min',{type:'family_duty'});
- staff.append(el('p',`Mara is at ${c.people[SUPPLIER]?.location||'an unknown location'}. Available stock: ${c.staffStock[SUPPLIER]?.[k('Rat meat chunks')]||0} meat chunks, ${c.staffStock[SUPPLIER]?.[k('Rough wood log')]||0} logs. Stock and funds are finite; receiving a delivery creates no refill.`));
- action(staff,'pantry_return','Arrange Mara’s return to Village · 10 min',{type:'pantry_return'});
- action(staff,'pantry_order','Order 4 meat chunks + 2 logs · 8 household coins, 20 min delivery',{type:'pantry_order'});
- if(c.playerFacts?.['home.institutionWorker']){staff.append(el('p',c.playerFacts['home.provisionOfficer']?'Provision office: earned. The delegate controls institutional funds under an actual agreement.':'Provision worker and student: finish the primer lesson and ledger appointment to earn office authority.'));if(!c.playerFacts['home.provisionOfficer'])action(staff,'office_earn','Accept the earned provision office',{type:'office_earn'});if(!c.staffFacts?.['home.manor.keeper']?.['home.officeQualified'])action(staff,'office_train','Train Toma for stewardship · 10 shared min',{type:'office_train'});if(officeHolder(c)&&c.staffFacts[officeHolder(c)]?.['home.officeReviewRequired'])action(staff,'office_review','Review the successor’s actual standing agreement',{type:'office_review'});}
+ family.append(el('p','Family request: help Rowan check the provision ledger. Status: '+duty+'. You may decline or change an unfinished agreement. This request has no deadline; your room and hospitality remain available.'));
+ action(family,'family_accept','Agree to help with the provision ledger',{type:'family_accept'});
+ action(family,'family_decline','Decline this request for now',{type:'family_decline'});
+ action(family,'family_duty','Keep the agreed ledger appointment · 15 min',{type:'family_duty'});
+ const pantry=group('Pantry and deliveries');
+ pantry.append(el('p',`Mara is at ${c.people[SUPPLIER]?.location||'an unknown location'}. Available stock: ${c.staffStock[SUPPLIER]?.[k('Rat meat chunks')]||0} meat chunks, ${c.staffStock[SUPPLIER]?.[k('Rough wood log')]||0} logs. Stock and funds are finite; receiving a delivery creates no refill.`));
+ action(pantry,'pantry_return','Arrange Mara’s return to Village · 10 min',{type:'pantry_return'});
+ action(pantry,'pantry_order','Order 4 meat chunks + 2 logs · 8 household coins, 20 min delivery',{type:'pantry_order'});
+ const office=group('Provision office');
+ if(c.playerFacts?.['home.institutionWorker']){office.append(el('p',c.playerFacts['home.provisionOfficer']?'Provision office: earned. The delegate controls institutional funds under an actual agreement.':'Provision worker and student: finish the primer lesson and ledger appointment to earn office authority.'));if(!c.playerFacts['home.provisionOfficer'])action(office,'office_earn','Accept the earned provision office',{type:'office_earn'});if(!c.staffFacts?.['home.manor.keeper']?.['home.officeQualified'])action(office,'office_train','Train Toma for stewardship · 10 shared min',{type:'office_train'});if(officeHolder(c)&&c.staffFacts[officeHolder(c)]?.['home.officeReviewRequired'])action(office,'office_review','Review the successor’s actual standing agreement',{type:'office_review'});}
  {const o=officeDecision(c),holder=officeHolder(c),who=HOME_STAFF.find(p=>p.id===holder)?.name;
-  staff.append(el('p',holder?`Pantry office: held by ${who} · fund ${c.staffResources[holder]?.['home.officeFunds']||0} coins · reserve floor ${c.staffFacts[holder]?.['home.officeReserveFloor']||0} coins · ${o.reason}`:`Pantry office: not established. Funding it sets ${OFFICE_TERMS.establish} household coins aside for a standing provision order whenever the kitchen falls below ${OFFICE_TERMS.threshold} meat chunks.`));
-  if(!holder)action(staff,'office_establish',`Ask Rowan to take the pantry office · ${OFFICE_TERMS.establish} household coins`,{type:'office_establish'});
-  else{action(staff,'office_succeed','Hand the office to an available successor',{type:'office_succeed'});action(staff,'office_close','Close the pantry office and return its fund',{type:'office_close'});}}
+  office.append(el('p',holder?`Pantry office: held by ${who} · fund ${c.staffResources[holder]?.['home.officeFunds']||0} coins · reserve floor ${c.staffFacts[holder]?.['home.officeReserveFloor']||0} coins · ${o.reason}`:`Pantry office: not established. Funding it sets ${OFFICE_TERMS.establish} household coins aside for a standing provision order whenever the kitchen falls below ${OFFICE_TERMS.threshold} meat chunks.`));
+  if(!holder)action(office,'office_establish',`Ask Rowan to take the pantry office · ${OFFICE_TERMS.establish} household coins`,{type:'office_establish'});
+  else{action(office,'office_succeed','Hand the office to an available successor',{type:'office_succeed'});action(office,'office_close','Close the pantry office and return its fund',{type:'office_close'});}}
  for(const j of c.jobs.filter(j=>j.commandId.startsWith('home.office.'))){staff.append(el('p',`${j.label}: ${Math.max(0,j.due-c.clock)} played minutes remaining.`));action(staff,'office_cancel:'+j.id,'Cancel this office appointment',{type:'office_cancel',job:j.id});}
  for(const j of c.jobs.filter(j=>j.commandId.startsWith('home.household.'))){staff.append(el('p',`${j.label}: ${Math.max(0,j.due-c.clock)} played minutes remaining.`));action(staff,'cancel_household:'+j.id,'Cancel this appointment or delivery',{type:'cancel_household',job:j.id});}
  staff.append(el('p','When a life ends, its heir can receive personally owned homes, fittings and belongings. Family rooms, staff service and communal stores need new agreements.'));

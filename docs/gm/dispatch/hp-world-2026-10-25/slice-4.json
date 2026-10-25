@@ -1,0 +1,84 @@
+{
+  "slice": 4,
+  "errors": [],
+  "journeys": [
+    {
+      "profile": "school",
+      "matrix": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false
+        }
+      ]
+    },
+    {
+      "profile": "school",
+      "instance": "book.hp.school.run.1915139085.1",
+      "saveReloadImportEqual": true,
+      "oldSaveUnchanged": true
+    },
+    {
+      "profile": "trade",
+      "matrix": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 14,
+          "font": 14,
+          "pageOverflow": false
+        },
+        {
+          "width": 1536,
+          "height": 864,
+          "size": 21,
+          "font": 21,
+          "pageOverflow": false
+        }
+      ]
+    },
+    {
+      "profile": "trade",
+      "instance": "book.hp.trade.run.1953906262.1",
+      "saveReloadImportEqual": true,
+      "oldSaveUnchanged": true
+    }
+  ]
+}

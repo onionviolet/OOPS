@@ -1,3 +1,4 @@
+import {labelControl} from './ui/panel_sections.js';
 // Local prototype adapter for HTP49 (proposal 2026-10-23). Registers the
 // `rankGapObserver` save slice and a "Watch a working" panel, shown only while the
 // player stands in the Goa branch. Reads the player through ui_ports; edits no
@@ -72,7 +73,7 @@ function createPanel() {
         said = node('p', '', {role: 'status', id: 'rank_gap_said'}), seen = node('ul', null, {'aria-label': 'What you have made out'});
     for (const m of Object.values(MEANS)) select.append(node('option', m.label, {value: m.id}));
     select.onchange = () => { meansId = select.value; render(true); };
-    root.append(node('h2', 'Watch a working'), node('p', `Each watch takes ${dialValues().watchMinutes} minutes and some stamina. Looking at someone far above you can hurt; what you make out depends on how you look.`), select, status, rows, said, seen);
+    root.append(node('h2', 'Watch a working'), node('p', `Each watch takes ${dialValues().watchMinutes} minutes and some stamina. Looking at someone far above you can hurt; what you make out depends on how you look.`), labelControl(select, 'Way of watching'), status, rows, said, seen);
     render = force => {
         // Not gated on visibility: a collapsed panel must still hold the current sightings when it is opened.
         const v = view(); if (!v.here) return;

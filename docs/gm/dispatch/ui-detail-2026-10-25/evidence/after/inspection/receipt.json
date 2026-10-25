@@ -1,0 +1,33 @@
+{
+  "phase": "after",
+  "setup": "Public native holdings plus declared Cooking progress; inspection does not acquire knowledge or spend items.",
+  "captures": [
+    {
+      "label": "item-detail",
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "label": "item-detail",
+      "viewport": [
+        1440,
+        900
+      ]
+    }
+  ],
+  "gaps": [
+    "Skills not exposed by the declared progress fixture; no synthetic empty panel capture."
+  ],
+  "missingResources": [
+    "/private_packs/manifest.json"
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    }
+  ]
+}

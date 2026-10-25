@@ -1,0 +1,29 @@
+{
+  "viewport": "1920x1080",
+  "runs": [
+    {
+      "fixture": "fresh",
+      "playVisibleMs": 3032.221708,
+      "readyMs": 3706.4829170000003,
+      "inventoryOwners": 62,
+      "saveReloadImport": true,
+      "errors": []
+    },
+    {
+      "fixture": "mid",
+      "playVisibleMs": 6980.0635,
+      "readyMs": 7480.373250000001,
+      "inventoryOwners": 62,
+      "saveReloadImport": true,
+      "errors": []
+    },
+    {
+      "fixture": "crowded",
+      "playVisibleMs": 11796.691207999997,
+      "readyMs": 22521.26108299999,
+      "inventoryOwners": 62,
+      "saveReloadImport": true,
+      "errors": []
+    }
+  ]
+}

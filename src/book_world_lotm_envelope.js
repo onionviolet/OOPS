@@ -5,6 +5,7 @@
 import {registerDomain} from './domain_registry.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES} from './book_world_lotm_ids.js';
 import {pathwayDoses} from './book_world_lotm_pathways.js';
+import {LOTM_LOTS} from './book_world_lotm_broker.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);};
 export const LOTM_PLACES=Object.freeze(Object.values(L));
@@ -24,7 +25,7 @@ export function validateLotmEnvelope(save){
  const dose=count(save,'main_character',K.dose)+count(save,I.supervisor,K.dose)+reserved(state,K.dose);
  assert(dose===(ingested?0:1),'The prepared dose must be held exactly once until it is taken.');
  const clown=count(save,'main_character',K.clownDose)+count(save,I.supervisor,K.clownDose)+reserved(state,K.clownDose);
- assert(clown===(f['book.lotm.assessed']===true&&f['book.lotm.promoted']!==true?1:0),'The released Clown dose must be held exactly once until it is drunk.');
+ assert(clown===(f['book.lotm.assessed']===true&&(f['book.lotm.exam.required']!==true||f['book.lotm.examined']===true)&&f['book.lotm.promoted']!==true?1:0),'The released Clown dose must be held exactly once until it is drunk.');
  // Other pathways' doses are issued from stores on acceptance and release, so only the allocated and assessed windows hold one.
  for(const row of pathwayRows)pathwayDoses(row,{count:(owner,key)=>count(save,owner,key),reserved,state,f,assert});
  // Sealed grade-3 item (Q4): exactly one holder when the save has one, and held by the player only while the handling flag is set. Saves from before it hold none.
@@ -32,6 +33,9 @@ export function validateLotmEnvelope(save){
  assert(sealed<=1&&(count(save,'main_character',K.sealed3)===1)===(f['book.lotm.sealed.held']===true),'The sealed item must have one holder, and the player holds it exactly while it is signed out.');
  // Broker lots: each item has at most one holder (saves from before the broker hold none).
  for(const key of [K.frog,K.hairs,K.ink,...pathwayRows.filter(r=>r.market).flatMap(r=>[K[r.market.baseHold],K[r.market.nextHold]])])assert(count(save,'main_character',key)+count(save,I.broker,key)+reserved(state,key)<=1,'A broker lot item must have one holder.');
+ // Open escrow promises a physical lot held by the broker, not a future grant.
+ for(const lot of LOTM_LOTS)if(f[`book.lotm.lot.${lot.id}.paid`]===true&&f[`book.lotm.lot.${lot.id}.settled`]!==true&&f[`book.lotm.lot.${lot.id}.rejected`]!==true)
+  assert(count(save,I.broker,lot.item)===1,'An open broker trade needs its item in broker custody.');
  // The single brewable frog: a brew in progress has consumed it, so held plus consumed never exceeds the one frog.
  assert(count(save,'main_character',K.frog)+count(save,I.broker,K.frog)+reserved(state,K.frog)+(f['book.lotm.cc.brew.started']===true?1:0)<=1,'A consumed frog cannot also be held.');
  for(const name of LOTM_SAMPLES)assert(count(save,'main_character',K[name])+count(save,I.supervisor,K[name])+reserved(state,K[name])===1,'Each sample must have exactly one holder.');

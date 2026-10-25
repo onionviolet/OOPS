@@ -23,6 +23,8 @@ This task selects no commit, push or normal-app installation.
 
 Final complementary status: O1–O5 are technically complete at the [recorded scope](docs/gm/dispatch/complementary-journeys-2026-10-23/CHECKPOINT.md#final-technical-receipt). Its frozen 2,727-test result and browser receipts are reused, with current bundle/HTML drift explicit in the reconciliation checkpoint.
 
+Landing 2026-10-25: all 13 Codex lane branches are merged on `origin/master` (build, 2,944 tests, arch and rules pass; lane records and reviews committed). Primary's local `master` lags until its dirty overlaps are committed. [Landing record](docs/gm/RECONCILIATION_2026-10-25.md#landing-2026-10-25).
+
 Normal-app master update, 2026-10-22: the normal player app now adopts
 `v0.6-1c223618b5b5`, with all 82 runtime files matching the verified master
 runtime. A natural-clock Electron check found and corrected preparation quotes
@@ -1117,6 +1119,13 @@ or unmatched HP wands are not universally unusable. The recommendation defers fu
 digestion/promotion, whole Tingen, exceptional protagonist faculties and cross-world
 integration. Current native bindings remain absent in the inspected profile paths.
 Recommendation/defaults are not accepted runtime scope or a dispatched build.
+
+**D7 branch candidate, 2026-10-25:** Weibao explicitly selected HP first playable
+slices. [D7 checkpoint](docs/gm/dispatch/hp-world-2026-10-25/CHECKPOINT.md) records
+two opt-in native lives, lessons/calendar, descriptor practice and a trade/place
+loop. The 2026-10-15 unbound comparison above is historical; this candidate's
+build/browser/persistence evidence does not imply master integration, full-world
+completion or human acceptance. LOTM C1 remains a separate lane.
 
 ## LOTM initiation plan and question chat, 2026-10-15
 

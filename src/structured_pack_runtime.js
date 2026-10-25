@@ -1,3 +1,4 @@
+import {hpSchoolCalendar,hpLifeStatus} from './book_world_hp_facts.js';
 import {previewStructuredExpeditions} from './structured_expedition_runtime.js';
 import {createSimulationState,validateSimulationState,validateSimulationEffect,jsonData,stableId} from './simulation_contracts.js';
 import {applySimulationEffects} from './simulation_effects.js';
@@ -97,6 +98,9 @@ export function structuredCampaignView(state,d,record,context) {
         if(known[key])people.push({name:p.label,details:[known[key].value]});
     }
     const status=d.presentation.status.filter(row=>known[row.knowledgeKey]).map(row=>({label:row.label,value:known[row.knowledgeKey].value}));
+    status.push(...hpLifeStatus(state,context));
+    const hpCalendar=hpSchoolCalendar(state);
+    if(hpCalendar)status.push({label:'School calendar',value:hpCalendar.label});
     // Held claims (A2): the observer sees the belief and whether a test or a changed
     // precondition has revised it, never the hidden truth a test reads.
     if(d.claims?.length) {

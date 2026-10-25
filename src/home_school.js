@@ -32,7 +32,7 @@ export function planHomeSchool(s,r,c,out){
  if(r.type==='school_visit'){
   check(actor===SCHOOL_VISITOR&&!flags(c,actor)?.['home.schoolVisitor'],'meet Mara for her uncompleted visiting-student agreement.');if(c.staffResources?.[actor]?.['home.energy']==null)out.simEffects.push(res(actor,'home.energy',0));out.job={id:'home.school.visit.'+actor,actor};out.message='Mara reserves thirty minutes and one actual carried bread to rest and join the visiting class. No study, rank or physical instruction is granted by enrollment.';return true;
  }
- if(actor===SCHOOL_VISITOR)check(flags(c,actor)?.['home.schoolVisitor'],'Mara first needs her own visiting-class rest and agreement.');
+ if(actor===SCHOOL_VISITOR||r.other===SCHOOL_VISITOR)check(flags(c,SCHOOL_VISITOR)?.['home.schoolVisitor'],'Mara first needs her own visiting-class rest and agreement.');
 
  if(r.type==='school_promote'){
   check(actor!=='player','this examination awards the household teacher’s appointment.');const q=schoolRankQuote(c,actor);check(!q.reasons.length,q.reasons.join(' '));

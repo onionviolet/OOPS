@@ -1,10 +1,20 @@
 import {MIXTURE_ID,getMixtureOwner,productFromKey} from '../mixture_state.js';
 "use strict";
 
-import { getItem, getItemFromKey, item_templates } from "../items.js";
+// The catalog binds these operations once it has registered its templates.
+// Inventory storage must not import the catalog and its native UI/bootstrap graph.
+let itemOperations;
+export function configureInventoryItems(operations) {
+    if(typeof operations?.fromKey!=='function'||typeof operations?.keyFromTemplate!=='function')throw new TypeError('Invalid inventory item operations.');
+    itemOperations=Object.freeze({...operations});
+}
+function inventoryItems() {
+    if(!itemOperations)throw new Error('Inventory item catalog is not configured.');
+    return itemOperations;
+}
 import { publishChange } from "../ui_change_signal.js";
 
-const inventories = {};
+import {inventories} from "../data/component_references.js";
 
 //extended by Trader and Person (with Person having up to two Inventories, one directly and one via Trader component)
 class InventoryComponent {
@@ -27,15 +37,7 @@ class InventoryComponent {
             if(items[i].item_key){
                 item_key = items[i].item_key;
             } else {
-                //this part is so stupid (recreating item just to grab it's key)
-                //but at least it wont break if code for creating inventory keys changes
-                let item;
-                if(items[i].quality) {
-                    item = getItem({...item_templates[items[i].item_id], quality:items[i].quality});
-                } else {
-                    item = getItem({...item_templates[items[i].item_id]});
-                }
-                item_key = item.getInventoryKey();
+                item_key = inventoryItems().keyFromTemplate(items[i].item_id,items[i].quality);
             } 
 
             if(item_key.startsWith('{')&&JSON.parse(item_key).id===MIXTURE_ID){productFromKey(getMixtureOwner(),item_key);if(items[i].count!==undefined&&(!Number.isSafeInteger(items[i].count)||items[i].count<1))throw new TypeError('Generated vials need positive whole counts.');}
@@ -43,7 +45,7 @@ class InventoryComponent {
                 if(!items[i].count) {
                     items[i].count = 1;
                 }
-                const item = getItemFromKey(item_key);
+                const item = inventoryItems().fromKey(item_key);
                 this.#items[item_key] = {item, count: items[i].count};
                 anything_new = true;
             } else { //in inventory

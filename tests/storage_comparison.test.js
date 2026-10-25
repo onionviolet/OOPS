@@ -15,3 +15,13 @@ test('paired stock commands follow exact keys through same-name variants and rem
     host.querySelector('[data-storage-compare="withdraw"]').click();assert.deepEqual(calls,['variant-B','variant-B']);
     assert.match(host.querySelector('[data-storage-comparison]').textContent,/Carried: 0 · In this chest: 2/);
 });
+
+
+test('an empty personal chest explains how to retrieve separately stored residence goods',()=>{
+    const dom=createDom();dom.loadHTML('<html><body><section id="view"></section><div id="held"></div><div id="chest"></div></body></html>');
+    const doc=dom.document,host=doc.getElementById('view');
+    mountStorageComparison({host,carried:doc.getElementById('held'),chest:doc.getElementById('chest')});
+    assert.match(host.textContent,/Personal chest/);
+    assert.match(host.textContent,/separate from each home's residence storage/);
+    assert.match(host.textContent,/Homes.*Residence storage.*Take/);
+});

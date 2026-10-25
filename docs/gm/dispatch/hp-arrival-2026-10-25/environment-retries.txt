@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: cheat awakening rejects message-free discovery and preserves legacy messages
+ok 1 - cheat awakening rejects message-free discovery and preserves legacy messages
+  ---
+  duration_ms: 1.8385
+  type: 'test'
+  ...
+# Subtest: cheat awakening invalid points and missing message refuse before import preflight or writes
+ok 2 - cheat awakening invalid points and missing message refuse before import preflight or writes
+  ---
+  duration_ms: 37.975792
+  type: 'test'
+  ...
+# Subtest: cheat awakening clock jump commits first message before live discovery and retries failed storage
+ok 3 - cheat awakening clock jump commits first message before live discovery and retries failed storage
+  ---
+  duration_ms: 9687.464334
+  type: 'test'
+  ...
+# Subtest: cheat awakening does not mistake a partial enemy kill for a won fight on load
+ok 4 - cheat awakening does not mistake a partial enemy kill for a won fight on load
+  ---
+  duration_ms: 6974.676167
+  type: 'test'
+  ...
+# Subtest: cheat validators reject malformed cards and held state
+ok 5 - cheat validators reject malformed cards and held state
+  ---
+  duration_ms: 1.591167
+  type: 'test'
+  ...
+# Subtest: cheat grants and messages are pure and retain acquisition
+ok 6 - cheat grants and messages are pure and retain acquisition
+  ---
+  duration_ms: 0.3965
+  type: 'test'
+  ...
+# Subtest: cheat old-save load and real create_save encode import round trip
+ok 7 - cheat old-save load and real create_save encode import round trip
+  ---
+  duration_ms: 9898.106125
+  type: 'test'
+  ...
+# Subtest: cheat invalid imported card is rejected before preflight or storage
+ok 8 - cheat invalid imported card is rejected before preflight or storage
+  ---
+  duration_ms: 12.483208
+  type: 'test'
+  ...
+# Subtest: CN11 seeded saves restore crafts, levels and completed town chain through native loader
+ok 9 - CN11 seeded saves restore crafts, levels and completed town chain through native loader
+  ---
+  duration_ms: 15253.603333
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 17165.807084

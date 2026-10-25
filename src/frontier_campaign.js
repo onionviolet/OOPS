@@ -1,3 +1,4 @@
+import {RF1_DEFINITION} from './rehearsed_foe.js';
 import {all, eqNoReason as eq} from './basics.js';
 import {commitSimulationCommand,previewSimulationCommand, previewCampaignTransition, commitCampaignTransition} from "./simulation.js";
 import {validateExpansionState} from "./expansion_engine.js";
@@ -15,6 +16,7 @@ export const campaignSources=[
     {id:"frontier.field_legacy",revision:1,label:"Field legacy",kind:"knowledge",bioDetail:"You rebuilt your applied training after completing a field apprenticeship.",grants:[{capability:"frontier.preparation",amount:1}]}
 ];
 export const campaignDefinitions={
+    powers:[RF1_DEFINITION],
     people:[{id:ROAD_RIVAL,revision:1,label:"Mara, road rival",worldId:"base.frontier",location:"Village",inventory:"simulation",provision:false,
         resources:{provisions:6},vitals:{health:26,max_health:26,stamina:12,max_stamina:12},
         body:{attack:5,agility:5,dexterity:6,intuition:5,attack_speed:.8,defense:1,crit_rate:.05,crit_multiplier:1.3,attack_count:1}}],

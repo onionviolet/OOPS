@@ -47,7 +47,9 @@ export function validateLotmState(state){
  assert(acting===undefined||natural(acting)&&acting<=LOTM_DIGEST_ACTS&&has('methodLearned'),'Acting in role needs the learned method and stays within the digestion count.');
  assert(!has('refusedHigh')||has('methodLearned'),'A refused reading needs the learned method.');
  assert(!has('assessed')||acting===LOTM_DIGEST_ACTS,'An assessment needs a digested potion.');
- assert(!has('promoted')||has('assessed')&&!!src,'A promotion needs the assessment and the Seer source.');
+ assert(!has('exam.required')||has('assessed'),'A new examination needs its pre-screen.');
+ assert(!has('examined')||has('assessed'),'An examination needs its pre-screen.');
+ assert(!has('promoted')||has('assessed')&&(!has('exam.required')||has('examined'))&&!!src,'A promotion needs the assessment and the Seer source.');
  assert(!!clown===has('promoted'),'The Clown source exists exactly when the promotion is recorded.');
  // Other pathways (Q1 onward) are rows: each has its own flags and acting resource, additive and optional. One pathway per life.
  const chosen=row=>has(flagOf(row,'allocated'))||has(flagOf(row,'ingested'))||!!a.player.sources?.[row.base];

@@ -1,5 +1,4 @@
 import { sameKnownRouteQuote } from './known_routes.js';
-import { rendered, shownOrDeferred } from './panel_reveal.js';
 import { recordRouteTraffic, routeTraffic } from './economy_standing_domain.js';
 
 const node = (tag, text = '', className = '') => {
@@ -56,8 +55,10 @@ export function createKnownRoutesPanel({ container, read, present, command, focu
         render();
     }
     function render() {
-        // In an unrendered container nothing shows; compute when it is revealed.
-        if (!shownOrDeferred(render, () => rendered(panel.parentElement))) return;
+        // This projection owns discovery. The workspace parks undiscovered panels
+        // in its hidden vault, so waiting for a visible parent would prevent the
+        // first known route from ever revealing this panel. Native presenters
+        // still decide which destinations and quotes the player knows.
         const snapshot = read(), view = present(snapshot), section = view?.visible ? view.section : null;
         if (!section && !panel.hidden && panel.contains(document.activeElement)) moveFocus(fallback());
         panel.hidden = !section;

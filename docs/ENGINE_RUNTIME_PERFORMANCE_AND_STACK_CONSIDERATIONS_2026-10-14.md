@@ -1762,3 +1762,21 @@ WASM/Rust prototype, Sol medium / large effort; only dispatch if a quiet-host
 profile first finds a pure numeric hotspot. TS13 Tauri shell comparison, Luna
 low / medium effort; only reopen if a named desktop issue exceeds the proven
 Electron cost.
+
+## D2 modularity and measurement round, 2026-10-25
+
+Execution evidence and exact limits: [D2 checkpoint](gm/dispatch/engine-modularity-2026-10-25/CHECKPOINT.md). AR3–AR6, AR9–AR16 apply. This round adds no accepted product rule or stack migration.
+
+**ACT NOW (done):** cut inventory-to-catalog construction coupling with two narrow catalog operations; retain one shared inventory registry and save format. Extract shared item-key and simulation-ID validators into leaf owners, use the existing rounding owner, and bypass the Paradise host re-export from native bindings. Snapshot domain registration metadata and reuse dependency order until another domain registers. Regression scenarios cover late registration, caller mutation, item routing and independent inventory initialization. Exact browser/full-suite status lives in the checkpoint.
+
+**ACCOUNT FOR NOW:** registry overhead and expansion tick cost are different measurements. A 100-domain dispatch microbenchmark improves, while unmatched machine load makes before/after whole-game wall time inconclusive. Committed synthetic fixtures remain the reproducible input; no personal save is used. World-pack Maps currently have a documented read-only convention, so changing their public mutation behavior needs a separate consumer compatibility pass. Main/display imports and broad simulation cycles remain explicit debt, not hidden by a larger baseline.
+
+**LATER / DELEGATE (proposals):**
+
+| Item | Level / effort | Done check |
+| --- | --- | --- |
+| Cut native UI/bootstrap callbacks from item/actor modules one consumer at a time | Sol / medium per seam | Smaller SCC and no new exemptions; same native action, Save/reload/Export/Import on rebuilt desktop bundle |
+| Separate backlog validation dependencies from engine orchestration | Sol / medium | Expansion and backlog share the same validator/schema constants without mutual import; unchanged acceptance/rejection fixtures |
+| Trace simulation/effect host cycles by actual operations rather than moving an omnibus context | Sol / large, bounded slices | Each extracted operation has two real consumers and no extra clock/save/transaction authority |
+| Re-run startup/tick/serialization measurements when host load is below core count | Luna / small | Same fixture hashes and browser route, matched load, before/after medians plus exact bytes |
+| Inventory world-pack registry Map methods before proposing immutable adapters | Luna / small read-only scan | Every mutation and lookup caller classified; preserve iteration/identity or document explicit compatibility choice |

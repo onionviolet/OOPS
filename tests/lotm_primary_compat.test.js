@@ -18,7 +18,8 @@ const saveOf=p=>({expansion:p.state,'current location':p.state.simulation.people
 test('every command the primary lane defines is present here with the same job-relevant definition (a saved job cannot disagree)',()=>{
  const mine=new Map(lotmCommands.map(c=>[c.id,c])),pick=c=>JSON.stringify({id:c.id,revision:c.revision,actorId:c.actorId,duration:c.duration,cancellation:c.cancellation,costs:c.costs,effects:c.effects,claim:c.claim});
  const theirs=read('primary_commands');assert.equal(theirs.length,40);
- for(const c of theirs)assert.equal(pick(mine.get(c.id)||{id:'MISSING '+c.id}),pick(c),c.id);
+ // Q6 deliberately revises immediate Nighthawk assessments; only timed commands can be saved jobs.
+ for(const c of theirs.filter(c=>c.duration>0))assert.equal(pick(mine.get(c.id)||{id:'MISSING '+c.id}),pick(c),c.id);
  assert.ok(theirs.filter(c=>/walk_|_docks$|_university$/.test(c.id)&&c.duration>0).length>=15);
 });
 test('primary saves load unchanged: pre-Q2 phases, a walk in flight, arrived, and district acts in flight, and the jobs finish on this build',()=>{

@@ -5,6 +5,7 @@ import {validateRetention,purchaseAnchor,retentionView,freshRetention} from './c
 import {CHALLENGE_GOALS,challengeProgress,validateChallenge,challengeExport,validateChallengeHistory} from './continuation_challenges.js';
 // One continuing self; native snapshots are flat records, never nested journeys.
 import {check, copy, natural} from './basics.js';
+import {carryCheats} from './cheat_cards.js';
 export const CONTINUATION_SCHEMA = 1;
 export const STUDY_MINUTES = 10;
 // These native skills do not grant bodily stat milestones. Other learning stays
@@ -105,6 +106,7 @@ export function observeContinuation(save, {canStudy=false,knownSkills=[]}={}) {
 function restore(source, snapshot, c) {
     const externalReason=externalEquipmentReason(c.lives[c.active],snapshot);check(!externalReason,externalReason);
     const next=copy(snapshot);
+    next.cheats=carryCheats(source.cheats, next.cheats);
     for(const key of preferences) if(Object.hasOwn(source,key))next[key]=copy(source[key]);
     next.saved_at=source.saved_at;
     const xp=next.levels?.person?.main_character?.skill_xp;

@@ -2,7 +2,7 @@
 import {mitigateCombatDamageFromStats} from "../combat_math.js";
 import {applyEquipmentStats} from "../equipment_stats.js";
 
-import InventoryComponent, { inventories } from "../components/inventory_component.js";
+import InventoryComponent from "../components/inventory_component.js";
 import { playable_races, racial_height_modifiers } from "../races.js";
 import LevelableComponent from "../components/levelable_component.js";
 import BioComponent from "../components/bio_component.js";
@@ -10,7 +10,7 @@ import { config } from "../config.js";
 import { skill_categories, skills, weapon_type_to_skill } from "../data/skills.js";
 import EquipmentComponent, { equipments } from "../components/equipment_component.js";
 import { getItemFromKey } from "../items.js";
-import { levels, talkables } from "../data/component_references.js";
+import { inventories, levels, talkables } from "../data/component_references.js";
 
 inventories["person"] = {};
 equipments["person"] = {};

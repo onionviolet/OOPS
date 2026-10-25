@@ -9,7 +9,7 @@ import {LOTM_HOSTILES,lotmReveal,abilityIds,abilityRows,hostileAbilityCommands} 
 import {validateLotmState} from '../src/book_world_lotm_state.js';
 // Sequence 9 and 8 abilities as descriptors: acquired, a cost, a drawback, concealed looks that only an observer sees, and the same rows used by a hostile Beyonder.
 const cc9=()=>{let p=run(fresh(),'report_in');p=run(p,'accept_allocation_cc');return run(p,'ingest_cc');};
-const cc8=()=>{let p=cc9();for(const m of [25,25,25])p=wait(run(p,'act_laying_out'),m);p=wait(run(p,'act_vigil'),60);p=run(p,'request_assessment_cc');return run(p,'ingest_gravedigger');};
+const cc8=()=>{let p=cc9();for(const m of [25,25,25])p=wait(run(p,'act_laying_out'),m);p=wait(run(p,'act_vigil'),60);p=run(p,'request_assessment_cc');p=wait(run(p,'request_exam_cc'),60);return run(p,'ingest_gravedigger');};
 const prev=(p,id,actor='player')=>previewSimulationCommand(p.state,registry,id,{...ctx(p),actorId:actor,facts:{...ctx(p).facts,location:p.state.simulation.people[actor].location}});
 const stamina=p=>p.vitals?.player?.stamina;
 test('every Sequence 9 and 8 ability is a compiled descriptor row: acquired, costed and with a drawback',()=>{

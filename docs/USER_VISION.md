@@ -6188,3 +6188,13 @@ Round recorded in the [queue](research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md) and
 Weibao: “Implement the fitting missing mechanics from various stuff using our existing systems, all of them”. Asked whether the source set was all saved reference-mechanics audits across games, books and mods or a particular set, he clarified: “everything”.
 
 This selects fitting missing mechanics across the saved reference audits, deduplicated against existing systems and active implementations, one playable slice at a time. The [execution owner](gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md) records scope, source crosswalk, ownership and exact verification. Existing cultivation work retains its owner. This is local implementation authorization; it does not select commit, push, publication or normal-app adoption. Existing desktop priority and sealed discovery routes remain.
+
+## Harry Potter first playable slices, 2026-10-25
+
+Weibao's D7 brief: "maybe full world implementation"; build opt-in HP entry with
+one life profile, school calendar/lessons, descriptor wand/spell practice, then
+a second life and place layer, one verified slice at a time. Values/names are
+proposals. LOTM continues under C1 and is excluded.
+[D7 checkpoint](gm/dispatch/hp-world-2026-10-25/CHECKPOINT.md) owns execution
+evidence; [HP brief](worlds/harry-potter/WORLD_BRIEF.md) owns its bounded world
+scope. This does not turn later full-world slices into completed gameplay.

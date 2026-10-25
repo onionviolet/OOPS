@@ -15,12 +15,12 @@ test('trust slice: absent loads empty, empty is not saved, unknown members are r
 });
 test('projection stays hidden until the manor household exists',()=>{assert.equal(projectTrust().visible,false);});
 
-import {quoteGift,executeGift} from '../src/peer_standing_domain.js';
+import {quoteGift,executeGift,useHomeCommandsForTest} from '../src/peer_standing_domain.js';
 test('gift trust is present in the same durable home publication, and failed payment restores its prior trust',()=>{
- const home=domainRegistry.list().find(d=>d.id==='homes').commands,old={quote:home.quote,execute:home.execute};
+ const patch=over=>useHomeCommandsForTest(name=>over[name]);
  try{
-  d().load(null);home.quote=r=>({eligible:true,request:r});let saved;
-  home.execute=()=>{saved=d().save({});return {message:'paid'};};executeGift(quoteGift({actor:'home.manor.cook',amount:10}));assert.equal(saved.trust['home.manor.cook'],1);assert.equal(trustState().trust['home.manor.cook'],1);
-  home.execute=()=>{assert.equal(d().save({}).trust['home.manor.cook'],2);throw Error('durable write refused');};assert.throws(()=>executeGift(quoteGift({actor:'home.manor.cook',amount:10})),/durable write refused/);assert.equal(trustState().trust['home.manor.cook'],1);
- }finally{home.quote=old.quote;home.execute=old.execute;d().load(null);}
+  d().load(null);let saved;patch({quote:r=>({eligible:true,request:r})});
+  patch({quote:r=>({eligible:true,request:r}),execute:()=>{saved=d().save({});return {message:'paid'};}});executeGift(quoteGift({actor:'home.manor.cook',amount:10}));assert.equal(saved.trust['home.manor.cook'],1);assert.equal(trustState().trust['home.manor.cook'],1);
+  patch({quote:r=>({eligible:true,request:r}),execute:()=>{assert.equal(d().save({}).trust['home.manor.cook'],2);throw Error('durable write refused');}});assert.throws(()=>executeGift(quoteGift({actor:'home.manor.cook',amount:10})),/durable write refused/);assert.equal(trustState().trust['home.manor.cook'],1);
+ }finally{useHomeCommandsForTest();d().load(null);}
 });

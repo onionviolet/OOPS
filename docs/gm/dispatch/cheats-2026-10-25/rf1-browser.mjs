@@ -1,0 +1,41 @@
+import assert from 'node:assert/strict';
+import {writeFile} from 'node:fs/promises';
+import {cheatGame} from '../../../../tests/helpers/cheat_game.mjs';
+import {createFieldFixture,joinField,fieldCommand,fieldAdvance} from '../../../../scripts/field_fixtures.mjs';
+import {persistExpansionPlan} from '../../../../src/expansion_persistence.js';
+import {initializeNativeBattle} from '../../../../src/native_battle.js';
+import {commitSimulationCommand} from '../../../../src/simulation.js';
+import {expeditionRegistry} from '../../../../src/expedition_content.js';
+import {fieldContext} from '../../../../scripts/field_fixtures.mjs';
+import {RIVAL_PURSUIT,ROAD_RIVAL} from '../../../../src/frontier_campaign.js';
+import {encodeSaveFile} from '../../../../src/save_files.js';
+import {RF1_POWER} from '../../../../src/rehearsed_foe.js';
+const root=new URL('./',import.meta.url),g=await cheatGame({port:5104}),result={route:'RF1',viewport:[1920,1080],checks:[]};
+try {
+ let p=joinField(createFieldFixture());p.gameplay.player.inventory[JSON.stringify({id:'Prepared survey kit'})]=2;
+ p=fieldAdvance(fieldCommand(p,'rival.begin'),3);
+ p=initializeNativeBattle(commitSimulationCommand(p.state,expeditionRegistry,{id:'rival.confront',requestId:p.state.simulation.pursuits[RIVAL_PURSUIT].request.id},{...fieldContext(p),targetId:ROAD_RIVAL}));
+ const original=await g.page.evaluate(()=>__cheatTest.create_save());let bytes;
+ persistExpansionPlan(p,{createSave:()=>original,storage:{setItem:(_,s)=>{bytes=s;}},key:'fixture',bindings:{player:{category:'person',id:'main_character'},oldCraftsman:{category:'person',id:'oldCraftsman'}}});
+ await g.page.evaluate(s=>{__cheatTest.load(JSON.parse(s));globalThis.rfFreeze=__cheatTest.freeze();},bytes);
+ assert.equal(await g.page.locator('#frontier_campaign_panel').innerText().then(t=>t.includes('familiar opening')),false);result.checks.push('no tell before witnessed reaction');
+ await g.page.evaluate(()=>__cheatTest.rfStrike());
+ let save=await g.page.evaluate(()=>JSON.parse(__cheatTest.create_save()));assert.equal(save.expansion.simulation.powers[ROAD_RIVAL][RF1_POWER].executions,0);
+ await g.page.evaluate(()=>{__cheatTest.rfWithdraw();__cheatTest.campaign({id:'rival.recover',targetId:'roadRival'});__cheatTest.advance(3);__cheatTest.campaign({type:'rematch'});__cheatTest.advance(3);__cheatTest.rfAccept();__cheatTest.rfStrike();});
+ save=await g.page.evaluate(()=>JSON.parse(__cheatTest.create_save()));assert.equal(save.expansion.simulation.powers[ROAD_RIVAL][RF1_POWER].executions,1);
+ await g.page.locator('select[aria-label="Other known panels"]').selectOption('notebook');
+ await g.page.locator('[data-notebook-view="people"]').click();
+ await g.page.locator('#frontier_campaign_panel').evaluate(el=>{el.open=true;});
+ assert.match(await g.page.locator('#frontier_campaign_panel').innerText(),/familiar opening/);result.checks.push('paid recovery and native rematch use saved power; observed tell rendered');
+ await g.page.screenshot({path:new URL('rf1-1920.png',root).pathname});
+ await g.page.evaluate(()=>__cheatTest.save());
+ const before=save.expansion.simulation.powers[ROAD_RIVAL][RF1_POWER];
+ await g.page.reload({waitUntil:'domcontentloaded'});await g.page.waitForFunction(()=>!!globalThis.__cheatTest);
+ assert.deepEqual((await g.page.evaluate(()=>JSON.parse(__cheatTest.create_save()))).expansion.simulation.powers[ROAD_RIVAL][RF1_POWER],before);result.checks.push('Save/reload retains exact actor-owned card and spent reaction');
+ await g.page.evaluate(encoded=>__cheatTest.import(encoded),encodeSaveFile(JSON.stringify(save)));
+ await g.page.waitForTimeout(1500);await g.page.waitForFunction(()=>!!globalThis.__cheatTest);
+ assert.deepEqual((await g.page.evaluate(()=>JSON.parse(__cheatTest.create_save()))).expansion.simulation.powers[ROAD_RIVAL][RF1_POWER],before);result.checks.push('literal Import retains actual holder memory; no second charge');
+ assert.deepEqual(g.errors,[]);result.pass=true;
+} catch(error){result.pass=false;result.error=error.stack;await g.page.screenshot({path:new URL('rf1-failure.png',root).pathname});throw error;}
+finally{result.errors=g.errors;await writeFile(new URL('RF1_BROWSER.json',root),JSON.stringify(result,null,2)+'\n');await g.close();}
+console.log(JSON.stringify(result));

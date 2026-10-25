@@ -1,3 +1,4 @@
+import {hpCalendarBinding} from './book_world_hp_facts.js';
 import {check as assert, natural} from './basics.js';
 import {WORLD_CALENDAR_PROFILES} from './world_calendar_content.js';
 import {legacyClimateEnvironment} from './world_climate.js';
@@ -52,6 +53,8 @@ export function calendarEnvironment(view) {
 }
 export function resolveWorldCalendar(state, homeCalendar) {
     const worldId = state?.actors?.player?.worldId ?? 'base.frontier';
+    const hp=hpCalendarBinding(state);
+    if(hp)return projectCalendar(hp.profile,{instanceId:hp.instanceId,elapsed:hp.elapsed,unit:'played_minutes'});
     const profile = WORLD_CALENDAR_PROFILES[worldId];
     if (!profile) return null; // Other worlds retain their owners, never a home fallback.
     if (worldId === 'base.frontier') return projectCalendar(profile, {instanceId: 'frontier.main', calendar: homeCalendar});

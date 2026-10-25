@@ -116,13 +116,14 @@ test('UIL1 route table keeps the R21 routes, labels, hotkeys and tabs in bar ord
         ['Journal','j','records','journal_show_quests'],['Bestiary','b','records','journal_show_bestiary'],['Books','a','records','journal_show_books'],
         ['Data','d','records','journal_show_data'],['Notebook','n','notebook'],['Skills','k','skills'],
         ['People','p','known-people'],['Travelers','t','village-travelers'],['Projects','r','projects'],['Ledger','l','ledger'],
-        ['Worlds','w','optional-worlds'],['Beginning','g','beginning'],['Settings','s','customization']];
+        ['Worlds','w','optional-worlds'],['Beginning','g','beginning'],['Connection','y','continuation'],['Settings','s','customization']];
     assert.deepEqual(routeTable().map(r => [r.label, r.key, r.target, ...(r.tab ? [r.tab] : [])]), r21);
     assert.deepEqual(routeTable().filter(r => r.pane).sort((x, y) => x.pane - y.pane).map(r => r.label), ['Here', 'Skills', 'Crafting', 'Mixing'], 'Center views keep their R21 order');
     assert.equal(routeById('records:bestiary').tab, 'journal_show_bestiary');
     // The Notebook content is the workspace-owned 'notebook' module; the Journal tab alone showed an empty box.
     assert.equal(routeById('records:notebook').target, 'notebook');
     assert.equal(routeById('belongings').open, 'in-place');
+    assert.equal(routeById('continuation').select, 'continuation_open', 'Connection opens the existing owner, with its discovery gate');
 });
 
 test('UIL1/UIL4 the spec reads v2 and v3 placements unchanged and still drops v1 (GU6)', async () => {

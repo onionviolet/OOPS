@@ -211,7 +211,43 @@ export class HeadlessGame {
             clipboard:{writeText:() => Promise.resolve(), readText:() => Promise.resolve('')},
             locks:{request(name, opts, cb) {const fn = typeof opts === 'function' ? opts : cb; return Promise.resolve().then(() => fn({name, mode:'exclusive'}));}, query:() => Promise.resolve({held:[], pending:[]})}});
         const observer = class {constructor(cb) {this.cb = cb;} observe() {} unobserve() {} disconnect() {} takeRecords() {return [];}};
-        def('MutationObserver', observer); def('ResizeObserver', observer); def('IntersectionObserver', observer);
+        // Attribute observers drive native startup/navigation. Poll at settle boundaries,
+        // including CSSOM style writes, rather than leaving their callbacks inert.
+        // Child-list/character-data observation remains outside this bounded shim.
+        game.attributeObservers = new Set();
+        def('MutationObserver', class {
+            constructor(cb) {this.cb = cb; this.targets = new Map();}
+            observe(target, options = {}) {
+                this.targets.set(target, {options, before: this.read(target, options)});
+                game.attributeObservers.add(this);
+            }
+            read(target, options) {
+                const nodes = options.subtree ? [target, ...target.querySelectorAll('*')] : [target];
+                const values = new Map();
+                if(options.attributes || options.attributeFilter) for(const node of nodes) {
+                    const attrs = new Map((options.attributeFilter || node.getAttributeNames()).map(name =>
+                        [name, name === 'style' ? node.style.cssText : node.getAttribute(name)]));
+                    values.set(node, attrs);
+                }
+                return values;
+            }
+            flush() {
+                const records = [];
+                for(const [target, slot] of this.targets) {
+                    const after = this.read(target, slot.options);
+                    for(const [node, attrs] of after) for(const name of new Set([...attrs.keys(), ...(slot.before.get(node)?.keys() || [])])) {
+                        const old = slot.before.get(node)?.get(name) ?? null, value = attrs.get(name) ?? null;
+                        if(old !== value) records.push({type: 'attributes', target: node, attributeName: name, oldValue: slot.options.attributeOldValue ? old : null});
+                    }
+                    slot.before = after;
+                }
+                if(records.length) this.cb(records, this);
+                return records.length;
+            }
+            disconnect() {this.targets.clear(); game.attributeObservers.delete(this);}
+            takeRecords() {return [];}
+        });
+        def('ResizeObserver', observer); def('IntersectionObserver', observer);
         def('matchMedia', q => ({matches:false, media:q, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}}));
         def('getComputedStyle', el => el?.style ?? {getPropertyValue:() => ''});
         def('Audio', class {play() {return Promise.resolve();} pause() {} addEventListener() {}});
@@ -422,6 +458,7 @@ export class HeadlessGame {
                 ran++;
             }
             await new Promise(r => setImmediate(r));
+            for(const observer of this.attributeObservers) ran += observer.flush();
             if(!ran) break;
         }
         this.timerNow = end;
@@ -500,7 +537,15 @@ export class HeadlessGame {
         el.dispatchEvent(new E.MouseEvent('mouseup', {bubbles:true, cancelable:true}));
         el.click();
         await this.settle();
-        return el;
+        // Native continuation/import commands validate asynchronously in a frame.
+        // Do not hand the caller a view from that temporary realm or from the
+        // old runtime after it has committed a life switch but before reload.
+        for(let round = 0; round < 400; round++) {
+            while(Realm.busy && Realm.booting !== this) await Realm.busy;
+            if(!this.internals.authorityOperationBusy && !this.reloadRequested) return el;
+            await this.settle(100);
+        }
+        throw new Error('Native click did not settle within 40 s of timer time.');
     }
     _blockReason(el) {const root = el.closest('[data-state]'); return root ? ` (${root.dataset.state}: ${root.textContent.replace(/\s+/g, ' ').trim().slice(0, 200)})` : '';}
     /** Click the first visible, enabled element whose text matches. */

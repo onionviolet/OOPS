@@ -29,10 +29,10 @@ function createStockPanel() {
         if(!view) return;
         for(const h of view.holders) {
             const box = node('section', null, {class: 'stock-holder', 'data-stock-holder': h.id});
-            box.append(node('h3', `${h.label} · ${h.rows.length}`));
+            box.append(node('h3', `${h.label} · ${h.rows.length} item kind${h.rows.length === 1 ? '' : 's'}`));
             const list = node('ul', null, {'aria-label': h.label});
             for(const r of h.rows) {
-                const li = node('li', null, {'data-stock-key': r.key});
+                const li = node('li', null, {'data-stock-key': r.key, class: 'ui-action-row'});
                 const notes = [r.favorite && 'favorite', r.equipped && 'equipped', ...r.lentTo.map(l => `${l.count} lent`), ...r.borrowedFrom.map(b => `${b.count} ${b.owner === 'player' ? 'yours, lent' : 'borrowed'}`)].filter(Boolean);
                 li.append(node('span', `${r.name} × ${r.count}${notes.length ? ' · ' + notes.join(', ') : ''}`));
                 const companion = view.holders.find(x => x.kind === 'companion');

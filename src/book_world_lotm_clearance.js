@@ -11,7 +11,9 @@ export const LOTM_CLEARANCE=defineClearance({id:'lotm.church_team',roles:['civil
  3:{needs:{atLeast:'formal_member',group:{min:3,atLeast:'formal_member'}},line:'A grade 3 sealed item is issued to a group of three or more with formal-member clearance.',vague:'The vault will not hand an item to one clerk.'},
  2:{needs:{anyOf:['captain','bishop']},line:'A grade 2 sealed item needs a bishop\'s or a team captain\'s clearance; the central cathedral keeps three to five.',vague:'A heavier seal needs someone senior to sign.'}}});
 // Who stands where: Hale is the team's captain stand-in (authored), the member is an original formal member. Roles of present people are data, not entities' knowledge.
-export const LOTM_ROLE_OF={[I.supervisor]:'captain',[I.member]:'formal_member',[I.seniorDeacon]:'senior_deacon'};
+export const LOTM_ROLE_OF={[I.supervisor]:'captain',[I.member]:'formal_member',[I.seniorDeacon]:'senior_deacon',[I.stormDeacon]:'senior_deacon',[I.evernightDeacon]:'senior_deacon'};
+// An absent role field keeps the authored initial appointment; a recorded reassignment wins.
+export const lotmRoleOf=(state,id)=>state.actors?.[id]?.facts?.['book.lotm.role']??LOTM_ROLE_OF[id];
 export function playerRole(profileKey,ingested){return profileKey==='civil'?'civil_staff':ingested?'formal_member':'probationer';}
 export const sealedItem={id:'Tingen sealed grade-3 item',description:'A grade 3 sealed item from the Tingen vault: a small tarnished lamp that must not be lit. Handling it needs the group and clearance the church sets; it is returned the same day.'};
 export const clearanceCommands=[
@@ -20,7 +22,7 @@ export const clearanceCommands=[
  cmd('return_sealed_3','Return the sealed item to the vault',L.workroom,{targetId:I.supervisor,once:false,requires:has('sealed.held'),visibleWhen:all(eq('lotm.ready'),has('sealed.held')),costs:[transfer('player',I.supervisor,K.sealed3)],effects:[af('sealed.held',false),know('sealed.returned','You returned the sealed item and Hale logged it back into the vault. Custody is the vault\'s again.','player','player','observation','understood')]})];
 // Facts: the player's role and the clearance verdict for each grade the vault can reach from here.
 export function clearanceFacts(state,f,{profile,ingested,here,peopleAt}){
- const role=playerRole(profile,ingested),present=peopleAt.map(id=>LOTM_ROLE_OF[id]).filter(Boolean);
+ const role=playerRole(profile,ingested),present=peopleAt.map(id=>lotmRoleOf(state,id)).filter(Boolean);
  for(const r of LOTM_CLEARANCE.roles)f[`lotm.role.${r}`]=role===r;
  for(const g of Object.keys(LOTM_CLEARANCE.grades))f[`lotm.clearance.${g}`]=here&&clearanceFor(LOTM_CLEARANCE,g,{role,present}).ok;
  f['lotm.roleName']=role;f['lotm.presentRoles']=present.join(',');

@@ -1,0 +1,15 @@
+{
+  "route": "RF1",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "checks": [
+    "no tell before witnessed reaction",
+    "paid recovery and native rematch use saved power; observed tell rendered",
+    "Save/reload retains exact actor-owned card and spent reaction",
+    "literal Import retains actual holder memory; no second charge"
+  ],
+  "pass": true,
+  "errors": []
+}

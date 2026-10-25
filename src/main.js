@@ -1,3 +1,5 @@
+import {rebaseFurnaceSave} from './patient_furnace.js';
+import {craftingOwner,setCraftingOwner} from './crafting_frontier_runtime.js';
 import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {configureRankGap} from './rank_gap_observer_domain.js';
 import {createFurniturePanel} from './home_furniture_panel.js';
 import {allocatedRecipeInputs,recipeMaterialOutput,treatedRecipeQuality} from './processed_materials.js';
@@ -61,7 +63,7 @@ import {HOUSEHOLD,householdRest} from './absorb_p23/household/model.js';
 import {householdPresentation} from './absorb_p23/household/host.js';
 import {createHouseholdPanel} from './absorb_p23/host_joins/tranche_one_ui.js';
 import {STREAMS,ensureStreams,bindGameStreams,gameKeyedRandom,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
-import {GRADED_IDS,consumedHarvestQuality,gradedKey} from './harvest.js';
+import {GRADED_IDS,consumedHarvestQuality,gradedKey,replacedHarvestDrop} from './harvest.js';
 import {buildVillageObtainability,villageTablesFromNative} from './village_obtainability.js';
 import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {resolveWorldCalendar, createCalendarLog} from './world_calendar.js';
@@ -369,7 +371,7 @@ import {createExpansionState, loadExpansionState, commitAction, advanceSimulatio
 import {beginFieldWorkshop} from "./field_workshop.js";
 import {createFieldPanel} from "./field_ui.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
-import {defaultCheatState, validateCheatState, grantCheat, optionalStartCard, awakenCheats} from './cheat_cards.js';
+import {cheatState,setCheatState,readCheatSave,configureCheatHost,commandCheat,seedCheatBeginning,observeCheats as awakenOptionalStart} from './cheat_host.js';
 import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, cancelPack, advancePackSettlement, preparePackSave, packSaveState} from './content_packs.js';
 import {syncAuthoredRegistration, applyAuthoredState, resetAuthoredState, AUTHORED_WORLD_ID} from './authored_site.js';
 import {createAuthoredSiteUI} from './authored_site_ui.js';
@@ -378,7 +380,8 @@ import {beginStructuredCampaign,planStructuredSelection,validateStructuredBootst
 import {requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
-import {initialStructuredBeginning} from './structured_beginning_choice.js';
+import {registerHpBeginnings} from './book_world_hp_content.js';
+import {createStructuredBeginningChoices} from './structured_beginning_choice.js';
 import {nativeStructuredEquipmentTemplate} from './structured_equipment_runtime.js';
 import {readWornEquipment} from './worn_equipment_comparison.js';
 import {createContentPackPanel} from './content_pack_ui.js';
@@ -389,41 +392,14 @@ const optionalPacks=new Map();
 const foundationProbeEnabled=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('foundation_probe')==='1';
 const structuredPacks=new Map();
 // Local authoring preview selects an optional candidate without replacing live content.
-const structuredCandidateId=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)?new URLSearchParams(location.search).get('structured_candidate'):null;
-const initialStructuredDefinition=()=>structuredPacks.get(structuredCandidateId)||initialStructuredBeginning(structuredPacks,foundationProbeEnabled?FOUNDATION_START_PACK_ID:null);
+const beginningChoices=createStructuredBeginningChoices(structuredPacks,()=>foundationProbeEnabled?FOUNDATION_START_PACK_ID:null);
 const packDefinitionsForSave=()=>new Map([...optionalPacks,...structuredPacks]);
 let structuredPanel,structuredNotice='',suspendedStructuredSave=null;
 const nativeLifeEnded=(state=expansionState)=>state.chronicle?.life.endedAt!=null||structuredLifeEnded(state,optionalPackState.structured);
-let cheatState=defaultCheatState();
 let statusWindow;
 function cheatCalendarTime() {
     const {year, month, day, hour, minute, day_count} = current_game_time;
     return {year, month, day, hour, minute, day_count};
-}
-function awakenOptionalStart(wonFight = false) {
-    if(importProbeToken || !ownsSave || foundationSaveBlocked || is_loading_error || restoringNativeSave) return;
-    // A won zone round is retained for retry/load; an individual bestiary kill is not a won fight.
-    const result = awakenCheats(cheatState, {dayCount: current_game_time.day_count,
-        wonFight: wonFight || Object.values(locations).some(zone => zone.tags.combat_zone && zone.enemy_groups_killed > 0), at: cheatCalendarTime()});
-    if(!result.messages.length) return;
-    let durable = false;
-    try {
-        const serialized = create_save();
-        if(!serialized) return;
-        const save = JSON.parse(serialized);
-        save.cheats = result.state;
-        validateSaveEnvelope(save, game_version);
-        // Keep live discovery dormant until the shared storage owner commits.
-        lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, JSON.stringify(save), () => {
-            durable = true;
-            cheatState = result.state;
-        });
-    } catch(error) {
-        if(!durable) {log_message(error.message, 'message_critical'); return;}
-        console.error('Awakening saved; display refresh failed:', error);
-    }
-    for(const message of result.messages) log_message(message, 'notification');
-    statusWindow?.render();
 }
 let optionalPackState=emptyPackState();
 let optionalPackPanel;
@@ -608,6 +584,7 @@ const lifeSaveStorage = {
     // are replaced here; staged domains remain read-only until publication.
     // force: an explicit save writes even when only wall-clock fields changed (D3).
     setEnvelope(key, save, onDurable, {force = false} = {}) {
+    rebaseFurnaceSave(save,Date.now());
     const next = observeLifeSave(save.life_record ?? createLifeRecord(), save);
     save.life_record = next;
     const nextNpc = save.npc_lives == null ? null : advanceVillageLives(domainRegistry.command('life_events','stageFamily')?.(save)||save.npc_lives, save['current time'].year);
@@ -624,7 +601,7 @@ const lifeSaveStorage = {
     if(previousRules?.revision!==workLedger.rules.revision||previousConnection!==workLedger.connection||previousPrecision!==workLedger.precisionKnown||previousAssist!==workLedger.assistUnlocked)update_displayed_crafting_recipes();
     customization=customizationFromSave(save);
     refreshCustomization();
-    cheatState=validateCheatState(save.cheats??defaultCheatState());
+    setCheatState(save.cheats);
     optionalPackState=validatePackState(save.content_packs??emptyPackState());
     lifeRecord = next;
     npcLives = nextNpc;
@@ -835,12 +812,12 @@ function studyContext(state=expansionState,gameplay=gameplaySnapshot()) {
         housingAccessible:!!current_location?.housing?.isUnlocked()&&current_location.getAvailabilityComponent().getStatus().is_unlocked,
         sleepingLevel:character.getTotalSkillLevel('Sleeping'),readProgressPerMinute:readingRate(character.getTotalSkillLevel('Literacy'))};
 }
-function p00NativeSkillXP(id,amount,report){
-    const skill=skills[id];if(!skill?.canGainXP(get_context()))throw Error('Native skill eligibility blocks this settlement.');
+function p00NativeSkillXP(id,amount,report,{cap=true,preparedUnlock=false}={}){
+    const skill=skills[id];if(!skill?.canGainXP(get_context(),{preparedUnlock}))throw Error('Native skill eligibility blocks this settlement.');
     let xp=amount*lifeLearningMultiplier(expansionState.chronicle)*furnitureSkillMultiplier(readFurnitureBonuses(),id)*getPacingEffects(homePacingContext()).efficiency*config.global_xp_multiplier*character.getSkillXPGain(id)*(character.xp_multiplier??1);
     if(skill.parent_skill)xp*=skill.get_parent_xp_multiplier();
     const toNext=character.getLevelableComponent().skill_progress[id]?.xp_to_next_lvl??skill.base_xp_cost;
-    if(Number.isFinite(toNext)){const cap=toNext*config.skill_xp_gains_cap;if(xp>cap)report?.(Math.round((xp-cap)*100)/100);xp=Math.min(xp,cap);}
+    if(cap&&Number.isFinite(toNext)){const cap=toNext*config.skill_xp_gains_cap;if(xp>cap)report?.(Math.round((xp-cap)*100)/100);xp=Math.min(xp,cap);}
     return Math.round(xp*100)/100;
 }
 function nativeBooksSnapshot(){return Object.fromEntries(Object.entries(book_stats).filter(([,b])=>b.accumulated_time>0).map(([id,b])=>[id,{accumulated_time:b.accumulated_time}]));}
@@ -1829,7 +1806,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         ...(unlocks.recipes || []).map(r => ({kind: "recipe", id: recipes[r.category]?.[r.subcategory]?.[r.recipe_id]?.id})),
         ...(unlocks.quests || []).map(id => ({kind: "quest", id}))];
     const p00Hidden=Object.fromEntries(['Famine','Cold resistance'].map(id=>[id,!nativeSkillDiscovery(skills[id],character)]));
-    const publication = prepareGameplayPublication(plan.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
+    const publication = prepareGameplayPublication(plan.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter,preparedSkillUnlocks:(plan.unlocks||[]).filter(e=>e.kind==='skill').map(e=>e.id)});
     const townAccess = townUnlocks(expansionState, plan.state);
     const villageTextChanged = villageLedgerSentence(expansionState) !== villageLedgerSentence(plan.state);
     const unlockPublication = prepareNativeUnlocks([...(plan.unlocks || []), ...publication.unlocks, ...townAccess], {availabilities, flags: global_flags, quests, questManager});
@@ -1856,13 +1833,13 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         for(const c of Object.values(nativeContexts))c.vitalsByActor=stagedVitals;
         const future = advanceSimulation(plan.state, expeditionRegistry, Math.max(0, plan.commitment.due - plan.state.clock),
             plan.external, plan.gameplay, nativeContexts);
-        prepareGameplayPublication(future.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
+        prepareGameplayPublication(future.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter,preparedSkillUnlocks:(plan.unlocks||[]).filter(e=>e.kind==='skill').map(e=>e.id)});
     }
     const practice = activePractice(plan.state.actors.player);
     if(practice) {
         const future = structuredClone(plan.gameplay), p = practice[1].practice;
         applyGameplayEffect(future, {type: "xp", skill: p.xpSkill, amount: Math.max(...p.rewards) * p.xpPerPoint}, "player");
-        prepareGameplayPublication(future, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
+        prepareGameplayPublication(future, {actors: actorBindings, skills, getItemFromKey, unlockAdapter,preparedSkillUnlocks:(plan.unlocks||[]).filter(e=>e.kind==='skill').map(e=>e.id)});
     }
     stageGrowthNativeGrants(plan);
     stageGrowthForPublication(plan);
@@ -1883,6 +1860,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     // happens afterward and never applies rewards.
     readFrame?.invalidate();
     expansionState = plan.state;
+    if(Object.hasOwn(plan.nativePatch||{},'harvest'))setHarvestOwner(plan.nativePatch.harvest);
     localDateLog.commit(nextLocalCalendar);
     if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();}
     if(plan.p00Exposure)p23Exposure=plan.p00Exposure;
@@ -2091,24 +2069,24 @@ function structuredContext() {
         facts:{...contexts.player.facts,location:current_location?.id,'skill.Crafting':character.getTotalSkillLevel('Crafting')},busy:!!current_activity||!!current_game_action||!!current_combat||!!current_dialogue||is_sleeping||is_reading||is_in_trade()};
 }
 function readStructuredCampaign() {
-    const record=optionalPackState.structured,d=record?structuredPacks.get(record.packId):optionalPackState.pendingStructured?structuredPacks.get(optionalPackState.pendingStructured.packId):initialStructuredDefinition();
+    const record=optionalPackState.structured,d=record?structuredPacks.get(record.packId):optionalPackState.pendingStructured?structuredPacks.get(optionalPackState.pendingStructured.packId):beginningChoices.definition();
     const canWrite=ownsSave&&!foundationSaveBlocked&&!expansionError&&!importProbeToken;
     if(!d)return {available:false,active:false,canWrite:false};
     const context=structuredContext();
     const view=structuredCampaignView(expansionState,d,record,context);
     if(optionalPackState.pendingStructured){requireStructuredSelection(optionalPackState.pendingStructured,structuredPacks);view.beginLabel='Continue beginning';}
     if(record&&d.renewal)view.renewal=previewStructuredRenewal(expansionState,d,context);
-    return {...view,pauseReason:feedbackClockPauseReason(),canWrite:canWrite&&(record||current_location?.id==='Village'&&!nativeOccupationReason()&&!context.busy),error:structuredNotice};
+    return {...beginningChoices.preview(view,optionalPackState),pauseReason:feedbackClockPauseReason(),canWrite:canWrite&&(record||current_location?.id==='Village'&&!nativeOccupationReason()&&!context.busy),error:structuredNotice};
 }
 function commandStructuredCampaign(command) {
     try {
         if(nativeLifeEnded())throw Error('This life has ended.');
         if(!ownsSave||foundationSaveBlocked||expansionError||importProbeToken)throw Error('Restore saving before continuing.');
-        const record=optionalPackState.structured,d=record?structuredPacks.get(record.packId):optionalPackState.pendingStructured?structuredPacks.get(optionalPackState.pendingStructured.packId):initialStructuredDefinition(),context=structuredContext();
-        if(!d)throw Error('This beginning content is unavailable.');
+        const record=optionalPackState.structured,d=record?structuredPacks.get(record.packId):optionalPackState.pendingStructured?structuredPacks.get(optionalPackState.pendingStructured.packId):beginningChoices.definition(),context=structuredContext();
+        if(beginningChoices.handle(command,optionalPackState,context)){structuredNotice='';structuredPanel?.render(true);return;}
         if(optionalPackState.pendingStructured&&command.type!=='begin')throw Error('Finish your saved beginning first.');
         let plan,next;
-        if(command.type==='begin') {
+        if(command.type==='begin' && beginningChoices.require(command,optionalPackState)) {
             if(current_location?.id!=='Village'||nativeOccupationReason())throw Error('Begin from an unoccupied native opening.');
             if(d.starts&&!optionalPackState.pendingStructured){
                 const selected=planStructuredSelection(expansionState,d,context);
@@ -6526,7 +6504,6 @@ function create_save({forExport = false} = {}) {
         if(p23Market!==undefined)save_data.p23_market_life=structuredClone(p23Market);
         if(p23Leisure!==undefined)save_data.p23_leisure_memory=structuredClone(p23Leisure);
         if(p23Repeat!==undefined)save_data.absorb_repeat_search=structuredClone(p23Repeat);
-        save_data.cheats = validateCheatState(cheatState);
         save_data.content_packs = packSaveState(optionalPackState,packDefinitionsForSave());
         save_data.village_career = structuredClone(villageCareer);
         save_data.work_ledger=structuredClone(workLedger);
@@ -6641,6 +6618,7 @@ function load(save_data) {
             catch(error){suspendedStructuredSave=structuredClone(save_data);throw error;}
             syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());
+            if(!importProbeToken)save_data=readCheatSave(save_data);
             save_data = validateSaveEnvelope(save_data, game_version);
             continuationState=save_data.continuation?structuredClone(save_data.continuation):null;
             if(!importProbeToken&&continuationState?.arrivalPaused&&!continuationArrivalRelease)continuationArrivalRelease=suspendEngine();
@@ -6648,7 +6626,6 @@ function load(save_data) {
             loadedDisplayPreferences=save_data.display_preferences;
             setMixtureOwner(save_data.mixtures);
             domainRegistry.load(save_data);
-            cheatState=validateCheatState(save_data.cheats??defaultCheatState());
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
             p23Field=Object.hasOwn(save_data,'field_familiarity_p07')?normalizeFieldFamiliarity(save_data.field_familiarity_p07):undefined;
@@ -9283,7 +9260,7 @@ function run() {
     start_date = engineNow();
     update();
     // RT8 test hook: replay ticks away (one game minute each while awake) through the sliced
-    // stepper. No player offline policy exists yet; who gets time away stays a design decision.
+    // stepper. Patient Furnace separately uses accepted OD4/TBANK for chosen finite native routines.
     const catchUp = testHooksEnabled ? Number(new URLSearchParams(location.search).get('catch_up_ticks')) : 0;
     if(Number.isSafeInteger(catchUp) && catchUp > 0) {
         window.catchUpResult = fastForward(catchUp).catch(error => {console.error('Catch-up stopped:', error); throw error;});
@@ -9482,6 +9459,7 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 for(const make of [createLocalLivelihoodContent,createWarmHandStartContent,createLanternLoanStartContent,createSlakeBenchStartContent])await registerStructuredNative(make());
+await registerHpBeginnings(registerStructuredNative,beginningChoices);
 configureCraftingDomain({actor:()=>character,read:()=>({body:currentNativeBody(),mind:character.getFullStats().intuition,inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),skill:character.getTotalSkillLevel('Literacy'),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
     itemOwners:()=>[character,character.getItems(),character.getLevelableComponent(),item_log,favourite_items,favourite_consumables,global_flags,availabilities,...Object.values(skills).map(s=>s.getAvailabilityComponent()),which_skills_affect_skill,...nativeCraftQuestOwners(quests,active_quests)],assertSpend:key=>assertNativeItemDisposition(expansionState,key),addSkillXp:(skill,xp)=>add_xp_to_skill({skill:skills[skill],xp_to_add:xp,use_bonus:false,cap_gained_xp:false}),
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
@@ -9593,9 +9571,7 @@ if(newGameBeginning) {
                 worldId:start.provenance.worldId,kind:'beginning',text:`Start layers: ${start.provenance.layers.map(l=>l.id).join(', ')}. Seed: ${start.provenance.seed}`});
         }
         const choice = newGameBeginning.cheatChoice();
-        if(choice === 'system-quests' || choice === 'surprise') {
-            cheatState = grantCheat(cheatState, optionalStartCard(), {route: 'optional-start', at: cheatCalendarTime()});
-        }
+        seedCheatBeginning({choice, at: cheatCalendarTime()});
         lifeRecord = appendLifeMilestone(lifeRecord, {year: current_game_time.year,
             at: lifeCalendarMinute(current_game_time), worldId: 'base.frontier', kind: 'beginning',
             text: choice === 'none' ? 'You chose an ordinary beginning without a system.' :
@@ -9753,9 +9729,17 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             }):[];
             return knownRoutesPresentation(snapshot,{refinement:refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext}),proto23:proto23Presentation(snapshot.state,expeditionRegistry,snapshot.context),pocket:{view:pocketView,actions:pocketActions}});
         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
+    configureCheatHost({furnace:{read:()=>({cheats:cheatState,harvest:harvestOwner,clock:expansionState.clock,context:harvestContext(),quoteXP:amount=>p00NativeSkillXP('Butchering',amount,undefined,{cap:false,preparedUnlock:true}),world:expansionState.actors.player.worldId,reason:harvestBlockReason()}),advance:()=>advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},1),commit:plan=>persistExpansion(plan)},nameItem:key=>getItemFromKey(key).getName(),read:()=>({'current time':current_game_time,decisions:(current_combat?.defenders||[]).filter(e=>e.is_alive&&e.rngKey).flatMap(e=>{const i=e.loot_list.findIndex(row=>!replacedHarvestDrop(e.name,row.item_name));return i<0?[]:[{id:e.rngKey,label:e.name+' · first remaining drop',key:e.rngKey+':drop:'+i,keyed:true}];}),crafting:craftingOwner,inventories:{person:{main_character:character.getItems()},storage:{player:inventories.storage.player.getItems()}},harvest:harvestOwner,expansion:expansionState,locations,levels:{person:{main_character:{skill_xp:{Crafting:character.getLevelableComponent().skill_progress.Crafting?.total_xp||0,Perception:character.getLevelableComponent().skill_progress.Perception?.total_xp||0}}}}}),
+        harvestSkill:()=>harvestContext().skill,occupied:request=>!['peek','call'].includes(request.type)&&continuationOccupied(),publish:next=>{setCraftingOwner(next.crafting??null);setHarvestOwner(next.harvest??null);expansionState.streams=next.expansion.streams;harvestPanel?.render();},
+        writable:()=>!importProbeToken&&ownsSave&&!foundationSaveBlocked&&!is_loading_error&&!restoringNativeSave,
+        moment:()=>({dayCount:current_game_time.day_count,at:cheatCalendarTime()}),
+        wonFight:()=>Object.values(locations).some(zone=>zone.tags.combat_zone&&zone.enemy_groups_killed>0),
+        capture:()=>{const bytes=create_save();return bytes?JSON.parse(bytes):null;},
+        commit:(save,publish)=>{validateSaveEnvelope(save,game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save),publish);},
+        log:message=>log_message(message,'notification'),refresh:()=>statusWindow?.render()});
     // CH1 panel wiring: read native stats and only held title names.
     statusWindow = createStatusWindow({read: () => ({cheats: cheatState, level: character.getLevelableComponent().current_level,
-        stats: character.getFullStats(), titles: titleView(character.titles, readTitleCounters()).filter(row => row.held).map(row => row.name)}),
+        quest:domainRegistry.project('cheats'),claim:()=>commandCheat({type:'system-claim'}),stats: character.getFullStats(), titles: titleView(character.titles, readTitleCounters()).filter(row => row.held).map(row => row.name)}),
         onKnown: () => {
             // Appearance names this module only after its persisted discovery.
             const select = document.querySelector('#customization_host select[aria-label="Native module"]');
@@ -9789,7 +9773,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         effects:getCustomizationSettings(customization,'location',{season:current_game_time.getSeason()}).effects
     })});
     refreshCustomization();
-    const pollDisplays=()=>{quietPlaceDetail.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();};
+    const pollDisplays=()=>{quietPlaceDetail.render();statusWindow?.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();};
     setInterval(()=>{if(!deferWhileHidden(pollDisplays,pollDisplays))pollDisplays();},250);
     villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
         visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,

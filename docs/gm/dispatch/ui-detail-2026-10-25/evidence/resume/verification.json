@@ -1,0 +1,56 @@
+{
+  "sourceCommit": "0ae4203522b7a3b1dbcb20e3c9616d034e5bdcb9",
+  "fullSuite": "Not rerun. Exact original qualified receipt remains ../verification.json.",
+  "focused": [
+    {
+      "command": "node --test tests/ui_components.test.js tests/ui_contract.test.js tests/owned_place_clock.test.js tests/rank_gap_observer.test.js",
+      "passed": 24,
+      "boundary": "Before final shared-CSS consumer adjustment"
+    },
+    {
+      "command": "node --test tests/known_routes_ui.test.js tests/known_routes.test.js tests/companion_bond_rite.test.js tests/stock_view.test.js",
+      "passed": 21
+    },
+    {
+      "command": "node --test tests/ui_contract.test.js",
+      "passed": 3,
+      "boundary": "Final CSS"
+    }
+  ],
+  "build": "passed",
+  "architecture": "passed",
+  "rules": "passed, zero warnings",
+  "browser": {
+    "command": "node scripts/playtest/d1-resume.mjs before / after",
+    "capturedSurfaces": 16,
+    "sizes": [
+      "1920x1080",
+      "1440x900"
+    ],
+    "textSizes": [
+      14,
+      21
+    ],
+    "imagesPerPhase": 64,
+    "pagesWithHorizontalOrVerticalOverflow": 0,
+    "afterUnnamedControls": 0,
+    "pageErrors": 0,
+    "setupHashesMatched": true,
+    "checks": [
+      "Loadout checkbox accepts keyboard Space, retains focus and returns to its initial unchecked state.",
+      "Native Goa visit now discovers and opens Known routes from All panels; host-projected return controls are present."
+    ],
+    "missingResources": [
+      "/private_packs/manifest.json"
+    ],
+    "knownRoutesBefore": "Native owner view reproduces absent discovery; no route panel fabricated"
+  },
+  "blocked": {
+    "id": "optional-worlds",
+    "input": "private_packs/manifest.json plus actual listed pack files",
+    "observed": "404, zero optional definitions",
+    "route": "native loader → Optional worlds → enter/activity/return"
+  },
+  "persistence": "No persistence behavior changed; no new G1 roundtrip claimed.",
+  "remaining": "Combined owner reconciliation/integration and Weibao play/taste acceptance"
+}

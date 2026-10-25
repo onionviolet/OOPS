@@ -1,0 +1,52 @@
+{
+  "sourceCommit": "82b5be9c1f443b58e07670abc7dd229a6fb64d24",
+  "fullSuite": {
+    "command": "npm test",
+    "runs": 1,
+    "exitCode": 1,
+    "tests": 2879,
+    "passed": 2875,
+    "failed": 4,
+    "failure": "Local-server bind denied by filesystem/process sandbox: listen EPERM 127.0.0.1",
+    "inputBoundary": "Before final navigation/spill presentation fixes; changed inputs covered by final 53 focused checks and rebuilt browser runs"
+  },
+  "environmentRetry": {
+    "command": "node --test tests/cheat_awakening.test.js tests/cheat_cards.test.js tests/rt_slice1_fixtures.test.js",
+    "reviewedLocalServerAccess": true,
+    "exitCode": 0,
+    "tests": 9,
+    "passed": 9,
+    "resolvedFullSuiteEnvironmentFailures": 4
+  },
+  "focusedFinal": {
+    "command": "node --test tests/ui_components.test.js tests/ui_contract.test.js tests/layout_spec.test.js tests/shell_composition.test.js tests/field_layer.test.js",
+    "exitCode": 0,
+    "tests": 53,
+    "passed": 53
+  },
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "bundleSha256": "f1e067eb938aebd2347592e9cf852f059c941ecbcf39c4226e98ad1ce2cdbb87"
+  },
+  "architecture": {
+    "command": "npm run check:arch",
+    "exitCode": 0,
+    "mainLines": 10113,
+    "mainBaseline": 10115,
+    "displayLines": 6724,
+    "displayBaseline": 6767,
+    "saveLines": 310,
+    "saveBaseline": 310
+  },
+  "rules": {
+    "command": "npm run check:rules",
+    "exitCode": 0,
+    "registerRows": 22,
+    "ADCodes": 41,
+    "relativeLinks": 125,
+    "warnings": 0
+  },
+  "authority": "Branch proposal; no master merge, push, packaging, installed adoption or human acceptance",
+  "sourceStamps": "Generated HTML version stamps restored for commit; dist and local font assets are excluded from commits"
+}

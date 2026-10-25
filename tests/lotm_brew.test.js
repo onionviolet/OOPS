@@ -30,7 +30,7 @@ test('brew from a fresh enrolled state: formula, frog, bench, time, then the sam
 test('the brewed dose runs the existing acts, assessment and promotion',()=>{
  let p=run(bottled(),'ingest_cc');
  for(let i=0;i<3;i++)p=wait(run(p,'act_laying_out'),25);
- p=wait(run(p,'act_vigil'),60);p=run(p,'request_assessment_cc');ok(p);p=run(p,'ingest_gravedigger');
+ p=wait(run(p,'act_vigil'),60);p=run(p,'request_assessment_cc');p=wait(run(p,'request_exam_cc'),60);ok(p);p=run(p,'ingest_gravedigger');
  assert.ok(p.state.actors.player.sources[I.gravedigger]);ok(p);
 });
 test('refusals: no formula, no frog, no money, no Hale, wrong order',()=>{

@@ -1,0 +1,21 @@
+const {launch,fixture}=require('./support.cjs');
+const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const dir='docs/gm/dispatch/lotm-q4-2026-10-25/evidence';
+(async()=>{const browser=await launch();try{
+ const {p,errors,snapshot,button,click,persistence}=await fixture(browser);
+ const held=s=>s.inventories.person.main_character[JSON.stringify({id:'Tingen sealed grade-3 item'})]?.count||0;
+ await click('enroll');await click('book.lotm.report_in');
+ assert.equal(await button('book.lotm.request_sealed_3').isDisabled(),true);
+ assert.match(await p.locator('[data-clearance="3"]').innerText(),/formal member/);
+ await p.screenshot({path:dir+'/probationer-blocked.png'});
+ await click('book.lotm.accept_allocation');await click('book.lotm.ingest');
+ assert.equal(await button('book.lotm.request_sealed_3').isDisabled(),false);
+ assert.match(await p.locator('[data-clearance="2"]').innerText(),/captain or bishop/);
+ await click('book.lotm.request_sealed_3');assert.equal(held(await snapshot()),1);
+ const persisted=await persistence(()=>click('book.lotm.return_sealed_3'));
+ assert.equal(held(await snapshot()),1);await p.screenshot({path:dir+'/signed-out-imported.png'});
+ await click('book.lotm.return_sealed_3');assert.equal(held(await snapshot()),0);
+ assert.deepEqual(errors,[]);
+ fs.writeFileSync(dir+'/result.json',JSON.stringify({bundleSha256:crypto.createHash('sha256').update(fs.readFileSync('dist/bundle.js')).digest('hex'),viewport:'1920x1080',steps:['fresh-origin probationer denied','ingestion establishes formal membership','three present members allow custody transfer','grade 2 remains denied','Save/reload/Export/return/literal Import restores exact stock, money, knowledge, facts, resources and place','return restores vault custody'],...persisted,errors},null,2)+'\n');
+ console.log('Q4 PASS');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

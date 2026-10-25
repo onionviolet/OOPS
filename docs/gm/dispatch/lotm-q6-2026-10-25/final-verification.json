@@ -1,0 +1,67 @@
+{
+  "baseHead": "4f229ab94a7ef6f821334b0be25998cd405fb5d6",
+  "master": "3dfc49cf3422c0262d86810df47459f53f3a4a67",
+  "bundleSha256": "75160cb9fc7fec95423184976456598b4b9241d0b93cfa72b03a2700e760d5ab",
+  "sourceTestsTreeSha256": "d570670caf619d8ed86a6105fc9625b591c49dd5fd473b1207a226a6a1b1ca8e",
+  "checks": [
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run check:arch",
+      "exitCode": 0,
+      "result": "PASS, no new cycles or composition-root growth"
+    },
+    {
+      "command": "npm run check:rules",
+      "exitCode": 0,
+      "result": "PASS, 0 warnings"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "tests": 2893,
+      "pass": 2893,
+      "fail": 0,
+      "skipped": 0,
+      "durationMs": 89868.958167,
+      "invocations": 1,
+      "environment": "authorized loopback-capable execution after demonstrated sandbox EPERM",
+      "logSha256": "9048adff44181c894b10e49633da0b6872e3fd7fc55d2b867079224c596c88ef"
+    },
+    {
+      "command": "node docs/gm/dispatch/lotm-q6-2026-10-25/checks/browser.cjs",
+      "exitCode": 0,
+      "result": "PASS: native Savant and Nighthawk journeys, four persistence checkpoints, two exact-source old-save imports, stale-role refusal"
+    },
+    {
+      "command": "node docs/gm/dispatch/lotm-q6-2026-10-25/checks/matrix.cjs",
+      "exitCode": 0,
+      "result": "PASS: actual computed 14/21px panel and paragraph fonts at 1920x1080 and 1536x864; bounded setup correction on identical bundle"
+    },
+    {
+      "command": "git diff --check -- scoped source/tests/docs",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "node docs/gm/dispatch/lotm-q6-2026-10-25/checks/seer.cjs",
+      "exitCode": 0,
+      "result": "PASS: fresh native Seer lesson, digestion/recovery, new Nighthawk pre-screen/exam, Clown ingestion and exact persistence"
+    },
+    {
+      "command": "node docs/gm/dispatch/lotm-q6-2026-10-25/checks/sailor.cjs",
+      "exitCode": 0,
+      "result": "PASS: existing Sailor consumer, successor examination, Folk of Rage ingestion and exact persistence"
+    }
+  ],
+  "remaining": [
+    "Integration must reconcile the recorded primary simulation_effects.js dirty hunks and rebuild; no combined-primary claim",
+    "Pre-Q6 saves do not auto-gain an examiner; old admitted jobs and historical releases remain valid",
+    "Normal-app adoption and human play/visual acceptance remain separate"
+  ],
+  "browserPersistenceCheckpoints": 6,
+  "browserReceiptSha256": "8e82ff00cf67adb4a3e6ea36972b30e32337c78fa977346638ac2c8383c48a42"
+}

@@ -5,16 +5,21 @@ import {renderSeedbed} from '../../mistglass_seedbed_ui.js';
 import {renderVesselGeometry} from '../../vessel_geometry_ui.js';
 import {disciplineActions,changeDiscipline} from '../world_adaptation/discipline.js';
 import {cultivationMethods} from '../world_adaptation/index.js';
+import {createMeterBar} from '../../meter_bar.js';
+import {panelSection,quotedActionList} from '../../ui/panel_sections.js';
 // Native P12 presenter. No simulation, RNG, inventory or save writes here.
 export function createMistglassPanel({host,read,act}){
-    const panel=document.createElement('details');panel.id='p23_mistglass_panel';panel.className='expedition_panel';
+    const panel=document.createElement('details');panel.id='p23_mistglass_panel';panel.className='expedition_panel ui-workbench';
     const summary=document.createElement('summary');summary.textContent='Mistglass conservatory (opt-in proposal)';
-    const body=document.createElement('div'),notice=document.createElement('p');panel.append(summary,body,notice);host.append(panel);
-    const text=t=>{const p=document.createElement('p');p.textContent=t;body.append(p);};
+    const body=document.createElement('div'),notice=document.createElement('p');notice.setAttribute('role','status');
+    panel.append(summary,body,notice);host.append(panel);
+    const text=(parent,t)=>{const p=document.createElement('p');p.textContent=t;parent.append(p);};
+    const invoke=id=>{try{act(id);notice.textContent='';}catch(e){notice.textContent=e.message;}render();};
     function render(){
+        const opened=new Set([...body.querySelectorAll('details[open]')].map(n=>n.dataset.mistglassSection||n.dataset.actionGroup));
+        const focus=panel.contains(document.activeElement)?document.activeElement.dataset.mistglassAction:null;
         const f=read();body.replaceChildren();panel.hidden=!f.visible;
         if(panel.parentElement!==host)host.append(panel);
-        if(!f.inside)text('An original optional test world. Enter with your present body and bag, then explicitly learn its method. Frontier is unchanged.');
         const v=f.view;
         const guidance=cultivationGuidance(f);if(guidance){const box=document.createElement('aside');box.dataset.cultivationGuidance='';const message=document.createElement('p');message.textContent='Known practice: '+guidance.text;box.append(message);if(guidance.target){const b=document.createElement('button');b.type='button';b.dataset.cultivationGuideTarget=guidance.target;b.textContent='Show the existing action';b.onclick=()=>{const target=[...body.querySelectorAll('[data-mistglass-action]')].find(n=>n.dataset.mistglassAction===guidance.target);if(target){target.scrollIntoView({block:'center'});target.focus({preventScroll:true});}};box.append(b);}body.append(box);}
 

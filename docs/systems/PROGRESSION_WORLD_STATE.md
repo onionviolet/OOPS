@@ -856,3 +856,30 @@ timer; add a boundary (S10).
 When a system listed here changes shape, update its entry in the same change and
 re-grep every `file:line`. This file orients; the code and the rulebooks win on any
 disagreement.
+
+
+## D4 native cheat consumers, 2026-10-25
+
+The cheat domain (`src/cheat_host.js`) owns `cheats` and retained `cheats_quarantine` slices; `src/cheat_mechanisms.js` plans full-envelope actions and publishes through the injected native guarded writer. It reuses progression-gate evaluation for lived insight, `harvest.observeCarcass` for timed appraisal, the native finite harvest routine for habit, and `seeded_streams` for fate and paid loot calls. Pending calls and enduring keyed overrides live in the stream cell; observer logs are not their authority. The existing continuation restore and heir builder call the personal-faculty carrier; no second return system was introduced. These are bounded native consumers, not support for arbitrary reference cheats. [D4 exact state and remaining scope](../gm/dispatch/cheats-2026-10-25/CHECKPOINT.md).
+## D7 HP application, 2026-10-25 branch candidate
+
+`book.hp` now supplies original school/trade life data in
+`src/world_packs/book_hp_life_data.js`, admitted by the bundled loader and adapted
+by `src/book_world_hp_content.js` to the existing structured-pack compiler.
+This adds a second world application of S8/S9/S10/S12 and the ability descriptors,
+not another save owner or method interpreter. Native body, stock, custody, jobs,
+XP, mastery and exact selection/content receipts retain their existing owners.
+`src/book_world_hp_facts.js` projects the local lesson windows and read models;
+`world_calendar.js` projects its elapsed header clock. Scope and proof:
+[D7 checkpoint](../gm/dispatch/hp-world-2026-10-25/CHECKPOINT.md).
+
+### E3 typed beginning presentation seam, 2026-10-25
+
+`createStructuredBeginningChoices` in `src/structured_beginning_choice.js` accepts
+presentation registrations referencing loader-owned typed starts. Both HP lives
+consume it through `registerHpBeginnings`; the existing Beginning workspace previews,
+confirms or cancels selection. Preview is transient and grants nothing. The durable
+receipt and cargo grant remain in `planStructuredSelection`/`beginStructuredCampaign`;
+there is no new save slice. Saved D7 definitions and commands remain exact. This is
+a public entry presentation seam, not a world-law permission list or travel system.
+Evidence: [E3 checkpoint](../gm/dispatch/hp-arrival-2026-10-25/CHECKPOINT.md).
