@@ -1,5 +1,7 @@
 # Headless playtest sweep, 2026-10-25
 
+**Latest follow-up:** [C2 results and updated top ten](#c2-follow-up). Earlier A1/B1 observations retain their original build identities.
+
 **Input:** git HEAD `3a1180dc274868d1e4350058a74725ac6b534394`. The primary checkout has other agents' uncommitted runtime edits in flight, so these findings are against that live state.
 
 **Method:** yairpg-game MCP, player-visible text/actions only. Findings are tied to fresh-life reproduction paths below. No source, tests, dist, or other docs were edited.
@@ -174,3 +176,153 @@ This ranks the sweep's distinct open findings and fixed tooling findings, not te
 
 
 BT1's fixed pagination gap is documented above but falls outside the final ten after BHB2's later storage-identity receipt. Area records are committed with the lane packet: `B1_FRONTIER.md`, `B1_HOUSEHOLD.md`, `B1_MISTGLASS.md`, `B1_CONTINUATION_LOTM.md` under `docs/gm/dispatch/codex-parallel-2026-10-25/`. The coordinator patch supplies those records; this consolidated report was edited directly in the primary checkout under B1 ownership.
+
+## C2 follow-up
+
+**Build and scope.** B1 branch `8e44dd7c3` was merged with requested master
+`9b997ea60` as `5a2ed4c9e`, then tooling committed as `35ef1a1f3`.
+Every C2 gameplay finding below uses committed runtime source tree
+`6f928fb9523f41ce21c8140461ba39d81ecc7a52`, rebuilt with the headless harness.
+Primary-checkout uncommitted gameplay additions are excluded. The native dist
+build receipt is SHA-256 `652f967dc96777ce3c78a01a5d214c082e30e14000e9cccecd9ad1cc1897aec4`;
+MCP imports its instrumented source bundle, not dist. No private player saves were read
+or modified, and no sealed-truth/debug state supplied an entry.
+
+Four Luna-medium workers played the four assigned areas. This is headless
+player-action evidence, not rendered desktop visibility, installed-app adoption
+or human acceptance. Applied AD6–AD8, AD22, AD32, AD34, AD36, AR3/AR7/AR8 and
+AU1–AU7; area reports add their system-specific rules.
+
+### Tooling findings and fixes
+
+**CT1 / BMC1 / BLD2 / BLD3: native startup/navigation never finished in the
+headless surface. Fixed in C2.** All three player routes exist. The runner's
+no-op MutationObserver left `startScreen` set to `open` after PLAY hid the
+loading screen, suppressing native navigation. C2 delivers attribute changes
+at settle boundaries, including inline style changes. `started` now requires
+both a hidden loading screen and the native closed-screen state.
+
+- Mistglass: elder hello → native center Back → one played minute → place Options → Iona ledger → Follow local people and work → More panels → Projects → Optional projects → Mistglass → Enter. Its method is a separate explicit opt-in.
+- Tingen: existing disposable localhost `lotm_probe=1` start → More panels → Tingen workroom → choose a native entry role. It remains test-only, as the game labels it.
+- Continuation: More panels → Continuing connection → Open your connection → normal action and confirmation.
+
+`game_new({panel:<id>})` and `game_click({panel:<id>})` select a visible native
+More panels option. `game_click({key:<select>,value:<option>})` selects an
+available native option. Neither invents discovery, enrollment or means;
+unknown, hidden or disabled controls are refused. Layout / Panels / Show alone
+restored a dock setting but did not open an unmapped parity module, so the
+shortcut uses the native expansion selector instead.
+
+**CT2: fresh-life clicks could return during asynchronous validation. Fixed
+in C2.** On tooling `35ef1a1f3`, seed `251045`, open continuation, click Begin
+a fresh life and its confirmation, then look at the view. The worker received
+`"undefined" is not valid JSON`: the click reply raced its validation frame and
+native reload. The final runner waits for the authority operation/reload before
+returning a view. It reaches Life 2, paused arrival, native Continue and reciprocal
+First-life controls, and a writable native save (hash `bd500535ce527677`).
+Old/new receipts: `/tmp/c2-cont-session.jsonl`, `/tmp/c2-fresh-check.log` and the
+continuation report. Old runner SHA-256 at `35ef1a1f3`:
+`277e675ffb0849ce3a3f81eb8e29bdea8a84fc09f2bb86f0a5f2f1fc4dbd633c`;
+final runner SHA-256:
+`d3c0beb4aa949fc9ffd31087aa466f33dd96964fd5cbe651c0b3c38c0997cc0a`.
+
+Frozen-bundle `path` remains deferred after inspection. That name already means
+an exported save; native reload also reads checkout HTML/CSS/assets, and the
+bundle must include harness instrumentation. A bundle path alone would not pin
+the tested game. The isolated checkout and exact source identities above are
+the boundary for this sweep.
+
+### Completed journeys and remaining coverage
+
+All rows below use the C2 runtime identity above. The four area reports retain fresh seeds, routes, expected/observed behavior, severity, save receipts and limitations. Continuation resumed after the CT2 fix; the other journeys used the same unchanged runtime source.
+
+| Area / seed | Exercised through native actions | Persistence receipt | Remaining gate |
+|---|---|---|---|
+| Mistglass / `251043` | Entry, explicit method opt-in, 300 played minutes, condensate 10/10, Threaded-breath Integrated at 48 practice minutes, sluice clearance, paid Cloudseed dose | `65e0dd4cb8fe6106`; export/import restored Day 1 13:01, method, reserve, dose and sluice state | Trial gated by native Meditation; geometry, seedbed, brood and formulation absent from tested committed build |
+| LOTM / `251044`, `251045` | Two separate Nighthawk lives; Seer ingestion, guided perception and sample cycle; Corpse Collector dose, three body-care acts and vigil, 4/4 settled digestion, assessment and held Gravedigger dose; docks, paid endorsement and crate work | Seer `500699efa1a875dd`; second life `cc753da7d7266b67`, restored Day 1 10:15 workroom | Brewing formula unaffordable in reached lives; full brewing outcome and broader districts remain unverified |
+| Continuation / `251045` | Fresh Life 2, native confirmations, reciprocal resumes, study, later checkpoint and rewind 08:13 → 08:12 | `aa6283a3e98a80b0`; export/import retained Life 2 and later return point | Initial return untested; law memory and baggage controls absent, so review U1 is untestable on this build, not a failed reproduction |
+| Combat / `251046` | Elder gear/travel, Infested field, first Wolf-rat group win (15 → 14 groups), second live encounter | `9a46e31b8f398a4c`; export/import retained 09:05, field, 18/60 hp, 0/40 stamina and rat 24/30 hp | Withdrawal and defeat untested; ordinary Combat log observed, dedicated combat review absent from this build |
+
+Combat has timers beyond the dev calendar stepper. Large `game_step` calls therefore do not establish native combat pacing.
+
+Area records: [Mistglass](../gm/dispatch/codex-parallel-2026-10-25/C2_MISTGLASS_PLAY.md), [LOTM](../gm/dispatch/codex-parallel-2026-10-25/C2_LOTM_PLAY.md), [continuation](../gm/dispatch/codex-parallel-2026-10-25/C2_CONTINUATION_PLAY.md), [combat](../gm/dispatch/codex-parallel-2026-10-25/C2_COMBAT_PLAY.md).
+
+### C2 findings, in A1 format
+
+**CMC1: purification-trial prerequisite route remains unresolved.**
+
+- **Area/build:** Mistglass trials, C2 committed runtime tree above, seed `251043`.
+- **Reproduction:** take the CT1 Mistglass route, learn Threaded-breath circulation, play 300 minutes and buy a Cloudseed dose. Inspect the 12-minute purification trial; then inspect Village actions and Find work for native Meditation.
+- **Expected:** reach the prerequisite through ordinary progression, or identify its route before testing the trial.
+- **Observed:** the trial states one paid dose and 2 condensate, but remains disabled with “Learn native Meditation first.” The bounded Village journey exposed Move, Talk, Find work and Mix; work offered patrol. No Meditation action was reached. This does not establish game-wide absence.
+- **Severity:** coverage gap, not a confirmed broken unlock. Receipt `/tmp/c2-mist-session.jsonl`; follow-up `/tmp/c2-mist-resume.jsonl`.
+
+**CLC6: brewing stopped at the reached life's means gate.**
+
+- **Area/build:** Tingen brewing, C2 runtime tree above, seeds `251044` and `251045`.
+- **Reproduction:** enroll through localhost `lotm_probe=1`, take the supervised Seer route, visit docks and do the recorded endorsement/crate journey; inspect the Corpse Collector formula purchase in the workroom. The second fresh life also displays the same means gate.
+- **Expected:** a legible price and material route; successful brewing requires earning those means first.
+- **Observed:** formula costs 5 pounds (1,200 pence), frog costs 36 pence at docks, reached purse about 102 coins, and purchase says “Insufficient money.” No money or ingredients were injected. Recipe purchase and brewing outcome remain unverified.
+- **Severity:** coverage gate. This run does not demonstrate a balance defect or require that a fresh probationer can afford it. Receipt `/tmp/c2-lotm-seer2.jsonl`.
+
+**CCC1: one reciprocal-return Continue reported an already-applied event.**
+
+- **Area/build:** continuation, C2 runtime tree above with final async-click runner, seed `251045`.
+- **Reproduction:** fresh Life 2 → Continue → Resume First life and confirm → Continue; inspect the connection view.
+- **Expected:** the arrival action resolves or explains its current state.
+- **Observed:** “This return has already been applied” and arrival-paused copy remained; a separately confirmed reciprocal resume to Life 2 worked. Native source guards repeated event tokens. A harness-only probe confirmed the first deterministic UUID repeats after realm reinstall. This supports a harness identity-replay cause, not a native-browser defect. No state was injected to bypass it.
+- **Severity:** confusing headless observation; native cause unconfirmed. Receipt `/tmp/c2-cont-fixed-session.jsonl` and continuation report. CT2's earlier failed look is fixed separately.
+
+**CBC1: mid-fight withdrawal was not found in the scoped local-action view.**
+
+- **Area/build:** combat, C2 runtime tree above, seed `251046`.
+- **Reproduction:** elder dialogue and sword → Infested field → first group win → second live fight; inspect `#location_actions_div` at low hp.
+- **Expected:** discover the ordinary withdrawal choice and its cost (CBR25).
+- **Observed:** that scope had no actions at 8/60 hp and 0/40 stamina. A parent return exists in source; this scoped observation does not show it is unavailable elsewhere in the native UI.
+- **Severity:** confusing route/coverage gap, not a confirmed CBR25 violation. Receipt `/tmp/c2-combat-session.jsonl` and limit ledger.
+
+**CG1 / CG2: newer requested systems were outside this build.** The committed source and reachable panels do not contain the newer cultivation geometry/seedbed/brood/formulation work, continuation law-memory/baggage controls or dedicated combat review. These remain acceptance backlog for an integrated candidate containing them. U1 from `UNCOMMITTED_RUNTIME_REVIEW_2026-10-25.md` specifically cannot be tested here without baggage. This is a build-coverage boundary, not evidence those newer systems pass or fail.
+
+### What felt good in C2
+
+**G5:** Mistglass connected method practice, a visible resource reserve, a cheaper sluice cost and an ordinary paid ingredient. **G6:** Tingen separated a prepared dose from irreversible ingestion and kept novice perception distinct from identification or safety. **G7:** Continuation made separate lives and reciprocal return points legible. **G8:** Combat showed opponent health and group progress, and preserved a live encounter through export/import. Area reports bound each observation to its actual journey.
+
+### C2 updated top ten, ranked
+
+This ranks open defects, confusing observations, coverage gates and fixed tooling findings. It is not a claim of ten gameplay bugs. B1 findings retain their original input identity and were not independently rerun in C2; the committed runtime tree is unchanged.
+
+| Rank | Code | Finding | Status / next gate |
+|---:|---|---|---|
+| 1 | P2 / BFA1 / BMC2 / BLD1 | Patrol step reports failure after applying shift outcome | B1 runtime bug remains open; owning runtime lane |
+| 2 | CMC1 | Native Meditation route not reached for purification trial | Ordinary prerequisite route still needed |
+| 3 | CG1 | Geometry, seedbed, brood and formulation outside tested build | Test integrated candidate containing them |
+| 4 | CG2 / U1 | Law memory, baggage and dedicated combat review outside tested build | U1 untestable here; not no-repro |
+| 5 | CBC1 | Mid-fight withdrawal absent from inspected scope | Discover/retest full native route; no confirmed rule violation |
+| 6 | CCC1 | Reciprocal-return Continue says already applied | UUID replay supports harness cause; native-browser isolation outstanding |
+| 7 | CLC6 | Brewing stopped at formula cost | Earn ordinary means and complete recipe/brew; no balance claim |
+| 8 | BFA3 | 100% craft preview can still yield no preparation | B1 confusing wording/probability semantics, still open |
+| 9 | BHB2 | Homes storage count and chest identity disagree | B1 confusing identity, no item loss established |
+| 10 | CT1 / CT2 | Hidden native panel routes and asynchronous transition observation | Fixed on C2 branch with regressions; BMC1/BLD2/BLD3 entry blockers closed |
+
+B1's other fixed tooling findings remain documented in its historical section.
+
+### C2 checks and delivery boundary
+
+| Command / evidence | Result and gap |
+|---|---|
+| `npm run build` | PASS; dist SHA above; no dist changes selected |
+| `npm run check:arch` | PASS; grandfathered baseline unchanged |
+| `npm run check:rules` | PASS, zero warnings; no rule change requiring behavior-rule check |
+| `npm test` | 2,872/2,877 pass; four localhost fixture `listen EPERM` denials and one 60-second alloy fixture timeout |
+| `node --test tests/cheat_awakening.test.js tests/cheat_cards.test.js tests/rt_slice1_fixtures.test.js` outside sandbox | PASS 9/9, including all four denied cases |
+| `YAIRPG_FIXTURE_TIMEOUT_MS=180000 node --test tests/alloy_equipment.test.js` | PASS 5/5; timeout cleared |
+| `node --test tests/interaction_native.test.js tests/scenario_facade.test.js tests/palette_native.test.js tests/crafting_native_reload.test.js tests/domain_instance_isolation.test.js` after CT2 | PASS 14/14, affected runner consumers |
+| `node scripts/mcp/game_mcp_check.mjs` after CT2 | PASS, nine tools, deterministic hash `ce1f755934f76ad5`; all three entries, confirmed fresh life/native save, native dropdown return, paging, save/export/load/resume, unique export paths and external URL/path refusal |
+| Harness-only UUID reinstall probe | First UUID repeats: true; diagnosis for CCC1, no gameplay state loaded |
+| `git diff --check`; primary `git apply --check` for C2 patch | PASS at delivery; applicability only, not primary integration |
+
+Final changed-runner tests and MCP regressions passed after the last code edit. Earlier build/architecture/rules and unaffected full-suite evidence are retained for unchanged inputs; the whole suite was not rerun after CT2. Logs are `/tmp/c2-build.log`, `/tmp/c2-tests.log`, `/tmp/c2-http-rerun.log`, `/tmp/c2-alloy-rerun.log`, `/tmp/c2-runner-consumers.log`, `/tmp/c2-mcp-check-final.log`.
+
+`C2_game_mcp.patch` is refreshed against the primary checkout's actual current untracked MCP files and checked for applicability. Primary tool/runtime scripts remain unmodified by C2; patch application/integration is separate from this isolated branch delivery. Four workers finished bounded journeys and stopped their hosts. A blank accidental limit-ledger entry is retained as raw history and is not a finding.
+
+The remaining gameplay acceptance gate is a rebuilt integrated candidate containing the newer systems, followed by their native journeys, U1 baggage reproduction and dedicated combat review. Desktop viewport evidence and human play acceptance remain separate from these headless results. Frozen-bundle support remains deferred as explained above.

@@ -54,6 +54,23 @@ diff --git a/scripts/headless/runner.mjs b/scripts/headless/runner.mjs
              if(!ran) break;
          }
          this.timerNow = end;
+@@ -500,7 +537,15 @@
+         el.dispatchEvent(new E.MouseEvent('mouseup', {bubbles:true, cancelable:true}));
+         el.click();
+         await this.settle();
+-        return el;
++        // Native continuation/import commands validate asynchronously in a frame.
++        // Do not hand the caller a view from that temporary realm or from the
++        // old runtime after it has committed a life switch but before reload.
++        for(let round = 0; round < 400; round++) {
++            while(Realm.busy && Realm.booting !== this) await Realm.busy;
++            if(!this.internals.authorityOperationBusy && !this.reloadRequested) return el;
++            await this.settle(100);
++        }
++        throw new Error('Native click did not settle within 40 s of timer time.');
+     }
+     _blockReason(el) {const root = el.closest('[data-state]'); return root ? ` (${root.dataset.state}: ${root.textContent.replace(/\s+/g, ' ').trim().slice(0, 200)})` : '';}
+     /** Click the first visible, enabled element whose text matches. */
 diff --git a/scripts/mcp/game_mcp.mjs b/scripts/mcp/game_mcp.mjs
 --- a/scripts/mcp/game_mcp.mjs
 +++ b/scripts/mcp/game_mcp.mjs
@@ -80,7 +97,7 @@ diff --git a/scripts/mcp/game_mcp.mjs b/scripts/mcp/game_mcp.mjs
 diff --git a/scripts/mcp/game_mcp_check.mjs b/scripts/mcp/game_mcp_check.mjs
 --- a/scripts/mcp/game_mcp_check.mjs
 +++ b/scripts/mcp/game_mcp_check.mjs
-@@ -39,12 +39,89 @@
+@@ -39,12 +39,97 @@
  }
  
  async function greetElder(c, seed) {
@@ -119,7 +136,7 @@ diff --git a/scripts/mcp/game_mcp_check.mjs b/scripts/mcp/game_mcp_check.mjs
 +    await c.tool('game_click', {index: v.actions.find(a => /Go to \[Wild willow stand\]/.test(a.text)).index});
 +    v = await local();
 +    assert.equal(v.location, 'Wild willow stand');
-+    const dropdown = v.actions.find(a => a.key === '.location_choice_dropdown');
++    const dropdown = v.actions.find(a => a.key === '.location_choice_dropdown' || a.key.includes('location_choice_dropdown') || a.key.includes('data-native-choice'));
 +    assert.ok(dropdown, 'native listener-only dropdown appears in action list');
 +    await c.tool('game_click', {index: dropdown.index});
 +    v = await local();
@@ -137,6 +154,14 @@ diff --git a/scripts/mcp/game_mcp_check.mjs b/scripts/mcp/game_mcp_check.mjs
 +    await c.tool('game_click', {key: '#continuation_open'});
 +    v = await c.tool('game_look', {scope: '#continuation_view'});
 +    assert.ok(v.actions.some(a => a.text === 'Begin a fresh life'), 'native fresh-life confirmation route is offered');
++    await c.tool('game_click', {key: '[data-continuation-action="fresh"]'});
++    await c.tool('game_click', {key: '[data-continuation-action="fresh"]'});
++    await c.tool('game_click', {panel: 'continuation'});
++    await c.tool('game_click', {key: '#continuation_open'});
++    v = await c.tool('game_look', {scope: '#continuation_view'});
++    assert.match(v.screen, /arrival paused/, 'fresh confirmation waits for native validation and reload into the new life');
++    assert.ok(v.actions.some(a => /Continue this life/.test(a.text)), 'new-life arrival has its normal continuation control');
++    assert.ok((await c.tool('game_save')).heroCreated, 'new-life runtime is writable after asynchronous validation');
 +    const unknown = (await c.rpc('tools/call', {name: 'game_click', arguments: {panel: 'nonexistent-c2-panel'}})).result;
 +    assert.equal(unknown.isError, true, 'panel helper cannot invent unknown panels');
 +
@@ -170,7 +195,7 @@ diff --git a/scripts/mcp/game_mcp_check.mjs b/scripts/mcp/game_mcp_check.mjs
  }
  
  const c = client();
-@@ -56,15 +133,23 @@
+@@ -56,15 +141,23 @@
      assert.deepEqual(list.sort(), ['game_click', 'game_export', 'game_load', 'game_look', 'game_new', 'game_report_limit', 'game_save', 'game_status', 'game_step']);
      assert.equal((await c.rpc('nope')).error.code, -32601);
  
@@ -194,7 +219,7 @@ diff --git a/scripts/mcp/game_mcp_check.mjs b/scripts/mcp/game_mcp_check.mjs
      const atExport = (await c.tool('game_status')).time;
      await c.tool('game_step', {minutes: 60});
      assert.notDeepEqual((await c.tool('game_status')).time, atExport, 'time passes');
-@@ -72,6 +157,10 @@
+@@ -72,6 +165,10 @@
      const after = await c.tool('game_status');
      assert.deepEqual(after.time, atExport, 'export then load returns to the exported moment');
      assert.ok((await c.tool('game_save')).heroCreated, 'same hero after load');
@@ -332,7 +357,7 @@ diff --git a/scripts/mcp/game_worker.mjs b/scripts/mcp/game_worker.mjs
 diff --git a/docs/tools/GAME_MCP_LIMITS.md b/docs/tools/GAME_MCP_LIMITS.md
 --- a/docs/tools/GAME_MCP_LIMITS.md
 +++ b/docs/tools/GAME_MCP_LIMITS.md
-@@ -18,17 +18,52 @@
+@@ -18,17 +18,66 @@
  
  | Limit | Workaround today | Expand by |
  | --- | --- | --- |
@@ -375,6 +400,20 @@ diff --git a/docs/tools/GAME_MCP_LIMITS.md b/docs/tools/GAME_MCP_LIMITS.md
 +Mistglass disclosure for its explicit entry and method choices. Continuing
 +connection uses its ordinary Open your connection action.
 +
++Native click replies also wait for the game’s asynchronous authority validation
++and any requested reload. This matters for fresh-life continuation: returning
++before its validation iframe finishes can expose an old blocked runtime and
++make the next snapshot fail. The C2 regression confirms Life 2, its paused
++arrival and a writable native save after the actual confirmation.
++
++Remaining playtest qualifications: CCC1 observed an “already applied” Continue
++message after reciprocal return. The native guard compares event tokens, while
++the harness re-seeds deterministic crypto on reload; identity replay is a
++possible harness cause, not an established browser runtime defect. Native
++combat also has timers beyond the dev calendar stepper, so large `game_step`
++calls do not establish real combat pacing. The [C2 sweep](../reviews/PLAYTEST_SWEEP_2026-10-25.md#c2-follow-up)
++keeps these limitations separate from game defects.
++
 +Frozen-bundle support remains deferred. `path` already means an exported save;
 +the runner uses an instrumented bundle plus checkout HTML/CSS/assets on reload.
 +A bundle path alone would not pin those inputs, so it is not a cheap wrapper
@@ -387,57 +426,18 @@ diff --git a/docs/tools/GAME_MCP_LIMITS.md b/docs/tools/GAME_MCP_LIMITS.md
 +## B1 branch receipt, 2026-10-25
 +
 +`game_new.url` accepts only an HTTP localhost test origin for opt-in world entry and always enables `test_hooks=1`. It changes entry configuration, not game state. `path` remains an MCP export, not a bundle path. `game_mcp_check.mjs` covers the started state, hidden startup text, Village livelihood control, deterministic elder interaction, save/export/load/resume, unique export paths, unsafe save-path refusal and a temporary limit ledger. Full B1 record: [status](../gm/dispatch/codex-parallel-2026-10-25/B1_STATUS.md).
-diff --git a/docs/gm/dispatch/codex-parallel-2026-10-25/C2_CHECKPOINT.md b/docs/gm/dispatch/codex-parallel-2026-10-25/C2_CHECKPOINT.md
-new file mode 100644
---- /dev/null
-+++ b/docs/gm/dispatch/codex-parallel-2026-10-25/C2_CHECKPOINT.md
-@@ -0,0 +1,49 @@
-+# C2 MCP coverage checkpoint, 2026-10-25
-+
-+Owner: C2. Isolated branch `codex/game-mcp-play-2026-10-25`; merge `5a2ed4c9e` includes requested master `9b997ea60`. No runtime source edits authorized here. Primary playtest report ownership transferred from B1 to C2 by Weibao.
-+
-+Rules: AD6-AD8 (player observation), AD22 (save integrity), AD32/AD36 (authority and verification), AD34 (desktop acceptance separate), AR3/AR7/AR8, AU1-AU7. MCP seam only; no new gameplay rules.
-+
-+Routes under investigation: native workspace More panels selector opens Projects, Continuing connection and Tingen workroom. LOTM enrollment additionally requires the existing localhost `lotm_probe=1` flag. No synthetic state or sealed-truth route.
-+
-+Finite dispatch: 4 fresh Luna-medium workers, one invocation per area (Mistglass, LOTM, continuation, combat), max 4 concurrent. Each owns only its C2 area report and scratch receipts. Coordinator integrates the report. No descendants or runtime edits. Allowance telemetry unavailable; bounded dispatch, no API fallback. Stop each after requested journeys or concrete reproducible remaining blockers and persistence receipts.
-+
-+Frozen-bundle path deferred after inspection: `game_new.path` already means an encoded save. Runner reload rebuilds a harness-instrumented bundle and reads checkout HTML/CSS; a bundle-only option would not pin the game. A complete frozen root is outside this cheap wrapper seam.
-+
-+## Route diagnosis and implementation
-+
-+All three routes exist. B1's title text was hidden, but the native workspace's
-+`startScreen` remained `open`, because the runner's MutationObserver never
-+called the native start-screen observer. C2 implements bounded attribute
-+observer delivery at settle boundaries (style included), so PLAY now closes
-+that mode through the existing observer. No gameplay state edit.
-+
-+A first regression caught another distinction: Layout / Panels / Show restores
-+a module's dock setting, but unmapped parity modules still need the ordinary
-+More panels expansion route. C2's `panel` shortcut uses that visible selector,
-+validates the option, and dispatches native input/change. `game_click` also
-+accepts `value` with a select `key`; hidden, disabled, absent options fail.
-+
-+Runtime identity: committed `src` tree `6f928fb9523f41ce21c8140461ba39d81ecc7a52`,
-+`dist/bundle.js` SHA-256 `652f967dc96777ce3c78a01a5d214c082e30e14000e9cccecd9ad1cc1897aec4`.
-+MCP actually bundles this worktree's source with harness instrumentation; the
-+dist hash is a build receipt, not a claim that MCP imports dist. Concurrent
-+primary uncommitted gameplay is excluded from these journeys.
-+
-+## Verification while editing
-+
-+- `npm run build`: PASS; branch runtime bundle hash above. Generated source-map path drift reverted from this lane's build; no dist change selected.
-+- `npm run check:arch`: PASS; existing grandfathered baseline unchanged.
-+- `npm run check:rules`: PASS, zero warnings; no rule changes, rule-behavior rerun not needed.
-+- `npm test`: 2,872/2,877 pass. Four localhost fixtures denied with `listen EPERM`; one independent alloy fixture reached its 60-second timeout under concurrent tests. No changed runtime code.
-+- `node --test tests/cheat_awakening.test.js tests/cheat_cards.test.js tests/rt_slice1_fixtures.test.js` outside sandbox: PASS 9/9, covering all four denied cases.
-+- `YAIRPG_FIXTURE_TIMEOUT_MS=180000 node --test tests/alloy_equipment.test.js`: PASS 5/5; timeout failure cleared in focused rerun.
-+- `node scripts/mcp/game_mcp_check.mjs`: in progress; intermediate route assertions corrected as described above. No claim of final pass yet.
-+
-+Focused route receipt: `/tmp/c2-mist-route.log` reaches `Mistglass conservatory`
-+and its native Learn method control after elder hello, center Back, one played
-+minute, place Options, Iona ledger enrollment, More panels → Projects and the
-+two project disclosures. Tingen enrollment reached its actual workroom;
-+continuation exposed Begin a fresh life. Final combined MCP regression remains
-+running separately; intermediate failures were route/test assumptions, not
-+runtime source changes.
+diff --git a/docs/tools/game_mcp_limits.jsonl b/docs/tools/game_mcp_limits.jsonl
+--- a/docs/tools/game_mcp_limits.jsonl
++++ b/docs/tools/game_mcp_limits.jsonl
+@@ -1 +1,11 @@
+ {"at":"2026-10-25T05:02:14.514Z","wanted":"Click the PLAY action shown on the game_new title screen to begin a player-visible run.","blockedBy":"game_new exposed the title text in screen but its action list contained no PLAY action; game_click(text='PLAY') left the same title screen.","workaround":"Continue by using the village location/actions already exposed in the same state; inspect game_look and use its current numbered actions."}
++{"at":"2026-10-25T05:15:35.872Z","wanted":"Click the visible Find work choice returned in the scoped #location_actions_div view by its exact displayed text.","blockedBy":"game_click text Find work returned No clickable element with text Find work.","workaround":"Use the absolute action index in the default full game_look view."}
++{"at":"2026-10-25T05:17:00.701Z","wanted":"Open the test-only LOTM Tingen branch panel from a fresh Village life using the allowed localhost lotm_probe route and then use normal player enrollment controls.","blockedBy":"The normal visible center views expose Here, Crafting, Mixing and ? only; no Tingen workroom or LOTM start control appears in any paged visible action list after game_new, despite the localhost lotm_probe flag. No direct or debug/state mutation route is authorized in this playtest.","workaround":"Continue natural gameplay and continuation checks, then record Tingen pathways and districts as not exercised because the entry surface is unreachable through current normal controls."}
++{"at":"2026-10-25T05:17:53.788Z","wanted":"Take the offered Village patrol for two hours after opening Find work in a fresh game.","blockedBy":"game_click on the visible patrol offer returned 'Cannot read properties of undefined (reading skill_required)'","workaround":"Continue with read-only inspection and save/export/import; report the player-action exception as a blocker."}
++{"at":"2026-10-25T05:18:24.446Z","wanted":"Reach the player-visible Mistglass opt-in route from a fresh Village start to test cultivation and trials.","blockedBy":"The active layout exposes only Here, Crafting, Mixing and ? in Center views. The source route to Projects exists, but its route bar and Mistglass panel are absent from game_look/clickables; the visible Village nearby list also omits Projects. No direct world-entry URL flag was found.","workaround":"Continue through visible Village actions and combat to establish how much of the requested life can be tested; report Mistglass entry as unverified if no player-visible route appears."}
++{"at":"2026-10-25T05:18:28.882Z","wanted":"Return from the visible Wild willow stand location to continue a Village livelihood/workshop playtest.","blockedBy":"At Wild willow stand, scoped #location_actions_div returns actionCount 0 and no actions; the default game_look has no actionable way back despite visible screen text “directions Move somewhere else”.","workaround":"Start a new fresh life to continue Village testing; do not claim site harvesting coverage."}
++{"at":"2026-10-25T05:19:02.575Z","wanted":"Resume an exported household save through game_new({path}), as requested for persistence coverage.","blockedBy":"game_new(path) fails with load_from_localstorage SyntaxError: Unexpected token Y in YAIR-UTF8-. game_load of the identical export succeeds.","workaround":"Verify import with game_load and compare day/location, then stop further resume-path attempts."}
++{"at":"2026-10-25T05:21:04.737Z","wanted":"Open the visible continuing-connection panel and begin a fresh life through its normal confirmation flow.","blockedBy":"After fresh game_new and game_save, all paged game_look actions contain no continuation/connection action and game_look scope #continuation_panel returns an empty screen/actions. No continuation transition is available through normal visible controls.","workaround":"Preserve the seed and current life, step through three in-game days, then test save/export/resume; mark the fresh-life continuation and baggage path unexercised."}
++{"at":"2026-10-25T06:48:46.257Z","wanted":"","blockedBy":"","workaround":""}
++{"at":"2026-10-25T07:04:03.604Z","wanted":"Confirm a native fresh life and inspect its arrival through MCP on tooling 35ef1a1f3.","blockedBy":"The asynchronous validation/reload outlived game_click; subsequent game_look failed with undefined is not valid JSON. Recorded in /tmp/c2-cont-session.jsonl.","workaround":"C2 runner now waits for native authority operations/reloads. Focused fresh-life and expanded MCP regressions pass; worker retests on updated runner."}
++{"at":"2026-10-25T07:15:55.684Z","wanted":"Withdraw from the active native Infested field fight after some exchanges, then inspect the field aftermath.","blockedBy":"During Combat in progress, game_look scoped to #location_actions_div returns an empty view and no native withdrawal or travel control is available. The only return travel option was visible before combat began.","workaround":"Keep the live fight running in bounded 5-minute steps until it resolves, then use the ordinary field return control if available. The combat outcome/report and save/export/load remain inspectable through MCP."}

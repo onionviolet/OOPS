@@ -537,7 +537,15 @@ export class HeadlessGame {
         el.dispatchEvent(new E.MouseEvent('mouseup', {bubbles:true, cancelable:true}));
         el.click();
         await this.settle();
-        return el;
+        // Native continuation/import commands validate asynchronously in a frame.
+        // Do not hand the caller a view from that temporary realm or from the
+        // old runtime after it has committed a life switch but before reload.
+        for(let round = 0; round < 400; round++) {
+            while(Realm.busy && Realm.booting !== this) await Realm.busy;
+            if(!this.internals.authorityOperationBusy && !this.reloadRequested) return el;
+            await this.settle(100);
+        }
+        throw new Error('Native click did not settle within 40 s of timer time.');
     }
     _blockReason(el) {const root = el.closest('[data-state]'); return root ? ` (${root.dataset.state}: ${root.textContent.replace(/\s+/g, ' ').trim().slice(0, 200)})` : '';}
     /** Click the first visible, enabled element whose text matches. */

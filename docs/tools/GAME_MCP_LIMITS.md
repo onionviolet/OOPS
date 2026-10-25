@@ -55,6 +55,20 @@ Follow local people and work. Then open Projects, Optional projects, and the
 Mistglass disclosure for its explicit entry and method choices. Continuing
 connection uses its ordinary Open your connection action.
 
+Native click replies also wait for the game’s asynchronous authority validation
+and any requested reload. This matters for fresh-life continuation: returning
+before its validation iframe finishes can expose an old blocked runtime and
+make the next snapshot fail. The C2 regression confirms Life 2, its paused
+arrival and a writable native save after the actual confirmation.
+
+Remaining playtest qualifications: CCC1 observed an “already applied” Continue
+message after reciprocal return. The native guard compares event tokens, while
+the harness re-seeds deterministic crypto on reload; identity replay is a
+possible harness cause, not an established browser runtime defect. Native
+combat also has timers beyond the dev calendar stepper, so large `game_step`
+calls do not establish real combat pacing. The [C2 sweep](../reviews/PLAYTEST_SWEEP_2026-10-25.md#c2-follow-up)
+keeps these limitations separate from game defects.
+
 Frozen-bundle support remains deferred. `path` already means an exported save;
 the runner uses an instrumented bundle plus checkout HTML/CSS/assets on reload.
 A bundle path alone would not pin those inputs, so it is not a cheap wrapper

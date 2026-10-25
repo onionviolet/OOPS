@@ -74,7 +74,7 @@ async function nativeDropdownRoundtrip(c) {
     await c.tool('game_click', {index: v.actions.find(a => /Go to \[Wild willow stand\]/.test(a.text)).index});
     v = await local();
     assert.equal(v.location, 'Wild willow stand');
-    const dropdown = v.actions.find(a => a.key === '.location_choice_dropdown');
+    const dropdown = v.actions.find(a => a.key === '.location_choice_dropdown' || a.key.includes('location_choice_dropdown') || a.key.includes('data-native-choice'));
     assert.ok(dropdown, 'native listener-only dropdown appears in action list');
     await c.tool('game_click', {index: dropdown.index});
     v = await local();
@@ -92,6 +92,14 @@ async function blockedRoutes(c) {
     await c.tool('game_click', {key: '#continuation_open'});
     v = await c.tool('game_look', {scope: '#continuation_view'});
     assert.ok(v.actions.some(a => a.text === 'Begin a fresh life'), 'native fresh-life confirmation route is offered');
+    await c.tool('game_click', {key: '[data-continuation-action="fresh"]'});
+    await c.tool('game_click', {key: '[data-continuation-action="fresh"]'});
+    await c.tool('game_click', {panel: 'continuation'});
+    await c.tool('game_click', {key: '#continuation_open'});
+    v = await c.tool('game_look', {scope: '#continuation_view'});
+    assert.match(v.screen, /arrival paused/, 'fresh confirmation waits for native validation and reload into the new life');
+    assert.ok(v.actions.some(a => /Continue this life/.test(a.text)), 'new-life arrival has its normal continuation control');
+    assert.ok((await c.tool('game_save')).heroCreated, 'new-life runtime is writable after asynchronous validation');
     const unknown = (await c.rpc('tools/call', {name: 'game_click', arguments: {panel: 'nonexistent-c2-panel'}})).result;
     assert.equal(unknown.isError, true, 'panel helper cannot invent unknown panels');
 
