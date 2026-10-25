@@ -1,0 +1,152 @@
+{
+  "authority": "proposal only; no commit/merge/retire/delete",
+  "base": "9b997ea60",
+  "groups": [
+    {
+      "id": "P1",
+      "title": "C5 documentary reconciliation",
+      "state": "documentary gate receipt in C5_CHECKS.json; no runtime claim",
+      "exact_new_paths": [
+        "docs/gm/RECONCILIATION_2026-10-25.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_CHECKPOINT_INVENTORY.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_CHECKS.json",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_COMMIT_PLAN.json",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_GIT_INVENTORY.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_LATE_ARRIVALS.json",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_PRIMARY_INVENTORY.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_PRIMARY_PATHS.json",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_SUPERSEDED_ROUTING.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_TONIGHT_REVIEW.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_WORKTREE_CHECKPOINTS.json",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/HANDOFF_cultivation_U1_U2_U4.md"
+      ],
+      "shared_hunks_only": [
+        "PROJECT.md",
+        "docs/gm/WORKTREE_RECONCILIATION_2026-10-24.md",
+        "docs/gm/dispatch/overarching-reconciliation-2026-10-23/CHECKPOINT.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/README.md",
+        "docs/research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md"
+      ],
+      "gate": "zero-loss plus archive, scoped whitespace and links, check:rules; re-read shared hunks from fresh HEAD"
+    },
+    {
+      "id": "P2",
+      "title": "P2 tooling B1/C2",
+      "branch": "codex/game-mcp-play-2026-10-25",
+      "head_at_capture": "5a2ed4c9e3f302970d5a19f4e9b1fd35507d7f13",
+      "state": "branch result exists; continuing owner active; final candidate gates pending",
+      "exact_paths_at_capture": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/B1_CONTINUATION_LOTM.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/B1_FRONTIER.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/B1_HOUSEHOLD.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/B1_MISTGLASS.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/B1_STATUS.md",
+        "docs/gm/dispatch/codex-parallel-2026-10-25/B1_game_mcp.patch",
+        "docs/reviews/PLAYTEST_SWEEP_2026-10-25.md",
+        "docs/tools/GAME_MCP_LIMITS.md",
+        "docs/tools/game_mcp_limits.jsonl",
+        "scripts/mcp/game_mcp.mjs",
+        "scripts/mcp/game_mcp_check.mjs",
+        "scripts/mcp/game_worker.mjs",
+        "scripts/mcp/stdio_server.mjs"
+      ],
+      "gate": "owning focused checks; build; check:arch; check:rules; full npm test once by committer; rebuilt fresh-origin changed journey and persistence; tools direct-stdio regression"
+    },
+    {
+      "id": "P3",
+      "title": "P3 LOTM A2/C1",
+      "branch": "codex/lotm-q3-2026-10-25",
+      "head_at_capture": "b7769821aa9b3ecdee71aa5399f41eba091a06a5",
+      "state": "Q3/Q4 local slice gates complete through b7769821a; Q5/final full suite/master integration pending",
+      "exact_paths_at_capture": [
+        "docs/gm/dispatch/lotm-q3-2026-10-25/CHECKPOINT.md",
+        "docs/gm/dispatch/lotm-q3-2026-10-25/browser-result.json",
+        "docs/gm/dispatch/lotm-q3-2026-10-25/checks/profiles.cjs",
+        "docs/gm/dispatch/lotm-q4-2026-10-25/CHECKPOINT.md",
+        "docs/gm/dispatch/lotm-q4-2026-10-25/checks/clearance.cjs",
+        "docs/gm/dispatch/lotm-q4-2026-10-25/checks/support.cjs",
+        "docs/gm/dispatch/lotm-q4-2026-10-25/evidence/probationer-blocked.png",
+        "docs/gm/dispatch/lotm-q4-2026-10-25/evidence/result.json",
+        "docs/gm/dispatch/lotm-q4-2026-10-25/evidence/signed-out-imported.png",
+        "src/book_world_lotm_actions.js",
+        "src/book_world_lotm_host.js",
+        "src/book_world_lotm_lives.js",
+        "src/book_world_lotm_ui.js",
+        "tests/lotm_clearance.test.js",
+        "tests/lotm_lives.test.js",
+        "tests/lotm_lives_compat.test.js",
+        "tests/lotm_pathway_rows.test.js"
+      ],
+      "gate": "owning focused checks; build; check:arch; check:rules; full npm test once by committer; rebuilt fresh-origin changed journey and persistence; tools direct-stdio regression"
+    },
+    {
+      "id": "P4",
+      "title": "finished B2/B3 research and B4/B5 reviews",
+      "state": "research/review delivery, doc checks only; private source excluded",
+      "exact_paths": [
+        "docs/worlds/world-core-kit-2026-10-14/cards/wish-upon-the-stars.md",
+        "docs/worlds/world-core-kit-2026-10-14/cards/godclads.md",
+        "docs/reviews/UNCOMMITTED_RUNTIME_REVIEW_2026-10-25.md",
+        "docs/reviews/TEST_SUITE_LEANNESS_AUDIT_2026-10-25.md"
+      ],
+      "shared_hunks_only": [
+        "docs/research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md"
+      ],
+      "gate": "local links, whitespace, private-source exclusion and source-evidence caveat review; no runtime gate"
+    },
+    {
+      "id": "P5",
+      "branch": "codex/playtest-fixes-2026-10-25",
+      "state": "C3 technically complete at af662dd8c; qualified full-suite exceptions covered by focused reruns; integrated-primary gate pending",
+      "current_residue_not_staging_authority": [
+        " M dist/bundle.js",
+        " M dist/bundle.js.map",
+        " M index.html",
+        " M src/crafting_detail.js",
+        " M src/crafting_home.js",
+        " M src/display.js",
+        " M src/home_content.js",
+        " M src/home_panel.js",
+        " M src/storage_comparison.js",
+        " M tests/home_system.test.js",
+        " M tests/storage_comparison.test.js",
+        "?? docs/gm/dispatch/playtest-fixes-2026-10-25/CHECKPOINT.md",
+        "?? scripts/mcp/game_mcp.mjs",
+        "?? scripts/mcp/game_mcp_check.mjs",
+        "?? scripts/mcp/game_worker.mjs",
+        "?? scripts/mcp/stdio_server.mjs",
+        "?? scripts/playtest_c3_browser.mjs",
+        "?? tests/activity_patrol.test.js",
+        "?? tests/crafting_experiment_preview.test.js"
+      ],
+      "gate": "wait for final owner release and exact path manifest; focused owning regressions and eventual combined completion gates; preserve coverage for C4 rename mapping",
+      "head_at_capture": "af662dd8c446bf2fe13e163d797de22e536477ba",
+      "exact_paths_at_capture": [
+        "dist/bundle.js",
+        "dist/bundle.js.map",
+        "docs/gm/dispatch/playtest-fixes-2026-10-25/CHECKPOINT.md",
+        "index.html",
+        "scripts/playtest_c3_browser.mjs",
+        "src/crafting_detail.js",
+        "src/crafting_home.js",
+        "src/display.js",
+        "src/home_content.js",
+        "src/home_panel.js",
+        "src/storage_comparison.js",
+        "tests/activity_patrol.test.js",
+        "tests/crafting_experiment_preview.test.js",
+        "tests/home_system.test.js",
+        "tests/storage_comparison.test.js"
+      ]
+    },
+    {
+      "id": "P6",
+      "branch": "codex/lean-tests-2026-10-25",
+      "state": "in progress, not an exact final commit set",
+      "current_residue_not_staging_authority": [
+        "?? docs/gm/dispatch/lean-tests-2026-10-25/CHECKPOINT.md"
+      ],
+      "gate": "wait for final owner release and exact path manifest; focused owning regressions and eventual combined completion gates; preserve coverage for C4 rename mapping"
+    }
+  ]
+}

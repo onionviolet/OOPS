@@ -1,0 +1,7 @@
+Lane B5: test-suite leanness audit, proposal only (2026-10-25). Follow docs/gm/dispatch/codex-parallel-2026-10-25/COMMON.md.
+
+Standing direction (AGENTS.md Verification, "Lean tests (2026-10-22)"): organize tests by system, not by delivery wave, and delete or merge tests that only pinned a reworked shape; avoid duplicate assertions and tests of incidental implementation details. AD36 in docs/RULES_INDEX.md covers efficient rule verification.
+
+Task: audit tests/ in /Users/weiwei/code/yet-another-idle-rpg at committed HEAD (use `git show HEAD:<path>` or `git ls-tree`; other sessions are editing some tests in the working tree, so note any file that is dirty). Fan out up to 4 Luna-medium subagents over disjoint slices of the test files. For each file, record: the system it covers; whether it is wave-named or system-named; duplicate or near-duplicate assertions elsewhere (with locators); tests that pin incidental shape instead of behavior; obviously dead tests; and runtime cost (time each file once with `node --test <file>` at HEAD content, in a temp copy if the working tree is dirty). Review the subagents' claims yourself (Sol) before keeping them.
+
+Output only docs/reviews/TEST_SUITE_LEANNESS_AUDIT_2026-10-25.md: the current inventory, then proposed merges, renames into system files, and deletions, each with its reason, risk and the invariant that must remain covered. Do not edit any test or source file. Findings are proposals, not accepted decisions.

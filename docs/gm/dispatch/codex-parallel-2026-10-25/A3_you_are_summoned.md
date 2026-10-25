@@ -1,0 +1,13 @@
+Lane A3: source deep dive of You Are Summoned 1-5 by Dean Henegar (2026-10-25). Authority: Weibao's one-world-at-a-time source-deep-dive sequence; this is HQ2 / QL2 in docs/research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md, next in its default order, and he asked to send out parallel Codex work tonight. Coordinator: Claude session "Codex lanes". You are the single coordinator for this source (AU13).
+
+Read AGENTS.md, docs/RULES_INDEX.md, .claude/rules/research-and-agents.md, docs/AGENT_USAGE_RULES.md (AU1-AU15), docs/WORLD_PASS_RULES.md (WPR1-WPR32), docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md, and the queue file. Use the finished Perfect Run and Re:Zero rounds as format examples (their cards under docs/worlds/world-core-kit-2026-10-14/cards/ and the queue's status rows).
+
+Source: held in Calibre, ids 48-53 (books 1-5). Find the library via docs/TOOL_REGISTRY.md / the book routes. Read-only on the library; never modify it. Copy text only into gitignored docs/research/novels/you-are-summoned/ (private). Do not commit raw prose.
+
+Plan: declare one finite whole-source plan first in docs/research/novels/you-are-summoned/PLAN.md (about 655k words). Use fresh reader subagents on gpt-6-luna medium, each owning at most 12,000 source words and six responses, then retiring; two readers at a time unless the plan justifies more inside AU limits. Readers write bounded shard notes; you keep bounded continuity notes, not raw chapters.
+
+Focus (HW3): entry, return and carryover. How summoning works per job, who summons and why, contract and reward terms, what comes home (items, skills, stats, money, relationships), how the Earth life and the summoned life interact, and how mana arriving on Earth changes ordinary life later. Also the power system, rules as engine state, fan premises for living beside the protagonist, and a wiki/community cross-check where a source exists. Label every claim shown / stated / inferred with a locator.
+
+Deliverables: world card docs/worlds/world-core-kit-2026-10-14/cards/you-are-summoned.md; private synthesis under docs/research/novels/you-are-summoned/; a short structural note on entry/return/carryover for YAIRPG's own entry owners (saved under the card or the private folder, clearly a proposal). Then append a status row to the queue file's Status table (hunk-only edit; other sessions edit that file) and end with a more-to-consider round saved in the card. Sweep for blanket claims (AD5).
+
+Hard limits: write only those paths. Do not edit PROJECT.md, USER_VISION.md, IDEA_INDEX or runtime code. No commits, stash, reset or branch changes. No pkill -f. Finish with what was read (word counts), what was saved, and gaps.

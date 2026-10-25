@@ -1,0 +1,7 @@
+Added the **2026-10-25 TS10–TS17 proposal round** to [the engine and stack considerations doc](/Users/weiwei/code/yet-another-idle-rpg/docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md:1483). It ranks the options and gives each a default, dial, rationale, cost, risk, reversible first step, and repo evidence. No accepted direction changed.
+
+- **F1** Measurements: 898 JS modules, 145,093 lines, 3,561 import edges, 226 cyclic edges, and six imports into `main.js`. The seeded 24-hour idle profile ran at 34 game minutes per wall second; its largest game-side self sample was `writeExpansionPlan`. A no-write esbuild bundle took 233 ms. Raw profile: [CPU profile](/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/codex-parallel-2026-10-25/d3-scratch/CPU.20261025.023940.82453.0.001.cpuprofile).
+
+- **F2** The full test run took 6m31s: 3,025 of 3,030 tests passed. Four failures hit sandbox `listen EPERM`; one test mismatched the dirty checkout because `LOTM_ASSESSORS` was absent. The [test log](/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/codex-parallel-2026-10-25/d3-scratch/npm-test.log) records the run. This is not a passing release baseline.
+
+- **F3** `git diff --check` passed. Code remained read-only; only the owner doc and D3 scratch were written. I preserved the doc’s pre-existing uncommitted addition and appended this round. The doc links current official TypeScript, MDN, esbuild, Electron, Tauri, and WebAssembly sources.

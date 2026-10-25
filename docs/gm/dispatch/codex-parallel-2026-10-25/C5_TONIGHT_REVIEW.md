@@ -1,0 +1,92 @@
+# C5 tonight review, 2026-10-25
+
+Read-only synthesis slice for the C5 coordinator. Snapshot checked around 02:28 EDT. Primary HEAD was `9b997ea60a7eb12200dbc825684e6668403aa015`; before report delivery another writer advanced it to `3dfc49cf3`. All branch-delta claims below are pinned to the former baseline, explicitly rechecked with `9b997ea60...<branch>` after that advance. No freshness against the later master is claimed. Only this report is owned here. No merge, commit, runtime repair, cultivation write or owner-doc edit was made. Applied AD32/AD36/AD41, AR3/AR6/AR7/AR10/AR16, MR5 and sealed-secret handling. COMMON, RULES_INDEX, PROJECT and the relevant execution records were read. This is execution evidence and suggested status wording, not new direction.
+
+## F1: lane status supported by files and Git
+
+| Lane | Verified state | Remaining boundary |
+|---|---|---|
+| A1 | `docs/reviews/PLAYTEST_SWEEP_2026-10-25.md` retains the original blocked observation and three persistence attempts. | Its startup diagnosis is superseded by B1: the shim showed hidden text; the runner already clicked PLAY. Do not report a current game-start defect from A1 alone. |
+| A2 | Q3 source and native-browser/persistence evidence are recorded in the branch checkpoint. `40e186d15` now commits its six delivery paths, and `ba40dcc9d` merges current master into the branch. | Q3 is committed on the lane branch, absent from master. The checkpoint's final “Uncommitted lane handoff” is now historical. Its earlier browser receipts predate the merge; combined validation is pending. |
+| A3 | `docs/research/novels/you-are-summoned/CHECKPOINT.md` explicitly says incomplete, ownership conflict, zero generated A3 readers and 0/55 fresh full-read shards. Prep and proposal files exist. | Another Claude reader wave was observed by A3, not revalidated here as currently running. Do not count A3 prep or its clipped spot checks as a completed read. |
+| B1 | `8e44dd7c3` contains MCP tooling and area records. Branch HEAD `5a2ed4c9e` incorporates master. Branch `B1_STATUS.md` records direct-stdio/build/arch/rules passes and 2,873/2,877 full-suite result, followed by 9/9 outside-sandbox rerun covering the four denied HTTP tests. | This is scoped evidence with an explicit sandbox exception, not a fresh all-green combined suite. Primary scripts/tools are still a separate untracked input. No installed-app or human acceptance. |
+| B2 | Wish card, private plan/manifest/coverage/synthesis and reader records exist. `coverage.json` says 50 readers plus 2 repairs, zero unread shards and 568,367 new unique words. Card distinguishes reused Books 1–4 receipts from new Books 5–8 reading, total 1,052,746 story words/527 chapters. Queue status agrees. | Research delivery through held editions only; response-cap incident and telemetry limits remain disclosed. This review checked artifacts/summary consistency, not every reader's semantic claim or source hash. |
+| B3 | Godclads card, private synthesis/coverage/validation and 41 reader/repair packets exist. `COVERAGE.json` says 458,756 words, 184 members, 39 fresh readers plus 2 repairs, zero unread members and unchanged edition hashes. Queue agrees. | Held Books 1–2 only, including front/back/glossary matter. Validation is a saved receipt, not a fresh rerun here. No playable pack or acceptance. |
+| B4 | Four retained U1–U4 findings and reproduction details are saved in `docs/reviews/UNCOMMITTED_RUNTIME_REVIEW_2026-10-25.md`. Current source still matches U1/U2/U4's defect seams below. | Source review only; do not replace a current combined runtime gate with the overlapping focused pass counts. Coordinator independently reran U2/U3 and got the same 6 pass/2 fail. |
+| B5 | `docs/reviews/TEST_SUITE_LEANNESS_AUDIT_2026-10-25.md` is delivered. It proposes moves/merges, no deletions, and qualifies five command failures without diagnostics. | Audit proposals are not completed cleanup or proof that primary dirty tests pass. |
+| C1 | Branch now has Q3 commit plus master merge. Working-tree context still includes modified LOTM queue/Q1 record and untracked Q2 context/pathway-row test. | No Q4/Q5 delivery found at this snapshot; do not count the dispatch instructions as results. Its copied test still needs owner reconciliation. |
+| C2 | Worktree HEAD is `5a2ed4c9e`, clean at the checked instant, incorporating B1 and master. | No C2 completion receipt or additional tracked change yet. Clean state does not show that the process has finished. |
+| C3 | Branch HEAD remains primary base `9b997ea60`; `scripts/mcp/` is untracked in its worktree. | No gameplay fix commit or completion receipt yet. Copied tool context is not a P2/BFA3/BHB2 repair. |
+| C4 | Branch HEAD remains `9b997ea60`; checkpoint exists under `docs/gm/dispatch/lean-tests-2026-10-25/` and says pristine-base full suite running, assertion mapping pending. | No lean-test relocation or commit exists at this snapshot. Primary dirty and initially untracked tests are explicitly deferred by this lane. |
+
+`ps -p ...` was denied by the sandbox. Therefore no “running” or “finished” claim about C1–C4 is inferred from PID tables, clean Git status or elapsed time. The separate C5 inventory lane owns live-process verification. Branches/checkpoints can change immediately after this snapshot.
+
+## F2: precise stale text and suggested replacements
+
+| Location | Stale or easily misread claim | Suggested current wording |
+|---|---|---|
+| Lane README, Wave 2 results | “A2 ... left uncommitted ... continued by C1” | Keep as dated Wave 2 history; add “C1 committed Q3 as `40e186d15` and merged master into its lane as `ba40dcc9d`; master integration and post-merge gates pending; Q4/Q5 not yet delivered.” |
+| Branch Q3 checkpoint, authority and final handoff | “master ... untouched”, “Uncommitted lane handoff” | Mark as A2-time history, then append C1's branch commit/master-merge receipt. Do not rewrite A2's original input identity or claim its browser proof covers C1's new input. |
+| README Wave 2 result, B4 ownership | “both are in cultivation-owned files” mentions U1/U2 but can hide U4 | “U1/U2/U4 are with cultivation's current continuation/crafting/skill-record owners; U3 is a copied LOTM test/source contract mismatch.” |
+| Playtest report first Top five | P1 sole finding and broad systems remain unverified | Historical A1 section is valid. Current summary should point to B1's consolidated top ten and identify the actual open findings P2, BMC1, BLD2, BLD3, BFA3, BHB2. |
+| B1 status intermediate lines | “Final run pending”, “gates running”, outside-sandbox rerun running | The later completion receipt supersedes these lines. Add a dated current-state pointer rather than pretending intermediate records never existed. |
+| Deep-dive queue HQ4/HQ5/QL4 and “suggested order” | Old held/not-read planning rows can read as still waiting | Preserve the source-interest/order rationale; add a pointer to the completed held-edition research status rows. Queue status already correctly records B2/B3 completion. |
+| PROJECT current routing | No tonight row; older LOTM Q3 “second life” next-step language | Add one dated summary linked to README: Q3 committed on lane branch, MCP B1 committed on lane branch, B2/B3 research delivered, B4 defects handed to owners, C1–C4 integration/repair work pending. Do not imply normal-app adoption or all-world gameplay coverage. |
+
+The queue and both cards are currently untracked in primary. Their presence is research delivery, not committed/published research. Private research remains ignored. A3's source folder also contains another chat's outputs; do not stage it wholesale.
+
+## F3: U1/U2/U4 handoff details verified against source
+
+### U1: checkpoint rewind can re-create exported equipment
+
+Current seam: `src/continuation_state.js:149–153` restores `life.initial` or `life.checkpoint` directly; `:158` calls `transferBaggage(source,initial,c)` then snapshots only the debited current source into `life.paused`. `src/continuation_baggage.js:31–45` debits current inventory/currency and moves facts. `src/continuation_equipment_baggage.js:19–24` deletes the source's per-copy wear/use, repair, naming and living-gear records as it copies them to the destination. None reconciles the source life's earlier reachable snapshots. `cycle` also restores the old target at `continuation_state.js:179–184`.
+
+Reproduction to preserve: count-one tracked loose copy, establish reachable checkpoint, buy/select bag, fresh life, reciprocal return, checkpoint rewind. Expect the destination's identical physical key not to reappear in source custody. Cover initial/checkpoint and enabled repetition as reachable restore paths; cover associated facts as well as count. B4 directly reproduced the checkpoint variant. This lane verified the mechanism in source, not another runtime reproduction.
+
+Repair boundary: reconcile exported custody across every reachable snapshot or qualify the rewind through a concrete mechanism. Preserve ordinary rewind and future explicitly selected temporal-copy behavior. Do not solve a save-integrity defect by silently removing the continuation feature. Owner: cultivation checkpoint's equipment-baggage reservation at lines 198–204, and earlier continuation owner list at line 86.
+
+Focused gate: extend `tests/continuation_state.test.js` with the retained post-transfer restore sequence, then run that owning file. After repair, rebuilt fresh-origin native bag passage, reciprocal return, rewind and save/reload/literal Import must preserve one physical copy and its facts. Existing immediate-debit/return receipt `browser/equipment-baggage-zfTVNk/` does not cover rewind.
+
+### U2: restore G1 reference consumers while preserving formulation depth
+
+Current source: `src/crafting_frontier_runtime.js:40–43` validates craft state without former `validateReferences` and authored reference checks; `:83–92` omits former reference-key envelope validation; `:95–104` projects materials/products only; `:119–138` accepts harvest/craft/treatment/use and rejects acquire/return/read/learn/examine. `src/crafting_home.js:8–18,26–60` has formulation/body treatment controls but no shelf/method/read/learn/examine consumers. `src/crafting_domain.js:1` still imports `REFERENCE_CARRIER` from `craft_reference_content.js`; key ownership/item materialization surviving is not a replacement journey.
+
+`git show HEAD:src/crafting_frontier_runtime.js` confirms the G1 baseline has reference imports/exports, `heldRefs`, reference validation, methods/shelf/examinable projection and command paths. The working diff deletes them while adding layered/tablet support. `tests/craft_reference.test.js:88–117` preserves the actual native shelf/method/learn/read/return invariant and currently fails at `referenceKey` line 101. The coordinator independently reproduced the same failure this turn. Restoring the export alone will leave the behavior missing.
+
+Repair by merging the old reference validation/projection/commands and panel consumers into formulation/body treatment. Preserve the same reference IDs and owner state. Do not overwrite the working runtime with HEAD wholesale, because that would erase selected layered formulation/treatment behavior. PROJECT round 2 already explicitly requires this reconciliation; it is baseline preservation, not new scope. Cultivation checkpoint line 112 describes fixing import-owner build errors only and should not be read as closing the reference journey.
+
+Focused gates: `node --test tests/craft_reference.test.js tests/crafting_runtime.test.js tests/crafting_native_reload.test.js tests/craft_depth_rules.test.js` plus the owner's formulation/body-treatment regression file when selected. Rebuilt desktop/native journey: take book/slate, lose/return reference, retain learned method, once-only training read, examine material, then layered preparation and treatment; save/reload/literal Import both families. Keep AR6 reference envelope checks and forged reference-definition rejection.
+
+### U4: failed rust preference save mutates both owner and native penalty
+
+Current source: `src/skill_records_domain.js:37–40` replaces `records`, observes/applies derived changes, then calls `ports.persist`. There is no catch/rollback. `:15–21` applies `bonus_skill_levels.flat.rust`, aptitude multiplier and cached signature; `:42–48` expose/load the owner. B4's real-domain quota probe changed `Swords:-2` to no penalty and `rustOn['base.frontier']` to false despite `persist` throwing. Source still has that ordering.
+
+Repair boundary: snapshot/restore records plus derived application/cache around persistence; ensure native stats/display return to the prior state on failure and success publishes once. Existing `src/crafting_domain.js:24–40` shows tentative publication with durable marking and rollback. Reuse the established transaction pattern where appropriate; no new persistence owner. Cultivation checkpoint line 86 reserves this file.
+
+Focused gate: extend the existing `tests/skill_records.test.js` or actual owning domain test after locating its setup, covering a quota exception preserving saved preference, records, native penalty and derived stats, then a successful toggle/reload. Rebuilt native failed-save and successful-save/reload/Import checks remain separate from B4's pure transaction probe. No rust math change is requested.
+
+U3 stays separate: `tests/lotm_pathway_rows.test.js:11` imports nonexistent `LOTM_ASSESSORS` and `LOTM_LOSS_CAUSES` from the primary pathway module. The copied context test is not evidence of an A2 runtime regression. Reconcile it with the correct implementation/API, without adding empty exports merely to satisfy linking.
+
+## A1: exact path groups and integration order proposal
+
+These are proposed groups, not staging instructions for a live dirty checkout. Obtain the owning lane's final release and diff first. The committer runs full `npm test` once on the actual combined candidate, plus build/arch/rules and changed native/browser journeys. Existing passes can be reused only if their exact relevant inputs still match.
+
+| Order | Group and exact currently known paths | Gates/conflicts |
+|---:|---|---|
+| 1 | B1 tooling: `scripts/mcp/game_mcp.mjs`, `scripts/mcp/game_mcp_check.mjs`, `scripts/mcp/game_worker.mjs`, `scripts/mcp/stdio_server.mjs`; `docs/tools/GAME_MCP_LIMITS.md`, `docs/tools/game_mcp_limits.jsonl`; `docs/reviews/PLAYTEST_SWEEP_2026-10-25.md`; dispatch `B1_STATUS.md`, `B1_FRONTIER.md`, `B1_HOUSEHOLD.md`, `B1_MISTGLASS.md`, `B1_CONTINUATION_LOTM.md`, `B1_game_mcp.patch`. | This is exactly master-to-branch B1 delivery at `5a2ed4c9e`; `8e44dd7c3` is the original commit. Match primary's untracked scripts/ledger first. Merge or apply the reviewed delta, not both patch and full branch. Run direct-stdio check on final primary/candidate. C2 will extend this same group, so combine its final receipt before landing if still active. |
+| 2 | Q3: `src/book_world_lotm_host.js`, `src/book_world_lotm_lives.js`, `src/book_world_lotm_ui.js`, `tests/lotm_lives.test.js`, `tests/lotm_lives_compat.test.js`, `docs/gm/dispatch/lotm-q3-2026-10-25/CHECKPOINT.md`. | Exact current master-to-branch delta. `40e186d15`, then master merge `ba40dcc9d`. The original `af68acc0f` overlap warning concerned state/actions/envelope on the old base; current branch contains master and its unique delta no longer changes those files. Post-merge combined LOTM gates/browser persistence still required. Copied queue/Q1/Q2/pathway test context is excluded from Q3's six-path commit. C1 Q4/Q5 changes will need their own final path list. |
+| 3 | C3 runtime repairs: no final changed paths/commit available yet. | Wait for C3 receipt. P2 patrol, BFA3 crafting wording and BHB2 storage identity are distinct; do not claim all repaired from a tooling commit. Coordinate BFA3 with U2/cultivation's crafting panel ownership. |
+| 4 | C4 lean test moves: no final relocation mapping/changed paths/commit yet. | Wait for assertion-preserving mapping and final checks. Primary dirty/untracked tests are excluded. Merge after behavior repairs so moves do not obscure regression changes; explicit rename/conflict reconciliation if paths overlap. |
+| 5 | Research docs: `docs/research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md`, `docs/worlds/world-core-kit-2026-10-14/cards/wish-upon-the-stars.md`, `docs/worlds/world-core-kit-2026-10-14/cards/godclads.md`; B4/B5 reports are separate exact paths `docs/reviews/UNCOMMITTED_RUNTIME_REVIEW_2026-10-25.md`, `docs/reviews/TEST_SUITE_LEANNESS_AUDIT_2026-10-25.md`. | Public research/status docs only. Review queue hunks jointly, keep ignored source/reader data private. Docs/link/privacy check; no gameplay build needed for this group. Shared queue also carries other chats' claims, so a whole untracked file needs ownership review before commit. |
+
+U1/U2/U4 repairs remain with cultivation, separate from these branch merges. U2 is the substantive semantic conflict with G1 already on master (`eeae81660`), even if Git reports no text conflict because the deletion is merely uncommitted. Never restore a whole crafting file just to remove the conflict. Q3's master merge does not repair primary's U3 copied-test mismatch. Generated bundles/index output belong to the final combined build, not each lane's independent source commit.
+
+No tonight worktree is declared safe to retire by this slice: C1–C4 may still be live; Q3 has inherited dirty context; tooling integration is pending; no process-release proof exists here. The C5 inventory lane owns complete branch/worktree retirement evidence.
+
+## Verification receipt
+
+- `git log/show`, `git worktree list --porcelain`, scoped `git status`, `git diff --name-status master...<branch>`: checked primary and four tonight lane branches; source commit/path claims above verified, no mutations.
+- Scoped source reads and `git show HEAD:<crafting owner>`: verified U1/U2/U4 seams and G1 regression against current bytes; no duplicate test runs because coordinator already reran U2/U3.
+- Card/queue/private coverage metadata and saved validation receipt reads: artifact/status consistency checked; no fresh whole-corpus read or receipt rerun claimed.
+- `ps -p ...`: denied by sandbox; no current process-status conclusion.
+- Report `git diff --check --no-index /dev/null <this file>`: whitespace check only; no runtime tests/build/browser verification applicable to this report.

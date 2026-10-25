@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-10-25T04:37:39.537260",
+  "checks": {
+    "markdown_local_targets": {
+      "checked": 104,
+      "missing": []
+    },
+    "launcher_python_syntax": "PASS; resume route also exercised by four actual same-session continuations",
+    "final_candidate_dist_payloads": {},
+    "master": "3dfc49cf3422c0262d86810df47459f53f3a4a67",
+    "scope": "Supervisor docs and run-specific launcher; no combined build/test/browser claimed",
+    "scoped_trailing_whitespace": []
+  },
+  "tracked_supervised_top_level_exits": "16/16 C/D/E verified by kill-0 at04:36EDT",
+  "hashes": {
+    "docs/gm/dispatch/codex-parallel-2026-10-25/README.md": "ced3c1a2e4f98d6d8077acb8897fb67cd5f14486c2147cd600f08a59e9e29ed8",
+    "docs/gm/RECONCILIATION_2026-10-25.md": "f43ad3f46cdda816b01ef56ccd5ec778a703bc72146f51a60afca71d551473ef",
+    "docs/gm/dispatch/codex-parallel-2026-10-25/runs/launch.py": "8261daf06b28e55cab07976aec55fb82125e12bc9cf237edc461b19a7e9a81fa",
+    "docs/gm/dispatch/codex-parallel-2026-10-25/G1_BRANCH_MANIFEST.json": "c159295d808ca02c96c456bada8235bcb39fea7ed91735cecc6a27b2f23a8fe1"
+  }
+}

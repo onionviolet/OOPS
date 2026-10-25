@@ -1,0 +1,3 @@
+- **F12:** B2 research complete: [world card](/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/world-core-kit-2026-10-14/cards/wish-upon-the-stars.md), [private synthesis](/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wish-upon-the-stars/SYNTHESIS.md), and queue row updated. Coverage: 527 chapters, with Books 1–4 reused and Books 5–8 newly read.
+- **F13:** Source hashes, coverage integrity, private placement, links and queue preservation checks passed.
+- **R1:** One reader exceeded its response cap; the breach and repairs are documented. Research only; gameplay remains unbuilt. No commit or push.
