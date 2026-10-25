@@ -15,13 +15,13 @@ Current common owners checked in this checkout: `src/cheat_cards.js`, `src/statu
 
 ## Runtime boundary
 
-The initial source audit found only the partial `system-quests` shell. D4 now has the quiet personal faculty, four developed modules and a finite victory quest for the optional accompanying system. The domain owns its save slice; local quarantine preserves unsupported entries while Import remains strict. The existing heir and continuation owners carry enduring developments. New source examples without a mechanism adapter remain proposals; generic engine capability does not mark a reference cheat built. [Exact checks and remaining gates](CHECKPOINT.md).
+The initial source audit found only the partial `system-quests` shell. D4 now has the quiet personal faculty, eight developed modules, RF1 registered actor power and a finite victory quest for the optional accompanying system. The domain owns its save slice; local quarantine preserves unsupported entries while Import remains strict. The existing heir and continuation owners carry enduring developments. New source examples without a mechanism adapter remain proposals; generic engine capability does not mark a reference cheat built. [Exact checks and remaining gates](CHECKPOINT.md).
 
 ## Inventory
 
 Simulator keep options are listed because the owner presents them as carried rewards; these are not implemented cards.
 
-| ID | Cheat/card | Source locator(s) | Initial state | Existing engine owner candidate | Priority |
+| ID | Cheat/card | Source locator(s) | Branch state | Existing engine owner candidate | Priority |
 |---|---|---|---|---|---|
 | `SIM-K1` | Simulator keep: Memory / foreknowledge | `docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md:245-246` | proposal (reward option only) | `src/expansion_engine.js, src/simulation.js, src/world_knowledge.js` | Palette / unranked |
 | `SIM-K2` | Simulator keep: Observation / technique steps | `docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md:247-248` | proposal (reward option only) | `src/techniques.js, src/skill_discovery.js, src/expansion_engine.js` | Palette / unranked |
@@ -29,7 +29,7 @@ Simulator keep options are listed because the owner presents them as carried rew
 | `SIM-K4` | Simulator keep: Item, clone or companion | `docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md:251-252` | proposal (reward option only) | `src/items.js, src/companion_roster.js, src/expansion_engine.js` | Palette / unranked |
 | `SIM-K5` | Simulator keep: Report only | `docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md:253` | proposal (report reward option only) | `src/simulation_render.js, src/simulation.js` | Palette / unranked |
 
-| ID | Cheat/card | Source locator(s) | Initial state | Existing engine owner candidate | Priority |
+| ID | Cheat/card | Source locator(s) | Branch state | Existing engine owner candidate | Priority |
 |---|---|---|---|---|---|
 | `CLF-43` | Death-menu regression | `docs/CHEAT_LIBRARY.md:43; docs/CHEAT_LIBRARY.md:306` | proposal (no cheat-card runtime consumer found) | `src/life_experience_host.js, src/carry_ledger.js, src/expansion_engine.js, src/main.js` | Palette / unranked |
 | `CLF-44` | Time loop | `docs/CHEAT_LIBRARY.md:44; docs/CHEAT_LIBRARY.md:307` | proposal (no cheat-card runtime consumer found) | `src/life_experience_host.js, src/carry_ledger.js, src/expansion_engine.js, src/main.js` | Palette / unranked |
@@ -81,9 +81,9 @@ Simulator keep options are listed because the owner presents them as carried rew
 | `CLF-181` | Narrow curse | `docs/CHEAT_LIBRARY.md:181` | proposal (no cheat-card runtime consumer found) | `src/cheat_cards.js, src/main.js` | Palette / unranked |
 | `CLF-182` | Threat sight | `docs/CHEAT_LIBRARY.md:182` | proposal (no cheat-card runtime consumer found) | `src/cheat_cards.js, src/main.js` | Palette / unranked |
 | `PC01` | Echo Anchor | `docs/CHEAT_LIBRARY.md:405` | proposal (no cheat-card runtime consumer found) | `src/life_experience_host.js, src/carry_ledger.js, src/expansion_engine.js, src/main.js` | Palette / unranked |
-| `PC02` | Patient Furnace | `docs/CHEAT_LIBRARY.md:425` | proposal (no cheat-card runtime consumer found) | `src/crafting_domain.js, src/harvest.js, src/cheat_cards.js` | Palette / unranked |
-| `PC03` | Heirloom Compact | `docs/CHEAT_LIBRARY.md:446` | proposal (no cheat-card runtime consumer found) | `src/life_experience_host.js, src/carry_ledger.js, src/expansion_engine.js, src/main.js` | Palette / unranked |
-| `PC04` | Traveler's Pattern Book | `docs/CHEAT_LIBRARY.md:463` | proposal (no cheat-card runtime consumer found) | `src/crafting_domain.js, src/harvest.js, src/cheat_cards.js` | Palette / unranked |
+| `PC02` | Patient Furnace | `docs/CHEAT_LIBRARY.md:425` | built (bounded native offline routine, actual calendar/output/XP/debit and bank carry) | `src/patient_furnace.js, src/cheat_host.js, src/main.js` | Palette / unranked |
+| `PC03` | Heirloom Compact | `docs/CHEAT_LIBRARY.md:446` | built (counted native estate claim through actual successor boot) | `src/heirloom_compact.js, src/heir_inheritance.js, src/life_experience_host.js` | Palette / unranked |
+| `PC04` | Traveler's Pattern Book | `docs/CHEAT_LIBRARY.md:463` | built (readable recipe design, reconstruction into native crafting, actual heir carry) | `src/pattern_book.js, src/crafting_frontier_runtime.js, src/craft_reference.js` | Palette / unranked |
 | `PC05` | Seed Cartographer | `docs/CHEAT_LIBRARY.md:480` | proposal (no cheat-card runtime consumer found) | `src/seeded_streams.js, src/expansion_engine.js, src/rule_modules.js` | Palette / unranked |
 | `PC06` | Rebirth Ledger | `docs/CHEAT_LIBRARY.md:497` | proposal (no cheat-card runtime consumer found) | `src/life_experience_host.js, src/carry_ledger.js, src/expansion_engine.js, src/main.js` | Palette / unranked |
 | `PC07` | Instinct Inheritance | `docs/CHEAT_LIBRARY.md:514` | proposal (no cheat-card runtime consumer found) | `src/life_experience_host.js, src/carry_ledger.js, src/expansion_engine.js, src/main.js` | Palette / unranked |
@@ -94,7 +94,7 @@ Simulator keep options are listed because the owner presents them as carried rew
 | `PC12` | World Deeds | `docs/CHEAT_LIBRARY.md:588` | proposal (no cheat-card runtime consumer found) | `src/titles.js, src/cheat_cards.js, src/main.js` | Palette / unranked |
 | `SH1` | Fate Ledger | `docs/CHEAT_LIBRARY.md:1283` | built (pure native encounter loot decision reading) | `src/cheat_mechanisms.js; src/seeded_streams.js` | Palette / unranked |
 | `SH2` | Causality Lens | `docs/CHEAT_LIBRARY.md:1284` | proposal (no cheat-card runtime consumer found) | `src/cheat_cards.js, src/status_window.js, src/main.js, src/harvest.js, src/world_knowledge.js, src/people_knowledge.js, src/causal_situations.js` | Palette / unranked |
-| `SH3` | Freshness Sense | `docs/CHEAT_LIBRARY.md:1285` | proposal (no cheat-card runtime consumer found) | `src/cheat_cards.js, src/status_window.js, src/main.js, src/harvest.js, src/world_knowledge.js, src/people_knowledge.js, src/causal_situations.js` | Palette / unranked |
+| `SH3` | Freshness Sense | `docs/CHEAT_LIBRARY.md:1285` | built (retained observer timestamps and same-clock age, no truth refresh) | `src/information_freshness.js, src/cheat_ui.js` | Palette / unranked |
 | `SH4 / IM17` | True Appraisal | `docs/CHEAT_LIBRARY.md:1286; docs/CHEAT_LIBRARY.md:1523; docs/audits/CHEAT_CORE_AUDIT.md:32` | built (retained native carcass observation; improved precision) | `src/cheat_mechanisms.js; src/harvest.js` | Next candidate, IM17 rank 1; proposed |
 | `SH5` | Agenda Reader | `docs/CHEAT_LIBRARY.md:1287` | proposal (no cheat-card runtime consumer found) | `src/cheat_cards.js, src/status_window.js, src/main.js, src/harvest.js, src/world_knowledge.js, src/people_knowledge.js, src/causal_situations.js` | Palette / unranked |
 | `SH6` | Turn Sight | `docs/CHEAT_LIBRARY.md:1288` | proposal (no cheat-card runtime consumer found) | `src/cheat_cards.js, src/status_window.js, src/main.js, src/harvest.js, src/world_knowledge.js, src/people_knowledge.js, src/causal_situations.js` | Palette / unranked |
@@ -363,3 +363,7 @@ Simulator keep options are listed because the owner presents them as carried rew
 - Named gaps: Patient Furnace needs an authoritative native offline replay policy, beyond the pure `away_ledger` arithmetic. Rehearsed Foe needs an actor power descriptor and native battle adapter, because `simulation.powers[actor]` validates registry powers rather than arbitrary cards. Pattern Book needs the existing knowledge-redacted `craftLedger` consumer, not direct reading of hidden residue. Most book examples need their world/content mechanism adapters; a source name and a candidate path are insufficient to produce that behavior.
 
 - Candidate ownership is intentionally bounded: `src/expansion_engine.js` and `src/simulation.js` can support deterministic simulation; `src/combat_math.js` supports injected-random combat estimates; `src/seeded_streams.js` owns seeded draws; `src/harvest.js` owns carcass observation; `src/titles.js` owns titles. D4 joins harvest and seeded streams; the other candidates remain extension points.
+
+## G1 final mechanism reconciliation
+
+[Family reconciliation](FAMILY_RECONCILIATION.md) maps all326 source IDs once into13 mechanism families, with bounded routes, exact unsupported source prerequisites or larger-policy proposals. Missing glue alone is not a blocker. RF1, Pattern Book, Heirloom Compact, Patient Furnace and Freshness Sense have current native regressions, rebuilt fresh-origin desktop receipts and applicable real Save/reload/literal Import/heir carry. Existing reference names and simulator modes remain source rows rather than independent runtime specifications.

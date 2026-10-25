@@ -1,6 +1,6 @@
 # D4 cheats, 2026-10-25
 
-Status: partial delivery committed; the broad inventory remains unfinished implementation scope. Branch codex/cheats-2026-10-25, base 3dfc49cf3422c0262d86810df47459f53f3a4a67. Worktree /Users/weiwei/.codex/worktrees/cheats/yet-another-idle-rpg. Port 5104. Branch commits authorized; no master integration or push.
+Status: same-session G1 native adapter scope implemented and verified; remaining source palettes reconciled to explicit policy/content boundaries below. No claim that all reference powers or simulator modes are built. Branch codex/cheats-2026-10-25, base 3dfc49cf3422c0262d86810df47459f53f3a4a67. Worktree /Users/weiwei/.codex/worktrees/cheats/yet-another-idle-rpg. Port 5104. Branch commits authorized; no master integration or push.
 
 Rules: AD11/22/26/28/29/30/32/34/36/38; AR1–AR16; UR1–UR69; GTR8/9/10/14. Runtime seams: cheat card envelope, domain registry, native harvest, seeded stream receipts, existing continuation and heir owners. Target 1920×1080 desktop; mobile deferred. Golden baseline: existing commands unchanged; schema-1 cards strict; save/import envelope validation remains authoritative. Failure scenarios: faculty disappears on heir/rewind, duplicate claim, appraisal changes without observation, peek advances stream, dice charges replay after reload, dormant UI leaks.
 
@@ -11,6 +11,8 @@ D4 owns new cheat domain/card modules, cheat card/UI changes and focused cheat r
 Primary status checked before edits: dirty src/main.js, src/continuation_state.js, src/continuation_host.js, src/continuation_ui.js, src/heir_inheritance.js, tests/continuation_state.test.js and docs/CHEAT_LIBRARY.md. Cultivation owns continuation changes there. Clean: src/cheat_cards.js, src/life_experience_host.js, src/carry_ledger.js, src/status_window.js. Branch-only CHEAT_LIBRARY statuses; merge must reconcile its live primary additions. Any continuation edit here is a narrow cheat carrier adapter, not replacement of primary intent/baggage/law/retention/challenge changes.
 
 ## Inventory
+
+Current: all326 source IDs are reconciled in [FAMILY_RECONCILIATION.md](FAMILY_RECONCILIATION.md) across13 mechanism families; grouped source rows can reference several mechanisms. The initial audit below is execution history, superseded by G1 statuses.
 
 Complete source-row inventory is saved in [INVENTORY.md](INVENTORY.md). Initial implemented card: system-quests (partial: dormant optional grant, awakening, native status projection; no quest loop). All other named cheat cards are proposals until a consumer and UI are verified. Generic existing mechanics are engine candidates, not evidence of implemented cards.
 
@@ -43,9 +45,10 @@ Quiet faculty now seeds separately from the optional talking system; awakening r
 | IM20 | Fate Ledger | Built visible-encounter read, browser-exercised | pure stream decision, actual native foe projection |
 | IM20 | Earned Habit | Built finite routine adapter, browser-exercised | harvest routine and existing native clock |
 | IM19 / RF1 | NPC-held card | Built, focused tests and native browser pass | registered actor power, existing paid rematch, native/party planner, observer knowledge |
-| IM20 | Patient Furnace | Unbuilt | away_ledger maths exists; authoritative native offline replay policy absent |
-| IM20 | Pattern Book | Unbuilt | craftLedger's knowledge-redacted forecast exists; no cross-world learned-pattern consumer |
-| IM20 | Heirloom Compact | Unbuilt | heir_inheritance and obligations exist; no executable bequest/claim adapter for a card |
+| IM20 / PC02 | Patient Furnace | Built bounded route; native/browser/actual carry verified | accepted OD4/TBANK, patient_furnace, existing native clock, finite harvest and durable plan |
+| IM20 / PC04 | Pattern Book | Built bounded route; native/browser/actual carry verified | readable native recipe/reference owner; paid reconstruction into crafting learned methods |
+| IM20 / PC03 | Heirloom Compact | Built bounded route; native/browser/actual claim verified | counted estate nomination, current heir law, debt-first native successor transaction |
+| SH3 | Freshness Sense | Built bounded route; native/browser/carry verified | retained observer timestamps and same-source-clock age |
 | Palette | Other named source entries | Proposal or partial as inventoried | [Exhaustive source-row table](INVENTORY.md), including source locators and existing owner candidates |
 
 The inventory's initial 324 rows include aliases, families, simulator modes, grades and policies; they are not independent authored runtime specifications. Two explicit runtime rows were added, and four named card rows updated. This lane does **not** claim all remaining cards are built. Primary overlap remains in main.js, continuation_state.js and CHEAT_LIBRARY.md at the final per-file check; continuation_host/ui and heir_inheritance were previously dirty but later primary status changed, so use the live reconciliation owner. tests/lives_carry_codex.test.js and carry_ledger.js were clean before their scoped unresolved-world regression change.
@@ -62,7 +65,7 @@ Input identities: base master 3dfc49cf3; D4.1 commit 97890a27; final runtime com
 
 Authored dials: 1 insight per finite lived milestone; 1 insight per development/refill; 3 appraisal/fate/habit and 2 dice reserves initially. Heir reserves start empty. These are reversible implementation proposals. Unchanged existing command definitions retain their golden identity. New card states have revision 1 and typed accounting; local unsupported entries are retained as JSON in cheats_quarantine, and explicit Import remains strict. Full backups retain real restore data. No hidden reference power is exposed by an undiscovered card list.
 
-Remaining verification: combined integration candidate full suite and human pacing/taste acceptance. D4 branch source commits: 97890a27 and 00334132. Remaining implementation scope is IM27–IM28 in the root owner, including the unbuilt priority cards above. Mobile is deferred. No merge to master, push or app adoption is claimed.
+Remaining verification: combined integration candidate full suite and human pacing/taste acceptance. D4 branch source commits: 97890a27 and 00334132. At that earlier checkpoint, IM27–IM28 were open. The same-session G1 receipts below supersede those card statuses and reconcile broader proposals. Mobile is deferred. No merge to master, push or app adoption is claimed.
 
 ### Final test boundary and repaired integration checks
 
@@ -74,11 +77,11 @@ Remaining verification: combined integration candidate full suite and human paci
 
 M4 additional overlaps checked before repair: primary src/layout_spec.js, tests/stepper_life_commit.test.js and tests/ui_contract_allowlist.json are dirty. D4 changes only one surface row, one injected VM setter and the existing pollDisplays exception fingerprint; preserve the primary lane's other changes at integration. Primary systems-register and cheat-audit owners were clean at their append check.
 
-## Final checkpoint
+## Earlier checkpoint before G1 (superseded)
 
 Runtime commit: 00334132. Foundational carrier commit: 97890a27. [Input identity and verification summary](VERIFICATION.json). Headless browser owns a fresh ephemeral profile and closes its port-5104 server on exit; no user save touched. No worker or server remains from this lane.
 
-Resume order: RF1 registered actor-power/rematch adapter, then the missing native offline policy for Patient Furnace, knowledge-safe Pattern Book and executable Heirloom Compact. Continue from this branch/checkpoint; do not reinterpret palette aliases or simulator modes as ready-made card specifications. The unresolved scope and effort/done checks are IM27–IM28 in CHEAT_LIBRARY. This is a useful partial lane, not completion of the request to implement every remaining cheat.
+Historical resume order: RF1, Pattern Book, Compact, then Furnace if supported. G1 implemented these; its correction F6 shows existing accepted offline policy rather than a missing-policy blocker. Continue from this branch/checkpoint; do not reinterpret palette aliases or simulator modes as ready-made card specifications. The unresolved scope and effort/done checks are IM27–IM28 in CHEAT_LIBRARY. This is a useful partial lane, not completion of the request to implement every remaining cheat.
 
 Local generated residue intentionally excluded from commits: dist/bundle.js, dist/bundle.js.map, index.html build-version tokens, and the earlier browser-failure.png. The final screenshots and JSON receipts are the review artifacts. Nothing merged to master or pushed.
 
@@ -158,3 +161,45 @@ Final review found a real remaining adapter defect: a snapshot already holding P
 - `npm run build`: pass; `/tmp/d4-temporal-carry-build.log`.
 - `node docs/gm/dispatch/cheats-2026-10-25/temporal-browser.mjs`: pass, rebuilt fresh-origin1920x1080 port5104; later UI sketch and native bank expenditure -> actual continuation host/preflight/durable write/reload -> current design/bank retained, local body/reserves restored, remembered design reconstructs in native crafting. `TEMPORAL_BROWSER.json`, inspected `temporal-1920.png`. One harness correction handles the return's expected page navigation.
 - M4: branch writes only `src/cheat_cards.js`, `src/cheat_definitions.js`, `src/patient_furnace.js`, `tests/cheat_carry.test.js`, `tests/helpers/cheat_game.mjs`. Primary-dirty continuation_state/host/ui files and continuation tests read/run only. Cultivation changes remain untouched.
+
+
+## G1 final checkpoint and input identity
+
+Verified source/test head: `cefddc4287376dd3daba121173d516bb6e384ded`, on `codex/cheats-2026-10-25`, continuing from `7088a420`. Six source slices: `0d9a9bce` RF1, `af60e0b2` Pattern Book, `0c6f0a7e` Compact, `0c9c0e68` Furnace, `12d778ae` Freshness, `cefddc42` temporal payload repair. The final branch head is the docs/evidence commit containing this checkpoint, resolvable exactly with `git log -1 --format=%H -- docs/gm/dispatch/cheats-2026-10-25/CHECKPOINT.md`; it adds no runtime change beyond the verified source head. See [G1_VERIFICATION.json](G1_VERIFICATION.json).
+
+The original task's existing-policy native adapters are delivered, including real UI/consumer, costs, descriptor data, observer knowledge and applicable carry. Remaining reference powers are explicitly unresolved proposals/source prerequisites in [family reconciliation](FAMILY_RECONCILIATION.md#authority-boundary-for-remaining-source-palettes), not326 independent specs and not missing-adapter blockers. No paused scope revived. G1's latest no-master-merge instruction overrides COMMON_W4's generic merge-current-master line. No master merge, push, deletion or primary write occurred.
+
+### Final checks (one line each)
+
+- Inventory coverage comparison:326/326 unique source IDs mapped once,0 unmatched/duplicate IDs;13 mechanism families. The single grouped IM20 row crosses family codes without becoming independent specs.
+- Focused affected native/card/carry/UI sets, serial explicit23 files:150/150 pass on `12d778ae`; `/tmp/d4-g1-final-focused.log`. This is not a full-suite rerun.
+- Post-review temporal carrier set (`cheat_carry`, `continuation_state`, `continuation_host`, `pattern_book`, `patient_furnace`):25/25 pass on final source inputs; `/tmp/d4-temporal-carry-tests.log`.
+- Final `npm run build`: pass on `cefddc42`; `/tmp/d4-g1-final-build.log`. Generated dist/index files remain uncommitted.
+- Final `npm run check:arch`: pass, main10096 vs10115 baseline, no new cycles; `/tmp/d4-g1-final-arch.log`.
+- Final `npm run check:rules`: pass,22 register rows/41 AD codes/125 links,0 warnings; `/tmp/d4-g1-final-rules.log`.
+- Rebuilt original six-route browser rerun: pass after named card additions,1920x1080 and1536x864 at measured14px/21px text with no horizontal card overflow; native Save/reload/literal Import and beginHeir pass. `BROWSER.json` and updated review PNGs; `/tmp/d4-g1-final-browser.log`. Temporal repair then has its separate final-source real-return proof.
+- Rebuilt named-route browsers: RF1, Pattern, Compact, Furnace, Freshness and final temporal return all pass fresh-origin desktop1920x1080 on5104, with inspected PNGs and separate JSON receipts. Each applicable path exercises native Save/reload/literal Import and actual heir/continuation transaction, not only fixture serialization.
+- Original full suite: unchanged failed pre-repair receipt2890/2894, followed by25/25 targeted repairs in `VERIFICATION.json`; no second full suite. Combined candidate full gate remains with merger. Human discovery, pacing and taste acceptance remain separate.
+- Final per-file primary status: overlap table below; primary untouched. `lsof -nP -iTCP:5104 -sTCP:LISTEN` found no listener after browser close. Existing dirty generated/failure evidence retained.
+
+### Final M4 exact overlap handoff
+
+| Exact path(s) | Primary observed state | D4 branch join |
+|---|---|---|
+| `src/main.js` | dirty | Native cheat ports, prepared skill quote/unlock join, atomic harvest patch publication and existing writer anchor rebase; no broad owner replacement. |
+| `src/continuation_state.js` | dirty | Earlier D4 only added existing carryCheats call; G1 read/run only, no edits. Preserve cultivation owner. |
+| `src/continuation_host.js`, `src/continuation_ui.js` | dirty | G1 read/real browser consumer only; no edits. |
+| `src/heir_inheritance.js` | dirty | Narrow counted Compact escrow/claim, validation and preview lines. Preserve primary trait/lineage work. |
+| `src/life_experience_host.js` | clean | Existing cheat carry call plus post-claim Compact receipt. |
+| `src/native_battle.js`, `src/party_battle.js` | dirty | Shared RF1 actor-owned opening adapter. |
+| `src/simulation_content.js`, `src/simulation_contracts.js` | dirty | RF1 power registration and typed holder record validation. |
+| `src/frontier_campaign.js`, `src/frontier_campaign_ui.js` | clean | Registry definition and observer-known tell; existing paid rematch retained. |
+| `src/layout_spec.js` | dirty | Earlier D4 cheat-faculty surface row only; G1 unchanged. |
+| `src/models/skill.js`, `src/components/availability_component.js`, `src/gameplay_publication.js` | clean | Small typed prepared-unlock query/XP quote; normal conditions and durable publication retained. |
+| `tests/continuation_state.test.js` | dirty | Run only; no G1 edit. |
+| `tests/stepper_life_commit.test.js` | dirty | Existing extracted native writer harness supplies real cheat setter and new real rebase helper. |
+| `tests/ui_contract_allowlist.json` | dirty | Earlier D4 pollDisplays fingerprint only; G1 unchanged. |
+| `tests/ui_contract.test.js` | clean | Run only. |
+| `docs/CHEAT_LIBRARY.md` | dirty | Branch-only statuses and dated more-to-consider rounds; preserve primary additions during merge. |
+
+`src/expansion_persistence.js`, `src/native_resources_domain.js`, `src/harvest.js`, `src/crafting_frontier_runtime.js`, `src/chronicle.js`, `src/chronicle_ui.js` and `src/carry_ledger.js` are existing consumers/read owners in G1; no G1 writes. Crafting runtime was observed dirty in primary during Pattern work. New cheat modules/tests and branch cheat owners are D4-owned. Remaining local dirt is generated build payload and preserved failure captures, excluded from commits; the inventory/review artifacts are committed separately from source slices.

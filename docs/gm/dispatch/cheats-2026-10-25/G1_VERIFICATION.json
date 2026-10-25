@@ -1,0 +1,48 @@
+{
+  "verifiedSourceHead": "cefddc4287376dd3daba121173d516bb6e384ded",
+  "branch": "codex/cheats-2026-10-25",
+  "baseResume": "7088a420",
+  "sourceTestSha256": "f2f4b29b2d722079e0ecb5af560e9fc03c6c3318e20dbae35daf8a69f07508b8",
+  "sourceTestFiles": 1234,
+  "originalFullSuiteReceipt": "VERIFICATION.json (unchanged)",
+  "focusedBeforeTemporal": {
+    "command": "node --test --test-concurrency=1 explicit affected23 files (see CHECKPOINT.md)",
+    "head": "12d778ae",
+    "tests": 150,
+    "pass": 150,
+    "fail": 0
+  },
+  "finalTemporalFocused": {
+    "command": "node --test tests/cheat_carry.test.js tests/continuation_state.test.js tests/continuation_host.test.js tests/pattern_book.test.js tests/patient_furnace.test.js",
+    "tests": 25,
+    "pass": 25,
+    "fail": 0
+  },
+  "coverage": {
+    "inventoryRows": 326,
+    "mappedRows": 326,
+    "families": 13,
+    "unmatched": 0,
+    "duplicateRows": 0
+  },
+  "browsers": [
+    "BROWSER.json",
+    "RF1_BROWSER.json",
+    "PATTERN_BROWSER.json",
+    "COMPACT_BROWSER.json",
+    "FURNACE_BROWSER.json",
+    "FRESHNESS_BROWSER.json",
+    "TEMPORAL_BROWSER.json"
+  ],
+  "targetViewport": "1920x1080 desktop; original routes also1536x864,14px/21px",
+  "build": "pass",
+  "arch": "pass; main10096/baseline10115; no new cycles",
+  "rules": "pass;0 warnings",
+  "noSecondFullSuite": true,
+  "remainingGate": "merger combined full integration suite and human pacing/discovery acceptance",
+  "remainingSourcePolicies": "FAMILY_RECONCILIATION.md B1-B4 and seven original PC proposal rows",
+  "primaryWrites": false,
+  "masterMerge": false,
+  "push": false,
+  "generatedPayloadCommitted": false
+}
