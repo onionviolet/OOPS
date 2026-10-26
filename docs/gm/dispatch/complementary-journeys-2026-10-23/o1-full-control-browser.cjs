@@ -1,0 +1,26 @@
+const gate=require('../cultivation-spacing-2026-10-22/browser-helper.cjs');
+const fs=require('node:fs'),path=require('node:path');
+gate('o1-full-control',async h=>{
+ const {p,boot,load,save,assert,gates,out}=h;await p.setViewportSize({width:1920,height:1080});await boot();
+ const encoded=fs.readFileSync(path.join(__dirname,'evidence/o1-focus-workshop-Nc1Np6/focus-tempered-gear.save.txt'),'utf8').trim();
+ const fixture=JSON.parse(Buffer.from(encoded.replace(/^YAIR-UTF8-1:/,''),'base64'));fixture.levels.person.main_character.skill_xp.Forging=1000000;
+ await load(fixture,'full-native-forging-admission');
+ await p.evaluate(()=>{const n=document.querySelector('[aria-label="Other known panels"]');n.value='gear-workshop';n.dispatchEvent(new Event('change',{bubbles:true}));});
+ const panel=p.locator('#gear_workshop'),select=name=>panel.getByRole('combobox',{name,exact:true});
+ let s=await save(),k=Object.keys(s.inventories.person.main_character).find(k=>JSON.parse(k).gearwork);
+ const makerText=await select('Maker').locator('option:checked').innerText();assert.ok(Number(makerText.match(/Forging (\d+)/)?.[1])>=20,makerText);
+ await select('Carried gear').selectOption(k);await select('Gear process').selectOption('heat');
+ assert.equal(await panel.locator('[data-gear-commit]').isEnabled(),true);await panel.locator('[data-gear-commit]').press('Enter');
+ s=await save();k=Object.keys(s.inventories.person.main_character).find(k=>JSON.parse(k).gearwork);
+ await select('Carried gear').selectOption(k);await select('Gear process').selectOption('quench');await select('Process material').selectOption('{"id":"Lamp oil"}');
+ assert.equal(await panel.locator('[data-gear-commit]').isEnabled(),true,'ordinary hand process remains eligible');
+ const before=await save();await select('Process control').selectOption('focus');
+ assert.equal(await panel.locator('[data-gear-commit]').isEnabled(),false);assert.match(await panel.innerText(),/Work by hand without spending focus/);
+ const quoted=await save();assert.deepEqual(quoted.inventories.person.main_character,before.inventories.person.main_character);assert.deepEqual(quoted.expansion.simulation.energies,before.expansion.simulation.energies);
+ await p.screenshot({path:path.join(out,'full-control-refusal-1920.png')});
+ await select('Process control').selectOption('');await panel.locator('[data-gear-commit]').press('Enter');
+ const after=await save();k=Object.keys(after.inventories.person.main_character).find(k=>JSON.parse(k).gearwork);
+ assert.equal(JSON.parse(k).gearwork.treatment.stage,'quenched');assert.deepEqual(after.expansion.simulation.energies,before.expansion.simulation.energies);
+ assert.equal(after.inventories.person.main_character['{"id":"Lamp oil"}'],undefined,'one remaining oil consumed by real hand quench');
+ gates.push('Fixture raises native Forging admission only; actual paid reheating, eligible hand quench, fully controlled paid-focus refusal without mutation, then successful hand quench with normal oil cost and unchanged focus.');
+},{deterministic:true}).catch(e=>{console.error(e);process.exitCode=1;});

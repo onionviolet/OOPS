@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: P4 stale condition/history/location/custody refuses before spending; exact copies never retarget
+ok 1 - P4 stale condition/history/location/custody refuses before spending; exact copies never retarget
+  ---
+  duration_ms: 2.257125
+  type: 'test'
+  ...
+# Subtest: P4 failed start and cancel writes roll back reservations; cancellation refunds once
+ok 2 - P4 failed start and cancel writes roll back reservations; cancellation refunds once
+  ---
+  duration_ms: 0.788834
+  type: 'test'
+  ...
+# Subtest: P4 failed completion restores condition, history, job and draw; retry uses the already committed clock once
+ok 3 - P4 failed completion restores condition, history, job and draw; retry uses the already committed clock once
+  ---
+  duration_ms: 0.6025
+  type: 'test'
+  ...
+# Subtest: P4 post-durable observer/display failures never undo or repeat accepted cost/refund/result
+ok 4 - P4 post-durable observer/display failures never undo or repeat accepted cost/refund/result
+  ---
+  duration_ms: 0.478541
+  type: 'test'
+  ...
+# Subtest: P4 progress, paused intervals and pending/finished JSON roundtrip preserve frozen quote and segmented time
+ok 5 - P4 progress, paused intervals and pending/finished JSON roundtrip preserve frozen quote and segmented time
+  ---
+  duration_ms: 0.546167
+  type: 'test'
+  ...
+# Subtest: P4 changed accepted target/custody pauses without applying old result; cancellation remains available
+ok 6 - P4 changed accepted target/custody pauses without applying old result; cancellation remains available
+  ---
+  duration_ms: 0.384666
+  type: 'test'
+  ...
+# Subtest: P4 schema-1 pending jobs without new optional bindings remain loadable, malformed bindings refuse
+ok 7 - P4 schema-1 pending jobs without new optional bindings remain loadable, malformed bindings refuse
+  ---
+  duration_ms: 0.161375
+  type: 'test'
+  ...
+# Subtest: P4 a rejected partial-work write retries its consumed interval; zero-time projection cannot add work
+ok 8 - P4 a rejected partial-work write retries its consumed interval; zero-time projection cannot add work
+  ---
+  duration_ms: 0.264792
+  type: 'test'
+  ...
+# Subtest: TQ199 stale and rejected action writes preserve costs, identity, damage and diagnosis; repair cancellation settles once
+ok 9 - TQ199 stale and rejected action writes preserve costs, identity, damage and diagnosis; repair cancellation settles once
+  ---
+  duration_ms: 0.997709
+  type: 'test'
+  ...
+# Subtest: TQ199 failed crack repair retains diagnosis and scalar wear; writable/custody refusal preserves state
+ok 10 - TQ199 failed crack repair retains diagnosis and scalar wear; writable/custody refusal preserves state
+  ---
+  duration_ms: 0.438042
+  type: 'test'
+  ...
+# Subtest: IP1 golden: profiles derive from native templates and rates match the native method
+ok 11 - IP1 golden: profiles derive from native templates and rates match the native method
+  ---
+  duration_ms: 52.840958
+  type: 'test'
+  ...
+# Subtest: IP2 regression: durability off keeps native gathering identical
+ok 12 - IP2 regression: durability off keeps native gathering identical
+  ---
+  duration_ms: 2.443208
+  type: 'test'
+  ...
+# Subtest: IP3: a hand repair quote consumes nothing (MR4)
+ok 13 - IP3: a hand repair quote consumes nothing (MR4)
+  ---
+  duration_ms: 0.884333
+  type: 'test'
+  ...
+# Subtest: IP3: hand repair spends material, takes bench time, restores partly or costs max condition
+ok 14 - IP3: hand repair spends material, takes bench time, restores partly or costs max condition
+  ---
+  duration_ms: 1.304917
+  type: 'test'
+  ...
+# Subtest: TQ199 opted-in native mining cracks one copy; diagnosis and targeted repair survive state roundtrips
+ok 15 - TQ199 opted-in native mining cracks one copy; diagnosis and targeted repair survive state roundtrips
+  ---
+  duration_ms: 1.417
+  type: 'test'
+  ...
+# Subtest: TQ199 inadequate diagnosis preserves unknown truth and scalar repair cannot mend it
+ok 16 - TQ199 inadequate diagnosis preserves unknown truth and scalar repair cannot mend it
+  ---
+  duration_ms: 0.252292
+  type: 'test'
+  ...
+# Subtest: lamp fuel uses a one-flask minutes baseline and reports burn only while shining
+ok 17 - lamp fuel uses a one-flask minutes baseline and reports burn only while shining
+  ---
+  duration_ms: 1.113459
+  type: 'test'
+  ...
+# Subtest: Tools panel is discovered for a carried lamp even with no repairable tool rows
+ok 18 - Tools panel is discovered for a carried lamp even with no repairable tool rows
+  ---
+  duration_ms: 0.06225
+  type: 'test'
+  ...
+# Subtest: repair text distinguishes a running clock from a paused job
+ok 19 - repair text distinguishes a running clock from a paused job
+  ---
+  duration_ms: 0.074042
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 106.496541

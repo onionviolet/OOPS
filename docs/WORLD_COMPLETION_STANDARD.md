@@ -32,6 +32,52 @@ gameplay meters. Several sections can apply to one detail, with one primary
 owner. Applicable sections require coverage; not-applicable decisions need a
 reason grounded in the scope. Missing functionality is not not-applicable.
 
+## Connected world delivery, reconciled 2026-10-25
+
+Apply these lenses through the existing local contract/ledger, not another
+checklist or schema. They clarify the requested whole-world direction; they
+select no world, lore, balance, failure policy or new runtime wave.
+
+- **Bound the claim, preserve the horizon.** State the represented source,
+  continuity, places, meaningful starts and pursuits. Link early, middle, late
+  and aftermath outcomes where they fit that scope, including continuing
+  ordinary life. A finite region can be complete as a region without completing
+  its source world. Deferred breadth stays visible; do not redefine it away.
+- **Trace a connected useful life.** For each selected functional detail, name
+  its actual producer/acquisition, state owner, consumer, consequence and
+  retention. Institutions and NPC commitments use real means, funding, access
+  and knowledge. Resolve inputs into outputs, held stock, waste or declared
+  loss, including interruption/cancellation through the existing owner
+  (MR5/MR29, ECR, PIR). Texture need not acquire a stat or payoff.
+- **Keep local laws and player policy distinct.** Canon facts, inferences,
+  original extensions and source unknowns retain their labels (WA3/WA8).
+  Existing clocks and selected absence/offline policies govern advancement;
+  authored deadlines do not imply wall-clock progress (AD15–AD18). Ordinary
+  play keeps comfortable unfed life and no hunger death under the
+  [accepted food direction](USER_VISION.md#food-benefits-and-famine-consideration-2026-10-13).
+  A future severe mode or unresolved Famine tuning is not a current requirement.
+- **Advance beyond the opening.** After the opening meets its declared gate,
+  choose the earliest unproven dependency-ready horizon or cross-section join
+  within the assignment. Reopen passed work for a defect, changed input or
+  requested improvement, rather than polishing it by default. A later pursuit
+  must change decisions, access, relationships, capability or world state;
+  longer waits and renamed currencies do not establish depth.
+- **Prove the promised layer and stop.** Use AD36 for targeted checks and valid
+  evidence reuse. Required rebuilt native journeys, affected persistence and
+  human acceptance remain distinct. Show known costs, readable feedback,
+  navigation/focus and recovery under current UI rules without exposing hidden
+  truth. Close the assigned finite revision with accepted/deferred/unknown and
+  unrun gates explicit; content coverage is not app adoption or director approval.
+
+For example, a retained Mistglass room and paid sluice work are a playable seam,
+not a complete society. Pressure timing earns depth when it changes the real
+work debit; another named technique without a consumer does not. Frontier’s
+funded visitor/cohort journey demonstrates reusable custody, learning and
+settlement patterns, not the presence of those institutions in Mistglass.
+The authoring path is shared commands/jobs/clock/knowledge/save plus genuinely
+local laws; use a new abstraction only for a demonstrated gap, not to postpone
+world content (AR11/AR12, WA1/WA5).
+
 ## Sections
 
 These are reference categories, not fifteen tasks the player must complete.
@@ -164,8 +210,9 @@ choices, not defaults imposed by this audit method.
 
 Implementation audits are targeted to selected details and affected consumers,
 not an instruction to rerun every suite or rebuild the engine before expanding
-ideas. The current planning wave performs source/contract inspection only; its
-runtime, browser and save cases are specified-not-run.
+ideas. The October 11 setup wave performed source/contract inspection only; its
+runtime, browser and save cases were specified-not-run. Each later assignment
+records its own actual delivery and evidence state.
 
 | Level | Claim allowed | Required evidence |
 |---|---|---|
@@ -189,8 +236,10 @@ required/verified/open counts with the selected scope and specific missing gates
 ## Execution cycle and parallel planning
 
 Broad book/anime world work uses the
-[whole-world actionability pass](gm/WORLD_ACTIONABILITY_GM_PROMPT.md) to improve
-and expand existing ideas before selecting implementation packets. Preserve
+[whole-world actionability pass](gm/WORLD_ACTIONABILITY_GM_PROMPT.md) as a
+coverage lens. Reuse its existing results; run additional planning only for a
+named uncertainty or the assigned design outcome, not as a compulsory new wave
+before independently ready implementation. Preserve
 identified starts, premises and cheat variants through explicit compatibility
 and dependency mapping. A whole-world blueprint and the next playable revision
 are separate linked horizons; a small proof cannot substitute for source/idea
@@ -213,7 +262,10 @@ Use five steps for each selected tranche:
    inventory, clocks, saves, registries and build publication have one integrator.
 4. P4 implement and exercise: complete a connected playable slice, extend its
    details, then close selected sections. Rebuild before fresh-origin browser
-   checks; persistence changes include compatibility, old-save and save/reload/import.
+   checks; persistence changes include the selected compatibility decision and
+   Save/reload/Export/Import. Old-save migration/testing follows the current
+   [deferral](USER_VISION.md#old-save-compatibility-deferred-2026-10-17), unless
+   the specific task explicitly retains an older contract.
 5. P5 review and continue: join worker evidence, review interactions and director
    gates, update remaining work and finish the next slice within authorized scope.
 

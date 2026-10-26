@@ -15,11 +15,12 @@ BASE: Repository/checkout, commit and hashes or snapshots of affected dirty inpu
 WRITER: This worker's exact files; named integrator for shared paths.
 CONTEXT: Relevant accepted rules, known player state, source evidence and proposals.
 FIT: Links to relevant live vision/decision/design owners; deferred scope; any later human instruction changing direction.
-INTERFACE: Existing functions/data contracts and prerequisites already available.
+INTERFACE: Existing owner/functions/data contracts, one representative working consumer and its evidence; prerequisites already available versus missing.
+INVARIANTS (when changed): Sole writers, actual caller/target, conserved inputs, frozen commitment/clock, observer projection and selected compatibility policy; name only affected boundaries.
 DO NOT TOUCH: Other workers' paths, unrelated user work, private saves, shared gates.
 ROUTE: Model, explicit effort, available tools and task size/time boundary.
 GATE: Expected behavior, relevant negative cases, narrow checks and evidence location.
-UI TARGET (when relevant): Target viewport and concrete visible outcome; use the UI design owner's scope and acceptance gates.
+UI TARGET (when relevant): Surface/home, target viewport and concrete visible outcome; known prerequisite/cost/duration, pending/settled/cancelled or error states, keyboard/return path. Cite applicable UI rules rather than copying a universal widget checklist.
 CHECKPOINT: Existing task record/resume block, its named writer and current revision.
 RETURN: Status, changed paths, checks with their inputs/results, gaps and next action.
 ```

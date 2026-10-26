@@ -44,8 +44,10 @@ WPR32, sealed secrets ([rules index](../RULES_INDEX.md)). Example run:
 | Mechanics and edge rules (how brewing works, higher ranks) | Sonnet | One file, conflicts listed |
 | Implementation design from real code | Sonnet (Opus only for a hard seam, with advisor first) | Data shape, verbs, save compatibility, slice order, risks |
 
-All three run in parallel, read existing notes and code only, and write one file each in
-the task's dispatch folder. Spot-check two or three cited facts before folding.
+These are optional shapes, not three mandatory dispatches. Reuse existing
+receipts and source notes; open a lane only for a named gap under current
+authorization, model routing and budget. A settled slice can proceed directly.
+Review material source claims at their locators before folding.
 
 ## Stage 3. Data gap fill (when data is thin)
 
@@ -54,20 +56,24 @@ keyword scan of the original-language text, Haiku shard extraction, the wiki's d
 a crosswalk, and recheck every conflict in the text. Bulk wiki or image downloads only on
 Weibao's ask; raw data stays in the gitignored research folder or `private_packs/`.
 
-## Stage 4. Build lanes (isolated worktrees)
+## Stage 4. Build lanes (owned checkout and settled inputs)
 
-- One lane per independent slice, each in its own worktree off master (Agent tool
-  `isolation: "worktree"`), so builds and `dist/` never collide with other sessions.
+- Follow AD41 and [shared-worktree practice](SHARED_WORKTREE_PRACTICE.md): primary
+  checkout by default; reuse suitable temporary isolation for overlapping writers
+  or a clean integration candidate. One named owner publishes generated output.
 - **Worktrees only see committed files.** Give lanes absolute paths to uncommitted design
   docs in the main checkout, and tell them to write notes inside their own worktree.
 - Record each lane's owned files, branch and worktree path in the checkpoint before dispatch.
-  New files beat edits; never touch files another session has uncommitted edits in.
+  Dirty work is not abandoned work. Recover incumbent custody and explicit
+  release before editing overlapping paths; extend existing owners instead of
+  inventing new files to evade a reservation.
 - Every runtime brief carries:
   - a **golden snapshot** of existing command definitions taken before the change;
   - the **save validators** that would refuse a new state (exact fields, revision and source
     hashes, saved jobs equal to definitions), with a stop-and-report bound;
   - **conservation** of every consumed or minted item in the save envelope;
-  - **old-save compatibility**: load a save made on master before the change;
+  - **compatibility decision**: apply the current old-save deferral; retain an
+    older contract/load check only where the selected slice explicitly requires it;
   - **browser proof** on the rebuilt bundle from a fresh origin at 1920x1080 and the
     1536x864 floor at 14 and 21 px, with save, reload, Export and literal Import;
   - proposals labeled (prices, times, authored values), canon values cited.
@@ -75,16 +81,22 @@ Weibao's ask; raw data stays in the gitignored research folder or `private_packs
 
 ## Stage 5. Coordinator verification
 
-1. Rerun each lane's focused tests yourself.
+1. Review each lane’s actual inputs, diff and evidence under AD36. Reuse passing
+   checks when relevant source/dependencies/configuration/fixtures still match;
+   rerun only invalidated checks or a named failure reproduction, not every suite.
 2. Read the diff stat and the decision file; open one screenshot at the target size.
-3. Read the browser result JSON, including the old-save run.
+3. Read the native/persistence result and explicit unrun gates, including any
+   old-contract run actually required by the slice. A screenshot alone is not a journey.
 4. List open issues the lane reported; they stay with the slice.
 
 ## Stage 6. Integration (needs Weibao's yes to land)
 
-1. Combine lanes in one clean worktree off current master; rebuild once.
-2. Run the full gate once: `npm run build && npm test`, `npm run check:arch`,
-   `npm run check:rules`, plus `check:rule-behavior` for rule changes (AD36).
+1. Reconcile released lanes in the AD41 checkout or justified clean candidate;
+   identify settled combined inputs before publishing its build.
+2. Apply AD36: the committer owns the full suite once as the pre-commit gate;
+   the integrator owns required combined build/architecture/rules and changed
+   native/persistence acceptance. `check:rule-behavior` is an optional focused
+   route already covered by the full suite, not another universal gate.
 3. Commit only with Weibao's yes, own paths only, no `Co-Authored-By`; push separately on
    his yes.
 
@@ -92,13 +104,16 @@ Weibao's ask; raw data stays in the gitignored research folder or `private_packs
 
 - Owner palette round, USER_VISION line quoting his words, checkpoint with lanes, checks and
   open issues. Systems register updated when a new system or degree lands.
-- Playable result goes on the play queue with exact steps. It is implemented-unverified until
-  he plays it.
+- A result ready for play goes on the existing play queue with exact steps and
+  its actual technical state. Native/browser-verified is distinct from
+  implemented-unverified; Weibao’s play/acceptance and normal-app adoption are
+  later separate states, neither inferred from a passing technical journey.
 
 ## Lessons from the potion run
 
-- Ask the advisor once before dispatching build lanes; it caught a dose-accounting rule
-  that would have refused every brewed save.
+- An advisor caught a dose-accounting rule that would have refused every brewed
+  save. Seek that second opinion for a similarly consequential unresolved seam;
+  this historical benefit is not a mandatory advisor call for every settled lane.
 - Haiku is enough for shard extraction; check its sequence labels (one was wrong).
 - A wiki quantity next to another quantity is the likeliest error (X1).
 - Blocked sites stay blocked; spoofed fetches are refused; logins are Weibao's route.

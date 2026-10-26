@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {equipmentDurability as durability} from '../src/absorb_e2/durability.js';
-import {configureToolsDomain, setToolsState, toolsState, quoteRepair, executeRepair, cancelRepair, validateTools} from '../src/tools_domain.js';
+import {configureToolsDomain, setToolsState, toolsState, quoteRepair, executeRepair, cancelRepair, validateTools, quoteToolAction, executeToolAction} from '../src/tools_domain.js';
 import {domainRegistry} from '../src/domain_registry.js';
 
 function fixture() {
@@ -104,4 +104,44 @@ test('P4 a rejected partial-work write retries its consumed interval; zero-time 
     f.fail('');f.tick(0);assert.equal(toolsState().job.minutesLeft,before.tools.job.minutesLeft-4);
     assert.equal(f.rng.log.length,0);assert.deepEqual(f.saved(),f.snapshot());
     const caughtUp=f.snapshot();f.tick(0);assert.deepEqual(f.snapshot(),caughtUp);
+});
+
+
+test('TQ199 stale and rejected action writes preserve costs, identity, damage and diagnosis; repair cancellation settles once', () => {
+    const f = fixture(), action = name => executeToolAction(quoteToolAction({key: f.key, action: name}));
+    const q = quoteToolAction({key: f.key, action: 'lever'}), before = f.snapshot();
+    f.fail('write'); assert.throws(() => executeToolAction(q), /disk full/); assert.deepEqual(f.snapshot(), before);
+    f.fail(''); executeToolAction(q); assert.throws(() => executeToolAction(q));
+    action('cancelLever'); assert.equal(toolsState().instances[f.key].leverNext, undefined);
+    action('lever'); domainRegistry.command('tools', 'workCycle')({item: f.tool});
+    const cracked = f.snapshot(); f.fail('write'); assert.throws(() => action('inspect'), /disk full/); assert.deepEqual(f.snapshot(), cracked);
+    f.fail(''); action('inspect');
+    const diagnosed = f.snapshot(); f.fail('write'); assert.throws(() => f.start(), /disk full/); assert.deepEqual(f.snapshot(), diagnosed);
+    f.fail(''); f.start(); assert.equal(f.stock['Iron ingot'], 2); assert.throws(() => f.start());
+    cancelRepair(); assert.equal(f.stock['Iron ingot'], 3); assert.deepEqual(toolsState().instances, diagnosed.tools.instances);
+    assert.throws(cancelRepair); assert.equal(f.stock['Iron ingot'], 3);
+    // Rejected completion cannot lose damage, paid inputs or the keyed draw.
+    f.start(); const pending = f.snapshot(), total = toolsState().job.total;
+    f.fail('write'); assert.throws(() => f.tick(total), /disk full/); assert.deepEqual(f.snapshot(), pending);
+    f.fail(''); f.tick(0); assert.equal(toolsState().instances[f.key].damage, undefined);
+    assert.equal(durability.condition(f.key), 9); assert.equal(f.stock['Iron ingot'], 2); assert.equal(f.rng.log.length, 1);
+    const finished = f.snapshot(); f.tick(0); assert.deepEqual(f.snapshot(), finished);
+});
+
+test('TQ199 failed crack repair retains diagnosis and scalar wear; writable/custody refusal preserves state', () => {
+    const f = fixture(), action = name => executeToolAction(quoteToolAction({key: f.key, action: name}));
+    for (const guard of ['writable', 'custody']) {
+        const q = quoteToolAction({key: f.key, action: 'lever'}), before = f.snapshot();
+        f[guard](guard === 'custody'); assert.throws(() => executeToolAction(q)); assert.deepEqual(f.snapshot(), before);
+        f.writable(true); f.custody(false);
+    }
+    action('lever'); domainRegistry.command('tools', 'workCycle')({item: f.tool}); action('inspect');
+    const damage = structuredClone(toolsState().instances[f.key].damage);
+    f.roll(.99); f.start(); f.tick(toolsState().job.total);
+    assert.deepEqual(toolsState().instances[f.key].damage, damage); assert.equal(durability.condition(f.key), 9);
+    assert.equal(toolsState().instances[f.key].max, 97); assert.equal(f.stock['Iron ingot'], 2);
+    durability.setEnabled(false); const off = f.snapshot();
+    assert.equal(domainRegistry.command('tools', 'gate')({item: f.tool}).rates, null);
+    assert.deepEqual(domainRegistry.command('tools', 'workCycle')({item: f.tool}), {worn: false});
+    assert.deepEqual(f.snapshot(), off); durability.load(undefined); setToolsState(null);
 });

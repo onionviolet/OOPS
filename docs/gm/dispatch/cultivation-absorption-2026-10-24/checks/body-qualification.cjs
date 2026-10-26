@@ -1,0 +1,10 @@
+const gate=require('../../cultivation-spacing-2026-10-22/browser-helper.cjs');
+gate('body-qualification',async h=>{
+ const {p,assert,boot,load,enroll,save,roundtrip,gates,fs}=h;await p.setViewportSize({width:1920,height:1080});await boot();
+ const raw=fs.readFileSync('/Users/weiwei/.codex/research/cultivation-absorption-2026-10-24/browser/slice1.save.txt','utf8').trim().replace(/^YAIR-UTF8-1:/,'');await load(JSON.parse(Buffer.from(raw,'base64').toString()),'naturally-conditioned-body');await enroll();let s=await save();const original=structuredClone(s),stats=()=>p.evaluate(()=>simulationTestHooks.project('personal_journal').stats);const before=await stats();assert.equal(s.pledges.trial.stage,1);assert.ok(s.pledges.bodyTrials);
+ // Existing native body envelope compatibility fixture. No stage, quality or
+ // stat value is granted; this checks the actual carrier/activation boundary.
+ s.expansion.simulation.people.player.body={...(s.expansion.simulation.people.player.body||{}),instanceId:'cultivation-proof.replacement'};await load(s,'replacement-body-instance');s=await save();assert.equal(s.pledges.trial.stage,0);assert.equal(s.pledges.trial.bestStage,1);assert.ok((await stats()).max_health<before.max_health);
+ await roundtrip('suppressed-body-qualification',s=>s.pledges);s=await save();s.expansion.simulation.people.player.body=structuredClone(original.expansion.simulation.people.player.body||{});await load(s,'original-body-instance-return');s=await save();assert.equal(s.pledges.trial.stage,1);assert.equal(s.pledges.trial.quality,1);assert.equal((await stats()).max_health,before.max_health);await roundtrip('restored-body-conditioning',s=>s.pledges);
+ gates.push('Naturally earned body stage retained per actual embodiment; native replacement-instance fixture suppresses actual HP benefit while retaining qualification; original restores without stacking; both literal native imports. This does not certify a body-acquisition route.');
+},{deterministic:true}).catch(e=>{console.error(e);process.exitCode=1;});

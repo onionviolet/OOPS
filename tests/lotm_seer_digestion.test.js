@@ -33,6 +33,7 @@ function taught(){let p=ingested();p=run(p,'lesson');return wait(p,5);}
 import {validateLotmEnvelope} from '../src/book_world_lotm_envelope.js';
 import {lotmPathView} from '../src/book_world_lotm_path.js';
 import {lotmFacts} from '../src/book_world_lotm_actions.js';
+import {hostOver,fresh as branchFresh,run as branchRun} from './lotm_helpers.js';
 const acting=p=>p.state.actors.player.resources['book.lotm.acting']||0;
 const path=p=>lotmPathView(p.state,lotmFacts(p.state,ctx(p)));
 function sleep(p){p.state.simulation.people.player.location=L.lodging;p=run(p,'sleep');p=wait(p,120);p.state.simulation.people.player.location=L.workroom;return p;}
@@ -54,9 +55,40 @@ test('acting needs the taught method, spends spirituality and counts only a comp
  p=wait(p,10);assert.equal(acting(p),1);assert.equal(energy(p).reserve,1);
  assert.equal(path(p).felt,'settling');
 });
+test('acting guidance joins only public current-path actions without spending or bypassing the command',()=>{
+ assert.deepEqual(hostOver(fresh()).host.view().actingGuidance,[]);
+ assert.deepEqual(hostOver(ingested()).host.view().actingGuidance,[],'untaught acts stay unknown');
+ let {host,box}=hostOver(taught());const before=structuredClone(box.p);
+ const guidance=host.view().actingGuidance;
+ assert.deepEqual(box.p,before,'inspection cannot spend or advance anything');
+ assert.deepEqual(guidance.map(a=>a.id),['book.lotm.act_reading','book.lotm.act_refusal']);
+ assert.equal(guidance[0].duration,def('act_reading').duration);
+ assert.equal(guidance[0].place,L.workroom);assert.equal(guidance[1].free,true);
+ host.act(guidance[0].id);
+ assert.equal(host.view().actingGuidance[0].pending,true);
+ assert.equal(acting(box.p),0);
+ host.cancel(box.p.state.simulation.jobs[0].id);
+ assert.equal(acting(box.p),0);assert.equal(host.view().actingGuidance[0].pending,false);
+ box.p=read(box.p);
+ box.p.state.simulation.people.player.location=L.lodging;
+ const away=host.view().actingGuidance;
+ assert.deepEqual(away.map(a=>a.id),['book.lotm.act_reading'],'away guidance retains remembered acts, not unknown offers');
+ assert.equal(away[0].moveId,'lotm.move.workroom');assert.equal(away[0].eligible,false);
+ assert.throws(()=>host.act(away[0].id),'a stale guidance reference cannot act away from its place');
+ box.p.state.simulation.people.player.location=L.workroom;
+ host.act('book.lotm.act_refusal');
+ assert.equal(host.view().actingGuidance.find(a=>a.id==='book.lotm.act_refusal').completed,true);
+ assert.throws(()=>host.act('book.lotm.act_refusal'),'a one-time act cannot be repeated through guidance');
+ // A second existing pathway uses its own resource consumer, with no Seer action leakage.
+ let sv=branchFresh(500,'machinery');for(const id of ['report_in_machinery','accept_allocation_sv','ingest_sv'])sv=branchRun(sv,id);
+ const other=hostOver(sv).host.view().actingGuidance;
+ assert.deepEqual(other.map(a=>a.id),['book.lotm.act_study','book.lotm.act_apply']);
+ assert.equal(other[0].duration,30);
+});
 test('six acts digest the Seer potion; acting then stops and the assessment releases one Clown dose',()=>{
  let p=taught();assert.equal(path(p).felt,'unsettled');refuses(p,'request_assessment');
  p=digested();assert.equal(acting(p),6);assert.equal(path(p).felt,'settled');
+ assert.deepEqual(hostOver(p).host.view().actingGuidance,[],'settled digestion offers no more progress');
  refuses(p,'act_reading');refuses(p,'act_refusal');refuses(p,'ingest_clown');
  const before=p.state.actors[I.supervisor].resources['book.lotm.attention'];
  p=run(p,'request_assessment');p=wait(run(p,'request_exam_seer'),60);

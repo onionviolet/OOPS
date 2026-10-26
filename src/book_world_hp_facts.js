@@ -16,7 +16,9 @@ export function hpFacts(state,context={}){
  if(trade)return {'hp.trade.wandReady':(context.gameplay?.player?.inventory?.[JSON.stringify({id:'book.hp.trade.wand'})]||0)>0};
  if(!c)return {};
  const inv=context.gameplay?.player?.inventory||{},P='book.hp.school',held=n=>(inv[JSON.stringify({id:P+'.'+n})]||0)>0;
- return {'hp.school.wandReady':held('wand')||held('practice_wand'),'hp.school.charmsOpen':c.charms,'hp.school.plantsOpen':c.plants,
+ return {'structured.extension.book.hp.school.assessed_repair.admitted':!!context.structuredNative?.extensions?.some(e=>e.id==='book.hp.school.assessed_repair'&&e.revision===1),
+  'hp.school.assessmentStart':c.charms&&c.minute+10<660,
+  'hp.school.wandReady':held('wand')||held('practice_wand'),'hp.school.charmsOpen':c.charms,'hp.school.plantsOpen':c.plants,
   'hp.school.charmsStart':c.charms&&c.minute+30<660,'hp.school.plantsStart':c.plants&&c.minute+30<900};
 }
 
@@ -26,6 +28,9 @@ export function hpLifeStatus(state,context={}){
  const r=a.resources,unit=P.endsWith('school')?'allowance':'coins';
  const rows=[{label:'Current local means',value:`${r[P+'.'+unit]||0} local units · ${r[P+'.debt']||0} debt units`}];
  if(P.endsWith('trade'))rows.push({label:'Counter till',value:`${state.actors[P+'.merchant']?.resources[P+'.coins']||0} trade units`});
+ const assessment=state.simulation.knowledge.player?.['book.hp.school.assessed_repair.passed'],contribution=state.simulation.knowledge.player?.['book.hp.school.assessed_repair.contributed'];
+ if(assessment&&P.endsWith('school'))rows.push({label:'Assessed repair',value:assessment.value});
+ if(contribution&&P.endsWith('school'))rows.push({label:'Classroom contribution',value:contribution.value});
  const inv=context.gameplay?.player?.inventory||{},count=n=>inv[JSON.stringify({id:P+'.'+n})]||0;
  if(P.endsWith('trade'))rows.push({label:'Owned stock',value:`${count('glass_shards')} complete fragment sets · ${count('glass_pane')} repaired panes`});
  for(const [id,p]of Object.entries(state.simulation.powers.player||{}))if(id.startsWith(P+'.'))rows.push({label:id.endsWith('levitation')?'Feather levitation':'Glass repair',value:`${p.owned?'learned':'not learned'} · ${p.mastery} practice steps · ${p.executions} executions`});

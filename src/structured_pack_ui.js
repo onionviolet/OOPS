@@ -19,7 +19,7 @@ export function createStructuredPackPanel({read,command,changed}) {
         status:(v.status||[]).map(s=>({label:s.label,value:s.value})),
         actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable})),
         jobs:(v.jobs||[]).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:j.remaining,duration:j.duration||0,cancellable:!!j.cancellable})),
-        choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons}:null,canWrite:!!v.canWrite,error:v.error};};
+        extensions:v.extensions||[],choices:v.choices||[],selectedBeginning:v.selectedBeginning||'',beginningHash:v.beginningHash||'',arrival:v.arrival||null,pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons}:null,canWrite:!!v.canWrite,error:v.error};};
     const button=(label,data,request,disabled)=>{
         const b=document.createElement('button');b.type='button';b.textContent=label;Object.assign(b.dataset,data);b.disabled=disabled;
         b.onclick=()=>{
@@ -88,6 +88,10 @@ export function createStructuredPackPanel({read,command,changed}) {
                 for(const site of view.expeditions)p(`${site.label}: ${site.phase}${site.injury>0?' · treatment needed':''}`);
                 for(const person of view.people){p(person.name);for(const detail of person.details)p(detail);}
                 for(const row of view.status)p(`${row.label}: ${row.value}`);
+                for(const e of view.extensions){
+                    p(e.description);for(const reason of e.reasons)p(reason);
+                    add(info,'Choose '+e.label,{structuredExtension:e.id},{type:'adopt-extension',id:e.id,revision:e.revision,contentHash:e.contentHash},!view.canWrite||!e.eligible);
+                }
                 for(const job of view.jobs){
                     let row=jobRows.get(job.id);
                     if(!row){const card=node('section',work);card.className='action-legibility__card action-legibility__work';card.dataset.structuredJob=job.id;

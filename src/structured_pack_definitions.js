@@ -1,4 +1,5 @@
 import {check, object} from './basics.js';
+import {requireExtensionBase} from './structured_pack_extensions.js';
 import {compileStructuredExpeditions} from './structured_expedition_runtime.js';
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
 import {compileClaims} from './claim_runtime.js';
@@ -6,7 +7,7 @@ import {validateStructuredEquipmentDefinition} from './structured_equipment_runt
 import {validateStructuredRenewalDefinition} from './structured_renewal.js';
 import {createContentRegistry} from './expansion_engine.js';
 import {validateStructuredBootstrap} from './structured_pack_runtime.js';
-import {jsonData, stableId} from './simulation_contracts.js';
+import {jsonData, stableId,validatePredicate} from './simulation_contracts.js';
 
 const contentFamilies = ['worlds', 'actions', 'opportunities', 'capabilities', 'sources', 'rollTables', 'techniques'];
 const simulationFamilies = ['people', 'commands', 'powers', 'advancements', 'sites', 'events', 'controllers', 'transitions', 'origins', 'conditions', 'encounters', 'energies', 'pursuits', 'situations', 'containers'];
@@ -184,4 +185,25 @@ export function stageStructuredNativeObjects(d,{availabilities,makeLocation,make
         }
         throw error;
     }
+}
+
+// Compile against the existing base's world/means without merging another world,
+// item, actor, start or replacement command. Publish only after all checks pass.
+export function registerStructuredCommandExtension(raw,contentHash,base,registry) {
+    jsonData(raw);requireExtensionBase(raw,base);
+    check(raw.schema===1&&stableId(raw.id)&&raw.id.startsWith(base.id+'.')&&Number.isSafeInteger(raw.revision)&&raw.revision>0&&/^sha256:[a-f0-9]{64}$/.test(contentHash),'Invalid command extension header.');
+    check(Object.keys(raw).every(k=>['schema','id','revision','base','label','description','requires','reason','commands'].includes(k))&&typeof raw.label==='string'&&typeof raw.description==='string'&&typeof raw.reason==='string'&&Array.isArray(raw.commands)&&raw.commands.length>0,'Only a command extension is supported.');
+    validatePredicate(raw.requires);
+    check(!(base.extensions||[]).some(e=>e.id===raw.id),'Duplicate structured extension.');
+    for(const c of raw.commands)check(c.id.startsWith(raw.id+'.')&&!registry.simulation.commands.has(c.id)&&c.duration>0&&c.cancellation==='refund'&&c.reservationReturns===1&&!c.outcomes&&!c.fluency&&!c.powerId,'Unsupported or colliding extension command.');
+    for(const c of raw.commands)check((c.costs||[]).every(e=>['item','vital'].includes(e.type)&&typeof e.amount==='number')&&(c.effects||[]).every(e=>['item','knowledge','xp'].includes(e.type)&&(!('amount' in e)||typeof e.amount==='number')),'Command-only extensions cannot provision actors, faculties or new runtime owners.');
+    const candidate={...base,simulation:{...base.simulation,commands:[...base.simulation.commands,...raw.commands]}};
+    const compiled=compileStructuredPack(candidate);
+    const commands=raw.commands.map(c=>compiled.registry.simulation.commands.get(c.id));
+    const extension=freeze({...structuredClone(raw),contentHash,commands});
+    // No constructor or asynchronous operation occurs after this preflight.
+    for(const c of commands)check(!registry.simulation.commands.has(c.id),'Structured extension command collision.');
+    for(const c of commands)registry.simulation.commands.set(c.id,c);
+    base.extensions=[...(base.extensions||[]),extension];
+    return extension;
 }

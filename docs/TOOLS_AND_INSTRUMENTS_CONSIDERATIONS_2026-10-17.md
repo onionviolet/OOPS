@@ -506,6 +506,10 @@ is MEMORY, to be checked under TQ60.
 | TQ199 | Typed damage phase: split condition into TQ130–TQ141 kinds used by the Village, with diagnosis (TQ162) | Strong implementer, M | A cracked tool is found only by inspection, fails under load, and the right repair fixes it; save, reload, Export, Import keep damage kinds |
 | TQ200 | Source-check TQ170–TQ189 MEMORY cells against packs and wikis | Cheap readers, balanced reviewer, S per world | Each cell carries a status and locator |
 
+
+TQ199 bounded implementation receipt, 2026-10-25: [Village crack lane](gm/dispatch/tool-crack-2026-10-25/RECEIPT.md). SOURCE READY proposal: explicit next-round prying with one native Iron pickaxe copy adds a physical head crack; fitting forge inspection diagnoses it; existing native mining rates and hand repair consume it. Ordinary scalar wear remains separate. Values and cause are ORIGINAL Village proposals. Focused state/consumer checks pass; rebuilt native UI, save/reload/Export/Import and desktop acceptance are unrun under the LOTM build lock. This is one TQ133/TQ162 slice; other typed damage and layered repair remain open.
+
+
 Evidence: CRAFTING_ENGINE round 2 (GT, WR, RS), MAKER_ARTS world rows W01–W19, MAKING_RULES MR11,
 round 2's WE survey. Docs only; no build, test or browser run.
 

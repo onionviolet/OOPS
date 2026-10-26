@@ -1,0 +1,7 @@
+const gate=require('../../cultivation-spacing-2026-10-22/browser-helper.cjs');
+gate('memory',async h=>{
+ const {p,assert,boot,save,roundtrip,gates,path,out}=h;await p.setViewportSize({width:1920,height:1080});await boot();await p.getByRole('combobox',{name:'Other known panels'}).selectOption('memories');
+ await p.locator('#life_record_panel').evaluate(n=>n.open=true);await p.locator('#life_remember_day').click();const before=(await save()).life_record;assert.ok(before.recent.some(e=>e.key==='life.reflection'));
+ await p.locator('#life_record_panel details').evaluate(n=>n.open=true);await p.getByRole('combobox',{name:'Memory language'}).selectOption('chinese');const text=await p.locator('#life_record_panel').innerText();assert.match(text,/记|回想/);assert.deepEqual((await save()).life_record,before);
+ await roundtrip('keyed-memory-facts',s=>s.life_record);await p.getByRole('combobox',{name:'Other known panels'}).selectOption('memories');await p.locator('#life_record_panel').evaluate(n=>n.open=true);await p.locator('#life_record_panel details').evaluate(n=>n.open=true);await p.getByRole('combobox',{name:'Memory language'}).selectOption('chinese');await p.screenshot({path:path.join(out,'memory-1920.png')});gates.push('Real remembered-day producer, live owner publication, language change re-renders semantic facts without rewriting them and literal native import retains those facts');
+},{deterministic:true}).catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,0 +1,22 @@
+const gate=require('../../cultivation-spacing-2026-10-22/browser-helper.cjs');
+gate('vessel',async h=>{
+ const {p,assert,boot,enroll,act,save,played,roundtrip,gates,path,out}=h;
+ await p.setViewportSize({width:1920,height:1080});await boot();await enroll();
+ await act('data-mistglass-action','enter');await act('data-mistglass-action','learn');await act('data-mistglass-action','method:breath');await played(24);
+ const reserve=s=>s.expansion.simulation.energies.player['p23.mistglass.condensate'].reserve;
+ let s=await save(),before=reserve(s);
+ await act('data-mistglass-action','method:vessel:open');s=await save();assert.equal(reserve(s),before-1000);
+ await act('data-mistglass-action','method:vessel:node:flow');await played(12);await act('data-mistglass-action','method:vessel:node:still');
+ await act('data-mistglass-action','method:vessel:fuse');s=await save();let d=s.expansion.worldAdaptation.techniques.discipline;assert.deepEqual(d.nodes,{flow:0,still:0,bridge:1});assert.equal(d.impurity,1);
+ await act('data-mistglass-action','method:vessel:purge');await act('data-mistglass-action','method:vessel:force');await played(8);s=await save();assert.equal(s.expansion.worldAdaptation.techniques.discipline.impurity,1);
+ await act('data-mistglass-action','method:vessel:force');await act('data-mistglass-action','method:settling');await played(17);
+ await act('data-mistglass-action','method:vessel:pair');s=await save();const drills=s.expansion.worldAdaptation.techniques.minutes;await played(2);s=await save();assert.equal(s.expansion.worldAdaptation.techniques.minutes.settling,drills.settling+1);
+ await act('data-mistglass-action','method:vessel:deepen');s=await save();assert.equal(s.expansion.worldAdaptation.techniques.discipline.depth.flow,1);
+ await roundtrip('vessel-law-paired',s=>s.expansion.worldAdaptation.techniques);
+ await p.locator('[data-route-id="projects"]').click();
+ await p.locator('#projects_drawer').evaluate(n=>n.open=true);
+ await p.locator('#p23_mistglass_panel').evaluate(n=>{n.open=true;n.scrollIntoView();});
+ assert.match(await p.locator('#p23_mistglass_panel').innerText(),/Vessel nodes: flow 0, still 0, bridge 1/);
+ assert.equal(await p.locator('#p23_mistglass_panel').evaluate(n=>n.checkVisibility()),true);
+ await p.screenshot({path:path.join(out,'vessel-1920.png')});gates.push('Native reserve debit, node fusion, impurity/purge, forced residue, divided attention and law deepening; existing prerequisite fixture, no new-family grants');
+},{deterministic:true}).catch(e=>{console.error(e);process.exitCode=1;});

@@ -697,78 +697,6 @@ action list per panel), the potion table's section 0.1 rules, and `src/lotm_ingr
 | DWF142 | Cultivation pills and smithing on the process envelope (DWF137) | Sonnet medium each | One pill and one forged item through the shared lifecycle in browser |
 | DWF143 | Brew failure by mechanism using `craft_dose_rules.js` (DWF133) | Sonnet medium | Overdose and wrong-order cases produce stated consequences, not refusals |
 
-## Round 7: the same pattern for everything that is not a potion (2026-10-25)
-
-Weibao, while another chat builds the potion side (rounds 4 and 6): "consider stuff like that and
-more to also address so that non potion stuff would also be able to comprehensively be
-implemented". Proposals only; no runtime change. Jobs, quest boards, lessons, shops (DWF110-DWF113),
-the making process (DWF126, DWF137) and the meter (DWF105, DWF119) are already proposed and are cited,
-not repeated. Evidence: kind counts from the private censuses (`HP_CENSUS.jsonl`,
-`LOTM_CENSUS.jsonl`) and exports and headers of the seams named below. Fits marked "sampled" come
-from headers and exports only.
-
-### ACCOUNT FOR NOW: census kind to seam
-
-| Code | Census kinds (rows) | Seam to grow | Shallow rung (existing verbs) | Deep rung adds |
-| --- | --- | --- | --- | --- |
-| DWF144 | HP spell (100); LOTM sequence abilities (220, potion side owns the doses) | `compileStructuredAbilities` for use (6 consumers, LOTM S9/S8 already rows; its `function`, `acquisition: learned` and `ordinary-technique` fields fit a charm); `techniques.js` for learning and understanding only (its header: not a spell engine) | Hear of, read about, see cast | Learned through a lesson (DWF112), cast as a command with a held wand as `sourceId`, counters and failure |
-| DWF145 | HP creature (18) | `enemies.js` `enemy_templates` and `droplist` (native data table) | Inspect, hear of, buy a part | Fightable or tameable template; drops feed ingredients (DWF131) |
-| DWF146 | HP plant (18), ingredient (4) | Acquisition rows (DWF131); `world_completion_crop_clock.js` is one bespoke crop, not a seam | Buy, hold, inspect | Forage spot, greenhouse or garden plot, seasons from `world_calendar` |
-| DWF147 | HP magical_object (16), artifact (13), wand wood and core (12); LOTM sealed_artifact (11) | `compileArtifactCollection` (sampled; already compiles held items into paid commands with no second inventory) | Hold, inspect, buy or sell where canon sells it | Uses as abilities (DWF144 `device-construct`), drawbacks, wand choosing as a row match |
-| DWF148 | HP textbook (32); LOTM ritual instructions and formulas as texts | No shared seam: `book_care_*`, `pattern_book`, `feature_expansion_book_*` are separate (sampled) | Own, read for minutes | What reading grants (a technique, a formula, a map, a rumor), language or clearance, copies, wrong copies (DWF132) |
-| DWF149 | LOTM ritual (27) | The DWF126 process envelope with an effect instead of a product | Hear of, read | Materials, place and time conditions, failure by mechanism |
-| DWF150 | LOTM location (19); HP places (inside other kinds today) | `authored_site.js` compiles one site per draft from fixed `DRAFT_FIELDS`; a many-row loader is new work. `known_routes` for travel | Visit, see who is there, what is sold | Activities, jobs, events, keepers' routines |
-| DWF151 | LOTM person (26) | `generated_people` routines plus `people_knowledge` (sampled) | Know of, find at a place and hour, talk | A life (`npc_lives`), stays bespoke (DWF114) |
-| DWF152 | LOTM organization (33); HP school_office_role (15), subject (14) | `faction_rank.js` ladder (DWF110), lesson (DWF112) | Know of, see its seat and members | Membership ladder, duties, pay; politics and secrets bespoke |
-| DWF153 | LOTM rule (45) | None needed: these are dials and validator inputs to other mechanisms (pathway generator DWF139, acting, loss of control), not things. `rule_modules.js` targets oral restoration and is not their owner | Read in a text (DWF148) | The mechanism that obeys it |
-
-**DWF114 stands, refined.** Shared rows for people, organizations and roles; bespoke behavior
-for lives, politics and institutions. A row gives a name, seat, schedule and ladder; what the
-organization does stays per world.
-
-### ACCOUNT FOR NOW: more to consider
-
-- **DWF154 Density is edges, not rows.** A spell needs a wand (wood and core rows), is taught in a
-  subject by a role from a textbook, and some need plant or creature parts. The censuses already
-  carry `relations` and `containedIn`. Default: the loader keeps edges, so deepening one row lights
-  up its neighbors (the shop that sells the wand, the teacher who teaches the charm). The meter
-  (DWF105) counts resolved edges per world beside row counts.
-- **DWF155 "Hear of" is the shared shallow verb.** Every kind's shallow rung starts with knowing it
-  exists. A rumor or mention that points at any row covers most of what rumors need without a
-  rumor mechanism (DWF114 keeps rumor behavior bespoke).
-- **DWF156 Shallow rows live in catalogues, not action lists.** 100 spells or 33 organizations as
-  buttons would flood panels (DWF128's problem at scale). Default: shallow rows show in a per-world
-  catalogue tab and where situated (a shop's stock, a teacher's syllabus); rows the player can use add
-  actions (UR41-UR49 disclosure).
-- **DWF157 Rows are static; saves hold relations.** Default: row data ships with the build. Saves hold the
-  player's relation to a row (known, held, learned, member) keyed by a stable row id, so new rows
-  need no migration and a renamed row needs an alias entry (DWF116 save rule).
-- **DWF158 The private census is not the shipped catalogue.** Rows carry `licence`, and some touch
-  sealed truths. Default: a filter step makes the shippable copy, keeping surface labels and IDs
-  and leaving sealed fields in sealed files (Round 2, sealed-secrets rule). Every loader below runs
-  through it.
-- **DWF159 Other worlds reuse the families.** MOL academy spells and Paradise skills on DWF144,
-  cultivation manuals on DWF148, sect halls on DWF152, original worlds' creatures on DWF145. One
-  family mechanism serves several worlds, as DWF137 does for making.
-- **DWF160 Families the census lacks.** Services (lodging, healing, transport; `implant_service.js`
-  is one bespoke example), routes, calendar events and jobs have no census kind yet. A census
-  re-pass with these kinds feeds the same loader (DWF3 scope, haiku readers).
-
-### LATER / DELEGATE
-
-Order follows DWF115: the loader and filter first, then one family per lane with its existing
-consumer as the equivalence oracle. Meter columns extend DWF105's done check.
-
-| Code | Item | Level, effort | Done check |
-| --- | --- | --- | --- |
-| DWF161 | Census row loader with edges and the shippable filter (DWF154, DWF157, DWF158); shares DWF104's shallow rung | Sonnet high; advisor review of row-id stability and the sealed filter | Filtered copy has no sealed field; rows appear in a catalogue tab in a rebuilt browser |
-| DWF162 | HP spells: ten charms learnable and castable on DWF144 (after DWF123) | Sonnet medium | One charm learned in a lesson and cast in browser; the other 90 visible as shallow |
-| DWF163 | HP creatures and plants as rows (DWF145, DWF146) | Sonnet medium | One creature fought or inspected and one plant foraged in browser; drops reach inventory |
-| DWF164 | Text mechanism: reading grants a technique, formula or map (DWF148) | Sonnet medium; advisor review of overlap with `book_care_*` | One textbook read grants a technique; one bought formula can be wrong |
-| DWF165 | Many-row place loader beside `authored_site` (DWF150), Diagon Alley and Tingen districts first | Sonnet high | Six new places with keepers and stock reachable by route in a rebuilt browser; old saves import |
-| DWF166 | Rituals on the process envelope (DWF149, after DWF101) | Sonnet medium | One ritual run and one failed by a stated mechanism in browser |
-| DWF167 | Census re-pass for services, routes, events and jobs (DWF160) | Haiku readers, bounded spans | New kinds in the private census with locators |
-
 ## Round 7: rituals, lore-true sources, factions and missions (2026-10-25)
 
 Weibao: "Consider ritual implementations and more... Consider lore reasons like shops and stuff and
@@ -873,3 +801,170 @@ with content missing. Proposals unless marked.
 | DWF162 | Contribution ledger and institution store (DWF154), LOTM church and one cultivation sect | Sonnet high | Contribution earned by a mission buys a formula in both worlds |
 | DWF163 | Mission rows on the quest board (DWF155): Nighthawk assignment, brokered commission, bounty | Sonnet medium | Three mission kinds complete and pay their reward kinds |
 | DWF164 | Heat and raid odds (DWF153) | Sonnet low | A black-market purchase raises heat; it decays; a raid can occur and is logged |
+
+## Round 8: the same pattern for everything that is not a potion (2026-10-25)
+
+Weibao, while another chat builds the potion side (rounds 4 and 6): "consider stuff like that and
+more to also address so that non potion stuff would also be able to comprehensively be
+implemented". Proposals only; no runtime change. Jobs, quest boards, lessons, shops (DWF110-DWF113),
+the making process (DWF126, DWF137), rituals, routes, contribution and missions (Round 7, DWF145-DWF164) and the meter (DWF105, DWF119) are already proposed and are cited,
+not repeated. Evidence: kind counts from the private censuses (`HP_CENSUS.jsonl`,
+`LOTM_CENSUS.jsonl`) and exports and headers of the seams named below. Fits marked "sampled" come
+from headers and exports only.
+
+### ACCOUNT FOR NOW: census kind to seam
+
+| Code | Census kinds (rows) | Seam to grow | Shallow rung (existing verbs) | Deep rung adds |
+| --- | --- | --- | --- | --- |
+| DWF165 | HP spell (100); LOTM sequence abilities (220, potion side owns the doses) | `compileStructuredAbilities` for use (6 consumers, LOTM S9/S8 already rows; its `function`, `acquisition: learned` and `ordinary-technique` fields fit a charm); `techniques.js` for learning and understanding only (its header: not a spell engine) | Hear of, read about, see cast | Learned through a lesson (DWF112), cast as a command with a held wand as `sourceId`, counters and failure |
+| DWF166 | HP creature (18) | `enemies.js` `enemy_templates` for the living creature; its body goes through the harvest process (DWF193), not a drop list | Inspect, hear of, buy a part | Fightable or tameable template; the body is processed into parts (DWF193-DWF201) |
+| DWF167 | HP plant (18), ingredient (4) | Acquisition rows (DWF131); `world_completion_crop_clock.js` is one bespoke crop, not a seam | Buy, hold, inspect | Forage spot, greenhouse or garden plot, seasons from `world_calendar` |
+| DWF168 | HP magical_object (16), artifact (13), wand wood and core (12); LOTM sealed_artifact (11) | `compileArtifactCollection` (sampled; already compiles held items into paid commands with no second inventory) | Hold, inspect, buy or sell where canon sells it | Uses as abilities (DWF165 `device-construct`), drawbacks, wand choosing as a row match |
+| DWF169 | HP textbook (32); LOTM ritual instructions and formulas as texts | No shared seam: `book_care_*`, `pattern_book`, `feature_expansion_book_*` are separate (sampled) | Own, read for minutes | What reading grants (a technique, a formula, a map, a rumor), language or clearance, copies, wrong copies (DWF132) |
+| DWF170 | LOTM ritual (27) | The ritual-condition mechanism (DWF145-DWF149, DWF160) | Hear of, read | See DWF160 |
+| DWF171 | LOTM location (19); HP places (inside other kinds today) | `authored_site.js` compiles one site per draft from fixed `DRAFT_FIELDS`; a many-row loader is new work. `known_routes` for travel | Visit, see who is there, what is sold | Activities, jobs, events, keepers' routines |
+| DWF172 | LOTM person (26) | `generated_people` routines plus `people_knowledge` (sampled) | Know of, find at a place and hour, talk | A life (`npc_lives`), stays bespoke (DWF114) |
+| DWF173 | LOTM organization (33); HP school_office_role (15), subject (14) | `faction_rank.js` ladder (DWF110), contribution ledger and store (DWF154), lesson (DWF112) | Know of, see its seat and members | Membership ladder, duties, pay; politics and secrets bespoke |
+| DWF174 | LOTM rule (45) | None needed: these are dials and validator inputs to other mechanisms (pathway generator DWF139, acting, loss of control), not things. `rule_modules.js` targets oral restoration and is not their owner | Read in a text (DWF169) | The mechanism that obeys it |
+
+**DWF114 stands, refined.** Shared rows for people, organizations and roles; bespoke behavior
+for lives, politics and institutions. A row gives a name, seat, schedule and ladder; what the
+organization does stays per world.
+
+### ACCOUNT FOR NOW: more to consider
+
+- **DWF175 Density is edges, not rows.** A spell needs a wand (wood and core rows), is taught in a
+  subject by a role from a textbook, and some need plant or creature parts. The censuses already
+  carry `relations` and `containedIn`. Default: the loader keeps edges, so deepening one row lights
+  up its neighbors (the shop that sells the wand, the teacher who teaches the charm). The meter
+  (DWF105) counts resolved edges per world beside row counts.
+- **DWF176 "Hear of" is the shared shallow verb.** Every kind's shallow rung starts with knowing it
+  exists. A rumor or mention that points at any row covers most of what rumors need without a
+  rumor mechanism (DWF114 keeps rumor behavior bespoke).
+- **DWF177 Shallow rows live in catalogues, not action lists.** 100 spells or 33 organizations as
+  buttons would flood panels (DWF128's problem at scale). Default: shallow rows show in a per-world
+  catalogue tab and where situated (a shop's stock, a teacher's syllabus); rows the player can use add
+  actions (UR41-UR49 disclosure).
+- **DWF178 Rows are static; saves hold relations.** Default: row data ships with the build. Saves hold the
+  player's relation to a row (known, held, learned, member) keyed by a stable row id, so new rows
+  need no migration and a renamed row needs an alias entry (DWF116 save rule).
+- **DWF179 The private census is not the shipped catalogue.** Rows carry `licence`, and some touch
+  sealed truths. Default: a filter step makes the shippable copy, keeping surface labels and IDs
+  and leaving sealed fields in sealed files (Round 2, sealed-secrets rule). Every loader below runs
+  through it.
+- **DWF180 Other worlds reuse the families.** MOL academy spells and Paradise skills on DWF165,
+  cultivation manuals on DWF169, sect halls on DWF173, original worlds' creatures on DWF166. One
+  family mechanism serves several worlds, as DWF137 does for making.
+- **DWF181 Families the census lacks.** Services (lodging, healing, transport; `implant_service.js`
+  is one bespoke example), routes, calendar events and jobs have no census kind yet. A census
+  re-pass with these kinds feeds the same loader (DWF3 scope, haiku readers).
+
+### LATER / DELEGATE
+
+Order follows DWF115: the loader and filter first, then one family per lane with its existing
+consumer as the equivalence oracle. Meter columns extend DWF105's done check.
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| DWF182 | Census row loader with edges and the shippable filter (DWF175, DWF178, DWF179); shares DWF104's shallow rung | Sonnet high; advisor review of row-id stability and the sealed filter | Filtered copy has no sealed field; rows appear in a catalogue tab in a rebuilt browser |
+| DWF183 | HP spells: ten charms learnable and castable on DWF165 (after DWF123) | Sonnet medium | One charm learned in a lesson and cast in browser; the other 90 visible as shallow |
+| DWF184 | HP creatures and plants as rows (DWF166, DWF167) | Sonnet medium | One creature fought or inspected and one plant foraged in browser; drops reach inventory |
+| DWF185 | Text mechanism: reading grants a technique, formula or map (DWF169) | Sonnet medium; advisor review of overlap with `book_care_*` | One textbook read grants a technique; one bought formula can be wrong |
+| DWF186 | Many-row place loader beside `authored_site` (DWF171), Diagon Alley and Tingen districts first | Sonnet high | Six new places with keepers and stock reachable by route in a rebuilt browser; old saves import |
+| DWF187 | Withdrawn: rituals are DWF160 | | |
+| DWF188 | Census re-pass for services, routes, events and jobs (DWF181) | Haiku readers, bounded spans | New kinds in the private census with locators |
+
+## Round 9: what makes each world itself, and bodies that get processed (2026-10-25)
+
+Weibao: "What about intrinsic unique stuff about each world? ... Subtle stuff and more? Rather than
+simply being drops, we will need to process the creatures?" Round 8 had creatures feeding
+ingredients through drop lists (DWF166, corrected above), which skips a process the game already
+has. Evidence: `src/harvest.js` (wolf-rat carcass routine: five hard-coded species, parts with
+minutes, skill, tool and grade), `src/processed_materials.js` and `src/material_lineage.js` (each
+part carries its specimen and origin world), the cooking recipe for Animal fat in
+`crafting_recipes.js`, and the engine-fact tables in the 14 `docs/worlds/*SUBTLE_DETAILS*` passes
+(sampled: Fanren EF1-EF9). Proposals only.
+
+### ACCOUNT FOR NOW: each world's own laws
+
+- **DWF189 Shared mechanisms are the floor, world laws are the building.** Round 8 risks giving
+  every world the same spell, creature and item with new nouns, which defeats the vision's
+  mechanically distinct worlds. Default: each world has a law layer, its engine facts expressed as
+  dials and validators on the shared mechanisms, set once per world rather than copied into rows.
+  Examples from public canon: in LOTM characteristics are conserved and condense out of a dead
+  Beyonder, potions digest by acting, and knowledge itself can pollute; in HP wand allegiance passes
+  by defeat, the Trace marks underage magic and food cannot be conjured; in Fanren spirit stones are
+  both money and cultivation fuel, and off-island deaths go uninvestigated (EF1, EF5).
+- **DWF190 The engine facts exist; nothing maps them to an enforcer.** The 14 passes already have
+  default, dial and reason tables. What is missing is one column: which mechanism or validator
+  carries each fact, or "bespoke" when none can (DWF114). Without it, row loaders land laws by
+  accident or not at all.
+- **DWF191 A distinctness check.** Per world, name what a player does there that they cannot do the
+  same way elsewhere. If two worlds play the same with different labels, the world gets its
+  signature mechanic before more rows (the DWF115 dial). The meter (DWF105) gets a column for it.
+- **DWF192 Laws reach every row through secrecy, money and time.** Each world's secrecy regime
+  (Statute of Secrecy, Beyonder secrecy under the churches, sect secrecy) decides who will sell,
+  teach or show a row; its currency and price scatter (EF9) decide the price; its time scale
+  (school terms, digestion over years, seclusion over decades) decides how long a deep rung takes.
+  These are world dials every family reads, not per-row fields.
+
+### ACCOUNT FOR NOW: bodies are processed
+
+- **DWF193 The harvest routine is the first instance; species become rows.** `harvest.js` hard-codes
+  wolf rats (DWF95). Default: a body row names species, parts (id, count, minutes, tool family,
+  skill), and world; the existing harvest law, grading and lineage stay the owner. A wolf rat, a
+  Hippogriff and a demonic beast differ in rows and world laws, not code paths. Where it lives and
+  how it is taken stay on the ecology row (DWF159).
+- **DWF194 How it died sets what is left.** Fire spoils a pelt, a blasting curse ruins most parts,
+  poison taints meat, a clean kill keeps a hide whole. The specimen already carries evidence; adding
+  cause of death and damage lets yield follow the fight (AD38: it works by how it works).
+- **DWF195 Bodies spoil on the played clock.** Meat and organs decay, some parts must be taken
+  fast (cultivation blood essence, fresh venom), others keep (bone, scale). Preservation is a
+  mechanism a world supplies: salt, ice, a stasis charm, a storage ring. Leaving a carcass draws
+  scavengers.
+- **DWF196 Size and haul.** A rat fits in a pack; a dragon is processed where it fell, by a crew,
+  over days, or hauled with help. Carry limits, field work versus a workshop, and splitting spoils
+  with a party all follow from size.
+- **DWF197 Parts feed chains, not a sell button.** Pelt to tanned leather (exists for rat pelts),
+  fat rendered (the Animal fat recipe), bone to glue or meal, organs to ingredients (DWF131), wand
+  cores to wandmaking (DWF168), beast cores refined in cultivation, characteristics to the bench
+  (DWF134, potion side).
+- **DWF198 Knowing what to take is knowledge.** Which gland is valuable, how to cut it out without
+  bursting it, which part is poison. A textbook, teacher or guild teaches it (DWF169, DWF112);
+  without it parts are wasted or sold cheap. Some bodies are dangerous to open: venom, acid blood,
+  curses, LOTM pollution.
+- **DWF199 Living harvest beats killing for some creatures.** Shearing, milking venom, molted scales,
+  shed feathers, eggs, and hair given by a trusting creature (HP unicorns). Renewable yield ties to
+  husbandry, trust and the creature's own wants, so a tamed creature is a source rather than loot.
+- **DWF200 Law and buyers per world.** HP classifies creatures and bans some trade (dragon eggs);
+  LOTM churches claim Beyonder characteristics; sects tax beast cores; poachers and fences exist
+  around each rule. Who buys which part (apothecary, wandmaker, sect hall, black market) is a
+  world dial on the shop rows (DWF113).
+- **DWF201 Taking a body apart is crafting run backwards.** The same row shape covers plants (a
+  mandrake's root versus its leaves, harvest timing), ore (smelting), and ruin salvage. Default: a
+  "decompose" product logic on the DWF126 process envelope, beside making.
+
+### ACCOUNT FOR NOW: subtle consequences
+
+- **DWF202 Origin travels with the part.** `material_lineage` already records the origin world, so a
+  dragon heartstring carried into Tingen can be judged by Tingen's laws, not a cross-world allow list
+  (AD38, world mobility).
+- **DWF203 Ecology answers hunting.** Hunting a species hard thins it locally, moves its price and
+  shifts what else lives there. A per-world dial; off by default where a world gives no reason.
+- **DWF204 Some "creatures" are people.** HP centaurs and merpeople are beings under law, not
+  harvestable bodies; a nonhuman protagonist (NONHUMAN docs, MF4) may be the one at risk of being
+  processed. Body rows carry a standing field that law, fear and reputation read.
+- **DWF205 Processing stays idle-friendly.** `harvest.js` already runs a batch routine over many
+  carcasses. Big bodies and dangerous cuts get a choice once, then a routine, not click-by-click
+  butchery (UR41-UR49).
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| DWF206 | World law map: add the enforcer column to each pass's engine-fact table (DWF190), HP, LOTM and Fanren first | Sonnet medium, docs only; haiku for extraction | Every engine fact in the three worlds names a mechanism, validator or "bespoke" |
+| DWF207 | Body rows on the harvest law, porting wolf rats first (DWF193) | Sonnet medium | Wolf-rat harvest journey unchanged in a rebuilt browser; one species from another world processes; old saves import |
+| DWF208 | Cause of death, damage and spoilage on specimens (DWF194, DWF195) | Sonnet medium; advisor review of the specimen save shape | A burned and a clean kill of one species yield different parts; meat spoils after a played day |
+| DWF209 | HP creature legality and living harvest (DWF199, DWF200), after DWF184 | Sonnet medium | Unicorn hair from a trusting unicorn and a refused dragon-egg sale, both in browser |
+| DWF210 | Cultivation beast cores and blood essence on body rows (DWF197) | Sonnet medium | One beast's core refined and used in a cultivation step in browser |
+| DWF211 | Distinctness column in the depth meter (DWF191), folded into DWF105 | Sonnet low | The meter names each world's signature verb or flags it missing |

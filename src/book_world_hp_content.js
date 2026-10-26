@@ -1,5 +1,6 @@
 // Loader remains the authority for data; structured runtime owns active play and saves.
 import {packNative} from './world_pack_registry.js';
+import {hpSchoolAssessmentExtension} from './world_packs/book_hp_school_extension.js';
 export function createHpLifeContent(profile='school'){
  if(!['school','trade'].includes(profile))throw Error('Unknown HP life profile.');
  return packNative('book.hp')[profile+'Life'];
@@ -10,6 +11,7 @@ export function createHpLifeContent(profile='school'){
 export async function registerHpBeginnings(register, choices) {
  for (const profile of ['school','trade']) {
   const d=await register(createHpLifeContent(profile));
+  if(profile==='school'&&register.extension)await register.extension(hpSchoolAssessmentExtension,d);
   choices.register({packId:d.id,label:profile==='school'?'Harry Potter · school life':'Harry Potter · adult glass trade',
    arrival:profile==='school'
     ?'Proposed supply-week arrival: your guardian has already arranged your school supplies during the week before term. Confirm to arrive in the supervised Hogwarts study room at the start of the first term. This opening does not simulate that earlier week.'

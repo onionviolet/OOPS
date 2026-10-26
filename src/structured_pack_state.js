@@ -1,8 +1,10 @@
 import {object} from './basics.js';
+import {validateExtensionRefs,requireStructuredExtensions} from './structured_pack_extensions.js';
 import {canonicalDurabilityKey} from './absorb_e2/durability.js';
 const id=v=>typeof v==='string'&&/^[a-zA-Z0-9_.:-]+$/.test(v)&&!['__proto__','constructor','prototype'].includes(v);
 export function validateStructuredRecord(r) {
     if(r==null)return;
+    validateExtensionRefs(r);
     if(!object(r)||![1,2].includes(r.schema)||!id(r.packId)||!Number.isSafeInteger(r.revision)||r.revision<1||!id(r.startId)||!id(r.instanceId)||!id(r.worldId)||!id(r.locationId)||!Number.isSafeInteger(r.initializedAt)||r.initializedAt<0||typeof r.contentHash!=='string'||!/^sha256:[a-f0-9]{64}$/.test(r.contentHash))throw Error('Invalid structured campaign receipt.');
     if(!Number.isSafeInteger(r.seed)||r.seed<1||r.seed>0xffffffff||!Number.isSafeInteger(r.originSequence)||r.originSequence<1||r.instanceId!==`${r.packId}.run.${r.seed}.${r.originSequence}`||!Array.isArray(r.peopleIds)||!Array.isArray(r.locationIds)||new Set(r.peopleIds).size!==r.peopleIds.length||new Set(r.locationIds).size!==r.locationIds.length||![...r.peopleIds,...r.locationIds,r.startId,r.worldId].every(v=>id(v)&&v.startsWith(r.packId+'.'))||!r.locationIds.includes(r.locationId))throw Error('Invalid structured instance binding.');
     if(r.schema===2){validateStructuredSelection(r);validateStructuredLifetime(r);}
@@ -26,9 +28,10 @@ export function requireStructuredSelection(selection,definitions) {
     const d=definitions.get(selection.packId),b=d?.starts?.[selection.choice];
     if(!b||d.revision!==selection.revision||d.contentHash!==selection.contentHash||d.starts.length!==selection.startCount||b.id!==selection.startId||b.snapshotHash!==selection.snapshotHash||d.world.id!==selection.worldId||b.locationId!==selection.locationId||b.body.id!==selection.bodyId||b.body.controllerId!==selection.controllerId)throw Error('Restore the exact beginning content to resume this character. The saved beginning has been preserved.');
 }
-export function requireStructuredContent(record,definitions) {
+export function requireStructuredContent(record,definitions,state) {
     validateStructuredRecord(record);if(!record)return;
     const d=definitions.get(record.packId);
+    requireStructuredExtensions(record,d,state);
     if(record.schema===2)requireStructuredSelection(record,definitions);
     const b=record.schema===2?d?.starts?.find(b=>b.id===record.startId):d?.bootstrap;
     if(!d||d.revision!==record.revision||d.contentHash!==record.contentHash||d.world.id!==record.worldId||b?.id!==record.startId||b?.locationId!==record.locationId||JSON.stringify(d.locations.map(l=>l.id))!==JSON.stringify(record.locationIds)||JSON.stringify((d.simulation.people||[]).map(p=>p.id))!==JSON.stringify(record.peopleIds)||JSON.stringify(record.units)!==JSON.stringify(d.units||[])||JSON.stringify(record.containerBindings||[])!==JSON.stringify((d.simulation.containers||[]).map(c=>({id:c.id,category:c.category,holder:c.holder,revision:c.revision}))))throw Error('Restore the exact beginning content to resume this character. The saved beginning has been preserved.');

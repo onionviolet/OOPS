@@ -1,0 +1,13 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {build} from 'esbuild';
+import {createHash} from 'node:crypto';
+import path from 'node:path';
+const project=path.resolve(import.meta.dirname,'../../../..');
+const receipt=path.join(import.meta.dirname,'ESTATE_LABEL_INPUTS.json');
+const saved=JSON.parse(await readFile(receipt,'utf8'));
+await build({entryPoints:[path.join(project,'src/main.js')],bundle:true,sourcemap:true,minify:true,outfile:path.join(saved.isolatedRoot,'dist/bundle.js'),platform:'browser',target:'es2022',format:'esm',logLevel:'error'});
+const bundle=await readFile(path.join(saved.isolatedRoot,'dist/bundle.js'));
+const sha=createHash('sha256').update(bundle).digest('hex');
+const html=(await readFile(path.join(project,'index.html'),'utf8')).replace(/dist\/bundle\.js\?version=[^&"]+/,`dist/bundle.js?version=estate-${sha.slice(0,12)}`);
+await writeFile(path.join(saved.isolatedRoot,'index.html'),html);
+console.log(JSON.stringify({root:saved.isolatedRoot,bundleSha256:sha,sharedDistUntouched:true}));

@@ -1,19 +1,22 @@
 ---
 name: mechanic-absorption
-description: Take a YAIRPG mechanic from question to playable slice - fit it to existing systems, run consideration rounds, research and gap-fill lanes, an implementation design, isolated build lanes with save and browser proof, and coordinator verification. Use when Weibao asks to absorb, implement or "send out and work on" a mechanic from a source world or his own idea, especially after "more to consider?" rounds.
+description: Fit a selected YAIRPG mechanic to existing systems and deliver a bounded playable slice with source, native and persistence evidence. Use for source-world or original mechanic absorption when research and implementation are both relevant.
 ---
 
 # Mechanic absorption
 
-Follow `docs/gm/MECHANIC_ABSORPTION_WORKFLOW.md` (stages 0 to 7). Short version:
+The repository owns this workflow. Read
+`docs/gm/MECHANIC_ABSORPTION_WORKFLOW.md` in the YAIR checkout and follow only
+stages relevant to the authorized outcome. AGENTS.md and live accepted direction
+win on conflicts. Stages 0–7 cover fit, consideration, bounded research/gap fill,
+owned implementation, evidence review, integration and recording.
 
-0. Open `docs/SYSTEMS_REGISTER.md`; find the existing system and degree that fits. Read the host code.
-1. Save each "more to consider" round in the owning palette (ACT NOW, ACCOUNT FOR NOW, LATER).
-2. Parallel Sonnet research lanes: whole-space catalog, mechanics, implementation design from code.
-3. If data is thin, run the playbook's DGF gap fill.
-4. Build lanes in worktrees: golden snapshot, save validators, conservation, old-save load, browser proof at 1920x1080 and 1536x864 at 14 and 21 px. Give lanes absolute paths to uncommitted docs.
-5. Verify lanes yourself: tests, diff, decision file, one screenshot, result JSON.
-6. Integrate and run the full gate; commit and push only on Weibao's yes.
-7. Record: palette round, USER_VISION line, checkpoint, register update, play queue, and new lessons in the workflow's expansion backlog (MAW-X codes).
+Use the primary checkout by default (AD41); isolate only for a concrete reason.
+Reuse prior research and valid evidence (AD36); neither parallel readers,
+repeated suites nor old-save migration is automatic. Preserve explicit custody,
+required native/persistence gates and separate technical versus human acceptance.
+Client model/effort routing follows the current host and project policy.
 
-Codex copy: `.agents/skills/mechanic-absorption/SKILL.md`, installed at `~/.codex/skills/mechanic-absorption/`. Change both together (MAW-X1).
+Keep the repository Codex and Claude routers aligned (MAW-X1). Installed personal
+copies may need a separately scoped refresh; this file does not authorize an
+installation, cleanup, commit, push or new worker.

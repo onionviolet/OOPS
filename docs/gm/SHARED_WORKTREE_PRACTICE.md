@@ -101,13 +101,19 @@ commit built from an older HEAD silently reverts whatever landed in between
 Weibao, 2026-10-14: merge finished work "each time" before a new wave
 ([direction](../USER_VISION.md#merge-before-dispatch-2026-10-14)).
 
-1. Check `git branch` for finished lanes: a `.last.md` exists and the process is gone.
-2. Merge those that pass their gates (build, `npm test`, smoke). Pushing
-   waits for Weibao's yes (AGENTS.md; USER_VISION records no standing push
-   authorization). Corrected 2026-10-19; earlier wording said "push under the
-   existing push authorization".
-3. Lane owners merge their own work. Message idle owner sessions first; take over
-   only with an explicit handoff.
+1. Recover the current task/turn, final receipt, exact owned inputs and explicit
+   release. A `.last.md`, merged branch or stopped coordinator alone does not
+   establish that all writers released their work. Compare later landing receipts
+   and ancestry before proposing a merge that may already be done.
+2. Review valid lane evidence under [AD36](../RULES_INDEX.md#efficient-rule-verification-ad36).
+   Reconcile released work, then the named integrator/committer runs required
+   combined gates on settled inputs. Do not run a full suite for each lane or
+   repeat an equivalent suite/subset without changed inputs or a named failure
+   hypothesis. Required changed-behavior browser and persistence gates remain.
+   Pushing waits for Weibao's yes; there is no standing push authorization.
+3. Use the incumbent owner or its explicit handoff. If a supported task route
+   reaches that owner, an addressing failure on another route does not justify
+   a replacement writer. Preserve unknown or interrupted reservations.
 4. If the shared index is blocked by another session's staged files, prove the
    merge in an isolated index (R15 G10 method).
 
@@ -122,8 +128,13 @@ Parallel sessions often answer the same prompt (2026-10-14: duplicate comics pas
   silently when the launching shell's group was killed.
 - Record each run's session ID and PID (`runs/<lane>.pid`). Recover with
   `codex exec resume <session_id> "<prompt>"`.
-- Check progress by confirming the process is alive (`ps`, `kill -0 <pid>`), not
-  only that output files exist.
+- Recover progress through supported task metadata and the current admitted turn;
+  use exact-PID liveness only where permitted. A final file alone is insufficient,
+  and a denied/unavailable process check means unknown, not stopped or released.
+  Do not expose argv/environment or retry around an access denial. Follow the
+  [GM delta/release protocol](../GAME_MASTER_PROMPT.md#context-pressure-and-refresh).
+  Sample again when a material result, expected checkpoint or decision needs it,
+  rather than polling unchanged records to manufacture updates.
 - With the double-fork launcher, the process group is the intermediate fork's
   PID, not the codex PID. Stop by exact PID and wait for exit before resuming,
   or resume fails with "already has an active writer".

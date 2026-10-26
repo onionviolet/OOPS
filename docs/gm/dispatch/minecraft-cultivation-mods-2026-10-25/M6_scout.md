@@ -1,0 +1,9 @@
+Lane M6: scout cultivation and webnovel-world Minecraft mods beyond Modrinth. Follow /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/COMMON.md first.
+
+Weibao quoted a mod author: "I already have Reverend Insanity mod, Lord of Mysteries mod, Shadow Slave mod is going to be released soon..", and asked whether there are "much more mods out there". Find them.
+
+Sources: CurseForge (public pages or the cfwidget API; no API key or account), mcmod.cn (search 修仙, 蛊真人, 诡秘之主, 武侠, 仙侠 and related tags), GitHub (topics and search), Modrinth search beyond the slugs already assigned (xiaoxiang-cultivation-world, changshengjue, perfect-ascension, lotmmod, lotmc, lotm, project-lotm, journey-to-immortality, immortal-cultivation-mod, xianxia, pill-refinement, ascended-arts), and Planet Minecraft. Find who made the quoted Reverend Insanity, LOTM and Shadow Slave mods and where they are distributed. Also cover other webnovel and progression-fantasy adaptations (for example Reverend Insanity Gu mods, Shadow Slave, Solo Leveling, Tensura, Mushoku Tensei, Cradle, Martial Peak, Coiling Dragon, Battle Through the Heavens) and major older cultivation mods (1.7.10 to 1.12 era included).
+
+Output a ranked table: name, author, platform URL, MC version/loader, last update, downloads, license, free download available yes/no, source repo, one-line mechanics summary (STATED), and fit for our game. Download only free, publicly downloadable jars of the top 8 ranked mods that are not already assigned above, under the private folder with receipts (total cap 1 GB); do not deep-absorb them. Patreon-only, paid, login-walled or unreleased mods are listed only. Write a short "next lanes" proposal naming which downloaded mods deserve a full absorption pass.
+
+Report: docs/research/minecraft/cultivation-mods-2026-10-25/M6_SCOUT.md. Model Luna medium; this is search and listing.

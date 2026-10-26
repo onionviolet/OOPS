@@ -1,0 +1,9 @@
+Lane M1: Xiaoxiang Cultivation World absorption (anchor mod). Follow /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/minecraft-cultivation-mods-2026-10-25/COMMON.md first.
+
+Mod: Modrinth slug xiaoxiang-cultivation-world (author XiaoXiangMods, Forge 1.20.1, latest 0.2.106, xiaoxiang_cultivation-0.2.106.jar, about 51 MB). Also read the full Modrinth body and changelogs via the API, and the MC百科 page https://www.mcmod.cn/class/26552.html (and its item/feature subpages) as STATED evidence. Discord and QQ are out of scope.
+
+Known surface to cover fully: races (Human, Half-Demon, Demon, Wu) with roots, physiques, bloodlines, innate origins; realms and the breakthrough panel (Foundation and Golden Core route choices, Shatter Core, Form Soul, Question the Heart, Stabilize the Void, Loose Immortal tribulation path); Inner World trials and heavenly tribulations; combat Qi versus cultivation progress; main and auxiliary techniques (100+) and spells (150+), access by realm/race/equipment; Heaven-Earth Heartstring natal sword and Divine Sense; sects (ground and floating), access tokens and guarded boundaries; NPC cultivators with identity, realm, techniques, equipment, inventory, relationships and the book-style NPC interface; Qingqiu and fox clan; beasts, bloodlines and Demon beast-to-humanoid forms; Netherworld, soul state and Meng Po; spirit plants, pill refining, treasure refining, equipment improvement, talismans, formations; spiritual home.
+
+Absorb into our game: compare especially with cultivation methods/paths, breakthrough_trial, pledges, lineage, crafting depth, home/household, peer standing and death/continuation owners. The breakthrough panel and NPC book interface are priority menu studies.
+
+Report: docs/research/minecraft/cultivation-mods-2026-10-25/M1_XIAOXIANG.md. Model Sol medium because the comparison against current source needs judgment; use Luna helpers for the lang (en_us, zh_cn, zh_tw) and data dumps.

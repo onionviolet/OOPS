@@ -1,0 +1,27 @@
+const {launchChrome}=require('../../../../scripts/ui_helpers.cjs');
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const fixed=process.env.R3_FIXED==='1',tag=fixed?'fix-':'';
+const out=__dirname,url='http://127.0.0.1:19913/?harvest-inspector=1&test_hooks=1';
+(async()=>{const b=await launchChrome(),errors=[];
+const open=async seed=>{const c=await b.newContext({viewport:{width:1920,height:1080}});if(seed)await c.addInitScript(s=>localStorage.setItem('save data',JSON.stringify(s)),seed);const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(url);await p.getByText('PLAY',{exact:true}).click();await p.waitForFunction(()=>window.simulationTestHooks);await p.evaluate(()=>window.simulationTestHooks.pause());return {c,p};};
+try{let {c,p}=await open();const seed=await p.evaluate(()=>window.simulationTestHooks.snapshot());await c.close();
+assert.ok(seed.expansion?.actors?.player);
+seed.inventories.person.main_character[JSON.stringify({id:'Golmoon leaf'})]={count:20};
+seed.expansion.actors.player.facts['reveal.herbLesson']=true;
+seed.availabilities.recipe['Weak healing powder']|=1;
+({c,p}=await open(seed));
+const saved=await p.evaluate(()=>window.simulationTestHooks.snapshot());
+assert.equal(saved.expansion.actors.player.facts['reveal.herbLesson'],true);
+assert.ok(saved.availabilities.recipe['Weak healing powder']&1);
+await p.locator('button[data-place-tab="options"]').click();
+const panel=p.locator('#harvest_inspector');await panel.locator('summary').first().click();
+const gates=panel.locator('details[data-chain="gates"]');await gates.waitFor({state:'visible'});
+const text=await gates.innerText();assert.match(text,/"reveal.herbLesson":true/);if(fixed){assert.match(text,/learned \(persistent\)/);assert.doesNotMatch(text,/Author: Not yet learned|Player sees: Something is still missing/);}else{assert.match(text,/waiting/);assert.match(text,/Not yet learned/);}
+await gates.scrollIntoViewIfNeeded();await p.screenshot({path:out+(fixed?'/r3-fix-learned-1920.png':'/r3-learned-still-waiting-1920.png')});
+const before=JSON.stringify([saved.expansion.actors.player.facts,saved.availabilities.recipe,saved.inventories.person.main_character]);
+const after=await p.evaluate(()=>window.simulationTestHooks.snapshot());
+assert.equal(JSON.stringify([after.expansion.actors.player.facts,after.availabilities.recipe,after.inventories.person.main_character]),before,'inspection has no gameplay mutation');
+assert.deepEqual(errors,[]);
+fs.writeFileSync(out+`/r3-${tag}browser-result.json`,JSON.stringify({ok:true,fixture:'DEV SEEDED completed herb lesson; no native acquisition claimed',viewport:{width:1920,height:1080},url,recipeUnlocked:true,learned:true,gateText:text,pageErrors:errors},null,2)+'\n');
+console.log('PASS: seeded completed lesson, inspector '+(fixed?'learned (persistent)':'waiting')+'; no page errors or inspection mutation.');await c.close();
+}finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

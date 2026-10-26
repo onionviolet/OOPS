@@ -375,8 +375,9 @@ import {cheatState,setCheatState,readCheatSave,configureCheatHost,commandCheat,s
 import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, cancelPack, advancePackSettlement, preparePackSave, packSaveState} from './content_packs.js';
 import {syncAuthoredRegistration, applyAuthoredState, resetAuthoredState, AUTHORED_WORLD_ID} from './authored_site.js';
 import {createAuthoredSiteUI} from './authored_site_ui.js';
-import {compileStructuredPack,mergeStructuredPack,stageStructuredNativeObjects} from './structured_pack_definitions.js';
-import {beginStructuredCampaign,planStructuredSelection,validateStructuredBootstrap,structuredCampaignView} from './structured_pack_runtime.js';
+import {createStructuredNativeRegistration} from './structured_native_registration.js';
+import {admittedExtensionCommands} from './structured_pack_extensions.js';
+import {beginStructuredCampaign,planStructuredSelection,structuredCampaignView,adoptStructuredExtension} from './structured_pack_runtime.js';
 import {requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
@@ -2099,11 +2100,14 @@ function commandStructuredCampaign(command) {
             next=packSaveState(initialized,packDefinitionsForSave());
             plan.nativePatch={...plan.nativePatch,content_packs:next};
         } else {
-            requireStructuredContent(record,structuredPacks);
-            if(command.type==='renewal'){
+            requireStructuredContent(record,structuredPacks,expansionState);
+            if(command.type==='adopt-extension'){
+                const result=adoptStructuredExtension(expansionState,d,record,command,context);plan=result.plan;
+                next=packSaveState({...optionalPackState,structured:result.record},packDefinitionsForSave());plan.nativePatch={content_packs:next};
+            } else if(command.type==='renewal'){
                 plan=commitStructuredRenewal(expansionState,d,context,expansionState.sequence);
             } else if(command.type==='action') {
-                const a=d.simulation.commands.find(a=>a.id===command.id);if(!a)throw Error('This action is unavailable.');
+                const a=[...d.simulation.commands,...admittedExtensionCommands(d,record)].find(a=>a.id===command.id);if(!a)throw Error('This action is unavailable.');
                 plan=commitSimulationCommand(expansionState,expeditionRegistry,{id:a.id},{...context,targetId:a.targetId},expansionState.sequence);
             } else if(command.type==='cancel') {
                 if(!expansionState.simulation.jobs.some(j=>j.id===command.jobId&&j.commandId.startsWith(d.id+'.')&&j.actorId==='player'))throw Error('This work is no longer pending.');
@@ -6614,7 +6618,7 @@ function load(save_data) {
     restoringNativeSave = true;
     try{
         try {
-            try {requireStructuredContent(save_data.content_packs?.structured,structuredPacks);requireStructuredSelection(save_data.content_packs?.pendingStructured,structuredPacks);}
+            try {requireStructuredContent(save_data.content_packs?.structured,structuredPacks,save_data.expansion);requireStructuredSelection(save_data.content_packs?.pendingStructured,structuredPacks);}
             catch(error){suspendedStructuredSave=structuredClone(save_data);throw error;}
             syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());
@@ -9429,29 +9433,9 @@ window.Verify_Game_Objects = Verify_Game_Objects;
 set_loading_screen_progress("Waking up from a nyap...");
 
 set_loading_screen_progress("Translating the meows");
-const registerStructuredNative=async raw=>{
-        const compiled=compileStructuredPack(raw,expeditionRegistry);
-        for(const l of raw.locations){if(locations[l.id])throw Error('Structured native location collision.');if(l.combat?.enemyIds.some(id=>!enemy_templates[id]))throw Error('Unsupported native encounter.');}
-        for(const item of raw.items||[])if(item_templates[item.id])throw Error('Structured native item collision.');
-        for(const c of raw.simulation.containers||[])if(inventories[c.category]?.[c.id])throw Error('Structured native inventory collision.');
-        const bytes=new TextEncoder().encode(JSON.stringify(raw));const digest=await crypto.subtle.digest('SHA-256',bytes);
-        const contentHash='sha256:'+Array.from(new Uint8Array(digest)).map(n=>n.toString(16).padStart(2,'0')).join('');
-        const localLocations={};
-        const staged=stageStructuredNativeObjects(raw,{availabilities,
-            makeLocation:l=>localLocations[l.id]=l.combat?new CombatZone({id:l.id,name:l.label,description:l.description,enemies_list:l.combat.enemyIds,enemy_stat_variation:0,parent_location:null,leave_text:'Return to shelter',is_unlocked:true}):new OptionalPackLocation({id:l.id,name:l.label,description:l.description,connected_locations:[],is_under_roof:l.underRoof!==false,is_unlocked:true}),
-            makeItem:i=>i.equipment?new Armor({...nativeStructuredEquipmentTemplate(i),tags:{expedition:true,structuredEquipment:true}}):new OtherItem({id:i.id,name:i.label,description:i.description,value:i.value||0,tags:{expedition:true}}),
-            makeInventory:()=>new InventoryComponent()});
-        const starts=raw.starts?await Promise.all(raw.starts.map(async start=>{
-            const snapshot={...start};delete snapshot.snapshotHash;
-            const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(snapshot)));
-            return {...start,snapshotHash:'sha256:'+Array.from(new Uint8Array(digest)).map(n=>n.toString(16).padStart(2,'0')).join('')};
-        })):null;
-        const admitted={...compiled.definition,contentHash,...(starts?{starts}:{})};validateStructuredBootstrap(admitted);
-        const d={...mergeStructuredPack(compiled,expeditionRegistry),...admitted};
-        for(const [id,l]of staged.locations){const authored=raw.locations.find(row=>row.id===id);if(authored.combat){l.parent_location=localLocations[authored.combat.parentId];l.parent_location.connected_locations.push({location:l,travel_time:1});}locations[id]=l;}for(const [id,item]of staged.items)item_templates[id]=item;
-        for(const [category,id,inventory]of staged.inventories){inventories[category]||={};inventories[category][id]=inventory;}
-        structuredPacks.set(d.id,d);return d;
-};
+const registerStructuredNative=createStructuredNativeRegistration({registry:expeditionRegistry,locations,items:item_templates,inventories,availabilities,definitions:structuredPacks,
+    makeLocation:l=>{if(l.combat?.enemyIds.some(id=>!enemy_templates[id]))throw Error('Unsupported native encounter.');return l.combat?new CombatZone({id:l.id,name:l.label,description:l.description,enemies_list:l.combat.enemyIds,enemy_stat_variation:0,parent_location:null,leave_text:'Return to shelter',is_unlocked:true}):new OptionalPackLocation({id:l.id,name:l.label,description:l.description,connected_locations:[],is_under_roof:l.underRoof!==false,is_unlocked:true});},
+    makeItem:i=>i.equipment?new Armor({...nativeStructuredEquipmentTemplate(i),tags:{expedition:true,structuredEquipment:true}}):new OtherItem({id:i.id,name:i.label,description:i.description,value:i.value||0,tags:{expedition:true}}),makeInventory:()=>new InventoryComponent()});
 const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,locations,
     makeLocation:l=>new OptionalPackLocation({id:l.id,name:l.label,description:l.description,connected_locations:[],is_under_roof:true}),
     registerStructured:registerStructuredNative,

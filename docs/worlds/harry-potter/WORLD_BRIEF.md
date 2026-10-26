@@ -183,3 +183,22 @@ remain HP-D7-X4/X5 and the existing palette.
 | HP-D7-X7 | **ACT NOW, done:** at the 1536×864/21px floor, repeated intro prose pushed confirmation below the fold. Put confirmation/cancel immediately beneath the life choice and keep the full arrival/means below it in the existing scroll owner. | Root, small; rebuilt screenshot and geometry show reachable confirm control at all four desktop combinations |
 | HP-D7-X8 | **ACCOUNT FOR NOW:** a supplied child profile is not a newly simulated guardian or transport system. Describe the supply week as original prior arrangements; preserve actual retained native cargo and distinguish the finite local means from native coins. | Sol medium, constraint; golden definitions unchanged, cargo/purse checks and pre-entry/old-master/D7 compatibility |
 | HP-D7-X9 | **LATER / DELEGATE, proposal:** a future playable pre-term supply errand should extend the existing place/stock/custody owners and have its own compatible edition, rather than changing exact D7 hashes or pretending the current narrative week was played. | Sol medium, one later slice; an actual supported supplier transfer and arrival route survive reload/import, with old edition receipt admission |
+
+
+## HP-D7-X4 assessed repair continuation, 2026-10-25 source candidate
+
+The selected finite continuation is **SOURCE READY, native/UI/persistence acceptance
+pending** under the coordinator's LOTM build lock. After the existing repair
+instruction, a school pupil can explicitly opt into an independently hashed
+command extension. Actual practiced repair, magical faculty, body, wand, tutor,
+lesson time and owned material earn one assessed pane; that evidence enables an
+optional classroom repair contribution using another real fragment set. The
+contribution places the pane in Mara's stock and remains usable outside lessons.
+Tasks, prices/costs, times and assessment are original proposed adaptations of the
+already qualified ordinary-glass case. No new spell or canon syllabus is added.
+D7 raw definitions, commands and old pending-job receipts retain exact identity;
+extension pins use the existing structured record and durable publication owner.
+[Receipt, source hashes and focused evidence](../../gm/dispatch/hp-school-progression-2026-10-25/RECEIPT.md)
+own the finite implementation and serialized native acceptance steps. This closes
+no later-term calendar, holiday-return, school-year or career horizon; those
+HP-D7-X4 possibilities and HP-D7-X5 remain in the palette above.

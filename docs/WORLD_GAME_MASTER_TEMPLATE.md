@@ -58,7 +58,7 @@ The brief is the local source of truth once adopted as that world's owner. The r
 
 **Transfer rules:** [What can move between worlds, required support, meaningful incompatibilities and how unsupported powers regain use. Keep undecided rules visible.]
 
-**Useful exchange:** [One imported capability that changes a local decision and one local reward that changes play elsewhere. Include cost or tradeoff.]
+**Useful exchange, when selected:** [An imported capability that changes a local decision or local result useful elsewhere, with its actual carrier and compatibility. A local-world slice need not invent a crossing to fill this field.]
 
 **World continuity:** [What happens to people, projects, situations and obligations during absence. Declare the clock policy rather than assuming background advancement.]
 
@@ -66,11 +66,13 @@ The brief is the local source of truth once adopted as that world's owner. The r
 
 ### First playable proof and open decisions
 
-**Whole-world actionability pass:** [For broad book/anime world work, use the
-World Actionability GM prompt before selecting runtime packets. Recover all
-assigned audits and ideas, expand connected macro/micro detail, cover identified
-start/premise/cheat families, preserve variants, name precise engine gaps and
-return a checked full design horizon plus finite delivery revisions.]
+**Whole-world horizon and next revision:** [Reuse existing actionability and
+completion owners. Connect promised early, middle, late and aftermath outcomes,
+including ordinary continuing life; preserve source/start/premise variants and
+explicit deferred breadth. Name the earliest unproven dependency-ready journey
+and its finite gate. Additional research resolves a named uncertainty; a new
+full audit wave is not a prerequisite for every runtime packet. See
+WORLD_COMPLETION_STANDARD.md, Connected world delivery.]
 
 **Completion contract:** [Use WORLD_COMPLETION_STANDARD.md and the local existing
 completion owner, or initialize its linked contract/ledger templates. Review

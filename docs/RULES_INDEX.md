@@ -55,9 +55,9 @@ open here too.
 | Economy rules | ECR1–ECR33 | Accepted 2026-10-18 (ECR1, ECR24, ECR27 restate accepted AD27, AD31, AD11) | Money, prices, merchants, trade, currencies, credit, wealth, property, carryover of wealth; 2026-10-18 application: belief-based quotes, currency shape and transfer accounting | [DOMAIN_RULES](DOMAIN_RULES.md#economy-rules) (old path [stub](ECONOMY_RULES.md)) |
 | Skill and learning rules | SLR1–SLR43 | Accepted 2026-10-18 (SLR2, SLR5, SLR17 restate standing MR21–MR23; SLR3, SLR15, SLR20, SLR24–SLR26, SLR32–SLR33, SLR38 restate accepted AD lines) | Skills, practice, teaching, texts, rust/loss and carryover; 2026-10-18 carrier/clock application; 2026-10-21 AD30/AD38 applications SLR40–SLR43 distinguish titles, competence, grants, activation and effect ownership | [DOMAIN_RULES](DOMAIN_RULES.md#skill-and-learning-rules) (old path [stub](SKILL_AND_LEARNING_RULES.md)) |
 | Presence and interaction rules | PIR1–PIR25 | Accepted 2026-10-18 (PIR5, PIR6, PIR12, PIR20–PIR23, PIR25 restate accepted sealed secrets, UR35, UR52, AD16, D11, AD11–AD12, AR and AD34) | Who and what is present in a place, selecting people, stations, events and ways out, verbs on them, new and heard dialogue, presence across idle time, rewinds and lives | [DOMAIN_RULES](DOMAIN_RULES.md#presence-and-interaction-rules) (old path [stub](PRESENCE_AND_INTERACTION_RULES.md)) |
-| World pass rules | WPR1–WPR32 | Proposed 2026-10-23 | How any world audit, expansion, exploration or implementation pass runs: pass shape, coverage dimensions (facilities, person-to-person roles, institutions, money, time, power, starts, failure, surfaces), review gates, more-to-consider rounds, durable saving | [WORLD_PASS_RULES](WORLD_PASS_RULES.md) |
+| World pass rules | WPR1–WPR32 | Proposed 2026-10-23; workflow reconciliation 2026-10-25 | How any world audit, expansion, exploration or implementation pass runs: pass shape, coverage dimensions (facilities, person-to-person roles, institutions, money, time, power, starts, failure, surfaces), review gates, more-to-consider rounds, durable saving | [WORLD_PASS_RULES](WORLD_PASS_RULES.md) |
 | Progression gate rules | GTR1–GTR35 | Proposed 2026-10-23; descriptor, inspector and herb lesson implemented 2026-10-23; book-world round GTR28–GTR35 | Any point where progress waits: bottlenecks, ranks, admission, knowledge, maturation, start and UI reveal gates; absorbing them from sources, one evaluator, commitment-time checks, staged openings, overflow and legibility | [PROGRESSION_GATE_RULES](PROGRESSION_GATE_RULES.md) |
-| World completion standard | none | Proposal 2026-10-11 | Sections, detail ledger and acceptance for a world | [WORLD_COMPLETION_STANDARD](WORLD_COMPLETION_STANDARD.md) |
+| World completion standard | none | Proposal 2026-10-11; connected-delivery guidance reconciled 2026-10-25 | Sections, finite world horizons, detail ledger and acceptance for a world | [WORLD_COMPLETION_STANDARD](WORLD_COMPLETION_STANDARD.md) |
 
 ## Core digest (read this first, 2026-10-18)
 
@@ -324,7 +324,7 @@ The same ideas recur under different codes. Cite the most specific one.
 | Game time, never wall clock | MR28, SR20–SR21, GR17 |
 | Build a slice, not every adjacent system | SR23, AD33, AGENTS scope |
 | Prove the claimed layer | AR10, AR16, SR24, MR34–MR36, UR "Before you call it done", AGENTS verification |
-| Old saves keep working | AR6, MR33, SR22, AGENTS safety |
+| Persistence follows the selected compatibility policy; new state survives restoration | AR6, MR30/MR33 and SR22, qualified by the [old-save deferral](USER_VISION.md#old-save-compatibility-deferred-2026-10-17) and [content-ID decision](USER_VISION.md#content-id-retirement-and-frozen-world-idle-2026-10-18); no automatic migration gate |
 
 ## Tensions reconciled
 
@@ -352,10 +352,12 @@ to them, and no rule code is removed or reused. History only, never a rule sourc
 
 ## Aspects without a dedicated rulebook
 
-Combat, cheats, characters and companions, lives and continuation, and time are
-covered only by AD rules and their owners. If Weibao asks for standing rules in
-one of these, write it like SR: a dated request in USER_VISION, a coded file
-with "prevents" columns, a row here and one line in PROJECT.
+Combat, health, economy, skills and presence already have the registered domain
+rulebooks above. Cheats, characters/companions, lives/continuation and time use
+their AD rules and linked owners where no dedicated book applies. Search those
+owners before proposing another rulebook. A new rulebook requires Weibao’s
+request, provenance in USER_VISION, a register/router row here and a PROJECT
+summary; an audit or an isolated mistake does not require one.
 
 ## Reserved prefixes (2026-10-19)
 

@@ -15,6 +15,8 @@ python3 /Users/weiwei/code/yet-another-idle-rpg/scripts/toolsets.py run rea -- -
 
 Inside this checkout, `python3 scripts/toolsets.py ...` is equivalent. `list --json` returns all entries, including reference/manual routes. `show ID` reports command, declared effects, effective tool-specific environment, required paths and readiness without launching it. `doctor ID...` checks presence; `--probe` runs only registered finite offline checks. No collector, MCP server, browser journey or native import is started by doctor. A nonzero doctor exit means at least one selected launch route is missing or failed its probe. Reference routes are explicitly reported as references, never readiness successes.
 
+Probe stdout and stderr are decoded as UTF-8 with replacement for invalid bytes, retaining up to 16,000 stdout characters and 4,000 stderr characters. Decoding errors do not turn a failing probe into a success; the child exit status and timeout outcome remain authoritative.
+
 `run ID -- ARG...` replaces the launcher process with that tool. It preserves caller working directory, stdin/stdout/stderr, argument boundaries, exit status and signal handling. Relative input/output paths therefore refer to the caller's directory. Use absolute source/output paths for reproducibility. No shell interpolation, command logging, credential capture, automatic installation, fallback version, retries or MCP registration occurs. The selected tool retains its normal behavior and authority requirements. `show` and doctor output include paths/configured values; keep them local if overrides contain private values. Do not put credentials in argv or these path/configuration overrides.
 
 ## Choose the route

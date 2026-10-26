@@ -4,6 +4,36 @@
 **Baseline:** committed `HEAD` `9b997ea60a7eb12200dbc825684e6668403aa015`  
 **Rules:** AD36 and the Lean tests direction in AGENTS.md / RULES_INDEX.md.
 
+## Current disposition after C4 integration, 2026-10-25
+
+The inventory and proposals below are the original B5 snapshot, not today’s
+unfinished-work queue. C4’s final receipt `f9dde93fce8748b086638461a6082bb09c8d239a`
+and implementation `e9c547605c7e4de208b2d6d200cdcec12204a3f8` are ancestors of
+the current primary HEAD `9b4b220fd4867501a50ca2de2c9af3180d489402`.
+[Implementation, assertion mapping and frozen checks](../gm/dispatch/lean-tests-2026-10-25/CHECKPOINT.md#scope-outcome-and-final-gates)
+own the outcome; the [later landing](../gm/RECONCILIATION_2026-10-25.md#landing-2026-10-25)
+supersedes the lane’s earlier no-master-integration status.
+
+M1 is implemented in `tests/structured_container.test.js`. M2/R3 use
+owner-specific host suites rather than one mixed file. R1–R6 were implemented
+for the eligible files; the two world-adaptation moves were explicitly deferred.
+Use C4’s relocation maps to find each existing system owner, including
+`tests/native_save_fixtures.test.js`; do not recreate retired batch-named files
+or redispatch completed migrations. A deferred move is not a gameplay defect
+or automatic authorization for more cleanup.
+
+C4 also repaired the diagnosed source-extraction VM timeout without changing
+assertions. Its 2,877/2,877 result and 390-registration preservation receipt
+apply to their recorded inputs, not every later dirty checkout. Earlier five
+failure timings here do not establish current failures or dead tests. The
+observed timings were not a controlled benchmark; no stable speedup is claimed.
+
+This reconciliation used ancestry, existing receipts and representative current
+paths only. No gameplay/source/test changes, suite reruns, new census or deletion.
+The directing task `01a171d5-703b-70ed-9e74-2a44ce84701a` releases this audit file
+when its scoped link/whitespace/readback checks finish. Remaining performance
+work needs a measured bottleneck or concrete duplicated invariant.
+
 ## Scope and method
 
 Inventory covers all 380 tracked test-runner files under `tests/` in committed HEAD (`.test.js`, `.test.mjs`, `.test.cjs`). Fixtures and helper modules are not runner files and were not timed. Ten tracked test files were dirty and 26 test files were untracked in the shared working tree; none entered this HEAD inventory. The run used isolated `git archive HEAD` copies with the checkout dependency directory linked in. Each unique file received one `node --test <file>` timing. Shards ran concurrently, so wall times are one-off estimates under contention, not stable benchmarks.

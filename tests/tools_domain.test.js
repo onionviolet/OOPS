@@ -4,13 +4,13 @@ import {loadNative as loadNativeModule} from './helpers/native_loader.mjs';
 import {createDurability, equipmentDurability} from '../src/absorb_e2/durability.js';
 import {instrumentProfile, gatherRates, verbNumbers, improvisedRates} from '../src/tool_profiles.js';
 import {domainRegistry} from '../src/domain_registry.js';
-import {configureToolsDomain, setToolsState, toolsState, quoteRepair, executeRepair, cancelRepair, maxCondition, validateTools} from '../src/tools_domain.js';
+import {configureToolsDomain, setToolsState, toolsState, quoteRepair, executeRepair, cancelRepair, maxCondition, validateTools, quoteToolAction, executeToolAction} from '../src/tools_domain.js';
 const quoteHandRepair = key => quoteRepair({kind: 'hand', key}), executeHandRepair = executeRepair, cancelHandRepair = cancelRepair;
 
 // Native item, location and activity tables, bundled with presentation stubbed (as absorb_e2 does).
 let native;
 async function loadNative() {
-    return native ??= await loadNativeModule('export {item_templates} from "./src/items.js"; export {locations} from "./src/data/locations.js"; export {character} from "./src/data/character.js"; export {activities} from "./src/activities.js";', {logLevel: 'error', prefix: 'tools-native-'});
+    return native ??= await loadNativeModule('export {item_templates, getItemFromKey} from "./src/items.js"; export {locations} from "./src/data/locations.js"; export {character} from "./src/data/character.js"; export {activities} from "./src/activities.js";', {logLevel: 'error', prefix: 'tools-native-'});
 }
 function toolActivities(n) {
     const rows = [];
@@ -95,7 +95,7 @@ function repairFixture({level = 5, ingots = 2, station = 1} = {}) {
         persist: done => { saved++; done(); }, refresh: () => {}, blocked: () => '', writable: () => true, idle: () => idle,
         random: key => { draws.push(key); return roll; }, logMessage: text => log.push(text)});
     setToolsState(null);
-    return {durability, tool, inventory, log, draws, saves: () => saved, setRoll: value => { roll = value; }, setIdle: value => { idle=value; }};
+    return {durability, tool, actor, inventory, log, draws, saves: () => saved, setRoll: value => { roll = value; }, setIdle: value => { idle=value; }};
 }
 
 test('IP3: a hand repair quote consumes nothing (MR4)', () => {
@@ -166,3 +166,69 @@ const GOLDEN_PICKAXE = {
     'Iron pickaxe': {verb: 'mine', levels: 3, speed: 1.25, yield: 1.35, precision: 1, hardness: 2},
     'Steel pickaxe': {verb: 'mine', levels: 5, speed: 1.56, yield: 1.65, precision: 1.1, hardness: 3},
 };
+
+
+test('TQ199 opted-in native mining cracks one copy; diagnosis and targeted repair survive state roundtrips', async () => {
+    const n = await loadNative(), f = repairFixture(), key = f.tool.getInventoryKey();
+    f.tool = f.durability.bindFromKey(key, n.getItemFromKey(key));
+    f.actor.equipment.pickaxe = f.tool;
+    assert.equal(f.tool.id, 'Iron pickaxe');
+    const gate = domainRegistry.command('tools', 'gate'), work = domainRegistry.command('tools', 'workCycle');
+    const toolDomain = domainRegistry.list().find(d => d.id === 'tools');
+    const action = name => executeToolAction(quoteToolAction({key, action: name}));
+    const roundtrip = () => {
+        const slice = JSON.parse(JSON.stringify(toolDomain.save())), wear = JSON.parse(JSON.stringify(f.durability.serialize()));
+        validateTools(slice); toolDomain.load(toolDomain.migrate(slice)); f.durability.load(wear);
+        assert.equal(f.tool.getInventoryKey(), key); assert.deepEqual(toolDomain.save(), slice);
+    };
+    f.durability.setCondition(key, 60);
+    action('lever'); roundtrip();
+    // Turning durability off freezes even the explicitly planned cause.
+    const armed = structuredClone(toolsState()); f.durability.setEnabled(false);
+    assert.deepEqual(work({item: f.tool}), {worn: false}); assert.deepEqual(gate({item: f.tool}), {ok: true, rates: null});
+    assert.deepEqual(toolsState(), armed); f.durability.setEnabled(true);
+    const strained = work({item: f.tool}); assert.equal(strained.broken, true); assert.doesNotMatch(strained.message, /crack/i);
+    assert.equal(f.durability.condition(key), 59); assert.equal(toolsState().instances[key].damage.type, 'crack');
+    roundtrip();
+    assert.equal(domainRegistry.project('tools').rows[0].diagnosis, '');
+    assert.equal(quoteRepair({key}).repairDamage, undefined);
+    assert.doesNotMatch(JSON.stringify(quoteRepair({key})), /"damage"|"type":"crack"|diagnosed/);
+    assert.doesNotMatch(JSON.stringify(domainRegistry.project('tools')), /"damage"|"type":"crack"/);
+    const mining = toolActivities(n).find(r => r.slot === 'pickaxe');
+    const rates = gate({item: f.tool}).rates;
+    const ordinary = nativeRates(n, mining.activity, {Mining: 7});
+    const impaired = nativeRates(n, Object.assign({}, mining.activity, {tool_rates: rates}), {Mining: 7});
+    assert.ok(impaired.gathering_time_needed > ordinary.gathering_time_needed);
+    assert.ok(impaired.gained_resources[0].chance < ordinary.gained_resources[0].chance);
+    // A distinct actual copy and ordinary scalar/coin repair do not close this crack.
+    const otherKey = key.replace('e2.1', 'e2.2'), other = {...f.tool, getInventoryKey: () => otherKey};
+    assert.equal(gate({item: other}).rates, null);
+    const actor = {money: 10, getItems: () => ({}), getEquipment: () => ({pickaxe: f.tool})};
+    f.durability.repair(actor, key, () => {}); assert.ok(gate({item: f.tool}).rates);
+    f.durability.setCondition(key, 59);
+    action('inspect'); assert.match(domainRegistry.project('tools').rows[0].diagnosis, /Crack/); roundtrip();
+    const q = quoteRepair({key}); assert.equal(q.repairDamage, 'crack'); assert.equal(q.restore, 0);
+    executeRepair(q); roundtrip();
+    const malformed = structuredClone(toolsState()); malformed.job.restore = 50;
+    assert.throws(() => validateTools(malformed), /typed repair binding/);
+    toolDomain.tick(q.minutes);
+    assert.equal(toolsState().instances[key].damage, undefined); assert.equal(toolsState().instances[key].repairs, 1);
+    assert.equal(f.durability.condition(key), 59); assert.equal(f.inventory['Iron ingot'], 1);
+    assert.equal(gate({item: f.tool}).rates, null); roundtrip();
+    f.durability.load(undefined); setToolsState(null);
+});
+
+test('TQ199 inadequate diagnosis preserves unknown truth and scalar repair cannot mend it', () => {
+    const f = repairFixture({level: 0}), key = f.tool.getInventoryKey();
+    executeToolAction(quoteToolAction({key, action: 'lever'}));
+    domainRegistry.command('tools', 'workCycle')({item: f.tool});
+    const result = executeToolAction(quoteToolAction({key, action: 'inspect'}));
+    assert.match(result, /cannot judge/); assert.doesNotMatch(result, /crack/i);
+    assert.equal(toolsState().instances[key].damage.diagnosed, false);
+    const q = quoteRepair({key}); assert.equal(q.repairDamage, undefined);
+    executeRepair(q); domainRegistry.list().find(d => d.id === 'tools').tick(q.minutes);
+    assert.equal(toolsState().instances[key].damage.diagnosed, false);
+    assert.ok(domainRegistry.command('tools', 'gate')({item: f.tool}).rates);
+    const bad = structuredClone(toolsState()); bad.instances[key].damage.type = 'curse'; assert.throws(() => validateTools(bad), /typed tool damage/);
+    f.durability.load(undefined); setToolsState(null);
+});

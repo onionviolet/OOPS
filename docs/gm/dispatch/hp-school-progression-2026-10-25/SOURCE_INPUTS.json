@@ -1,0 +1,104 @@
+{
+  "status": "SOURCE READY; native gates unrun",
+  "headAtInspection": "9b4b220fd4867501a50ca2de2c9af3180d489402",
+  "changedFiles": [
+    {
+      "path": "src/book_world_hp_content.js",
+      "beforeSha256": "57315f749482b95855837b3803243e2dee2382e96c4b1e6bb84b35a1445b4c37",
+      "afterSha256": "85d6c7b4522460b59123c4d4dd86ccb96868000855c5615aa1343264595ee8a4"
+    },
+    {
+      "path": "src/book_world_hp_facts.js",
+      "beforeSha256": "1b24cd76c3d73296004130fb003e08c2bec6b6a5fa0f25ea5e259cb53e691a31",
+      "afterSha256": "ea3066162635847efa9711d6df243611c62cdb0b140aac5a889b41996a302817"
+    },
+    {
+      "path": "src/structured_pack_definitions.js",
+      "beforeSha256": "3d8236735d5e554a222e3285d5abfe5c64ed2d66a3e45b30a9fb68cb6ca8fe1d",
+      "afterSha256": "a022018f991dc4df28bea789eb7ee0d815a4820d9fafd9e3eeb0574156e8b7e3"
+    },
+    {
+      "path": "src/structured_pack_state.js",
+      "beforeSha256": "eedb2707ad637a84c752a53461eb3938438e5e628cc5448d9dcf71894cb8593e",
+      "afterSha256": "ea14789db9f4047cb9a682cc1a8a91ce46a9ad1b819438a7ee3744ae6874d2a1"
+    },
+    {
+      "path": "src/structured_pack_runtime.js",
+      "beforeSha256": "3701ce8b042560a7242897a2c988cc8bc081606b5dde6b85b3f0907c549ba1b6",
+      "afterSha256": "755f115b5a9f6962960ebdf857c3d5f57afdb9cd2e80d47b917beebadc6097d6"
+    },
+    {
+      "path": "src/structured_pack_ui.js",
+      "beforeSha256": "8ef3f64063c2639980b0bbe1e5248baf509494df1826abf9f43b020f13f399dc",
+      "afterSha256": "5b83a9a1237fb58e289c9e93032cb3c9fc9bba040f263a16467f2272959fbbde"
+    },
+    {
+      "path": "src/main.js",
+      "beforeSha256": "2b23c1dd2725933334417ec60f359c7316ceab29f63d9c38737137ec2ae9c1e0",
+      "afterSha256": "4cf77e27aed89292ddbaf5c0c97fd6385db0a49c6ead731d655b8ff8e2a93f68"
+    },
+    {
+      "path": "src/structured_pack_extensions.js",
+      "beforeSha256": null,
+      "afterSha256": "4a094b9de286335933c6967b8763a166de3803137e21c5cb31145b8f588c0152"
+    },
+    {
+      "path": "src/structured_native_registration.js",
+      "beforeSha256": null,
+      "afterSha256": "d112f40be0c95690885b443df54b8df3863ef331f3cbd233e7b91b5cc17a0b3a"
+    },
+    {
+      "path": "src/world_packs/book_hp_school_extension.js",
+      "beforeSha256": null,
+      "afterSha256": "f1a67c1e8f3c35cd306be5ccf08dc3c7a4bf77b748e91e63a9db9ab582a3c2a4"
+    },
+    {
+      "path": "tests/hp_school_progression.test.js",
+      "beforeSha256": null,
+      "afterSha256": "fe9057c73b70574211e7f4f88a5fb05a1b89fd9236dfbf81873c67cbe1955fdc"
+    },
+    {
+      "path": "docs/worlds/harry-potter/WORLD_BRIEF.md",
+      "beforeSha256": "9a48e0534fb77764203c5a00e3b1b644c4c3ad96d83c54bb5fa5e7570f845b6d",
+      "afterSha256": "9b133860ca01a2d93169f692525231cb9036a81cf67722aa54bf31a5b18f3c28"
+    }
+  ],
+  "unchangedContracts": [
+    {
+      "path": "src/world_packs/book_hp_life_data.js",
+      "sha256": "0291d0e075889a33aff5e8dc8746fd77f44254919ea1bca6c651e40570166411"
+    },
+    {
+      "path": "tests/hp_arrival_compatibility.test.js",
+      "sha256": "77b5f67c4148f86c94127d59c48c250264b1c9c505bd2c4a8c732d893fb7fed4"
+    },
+    {
+      "path": "docs/gm/dispatch/hp-arrival-2026-10-25/golden-d7.json",
+      "sha256": "09b77899d9ab1996e6b2fc64fc6b8cde7d04dcc00c59776d2f6f62887faf29de"
+    }
+  ],
+  "mainCustody": [
+    "structured imports near line 378",
+    "commandStructuredCampaign existing require/action/admission branch near line 2100",
+    "load_game early structured-content validation near line 6621",
+    "existing native structured registration block near line 9436"
+  ],
+  "buildLock": "No build/dist/index/server/browser/native/process activity authorized or performed by this lane; LOTM reserves bundle 4db87189c6adf78b92c577270f3fc4dadebc23aecc74a40aea8f4c6057206205",
+  "sourceCustody": "released to coordinator",
+  "extensionIdentity": {
+    "id": "book.hp.school.assessed_repair",
+    "revision": 1,
+    "contentHash": "sha256:a793308b6d35f84b5b2de78ec6df367e682d6c8a47d83b4c0838bf0f415e7d2c",
+    "base": {
+      "id": "book.hp.school",
+      "revision": 1,
+      "contentHash": "sha256:60f98887abca007da8c704d5d4ecc4dd4cfc4f3da7575c667b999737ac543017"
+    }
+  },
+  "pinCorrection": {
+    "reproduction": "pin-repro.txt: 10/11; settled missing-pin was accepted",
+    "repaired": "pin-regression.txt: 11/11; settled completion and declared knowledge each require installed extension pin",
+    "scope": "installed extension command IDs and declared knowledge keys only; no absent legacy adoption",
+    "architectureEvidence": "reused: imports/cycles and checked composition-root line counts unchanged"
+  }
+}

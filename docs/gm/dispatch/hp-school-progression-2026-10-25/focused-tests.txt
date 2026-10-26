@@ -1,0 +1,340 @@
+TAP version 13
+# Subtest: D7 raw HP life definitions and every command definition retain their exact JSON SHA-256
+ok 1 - D7 raw HP life definitions and every command definition retain their exact JSON SHA-256
+  ---
+  duration_ms: 1.524958
+  type: 'test'
+  ...
+# Subtest: both D7 lives save and reload an in-flight job against the exact definition without losing cargo or native money
+ok 2 - both D7 lives save and reload an in-flight job against the exact definition without losing cargo or native money
+  ---
+  duration_ms: 36.98025
+  type: 'test'
+  ...
+# Subtest: installed commands remain inert until known-method opt-in; admission grants no stock, elapsed time or mastery
+ok 3 - installed commands remain inert until known-method opt-in; admission grants no stock, elapsed time or mastery
+  ---
+  duration_ms: 108.626083
+  type: 'test'
+  ...
+# Subtest: stale, busy, body-unready, base mismatch, unknown and duplicate extension admission refuse without mutation
+ok 4 - stale, busy, body-unready, base mismatch, unknown and duplicate extension admission refuse without mutation
+  ---
+  duration_ms: 17.079292
+  type: 'test'
+  ...
+# Subtest: extension preflight rejects base mismatch, command collision and content outside command-only contract atomically
+ok 5 - extension preflight rejects base mismatch, command collision and content outside command-only contract atomically
+  ---
+  duration_ms: 3.252625
+  type: 'test'
+  ...
+# Subtest: assessment requires practiced method and real means at admission; attendance and role give no pass
+ok 6 - assessment requires practiced method and real means at admission; attendance and role give no pass
+  ---
+  duration_ms: 19.584625
+  type: 'test'
+  ...
+# Subtest: assessment reserves actual material and stamina, cancels/refunds once and settles a real pane once
+ok 7 - assessment reserves actual material and stamina, cancels/refunds once and settles a real pane once
+  ---
+  duration_ms: 15.627792
+  type: 'test'
+  ...
+# Subtest: lost means, tutor presence or lesson window at completion refunds without assessment
+ok 8 - lost means, tutor presence or lesson window at completion refunds without assessment
+  ---
+  duration_ms: 50.249125
+  type: 'test'
+  ...
+# Subtest: earned assessment changes optional application; pupil material becomes tutor stock, including outside class
+ok 9 - earned assessment changes optional application; pupil material becomes tutor stock, including outside class
+  ---
+  duration_ms: 16.093042
+  type: 'test'
+  ...
+# Subtest: pending and settled extension work roundtrip through the existing envelope with exact pins and frozen jobs
+ok 10 - pending and settled extension work roundtrip through the existing envelope with exact pins and frozen jobs
+  ---
+  duration_ms: 16.01525
+  type: 'test'
+  ...
+# Subtest: extracted native registration preserves both D7 identities and installs no adopted state
+ok 11 - extracted native registration preserves both D7 identities and installs no adopted state
+  ---
+  duration_ms: 6.664792
+  type: 'test'
+  ...
+# Subtest: failed durable validation or storage never publishes adoption; successful nativePatch uses the existing envelope
+ok 12 - failed durable validation or storage never publishes adoption; successful nativePatch uses the existing envelope
+  ---
+  duration_ms: 37.349208
+  type: 'test'
+  ...
+# Subtest: existing local-life UI quotes opt-in and dispatches its exact pin only when writable and eligible
+ok 13 - existing local-life UI quotes opt-in and dispatches its exact pin only when writable and eligible
+  ---
+  duration_ms: 22.161583
+  type: 'test'
+  ...
+# Subtest: structured compilation creates immutable definitions without registering or provisioning
+ok 14 - structured compilation creates immutable definitions without registering or provisioning
+  ---
+  duration_ms: 4.209417
+  type: 'test'
+  ...
+# Subtest: collision in a late simulation family leaves every live family unchanged
+ok 15 - collision in a late simulation family leaves every live family unchanged
+  ---
+  duration_ms: 0.941875
+  type: 'test'
+  ...
+# Subtest: unknown and unimplemented capabilities reject admission
+ok 16 - unknown and unimplemented capabilities reject admission
+  ---
+  duration_ms: 0.21325
+  type: 'test'
+  ...
+# Subtest: cross references use combined existing definitions without changing them
+ok 17 - cross references use combined existing definitions without changing them
+  ---
+  duration_ms: 0.729333
+  type: 'test'
+  ...
+# Subtest: unknown person, condition, source, native item and command power refuse
+ok 18 - unknown person, condition, source, native item and command power refuse
+  ---
+  duration_ms: 0.824083
+  type: 'test'
+  ...
+# Subtest: schema1 scalar data cannot become structured historical objects
+ok 19 - schema1 scalar data cannot become structured historical objects
+  ---
+  duration_ms: 0.112791
+  type: 'test'
+  ...
+# Subtest: observer declarations and pack ownership are required before registration
+ok 20 - observer declarations and pack ownership are required before registration
+  ---
+  duration_ms: 0.346833
+  type: 'test'
+  ...
+# Subtest: non-JSON executable content and unknown simulation families reject
+ok 21 - non-JSON executable content and unknown simulation families reject
+  ---
+  duration_ms: 0.10925
+  type: 'test'
+  ...
+# Subtest: refused native construction rolls back earlier availability side effects
+ok 22 - refused native construction rolls back earlier availability side effects
+  ---
+  duration_ms: 0.319584
+  type: 'test'
+  ...
+# Subtest: first initialization is staged once and never converts scalar legacy history
+ok 23 - first initialization is staged once and never converts scalar legacy history
+  ---
+  duration_ms: 19.652875
+  type: 'test'
+  ...
+# Subtest: receipt start, future time, instance and native domain mismatches reject
+ok 24 - receipt start, future time, instance and native domain mismatches reject
+  ---
+  duration_ms: 2.09525
+  type: 'test'
+  ...
+# Subtest: one titled unit survives reservation/refund and actual condition conversion
+ok 25 - one titled unit survives reservation/refund and actual condition conversion
+  ---
+  duration_ms: 19.446708
+  type: 'test'
+  ...
+# Subtest: actual recipient condition/vitals update service eligibility and facts tolerate no registry
+ok 26 - actual recipient condition/vitals update service eligibility and facts tolerate no registry
+  ---
+  duration_ms: 13.567541
+  type: 'test'
+  ...
+# Subtest: witnessed communication settles once and failed durable write changes no live state
+ok 27 - witnessed communication settles once and failed durable write changes no live state
+  ---
+  duration_ms: 8.971584
+  type: 'test'
+  ...
+# Subtest: observer action quote contains time and own inputs but no NPC reserves or hidden outputs
+ok 28 - observer action quote contains time and own inputs but no NPC reserves or hidden outputs
+  ---
+  duration_ms: 6.980166
+  type: 'test'
+  ...
+# Subtest: player panel excludes NPC-owned commands even when they are visible
+ok 29 - player panel excludes NPC-owned commands even when they are visible
+  ---
+  duration_ms: 6.686541
+  type: 'test'
+  ...
+# Subtest: player-owned identified unit keeps title through actual reservation, refund and saved publication
+ok 30 - player-owned identified unit keeps title through actual reservation, refund and saved publication
+  ---
+  duration_ms: 3.035458
+  type: 'test'
+  ...
+# Subtest: provider facts use the actual target body, renewable reserve and currently active faculty
+ok 31 - provider facts use the actual target body, renewable reserve and currently active faculty
+  ---
+  duration_ms: 3.657708
+  type: 'test'
+  ...
+# Subtest: a newly acquired identified unit conserves its variant through an authorized title sale
+ok 32 - a newly acquired identified unit conserves its variant through an authorized title sale
+  ---
+  duration_ms: 3.995584
+  type: 'test'
+  ...
+# Subtest: worn native identified equipment remains conserved and a duplicate carried copy fails
+ok 33 - worn native identified equipment remains conserved and a duplicate carried copy fails
+  ---
+  duration_ms: 0.637125
+  type: 'test'
+  ...
+# Subtest: explicit new condition absence policy exposes zero without changing frozen legacy absence
+ok 34 - explicit new condition absence policy exposes zero without changing frozen legacy absence
+  ---
+  duration_ms: 3.004125
+  type: 'test'
+  ...
+# Subtest: identified native loan returns the actual same copy and reserved owned work refunds its exact key
+ok 35 - identified native loan returns the actual same copy and reserved owned work refunds its exact key
+  ---
+  duration_ms: 3.001708
+  type: 'test'
+  ...
+# Subtest: canonical loan authority blocks transfer of its identified native copy to another claimant
+ok 36 - canonical loan authority blocks transfer of its identified native copy to another claimant
+  ---
+  duration_ms: 3.231792
+  type: 'test'
+  ...
+# Subtest: native local controls quote only the current location while departure actions remain reachable
+ok 37 - native local controls quote only the current location while departure actions remain reachable
+  ---
+  duration_ms: 8.18775
+  type: 'test'
+  ...
+# Subtest: unchanged projection retains focus and remounts the same controls
+ok 38 - unchanged projection retains focus and remounts the same controls
+  ---
+  duration_ms: 3.928667
+  type: 'test'
+  ...
+# Subtest: only projected rows render and raw extras do not change the controls
+ok 39 - only projected rows render and raw extras do not change the controls
+  ---
+  duration_ms: 0.36275
+  type: 'test'
+  ...
+# Subtest: inactive begin is neutral and rejection shows safe host error without success text
+ok 40 - inactive begin is neutral and rejection shows safe host error without success text
+  ---
+  duration_ms: 0.274416
+  type: 'test'
+  ...
+# Subtest: countdown preserves keyboard focus and host errors outrank old saved notice
+ok 41 - countdown preserves keyboard focus and host errors outrank old saved notice
+  ---
+  duration_ms: 0.401875
+  type: 'test'
+  ...
+# Subtest: repeated work rechecks completion and eligibility, including host reentrant render
+ok 42 - repeated work rechecks completion and eligibility, including host reentrant render
+  ---
+  duration_ms: 0.359958
+  type: 'test'
+  ...
+# Subtest: stopping repeats leaves current job intact; cancelled jobs never trigger another order
+ok 43 - stopping repeats leaves current job intact; cancelled jobs never trigger another order
+  ---
+  duration_ms: 0.610958
+  type: 'test'
+  ...
+# Subtest: loss of write ownership stops a plan while current job is still pending
+ok 44 - loss of write ownership stops a plan while current job is still pending
+  ---
+  duration_ms: 0.323459
+  type: 'test'
+  ...
+# Subtest: the Harry Potter pack is bundled, loads clean and is plain integer data (WA21, IS2)
+ok 45 - the Harry Potter pack is bundled, loads clean and is plain integer data (WA21, IS2)
+  ---
+  duration_ms: 13.228833
+  type: 'test'
+  ...
+# Subtest: every evidence row has a label, a page locator and a short paraphrase, never source text (MR13)
+ok 46 - every evidence row has a label, a page locator and a short paraphrase, never source text (MR13)
+  ---
+  duration_ms: 0.318792
+  type: 'test'
+  ...
+# Subtest: the pinned formula cites evidence for every slot, and canon ingredients keep their canon labels
+ok 47 - the pinned formula cites evidence for every slot, and canon ingredients keep their canon labels
+  ---
+  duration_ms: 0.186292
+  type: 'test'
+  ...
+# Subtest: every rule not stated by the novel is labelled original, and no sealed secret is authored here (HP-SEAL-1)
+ok 48 - every rule not stated by the novel is labelled original, and no sealed secret is authored here (HP-SEAL-1)
+  ---
+  duration_ms: 0.117667
+  type: 'test'
+  ...
+# Subtest: catalog index matches the formula ingredients and all IDs sit in the pack namespace
+ok 49 - catalog index matches the formula ingredients and all IDs sit in the pack namespace
+  ---
+  duration_ms: 0.183458
+  type: 'test'
+  ...
+# Subtest: a duplicate of the pack does not load twice and an HP pack edit changes the fingerprint (WA10)
+ok 50 - a duplicate of the pack does not load twice and an HP pack edit changes the fingerprint (WA10)
+  ---
+  duration_ms: 7.508083
+  type: 'test'
+  ...
+# Subtest: HP admission is inert until durable opt-in, supplies a real local body and preserves old saves
+ok 51 - HP admission is inert until durable opt-in, supplies a real local body and preserves old saves
+  ---
+  duration_ms: 15.685667
+  type: 'test'
+  ...
+# Subtest: school timetable admits actual teaching, refuses closed windows, cancellation refunds and native Literacy settles once
+ok 52 - school timetable admits actual teaching, refuses closed windows, cancellation refunds and native Literacy settles once
+  ---
+  duration_ms: 44.283792
+  type: 'test'
+  ...
+# Subtest: descriptor methods require faculty, taught mastery, actual tool and target; borrowed tool has conserved custody
+ok 53 - descriptor methods require faculty, taught mastery, actual tool and target; borrowed tool has conserved custody
+  ---
+  duration_ms: 29.0525
+  type: 'test'
+  ...
+# Subtest: adult trade owns distinct means and access, conserves material and cash through repair, travel, sales and debt
+ok 54 - adult trade owns distinct means and access, conserves material and cash through repair, travel, sales and debt
+  ---
+  duration_ms: 16.666166
+  type: 'test'
+  ...
+# Subtest: school and trade expose an elapsed local calendar without the Frontier civil year
+ok 55 - school and trade expose an elapsed local calendar without the Frontier civil year
+  ---
+  duration_ms: 4.511916
+  type: 'test'
+  ...
+1..55
+# tests 55
+# suites 0
+# pass 55
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 581.337083

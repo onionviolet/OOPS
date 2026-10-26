@@ -1,5 +1,12 @@
 <a id="current-delivery-routing-checked-2026-10-22"></a>
 
+## World rules and delivery guidance reconciliation, 2026-10-25
+
+[Bounded audit and change record](docs/reviews/WORLD_RULES_AUDIT_2026-10-25.md)
+repairs contradictory workflow callers and clarifies connected whole-world
+horizons in the existing completion owner. Product/source choices remain with
+their accepted owners; this documentation work selects no runtime wave.
+
 ## All saved reference mechanics selected, 2026-10-25
 
 Weibao selected fitting missing mechanics from saved game, book and mod audits and clarified the source scope as “everything”. The [execution record](docs/gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md) owns the all-source crosswalk and sequential playable slices. Existing active cultivation work retains its owner. Local implementation is selected; all-source completion, publication and app adoption are not claimed.

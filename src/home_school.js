@@ -30,7 +30,7 @@ export function planHomeSchool(s,r,c,out){
  if(actor!=='player')check(c.people[actor]?.life==='alive'&&c.people[actor]?.location===SCHOOL_ROOM&&flags(c,actor)?.['home.employed']===true&&!flags(c,actor)?.['home.leave'],'meet this willing member here.');
  check(!busy(actor),'finish or cancel this person’s actual appointment first.');
  if(r.type==='school_visit'){
-  check(actor===SCHOOL_VISITOR&&!flags(c,actor)?.['home.schoolVisitor'],'meet Mara for her uncompleted visiting-student agreement.');if(c.staffResources?.[actor]?.['home.energy']==null)out.simEffects.push(res(actor,'home.energy',0));out.job={id:'home.school.visit.'+actor,actor};out.message='Mara reserves thirty minutes and one actual carried bread to rest and join the visiting class. No study, rank or physical instruction is granted by enrollment.';return true;
+  check(actor===SCHOOL_VISITOR&&!flags(c,actor)?.['home.schoolVisitor'],'meet Mara for her uncompleted visiting-student agreement.');if(c.staffResources?.[actor]?.['home.energy']==null)out.simEffects.push(res(actor,'home.energy',0));for(const key of ['home.schoolVisitor','home.leave'])if(flags(c,actor)?.[key]==null)out.simEffects.push(fact(actor,key,false));out.job={id:'home.school.visit.'+actor,actor};out.message='Mara reserves thirty minutes and one actual carried bread to rest and join the visiting class. No study, rank or physical instruction is granted by enrollment.';return true;
  }
  if(actor===SCHOOL_VISITOR||r.other===SCHOOL_VISITOR)check(flags(c,SCHOOL_VISITOR)?.['home.schoolVisitor'],'Mara first needs her own visiting-class rest and agreement.');
 

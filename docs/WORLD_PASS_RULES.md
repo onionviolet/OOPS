@@ -44,9 +44,11 @@ commit or push on its own.
 
 ### What a pass must cover
 
-Every world has these dimensions. A pass names the rows it covered and lists the
-rest as open gaps rather than silently skipping them. Rows are a palette, not a
-quota: a world may have none of a row, and says so with its source locator.
+These dimensions are coverage lenses. A pass names the rows relevant to its
+assigned scope and records consequential unexamined boundaries; it need not
+create an open task for every untouched row. The whole-world owner retains
+remaining coverage. Rows are not a quota: a world may lack a dimension, with a
+source-grounded reason; unavailable source is unknown, not proven absence.
 
 | Code | Dimension | Prompts |
 | --- | --- | --- |
@@ -64,9 +66,9 @@ quota: a world may have none of a row, and says so with its source locator.
 
 | Code | Rule | Dial | Mistake it prevents |
 | --- | --- | --- | --- |
-| WPR18 | **Every lane return gets a review before it is folded.** A reviewer other than the author spot-checks at least five of the highest-consequence claims against their locators, checks the labels, confirms the output stays inside the owned file and budget, and lists contradictions with existing docs. | A single-fact pass needs one check; a long return needs more | Fabricated or mistranslated facts reaching canon |
+| WPR18 | **Every lane return gets a review before it is folded.** The integrator reviews the actual return, labels, owned files, budget and conflicts. Source claims with material consequences are opened at their locators; use an independent reviewer where the assignment requires it or a named uncertainty warrants it, not a new agent per routine return. | A single-fact pass needs one check; a long return needs more | Fabricated or mistranslated facts reaching canon |
 | WPR19 | **Reviews check the source, not the summary.** A reviewer opens the locator. A claim without a locator is marked unverified, never accepted on the author's word. | Use haiku for the spot-check reading and sonnet for the judgment | Confirmation by repetition |
-| WPR20 | **Contradictions are kept, not smoothed.** Both readings stay with sources, the pack's chosen reading, owner and status (unbiased lens, WA27). A newer source version supersedes by marking, not deletion. | None | Silent loss of a source disagreement |
+| WPR20 | **Contradictions are kept, not smoothed.** Both readings stay with sources, the pack's chosen reading, owner and status (source boundary, WA3/WA8). A newer source version supersedes by marking, not deletion. | None | Silent loss of a source disagreement |
 | WPR21 | **Separate review states:** drafted, source-spot-checked, rules-reconciled, built, browser-verified, director-accepted. A report names the highest state reached and does not imply a later one. | None | Calling a draft "verified" |
 | WPR22 | **Reconcile against live owners.** Name the AD, WA, PIR, ECR and other codes the findings touch, and mark any conflict with standing direction. Agent proposals never change a priority or turn deferred work into a gate (AGENTS). | A tiny pass cites only the codes it touches | Findings drifting from accepted direction |
 | WPR23 | **Check stale labels.** "Ongoing", "complete", "no source found" and any freshness claim get a date and the route used; a "not found" records where it searched and where it could not. | None | Treating an unsearched route as empty |
@@ -75,9 +77,9 @@ quota: a world may have none of a row, and says so with its source locator.
 
 | Code | Rule | Dial | Mistake it prevents |
 | --- | --- | --- | --- |
-| WPR24 | **End each pass with a more-to-consider round.** Each new angle is classed ACT NOW (done in the owner), ACCOUNT FOR NOW (a constraint on current work) or LATER/DELEGATE (level, effort, done check). Suggestions go in a short separate list, never as a reason to stop. | A repeated "more to consider" on the same idea expands it again with a genuinely new angle | Passes that stop at the first answer |
-| WPR25 | **Rank next worlds and parts by readiness, not enthusiasm.** The report names which world or part should get the same pass next, with a suggested budget, based on the kit card gaps and source availability. | Weibao's ordering overrides (canon-first order in PROJECT.md) | One world getting depth while a base layer stays empty |
-| WPR26 | **Fold lessons into the playbook.** A method that worked or a mistake that repeated is added to the relevant playbook or to this file, not left in one report. | None | Relearning the same lesson per session |
+| WPR24 | **Capture useful expansion within the assigned outcome.** Requested more-to-consider rounds add genuinely new angles in the existing owner as ACT NOW, ACCOUNT FOR NOW or LATER/DELEGATE. A bounded repair or completed pass need not manufacture another expansion round; suggestions do not postpone the finite result. | A repeated "more to consider" on the same idea expands it again with a genuinely new angle | Passes that stop at the first answer |
+| WPR25 | **Rank next worlds and parts by readiness, not enthusiasm.** Within Weibao’s selected order and scope, choose the next dependency-ready outcome from existing gaps and source availability. Recommend another pass only when it resolves a named uncertainty; do not enqueue audits automatically. | Weibao's ordering overrides (canon-first order in PROJECT.md) | One world getting depth while a base layer stays empty |
+| WPR26 | **Fold lessons into the playbook.** A reusable method or evidenced recurring defect may improve its existing playbook; a one-off result stays in the task record unless it exposes a structural contradiction. Do not turn every correction into another rule. | None | Relearning the same lesson per session |
 
 ### Saving durably
 
@@ -101,7 +103,7 @@ quota: a world may have none of a row, and says so with its source locator.
 2. Read the world's owner docs (WPR2); set the budget (WPR7).
 3. Read or map the part with labeled, located claims (WPR4, WPR5, WPR9-WPR17).
 4. Review the return (WPR18-WPR23), keep contradictions (WPR20).
-5. Close with the more-to-consider round and the ranked next passes (WPR24-WPR25).
+5. Close the finite result; capture useful/requested expansion and the next dependency-ready outcome without automatic audit dispatch (WPR24-WPR25).
 6. Save to the owner, register new docs and fold lessons (WPR26-WPR28).
 7. Commit only if authorized, narrowly (WPR29).
 

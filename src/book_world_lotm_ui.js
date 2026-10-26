@@ -11,6 +11,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const run=(fn,done)=>{try{fn();notice.textContent=done;}catch(e){notice.textContent=e.message;}signature='';render();};
  const button=(label,token,onclick,disabled,reason)=>{const b=node('button',label);b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;if(reason)b.title=reason;b.onclick=onclick;return b;};
  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
+ // Navigation only: focus the existing command row, including its disabled reason.
+ const findControl=id=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return;const r=b.parentElement;r.tabIndex=-1;r.focus();r.scrollIntoView({block:'nearest'});};
 
  // Brewing bench (DWF128): one picked formula at a time, never a button per formula. Surface: a disclosure inside the place service (UR42).
  function renderBench(v){
@@ -68,6 +70,18 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   if(p.chosen)path.append(node('p',v.switchNotice));
   else for(const o of p.others){path.append(node('h3',o.label),node('p',o.ladder.map(s=>s.label).join(' → ')),node('p',v.switchNotice));}
   if(p.next&&!p.capped)for(const c of p.crossings){const r=node('p',`${c.met?'✓':'·'} ${c.label}${typeof c.need==='number'?` (${c.have}/${c.need})`:''}${c.irreversible?' · irreversible':''}`);r.dataset.crossing=c.id;path.append(r);}
+  if(v.actingGuidance?.length){
+   const guidance=node('div');guidance.dataset.lotmActingGuidance='';
+   guidance.append(node('p','Known acting actions that feed this digestion. Progress counts when the action completes; stopping timed work adds no act. Find an action below, then use its normal control.'));
+   for(const a of v.actingGuidance){
+    const state=a.pending?'In progress; not counted yet.':a.completed?'Already completed.':a.eligible?'Available now.':a.reasons.join(' ')||'Currently unavailable.';
+    const r=row(node('span',`${a.label} · ${a.place} · ${a.duration?`${a.duration} min`:'immediate'}${a.free?' · no resource cost':''}. ${state}`));
+    if(a.visible)r.append(button('Find action',`find_${a.id}`,()=>findControl(a.id),false,'Move focus to the existing action. This spends nothing.'));
+    else if(!a.here&&a.moveId)r.append(button(`Find walk to ${a.place}`,`find_${a.moveId}_${a.id}`,()=>findControl(a.moveId),false,'Move focus to the existing walk. This does not start walking.'));
+    guidance.append(r);
+   }
+   path.append(guidance);
+  }
   if(p.capped)path.append(node('p','Later Sequences are not offered in this branch.'));
   }
   if(v.cause.line)path.append(node('p',v.cause.line));

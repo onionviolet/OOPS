@@ -116,3 +116,9 @@ export function verbNumbers(profile, gained, workingPeriod, levelsWithTool) {
 export function improvisedRates(profile) {
     return {levels: -profile.levels, speed: profile.improvised.speed, yield: profile.improvised.yield, means: profile.improvised.means};
 }
+
+// TQ199 ORIGINAL Village proposal: deliberate prying on one Iron pickaxe copy.
+// A cracked head cannot take full strokes; skill bonus stays, but work slows.
+export const VILLAGE_CRACK = Object.freeze({tool: 'Iron pickaxe', cause: 'wedged-stone',
+    diagnosis: Object.freeze({skill: 'Forging', level: 2, station: 'forging', tier: 1}),
+    rates: Object.freeze({levels: 0, speed: 0.65, yield: 0.85, means: 'short, careful strokes'})});

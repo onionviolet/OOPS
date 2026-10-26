@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: installed commands remain inert until known-method opt-in; admission grants no stock, elapsed time or mastery
+ok 1 - installed commands remain inert until known-method opt-in; admission grants no stock, elapsed time or mastery
+  ---
+  duration_ms: 85.863708
+  type: 'test'
+  ...
+# Subtest: stale, busy, body-unready, base mismatch, unknown and duplicate extension admission refuse without mutation
+ok 2 - stale, busy, body-unready, base mismatch, unknown and duplicate extension admission refuse without mutation
+  ---
+  duration_ms: 13.179875
+  type: 'test'
+  ...
+# Subtest: extension preflight rejects base mismatch, command collision and content outside command-only contract atomically
+ok 3 - extension preflight rejects base mismatch, command collision and content outside command-only contract atomically
+  ---
+  duration_ms: 2.727583
+  type: 'test'
+  ...
+# Subtest: assessment requires practiced method and real means at admission; attendance and role give no pass
+ok 4 - assessment requires practiced method and real means at admission; attendance and role give no pass
+  ---
+  duration_ms: 16.05125
+  type: 'test'
+  ...
+# Subtest: assessment reserves actual material and stamina, cancels/refunds once and settles a real pane once
+ok 5 - assessment reserves actual material and stamina, cancels/refunds once and settles a real pane once
+  ---
+  duration_ms: 13.142708
+  type: 'test'
+  ...
+# Subtest: lost means, tutor presence or lesson window at completion refunds without assessment
+ok 6 - lost means, tutor presence or lesson window at completion refunds without assessment
+  ---
+  duration_ms: 41.742375
+  type: 'test'
+  ...
+# Subtest: earned assessment changes optional application; pupil material becomes tutor stock, including outside class
+ok 7 - earned assessment changes optional application; pupil material becomes tutor stock, including outside class
+  ---
+  duration_ms: 13.084708
+  type: 'test'
+  ...
+# Subtest: pending and settled extension work roundtrip through the existing envelope with exact pins and frozen jobs
+ok 8 - pending and settled extension work roundtrip through the existing envelope with exact pins and frozen jobs
+  ---
+  duration_ms: 14.037667
+  type: 'test'
+  ...
+# Subtest: extracted native registration preserves both D7 identities and installs no adopted state
+ok 9 - extracted native registration preserves both D7 identities and installs no adopted state
+  ---
+  duration_ms: 6.194917
+  type: 'test'
+  ...
+# Subtest: failed durable validation or storage never publishes adoption; successful nativePatch uses the existing envelope
+ok 10 - failed durable validation or storage never publishes adoption; successful nativePatch uses the existing envelope
+  ---
+  duration_ms: 30.157292
+  type: 'test'
+  ...
+# Subtest: existing local-life UI quotes opt-in and dispatches its exact pin only when writable and eligible
+ok 11 - existing local-life UI quotes opt-in and dispatches its exact pin only when writable and eligible
+  ---
+  duration_ms: 19.28825
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 437.201167

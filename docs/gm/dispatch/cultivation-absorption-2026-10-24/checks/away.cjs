@@ -1,0 +1,11 @@
+const gate=require('../../cultivation-spacing-2026-10-22/browser-helper.cjs');
+gate('away',async h=>{
+ const {p,assert,boot,enroll,act,save,play,roundtrip,gates,path,out}=h;await p.setViewportSize({width:1920,height:1080});await boot();await enroll();await act('data-mistglass-action','enter');await act('data-mistglass-action','learn');await act('data-mistglass-action','method:breath');
+ await act('data-mistglass-action','method:away:arm');await save();const url=p.url();await p.goto('about:blank');await p.waitForTimeout(3500);await p.goto(url,{waitUntil:'domcontentloaded'});await play();
+ await act('data-mistglass-action','method:away:bank');let s=await save();const a=s.expansion.worldAdaptation.techniques.away;assert.ok(a.bank>=2,'real closed-document interval earns offered time after online time is subtracted');
+ await roundtrip('unspent-absence-bank',s=>s.expansion.worldAdaptation.techniques.away);
+ s=await save();const before=s.expansion.clock,bank=s.expansion.worldAdaptation.techniques.away.bank,reserve=s.expansion.simulation.energies.player['p23.mistglass.condensate'].reserve,practice=s.expansion.worldAdaptation.techniques.minutes.breath;
+ await act('data-mistglass-action','method:away:spend');s=await save();const used=s.expansion.clock-before;assert.ok(used>0&&used<=bank);assert.equal(s.expansion.worldAdaptation.techniques.away.bank,bank-used);assert.equal(s.expansion.worldAdaptation.techniques.minutes.breath,Math.min(48,practice+used));
+ assert.equal(s.expansion.worldAdaptation.techniques.away.last.condensate,s.expansion.simulation.energies.player['p23.mistglass.condensate'].reserve-reserve);await roundtrip('spent-absence-receipt',s=>s.expansion.worldAdaptation.techniques.away);
+ await p.locator('[data-route-id="projects"]').click();await p.locator('#projects_drawer').evaluate(n=>n.open=true);await p.locator('#p23_mistglass_panel').evaluate(n=>{n.open=true;n.scrollIntoView();});await p.screenshot({path:path.join(out,'away-1920.png')});gates.push('Real closed-document elapsed interval; explicit absence opt-in and bank; same joined played clock, actual method practice/reserve and honest recap; unspent/spent literal native import');
+},{deterministic:true}).catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,3 +1,4 @@
+import {admittedExtensionCommands,previewStructuredExtension,planStructuredExtension} from './structured_pack_extensions.js';
 import {hpSchoolCalendar,hpLifeStatus} from './book_world_hp_facts.js';
 import {previewStructuredExpeditions} from './structured_expedition_runtime.js';
 import {createSimulationState,validateSimulationState,validateSimulationEffect,jsonData,stableId} from './simulation_contracts.js';
@@ -91,7 +92,7 @@ export function beginStructuredCampaign(state,d,context,receipt,selection=null) 
 
 export function structuredCampaignView(state,d,record,context) {
     if(!record)return {available:!!d,active:false,title:d?.title||'A new beginning',description:d?.description||'Begin an independent local life. Your existing progress stays in this save.',people:[],status:[],actions:[],jobs:[]};
-    requireStructuredContent(record,new Map([[d.id,d]]));
+    requireStructuredContent(record,new Map([[d.id,d]]),state);
     const known=state.simulation.knowledge.player||{},people=[];
     for(const p of d.simulation.people||[]) {
         const key=d.presentation.people[p.id].introductionKnowledgeKey;
@@ -114,14 +115,15 @@ export function structuredCampaignView(state,d,record,context) {
     }
     const actions=[],reachFacts=new Map();
     const hints=a=>{const target=a.targetId||null;if(!reachFacts.has(target))reachFacts.set(target,simulationFacts(state,{...context,targetId:target},context.registry));return structuredReachabilityHints(d,a,reachFacts.get(target));};
-    for(const a of d.simulation.commands||[]) {
+    for(const a of [...(d.simulation.commands||[]),...admittedExtensionCommands(d,record)]) {
         if(a.actorId && a.actorId!=='player' || a.actorDefinitionId && a.actorDefinitionId!==state.simulation.people.player?.definitionId)continue;
         if(a.location!=null&&a.location!==(context.facts?.location||state.simulation.people.player.location))continue;
         const quote=previewSimulationCommand(state,context.registry,a.id,{...context,targetId:a.targetId});
         if(quote.visible)actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons:[...hints(a),...quote.reasons],duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,costs:structuredActionCosts({...quote,costs:quote.costs?.length?quote.costs:a.costs},d)});
     }
     const jobs=state.simulation.jobs.filter(j=>j.actorId==='player'&&j.commandId.startsWith(d.id+'.')).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:Math.max(0,j.due-state.clock),duration:context.registry.simulation.commands.get(j.commandId)?.duration||0,cancellable:j.cancellation!=='none'}));
-    return {available:true,active:true,expeditions:previewStructuredExpeditions(state,d,context),title:d.title||'Local life',place:d.locations.find(l=>l.id===state.simulation.people.player.location)?.label,description:validateStructuredBootstrap(d,record.startId).description,people,status,actions,jobs};
+    const extensions=(d.extensions||[]).filter(e=>!record.extensions?.some(pin=>pin.id===e.id)).map(e=>previewStructuredExtension(state,d,record,e,context,simulationFacts(state,context,context.registry)));
+    return {available:true,active:true,extensions,expeditions:previewStructuredExpeditions(state,d,context),title:d.title||'Local life',place:d.locations.find(l=>l.id===state.simulation.people.player.location)?.label,description:validateStructuredBootstrap(d,record.startId).description,people,status,actions,jobs};
 }
 
 // Show only the acting character's executable input quote. NPC reserves and
@@ -144,4 +146,9 @@ export function structuredActionCosts(quote, definition) {
         }
     }
     return rows;
+}
+
+export function adoptStructuredExtension(state,d,record,request,context) {
+    requireStructuredContent(record,new Map([[d.id,d]]),state);
+    return planStructuredExtension(state,d,record,request,context,simulationFacts(state,context,context.registry));
 }

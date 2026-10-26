@@ -123,11 +123,20 @@ export function createLotmHost(ports){
   const s=state(),d=s.lotm;
   if(!d)return {enrolled:false,startable:startable(),startEnabled:ports.startEnabled(),profiles:Object.values(LOTM_PROFILES).map(({key,label,blurb})=>({key,label,blurb}))};
   const c=ctx(s),f=c.facts,at=s.simulation.people.player.location,e=s.simulation.energies?.player?.[I.energy],know=s.simulation.knowledge?.player||{};
-  const actions=[];
+  const actions=[],actingGuidance=[];
+  const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');
+  const actingRow=allRows.find(r=>f[`lotm.flag.${flagOf(r,'ingested')}`]&&!f[`lotm.flag.${flagOf(r,'promoted')}`]);
+  const actingKey=actingRow&&(actingRow.acting||`book.lotm.${actingRow.key}.acting`);
   for(const def of lotmCommands){if(pathwayRows.some(r=>r.exam?.currentId&&def.id===`book.lotm.${r.exam.id}`)||def.id.startsWith('book.lotm.walk_')||def.id.startsWith(BENCH_PREFIX)||def.targetId&&!s.simulation.people[def.targetId]&&!examIds.has(def.id))continue;const p=previewSimulationCommand(s,registry,def.id,{...c,targetId:def.targetId||null});
    // The rule text of a blocked offer is not player-readable; the switching law is (one pathway per life).
    const other=acceptIds.has(def.id)&&f['lotm.pathChosen']&&!f[`lotm.flag.${acceptFlag[def.id]}`];
-   if(p.visible)actions.push({id:def.id,label:def.label,eligible:p.eligible&&!ports.sleeping(),reasons:other?[LOTM_SWITCH_NOTICE]:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,duration:def.duration||0,cancellation:def.cancellation||'none'});}
+   const action={id:def.id,label:def.label,eligible:p.eligible&&!ports.sleeping(),reasons:other?[LOTM_SWITCH_NOTICE]:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,duration:p.duration,cancellation:def.cancellation||'none'};
+   if(p.visible)actions.push(action);
+   // Join the existing digestion consumer to public commands, never to undiscovered acts.
+   // A notebook entry retains a previously performed act when its offer is no longer visible.
+   const remembered=s.actors.player.completed[def.id]>0&&def.effects.some(e=>e.type==='knowledge'&&know[e.key]);
+   if(actingCrossing&&!actingCrossing.met&&actingKey&&def.effects.some(e=>e.type==='resource'&&e.actor==='player'&&e.key===actingKey&&e.amount>0)&&(p.visible||remembered))
+    actingGuidance.push({...action,visible:p.visible,place:def.location,moveId:Object.keys(MOVES).find(id=>MOVES[id]===def.location),here:def.location===at,pending:s.simulation.jobs.some(j=>j.actorId==='player'&&j.commandId===def.id),completed:!!def.once&&!!s.actors.player.completed[def.id],free:p.eligible&&p.costs.length===0});}
   const moves=Object.entries(MOVES).filter(([,to])=>to!==at).map(([id,to])=>{const dd=districtOfPlace(to),m=lotmWalkMinutes(at,to);return {id,label:`Walk to ${to} · ${m} min · ${dd.qlabel}: ${dd.q2team}`,eligible:!s.simulation.jobs.length&&!ports.sleeping(),reasons:s.simulation.jobs.length||ports.sleeping()?['Finish or stop your current work first.']:[]};});
   // Plain places list (SR rules): every place, its district, which team answers there and how far it is.
   const places=Object.values(L).map(pl=>{const dd=districtOfPlace(pl);return {place:pl,district:dd.qlabel,team:dd.q2team,church:dd.church,here:pl===at,minutes:pl===at?0:lotmWalkMinutes(at,pl)};});
@@ -141,7 +150,7 @@ export function createLotmHost(ports){
   // A save from before the bench has no stock yet; offers preview against the stock the first action will seed, so the buttons are not dead (DWF127).
   let sv=s,cv=c;if(!stockSeeded(s)){const t=base(s,c);seedBenchStock(t);sv=t.state;cv={...c,gameplay:t.gameplay};}
   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
-  return {enrolled:true,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||pathwayRows.some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path:lotmPathView(s,f),holds,actions,moves,jobs,records};
+  return {enrolled:true,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||pathwayRows.some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
  }
  return {enroll,act,cancel,move,wake,tick,view,startable};
 }

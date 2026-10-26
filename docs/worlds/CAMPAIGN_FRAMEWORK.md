@@ -1,6 +1,26 @@
 # Modular world campaigns
 
-## Current entry and completion direction, 2026-10-11
+## Live routing and historical boundaries, 2026-10-25
+
+[PROJECT](../../PROJECT.md) and [USER_VISION](../USER_VISION.md) own current
+selection and canon-first order. The October 3 roster, capacity, milestone and
+runtime-fit statements below are historical snapshots, not current assignments
+or a current capability census. In particular, the
+[October 24 direction](../USER_VISION.md#first-milestone-and-scope-check-2026-10-24)
+removed the one-realm/one-prestige prerequisite. Recover the selected slice’s
+current source and receipt rather than reimposing that gate.
+
+The composition contract remains useful authoring guidance; its record names
+are not promised APIs. Independent instances already have concrete local owners
+in some slices (see [engine authoring](../ENGINE_AUTHORING.md)); their existence
+does not establish every family/era/absence adapter. Verify the chosen world’s
+actual binding and player journey, not a global “implemented/missing” label.
+Use the [completion standard](../WORLD_COMPLETION_STANDARD.md#connected-world-delivery-reconciled-2026-10-25)
+for finite horizons and the current persistence/verification policy.
+
+<a id="current-entry-and-completion-direction-2026-10-11"></a>
+
+## Entry and completion direction, 2026-10-11
 
 The intended expanded run starts at a suspenseful random starting point.
 Frontier is optional; commissions from it are possible entry examples, not a
@@ -16,7 +36,9 @@ implement a selector, independent native instances or new-game body binding.
 
 Status: requested design direction; frozen composition interface v1 with campaign-depth specialist extension v2, 2026-10-03. Master GM owner. This is an authoring specification, not a runtime registry or a save schema. The current playable realm remains `base.frontier` with its existing field renewal.
 
-## Current assignment and shared boundary
+<a id="current-assignment-and-shared-boundary"></a>
+
+## Historical assignment and shared boundary, 2026-10-03
 
 Current follow-through expands five source families in depth: Skyrim, Fallout 4, Elden Ring, Naruto and Bleach. [Specialist role index](../gm/README.md) owns the parallel GM responsibilities; [progression/assembly](PROGRESSION_AND_ASSEMBLY.md), [ability authoring](ABILITY_AUTHORING.md), [lore/continuity](LORE_AND_CONTINUITY.md) and [dialogue](DIALOGUE_AND_INTERACTIONS.md) own their shared detail. Five specialist chats completed campaign/module/source/ability/interaction deliveries in bounded waves. Each world keeps eight linked local owners. [Origins/timelines](ORIGINS_AND_WORLD_TIMELINES.md), [multiverse scope](MULTIVERSE_STRUCTURES.md), [novel scouting](novel-worlds/CANDIDATES.md), [Harry Potter](harry-potter/WORLD_BRIEF.md) and [lived hub](paradise-hub/WORLD_BRIEF.md) extend the current root-authored design. Source completion and design depth do not establish complete runtime worlds.
 
@@ -37,7 +59,7 @@ All local story/people/mechanics in this table are original fan-continuity propo
 Compose a visit from independent records: `WorldDefinition + ContinuityDefinition + EraDefinition + RegionDefinition + EntryProfile + ScenarioDefinition + PowerPolicy + FailurePolicy + TransferPolicy`. These names describe proposed authoring records. They are not exported engine functions.
 
 - `worldId` identifies a rules/source family. `continuityId` identifies an independent causal history. `eraId` identifies an authored starting snapshot. `regionId` identifies a place. `scenarioId` identifies an authored situation. IDs are stable, never display labels.
-- A future `worldInstanceId` identifies durable world state; repeated entries into the same instance preserve people, projects, unique claims, consequences, and RNG. The current engine has world domains but no implemented native binding for these independent instances.
+- A future `worldInstanceId` identifies durable world state; repeated entries into the same instance preserve people, projects, unique claims, consequences, and RNG. At the October 3 inspection the engine had world domains but no native binding for this proposed independent-instance composition; this is not a current claim about every later local instance.
 - An era switch is a new branch or isolated historical scenario by default. It does not roll back a live world unless a regression or loop cheat, or a world that allows it, grants rollback at a cost. A canonical prequel needs bounded source evidence. Unverified earlier-era details are invented branch history.
 - Plot modes: `authored`, `situation`, `contract`, `divergence`, `historical`. Describe trigger, action alternatives, actual consequence, discovery, refusal/expiry, and what survives reload. A mode can select content; it does not justify a second plot-state writer.
 - Power is a contextual profile: physical output, speed/reach, endurance, perception, resistance, access/authority, fuel/logistics, and preparation. Fictional ranks provide local context. Threats keep their authored strength; selecting a region/mission uses the profile, rather than leveling every enemy to the player. Fixed threats are the default; scaled threats are a difficulty or world dial.
@@ -45,7 +67,9 @@ Compose a visit from independent records: `WorldDefinition + ContinuityDefinitio
 - A visit must declare body, memories, learned methods, sources/fuel, cargo, companions, obligations, return conditions, interruption, and absence-clock policy. Draft default: freeze absent worlds and browser-closed play. Offline catch-up, time banking or harsh offline loss are opt-in modes ([idle and offline proposal](../RULES_FROM_SCRATCH.md#idle-and-offline)). Unsupported imported powers retain ownership and can resume when their actual requirements return.
 - Use existing shared commands, jobs, sites, occurrences, knowledge, actor custody and durable publication wherever inspected source supports them. Identify missing adapters precisely. Do not invent working APIs or copy native inventory into another owner.
 
-## World GM delivery gate
+<a id="world-gm-delivery-gate"></a>
+
+## Historical world GM delivery gate, 2026-10-03
 
 Initial world GMs exclusively owned three named files within their local directories: `WORLD_BRIEF.md`, `GM_PROMPT.md` and `IMPLEMENTATION_PACKET.md`. Later specialist assignments split exact filenames in the same directories, as recorded in PROJECT and the role index. Never infer ownership of a sibling file from directory access. Fill the world template, include at least three recurring people and three connected pursuits, and develop era/region variants and multiple plot approaches. Include one costly ordinary loop, a dangerous unequal-power situation, a reason to return, and a worked imported-power interaction.
 
@@ -174,7 +198,9 @@ Before travel review prerequisites, return route, incompatible functions, fuel/c
 
 Draft clock policy freezes absent instances and browser-closed play by default; offline catch-up or harsh loss are opt-in modes. A later explicit alternative may advance funded NPC projects on the common clock with a bounded budget. The first return journey must preserve completed projects, specific NPC memories, item custody and unique rewards. Independent instances must never share native flags through a convenient label swap.
 
-## Inspected runtime fit and remaining gates
+<a id="inspected-runtime-fit-and-remaining-gates"></a>
+
+## Historical inspected runtime fit and remaining gates, 2026-10-03
 
 | Available source owner | Usable foundation | Missing delivery this design does not claim |
 |---|---|---|

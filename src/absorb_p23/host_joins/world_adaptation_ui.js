@@ -13,7 +13,7 @@ export function createMistglassPanel({host,read,act}){
     const summary=document.createElement('summary');summary.textContent='Mistglass conservatory (opt-in proposal)';
     const body=document.createElement('div'),notice=document.createElement('p');notice.setAttribute('role','status');
     panel.append(summary,body,notice);host.append(panel);
-    const text=(parent,t)=>{const p=document.createElement('p');p.textContent=t;parent.append(p);};
+    const text=t=>{const p=document.createElement('p');p.textContent=t;body.append(p);};
     const invoke=id=>{try{act(id);notice.textContent='';}catch(e){notice.textContent=e.message;}render();};
     function render(){
         const opened=new Set([...body.querySelectorAll('details[open]')].map(n=>n.dataset.mistglassSection||n.dataset.actionGroup));

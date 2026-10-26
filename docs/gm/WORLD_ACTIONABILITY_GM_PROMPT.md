@@ -12,8 +12,10 @@ Use with [completion standard](../WORLD_COMPLETION_STANDARD.md),
 
 ## Recommended dispatch order
 
-First run a bounded idea-family audit/expansion wave over the existing docs, then
-assign the full world pass below to selected book/anime settings. These are two
+Reuse existing idea-family and world passes first. Run a bounded additional
+audit/expansion only for the assigned design outcome or a named blocking gap,
+then apply the relevant parts below to selected book/anime settings. The G1–G5
+shape is optional; it does not require a new wave before a ready runtime slice. These are two
 different questions: what forms and details can this idea support, and how does
 this particular world make those forms work? This order builds on earlier GM
 work instead of sending every world owner to reinvent shared idea families.
@@ -282,7 +284,9 @@ Packets use [implementer template](../GAME_IMPLEMENTER_TEMPLATE.md): exact detai
 IDs, local rules, inspected interface, owned files, input revision, positive and
 counterexample cases, save/return/knowledge checks, expected outcome and evidence
 return. Rebuild before fresh-origin browser proof. Persistence changes require
-compatibility plus save/reload/import. Unexercised behavior stays explicitly open.
+the selected compatibility policy plus Save/reload/Export/Import. The current
+old-save deferral does not waive newly created state’s persistence or a specific
+retained command contract. Unexercised behavior stays explicitly open.
 
 ### P5. Staff, review and close the planning pass
 

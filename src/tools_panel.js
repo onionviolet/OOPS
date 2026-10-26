@@ -20,7 +20,7 @@ export function repairWorkPresentation(job,{location,idle,repairBlocked}) {
 }
 // Place service in the workspace (UR1): your tools, their verb numbers and condition, and hand
 // repair (quote, then commit). Coin repair stays in the Equipment durability panel.
-export function createToolsPanel({read, quote, execute, cancel, discovered}) {
+export function createToolsPanel({read, quote, execute, cancel, action, discovered}) {
     const panel = node('section'); panel.id = 'tools_panel'; panel.className = 'expedition_panel'; panel.dataset.surfaceType = 'place-service';
     const intro = node('p'), lampSection=node('div'), lampFuel=createMeterBar(), job = node('div'), work = createWorkStatusView(), list = node('div'), detail = node('div'), notice = node('p');
     lampSection.className='tools-lamp-status';
@@ -54,10 +54,20 @@ export function createToolsPanel({read, quote, execute, cancel, discovered}) {
             const summary = node('p', `${row.name} (${state}) · ${VERB_LABEL[p.verb]} ${bonus} · precision ${p.precision} · hardness ${p.hardness}${cond}`);
             summary.title = `Improvised fallback: ${p.improvised.means}, ${pct(p.improvised.speed)} speed, ${pct(p.improvised.yield)} find chance. Hand repair: ${p.repair.skill} ${p.repair.level}+, ${p.repair.station.tag} station, ${p.repair.materials.map(m => `${m.count} ${m.id}`).join(', ')}. Short inputs still work, with a worse result.`;
             const ask = node('button', 'Repair by hand…'); ask.type = 'button'; ask.dataset.toolsQuoteFor = row.key;
-            ask.disabled = !view.enabled || !row.bound || row.condition >= row.max || !!view.job;
-            ask.title = view.job ? 'Finish or cancel the current repair first.' : !view.enabled ? 'Turn on Equipment durability in Settings to track tool wear.' : !row.bound ? 'Equip this tool once with durability on so it has its own condition.' : row.condition >= row.max ? 'This tool is at its best condition.' : 'See what a hand repair needs. Quoting uses nothing.';
+            ask.disabled = !view.enabled || !row.bound || (row.condition >= row.max && !row.diagnosis) || !!view.job;
+            ask.title = view.job ? 'Finish or cancel the current repair first.' : !view.enabled ? 'Turn on Equipment durability in Settings to track tool wear.' : !row.bound ? 'Equip this tool once with durability on so it has its own condition.' : row.condition >= row.max && !row.diagnosis ? 'This tool is at its best condition.' : 'See what a hand repair needs. Quoting uses nothing.';
             ask.onclick = () => { selected = row.key; notice.textContent = ''; render(); detail.scrollIntoView?.({block: 'nearest'}); };
-            line.append(summary, ask); list.append(line);
+            line.append(summary);
+            if (row.diagnosis) line.append(node('p', `Inspection: ${row.diagnosis}. Hand repair targets the crack and keeps ordinary wear.`));
+            if (row.leverNext) line.append(node('p', 'Next mining round with this copy: pry a wedged stone. Sideways load can damage the head.'));
+            for (const q of row.actions || []) {
+                const label = q.action === 'inspect' ? 'Inspect head at forge' : q.action === 'cancelLever' ? 'Cancel planned prying' : 'Next mining round: pry stone (risks head damage)';
+                const button = node('button', label); button.type = 'button'; button.dataset.toolsAction = q.action;
+                button.disabled = !q.eligible; button.title = q.reason || (q.action === 'inspect' ? `Inspection uses ${q.means}; lacking means gives an inconclusive result.` : 'This choice is saved for this copy. No extra reward; ordinary mining needs no prying.');
+                button.onclick = () => { try { notice.textContent = action(q); } catch (e) { notice.textContent = e.message; } render(); };
+                line.append(button);
+            }
+            line.append(ask); list.append(line);
             // The quote opens under its tool so it stays in view without scrolling.
             if (row.key === selected) line.append(detail);
         }
@@ -70,7 +80,7 @@ export function createToolsPanel({read, quote, execute, cancel, discovered}) {
                 const needs = node('ul'); needs.dataset.toolsInputs = '';
                 for (const i of q.inputs) { const li = node('li', `${i.met ? 'Met' : 'Short'}: ${i.label}`); li.dataset.met = String(i.met); needs.append(li); }
                 detail.append(needs,
-                    node('p', `Expected: ${pct(q.chance)} success, proposed restoration about ${Math.round(q.restore)} (condition ${Math.round(q.condition)}/${Math.round(q.max)}) over ${q.minutes} minutes.`),
+                    node('p', `Expected: ${pct(q.chance)} success, ${q.repairDamage ? 'closing the diagnosed crack; ordinary wear stays' : `proposed restoration about ${Math.round(q.restore)}`} (condition ${Math.round(q.condition)}/${Math.round(q.max)}) over ${q.minutes} minutes.`),
                     node('p', q.failure),
                     node('p', q.inputs.every(i => i.met) ? 'Quoting uses nothing.' : 'Short inputs lower the result; you can still try. Quoting uses nothing.'));
             }

@@ -2,6 +2,33 @@
 
 Standing rules for every agent that adds or changes player-facing UI. Weibao, 2026-10-15: "save logical rules to address these and more so similar mistakes wount be made again?" Each rule names the mistake it prevents. Accepted direction lives in [PROJECT](../PROJECT.md#standing-priorities-and-document-authority) and [USER_VISION](USER_VISION.md#format-portraits-and-view-decisions-2026-10-14); detail lives in the owners linked below. These rules are defaults with reasons; a world or feature can propose an exception, but it has to say why.
 
+## Applying the existing rules to a bounded journey, 2026-10-25
+
+This is a routing aid, not another rule set or a selected redesign. In the
+existing task packet, link the affected owner, shared component and a working
+consumer/example; name the changed player outcome and relevant states. Use:
+
+- UR35/42/47/52 for discovery-aware inspection, known prerequisites and distinct
+  unknown, empty, filtered and unavailable states. A failure message explains
+  only what the observer can know; disabled controls need not reveal secrets.
+- UR10/55/61/63 for target, actual cost/duration/units, commitment, progress and
+  settled/cancelled/interrupted outcomes. Read those from existing owners;
+  presentation does not decide settlement or duplicate preview math.
+- UR21–33/41/43/51–58 for navigation, keyboard/focus, return, larger text and
+  recovery without lost work or moving targets. Exercise relevant empty/error
+  and changed-state cases, not just a populated opening screenshot.
+- UR6/12/34/37–39/49/60/62/64/65–69 for shared vocabulary/components, quiet
+  hierarchy, world-specific expression, stable layout and bounded feedback.
+  Text and static meaning remain usable without motion, sound or color alone.
+
+Use the current desktop/text targets below with disposable test fixtures, not
+private player saves. Follow AD36 for the changed risk and evidence reuse;
+unchanged content rows do not each require another full UI matrix. Required
+changed native behavior, affected persistence and human visual acceptance stay
+separate. A screenshot, row count or absence of overflow alone establishes none
+of the later gates. A settled UI fix does not need a new prototype; use the
+existing mockup workflow only when the design question is actually unsettled.
+
 ## Before you build: decide where it belongs
 
 For an unsettled layout or interaction, use the
