@@ -21,6 +21,7 @@ const { APP_SCHEME, APP_ORIGIN, resolveAppPath } = require('./app_path.cjs');
 const { RECOVER_PATH, recoverPage } = require('./recover_page.cjs');
 const { POPOUT_PATH, popoutPage } = require('./popout_page.cjs');
 const { buildMenu } = require('./app_menu.cjs');
+const appIcon = path.join(__dirname, '../resources/img/oops-icon.png');
 
 // Test and spare-profile hook: a fresh userData is a fresh save origin. Set it
 // before any module reads app.getPath('userData').
@@ -80,6 +81,7 @@ function createWindow() {
         minHeight: 768,
         backgroundColor: '#1b1b1b',
         title: 'YAIRPG',
+        icon: appIcon,
         show: !background,
         webPreferences,
     });
@@ -95,6 +97,7 @@ function createWindow() {
 const page = html => new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8' } });
 
 if (primary) app.whenReady().then(() => {
+    app.dock?.setIcon(appIcon);
     // Accessory apps never activate on macOS, which is the strongest guard.
     if (hidden && process.platform === 'darwin') {
         app.setActivationPolicy('accessory');
