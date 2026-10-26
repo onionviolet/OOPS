@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "bounds_utc": {
+    "start_inclusive": "2026-10-26T14:11:52.598030+00:00",
+    "boundary": "2026-10-26T14:21:52.598030+00:00",
+    "end_exclusive": "2026-10-26T14:31:52.598030+00:00"
+  },
+  "corpus_files": 360,
+  "corpus_sha256": "caaafd5bc88c793d47b7a9f8932934b3ade39e4223b5cdeb6271e34aa014c3a0",
+  "counts": {
+    "before": {
+      "human_origin_candidates": 2
+    },
+    "after": {}
+  },
+  "class_keyword_candidates": {
+    "before": {
+      "IPC36": 0,
+      "IPC37": 0,
+      "IPC38": 0,
+      "IPC39": 0,
+      "IPC40": 0,
+      "IPC41": 0,
+      "IPC42": 0,
+      "IPC43": 0,
+      "IPC44": 0,
+      "IPC45": 0,
+      "IPC46": 0
+    },
+    "after": {
+      "IPC36": 0,
+      "IPC37": 0,
+      "IPC38": 0,
+      "IPC39": 0,
+      "IPC40": 0,
+      "IPC41": 0,
+      "IPC42": 0,
+      "IPC43": 0,
+      "IPC44": 0,
+      "IPC45": 0,
+      "IPC46": 0
+    }
+  },
+  "exclusions": {
+    "machine_session_or_record": 6764
+  },
+  "exclusion_scope": "entire input files for machine/session errors; time-bounded for text and duplicates",
+  "interpretation": "Human-origin and keyword candidates, not independently confirmed corrections. Classes overlap. No raw texts or per-message fingerprints emitted.",
+  "sample_design": {
+    "anchor": "primary-adoption/result.json filesystem modification time, proxy for proof completion; not authoritative rule-adoption timestamp",
+    "anchor_proof_sha256": "04e84d7e510de819a2e5eb23b225007947438e17929f258e521512a5d79607a8",
+    "paired_minutes_each_side": 10,
+    "codex_creation_dates": [
+      "2026-10-25",
+      "2026-10-26"
+    ],
+    "claude_most_recent_file_cap": 60,
+    "selection_limit": "Older-started Codex sessions and older-mtime Claude files are outside this inventory. Session source and relay heuristics cannot prove all remaining text was human-authored.",
+    "delivery_match_status": "no matched completed deliveries established; screening counts only"
+  },
+  "tool_sha256": "17bbeae0809c2a6882d96499185ee5efe3a181b2860e41e76f02462cb8453a52"
+}

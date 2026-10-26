@@ -1,0 +1,112 @@
+[
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/AGENTS.md",
+    "bytes": 13657,
+    "sha256": "37f1de4d293d1a0f78defde65ab2ab5cee38ae22dfd530ebde1b49170640b04f"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/CLAUDE.md",
+    "bytes": 1748,
+    "sha256": "189d39bb971eb99d8e611acbd41284884746aba5b6a00f968b057eae78303104"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/audits/tools/correction_sweep.py",
+    "bytes": 9855,
+    "sha256": "17bbeae0809c2a6882d96499185ee5efe3a181b2860e41e76f02462cb8453a52"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/audits/tools/test_correction_sweep.py",
+    "bytes": 4790,
+    "sha256": "ef041eb24c27d96bcc20ece80afe0bfc65d62fbf840070bff975407a6799cb08"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/audits/IDEAS_NESTED_TRIAGE_2026-10-26.md",
+    "bytes": 20956,
+    "sha256": "7a5bc762d8e254c12892264a2f44bd6a6b61e8a1d214ad91c97a76ab90ec6e53"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/r1-follow-through-2026-10-26/CORRECTION_COMPARISON.md",
+    "bytes": 7475,
+    "sha256": "c2cd068e7574555881cbfe211d82db996871aea617ed8b42cd0955cbc74b8677"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/r1-follow-through-2026-10-26/INSTRUCTION_LOADING.md",
+    "bytes": 6445,
+    "sha256": "dea4ae6630396d922966112c73040a2e97d9e534fdfebb1fbe880270147b269f"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/r1-follow-through-2026-10-26/OWNERSHIP.md",
+    "bytes": 1366,
+    "sha256": "1a58d762d752d4622ed8848b091cd0f2601843c2090f8fe6f699da66fb0b9199"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/r1-follow-through-2026-10-26/RECEIPT.md",
+    "bytes": 5801,
+    "sha256": "ea6198c010e238830bcf7053670e286b92fa38a99acb49d00c49c423f08dd16b"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/r1-follow-through-2026-10-26/SHARED_OWNER_PATCHES.md",
+    "bytes": 2952,
+    "sha256": "d88dd7708917dec84bb7cbaad364d9711a013ae972ef4746757ae7e2bb40558b"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/r1-follow-through-2026-10-26/correction-comparison-aggregate.json",
+    "bytes": 2024,
+    "sha256": "50291c688459c22949451cb154e71e4c2fa379021470303374886ba1dc2921d8"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/r1-follow-through-2026-10-26/instruction-measurements.json",
+    "bytes": 2334,
+    "sha256": "6be06ddd871f63df466af17f7ab947cdd8eb7d748efd6f3770be2a33bbe74609"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/r1-follow-through-2026-10-26/nested-coverage.json",
+    "bytes": 798843,
+    "sha256": "2e2fa2960ba30d3c20ea8a2ae1da37df57dc87176ac42a72199e64922f31aa43"
+  },
+  {
+    "path": "/Users/weiwei/Documents/Claude/Projects/Weibao's Workspace/plans/_templates/portable_agent_rules.md",
+    "bytes": 8928,
+    "sha256": "8566d32ed008f619e7fc6c985c90b06c053a41f1421a1c1adad55e1da3d6b66b"
+  },
+  {
+    "path": "/Users/weiwei/Documents/Claude/Projects/Weibao's Workspace/plans/_templates/portable_agent_rules_global.md",
+    "bytes": 859,
+    "sha256": "30faddb54577f9ea60669d4df24c8e411a22d29c454afff9da34f4ec702f70d7"
+  },
+  {
+    "path": "/Users/weiwei/Documents/Claude/Projects/Weibao's Workspace/plans/.claude/scripts/sync_agent_rules.py",
+    "bytes": 8381,
+    "sha256": "1a65461f28f43c035af24010f3ab5a5e14870cb3ce08cc27f4bf2e9287ef551d"
+  },
+  {
+    "path": "/Users/weiwei/Documents/Claude/Projects/Weibao's Workspace/plans/.claude/scripts/test_sync_agent_rules.py",
+    "bytes": 6609,
+    "sha256": "e246e65e05d52ea6c28113c6fa1a58c5dcb636afa90951122193fcdcdee68a46"
+  },
+  {
+    "path": "/Users/weiwei/Documents/Claude/Projects/Weibao's Workspace/plans/99_Meta_Workflow/Agent_Logic_Log.md",
+    "bytes": 111087,
+    "sha256": "2b7c91714b5b831e8abf49f0d731d61d85ca1d9bbd946ee4dbae651b450a5927"
+  },
+  {
+    "path": "/Users/weiwei/.claude/user-preferences.md",
+    "bytes": 8989,
+    "sha256": "5d6e21b7746e95e6451488260c9fddd262b6252d5d19e57a693a9ead7ec8ed06"
+  },
+  {
+    "path": "/Users/weiwei/.codex/AGENTS.md",
+    "bytes": 8989,
+    "sha256": "5d6e21b7746e95e6451488260c9fddd262b6252d5d19e57a693a9ead7ec8ed06"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/r1-follow-through-2026-10-26/PUBLICATION.md",
+    "bytes": 1902,
+    "sha256": "6b6f976ba1b641a4980e45da59211a893b67d571bd73c8bfbeb58658197ef791"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/audits/IDEAS_TRIAGE_2026-10-26.md",
+    "bytes": 76310,
+    "sha256": "439fe91e78563f326a5f4a3cb09f649a5f56b39c697aa249681ba8ea20492eee"
+  }
+]

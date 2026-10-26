@@ -1,0 +1,53 @@
+[
+  {
+    "path": "/Users/weiwei/Documents/Claude/Projects/Weibao's Workspace/plans/.claude/scripts/sync_agent_rules.py",
+    "before_bytes": 6994,
+    "after_bytes": 8381,
+    "before_sha256": "a5118bdff3f31dc274392232829cd81f74fa0bb20df38abbc60f916c75bb8341",
+    "after_sha256": "1a65461f28f43c035af24010f3ab5a5e14870cb3ce08cc27f4bf2e9287ef551d"
+  },
+  {
+    "path": "/Users/weiwei/Documents/Claude/Projects/Weibao's Workspace/plans/.claude/scripts/test_sync_agent_rules.py",
+    "before_bytes": 4549,
+    "after_bytes": 6609,
+    "before_sha256": "5a34f4481e2d8130b5be89704be6bc9ba9ccba7245147251f11e7ce266299618",
+    "after_sha256": "e246e65e05d52ea6c28113c6fa1a58c5dcb636afa90951122193fcdcdee68a46"
+  },
+  {
+    "path": "/Users/weiwei/Documents/Claude/Projects/Weibao's Workspace/plans/_templates/portable_agent_rules.md",
+    "before_bytes": 8859,
+    "after_bytes": 8928,
+    "before_sha256": "2a1dc76be575df8f8503193e43be8d71ff74f7e7a4940302b03ed9d96ad65782",
+    "after_sha256": "8566d32ed008f619e7fc6c985c90b06c053a41f1421a1c1adad55e1da3d6b66b"
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/AGENTS.md",
+    "before_bytes": 21433,
+    "after_bytes": 13657,
+    "before_sha256": "c85addcd33e3a7de178e451b98b8651f871aa720eb68fbfab12e5eb8e8274bc8",
+    "after_sha256": "37f1de4d293d1a0f78defde65ab2ab5cee38ae22dfd530ebde1b49170640b04f",
+    "outside_managed_region_identical": true
+  },
+  {
+    "path": "/Users/weiwei/code/yet-another-idle-rpg/CLAUDE.md",
+    "before_bytes": 9524,
+    "after_bytes": 1748,
+    "before_sha256": "6e22f3a314246fa45746641e39d69d435a825fd44aed86624fb0dfecd0afbeb1",
+    "after_sha256": "189d39bb971eb99d8e611acbd41284884746aba5b6a00f968b057eae78303104",
+    "outside_managed_region_identical": true
+  },
+  {
+    "path": "/Users/weiwei/.claude/user-preferences.md",
+    "before_bytes": 8920,
+    "after_bytes": 8989,
+    "before_sha256": "8dd126c2929fd4c4d9337118e2c5c194a3498a726cf339cad4bbcc351f3eb3d6",
+    "after_sha256": "5d6e21b7746e95e6451488260c9fddd262b6252d5d19e57a693a9ead7ec8ed06"
+  },
+  {
+    "path": "/Users/weiwei/.codex/AGENTS.md",
+    "before_bytes": 8920,
+    "after_bytes": 8989,
+    "before_sha256": "8dd126c2929fd4c4d9337118e2c5c194a3498a726cf339cad4bbcc351f3eb3d6",
+    "after_sha256": "5d6e21b7746e95e6451488260c9fddd262b6252d5d19e57a693a9ead7ec8ed06"
+  }
+]
