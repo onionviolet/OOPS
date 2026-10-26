@@ -5,6 +5,7 @@ import {LOTM_HOSTILES,hostileAbilityCommands,abilityConditions} from './book_wor
 import {LOTM_PROFILES} from './book_world_lotm_lives.js';
 import {BENCH_STOCK,STOCK_REV_KEY} from './book_world_lotm_bench.js';
 import {LOTM_BENCH_ITEMS,FORMULA_ROWS_REVISION} from './lotm_formula_rows.js';
+import {RITE_ITEMS} from './book_world_lotm_ritual.js';
 export {LOTM_IDS,LOTM_LOCATIONS,LOTM_KEYS,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT} from './book_world_lotm_ids.js';
 export {lotmSources};
 export const lotmWorlds=[{id:I.world,label:'Tingen · supervised probationer branch',publicName:'Tingen',continuityLabel:'Original early-Tingen probationer branch',
@@ -47,6 +48,7 @@ export const LOTM_ITEM_SPECIFICATIONS=[
   ['Unmarked prepared dose (Sailor line, Sequence 8)','A prepared potion with no label, a step up from the first. Drinking it undigested or out of order is a stated route to loss of control; an appraiser can say what it is.'],
   ['Tingen sealed grade-3 item','A grade 3 sealed item from the Tingen vault: a small tarnished lamp that must not be lit. Handling it needs the group and clearance the church sets; it is returned the same day.']
   ,...LOTM_BENCH_ITEMS
+  ,...RITE_ITEMS
 ].map(([id,description])=>({id,name:id,description,value:1,tags:{expedition:true,book_world_lotm:true}}));
 export function registerLotmItems({itemTemplates,OtherItem}){for(const spec of LOTM_ITEM_SPECIFICATIONS){if(itemTemplates[spec.id])throw Error(`Duplicate Lord of the Mysteries item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}
 // Pure enrollment of the original probationer branch (plan S2 prototype start).

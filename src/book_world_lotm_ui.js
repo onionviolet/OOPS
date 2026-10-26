@@ -38,6 +38,10 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   if(d.formulaRoute)bench.append(node('p',`No Tingen route for the formula. Canon: ${d.formulaRoute.text} [${d.formulaRoute.evidence}]`));
   else if(d.route)bench.append(node('p',`Canon route: ${d.route.text} [${d.route.evidence}]`));
   bench.append(node('p',d.ritual?(d.ritual.needed?`Rite (${d.ritual.scale}): ${d.ritual.text}${d.ritual.materials.length?` · needs ${d.ritual.materials.join(', ')}`:''} [${d.ritual.evidence}]. This does not stop the brewing; drinking without it is a stated loss-of-control risk.`:d.ritual.text):'Rite: not in the notes.'));
+  if(d.rite){const r=d.rite,box=node('div');box.dataset.lotmRite=r.grade;
+   box.append(node('p',`${r.label} if drunk now: ${r.grade} · stated loss-of-control odds ${r.odds} percent (proposal; pre-signs stay reversible about ${r.recoveryDays} days). Seq ${d.seq} doses cannot be drunk yet, so this is a preview.`));
+   for(const c of r.conditions){const p=node('p',c.status==='met'?`${c.label}: met (${c.via})`:c.status==='substituted'?`${c.label}: substituted, fit ${c.fit} (${c.via})`:`${c.label}: absent. Wanted: ${c.wanted}. Principle: ${c.principle}.`);p.dataset.lotmRiteCondition=c.status;box.append(p);}
+   bench.append(box);}
   for(const g of d.gaps){const p=node('p',`Unknown: ${g}`);p.dataset.lotmGap='';bench.append(p);}
   if(d.brewing)bench.append(node('p',d.ready?'The pot has settled and is ready to bottle.':`Brewing · ${d.left} min left`));
   if(d.doses)bench.append(node('p',`You hold ${d.doses} ${d.product?.name||'dose'}.`));
@@ -94,6 +98,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    for(const b of v.broker.barters)work.append(node('p',`Posted barter: ${b.offered} (${b.offeredPence} pence) for ${b.label} (${b.requestedPence} pence), equal value. Appraisal costs ${b.feePence} pence separately.`));
    for(const t of v.broker.trades){const r=node('p',`${t.label}: ${t.status}.`);r.dataset.brokerTrade=t.id;work.append(r);}
   }
+  if(v.merit){const m=v.merit,box=node('div');box.dataset.lotmMerit='';box.append(node('h3',`${m.name} · merit`));
+   const bal=node('p',`Merit in hand: ${m.balance} (earned ${m.earned}, spent ${m.spent}). Assignments and prices are proposals; standing is a separate thing.`);bal.dataset.lotmMeritBalance=String(m.balance);box.append(bal);
+   for(const a of m.missions)box.append(row(button(a.action.label,a.action.id,()=>run(()=>act(a.action.id),''),!a.action.eligible,a.action.reasons.join(' ')),node('span',`Issuer ${a.issuer}. Risk: ${a.risk}`)));
+   box.append(node('p','Evidence store'));
+   for(const r of m.store){const line=row(button(`${r.label} · ${r.price} merit${r.left==null?'':` · ${r.left} left`}`,r.action.id,()=>run(()=>act(r.action.id),''),!r.action.eligible,r.reasons.join(' ')),node('span',r.eligible?r.text:r.reasons.join(' ')));line.dataset.lotmMeritRow=r.id;box.append(line);}
+   work.append(box);}
   renderBench(v);
   for(const j of v.jobs)work.append(row(node('span',`${j.label} · ${j.left} min left`),...(j.cancellable?[button(j.cancellation==='refund'?'Stop (reserved attention returned)':'Stop (cost not returned)','cancel',()=>run(()=>cancel(j.id),j.cancellation==='refund'?'You stopped. Reserved attention was returned.':'You stopped. What it cost is gone.'),false,j.cancellation==='refund'?'Stopping returns reserved attention; elapsed time stays spent.':'Stopping forfeits what this spent.')]:[])));
   for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));

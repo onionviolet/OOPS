@@ -9,6 +9,7 @@
 import {defineGate, evaluateGate} from './progression_gates.js';
 import {DIALS as STANDING_DIALS} from './economy_standing.js';
 import {createObligations, writeObligation, obligation} from './obligations_ledger.js';
+import {defineInstitution, offerFor} from './institution_store.js';
 
 // Existing grace-days rule (ECR21: forgiving defaults, never a hidden fail state), read from the standing seam.
 const GRACE_DAYS = STANDING_DIALS.graceDays.value;
@@ -65,8 +66,35 @@ export const FIRST_GATE = defineGate({
     routes: [{id: 'book.primordial.route.pay_cp', reason: 'Pay from CP in hand instead.', cost: 'The item\'s full price in CP; no CP income exists in this slice.'}],
 });
 
-export const fresh = () => ({schema: SCHEMA, loan: null, firstExchangeUsed: false, held: {}, knowsRule: false, cp: 0, shift: null, lastShiftDay: null, shifts: 0});
-export const isEmpty = s => !s.loan && !s.firstExchangeUsed && !s.knowsRule && !Object.keys(s.held).length && !s.cp && !s.shift && s.lastShiftDay == null && !s.shifts;
+export const fresh = () => ({schema: SCHEMA, loan: null, firstExchangeUsed: false, held: {}, knowsRule: false, cp: 0, shift: null, lastShiftDay: null, shifts: 0, store: {spent: 0, bought: {}}});
+export const isEmpty = s => !s.loan && !s.firstExchangeUsed && !s.knowsRule && !Object.keys(s.held).length && !s.cp && !s.shift && s.lastShiftDay == null && !s.shifts && !s.store?.spent && !Object.keys(s.store?.bought ?? {}).length;
+
+// Treasure hall (DWF154, DWF162, 2026-10-25): the sect's contribution points (CP in hand) are the institution's currency, the Library shelving mission is how they are
+// earned (DWF155), and the store is rows on the shared institution store. Killing Life Curse at 300 CP is SOURCE (c0011 p46, the same price as its loan); the
+// pill ingredient and the primer are AUTHORED proposals, cheap enough to reach in a few missions. The sect's standing is a separate fact.
+export const CURSE = 'book.primordial.item.killing_life_curse';
+export const INSTITUTION = defineInstitution({id: 'sect_library', world: WORLD_ID, name: 'Sect Library treasure hall', currency: {label: 'Contribution points', unit: 'CP'},
+    evidence: ['c0003 p33 missions pay single digits of CP', 'c0011 p46 Killing Life Curse 300 CP'],
+    proposals: ['Fire grass, the primer and their prices and stock are authored; the mission pay is authored (dial taskPay).'],
+    missions: [{id: 'library_shelving', label: TASK.label, pay: DIALS.taskPay.value, minutes: DIALS.taskMinutes.value, issuer: 'The Library elder',
+        risk: `None built: the lamp oil costs ${DIALS.taskCost.value} CP and the shift takes ${DIALS.taskMinutes.value / 60} game hours.`, text: TASK.why, evidence: 'single digits c0003 p33 (STATED); figure AUTHORED'}],
+    store: [
+        {id: 'fire_grass', label: 'Fire grass, a pill ingredient', kind: 'ingredient', price: 8, stock: 3, grants: {ingredient: 'Fire grass'},
+            text: 'A bundle of dried fire grass from the hall shelves (AUTHORED). No pill recipe consumes it in the game yet, so it is held, not used.'},
+        {id: 'breath_primer', label: 'Outer-disciple breathing primer, a technique', kind: 'technique', price: 20, stock: 1, grants: {technique: 'Outer-disciple breathing primer'},
+            text: 'A copied primer for outer disciples (AUTHORED). No technique runtime reads it yet, so it is held, not learned.'},
+        {id: 'killing_life_curse', label: 'Killing Life Curse, a technique', kind: 'technique', price: 300, grants: {itemId: CURSE}, gate: {rule: {fact: 'held.curse', op: 'eq', value: false}, text: 'You already hold it.'},
+            text: 'The hall sells the technique outright at the same 300 CP it would lend (SOURCE c0011 p46), so a disciple with the points never needs the loan.', evidence: 'c0011 p46'}]});
+export const storeRows = state => INSTITUTION.store.map(r => offerFor(INSTITUTION, r.id, {balance: state.cp, bought: state.store?.bought?.[r.id] ?? 0, facts: {'held.curse': !!state.held[CURSE]}}));
+// Spend CP at the hall. Pure and atomic: it returns the new state or a refusal with every reason, and nothing changes on a refusal.
+export function buy(state, rowId) {
+    const row = INSTITUTION.store.find(r => r.id === rowId);
+    if(!row) throw Error('The hall stocks no such thing.');
+    const offer = storeRows(state).find(o => o.id === rowId);
+    if(!offer.eligible) return {ok: false, reasons: offer.reasons};
+    const store = {spent: (state.store?.spent ?? 0) + row.price, bought: {...(state.store?.bought ?? {}), [rowId]: (state.store?.bought?.[rowId] ?? 0) + 1}};
+    return {ok: true, state: {...state, cp: state.cp - row.price, store, held: row.grants.itemId ? {...state.held, [row.grants.itemId]: 'issued'} : state.held}, paid: row.price};
+}
 
 // The sect's flat schedule (c0006 p33-36, STATED by the narrator; the 100 + 360 split is the arithmetic that
 // reproduces 4,600, an inference): simple interest on the ORIGINAL principal, repaid as an equal yearly
@@ -161,6 +189,9 @@ export function validateSlice(s) {
     if(!s.held || typeof s.held !== 'object') bad('bad held items.');
     for(const k of Object.keys(s.held)) if(!ITEMS[k]) bad('unknown item.');
     if(!Number.isInteger(s.cp ?? 0) || (s.cp ?? 0) < 0 || !Number.isInteger(s.shifts ?? 0) || (s.shifts ?? 0) < 0) bad('bad CP.');
+    const st = s.store ?? {spent: 0, bought: {}};
+    if(!Number.isInteger(st.spent) || st.spent < 0 || !st.bought || typeof st.bought !== 'object') bad('bad treasure hall record.');
+    for(const [k, n] of Object.entries(st.bought)) { const r = INSTITUTION.store.find(x => x.id === k); if(!r || !Number.isInteger(n) || n < 1 || (r.stock != null && n > r.stock)) bad('bad treasure hall purchase.'); }
     if(s.shift != null && !Number.isFinite(s.shift.startedAt)) bad('bad mission.');
     if(s.lastShiftDay != null && !Number.isFinite(s.lastShiftDay)) bad('bad mission day.');
     if(s.loan != null) {
