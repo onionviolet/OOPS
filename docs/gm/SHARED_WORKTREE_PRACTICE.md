@@ -45,6 +45,9 @@ targets must not be followed or deleted.
 and [2026-10-21 cleanup receipt](WORKTREE_CLEANUP_2026-10-21.md). Earlier cleanup
 rounds below are historical snapshots, not the current worktree inventory.
 
+For an isolated lane build, run `BUILD_OUT=.lane-builds/<lane> npm run build`; it writes that lane's `index.html` and `dist/bundle.js` without changing the shared `index.html` or `dist/`.
+Serve the checkout with `npm run serve`, then open `http://127.0.0.1:8123/.lane-builds/<lane>/index.html` to exercise that lane's bundle.
+
 ## Editing shared docs
 
 Applies to `docs/USER_VISION.md`, `PROJECT.md`, `docs/IDEA_INDEX.md` and any
