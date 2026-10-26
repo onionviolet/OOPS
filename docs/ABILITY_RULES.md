@@ -200,7 +200,7 @@ Weibao has not played it.
 ### ACT NOW (done)
 
 **ABM1. Ground the rules in the code that exists.** A read-only survey mapped the
-shared seam, the descriptor's seven consumers, and each world's parallel pieces
+shared seam, the descriptor's seven consumers (DWF165 counted six), and each world's parallel pieces
 before any rule was written; the per-world table above records it. The survey
 also found the older [ability authoring doc](worlds/ABILITY_AUTHORING.md), so
 these rules cite its contract instead of restating a second one.
