@@ -1,0 +1,106 @@
+{
+  "bundleSha256": "4987a62a2f3b22f1f31b574f2e5ef0f35379db11142873a6407c6ccfbd98ee8f",
+  "indexSha256": "ab1e60ebf88e9c7751c15d86fc83b3952a5a0bf7862b0fccb071870e27528990",
+  "origin": "http://127.0.0.1:55027/",
+  "sourceDigest": "combined reconciliation build; see CHECKPOINT.md",
+  "persistence": [
+    {
+      "state": "pending",
+      "exportChars": 214096,
+      "exportSha256": "27cbfe83664c8d6af0aba13aa6f7e9dd13680ddfb0e22d3b7c037b79f6a3e42c",
+      "projectSha256": "eb8974f279945875666e8729156fd9daaa1c4dbb6c501c3154191a824ffd5b5f"
+    },
+    {
+      "state": "completed reading",
+      "exportChars": 215164,
+      "exportSha256": "9ce6f5aa0fa7f089904534696e24bac48d2b91f91a96d63c4e4f1e117716af3e",
+      "projectSha256": "82573cc729f21f4ed59446fbaaaf91568c96b4bc0c17dc604fd74af33dd15251"
+    }
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "pageWidth": 1920,
+      "pageHeight": 1080,
+      "panelWidth": 699,
+      "panelContentWidth": 699,
+      "font": "14px",
+      "rowFont": "14px",
+      "report": true,
+      "back": [
+        "← Tingen probationer lodging"
+      ],
+      "screenshot": "guidance-1920x1080-14px.png",
+      "sha256": "cabcdb40f1245f269947b58b7c9d412aca139ca7d23aa276d83f55f39c40bc03"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "pageWidth": 1920,
+      "pageHeight": 1080,
+      "panelWidth": 693,
+      "panelContentWidth": 693,
+      "font": "21px",
+      "rowFont": "21px",
+      "report": true,
+      "back": [
+        "← Tingen probationer lodging"
+      ],
+      "screenshot": "guidance-1920x1080-21px.png",
+      "sha256": "370080bd8be2c5e2d7fb084061e462c9d03000d860372c39e4071e8a141388be"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "pageWidth": 1536,
+      "pageHeight": 864,
+      "panelWidth": 477,
+      "panelContentWidth": 477,
+      "font": "14px",
+      "rowFont": "14px",
+      "report": true,
+      "back": [
+        "← Tingen probationer lodging"
+      ],
+      "screenshot": "guidance-1536x864-14px.png",
+      "sha256": "a4114b48f19af436a555555530ba5e40b4b27ff33f4a8317b2b5a5dd47948944"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "pageWidth": 1536,
+      "pageHeight": 864,
+      "panelWidth": 473,
+      "panelContentWidth": 473,
+      "font": "21px",
+      "rowFont": "21px",
+      "report": true,
+      "back": [
+        "← Tingen probationer lodging"
+      ],
+      "screenshot": "guidance-1536x864-21px.png",
+      "sha256": "21a716250e29c3bc58e006c62714b371d1a7a5609e9961e9cfabfa42e71040b7"
+    }
+  ],
+  "seer": {
+    "earned": true,
+    "inspectionNoSpend": true,
+    "focus": true,
+    "pendingCancelledCompleted": true,
+    "rememberedReturn": true,
+    "ineligible": true,
+    "settledAssessment": true,
+    "errors": []
+  },
+  "savant": {
+    "earned": true,
+    "isolated": true,
+    "completed": 1,
+    "errors": []
+  }
+}

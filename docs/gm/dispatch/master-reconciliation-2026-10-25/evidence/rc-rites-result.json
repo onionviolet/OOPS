@@ -1,0 +1,25 @@
+{
+ "mode": "rites",
+ "root": "this checkout",
+ "port": 55007,
+ "errors": [],
+ "log": [
+  "Nighthawk probationer enrolled and reported in; disposable save funded to 300000 pence",
+  "Sun 5 Priest of Light: absent, stated odds 90 percent, labelled a preview (Seq 5 doses cannot be drunk yet)",
+  "screenshots: rc-sun5-absent-1920x1080.png, rc-sun5-absent-1536x864-14px.png, rc-sun5-absent-1536x864-21px.png",
+  "after ordinary ice, at the shuttered lodging: substituted (ice fit 0.5, room fit 0.5), odds 48",
+  "screenshots: rc-sun5-substituted-1920x1080.png, rc-sun5-substituted-1536x864-14px.png, rc-sun5-substituted-1536x864-21px.png",
+  "after blackout canvas and non-melting ice: met, odds 5 percent",
+  "screenshots: rc-sun5-met-1920x1080.png, rc-sun5-met-1536x864-14px.png, rc-sun5-met-1536x864-21px.png",
+  "saved and reloaded: Sun 5 still met (holdings kept)",
+  "Export string (214280 chars) literally imported after walking away: state restored",
+  "export string imported: Sun 5 still met",
+  "Visionary 5 Dreamwalker: absent, then substituted (messenger pact feather + joy), odds 16",
+  "screenshots: rc-vis5-substituted-1920x1080.png, rc-vis5-substituted-1536x864-14px.png, rc-vis5-substituted-1536x864-21px.png",
+  "after the harpy contract and its tail feather: met, odds 5 percent",
+  "an hour later the feeling has faded: partial (creature met, feeling absent)",
+  "screenshots: rc-vis5-met-1920x1080.png, rc-vis5-met-1536x864-14px.png, rc-vis5-met-1536x864-21px.png",
+  "anger stirred again: met",
+  "saved and reloaded within the hour: Visionary 5 still met (timed note kept)"
+ ]
+}

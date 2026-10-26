@@ -1,5 +1,9 @@
 <a id="current-delivery-routing-checked-2026-10-22"></a>
 
+## Local master reconciliation, 2026-10-25
+
+Weibao authorized reconciling remaining branches and released dirty work into local master, preserving active work and running checks, without pushing. [Current receipt](docs/gm/dispatch/master-reconciliation-2026-10-25/CHECKPOINT.md) records both remaining LOTM branch merges, the historical preservation-snapshot disposition, released HP/tool/acting-guidance source and documentation, active tooling exclusions, ten verified worktree archives, passing build/3,214 tests/architecture/rules, and rebuilt browser/persistence proof. This supersedes older local-master-lags and pending-lane-merge summaries below. Human acceptance and normal-app adoption remain open; no push selected.
+
 ## World rules and delivery guidance reconciliation, 2026-10-25
 
 [Bounded audit and change record](docs/reviews/WORLD_RULES_AUDIT_2026-10-25.md)

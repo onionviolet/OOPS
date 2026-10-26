@@ -1,0 +1,23 @@
+{
+ "mode": "drink",
+ "root": "this checkout",
+ "port": 54989,
+ "errors": [],
+ "log": [
+  "probationer enrolled; disposable save funded to 40000 pence",
+  "Spectator formula bought, six materials bought, brewed 120 min, bottled; \"Drink the brewed Spectator dose\" is offered (no \"not yet written\" marker)",
+  "screenshots: lpg-spectator-before-drink-1920x1080.png, lpg-spectator-before-drink-1536x864-14px.png, lpg-spectator-before-drink-1536x864-21px.png",
+  "dose drunk: Spectator source granted, drunk counter 1, path panel shows the Spectator ladder with acts 0/4 and no Seer/Hale offer",
+  "screenshots: lpg-spectator-drunk-1920x1080.png, lpg-spectator-drunk-1536x864-14px.png, lpg-spectator-drunk-1536x864-21px.png",
+  "first act (20 min): digest progress 1/4, potion feels settling",
+  "screenshots: lpg-spectator-acting-1920x1080.png, lpg-spectator-acting-1536x864-14px.png, lpg-spectator-acting-1536x864-21px.png",
+  "four acts done: progress 4/4, potion feels settled",
+  "judged by feel: assessed flag set, no examiner or officer involved",
+  "save, reload: Spectator source, acts and assessment kept",
+  "Export string (223992 chars) literally imported after walking away: state restored",
+  "Telepathist brewed (180 min) and drunk after the settled Spectator: Sequence 8 source granted, no pressure",
+  "screenshots: lpg-telepathist-drunk-1920x1080.png, lpg-telepathist-drunk-1536x864-14px.png, lpg-telepathist-drunk-1536x864-21px.png",
+  "Export string (233600 chars) literally imported after walking away: state restored",
+  "Export button download re-imported through the file input: both sources kept"
+ ]
+}

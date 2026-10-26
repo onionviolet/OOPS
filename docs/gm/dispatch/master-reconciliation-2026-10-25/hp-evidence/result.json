@@ -1,0 +1,57 @@
+{
+  "bundleSha256": "4987a62a2f3b22f1f31b574f2e5ef0f35379db11142873a6407c6ccfbd98ee8f",
+  "persistence": [
+    {
+      "tag": "admitted",
+      "exportChars": 192684
+    },
+    {
+      "tag": "assessment pending",
+      "exportChars": 195096
+    },
+    {
+      "tag": "assessment settled",
+      "exportChars": 193544
+    },
+    {
+      "tag": "contribution pending",
+      "exportChars": 195884
+    },
+    {
+      "tag": "contribution settled",
+      "exportChars": 194164
+    }
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14,
+      "panelWidth": 723,
+      "panelScroll": 723
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21,
+      "panelWidth": 717,
+      "panelScroll": 717
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14,
+      "panelWidth": 501,
+      "panelScroll": 501
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21,
+      "panelWidth": 497,
+      "panelScroll": 497
+    }
+  ],
+  "errors": [],
+  "pass": true
+}

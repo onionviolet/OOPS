@@ -1,0 +1,50 @@
+{
+  "bundleSha256": "4987a62a2f3b22f1f31b574f2e5ef0f35379db11142873a6407c6ccfbd98ee8f",
+  "persistence": [
+    {
+      "tag": "armed",
+      "exportChars": 182108
+    },
+    {
+      "tag": "unknown crack",
+      "exportChars": 182992
+    },
+    {
+      "tag": "diagnosed",
+      "exportChars": 184464
+    },
+    {
+      "tag": "repair pending",
+      "exportChars": 184968
+    },
+    {
+      "tag": "repaired",
+      "exportChars": 184824
+    }
+  ],
+  "matrix": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 14
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "px": 21
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 14
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "px": 21
+    }
+  ],
+  "errors": [],
+  "fixture": "Committed generated pre-entry fixture, prepared with one identified Iron pickaxe at condition 91, forge practice, five ingots and cave access; no private save or claimed earned acquisition.",
+  "pass": true
+}

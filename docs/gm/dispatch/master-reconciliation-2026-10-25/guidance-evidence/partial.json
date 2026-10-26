@@ -1,0 +1,20 @@
+{
+  "bundleSha256": "4987a62a2f3b22f1f31b574f2e5ef0f35379db11142873a6407c6ccfbd98ee8f",
+  "indexSha256": "ab1e60ebf88e9c7751c15d86fc83b3952a5a0bf7862b0fccb071870e27528990",
+  "origin": "http://127.0.0.1:55027/",
+  "sourceDigest": "combined reconciliation build; see CHECKPOINT.md",
+  "persistence": [
+    {
+      "state": "pending",
+      "exportChars": 214096,
+      "exportSha256": "27cbfe83664c8d6af0aba13aa6f7e9dd13680ddfb0e22d3b7c037b79f6a3e42c",
+      "projectSha256": "eb8974f279945875666e8729156fd9daaa1c4dbb6c501c3154191a824ffd5b5f"
+    },
+    {
+      "state": "completed reading",
+      "exportChars": 215164,
+      "exportSha256": "9ce6f5aa0fa7f089904534696e24bac48d2b91f91a96d63c4e4f1e117716af3e",
+      "projectSha256": "82573cc729f21f4ed59446fbaaaf91568c96b4bc0c17dc604fd74af33dd15251"
+    }
+  ]
+}
