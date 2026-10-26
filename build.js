@@ -1,6 +1,7 @@
 
 import * as esbuild from 'esbuild';
 import * as fs from 'fs';
+import path from 'node:path';
 import { styleText } from 'node:util';
 import { createHash } from 'node:crypto';
 import { get_game_version } from './src/game_version.js';
@@ -13,12 +14,17 @@ for(const [marker,path] of [['inkjs-notice','dist/INKJS_NOTICE.txt'],['inkjs-aut
     const start=`<!-- ${marker}:start -->\n`,end=`<!-- ${marker}:end -->`;
     const a=inkNotices.indexOf(start),b=inkNotices.indexOf(end,a);
     if(a<0||b<0)throw new Error('Missing exact Ink distribution notice.');
-    fs.writeFileSync(path,inkNotices.slice(a+start.length,b));
+    if (!process.env.BUILD_OUT) fs.writeFileSync(path,inkNotices.slice(a+start.length,b));
 }
 
 const bundle_regex = /dist\/bundle\.js\?version=[^&"]+/;
 
 const style_regex = /style\.css\?version=[^&"]+/;
+
+const buildOut = process.env.BUILD_OUT;
+const bundlePath = buildOut ? `${buildOut}/dist/bundle.js` : 'dist/bundle.js';
+const htmlPath = buildOut ? `${buildOut}/index.html` : 'index.html';
+if (buildOut) fs.mkdirSync(`${buildOut}/dist`, { recursive: true });
 
 esbuild
     .build({
@@ -26,15 +32,14 @@ esbuild
         bundle: true,
         sourcemap: true,
         minify: true,
-        outfile: `dist/bundle.js`,
+        outfile: bundlePath,
         platform: "browser",
         target: "es2022",
         format: 'esm',
         logLevel: "debug",
     }).then(() => {
         console.log("Javascript build complete!");
-        const htmlPath = 'index.html';
-        let htmlContent = fs.readFileSync(htmlPath, 'utf8');
+        let htmlContent = fs.readFileSync('index.html', 'utf8');
 
         if(htmlContent.search(bundle_regex) == -1) {
             console.error(styleText("red", 'Failed to update the bundle version in .html!'));
@@ -48,7 +53,7 @@ esbuild
         const fingerprint = path => createHash('sha256').update(fs.readFileSync(path)).digest('hex').slice(0, 12);
         htmlContent = htmlContent.replace(
             bundle_regex,
-            `dist/bundle.js?version=${get_game_version()}-${fingerprint('dist/bundle.js')}`
+            `dist/bundle.js?version=${get_game_version()}-${fingerprint(bundlePath)}`
         ).replace(
             style_regex,
             `style.css?version=${get_game_version()}-${fingerprint('style.css')}`
@@ -61,6 +66,15 @@ esbuild
         htmlContent=htmlContent.replace(/styles\/opponents\.css(?:\?version=[^&"]+)?/,`styles/opponents.css?version=${fingerprint('styles/opponents.css')}`);
         htmlContent=htmlContent.replace(/styles\/combat_log\.css(?:\?version=[^&"]+)?/,`styles/combat_log.css?version=${fingerprint('styles/combat_log.css')}`);
         htmlContent=htmlContent.replace(/styles\/shell_chrome\.css(?:\?version=[^&"]+)?/,`styles/shell_chrome.css?version=${fingerprint('styles/shell_chrome.css')}`);
+        if (buildOut) {
+            const rootPrefix = path.relative(buildOut, '.').replaceAll('\\', '/');
+            const assetPrefix = rootPrefix ? `${rootPrefix}/` : './';
+            htmlContent = htmlContent.replace(/\b(href|src)(\s*=\s*)(["'])(?![a-z]+:|\/|#|data:)([^"']+)(["'])/gi,
+                (match, attr, equals, quote, value, endQuote) => {
+                    if (value.startsWith('dist/bundle.js')) return match;
+                    return `${attr}${equals}${quote}${assetPrefix}${value}${endQuote}`;
+                });
+        }
         try {
             fs.writeFileSync(htmlPath, htmlContent);
             console.log("Bundle and style versions in .html have been updated!");
