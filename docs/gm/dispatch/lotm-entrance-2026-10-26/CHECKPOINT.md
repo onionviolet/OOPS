@@ -62,7 +62,7 @@ Persistence decision (proposed, MT4): ordinary saves may now carry `state.lotm` 
 
 ## Verification (agent-verified, not human-reviewed; AD42)
 
-Bundle proven on (FLR1): `327421cfe6c00048258ccf0d731db369447e022ba002a32afca1e66bf5526ae0` (`npm run build` output and the headless proof bundle match).
+Bundle proven on (FLR1): `9acbf7cd3fa0dcc9bd520f0b88999b8b669bec4c5d5d7c2677331c3001dc05eb` after the MT11 wording commit (`npm run build` output and the headless proof bundle match; the first commit was proven on `327421cf...`). After MT11: proof rerun with the same results, `npm test` 3216/3216 in 104 s, `check:arch` PASS.
 
 | Check | Result | Gaps |
 | --- | --- | --- |
@@ -88,7 +88,7 @@ Screenshots: [Village row](evidence/village-door-1920.png), [Tingen choices](evi
 
 ### ACCOUNT FOR NOW
 
-- **MT11. The post-begin notice says "You report to the workroom." for every start**, but Machinery starts in the university quarter and Storm at the docks. Small wording fix for the next touch (UR72).
+- **MT11. The post-begin notice says "You report to the workroom." for every start**, but Machinery starts in the university quarter and Storm at the docks. Small wording fix for the next touch (UR72). Done in a follow-up commit: the notice now reads "Your first day in Tingen begins."
 - **MT12. Opening a whole new life uses the center with Back.** That is the deliberate large-task case of UR41, not the item-inspection swap of UIS1; keep inspection anchored and big choices centered.
 - **MT13. Electron and the 1536×864 floor were not exercised.** Run them with the next desktop pass before adoption.
 

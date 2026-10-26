@@ -66,7 +66,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    for(const b of bars.values())b.node.remove();bars.clear();
    bench.hidden=true;
    status.textContent='Tingen is a foggy industrial city where three church teams hire clerks who may later be offered a Beyonder potion; a civil post under a new name is open too. Choosing a start moves this character\'s life to Tingen for good on this save, with no road back to the Village. Export first if you want to keep the Village life.';
-   for(const pr of v.profiles)actions.append(row(button(pr.label,pr.key==='probationer'?'enroll':`enroll_${pr.key}`,()=>run(()=>enroll(pr.key),'You report to the workroom.'),!v.startable,v.startable?pr.blurb:v.startReasons.join(' '))),node('p',pr.blurb));
+   for(const pr of v.profiles)actions.append(row(button(pr.label,pr.key==='probationer'?'enroll':`enroll_${pr.key}`,()=>run(()=>enroll(pr.key),'Your first day in Tingen begins.'),!v.startable,v.startable?pr.blurb:v.startReasons.join(' '))),node('p',pr.blurb));
    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
   }
   const d=v.district;bench.hidden=false;
