@@ -1,5 +1,6 @@
 import {definePanel} from './panel_kit.js';
 import {createMeterBar} from './meter_bar.js';
+import {TINGEN_START_CLOSED} from './progression_gates.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 // Surface type: place service (UR1). Home: the main workspace, discovered only inside the Tingen
 // branch (or on the local opt-in start). Warden Hale runs the workroom; the lodging is where you sleep.
@@ -56,7 +57,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    for(const b of bars.values())b.node.remove();bars.clear();
    bench.hidden=true;
    status.textContent='A disposable test start: choose a life in early Tingen. Nothing here is canon; this save is for testing.';
-   for(const pr of v.profiles)actions.append(row(button(pr.label,pr.key==='probationer'?'enroll':`enroll_${pr.key}`,()=>run(()=>enroll(pr.key),'You report to the workroom.'),!v.startable,v.startable?pr.blurb:'Begin from the Village with nothing else under way.'),node('span',pr.blurb)));return;
+   for(const pr of v.profiles)actions.append(row(button(pr.label,pr.key==='probationer'?'enroll':`enroll_${pr.key}`,()=>run(()=>enroll(pr.key),'You report to the workroom.'),!v.startable,v.startable?pr.blurb:v.startEnabled?'Begin from the Village with nothing else under way, on a writable save.':TINGEN_START_CLOSED),node('span',pr.blurb)));return;
   }
   const d=v.district;bench.hidden=false;
   status.textContent=`${v.at}${d?` · ${d.label} · supervised by ${d.officer}${d.officerHere?'':' (not here)'}${d.shift?(d.onShift?' (on shift)':' (off shift)'):''}${d.endorsed?'':' · not endorsed here'}`:''}${v.beyonder?'':' · no Beyonder source'} · ${d?`${d.officer.replace(/^./,c=>c.toUpperCase())}'s attention ${d.attention}`:`Hale's attention ${v.attention}`}${v.sleeping?' · asleep':''}`;

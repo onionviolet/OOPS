@@ -434,6 +434,7 @@ import {createCharacterBio} from "./character_bio_ui.js";
 import {bodyFacts, beginBodyRecord, bodyFacultyActive, COLD_HARDENED} from "./body_progression.js";
 import {createBodyPanel} from "./body_ui.js";
 import {createSimulationPanel} from "./simulation_ui.js";
+import {followLocalPeopleFirst} from "./progression_gates.js";
 import {createSystemsWorkshopPanel} from './systems_workshop_ui.js';
 import {reconcileSystemsWorkshop} from './systems_workshop_runtime.js';
 import {createEventFeed} from "./event_feed_ui.js";
@@ -636,7 +637,7 @@ function refreshMistglassStock(){
 }
 function actMistglass(id){
     if(!mistglassCanAct())throw Error('Finish current native work before this conservatory choice.');
-    if(!expansionState.simulation?.people.player)throw Error('Choose Follow local people and work first.');
+    if(!expansionState.simulation?.people.player)throw Error(followLocalPeopleFirst());
     const previousClock=expansionState.clock,plan=p23Plan(),inside=expansionState.actors.player.worldId===MISTGLASS.worldId;
     if(id==='trade'){if(!inside||current_location.id!==MISTGLASS_LOCATION)throw Error('Visit the keeper first.');window.startTrade(MISTGLASS_KEEPER);return;}
     if(id==='enter'){
@@ -658,7 +659,7 @@ function mistglassFrame(){
     if(inside){actions.push({id:'exit',label:'Return to Village'},{id:'trade',label:'Trade with conservatory keeper'});
         if(!known.enrolled)actions.push({id:'learn',label:'Learn the conservatory method (explicit opt-in)'});
         else actions.push({id:'sluice',label:`Clear the jammed outflow sluice · ${known.sluice.cost/1000} condensate, ${known.sluice.pays==='reputation'?'+1 Village standing':`+${known.sluice.wageCoins} coins`}`,enabled:known.sluice.eligible,reason:known.sluice.reasons.join(' ')},{id:'trial',label:'Purify one paid Cloudseed dose',enabled:known.preview.eligible&&skills.Meditation.canGainXP(get_context()),reason:!skills.Meditation.canGainXP(get_context())?'Learn native Meditation first.':known.preview.reasons.join(' ')});
-    }else if(expansionState.actors.player.worldId==='base.frontier'&&current_location?.id==='Village')actions.push({id:'enter',label:'Enter Mistglass conservatory',enabled:!!expansionState.simulation?.people.player,reason:'Choose Follow local people and work first.'});
+    }else if(expansionState.actors.player.worldId==='base.frontier'&&current_location?.id==='Village')actions.push({id:'enter',label:'Enter Mistglass conservatory',enabled:!!expansionState.simulation?.people.player,reason:followLocalPeopleFirst()});
     return {visible:inside||actions.length>0,inside,view:known.view,preview:known.preview,sluice:known.sluice,history:known.history,rawRemaining:Math.max(0,(raw?.expiresAt||0)-expansionState.clock),disabled:!mistglassCanAct(),actions};
 }
 

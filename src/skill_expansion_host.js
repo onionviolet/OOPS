@@ -1,3 +1,4 @@
+import {followLocalPeopleFirst} from './progression_gates.js';
 import {SKILL_CATALOGUE,skillFamilyDefinitions,skillExpansionFacts} from './skill_expansion_content.js';
 import {previewSimulationCommand,previewSimulationResponse,simulationFacts} from './simulation.js';
 import {evaluateRule} from './rules.js';
@@ -39,7 +40,7 @@ export function skillExpansionPresentation(state,registry,context){
    if(!discover||!meets(discover.visibleWhen,facts)||actor.completed[discover.id])continue;
    const preview=s?previewSimulationCommand(state,registry,discover.id,{...context,targetId:discover.targetId||null}):null;
    const hint=projectDiscoveryFeature({id:`offer.${discover.id}`,label:discover.label,discovered:true,unlocked:true,eligible:!!preview?.eligible,
-    description:'Observe the offered work first. Seeing it does not teach the method.',reasons:s?safeReasons(preview):[{known:true,text:'Follow local people and work to take this offer.'}]});
+    description:'Observe the offered work first. Seeing it does not teach the method.',reasons:s?safeReasons(preview):[{known:true,text:followLocalPeopleFirst()+' Then you can take this offer.'}]});
    families.push({id:hint.id,row:hint,actions:s?[{id:discover.id,row:hint,targetId:discover.targetId||null}]:[],milestones:[]});continue;
   }
   const actions=[],ids=[family.learnCommandId,...(family.learnAltIds||[]),...family.practiceCommandIds,...family.useCommandIds,

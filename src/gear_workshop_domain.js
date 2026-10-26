@@ -1,3 +1,4 @@
+import {followLocalPeopleFirst} from './progression_gates.js';
 import {MENDER_ACTIONS,quoteMender} from './material_apprentice.js';
 import {queryCapabilities} from './capabilities.js';
 import {applySimulationEffects} from './simulation_effects.js';
@@ -116,7 +117,7 @@ export function executeHide(quoted) {
     return q;
 }
 export function quoteRepairer(action){
- const m=maker(),state=ports.root?.();if(!state?.simulation?.people.player)return {eligible:false,action,reason:'Follow local people and work before recording repair practice.'};
+ const m=maker(),state=ports.root?.();if(!state?.simulation?.people.player)return {eligible:false,action,reason:followLocalPeopleFirst()+' Then record repair practice.'};
  const capability=queryCapabilities(state,ports.registry,{actorId:'player'},{} )['frontier.fitted_repair']?.value||0;
  return quoteMender({action,state,inventory:Object.fromEntries(Object.entries(actor().getItems()).map(([k,r])=>[k,r.count])),world:m.world,location:m.location,craftsmanHere:ports.craftsmanHere?.(),blocked:m.blocked,materialClock:ports.clock(),capability,toolCondition:durability.condition});
 }

@@ -9,6 +9,11 @@ export const GATE_KINDS = Object.freeze(['capacity', 'knowledge', 'credential', 
 export const GATE_CLOSES = Object.freeze(['persist', 'revocable']);
 export const OVERFLOW_POLICIES = Object.freeze(['lost', 'banked', 'converted', 'spill', 'pressure']);
 export const VAGUE_HINT = 'Something is still missing.';
+// Blocked-step reasons name the step and where the player finds it (GTR10).
+export const FOLLOW_LOCAL_PEOPLE = Object.freeze({step: 'Follow local people and work', place: 'the Craftsman & workshop panel'});
+export function stepFirstReason(step, place) { return `Choose "${step}" in ${place} first.`; }
+export const followLocalPeopleFirst = () => stepFirstReason(FOLLOW_LOCAL_PEOPLE.step, FOLLOW_LOCAL_PEOPLE.place);
+export const TINGEN_START_CLOSED = 'The Tingen branch is a disposable test start and is closed on ordinary saves; it opens only on a local test copy with the Tingen probe switched on.';
 
 const text = v => typeof v === 'string' && v.length > 0;
 const object = v => v && typeof v === 'object' && !Array.isArray(v);
