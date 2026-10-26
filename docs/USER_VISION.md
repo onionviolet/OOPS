@@ -6487,3 +6487,15 @@ branches, preserving existing content, private saves and lane evidence. The
 [reconciliation receipt](gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
 owns execution and verification. It does not select new gameplay scope, pushing
 or installed-app replacement. Existing accepted direction remains in effect.
+
+
+## Publish reconciled master and update normal app, 2026-10-26
+
+Weibao: “push master and update the normal app accordingly”.
+
+This selects publication of the reconciled master and adoption of its verified
+build in the normal app,preserving the existing profile and saves. It supersedes
+the preceding local-only integration boundary for this release. The
+[publication/adoption receipt](gm/dispatch/master-reconciliation-2026-10-26/APP_ADOPTION.md)
+owns exact runtime,snapshot,backup and verification evidence. Existing feature
+backlogs and accepted priorities remain unchanged.

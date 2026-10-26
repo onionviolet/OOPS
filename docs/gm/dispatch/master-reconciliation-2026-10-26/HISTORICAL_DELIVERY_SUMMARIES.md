@@ -24,3 +24,47 @@ published. The October 25 documentation-only state is historical.
 <a id="current-delivery-routing-checked-2026-10-22"></a>
 
 
+
+
+## Superseded local-only summary before publication
+
+## Everything into local master, 2026-10-26
+
+Weibao requested “reconcile everything into master”. The
+[current integration receipt](docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
+records the accumulated primary source/docs/tooling and remaining LOTM/Q branches,
+combined checks, artifact dispositions and exact final state. Existing lane
+backlogs keep their own scope and status. Publication and installed-app replacement
+remain separate; no new feature wave is selected.
+
+
+
+## Earlier release and lane summaries before app update
+
+## Effect-first UI descriptions, reconciled 2026-10-26
+
+Weibao selected implementing description rules in current tooltips and traits.
+[UR70–UR75](docs/UI_RULES.md#descriptions-explain-the-experience-and-effect-2026-10-25)
+and the [implementation report](docs/reviews/ui-descriptions-2026-10-25/REPORT.md)
+own meaning and evidence. The description source is included in the current
+local-master reconciliation candidate. Earlier normal-app adoption and logo
+publication retain their [recorded scope](docs/reviews/ui-descriptions-2026-10-25/APP_ADOPTION.md);
+this reconciliation selects no app replacement or push. The former local-only
+summary is preserved in [history](docs/gm/dispatch/master-reconciliation-2026-10-26/HISTORICAL_DELIVERY_SUMMARIES.md).
+
+
+## Verified master publication and normal-app adoption, 2026-10-25
+
+The normal app now runs frozen build `v0.6-0e5bb8f76aef` from verified runtime commit `df847a5c3`, pushed to `origin/master` with Weibao’s explicit authorization. [Adoption receipt](docs/gm/dispatch/master-reconciliation-2026-10-25/APP_ADOPTION.md) records 85 matching runtime files, isolated Electron proof, the 236-file verified profile backup and identical saved bytes across normal-app reload. Active tooling, lanes, research and planning edits remain outside this publication. This supersedes earlier no-push and pending-app summaries below; human pacing/taste remains open.
+
+
+## LOTM ordinary entrance, reconciled 2026-10-26
+
+The ordinary Village hiring notice and M2 blocked-reason work are now included
+in the local-master reconciliation candidate, alongside the later LOTM mechanics
+and UI work. [Current reconciliation receipt](docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
+owns integration verification and final commit state. The original lane receipts
+retain their evidence; installed-app adoption is separate. The former merge
+resume point is preserved in [history](docs/gm/dispatch/master-reconciliation-2026-10-26/HISTORICAL_DELIVERY_SUMMARIES.md).
+
+

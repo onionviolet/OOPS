@@ -1,0 +1,10 @@
+
+> check:desktop
+> node scripts/check_desktop.mjs
+
+PASS  desktop_smoke
+PASS  desktop_crash_guard
+PASS  desktop_frozen_build
+PASS  desktop_save_mirror
+PASS  desktop_presence
+PASS  desktop_offline

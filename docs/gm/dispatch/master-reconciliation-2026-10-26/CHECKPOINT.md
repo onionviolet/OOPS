@@ -9,6 +9,11 @@ review: diff-scoped
 surface: accumulated released source plus LOTM entry merge; no architecture baseline increase
 ```
 
+Later release authority: Weibao subsequently selected “push master and update
+the normal app accordingly”. [Publication/adoption](APP_ADOPTION.md) now records
+that completed release. The local-only boundaries below describe the original
+integration step and are superseded for this release.
+
 # Master reconciliation, 2026-10-26
 
 User request: "reconcile everything into master". This authorizes local integration
@@ -123,5 +128,6 @@ All local branch tips are covered by the joined ancestry. The final primary
 landing uses an expected-old-HEAD guard, rechecks original file hashes and an
 unchanged shared index, copies only candidate paths that differ, and updates the
 index to the same tree. Existing unselected/private/bulk artifacts and original
-worktrees remain available. No push or normal-app replacement is performed.
+worktrees remain available. That integration step performed no push or normal-app replacement; the later
+[authorized release](APP_ADOPTION.md) publishes and adopts this verified runtime.
 

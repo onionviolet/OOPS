@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "runtimeCommit": "6077f785a14d8c6e43f1ed82e0bf3efb1b416b6e",
+  "snapshotId": "v0.6-948bd45d09cd",
+  "bundleHash": "cbf3a4ebe392796afba70a847b7dd760b73690c8005015dcbb599744d69b59e2",
+  "frozenFilesMatch": 90,
+  "backupFiles": 350,
+  "backupVerified": true,
+  "normalProfileConfirmed": true,
+  "appVisible": true,
+  "playVisible": true,
+  "allPersistedKeysMatchClosedBackup": true,
+  "saveBytesUnchanged": true,
+  "reloadVerified": true,
+  "errors": [],
+  "misses": [],
+  "gameplayInvoked": false
+}

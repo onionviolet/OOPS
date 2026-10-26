@@ -1,11 +1,16 @@
-## Everything into local master, 2026-10-26
+## Published master and updated normal app, 2026-10-26
 
-Weibao requested “reconcile everything into master”. The
-[current integration receipt](docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
-records the accumulated primary source/docs/tooling and remaining LOTM/Q branches,
-combined checks, artifact dispositions and exact final state. Existing lane
-backlogs keep their own scope and status. Publication and installed-app replacement
-remain separate; no new feature wave is selected.
+Weibao selected pushing master and updating the normal app. Runtime
+`6077f785a` is published; the normal app serves frozen `v0.6-948bd45d09cd`,
+verified bundle `cbf3a4ebe392…`, with all 90 snapshot files matching. The closed
+350-file profile backup is hash-verified; every persisted value and saved byte
+matches after normal startup and reload. The app remains visible at PLAY.
+[Publication/adoption receipt](docs/gm/dispatch/master-reconciliation-2026-10-26/APP_ADOPTION.md)
+records native proof and recovery. [Reconciliation](docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
+records all local source branches and 3486 passing tests. Existing unimplemented
+backlogs remain; this release selects no new feature wave. Earlier dated
+entries retain their original release boundaries; this release supersedes their
+no-commit/no-publication/no-adoption status for the included source.
 
 ## Weather/environment implementation chats, 2026-10-26
 
@@ -61,22 +66,22 @@ Weibao selected implementing description rules in current tooltips and traits.
 [UR70–UR75](docs/UI_RULES.md#descriptions-explain-the-experience-and-effect-2026-10-25)
 and the [implementation report](docs/reviews/ui-descriptions-2026-10-25/REPORT.md)
 own meaning and evidence. The description source is included in the current
-local-master reconciliation candidate. Earlier normal-app adoption and logo
+published reconciled master. Earlier normal-app adoption and logo
 publication retain their [recorded scope](docs/reviews/ui-descriptions-2026-10-25/APP_ADOPTION.md);
-this reconciliation selects no app replacement or push. The former local-only
+the later [publication/adoption](docs/gm/dispatch/master-reconciliation-2026-10-26/APP_ADOPTION.md) updates both. The former local-only
 summary is preserved in [history](docs/gm/dispatch/master-reconciliation-2026-10-26/HISTORICAL_DELIVERY_SUMMARIES.md).
 
-## Verified master publication and normal-app adoption, 2026-10-25
+## Historical master publication and normal-app adoption, 2026-10-25
 
-The normal app now runs frozen build `v0.6-0e5bb8f76aef` from verified runtime commit `df847a5c3`, pushed to `origin/master` with Weibao’s explicit authorization. [Adoption receipt](docs/gm/dispatch/master-reconciliation-2026-10-25/APP_ADOPTION.md) records 85 matching runtime files, isolated Electron proof, the 236-file verified profile backup and identical saved bytes across normal-app reload. Active tooling, lanes, research and planning edits remain outside this publication. This supersedes earlier no-push and pending-app summaries below; human pacing/taste remains open.
+At that release, the normal app ran frozen build `v0.6-0e5bb8f76aef` from verified runtime commit `df847a5c3`, pushed to `origin/master` with Weibao’s explicit authorization. [Adoption receipt](docs/gm/dispatch/master-reconciliation-2026-10-25/APP_ADOPTION.md) records 85 matching runtime files, isolated Electron proof, the 236-file verified profile backup and identical saved bytes across normal-app reload. Active tooling, lanes, research and planning edits remain outside this publication. This supersedes earlier no-push and pending-app summaries below; human pacing/taste remains open.
 
 ## LOTM ordinary entrance, reconciled 2026-10-26
 
 The ordinary Village hiring notice and M2 blocked-reason work are now included
-in the local-master reconciliation candidate, alongside the later LOTM mechanics
+in published master, alongside the later LOTM mechanics
 and UI work. [Current reconciliation receipt](docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md)
 owns integration verification and final commit state. The original lane receipts
-retain their evidence; installed-app adoption is separate. The former merge
+retain their evidence; the current release adoption is linked above. The former merge
 resume point is preserved in [history](docs/gm/dispatch/master-reconciliation-2026-10-26/HISTORICAL_DELIVERY_SUMMARIES.md).
 
 ## Book worlds and menus first, 2026-10-26
