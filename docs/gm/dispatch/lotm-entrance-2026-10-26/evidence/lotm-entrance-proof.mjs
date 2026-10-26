@@ -1,5 +1,5 @@
 // Headless proof for the LOTM ordinary entrance. Run from the lotm-entrance worktree root.
-import {Session, buildBundle, serve, sha} from '/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/lotm-entrance/scripts/playtest/lib.mjs';
+import {Session, buildBundle, serve, sha} from '../../../../../scripts/playtest/lib.mjs';
 import {writeFile, mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';

@@ -72,6 +72,7 @@ Bundle proven on (FLR1): `9acbf7cd3fa0dcc9bd520f0b88999b8b669bec4c5d5d7c2677331c
 | `npm run check:arch` | PASS (no growth) | |
 | `npm run check:rules` | PASS, 0 warnings | |
 | Headless Chrome 1920×1080, fresh context, ordinary origin without `?lotm_probe` ([result](evidence/result.txt)) | PASS: Village shows the notice row; panel does not open by itself; click opens Tingen with effect-first text and visible costs; Begin as a Nighthawk probationer enrolls (location Tingen supervised workroom); the notice row disappears; Save, reload, Export and literal Import keep the enrolled life and location | FAIL line is 17 console 404s for gitignored private assets absent from a fresh worktree (`/private_packs/manifest.json`, `resources/fonts/private/*`), unrelated to this slice |
+| Pre-change save ([driver](evidence/old-save-enroll-proof.mjs), fixture `tests/fixtures/rt_slice1/old-before-slice.save.json`, pre-slice serializer) | PASS: loads in the Village, shows the notice, enrolls, reload keeps Tingen and the enrolled life, 0 page errors | localStorage-seeded load, not literal Import of that fixture |
 | Electron | not run | the hostname dependency is removed in code; desktop run unverified |
 | 1536×864 at 14/21 px | not run | crowded-text floor unverified |
 
@@ -88,6 +89,7 @@ Screenshots: [Village row](evidence/village-door-1920.png), [Tingen choices](evi
 
 ### ACCOUNT FOR NOW
 
+- **MT15. Beginning a Tingen life is one click and one-way.** UR5 is met (the choice is a full center screen with costs written out; modals are only for one-question confirms), so no confirm step was added. Whether to keep it one-way or build a road back is Q2 (MT8).
 - **MT11. The post-begin notice says "You report to the workroom." for every start**, but Machinery starts in the university quarter and Storm at the docks. Small wording fix for the next touch (UR72). Done in a follow-up commit: the notice now reads "Your first day in Tingen begins."
 - **MT12. Opening a whole new life uses the center with Back.** That is the deliberate large-task case of UR41, not the item-inspection swap of UIS1; keep inspection anchored and big choices centered.
 - **MT13. Electron and the 1536×864 floor were not exercised.** Run them with the next desktop pass before adoption.
