@@ -55,10 +55,9 @@ test('herb lesson descriptor keeps its count and learned behaviour', () => {
 
 import {test as reasonTest} from 'node:test';
 import reasonAssert from 'node:assert/strict';
-import {stepFirstReason,followLocalPeopleFirst,TINGEN_START_CLOSED,FOLLOW_LOCAL_PEOPLE} from '../src/progression_gates.js';
+import {stepFirstReason,followLocalPeopleFirst,FOLLOW_LOCAL_PEOPLE} from '../src/progression_gates.js';
 reasonTest('blocked-step reasons name the step and where it is', () => {
   reasonAssert.equal(stepFirstReason('X', 'the Y panel'), 'Choose "X" in the Y panel first.');
   reasonAssert.match(followLocalPeopleFirst(), new RegExp(FOLLOW_LOCAL_PEOPLE.place));
   reasonAssert.match(followLocalPeopleFirst(), /Follow local people and work/);
-  reasonAssert.doesNotMatch(TINGEN_START_CLOSED, /nothing else under way/);
 });

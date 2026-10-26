@@ -1,0 +1,24 @@
+bundle sha256 327421cfe6c00048258ccf0d731db369447e022ba002a32afca1e66bf5526ae0
+viewport 1920x1080, headless Chrome, fresh context
+PASS ordinary origin, no probe parameter: http://127.0.0.1:63191/?test_hooks=1
+PASS fresh life starts in the Village
+PASS Village place actions show "Read the Tingen hiring notice"
+PASS the panel does not open by itself (no unrequested screen shift)
+INFO place-actions box before door click: {"x":370,"y":589.09375,"width":1010.609375,"height":131.515625}
+PASS Tingen panel can be shown on an ordinary save in the Village
+PASS effect-first text states what a start does and its one-way cost
+PASS no developer test wording in the panel
+PASS civil start shows its money cost as visible text, not only a hover title
+PASS Begin as a Nighthawk probationer is enabled
+PASS panel switched to the enrolled view
+PASS the notice door is gone once enrolled
+INFO location after begin: Tingen supervised workroom
+PASS ordinary save carries the lotm slice
+PASS reload keeps the enrolled life
+PASS reload keeps the Tingen location
+PASS Export produced a save text
+PASS Import keeps the enrolled life
+PASS Import keeps the Tingen location
+INFO fresh second life: enroll disabled = false
+FAIL no page or console errors (17)
+[{"op":-1,"kind":"console","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"},{"op":-1,"kind":"console","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"},{"op":-1,"kind":"console","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}]

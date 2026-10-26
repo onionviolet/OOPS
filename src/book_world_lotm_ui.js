@@ -1,13 +1,13 @@
 import {definePanel} from './panel_kit.js';
+import {expandWorkspaceModule} from './workspace_layout.js';
 import {createMeterBar} from './meter_bar.js';
-import {TINGEN_START_CLOSED} from './progression_gates.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
-// Surface type: place service (UR1). Home: the main workspace, discovered only inside the Tingen
-// branch (or on the local opt-in start). Warden Hale runs the workroom; the lodging is where you sleep.
+// Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
+// branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
 export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
- panel.append(node('h2','Tingen · probationer branch'),status,meters,path,work,bench,actions,walks,notebook,notice);
+ panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
  let signature='',selected=null,benchOpen=false;const bars=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const run=(fn,done)=>{try{fn();notice.textContent=done;}catch(e){notice.textContent=e.message;}signature='';render();};
  const button=(label,token,onclick,disabled,reason)=>{const b=node('button',label);b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;if(reason)b.title=reason;b.onclick=onclick;return b;};
@@ -50,14 +50,24 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   for(const o of d.drinkOptions||[])bench.append(row(button(o.label,o.id,()=>run(()=>act(o.id),''),!o.eligible,o.reasons.join(' ')||o.label)));
   if(d.drink)bench.append(row(button('Drink a brewed dose','bench_drink',()=>{},true,d.drink.reason),node('span',d.drink.reason)));
  }
+ // In-world entrance (field_ui.js workshop-door pattern): a Village place action that only opens this panel; it commits nothing.
+ const door=node('button');door.type='button';door.className='location_choice_dropdown choice_travel';door.dataset.lotmDoor='';
+ {const icon=node('i','train');icon.className='material-icons';icon.setAttribute('aria-hidden','true');door.append(icon,'Read the Tingen hiring notice');}
+ // Choosing a new life is a large task, so it opens in the center with the shared Back (UR9, UR41), like Homes.
+ door.addEventListener('click',()=>expandWorkspaceModule('lotm'));
+ const localActions=()=>document.getElementById('location_actions_div');
+ function syncDoor(v){const place=localActions();door.hidden=!!v.enrolled||!v.atVillage;if(place&&!door.isConnected)place.append(door);}
+ let doorObserver=null;
  function render(){
-  const v=read(selected),next=JSON.stringify([v,notice.textContent,selected]);if(next===signature)return;signature=next;
+  const v=read(selected);syncDoor(v);if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
+  const next=JSON.stringify([v,notice.textContent,selected]);if(next===signature)return;signature=next;
   path.replaceChildren();work.replaceChildren();bench.replaceChildren();actions.replaceChildren();walks.replaceChildren();notebook.replaceChildren();
   if(!v.enrolled){
    for(const b of bars.values())b.node.remove();bars.clear();
    bench.hidden=true;
-   status.textContent='A disposable test start: choose a life in early Tingen. Nothing here is canon; this save is for testing.';
-   for(const pr of v.profiles)actions.append(row(button(pr.label,pr.key==='probationer'?'enroll':`enroll_${pr.key}`,()=>run(()=>enroll(pr.key),'You report to the workroom.'),!v.startable,v.startable?pr.blurb:v.startEnabled?'Begin from the Village with nothing else under way, on a writable save.':TINGEN_START_CLOSED),node('span',pr.blurb)));return;
+   status.textContent='Tingen is a foggy industrial city where three church teams hire clerks who may later be offered a Beyonder potion; a civil post under a new name is open too. Choosing a start moves this character\'s life to Tingen for good on this save, with no road back to the Village. Export first if you want to keep the Village life.';
+   for(const pr of v.profiles)actions.append(row(button(pr.label,pr.key==='probationer'?'enroll':`enroll_${pr.key}`,()=>run(()=>enroll(pr.key),'You report to the workroom.'),!v.startable,v.startable?pr.blurb:v.startReasons.join(' '))),node('p',pr.blurb));
+   if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));return;
   }
   const d=v.district;bench.hidden=false;
   status.textContent=`${v.at}${d?` · ${d.label} · supervised by ${d.officer}${d.officerHere?'':' (not here)'}${d.shift?(d.onShift?' (on shift)':' (off shift)'):''}${d.endorsed?'':' · not endorsed here'}`:''}${v.beyonder?'':' · no Beyonder source'} · ${d?`${d.officer.replace(/^./,c=>c.toUpperCase())}'s attention ${d.attention}`:`Hale's attention ${v.attention}`}${v.sleeping?' · asleep':''}`;
@@ -113,6 +123,6 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   for(const m of v.moves)walks.append(row(button(m.label,m.id,()=>run(()=>move(m.id),'You walk there.'),!m.eligible,m.reasons.join(' '))));
   if(v.records.length){notebook.append(node('h3','What you know'));for(const r of v.records.slice(0,6))notebook.append(node('p',r.text));}
  }
- definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Begin the Tingen branch to see it here'});
+ definePanel({id:'lotm',title:'Tingen workroom',role:'actions',node:panel,home,discovered:()=>{const v=read();return v.enrolled||v.startable;},eligible:()=>true,unavailableReason:()=>'Visit the Village to see the Tingen starts here'});
  render();return {render};
 }
