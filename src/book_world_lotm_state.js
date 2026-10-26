@@ -59,7 +59,8 @@ export function validateLotmState(state){
  // Switching is a stated cause, so a second pathway is allowed only with its cause recorded (B3); without it the save is refused.
  assert(pathwayRows.filter(chosen).length+generatedRows.filter(chosen).length+(seerChosen?1:0)<=1||causeHeld(has,'switching'),LOTM_SWITCH_NOTICE+' This save holds both pathways.');
  for(const row of [...pathwayRows,...generatedRows])pathwayAssertions(row,{a,has,assert,natural});
- brewAssertions({has,assert,others:pathwayRows.filter(r=>r.key!=='cc'&&chosen(r)).length+generatedRows.filter(chosen).length+(seerChosen?1:0)});
+ // A recorded switching cause (a drink taken on top of a brew in progress) is the one stated way another pathway can stand beside a brew.
+ brewAssertions({has,assert,others:causeHeld(has,'switching')?0:pathwayRows.filter(r=>r.key!=='cc'&&chosen(r)).length+generatedRows.filter(chosen).length+(seerChosen?1:0)});
  // A life holds only its own church's pathways unless a stated cause (switching) is recorded.
  const prof=Object.values(LOTM_PROFILES).find(x=>x.id===d.entryProfile);
  assert(causeHeld(has,'switching')||(!seerChosen&&!pathwayRows.some(r=>r.church==='evernight'&&chosen(r))||prof.home==='evernight')&&(!pathwayRows.some(r=>r.church==='machinery'&&chosen(r))||prof.home==='machinery'),'A pathway belongs to its own church\'s life.');

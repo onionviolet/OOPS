@@ -74,11 +74,12 @@ export function generatedCommands(row){
    effects:[...(a.flag?[af(f(a.flag))]:[]),acted,know(a.know[0],a.know[1],'player','player','observation',U)]})),
   cmd(`judge_${k}`,`${row.assessLabel}: has the ${row.potion} potion settled?`,null,{alone:true,visibleWhen:all(eq('lotm.enrolled'),has(f('stabilized')),no(f('promoted'))),
    requires:all(eq(`lotm.${k}.digested`),no(f('assessed')),no(f('promoted'))),effects:[af(f('assessed')),kn(row,'assess')]}),
-  cmd(`drink_${k}8`,`Drink the brewed ${row.next} dose (irreversible: Sequence 8)`,null,{alone:true,visibleWhen:all(eq('lotm.enrolled'),has(f('assessed')),no(f('promoted')),holds(row.holds.next)),
-   requires:all(has(f('assessed')),no(f('promoted')),eq(`lotm.${k}.digested`),eq(supported),holds(row.holds.next)),costs:[item('player',K[row.holds.next],-1)],
-   effects:[grant(row.nextSource),af(f('promoted')),drunkEffect(nextId),kn(row,'promote')]}),
+  // Digestion is the gate, not the free feel check: a settled potion drinks cleanly whether or not the player clicked it, and the drink records the judgement.
+  cmd(`drink_${k}8`,`Drink the brewed ${row.next} dose (irreversible: Sequence 8)`,null,{alone:true,visibleWhen:all(eq('lotm.enrolled'),has(f('ingested')),eq(`lotm.${k}.digested`),no(f('promoted')),holds(row.holds.next)),
+   requires:all(has(f('ingested')),no(f('promoted')),eq(`lotm.${k}.digested`),eq(supported),holds(row.holds.next)),costs:[item('player',K[row.holds.next],-1)],
+   effects:[grant(row.nextSource),af(f('assessed')),af(f('promoted')),drunkEffect(nextId),kn(row,'promote')]}),
   cmd(`drink_${k}8_rushed`,`Drink the brewed ${row.next} dose before the ${row.potion} potion has settled (skipping and rushing; stated causes of loss of control)`,null,{alone:true,
-   visibleWhen:all(eq('lotm.enrolled'),has(f('ingested')),no(f('assessed')),no(f('promoted')),holds(row.holds.next)),requires:all(has(f('ingested')),eq(supported),no(f('assessed')),no(f('promoted')),holds(row.holds.next)),
+   visibleWhen:all(eq('lotm.enrolled'),has(f('ingested')),undigested,no(f('promoted')),holds(row.holds.next)),requires:all(has(f('ingested')),eq(supported),undigested,no(f('promoted')),holds(row.holds.next)),
    costs:[item('player',K[row.holds.next],-1)],effects:[grant(row.nextSource),af(f('promoted')),drunkEffect(nextId),...causes.rush.map(c=>af(`cause.${c.id}`)),press(total(causes.rush)),
     know(`cause.rush.${k}`,`${notes(causes.rush)} ${row.know.rushed[1]}`,'player','player','observation',U)]})];
 }

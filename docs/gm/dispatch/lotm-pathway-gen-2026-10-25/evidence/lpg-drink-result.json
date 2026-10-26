@@ -1,7 +1,7 @@
 {
  "mode": "drink",
  "root": "this checkout",
- "port": 51686,
+ "port": 52069,
  "errors": [],
  "log": [
   "probationer enrolled; disposable save funded to 40000 pence",
@@ -14,10 +14,10 @@
   "four acts done: progress 4/4, potion feels settled",
   "judged by feel: assessed flag set, no examiner or officer involved",
   "save, reload: Spectator source, acts and assessment kept",
-  "Export string (223500 chars) literally imported after walking away: state restored",
+  "Export string (223616 chars) literally imported after walking away: state restored",
   "Telepathist brewed (180 min) and drunk after the settled Spectator: Sequence 8 source granted, no pressure",
   "screenshots: lpg-telepathist-drunk-1920x1080.png, lpg-telepathist-drunk-1536x864-14px.png, lpg-telepathist-drunk-1536x864-21px.png",
-  "Export string (232972 chars) literally imported after walking away: state restored",
+  "Export string (233128 chars) literally imported after walking away: state restored",
   "Export button download re-imported through the file input: both sources kept"
  ]
 }

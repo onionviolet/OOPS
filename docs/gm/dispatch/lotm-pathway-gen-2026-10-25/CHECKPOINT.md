@@ -16,11 +16,17 @@ Drinking undigested or on top of another pathway is a stated cause, not a wall: 
 - Existing rows: `tests/lotm_commands_golden.test.js` unchanged and passing.
 
 ## Checks (one line each)
-- `node --test tests/lotm_generated_rows.test.js`: 7 tests pass (keys, provenance vs table text, rite refusal, brew-drink-act-judge-Telepathist with validators and envelope, stated causes, no wrong-potion block, civil refused, bench options). Slice proof only.
+- `node --test tests/lotm_generated_rows.test.js`: 10 tests pass (keys, provenance vs table text, rite refusal, brew-drink-act-judge-Telepathist with validators and envelope, stated causes, no wrong-potion block, civil refused, bench options, skipping the feel check is not rushing, CC brew standing beside a switching drink validates, self-brewed drink grants no clearance). Slice proof only.
 - `node --test tests/lotm_commands_golden.test.js tests/lotm_pathway_rows.test.js tests/dose_process.test.js`: pass; dose_process test for the "drinking is unwritten" marker moved from Spectator to Sun 9 (the pinned shape changed on purpose).
 - `npm run build`, `npm run check:arch` (no growth, no new cycles), `npm run check:rules` (PASS 0 warnings): pass.
-- Full `npm test` once: 3176 pass, 3 fail. One was mine (the dose_process marker test, fixed above and re-run). Two (`tests/school_visitor.test.js`, provisioner and Mara) fail identically on clean HEAD 9b4b220fd in a detached worktree: pre-existing, unrelated, not touched.
+- Full `npm test` (re-run after the review fixes): 3180 pass, 3 fail. One was my new CC-brew test, caught mid-edit by the run and fixed (passes alone, 10 of 10). The first full run had one real failure of mine (the dose_process marker test, fixed). Two (`tests/school_visitor.test.js`, provisioner and Mara) fail identically on clean HEAD 9b4b220fd in a detached worktree: pre-existing, unrelated, not touched.
 - Browser `node docs/gm/dispatch/lotm-pathway-gen-2026-10-25/browser.cjs drink` (fresh origin, hidden headless Chrome, rebuilt bundle): pass, 0 page errors. Screenshots at 1920x1080 and 1536x864 (14px and 21px type) in `evidence/`. Export string import and the Export-button file re-import both pass. The funding step in the script retries because a reload can race the saved money.
+
+## Review fixes (second commit)
+- Digestion, not the free feel click, gates the clean Telepathist drink (the click only records the judgement); the rushed variant requires an undigested potion.
+- A recorded switching cause now lets a CC brew in progress stand beside another pathway in `validateLotmState` (it threw before).
+- Clearance counts only issued (church-allocated) ingestion, so a self-brewed drink stays "probationer"; accept and choice facts still use the wider `ingestedAny`.
+- Bench item and bottling text no longer say drinking is "not yet written" for rows that now drink (`bf_collect_*` is not in the golden fixture).
 
 ## Gaps and follow-ups
 - Not exercised in browser: the rushed and switching drinks (focused tests only); an old pre-change save load (focused test builds a fresh branch; the browser run did not reload a pre-change save).

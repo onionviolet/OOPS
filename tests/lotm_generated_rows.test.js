@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {fresh,run,wait,at,holds,save,ctx,lotmFacts,hostOver} from './lotm_helpers.js';
+import {fresh,run,wait,at,holds,save,ctx,lotmFacts,hostOver,I} from './lotm_helpers.js';
 import {LOTM_LOCATIONS as L,LOTM_KEYS as K} from '../src/book_world_lotm_ids.js';
 import {validateLotmState} from '../src/book_world_lotm_state.js';
 import {validateLotmEnvelope} from '../src/book_world_lotm_envelope.js';
@@ -65,4 +65,19 @@ test('the bench offers the generated drink commands instead of the unwritten mar
  const p=brew(begin(),'visionary_9'),{host}=hostOver(p),d=host.view('visionary_9').bench.selected;
  assert.equal(d.drink,null);assert.deepEqual(d.drinkOptions.map(o=>o.id),['book.lotm.drink_vi9']);assert.equal(d.drinkOptions[0].eligible,true);
  const t=host.view('visionary_8').bench.selected;assert.equal(t.doses,0);assert.deepEqual(t.drinkOptions,null);
+});
+test('skipping the free feel check is not rushing: a settled potion drinks the next dose cleanly',()=>{
+ let p=brew(begin(),'visionary_9');p=settled(run(p,'drink_vi9'));
+ p=brew(p,'visionary_8');refuses(p,'drink_vi8_rushed');p=run(p,'drink_vi8');ok(p);
+ assert.equal(f(p)['lotm.pressure'],0);assert.equal(f(p)['lotm.flag.vi.assessed'],true);
+});
+test('a brew in progress at Hale\'s bench plus a switching Spectator drink still saves and validates',()=>{
+ let p=begin();delete p.gameplay[I.broker].inventory[K.frog];p.gameplay.player.inventory[K.frog]=1;p=run(run(p,'buy_formula_cc'),'brew_start_cc');
+ p=brew(p,'visionary_9');assert.equal(f(p)['lotm.pathChosen'],true);refuses(p,'drink_vi9');
+ p=run(p,'drink_vi9_foreign');ok(p);assert.equal(f(p)['lotm.lostControl'],true);
+});
+test('a self-brewed drink grants no Nighthawk clearance: nobody issued it',()=>{
+ let p=brew(begin(),'visionary_9');assert.equal(f(p)['lotm.roleName'],'probationer');
+ p=run(p,'drink_vi9');assert.equal(f(p)['lotm.roleName'],'probationer');
+ let s=run(run(begin(),'accept_allocation'),'ingest');assert.equal(f(s)['lotm.roleName'],'formal_member');
 });

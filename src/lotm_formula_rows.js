@@ -144,4 +144,4 @@ export const rowById = id => LOTM_FORMULA_ROWS.find(r => r.id === id);
 // Item specifications for the runtime (content.js appends these): one per ingredient and one dose per brewable row.
 export const LOTM_BENCH_ITEMS = Object.freeze([
     ...LOTM_INGREDIENTS.map(i => [i.name, `${cap(i.role)} material for ${i.rows.length > 1 ? 'several Beyonder potion formulas' : 'a Beyonder potion formula'}. Sold in Tingen only where the sequence tier allows.`]),
-    ...LOTM_BREWABLE_ROWS.map(r => [r.product.name, `A brewed dose of the Sequence ${r.seq} ${r.name} potion. Holding it grants nothing; drinking it is not yet written for this pathway.`])]);
+    ...LOTM_BREWABLE_ROWS.map(r => [r.product.name, `A brewed dose of the Sequence ${r.seq} ${r.name} potion. Holding it grants nothing; whether it can be drunk yet depends on whether this pathway's ingestion is written.`])]);
