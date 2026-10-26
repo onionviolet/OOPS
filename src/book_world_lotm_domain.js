@@ -8,7 +8,6 @@ import {createLotmPanel} from './book_world_lotm_ui.js';
 import {lotmPeople} from './book_world_lotm_content.js';
 import {LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
 let host=null,panel=null,ports=null;
-const probe=()=>typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('lotm_probe')==='1';
 // Definitions create locked placeholders only. The supervisor's stock is seeded once by enrollment (AR3).
 function register({NPC,NPCRegistry,SafeLocation,locations}){
  for(const p of lotmPeople){const npc=new NPC({id:p.id,name:p.label,levelable:structuredClone(p.vitals),is_unlocked:false,description:p.description});npc.reputation={};NPCRegistry.add(p.id,npc);}
@@ -17,7 +16,7 @@ function register({NPC,NPCRegistry,SafeLocation,locations}){
 }
 export function configureLotm(p){
  ports=p;register(p);
- host=createLotmHost({...p,startEnabled:probe});
+ host=createLotmHost(p);
 }
 registerDomain({id:'lotm',deps:[],tick:()=>host?.tick(),refresh:()=>panel?.render(),
  commands:{wake:()=>host?.wake()},

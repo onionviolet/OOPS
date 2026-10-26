@@ -75,16 +75,23 @@ export function createLotmHost(ports){
   return lotmContext(s,{...c,actorId:'player',vitalsByActor:c.vitalsByActor||vitals,busy:!!ports.busy(),targetId:def?.targetId||null});}
  const base=(s,c)=>({state:copy(s),external:copy(c.external||{}),gameplay:copy(c.gameplay||{}),gameplayBefore:copy(c.gameplay||{}),vitals:copy(c.vitals||{}),equipment:copy(c.equipment||{}),acquisitions:[],unlocks:[]});
  function writable(){assert(ports.writable(),'Saving is paused, so the branch cannot change now.');}
- function startable(){const s=state();return ports.startEnabled()&&!s.lotm&&s.actors.player.worldId==='base.frontier'&&ports.location()==='Village'&&ports.writable()&&!ports.busy();}
+ // Each unmet condition is its own player-facing reason, so a refusal names what to change.
+ function startBlockers(){const s=state(),out=[];if(s.lotm)return ['This life is already in Tingen.'];
+  if(!atVillage())out.push('Return to the Village first; Tingen is reached from there.');
+  if(!ports.writable())out.push('Saving is paused, so a new life cannot begin now.');
+  if(ports.busy())out.push('Finish or stop the work under way first.');
+  return out;}
+ function atVillage(){const s=state();return s.actors.player.worldId==='base.frontier'&&ports.location()==='Village';}
+ function startable(){return !startBlockers().length;}
  function enroll(profileKey='probationer'){
   const profile=LOTM_PROFILES[profileKey];assert(profile,'Choose one of the Tingen starts.');
-  assert(startable(),'Begin the Tingen branch only from the Village on a disposable test save, with nothing else under way.');
+  assert(startable(),startBlockers().join(' '));
   const s=state(),c=ports.context();let cur=s,external=c.external,gameplay=c.gameplay,vitals=c.vitals,equipment=c.equipment,enrolled=null;
   if(!s.simulation){enrolled=enrollSimulation(s,registry,{...c,busy:false,facts:{...c.facts,location:'Village'}},s.sequence);cur=enrolled.state;external=enrolled.external;gameplay=enrolled.gameplay;vitals=enrolled.vitals||vitals;equipment=enrolled.equipment||equipment;}
   const plan=base(cur,{external,gameplay,vitals,equipment});
   if(enrolled){plan.acquisitions=[...enrolled.acquisitions];plan.unlocks=[...enrolled.unlocks];}
   plan.state.sequence++;plan.state.schema=11;enrollLotmBranch(plan.state,profileKey);
-  // A new identity carries no cash (F25): the profile's own purse replaces the frontier money, on this disposable branch only.
+  // A new identity carries no cash (F25): the profile's own purse replaces the frontier money; the panel says so before the click.
   if(profile.cash!=null)plan.external={...plan.external,money:profile.cash};
   for(const [owner,stock] of Object.entries(LOTM_NATIVE_STOCK))plan.gameplay[owner]={inventory:copy(stock),skills:{},reputation:{}};
   applySimulationEffects(plan,lifeEntryEffects(profileKey),{...c,actorId:'player'},registry,'book.lotm.enroll');
@@ -128,7 +135,7 @@ export function createLotmHost(ports){
  function tick(){const s=state();if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  function view(selected=null){
   const s=state(),d=s.lotm;
-  if(!d)return {enrolled:false,startable:startable(),startEnabled:ports.startEnabled(),profiles:Object.values(LOTM_PROFILES).map(({key,label,blurb})=>({key,label,blurb}))};
+  if(!d)return {enrolled:false,atVillage:atVillage(),startable:startable(),startReasons:startBlockers(),profiles:Object.values(LOTM_PROFILES).map(({key,label,blurb})=>({key,label,blurb}))};
   const c=ctx(s),f=c.facts,at=s.simulation.people.player.location,e=s.simulation.energies?.player?.[I.energy],know=s.simulation.knowledge?.player||{};
   const actions=[],actingGuidance=[];
   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');

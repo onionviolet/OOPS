@@ -52,3 +52,12 @@ test('herb lesson descriptor keeps its count and learned behaviour', () => {
     assert.equal(evaluateGate(HERB_LESSON_GATE, herbLessonFacts({a: row(5)}, false), {dials: {count: 5}}).met, true);
     assert.equal(evaluateGate(HERB_LESSON_GATE, herbLessonFacts({a: row(20)}, true)).met, false);
 });
+
+import {test as reasonTest} from 'node:test';
+import reasonAssert from 'node:assert/strict';
+import {stepFirstReason,followLocalPeopleFirst,FOLLOW_LOCAL_PEOPLE} from '../src/progression_gates.js';
+reasonTest('blocked-step reasons name the step and where it is', () => {
+  reasonAssert.equal(stepFirstReason('X', 'the Y panel'), 'Choose "X" in the Y panel first.');
+  reasonAssert.match(followLocalPeopleFirst(), new RegExp(FOLLOW_LOCAL_PEOPLE.place));
+  reasonAssert.match(followLocalPeopleFirst(), /Follow local people and work/);
+});

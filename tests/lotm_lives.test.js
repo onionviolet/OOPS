@@ -18,6 +18,15 @@ test('both profiles enroll from the same start and record which life they are',(
  for(const o of [a,b]){assert.ok(validateLotmState(o.box.p.state));assert.ok(validateLotmEnvelope(save(o.box.p)));validateSimulationState(o.box.p.state.simulation,o.box.p.state,registry.simulation);}
  assert.throws(()=>hostOver(bare()).host.enroll('nobody'));
 });
+test('an ordinary save begins Tingen from the Village and a refusal names the unmet condition',()=>{
+ const o=hostOver(bare());
+ assert.equal(o.host.view().startable,true);assert.deepEqual(o.host.view().startReasons,[]);
+ at(o.box.p,'Wild willow stand');
+ assert.equal(o.host.view().startable,false);assert.match(o.host.view().startReasons.join(' '),/Village/);
+ assert.throws(()=>o.host.enroll('probationer'),/Return to the Village first/);
+ at(o.box.p,'Village');o.host.enroll('probationer');
+ assert.deepEqual(o.host.view().startable,undefined);assert.equal(o.host.view().profile,'probationer');
+});
 test('the probationer keeps their money and the civil clerk arrives with only the profile purse (cash does not travel)',()=>{
  assert.equal(begin('probationer',77).box.p.external.money,77);
  assert.equal(begin('civil',77).box.p.external.money,5*P.pound);

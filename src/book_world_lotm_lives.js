@@ -24,7 +24,7 @@ export const LOTM_PROFILES=Object.freeze({
   opening:{fundedPence:29*P.pound,debtPence:0,passageLegs:1},
   passage:{perLegPence:4*P.pound,certificateRequired:true},
   paidBefore:{papersPence:8*P.pound,clothesAndGoodsPence:12*P.pound},
-  blurb:'Proposed start: an adult human clerk under a bought name. Of 29 pounds funded before entry, papers cost 8, clothes and goods 12, and one third-class passage 4; 5 remain, with no money debt. Your Frontier purse does not travel. The Nighthawk office offers 3 pounds a week, a five-year term and lifetime secrecy. A post brings no potion; church teams know your old ties. Later ocean passage needs an official certificate.'}});
+  blurb:'An adult human clerk under a bought name. Of 29 pounds funded before entry, papers cost 8, clothes and goods 12, and one third-class passage 4; 5 remain, with no money debt. Your Frontier purse does not travel. The Nighthawk office offers 3 pounds a week, a five-year term and lifetime secrecy. A post brings no potion; church teams know your old ties. Later ocean passage needs an official certificate.'}});
 // Opening history uses the existing knowledge owner. It records paid costs, not fresh charges or invented items.
 export const lifeEntryEffects=key=>[{
  // The workroom situation begins at report-in, after enrollment. Opening history has no situation attribution.
