@@ -10,6 +10,7 @@ import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES,LOTM_SWITC
 import {lotmPathView} from './book_world_lotm_path.js';
 import {flagOf} from './book_world_lotm_pathways.js';
 import {pathwayRows,allRows} from './book_world_lotm_rows.js';
+import {generatedRows,generatedDrinkIds} from './book_world_lotm_generated.js';
 const examIds=new Set(allRows.filter(r=>r.exam).map(r=>`book.lotm.${r.exam.currentId||r.exam.id}`));
 import {LOTM_PROFILES,profileKeyOf,lifeEntryEffects} from './book_world_lotm_lives.js';
 import {causeView} from './book_world_lotm_causes.js';
@@ -42,7 +43,7 @@ const NOT_WRITTEN='Not yet written: this pathway has no ingestion in the game ye
 function benchDetail(s,c,id,{registry,asleep}){
  const row=rowById(id),f=c.facts;if(!row)return null;
  const prev=cid=>{const d=registry.simulation.commands.get(cid);if(!d)return null;const p=previewSimulationCommand(s,registry,cid,{...c,targetId:d.targetId||null});
-  return {id:cid,label:d.label,eligible:p.eligible&&!asleep,reasons:p.eligible&&asleep?['You are asleep.']:p.reasons};};
+  return {id:cid,label:d.label,visible:p.visible,eligible:p.eligible&&!asleep,reasons:p.eligible&&asleep?['You are asleep.']:p.reasons};};
  const brewable=row.status==='brewable',viaMain=row.id==='death_9';
  const slots=row.slots.map(sl=>{const ing=INGREDIENT_BY_NAME[sl.select.material],held=ing?f[`lotm.bf.holds.${ing.slug}`]||0:0;
   return {id:sl.id,role:sl.role,name:sl.select.material,amount:sl.amount||null,need:sl.qty,held,evidence:sl.evidence,tier:ing?.tier||null,pence:ing?.pence??null,stock:ing?f[`lotm.bf.stock.${ing.slug}`]||0:0,
@@ -59,7 +60,8 @@ function benchDetail(s,c,id,{registry,asleep}){
  return {...summary,minutes:row.minutes,price:row.price||null,formulaRoute:!row.price&&brewable&&!viaMain?row.route:null,route:row.route,ritual:row.ritual||null,gaps:row.gaps,evidence:row.evidence,
   slots,actions,product:brewable&&!viaMain?{name:row.product.name,sellPence:row.product.sellPence}:null,
   via:viaMain?`Brewed at Hale's bench with the Corpse Collector actions in the list above (${CC_BREW.minutes} minutes, formula ${CC_BREW.formulaPence} pence).`:null,
-  drink:summary.doses?{eligible:false,reason:row.ritual?.needed?`${NOT_WRITTEN} Drinking it without its rite (${row.ritual.scale}: ${row.ritual.text}) is a stated loss-of-control risk.`:NOT_WRITTEN}:null};
+  drinkOptions:summary.doses&&generatedDrinkIds[id]?generatedDrinkIds[id].map(prev).filter(o=>o&&o.visible):null,
+  drink:summary.doses&&!generatedDrinkIds[id]?{eligible:false,reason:row.ritual?.needed?`${NOT_WRITTEN} Drinking it without its rite (${row.ritual.scale}: ${row.ritual.text}) is a stated loss-of-control risk.`:NOT_WRITTEN}:null};
 }
 export function createLotmHost(ports){
  const state=()=>ports.state(),registry=ports.registry;
@@ -141,7 +143,7 @@ export function createLotmHost(ports){
   // Plain places list (SR rules): every place, its district, which team answers there and how far it is.
   const places=Object.values(L).map(pl=>{const dd=districtOfPlace(pl);return {place:pl,district:dd.qlabel,team:dd.q2team,church:dd.church,here:pl===at,minutes:pl===at?0:lotmWalkMinutes(at,pl)};});
   const jobs=s.simulation.jobs.filter(j=>lotmCommands.some(d=>d.id===j.commandId)).map(j=>({id:j.id,label:registry.simulation.commands.get(j.commandId).label,due:j.due,left:Math.max(0,j.due-s.clock),cancellation:j.cancellation,cancellable:['forfeit','refund'].includes(j.cancellation)}));
-  const holds=Object.fromEntries(['dose','clownDose',...pathwayRows.flatMap(r=>[r.holds.base,r.holds.next]),'sealed3','frog','hairs','ink',...pathwayRows.filter(r=>r.market).flatMap(r=>[r.market.baseHold,r.market.nextHold]),...LOTM_SAMPLES].map(n=>[n,f[`lotm.holds.${n}`]||0]));
+  const holds=Object.fromEntries(['dose','clownDose',...pathwayRows.flatMap(r=>[r.holds.base,r.holds.next]),...generatedRows.flatMap(r=>[r.holds.base,r.holds.next]),'sealed3','frog','hairs','ink',...pathwayRows.filter(r=>r.market).flatMap(r=>[r.market.baseHold,r.market.nextHold]),...LOTM_SAMPLES].map(n=>[n,f[`lotm.holds.${n}`]||0]));
   const records=Object.entries(know).filter(([k])=>k.startsWith('book.lotm.')).map(([k,r])=>({id:k,text:r.value,stage:r.stage,at:r.at})).sort((a,b)=>(b.at??0)-(a.at??0));
   const homeKey=profileKeyOf(s),homeChurch=homeKey?districtById(LOTM_PROFILES[homeKey].home)?.church:null,dist=districtOfPlace(at),district=dist&&{id:dist.id,label:dist.label,team:dist.team,officer:dist.officerLabel,officerHere:f['lotm.officerHere'],responders:respondersFor(dist.id,homeChurch).line,home:!!f[`lotm.home.${dist.id}`],onShift:onShift(dist,s.clock),shift:!!dist.shift,claim:dist.claim,why:dist.why,endorsed:!!f[`lotm.home.${dist.id}`]||f[`lotm.flag.endorsed.${dist.id}`]===true,attention:f['lotm.officerAttention']};
   const doseLabels=pathwayRows.flatMap(r=>[[r.holds.base,`prepared ${r.potion} dose`],[r.holds.next,`prepared ${r.next} dose`]]).filter(([k])=>holds[k]).map(x=>x[1]);
@@ -150,7 +152,7 @@ export function createLotmHost(ports){
   // A save from before the bench has no stock yet; offers preview against the stock the first action will seed, so the buttons are not dead (DWF127).
   let sv=s,cv=c;if(!stockSeeded(s)){const t=base(s,c);seedBenchStock(t);sv=t.state;cv={...c,gameplay:t.gameplay};}
   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
-  return {enrolled:true,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||pathwayRows.some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
+  return {enrolled:true,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at,supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
  }
  return {enroll,act,cancel,move,wake,tick,view,startable};
 }

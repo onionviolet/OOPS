@@ -133,13 +133,13 @@ test('stock reaches a save enrolled before the bench (DWF127) and the frog invar
 });
 
 test('the bench view lists every row, shows one formula, and drinking is honestly unwritten', () => {
-    const {p, row} = bench('visionary_9'); const {host, box} = hostOver(p);
+    const {p, row} = bench('sun_9'); const {host, box} = hostOver(p);
     const v0 = host.view(); assert.equal(v0.bench.rows.length, 43); assert.equal(v0.bench.selected, null);
     assert.ok(!v0.actions.some(a => a.id.startsWith('book.lotm.bf_')), 'the flat list stays free of bench buttons');
-    host.act('book.lotm.bf_start_visionary_9'); box.p = pass(box.p, row.minutes); host.act('book.lotm.bf_collect_visionary_9');
-    const d = host.view('visionary_9').bench.selected;
+    host.act('book.lotm.bf_start_sun_9'); box.p = pass(box.p, row.minutes); host.act('book.lotm.bf_collect_sun_9');
+    const d = host.view('sun_9').bench.selected;
     assert.equal(d.doses, 1); assert.match(d.drink.reason, /Not yet written/); assert.equal(d.drink.eligible, false);
-    assert.equal(d.slots.length, 6); assert.ok(d.ritual.text); assert.ok(d.gaps.length >= 0);
+    assert.equal(d.slots.length, 4); assert.ok(d.ritual.text); assert.ok(d.gaps.length >= 0);
     const high = host.view('fool_4').bench.selected; assert.equal(high.formulaRoute.id, 'church_potion_rite'); assert.ok(high.slots.every(s => s.noRoute));
     assert.equal(host.view('death_9').bench.selected.viaMain, true);
 });

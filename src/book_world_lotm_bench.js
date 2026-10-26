@@ -14,6 +14,8 @@ const flag=(rid,n)=>`bf.${rid}.${n}`,res=(rid,n)=>`book.lotm.bf.${rid}.${n}`;
 const ingredientsBought=LOTM_INGREDIENTS.filter(i=>i.tier!=='none');
 export const INGREDIENT_BY_NAME=Object.fromEntries(LOTM_INGREDIENTS.map(i=>[i.name,i]));
 const counter=(rid,n,amount=1)=>({type:'resource',actor:'player',key:res(rid,n),amount});
+// A drunk dose leaves the ledger (held + sold + drunk = bottled); a generated pathway row's drink commands add this counter (DWF139).
+export const drunkEffect=rid=>counter(rid,'drunk');
 const trackOnly=eq('lotm.beyonderTrack');
 export function benchRowCommands(row){
  const rid=row.id,slug=s=>INGREDIENT_BY_NAME[s.select.material].slug,P=row.product,F=flag(rid,'formula'),B=flag(rid,'brewing');
@@ -28,7 +30,7 @@ export function benchRowCommands(row){
   effects:[af(B),know(`brew.${rid}.started`,`The materials are in the pot and Hale has set the bench. It needs ${row.minutes} minutes before it can be bottled.`,'player','player','observation',U)]}));
  out.push(cmd(`bf_collect_${rid}`,`Bottle the brewed ${row.name} dose`,L.workroom,{targetId:I.supervisor,once:false,
   visibleWhen:all(ready,has(B)),requires:all(ready,has(B),eq(`lotm.bf.ready.${rid}`)),
-  effects:[af(B,false),item('player',P.key,1),counter(rid,'made'),know(`brew.${rid}.collected`,`The pot settled and you bottled one ${P.name}. Holding it grants nothing; what drinking it would do is not yet written.`,'player','player','observation',U)]}));
+  effects:[af(B,false),item('player',P.key,1),counter(rid,'made'),know(`brew.${rid}.collected`,`The pot settled and you bottled one ${P.name}. Holding it grants nothing; drinking it is a separate, irreversible step where the pathway has one written.`,'player','player','observation',U)]}));
  if(P.sellPence)out.push(cmd(`bf_sell_${rid}`,`Sell the ${P.name} to the broker · ${P.sellPence} pence (a proposal)`,L.docks,{alone:true,targetId:I.broker,once:false,
   visibleWhen:BROKER_AT,requires:all(eq('lotm.brokerHere'),gte(`lotm.bf.holds.dose_${rid}`,1)),costs:[item('player',P.key,-1)],
   effects:[money(P.sellPence),counter(rid,'sold'),know(`brew.${rid}.sold`,`The broker paid ${P.sellPence} pence for the ${P.name} and will find a buyer who asks no questions.`,'player','player','observation',U)]}));
@@ -71,7 +73,8 @@ export function benchAssertions(state,{a,has,assert,natural}){
  for(const r of LOTM_BREWABLE_ROWS){
   assert(!has(flag(r.id,'brewing'))||has(flag(r.id,'formula'))&&!!known[`book.lotm.brew.${r.id}.started`],`A ${r.name} brew needs its formula copy and its start note.`);
   const made=a.player.resources?.[res(r.id,'made')],sold=a.player.resources?.[res(r.id,'sold')];
-  assert((made===undefined||natural(made))&&(sold===undefined||natural(sold))&&(sold||0)<=(made||0),`${r.name} bottled and sold counts must balance.`);
+  const drunk=a.player.resources?.[res(r.id,'drunk')];
+  assert((made===undefined||natural(made))&&(sold===undefined||natural(sold))&&(drunk===undefined||natural(drunk))&&(sold||0)+(drunk||0)<=(made||0),`${r.name} bottled, sold and drunk counts must balance.`);
  }
 }
 // Envelope assertions (validateLotmEnvelope): held doses plus sold doses equal bottled doses; broker stock never exceeds its seed and is empty before the seed.
@@ -79,7 +82,7 @@ export function benchEnvelope(save,{count,assert,reserved}){
  const state=save.expansion,pr=state.actors?.player?.resources||{};
  for(const r of LOTM_BREWABLE_ROWS){
   const held=count(save,'main_character',r.product.key)+reserved(state,r.product.key);
-  assert(held+(pr[res(r.id,'sold')]||0)===(pr[res(r.id,'made')]||0),`${r.name} doses held plus sold must equal doses bottled.`);
+  assert(held+(pr[res(r.id,'sold')]||0)+(pr[res(r.id,'drunk')]||0)===(pr[res(r.id,'made')]||0),`${r.name} doses held, sold and drunk must equal doses bottled.`);
  }
  const seeded=stockSeeded(state);
  for(const i of ingredientsBought){const n=count(save,I.broker,i.key);assert(seeded?n<=i.stock:n===0,`Broker stock of ${i.name} is outside its seed.`);}

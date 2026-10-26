@@ -6,6 +6,7 @@ import {definePath,pathView} from './ascension_paths.js';
 import {LOTM_DIGEST_ACTS} from './book_world_lotm_ids.js';
 import {rowDescriptor,pathwayView,flagOf} from './book_world_lotm_pathways.js';
 import {pathwayRows,ccRow} from './book_world_lotm_rows.js';
+import {generatedRows} from './book_world_lotm_generated.js';
 export const seerPathway=definePath({id:'lotm.seer',world:'book.lotm.tingen',label:'Seer pathway',shape:'ladder',stages:[
  {id:'ordinary',label:'Ordinary clerk',crossings:[],grants:['No Beyonder source']},
  {id:'seq9',label:'Sequence 9 · Seer',crossings:[{id:'seer_dose',type:'ingest',label:'Hold the allocated Seer dose, then drink it',fact:'heldSeer',need:true,irreversible:true}],
@@ -25,7 +26,7 @@ const SETTLE=['unsettled','settling','settled'];
 // Seer is the default view (existing saves, tests). A row's view applies once its allocation exists.
 export function lotmPathView(state,f){
  const flag=k=>f[`lotm.flag.${k}`]===true;
- const row=pathwayRows.find(r=>flag(flagOf(r,'allocated'))||flag(flagOf(r,'ingested')));
+ const row=[...pathwayRows,...generatedRows].find(r=>flag(flagOf(r,'allocated'))||flag(flagOf(r,'ingested')));
  if(row)return {...pathwayView(row,f,flag),chosen:true,others:[]};
  const homeRows=pathwayRows.filter(r=>f[`lotm.home.${r.church}`]!==false&&(f[`lotm.home.${r.church}`]===true||!f['lotm.enrolled']));
  const seerHome=f['lotm.home.evernight']===true||!f['lotm.enrolled'];

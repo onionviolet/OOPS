@@ -71,12 +71,12 @@ export function pathwayDescriptor(row){
  const t=row.potion,o=row.prescreener||'Warden Hale',h=row.holds;
  return definePath({id:`lotm.${row.slug||row.key}`,world:I.world,label:`${t} pathway`,shape:'ladder',stages:[
   {id:'ordinary',label:'Ordinary clerk',crossings:[],grants:['No Beyonder source']},
-  {id:'seq9',label:`Sequence 9 · ${t}`,crossings:[{id:`${row.key}_dose`,type:'ingest',label:`Hold the allocated ${t} dose, then drink it${row.ladder.ingestNote||''}`,fact:'heldBase',need:true,irreversible:true}],grants:row.ladder.s9},
+  {id:'seq9',label:`Sequence 9 · ${t}`,crossings:[{id:`${row.key}_dose`,type:'ingest',label:row.crossings?.base||`Hold the allocated ${t} dose, then drink it${row.ladder.ingestNote||''}`,fact:'heldBase',need:true,irreversible:true}],grants:row.ladder.s9},
   {id:'seq8',label:`Sequence 8 · ${row.next}`,crossings:[
    {id:'acting',type:'digest',label:`Acts performed in the ${t} role`,fact:'acting',need:row.digest},
-   {id:'assessment',type:'recognition',label:`${o} assesses the digestion`,fact:'assessed',need:true},
+   {id:'assessment',type:'recognition',label:row.assessLabel||`${o} assesses the digestion`,fact:'assessed',need:true},
    ...(row.exam?[{id:'exam',type:'trial',label:row.exam.label,fact:'examined',need:true}]:[]),
-   {id:`${row.next.toLowerCase().replace(/[^a-z]+/g,'_')}_dose`,type:'ingest',label:`Hold the released ${row.next} dose, then drink it`,fact:'heldNext',need:true,irreversible:true}],
+   {id:`${row.next.toLowerCase().replace(/[^a-z]+/g,'_')}_dose`,type:'ingest',label:row.crossings?.next||`Hold the released ${row.next} dose, then drink it`,fact:'heldNext',need:true,irreversible:true}],
    grants:row.ladder.s8,failure:row.ladder.failure},
   {id:'seq7',label:'Sequence 7',crossings:[{id:'unknown',type:'ingest',label:'Not offered in this slice',fact:'never',need:true}],grants:[]}]});
 }

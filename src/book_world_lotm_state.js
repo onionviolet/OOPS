@@ -9,6 +9,7 @@ import {brewAssertions} from './book_world_lotm_brew.js';
 import {brokerAssertions} from './book_world_lotm_broker.js';
 import {benchAssertions} from './book_world_lotm_bench.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
+import {generatedRows} from './book_world_lotm_generated.js';
 import {lotmCommands} from './book_world_lotm_actions.js';
 import {jsonData} from './simulation_contracts.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
@@ -56,15 +57,16 @@ export function validateLotmState(state){
  const chosen=row=>has(flagOf(row,'allocated'))||has(flagOf(row,'ingested'))||!!a.player.sources?.[row.base];
  const seerChosen=has('allocated')||has('ingested')||!!src;
  // Switching is a stated cause, so a second pathway is allowed only with its cause recorded (B3); without it the save is refused.
- assert(pathwayRows.filter(chosen).length+(seerChosen?1:0)<=1||causeHeld(has,'switching'),LOTM_SWITCH_NOTICE+' This save holds both pathways.');
- for(const row of pathwayRows)pathwayAssertions(row,{a,has,assert,natural});
- brewAssertions({has,assert,others:pathwayRows.filter(r=>r.key!=='cc'&&chosen(r)).length+(seerChosen?1:0)});
+ assert(pathwayRows.filter(chosen).length+generatedRows.filter(chosen).length+(seerChosen?1:0)<=1||causeHeld(has,'switching'),LOTM_SWITCH_NOTICE+' This save holds both pathways.');
+ for(const row of [...pathwayRows,...generatedRows])pathwayAssertions(row,{a,has,assert,natural});
+ // A recorded switching cause (a drink taken on top of a brew in progress) is the one stated way another pathway can stand beside a brew.
+ brewAssertions({has,assert,others:causeHeld(has,'switching')?0:pathwayRows.filter(r=>r.key!=='cc'&&chosen(r)).length+generatedRows.filter(chosen).length+(seerChosen?1:0)});
  // A life holds only its own church's pathways unless a stated cause (switching) is recorded.
  const prof=Object.values(LOTM_PROFILES).find(x=>x.id===d.entryProfile);
  assert(causeHeld(has,'switching')||(!seerChosen&&!pathwayRows.some(r=>r.church==='evernight'&&chosen(r))||prof.home==='evernight')&&(!pathwayRows.some(r=>r.church==='machinery'&&chosen(r))||prof.home==='machinery'),'A pathway belongs to its own church\'s life.');
  // Lives (Q3): a civil clerk is on a post, not the Beyonder track, and the contract flag belongs to that profile only.
  const civil=d.entryProfile===LOTM_PROFILES.civil.id;
- assert(!civil||!(seerChosen||pathwayRows.some(chosen)||has('declined')),'A civil clerk holds no Beyonder track, allocation or source.');
+ assert(!civil||!(seerChosen||pathwayRows.some(chosen)||generatedRows.some(chosen)||has('declined')),'A civil clerk holds no Beyonder track, allocation or source.');
  assert(!has('contract.signed')||civil,'A civil staff contract belongs to the civil clerk profile.');
  const paid=a.player.resources?.['book.lotm.weeks_paid'];
  assert(paid===undefined||natural(paid)&&(civil&&has('contract.signed')||paid===0),'Weeks of pay need the signed contract.');

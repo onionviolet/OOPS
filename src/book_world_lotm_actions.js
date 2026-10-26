@@ -8,6 +8,7 @@ import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES,LOTM_ENERG
 import {freeze,eq,gte,all,not,af,has,no,item,transfer,attention,use,know,present,ready,cmd} from './book_world_lotm_kit.js';
 import {examinationCommand,examFacts,pathwayCommands,pathwayFlags,pathwaySources,pathwayFacts,flagOf} from './book_world_lotm_pathways.js';
 import {pathwayRows,allRows} from './book_world_lotm_rows.js';
+import {generatedRows,generatedCommands} from './book_world_lotm_generated.js';
 import {abilityCommands} from './book_world_lotm_abilities.js';
 import {brewCommands,brewFlags,brewFacts} from './book_world_lotm_brew.js';
 import {benchCommands,benchFlags,benchFacts} from './book_world_lotm_bench.js';
@@ -71,6 +72,7 @@ const baseCommands=[
  ...abilityCommands,
  ...brokerCommands,
  ...pathwayRows.flatMap(causeCommands),causeSteadyCommand,
+ ...generatedRows.flatMap(generatedCommands),
  cmd('sleep','Sleep at your lodging to recover spirituality and cool strain · '+LOTM_SLEEP_MINUTES+' min',L.lodging,{alone:true,once:false,requires:all(has('reportedIn'),eq('lotm.sourceSupported'),eq('lotm.restPlace')),visibleWhen:all(eq('lotm.enrolled'),has('ingested')),
   duration:LOTM_SLEEP_MINUTES,cancellation:'forfeit',effects:[{type:'energy',energyId:I.energy,operation:'recover',amount:LOTM_ENERGY.capacity,cooling:LOTM_ENERGY.strainLimit}]})
 ];
@@ -89,10 +91,10 @@ export const lotmPowers=freeze([{id:I.method,revision:1,label:'Material percepti
 export const lotmEnergies=freeze([LOTM_ENERGY]);
 export const lotmSources=freeze([{id:I.source,revision:1,label:'Seer source (initiated)',kind:'trait',origin:'acquired',grants:[],bioDetail:'One consumed supervised dose. Source ownership is separate from control, strain and any later digestion; none of those follows from it alone.'},
  {id:I.clown,revision:1,label:'Clown source (Sequence 8)',kind:'trait',origin:'acquired',grants:[],bioDetail:'A second consumed dose after an assessed digestion. Canon grants fine body coordination, combat intuition and facial control; the Tingen slice has no fight or performance that reads them yet.'},
- ...pathwayRows.flatMap(pathwaySources)]);
+ ...pathwayRows.flatMap(pathwaySources),...generatedRows.flatMap(pathwaySources)]);
 const LIFE_FLAGS=['contract.signed','sealed.held',...lotFlags,...causeFlags];
 const DISTRICT_FLAGS=LOTM_DISTRICTS.map(d=>`endorsed.${d.id}`);
-const LOTM_FLAGS=['reportedIn','allocated','declined','ingested','stabilized','methodLearned','refusedHigh','assessed','exam.required','examined','promoted',...pathwayRows.flatMap(pathwayFlags),...brewFlags,...benchFlags,...DISTRICT_FLAGS,...LIFE_FLAGS,...LOTM_SAMPLES.flatMap(n=>[`took.${n}`,`observed.${n}`,`returned.${n}`])];
+const LOTM_FLAGS=['reportedIn','allocated','declined','ingested','stabilized','methodLearned','refusedHigh','assessed','exam.required','examined','promoted',...pathwayRows.flatMap(pathwayFlags),...generatedRows.flatMap(pathwayFlags),...brewFlags,...benchFlags,...DISTRICT_FLAGS,...LIFE_FLAGS,...LOTM_SAMPLES.flatMap(n=>[`took.${n}`,`observed.${n}`,`returned.${n}`])];
 export function lotmFacts(state,ctx={}){
  const s=state.simulation||{},p=s.people?.player,sup=s.people?.[I.supervisor],f={};
  const alive=x=>x?.life==='alive'&&x.body?.form==='human'&&(x.body.hands??0)>=2&&x.body.mobile===true;
@@ -119,12 +121,13 @@ export function lotmFacts(state,ctx={}){
  const acting=state.actors?.player?.resources?.['book.lotm.acting']||0;
  f['lotm.acting']=acting;f['lotm.digested']=acting>=LOTM_DIGEST_ACTS;f['lotm.holds.clownDose']=inv[K.clownDose]||0;
  examFacts(allRows[0],state,f);
- for(const row of pathwayRows)pathwayFacts(row,state,f,{inv,flag});
+ for(const row of [...pathwayRows,...generatedRows])pathwayFacts(row,state,f,{inv,flag});
  // One pathway per life: any allocation or ingestion elsewhere closes the other offers.
- const rows=allRows.map(r=>[flagOf(r,'allocated'),flagOf(r,'ingested'),flagOf(r,'brew.started')]);
+ // Generated rows (DWF139) count for choice and ingestion but not for the wrong-potion held set: holding a brewed dose is harmless, drinking it is the act.
+ const chosenRows=[...allRows,...generatedRows],rows=chosenRows.map(r=>[flagOf(r,'allocated'),flagOf(r,'ingested'),flagOf(r,'brew.started')]);
  // The primary lane's block facts (kept additively): another pathway's allocation, ingestion or source blocks switching; holding another pathway's dose blocks the step (wrong potion).
- for(const P of allRows){const others=allRows.filter(Q=>Q!==P),srcOf=Q=>Q.key==='seer'?I.source:Q.base,held=Q=>(inv[K[Q.holds.base]]||0)>0||(inv[K[Q.holds.next]]||0)>0;
-  f[`lotm.other.${P.pid}.allocated`]=others.some(Q=>flag(flagOf(Q,'allocated'))||flag(flagOf(Q,'brew.started')));f[`lotm.other.${P.pid}.ingested`]=others.some(Q=>flag(flagOf(Q,'ingested'))||!!state.actors?.player?.sources?.[srcOf(Q)]);
+ for(const P of allRows){const others=allRows.filter(Q=>Q!==P),othersChosen=chosenRows.filter(Q=>Q!==P),srcOf=Q=>Q.key==='seer'?I.source:Q.base,held=Q=>(inv[K[Q.holds.base]]||0)>0||(inv[K[Q.holds.next]]||0)>0;
+  f[`lotm.other.${P.pid}.allocated`]=othersChosen.some(Q=>flag(flagOf(Q,'allocated'))||flag(flagOf(Q,'brew.started')));f[`lotm.other.${P.pid}.ingested`]=othersChosen.some(Q=>flag(flagOf(Q,'ingested'))||!!state.actors?.player?.sources?.[srcOf(Q)]);
   f[`lotm.block.${P.pid}.switching`]=f[`lotm.other.${P.pid}.allocated`]||f[`lotm.other.${P.pid}.ingested`];f[`lotm.block.${P.pid}.wrongPotion`]=others.some(held);}
  f['lotm.pathChosen']=rows.some(([a,i,b])=>flag(a)||flag(i)||flag(b));f['lotm.ingestedAny']=rows.some(([,i])=>flag(i));brewFacts(state,f);benchFacts(state,f,{inv,brokerInv:ctx.gameplay?.[I.broker]?.inventory||{}});
  const profile=enrolled?profileKeyOf(state):null;
@@ -132,7 +135,7 @@ export function lotmFacts(state,ctx={}){
  for(const d of LOTM_DISTRICTS)f[`lotm.home.${d.id}`]=!!profile&&LOTM_PROFILES[profile].home===d.id;
  f['lotm.beyonderTrack']=!!profile&&LOTM_PROFILES[profile].beyonderTrack;f['lotm.weeksOwed']=enrolled?weeksOwed(state):0;
  const peopleAt=enrolled?Object.keys(LOTM_ROLE_OF).filter(id=>state.actors?.[id]?.worldId===I.world&&alive(s.people?.[id])&&s.people[id].location===p.location):[];
- clearanceFacts(state,f,{profile,ingested:f['lotm.ingestedAny'],here:enrolled,peopleAt});
+ clearanceFacts(state,f,{profile,ingested:allRows.some(r=>flag(flagOf(r,'ingested'))),here:enrolled,peopleAt});
  f['lotm.holds.sealed3']=inv[K.sealed3]||0;
  causeFacts(state,f);
  for(const r of pathwayRows)if(r.market)for(const n of [r.market.baseHold,r.market.nextHold])f[`lotm.holds.${n}`]=inv[K[n]]||0;
